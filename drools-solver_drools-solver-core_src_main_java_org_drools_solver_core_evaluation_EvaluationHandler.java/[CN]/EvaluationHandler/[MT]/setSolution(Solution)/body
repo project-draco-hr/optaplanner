@@ -1,0 +1,4 @@
+{
+  this.solution=solution;
+  resetStatefullSession();
+}

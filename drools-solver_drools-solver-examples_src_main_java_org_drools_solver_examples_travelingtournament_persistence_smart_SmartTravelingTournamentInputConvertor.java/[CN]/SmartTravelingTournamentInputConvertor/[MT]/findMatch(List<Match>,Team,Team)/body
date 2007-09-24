@@ -1,0 +1,8 @@
+{
+  for (  Match match : matchList) {
+    if (match.getHomeTeam().equals(homeTeam) && match.getAwayTeam().equals(awayTeam)) {
+      return match;
+    }
+  }
+  throw new IllegalStateException("Nothing found for: " + homeTeam + " and "+ awayTeam);
+}

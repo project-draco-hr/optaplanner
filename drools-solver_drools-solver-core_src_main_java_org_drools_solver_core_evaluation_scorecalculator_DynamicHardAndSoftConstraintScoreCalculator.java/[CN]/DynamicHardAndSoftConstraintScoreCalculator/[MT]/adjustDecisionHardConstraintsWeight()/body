@@ -1,0 +1,10 @@
+{
+  if (hardConstraintsBroken == 0) {
+    decisionHardConstraintsWeight/=hardConstraintsWeightStepAdjustment;
+    decisionHardConstraintsWeight=Math.max(decisionHardConstraintsWeight,minHardConstraintsWeight);
+  }
+ else {
+    decisionHardConstraintsWeight*=hardConstraintsWeightStepAdjustment;
+    decisionHardConstraintsWeight=Math.min(decisionHardConstraintsWeight,maxHardConstraintsWeight);
+  }
+}

@@ -1,0 +1,6 @@
+{
+  this.decisionHardConstraintsWeight=startHardConstraintsWeight;
+  this.minHardConstraintsWeight=minHardConstraintsWeight;
+  this.maxHardConstraintsWeight=maxHardConstraintsWeight;
+  this.hardConstraintsWeightStepAdjustment=hardConstraintsWeightStepAdjustment;
+}

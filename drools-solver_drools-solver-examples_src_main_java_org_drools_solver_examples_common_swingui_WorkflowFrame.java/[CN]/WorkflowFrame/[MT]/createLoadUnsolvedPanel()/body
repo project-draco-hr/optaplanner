@@ -1,0 +1,10 @@
+{
+  JPanel panel=new JPanel(new GridLayout(0,1));
+  for (  File file : solutionBusiness.getUnsolvedFileList()) {
+    Action action=new LoadAction(file);
+    panel.add(new JButton(action));
+  }
+  JScrollPane scrollPane=new JScrollPane(panel);
+  scrollPane.setPreferredSize(new Dimension(250,200));
+  return scrollPane;
+}

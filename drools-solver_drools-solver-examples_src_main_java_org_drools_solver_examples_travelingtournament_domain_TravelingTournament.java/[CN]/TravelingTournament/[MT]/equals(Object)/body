@@ -1,0 +1,22 @@
+{
+  if (this == o) {
+    return true;
+  }
+  if (id == null || !(o instanceof TravelingTournament)) {
+    return false;
+  }
+ else {
+    TravelingTournament other=(TravelingTournament)o;
+    if (matchList.size() != other.matchList.size()) {
+      return false;
+    }
+    for (Iterator<Match> it=matchList.iterator(), otherIt=other.matchList.iterator(); it.hasNext(); ) {
+      Match match=it.next();
+      Match otherMatch=otherIt.next();
+      if (!match.getId().equals(otherMatch.getId()) || !match.getDay().equals(otherMatch.getDay())) {
+        return false;
+      }
+    }
+    return true;
+  }
+}

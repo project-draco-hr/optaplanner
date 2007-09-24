@@ -1,0 +1,13 @@
+{
+  if ((i % 6) >= 3) {
+    int oldA=a;
+    a=b;
+    b=oldA;
+  }
+  Team aTeam=travelingTournament.getTeamList().get(a);
+  Team bTeam=travelingTournament.getTeamList().get(b);
+  Match m1=findMatch(travelingTournament.getMatchList(),aTeam,bTeam);
+  m1.setDay(travelingTournament.getDayList().get(i));
+  Match m2=findMatch(travelingTournament.getMatchList(),bTeam,aTeam);
+  m2.setDay(travelingTournament.getDayList().get(i + travelingTournament.getN() - 1));
+}

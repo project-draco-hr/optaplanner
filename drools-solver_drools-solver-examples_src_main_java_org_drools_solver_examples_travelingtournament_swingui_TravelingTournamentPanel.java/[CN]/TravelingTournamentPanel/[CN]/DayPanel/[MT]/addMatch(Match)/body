@@ -1,0 +1,4 @@
+{
+  JButton button=new JButton(new MatchAction(match));
+  add(button);
+}

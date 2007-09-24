@@ -1,0 +1,19 @@
+{
+  if (moveFactory != null) {
+    return moveFactory;
+  }
+ else   if (moveFactoryClass != null) {
+    try {
+      return moveFactoryClass.newInstance();
+    }
+ catch (    InstantiationException e) {
+      throw new IllegalArgumentException("moveFactoryClass (" + moveFactoryClass.getName() + ") does not have a public no-arg constructor",e);
+    }
+catch (    IllegalAccessException e) {
+      throw new IllegalArgumentException("moveFactoryClass (" + moveFactoryClass.getName() + ") does not have a public no-arg constructor",e);
+    }
+  }
+ else {
+    throw new IllegalArgumentException("A selector with a moveFactory or moveFactory class is required.");
+  }
+}

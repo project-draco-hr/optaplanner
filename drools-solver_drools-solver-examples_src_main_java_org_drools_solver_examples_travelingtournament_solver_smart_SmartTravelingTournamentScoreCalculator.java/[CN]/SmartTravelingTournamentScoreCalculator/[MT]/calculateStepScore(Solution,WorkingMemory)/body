@@ -1,0 +1,4 @@
+{
+  int hardConstraints=calculateHardConstraintsScore(workingMemory);
+  return (hardConstraints * maxHardConstraintsWeight) + calculateSoftConstraintsScore(workingMemory);
+}

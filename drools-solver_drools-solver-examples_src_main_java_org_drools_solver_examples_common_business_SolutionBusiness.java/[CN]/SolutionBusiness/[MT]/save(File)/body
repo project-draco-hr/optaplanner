@@ -1,0 +1,4 @@
+{
+  Solution solution=evaluationHandler.getSolution();
+  solutionDao.writeSolution(solution,file);
+}

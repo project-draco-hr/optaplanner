@@ -1,0 +1,4 @@
+{
+  solutionBusiness.solve();
+  updateScreen();
+}

@@ -1,0 +1,4 @@
+{
+  super("[" + queen.getId() + "]");
+  this.queen=queen;
+}

@@ -1,0 +1,6 @@
+{
+  dayList=travelingTournament.getDayList();
+  teamList=travelingTournament.getTeamList();
+  matchList=travelingTournament.getMatchList();
+  createMaps();
+}

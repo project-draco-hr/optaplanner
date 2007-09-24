@@ -1,0 +1,3 @@
+{
+  this(startHardConstraintsWeight,startHardConstraintsWeight / 1000.0,startHardConstraintsWeight);
+}

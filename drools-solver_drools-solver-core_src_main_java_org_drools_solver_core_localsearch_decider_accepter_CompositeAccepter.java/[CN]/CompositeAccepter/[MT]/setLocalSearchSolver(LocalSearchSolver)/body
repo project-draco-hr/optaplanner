@@ -1,0 +1,6 @@
+{
+  super.setLocalSearchSolver(localSearchSolver);
+  for (  Accepter accepter : accepterList) {
+    accepter.setLocalSearchSolver(localSearchSolver);
+  }
+}

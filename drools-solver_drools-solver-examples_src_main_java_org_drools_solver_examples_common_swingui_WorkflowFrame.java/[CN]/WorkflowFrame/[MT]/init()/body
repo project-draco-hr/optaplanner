@@ -1,0 +1,4 @@
+{
+  setContentPane(createContentPane());
+  pack();
+}

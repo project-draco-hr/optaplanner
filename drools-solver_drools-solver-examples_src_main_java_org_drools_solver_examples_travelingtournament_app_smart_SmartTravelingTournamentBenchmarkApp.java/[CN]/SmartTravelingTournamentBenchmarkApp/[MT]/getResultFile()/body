@@ -1,0 +1,3 @@
+{
+  return SOLVER_BENCHMARK_RESULT_FILE;
+}

@@ -1,0 +1,8 @@
+{
+  if (sortSolverBenchmarks) {
+    if (solverBenchmarkComparator == null) {
+      solverBenchmarkComparator=new MaxScoreSolverBenchmarkComparator();
+    }
+    Collections.sort(solverBenchmarkList,solverBenchmarkComparator);
+  }
+}

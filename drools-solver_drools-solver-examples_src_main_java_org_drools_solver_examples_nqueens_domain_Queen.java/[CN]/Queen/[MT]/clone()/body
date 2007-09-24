@@ -1,0 +1,7 @@
+{
+  Queen clone=new Queen();
+  clone.id=id;
+  clone.x=x;
+  clone.y=y;
+  return clone;
+}

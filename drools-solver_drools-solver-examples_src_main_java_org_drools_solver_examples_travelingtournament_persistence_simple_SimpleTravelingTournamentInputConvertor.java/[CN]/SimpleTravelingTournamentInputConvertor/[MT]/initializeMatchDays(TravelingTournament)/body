@@ -1,0 +1,7 @@
+{
+  List<Match> matchList=travelingTournament.getMatchList();
+  List<Day> dayList=travelingTournament.getDayList();
+  for (  Match match : matchList) {
+    match.setDay(dayList.get(0));
+  }
+}

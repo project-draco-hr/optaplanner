@@ -1,0 +1,10 @@
+{
+  double timeGradient=1.0;
+  for (  Finish finish : finishList) {
+    double nextTimeGradient=finish.calculateTimeGradient();
+    if (nextTimeGradient >= 0.0) {
+      timeGradient=Math.min(timeGradient,nextTimeGradient);
+    }
+  }
+  return timeGradient;
+}

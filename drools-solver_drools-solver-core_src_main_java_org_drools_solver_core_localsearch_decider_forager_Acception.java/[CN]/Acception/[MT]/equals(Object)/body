@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof Acception) {
+    Acception other=(Acception)o;
+    return new EqualsBuilder().append(score,other.score).append(acceptChance,other.acceptChance).append(move,other.move).isEquals();
+  }
+ else {
+    return false;
+  }
+}

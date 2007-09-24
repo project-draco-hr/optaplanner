@@ -1,0 +1,7 @@
+{
+  assert(firstRotateList.size() == secondRotateList.size());
+  if (firstRotateList.size() > 2) {
+    Move rotateMove=new MultipleMatchListRotateMove(firstRotateList,secondRotateList);
+    moveList.add(rotateMove);
+  }
+}

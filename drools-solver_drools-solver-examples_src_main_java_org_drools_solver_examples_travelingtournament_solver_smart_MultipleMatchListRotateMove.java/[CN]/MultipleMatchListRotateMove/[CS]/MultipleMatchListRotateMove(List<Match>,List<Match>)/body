@@ -1,0 +1,4 @@
+{
+  this.firstMatchList=firstMatchList;
+  this.secondMatchList=secondMatchList;
+}

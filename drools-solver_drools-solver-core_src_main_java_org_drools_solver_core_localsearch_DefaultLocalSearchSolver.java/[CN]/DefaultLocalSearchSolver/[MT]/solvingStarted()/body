@@ -1,0 +1,10 @@
+{
+  log.info("Solving with random seed (" + randomSeed + ").");
+  startingSystemTimeMillis=System.currentTimeMillis();
+  random=new Random(randomSeed);
+  stepIndex=0;
+  stepScore=evaluationHandler.fireAllRulesAndCalculateStepScore();
+  bestSolutionRecaller.solvingStarted();
+  finish.solvingStarted();
+  decider.solvingStarted();
+}

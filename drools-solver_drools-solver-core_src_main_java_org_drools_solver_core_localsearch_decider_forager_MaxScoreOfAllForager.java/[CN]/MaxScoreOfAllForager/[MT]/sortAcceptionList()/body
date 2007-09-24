@@ -1,0 +1,6 @@
+{
+  if (!listSorted) {
+    Collections.sort(acceptionList,acceptionComparator);
+    listSorted=true;
+  }
+}

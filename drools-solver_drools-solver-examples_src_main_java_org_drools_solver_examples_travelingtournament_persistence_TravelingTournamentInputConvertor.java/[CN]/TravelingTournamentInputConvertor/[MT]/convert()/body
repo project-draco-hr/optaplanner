@@ -1,0 +1,13 @@
+{
+  XstreamSolutionDaoImpl solutionDao=new XstreamSolutionDaoImpl();
+  File[] inputFiles=inputDir.listFiles();
+  for (  File inputFile : inputFiles) {
+    String inputFileName=inputFile.getName();
+    if (inputFileName.endsWith(".txt")) {
+      TravelingTournament travelingTournament=createTravelingTournament(inputFile);
+      String outputFileName=inputFileName.substring(0,inputFileName.length() - 4) + ".xml";
+      File outputFile=new File(getOutputDir(),outputFileName);
+      solutionDao.writeSolution(travelingTournament,outputFile);
+    }
+  }
+}

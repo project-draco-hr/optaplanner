@@ -1,0 +1,5 @@
+{
+  SolverBenchmarkResult aResult=a.getWorstResult();
+  SolverBenchmarkResult bResult=b.getWorstResult();
+  return new CompareToBuilder().append(aResult.getScore(),bResult.getScore()).append(-aResult.getTimeMillesSpend(),-bResult.getTimeMillesSpend()).toComparison();
+}

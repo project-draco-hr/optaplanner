@@ -1,0 +1,10 @@
+{
+  if (statefulSession != null) {
+    statefulSession.dispose();
+  }
+  statefulSession=ruleBase.newStatefulSession();
+  statefulSession.setGlobal(GLOBAL_SCORE_CALCULATOR_KEY,scoreCalculator);
+  for (  Object fact : solution.getFacts()) {
+    statefulSession.insert(fact);
+  }
+}

@@ -1,0 +1,4 @@
+{
+  long timeMillisSpend=localSearchSolver.getTimeMillisSpend();
+  return timeMillisSpend >= maximumTimeMillisSpend;
+}

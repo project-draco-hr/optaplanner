@@ -1,0 +1,7 @@
+{
+  DefaultDecider decider=new DefaultDecider();
+  decider.setMoveFactory(selectorConfig.buildMoveFactory());
+  decider.setAccepter(accepterConfig.buildAccepter());
+  decider.setForager(foragerConfig.buildForager());
+  return decider;
+}

@@ -1,0 +1,13 @@
+{
+  if (acceptChance > 0.0) {
+    acceptionList.add(new Acception(move,score,acceptChance));
+    listSorted=false;
+    if (score > maxScore) {
+      acceptChanceMaxScoreTotal=acceptChance;
+      maxScore=score;
+    }
+ else     if (score == maxScore) {
+      acceptChanceMaxScoreTotal+=acceptChance;
+    }
+  }
+}

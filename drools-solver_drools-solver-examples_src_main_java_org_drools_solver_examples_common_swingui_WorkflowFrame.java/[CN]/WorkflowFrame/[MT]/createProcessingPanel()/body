@@ -1,0 +1,8 @@
+{
+  JPanel panel=new JPanel(new GridLayout(0,1));
+  Action solveAction=new SolveAction();
+  panel.add(new JButton(solveAction));
+  Action saveAction=new SaveAction();
+  panel.add(new JButton(saveAction));
+  return panel;
+}

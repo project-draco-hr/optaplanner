@@ -1,0 +1,11 @@
+{
+  TravelingTournament clone=new TravelingTournament();
+  clone.dayList=dayList;
+  clone.teamList=teamList;
+  List<Match> clonedMatchList=new ArrayList<Match>(matchList.size());
+  for (  Match match : matchList) {
+    clonedMatchList.add(match.clone());
+  }
+  clone.matchList=clonedMatchList;
+  return clone;
+}

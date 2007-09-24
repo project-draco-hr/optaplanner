@@ -1,0 +1,21 @@
+{
+  Writer writer=null;
+  try {
+    writer=new OutputStreamWriter(new FileOutputStream(file),"UTF-8");
+    xStream.toXML(solution,writer);
+    log.info("Saved: " + file);
+  }
+ catch (  IOException e) {
+    throw new IllegalArgumentException("Could not write file (" + file + ")",e);
+  }
+ finally {
+    if (writer != null) {
+      try {
+        writer.close();
+      }
+ catch (      IOException e) {
+        log.warn("Problem closing file (" + file + ")",e);
+      }
+    }
+  }
+}

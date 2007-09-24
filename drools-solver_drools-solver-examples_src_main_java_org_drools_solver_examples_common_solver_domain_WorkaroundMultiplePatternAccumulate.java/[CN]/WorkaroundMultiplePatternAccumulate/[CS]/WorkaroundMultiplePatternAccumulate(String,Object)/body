@@ -1,0 +1,4 @@
+{
+  this.ruleId=ruleId;
+  this.objects=objects;
+}

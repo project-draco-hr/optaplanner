@@ -1,0 +1,9 @@
+{
+  String nString=JOptionPane.showInputDialog("For what n?");
+  int n=Integer.parseInt(nString.trim());
+  XstreamSolutionDaoImpl solutionDao=new XstreamSolutionDaoImpl();
+  String outputFileName="unsolvedNQueens" + n + ".xml";
+  File outputFile=new File(outputDir,outputFileName);
+  NQueens nQueens=createNQueens(n);
+  solutionDao.writeSolution(nQueens,outputFile);
+}

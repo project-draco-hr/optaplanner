@@ -1,0 +1,12 @@
+{
+  LessonSchedule clone=new LessonSchedule();
+  clone.timeslotList=timeslotList;
+  clone.teacherList=teacherList;
+  clone.groupList=groupList;
+  List<Lesson> clonedLessonList=new ArrayList<Lesson>(lessonList.size());
+  for (  Lesson lesson : lessonList) {
+    clonedLessonList.add(lesson.clone());
+  }
+  clone.lessonList=clonedLessonList;
+  return clone;
+}

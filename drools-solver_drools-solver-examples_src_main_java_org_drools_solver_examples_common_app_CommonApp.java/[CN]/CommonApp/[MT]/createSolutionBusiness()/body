@@ -1,0 +1,7 @@
+{
+  SolutionBusiness solutionBusiness=new SolutionBusiness();
+  solutionBusiness.setSolutionDao(createSolutionDao());
+  solutionBusiness.setDataDir(new File("data/" + getExampleDirName()));
+  solutionBusiness.setSolver(createSolver());
+  return solutionBusiness;
+}

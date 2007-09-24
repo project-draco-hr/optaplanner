@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof MatchSwapMove) {
+    MatchSwapMove other=(MatchSwapMove)o;
+    return new EqualsBuilder().append(firstMatch,other.firstMatch).append(secondMatch,other.secondMatch).isEquals();
+  }
+ else {
+    return false;
+  }
+}

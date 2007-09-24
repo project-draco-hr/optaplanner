@@ -1,0 +1,7 @@
+{
+  JPanel panel=new JPanel(new GridLayout(1,0));
+  panel.add(createLoadUnsolvedPanel());
+  panel.add(createLoadSolvedPanel());
+  panel.add(createProcessingPanel());
+  return panel;
+}

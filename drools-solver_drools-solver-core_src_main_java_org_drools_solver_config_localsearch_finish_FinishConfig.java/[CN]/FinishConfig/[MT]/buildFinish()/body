@@ -1,0 +1,74 @@
+{
+  List<Finish> finishList=new ArrayList<Finish>();
+  if (finish != null) {
+    finishList.add(finish);
+  }
+  if (finishClass != null) {
+    try {
+      finishList.add(finishClass.newInstance());
+    }
+ catch (    InstantiationException e) {
+      throw new IllegalArgumentException("finishClass (" + finishClass.getName() + ") does not have a public no-arg constructor",e);
+    }
+catch (    IllegalAccessException e) {
+      throw new IllegalArgumentException("finishClass (" + finishClass.getName() + ") does not have a public no-arg constructor",e);
+    }
+  }
+  if (maximumStepCount != null) {
+    StepCountFinish finish=new StepCountFinish();
+    finish.setMaximumStepCount(maximumStepCount);
+    finishList.add(finish);
+  }
+  if (maximumTimeMillisSpend != null) {
+    TimeMillisSpendFinish finish=new TimeMillisSpendFinish();
+    finish.setMaximumTimeMillisSpend(maximumTimeMillisSpend);
+    finishList.add(finish);
+  }
+  if (maximumSecondsSpend != null) {
+    TimeMillisSpendFinish finish=new TimeMillisSpendFinish();
+    finish.setMaximumTimeMillisSpend(maximumSecondsSpend * 1000L);
+    finishList.add(finish);
+  }
+  if (maximumMinutesSpend != null) {
+    TimeMillisSpendFinish finish=new TimeMillisSpendFinish();
+    finish.setMaximumTimeMillisSpend(maximumMinutesSpend * 60000L);
+    finishList.add(finish);
+  }
+  if (maximumHouresSpend != null) {
+    TimeMillisSpendFinish finish=new TimeMillisSpendFinish();
+    finish.setMaximumTimeMillisSpend(maximumHouresSpend * 3600000L);
+    finishList.add(finish);
+  }
+  if (feasableScore != null) {
+    FeasableScoreFinish finish=new FeasableScoreFinish();
+    finish.setFeasableScore(feasableScore);
+    finishList.add(finish);
+  }
+  if (maximumUnimprovedStepCount != null) {
+    UnimprovedStepCountFinish finish=new UnimprovedStepCountFinish();
+    finish.setMaximumUnimprovedStepCount(maximumUnimprovedStepCount);
+    finishList.add(finish);
+  }
+  if (finishList.size() == 1) {
+    return finishList.get(0);
+  }
+ else   if (finishList.size() > 1) {
+    AbstractCompositeFinish compositeFinish;
+    if (finishCompositionStyle == null || finishCompositionStyle == FinishCompositionStyle.OR) {
+      compositeFinish=new OrCompositeFinish();
+    }
+ else     if (finishCompositionStyle == FinishCompositionStyle.AND) {
+      compositeFinish=new AndCompositeFinish();
+    }
+ else {
+      throw new IllegalStateException("finishCompositionStyle (" + finishCompositionStyle + ") not implemented");
+    }
+    compositeFinish.setFinishList(finishList);
+    return compositeFinish;
+  }
+ else {
+    TimeMillisSpendFinish finish=new TimeMillisSpendFinish();
+    finish.setMaximumTimeMillisSpend(60000);
+    return finish;
+  }
+}

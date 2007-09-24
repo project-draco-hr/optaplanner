@@ -1,0 +1,4 @@
+{
+  this.finish=finish;
+  finish.setLocalSearchSolver(this);
+}

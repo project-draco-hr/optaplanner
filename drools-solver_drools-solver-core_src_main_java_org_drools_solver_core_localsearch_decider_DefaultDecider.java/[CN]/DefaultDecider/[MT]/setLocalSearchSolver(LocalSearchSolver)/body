@@ -1,0 +1,6 @@
+{
+  this.localSearchSolver=localSearchSolver;
+  moveFactory.setLocalSearchSolver(localSearchSolver);
+  accepter.setLocalSearchSolver(localSearchSolver);
+  forager.setLocalSearchSolver(localSearchSolver);
+}

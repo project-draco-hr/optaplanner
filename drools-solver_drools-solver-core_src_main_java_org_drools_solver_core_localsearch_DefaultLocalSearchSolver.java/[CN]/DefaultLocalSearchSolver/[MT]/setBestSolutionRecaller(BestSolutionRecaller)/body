@@ -1,0 +1,4 @@
+{
+  this.bestSolutionRecaller=bestSolutionRecaller;
+  bestSolutionRecaller.setLocalSearchSolver(this);
+}

@@ -1,0 +1,8 @@
+{
+  List<Object> facts=new ArrayList<Object>();
+  facts.addAll(timeslotList);
+  facts.addAll(teacherList);
+  facts.addAll(groupList);
+  facts.addAll(lessonList);
+  return facts;
+}

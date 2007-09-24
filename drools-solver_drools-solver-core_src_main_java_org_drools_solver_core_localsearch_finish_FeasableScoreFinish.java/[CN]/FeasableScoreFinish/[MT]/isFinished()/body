@@ -1,0 +1,4 @@
+{
+  double bestScore=localSearchSolver.getBestScore();
+  return bestScore >= feasableScore;
+}

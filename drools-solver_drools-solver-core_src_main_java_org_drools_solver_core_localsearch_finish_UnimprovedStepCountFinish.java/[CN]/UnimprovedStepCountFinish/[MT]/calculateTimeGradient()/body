@@ -1,0 +1,5 @@
+{
+  int unimprovedStepCount=getUnimprovedStepCount();
+  double timeGradient=((double)unimprovedStepCount) / ((double)maximumUnimprovedStepCount);
+  return Math.min(timeGradient,1.0);
+}

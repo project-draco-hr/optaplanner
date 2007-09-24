@@ -1,0 +1,5 @@
+{
+  double constraintsBroken=((double)hardConstraintsBroken) * hardConstraintsWeight;
+  constraintsBroken+=(double)softConstraintsBroken;
+  return -constraintsBroken;
+}

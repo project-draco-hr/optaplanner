@@ -1,0 +1,15 @@
+{
+  File solvedSolutionFile=null;
+  Writer writer=null;
+  try {
+    solvedSolutionFile=File.createTempFile("score" + result.getScore() + "_time"+ result.getTimeMillesSpend()+ "ms_",".xml",solvedSolutionFilesDirectory);
+    writer=new OutputStreamWriter(new FileOutputStream(solvedSolutionFile),"utf-8");
+    xStream.toXML(solvedSolution,writer);
+  }
+ catch (  IOException e) {
+    throw new IllegalArgumentException("Problem writing solvedSolutionFile: " + solvedSolutionFile,e);
+  }
+ finally {
+    IOUtils.closeQuietly(writer);
+  }
+}

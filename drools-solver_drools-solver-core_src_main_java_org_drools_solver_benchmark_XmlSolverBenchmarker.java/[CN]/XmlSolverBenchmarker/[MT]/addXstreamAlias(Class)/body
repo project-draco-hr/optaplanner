@@ -1,0 +1,3 @@
+{
+  Annotations.configureAliases(xStream,aliasClass);
+}

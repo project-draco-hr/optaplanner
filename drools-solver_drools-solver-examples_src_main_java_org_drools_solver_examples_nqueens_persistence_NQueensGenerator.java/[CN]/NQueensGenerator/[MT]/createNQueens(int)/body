@@ -1,0 +1,14 @@
+{
+  NQueens nQueens=new NQueens();
+  nQueens.setId(0L);
+  List<Queen> queenList=new ArrayList<Queen>(n);
+  for (int i=0; i < n; i++) {
+    Queen queen=new Queen();
+    queen.setId((long)i);
+    queen.setX(i);
+    queen.setY(0);
+    queenList.add(queen);
+  }
+  nQueens.setQueenList(queenList);
+  return nQueens;
+}

@@ -1,0 +1,2 @@
+List<? extends Comparable> a
+List<? extends Comparable> b

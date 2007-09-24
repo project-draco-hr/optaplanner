@@ -1,0 +1,6 @@
+{
+  List<Match> tabuPropertyList=new ArrayList<Match>(firstMatchList.size() + secondMatchList.size());
+  tabuPropertyList.addAll(firstMatchList);
+  tabuPropertyList.addAll(secondMatchList);
+  return tabuPropertyList;
+}

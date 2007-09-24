@@ -1,0 +1,4 @@
+{
+  log.info("Doing user move (" + move + ")");
+  move.doMove(evaluationHandler.getStatefulSession());
+}

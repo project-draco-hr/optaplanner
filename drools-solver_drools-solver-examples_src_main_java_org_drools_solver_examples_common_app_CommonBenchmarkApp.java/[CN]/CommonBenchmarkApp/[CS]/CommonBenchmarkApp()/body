@@ -1,0 +1,4 @@
+{
+  DOMConfigurator.configure(getClass().getResource(LOGGING_CONFIG));
+  solverBenchmarker=new XmlSolverBenchmarker().configure(getSolverBenchmarkConfig());
+}

@@ -1,0 +1,4 @@
+{
+  startingScore=localSearchSolver.getStepScore();
+  totalDelta=startingScore - feasableScore;
+}

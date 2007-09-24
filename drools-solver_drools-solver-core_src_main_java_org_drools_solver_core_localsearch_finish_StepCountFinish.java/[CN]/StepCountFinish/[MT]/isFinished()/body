@@ -1,0 +1,4 @@
+{
+  int stepIndex=localSearchSolver.getStepIndex();
+  return stepIndex >= maximumStepCount;
+}

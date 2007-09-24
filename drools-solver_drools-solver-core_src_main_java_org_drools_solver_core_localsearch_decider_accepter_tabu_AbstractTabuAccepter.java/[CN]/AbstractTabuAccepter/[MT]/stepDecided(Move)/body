@@ -1,0 +1,20 @@
+{
+  if (step != null) {
+    List<? extends Object> tabuList=findNewTabu(step);
+    for (    Object tabu : tabuList) {
+      if (tabuToStepIndexMap.containsKey(tabu)) {
+        tabuToStepIndexMap.remove(tabu);
+        tabuSequenceList.remove(tabu);
+      }
+      int maximumTabuListSize=completeTabuSize + partialTabuSize;
+      while (tabuSequenceList.size() >= maximumTabuListSize) {
+        Iterator<Object> it=tabuSequenceList.iterator();
+        Object removeTabu=it.next();
+        it.remove();
+        tabuToStepIndexMap.remove(removeTabu);
+      }
+      tabuToStepIndexMap.put(tabu,localSearchSolver.getStepIndex());
+      tabuSequenceList.add(tabu);
+    }
+  }
+}

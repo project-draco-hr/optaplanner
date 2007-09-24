@@ -1,0 +1,4 @@
+{
+  super(new GridLayout(1,0));
+  setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.DARK_GRAY),BorderFactory.createEmptyBorder(2,2,2,2)));
+}

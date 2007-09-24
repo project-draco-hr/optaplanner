@@ -1,0 +1,6 @@
+{
+  if (moveFactory == null && moveFactoryClass == null) {
+    moveFactory=inheritedConfig.getMoveFactory();
+    moveFactoryClass=inheritedConfig.getMoveFactoryClass();
+  }
+}

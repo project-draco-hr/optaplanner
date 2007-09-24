@@ -1,0 +1,4 @@
+{
+  suite=(SolverBenchmarkSuite)xStream.fromXML(reader);
+  return this;
+}

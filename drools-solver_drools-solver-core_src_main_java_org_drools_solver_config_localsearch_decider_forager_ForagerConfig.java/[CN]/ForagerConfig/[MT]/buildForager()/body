@@ -1,0 +1,27 @@
+{
+  if (forager != null) {
+    return forager;
+  }
+ else   if (foragerClass != null) {
+    try {
+      return foragerClass.newInstance();
+    }
+ catch (    InstantiationException e) {
+      throw new IllegalArgumentException("foragerClass (" + foragerClass.getName() + ") does not have a public no-arg constructor",e);
+    }
+catch (    IllegalAccessException e) {
+      throw new IllegalArgumentException("foragerClass (" + foragerClass.getName() + ") does not have a public no-arg constructor",e);
+    }
+  }
+ else   if (foragerType != null) {
+switch (foragerType) {
+case MAX_SCORE_OF_ALL:
+      return new MaxScoreOfAllForager();
+default :
+    throw new IllegalStateException("foragerType (" + foragerType + ") not implemented");
+}
+}
+ else {
+return new MaxScoreOfAllForager();
+}
+}

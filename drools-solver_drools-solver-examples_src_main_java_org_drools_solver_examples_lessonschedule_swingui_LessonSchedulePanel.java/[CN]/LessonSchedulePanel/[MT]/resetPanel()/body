@@ -1,0 +1,15 @@
+{
+  removeAll();
+  LessonSchedule lessonSchedule=getLessonSchedule();
+  Map<Timeslot,TimeslotPanel> timeslotPanelMap=new HashMap<Timeslot,TimeslotPanel>();
+  for (  Timeslot timeslot : lessonSchedule.getTimeslotList()) {
+    TimeslotPanel timeslotPanel=new TimeslotPanel();
+    add(timeslotPanel);
+    timeslotPanelMap.put(timeslot,timeslotPanel);
+  }
+  for (  Lesson lesson : lessonSchedule.getLessonList()) {
+    TimeslotPanel timeslotPanel=timeslotPanelMap.get(lesson.getTimeslot());
+    timeslotPanel.addLesson(lesson);
+  }
+  validate();
+}

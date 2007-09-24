@@ -1,0 +1,6 @@
+{
+  acceptionList=new ArrayList<Acception>();
+  listSorted=false;
+  maxScore=Double.NEGATIVE_INFINITY;
+  acceptChanceMaxScoreTotal=0.0;
+}

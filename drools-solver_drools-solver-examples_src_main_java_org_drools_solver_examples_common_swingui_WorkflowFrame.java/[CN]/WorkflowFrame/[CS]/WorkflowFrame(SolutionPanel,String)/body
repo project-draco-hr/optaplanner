@@ -1,0 +1,6 @@
+{
+  super("Drools solver example " + exampleName);
+  this.solutionPanel=solutionPanel;
+  solutionPanel.setWorkflowFrame(this);
+  setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+}

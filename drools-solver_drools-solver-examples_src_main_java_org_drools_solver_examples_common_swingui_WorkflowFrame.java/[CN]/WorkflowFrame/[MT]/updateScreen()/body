@@ -1,0 +1,4 @@
+{
+  solutionPanel.resetPanel();
+  resultLabel.setText("Score = " + solutionBusiness.getScore());
+}

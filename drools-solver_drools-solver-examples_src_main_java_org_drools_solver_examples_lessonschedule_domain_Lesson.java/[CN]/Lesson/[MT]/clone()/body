@@ -1,0 +1,8 @@
+{
+  Lesson clone=new Lesson();
+  clone.id=id;
+  clone.teacher=teacher;
+  clone.group=group;
+  clone.timeslot=timeslot;
+  return clone;
+}

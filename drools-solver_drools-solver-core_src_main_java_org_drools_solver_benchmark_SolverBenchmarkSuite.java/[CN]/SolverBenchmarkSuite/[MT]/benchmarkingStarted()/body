@@ -1,0 +1,10 @@
+{
+  for (  SolverBenchmark solverBenchmark : solverBenchmarkList) {
+    if (inheritedLocalSearchSolverConfig != null) {
+      solverBenchmark.inheritLocalSearchSolverConfig(inheritedLocalSearchSolverConfig);
+    }
+    if (inheritedUnsolvedSolutionFileList != null) {
+      solverBenchmark.inheritUnsolvedSolutionFileList(inheritedUnsolvedSolutionFileList);
+    }
+  }
+}

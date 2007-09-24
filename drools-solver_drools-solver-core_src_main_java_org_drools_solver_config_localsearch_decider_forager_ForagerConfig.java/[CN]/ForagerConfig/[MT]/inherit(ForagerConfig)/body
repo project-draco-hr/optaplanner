@@ -1,0 +1,7 @@
+{
+  if (forager == null && foragerClass == null && foragerType == null) {
+    forager=inheritedConfig.getForager();
+    foragerClass=inheritedConfig.getForagerClass();
+    foragerType=inheritedConfig.getForagerType();
+  }
+}

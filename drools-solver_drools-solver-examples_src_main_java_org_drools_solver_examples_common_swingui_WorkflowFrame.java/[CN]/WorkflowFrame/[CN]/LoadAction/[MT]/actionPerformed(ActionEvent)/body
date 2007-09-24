@@ -1,0 +1,4 @@
+{
+  solutionBusiness.load(file);
+  updateScreen();
+}

@@ -1,0 +1,6 @@
+{
+  super.setLocalSearchSolver(localSearchSolver);
+  for (  Finish finish : finishList) {
+    finish.setLocalSearchSolver(localSearchSolver);
+  }
+}

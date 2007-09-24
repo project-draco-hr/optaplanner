@@ -1,0 +1,3 @@
+List<Move> moveList
+List<Match> firstRotateList
+List<Match> secondRotateList

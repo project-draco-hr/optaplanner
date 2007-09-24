@@ -1,0 +1,3 @@
+double startHardConstraintsWeight
+double minHardConstraintsWeight
+double maxHardConstraintsWeight

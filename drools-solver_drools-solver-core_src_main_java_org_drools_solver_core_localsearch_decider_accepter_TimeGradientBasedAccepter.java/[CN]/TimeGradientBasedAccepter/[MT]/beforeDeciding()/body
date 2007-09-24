@@ -1,0 +1,3 @@
+{
+  timeGradient=localSearchSolver.calculateTimeGradient();
+}

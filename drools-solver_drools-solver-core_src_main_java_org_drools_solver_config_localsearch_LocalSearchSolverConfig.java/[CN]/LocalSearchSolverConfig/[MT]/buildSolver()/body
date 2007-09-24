@@ -1,0 +1,14 @@
+{
+  DefaultLocalSearchSolver localSearchSolver=new DefaultLocalSearchSolver();
+  if (randomSeed != null) {
+    localSearchSolver.setRandomSeed(randomSeed);
+  }
+ else {
+    localSearchSolver.setRandomSeed(0L);
+  }
+  localSearchSolver.setEvaluationHandler(buildEvaluationHandler());
+  localSearchSolver.setBestSolutionRecaller(new BestSolutionRecaller());
+  localSearchSolver.setFinish(finishConfig.buildFinish());
+  localSearchSolver.setDecider(buildDecider());
+  return localSearchSolver;
+}

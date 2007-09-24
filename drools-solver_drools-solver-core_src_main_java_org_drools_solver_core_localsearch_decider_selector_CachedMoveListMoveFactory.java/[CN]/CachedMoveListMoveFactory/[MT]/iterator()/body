@@ -1,0 +1,6 @@
+{
+  if (shuffleListEveryStep) {
+    Collections.shuffle(cachedMoveList,localSearchSolver.getRandom());
+  }
+  return cachedMoveList.iterator();
+}

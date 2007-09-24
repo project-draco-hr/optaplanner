@@ -1,0 +1,12 @@
+{
+  List<Match> matchList=travelingTournament.getMatchList();
+  for (  Match firstMatch : matchList) {
+    for (    Match secondMatch : matchList) {
+      if (firstMatch.getHomeTeam().equals(secondMatch.getAwayTeam()) && firstMatch.getAwayTeam().equals(secondMatch.getHomeTeam()) && (firstMatch.getId().compareTo(secondMatch.getId()) < 0)) {
+        MatchSwapMove matchSwapMove=new MatchSwapMove(firstMatch,secondMatch);
+        cachedMoveList.add(matchSwapMove);
+        break;
+      }
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  moveFactory.beforeDeciding();
+  accepter.beforeDeciding();
+  forager.beforeDeciding();
+}

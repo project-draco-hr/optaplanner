@@ -1,0 +1,16 @@
+{
+  Iterator<Match> it=matchList.iterator();
+  Match firstMatch=it.next();
+  Match secondMatch=null;
+  Day startDay=firstMatch.getDay();
+  while (it.hasNext()) {
+    secondMatch=it.next();
+    FactHandle firstMatchHandle=workingMemory.getFactHandle(firstMatch);
+    firstMatch.setDay(secondMatch.getDay());
+    workingMemory.update(firstMatchHandle,firstMatch);
+    firstMatch=secondMatch;
+  }
+  FactHandle secondMatchHandle=workingMemory.getFactHandle(firstMatch);
+  secondMatch.setDay(startDay);
+  workingMemory.update(secondMatchHandle,secondMatch);
+}

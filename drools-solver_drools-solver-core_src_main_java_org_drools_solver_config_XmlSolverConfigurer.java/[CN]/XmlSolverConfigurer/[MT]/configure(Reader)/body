@@ -1,0 +1,4 @@
+{
+  config=(LocalSearchSolverConfig)xStream.fromXML(reader);
+  return this;
+}

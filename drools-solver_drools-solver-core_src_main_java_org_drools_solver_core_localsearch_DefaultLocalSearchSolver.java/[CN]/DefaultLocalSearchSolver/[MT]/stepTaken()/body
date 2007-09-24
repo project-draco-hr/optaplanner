@@ -1,0 +1,5 @@
+{
+  bestSolutionRecaller.stepTaken();
+  finish.stepTaken();
+  decider.stepTaken();
+}

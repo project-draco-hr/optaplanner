@@ -1,0 +1,5 @@
+{
+  TravelingTournament travelingTournament=(TravelingTournament)localSearchSolver.getCurrentSolution();
+  cachedMoveList=new ArrayList<Move>(travelingTournament.getMatchList().size() / 2);
+  addCachedHomeAwaySwapMoves(travelingTournament);
+}

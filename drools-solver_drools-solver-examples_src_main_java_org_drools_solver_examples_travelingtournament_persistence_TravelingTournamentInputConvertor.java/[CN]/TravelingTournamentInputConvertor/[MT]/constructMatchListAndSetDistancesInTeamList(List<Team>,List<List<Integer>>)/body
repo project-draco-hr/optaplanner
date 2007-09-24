@@ -1,0 +1,23 @@
+{
+  List<Match> matchList=new ArrayList<Match>();
+  int i=0;
+  long matchId=0;
+  for (  Team homeTeam : teamList) {
+    int j=0;
+    for (    Team awayTeam : teamList) {
+      int distance=outerDistanceList.get(i).get(j);
+      homeTeam.getDistanceToTeamMap().put(awayTeam,distance);
+      if (i != j) {
+        Match match=new Match();
+        match.setId(matchId);
+        matchId++;
+        match.setHomeTeam(homeTeam);
+        match.setAwayTeam(awayTeam);
+        matchList.add(match);
+      }
+      j++;
+    }
+    i++;
+  }
+  return matchList;
+}

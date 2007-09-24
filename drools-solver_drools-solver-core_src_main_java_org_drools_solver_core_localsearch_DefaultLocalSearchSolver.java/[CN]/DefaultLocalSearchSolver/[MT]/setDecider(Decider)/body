@@ -1,0 +1,4 @@
+{
+  this.decider=decider;
+  decider.setLocalSearchSolver(this);
+}

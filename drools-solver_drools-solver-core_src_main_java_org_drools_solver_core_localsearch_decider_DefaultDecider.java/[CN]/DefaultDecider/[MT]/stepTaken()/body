@@ -1,0 +1,5 @@
+{
+  moveFactory.stepTaken();
+  accepter.stepTaken();
+  forager.stepTaken();
+}

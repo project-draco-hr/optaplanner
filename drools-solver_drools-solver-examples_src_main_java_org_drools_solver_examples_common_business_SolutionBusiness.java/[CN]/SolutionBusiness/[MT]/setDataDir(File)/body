@@ -1,0 +1,4 @@
+{
+  unsolvedDataDir=new File(dataDir,"unsolved");
+  solvedDataDir=new File(dataDir,"solved");
+}

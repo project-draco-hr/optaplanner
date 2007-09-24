@@ -1,0 +1,15 @@
+{
+  Solution unsolvedSolution;
+  Reader reader=null;
+  try {
+    reader=new InputStreamReader(new FileInputStream(unsolvedSolutionFile),"utf-8");
+    unsolvedSolution=(Solution)xStream.fromXML(reader);
+  }
+ catch (  IOException e) {
+    throw new IllegalArgumentException("Problem reading unsolvedSolutionFile: " + unsolvedSolutionFile,e);
+  }
+ finally {
+    IOUtils.closeQuietly(reader);
+  }
+  return unsolvedSolution;
+}

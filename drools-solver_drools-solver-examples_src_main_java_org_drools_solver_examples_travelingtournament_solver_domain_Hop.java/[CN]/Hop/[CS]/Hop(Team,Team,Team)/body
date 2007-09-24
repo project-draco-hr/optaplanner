@@ -1,0 +1,5 @@
+{
+  this.team=team;
+  this.fromTeam=fromTeam;
+  this.toTeam=toTeam;
+}

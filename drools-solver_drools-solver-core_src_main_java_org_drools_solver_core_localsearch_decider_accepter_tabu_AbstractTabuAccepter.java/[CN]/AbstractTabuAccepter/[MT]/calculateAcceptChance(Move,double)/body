@@ -1,0 +1,25 @@
+{
+  List<? extends Object> tabuList=findTabu(move);
+  int maximumTabuStepIndex=-1;
+  for (  Object tabu : tabuList) {
+    Integer tabuStepIndexInteger=tabuToStepIndexMap.get(tabu);
+    if (tabuStepIndexInteger != null) {
+      maximumTabuStepIndex=Math.max(tabuStepIndexInteger,maximumTabuStepIndex);
+    }
+  }
+  if (maximumTabuStepIndex < 0) {
+    return 1.0;
+  }
+  int tabuStepCount=localSearchSolver.getStepIndex() - maximumTabuStepIndex - 1;
+  if (tabuStepCount < completeTabuSize) {
+    if (log.isDebugEnabled()) {
+      log.debug("    Proposed move (" + move + ") is complete tabu.");
+    }
+    return 0.0;
+  }
+  double acceptChance=calculatePartialTabuAcceptChance(tabuStepCount - completeTabuSize);
+  if (log.isDebugEnabled()) {
+    log.debug("    Proposed move (" + move + ") is partially tabu with accept chance ("+ acceptChance+ ").");
+  }
+  return acceptChance;
+}

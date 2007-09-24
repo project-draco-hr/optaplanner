@@ -1,0 +1,3 @@
+{
+  return ((double)(partialTabuTime + 1)) / ((double)(partialTabuSize + 1));
+}

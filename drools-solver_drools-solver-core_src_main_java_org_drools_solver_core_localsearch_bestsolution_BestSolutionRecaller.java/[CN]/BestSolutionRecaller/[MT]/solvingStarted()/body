@@ -1,0 +1,9 @@
+{
+  double initialScore=localSearchSolver.getStepScore();
+  if (log.isInfoEnabled()) {
+    log.info("Initial score (" + initialScore + ") is starting best score. "+ "Updating best solution and best score.");
+  }
+  bestSolutionStepIndex=localSearchSolver.getStepIndex();
+  bestSolution=localSearchSolver.getCurrentSolution().cloneSolution();
+  bestScore=initialScore;
+}

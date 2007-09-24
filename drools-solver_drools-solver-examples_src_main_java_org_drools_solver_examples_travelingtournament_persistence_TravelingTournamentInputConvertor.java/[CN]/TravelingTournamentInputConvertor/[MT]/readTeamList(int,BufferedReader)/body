@@ -1,0 +1,11 @@
+{
+  List<Team> teamList=new ArrayList<Team>();
+  for (int i=0; i < n; i++) {
+    Team team=new Team();
+    team.setId((long)i);
+    team.setName(bufferedReader.readLine());
+    team.setDistanceToTeamMap(new HashMap<Team,Integer>());
+    teamList.add(team);
+  }
+  return teamList;
+}

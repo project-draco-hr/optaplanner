@@ -1,0 +1,5 @@
+{
+  for (  Accepter accepter : accepterList) {
+    accepter.solvingEnded();
+  }
+}

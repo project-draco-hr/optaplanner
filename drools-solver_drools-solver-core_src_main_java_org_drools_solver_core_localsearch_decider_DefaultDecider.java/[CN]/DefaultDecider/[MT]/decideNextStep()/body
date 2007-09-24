@@ -1,0 +1,17 @@
+{
+  WorkingMemory workingMemory=localSearchSolver.getEvaluationHandler().getStatefulSession();
+  for (  Move move : moveFactory) {
+    if (move.isMoveDoable(workingMemory)) {
+      doMove(move);
+    }
+ else {
+      if (log.isDebugEnabled()) {
+        log.debug("    Move (" + move + ") ignored because not doable.");
+      }
+    }
+    if (forager.isQuitEarly()) {
+      break;
+    }
+  }
+  return forager.pickMove();
+}

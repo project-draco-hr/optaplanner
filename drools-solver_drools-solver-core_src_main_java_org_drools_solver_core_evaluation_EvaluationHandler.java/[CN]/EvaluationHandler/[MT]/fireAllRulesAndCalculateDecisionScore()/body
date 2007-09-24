@@ -1,0 +1,4 @@
+{
+  statefulSession.fireAllRules();
+  return scoreCalculator.calculateDecisionScore();
+}

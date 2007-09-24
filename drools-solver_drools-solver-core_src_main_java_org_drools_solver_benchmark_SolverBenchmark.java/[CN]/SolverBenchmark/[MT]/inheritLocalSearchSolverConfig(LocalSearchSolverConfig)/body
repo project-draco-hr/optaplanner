@@ -1,0 +1,8 @@
+{
+  if (localSearchSolverConfig == null) {
+    localSearchSolverConfig=inheritedLocalSearchSolverConfig;
+  }
+ else {
+    localSearchSolverConfig.inherit(inheritedLocalSearchSolverConfig);
+  }
+}

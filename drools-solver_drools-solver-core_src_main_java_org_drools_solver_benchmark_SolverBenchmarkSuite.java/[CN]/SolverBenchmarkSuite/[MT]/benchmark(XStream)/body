@@ -1,0 +1,18 @@
+{
+  benchmarkingStarted();
+  solvedSolutionFilesDirectory.mkdirs();
+  for (  SolverBenchmark solverBenchmark : solverBenchmarkList) {
+    Solver solver=solverBenchmark.getLocalSearchSolverConfig().buildSolver();
+    for (    SolverBenchmarkResult result : solverBenchmark.getSolverBenchmarkResultList()) {
+      File unsolvedSolutionFile=result.getUnsolvedSolutionFile();
+      Solution unsolvedSolution=readUnsolvedSolution(xStream,unsolvedSolutionFile);
+      solver.setStartingSolution(unsolvedSolution);
+      solver.solve();
+      result.setTimeMillesSpend(solver.getTimeMillisSpend());
+      result.setScore(solver.getBestScore());
+      Solution solvedSolution=solver.getBestSolution();
+      writeSolvedSolution(xStream,result,solvedSolution);
+    }
+  }
+  benchmarkingEnded();
+}

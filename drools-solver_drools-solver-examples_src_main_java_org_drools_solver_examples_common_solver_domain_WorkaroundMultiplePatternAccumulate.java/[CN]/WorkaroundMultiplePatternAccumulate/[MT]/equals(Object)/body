@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof WorkaroundMultiplePatternAccumulate) {
+    WorkaroundMultiplePatternAccumulate other=(WorkaroundMultiplePatternAccumulate)o;
+    return new EqualsBuilder().append(ruleId,other.ruleId).append(objects,other.objects).isEquals();
+  }
+ else {
+    return false;
+  }
+}
