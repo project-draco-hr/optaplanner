@@ -1,3 +1,7 @@
 {
-  return configure(getClass().getResourceAsStream(resource));
+  InputStream in=getClass().getResourceAsStream(resource);
+  if (in == null) {
+    throw new IllegalArgumentException("Resource not found: " + resource);
+  }
+  return configure(in);
 }

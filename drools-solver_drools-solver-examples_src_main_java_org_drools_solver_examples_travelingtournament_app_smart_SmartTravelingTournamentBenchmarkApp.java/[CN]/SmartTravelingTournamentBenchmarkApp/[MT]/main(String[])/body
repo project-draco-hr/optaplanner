@@ -1,3 +1,10 @@
 {
-  new SmartTravelingTournamentBenchmarkApp().process();
+  String solverBenchmarkConfig;
+  if (args.length > 0 && !args[0].equals("default")) {
+    solverBenchmarkConfig=SOLVER_BENCHMARK_CONFIG_PREFIX + args[0] + "SolverBenchmarkConfig.xml";
+  }
+ else {
+    solverBenchmarkConfig=SOLVER_BENCHMARK_CONFIG;
+  }
+  new SmartTravelingTournamentBenchmarkApp(solverBenchmarkConfig,SOLVER_BENCHMARK_RESULT_FILE).process();
 }
