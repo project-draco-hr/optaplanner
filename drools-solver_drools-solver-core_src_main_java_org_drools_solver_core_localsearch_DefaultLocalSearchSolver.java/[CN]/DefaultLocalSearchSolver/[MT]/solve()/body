@@ -4,12 +4,10 @@
     beforeDeciding();
     Move nextStep=decider.decideNextStep();
     if (nextStep == null) {
-      log.warn("No move accepted for step (" + getStepIndex() + "). Finishing early.");
+      logger.warn("No move accepted for step ({}). Finishing early.",getStepIndex());
       break;
     }
-    if (log.isInfoEnabled()) {
-      log.info("Step (" + getStepIndex() + "), time spend ("+ getTimeMillisSpend()+ ") doing next step ("+ nextStep+ ").");
-    }
+    logger.info("Step ({}), time spend ({}) doing next step ({}).",new Object[]{getStepIndex(),getTimeMillisSpend(),nextStep});
     stepDecided(nextStep);
     nextStep.doMove(evaluationHandler.getStatefulSession());
     stepScore=evaluationHandler.fireAllRulesAndCalculateStepScore();

@@ -5,9 +5,7 @@
       doMove(move);
     }
  else {
-      if (log.isDebugEnabled()) {
-        log.debug("    Move (" + move + ") ignored because not doable.");
-      }
+      logger.debug("    Move ({}) ignored because not doable.",move);
     }
     if (forager.isQuitEarly()) {
       break;

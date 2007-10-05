@@ -3,7 +3,7 @@
   try {
     reader=new InputStreamReader(new FileInputStream(file),"UTF-8");
     Solution solution=(Solution)xStream.fromXML(reader);
-    log.info("Loaded: " + file);
+    logger.info("Loaded: {}",file);
     return solution;
   }
  catch (  IOException e) {
@@ -15,7 +15,7 @@
         reader.close();
       }
  catch (      IOException e) {
-        log.warn("Problem closing file (" + file + ")",e);
+        logger.warn("Problem closing file (" + file + ")",e);
       }
     }
   }

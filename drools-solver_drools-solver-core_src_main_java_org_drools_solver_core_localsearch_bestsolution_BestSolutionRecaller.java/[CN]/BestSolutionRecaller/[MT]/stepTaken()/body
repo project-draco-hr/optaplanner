@@ -1,16 +1,12 @@
 {
   double newScore=localSearchSolver.getStepScore();
   if (newScore > bestScore) {
-    if (log.isInfoEnabled()) {
-      log.info("New score (" + newScore + ") is better then last best score ("+ bestScore+ "). "+ "Updating best solution and best score.");
-    }
+    logger.info("New score ({}) is better then last best score ({}). Updating best solution and best score.",newScore,bestScore);
     bestSolutionStepIndex=localSearchSolver.getStepIndex();
     bestSolution=localSearchSolver.getCurrentSolution().cloneSolution();
     bestScore=newScore;
   }
  else {
-    if (log.isInfoEnabled()) {
-      log.info("New score (" + newScore + ") is not better then last best score ("+ bestScore+ ").");
-    }
+    logger.info("New score ({}) is not better then last best score ({}).",newScore,bestScore);
   }
 }

@@ -3,5 +3,5 @@
   finish.solvingEnded();
   decider.solvingEnded();
   evaluationHandler.setSolution(bestSolutionRecaller.getBestSolution());
-  log.info("Solved in " + stepIndex + " steps and "+ getTimeMillisSpend()+ " time millis spend.");
+  logger.info("Solved in {} steps and {} time millis spend.",stepIndex,getTimeMillisSpend());
 }

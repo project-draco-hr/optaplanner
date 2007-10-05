@@ -1,5 +1,5 @@
 {
-  log.info("Solving with random seed (" + randomSeed + ").");
+  logger.info("Solving with random seed ({}).",randomSeed);
   startingSystemTimeMillis=System.currentTimeMillis();
   random=new Random(randomSeed);
   stepIndex=0;
