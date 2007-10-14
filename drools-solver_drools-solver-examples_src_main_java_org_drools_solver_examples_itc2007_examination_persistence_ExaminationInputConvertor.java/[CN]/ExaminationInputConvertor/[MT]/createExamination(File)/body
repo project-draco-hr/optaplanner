@@ -2,7 +2,7 @@
   BufferedReader bufferedReader=null;
   try {
     bufferedReader=new BufferedReader(new FileReader(inputFile));
-    return readTravelingTournament(bufferedReader);
+    return readExamination(bufferedReader);
   }
  catch (  IOException e) {
     throw new IllegalArgumentException(e);

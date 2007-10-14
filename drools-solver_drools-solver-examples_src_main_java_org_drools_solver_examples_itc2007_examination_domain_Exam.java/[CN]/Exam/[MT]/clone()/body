@@ -1,0 +1,6 @@
+{
+  Exam clone=new Exam();
+  clone.id=id;
+  clone.duration=duration;
+  return clone;
+}

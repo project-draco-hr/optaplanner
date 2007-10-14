@@ -7,10 +7,10 @@
   for (  File inputFile : inputFiles) {
     String inputFileName=inputFile.getName();
     if (inputFileName.endsWith(INPUT_FILE_SUFFIX)) {
-      TravelingTournament travelingTournament=createTravelingTournament(inputFile);
+      Examination examination=createExamination(inputFile);
       String outputFileName=inputFileName.substring(0,inputFileName.length() - INPUT_FILE_SUFFIX.length()) + ".xml";
-      File outputFile=new File(getOutputDir(),outputFileName);
-      solutionDao.writeSolution(travelingTournament,outputFile);
+      File outputFile=new File(outputDir,outputFileName);
+      solutionDao.writeSolution(examination,outputFile);
     }
   }
 }

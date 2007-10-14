@@ -1,0 +1,6 @@
+{
+  String line=bufferedReader.readLine();
+  if (!line.equals("[" + header + "]")) {
+    throw new IllegalStateException("Read line (" + line + " is not the expected header (["+ header+ "])");
+  }
+}

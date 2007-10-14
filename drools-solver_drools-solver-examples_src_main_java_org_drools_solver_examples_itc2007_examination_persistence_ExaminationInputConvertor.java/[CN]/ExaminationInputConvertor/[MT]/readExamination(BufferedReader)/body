@@ -1,0 +1,17 @@
+{
+  Examination examination=new Examination();
+  examination.setId(0L);
+  Map<Integer,Student> studentMap=new HashMap<Integer,Student>();
+  List<Exam> examList=readExamListAndFillStudentMap(studentMap,bufferedReader);
+  examination.setExamList(examList);
+  List<Student> studentList=new ArrayList<Student>(studentMap.size());
+  for (  Student student : studentMap.values()) {
+    studentList.add(student);
+  }
+  examination.setStudentList(studentList);
+  List<Period> periodList=readPeriodList(bufferedReader);
+  examination.setPeriodList(periodList);
+  List<Room> roomList=readRoomList(bufferedReader);
+  examination.setRoomList(roomList);
+  return examination;
+}

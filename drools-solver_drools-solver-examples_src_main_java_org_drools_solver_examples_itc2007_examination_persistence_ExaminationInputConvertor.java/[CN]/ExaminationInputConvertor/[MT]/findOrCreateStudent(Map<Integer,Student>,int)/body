@@ -1,0 +1,9 @@
+{
+  Student student=studentMap.get(id);
+  if (student == null) {
+    student=new Student();
+    student.setId((long)id);
+    studentMap.put(id,student);
+  }
+  return student;
+}

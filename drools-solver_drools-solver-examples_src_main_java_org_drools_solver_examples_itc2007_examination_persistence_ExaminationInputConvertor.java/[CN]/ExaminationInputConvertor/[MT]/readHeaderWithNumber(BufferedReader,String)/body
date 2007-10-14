@@ -1,0 +1,7 @@
+{
+  String line=bufferedReader.readLine();
+  if (!line.startsWith("[" + header + ":") || !line.endsWith("]")) {
+    throw new IllegalStateException("Read line (" + line + " is not the expected header (["+ header+ ":number])");
+  }
+  return Integer.parseInt(line.substring(header.length() + 2,line.length() - 1));
+}

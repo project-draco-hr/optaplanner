@@ -1,0 +1,12 @@
+{
+  Examination clone=new Examination();
+  clone.studentList=studentList;
+  clone.periodList=periodList;
+  clone.roomList=roomList;
+  List<Exam> clonedExamList=new ArrayList<Exam>(examList.size());
+  for (  Exam exam : examList) {
+    clonedExamList.add(exam.clone());
+  }
+  clone.examList=clonedExamList;
+  return clone;
+}
