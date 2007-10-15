@@ -4,9 +4,23 @@
   clone.periodList=periodList;
   clone.roomList=roomList;
   List<Exam> clonedExamList=new ArrayList<Exam>(examList.size());
+  Map<Long,Exam> idToClonedExamMap=new HashMap<Long,Exam>(examList.size());
   for (  Exam exam : examList) {
-    clonedExamList.add(exam.clone());
+    Exam clonedExam=exam.clone();
+    clonedExamList.add(clonedExam);
+    idToClonedExamMap.put(clonedExam.getId(),clonedExam);
   }
   clone.examList=clonedExamList;
+  List<PeriodHardConstraint> clonedPeriodHardConstraintList=new ArrayList<PeriodHardConstraint>(periodHardConstraintList.size());
+  for (  PeriodHardConstraint periodHardConstraint : periodHardConstraintList) {
+    clonedPeriodHardConstraintList.add(periodHardConstraint.clone(idToClonedExamMap));
+  }
+  clone.periodHardConstraintList=clonedPeriodHardConstraintList;
+  List<RoomHardConstraint> clonedRoomHardConstraintList=new ArrayList<RoomHardConstraint>(roomHardConstraintList.size());
+  for (  RoomHardConstraint roomHardConstraint : roomHardConstraintList) {
+    clonedRoomHardConstraintList.add(roomHardConstraint.clone(idToClonedExamMap));
+  }
+  clone.roomHardConstraintList=clonedRoomHardConstraintList;
+  clone.institutionalWeighting=institutionalWeighting;
   return clone;
 }

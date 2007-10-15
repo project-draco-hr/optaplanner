@@ -1,0 +1,7 @@
+{
+  RoomHardConstraint clone=new RoomHardConstraint();
+  clone.id=id;
+  clone.exam=idToClonedExamMap.get(exam.getId());
+  clone.roomHardConstraintType=roomHardConstraintType;
+  return clone;
+}

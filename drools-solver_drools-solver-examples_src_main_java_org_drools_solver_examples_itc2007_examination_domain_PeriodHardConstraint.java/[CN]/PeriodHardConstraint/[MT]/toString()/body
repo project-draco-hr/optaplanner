@@ -1,0 +1,3 @@
+{
+  return super.toString() + " {" + leftSideExam.getId()+ " "+ periodHardConstraintType+ " "+ rightSideExam.getId()+ "}";
+}

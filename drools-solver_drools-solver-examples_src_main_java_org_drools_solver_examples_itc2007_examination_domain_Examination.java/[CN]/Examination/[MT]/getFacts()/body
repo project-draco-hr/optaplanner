@@ -4,5 +4,8 @@
   facts.addAll(periodList);
   facts.addAll(roomList);
   facts.addAll(examList);
+  facts.addAll(periodHardConstraintList);
+  facts.addAll(roomHardConstraintList);
+  facts.add(institutionalWeighting);
   return facts;
 }
