@@ -1,0 +1,3 @@
+{
+  return new HashCodeBuilder().append(id).append(homeTeam).append(awayTeam).append(day).toHashCode();
+}

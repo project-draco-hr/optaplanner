@@ -1,6 +1,8 @@
 {
   Exam clone=new Exam();
   clone.id=id;
-  clone.duration=duration;
+  clone.topic=topic;
+  clone.period=period;
+  clone.room=room;
   return clone;
 }

@@ -1,16 +1,16 @@
 {
   int examSize=readHeaderWithNumber(bufferedReader,"Exams");
-  List<Exam> examList=new ArrayList<Exam>(examSize);
+  List<Topic> topicList=new ArrayList<Topic>(examSize);
   for (int i=0; i < examSize; i++) {
-    Exam exam=new Exam();
-    exam.setId((long)i);
+    Topic topic=new Topic();
+    topic.setId((long)i);
     String line=bufferedReader.readLine();
     String[] lineTokens=line.split("\\,\\ ");
-    exam.setDuration(Integer.parseInt(lineTokens[0]));
+    topic.setDuration(Integer.parseInt(lineTokens[0]));
     for (int j=1; j < lineTokens.length; j++) {
       findOrCreateStudent(studentMap,Integer.parseInt(lineTokens[j]));
     }
-    examList.add(exam);
+    topicList.add(topic);
   }
-  return examList;
+  return topicList;
 }

@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof Exam) {
+    Exam other=(Exam)o;
+    return new EqualsBuilder().append(id,other.id).append(topic,other.topic).append(period,other.period).append(room,other.room).isEquals();
+  }
+ else {
+    return false;
+  }
+}

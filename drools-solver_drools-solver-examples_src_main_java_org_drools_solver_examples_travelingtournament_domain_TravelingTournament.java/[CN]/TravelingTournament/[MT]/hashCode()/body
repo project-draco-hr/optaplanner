@@ -1,7 +1,7 @@
 {
-  int hashCode=0;
+  HashCodeBuilder hashCodeBuilder=new HashCodeBuilder();
   for (  Match match : matchList) {
-    hashCode=(hashCode * 31 + match.getId().hashCode()) * 31 + match.getDay().hashCode();
+    hashCodeBuilder.append(match.solutionHashCode());
   }
-  return hashCode;
+  return hashCodeBuilder.toHashCode();
 }

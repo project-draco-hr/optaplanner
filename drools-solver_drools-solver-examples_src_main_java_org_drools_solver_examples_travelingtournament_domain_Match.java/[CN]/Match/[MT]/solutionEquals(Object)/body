@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof Match) {
+    Match other=(Match)o;
+    return new EqualsBuilder().append(id,other.id).append(homeTeam,other.homeTeam).append(awayTeam,other.awayTeam).append(day,other.day).isEquals();
+  }
+ else {
+    return false;
+  }
+}

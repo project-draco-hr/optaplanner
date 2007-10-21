@@ -1,3 +1,3 @@
 {
-  return super.toString() + " " + duration+ " + "+ " @ ";
+  return topic + " @ " + period+ " in "+ room;
 }

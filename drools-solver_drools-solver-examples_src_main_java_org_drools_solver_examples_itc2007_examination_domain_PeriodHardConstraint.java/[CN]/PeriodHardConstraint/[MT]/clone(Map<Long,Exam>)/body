@@ -1,8 +1,0 @@
-{
-  PeriodHardConstraint clone=new PeriodHardConstraint();
-  clone.id=id;
-  clone.leftSideExam=idToClonedExamMap.get(leftSideExam.getId());
-  clone.periodHardConstraintType=periodHardConstraintType;
-  clone.rightSideExam=idToClonedExamMap.get(rightSideExam.getId());
-  return clone;
-}

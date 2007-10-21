@@ -2,8 +2,8 @@
   Examination examination=new Examination();
   examination.setId(0L);
   Map<Integer,Student> studentMap=new HashMap<Integer,Student>();
-  List<Exam> examList=readExamListAndFillStudentMap(studentMap,bufferedReader);
-  examination.setExamList(examList);
+  List<Topic> topicList=readExamListAndFillStudentMap(studentMap,bufferedReader);
+  examination.setTopicList(topicList);
   List<Student> studentList=new ArrayList<Student>(studentMap.size());
   for (  Student student : studentMap.values()) {
     studentList.add(student);
@@ -13,5 +13,12 @@
   examination.setPeriodList(periodList);
   List<Room> roomList=readRoomList(bufferedReader);
   examination.setRoomList(roomList);
+  List<PeriodHardConstraint> periodHardConstraintList=readPeriodHardConstraintList(bufferedReader);
+  examination.setPeriodHardConstraintList(periodHardConstraintList);
+  List<RoomHardConstraint> roomHardConstraintList=readRoomHardConstraintList(bufferedReader);
+  examination.setRoomHardConstraintList(roomHardConstraintList);
+  InstitutionalWeighting institutionalWeighting=readInstitutionalWeighting(bufferedReader);
+  examination.setInstitutionalWeighting(institutionalWeighting);
+  initializeExamPeriodsAndRooms(examination);
   return examination;
 }
