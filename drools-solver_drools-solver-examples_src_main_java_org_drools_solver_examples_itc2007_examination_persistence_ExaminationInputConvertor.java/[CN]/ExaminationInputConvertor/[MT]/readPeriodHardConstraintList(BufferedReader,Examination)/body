@@ -1,0 +1,18 @@
+{
+  List<Topic> topicList=examination.getTopicList();
+  List<PeriodHardConstraint> periodHardConstraintList=new ArrayList<PeriodHardConstraint>();
+  String line=bufferedReader.readLine();
+  while (!line.equals("[RoomHardConstraints]")) {
+    String[] lineTokens=line.split(SPLIT_REGEX);
+    PeriodHardConstraint periodHardConstraint=new PeriodHardConstraint();
+    if (lineTokens.length != 3) {
+      throw new IllegalArgumentException("Read line (" + line + ") is expected to contain 3 tokens.");
+    }
+    periodHardConstraint.setLeftSideTopic(topicList.get(Integer.parseInt(lineTokens[0])));
+    periodHardConstraint.setPeriodHardConstraintType(PeriodHardConstraintType.valueOf(lineTokens[1]));
+    periodHardConstraint.setRightSideTopic(topicList.get(Integer.parseInt(lineTokens[2])));
+    periodHardConstraintList.add(periodHardConstraint);
+    line=bufferedReader.readLine();
+  }
+  examination.setPeriodHardConstraintList(periodHardConstraintList);
+}

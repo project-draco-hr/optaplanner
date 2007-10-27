@@ -1,24 +1,16 @@
 {
   Examination examination=new Examination();
   examination.setId(0L);
-  Map<Integer,Student> studentMap=new HashMap<Integer,Student>();
-  List<Topic> topicList=readExamListAndFillStudentMap(studentMap,bufferedReader);
-  examination.setTopicList(topicList);
-  List<Student> studentList=new ArrayList<Student>(studentMap.size());
-  for (  Student student : studentMap.values()) {
-    studentList.add(student);
+  readTopicListAndStudentList(bufferedReader,examination);
+  readPeriodList(bufferedReader,examination);
+  readRoomList(bufferedReader,examination);
+  String line=bufferedReader.readLine();
+  if (!line.equals("[PeriodHardConstraints]")) {
+    throw new IllegalStateException("Read line (" + line + " is not the expected header ([PeriodHardConstraints])");
   }
-  examination.setStudentList(studentList);
-  List<Period> periodList=readPeriodList(bufferedReader);
-  examination.setPeriodList(periodList);
-  List<Room> roomList=readRoomList(bufferedReader);
-  examination.setRoomList(roomList);
-  List<PeriodHardConstraint> periodHardConstraintList=readPeriodHardConstraintList(bufferedReader);
-  examination.setPeriodHardConstraintList(periodHardConstraintList);
-  List<RoomHardConstraint> roomHardConstraintList=readRoomHardConstraintList(bufferedReader);
-  examination.setRoomHardConstraintList(roomHardConstraintList);
-  InstitutionalWeighting institutionalWeighting=readInstitutionalWeighting(bufferedReader);
-  examination.setInstitutionalWeighting(institutionalWeighting);
-  initializeExamPeriodsAndRooms(examination);
+  readPeriodHardConstraintList(bufferedReader,examination);
+  readRoomHardConstraintList(bufferedReader,examination);
+  readInstitutionalWeighting(bufferedReader,examination);
+  createExamList(examination);
   return examination;
 }

@@ -5,7 +5,7 @@
     Room room=new Room();
     room.setId((long)i);
     String line=bufferedReader.readLine();
-    String[] lineTokens=line.split("\\,\\ ");
+    String[] lineTokens=line.split(SPLIT_REGEX);
     if (lineTokens.length != 2) {
       throw new IllegalArgumentException("Read line (" + line + ") is expected to contain 2 tokens.");
     }
@@ -13,5 +13,5 @@
     room.setPenalty(Integer.parseInt(lineTokens[1]));
     roomList.add(room);
   }
-  return roomList;
+  examination.setRoomList(roomList);
 }

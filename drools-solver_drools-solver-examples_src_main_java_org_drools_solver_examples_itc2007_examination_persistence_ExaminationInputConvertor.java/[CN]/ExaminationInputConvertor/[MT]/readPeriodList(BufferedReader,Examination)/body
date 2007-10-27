@@ -14,7 +14,7 @@
     Period period=new Period();
     period.setId((long)i);
     String line=bufferedReader.readLine();
-    String[] lineTokens=line.split("\\,\\ ");
+    String[] lineTokens=line.split(SPLIT_REGEX);
     if (lineTokens.length != 4) {
       throw new IllegalArgumentException("Read line (" + line + ") is expected to contain 4 tokens.");
     }
@@ -37,5 +37,5 @@
     period.setPenalty(Integer.parseInt(lineTokens[3]));
     periodList.add(period);
   }
-  return periodList;
+  examination.setPeriodList(periodList);
 }

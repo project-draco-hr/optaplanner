@@ -1,0 +1,24 @@
+{
+  List<Topic> topicList=examination.getTopicList();
+  List<Period> periodList=examination.getPeriodList();
+  List<Room> roomList=examination.getRoomList();
+  List<Exam> examList=new ArrayList<Exam>(topicList.size());
+  int periodIndex=0;
+  int roomIndex=0;
+  int roomAddition=0;
+  for (  Topic topic : topicList) {
+    Exam exam=new Exam();
+    exam.setId(topic.getId());
+    exam.setTopic(topic);
+    exam.setPeriod(periodList.get(periodIndex));
+    exam.setRoom(roomList.get(roomIndex));
+    periodIndex=(periodIndex + 1) % periodList.size();
+    roomIndex=(roomIndex + 1) % roomList.size();
+    if (roomIndex == 0) {
+      roomAddition=(roomAddition + 1) % roomList.size();
+      roomIndex=roomAddition;
+    }
+    examList.add(exam);
+  }
+  examination.setExamList(examList);
+}
