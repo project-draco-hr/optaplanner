@@ -1,0 +1,5 @@
+{
+  Examination examination=(Examination)solution;
+  List<Move> moveList=new ArrayList<Move>();
+  return moveList;
+}

@@ -2,7 +2,6 @@
   JPanel panel=new JPanel(new BorderLayout());
   panel.add(createButtonPanel(),BorderLayout.NORTH);
   JScrollPane solutionScrollPane=new JScrollPane(solutionPanel);
-  solutionScrollPane.setPreferredSize(new Dimension(800,500));
   panel.add(solutionScrollPane,BorderLayout.CENTER);
   resultLabel=new JLabel("No solution loaded yet");
   resultLabel.setBorder(BorderFactory.createLoweredBevelBorder());

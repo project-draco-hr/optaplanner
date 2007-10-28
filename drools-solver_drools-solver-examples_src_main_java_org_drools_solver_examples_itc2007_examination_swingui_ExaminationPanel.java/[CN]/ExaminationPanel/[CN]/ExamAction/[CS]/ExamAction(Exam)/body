@@ -1,0 +1,4 @@
+{
+  super(exam.getTopic().toString());
+  this.exam=exam;
+}

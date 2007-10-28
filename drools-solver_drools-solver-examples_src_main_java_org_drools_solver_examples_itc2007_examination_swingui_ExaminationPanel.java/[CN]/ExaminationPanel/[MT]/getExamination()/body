@@ -1,0 +1,3 @@
+{
+  return (Examination)solutionBusiness.getSolution();
+}
