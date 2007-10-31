@@ -1,4 +1,5 @@
 {
   solutionPanel.resetPanel();
+  validate();
   resultLabel.setText("Score = " + solutionBusiness.getScore());
 }

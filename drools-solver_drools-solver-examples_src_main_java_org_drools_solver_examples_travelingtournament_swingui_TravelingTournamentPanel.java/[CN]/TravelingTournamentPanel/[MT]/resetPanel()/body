@@ -11,5 +11,4 @@
     TravelingTournamentPanel.DayPanel dayPanel=dayPanelMap.get(match.getDay());
     dayPanel.addMatch(match);
   }
-  validate();
 }

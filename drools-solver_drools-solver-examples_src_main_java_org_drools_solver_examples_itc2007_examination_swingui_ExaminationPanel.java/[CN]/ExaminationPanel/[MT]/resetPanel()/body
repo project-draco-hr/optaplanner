@@ -32,5 +32,4 @@
     PeriodRoomPanel periodRoomPanel=periodRoomPanelMap.get(exam.getPeriod()).get(exam.getRoom());
     periodRoomPanel.addExam(exam);
   }
-  validate();
 }

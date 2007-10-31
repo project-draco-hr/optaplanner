@@ -11,5 +11,4 @@
     TimeslotPanel timeslotPanel=timeslotPanelMap.get(lesson.getTimeslot());
     timeslotPanel.addLesson(lesson);
   }
-  validate();
 }
