@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof PeriodChangeMove) {
+    RoomChangeMove other=(RoomChangeMove)o;
+    return new EqualsBuilder().append(exam,other.exam).append(toRoom,other.toRoom).isEquals();
+  }
+ else {
+    return false;
+  }
+}

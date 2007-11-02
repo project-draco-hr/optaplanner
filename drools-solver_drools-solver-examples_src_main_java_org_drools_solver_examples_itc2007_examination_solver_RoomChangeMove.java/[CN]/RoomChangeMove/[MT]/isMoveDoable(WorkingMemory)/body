@@ -1,0 +1,7 @@
+{
+  Room fromRoom=exam.getRoom();
+  if (fromRoom == null) {
+    return (toRoom != null);
+  }
+  return !fromRoom.equals(toRoom);
+}
