@@ -1,0 +1,5 @@
+{
+  for (  Exam exam : examination.getExamList()) {
+    bufferedWriter.write(exam.getPeriod().getId() + ", " + exam.getRoom().getId()+ "\r\n");
+  }
+}
