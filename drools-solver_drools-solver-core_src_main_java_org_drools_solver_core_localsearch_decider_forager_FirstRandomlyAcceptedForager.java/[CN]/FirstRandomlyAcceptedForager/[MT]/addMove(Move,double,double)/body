@@ -1,0 +1,8 @@
+{
+  if (acceptChance > 0.0) {
+    if (localSearchSolver.getRandom().nextDouble() <= acceptChance) {
+      earlyPickedMove=move;
+    }
+    addMoveToAcceptionList(move,score,acceptChance);
+  }
+}

@@ -1,0 +1,22 @@
+{
+  if (acceptionList.isEmpty()) {
+    return null;
+  }
+  sortAcceptionList();
+  Move pickedMove=null;
+  double random=localSearchSolver.getRandom().nextDouble();
+  double acceptMark=acceptChanceMaxScoreTotal * random;
+  for (ListIterator<Acception> it=acceptionList.listIterator(acceptionList.size()); it.hasPrevious(); ) {
+    Acception acception=it.previous();
+    acceptMark-=acception.getAcceptChance();
+    if (acceptMark < 0.0) {
+      pickedMove=acception.getMove();
+      break;
+    }
+  }
+  if (pickedMove == null) {
+    logger.warn("Underflow occured with acceptChanceMaxScoreTotal ({}) " + "and random ({}).",acceptChanceMaxScoreTotal,random);
+    pickedMove=acceptionList.get(acceptionList.size() - 1).getMove();
+  }
+  return pickedMove;
+}

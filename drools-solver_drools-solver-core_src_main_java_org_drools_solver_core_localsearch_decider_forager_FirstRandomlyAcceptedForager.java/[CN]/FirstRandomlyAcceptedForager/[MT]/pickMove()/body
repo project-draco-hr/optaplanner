@@ -1,0 +1,8 @@
+{
+  if (earlyPickedMove != null) {
+    return earlyPickedMove;
+  }
+ else {
+    return pickMaxScoreMove();
+  }
+}

@@ -1,5 +1,13 @@
 {
   Examination examination=(Examination)solution;
   List<Move> moveList=new ArrayList<Move>();
+  for (  Exam exam : examination.getExamList()) {
+    for (    Period period : examination.getPeriodList()) {
+      moveList.add(new PeriodChangeMove(exam,period));
+    }
+    for (    Room room : examination.getRoomList()) {
+      moveList.add(new RoomChangeMove(exam,room));
+    }
+  }
   return moveList;
 }
