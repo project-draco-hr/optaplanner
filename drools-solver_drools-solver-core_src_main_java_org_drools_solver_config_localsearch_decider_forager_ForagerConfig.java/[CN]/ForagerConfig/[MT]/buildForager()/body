@@ -17,8 +17,10 @@ catch (    IllegalAccessException e) {
 switch (foragerType) {
 case MAX_SCORE_OF_ALL:
       return new MaxScoreOfAllForager();
+case FIRST_RANDOMLY_ACCEPTED:
+    return new FirstRandomlyAcceptedForager();
 default :
-    throw new IllegalStateException("foragerType (" + foragerType + ") not implemented");
+  throw new IllegalStateException("foragerType (" + foragerType + ") not implemented");
 }
 }
  else {

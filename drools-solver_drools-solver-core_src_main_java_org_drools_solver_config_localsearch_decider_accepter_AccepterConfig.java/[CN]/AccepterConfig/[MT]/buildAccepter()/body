@@ -56,6 +56,13 @@ catch (    IllegalAccessException e) {
     }
     accepterList.add(solutionTabuAccepter);
   }
+  if ((accepterTypeList != null && accepterTypeList.contains(AccepterType.SIMULATED_ANNEALING))) {
+    SimulatedAnnealingAccepter simulatedAnnealingAccepter=new SimulatedAnnealingAccepter();
+    accepterList.add(simulatedAnnealingAccepter);
+  }
+  if ((accepterTypeList != null && accepterTypeList.contains(AccepterType.GREAT_DELUGE))) {
+    throw new UnsupportedOperationException();
+  }
   if (accepterList.size() == 1) {
     return accepterList.get(0);
   }
