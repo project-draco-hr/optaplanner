@@ -2,8 +2,8 @@
   if (this == o) {
     return true;
   }
- else   if (o instanceof WorkaroundMultiplePatternAccumulate) {
-    WorkaroundMultiplePatternAccumulate other=(WorkaroundMultiplePatternAccumulate)o;
+ else   if (o instanceof ConstraintOccurrence) {
+    ConstraintOccurrence other=(ConstraintOccurrence)o;
     return new EqualsBuilder().append(ruleId,other.ruleId).append(objects,other.objects).isEquals();
   }
  else {
