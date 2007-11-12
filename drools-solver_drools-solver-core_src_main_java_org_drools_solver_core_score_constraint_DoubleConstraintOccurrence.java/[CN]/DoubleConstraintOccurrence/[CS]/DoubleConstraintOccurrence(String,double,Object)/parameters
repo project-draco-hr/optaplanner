@@ -1,2 +1,3 @@
 String ruleId
+double weight
 Object causes

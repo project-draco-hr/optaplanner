@@ -1,0 +1,5 @@
+{
+  this.ruleId=ruleId;
+  this.constraintType=constraintType;
+  this.causes=causes;
+}

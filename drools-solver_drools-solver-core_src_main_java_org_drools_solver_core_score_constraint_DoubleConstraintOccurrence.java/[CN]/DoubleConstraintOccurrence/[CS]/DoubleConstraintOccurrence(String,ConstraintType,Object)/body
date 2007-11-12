@@ -1,0 +1,3 @@
+{
+  this(ruleId,constraintType,1.0,causes);
+}

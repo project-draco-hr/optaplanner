@@ -1,0 +1,3 @@
+{
+  this(ruleId,ConstraintType.NEGATIVE_HARD,weight,causes);
+}

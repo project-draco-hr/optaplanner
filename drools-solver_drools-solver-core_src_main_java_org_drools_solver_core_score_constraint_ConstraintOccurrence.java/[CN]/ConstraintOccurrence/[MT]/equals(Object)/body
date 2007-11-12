@@ -4,7 +4,7 @@
   }
  else   if (o instanceof ConstraintOccurrence) {
     ConstraintOccurrence other=(ConstraintOccurrence)o;
-    return new EqualsBuilder().append(ruleId,other.ruleId).append(objects,other.objects).isEquals();
+    return new EqualsBuilder().append(ruleId,other.ruleId).append(constraintType,other.constraintType).append(causes,other.causes).isEquals();
   }
  else {
     return false;
