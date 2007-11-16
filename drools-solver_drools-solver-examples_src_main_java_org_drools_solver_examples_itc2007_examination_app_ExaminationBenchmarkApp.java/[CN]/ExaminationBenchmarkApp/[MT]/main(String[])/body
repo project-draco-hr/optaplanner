@@ -1,0 +1,3 @@
+{
+  new NQueensBenchmarkApp(SOLVER_BENCHMARK_CONFIG,SOLVER_BENCHMARK_RESULT_FILE).process();
+}

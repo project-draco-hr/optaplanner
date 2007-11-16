@@ -4,7 +4,11 @@
   }
  else   if (moveFactoryClass != null) {
     try {
-      return moveFactoryClass.newInstance();
+      MoveFactory moveFactory=moveFactoryClass.newInstance();
+      if (shuffleMovesEveryStep != null) {
+        ((CachedMoveListMoveFactory)moveFactory).setShuffleListEveryStep(shuffleMovesEveryStep.booleanValue());
+      }
+      return moveFactory;
     }
  catch (    InstantiationException e) {
       throw new IllegalArgumentException("moveFactoryClass (" + moveFactoryClass.getName() + ") does not have a public no-arg constructor",e);
