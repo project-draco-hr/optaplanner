@@ -1,3 +1,5 @@
 {
-  return Arrays.asList(solvedDataDir.listFiles(new SolverExampleFileFilter()));
+  List<File> solvedFileList=Arrays.asList(solvedDataDir.listFiles(new SolverExampleFileFilter()));
+  Collections.sort(solvedFileList);
+  return solvedFileList;
 }
