@@ -1,0 +1,4 @@
+{
+  this.leftTopic=leftTopic;
+  this.rightTopic=rightTopic;
+}

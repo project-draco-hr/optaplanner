@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof TopicConflict) {
+    TopicConflict other=(TopicConflict)o;
+    return new EqualsBuilder().append(leftTopic,other.leftTopic).append(rightTopic,other.rightTopic).isEquals();
+  }
+ else {
+    return false;
+  }
+}
