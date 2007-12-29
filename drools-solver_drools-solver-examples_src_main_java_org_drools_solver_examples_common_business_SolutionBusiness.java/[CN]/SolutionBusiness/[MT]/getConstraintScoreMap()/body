@@ -30,6 +30,9 @@ occurenceScore=((IntConstraintOccurrence)occurrence).getWeight();
  else if (occurrence instanceof DoubleConstraintOccurrence) {
 occurenceScore=((DoubleConstraintOccurrence)occurrence).getWeight();
 }
+ else if (occurrence instanceof UnweightedConstraintOccurrence) {
+occurenceScore=1.0;
+}
  else {
 throw new IllegalStateException("Cannot determine constraintScore of ConstraintOccurence class: " + occurrence.getClass());
 }
