@@ -3,8 +3,6 @@
   panel.add(createButtonPanel(),BorderLayout.NORTH);
   JScrollPane solutionScrollPane=new JScrollPane(solutionPanel);
   panel.add(solutionScrollPane,BorderLayout.CENTER);
-  resultLabel=new JLabel("No solution loaded yet");
-  resultLabel.setBorder(BorderFactory.createLoweredBevelBorder());
-  panel.add(resultLabel,BorderLayout.SOUTH);
+  panel.add(createScorePanel(),BorderLayout.SOUTH);
   return panel;
 }

@@ -1,0 +1,45 @@
+{
+  Map<String,Double> constraintScoreMap=new TreeMap<String,Double>();
+  StatefulSession statefulSession=evaluationHandler.getStatefulSession();
+  if (statefulSession == null) {
+    return Collections.emptyMap();
+  }
+  Iterator<ConstraintOccurrence> it=statefulSession.iterateObjects(new ClassObjectFilter(ConstraintOccurrence.class));
+  for (; it.hasNext(); ) {
+    ConstraintOccurrence occurrence=it.next();
+    String extendedConstraintId;
+switch (occurrence.getConstraintType()) {
+case NEGATIVE_HARD:
+      extendedConstraintId="HARD";
+    break;
+case NEGATIVE_SOFT:
+  extendedConstraintId="SOFT";
+break;
+case POSITIVE:
+extendedConstraintId="POSITIVE";
+break;
+default :
+throw new IllegalStateException("Unknown ConstraintType: " + occurrence.getConstraintType());
+}
+extendedConstraintId+=" " + occurrence.getRuleId();
+Double constraintScore=constraintScoreMap.get(extendedConstraintId);
+double occurenceScore;
+if (occurrence instanceof IntConstraintOccurrence) {
+occurenceScore=((IntConstraintOccurrence)occurrence).getWeight();
+}
+ else if (occurrence instanceof DoubleConstraintOccurrence) {
+occurenceScore=((DoubleConstraintOccurrence)occurrence).getWeight();
+}
+ else {
+throw new IllegalStateException("Cannot determine constraintScore of ConstraintOccurence class: " + occurrence.getClass());
+}
+if (constraintScore == null) {
+constraintScore=occurenceScore;
+}
+ else {
+constraintScore+=occurenceScore;
+}
+constraintScoreMap.put(extendedConstraintId,constraintScore);
+}
+return constraintScoreMap;
+}

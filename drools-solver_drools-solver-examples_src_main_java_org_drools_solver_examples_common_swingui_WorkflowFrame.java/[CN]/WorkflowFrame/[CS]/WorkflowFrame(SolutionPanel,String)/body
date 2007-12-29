@@ -2,5 +2,6 @@
   super("Drools solver example " + exampleName);
   this.solutionPanel=solutionPanel;
   solutionPanel.setWorkflowFrame(this);
+  constraintScoreMapDialog=new ConstraintScoreMapDialog(this);
   setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 }

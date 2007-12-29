@@ -1,0 +1,4 @@
+{
+  super(workflowFrame,"Constraint scores",true);
+  this.workflowFrame=workflowFrame;
+}

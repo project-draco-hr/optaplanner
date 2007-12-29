@@ -1,4 +1,5 @@
 {
   this.solutionBusiness=solutionBusiness;
   solutionPanel.setSolutionBusiness(solutionBusiness);
+  constraintScoreMapDialog.setSolutionBusiness(solutionBusiness);
 }
