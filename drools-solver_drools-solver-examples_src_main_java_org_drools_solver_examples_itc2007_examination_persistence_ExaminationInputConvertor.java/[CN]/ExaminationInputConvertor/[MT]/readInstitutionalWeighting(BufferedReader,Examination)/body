@@ -10,7 +10,7 @@
   lineTokens=readInstitutionalWeightingProperty(bufferedReader,"NONMIXEDDURATIONS",2);
   institutionalWeighting.setMixedDurationPenality(Integer.parseInt(lineTokens[1]));
   lineTokens=readInstitutionalWeightingProperty(bufferedReader,"FRONTLOAD",4);
-  institutionalWeighting.setFrontLoadLargestExamSize(Integer.parseInt(lineTokens[1]));
+  institutionalWeighting.setFrontLoadLargeTopicSize(Integer.parseInt(lineTokens[1]));
   institutionalWeighting.setFrontLoadLastPeriodSize(Integer.parseInt(lineTokens[2]));
   institutionalWeighting.setFrontLoadPenality(Integer.parseInt(lineTokens[3]));
   examination.setInstitutionalWeighting(institutionalWeighting);

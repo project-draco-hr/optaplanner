@@ -13,6 +13,7 @@
       topicStudentList.add(findOrCreateStudent(studentMap,Integer.parseInt(lineTokens[j])));
     }
     topic.setStudentList(topicStudentList);
+    topic.setFrontLoadLarge(false);
     topicList.add(topic);
   }
   examination.setTopicList(topicList);

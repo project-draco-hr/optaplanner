@@ -1,0 +1,19 @@
+{
+  List<Topic> sortedTopicList=new ArrayList<Topic>(examination.getTopicList());
+  Collections.sort(sortedTopicList,new Comparator<Topic>(){
+    public int compare(    Topic a,    Topic b){
+      return (a.getStudentListSize() < b.getStudentListSize()) ? -1 : ((a.getStudentListSize() > b.getStudentListSize()) ? 1 : 0);
+    }
+  }
+);
+  int frontLoadLargeTopicSize=examination.getInstitutionalWeighting().getFrontLoadLargeTopicSize();
+  if (frontLoadLargeTopicSize == 0) {
+    return;
+  }
+  int minimumStudentListSize=sortedTopicList.get(sortedTopicList.size() - frontLoadLargeTopicSize).getStudentListSize();
+  for (  Topic topic : sortedTopicList) {
+    if (topic.getStudentListSize() >= minimumStudentListSize) {
+      topic.setFrontLoadLarge(true);
+    }
+  }
+}

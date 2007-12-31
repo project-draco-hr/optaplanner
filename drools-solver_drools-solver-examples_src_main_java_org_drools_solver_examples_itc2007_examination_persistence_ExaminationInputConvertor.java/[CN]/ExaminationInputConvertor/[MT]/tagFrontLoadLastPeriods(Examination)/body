@@ -1,0 +1,13 @@
+{
+  List<Period> periodList=examination.getPeriodList();
+  int frontLoadLastPeriodSize=examination.getInstitutionalWeighting().getFrontLoadLastPeriodSize();
+  if (frontLoadLastPeriodSize == 0) {
+    return;
+  }
+  int minimumPeriodIndex=periodList.get(periodList.size() - frontLoadLastPeriodSize).getPeriodIndex();
+  for (  Period period : periodList) {
+    if (period.getPeriodIndex() >= minimumPeriodIndex) {
+      period.setFrontLoadLast(true);
+    }
+  }
+}

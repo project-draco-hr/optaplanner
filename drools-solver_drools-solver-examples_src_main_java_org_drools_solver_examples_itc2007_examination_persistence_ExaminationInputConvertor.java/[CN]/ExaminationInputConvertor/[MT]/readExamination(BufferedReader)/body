@@ -11,6 +11,8 @@
   readPeriodHardConstraintList(bufferedReader,examination);
   readRoomHardConstraintList(bufferedReader,examination);
   readInstitutionalWeighting(bufferedReader,examination);
+  tagFrontLoadLargeTopics(examination);
+  tagFrontLoadLastPeriods(examination);
   createExamList(examination);
   return examination;
 }
