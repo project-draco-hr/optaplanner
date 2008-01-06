@@ -1,5 +1,4 @@
 {
-  DOMConfigurator.configure(getClass().getResource(LOGGING_CONFIG));
   workflowFrame=new WorkflowFrame(createSolutionPanel(),getExampleDirName());
   workflowFrame.setSolutionBusiness(createSolutionBusiness());
   workflowFrame.init();

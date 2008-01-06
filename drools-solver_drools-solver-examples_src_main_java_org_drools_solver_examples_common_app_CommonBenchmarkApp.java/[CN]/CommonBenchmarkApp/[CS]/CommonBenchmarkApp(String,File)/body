@@ -1,7 +1,5 @@
 {
-  this.solverBenchmarkConfig=solverBenchmarkConfig;
+  super(LOGGING_CONFIG);
   this.resultFile=resultFile;
-  DOMConfigurator.configure(getClass().getResource(LOGGING_CONFIG));
-  LoggerFactory.getLogger(getClass()).debug("Logging configured.");
-  solverBenchmarker=new XmlSolverBenchmarker().configure(getSolverBenchmarkConfig());
+  solverBenchmarker=new XmlSolverBenchmarker().configure(solverBenchmarkConfig);
 }

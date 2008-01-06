@@ -1,4 +1,4 @@
 {
   solverBenchmarker.benchmark();
-  solverBenchmarker.writeResults(getResultFile());
+  solverBenchmarker.writeResults(resultFile);
 }

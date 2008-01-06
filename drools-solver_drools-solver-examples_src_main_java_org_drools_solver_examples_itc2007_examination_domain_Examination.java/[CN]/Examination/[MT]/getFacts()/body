@@ -7,22 +7,6 @@
   facts.addAll(periodHardConstraintList);
   facts.addAll(roomHardConstraintList);
   facts.addAll(examList);
-  List<TopicConflict> topicConflictList=new ArrayList<TopicConflict>();
-  for (  Topic leftTopic : topicList) {
-    for (    Topic rightTopic : topicList) {
-      if (leftTopic.getId() < rightTopic.getId()) {
-        int studentSize=0;
-        for (        Student student : leftTopic.getStudentList()) {
-          if (rightTopic.getStudentList().contains(student)) {
-            studentSize++;
-          }
-        }
-        if (studentSize > 0) {
-          topicConflictList.add(new TopicConflict(leftTopic,rightTopic,studentSize));
-        }
-      }
-    }
-  }
-  facts.addAll(topicConflictList);
+  facts.addAll(calculateTopicConflictList());
   return facts;
 }
