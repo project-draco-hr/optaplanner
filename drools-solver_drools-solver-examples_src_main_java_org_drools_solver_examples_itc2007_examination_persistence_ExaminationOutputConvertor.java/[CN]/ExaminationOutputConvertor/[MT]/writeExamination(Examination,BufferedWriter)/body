@@ -1,4 +1,5 @@
 {
+  Collections.sort(examination.getExamList(),new PersistableIdComparator());
   for (  Exam exam : examination.getExamList()) {
     bufferedWriter.write(exam.getPeriod().getId() + ", " + exam.getRoom().getId()+ "\r\n");
   }

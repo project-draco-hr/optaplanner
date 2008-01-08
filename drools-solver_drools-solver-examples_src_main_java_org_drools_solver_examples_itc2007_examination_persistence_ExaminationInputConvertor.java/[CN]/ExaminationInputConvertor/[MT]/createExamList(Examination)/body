@@ -66,4 +66,5 @@
       workingMemory.update(examHandle,exam);
     }
   }
+  Collections.sort(examList,new PersistableIdComparator());
 }
