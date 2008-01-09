@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof IntConstraintOccurrence) {
+    IntConstraintOccurrence other=(IntConstraintOccurrence)o;
+    return new EqualsBuilder().appendSuper(super.equals(other)).append(weight,other.weight).isEquals();
+  }
+ else {
+    return false;
+  }
+}
