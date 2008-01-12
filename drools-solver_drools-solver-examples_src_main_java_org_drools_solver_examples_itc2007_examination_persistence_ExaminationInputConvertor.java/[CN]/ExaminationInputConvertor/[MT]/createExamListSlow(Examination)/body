@@ -25,36 +25,23 @@
     exam.setTopic(topic);
     examList.add(exam);
     FactHandle examHandle=null;
-    List<PeriodScoring> periodScoringList=new ArrayList<PeriodScoring>(periodList.size());
-    for (    Period period : periodList) {
-      exam.setPeriod(period);
-      if (examHandle == null) {
-        examHandle=workingMemory.insert(exam);
-      }
- else {
-        workingMemory.update(examHandle,exam);
-      }
-      double score=evaluationHandler.fireAllRulesAndCalculateStepScore();
-      periodScoringList.add(new PeriodScoring(period,score));
-    }
-    Collections.sort(periodScoringList);
     boolean perfectMatch=false;
     double bestScore=Double.NEGATIVE_INFINITY;
     Period bestPeriod=null;
     Room bestRoom=null;
-    for (    PeriodScoring periodScoring : periodScoringList) {
-      if (bestScore >= periodScoring.getScore()) {
-        break;
-      }
-      exam.setPeriod(periodScoring.getPeriod());
+    for (    Period period : periodList) {
+      exam.setPeriod(period);
       for (      Room room : roomList) {
         exam.setRoom(room);
+        if (examHandle == null) {
+          examHandle=workingMemory.insert(exam);
+        }
         workingMemory.update(examHandle,exam);
         double score=evaluationHandler.fireAllRulesAndCalculateStepScore();
         if (score < unscheduledScore) {
           if (score > bestScore) {
             bestScore=score;
-            bestPeriod=periodScoring.getPeriod();
+            bestPeriod=period;
             bestRoom=room;
           }
         }

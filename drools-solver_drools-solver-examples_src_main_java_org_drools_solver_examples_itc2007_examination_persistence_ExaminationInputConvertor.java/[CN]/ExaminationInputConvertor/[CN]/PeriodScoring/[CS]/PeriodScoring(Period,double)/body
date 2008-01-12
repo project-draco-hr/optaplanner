@@ -1,0 +1,4 @@
+{
+  this.period=period;
+  this.score=score;
+}
