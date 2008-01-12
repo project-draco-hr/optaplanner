@@ -1,0 +1,6 @@
+{
+  this.startingSolutionInitializer=startingSolutionInitializer;
+  if (startingSolutionInitializer != null) {
+    this.startingSolutionInitializer.setSolver(this);
+  }
+}

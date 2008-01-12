@@ -4,10 +4,12 @@
   if (frontLoadLastPeriodSize == 0) {
     return;
   }
-  int minimumPeriodIndex=periodList.get(periodList.size() - frontLoadLastPeriodSize).getPeriodIndex();
-  for (  Period period : periodList) {
-    if (period.getPeriodIndex() >= minimumPeriodIndex) {
-      period.setFrontLoadLast(true);
-    }
+  int minimumPeriodId=periodList.size() - frontLoadLastPeriodSize;
+  if (minimumPeriodId < 0) {
+    logger.warn("The frontLoadLastPeriodSize (" + frontLoadLastPeriodSize + ") is bigger than periodListSize ("+ periodList.size()+ "). Tagging all periods as large...");
+    minimumPeriodId=0;
+  }
+  for (  Period period : periodList.subList(minimumPeriodId,periodList.size())) {
+    period.setFrontLoadLast(true);
   }
 }

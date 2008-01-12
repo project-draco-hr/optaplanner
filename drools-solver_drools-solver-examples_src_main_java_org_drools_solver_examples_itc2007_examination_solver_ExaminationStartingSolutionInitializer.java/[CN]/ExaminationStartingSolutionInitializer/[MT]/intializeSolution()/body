@@ -1,0 +1,5 @@
+{
+  Examination examination=(Examination)solver.getEvaluationHandler().getSolution();
+  if (examination.getExamList() == null) {
+  }
+}

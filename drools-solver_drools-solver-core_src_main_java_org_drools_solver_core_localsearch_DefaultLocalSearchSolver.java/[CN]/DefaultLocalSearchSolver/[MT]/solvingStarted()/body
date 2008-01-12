@@ -2,6 +2,9 @@
   startingSystemTimeMillis=System.currentTimeMillis();
   logger.info("Solving with random seed ({}).",randomSeed);
   random=new Random(randomSeed);
+  if (startingSolutionInitializer != null) {
+    startingSolutionInitializer.intializeSolution();
+  }
   stepIndex=0;
   stepScore=evaluationHandler.fireAllRulesAndCalculateStepScore();
   bestSolutionRecaller.solvingStarted();

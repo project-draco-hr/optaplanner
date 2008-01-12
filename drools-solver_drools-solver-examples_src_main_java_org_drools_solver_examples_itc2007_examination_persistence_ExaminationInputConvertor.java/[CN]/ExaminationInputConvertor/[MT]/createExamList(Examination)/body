@@ -8,7 +8,6 @@
   List<Exam> examList=new ArrayList<Exam>(topicList.size());
   examination.setExamList(examList);
   evaluationHandler.setSolution(examination);
-  evaluationHandler.resetStatefullSession();
   StatefulSession workingMemory=evaluationHandler.getStatefulSession();
   List<Topic> sortedTopicList=new ArrayList<Topic>(topicList);
   Collections.sort(sortedTopicList,new Comparator<Topic>(){
@@ -18,7 +17,6 @@
   }
 );
   for (  Topic topic : sortedTopicList) {
-    logger.info("Scheduling topic ({}).",topic);
     double unscheduledScore=evaluationHandler.fireAllRulesAndCalculateStepScore();
     Exam exam=new Exam();
     exam.setId(topic.getId());
@@ -78,6 +76,7 @@
       exam.setRoom(bestRoom);
       workingMemory.update(examHandle,exam);
     }
+    logger.debug("    Exam ({}) initialized for starting solution.",exam);
   }
   Collections.sort(examList,new PersistableIdComparator());
 }

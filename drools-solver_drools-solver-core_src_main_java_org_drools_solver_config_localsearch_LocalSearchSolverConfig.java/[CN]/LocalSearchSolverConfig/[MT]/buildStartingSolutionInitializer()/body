@@ -1,0 +1,19 @@
+{
+  if (startingSolutionInitializer != null) {
+    return startingSolutionInitializer;
+  }
+ else   if (startingSolutionInitializerClass != null) {
+    try {
+      return startingSolutionInitializerClass.newInstance();
+    }
+ catch (    InstantiationException e) {
+      throw new IllegalArgumentException("startingSolutionInitializerClass (" + startingSolutionInitializerClass.getName() + ") does not have a public no-arg constructor",e);
+    }
+catch (    IllegalAccessException e) {
+      throw new IllegalArgumentException("startingSolutionInitializerClass (" + startingSolutionInitializerClass.getName() + ") does not have a public no-arg constructor",e);
+    }
+  }
+ else {
+    return null;
+  }
+}
