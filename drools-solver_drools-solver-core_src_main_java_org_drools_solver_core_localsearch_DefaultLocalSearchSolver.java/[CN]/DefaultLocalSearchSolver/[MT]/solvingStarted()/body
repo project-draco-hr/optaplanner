@@ -3,6 +3,7 @@
   logger.info("Solving with random seed ({}).",randomSeed);
   random=new Random(randomSeed);
   if (startingSolutionInitializer != null) {
+    logger.info("Initializing solution if needed.");
     startingSolutionInitializer.intializeSolution();
   }
   stepIndex=0;

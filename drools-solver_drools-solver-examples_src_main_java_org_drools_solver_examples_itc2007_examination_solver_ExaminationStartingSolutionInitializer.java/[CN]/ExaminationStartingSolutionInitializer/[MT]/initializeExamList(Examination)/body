@@ -1,14 +1,12 @@
 {
-  XmlSolverConfigurer configurer=new XmlSolverConfigurer();
-  configurer.configure(ExaminationApp.SOLVER_CONFIG);
-  EvaluationHandler evaluationHandler=configurer.buildSolver().getEvaluationHandler();
+  EvaluationHandler evaluationHandler=solver.getEvaluationHandler();
   List<Topic> topicList=examination.getTopicList();
   List<Period> periodList=examination.getPeriodList();
   List<Room> roomList=examination.getRoomList();
   List<Exam> examList=new ArrayList<Exam>(topicList.size());
   examination.setExamList(examList);
   evaluationHandler.setSolution(examination);
-  StatefulSession workingMemory=evaluationHandler.getStatefulSession();
+  StatefulSession statefulSession=evaluationHandler.getStatefulSession();
   List<Topic> sortedTopicList=new ArrayList<Topic>(topicList);
   Collections.sort(sortedTopicList,new Comparator<Topic>(){
     public int compare(    Topic a,    Topic b){
@@ -27,10 +25,10 @@
     for (    Period period : periodList) {
       exam.setPeriod(period);
       if (examHandle == null) {
-        examHandle=workingMemory.insert(exam);
+        examHandle=statefulSession.insert(exam);
       }
  else {
-        workingMemory.update(examHandle,exam);
+        statefulSession.update(examHandle,exam);
       }
       double score=evaluationHandler.fireAllRulesAndCalculateStepScore();
       periodScoringList.add(new PeriodScoring(period,score));
@@ -47,7 +45,7 @@
       exam.setPeriod(periodScoring.getPeriod());
       for (      Room room : roomList) {
         exam.setRoom(room);
-        workingMemory.update(examHandle,exam);
+        statefulSession.update(examHandle,exam);
         double score=evaluationHandler.fireAllRulesAndCalculateStepScore();
         if (score < unscheduledScore) {
           if (score > bestScore) {
@@ -74,7 +72,7 @@
       }
       exam.setPeriod(bestPeriod);
       exam.setRoom(bestRoom);
-      workingMemory.update(examHandle,exam);
+      statefulSession.update(examHandle,exam);
     }
     logger.debug("    Exam ({}) initialized for starting solution.",exam);
   }

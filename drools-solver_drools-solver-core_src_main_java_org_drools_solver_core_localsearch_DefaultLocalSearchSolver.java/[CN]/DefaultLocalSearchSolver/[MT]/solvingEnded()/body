@@ -2,6 +2,5 @@
   bestSolutionRecaller.solvingEnded();
   finish.solvingEnded();
   decider.solvingEnded();
-  evaluationHandler.setSolution(bestSolutionRecaller.getBestSolution());
   logger.info("Solved in {} steps and {} time millis spend.",stepIndex,getTimeMillisSpend());
 }

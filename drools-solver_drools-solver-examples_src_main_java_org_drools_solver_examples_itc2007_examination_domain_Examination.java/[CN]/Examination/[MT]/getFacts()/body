@@ -6,7 +6,9 @@
   facts.addAll(roomList);
   facts.addAll(periodHardConstraintList);
   facts.addAll(roomHardConstraintList);
-  facts.addAll(examList);
+  if (isInitialized()) {
+    facts.addAll(examList);
+  }
   facts.addAll(calculateTopicConflictList());
   return facts;
 }

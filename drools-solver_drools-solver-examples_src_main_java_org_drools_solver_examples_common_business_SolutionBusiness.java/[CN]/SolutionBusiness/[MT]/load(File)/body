@@ -1,4 +1,4 @@
 {
   Solution solution=solutionDao.readSolution(file);
-  evaluationHandler.setSolution(solution);
+  solver.setStartingSolution(solution);
 }

@@ -1,5 +1,6 @@
 {
   Examination examination=(Examination)solver.getEvaluationHandler().getSolution();
-  if (examination.getExamList() == null) {
+  if (!examination.isInitialized()) {
+    initializeExamList(examination);
   }
 }
