@@ -21,6 +21,10 @@
  else   if (inheritedConfig.getScoreCalculatorConfig() != null) {
     scoreCalculatorConfig.inherit(inheritedConfig.getScoreCalculatorConfig());
   }
+  if (startingSolutionInitializer == null && startingSolutionInitializerClass == null) {
+    startingSolutionInitializer=inheritedConfig.getStartingSolutionInitializer();
+    startingSolutionInitializerClass=inheritedConfig.getStartingSolutionInitializerClass();
+  }
   if (finishConfig == null) {
     finishConfig=inheritedConfig.getFinishConfig();
   }
