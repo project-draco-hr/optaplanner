@@ -7,14 +7,8 @@
   examination.setExamList(examList);
   evaluationHandler.setSolution(examination);
   StatefulSession statefulSession=evaluationHandler.getStatefulSession();
-  List<Topic> sortedTopicList=new ArrayList<Topic>(topicList);
-  Collections.sort(sortedTopicList,new Comparator<Topic>(){
-    public int compare(    Topic a,    Topic b){
-      return new CompareToBuilder().append(a.getStudentListSize(),b.getStudentListSize()).toComparison();
-    }
-  }
-);
-  for (  Topic topic : sortedTopicList) {
+  List<Topic> assigningTopicList=createAssigningTopicList(examination);
+  for (  Topic topic : assigningTopicList) {
     double unscheduledScore=evaluationHandler.fireAllRulesAndCalculateStepScore();
     Exam exam=new Exam();
     exam.setId(topic.getId());

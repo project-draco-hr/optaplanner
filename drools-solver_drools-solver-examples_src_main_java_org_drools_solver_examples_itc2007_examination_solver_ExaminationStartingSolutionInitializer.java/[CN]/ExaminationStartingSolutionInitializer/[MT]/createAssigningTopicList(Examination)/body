@@ -1,0 +1,20 @@
+{
+  List<Topic> assigningTopicList=new ArrayList<Topic>(examination.getTopicList());
+  Collections.sort(assigningTopicList,new Comparator<Topic>(){
+    public int compare(    Topic a,    Topic b){
+      return new CompareToBuilder().append(b.getStudentListSize(),a.getStudentListSize()).toComparison();
+    }
+  }
+);
+  for (  PeriodHardConstraint periodHardConstraint : examination.getPeriodHardConstraintList()) {
+    if (periodHardConstraint.getPeriodHardConstraintType() == PeriodHardConstraintType.AFTER) {
+      int afterSideIndex=assigningTopicList.indexOf(periodHardConstraint.getLeftSideTopic());
+      int beforeSideIndex=assigningTopicList.indexOf(periodHardConstraint.getRightSideTopic());
+      if (afterSideIndex < beforeSideIndex) {
+        Topic beforeTopic=assigningTopicList.remove(beforeSideIndex);
+        assigningTopicList.add(afterSideIndex,beforeTopic);
+      }
+    }
+  }
+  return assigningTopicList;
+}
