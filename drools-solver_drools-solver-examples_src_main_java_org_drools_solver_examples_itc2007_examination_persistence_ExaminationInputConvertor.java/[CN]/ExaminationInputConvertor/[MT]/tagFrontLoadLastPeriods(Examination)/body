@@ -6,7 +6,7 @@
   }
   int minimumPeriodId=periodList.size() - frontLoadLastPeriodSize;
   if (minimumPeriodId < 0) {
-    logger.warn("The frontLoadLastPeriodSize (" + frontLoadLastPeriodSize + ") is bigger than periodListSize ("+ periodList.size()+ "). Tagging all periods as large...");
+    logger.warn("The frontLoadLastPeriodSize (" + frontLoadLastPeriodSize + ") is bigger than periodListSize ("+ periodList.size()+ "). Tagging all periods as frontLoadLast...");
     minimumPeriodId=0;
   }
   for (  Period period : periodList.subList(minimumPeriodId,periodList.size())) {
