@@ -1,5 +1,6 @@
 {
   InstitutionalWeighting institutionalWeighting=new InstitutionalWeighting();
+  institutionalWeighting.setId(0L);
   String[] lineTokens;
   lineTokens=readInstitutionalWeightingProperty(bufferedReader,"TWOINAROW",2);
   institutionalWeighting.setTwoInARowPenality(Integer.parseInt(lineTokens[1]));
