@@ -1,7 +1,7 @@
 {
   if (step != null) {
-    List<? extends Object> tabuList=findNewTabu(step);
-    for (    Object tabu : tabuList) {
+    Collection<? extends Object> tabus=findNewTabu(step);
+    for (    Object tabu : tabus) {
       if (tabuToStepIndexMap.containsKey(tabu)) {
         tabuToStepIndexMap.remove(tabu);
         tabuSequenceList.remove(tabu);

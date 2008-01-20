@@ -1,0 +1,3 @@
+{
+  return exams.iterator().next().getPeriod();
+}

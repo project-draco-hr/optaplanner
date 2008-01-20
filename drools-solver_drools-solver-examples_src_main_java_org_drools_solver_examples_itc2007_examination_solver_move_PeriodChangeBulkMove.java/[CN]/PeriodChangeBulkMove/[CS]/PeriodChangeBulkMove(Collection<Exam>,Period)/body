@@ -1,0 +1,7 @@
+{
+  this.exams=exams;
+  if (exams.isEmpty()) {
+    throw new IllegalArgumentException("The exams is empty.");
+  }
+  this.toPeriod=toPeriod;
+}

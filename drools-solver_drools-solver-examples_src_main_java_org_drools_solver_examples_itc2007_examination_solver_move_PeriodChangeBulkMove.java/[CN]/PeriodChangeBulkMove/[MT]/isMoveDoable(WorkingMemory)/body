@@ -1,0 +1,7 @@
+{
+  Period fromPeriod=extractFromPeriod();
+  if (fromPeriod == null) {
+    return (toPeriod != null);
+  }
+  return !fromPeriod.equals(toPeriod);
+}

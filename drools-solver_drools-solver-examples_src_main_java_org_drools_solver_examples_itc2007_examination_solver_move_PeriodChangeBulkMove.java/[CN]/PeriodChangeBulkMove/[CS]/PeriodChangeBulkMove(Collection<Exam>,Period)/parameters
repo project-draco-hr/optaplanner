@@ -1,0 +1,2 @@
+Collection<Exam> exams
+Period toPeriod
