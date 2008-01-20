@@ -1,8 +1,0 @@
-{
-  int score=0;
-  for (Iterator<Hop> it=workingMemory.iterateObjects(new ClassObjectFilter(Hop.class)); it.hasNext(); ) {
-    Hop hop=it.next();
-    score-=hop.getDistance();
-  }
-  return score;
-}

@@ -1,3 +1,0 @@
-{
-  return (calculateHardConstraintsScore(workingMemory) * hardConstraintsWeight) + calculateSoftConstraintsScore(workingMemory);
-}
