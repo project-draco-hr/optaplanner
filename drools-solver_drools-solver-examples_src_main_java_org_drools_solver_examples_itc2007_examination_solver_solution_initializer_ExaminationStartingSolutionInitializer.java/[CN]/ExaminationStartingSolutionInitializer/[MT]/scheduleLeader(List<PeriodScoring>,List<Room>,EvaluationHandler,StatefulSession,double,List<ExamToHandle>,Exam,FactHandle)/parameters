@@ -1,0 +1,8 @@
+List<PeriodScoring> periodScoringList
+List<Room> roomList
+EvaluationHandler evaluationHandler
+StatefulSession statefulSession
+double unscheduledScore
+List<ExamToHandle> examToHandleList
+Exam leader
+FactHandle leaderHandle

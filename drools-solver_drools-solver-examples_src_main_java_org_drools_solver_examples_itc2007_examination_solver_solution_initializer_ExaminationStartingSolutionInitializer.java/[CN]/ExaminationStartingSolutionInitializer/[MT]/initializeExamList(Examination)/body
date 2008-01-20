@@ -1,74 +1,53 @@
 {
   EvaluationHandler evaluationHandler=solver.getEvaluationHandler();
-  List<Topic> topicList=examination.getTopicList();
   List<Period> periodList=examination.getPeriodList();
   List<Room> roomList=examination.getRoomList();
-  List<Exam> examList=new ArrayList<Exam>(topicList.size());
+  List<Exam> examList=new ArrayList<Exam>(examination.getTopicList().size());
   examination.setExamList(examList);
   evaluationHandler.setSolution(examination);
   StatefulSession statefulSession=evaluationHandler.getStatefulSession();
-  List<Topic> assigningTopicList=createAssigningTopicList(examination);
-  for (  Topic topic : assigningTopicList) {
+  List<ExamInitialWeight> examInitialWeightList=createExamAssigningScoreList(examination);
+  for (  ExamInitialWeight examInitialWeight : examInitialWeightList) {
     double unscheduledScore=evaluationHandler.fireAllRulesAndCalculateStepScore();
-    Exam exam=new Exam();
-    exam.setId(topic.getId());
-    exam.setTopic(topic);
-    examList.add(exam);
-    FactHandle examHandle=null;
+    Exam leader=examInitialWeight.getExam();
+    FactHandle leaderHandle=null;
+    List<ExamToHandle> examToHandleList=new ArrayList<ExamToHandle>(5);
+    if (leader.getExamCoincidence() == null) {
+      examToHandleList.add(new ExamToHandle(leader));
+    }
+ else {
+      for (      Exam coincidenceExam : leader.getExamCoincidence().getCoincidenceExamSet()) {
+        examToHandleList.add(new ExamToHandle(coincidenceExam));
+      }
+    }
     List<PeriodScoring> periodScoringList=new ArrayList<PeriodScoring>(periodList.size());
     for (    Period period : periodList) {
-      exam.setPeriod(period);
-      if (examHandle == null) {
-        examHandle=statefulSession.insert(exam);
-      }
+      for (      ExamToHandle examToHandle : examToHandleList) {
+        examToHandle.getExam().setPeriod(period);
+        if (examToHandle.getExamHandle() == null) {
+          examToHandle.setExamHandle(statefulSession.insert(examToHandle.getExam()));
+          if (examToHandle.getExam().isCoincidenceLeader()) {
+            leaderHandle=examToHandle.getExamHandle();
+          }
+        }
  else {
-        statefulSession.update(examHandle,exam);
+          statefulSession.update(examToHandle.getExamHandle(),examToHandle.getExam());
+        }
       }
       double score=evaluationHandler.fireAllRulesAndCalculateStepScore();
       periodScoringList.add(new PeriodScoring(period,score));
     }
     Collections.sort(periodScoringList);
-    boolean perfectMatch=false;
-    double bestScore=Double.NEGATIVE_INFINITY;
-    Period bestPeriod=null;
-    Room bestRoom=null;
-    for (    PeriodScoring periodScoring : periodScoringList) {
-      if (bestScore >= periodScoring.getScore()) {
-        break;
-      }
-      exam.setPeriod(periodScoring.getPeriod());
-      for (      Room room : roomList) {
-        exam.setRoom(room);
-        statefulSession.update(examHandle,exam);
-        double score=evaluationHandler.fireAllRulesAndCalculateStepScore();
-        if (score < unscheduledScore) {
-          if (score > bestScore) {
-            bestScore=score;
-            bestPeriod=periodScoring.getPeriod();
-            bestRoom=room;
-          }
-        }
- else         if (score == unscheduledScore) {
-          perfectMatch=true;
-          break;
-        }
- else {
-          throw new IllegalStateException("The score (" + score + ") cannot be higher than unscheduledScore ("+ unscheduledScore+ ").");
-        }
-      }
-      if (perfectMatch) {
-        break;
+    scheduleLeader(periodScoringList,roomList,evaluationHandler,statefulSession,unscheduledScore,examToHandleList,leader,leaderHandle);
+    examList.add(leader);
+    for (    ExamToHandle examToHandle : examToHandleList) {
+      Exam exam=examToHandle.getExam();
+      if (!exam.isCoincidenceLeader()) {
+        scheduleNonLeader(roomList,evaluationHandler,statefulSession,exam,examToHandle.getExamHandle());
+        examList.add(exam);
       }
     }
-    if (!perfectMatch) {
-      if (bestPeriod == null || bestRoom == null) {
-        throw new IllegalStateException("The bestPeriod (" + bestPeriod + ") or the bestRoom ("+ bestRoom+ ") cannot be null.");
-      }
-      exam.setPeriod(bestPeriod);
-      exam.setRoom(bestRoom);
-      statefulSession.update(examHandle,exam);
-    }
-    logger.debug("    Exam ({}) initialized for starting solution.",exam);
   }
   Collections.sort(examList,new PersistableIdComparator());
+  examination.setExamList(examList);
 }

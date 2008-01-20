@@ -1,0 +1,5 @@
+List<Room> roomList
+EvaluationHandler evaluationHandler
+StatefulSession statefulSession
+Exam exam
+FactHandle examHandle

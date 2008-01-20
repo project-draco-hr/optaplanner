@@ -1,0 +1,30 @@
+{
+  List<Exam> examList=createExamList(examination);
+  List<ExamInitialWeight> examInitialWeightList=new ArrayList<ExamInitialWeight>(examList.size());
+  for (  Exam exam : examList) {
+    if (exam.isCoincidenceLeader()) {
+      examInitialWeightList.add(new ExamInitialWeight(exam));
+    }
+  }
+  Collections.sort(examInitialWeightList);
+  for (  PeriodHardConstraint periodHardConstraint : examination.getPeriodHardConstraintList()) {
+    if (periodHardConstraint.getPeriodHardConstraintType() == PeriodHardConstraintType.AFTER) {
+      int afterSideIndex=-1;
+      int beforeSideIndex=-1;
+      for (int i=0; i < examInitialWeightList.size(); i++) {
+        Topic topic=examInitialWeightList.get(i).getExam().getTopic();
+        if (topic.equals(periodHardConstraint.getLeftSideTopic())) {
+          afterSideIndex=i;
+        }
+        if (topic.equals(periodHardConstraint.getRightSideTopic())) {
+          beforeSideIndex=i;
+        }
+      }
+      if (afterSideIndex < beforeSideIndex) {
+        ExamInitialWeight beforeExamInitialWeight=examInitialWeightList.remove(beforeSideIndex);
+        examInitialWeightList.add(afterSideIndex,beforeExamInitialWeight);
+      }
+    }
+  }
+  return examInitialWeightList;
+}

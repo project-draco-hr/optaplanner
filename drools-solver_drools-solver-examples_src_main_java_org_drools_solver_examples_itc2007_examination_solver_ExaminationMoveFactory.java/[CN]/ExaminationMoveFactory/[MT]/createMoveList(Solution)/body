@@ -1,11 +1,22 @@
 {
   Examination examination=(Examination)solution;
+  List<Period> periodList=examination.getPeriodList();
+  List<Room> roomList=examination.getRoomList();
   List<Move> moveList=new ArrayList<Move>();
   for (  Exam exam : examination.getExamList()) {
-    for (    Period period : examination.getPeriodList()) {
-      moveList.add(new PeriodChangeMove(exam,period));
+    if (exam.getExamCoincidence() != null) {
+      if (exam.isCoincidenceLeader()) {
+        for (        Period period : periodList) {
+          moveList.add(new PeriodChangeBulkMove(exam.getExamCoincidence().getCoincidenceExamSet(),period));
+        }
+      }
     }
-    for (    Room room : examination.getRoomList()) {
+ else {
+      for (      Period period : periodList) {
+        moveList.add(new PeriodChangeMove(exam,period));
+      }
+    }
+    for (    Room room : roomList) {
       moveList.add(new RoomChangeMove(exam,room));
     }
   }

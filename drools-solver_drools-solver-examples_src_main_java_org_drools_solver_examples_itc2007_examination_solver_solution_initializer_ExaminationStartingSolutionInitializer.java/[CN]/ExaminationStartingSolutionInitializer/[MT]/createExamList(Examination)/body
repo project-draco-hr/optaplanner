@@ -1,0 +1,37 @@
+{
+  List<Topic> topicList=examination.getTopicList();
+  List<Exam> examList=new ArrayList<Exam>(topicList.size());
+  Map<Topic,Exam> topicToExamMap=new HashMap<Topic,Exam>(topicList.size());
+  for (  Topic topic : topicList) {
+    Exam exam=new Exam();
+    exam.setId(topic.getId());
+    exam.setTopic(topic);
+    examList.add(exam);
+    topicToExamMap.put(topic,exam);
+  }
+  for (  PeriodHardConstraint periodHardConstraint : examination.getPeriodHardConstraintList()) {
+    if (periodHardConstraint.getPeriodHardConstraintType() == PeriodHardConstraintType.EXAM_COINCIDENCE) {
+      Exam leftExam=topicToExamMap.get(periodHardConstraint.getLeftSideTopic());
+      Exam rightExam=topicToExamMap.get(periodHardConstraint.getRightSideTopic());
+      Set<Exam> newCoincidenceExamSet=new HashSet<Exam>();
+      ExamCoincidence leftExamCoincidence=leftExam.getExamCoincidence();
+      if (leftExamCoincidence != null) {
+        newCoincidenceExamSet.addAll(leftExamCoincidence.getCoincidenceExamSet());
+      }
+ else {
+        newCoincidenceExamSet.add(leftExam);
+      }
+      ExamCoincidence rightExamCoincidence=rightExam.getExamCoincidence();
+      if (rightExamCoincidence != null) {
+        newCoincidenceExamSet.addAll(rightExamCoincidence.getCoincidenceExamSet());
+      }
+ else {
+        newCoincidenceExamSet.add(rightExam);
+      }
+      ExamCoincidence newExamCoincidence=new ExamCoincidence(newCoincidenceExamSet);
+      leftExam.setExamCoincidence(newExamCoincidence);
+      rightExam.setExamCoincidence(newExamCoincidence);
+    }
+  }
+  return examList;
+}

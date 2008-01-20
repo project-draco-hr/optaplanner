@@ -1,0 +1,8 @@
+{
+  this.coincidenceExamSet=coincidenceExamSet;
+  for (  Exam exam : coincidenceExamSet) {
+    if (firstExam == null || firstExam.getId() > exam.getId()) {
+      firstExam=exam;
+    }
+  }
+}
