@@ -13,7 +13,7 @@
     if (periodHardConstraint.getPeriodHardConstraintType() == PeriodHardConstraintType.EXAM_COINCIDENCE) {
       Exam leftExam=topicToExamMap.get(periodHardConstraint.getLeftSideTopic());
       Exam rightExam=topicToExamMap.get(periodHardConstraint.getRightSideTopic());
-      Set<Exam> newCoincidenceExamSet=new HashSet<Exam>();
+      Set<Exam> newCoincidenceExamSet=new LinkedHashSet<Exam>(4);
       ExamCoincidence leftExamCoincidence=leftExam.getExamCoincidence();
       if (leftExamCoincidence != null) {
         newCoincidenceExamSet.addAll(leftExamCoincidence.getCoincidenceExamSet());
@@ -31,6 +31,16 @@
       ExamCoincidence newExamCoincidence=new ExamCoincidence(newCoincidenceExamSet);
       leftExam.setExamCoincidence(newExamCoincidence);
       rightExam.setExamCoincidence(newExamCoincidence);
+    }
+ else     if (periodHardConstraint.getPeriodHardConstraintType() == PeriodHardConstraintType.AFTER) {
+      Exam afterExam=topicToExamMap.get(periodHardConstraint.getLeftSideTopic());
+      Exam beforeExam=topicToExamMap.get(periodHardConstraint.getRightSideTopic());
+      ExamBefore examBefore=beforeExam.getExamBefore();
+      if (examBefore == null) {
+        examBefore=new ExamBefore(new LinkedHashSet<Exam>(2));
+        beforeExam.setExamBefore(examBefore);
+      }
+      examBefore.getAfterExamSet().add(afterExam);
     }
   }
   return examList;

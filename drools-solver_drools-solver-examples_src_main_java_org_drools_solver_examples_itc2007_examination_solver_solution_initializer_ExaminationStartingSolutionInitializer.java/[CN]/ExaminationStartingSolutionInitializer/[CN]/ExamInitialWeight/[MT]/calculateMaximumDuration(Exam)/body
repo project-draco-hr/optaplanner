@@ -1,0 +1,14 @@
+{
+  int innerMaximumDuration=innerExam.getTopic().getDuration();
+  if (innerExam.getExamCoincidence() != null) {
+    for (    Exam coincidenceExam : innerExam.getExamCoincidence().getCoincidenceExamSet()) {
+      innerMaximumDuration=Math.max(innerMaximumDuration,coincidenceExam.getTopicStudentListSize());
+    }
+  }
+  if (innerExam.getExamBefore() != null) {
+    for (    Exam afterExam : innerExam.getExamBefore().getAfterExamSet()) {
+      innerMaximumDuration=Math.max(innerMaximumDuration,calculateMaximumDuration(afterExam));
+    }
+  }
+  return innerMaximumDuration;
+}
