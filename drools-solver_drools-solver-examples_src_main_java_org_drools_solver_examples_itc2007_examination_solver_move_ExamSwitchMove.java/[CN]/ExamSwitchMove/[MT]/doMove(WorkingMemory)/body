@@ -1,0 +1,12 @@
+{
+  FactHandle leftExamHandle=workingMemory.getFactHandle(leftExam);
+  FactHandle rightExamHandle=workingMemory.getFactHandle(rightExam);
+  Period oldLeftPeriod=leftExam.getPeriod();
+  Room oldLeftRoom=leftExam.getRoom();
+  leftExam.setPeriod(rightExam.getPeriod());
+  leftExam.setRoom(rightExam.getRoom());
+  rightExam.setPeriod(oldLeftPeriod);
+  rightExam.setRoom(oldLeftRoom);
+  workingMemory.update(leftExamHandle,leftExam);
+  workingMemory.update(rightExamHandle,rightExam);
+}

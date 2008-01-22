@@ -1,4 +1,3 @@
 {
-  int fromY=queen.getY();
-  return fromY != toY;
+  return queen.getY() != toY;
 }

@@ -1,7 +1,3 @@
 {
-  Day fromDay=match.getDay();
-  if (fromDay == null) {
-    return (toDay != null);
-  }
-  return !fromDay.equals(toDay);
+  return !ObjectUtils.equals(match.getDay(),toDay);
 }

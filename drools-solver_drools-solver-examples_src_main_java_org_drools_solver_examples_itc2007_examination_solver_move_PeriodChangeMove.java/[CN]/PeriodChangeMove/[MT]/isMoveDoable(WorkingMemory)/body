@@ -1,7 +1,3 @@
 {
-  Period fromPeriod=exam.getPeriod();
-  if (fromPeriod == null) {
-    return (toPeriod != null);
-  }
-  return !fromPeriod.equals(toPeriod);
+  return !ObjectUtils.equals(exam.getPeriod(),toPeriod);
 }

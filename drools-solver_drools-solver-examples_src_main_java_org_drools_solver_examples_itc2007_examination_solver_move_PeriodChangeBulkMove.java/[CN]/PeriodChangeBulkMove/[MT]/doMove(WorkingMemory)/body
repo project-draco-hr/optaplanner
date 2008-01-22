@@ -1,7 +1,7 @@
 {
   for (  Exam exam : exams) {
-    FactHandle lessonHandle=workingMemory.getFactHandle(exam);
+    FactHandle examHandle=workingMemory.getFactHandle(exam);
     exam.setPeriod(toPeriod);
-    workingMemory.update(lessonHandle,exam);
+    workingMemory.update(examHandle,exam);
   }
 }

@@ -1,5 +1,5 @@
 {
-  FactHandle lessonHandle=workingMemory.getFactHandle(exam);
+  FactHandle examHandle=workingMemory.getFactHandle(exam);
   exam.setRoom(toRoom);
-  workingMemory.update(lessonHandle,exam);
+  workingMemory.update(examHandle,exam);
 }

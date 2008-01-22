@@ -1,0 +1,4 @@
+{
+  this.leftExam=leftExam;
+  this.rightExam=rightExam;
+}

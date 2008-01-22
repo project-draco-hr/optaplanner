@@ -1,7 +1,3 @@
 {
-  Timeslot fromTimeslot=lesson.getTimeslot();
-  if (fromTimeslot == null) {
-    return (toTimeslot != null);
-  }
-  return !fromTimeslot.equals(toTimeslot);
+  return !ObjectUtils.equals(lesson.getTimeslot(),toTimeslot);
 }
