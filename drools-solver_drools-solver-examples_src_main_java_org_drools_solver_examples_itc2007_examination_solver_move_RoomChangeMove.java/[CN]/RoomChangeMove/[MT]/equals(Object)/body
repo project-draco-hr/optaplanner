@@ -2,7 +2,7 @@
   if (this == o) {
     return true;
   }
- else   if (o instanceof PeriodChangeMove) {
+ else   if (o instanceof RoomChangeMove) {
     RoomChangeMove other=(RoomChangeMove)o;
     return new EqualsBuilder().append(exam,other.exam).append(toRoom,other.toRoom).isEquals();
   }
