@@ -1,5 +1,5 @@
 {
-  moveFactory.stepDecided(step);
+  selector.stepDecided(step);
   accepter.stepDecided(step);
   forager.stepDecided(step);
 }

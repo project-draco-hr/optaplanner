@@ -1,0 +1,11 @@
+{
+  Examination examination=(Examination)solution;
+  List<Room> roomList=examination.getRoomList();
+  List<Move> moveList=new ArrayList<Move>();
+  for (  Exam exam : examination.getExamList()) {
+    for (    Room room : roomList) {
+      moveList.add(new RoomChangeMove(exam,room));
+    }
+  }
+  return moveList;
+}

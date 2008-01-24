@@ -1,3 +1,0 @@
-{
-  cachedMoveList=createMoveList(localSearchSolver.getCurrentSolution());
-}

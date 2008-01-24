@@ -1,0 +1,43 @@
+{
+  if (selectorConfigList != null) {
+    List<Selector> selectorList=new ArrayList<Selector>(selectorConfigList.size());
+    for (    SelectorConfig selectorConfig : selectorConfigList) {
+      selectorList.add(selectorConfig.buildSelector());
+    }
+    CompositeSelector selector=new CompositeSelector();
+    selector.setSelectorList(selectorList);
+    return selector;
+  }
+ else   if (moveFactory != null || moveFactoryClass != null) {
+    MoveFactory initializedMoveFactory;
+    if (moveFactory != null) {
+      initializedMoveFactory=moveFactory;
+    }
+ else {
+      try {
+        initializedMoveFactory=moveFactoryClass.newInstance();
+      }
+ catch (      InstantiationException e) {
+        throw new IllegalArgumentException("The moveFactoryClass (" + moveFactoryClass.getName() + ") does not have a public no-arg constructor",e);
+      }
+catch (      IllegalAccessException e) {
+        throw new IllegalArgumentException("The moveFactoryClass (" + moveFactoryClass.getName() + ") does not have a public no-arg constructor",e);
+      }
+    }
+    MoveFactorySelector selector=new MoveFactorySelector();
+    selector.setMoveFactory(initializedMoveFactory);
+    if (shuffle != null) {
+      selector.setShuffle(shuffle.booleanValue());
+    }
+ else {
+      selector.setShuffle(relativeSelection != null);
+    }
+    if (relativeSelection != null) {
+      selector.setRelativeSelection(relativeSelection);
+    }
+    return selector;
+  }
+ else {
+    throw new IllegalArgumentException("A selector with a moveFactory or moveFactory class is required.");
+  }
+}

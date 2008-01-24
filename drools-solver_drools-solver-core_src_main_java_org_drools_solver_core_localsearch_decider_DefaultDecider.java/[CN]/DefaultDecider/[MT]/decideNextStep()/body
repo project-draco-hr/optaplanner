@@ -1,6 +1,6 @@
 {
   WorkingMemory workingMemory=localSearchSolver.getEvaluationHandler().getStatefulSession();
-  for (  Move move : moveFactory) {
+  for (  Move move : selector.selectMoveList()) {
     if (move.isMoveDoable(workingMemory)) {
       doMove(move);
     }

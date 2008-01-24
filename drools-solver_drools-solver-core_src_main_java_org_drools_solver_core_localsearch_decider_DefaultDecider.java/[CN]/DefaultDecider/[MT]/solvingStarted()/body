@@ -1,5 +1,5 @@
 {
-  moveFactory.solvingStarted();
+  selector.solvingStarted();
   accepter.solvingStarted();
   forager.solvingStarted();
 }

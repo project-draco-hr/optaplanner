@@ -1,0 +1,20 @@
+{
+  Examination examination=(Examination)solution;
+  List<Period> periodList=examination.getPeriodList();
+  List<Move> moveList=new ArrayList<Move>();
+  for (  Exam exam : examination.getExamList()) {
+    if (exam.getExamCoincidence() != null) {
+      if (exam.isCoincidenceLeader()) {
+        for (        Period period : periodList) {
+          moveList.add(new PeriodChangeBulkMove(exam.getExamCoincidence().getCoincidenceExamSet(),period));
+        }
+      }
+    }
+ else {
+      for (      Period period : periodList) {
+        moveList.add(new PeriodChangeMove(exam,period));
+      }
+    }
+  }
+  return moveList;
+}
