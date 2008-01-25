@@ -1,3 +1,3 @@
 {
-  return id + " {" + capacity+ "}";
+  return id + "_c" + capacity;
 }
