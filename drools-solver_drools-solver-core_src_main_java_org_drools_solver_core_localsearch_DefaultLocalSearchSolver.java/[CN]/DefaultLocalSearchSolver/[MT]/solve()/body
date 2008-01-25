@@ -4,10 +4,10 @@
     beforeDeciding();
     Move nextStep=decider.decideNextStep();
     if (nextStep == null) {
-      logger.warn("No move accepted for step ({}) out of {} accepted moves. Finishing early.",getStepIndex(),decider.getAcceptedMovesSize());
+      logger.warn("No move accepted for step ({}) out of {} accepted moves. Finishing early.",getStepIndex(),decider.getForager().getAcceptedMovesSize());
       break;
     }
-    logger.info("Step index ({}), time spend ({}) taking step ({}) out of {} accepted moves.",new Object[]{getStepIndex(),getTimeMillisSpend(),nextStep,decider.getAcceptedMovesSize()});
+    logger.info("Step index ({}), time spend ({}) taking step ({}) out of {} accepted moves.",new Object[]{getStepIndex(),getTimeMillisSpend(),nextStep,decider.getForager().getAcceptedMovesSize()});
     stepDecided(nextStep);
     nextStep.doMove(evaluationHandler.getStatefulSession());
     stepScore=evaluationHandler.fireAllRulesAndCalculateStepScore();
