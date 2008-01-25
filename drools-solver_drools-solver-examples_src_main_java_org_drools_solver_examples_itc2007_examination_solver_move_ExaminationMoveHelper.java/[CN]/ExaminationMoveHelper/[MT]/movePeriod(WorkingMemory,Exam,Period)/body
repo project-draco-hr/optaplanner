@@ -1,0 +1,5 @@
+{
+  exam.setPeriod(period);
+  workingMemory.update(workingMemory.getFactHandle(exam),exam);
+  movePeriodCoincidene(workingMemory,exam,period);
+}

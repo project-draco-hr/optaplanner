@@ -1,5 +1,3 @@
 {
-  FactHandle examHandle=workingMemory.getFactHandle(exam);
-  exam.setRoom(toRoom);
-  workingMemory.update(examHandle,exam);
+  ExaminationMoveHelper.moveRoom(workingMemory,exam,toRoom);
 }

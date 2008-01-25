@@ -1,5 +1,3 @@
 {
-  FactHandle examHandle=workingMemory.getFactHandle(exam);
-  exam.setPeriod(toPeriod);
-  workingMemory.update(examHandle,exam);
+  ExaminationMoveHelper.movePeriod(workingMemory,exam,toPeriod);
 }

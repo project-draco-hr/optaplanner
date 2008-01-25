@@ -1,0 +1,10 @@
+{
+  if (exam.getExamCoincidence() != null) {
+    for (    Exam coincidenceExam : exam.getExamCoincidence().getCoincidenceExamSet()) {
+      if (!exam.equals(coincidenceExam)) {
+        coincidenceExam.setPeriod(period);
+        workingMemory.update(workingMemory.getFactHandle(coincidenceExam),coincidenceExam);
+      }
+    }
+  }
+}

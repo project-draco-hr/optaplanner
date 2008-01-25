@@ -1,0 +1,4 @@
+{
+  exam.setRoom(room);
+  workingMemory.update(workingMemory.getFactHandle(exam),exam);
+}
