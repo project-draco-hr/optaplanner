@@ -1,11 +1,11 @@
 {
   int innerTotalStudentSize=0;
   if (innerExam.getExamCoincidence() == null) {
-    innerTotalStudentSize=innerExam.getTopicStudentListSize();
+    innerTotalStudentSize=innerExam.getTopicStudentSize();
   }
  else {
     for (    Exam coincidenceExam : innerExam.getExamCoincidence().getCoincidenceExamSet()) {
-      innerTotalStudentSize+=coincidenceExam.getTopicStudentListSize();
+      innerTotalStudentSize+=coincidenceExam.getTopicStudentSize();
     }
   }
   if (innerExam.getExamBefore() != null) {
