@@ -1,0 +1,3 @@
+{
+  return new CompareToBuilder().append(constraintType,other.constraintType).append(ruleId,other.ruleId).toComparison();
+}
