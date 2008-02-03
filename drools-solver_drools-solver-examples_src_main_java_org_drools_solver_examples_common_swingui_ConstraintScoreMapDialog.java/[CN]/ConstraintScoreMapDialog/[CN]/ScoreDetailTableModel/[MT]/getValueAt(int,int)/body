@@ -1,0 +1,15 @@
+{
+  ScoreDetail scoreDetail=scoreDetailList.get(rowIndex);
+switch (columnIndex) {
+case 0:
+    return scoreDetail.getRuleId();
+case 1:
+  return scoreDetail.getConstraintType();
+case 2:
+return scoreDetail.getOccurenceSize();
+case 3:
+return scoreDetail.getScoreTotal();
+default :
+throw new IllegalStateException("The columnIndex (" + columnIndex + ") is invalid.");
+}
+}

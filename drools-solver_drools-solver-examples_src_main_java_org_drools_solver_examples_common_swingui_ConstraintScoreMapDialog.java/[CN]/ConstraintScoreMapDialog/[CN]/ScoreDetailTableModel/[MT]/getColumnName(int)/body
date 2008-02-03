@@ -1,0 +1,14 @@
+{
+switch (columnIndex) {
+case 0:
+    return "Rule id";
+case 1:
+  return "Constraint type";
+case 2:
+return "# occurences";
+case 3:
+return "Score total";
+default :
+throw new IllegalStateException("The columnIndex (" + columnIndex + ") is invalid.");
+}
+}
