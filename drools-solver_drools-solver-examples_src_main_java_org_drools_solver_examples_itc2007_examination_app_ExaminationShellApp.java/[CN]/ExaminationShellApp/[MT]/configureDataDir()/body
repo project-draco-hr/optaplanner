@@ -1,0 +1,11 @@
+{
+  File dataDir=new File("data/itc2007/examination/");
+  inputDir=new File(dataDir,"input");
+  if (!inputDir.exists()) {
+    throw new IllegalStateException("The directory inputDir (" + inputDir.getAbsolutePath() + ") does not exist. The working directory should be set to the script directory"+ " or to drools-solver-examples.");
+  }
+  outputDir=new File(dataDir,"output");
+  if (!outputDir.exists()) {
+    throw new IllegalStateException("The directory outputDir (" + outputDir.getAbsolutePath() + ") does not exist. The working directory should be set to the script directory"+ " or to drools-solver-examples.");
+  }
+}

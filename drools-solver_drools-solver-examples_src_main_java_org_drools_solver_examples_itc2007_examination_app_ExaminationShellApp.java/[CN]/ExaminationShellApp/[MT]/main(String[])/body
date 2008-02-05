@@ -1,0 +1,16 @@
+{
+  if (args.length != 1) {
+    System.out.println("Use exactly 1 program argument (maximumSecondsSpend). Exiting...");
+    System.exit(1);
+  }
+  long maximumSecondsSpend;
+  try {
+    maximumSecondsSpend=Long.parseLong(args[0]);
+  }
+ catch (  NumberFormatException e) {
+    System.out.println("The program argument maximumSecondsSpend (" + args[0] + ") is not a number."+ " Exiting...");
+    System.exit(1);
+    maximumSecondsSpend=0L;
+  }
+  new ExaminationShellApp(maximumSecondsSpend).processs();
+}

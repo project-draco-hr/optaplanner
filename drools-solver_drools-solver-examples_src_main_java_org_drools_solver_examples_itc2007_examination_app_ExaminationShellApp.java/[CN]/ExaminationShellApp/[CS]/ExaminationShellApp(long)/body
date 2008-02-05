@@ -1,0 +1,4 @@
+{
+  configureSolver(maximumSecondsSpend);
+  configureDataDir();
+}
