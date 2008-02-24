@@ -1,7 +1,7 @@
 List<PeriodScoring> periodScoringList
 List<Room> roomList
 EvaluationHandler evaluationHandler
-StatefulSession statefulSession
+WorkingMemory workingMemory
 double unscheduledScore
 List<ExamToHandle> examToHandleList
 Exam leader

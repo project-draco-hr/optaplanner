@@ -1,5 +1,6 @@
 {
   FactHandle queenHandle=workingMemory.getFactHandle(queen);
+  workingMemory.modifyRetract(queenHandle);
   queen.setY(toY);
-  workingMemory.update(queenHandle,queen);
+  workingMemory.modifyInsert(queenHandle,queen);
 }

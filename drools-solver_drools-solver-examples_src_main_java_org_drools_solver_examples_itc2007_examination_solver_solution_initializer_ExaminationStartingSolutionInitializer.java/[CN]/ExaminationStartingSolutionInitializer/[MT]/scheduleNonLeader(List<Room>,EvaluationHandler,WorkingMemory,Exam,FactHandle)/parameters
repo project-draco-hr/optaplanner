@@ -1,5 +1,5 @@
 List<Room> roomList
 EvaluationHandler evaluationHandler
-StatefulSession statefulSession
+WorkingMemory workingMemory
 Exam exam
 FactHandle examHandle

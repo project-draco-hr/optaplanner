@@ -7,8 +7,9 @@
   double bestScore=Double.NEGATIVE_INFINITY;
   Room bestRoom=null;
   for (  Room room : roomList) {
+    workingMemory.modifyRetract(examHandle);
     exam.setRoom(room);
-    statefulSession.update(examHandle,exam);
+    workingMemory.modifyInsert(examHandle,exam);
     double score=evaluationHandler.fireAllRulesAndCalculateStepScore();
     if (score < unscheduledScore) {
       if (score > bestScore) {
@@ -28,8 +29,9 @@
     if (bestRoom == null) {
       throw new IllegalStateException("The bestRoom (" + bestRoom + ") cannot be null.");
     }
+    workingMemory.modifyRetract(examHandle);
     exam.setRoom(bestRoom);
-    statefulSession.update(examHandle,exam);
+    workingMemory.modifyInsert(examHandle,exam);
   }
   logger.debug("    Exam ({}) initialized for starting solution. *",exam);
 }

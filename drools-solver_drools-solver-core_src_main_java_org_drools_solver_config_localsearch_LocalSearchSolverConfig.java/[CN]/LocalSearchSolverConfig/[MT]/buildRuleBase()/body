@@ -18,7 +18,9 @@ catch (    IOException e) {
       IOUtils.closeQuietly(scoreDrlIn);
     }
   }
-  RuleBase ruleBase=RuleBaseFactory.newRuleBase();
+  RuleBaseConfiguration ruleBaseConfiguration=new RuleBaseConfiguration();
+  ruleBaseConfiguration.setShadowProxy(false);
+  RuleBase ruleBase=RuleBaseFactory.newRuleBase(ruleBaseConfiguration);
   try {
     ruleBase.addPackage(packageBuilder.getPackage());
   }
