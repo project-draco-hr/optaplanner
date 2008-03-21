@@ -1,0 +1,19 @@
+{
+  CurriculumCourseSchedule schedule=new CurriculumCourseSchedule();
+  schedule.setId(0L);
+  schedule.setName(readParam(bufferedReader,"Name:"));
+  int courseListSize=Integer.parseInt(readParam(bufferedReader,"Courses:"));
+  int roomListSize=Integer.parseInt(readParam(bufferedReader,"Rooms:"));
+  int dayListSize=Integer.parseInt(readParam(bufferedReader,"Days:"));
+  int timeslotListSize=Integer.parseInt(readParam(bufferedReader,"Periods_per_day:"));
+  int curriculumListSize=Integer.parseInt(readParam(bufferedReader,"Curricula:"));
+  int unavailablePeriodConstraintListSize=Integer.parseInt(readParam(bufferedReader,"Constraints:"));
+  Map<String,Course> courseMap=readCourseListAndTeacherList(bufferedReader,schedule,courseListSize);
+  readRoomList(bufferedReader,schedule,roomListSize);
+  Map<Integer[],Period> periodMap=createPeriodListAndDayListAndTimeslotList(schedule,dayListSize,timeslotListSize);
+  readCurriculumList(bufferedReader,schedule,courseMap,curriculumListSize);
+  readUnavailablePeriodConstraintList(bufferedReader,schedule,courseMap,periodMap,unavailablePeriodConstraintListSize);
+  readHeader(bufferedReader,"END.");
+  logger.info("CurriculumCourseSchedule with {} teachers, {} curricula, {} courses, {} periods, {} rooms" + " and {} unavailable period constraints.",new Object[]{schedule.getTeacherList().size(),schedule.getCurriculumList().size(),schedule.getCourseList().size(),schedule.getPeriodList().size(),schedule.getRoomList().size(),schedule.getUnavailablePeriodConstraintList().size()});
+  return schedule;
+}

@@ -1,0 +1,3 @@
+CurriculumCourseSchedule schedule
+int dayListSize
+int timeslotListSize

@@ -1,0 +1,10 @@
+{
+  String line=bufferedReader.readLine();
+  if (line.length() != 0) {
+    throw new IllegalArgumentException("Read line (" + line + ") is expected to be empty"+ " and be followed with a line \""+ header+ "\".");
+  }
+  line=bufferedReader.readLine();
+  if (!line.equals(header)) {
+    throw new IllegalArgumentException("Read line (" + line + ") is expected to be \""+ header+ "\".");
+  }
+}

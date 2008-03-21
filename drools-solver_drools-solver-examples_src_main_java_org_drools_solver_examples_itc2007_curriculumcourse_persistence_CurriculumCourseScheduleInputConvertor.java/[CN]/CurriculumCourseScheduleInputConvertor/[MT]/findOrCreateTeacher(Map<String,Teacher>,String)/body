@@ -1,0 +1,11 @@
+{
+  Teacher teacher=teacherMap.get(code);
+  if (teacher == null) {
+    teacher=new Teacher();
+    int id=teacherMap.size();
+    teacher.setId((long)id);
+    teacher.setCode(code);
+    teacherMap.put(code,teacher);
+  }
+  return teacher;
+}

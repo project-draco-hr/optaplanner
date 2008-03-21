@@ -1,0 +1,5 @@
+BufferedReader bufferedReader
+CurriculumCourseSchedule schedule
+Map<String,Course> courseMap
+Map<Integer[],Period> periodMap
+int unavailablePeriodConstraintListSize

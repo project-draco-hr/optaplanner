@@ -1,0 +1,3 @@
+{
+  new CurriculumCourseScheduleInputConvertor().convert();
+}

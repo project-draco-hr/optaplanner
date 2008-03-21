@@ -1,0 +1,26 @@
+{
+  Map<String,Course> courseMap=new HashMap<String,Course>(courseListSize);
+  Map<String,Teacher> teacherMap=new HashMap<String,Teacher>();
+  List<Course> courseList=new ArrayList<Course>(courseListSize);
+  readHeader(bufferedReader,"COURSES:");
+  for (int i=0; i < courseListSize; i++) {
+    Course course=new Course();
+    course.setId((long)i);
+    String line=bufferedReader.readLine();
+    String[] lineTokens=line.split(SPLIT_REGEX);
+    if (lineTokens.length != 5) {
+      throw new IllegalArgumentException("Read line (" + line + ") is expected to contain 4 tokens.");
+    }
+    course.setCode(lineTokens[0]);
+    course.setTeacher(findOrCreateTeacher(teacherMap,lineTokens[1]));
+    course.setLectureSize(Integer.parseInt(lineTokens[2]));
+    course.setMinWorkingDaySize(Integer.parseInt(lineTokens[3]));
+    course.setStudentSize(Integer.parseInt(lineTokens[4]));
+    courseList.add(course);
+    courseMap.put(course.getCode(),course);
+  }
+  schedule.setCourseList(courseList);
+  List<Teacher> teacherList=new ArrayList<Teacher>(teacherMap.values());
+  schedule.setTeacherList(teacherList);
+  return courseMap;
+}
