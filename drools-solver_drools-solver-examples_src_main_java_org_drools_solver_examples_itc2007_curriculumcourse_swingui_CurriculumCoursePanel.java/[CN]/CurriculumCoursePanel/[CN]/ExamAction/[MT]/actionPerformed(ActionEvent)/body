@@ -1,2 +1,19 @@
 {
+  JPanel listFieldsPanel=new JPanel(new GridLayout(2,1));
+  List<Period> periodList=getCurriculumCourseSchedule().getPeriodList();
+  JComboBox periodListField=new JComboBox(periodList.toArray());
+  periodListField.setSelectedItem(lecture.getPeriod());
+  listFieldsPanel.add(periodListField);
+  List<Room> roomList=getCurriculumCourseSchedule().getRoomList();
+  JComboBox roomListField=new JComboBox(roomList.toArray());
+  roomListField.setSelectedItem(lecture.getRoom());
+  listFieldsPanel.add(roomListField);
+  int result=JOptionPane.showConfirmDialog(CurriculumCoursePanel.this.getRootPane(),listFieldsPanel,"Select period and room",JOptionPane.OK_CANCEL_OPTION);
+  if (result == JOptionPane.OK_OPTION) {
+    Period toPeriod=(Period)periodListField.getSelectedItem();
+    solutionBusiness.doMove(new PeriodChangeMove(lecture,toPeriod));
+    Room toRoom=(Room)roomListField.getSelectedItem();
+    solutionBusiness.doMove(new RoomChangeMove(lecture,toRoom));
+    workflowFrame.updateScreen();
+  }
 }
