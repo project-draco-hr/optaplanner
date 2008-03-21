@@ -1,0 +1,16 @@
+{
+  EvaluationHandler evaluationHandler=solver.getEvaluationHandler();
+  List<Period> periodList=schedule.getPeriodList();
+  List<Room> roomList=schedule.getRoomList();
+  evaluationHandler.setSolution(schedule);
+  WorkingMemory workingMemory=evaluationHandler.getStatefulSession();
+  List<Lecture> lectureList=createLectureList(schedule);
+  int tmp=0;
+  for (  Lecture lecture : lectureList) {
+    lecture.setPeriod(periodList.get(tmp % periodList.size()));
+    lecture.setRoom(roomList.get(tmp % roomList.size()));
+    tmp++;
+  }
+  Collections.sort(lectureList,new PersistableIdComparator());
+  schedule.setLectureList(lectureList);
+}

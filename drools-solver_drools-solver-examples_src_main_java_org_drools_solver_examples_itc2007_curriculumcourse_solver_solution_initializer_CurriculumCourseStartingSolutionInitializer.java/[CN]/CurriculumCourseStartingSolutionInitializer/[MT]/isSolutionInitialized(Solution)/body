@@ -1,0 +1,4 @@
+{
+  CurriculumCourseSchedule schedule=(CurriculumCourseSchedule)solution;
+  return schedule.isInitialized();
+}
