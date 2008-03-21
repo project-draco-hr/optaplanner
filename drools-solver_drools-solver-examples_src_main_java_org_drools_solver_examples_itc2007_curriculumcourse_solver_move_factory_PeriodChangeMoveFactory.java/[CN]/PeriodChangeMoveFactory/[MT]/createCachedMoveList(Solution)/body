@@ -1,0 +1,11 @@
+{
+  CurriculumCourseSchedule schedule=(CurriculumCourseSchedule)solution;
+  List<Period> periodList=schedule.getPeriodList();
+  List<Move> moveList=new ArrayList<Move>();
+  for (  Lecture lecture : schedule.getLectureList()) {
+    for (    Period period : periodList) {
+      moveList.add(new PeriodChangeMove(lecture,period));
+    }
+  }
+  return moveList;
+}

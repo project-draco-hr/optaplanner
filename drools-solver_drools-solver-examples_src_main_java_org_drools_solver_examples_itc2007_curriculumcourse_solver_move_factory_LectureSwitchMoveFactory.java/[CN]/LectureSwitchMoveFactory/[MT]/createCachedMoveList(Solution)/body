@@ -1,0 +1,13 @@
+{
+  CurriculumCourseSchedule schedule=(CurriculumCourseSchedule)localSearchSolver.getCurrentSolution();
+  List<Lecture> lectureList=schedule.getLectureList();
+  List<Move> moveList=new ArrayList<Move>();
+  for (ListIterator<Lecture> leftIt=lectureList.listIterator(); leftIt.hasNext(); ) {
+    Lecture leftLecture=leftIt.next();
+    for (ListIterator<Lecture> rightIt=lectureList.listIterator(leftIt.nextIndex()); rightIt.hasNext(); ) {
+      Lecture rightLecture=rightIt.next();
+      moveList.add(new LectureSwitchMove(leftLecture,rightLecture));
+    }
+  }
+  return moveList;
+}

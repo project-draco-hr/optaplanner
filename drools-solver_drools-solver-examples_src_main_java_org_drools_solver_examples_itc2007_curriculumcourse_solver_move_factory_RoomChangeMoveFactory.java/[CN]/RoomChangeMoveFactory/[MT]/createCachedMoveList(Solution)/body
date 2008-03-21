@@ -1,0 +1,11 @@
+{
+  CurriculumCourseSchedule schedule=(CurriculumCourseSchedule)solution;
+  List<Room> roomList=schedule.getRoomList();
+  List<Move> moveList=new ArrayList<Move>();
+  for (  Lecture lecture : schedule.getLectureList()) {
+    for (    Room room : roomList) {
+      moveList.add(new RoomChangeMove(lecture,room));
+    }
+  }
+  return moveList;
+}
