@@ -1,0 +1,3 @@
+{
+  return new CompareToBuilder().append(period,other.period).append(room,other.room).append(course,other.course).toComparison();
+}

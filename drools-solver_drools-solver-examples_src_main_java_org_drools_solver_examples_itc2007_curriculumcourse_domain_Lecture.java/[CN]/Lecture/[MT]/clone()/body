@@ -1,0 +1,8 @@
+{
+  Lecture clone=new Lecture();
+  clone.id=id;
+  clone.course=course;
+  clone.period=period;
+  clone.room=room;
+  return clone;
+}

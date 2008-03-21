@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof Lecture) {
+    Lecture other=(Lecture)o;
+    return new EqualsBuilder().append(id,other.id).append(course,other.course).append(period,other.period).append(room,other.room).isEquals();
+  }
+ else {
+    return false;
+  }
+}

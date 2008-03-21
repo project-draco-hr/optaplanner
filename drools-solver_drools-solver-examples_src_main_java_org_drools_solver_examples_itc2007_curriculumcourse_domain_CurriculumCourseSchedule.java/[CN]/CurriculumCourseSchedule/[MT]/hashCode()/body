@@ -1,0 +1,7 @@
+{
+  HashCodeBuilder hashCodeBuilder=new HashCodeBuilder();
+  for (  Lecture lecture : lectureList) {
+    hashCodeBuilder.append(lecture.solutionHashCode());
+  }
+  return hashCodeBuilder.toHashCode();
+}

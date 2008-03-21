@@ -1,5 +1,6 @@
 {
   LessonSchedule clone=new LessonSchedule();
+  clone.id=id;
   clone.timeslotList=timeslotList;
   clone.teacherList=teacherList;
   clone.groupList=groupList;
