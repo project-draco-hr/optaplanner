@@ -1,0 +1,3 @@
+{
+  return !(ObjectUtils.equals(leftLecture.getPeriod(),rightLecture.getPeriod()) && ObjectUtils.equals(leftLecture.getRoom(),rightLecture.getRoom()));
+}

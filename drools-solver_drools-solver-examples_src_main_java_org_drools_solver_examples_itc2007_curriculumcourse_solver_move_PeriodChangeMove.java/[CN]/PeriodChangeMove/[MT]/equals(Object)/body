@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof PeriodChangeMove) {
+    PeriodChangeMove other=(PeriodChangeMove)o;
+    return new EqualsBuilder().append(lecture,other.lecture).append(toPeriod,other.toPeriod).isEquals();
+  }
+ else {
+    return false;
+  }
+}

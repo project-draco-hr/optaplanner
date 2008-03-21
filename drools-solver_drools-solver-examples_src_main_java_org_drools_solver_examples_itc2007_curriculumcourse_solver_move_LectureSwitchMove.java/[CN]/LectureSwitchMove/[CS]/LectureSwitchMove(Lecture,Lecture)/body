@@ -1,0 +1,4 @@
+{
+  this.leftLecture=leftLecture;
+  this.rightLecture=rightLecture;
+}

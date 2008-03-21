@@ -1,0 +1,7 @@
+{
+  FactHandle factHandle=workingMemory.getFactHandle(lecture);
+  workingMemory.modifyRetract(factHandle);
+  lecture.setPeriod(period);
+  lecture.setRoom(room);
+  workingMemory.modifyInsert(factHandle,lecture);
+}
