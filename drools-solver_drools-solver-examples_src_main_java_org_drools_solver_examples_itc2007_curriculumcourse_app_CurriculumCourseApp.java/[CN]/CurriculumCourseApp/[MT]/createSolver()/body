@@ -1,0 +1,5 @@
+{
+  XmlSolverConfigurer configurer=new XmlSolverConfigurer();
+  configurer.configure(SOLVER_CONFIG);
+  return configurer.buildSolver();
+}

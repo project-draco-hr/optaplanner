@@ -1,0 +1,4 @@
+{
+  super(lecture.toString());
+  this.lecture=lecture;
+}
