@@ -7,10 +7,10 @@
   for (  File inputFile : inputFiles) {
     String inputFileName=inputFile.getName();
     if (inputFileName.endsWith(INPUT_FILE_SUFFIX)) {
-      CurriculumCourseSchedule curriculumCourseSchedule=readCurriculumCourseSchedule(inputFile);
+      CurriculumCourseSchedule schedule=readCurriculumCourseSchedule(inputFile);
       String outputFileName=inputFileName.substring(0,inputFileName.length() - INPUT_FILE_SUFFIX.length()) + OUTPUT_FILE_SUFFIX;
       File outputFile=new File(outputDir,outputFileName);
-      solutionDao.writeSolution(curriculumCourseSchedule,outputFile);
+      solutionDao.writeSolution(schedule,outputFile);
     }
   }
 }
