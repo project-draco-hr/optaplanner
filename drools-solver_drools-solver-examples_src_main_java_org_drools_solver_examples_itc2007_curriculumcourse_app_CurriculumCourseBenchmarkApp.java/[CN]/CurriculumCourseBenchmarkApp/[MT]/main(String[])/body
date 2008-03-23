@@ -1,0 +1,10 @@
+{
+  String solverConfig;
+  if (args.length > 0 && args[0].equals("short")) {
+    solverConfig=SHORT_SOLVER_BENCHMARK_CONFIG;
+  }
+ else {
+    solverConfig=DEFAULT_SOLVER_BENCHMARK_CONFIG;
+  }
+  new NQueensBenchmarkApp(solverConfig,SOLVER_BENCHMARK_RESULT_FILE).process();
+}
