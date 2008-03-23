@@ -1,9 +1,9 @@
 {
   List<Exam> examList=createExamList(examination);
-  List<ExamInitialWeight> examInitialWeightList=new ArrayList<ExamInitialWeight>(examList.size());
+  List<ExamInitializationWeight> examInitialWeightList=new ArrayList<ExamInitializationWeight>(examList.size());
   for (  Exam exam : examList) {
     if (exam.isCoincidenceLeader()) {
-      examInitialWeightList.add(new ExamInitialWeight(exam));
+      examInitialWeightList.add(new ExamInitializationWeight(exam));
     }
   }
   Collections.sort(examInitialWeightList);

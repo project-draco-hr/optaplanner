@@ -5,12 +5,66 @@
   evaluationHandler.setSolution(schedule);
   WorkingMemory workingMemory=evaluationHandler.getStatefulSession();
   List<Lecture> lectureList=createLectureList(schedule);
-  int tmp=0;
   for (  Lecture lecture : lectureList) {
-    lecture.setPeriod(periodList.get(tmp % periodList.size()));
-    lecture.setRoom(roomList.get(tmp % roomList.size()));
-    workingMemory.insert(lecture);
-    tmp++;
+    double unscheduledScore=evaluationHandler.fireAllRulesAndCalculateStepScore();
+    FactHandle lectureHandle=null;
+    List<PeriodScoring> periodScoringList=new ArrayList<PeriodScoring>(periodList.size());
+    for (    Period period : periodList) {
+      if (lectureHandle == null) {
+        lecture.setPeriod(period);
+        lectureHandle=workingMemory.insert(lecture);
+      }
+ else {
+        workingMemory.modifyRetract(lectureHandle);
+        lecture.setPeriod(period);
+        workingMemory.modifyInsert(lectureHandle,lecture);
+      }
+      double score=evaluationHandler.fireAllRulesAndCalculateStepScore();
+      periodScoringList.add(new PeriodScoring(period,score));
+    }
+    Collections.sort(periodScoringList);
+    boolean almostPerfectMatch=false;
+    double bestScore=Double.NEGATIVE_INFINITY;
+    Period bestPeriod=null;
+    Room bestRoom=null;
+    for (    PeriodScoring periodScoring : periodScoringList) {
+      if (bestScore >= periodScoring.getScore()) {
+        break;
+      }
+      workingMemory.modifyRetract(lectureHandle);
+      lecture.setPeriod(periodScoring.getPeriod());
+      workingMemory.modifyInsert(lectureHandle,lecture);
+      for (      Room room : roomList) {
+        workingMemory.modifyRetract(lectureHandle);
+        lecture.setRoom(room);
+        workingMemory.modifyInsert(lectureHandle,lecture);
+        double score=evaluationHandler.fireAllRulesAndCalculateStepScore();
+        if (score < unscheduledScore) {
+          if (score > bestScore) {
+            bestScore=score;
+            bestPeriod=periodScoring.getPeriod();
+            bestRoom=room;
+          }
+        }
+ else         if (score >= unscheduledScore) {
+          almostPerfectMatch=true;
+          break;
+        }
+      }
+      if (almostPerfectMatch) {
+        break;
+      }
+    }
+    if (!almostPerfectMatch) {
+      if (bestPeriod == null || bestRoom == null) {
+        throw new IllegalStateException("The bestPeriod (" + bestPeriod + ") or the bestRoom ("+ bestRoom+ ") cannot be null.");
+      }
+      workingMemory.modifyRetract(lectureHandle);
+      lecture.setPeriod(bestPeriod);
+      lecture.setRoom(bestRoom);
+      workingMemory.modifyInsert(lectureHandle,lecture);
+    }
+    logger.debug("    Lecture ({}) initialized for starting solution.",lecture);
   }
   Collections.sort(lectureList,new PersistableIdComparator());
   schedule.setLectureList(lectureList);

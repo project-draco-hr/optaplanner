@@ -5,8 +5,8 @@
   List<Exam> examList=new ArrayList<Exam>(examination.getTopicList().size());
   evaluationHandler.setSolution(examination);
   WorkingMemory workingMemory=evaluationHandler.getStatefulSession();
-  List<ExamInitialWeight> examInitialWeightList=createExamAssigningScoreList(examination);
-  for (  ExamInitialWeight examInitialWeight : examInitialWeightList) {
+  List<ExamInitializationWeight> examInitialWeightList=createExamAssigningScoreList(examination);
+  for (  ExamInitializationWeight examInitialWeight : examInitialWeightList) {
     double unscheduledScore=evaluationHandler.fireAllRulesAndCalculateStepScore();
     Exam leader=examInitialWeight.getExam();
     FactHandle leaderHandle=null;
