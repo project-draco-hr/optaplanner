@@ -10,7 +10,7 @@
   int unavailablePeriodConstraintListSize=Integer.parseInt(readParam(bufferedReader,"Constraints:"));
   Map<String,Course> courseMap=readCourseListAndTeacherList(bufferedReader,schedule,courseListSize);
   readRoomList(bufferedReader,schedule,roomListSize);
-  Map<Integer[],Period> periodMap=createPeriodListAndDayListAndTimeslotList(schedule,dayListSize,timeslotListSize);
+  Map<List<Integer>,Period> periodMap=createPeriodListAndDayListAndTimeslotList(schedule,dayListSize,timeslotListSize);
   readCurriculumList(bufferedReader,schedule,courseMap,curriculumListSize);
   readUnavailablePeriodConstraintList(bufferedReader,schedule,courseMap,periodMap,unavailablePeriodConstraintListSize);
   readHeader(bufferedReader,"END.");

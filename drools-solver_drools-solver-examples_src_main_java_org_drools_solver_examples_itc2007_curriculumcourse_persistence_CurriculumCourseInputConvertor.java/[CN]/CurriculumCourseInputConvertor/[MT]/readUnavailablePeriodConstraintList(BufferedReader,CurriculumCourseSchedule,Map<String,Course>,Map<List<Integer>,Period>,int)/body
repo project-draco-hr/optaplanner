@@ -10,7 +10,13 @@
       throw new IllegalArgumentException("Read line (" + line + ") is expected to contain 3 tokens.");
     }
     constraint.setCourse(courseMap.get(lineTokens[0]));
-    constraint.setPeriod(periodMap.get(new Integer[]{Integer.parseInt(lineTokens[1]),Integer.parseInt(lineTokens[2])}));
+    int dayIndex=Integer.parseInt(lineTokens[1]);
+    int timeslotIndex=Integer.parseInt(lineTokens[2]);
+    Period period=periodMap.get(Arrays.asList(dayIndex,timeslotIndex));
+    if (period == null) {
+      throw new IllegalArgumentException("Read line (" + line + ") uses an unexisting period("+ dayIndex+ " "+ timeslotIndex+ ").");
+    }
+    constraint.setPeriod(period);
     constraintList.add(constraint);
   }
   schedule.setUnavailablePeriodConstraintList(constraintList);

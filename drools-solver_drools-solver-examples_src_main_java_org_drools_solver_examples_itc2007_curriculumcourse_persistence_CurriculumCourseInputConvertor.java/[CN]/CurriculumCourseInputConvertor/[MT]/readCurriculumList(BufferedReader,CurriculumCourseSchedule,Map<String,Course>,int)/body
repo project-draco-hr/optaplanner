@@ -16,6 +16,9 @@
     }
     for (int j=2; j < lineTokens.length; j++) {
       Course course=courseMap.get(lineTokens[j]);
+      if (course == null) {
+        throw new IllegalArgumentException("Read line (" + line + ") uses an unexisting course("+ lineTokens[j]+ ").");
+      }
       course.getCurriculumList().add(curriculum);
     }
     curriculumList.add(curriculum);
