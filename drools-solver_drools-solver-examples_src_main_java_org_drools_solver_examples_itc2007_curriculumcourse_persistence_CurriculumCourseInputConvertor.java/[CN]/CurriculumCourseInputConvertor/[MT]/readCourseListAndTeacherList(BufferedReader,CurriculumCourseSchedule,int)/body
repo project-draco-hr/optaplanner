@@ -15,6 +15,7 @@
     course.setTeacher(findOrCreateTeacher(teacherMap,lineTokens[1]));
     course.setLectureSize(Integer.parseInt(lineTokens[2]));
     course.setMinWorkingDaySize(Integer.parseInt(lineTokens[3]));
+    course.setCurriculumList(new ArrayList<Curriculum>());
     course.setStudentSize(Integer.parseInt(lineTokens[4]));
     courseList.add(course);
     courseMap.put(course.getCode(),course);

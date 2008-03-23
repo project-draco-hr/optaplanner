@@ -16,7 +16,7 @@
     }
     for (int j=2; j < lineTokens.length; j++) {
       Course course=courseMap.get(lineTokens[j]);
-      course.setCurriculum(curriculum);
+      course.getCurriculumList().add(curriculum);
     }
     curriculumList.add(curriculum);
   }
