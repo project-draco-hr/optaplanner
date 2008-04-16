@@ -1,3 +1,0 @@
-{
-  return Collections.singletonList(localSearchSolver.getCurrentSolution().cloneSolution());
-}

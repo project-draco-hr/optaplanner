@@ -1,0 +1,6 @@
+{
+  if (clonedSolution == null) {
+    clonedSolution=getWorkingSolution().cloneSolution();
+  }
+  return clonedSolution;
+}

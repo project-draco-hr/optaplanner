@@ -1,4 +1,0 @@
-{
-  Examination examination=(Examination)solution;
-  return examination.isInitialized();
-}

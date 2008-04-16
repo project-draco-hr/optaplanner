@@ -1,5 +1,0 @@
-List<Room> roomList
-EvaluationHandler evaluationHandler
-WorkingMemory workingMemory
-Exam exam
-FactHandle examHandle

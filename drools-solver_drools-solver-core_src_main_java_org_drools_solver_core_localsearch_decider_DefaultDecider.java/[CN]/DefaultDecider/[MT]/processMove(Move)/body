@@ -1,7 +1,0 @@
-{
-  EvaluationHandler evaluationHandler=localSearchSolver.getEvaluationHandler();
-  double score=evaluationHandler.fireAllRulesAndCalculateDecisionScore();
-  double acceptChance=accepter.calculateAcceptChance(move,score);
-  logger.debug("    Move ({}) with score ({}) and acceptChance ({}).",new Object[]{move,score,acceptChance});
-  forager.addMove(move,score,acceptChance);
-}

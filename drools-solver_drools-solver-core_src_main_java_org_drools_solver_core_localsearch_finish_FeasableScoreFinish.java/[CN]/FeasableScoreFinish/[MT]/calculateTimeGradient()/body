@@ -1,6 +1,0 @@
-{
-  double stepScore=localSearchSolver.getStepScore();
-  double stepDelta=startingScore - stepScore;
-  double timeGradient=stepDelta / totalDelta;
-  return Math.min(timeGradient,1.0);
-}

@@ -1,5 +1,0 @@
-{
-  selector.stepTaken();
-  accepter.stepTaken();
-  forager.stepTaken();
-}

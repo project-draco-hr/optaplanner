@@ -1,0 +1,4 @@
+{
+  Examination examination=(Examination)localSearchSolverScope.getWorkingSolution();
+  initializeExamList(localSearchSolverScope,examination);
+}

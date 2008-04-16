@@ -1,5 +1,0 @@
-{
-  this.move=move;
-  this.score=score;
-  this.acceptChance=acceptChance;
-}

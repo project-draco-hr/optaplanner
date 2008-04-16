@@ -1,0 +1,14 @@
+{
+  LocalSearchSolverScope localSearchSolverScope=stepScope.getLocalSearchSolverScope();
+  double newScore=stepScope.getScore();
+  double bestScore=localSearchSolverScope.getBestScore();
+  if (newScore > bestScore) {
+    logger.info("New score ({}) is better then last best score ({}). Updating best solution and best score.",newScore,bestScore);
+    localSearchSolverScope.setBestSolutionStepIndex(stepScope.getStepIndex());
+    localSearchSolverScope.setBestSolution(stepScope.createOrGetClonedSolution());
+    localSearchSolverScope.setBestScore(stepScope.getScore());
+  }
+ else {
+    logger.info("New score ({}) is not better then last best score ({}).",newScore,bestScore);
+  }
+}

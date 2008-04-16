@@ -1,0 +1,4 @@
+{
+  long timeMillisSpend=stepScope.getLocalSearchSolverScope().calculateTimeMillisSpend();
+  return timeMillisSpend >= maximumTimeMillisSpend;
+}

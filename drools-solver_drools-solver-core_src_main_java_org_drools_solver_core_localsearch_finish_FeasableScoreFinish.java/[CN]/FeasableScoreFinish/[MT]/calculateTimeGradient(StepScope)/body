@@ -1,0 +1,6 @@
+{
+  double stepScore=stepScope.getLocalSearchSolverScope().getLastCompletedStepScope().getScore();
+  double stepDelta=startingScore - stepScore;
+  double timeGradient=stepDelta / feasableDelta;
+  return Math.min(timeGradient,1.0);
+}

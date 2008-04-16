@@ -1,5 +1,0 @@
-{
-  selector.beforeDeciding();
-  accepter.beforeDeciding();
-  forager.beforeDeciding();
-}

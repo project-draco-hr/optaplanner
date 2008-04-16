@@ -1,5 +1,0 @@
-{
-  selector.solvingStarted();
-  accepter.solvingStarted();
-  forager.solvingStarted();
-}

@@ -1,3 +1,0 @@
-{
-  return bestSolutionRecaller.getBestSolutionStepIndex();
-}

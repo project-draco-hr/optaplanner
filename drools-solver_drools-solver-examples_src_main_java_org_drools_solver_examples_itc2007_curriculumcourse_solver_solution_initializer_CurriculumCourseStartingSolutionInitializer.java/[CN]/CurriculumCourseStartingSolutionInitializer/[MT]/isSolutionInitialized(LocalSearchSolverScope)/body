@@ -1,0 +1,4 @@
+{
+  CurriculumCourseSchedule schedule=(CurriculumCourseSchedule)localSearchSolverScope.getWorkingSolution();
+  return schedule.isInitialized();
+}

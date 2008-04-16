@@ -1,0 +1,4 @@
+{
+  workingMemory.fireAllRules();
+  return workingScoreCalculator.calculateStepScore();
+}

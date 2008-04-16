@@ -1,0 +1,7 @@
+{
+  double initialScore=localSearchSolverScope.getStartingScore();
+  logger.info("Initial score ({}) is starting best score. Updating best solution and best score.",initialScore);
+  localSearchSolverScope.setBestSolutionStepIndex(-1);
+  localSearchSolverScope.setBestSolution(localSearchSolverScope.getWorkingSolution().cloneSolution());
+  localSearchSolverScope.setBestScore(initialScore);
+}

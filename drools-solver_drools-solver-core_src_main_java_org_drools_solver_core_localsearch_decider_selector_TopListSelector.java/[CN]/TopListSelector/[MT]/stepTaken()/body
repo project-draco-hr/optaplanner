@@ -1,3 +1,0 @@
-{
-  topList=localSearchSolver.getDecider().getForager().getTopList(topSize);
-}

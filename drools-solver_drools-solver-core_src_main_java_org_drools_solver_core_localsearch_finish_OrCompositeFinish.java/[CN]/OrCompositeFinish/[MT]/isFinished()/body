@@ -1,8 +1,0 @@
-{
-  for (  Finish finish : finishList) {
-    if (finish.isFinished()) {
-      return true;
-    }
-  }
-  return false;
-}

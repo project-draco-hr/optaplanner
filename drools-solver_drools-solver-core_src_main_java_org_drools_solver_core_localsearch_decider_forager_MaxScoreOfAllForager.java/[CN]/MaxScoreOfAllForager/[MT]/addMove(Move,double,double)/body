@@ -1,5 +1,0 @@
-{
-  if (acceptChance > 0.0) {
-    addMoveToAcceptionList(move,score,acceptChance);
-  }
-}

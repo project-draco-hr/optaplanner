@@ -1,0 +1,18 @@
+{
+  localSearchSolverScope.resetTimeMillisSpend();
+  logger.info("Solving with random seed ({}).",randomSeed);
+  localSearchSolverScope.setWorkingRandom(new Random(randomSeed));
+  if (startingSolutionInitializer != null) {
+    if (!startingSolutionInitializer.isSolutionInitialized(localSearchSolverScope)) {
+      logger.info("Initializing solution.");
+      startingSolutionInitializer.initializeSolution(localSearchSolverScope);
+    }
+ else {
+      logger.debug("Solution is already initialized.");
+    }
+  }
+  localSearchSolverScope.setStartingScore(localSearchSolverScope.calculateScoreFromWorkingMemory());
+  bestSolutionRecaller.solvingStarted(localSearchSolverScope);
+  finish.solvingStarted(localSearchSolverScope);
+  decider.solvingStarted(localSearchSolverScope);
+}

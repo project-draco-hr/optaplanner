@@ -1,4 +1,0 @@
-{
-  TabuPropertyEnabled tabuPropertyEnabled=(TabuPropertyEnabled)move;
-  return tabuPropertyEnabled.getTabuProperties();
-}

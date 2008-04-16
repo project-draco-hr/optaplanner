@@ -1,0 +1,9 @@
+{
+  if (moveScope.getAcceptChance() > 0.0) {
+    double randomChance=moveScope.getWorkingRandom().nextDouble();
+    if (randomChance <= moveScope.getAcceptChance()) {
+      earlyPickedMoveScope=moveScope;
+    }
+    addMoveScopeToAcceptedList(moveScope);
+  }
+}

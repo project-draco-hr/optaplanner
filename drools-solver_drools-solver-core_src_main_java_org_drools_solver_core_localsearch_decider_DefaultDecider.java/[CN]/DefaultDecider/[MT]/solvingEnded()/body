@@ -1,5 +1,0 @@
-{
-  selector.solvingEnded();
-  accepter.solvingEnded();
-  forager.solvingEnded();
-}

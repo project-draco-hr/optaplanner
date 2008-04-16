@@ -1,0 +1,16 @@
+{
+  WorkingMemory workingMemory=moveScope.getWorkingMemory();
+  Move move=moveScope.getMove();
+  Move undoMove=move.createUndoMove(workingMemory);
+  moveScope.setUndoMove(undoMove);
+  move.doMove(workingMemory);
+  processMove(moveScope);
+  undoMove.doMove(workingMemory);
+  if (verifyUndoMoveIsUncorrupted) {
+    double undoScore=moveScope.getStepScope().getLocalSearchSolverScope().calculateScoreFromWorkingMemory();
+    if (undoScore != moveScope.getStepScope().getLocalSearchSolverScope().getLastCompletedStepScope().getScore()) {
+      throw new IllegalStateException("Corrupted undo move (" + undoMove + ") received from move ("+ move+ ").");
+    }
+  }
+  logger.debug("    Move ({}) with score ({}) and acceptChance ({}).",new Object[]{moveScope.getMove(),moveScope.getScore(),moveScope.getAcceptChance()});
+}

@@ -1,0 +1,5 @@
+{
+  selector.stepTaken(stepScope);
+  accepter.stepTaken(stepScope);
+  forager.stepTaken(stepScope);
+}

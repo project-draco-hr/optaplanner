@@ -1,0 +1,20 @@
+{
+  if (stepScope.getStep() != null) {
+    Collection<? extends Object> tabus=findNewTabu(stepScope);
+    for (    Object tabu : tabus) {
+      if (tabuToStepIndexMap.containsKey(tabu)) {
+        tabuToStepIndexMap.remove(tabu);
+        tabuSequenceList.remove(tabu);
+      }
+      int maximumTabuListSize=completeTabuSize + partialTabuSize;
+      while (tabuSequenceList.size() >= maximumTabuListSize) {
+        Iterator<Object> it=tabuSequenceList.iterator();
+        Object removeTabu=it.next();
+        it.remove();
+        tabuToStepIndexMap.remove(removeTabu);
+      }
+      tabuToStepIndexMap.put(tabu,stepScope.getStepIndex());
+      tabuSequenceList.add(tabu);
+    }
+  }
+}

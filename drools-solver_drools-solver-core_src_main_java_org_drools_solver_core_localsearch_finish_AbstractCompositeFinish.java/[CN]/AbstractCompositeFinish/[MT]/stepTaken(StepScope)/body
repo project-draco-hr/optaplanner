@@ -1,0 +1,5 @@
+{
+  for (  Finish finish : finishList) {
+    finish.stepTaken(stepScope);
+  }
+}

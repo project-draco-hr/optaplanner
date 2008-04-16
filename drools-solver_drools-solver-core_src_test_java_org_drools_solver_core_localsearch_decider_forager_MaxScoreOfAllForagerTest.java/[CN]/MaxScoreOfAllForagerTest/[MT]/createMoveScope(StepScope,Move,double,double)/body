@@ -1,0 +1,7 @@
+{
+  MoveScope moveScope=new MoveScope(stepScope);
+  moveScope.setMove(move);
+  moveScope.setScore(score);
+  moveScope.setAcceptChance(acceptChance);
+  return moveScope;
+}

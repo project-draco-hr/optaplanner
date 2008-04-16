@@ -1,8 +1,0 @@
-List<PeriodScoring> periodScoringList
-List<Room> roomList
-EvaluationHandler evaluationHandler
-WorkingMemory workingMemory
-double unscheduledScore
-List<ExamToHandle> examToHandleList
-Exam leader
-FactHandle leaderHandle

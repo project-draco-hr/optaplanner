@@ -1,10 +1,10 @@
 {
   Map<String,ScoreDetail> scoreDetailMap=new HashMap<String,ScoreDetail>();
-  StatefulSession statefulSession=evaluationHandler.getStatefulSession();
-  if (statefulSession == null) {
+  WorkingMemory workingMemory=localSearchSolverScope.getWorkingMemory();
+  if (workingMemory == null) {
     return Collections.emptyList();
   }
-  Iterator<ConstraintOccurrence> it=statefulSession.iterateObjects(new ClassObjectFilter(ConstraintOccurrence.class));
+  Iterator<ConstraintOccurrence> it=workingMemory.iterateObjects(new ClassObjectFilter(ConstraintOccurrence.class));
   while (it.hasNext()) {
     ConstraintOccurrence occurrence=it.next();
     ScoreDetail scoreDetail=scoreDetailMap.get(occurrence.getRuleId());

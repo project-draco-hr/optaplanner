@@ -1,4 +1,4 @@
 {
   this.solver=solver;
-  this.evaluationHandler=solver.getEvaluationHandler();
+  this.localSearchSolverScope=((DefaultLocalSearchSolver)solver).getLocalSearchSolverScope();
 }

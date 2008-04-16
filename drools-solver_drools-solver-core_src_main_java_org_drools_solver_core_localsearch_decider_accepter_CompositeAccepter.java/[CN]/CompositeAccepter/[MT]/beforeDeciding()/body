@@ -1,5 +1,0 @@
-{
-  for (  Accepter accepter : accepterList) {
-    accepter.beforeDeciding();
-  }
-}

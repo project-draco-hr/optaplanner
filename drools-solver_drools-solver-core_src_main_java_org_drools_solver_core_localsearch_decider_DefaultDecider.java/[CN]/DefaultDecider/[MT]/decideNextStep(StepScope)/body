@@ -1,0 +1,22 @@
+{
+  WorkingMemory workingMemory=stepScope.getWorkingMemory();
+  List<Move> moveList=selector.selectMoveList(stepScope);
+  for (  Move move : moveList) {
+    MoveScope moveScope=new MoveScope(stepScope);
+    moveScope.setMove(move);
+    if (move.isMoveDoable(workingMemory)) {
+      doMove(moveScope);
+      if (forager.isQuitEarly()) {
+        break;
+      }
+    }
+ else {
+      logger.debug("    Move ({}) ignored because it is not doable.",move);
+    }
+  }
+  MoveScope pickedMoveScope=forager.pickMove(stepScope);
+  if (pickedMoveScope != null) {
+    stepScope.setStep(pickedMoveScope.getMove());
+    stepScope.setScore(pickedMoveScope.getScore());
+  }
+}

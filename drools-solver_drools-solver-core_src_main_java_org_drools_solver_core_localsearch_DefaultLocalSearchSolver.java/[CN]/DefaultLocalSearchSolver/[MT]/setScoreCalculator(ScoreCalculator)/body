@@ -1,0 +1,3 @@
+{
+  localSearchSolverScope.setWorkingScoreCalculator(scoreCalculator);
+}

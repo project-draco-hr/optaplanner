@@ -6,7 +6,8 @@
  else {
     localSearchSolver.setRandomSeed(0L);
   }
-  localSearchSolver.setEvaluationHandler(buildEvaluationHandler());
+  localSearchSolver.setRuleBase(buildRuleBase());
+  localSearchSolver.setScoreCalculator(scoreCalculatorConfig.buildScoreCalculator());
   localSearchSolver.setStartingSolutionInitializer(buildStartingSolutionInitializer());
   localSearchSolver.setBestSolutionRecaller(new BestSolutionRecaller());
   localSearchSolver.setFinish(finishConfig.buildFinish());

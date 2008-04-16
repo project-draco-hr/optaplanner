@@ -1,0 +1,52 @@
+{
+  List<Period> periodList=examination.getPeriodList();
+  List<Room> roomList=examination.getRoomList();
+  List<Exam> examList=new ArrayList<Exam>(examination.getTopicList().size());
+  WorkingMemory workingMemory=localSearchSolverScope.getWorkingMemory();
+  List<ExamInitializationWeight> examInitialWeightList=createExamAssigningScoreList(examination);
+  for (  ExamInitializationWeight examInitialWeight : examInitialWeightList) {
+    double unscheduledScore=localSearchSolverScope.calculateScoreFromWorkingMemory();
+    Exam leader=examInitialWeight.getExam();
+    FactHandle leaderHandle=null;
+    List<ExamToHandle> examToHandleList=new ArrayList<ExamToHandle>(5);
+    if (leader.getExamCoincidence() == null) {
+      examToHandleList.add(new ExamToHandle(leader));
+    }
+ else {
+      for (      Exam coincidenceExam : leader.getExamCoincidence().getCoincidenceExamSet()) {
+        examToHandleList.add(new ExamToHandle(coincidenceExam));
+      }
+    }
+    List<PeriodScoring> periodScoringList=new ArrayList<PeriodScoring>(periodList.size());
+    for (    Period period : periodList) {
+      for (      ExamToHandle examToHandle : examToHandleList) {
+        if (examToHandle.getExamHandle() == null) {
+          examToHandle.getExam().setPeriod(period);
+          examToHandle.setExamHandle(workingMemory.insert(examToHandle.getExam()));
+          if (examToHandle.getExam().isCoincidenceLeader()) {
+            leaderHandle=examToHandle.getExamHandle();
+          }
+        }
+ else {
+          workingMemory.modifyRetract(examToHandle.getExamHandle());
+          examToHandle.getExam().setPeriod(period);
+          workingMemory.modifyInsert(examToHandle.getExamHandle(),examToHandle.getExam());
+        }
+      }
+      double score=localSearchSolverScope.calculateScoreFromWorkingMemory();
+      periodScoringList.add(new PeriodScoring(period,score));
+    }
+    Collections.sort(periodScoringList);
+    scheduleLeader(periodScoringList,roomList,localSearchSolverScope,workingMemory,unscheduledScore,examToHandleList,leader,leaderHandle);
+    examList.add(leader);
+    for (    ExamToHandle examToHandle : examToHandleList) {
+      Exam exam=examToHandle.getExam();
+      if (!exam.isCoincidenceLeader()) {
+        scheduleNonLeader(roomList,localSearchSolverScope,workingMemory,exam,examToHandle.getExamHandle());
+        examList.add(exam);
+      }
+    }
+  }
+  Collections.sort(examList,new PersistableIdComparator());
+  examination.setExamList(examList);
+}

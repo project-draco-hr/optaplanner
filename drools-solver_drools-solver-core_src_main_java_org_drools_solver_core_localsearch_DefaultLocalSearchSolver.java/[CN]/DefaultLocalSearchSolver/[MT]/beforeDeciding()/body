@@ -1,5 +1,0 @@
-{
-  bestSolutionRecaller.beforeDeciding();
-  finish.beforeDeciding();
-  decider.beforeDeciding();
-}

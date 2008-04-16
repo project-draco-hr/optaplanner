@@ -1,4 +1,0 @@
-{
-  super.beforeDeciding();
-  earlyPickedMove=null;
-}

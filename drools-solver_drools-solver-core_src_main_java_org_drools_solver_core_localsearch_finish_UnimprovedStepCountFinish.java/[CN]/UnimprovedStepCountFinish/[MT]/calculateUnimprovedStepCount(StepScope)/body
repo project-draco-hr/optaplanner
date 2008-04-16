@@ -1,0 +1,5 @@
+{
+  int bestStepIndex=stepScope.getLocalSearchSolverScope().getBestSolutionStepIndex();
+  int stepIndex=stepScope.getStepIndex();
+  return stepIndex - bestStepIndex;
+}

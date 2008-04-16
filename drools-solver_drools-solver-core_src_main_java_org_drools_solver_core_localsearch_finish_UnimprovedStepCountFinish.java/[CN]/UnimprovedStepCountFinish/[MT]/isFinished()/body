@@ -1,4 +1,0 @@
-{
-  int unimprovedStepCount=getUnimprovedStepCount();
-  return unimprovedStepCount >= maximumUnimprovedStepCount;
-}

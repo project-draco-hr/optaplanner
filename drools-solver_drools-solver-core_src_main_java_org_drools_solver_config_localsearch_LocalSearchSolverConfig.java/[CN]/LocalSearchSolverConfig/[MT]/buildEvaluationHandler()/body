@@ -1,7 +1,0 @@
-{
-  EvaluationHandler evaluationHandler=new EvaluationHandler();
-  RuleBase ruleBase=buildRuleBase();
-  evaluationHandler.setRuleBase(ruleBase);
-  evaluationHandler.setScoreCalculator(scoreCalculatorConfig.buildScoreCalculator());
-  return evaluationHandler;
-}

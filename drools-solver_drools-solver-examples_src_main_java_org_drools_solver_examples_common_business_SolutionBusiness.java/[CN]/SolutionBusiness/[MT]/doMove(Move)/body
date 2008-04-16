@@ -1,8 +1,8 @@
 {
-  if (!move.isMoveDoable(evaluationHandler.getStatefulSession())) {
+  if (!move.isMoveDoable(localSearchSolverScope.getWorkingMemory())) {
     logger.info("Not doing user move ({}) because it is not doable.",move);
     return;
   }
   logger.info("Doing user move ({}).",move);
-  move.doMove(evaluationHandler.getStatefulSession());
+  move.doMove(localSearchSolverScope.getWorkingMemory());
 }

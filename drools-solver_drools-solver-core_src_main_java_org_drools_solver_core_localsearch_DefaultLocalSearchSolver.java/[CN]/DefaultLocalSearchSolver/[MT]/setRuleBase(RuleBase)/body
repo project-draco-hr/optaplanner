@@ -1,0 +1,3 @@
+{
+  localSearchSolverScope.setRuleBase(ruleBase);
+}

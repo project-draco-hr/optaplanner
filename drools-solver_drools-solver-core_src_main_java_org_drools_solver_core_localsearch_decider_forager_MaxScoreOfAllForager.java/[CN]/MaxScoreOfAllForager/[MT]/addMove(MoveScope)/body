@@ -1,0 +1,5 @@
+{
+  if (moveScope.getAcceptChance() > 0.0) {
+    addMoveScopeToAcceptedList(moveScope);
+  }
+}

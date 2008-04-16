@@ -1,3 +1,3 @@
 {
-  evaluationHandler.setSolution(solution);
+  localSearchSolverScope.setWorkingSolution(startingSolution);
 }

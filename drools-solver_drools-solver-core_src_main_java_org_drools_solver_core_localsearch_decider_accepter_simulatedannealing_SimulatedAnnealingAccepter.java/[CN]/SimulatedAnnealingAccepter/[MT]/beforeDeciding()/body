@@ -1,4 +1,0 @@
-{
-  super.beforeDeciding();
-  cachedAcceptChancePart=timeGradient / scoreDeltaNormalizer;
-}

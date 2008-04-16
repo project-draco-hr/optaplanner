@@ -1,5 +1,0 @@
-{
-  int improvedStepIndex=localSearchSolver.getBestSolutionStepIndex();
-  int stepIndex=localSearchSolver.getStepIndex();
-  return stepIndex - improvedStepIndex;
-}

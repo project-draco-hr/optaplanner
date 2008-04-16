@@ -1,0 +1,37 @@
+{
+  if (exam.getRoom() != null) {
+    throw new IllegalStateException("Exam (" + exam + ") already has a room.");
+  }
+  double unscheduledScore=localSearchSolverScope.calculateScoreFromWorkingMemory();
+  boolean perfectMatch=false;
+  double bestScore=Double.NEGATIVE_INFINITY;
+  Room bestRoom=null;
+  for (  Room room : roomList) {
+    workingMemory.modifyRetract(examHandle);
+    exam.setRoom(room);
+    workingMemory.modifyInsert(examHandle,exam);
+    double score=localSearchSolverScope.calculateScoreFromWorkingMemory();
+    if (score < unscheduledScore) {
+      if (score > bestScore) {
+        bestScore=score;
+        bestRoom=room;
+      }
+    }
+ else     if (score == unscheduledScore) {
+      perfectMatch=true;
+      break;
+    }
+ else {
+      throw new IllegalStateException("The score (" + score + ") cannot be higher than unscheduledScore ("+ unscheduledScore+ ").");
+    }
+  }
+  if (!perfectMatch) {
+    if (bestRoom == null) {
+      throw new IllegalStateException("The bestRoom (" + bestRoom + ") cannot be null.");
+    }
+    workingMemory.modifyRetract(examHandle);
+    exam.setRoom(bestRoom);
+    workingMemory.modifyInsert(examHandle,exam);
+  }
+  logger.debug("    Exam ({}) initialized for starting solution. *",exam);
+}

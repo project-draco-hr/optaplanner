@@ -1,0 +1,10 @@
+{
+  sortAcceptedList();
+  int size=acceptedList.size();
+  List<Move> topList=new ArrayList<Move>(Math.min(topSize,size));
+  List<MoveScope> subAcceptedList=acceptedList.subList(Math.max(0,size - topSize),size);
+  for (  MoveScope moveScope : subAcceptedList) {
+    topList.add(moveScope.getMove());
+  }
+  return topList;
+}

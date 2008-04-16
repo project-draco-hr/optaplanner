@@ -1,18 +1,21 @@
 {
-  solvingStarted();
-  while (!finish.isFinished()) {
-    beforeDeciding();
-    Move nextStep=decider.decideNextStep();
+  LocalSearchSolverScope localSearchSolverScope=this.localSearchSolverScope;
+  solvingStarted(localSearchSolverScope);
+  StepScope stepScope=createNextStepScope(localSearchSolverScope,null);
+  while (!finish.isFinished(stepScope)) {
+    stepScope.setTimeGradient(finish.calculateTimeGradient(stepScope));
+    beforeDeciding(stepScope);
+    decider.decideNextStep(stepScope);
+    Move nextStep=stepScope.getStep();
     if (nextStep == null) {
-      logger.warn("No move accepted for step ({}) out of {} accepted moves. Finishing early.",getStepIndex(),decider.getForager().getAcceptedMovesSize());
+      logger.warn("No move accepted for step index ({}) out of {} accepted moves. Finishing early.",stepScope.getStepIndex(),decider.getForager().getAcceptedMovesSize());
       break;
     }
-    logger.info("Step index ({}), time spend ({}) taking step ({}) out of {} accepted moves.",new Object[]{getStepIndex(),getTimeMillisSpend(),nextStep,decider.getForager().getAcceptedMovesSize()});
-    stepDecided(nextStep);
-    nextStep.doMove(evaluationHandler.getStatefulSession());
-    stepScore=evaluationHandler.fireAllRulesAndCalculateStepScore();
-    stepIndex++;
-    stepTaken();
+    logger.info("Step index ({}), time spend ({}) taking step ({}) out of {} accepted moves.",new Object[]{stepScope.getStepIndex(),localSearchSolverScope.calculateTimeMillisSpend(),nextStep,decider.getForager().getAcceptedMovesSize()});
+    stepDecided(stepScope);
+    nextStep.doMove(stepScope.getWorkingMemory());
+    stepTaken(stepScope);
+    stepScope=createNextStepScope(localSearchSolverScope,stepScope);
   }
-  solvingEnded();
+  solvingEnded(localSearchSolverScope);
 }
