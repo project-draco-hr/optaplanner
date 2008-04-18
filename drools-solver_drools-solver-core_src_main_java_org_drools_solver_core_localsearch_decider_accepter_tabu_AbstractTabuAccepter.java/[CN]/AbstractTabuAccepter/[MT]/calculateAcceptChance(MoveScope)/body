@@ -1,4 +1,7 @@
 {
+  if (aspirationEnabled && moveScope.getScore() > moveScope.getStepScope().getLocalSearchSolverScope().getBestScore()) {
+    return 1.0;
+  }
   Collection<? extends Object> tabus=findTabu(moveScope);
   int maximumTabuStepIndex=-1;
   for (  Object tabu : tabus) {
