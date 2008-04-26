@@ -16,14 +16,18 @@ catch (    IllegalAccessException e) {
  else   if (foragerType != null) {
 switch (foragerType) {
 case MAX_SCORE_OF_ALL:
-      return new MaxScoreOfAllForager();
+      return new AcceptedForager(PickEarlyByScore.NONE,false);
+case FIRST_BEST_SCORE_IMPROVING:
+    return new AcceptedForager(PickEarlyByScore.FIRST_BEST_SCORE_IMPROVING,false);
+case FIRST_LAST_STEP_SCORE_IMPROVING:
+  return new AcceptedForager(PickEarlyByScore.FIRST_LAST_STEP_SCORE_IMPROVING,false);
 case FIRST_RANDOMLY_ACCEPTED:
-    return new FirstRandomlyAcceptedForager();
+return new AcceptedForager(PickEarlyByScore.NONE,true);
 default :
-  throw new IllegalStateException("foragerType (" + foragerType + ") not implemented");
+throw new IllegalStateException("foragerType (" + foragerType + ") not implemented");
 }
 }
  else {
-return new MaxScoreOfAllForager();
+return new AcceptedForager(PickEarlyByScore.NONE,false);
 }
 }

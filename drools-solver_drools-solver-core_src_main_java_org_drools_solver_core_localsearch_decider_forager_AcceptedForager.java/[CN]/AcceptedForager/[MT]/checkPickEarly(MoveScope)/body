@@ -1,0 +1,24 @@
+{
+switch (pickEarlyByScore) {
+case NONE:
+    break;
+case FIRST_BEST_SCORE_IMPROVING:
+  if (moveScope.getScore() > moveScope.getStepScope().getLocalSearchSolverScope().getBestScore()) {
+    earlyPickedMoveScope=moveScope;
+  }
+break;
+case FIRST_LAST_STEP_SCORE_IMPROVING:
+if (moveScope.getScore() > moveScope.getStepScope().getLocalSearchSolverScope().getLastCompletedStepScope().getScore()) {
+earlyPickedMoveScope=moveScope;
+}
+break;
+default :
+throw new IllegalStateException("pickEarlyByScore (" + pickEarlyByScore + ") not implemented");
+}
+if (pickEarlyRandomly) {
+double randomChance=moveScope.getWorkingRandom().nextDouble();
+if (randomChance <= moveScope.getAcceptChance()) {
+earlyPickedMoveScope=moveScope;
+}
+}
+}

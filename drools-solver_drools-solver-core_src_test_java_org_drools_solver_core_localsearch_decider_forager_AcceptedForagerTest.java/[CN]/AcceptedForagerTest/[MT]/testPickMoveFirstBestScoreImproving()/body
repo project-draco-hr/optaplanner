@@ -1,0 +1,25 @@
+{
+  Forager forager=new AcceptedForager(PickEarlyByScore.FIRST_BEST_SCORE_IMPROVING,false);
+  LocalSearchSolverScope localSearchSolverScope=createLocalSearchSolverScope();
+  forager.solvingStarted(localSearchSolverScope);
+  StepScope stepScope=new StepScope(localSearchSolverScope);
+  forager.beforeDeciding(stepScope);
+  MoveScope a=createMoveScope(stepScope,-1.0,0.0);
+  MoveScope b=createMoveScope(stepScope,-20.0,1.0);
+  MoveScope c=createMoveScope(stepScope,-300.0,1.0);
+  MoveScope d=createMoveScope(stepScope,-1.0,0.3);
+  forager.addMove(a);
+  assertFalse(forager.isQuitEarly());
+  forager.addMove(b);
+  assertFalse(forager.isQuitEarly());
+  forager.addMove(c);
+  assertFalse(forager.isQuitEarly());
+  forager.addMove(d);
+  assertTrue(forager.isQuitEarly());
+  MoveScope pickedScope=forager.pickMove(stepScope);
+  assertSame(d,pickedScope);
+  List<Move> topList=forager.getTopList(2);
+  assertTrue(topList.contains(b.getMove()));
+  assertTrue(topList.contains(d.getMove()));
+  forager.solvingEnded(localSearchSolverScope);
+}

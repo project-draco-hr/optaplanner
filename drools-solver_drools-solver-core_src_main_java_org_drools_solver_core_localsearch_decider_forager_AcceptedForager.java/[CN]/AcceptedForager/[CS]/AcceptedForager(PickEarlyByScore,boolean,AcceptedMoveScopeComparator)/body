@@ -1,0 +1,5 @@
+{
+  this.pickEarlyByScore=pickEarlyByScore;
+  this.pickEarlyRandomly=pickEarlyRandomly;
+  this.acceptionComparator=acceptionComparator;
+}

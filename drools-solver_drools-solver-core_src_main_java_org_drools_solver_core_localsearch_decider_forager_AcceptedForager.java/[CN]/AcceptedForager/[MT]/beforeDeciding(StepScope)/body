@@ -1,0 +1,7 @@
+{
+  acceptedList=new ArrayList<MoveScope>();
+  listSorted=false;
+  maxScore=Double.NEGATIVE_INFINITY;
+  acceptChanceMaxScoreTotal=0.0;
+  earlyPickedMoveScope=null;
+}

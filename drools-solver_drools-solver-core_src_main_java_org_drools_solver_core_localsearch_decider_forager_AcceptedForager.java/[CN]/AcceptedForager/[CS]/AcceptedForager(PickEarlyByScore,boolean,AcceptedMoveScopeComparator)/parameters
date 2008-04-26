@@ -1,0 +1,3 @@
+PickEarlyByScore pickEarlyByScore
+boolean pickEarlyRandomly
+AcceptedMoveScopeComparator acceptionComparator
