@@ -23,7 +23,6 @@
   }
   if (partialMoveTabuSize == null) {
     partialMoveTabuSize=inheritedConfig.getPartialMoveTabuSize();
-    ;
   }
   if (completeUndoMoveTabuSize == null) {
     completeUndoMoveTabuSize=inheritedConfig.getCompleteUndoMoveTabuSize();

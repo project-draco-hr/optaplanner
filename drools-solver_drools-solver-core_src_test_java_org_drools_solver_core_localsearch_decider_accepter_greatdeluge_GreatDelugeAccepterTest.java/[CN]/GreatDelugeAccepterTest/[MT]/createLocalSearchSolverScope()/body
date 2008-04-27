@@ -1,0 +1,14 @@
+{
+  LocalSearchSolverScope localSearchSolverScope=new LocalSearchSolverScope();
+  localSearchSolverScope.setWorkingRandom(new Random(){
+    public double nextDouble(){
+      return 0.2;
+    }
+  }
+);
+  localSearchSolverScope.setBestScore(-1000.0);
+  StepScope lastStepScope=new StepScope(localSearchSolverScope);
+  lastStepScope.setScore(-1000.0);
+  localSearchSolverScope.setLastCompletedStepScope(lastStepScope);
+  return localSearchSolverScope;
+}

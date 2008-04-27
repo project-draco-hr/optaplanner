@@ -60,8 +60,10 @@ catch (    IllegalAccessException e) {
     SimulatedAnnealingAccepter simulatedAnnealingAccepter=new SimulatedAnnealingAccepter();
     accepterList.add(simulatedAnnealingAccepter);
   }
-  if ((accepterTypeList != null && accepterTypeList.contains(AccepterType.GREAT_DELUGE))) {
-    throw new UnsupportedOperationException();
+  if ((accepterTypeList != null && accepterTypeList.contains(AccepterType.GREAT_DELUGE)) || greatDelugeWaterLevelUpperBoundRate != null || greatDelugeWaterRisingRate != null) {
+    double waterLevelUpperBoundRate=(Double)ObjectUtils.defaultIfNull(greatDelugeWaterLevelUpperBoundRate,1.20);
+    double waterRisingRate=(Double)ObjectUtils.defaultIfNull(greatDelugeWaterRisingRate,0.0000001);
+    accepterList.add(new GreatDelugeAccepter(waterLevelUpperBoundRate,waterRisingRate));
   }
   if (accepterList.size() == 1) {
     return accepterList.get(0);

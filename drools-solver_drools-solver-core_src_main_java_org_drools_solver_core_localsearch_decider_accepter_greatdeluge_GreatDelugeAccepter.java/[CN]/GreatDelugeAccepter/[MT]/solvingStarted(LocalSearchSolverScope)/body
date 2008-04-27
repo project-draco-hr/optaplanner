@@ -1,0 +1,12 @@
+{
+  if (waterLevelUpperBoundRate < 1.0) {
+    throw new IllegalArgumentException("The greatDelugeWaterLevelUpperBoundRate (" + waterLevelUpperBoundRate + ") should be 1.0 or higher.");
+  }
+  if (waterRisingRate <= 0.0 || waterRisingRate >= 1.0) {
+    throw new IllegalArgumentException("The greatDelugeWaterRisingRate (" + waterRisingRate + ") should be between 0.0 and 1.0 (preferably very close to 0.0).");
+  }
+  waterLevelScore=localSearchSolverScope.getBestScore() * waterLevelUpperBoundRate;
+  if (waterLevelScore >= perfectScore) {
+    throw new IllegalArgumentException("The waterLevelScore (" + waterLevelScore + ") should be higher than the perfectScore("+ perfectScore+ ").");
+  }
+}

@@ -1,0 +1,5 @@
+{
+  this.waterLevelUpperBoundRate=waterLevelUpperBoundRate;
+  this.waterRisingRate=waterRisingRate;
+  this.perfectScore=perfectScore;
+}
