@@ -1,6 +1,4 @@
 {
   this.localSearchSolver=localSearchSolver;
   selector.setLocalSearchSolver(localSearchSolver);
-  accepter.setLocalSearchSolver(localSearchSolver);
-  forager.setLocalSearchSolver(localSearchSolver);
 }
