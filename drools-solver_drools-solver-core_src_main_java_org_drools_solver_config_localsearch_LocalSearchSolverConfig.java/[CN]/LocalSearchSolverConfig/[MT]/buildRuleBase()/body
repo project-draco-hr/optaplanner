@@ -19,7 +19,6 @@ catch (    IOException e) {
     }
   }
   RuleBaseConfiguration ruleBaseConfiguration=new RuleBaseConfiguration();
-  ruleBaseConfiguration.setShadowProxy(false);
   RuleBase ruleBase=RuleBaseFactory.newRuleBase(ruleBaseConfiguration);
   try {
     ruleBase.addPackage(packageBuilder.getPackage());
