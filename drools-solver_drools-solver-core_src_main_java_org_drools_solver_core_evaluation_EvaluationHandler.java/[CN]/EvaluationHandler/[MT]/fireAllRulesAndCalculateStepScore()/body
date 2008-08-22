@@ -1,4 +1,0 @@
-{
-  statefulSession.fireAllRules();
-  return scoreCalculator.calculateStepScore();
-}
