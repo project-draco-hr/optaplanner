@@ -4,7 +4,7 @@
   if (workingMemory == null) {
     return Collections.emptyList();
   }
-  Iterator<ConstraintOccurrence> it=workingMemory.iterateObjects(new ClassObjectFilter(ConstraintOccurrence.class));
+  Iterator<ConstraintOccurrence> it=(Iterator<ConstraintOccurrence>)workingMemory.iterateObjects(new ClassObjectFilter(ConstraintOccurrence.class));
   while (it.hasNext()) {
     ConstraintOccurrence occurrence=it.next();
     ScoreDetail scoreDetail=scoreDetailMap.get(occurrence.getRuleId());
