@@ -1,0 +1,13 @@
+{
+  XmlSolverConfigurer configurer=new XmlSolverConfigurer();
+  configurer.configure(SOLVER_CONFIG);
+  Solver solver=configurer.buildSolver();
+  SolutionDao solutionDao=new XstreamSolutionDaoImpl();
+  Solution startingSolution=solutionDao.readSolution(getClass().getResourceAsStream(UNSOLVED_DATA));
+  solver.setStartingSolution(startingSolution);
+  solver.solve();
+  Solution bestSolution=solver.getBestSolution();
+  assertNotNull(bestSolution);
+  double bestScore=solver.getBestScore();
+  assertEquals(0.0,bestScore);
+}
