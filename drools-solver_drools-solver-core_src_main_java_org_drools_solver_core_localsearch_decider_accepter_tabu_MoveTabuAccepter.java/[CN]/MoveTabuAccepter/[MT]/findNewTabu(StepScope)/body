@@ -1,11 +1,10 @@
 {
   Move tabuMove;
-  Move step=stepScope.getStep();
   if (useUndoMoveAsTabuMove) {
-    tabuMove=step.createUndoMove(stepScope.getWorkingMemory());
+    tabuMove=stepScope.getUndoStep();
   }
  else {
-    tabuMove=step;
+    tabuMove=stepScope.getStep();
   }
   return Collections.singletonList(tabuMove);
 }
