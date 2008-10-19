@@ -1,0 +1,4 @@
+{
+  this.hardScore=hardScore;
+  this.softScore=softScore;
+}

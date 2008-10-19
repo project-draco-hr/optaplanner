@@ -1,0 +1,4 @@
+{
+  this.hardScore=hardScore;
+  softScore=Integer.MIN_VALUE;
+}

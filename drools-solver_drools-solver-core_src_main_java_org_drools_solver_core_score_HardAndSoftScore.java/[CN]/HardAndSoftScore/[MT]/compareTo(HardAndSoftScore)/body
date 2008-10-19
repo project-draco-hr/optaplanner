@@ -1,0 +1,21 @@
+{
+  if (hardScore != other.hardScore) {
+    if (hardScore < other.hardScore) {
+      return -1;
+    }
+ else {
+      return 1;
+    }
+  }
+ else {
+    if (softScore < other.softScore) {
+      return -1;
+    }
+ else     if (softScore > other.softScore) {
+      return 1;
+    }
+ else {
+      return 0;
+    }
+  }
+}
