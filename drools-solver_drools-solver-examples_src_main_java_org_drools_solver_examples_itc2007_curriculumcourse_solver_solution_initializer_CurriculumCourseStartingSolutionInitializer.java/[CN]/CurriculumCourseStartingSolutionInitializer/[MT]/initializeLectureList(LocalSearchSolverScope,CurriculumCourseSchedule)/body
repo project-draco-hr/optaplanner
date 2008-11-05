@@ -13,9 +13,8 @@
         lectureHandle=workingMemory.insert(lecture);
       }
  else {
-        workingMemory.modifyRetract(lectureHandle);
         lecture.setPeriod(period);
-        workingMemory.modifyInsert(lectureHandle,lecture);
+        workingMemory.update(lectureHandle,lecture);
       }
       double score=localSearchSolverScope.calculateScoreFromWorkingMemory();
       periodScoringList.add(new PeriodScoring(period,score));
@@ -29,13 +28,11 @@
       if (bestScore >= periodScoring.getScore()) {
         break;
       }
-      workingMemory.modifyRetract(lectureHandle);
       lecture.setPeriod(periodScoring.getPeriod());
-      workingMemory.modifyInsert(lectureHandle,lecture);
+      workingMemory.update(lectureHandle,lecture);
       for (      Room room : roomList) {
-        workingMemory.modifyRetract(lectureHandle);
         lecture.setRoom(room);
-        workingMemory.modifyInsert(lectureHandle,lecture);
+        workingMemory.update(lectureHandle,lecture);
         double score=localSearchSolverScope.calculateScoreFromWorkingMemory();
         if (score < unscheduledScore) {
           if (score > bestScore) {
@@ -57,10 +54,9 @@
       if (bestPeriod == null || bestRoom == null) {
         throw new IllegalStateException("The bestPeriod (" + bestPeriod + ") or the bestRoom ("+ bestRoom+ ") cannot be null.");
       }
-      workingMemory.modifyRetract(lectureHandle);
       lecture.setPeriod(bestPeriod);
       lecture.setRoom(bestRoom);
-      workingMemory.modifyInsert(lectureHandle,lecture);
+      workingMemory.update(lectureHandle,lecture);
     }
     logger.debug("    Lecture ({}) initialized for starting solution.",lecture);
   }

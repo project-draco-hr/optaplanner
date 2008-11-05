@@ -3,9 +3,8 @@
     for (    Exam coincidenceExam : exam.getExamCoincidence().getCoincidenceExamSet()) {
       if (!exam.equals(coincidenceExam)) {
         FactHandle factHandle=workingMemory.getFactHandle(coincidenceExam);
-        workingMemory.modifyRetract(factHandle);
         coincidenceExam.setPeriod(period);
-        workingMemory.modifyInsert(factHandle,coincidenceExam);
+        workingMemory.update(factHandle,coincidenceExam);
       }
     }
   }

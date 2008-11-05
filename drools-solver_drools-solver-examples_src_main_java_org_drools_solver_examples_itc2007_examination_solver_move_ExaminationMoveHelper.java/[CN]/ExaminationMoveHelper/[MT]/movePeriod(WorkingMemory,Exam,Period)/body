@@ -1,7 +1,6 @@
 {
   FactHandle factHandle=workingMemory.getFactHandle(exam);
-  workingMemory.modifyRetract(factHandle);
   exam.setPeriod(period);
-  workingMemory.modifyInsert(factHandle,exam);
+  workingMemory.update(factHandle,exam);
   movePeriodCoincidene(workingMemory,exam,period);
 }
