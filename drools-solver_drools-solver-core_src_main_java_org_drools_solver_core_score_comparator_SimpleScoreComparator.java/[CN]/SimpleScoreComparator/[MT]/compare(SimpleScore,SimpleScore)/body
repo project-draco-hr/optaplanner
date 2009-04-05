@@ -1,0 +1,3 @@
+{
+  return score1.compareTo(score2);
+}

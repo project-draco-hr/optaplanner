@@ -1,0 +1,3 @@
+{
+  return compare(score1,score2);
+}

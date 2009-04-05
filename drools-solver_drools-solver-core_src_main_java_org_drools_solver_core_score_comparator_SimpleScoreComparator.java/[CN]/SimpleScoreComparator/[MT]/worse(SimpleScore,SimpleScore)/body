@@ -1,0 +1,3 @@
+{
+  return score1.getScore() < score2.getScore();
+}

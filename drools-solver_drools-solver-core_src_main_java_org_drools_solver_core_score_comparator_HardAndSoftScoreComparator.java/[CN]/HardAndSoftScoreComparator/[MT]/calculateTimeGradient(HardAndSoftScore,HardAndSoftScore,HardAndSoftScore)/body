@@ -1,0 +1,16 @@
+{
+  double timeGradient=0.0;
+  int totalHardScore=Math.max(0,endScore.getHardScore() - startScore.getHardScore());
+  if (totalHardScore > 0) {
+    int hardScoreDelta=Math.max(0,score.getHardScore() - startScore.getHardScore());
+    double hardTimeGradient=Math.min(1.0,(double)hardScoreDelta / (double)totalHardScore);
+    timeGradient+=(hardTimeGradient * hardScoreTimeGradientWeight);
+  }
+  int totalSoftScore=Math.max(0,endScore.getSoftScore() - startScore.getSoftScore());
+  if (totalSoftScore > 0) {
+    int softScoreDelta=Math.max(0,score.getSoftScore() - startScore.getSoftScore());
+    double softTimeGradient=Math.min(1.0,(double)softScoreDelta / (double)totalSoftScore);
+    timeGradient+=(softTimeGradient * (1.0 - hardScoreTimeGradientWeight));
+  }
+  return timeGradient;
+}

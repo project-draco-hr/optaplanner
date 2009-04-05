@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof SimpleScore) {
+    SimpleScore other=(SimpleScore)o;
+    return score == other.getScore();
+  }
+ else {
+    return false;
+  }
+}

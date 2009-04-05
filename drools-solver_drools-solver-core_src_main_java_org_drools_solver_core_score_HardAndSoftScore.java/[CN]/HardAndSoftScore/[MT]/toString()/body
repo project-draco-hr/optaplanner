@@ -1,3 +1,0 @@
-{
-  return hardScore + "hard/" + softScore+ "soft";
-}
