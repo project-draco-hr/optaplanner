@@ -1,0 +1,7 @@
+{
+  if (score == null && scoreType == null && scoreString == null) {
+    score=inheritedConfig.getScore();
+    scoreType=inheritedConfig.getScoreType();
+    scoreString=inheritedConfig.getScoreString();
+  }
+}

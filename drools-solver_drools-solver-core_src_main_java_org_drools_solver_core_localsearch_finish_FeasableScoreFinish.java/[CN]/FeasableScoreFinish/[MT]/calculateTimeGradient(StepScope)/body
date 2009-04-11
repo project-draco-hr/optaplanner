@@ -1,6 +1,14 @@
 {
-  double stepScore=stepScope.getLocalSearchSolverScope().getLastCompletedStepScope().getScore();
-  double stepDelta=startingScore - stepScore;
-  double timeGradient=stepDelta / feasableDelta;
-  return Math.min(timeGradient,1.0);
+  LocalSearchSolverScope localSearchSolverScope=stepScope.getLocalSearchSolverScope();
+  double startingScore=localSearchSolverScope.getStartingScore();
+  double stepScore=localSearchSolverScope.getLastCompletedStepScope().getScore();
+  if (feasableScore <= stepScore) {
+    return 1.0;
+  }
+ else   if (stepScore <= startingScore) {
+    return 0.0;
+  }
+ else {
+    return (stepScore - startingScore) / (feasableScore - startingScore);
+  }
 }

@@ -1,4 +1,0 @@
-{
-  startingScore=localSearchSolverScope.getStartingScore();
-  feasableDelta=startingScore - feasableScore;
-}
