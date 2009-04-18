@@ -3,4 +3,24 @@
     moveFactory=inheritedConfig.getMoveFactory();
     moveFactoryClass=inheritedConfig.getMoveFactoryClass();
   }
+  if (selectorConfigList == null) {
+    selectorConfigList=inheritedConfig.getSelectorConfigList();
+  }
+ else {
+    List<SelectorConfig> inheritedSelectorConfigList=inheritedConfig.getSelectorConfigList();
+    if (inheritedSelectorConfigList != null) {
+      for (      SelectorConfig selectorConfig : inheritedSelectorConfigList) {
+        selectorConfigList.add(selectorConfig);
+      }
+    }
+  }
+  if (shuffle == null) {
+    shuffle=inheritedConfig.getShuffle();
+  }
+  if (relativeSelection == null) {
+    relativeSelection=inheritedConfig.getRelativeSelection();
+  }
+  if (topSize == null) {
+    topSize=inheritedConfig.getTopSize();
+  }
 }
