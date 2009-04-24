@@ -1,8 +1,10 @@
 {
   if (stepScope.getStepIndex() == stepScope.getLocalSearchSolverScope().getBestSolutionStepIndex()) {
-    waterLevelScore=stepScope.getLocalSearchSolverScope().getBestScore() * waterLevelUpperBoundRate;
+    waterLevelScore=stepScope.getLocalSearchSolverScope().getBestScore().multiply(waterLevelUpperBoundRate);
   }
  else {
-    waterLevelScore+=(perfectScore - waterLevelScore) * waterRisingRate;
+    Score perfectMaximumScore=stepScope.getLocalSearchSolverScope().getScoreDefinition().getPerfectMaximumScore();
+    Score waterLevelAugend=perfectMaximumScore.substract(waterLevelScore).multiply(waterRisingRate);
+    waterLevelScore=waterLevelScore.add(waterLevelAugend);
   }
 }

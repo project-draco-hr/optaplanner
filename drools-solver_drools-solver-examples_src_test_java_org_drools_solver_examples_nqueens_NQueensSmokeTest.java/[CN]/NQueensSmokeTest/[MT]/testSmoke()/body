@@ -8,6 +8,6 @@
   solver.solve();
   Solution bestSolution=solver.getBestSolution();
   assertNotNull(bestSolution);
-  double bestScore=solver.getBestScore();
-  assertEquals(0.0,bestScore);
+  Score bestScore=solver.getBestScore();
+  assertEquals(DefaultSimpleScore.valueOf(0),bestScore);
 }

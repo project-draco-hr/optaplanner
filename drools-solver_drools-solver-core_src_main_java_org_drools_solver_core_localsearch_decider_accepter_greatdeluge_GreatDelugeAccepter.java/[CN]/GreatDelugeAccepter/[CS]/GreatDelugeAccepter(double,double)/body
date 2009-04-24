@@ -1,3 +1,4 @@
 {
-  this(waterLevelUpperBoundRate,waterRisingRate,0.0);
+  this.waterLevelUpperBoundRate=waterLevelUpperBoundRate;
+  this.waterRisingRate=waterRisingRate;
 }

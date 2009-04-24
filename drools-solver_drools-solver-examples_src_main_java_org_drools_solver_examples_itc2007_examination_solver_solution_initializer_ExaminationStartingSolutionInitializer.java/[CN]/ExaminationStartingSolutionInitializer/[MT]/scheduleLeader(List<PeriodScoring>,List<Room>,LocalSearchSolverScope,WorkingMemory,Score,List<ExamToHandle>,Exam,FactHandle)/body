@@ -1,0 +1,53 @@
+{
+  boolean perfectMatch=false;
+  Score bestScore=DefaultHardAndSoftScore.valueOf(Integer.MIN_VALUE,Integer.MIN_VALUE);
+  Period bestPeriod=null;
+  Room bestRoom=null;
+  for (  PeriodScoring periodScoring : periodScoringList) {
+    if (bestScore.compareTo(periodScoring.getScore()) >= 0) {
+      break;
+    }
+    for (    ExamToHandle examToHandle : examToHandleList) {
+      workingMemory.modifyRetract(examToHandle.getExamHandle());
+      examToHandle.getExam().setPeriod(periodScoring.getPeriod());
+      workingMemory.modifyInsert(examToHandle.getExamHandle(),examToHandle.getExam());
+    }
+    for (    Room room : roomList) {
+      workingMemory.modifyRetract(leaderHandle);
+      leader.setRoom(room);
+      workingMemory.modifyInsert(leaderHandle,leader);
+      Score score=localSearchSolverScope.calculateScoreFromWorkingMemory();
+      if (score.compareTo(unscheduledScore) < 0) {
+        if (score.compareTo(bestScore) > 0) {
+          bestScore=score;
+          bestPeriod=periodScoring.getPeriod();
+          bestRoom=room;
+        }
+      }
+ else       if (score.equals(unscheduledScore)) {
+        perfectMatch=true;
+        break;
+      }
+ else {
+        throw new IllegalStateException("The score (" + score + ") cannot be higher than unscheduledScore ("+ unscheduledScore+ ").");
+      }
+    }
+    if (perfectMatch) {
+      break;
+    }
+  }
+  if (!perfectMatch) {
+    if (bestPeriod == null || bestRoom == null) {
+      throw new IllegalStateException("The bestPeriod (" + bestPeriod + ") or the bestRoom ("+ bestRoom+ ") cannot be null.");
+    }
+    workingMemory.modifyRetract(leaderHandle);
+    leader.setRoom(bestRoom);
+    workingMemory.modifyInsert(leaderHandle,leader);
+    for (    ExamToHandle examToHandle : examToHandleList) {
+      workingMemory.modifyRetract(examToHandle.getExamHandle());
+      examToHandle.getExam().setPeriod(bestPeriod);
+      workingMemory.modifyInsert(examToHandle.getExamHandle(),examToHandle.getExam());
+    }
+  }
+  logger.debug("    Exam ({}) initialized for starting solution.",leader);
+}

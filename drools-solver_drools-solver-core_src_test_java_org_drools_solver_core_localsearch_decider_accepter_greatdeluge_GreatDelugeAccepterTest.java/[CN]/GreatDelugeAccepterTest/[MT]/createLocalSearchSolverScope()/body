@@ -1,14 +1,15 @@
 {
   LocalSearchSolverScope localSearchSolverScope=new LocalSearchSolverScope();
+  localSearchSolverScope.setScoreDefinition(new SimpleScoreDefinition());
   localSearchSolverScope.setWorkingRandom(new Random(){
     public double nextDouble(){
       return 0.2;
     }
   }
 );
-  localSearchSolverScope.setBestScore(-1000.0);
+  localSearchSolverScope.setBestScore(DefaultSimpleScore.valueOf(-1000));
   StepScope lastStepScope=new StepScope(localSearchSolverScope);
-  lastStepScope.setScore(-1000.0);
+  lastStepScope.setScore(DefaultSimpleScore.valueOf(-1000));
   localSearchSolverScope.setLastCompletedStepScope(lastStepScope);
   return localSearchSolverScope;
 }

@@ -1,8 +1,8 @@
 {
   LocalSearchSolverScope localSearchSolverScope=stepScope.getLocalSearchSolverScope();
-  double newScore=stepScope.getScore();
-  double bestScore=localSearchSolverScope.getBestScore();
-  if (newScore > bestScore) {
+  Score newScore=stepScope.getScore();
+  Score bestScore=localSearchSolverScope.getBestScore();
+  if (newScore.compareTo(bestScore) > 0) {
     logger.info("New score ({}) is better then last best score ({}). Updating best solution and best score.",newScore,bestScore);
     localSearchSolverScope.setBestSolutionStepIndex(stepScope.getStepIndex());
     localSearchSolverScope.setBestSolution(stepScope.createOrGetClonedSolution());

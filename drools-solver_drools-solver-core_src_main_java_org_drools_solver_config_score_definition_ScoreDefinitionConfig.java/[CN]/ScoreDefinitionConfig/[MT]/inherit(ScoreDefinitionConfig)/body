@@ -1,0 +1,7 @@
+{
+  if (scoreDefinition == null && scoreDefinitionClass == null && scoreDefinitionType == null) {
+    scoreDefinition=inheritedConfig.getScoreDefinition();
+    scoreDefinitionClass=inheritedConfig.getScoreDefinitionClass();
+    scoreDefinitionType=inheritedConfig.getScoreDefinitionType();
+  }
+}

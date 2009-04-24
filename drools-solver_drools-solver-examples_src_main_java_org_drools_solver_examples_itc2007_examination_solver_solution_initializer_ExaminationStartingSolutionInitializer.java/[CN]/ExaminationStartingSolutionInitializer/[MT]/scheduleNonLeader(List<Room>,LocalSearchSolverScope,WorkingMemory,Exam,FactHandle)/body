@@ -2,22 +2,22 @@
   if (exam.getRoom() != null) {
     throw new IllegalStateException("Exam (" + exam + ") already has a room.");
   }
-  double unscheduledScore=localSearchSolverScope.calculateScoreFromWorkingMemory();
+  Score unscheduledScore=localSearchSolverScope.calculateScoreFromWorkingMemory();
   boolean perfectMatch=false;
-  double bestScore=Double.NEGATIVE_INFINITY;
+  Score bestScore=DefaultHardAndSoftScore.valueOf(Integer.MIN_VALUE,Integer.MIN_VALUE);
   Room bestRoom=null;
   for (  Room room : roomList) {
     workingMemory.modifyRetract(examHandle);
     exam.setRoom(room);
     workingMemory.modifyInsert(examHandle,exam);
-    double score=localSearchSolverScope.calculateScoreFromWorkingMemory();
-    if (score < unscheduledScore) {
-      if (score > bestScore) {
+    Score score=localSearchSolverScope.calculateScoreFromWorkingMemory();
+    if (score.compareTo(unscheduledScore) < 0) {
+      if (score.compareTo(bestScore) > 0) {
         bestScore=score;
         bestRoom=room;
       }
     }
- else     if (score == unscheduledScore) {
+ else     if (score.equals(unscheduledScore)) {
       perfectMatch=true;
       break;
     }

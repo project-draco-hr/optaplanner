@@ -1,11 +1,11 @@
 {
   acceptedList.add(moveScope);
   listSorted=false;
-  if (moveScope.getScore() > maxScore) {
+  if (moveScope.getScore().compareTo(maxScore) > 0) {
     acceptChanceMaxScoreTotal=moveScope.getAcceptChance();
     maxScore=moveScope.getScore();
   }
- else   if (moveScope.getScore() == maxScore) {
+ else   if (moveScope.getScore().equals(maxScore)) {
     acceptChanceMaxScoreTotal+=moveScope.getAcceptChance();
   }
 }

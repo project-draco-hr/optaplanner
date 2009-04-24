@@ -7,8 +7,8 @@
   processMove(moveScope);
   undoMove.doMove(workingMemory);
   if (verifyUndoMoveIsUncorrupted) {
-    double undoScore=moveScope.getStepScope().getLocalSearchSolverScope().calculateScoreFromWorkingMemory();
-    if (undoScore != moveScope.getStepScope().getLocalSearchSolverScope().getLastCompletedStepScope().getScore()) {
+    Score undoScore=moveScope.getStepScope().getLocalSearchSolverScope().calculateScoreFromWorkingMemory();
+    if (!undoScore.equals(moveScope.getStepScope().getLocalSearchSolverScope().getLastCompletedStepScope().getScore())) {
       throw new IllegalStateException("Corrupted undo move (" + undoMove + ") received from move ("+ move+ ").");
     }
   }

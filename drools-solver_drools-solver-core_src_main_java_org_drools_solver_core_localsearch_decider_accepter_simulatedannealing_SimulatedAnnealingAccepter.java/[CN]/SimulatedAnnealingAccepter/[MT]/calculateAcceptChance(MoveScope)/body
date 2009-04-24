@@ -1,12 +1,12 @@
 {
-  double compareScore=compareToBestScore ? moveScope.getStepScope().getLocalSearchSolverScope().getBestScore() : moveScope.getStepScope().getLocalSearchSolverScope().getLastCompletedStepScope().getScore();
-  double scoreDelta=moveScope.getScore() - compareScore;
-  if (scoreDelta > 0.0) {
+  Score compareScore=compareToBestScore ? moveScope.getStepScope().getLocalSearchSolverScope().getBestScore() : moveScope.getStepScope().getLocalSearchSolverScope().getLastCompletedStepScope().getScore();
+  Score moveScore=moveScope.getScore();
+  if (moveScore.compareTo(compareScore) > 0) {
     return 1.0;
   }
- else {
-    double timeGradient=moveScope.getStepScope().getTimeGradient();
-    double acceptChance=Math.exp(scoreDelta * timeGradient / scoreDeltaNormalizer);
-    return acceptChance;
-  }
+  double timeGradient=moveScope.getStepScope().getTimeGradient();
+  LocalSearchSolverScope localSearchSolverScope=moveScope.getStepScope().getLocalSearchSolverScope();
+  double scoreDelta=1.0 - localSearchSolverScope.getScoreDefinition().calculateTimeGradient(localSearchSolverScope.getStartingScore(),compareScore,moveScore);
+  double acceptChance=Math.exp(timeGradient * scoreDelta);
+  return acceptChance;
 }

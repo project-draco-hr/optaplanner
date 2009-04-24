@@ -1,6 +1,8 @@
 {
-  if (moveScope.getScore() >= waterLevelScore) {
+  if (moveScope.getScore().compareTo(waterLevelScore) >= 0) {
     return 1.0;
   }
-  return 0.0;
+ else {
+    return 0.0;
+  }
 }

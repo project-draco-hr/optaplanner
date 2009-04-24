@@ -1,7 +1,0 @@
-{
-  if (scoreCalculator == null && scoreCalculatorClass == null && scoreCalculatorType == null) {
-    scoreCalculator=inheritedConfig.getScoreCalculator();
-    scoreCalculatorClass=inheritedConfig.getScoreCalculatorClass();
-    scoreCalculatorType=inheritedConfig.getScoreCalculatorType();
-  }
-}

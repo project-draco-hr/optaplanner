@@ -7,10 +7,12 @@
     localSearchSolver.setRandomSeed(0L);
   }
   localSearchSolver.setRuleBase(buildRuleBase());
-  localSearchSolver.setScoreCalculator(scoreCalculatorConfig.buildScoreCalculator());
+  ScoreDefinition scoreDefinition=scoreDefinitionConfig.buildScoreDefinition();
+  localSearchSolver.setScoreDefinition(scoreDefinition);
+  localSearchSolver.setScoreCalculator(scoreDefinitionConfig.buildScoreCalculator());
   localSearchSolver.setStartingSolutionInitializer(buildStartingSolutionInitializer());
   localSearchSolver.setBestSolutionRecaller(new BestSolutionRecaller());
-  localSearchSolver.setFinish(finishConfig.buildFinish());
+  localSearchSolver.setFinish(finishConfig.buildFinish(scoreDefinition));
   localSearchSolver.setDecider(buildDecider());
   return localSearchSolver;
 }

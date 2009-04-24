@@ -1,0 +1,18 @@
+{
+  HardAndSoftScoreDefinition scoreDefinition=new HardAndSoftScoreDefinition();
+  scoreDefinition.setHardScoreTimeGradientWeight(0.75);
+  assertEquals(0.6,scoreDefinition.calculateTimeGradient(DefaultHardAndSoftScore.valueOf(-20,-400),DefaultHardAndSoftScore.valueOf(-10,-300),DefaultHardAndSoftScore.valueOf(-14,-340)));
+  assertEquals(0.75,scoreDefinition.calculateTimeGradient(DefaultHardAndSoftScore.valueOf(-20,-400),DefaultHardAndSoftScore.valueOf(-10,-300),DefaultHardAndSoftScore.valueOf(-10,-400)));
+  assertEquals(0.25,scoreDefinition.calculateTimeGradient(DefaultHardAndSoftScore.valueOf(-20,-400),DefaultHardAndSoftScore.valueOf(-10,-300),DefaultHardAndSoftScore.valueOf(-20,-300)));
+  assertEquals(0.75,scoreDefinition.calculateTimeGradient(DefaultHardAndSoftScore.valueOf(-20,-400),DefaultHardAndSoftScore.valueOf(-10,-300),DefaultHardAndSoftScore.valueOf(-10,-900)));
+  assertEquals(0.0,scoreDefinition.calculateTimeGradient(DefaultHardAndSoftScore.valueOf(-20,-400),DefaultHardAndSoftScore.valueOf(-10,-300),DefaultHardAndSoftScore.valueOf(-90,-300)));
+  assertEquals(1.0,scoreDefinition.calculateTimeGradient(DefaultHardAndSoftScore.valueOf(-10,-300),DefaultHardAndSoftScore.valueOf(-10,-300),DefaultHardAndSoftScore.valueOf(-10,-300)));
+  assertEquals(0.0,scoreDefinition.calculateTimeGradient(DefaultHardAndSoftScore.valueOf(-20,-400),DefaultHardAndSoftScore.valueOf(-10,-300),DefaultHardAndSoftScore.valueOf(-20,-400)));
+  assertEquals(1.0,scoreDefinition.calculateTimeGradient(DefaultHardAndSoftScore.valueOf(-20,-400),DefaultHardAndSoftScore.valueOf(-10,-300),DefaultHardAndSoftScore.valueOf(-10,-300)));
+  assertEquals(0.6,scoreDefinition.calculateTimeGradient(DefaultHardAndSoftScore.valueOf(-10,-400),DefaultHardAndSoftScore.valueOf(-10,-300),DefaultHardAndSoftScore.valueOf(-10,-340)));
+  assertEquals(0.0,scoreDefinition.calculateTimeGradient(DefaultHardAndSoftScore.valueOf(-10,-400),DefaultHardAndSoftScore.valueOf(-10,-300),DefaultHardAndSoftScore.valueOf(-20,-340)));
+  assertEquals(1.0,scoreDefinition.calculateTimeGradient(DefaultHardAndSoftScore.valueOf(-10,-400),DefaultHardAndSoftScore.valueOf(-10,-300),DefaultHardAndSoftScore.valueOf(-0,-340)));
+  assertEquals((0.6 * 0.75) + 0.25,scoreDefinition.calculateTimeGradient(DefaultHardAndSoftScore.valueOf(-20,-300),DefaultHardAndSoftScore.valueOf(-10,-300),DefaultHardAndSoftScore.valueOf(-14,-300)));
+  assertEquals(0.6 * 0.75,scoreDefinition.calculateTimeGradient(DefaultHardAndSoftScore.valueOf(-20,-300),DefaultHardAndSoftScore.valueOf(-10,-300),DefaultHardAndSoftScore.valueOf(-14,-400)));
+  assertEquals((0.6 * 0.75) + 0.25,scoreDefinition.calculateTimeGradient(DefaultHardAndSoftScore.valueOf(-20,-300),DefaultHardAndSoftScore.valueOf(-10,-300),DefaultHardAndSoftScore.valueOf(-14,-0)));
+}

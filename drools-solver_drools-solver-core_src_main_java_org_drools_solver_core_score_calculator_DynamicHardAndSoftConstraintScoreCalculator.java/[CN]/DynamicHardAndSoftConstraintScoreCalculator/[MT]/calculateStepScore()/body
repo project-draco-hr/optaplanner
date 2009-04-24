@@ -1,4 +1,0 @@
-{
-  adjustDecisionHardConstraintsWeight();
-  return calculateHardAndSoftConstraintScore(maxHardConstraintsWeight);
-}

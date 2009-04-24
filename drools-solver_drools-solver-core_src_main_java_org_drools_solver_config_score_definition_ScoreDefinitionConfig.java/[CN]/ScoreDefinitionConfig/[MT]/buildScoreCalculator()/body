@@ -1,0 +1,15 @@
+{
+  if (scoreDefinitionType != null) {
+switch (scoreDefinitionType) {
+case SIMPLE:
+      return new SimpleScoreCalculator();
+case HARD_AND_SOFT:
+    return new DefaultHardAndSoftConstraintScoreCalculator();
+default :
+  throw new IllegalStateException("scoreDefinitionType (" + scoreDefinitionType + ") not implemented");
+}
+}
+ else {
+return new SimpleScoreCalculator();
+}
+}

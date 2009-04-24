@@ -1,4 +1,4 @@
 {
-  double bestScore=stepScope.getLocalSearchSolverScope().getBestScore();
-  return bestScore >= feasableScore;
+  Score bestScore=stepScope.getLocalSearchSolverScope().getBestScore();
+  return bestScore.compareTo(feasableScore) >= 0;
 }

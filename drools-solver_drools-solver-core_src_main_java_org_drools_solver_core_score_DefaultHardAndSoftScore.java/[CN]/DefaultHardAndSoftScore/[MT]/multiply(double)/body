@@ -1,0 +1,3 @@
+{
+  return new DefaultHardAndSoftScore((int)Math.round(this.hardScore * multiplicand),(int)Math.round(this.softScore * multiplicand));
+}

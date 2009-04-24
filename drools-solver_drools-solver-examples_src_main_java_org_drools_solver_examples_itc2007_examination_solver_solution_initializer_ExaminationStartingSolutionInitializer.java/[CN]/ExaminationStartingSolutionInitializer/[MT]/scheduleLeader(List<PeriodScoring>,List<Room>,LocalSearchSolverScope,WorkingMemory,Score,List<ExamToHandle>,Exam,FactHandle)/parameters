@@ -1,0 +1,8 @@
+List<PeriodScoring> periodScoringList
+List<Room> roomList
+LocalSearchSolverScope localSearchSolverScope
+WorkingMemory workingMemory
+Score unscheduledScore
+List<ExamToHandle> examToHandleList
+Exam leader
+FactHandle leaderHandle

@@ -15,11 +15,11 @@
       }
     }
   }
-  if (scoreCalculatorConfig == null) {
-    scoreCalculatorConfig=inheritedConfig.getScoreCalculatorConfig();
+  if (scoreDefinitionConfig == null) {
+    scoreDefinitionConfig=inheritedConfig.getScoreDefinitionConfig();
   }
- else   if (inheritedConfig.getScoreCalculatorConfig() != null) {
-    scoreCalculatorConfig.inherit(inheritedConfig.getScoreCalculatorConfig());
+ else   if (inheritedConfig.getScoreDefinitionConfig() != null) {
+    scoreDefinitionConfig.inherit(inheritedConfig.getScoreDefinitionConfig());
   }
   if (startingSolutionInitializer == null && startingSolutionInitializerClass == null) {
     startingSolutionInitializer=inheritedConfig.getStartingSolutionInitializer();

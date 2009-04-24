@@ -1,0 +1,3 @@
+{
+  return DefaultHardAndSoftScore.valueOf(-hardConstraintsBroken,-softConstraintsBroken);
+}

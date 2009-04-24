@@ -5,7 +5,7 @@
   WorkingMemory workingMemory=localSearchSolverScope.getWorkingMemory();
   List<ExamInitializationWeight> examInitialWeightList=createExamAssigningScoreList(examination);
   for (  ExamInitializationWeight examInitialWeight : examInitialWeightList) {
-    double unscheduledScore=localSearchSolverScope.calculateScoreFromWorkingMemory();
+    Score unscheduledScore=localSearchSolverScope.calculateScoreFromWorkingMemory();
     Exam leader=examInitialWeight.getExam();
     FactHandle leaderHandle=null;
     List<ExamToHandle> examToHandleList=new ArrayList<ExamToHandle>(5);
@@ -33,7 +33,7 @@
           workingMemory.modifyInsert(examToHandle.getExamHandle(),examToHandle.getExam());
         }
       }
-      double score=localSearchSolverScope.calculateScoreFromWorkingMemory();
+      Score score=localSearchSolverScope.calculateScoreFromWorkingMemory();
       periodScoringList.add(new PeriodScoring(period,score));
     }
     Collections.sort(periodScoringList);

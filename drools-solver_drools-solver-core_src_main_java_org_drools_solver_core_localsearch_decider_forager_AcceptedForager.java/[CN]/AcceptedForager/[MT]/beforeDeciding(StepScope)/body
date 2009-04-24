@@ -1,7 +1,7 @@
 {
   acceptedList=new ArrayList<MoveScope>();
   listSorted=false;
-  maxScore=Double.NEGATIVE_INFINITY;
+  maxScore=stepScope.getLocalSearchSolverScope().getScoreDefinition().getPerfectMinimumScore();
   acceptChanceMaxScoreTotal=0.0;
   earlyPickedMoveScope=null;
 }

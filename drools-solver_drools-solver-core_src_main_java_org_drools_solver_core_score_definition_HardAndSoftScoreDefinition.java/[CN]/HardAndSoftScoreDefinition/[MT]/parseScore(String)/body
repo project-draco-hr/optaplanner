@@ -1,0 +1,3 @@
+{
+  return DefaultHardAndSoftScore.parseScore(scoreString);
+}
