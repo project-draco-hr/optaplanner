@@ -1,8 +1,13 @@
 {
   JPanel panel=new JPanel(new GridLayout(0,1));
-  Action solveAction=new SolveAction();
+  solveAction=new SolveAction();
+  solveAction.setEnabled(false);
   panel.add(new JButton(solveAction));
-  Action saveAction=new SaveAction();
+  cancelSolvingAction=new CancelSolvingAction();
+  cancelSolvingAction.setEnabled(false);
+  panel.add(new JButton(cancelSolvingAction));
+  saveAction=new SaveAction();
+  saveAction.setEnabled(false);
   panel.add(new JButton(saveAction));
   return panel;
 }

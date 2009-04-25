@@ -1,0 +1,4 @@
+{
+  cancelled.set(false);
+  solveImplementation();
+}

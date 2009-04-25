@@ -1,4 +1,6 @@
 {
+  cancelSolvingAction.setEnabled(true);
   solutionBusiness.solve();
+  cancelSolvingAction.setEnabled(false);
   updateScreen();
 }
