@@ -1,0 +1,37 @@
+{
+  int maximumTeamNameLength=0;
+  for (  Team team : travelingTournament.getTeamList()) {
+    if (team.getName().length() > maximumTeamNameLength) {
+      maximumTeamNameLength=team.getName().length();
+    }
+  }
+  for (  Team team : travelingTournament.getTeamList()) {
+    bufferedWriter.write(String.format("%-" + (maximumTeamNameLength + 3) + "s",team.getName()));
+  }
+  bufferedWriter.write("\n");
+  for (  Team team : travelingTournament.getTeamList()) {
+    bufferedWriter.write(String.format("%-" + (maximumTeamNameLength + 3) + "s",team.getName().replaceAll("[\\w\\d]","-")));
+  }
+  bufferedWriter.write("\n");
+  for (  Day day : travelingTournament.getDayList()) {
+    for (    Team team : travelingTournament.getTeamList()) {
+      boolean opponentIsHome=false;
+      Team opponentTeam=null;
+      for (      Match match : travelingTournament.getMatchList()) {
+        if (match.getDay().equals(day)) {
+          if (match.getHomeTeam().equals(team)) {
+            opponentIsHome=false;
+            opponentTeam=match.getAwayTeam();
+          }
+ else           if (match.getAwayTeam().equals(team)) {
+            opponentIsHome=true;
+            opponentTeam=match.getHomeTeam();
+          }
+        }
+      }
+      String opponentName=(opponentIsHome ? "@" : "") + opponentTeam.getName();
+      bufferedWriter.write(String.format("%-" + (maximumTeamNameLength + 3) + "s",opponentName));
+    }
+    bufferedWriter.write("\n");
+  }
+}
