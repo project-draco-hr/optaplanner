@@ -20,11 +20,9 @@ catch (    IOException e) {
   }
   RuleBaseConfiguration ruleBaseConfiguration=new RuleBaseConfiguration();
   RuleBase ruleBase=RuleBaseFactory.newRuleBase(ruleBaseConfiguration);
-  try {
-    ruleBase.addPackage(packageBuilder.getPackage());
+  if (packageBuilder.hasErrors()) {
+    throw new IllegalStateException("There are errors in the scoreDrl's:" + packageBuilder.getErrors().toString());
   }
- catch (  Exception e) {
-    throw new IllegalArgumentException("scoreDrlList (" + scoreDrlList + ") could not be loaded.",e);
-  }
+  ruleBase.addPackage(packageBuilder.getPackage());
   return ruleBase;
 }
