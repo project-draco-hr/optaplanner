@@ -1,0 +1,10 @@
+{
+  List<Object> facts=new ArrayList<Object>();
+  facts.addAll(jobList);
+  facts.addAll(guestList);
+  facts.addAll(hobbyPracticianList);
+  facts.addAll(tableList);
+  facts.addAll(seatList);
+  facts.addAll(seatDesignationList);
+  return facts;
+}

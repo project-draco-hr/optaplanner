@@ -1,0 +1,15 @@
+{
+  Manners2009 clone=new Manners2009();
+  clone.id=id;
+  clone.jobList=jobList;
+  clone.guestList=guestList;
+  clone.hobbyPracticianList=hobbyPracticianList;
+  clone.tableList=tableList;
+  clone.seatList=seatList;
+  List<SeatDesignation> clonedMatchList=new ArrayList<SeatDesignation>(seatDesignationList.size());
+  for (  SeatDesignation seatDesignation : seatDesignationList) {
+    clonedMatchList.add(seatDesignation.clone());
+  }
+  clone.seatDesignationList=clonedMatchList;
+  return clone;
+}

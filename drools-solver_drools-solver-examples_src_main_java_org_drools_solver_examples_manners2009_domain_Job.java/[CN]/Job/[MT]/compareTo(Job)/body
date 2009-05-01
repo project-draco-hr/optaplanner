@@ -1,0 +1,3 @@
+{
+  return new CompareToBuilder().append(jobType,other.jobType).append(name,other.name).append(id,other.id).toComparison();
+}

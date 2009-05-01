@@ -1,0 +1,6 @@
+{
+  String line=bufferedReader.readLine();
+  if (!line.equals(header)) {
+    throw new IllegalArgumentException("Read line (" + line + ") is expected to be \""+ header+ "\".");
+  }
+}

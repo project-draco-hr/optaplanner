@@ -1,0 +1,13 @@
+{
+  BufferedReader bufferedReader=null;
+  try {
+    bufferedReader=new BufferedReader(new FileReader(inputFile));
+    return readManners2009(bufferedReader);
+  }
+ catch (  IOException e) {
+    throw new IllegalArgumentException(e);
+  }
+ finally {
+    IOUtils.closeQuietly(bufferedReader);
+  }
+}

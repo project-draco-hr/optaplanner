@@ -1,0 +1,8 @@
+{
+  String line=bufferedReader.readLine();
+  String[] lineTokens=line.split("[\\ \\t]+");
+  if (lineTokens.length != 2 || !lineTokens[0].equals(key)) {
+    throw new IllegalArgumentException("Read line (" + line + ") is expected to contain 2 tokens"+ " and start with \""+ key+ "\".");
+  }
+  return lineTokens[1];
+}
