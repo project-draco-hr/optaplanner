@@ -1,0 +1,13 @@
+{
+  WorkingMemory workingMemory=localSearchSolverScope.getWorkingMemory();
+  List<SeatDesignation> seatDesignationList=new ArrayList<SeatDesignation>(manners2009.getGuestList().size());
+  for (  Guest guest : manners2009.getGuestList()) {
+    SeatDesignation seatDesignation=new SeatDesignation();
+    seatDesignation.setGuest(guest);
+    seatDesignation.setSeat(manners2009.getSeatList().get(guest.getId().intValue()));
+    seatDesignationList.add(seatDesignation);
+    workingMemory.insert(seatDesignation);
+  }
+  Collections.sort(seatDesignationList);
+  manners2009.setSeatDesignationList(seatDesignationList);
+}

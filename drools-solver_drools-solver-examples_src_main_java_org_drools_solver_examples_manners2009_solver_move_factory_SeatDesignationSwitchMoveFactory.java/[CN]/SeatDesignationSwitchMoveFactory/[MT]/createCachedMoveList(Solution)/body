@@ -1,0 +1,13 @@
+{
+  Manners2009 manners2009=(Manners2009)solution;
+  List<SeatDesignation> seatDesignationList=manners2009.getSeatDesignationList();
+  List<Move> moveList=new ArrayList<Move>();
+  for (ListIterator<SeatDesignation> leftIt=seatDesignationList.listIterator(); leftIt.hasNext(); ) {
+    SeatDesignation leftSeatDesignation=leftIt.next();
+    for (ListIterator<SeatDesignation> rightIt=seatDesignationList.listIterator(leftIt.nextIndex()); rightIt.hasNext(); ) {
+      SeatDesignation rightSeatDesignation=rightIt.next();
+      moveList.add(new SeatDesignationSwitchMove(leftSeatDesignation,rightSeatDesignation));
+    }
+  }
+  return moveList;
+}

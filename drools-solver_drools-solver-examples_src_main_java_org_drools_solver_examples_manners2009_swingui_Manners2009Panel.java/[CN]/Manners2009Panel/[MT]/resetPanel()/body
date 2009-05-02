@@ -7,7 +7,7 @@
   for (  Table table : manners2009.getTableList()) {
     int edgeLength=(int)Math.ceil(((double)(table.getSeatList().size() + 4)) / 4.0);
     JPanel tablePanel=new JPanel(new GridLayout(0,edgeLength));
-    tablePanel.setBorder(BorderFactory.createTitledBorder("Table " + table.getTableIndex()));
+    tablePanel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(5,5,5,5),BorderFactory.createTitledBorder("Table " + table.getTableIndex())));
     add(tablePanel);
     tablePanelMap.put(table,tablePanel);
     for (int y=0; y < edgeLength; y++) {
