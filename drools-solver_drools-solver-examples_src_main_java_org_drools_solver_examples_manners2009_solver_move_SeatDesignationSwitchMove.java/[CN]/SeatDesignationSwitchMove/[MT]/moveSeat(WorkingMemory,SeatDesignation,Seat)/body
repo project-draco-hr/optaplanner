@@ -1,0 +1,5 @@
+{
+  FactHandle factHandle=workingMemory.getFactHandle(seatDesignation);
+  seatDesignation.setSeat(toSeat);
+  workingMemory.update(factHandle,seatDesignation);
+}

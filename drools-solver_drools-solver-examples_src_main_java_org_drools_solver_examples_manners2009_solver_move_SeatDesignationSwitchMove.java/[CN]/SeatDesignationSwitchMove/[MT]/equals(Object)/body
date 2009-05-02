@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof SeatDesignationSwitchMove) {
+    SeatDesignationSwitchMove other=(SeatDesignationSwitchMove)o;
+    return new EqualsBuilder().append(leftSeatDesignation,other.leftSeatDesignation).append(rightSeatDesignation,other.rightSeatDesignation).isEquals();
+  }
+ else {
+    return false;
+  }
+}

@@ -1,0 +1,4 @@
+{
+  JButton button=new JButton(new SeatDesignationAction(seatDesignation));
+  add(button);
+}

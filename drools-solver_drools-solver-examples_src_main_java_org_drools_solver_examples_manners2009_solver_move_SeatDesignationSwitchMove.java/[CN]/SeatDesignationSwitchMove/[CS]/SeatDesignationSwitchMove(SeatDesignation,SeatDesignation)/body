@@ -1,0 +1,4 @@
+{
+  this.leftSeatDesignation=leftSeatDesignation;
+  this.rightSeatDesignation=rightSeatDesignation;
+}

@@ -7,7 +7,7 @@
     Table table=new Table();
     table.setId((long)i);
     table.setTableIndex(i);
-    table.setSize(seatsPerTable);
+    List<Seat> tableSeatList=new ArrayList<Seat>(seatsPerTable);
     Seat firstSeat=null;
     Seat previousSeat=null;
     for (int j=0; j < seatsPerTable; j++) {
@@ -22,11 +22,13 @@
  else {
         firstSeat=seat;
       }
+      tableSeatList.add(seat);
       seatList.add(seat);
       previousSeat=seat;
     }
     firstSeat.setLeftSeat(previousSeat);
     previousSeat.setRightSeat(firstSeat);
+    table.setSeatList(tableSeatList);
     tableList.add(table);
   }
   manners2009.setTableList(tableList);

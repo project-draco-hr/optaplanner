@@ -1,0 +1,4 @@
+{
+  super(seatDesignation.toString());
+  this.seatDesignation=seatDesignation;
+}
