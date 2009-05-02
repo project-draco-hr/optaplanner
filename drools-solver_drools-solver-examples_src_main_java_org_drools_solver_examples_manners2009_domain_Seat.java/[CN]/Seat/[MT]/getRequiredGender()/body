@@ -1,0 +1,3 @@
+{
+  return (seatIndexInTable % 2 == 0) ? Gender.MALE : Gender.FEMALE;
+}

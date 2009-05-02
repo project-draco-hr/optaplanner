@@ -1,12 +1,34 @@
 {
   WorkingMemory workingMemory=localSearchSolverScope.getWorkingMemory();
-  List<SeatDesignation> seatDesignationList=new ArrayList<SeatDesignation>(manners2009.getGuestList().size());
-  for (  Guest guest : manners2009.getGuestList()) {
-    SeatDesignation seatDesignation=new SeatDesignation();
-    seatDesignation.setGuest(guest);
-    seatDesignation.setSeat(manners2009.getSeatList().get(guest.getId().intValue()));
-    seatDesignationList.add(seatDesignation);
-    workingMemory.insert(seatDesignation);
+  List<SeatDesignation> seatDesignationList=createSeatDesignationList(manners2009);
+  for (  SeatDesignation seatDesignation : seatDesignationList) {
+    Score bestScore=DefaultSimpleScore.valueOf(Integer.MIN_VALUE);
+    Seat bestSeat=null;
+    FactHandle seatDesignationHandle=null;
+    for (    Seat seat : manners2009.getSeatList()) {
+      if (seatDesignation.getGuest().getGender() == seat.getRequiredGender()) {
+        if (seatDesignationHandle == null) {
+          seatDesignation.setSeat(seat);
+          seatDesignationHandle=workingMemory.insert(seatDesignation);
+        }
+ else {
+          workingMemory.modifyRetract(seatDesignationHandle);
+          seatDesignation.setSeat(seat);
+          workingMemory.modifyInsert(seatDesignationHandle,seatDesignation);
+        }
+        Score score=localSearchSolverScope.calculateScoreFromWorkingMemory();
+        if (score.compareTo(bestScore) > 0) {
+          bestScore=score;
+          bestSeat=seat;
+        }
+      }
+    }
+    if (bestSeat == null) {
+      throw new IllegalStateException("The bestSeat (" + bestSeat + ") cannot be null.");
+    }
+    workingMemory.modifyRetract(seatDesignationHandle);
+    seatDesignation.setSeat(bestSeat);
+    workingMemory.modifyInsert(seatDesignationHandle,seatDesignation);
   }
   Collections.sort(seatDesignationList);
   manners2009.setSeatDesignationList(seatDesignationList);
