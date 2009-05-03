@@ -32,6 +32,6 @@
     workingMemory.modifyInsert(seatDesignationHandle,seatDesignation);
     undesignatedSeatList.remove(bestSeat);
   }
-  Collections.sort(seatDesignationList);
+  Collections.sort(seatDesignationList,new PersistableIdComparator());
   manners2009.setSeatDesignationList(seatDesignationList);
 }
