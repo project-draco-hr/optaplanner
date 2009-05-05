@@ -1,5 +1,5 @@
 {
-  String[] options={"NQueens","LessonSchedule","TravelingTournament","ITC2007 Examination","ITC2007 CurriculumCourse"};
+  String[] options={"NQueens","LessonSchedule","TravelingTournament","ITC2007 Examination","ITC2007 CurriculumCourse","Miss Manners 2009"};
   int choice=JOptionPane.showOptionDialog(null,"Which example do you want to see?","Choose an example",JOptionPane.DEFAULT_OPTION,JOptionPane.INFORMATION_MESSAGE,null,options,options[0]);
 switch (choice) {
 case 0:
@@ -16,6 +16,9 @@ new ExaminationApp().init();
 break;
 case 4:
 new CurriculumCourseApp().init();
+break;
+case 5:
+new Manners2009App().init();
 break;
 default :
 throw new IllegalArgumentException("Unknown example choice");
