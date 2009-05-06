@@ -1,6 +1,5 @@
 {
   JFileChooser fileChooser=new JFileChooser(solutionBusiness.getSolvedDataDir());
-  fileChooser.setDialogType(JFileChooser.SAVE_DIALOG);
   fileChooser.setFileFilter(new FileFilter(){
     public boolean accept(    File file){
       return file.isDirectory() || file.getName().endsWith(".xml");
@@ -10,7 +9,7 @@
     }
   }
 );
-  int approved=fileChooser.showOpenDialog(WorkflowFrame.this);
+  int approved=fileChooser.showSaveDialog(WorkflowFrame.this);
   if (approved == JFileChooser.APPROVE_OPTION) {
     solutionBusiness.save(fileChooser.getSelectedFile());
   }
