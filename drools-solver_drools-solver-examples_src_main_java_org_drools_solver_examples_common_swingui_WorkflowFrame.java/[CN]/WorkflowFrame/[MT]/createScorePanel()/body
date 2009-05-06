@@ -1,9 +1,12 @@
 {
   JPanel panel=new JPanel(new BorderLayout());
+  progressBar=new JProgressBar(0,100);
+  panel.add(progressBar,BorderLayout.WEST);
   resultLabel=new JLabel("No solution loaded yet");
   resultLabel.setBorder(BorderFactory.createLoweredBevelBorder());
   panel.add(resultLabel,BorderLayout.CENTER);
-  JButton constraintScoreMapButton=new JButton(new ShowConstraintScoreMapDialogAction());
+  showConstraintScoreMapDialogAction=new ShowConstraintScoreMapDialogAction();
+  JButton constraintScoreMapButton=new JButton(showConstraintScoreMapDialogAction);
   panel.add(constraintScoreMapButton,BorderLayout.EAST);
   return panel;
 }

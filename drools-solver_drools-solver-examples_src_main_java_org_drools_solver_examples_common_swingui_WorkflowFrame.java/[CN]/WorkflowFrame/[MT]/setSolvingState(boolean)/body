@@ -9,4 +9,8 @@
   cancelSolvingAction.setEnabled(solving);
   saveAction.setEnabled(!solving);
   solutionPanel.setEnabled(!solving);
+  progressBar.setIndeterminate(solving);
+  progressBar.setStringPainted(solving);
+  progressBar.setString(solving ? "Solving..." : null);
+  showConstraintScoreMapDialogAction.setEnabled(!solving);
 }

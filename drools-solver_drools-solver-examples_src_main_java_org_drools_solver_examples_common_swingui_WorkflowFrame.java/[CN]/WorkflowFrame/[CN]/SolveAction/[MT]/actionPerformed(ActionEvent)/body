@@ -1,11 +1,11 @@
 {
-  setEnabledSolving(true);
+  setSolvingState(true);
   solvingExecutor.submit(new Runnable(){
     public void run(){
       solutionBusiness.solve();
       SwingUtilities.invokeLater(new Runnable(){
         public void run(){
-          setEnabledSolving(false);
+          setSolvingState(false);
           updateScreen();
         }
       }
