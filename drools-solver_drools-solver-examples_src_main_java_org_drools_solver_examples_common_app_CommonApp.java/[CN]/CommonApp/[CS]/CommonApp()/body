@@ -1,5 +1,3 @@
 {
-  workflowFrame=new WorkflowFrame(createSolutionPanel(),getExampleDirName());
-  workflowFrame.setSolutionBusiness(createSolutionBusiness());
-  workflowFrame.init();
+  workflowFrame=new WorkflowFrame(createSolutionBusiness(),createSolutionPanel(),getExampleDirName());
 }

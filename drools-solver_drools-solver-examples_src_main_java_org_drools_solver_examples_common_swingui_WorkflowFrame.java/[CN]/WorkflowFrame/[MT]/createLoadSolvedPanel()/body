@@ -1,8 +1,10 @@
 {
+  loadSolvedActionList=new ArrayList<Action>();
   JPanel panel=new JPanel(new GridLayout(0,1));
   for (  File file : solutionBusiness.getSolvedFileList()) {
-    Action action=new LoadAction(file);
-    panel.add(new JButton(action));
+    Action loadSolvedAction=new LoadAction(file);
+    loadSolvedActionList.add(loadSolvedAction);
+    panel.add(new JButton(loadSolvedAction));
   }
   JScrollPane scrollPane=new JScrollPane(panel);
   scrollPane.getVerticalScrollBar().setUnitIncrement(25);

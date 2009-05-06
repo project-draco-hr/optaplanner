@@ -1,6 +1,16 @@
 {
-  cancelSolvingAction.setEnabled(true);
-  solutionBusiness.solve();
-  cancelSolvingAction.setEnabled(false);
-  updateScreen();
+  setEnabledSolving(true);
+  solvingExecutor.submit(new Runnable(){
+    public void run(){
+      solutionBusiness.solve();
+      SwingUtilities.invokeLater(new Runnable(){
+        public void run(){
+          setEnabledSolving(false);
+          updateScreen();
+        }
+      }
+);
+    }
+  }
+);
 }

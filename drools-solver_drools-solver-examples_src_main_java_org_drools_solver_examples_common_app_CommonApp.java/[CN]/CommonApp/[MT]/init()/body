@@ -1,3 +1,4 @@
 {
+  workflowFrame.init();
   workflowFrame.setVisible(true);
 }

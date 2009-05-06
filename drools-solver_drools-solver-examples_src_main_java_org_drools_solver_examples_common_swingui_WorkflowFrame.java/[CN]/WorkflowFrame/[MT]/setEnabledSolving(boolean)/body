@@ -1,0 +1,12 @@
+{
+  for (  Action action : loadUnsolvedActionList) {
+    action.setEnabled(!solving);
+  }
+  for (  Action action : loadSolvedActionList) {
+    action.setEnabled(!solving);
+  }
+  solveAction.setEnabled(!solving);
+  cancelSolvingAction.setEnabled(solving);
+  saveAction.setEnabled(!solving);
+  solutionPanel.setEnabled(!solving);
+}
