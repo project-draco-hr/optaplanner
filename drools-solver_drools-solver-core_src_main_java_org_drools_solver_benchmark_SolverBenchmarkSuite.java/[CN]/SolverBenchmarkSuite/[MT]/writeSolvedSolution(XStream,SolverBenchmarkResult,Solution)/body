@@ -3,7 +3,9 @@
   Writer writer=null;
   try {
     String baseName=FilenameUtils.getBaseName(result.getUnsolvedSolutionFile().getName());
-    solvedSolutionFile=new File(solvedSolutionFilesDirectory,baseName + "_score" + NUMBER_FORMAT.format(result.getScore())+ "_time"+ NUMBER_FORMAT.format(result.getTimeMillesSpend())+ ".xml");
+    String scoreString=result.getScore().toString().replaceAll("[\\/ ]","_");
+    String timeString=TIME_FORMAT.format(result.getTimeMillesSpend()) + "ms";
+    solvedSolutionFile=new File(solvedSolutionFilesDirectory,baseName + "_score" + scoreString+ "_time"+ timeString+ ".xml");
     writer=new OutputStreamWriter(new FileOutputStream(solvedSolutionFile),"utf-8");
     xStream.toXML(solvedSolution,writer);
   }
