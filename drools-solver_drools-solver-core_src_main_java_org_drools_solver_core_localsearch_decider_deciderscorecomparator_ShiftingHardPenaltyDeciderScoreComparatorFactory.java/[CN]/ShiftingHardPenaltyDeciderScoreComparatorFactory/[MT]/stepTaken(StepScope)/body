@@ -28,7 +28,7 @@
           hardWeight=startingHardWeight;
         }
  else {
-          hardWeight*=hardWeightDegradationRatio;
+          hardWeight*=hardWeightSurvivalRatio;
         }
         break;
       }

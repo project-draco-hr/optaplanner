@@ -28,8 +28,8 @@ deciderScoreComparator.setSuccessiveNoHardChangeMaximum(successiveNoHardChangeMa
 if (successiveNoHardChangeRepetitionMultiplicand != null) {
 deciderScoreComparator.setSuccessiveNoHardChangeRepetitionMultiplicand(successiveNoHardChangeRepetitionMultiplicand);
 }
-if (hardWeightDegradationRatio != null) {
-deciderScoreComparator.setHardWeightDegradationRatio(hardWeightDegradationRatio);
+if (hardWeightSurvivalRatio != null) {
+deciderScoreComparator.setHardWeightSurvivalRatio(hardWeightSurvivalRatio);
 }
 if (startingHardWeight != null) {
 deciderScoreComparator.setStartingHardWeight(startingHardWeight);

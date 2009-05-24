@@ -15,8 +15,8 @@
   if (successiveNoHardChangeRepetitionMultiplicand == null) {
     successiveNoHardChangeRepetitionMultiplicand=inheritedConfig.getSuccessiveNoHardChangeRepetitionMultiplicand();
   }
-  if (hardWeightDegradationRatio == null) {
-    hardWeightDegradationRatio=inheritedConfig.getHardWeightDegradationRatio();
+  if (hardWeightSurvivalRatio == null) {
+    hardWeightSurvivalRatio=inheritedConfig.getHardWeightSurvivalRatio();
   }
   if (startingHardWeight == null) {
     startingHardWeight=inheritedConfig.getStartingHardWeight();
