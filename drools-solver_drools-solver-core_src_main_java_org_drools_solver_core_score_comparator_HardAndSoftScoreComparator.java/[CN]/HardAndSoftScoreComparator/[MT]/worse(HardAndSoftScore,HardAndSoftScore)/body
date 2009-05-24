@@ -1,3 +1,0 @@
-{
-  return (score1.getHardScore() < score2.getHardScore()) || (score1.getHardScore() == score2.getHardScore() && score1.getSoftScore() < score2.getSoftScore());
-}

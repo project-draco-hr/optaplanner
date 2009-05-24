@@ -1,4 +1,5 @@
 {
+  deciderScoreComparatorFactory.beforeDeciding(stepScope);
   selector.beforeDeciding(stepScope);
   accepter.beforeDeciding(stepScope);
   forager.beforeDeciding(stepScope);

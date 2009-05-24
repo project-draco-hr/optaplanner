@@ -31,6 +31,12 @@
  else   if (inheritedConfig.getFinishConfig() != null) {
     finishConfig.inherit(inheritedConfig.getFinishConfig());
   }
+  if (deciderScoreComparatorFactoryConfig == null) {
+    deciderScoreComparatorFactoryConfig=inheritedConfig.getDeciderScoreComparatorFactoryConfig();
+  }
+ else   if (inheritedConfig.getDeciderScoreComparatorFactoryConfig() != null) {
+    deciderScoreComparatorFactoryConfig.inherit(inheritedConfig.getDeciderScoreComparatorFactoryConfig());
+  }
   if (selectorConfig == null) {
     selectorConfig=inheritedConfig.getSelectorConfig();
   }

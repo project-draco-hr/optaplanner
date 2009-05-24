@@ -1,6 +1,6 @@
 {
   CompareToBuilder compareToBuilder=new CompareToBuilder();
-  compareToBuilder.append(a.getScore(),b.getScore());
+  compareToBuilder.append(a.getScore(),b.getScore(),deciderScoreComparator);
   compareToBuilder.append(a.getAcceptChance(),b.getAcceptChance());
   return compareToBuilder.toComparison();
 }

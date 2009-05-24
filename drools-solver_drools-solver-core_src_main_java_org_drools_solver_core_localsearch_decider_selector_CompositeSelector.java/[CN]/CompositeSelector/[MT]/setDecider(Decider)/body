@@ -1,0 +1,6 @@
+{
+  super.setDecider(decider);
+  for (  Selector selector : selectorList) {
+    selector.setDecider(decider);
+  }
+}

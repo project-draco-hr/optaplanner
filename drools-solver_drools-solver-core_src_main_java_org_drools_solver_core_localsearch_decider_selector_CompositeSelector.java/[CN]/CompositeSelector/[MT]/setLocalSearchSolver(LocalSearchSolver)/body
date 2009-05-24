@@ -1,6 +1,0 @@
-{
-  super.setLocalSearchSolver(localSearchSolver);
-  for (  Selector selector : selectorList) {
-    selector.setLocalSearchSolver(localSearchSolver);
-  }
-}

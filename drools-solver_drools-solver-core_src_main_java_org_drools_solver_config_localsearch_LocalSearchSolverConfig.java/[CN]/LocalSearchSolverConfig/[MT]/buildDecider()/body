@@ -1,5 +1,6 @@
 {
   DefaultDecider decider=new DefaultDecider();
+  decider.setDeciderScoreComparator(deciderScoreComparatorFactoryConfig.buildDeciderScoreComparatorFactory());
   decider.setSelector(selectorConfig.buildSelector());
   decider.setAccepter(accepterConfig.buildAccepter());
   decider.setForager(foragerConfig.buildForager());

@@ -1,4 +1,5 @@
 {
+  deciderScoreComparatorFactory.solvingEnded(localSearchSolverScope);
   selector.solvingEnded(localSearchSolverScope);
   accepter.solvingEnded(localSearchSolverScope);
   forager.solvingEnded(localSearchSolverScope);

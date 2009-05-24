@@ -1,0 +1,24 @@
+{
+  if (deciderScoreComparatorClass == null && deciderScoreComparatorFactoryType == null) {
+    deciderScoreComparatorClass=inheritedConfig.getDeciderScoreComparatorClass();
+    deciderScoreComparatorFactoryType=inheritedConfig.getForagerType();
+  }
+  if (hardScoreActivationThreshold == null) {
+    hardScoreActivationThreshold=inheritedConfig.getHardScoreActivationThreshold();
+  }
+  if (successiveNoHardChangeMinimum == null) {
+    successiveNoHardChangeMinimum=inheritedConfig.getSuccessiveNoHardChangeMinimum();
+  }
+  if (successiveNoHardChangeMaximum == null) {
+    successiveNoHardChangeMaximum=inheritedConfig.getSuccessiveNoHardChangeMaximum();
+  }
+  if (successiveNoHardChangeRepetitionMultiplicand == null) {
+    successiveNoHardChangeRepetitionMultiplicand=inheritedConfig.getSuccessiveNoHardChangeRepetitionMultiplicand();
+  }
+  if (hardWeightDegradationRatio == null) {
+    hardWeightDegradationRatio=inheritedConfig.getHardWeightDegradationRatio();
+  }
+  if (startingHardWeight == null) {
+    startingHardWeight=inheritedConfig.getStartingHardWeight();
+  }
+}

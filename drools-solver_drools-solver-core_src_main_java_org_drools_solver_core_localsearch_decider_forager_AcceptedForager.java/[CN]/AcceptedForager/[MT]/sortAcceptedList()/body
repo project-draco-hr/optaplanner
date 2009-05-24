@@ -1,6 +1,6 @@
 {
   if (!listSorted) {
-    Collections.sort(acceptedList,acceptionComparator);
+    Collections.sort(acceptedList,acceptedMoveScopeComparator);
     listSorted=true;
   }
 }

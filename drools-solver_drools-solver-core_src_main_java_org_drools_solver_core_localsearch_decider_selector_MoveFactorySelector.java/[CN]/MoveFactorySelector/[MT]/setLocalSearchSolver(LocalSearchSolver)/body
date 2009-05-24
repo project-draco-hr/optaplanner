@@ -1,4 +1,0 @@
-{
-  super.setLocalSearchSolver(localSearchSolver);
-  moveFactory.setLocalSearchSolver(localSearchSolver);
-}

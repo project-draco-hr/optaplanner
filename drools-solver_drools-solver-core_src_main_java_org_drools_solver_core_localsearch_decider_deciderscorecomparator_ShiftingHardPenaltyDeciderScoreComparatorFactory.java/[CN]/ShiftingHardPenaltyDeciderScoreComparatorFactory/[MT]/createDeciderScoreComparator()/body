@@ -1,0 +1,8 @@
+{
+  if (shiftingPenaltyActive) {
+    return new HardPenaltyDeciderScoreComparator(hardWeight);
+  }
+ else {
+    return naturalDeciderScoreComparator;
+  }
+}

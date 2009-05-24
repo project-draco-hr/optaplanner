@@ -1,7 +1,7 @@
 {
   acceptedList.add(moveScope);
   listSorted=false;
-  if (moveScope.getScore().compareTo(maxScore) > 0) {
+  if (moveScope.getStepScope().getDeciderScoreComparator().compare(moveScope.getScore(),maxScore) > 0) {
     acceptChanceMaxScoreTotal=moveScope.getAcceptChance();
     maxScore=moveScope.getScore();
   }

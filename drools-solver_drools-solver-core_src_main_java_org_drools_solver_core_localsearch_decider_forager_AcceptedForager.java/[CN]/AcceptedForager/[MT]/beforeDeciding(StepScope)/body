@@ -1,4 +1,5 @@
 {
+  acceptedMoveScopeComparator.setDeciderScoreComparator(stepScope.getDeciderScoreComparator());
   acceptedList=new ArrayList<MoveScope>();
   listSorted=false;
   maxScore=stepScope.getLocalSearchSolverScope().getScoreDefinition().getPerfectMinimumScore();
