@@ -1,5 +1,4 @@
 {
-  stepScope.setDeciderScoreComparator(deciderScoreComparatorFactory.createDeciderScoreComparator());
   WorkingMemory workingMemory=stepScope.getWorkingMemory();
   List<Move> moveList=selector.selectMoveList(stepScope);
   for (  Move move : moveList) {
