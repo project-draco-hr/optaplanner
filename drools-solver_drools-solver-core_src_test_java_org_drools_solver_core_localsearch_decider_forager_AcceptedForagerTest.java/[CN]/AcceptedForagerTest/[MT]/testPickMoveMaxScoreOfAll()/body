@@ -2,7 +2,7 @@
   Forager forager=new AcceptedForager(PickEarlyByScore.NONE,false);
   LocalSearchSolverScope localSearchSolverScope=createLocalSearchSolverScope();
   forager.solvingStarted(localSearchSolverScope);
-  StepScope stepScope=new StepScope(localSearchSolverScope);
+  StepScope stepScope=createStepScope(localSearchSolverScope);
   forager.beforeDeciding(stepScope);
   MoveScope a=createMoveScope(stepScope,DefaultSimpleScore.valueOf(-20),30.0);
   MoveScope b=createMoveScope(stepScope,DefaultSimpleScore.valueOf(-1),9.0);

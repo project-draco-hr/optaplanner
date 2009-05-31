@@ -1,0 +1,5 @@
+{
+  StepScope stepScope=new StepScope(localSearchSolverScope);
+  stepScope.setDeciderScoreComparator(new NaturalScoreComparator());
+  return stepScope;
+}
