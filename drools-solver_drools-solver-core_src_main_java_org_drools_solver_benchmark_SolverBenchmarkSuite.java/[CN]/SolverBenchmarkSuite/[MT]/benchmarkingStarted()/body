@@ -1,10 +1,31 @@
 {
+  Set<String> nameSet=new HashSet<String>(solverBenchmarkList.size());
+  Set<SolverBenchmark> noNameBenchmarkSet=new HashSet<SolverBenchmark>(solverBenchmarkList.size());
   for (  SolverBenchmark solverBenchmark : solverBenchmarkList) {
+    if (solverBenchmark.getName() != null) {
+      boolean unique=nameSet.add(solverBenchmark.getName());
+      if (!unique) {
+        throw new IllegalStateException("The benchmark name (" + solverBenchmark.getName() + ") is used in more than 1 benchmark.");
+      }
+    }
+ else {
+      noNameBenchmarkSet.add(solverBenchmark);
+    }
     if (inheritedLocalSearchSolverConfig != null) {
       solverBenchmark.inheritLocalSearchSolverConfig(inheritedLocalSearchSolverConfig);
     }
     if (inheritedUnsolvedSolutionFileList != null) {
       solverBenchmark.inheritUnsolvedSolutionFileList(inheritedUnsolvedSolutionFileList);
     }
+  }
+  int generatedNameIndex=0;
+  for (  SolverBenchmark solverBenchmark : noNameBenchmarkSet) {
+    String generatedName="Config_" + generatedNameIndex;
+    while (nameSet.contains(generatedName)) {
+      generatedNameIndex++;
+      generatedName="Config_" + generatedNameIndex;
+    }
+    solverBenchmark.setName(generatedName);
+    generatedNameIndex++;
   }
 }

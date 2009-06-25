@@ -1,3 +1,4 @@
 XStream xStream
+SolverBenchmark solverBenchmark
 SolverBenchmarkResult result
 Solution solvedSolution

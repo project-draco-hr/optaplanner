@@ -1,6 +1,8 @@
 {
   benchmarkingStarted();
-  solvedSolutionFilesDirectory.mkdirs();
+  if (solvedSolutionFilesDirectory != null) {
+    solvedSolutionFilesDirectory.mkdirs();
+  }
   for (  SolverBenchmark solverBenchmark : solverBenchmarkList) {
     Solver solver=solverBenchmark.getLocalSearchSolverConfig().buildSolver();
     for (    SolverBenchmarkResult result : solverBenchmark.getSolverBenchmarkResultList()) {
@@ -11,7 +13,7 @@
       result.setTimeMillesSpend(solver.getTimeMillisSpend());
       result.setScore(solver.getBestScore());
       Solution solvedSolution=solver.getBestSolution();
-      writeSolvedSolution(xStream,result,solvedSolution);
+      writeSolvedSolution(xStream,solverBenchmark,result,solvedSolution);
     }
   }
   benchmarkingEnded();
