@@ -1,0 +1,12 @@
+{
+  List<Object> facts=new ArrayList<Object>();
+  facts.addAll(specialismList);
+  facts.addAll(periodList);
+  facts.addAll(roomList);
+  facts.addAll(periodHardConstraintList);
+  facts.addAll(roomHardConstraintList);
+  if (isInitialized()) {
+    facts.addAll(examList);
+  }
+  return facts;
+}

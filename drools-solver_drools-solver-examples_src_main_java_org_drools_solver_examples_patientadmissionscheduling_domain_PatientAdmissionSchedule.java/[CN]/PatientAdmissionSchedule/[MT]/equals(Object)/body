@@ -1,0 +1,22 @@
+{
+  if (this == o) {
+    return true;
+  }
+  if (id == null || !(o instanceof PatientAdmissionSchedule)) {
+    return false;
+  }
+ else {
+    PatientAdmissionSchedule other=(PatientAdmissionSchedule)o;
+    if (examList.size() != other.examList.size()) {
+      return false;
+    }
+    for (Iterator<Exam> it=examList.iterator(), otherIt=other.examList.iterator(); it.hasNext(); ) {
+      Exam exam=it.next();
+      Exam otherExam=otherIt.next();
+      if (!exam.solutionEquals(otherExam)) {
+        return false;
+      }
+    }
+    return true;
+  }
+}

@@ -1,6 +1,6 @@
 {
-  readHeader(bufferedReader,"Num,Profession,SubProf,Gender,Spt1,Spt2,Spt3");
-  readHeader(bufferedReader,"-------------------------------------------");
+  readConstantLine(bufferedReader,"Num,Profession,SubProf,Gender,Spt1,Spt2,Spt3");
+  readConstantLine(bufferedReader,"-------------------------------------------");
   int guestSize=manners2009.getSeatList().size();
   List<Guest> guestList=new ArrayList<Guest>(guestSize);
   List<HobbyPractician> hobbyPracticianList=new ArrayList<HobbyPractician>(guestSize * 3);

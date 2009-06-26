@@ -1,0 +1,7 @@
+{
+  String line=bufferedReader.readLine();
+  String value=line.trim();
+  if (!value.equals(constantValue)) {
+    throw new IllegalArgumentException("Read line (" + line + ") is expected to be a constant value ("+ constantValue+ ").");
+  }
+}
