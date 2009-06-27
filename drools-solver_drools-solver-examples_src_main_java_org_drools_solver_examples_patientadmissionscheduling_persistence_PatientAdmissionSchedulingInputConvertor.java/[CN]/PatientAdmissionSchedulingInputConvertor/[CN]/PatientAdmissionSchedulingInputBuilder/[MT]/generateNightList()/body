@@ -1,12 +1,14 @@
 {
   List<Night> nightList=new ArrayList<Night>(nightListSize);
   indexToNightMap=new HashMap<Integer,Night>(nightListSize);
+  long nightId=0L;
   for (int i=0; i < nightListSize; i++) {
     Night night=new Night();
-    night.setId((long)i);
+    night.setId(nightId);
     night.setIndex(i);
     nightList.add(night);
     indexToNightMap.put(i,night);
+    nightId++;
   }
   patientAdmissionSchedule.setNightList(nightList);
 }

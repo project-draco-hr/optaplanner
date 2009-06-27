@@ -4,6 +4,9 @@
   List<Admission> admissionList=new ArrayList<Admission>(patientListSize);
   List<RequiredPatientEquipment> requiredPatientEquipmentList=new ArrayList<RequiredPatientEquipment>(patientListSize * equipmentListSize);
   List<PreferredPatientEquipment> preferredPatientEquipmentList=new ArrayList<PreferredPatientEquipment>(patientListSize * equipmentListSize);
+  long admissionId=0L;
+  long requiredPatientEquipmentId=0L;
+  long preferredPatientEquipmentId=0L;
   for (int i=0; i < patientListSize; i++) {
     String line=bufferedReader.readLine();
     String[] lineTokens=splitByPipeline(line,6);
@@ -28,7 +31,6 @@
     if (admissionTokens.length != ((patientAdmissionListSize * 2) + 1)) {
       throw new IllegalArgumentException("Read line (" + line + ") is expected to contain "+ ((patientAdmissionListSize * 2) + 1)+ " number of tokens after 2th pipeline (|).");
     }
-    long admissionId=0;
     int nextFirstNightIndex=firstNight.getIndex();
     for (int j=1; j < admissionTokens.length; j+=2) {
       long specialismId=Long.parseLong(admissionTokens[j]);
@@ -53,11 +55,12 @@
     for (int j=0; j < requiredPatientEquipmentTokens.length; j++) {
       int hasEquipment=Integer.parseInt(requiredPatientEquipmentTokens[j]);
       if (hasEquipment == 1) {
-        RequiredPatientEquipment patientEquipment=new RequiredPatientEquipment();
-        patientEquipment.setId((long)j);
-        patientEquipment.setPatient(patient);
-        patientEquipment.setEquipment(indexToEquipmentMap.get(j));
-        requiredPatientEquipmentList.add(patientEquipment);
+        RequiredPatientEquipment requiredPatientEquipment=new RequiredPatientEquipment();
+        requiredPatientEquipment.setId(requiredPatientEquipmentId);
+        requiredPatientEquipment.setPatient(patient);
+        requiredPatientEquipment.setEquipment(indexToEquipmentMap.get(j));
+        requiredPatientEquipmentList.add(requiredPatientEquipment);
+        requiredPatientEquipmentId++;
       }
  else       if (hasEquipment != 0) {
         throw new IllegalArgumentException("Read line (" + line + ") is expected to have 0 or 1 hasEquipment ("+ hasEquipment+ ").");
@@ -70,11 +73,12 @@
     for (int j=0; j < preferredPatientEquipmentTokens.length; j++) {
       int hasEquipment=Integer.parseInt(preferredPatientEquipmentTokens[j]);
       if (hasEquipment == 1) {
-        PreferredPatientEquipment patientEquipment=new PreferredPatientEquipment();
-        patientEquipment.setId((long)j);
-        patientEquipment.setPatient(patient);
-        patientEquipment.setEquipment(indexToEquipmentMap.get(j));
-        preferredPatientEquipmentList.add(patientEquipment);
+        PreferredPatientEquipment preferredPatientEquipment=new PreferredPatientEquipment();
+        preferredPatientEquipment.setId(preferredPatientEquipmentId);
+        preferredPatientEquipment.setPatient(patient);
+        preferredPatientEquipment.setEquipment(indexToEquipmentMap.get(j));
+        preferredPatientEquipmentList.add(preferredPatientEquipment);
+        preferredPatientEquipmentId++;
       }
  else       if (hasEquipment != 0) {
         throw new IllegalArgumentException("Read line (" + line + ") is expected to have 0 or 1 hasEquipment ("+ hasEquipment+ ").");

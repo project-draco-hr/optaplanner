@@ -4,6 +4,8 @@
   idToRoomMap=new HashMap<Long,Room>(roomListSize);
   List<RoomSpecialism> roomSpecialismList=new ArrayList<RoomSpecialism>(roomListSize * 5);
   List<RoomEquipment> roomEquipmentList=new ArrayList<RoomEquipment>(roomListSize * 2);
+  long roomSpecialismId=0L;
+  long roomEquipmentId=0L;
   for (int i=0; i < roomListSize; i++) {
     String line=bufferedReader.readLine();
     String[] lineTokens=splitByPipeline(line,6);
@@ -24,11 +26,12 @@
       int priority=Integer.parseInt(roomSpecialismTokens[j]);
       long specialismId=Long.parseLong(roomSpecialismTokens[j + 1]);
       RoomSpecialism roomSpecialism=new RoomSpecialism();
-      roomSpecialism.setId((long)j / 2);
+      roomSpecialism.setId(roomSpecialismId);
       roomSpecialism.setRoom(room);
       roomSpecialism.setSpecialism(idToSpecialismMap.get(specialismId));
       roomSpecialism.setPriority(priority);
       roomSpecialismList.add(roomSpecialism);
+      roomSpecialismId++;
     }
     String[] roomEquipmentTokens=splitBySpace(lineTokens[5]);
     if (roomEquipmentTokens.length != equipmentListSize) {
@@ -38,10 +41,11 @@
       int hasEquipment=Integer.parseInt(roomEquipmentTokens[j]);
       if (hasEquipment == 1) {
         RoomEquipment roomEquipment=new RoomEquipment();
-        roomEquipment.setId((long)j);
+        roomEquipment.setId(roomEquipmentId);
         roomEquipment.setRoom(room);
         roomEquipment.setEquipment(indexToEquipmentMap.get(j));
         roomEquipmentList.add(roomEquipment);
+        roomEquipmentId++;
       }
  else       if (hasEquipment != 0) {
         throw new IllegalArgumentException("Read line (" + line + ") is expected to have 0 or 1 hasEquipment ("+ hasEquipment+ ").");
