@@ -1,0 +1,7 @@
+{
+  String[] lineTokens=line.trim().split("\\|");
+  if (lineTokens.length != numberOfTokens) {
+    throw new IllegalArgumentException("Read line (" + line + ") is expected to contain "+ numberOfTokens+ " tokens seperated by a pipeline (|).");
+  }
+  return lineTokens;
+}

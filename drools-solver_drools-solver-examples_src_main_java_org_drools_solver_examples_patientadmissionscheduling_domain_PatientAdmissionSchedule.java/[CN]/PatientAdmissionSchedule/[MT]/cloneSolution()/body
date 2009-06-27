@@ -2,10 +2,8 @@
   PatientAdmissionSchedule clone=new PatientAdmissionSchedule();
   clone.id=id;
   clone.specialismList=specialismList;
-  clone.periodList=periodList;
-  clone.roomList=roomList;
-  clone.periodHardConstraintList=periodHardConstraintList;
-  clone.roomHardConstraintList=roomHardConstraintList;
+  clone.departmentList=departmentList;
+  clone.departmentSpecialismList=departmentSpecialismList;
   List<Exam> clonedExamList=new ArrayList<Exam>(examList.size());
   for (  Exam exam : examList) {
     Exam clonedExam=exam.clone();

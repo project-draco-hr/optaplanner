@@ -1,0 +1,39 @@
+{
+  readConstantLine(bufferedReader,"DEPARTMENTS:");
+  List<Department> departmentList=new ArrayList<Department>(departmentListSize);
+  List<DepartmentSpecialism> departmentSpecialismList=new ArrayList<DepartmentSpecialism>(departmentListSize * 5);
+  for (int i=0; i < departmentListSize; i++) {
+    String line=bufferedReader.readLine();
+    String[] lineTokens=splitByPipeline(line,2);
+    String[] departmentTokens=splitBySpace(lineTokens[0],4);
+    Department department=new Department();
+    department.setId(Long.parseLong(departmentTokens[0]));
+    department.setName(departmentTokens[1]);
+    int minimumAge=Integer.parseInt(departmentTokens[2]);
+    if (minimumAge != 0) {
+      department.setMinimumAge(Integer.valueOf(minimumAge));
+    }
+    int maximumAge=Integer.parseInt(departmentTokens[3]);
+    if (maximumAge != 0) {
+      department.setMaximumAge(Integer.valueOf(maximumAge));
+    }
+    departmentList.add(department);
+    String[] departmentSpecialismTokens=splitBySpace(lineTokens[1]);
+    if (departmentSpecialismTokens.length % 2 != 0) {
+      throw new IllegalArgumentException("Read line (" + line + ") is expected to contain even number of tokens ("+ departmentSpecialismTokens.length+ ") after pipeline (|) seperated by a space ( ).");
+    }
+    for (int j=0; j < departmentSpecialismTokens.length; j+=2) {
+      int priority=Integer.parseInt(departmentSpecialismTokens[j]);
+      long specialismId=Long.parseLong(departmentSpecialismTokens[j + 1]);
+      DepartmentSpecialism departmentSpecialism=new DepartmentSpecialism();
+      departmentSpecialism.setId((long)j / 2);
+      departmentSpecialism.setDepartment(department);
+      departmentSpecialism.setSpecialism(specialismMap.get(specialismId));
+      departmentSpecialism.setPriority(priority);
+      departmentSpecialismList.add(departmentSpecialism);
+    }
+  }
+  patientAdmissionSchedule.setDepartmentList(departmentList);
+  patientAdmissionSchedule.setDepartmentSpecialismList(departmentSpecialismList);
+  readEmptyLine(bufferedReader);
+}

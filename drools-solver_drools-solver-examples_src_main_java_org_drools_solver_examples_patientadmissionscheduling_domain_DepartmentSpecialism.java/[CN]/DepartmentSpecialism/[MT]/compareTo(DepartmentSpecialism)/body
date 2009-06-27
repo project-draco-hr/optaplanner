@@ -1,0 +1,3 @@
+{
+  return new CompareToBuilder().append(department,other.department).append(specialism,other.specialism).append(id,other.id).toComparison();
+}

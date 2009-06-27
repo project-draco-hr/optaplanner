@@ -1,0 +1,3 @@
+BufferedReader bufferedReader
+PatientAdmissionSchedule patientAdmissionSchedule
+int departmentListSize
