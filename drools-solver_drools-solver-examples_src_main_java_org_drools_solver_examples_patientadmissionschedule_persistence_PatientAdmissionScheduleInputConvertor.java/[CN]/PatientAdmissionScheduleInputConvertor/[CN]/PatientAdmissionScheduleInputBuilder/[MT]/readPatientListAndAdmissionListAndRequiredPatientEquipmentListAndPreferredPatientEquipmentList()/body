@@ -48,6 +48,7 @@
     if (nextFirstNightIndex != nextFirstNightIndex) {
       throw new IllegalArgumentException("Read line (" + line + ") has patientNightListSize ("+ patientNightListSize+ ") different from the sum of admissionNightListSize ("+ nextFirstNightIndex+ ")");
     }
+    List<RequiredPatientEquipment> requiredPatientEquipmentOfPatientList=new ArrayList<RequiredPatientEquipment>(equipmentListSize);
     String[] requiredPatientEquipmentTokens=splitBySpace(lineTokens[4]);
     if (requiredPatientEquipmentTokens.length != equipmentListSize) {
       throw new IllegalArgumentException("Read line (" + line + ") is expected to contain equal number of tokens ("+ requiredPatientEquipmentTokens.length+ ") as equipmentListSize ("+ equipmentListSize+ ") after 4th pipeline (|).");
@@ -59,6 +60,7 @@
         requiredPatientEquipment.setId(requiredPatientEquipmentId);
         requiredPatientEquipment.setPatient(patient);
         requiredPatientEquipment.setEquipment(indexToEquipmentMap.get(j));
+        requiredPatientEquipmentOfPatientList.add(requiredPatientEquipment);
         requiredPatientEquipmentList.add(requiredPatientEquipment);
         requiredPatientEquipmentId++;
       }
@@ -66,6 +68,7 @@
         throw new IllegalArgumentException("Read line (" + line + ") is expected to have 0 or 1 hasEquipment ("+ hasEquipment+ ").");
       }
     }
+    patient.setRequiredPatientEquipmentList(requiredPatientEquipmentOfPatientList);
     String[] preferredPatientEquipmentTokens=splitBySpace(lineTokens[5]);
     if (preferredPatientEquipmentTokens.length != equipmentListSize) {
       throw new IllegalArgumentException("Read line (" + line + ") is expected to contain equal number of tokens ("+ preferredPatientEquipmentTokens.length+ ") as equipmentListSize ("+ equipmentListSize+ ") after 5th pipeline (|).");

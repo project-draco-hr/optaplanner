@@ -1,0 +1,9 @@
+{
+  if (minimumAge != null && patient.getAge() < minimumAge) {
+    return false;
+  }
+  if (maximumAge != null && patient.getAge() > maximumAge) {
+    return false;
+  }
+  return true;
+}

@@ -33,6 +33,7 @@
       roomSpecialismList.add(roomSpecialism);
       roomSpecialismId++;
     }
+    List<RoomEquipment> roomEquipmentOfRoomList=new ArrayList<RoomEquipment>(equipmentListSize);
     String[] roomEquipmentTokens=splitBySpace(lineTokens[5]);
     if (roomEquipmentTokens.length != equipmentListSize) {
       throw new IllegalArgumentException("Read line (" + line + ") is expected to contain equal number of tokens ("+ roomEquipmentTokens.length+ ") as equipmentListSize ("+ equipmentListSize+ ") after 5th pipeline (|).");
@@ -44,6 +45,7 @@
         roomEquipment.setId(roomEquipmentId);
         roomEquipment.setRoom(room);
         roomEquipment.setEquipment(indexToEquipmentMap.get(j));
+        roomEquipmentOfRoomList.add(roomEquipment);
         roomEquipmentList.add(roomEquipment);
         roomEquipmentId++;
       }
@@ -51,6 +53,7 @@
         throw new IllegalArgumentException("Read line (" + line + ") is expected to have 0 or 1 hasEquipment ("+ hasEquipment+ ").");
       }
     }
+    room.setRoomEquipmentList(roomEquipmentOfRoomList);
   }
   patientAdmissionSchedule.setRoomList(roomList);
   patientAdmissionSchedule.setRoomSpecialismList(roomSpecialismList);
