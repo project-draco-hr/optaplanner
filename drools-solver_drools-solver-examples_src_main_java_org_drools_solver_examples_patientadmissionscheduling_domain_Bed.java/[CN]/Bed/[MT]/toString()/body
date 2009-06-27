@@ -1,0 +1,3 @@
+{
+  return room + "_" + indexInRoom;
+}

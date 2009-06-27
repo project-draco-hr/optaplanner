@@ -12,5 +12,7 @@
   readEmptyLine();
   readRoomListAndRoomSpecialismListAndRoomEquipmentList();
   readEmptyLine();
+  readBedList();
+  readEmptyLine();
   return patientAdmissionSchedule;
 }

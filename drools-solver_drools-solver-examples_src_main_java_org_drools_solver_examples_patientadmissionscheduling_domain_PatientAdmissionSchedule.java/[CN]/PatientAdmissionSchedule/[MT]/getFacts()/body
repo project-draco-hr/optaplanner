@@ -7,6 +7,7 @@
   facts.addAll(roomList);
   facts.addAll(roomSpecialismList);
   facts.addAll(roomEquipmentList);
+  facts.addAll(bedList);
   if (isInitialized()) {
     facts.addAll(examList);
   }
