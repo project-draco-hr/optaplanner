@@ -1,9 +1,9 @@
 {
   List<Object> facts=new ArrayList<Object>();
   facts.addAll(specialismList);
+  facts.addAll(equipmentList);
   facts.addAll(departmentList);
   facts.addAll(departmentSpecialismList);
-  facts.addAll(equipmentList);
   facts.addAll(roomList);
   facts.addAll(roomSpecialismList);
   facts.addAll(roomEquipmentList);

@@ -1,3 +1,3 @@
 {
-  return new PatientAdmissionSchedulingInputBuilder();
+  return new PatientAdmissionScheduleInputBuilder();
 }

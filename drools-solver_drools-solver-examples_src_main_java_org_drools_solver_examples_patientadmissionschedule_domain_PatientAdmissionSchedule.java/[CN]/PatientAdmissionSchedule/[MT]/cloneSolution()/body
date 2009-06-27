@@ -2,9 +2,9 @@
   PatientAdmissionSchedule clone=new PatientAdmissionSchedule();
   clone.id=id;
   clone.specialismList=specialismList;
+  clone.equipmentList=equipmentList;
   clone.departmentList=departmentList;
   clone.departmentSpecialismList=departmentSpecialismList;
-  clone.equipmentList=equipmentList;
   clone.roomList=roomList;
   clone.roomSpecialismList=roomSpecialismList;
   clone.roomEquipmentList=roomEquipmentList;
