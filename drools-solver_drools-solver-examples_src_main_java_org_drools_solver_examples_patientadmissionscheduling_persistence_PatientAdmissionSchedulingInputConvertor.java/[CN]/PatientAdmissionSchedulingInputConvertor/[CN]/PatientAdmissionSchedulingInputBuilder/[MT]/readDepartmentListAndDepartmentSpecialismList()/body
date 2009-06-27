@@ -28,12 +28,11 @@
       DepartmentSpecialism departmentSpecialism=new DepartmentSpecialism();
       departmentSpecialism.setId((long)j / 2);
       departmentSpecialism.setDepartment(department);
-      departmentSpecialism.setSpecialism(specialismMap.get(specialismId));
+      departmentSpecialism.setSpecialism(idToSpecialismMap.get(specialismId));
       departmentSpecialism.setPriority(priority);
       departmentSpecialismList.add(departmentSpecialism);
     }
   }
   patientAdmissionSchedule.setDepartmentList(departmentList);
   patientAdmissionSchedule.setDepartmentSpecialismList(departmentSpecialismList);
-  readEmptyLine();
 }

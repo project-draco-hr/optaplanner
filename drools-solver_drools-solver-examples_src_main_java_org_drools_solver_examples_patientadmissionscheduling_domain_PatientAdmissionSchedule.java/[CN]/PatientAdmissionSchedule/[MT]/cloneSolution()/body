@@ -4,6 +4,7 @@
   clone.specialismList=specialismList;
   clone.departmentList=departmentList;
   clone.departmentSpecialismList=departmentSpecialismList;
+  clone.equipmentList=equipmentList;
   List<Exam> clonedExamList=new ArrayList<Exam>(examList.size());
   for (  Exam exam : examList) {
     Exam clonedExam=exam.clone();

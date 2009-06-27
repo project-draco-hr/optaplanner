@@ -3,6 +3,7 @@
   facts.addAll(specialismList);
   facts.addAll(departmentList);
   facts.addAll(departmentSpecialismList);
+  facts.addAll(equipmentList);
   if (isInitialized()) {
     facts.addAll(examList);
   }

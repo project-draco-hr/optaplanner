@@ -1,0 +1,10 @@
+{
+  readConstantLine("ARTICLE BENCHMARK DATA SET");
+  roomListSize=readIntegerValue("Rooms:");
+  equipmentListSize=readIntegerValue("Roomproperties:");
+  bedListSize=readIntegerValue("Beds:");
+  departmentListSize=readIntegerValue("Departments:");
+  specialismListSize=readIntegerValue("Specialisms:");
+  patientListSize=readIntegerValue("Patients:");
+  nightListSize=readIntegerValue("Planning horizon:");
+}
