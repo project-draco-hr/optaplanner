@@ -1,0 +1,3 @@
+{
+  return new CompareToBuilder().append(room,other.room).append(equipment,other.equipment).append(id,other.id).toComparison();
+}

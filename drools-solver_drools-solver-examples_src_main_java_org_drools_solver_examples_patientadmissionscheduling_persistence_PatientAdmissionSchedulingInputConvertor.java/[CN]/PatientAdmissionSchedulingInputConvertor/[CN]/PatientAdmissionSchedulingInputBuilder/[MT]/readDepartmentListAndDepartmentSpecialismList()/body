@@ -1,6 +1,7 @@
 {
   readConstantLine("DEPARTMENTS:");
   List<Department> departmentList=new ArrayList<Department>(departmentListSize);
+  idToDepartmentMap=new HashMap<Long,Department>(departmentListSize);
   List<DepartmentSpecialism> departmentSpecialismList=new ArrayList<DepartmentSpecialism>(departmentListSize * 5);
   for (int i=0; i < departmentListSize; i++) {
     String line=bufferedReader.readLine();
@@ -18,18 +19,17 @@
       department.setMaximumAge(Integer.valueOf(maximumAge));
     }
     departmentList.add(department);
+    idToDepartmentMap.put(department.getId(),department);
     String[] departmentSpecialismTokens=splitBySpace(lineTokens[1]);
     if (departmentSpecialismTokens.length % 2 != 0) {
       throw new IllegalArgumentException("Read line (" + line + ") is expected to contain even number of tokens ("+ departmentSpecialismTokens.length+ ") after pipeline (|) seperated by a space ( ).");
     }
     for (int j=0; j < departmentSpecialismTokens.length; j+=2) {
-      int priority=Integer.parseInt(departmentSpecialismTokens[j]);
-      long specialismId=Long.parseLong(departmentSpecialismTokens[j + 1]);
       DepartmentSpecialism departmentSpecialism=new DepartmentSpecialism();
       departmentSpecialism.setId((long)j / 2);
       departmentSpecialism.setDepartment(department);
-      departmentSpecialism.setSpecialism(idToSpecialismMap.get(specialismId));
-      departmentSpecialism.setPriority(priority);
+      departmentSpecialism.setPriority(Integer.parseInt(departmentSpecialismTokens[j]));
+      departmentSpecialism.setSpecialism(idToSpecialismMap.get(Long.parseLong(departmentSpecialismTokens[j + 1])));
       departmentSpecialismList.add(departmentSpecialism);
     }
   }

@@ -1,0 +1,54 @@
+{
+  readConstantLine("ROOMS:");
+  List<Room> roomList=new ArrayList<Room>(roomListSize);
+  idToRoomMap=new HashMap<Long,Room>(roomListSize);
+  List<RoomSpecialism> roomSpecialismList=new ArrayList<RoomSpecialism>(roomListSize * 5);
+  List<RoomEquipment> roomEquipmentList=new ArrayList<RoomEquipment>(roomListSize * 2);
+  for (int i=0; i < roomListSize; i++) {
+    String line=bufferedReader.readLine();
+    String[] lineTokens=splitByPipeline(line,6);
+    String[] roomTokens=splitBySpace(lineTokens[0],2);
+    Room room=new Room();
+    room.setId(Long.parseLong(roomTokens[0]));
+    room.setName(roomTokens[1]);
+    room.setCapacity(Integer.parseInt(lineTokens[1]));
+    room.setDepartment(idToDepartmentMap.get(Long.parseLong(lineTokens[2])));
+    room.setGenderLimitation(GenderLimitation.valueOfCode(lineTokens[3]));
+    roomList.add(room);
+    idToRoomMap.put(room.getId(),room);
+    String[] roomSpecialismTokens=splitBySpace(lineTokens[4]);
+    if (roomSpecialismTokens.length % 2 != 0) {
+      throw new IllegalArgumentException("Read line (" + line + ") is expected to contain even number of tokens ("+ roomSpecialismTokens.length+ ") after pipeline (|) seperated by a space ( ).");
+    }
+    for (int j=0; j < roomSpecialismTokens.length; j+=2) {
+      int priority=Integer.parseInt(roomSpecialismTokens[j]);
+      long specialismId=Long.parseLong(roomSpecialismTokens[j + 1]);
+      RoomSpecialism roomSpecialism=new RoomSpecialism();
+      roomSpecialism.setId((long)j / 2);
+      roomSpecialism.setRoom(room);
+      roomSpecialism.setSpecialism(idToSpecialismMap.get(specialismId));
+      roomSpecialism.setPriority(priority);
+      roomSpecialismList.add(roomSpecialism);
+    }
+    String[] roomEquipmentTokens=splitBySpace(lineTokens[5]);
+    if (roomEquipmentTokens.length % 2 != 0) {
+      throw new IllegalArgumentException("Read line (" + line + ") is expected to contain even number of tokens ("+ roomEquipmentTokens.length+ ") after pipeline (|) seperated by a space ( ).");
+    }
+    for (int j=0; j < roomEquipmentTokens.length; j++) {
+      int hasEquipment=Integer.parseInt(roomEquipmentTokens[j]);
+      if (hasEquipment == 1) {
+        RoomEquipment roomEquipment=new RoomEquipment();
+        roomEquipment.setId((long)j);
+        roomEquipment.setRoom(room);
+        roomEquipment.setEquipment(indexToEquipmentMap.get(j));
+        roomEquipmentList.add(roomEquipment);
+      }
+ else       if (hasEquipment != 0) {
+        throw new IllegalArgumentException("Read line (" + line + ") is expected to have 0 or 1 hasEquipment ("+ hasEquipment+ ").");
+      }
+    }
+  }
+  patientAdmissionSchedule.setRoomList(roomList);
+  patientAdmissionSchedule.setRoomSpecialismList(roomSpecialismList);
+  patientAdmissionSchedule.setRoomEquipmentList(roomEquipmentList);
+}

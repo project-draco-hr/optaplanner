@@ -4,6 +4,9 @@
   facts.addAll(departmentList);
   facts.addAll(departmentSpecialismList);
   facts.addAll(equipmentList);
+  facts.addAll(roomList);
+  facts.addAll(roomSpecialismList);
+  facts.addAll(roomEquipmentList);
   if (isInitialized()) {
     facts.addAll(examList);
   }
