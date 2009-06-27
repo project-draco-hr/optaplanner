@@ -14,7 +14,7 @@
   facts.addAll(requiredPatientEquipmentList);
   facts.addAll(preferredPatientEquipmentList);
   if (isInitialized()) {
-    facts.addAll(examList);
+    facts.addAll(bedDesignationList);
   }
   return facts;
 }

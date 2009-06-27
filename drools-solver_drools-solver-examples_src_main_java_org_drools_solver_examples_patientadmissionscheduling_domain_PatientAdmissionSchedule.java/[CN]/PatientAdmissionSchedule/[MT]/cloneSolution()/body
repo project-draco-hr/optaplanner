@@ -14,11 +14,11 @@
   clone.admissionList=admissionList;
   clone.requiredPatientEquipmentList=requiredPatientEquipmentList;
   clone.preferredPatientEquipmentList=preferredPatientEquipmentList;
-  List<Exam> clonedExamList=new ArrayList<Exam>(examList.size());
-  for (  Exam exam : examList) {
-    Exam clonedExam=exam.clone();
-    clonedExamList.add(clonedExam);
+  List<BedDesignation> clonedBedDesignationList=new ArrayList<BedDesignation>(bedDesignationList.size());
+  for (  BedDesignation bedDesignation : bedDesignationList) {
+    BedDesignation clonedBedDesignation=bedDesignation.clone();
+    clonedBedDesignationList.add(clonedBedDesignation);
   }
-  clone.examList=clonedExamList;
+  clone.bedDesignationList=clonedBedDesignationList;
   return clone;
 }
