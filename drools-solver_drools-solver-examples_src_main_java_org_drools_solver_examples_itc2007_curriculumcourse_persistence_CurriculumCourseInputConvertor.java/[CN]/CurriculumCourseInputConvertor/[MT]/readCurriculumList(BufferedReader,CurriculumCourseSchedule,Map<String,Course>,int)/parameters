@@ -1,4 +1,0 @@
-BufferedReader bufferedReader
-CurriculumCourseSchedule schedule
-Map<String,Course> courseMap
-int curriculumListSize

@@ -1,0 +1,18 @@
+{
+  Examination examination=new Examination();
+  examination.setId(0L);
+  readTopicListAndStudentList(examination);
+  readPeriodList(examination);
+  readRoomList(examination);
+  String line=bufferedReader.readLine();
+  if (!line.equals("[PeriodHardConstraints]")) {
+    throw new IllegalStateException("Read line (" + line + " is not the expected header ([PeriodHardConstraints])");
+  }
+  readPeriodHardConstraintList(examination);
+  readRoomHardConstraintList(examination);
+  readInstitutionalWeighting(examination);
+  tagFrontLoadLargeTopics(examination);
+  tagFrontLoadLastPeriods(examination);
+  logger.info("Examination with {} students, {} topics/exams, {} periods, {} rooms, {} period constraints" + " and {} room constraints.",new Object[]{examination.getStudentList().size(),examination.getTopicList().size(),examination.getPeriodList().size(),examination.getRoomList().size(),examination.getPeriodHardConstraintList().size(),examination.getRoomHardConstraintList().size()});
+  return examination;
+}

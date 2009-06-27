@@ -1,0 +1,36 @@
+{
+  int tableListSize=readIntegerValue("Tables:");
+  int seatsPerTable=readIntegerValue("SeatsPerTable:");
+  List<Table> tableList=new ArrayList<Table>(tableListSize);
+  List<Seat> seatList=new ArrayList<Seat>(tableListSize * seatsPerTable);
+  for (int i=0; i < tableListSize; i++) {
+    Table table=new Table();
+    table.setId((long)i);
+    table.setTableIndex(i);
+    List<Seat> tableSeatList=new ArrayList<Seat>(seatsPerTable);
+    Seat firstSeat=null;
+    Seat previousSeat=null;
+    for (int j=0; j < seatsPerTable; j++) {
+      Seat seat=new Seat();
+      seat.setId((long)((i * seatsPerTable) + j));
+      seat.setTable(table);
+      seat.setSeatIndexInTable(j);
+      if (previousSeat != null) {
+        seat.setLeftSeat(previousSeat);
+        previousSeat.setRightSeat(seat);
+      }
+ else {
+        firstSeat=seat;
+      }
+      tableSeatList.add(seat);
+      seatList.add(seat);
+      previousSeat=seat;
+    }
+    firstSeat.setLeftSeat(previousSeat);
+    previousSeat.setRightSeat(firstSeat);
+    table.setSeatList(tableSeatList);
+    tableList.add(table);
+  }
+  manners2009.setTableList(tableList);
+  manners2009.setSeatList(seatList);
+}

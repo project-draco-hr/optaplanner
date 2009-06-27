@@ -2,7 +2,9 @@
   BufferedReader bufferedReader=null;
   try {
     bufferedReader=new BufferedReader(new FileReader(inputFile));
-    return readSolution(bufferedReader);
+    InputBuilder inputBuilder=createInputBuilder();
+    inputBuilder.setBufferedReader(bufferedReader);
+    return inputBuilder.readSolution();
   }
  catch (  IOException e) {
     throw new IllegalArgumentException(e);

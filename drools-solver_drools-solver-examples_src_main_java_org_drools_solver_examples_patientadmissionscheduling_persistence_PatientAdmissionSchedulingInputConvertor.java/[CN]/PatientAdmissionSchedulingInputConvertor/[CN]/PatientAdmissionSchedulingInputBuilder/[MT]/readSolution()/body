@@ -1,0 +1,17 @@
+{
+  PatientAdmissionSchedule patientAdmissionSchedule=new PatientAdmissionSchedule();
+  patientAdmissionSchedule.setId(0L);
+  readConstantLine("ARTICLE BENCHMARK DATA SET");
+  int roomListSize=readIntegerValue("Rooms:");
+  int roomPropertyListSize=readIntegerValue("Roomproperties:");
+  int bedListSize=readIntegerValue("Beds:");
+  int departmentListSize=readIntegerValue("Departments:");
+  int specialismListSize=readIntegerValue("Specialisms:");
+  int patientListSize=readIntegerValue("Patients:");
+  int nightListSize=readIntegerValue("Planning horizon:");
+  readEmptyLine();
+  readEmptyLine();
+  readSpecialismList(patientAdmissionSchedule,specialismListSize);
+  readDepartmentListAndDepartmentSpecialismList(patientAdmissionSchedule,departmentListSize);
+  return patientAdmissionSchedule;
+}

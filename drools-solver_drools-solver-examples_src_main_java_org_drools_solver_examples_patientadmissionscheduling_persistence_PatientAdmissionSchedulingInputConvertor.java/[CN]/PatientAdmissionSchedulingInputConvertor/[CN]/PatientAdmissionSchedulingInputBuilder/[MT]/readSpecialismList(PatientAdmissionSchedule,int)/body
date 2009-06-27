@@ -1,0 +1,16 @@
+{
+  readConstantLine("SPECIALISMS:");
+  List<Specialism> specialismList=new ArrayList<Specialism>(specialismListSize);
+  specialismMap=new HashMap<Long,Specialism>(specialismListSize);
+  for (int i=0; i < specialismListSize; i++) {
+    String line=bufferedReader.readLine();
+    String[] lineTokens=splitBySpace(line,2);
+    Specialism specialism=new Specialism();
+    specialism.setId(Long.parseLong(lineTokens[0]));
+    specialism.setName(lineTokens[1]);
+    specialismList.add(specialism);
+    specialismMap.put(specialism.getId(),specialism);
+  }
+  patientAdmissionSchedule.setSpecialismList(specialismList);
+  readEmptyLine();
+}
