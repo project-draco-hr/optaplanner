@@ -9,6 +9,11 @@
   clone.roomSpecialismList=roomSpecialismList;
   clone.roomEquipmentList=roomEquipmentList;
   clone.bedList=bedList;
+  clone.nightList=nightList;
+  clone.patientList=patientList;
+  clone.admissionList=admissionList;
+  clone.requiredPatientEquipmentList=requiredPatientEquipmentList;
+  clone.preferredPatientEquipmentList=preferredPatientEquipmentList;
   List<Exam> clonedExamList=new ArrayList<Exam>(examList.size());
   for (  Exam exam : examList) {
     Exam clonedExam=exam.clone();

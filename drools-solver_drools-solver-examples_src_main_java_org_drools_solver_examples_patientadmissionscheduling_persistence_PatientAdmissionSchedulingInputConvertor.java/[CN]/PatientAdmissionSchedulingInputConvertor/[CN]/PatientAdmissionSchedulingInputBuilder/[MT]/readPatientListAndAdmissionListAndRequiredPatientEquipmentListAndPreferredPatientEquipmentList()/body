@@ -1,0 +1,88 @@
+{
+  readConstantLine("PATIENTS:");
+  List<Patient> patientList=new ArrayList<Patient>(patientListSize);
+  List<Admission> admissionList=new ArrayList<Admission>(patientListSize);
+  List<RequiredPatientEquipment> requiredPatientEquipmentList=new ArrayList<RequiredPatientEquipment>(patientListSize * equipmentListSize);
+  List<PreferredPatientEquipment> preferredPatientEquipmentList=new ArrayList<PreferredPatientEquipment>(patientListSize * equipmentListSize);
+  for (int i=0; i < patientListSize; i++) {
+    String line=bufferedReader.readLine();
+    String[] lineTokens=splitByPipeline(line,6);
+    String[] patientTokens=splitBySpace(lineTokens[0],4);
+    Patient patient=new Patient();
+    patient.setId(Long.parseLong(patientTokens[0]));
+    patient.setName(patientTokens[1]);
+    patient.setAge(Integer.parseInt(patientTokens[2]));
+    patient.setGender(Gender.valueOfCode(patientTokens[3]));
+    patient.setPreferredMaximumRoomCapacity(Integer.parseInt(lineTokens[3]));
+    patientList.add(patient);
+    String[] nightTokens=splitBySpace(lineTokens[1],2);
+    Night firstNight=indexToNightMap.get(Integer.parseInt(nightTokens[0]));
+    int lastNightIndex=Integer.parseInt(nightTokens[1]);
+    ensureEnoughNights(lastNightIndex);
+    Night endNight=indexToNightMap.get(lastNightIndex);
+    int patientNightListSize=endNight.getIndex() - firstNight.getIndex();
+    String[] admissionTokens=splitBySpace(lineTokens[2]);
+    if (admissionTokens.length % 2 != 1) {
+    }
+    int patientAdmissionListSize=Integer.parseInt(admissionTokens[0]);
+    if (admissionTokens.length != ((patientAdmissionListSize * 2) + 1)) {
+      throw new IllegalArgumentException("Read line (" + line + ") is expected to contain "+ ((patientAdmissionListSize * 2) + 1)+ " number of tokens after 2th pipeline (|).");
+    }
+    long admissionId=0;
+    int nextFirstNightIndex=firstNight.getIndex();
+    for (int j=1; j < admissionTokens.length; j+=2) {
+      long specialismId=Long.parseLong(admissionTokens[j]);
+      int admissionNightListSize=Integer.parseInt(admissionTokens[j + 1]);
+      Admission admission=new Admission();
+      admission.setId(admissionId);
+      admission.setPatient(patient);
+      admission.setSpecialism(idToSpecialismMap.get(specialismId));
+      admission.setFirstNight(indexToNightMap.get(nextFirstNightIndex));
+      admission.setLastNight(indexToNightMap.get(nextFirstNightIndex + admissionNightListSize - 1));
+      admissionList.add(admission);
+      admissionId++;
+      nextFirstNightIndex+=admissionNightListSize;
+    }
+    if (nextFirstNightIndex != nextFirstNightIndex) {
+      throw new IllegalArgumentException("Read line (" + line + ") has patientNightListSize ("+ patientNightListSize+ ") different from the sum of admissionNightListSize ("+ nextFirstNightIndex+ ")");
+    }
+    String[] requiredPatientEquipmentTokens=splitBySpace(lineTokens[4]);
+    if (requiredPatientEquipmentTokens.length != equipmentListSize) {
+      throw new IllegalArgumentException("Read line (" + line + ") is expected to contain equal number of tokens ("+ requiredPatientEquipmentTokens.length+ ") as equipmentListSize ("+ equipmentListSize+ ") after 4th pipeline (|).");
+    }
+    for (int j=0; j < requiredPatientEquipmentTokens.length; j++) {
+      int hasEquipment=Integer.parseInt(requiredPatientEquipmentTokens[j]);
+      if (hasEquipment == 1) {
+        RequiredPatientEquipment patientEquipment=new RequiredPatientEquipment();
+        patientEquipment.setId((long)j);
+        patientEquipment.setPatient(patient);
+        patientEquipment.setEquipment(indexToEquipmentMap.get(j));
+        requiredPatientEquipmentList.add(patientEquipment);
+      }
+ else       if (hasEquipment != 0) {
+        throw new IllegalArgumentException("Read line (" + line + ") is expected to have 0 or 1 hasEquipment ("+ hasEquipment+ ").");
+      }
+    }
+    String[] preferredPatientEquipmentTokens=splitBySpace(lineTokens[5]);
+    if (preferredPatientEquipmentTokens.length != equipmentListSize) {
+      throw new IllegalArgumentException("Read line (" + line + ") is expected to contain equal number of tokens ("+ preferredPatientEquipmentTokens.length+ ") as equipmentListSize ("+ equipmentListSize+ ") after 5th pipeline (|).");
+    }
+    for (int j=0; j < preferredPatientEquipmentTokens.length; j++) {
+      int hasEquipment=Integer.parseInt(preferredPatientEquipmentTokens[j]);
+      if (hasEquipment == 1) {
+        PreferredPatientEquipment patientEquipment=new PreferredPatientEquipment();
+        patientEquipment.setId((long)j);
+        patientEquipment.setPatient(patient);
+        patientEquipment.setEquipment(indexToEquipmentMap.get(j));
+        preferredPatientEquipmentList.add(patientEquipment);
+      }
+ else       if (hasEquipment != 0) {
+        throw new IllegalArgumentException("Read line (" + line + ") is expected to have 0 or 1 hasEquipment ("+ hasEquipment+ ").");
+      }
+    }
+  }
+  patientAdmissionSchedule.setPatientList(patientList);
+  patientAdmissionSchedule.setAdmissionList(admissionList);
+  patientAdmissionSchedule.setRequiredPatientEquipmentList(requiredPatientEquipmentList);
+  patientAdmissionSchedule.setPreferredPatientEquipmentList(preferredPatientEquipmentList);
+}

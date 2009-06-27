@@ -1,0 +1,12 @@
+{
+  List<Night> nightList=patientAdmissionSchedule.getNightList();
+  if (lastNightIndex >= nightList.size()) {
+    for (int j=nightList.size(); j <= lastNightIndex; j++) {
+      Night night=new Night();
+      night.setId((long)j);
+      night.setIndex(j);
+      nightList.add(night);
+      indexToNightMap.put(j,night);
+    }
+  }
+}

@@ -18,7 +18,7 @@
     idToRoomMap.put(room.getId(),room);
     String[] roomSpecialismTokens=splitBySpace(lineTokens[4]);
     if (roomSpecialismTokens.length % 2 != 0) {
-      throw new IllegalArgumentException("Read line (" + line + ") is expected to contain even number of tokens ("+ roomSpecialismTokens.length+ ") after pipeline (|) seperated by a space ( ).");
+      throw new IllegalArgumentException("Read line (" + line + ") is expected to contain even number of tokens ("+ roomSpecialismTokens.length+ ") after 4th pipeline (|) seperated by a space ( ).");
     }
     for (int j=0; j < roomSpecialismTokens.length; j+=2) {
       int priority=Integer.parseInt(roomSpecialismTokens[j]);
@@ -31,8 +31,8 @@
       roomSpecialismList.add(roomSpecialism);
     }
     String[] roomEquipmentTokens=splitBySpace(lineTokens[5]);
-    if (roomEquipmentTokens.length % 2 != 0) {
-      throw new IllegalArgumentException("Read line (" + line + ") is expected to contain even number of tokens ("+ roomEquipmentTokens.length+ ") after pipeline (|) seperated by a space ( ).");
+    if (roomEquipmentTokens.length != equipmentListSize) {
+      throw new IllegalArgumentException("Read line (" + line + ") is expected to contain equal number of tokens ("+ roomEquipmentTokens.length+ ") as equipmentListSize ("+ equipmentListSize+ ") after 5th pipeline (|).");
     }
     for (int j=0; j < roomEquipmentTokens.length; j++) {
       int hasEquipment=Integer.parseInt(roomEquipmentTokens[j]);

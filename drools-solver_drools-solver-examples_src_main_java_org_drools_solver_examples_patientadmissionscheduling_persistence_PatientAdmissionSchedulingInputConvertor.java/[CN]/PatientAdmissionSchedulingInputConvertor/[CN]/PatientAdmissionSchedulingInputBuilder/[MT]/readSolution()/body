@@ -14,5 +14,9 @@
   readEmptyLine();
   readBedList();
   readEmptyLine();
+  generateNightList();
+  readPatientListAndAdmissionListAndRequiredPatientEquipmentListAndPreferredPatientEquipmentList();
+  readEmptyLine();
+  readConstantLine("END.");
   return patientAdmissionSchedule;
 }

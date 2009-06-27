@@ -1,0 +1,3 @@
+{
+  return new CompareToBuilder().append(patient,other.patient).append(firstNight,other.firstNight).append(id,other.id).toComparison();
+}

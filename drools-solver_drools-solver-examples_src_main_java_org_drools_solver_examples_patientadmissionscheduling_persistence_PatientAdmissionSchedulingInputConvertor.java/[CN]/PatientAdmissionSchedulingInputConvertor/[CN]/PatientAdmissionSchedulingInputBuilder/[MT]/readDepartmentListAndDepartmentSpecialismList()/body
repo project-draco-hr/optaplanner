@@ -22,7 +22,7 @@
     idToDepartmentMap.put(department.getId(),department);
     String[] departmentSpecialismTokens=splitBySpace(lineTokens[1]);
     if (departmentSpecialismTokens.length % 2 != 0) {
-      throw new IllegalArgumentException("Read line (" + line + ") is expected to contain even number of tokens ("+ departmentSpecialismTokens.length+ ") after pipeline (|) seperated by a space ( ).");
+      throw new IllegalArgumentException("Read line (" + line + ") is expected to contain even number of tokens ("+ departmentSpecialismTokens.length+ ") after 1st pipeline (|) seperated by a space ( ).");
     }
     for (int j=0; j < departmentSpecialismTokens.length; j+=2) {
       DepartmentSpecialism departmentSpecialism=new DepartmentSpecialism();
