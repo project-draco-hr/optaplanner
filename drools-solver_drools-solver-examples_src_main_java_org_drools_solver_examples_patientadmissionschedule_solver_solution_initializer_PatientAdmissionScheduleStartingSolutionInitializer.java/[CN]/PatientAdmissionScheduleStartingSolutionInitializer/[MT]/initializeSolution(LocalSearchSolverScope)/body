@@ -1,0 +1,4 @@
+{
+  Manners2009 manners2009=(Manners2009)localSearchSolverScope.getWorkingSolution();
+  initializeSeatDesignationList(localSearchSolverScope,manners2009);
+}
