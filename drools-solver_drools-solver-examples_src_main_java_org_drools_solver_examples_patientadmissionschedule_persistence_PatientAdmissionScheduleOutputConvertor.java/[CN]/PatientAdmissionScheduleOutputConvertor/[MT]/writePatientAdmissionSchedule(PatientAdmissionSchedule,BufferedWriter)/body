@@ -1,0 +1,12 @@
+{
+  Collections.sort(patientAdmissionSchedule.getBedDesignationList());
+  for (  Patient patient : patientAdmissionSchedule.getPatientList()) {
+    bufferedWriter.write(Long.toString(patient.getId()));
+    for (    BedDesignation bedDesignation : patientAdmissionSchedule.getBedDesignationList()) {
+      if (bedDesignation.getPatient().equals(patient)) {
+        bufferedWriter.write(" " + Long.toString(bedDesignation.getBed().getId()));
+      }
+    }
+    bufferedWriter.write("\n");
+  }
+}
