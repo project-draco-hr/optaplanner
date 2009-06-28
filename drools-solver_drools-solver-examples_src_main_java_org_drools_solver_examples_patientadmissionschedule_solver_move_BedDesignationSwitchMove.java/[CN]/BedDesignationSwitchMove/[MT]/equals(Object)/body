@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof BedDesignationSwitchMove) {
+    BedDesignationSwitchMove other=(BedDesignationSwitchMove)o;
+    return new EqualsBuilder().append(leftBedDesignation,other.leftBedDesignation).append(rightBedDesignation,other.rightBedDesignation).isEquals();
+  }
+ else {
+    return false;
+  }
+}

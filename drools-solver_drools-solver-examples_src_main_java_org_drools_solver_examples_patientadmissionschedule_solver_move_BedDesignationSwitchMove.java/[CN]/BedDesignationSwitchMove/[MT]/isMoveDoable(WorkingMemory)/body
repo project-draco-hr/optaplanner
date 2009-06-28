@@ -1,0 +1,3 @@
+{
+  return !ObjectUtils.equals(leftBedDesignation.getBed(),rightBedDesignation.getBed()) && rightBedDesignation.getBed().allowsAdmissionPart(leftBedDesignation.getAdmissionPart()) && leftBedDesignation.getBed().allowsAdmissionPart(rightBedDesignation.getAdmissionPart());
+}

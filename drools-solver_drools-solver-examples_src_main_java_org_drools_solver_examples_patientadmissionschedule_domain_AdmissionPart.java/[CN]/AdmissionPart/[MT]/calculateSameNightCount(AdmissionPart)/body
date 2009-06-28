@@ -1,0 +1,5 @@
+{
+  int firstNightIndex=Math.max(getFirstNight().getIndex(),other.getFirstNight().getIndex());
+  int lastNightIndex=Math.min(getLastNight().getIndex(),other.getLastNight().getIndex());
+  return Math.max(0,lastNightIndex - firstNightIndex + 1);
+}

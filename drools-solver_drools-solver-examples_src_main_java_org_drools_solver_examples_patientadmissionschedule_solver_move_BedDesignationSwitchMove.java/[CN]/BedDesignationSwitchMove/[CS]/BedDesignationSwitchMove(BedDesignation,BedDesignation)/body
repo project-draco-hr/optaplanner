@@ -1,0 +1,4 @@
+{
+  this.leftBedDesignation=leftBedDesignation;
+  this.rightBedDesignation=rightBedDesignation;
+}
