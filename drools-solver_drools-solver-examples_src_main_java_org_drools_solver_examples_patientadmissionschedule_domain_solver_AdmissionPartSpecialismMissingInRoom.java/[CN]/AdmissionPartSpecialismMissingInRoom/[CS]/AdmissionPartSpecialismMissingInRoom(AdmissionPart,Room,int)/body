@@ -1,0 +1,5 @@
+{
+  this.admissionPart=admissionPart;
+  this.room=room;
+  this.weight=weight;
+}

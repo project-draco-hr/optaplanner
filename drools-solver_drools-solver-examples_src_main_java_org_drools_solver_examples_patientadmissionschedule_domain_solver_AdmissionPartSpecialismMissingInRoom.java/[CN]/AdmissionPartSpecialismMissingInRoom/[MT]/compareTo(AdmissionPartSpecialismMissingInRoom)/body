@@ -1,0 +1,3 @@
+{
+  return new CompareToBuilder().append(admissionPart,other.admissionPart).append(room,other.room).toComparison();
+}

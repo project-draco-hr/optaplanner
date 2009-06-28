@@ -17,5 +17,6 @@
     facts.addAll(bedDesignationList);
   }
   facts.addAll(calculateAdmissionPartConflictList());
+  facts.addAll(calculateAdmissionPartSpecialismMissingInRoomList());
   return facts;
 }
