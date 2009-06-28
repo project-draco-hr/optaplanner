@@ -1,0 +1,3 @@
+{
+  return department.allowsAdmissionPart(admissionPart) && allowsPatientGender(admissionPart.getPatient()) && hasRequiredRoomProperties(admissionPart.getPatient());
+}

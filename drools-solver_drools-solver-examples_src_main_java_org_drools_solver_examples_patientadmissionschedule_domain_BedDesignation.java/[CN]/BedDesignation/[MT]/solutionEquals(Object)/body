@@ -4,7 +4,7 @@
   }
  else   if (o instanceof BedDesignation) {
     BedDesignation other=(BedDesignation)o;
-    return new EqualsBuilder().append(id,other.id).append(admission,other.admission).append(bed,other.bed).isEquals();
+    return new EqualsBuilder().append(id,other.id).append(admissionPart,other.admissionPart).append(bed,other.bed).isEquals();
   }
  else {
     return false;

@@ -1,3 +1,0 @@
-{
-  return department.allowsAdmission(admission) && allowsPatientGender(admission.getPatient()) && hasRequiredRoomProperties(admission.getPatient());
-}

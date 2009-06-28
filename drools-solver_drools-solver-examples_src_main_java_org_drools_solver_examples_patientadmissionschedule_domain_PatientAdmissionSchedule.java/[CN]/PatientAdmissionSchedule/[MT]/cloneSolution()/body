@@ -11,7 +11,7 @@
   clone.bedList=bedList;
   clone.nightList=nightList;
   clone.patientList=patientList;
-  clone.admissionList=admissionList;
+  clone.admissionPartList=admissionPartList;
   clone.requiredPatientEquipmentList=requiredPatientEquipmentList;
   clone.preferredPatientEquipmentList=preferredPatientEquipmentList;
   List<BedDesignation> clonedBedDesignationList=new ArrayList<BedDesignation>(bedDesignationList.size());

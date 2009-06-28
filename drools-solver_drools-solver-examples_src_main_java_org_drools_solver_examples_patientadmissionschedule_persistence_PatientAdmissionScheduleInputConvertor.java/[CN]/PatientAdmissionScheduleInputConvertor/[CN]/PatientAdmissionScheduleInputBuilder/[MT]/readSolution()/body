@@ -15,9 +15,9 @@
   readBedList();
   readEmptyLine();
   generateNightList();
-  readPatientListAndAdmissionListAndRequiredPatientEquipmentListAndPreferredPatientEquipmentList();
+  readPatientListAndAdmissionPartListAndRequiredPatientEquipmentListAndPreferredPatientEquipmentList();
   readEmptyLine();
   readConstantLine("END.");
-  logger.info("PatientAdmissionSchedule with {} specialisms, {} equipments, {} departments, {} rooms, " + "{} beds, {} nights, {} patients and {} admissions.",new Object[]{patientAdmissionSchedule.getSpecialismList().size(),patientAdmissionSchedule.getEquipmentList().size(),patientAdmissionSchedule.getDepartmentList().size(),patientAdmissionSchedule.getRoomList().size(),patientAdmissionSchedule.getBedList().size(),patientAdmissionSchedule.getNightList().size(),patientAdmissionSchedule.getPatientList().size(),patientAdmissionSchedule.getAdmissionList().size()});
+  logger.info("PatientAdmissionSchedule with {} specialisms, {} equipments, {} departments, {} rooms, " + "{} beds, {} nights, {} patients and {} admissions.",new Object[]{patientAdmissionSchedule.getSpecialismList().size(),patientAdmissionSchedule.getEquipmentList().size(),patientAdmissionSchedule.getDepartmentList().size(),patientAdmissionSchedule.getRoomList().size(),patientAdmissionSchedule.getBedList().size(),patientAdmissionSchedule.getNightList().size(),patientAdmissionSchedule.getPatientList().size(),patientAdmissionSchedule.getAdmissionPartList().size()});
   return patientAdmissionSchedule;
 }
