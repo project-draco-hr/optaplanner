@@ -1,4 +1,4 @@
 {
-  Manners2009 manners2009=(Manners2009)localSearchSolverScope.getWorkingSolution();
-  return manners2009.isInitialized();
+  PatientAdmissionSchedule patientAdmissionSchedule=(PatientAdmissionSchedule)localSearchSolverScope.getWorkingSolution();
+  return patientAdmissionSchedule.isInitialized();
 }

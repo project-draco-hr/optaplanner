@@ -1,0 +1,37 @@
+{
+  WorkingMemory workingMemory=localSearchSolverScope.getWorkingMemory();
+  List<BedDesignation> bedDesignationList=createBedDesignationList(patientAdmissionSchedule);
+  List<Bed> undesignatedBedList=patientAdmissionSchedule.getBedList();
+  for (  BedDesignation bedDesignation : bedDesignationList) {
+    Score bestScore=DefaultHardAndSoftScore.valueOf(Integer.MIN_VALUE);
+    Bed bestBed=null;
+    FactHandle bedDesignationHandle=null;
+    for (    Bed bed : undesignatedBedList) {
+      if (bed.allowsAdmissionPart(bedDesignation.getAdmissionPart())) {
+        if (bedDesignationHandle == null) {
+          bedDesignation.setBed(bed);
+          bedDesignationHandle=workingMemory.insert(bedDesignation);
+        }
+ else {
+          workingMemory.modifyRetract(bedDesignationHandle);
+          bedDesignation.setBed(bed);
+          workingMemory.modifyInsert(bedDesignationHandle,bedDesignation);
+        }
+        Score score=localSearchSolverScope.calculateScoreFromWorkingMemory();
+        if (score.compareTo(bestScore) > 0) {
+          bestScore=score;
+          bestBed=bed;
+        }
+      }
+    }
+    if (bestBed == null) {
+      throw new IllegalStateException("The bestBed (" + bestBed + ") cannot be null.");
+    }
+    workingMemory.modifyRetract(bedDesignationHandle);
+    bedDesignation.setBed(bestBed);
+    workingMemory.modifyInsert(bedDesignationHandle,bedDesignation);
+    undesignatedBedList.remove(bestBed);
+  }
+  Collections.sort(bedDesignationList,new PersistableIdComparator());
+  patientAdmissionSchedule.setBedDesignationList(bedDesignationList);
+}

@@ -1,0 +1,10 @@
+{
+  List<BedDesignation> bedDesignationList=new ArrayList<BedDesignation>(patientAdmissionSchedule.getAdmissionPartList().size());
+  for (  AdmissionPart admissionPart : patientAdmissionSchedule.getAdmissionPartList()) {
+    BedDesignation bedDesignation=new BedDesignation();
+    bedDesignation.setId(admissionPart.getId());
+    bedDesignation.setAdmissionPart(admissionPart);
+    bedDesignationList.add(bedDesignation);
+  }
+  return bedDesignationList;
+}
