@@ -25,13 +25,19 @@
     for (int j=0; j < roomSpecialismTokens.length; j+=2) {
       int priority=Integer.parseInt(roomSpecialismTokens[j]);
       long specialismId=Long.parseLong(roomSpecialismTokens[j + 1]);
-      RoomSpecialism roomSpecialism=new RoomSpecialism();
-      roomSpecialism.setId(roomSpecialismId);
-      roomSpecialism.setRoom(room);
-      roomSpecialism.setSpecialism(idToSpecialismMap.get(specialismId));
-      roomSpecialism.setPriority(priority);
-      roomSpecialismList.add(roomSpecialism);
-      roomSpecialismId++;
+      if (specialismId != 0) {
+        RoomSpecialism roomSpecialism=new RoomSpecialism();
+        roomSpecialism.setId(roomSpecialismId);
+        roomSpecialism.setRoom(room);
+        Specialism specialism=idToSpecialismMap.get(specialismId);
+        if (specialism == null) {
+          throw new IllegalArgumentException("Read line (" + line + ") has a non existing specialismId ("+ specialismId+ ").");
+        }
+        roomSpecialism.setSpecialism(specialism);
+        roomSpecialism.setPriority(priority);
+        roomSpecialismList.add(roomSpecialism);
+        roomSpecialismId++;
+      }
     }
     List<RoomEquipment> roomEquipmentOfRoomList=new ArrayList<RoomEquipment>(equipmentListSize);
     String[] roomEquipmentTokens=splitBySpace(lineTokens[5]);

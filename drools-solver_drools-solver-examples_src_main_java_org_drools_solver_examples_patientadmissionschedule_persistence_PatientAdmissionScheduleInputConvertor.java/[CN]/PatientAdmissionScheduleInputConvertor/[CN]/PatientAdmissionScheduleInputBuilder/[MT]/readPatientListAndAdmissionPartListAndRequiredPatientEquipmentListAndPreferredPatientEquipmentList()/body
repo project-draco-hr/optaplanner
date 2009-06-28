@@ -39,7 +39,11 @@
         AdmissionPart admissionPart=new AdmissionPart();
         admissionPart.setId(admissionPartId);
         admissionPart.setPatient(patient);
-        admissionPart.setSpecialism(idToSpecialismMap.get(specialismId));
+        Specialism specialism=(specialismId == 0) ? null : idToSpecialismMap.get(specialismId);
+        if (specialism == null) {
+          throw new IllegalArgumentException("Read line (" + line + ") has a non existing specialismId ("+ specialismId+ ").");
+        }
+        admissionPart.setSpecialism(specialism);
         admissionPart.setFirstNight(indexToNightMap.get(nextFirstNightIndex));
         admissionPart.setLastNight(indexToNightMap.get(nextFirstNightIndex + admissionPartNightListSize - 1));
         admissionPartList.add(admissionPart);

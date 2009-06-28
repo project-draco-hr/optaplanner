@@ -26,13 +26,20 @@
       throw new IllegalArgumentException("Read line (" + line + ") is expected to contain even number of tokens ("+ departmentSpecialismTokens.length+ ") after 1st pipeline (|) seperated by a space ( ).");
     }
     for (int j=0; j < departmentSpecialismTokens.length; j+=2) {
-      DepartmentSpecialism departmentSpecialism=new DepartmentSpecialism();
-      departmentSpecialism.setId(departmentSpecialismId);
-      departmentSpecialism.setDepartment(department);
-      departmentSpecialism.setPriority(Integer.parseInt(departmentSpecialismTokens[j]));
-      departmentSpecialism.setSpecialism(idToSpecialismMap.get(Long.parseLong(departmentSpecialismTokens[j + 1])));
-      departmentSpecialismList.add(departmentSpecialism);
-      departmentSpecialismId++;
+      long specialismId=Long.parseLong(departmentSpecialismTokens[j + 1]);
+      if (specialismId != 0) {
+        DepartmentSpecialism departmentSpecialism=new DepartmentSpecialism();
+        departmentSpecialism.setId(departmentSpecialismId);
+        departmentSpecialism.setDepartment(department);
+        departmentSpecialism.setPriority(Integer.parseInt(departmentSpecialismTokens[j]));
+        Specialism specialism=idToSpecialismMap.get(specialismId);
+        if (specialism == null) {
+          throw new IllegalArgumentException("Read line (" + line + ") has a non existing specialismId ("+ specialismId+ ").");
+        }
+        departmentSpecialism.setSpecialism(specialism);
+        departmentSpecialismList.add(departmentSpecialism);
+        departmentSpecialismId++;
+      }
     }
   }
   patientAdmissionSchedule.setDepartmentList(departmentList);
