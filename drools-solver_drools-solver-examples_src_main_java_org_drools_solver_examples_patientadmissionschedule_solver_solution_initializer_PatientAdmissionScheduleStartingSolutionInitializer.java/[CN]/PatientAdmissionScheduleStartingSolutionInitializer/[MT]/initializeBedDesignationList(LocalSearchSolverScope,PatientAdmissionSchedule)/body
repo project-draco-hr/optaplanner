@@ -2,7 +2,9 @@
   WorkingMemory workingMemory=localSearchSolverScope.getWorkingMemory();
   List<BedDesignation> bedDesignationList=createBedDesignationList(patientAdmissionSchedule);
   List<Bed> bedList=patientAdmissionSchedule.getBedList();
+  int stillRunningCounter=0;
   for (  BedDesignation bedDesignation : bedDesignationList) {
+    System.out.println("Trunk is bugged " + ++stillRunningCounter + "/"+ bedDesignationList.size()+ " but we are not working on trunk. See JBRULES-2145.");
     Score unscheduledScore=localSearchSolverScope.calculateScoreFromWorkingMemory();
     boolean perfectMatch=false;
     Score bestScore=DefaultHardAndSoftScore.valueOf(Integer.MIN_VALUE);
