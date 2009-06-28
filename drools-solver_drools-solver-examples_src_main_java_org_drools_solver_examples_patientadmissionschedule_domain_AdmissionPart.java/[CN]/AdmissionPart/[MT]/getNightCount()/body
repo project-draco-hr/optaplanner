@@ -1,0 +1,3 @@
+{
+  return lastNight.getIndex() - firstNight.getIndex() + 1;
+}
