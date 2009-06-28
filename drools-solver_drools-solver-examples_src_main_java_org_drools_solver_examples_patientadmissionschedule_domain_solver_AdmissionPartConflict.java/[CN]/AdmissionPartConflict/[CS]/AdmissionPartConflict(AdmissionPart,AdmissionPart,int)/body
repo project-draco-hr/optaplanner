@@ -1,0 +1,5 @@
+{
+  this.leftAdmissionPart=leftAdmissionPart;
+  this.rightAdmissionPart=rightAdmissionPart;
+  this.nightSize=nightSize;
+}
