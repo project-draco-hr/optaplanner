@@ -1,0 +1,4 @@
+{
+  this.bedDesignation=bedDesignation;
+  this.toBed=toBed;
+}

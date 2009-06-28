@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof BedChangeMove) {
+    BedChangeMove other=(BedChangeMove)o;
+    return new EqualsBuilder().append(bedDesignation,other.bedDesignation).append(toBed,other.toBed).isEquals();
+  }
+ else {
+    return false;
+  }
+}
