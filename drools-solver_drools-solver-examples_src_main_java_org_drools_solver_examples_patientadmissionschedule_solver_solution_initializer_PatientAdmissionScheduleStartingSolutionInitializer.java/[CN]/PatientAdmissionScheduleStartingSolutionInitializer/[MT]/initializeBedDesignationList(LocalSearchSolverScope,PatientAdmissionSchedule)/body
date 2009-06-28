@@ -28,6 +28,8 @@
         }
  else         if (score.equals(unscheduledScore)) {
           perfectMatch=true;
+          bestScore=score;
+          bestBed=bed;
           break;
         }
  else {
@@ -38,14 +40,16 @@
         break;
       }
     }
+    if (bestBed == null) {
+      throw new IllegalStateException("The bestBed (" + bestBed + ") cannot be null.");
+    }
     if (!perfectMatch) {
-      if (bestBed == null) {
-        throw new IllegalStateException("The bestBed (" + bestBed + ") cannot be null.");
-      }
       workingMemory.modifyRetract(bedDesignationHandle);
       bedDesignation.setBed(bestBed);
       workingMemory.modifyInsert(bedDesignationHandle,bedDesignation);
     }
+    bedList.remove(bestBed);
+    bedList.add(bestBed);
   }
   Collections.sort(bedDesignationList,new PersistableIdComparator());
   patientAdmissionSchedule.setBedDesignationList(bedDesignationList);
