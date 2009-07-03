@@ -1,4 +1,4 @@
 {
-  cancelled.set(false);
+  terminatedEarly.set(false);
   solveImplementation();
 }

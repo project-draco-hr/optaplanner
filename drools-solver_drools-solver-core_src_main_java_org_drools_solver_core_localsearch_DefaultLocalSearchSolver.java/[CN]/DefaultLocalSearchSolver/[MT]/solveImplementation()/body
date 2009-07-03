@@ -2,7 +2,7 @@
   LocalSearchSolverScope localSearchSolverScope=this.localSearchSolverScope;
   solvingStarted(localSearchSolverScope);
   StepScope stepScope=createNextStepScope(localSearchSolverScope,null);
-  while (!cancelled.get() && !finish.isFinished(stepScope)) {
+  while (!terminatedEarly.get() && !finish.isFinished(stepScope)) {
     stepScope.setTimeGradient(finish.calculateTimeGradient(stepScope));
     beforeDeciding(stepScope);
     decider.decideNextStep(stepScope);

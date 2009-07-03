@@ -1,7 +1,0 @@
-{
-  boolean cancellingSuccesful=!cancelled.getAndSet(true);
-  if (cancellingSuccesful) {
-    logger.info("Cancelling solver.");
-  }
-  return cancellingSuccesful;
-}
