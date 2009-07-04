@@ -1,7 +1,7 @@
 {
   WorkingMemory workingMemory=localSearchSolverScope.getWorkingMemory();
   List<BedDesignation> bedDesignationList=createBedDesignationList(patientAdmissionSchedule);
-  List<Bed> bedList=patientAdmissionSchedule.getBedList();
+  List<Bed> bedListInPriority=new ArrayList(patientAdmissionSchedule.getBedList());
   int stillRunningCounter=0;
   for (  BedDesignation bedDesignation : bedDesignationList) {
     System.out.println("Trunk is bugged " + ++stillRunningCounter + "/"+ bedDesignationList.size()+ " but we do not use trunk. See JBRULES-2145.");
@@ -10,7 +10,7 @@
     Score bestScore=DefaultHardAndSoftScore.valueOf(Integer.MIN_VALUE);
     Bed bestBed=null;
     FactHandle bedDesignationHandle=null;
-    for (    Bed bed : bedList) {
+    for (    Bed bed : bedListInPriority) {
       if (bed.allowsAdmissionPart(bedDesignation.getAdmissionPart())) {
         if (bedDesignationHandle == null) {
           bedDesignation.setBed(bed);
@@ -50,8 +50,8 @@
       bedDesignation.setBed(bestBed);
       workingMemory.modifyInsert(bedDesignationHandle,bedDesignation);
     }
-    bedList.remove(bestBed);
-    bedList.add(bestBed);
+    bedListInPriority.remove(bestBed);
+    bedListInPriority.add(bestBed);
   }
   Collections.sort(bedDesignationList,new PersistableIdComparator());
   patientAdmissionSchedule.setBedDesignationList(bedDesignationList);

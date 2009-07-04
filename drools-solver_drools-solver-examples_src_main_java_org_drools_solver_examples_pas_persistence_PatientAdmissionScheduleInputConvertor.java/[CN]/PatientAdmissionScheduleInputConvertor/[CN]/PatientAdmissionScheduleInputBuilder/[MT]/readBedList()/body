@@ -20,5 +20,6 @@
     roomToLastIndexInRoomMap.put(room,indexInRoom);
     bedList.add(bed);
   }
+  Collections.sort(bedList);
   patientAdmissionSchedule.setBedList(bedList);
 }

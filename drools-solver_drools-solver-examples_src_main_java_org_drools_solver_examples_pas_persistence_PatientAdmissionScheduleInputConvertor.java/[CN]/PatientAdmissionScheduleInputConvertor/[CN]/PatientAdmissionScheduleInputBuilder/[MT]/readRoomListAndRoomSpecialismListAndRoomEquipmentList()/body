@@ -64,6 +64,7 @@
     }
     room.setRoomEquipmentList(roomEquipmentListOfRoom);
   }
+  Collections.sort(roomList);
   patientAdmissionSchedule.setRoomList(roomList);
   patientAdmissionSchedule.setRoomSpecialismList(roomSpecialismList);
   patientAdmissionSchedule.setRoomEquipmentList(roomEquipmentList);

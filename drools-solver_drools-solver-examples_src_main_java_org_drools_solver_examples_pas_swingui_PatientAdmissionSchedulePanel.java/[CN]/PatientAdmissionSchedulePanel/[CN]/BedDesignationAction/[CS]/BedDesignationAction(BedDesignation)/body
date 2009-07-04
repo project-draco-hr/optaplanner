@@ -1,0 +1,4 @@
+{
+  super(bedDesignation.getAdmissionPart().getPatient().getName());
+  this.bedDesignation=bedDesignation;
+}

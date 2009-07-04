@@ -1,0 +1,18 @@
+{
+  File inputDir=getInputDir();
+  File outputDir=getOutputDir();
+  XstreamSolutionDaoImpl solutionDao=new XstreamSolutionDaoImpl();
+  File[] inputFiles=inputDir.listFiles();
+  if (inputFiles == null) {
+    throw new IllegalArgumentException("Your working dir should be drools-solver-examples and contain: " + inputDir);
+  }
+  for (  File inputFile : inputFiles) {
+    String inputFileName=inputFile.getName();
+    if (inputFileName.endsWith(getInputFileSuffix())) {
+      Solution solution=solutionDao.readSolution(inputFile);
+      String outputFileName=inputFileName.substring(0,inputFileName.length() - getInputFileSuffix().length()) + getOutputFileSuffix();
+      File outputFile=new File(outputDir,outputFileName);
+      writeSolution(solution,outputFile);
+    }
+  }
+}

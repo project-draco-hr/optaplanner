@@ -42,6 +42,7 @@
       }
     }
   }
+  Collections.sort(departmentList);
   patientAdmissionSchedule.setDepartmentList(departmentList);
   patientAdmissionSchedule.setDepartmentSpecialismList(departmentSpecialismList);
 }

@@ -1,5 +1,4 @@
 {
   gridLayout=new GridLayout(0,1);
   setLayout(gridLayout);
-  add(new JLabel("GUI TODO"));
 }
