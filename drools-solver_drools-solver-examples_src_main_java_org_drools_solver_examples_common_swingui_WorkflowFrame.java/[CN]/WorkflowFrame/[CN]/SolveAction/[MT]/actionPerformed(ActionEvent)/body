@@ -2,7 +2,12 @@
   setSolvingState(true);
   solvingExecutor.submit(new Runnable(){
     public void run(){
-      solutionBusiness.solve();
+      try {
+        solutionBusiness.solve();
+      }
+ catch (      final Throwable e) {
+        logger.error("Solving failed: " + e.getMessage(),e);
+      }
       SwingUtilities.invokeLater(new Runnable(){
         public void run(){
           setSolvingState(false);

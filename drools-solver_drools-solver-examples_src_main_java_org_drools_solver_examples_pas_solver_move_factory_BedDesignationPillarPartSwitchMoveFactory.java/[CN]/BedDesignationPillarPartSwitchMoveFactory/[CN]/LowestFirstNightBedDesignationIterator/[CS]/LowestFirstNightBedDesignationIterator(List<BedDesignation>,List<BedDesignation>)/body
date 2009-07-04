@@ -1,0 +1,18 @@
+{
+  leftIterator=leftBedDesignationList.iterator();
+  if (leftIterator.hasNext()) {
+    nextLeft=leftIterator.next();
+  }
+ else {
+    leftHasNext=false;
+    nextLeft=null;
+  }
+  rightIterator=rightBedDesignationList.iterator();
+  if (rightIterator.hasNext()) {
+    nextRight=rightIterator.next();
+  }
+ else {
+    rightHasNext=false;
+    nextRight=null;
+  }
+}

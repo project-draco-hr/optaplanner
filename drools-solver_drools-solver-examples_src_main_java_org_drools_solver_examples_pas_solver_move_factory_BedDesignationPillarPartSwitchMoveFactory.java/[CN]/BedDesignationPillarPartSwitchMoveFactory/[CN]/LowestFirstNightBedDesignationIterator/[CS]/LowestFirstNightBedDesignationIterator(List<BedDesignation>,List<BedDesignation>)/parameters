@@ -1,0 +1,2 @@
+List<BedDesignation> leftBedDesignationList
+List<BedDesignation> rightBedDesignationList

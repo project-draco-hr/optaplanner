@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof CompositeMove) {
+    CompositeMove other=(CompositeMove)o;
+    return moveList.equals(other.moveList);
+  }
+ else {
+    return false;
+  }
+}

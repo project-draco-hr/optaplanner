@@ -1,0 +1,8 @@
+{
+  for (  Move move : moveList) {
+    if (!move.isMoveDoable(workingMemory)) {
+      return false;
+    }
+  }
+  return true;
+}

@@ -1,0 +1,43 @@
+{
+  boolean returnLeft;
+  if (leftHasNext) {
+    if (rightHasNext) {
+      int leftFirstNightIndex=nextLeft.getAdmissionPart().getFirstNight().getIndex();
+      int rightFirstNightIndex=nextRight.getAdmissionPart().getFirstNight().getIndex();
+      returnLeft=leftFirstNightIndex < rightFirstNightIndex;
+    }
+ else {
+      returnLeft=true;
+    }
+  }
+ else {
+    if (rightHasNext) {
+      returnLeft=false;
+    }
+ else {
+      throw new NoSuchElementException();
+    }
+  }
+  BedDesignation lowest;
+  if (returnLeft) {
+    lowest=nextLeft;
+    if (leftIterator.hasNext()) {
+      nextLeft=leftIterator.next();
+    }
+ else {
+      leftHasNext=false;
+      nextLeft=null;
+    }
+  }
+ else {
+    lowest=nextRight;
+    if (rightIterator.hasNext()) {
+      nextRight=rightIterator.next();
+    }
+ else {
+      rightHasNext=false;
+      nextRight=null;
+    }
+  }
+  return lowest;
+}
