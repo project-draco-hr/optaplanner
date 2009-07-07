@@ -1,3 +1,0 @@
-{
-  return (leftHasNext && nextLeft.getAdmissionPart().getFirstNight().getIndex() <= maximumFirstNightIndex) || (rightHasNext && nextRight.getAdmissionPart().getFirstNight().getIndex() <= maximumFirstNightIndex);
-}

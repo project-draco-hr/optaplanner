@@ -35,14 +35,31 @@
       while (lowestIt.hasNext()) {
         BedDesignation pillarPartBedDesignation=lowestIt.next();
         List<Move> moveListByPillarPartDuo=new ArrayList<Move>(leftBedDesignationList.size() + rightBedDesignationList.size());
-        int minimumLastNightIndex=pillarPartBedDesignation.getAdmissionPart().getLastNight().getIndex();
-        Bed otherBed=pillarPartBedDesignation.getBed().equals(leftBed) ? rightBed : leftBed;
+        int lastNightIndex=pillarPartBedDesignation.getAdmissionPart().getLastNight().getIndex();
+        Bed otherBed;
+        int leftMinimumLastNightIndex=Integer.MIN_VALUE;
+        int rightMinimumLastNightIndex=Integer.MIN_VALUE;
+        if (lowestIt.isLastNextWasLeft()) {
+          otherBed=rightBed;
+          leftMinimumLastNightIndex=lastNightIndex;
+        }
+ else {
+          otherBed=leftBed;
+          rightMinimumLastNightIndex=lastNightIndex;
+        }
         boolean allBedsAllowAdmissionPart=otherBed.allowsAdmissionPart(pillarPartBedDesignation.getAdmissionPart());
         moveListByPillarPartDuo.add(new BedChangeMove(pillarPartBedDesignation,otherBed));
-        while (lowestIt.hasNextWithMaximumFirstNightIndex(minimumLastNightIndex)) {
+        while (lowestIt.hasNextWithMaximumFirstNightIndexes(leftMinimumLastNightIndex,rightMinimumLastNightIndex)) {
           pillarPartBedDesignation=lowestIt.next();
-          minimumLastNightIndex=Math.max(minimumLastNightIndex,pillarPartBedDesignation.getAdmissionPart().getLastNight().getIndex());
-          otherBed=pillarPartBedDesignation.getBed().equals(leftBed) ? rightBed : leftBed;
+          lastNightIndex=pillarPartBedDesignation.getAdmissionPart().getLastNight().getIndex();
+          if (lowestIt.isLastNextWasLeft()) {
+            otherBed=rightBed;
+            leftMinimumLastNightIndex=Math.max(leftMinimumLastNightIndex,lastNightIndex);
+          }
+ else {
+            otherBed=leftBed;
+            rightMinimumLastNightIndex=Math.max(rightMinimumLastNightIndex,lastNightIndex);
+          }
           allBedsAllowAdmissionPart=allBedsAllowAdmissionPart && otherBed.allowsAdmissionPart(pillarPartBedDesignation.getAdmissionPart());
           moveListByPillarPartDuo.add(new BedChangeMove(pillarPartBedDesignation,otherBed));
         }

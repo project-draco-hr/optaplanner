@@ -1,0 +1,14 @@
+{
+  if (!hasNext()) {
+    return false;
+  }
+  boolean nextIsLeft=nextIsLeft();
+  if (nextIsLeft) {
+    int firstNightIndex=nextLeft.getAdmissionPart().getFirstNight().getIndex();
+    return firstNightIndex > leftMinimumLastNightIndex && firstNightIndex <= rightMinimumLastNightIndex;
+  }
+ else {
+    int firstNightIndex=nextRight.getAdmissionPart().getFirstNight().getIndex();
+    return firstNightIndex > rightMinimumLastNightIndex && firstNightIndex <= leftMinimumLastNightIndex;
+  }
+}
