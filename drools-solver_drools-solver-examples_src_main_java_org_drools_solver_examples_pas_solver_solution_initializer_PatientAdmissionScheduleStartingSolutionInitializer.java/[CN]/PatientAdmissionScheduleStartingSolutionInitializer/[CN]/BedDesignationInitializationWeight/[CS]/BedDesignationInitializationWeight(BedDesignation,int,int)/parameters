@@ -1,0 +1,3 @@
+BedDesignation bedDesignation
+int disallowedCount
+int nightCount

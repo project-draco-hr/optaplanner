@@ -1,4 +1,0 @@
-{
-  this.bedDesignation=bedDesignation;
-  this.weight=weight;
-}
