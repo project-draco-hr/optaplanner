@@ -1,10 +1,20 @@
 {
-  List<BedDesignation> bedDesignationList=new ArrayList<BedDesignation>(patientAdmissionSchedule.getAdmissionPartList().size());
+  List<BedDesignationInitializationWeight> initializationWeightList=new ArrayList<BedDesignationInitializationWeight>(patientAdmissionSchedule.getAdmissionPartList().size());
   for (  AdmissionPart admissionPart : patientAdmissionSchedule.getAdmissionPartList()) {
     BedDesignation bedDesignation=new BedDesignation();
     bedDesignation.setId(admissionPart.getId());
     bedDesignation.setAdmissionPart(admissionPart);
-    bedDesignationList.add(bedDesignation);
+    int weight=0;
+    for (    Room room : patientAdmissionSchedule.getRoomList()) {
+      weight+=(room.getCapacity() * room.countDisallowedAdmissionPart(admissionPart));
+    }
+    weight*=bedDesignation.getAdmissionPart().getNightCount();
+    initializationWeightList.add(new BedDesignationInitializationWeight(bedDesignation,weight));
+  }
+  Collections.sort(initializationWeightList);
+  List<BedDesignation> bedDesignationList=new ArrayList<BedDesignation>(patientAdmissionSchedule.getAdmissionPartList().size());
+  for (  BedDesignationInitializationWeight bedDesignationInitializationWeight : initializationWeightList) {
+    bedDesignationList.add(bedDesignationInitializationWeight.getBedDesignation());
   }
   return bedDesignationList;
 }
