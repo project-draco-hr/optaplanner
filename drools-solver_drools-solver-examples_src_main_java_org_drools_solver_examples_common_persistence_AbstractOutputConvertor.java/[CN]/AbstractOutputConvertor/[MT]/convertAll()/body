@@ -3,6 +3,7 @@
   File outputDir=getOutputDir();
   XstreamSolutionDaoImpl solutionDao=new XstreamSolutionDaoImpl();
   File[] inputFiles=inputDir.listFiles();
+  Arrays.sort(inputFiles);
   if (inputFiles == null) {
     throw new IllegalArgumentException("Your working dir should be drools-solver-examples and contain: " + inputDir);
   }
