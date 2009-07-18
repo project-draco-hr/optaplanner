@@ -25,11 +25,11 @@
     startingSolutionInitializer=inheritedConfig.getStartingSolutionInitializer();
     startingSolutionInitializerClass=inheritedConfig.getStartingSolutionInitializerClass();
   }
-  if (finishConfig == null) {
-    finishConfig=inheritedConfig.getFinishConfig();
+  if (terminationConfig == null) {
+    terminationConfig=inheritedConfig.getTerminationConfig();
   }
- else   if (inheritedConfig.getFinishConfig() != null) {
-    finishConfig.inherit(inheritedConfig.getFinishConfig());
+ else   if (inheritedConfig.getTerminationConfig() != null) {
+    terminationConfig.inherit(inheritedConfig.getTerminationConfig());
   }
   if (deciderScoreComparatorFactoryConfig == null) {
     deciderScoreComparatorFactoryConfig=inheritedConfig.getDeciderScoreComparatorFactoryConfig();

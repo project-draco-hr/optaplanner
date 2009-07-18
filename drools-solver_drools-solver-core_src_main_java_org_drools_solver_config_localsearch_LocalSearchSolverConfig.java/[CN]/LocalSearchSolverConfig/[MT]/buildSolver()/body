@@ -12,7 +12,7 @@
   localSearchSolver.setScoreCalculator(scoreDefinitionConfig.buildScoreCalculator());
   localSearchSolver.setStartingSolutionInitializer(buildStartingSolutionInitializer());
   localSearchSolver.setBestSolutionRecaller(new BestSolutionRecaller());
-  localSearchSolver.setFinish(finishConfig.buildFinish(scoreDefinition));
+  localSearchSolver.setTermination(terminationConfig.buildTermination(scoreDefinition));
   localSearchSolver.setDecider(buildDecider());
   return localSearchSolver;
 }

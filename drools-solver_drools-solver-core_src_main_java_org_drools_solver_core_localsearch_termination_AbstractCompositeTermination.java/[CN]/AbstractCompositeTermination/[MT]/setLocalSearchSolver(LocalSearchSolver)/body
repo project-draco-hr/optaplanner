@@ -1,0 +1,6 @@
+{
+  super.setLocalSearchSolver(localSearchSolver);
+  for (  Termination termination : terminationList) {
+    termination.setLocalSearchSolver(localSearchSolver);
+  }
+}

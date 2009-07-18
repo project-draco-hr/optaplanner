@@ -13,6 +13,6 @@
   }
   localSearchSolverScope.setStartingScore(localSearchSolverScope.calculateScoreFromWorkingMemory());
   bestSolutionRecaller.solvingStarted(localSearchSolverScope);
-  finish.solvingStarted(localSearchSolverScope);
+  termination.solvingStarted(localSearchSolverScope);
   decider.solvingStarted(localSearchSolverScope);
 }

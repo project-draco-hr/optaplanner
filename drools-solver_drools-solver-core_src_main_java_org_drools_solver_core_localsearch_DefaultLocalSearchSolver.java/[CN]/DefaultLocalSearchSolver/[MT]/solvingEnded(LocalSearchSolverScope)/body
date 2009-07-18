@@ -1,6 +1,6 @@
 {
   bestSolutionRecaller.solvingEnded(localSearchSolverScope);
-  finish.solvingEnded(localSearchSolverScope);
+  termination.solvingEnded(localSearchSolverScope);
   decider.solvingEnded(localSearchSolverScope);
   logger.info("Solved at step index ({}) with time spend ({}) for best score ({}).",new Object[]{localSearchSolverScope.getLastCompletedStepScope().getStepIndex(),localSearchSolverScope.calculateTimeMillisSpend(),localSearchSolverScope.getBestScore()});
 }

@@ -2,13 +2,13 @@
   LocalSearchSolverScope localSearchSolverScope=this.localSearchSolverScope;
   solvingStarted(localSearchSolverScope);
   StepScope stepScope=createNextStepScope(localSearchSolverScope,null);
-  while (!terminatedEarly.get() && !finish.isFinished(stepScope)) {
-    stepScope.setTimeGradient(finish.calculateTimeGradient(stepScope));
+  while (!terminatedEarly.get() && !termination.isTerminated(stepScope)) {
+    stepScope.setTimeGradient(termination.calculateTimeGradient(stepScope));
     beforeDeciding(stepScope);
     decider.decideNextStep(stepScope);
     Move nextStep=stepScope.getStep();
     if (nextStep == null) {
-      logger.warn("No move accepted for step index ({}) out of {} accepted moves. Finishing early.",stepScope.getStepIndex(),decider.getForager().getAcceptedMovesSize());
+      logger.warn("No move accepted for step index ({}) out of {} accepted moves. Terminating by exception.",stepScope.getStepIndex(),decider.getForager().getAcceptedMovesSize());
       break;
     }
     logger.info("Step index ({}), time spend ({}) taking step ({}) out of {} accepted moves.",new Object[]{stepScope.getStepIndex(),localSearchSolverScope.calculateTimeMillisSpend(),nextStep,decider.getForager().getAcceptedMovesSize()});

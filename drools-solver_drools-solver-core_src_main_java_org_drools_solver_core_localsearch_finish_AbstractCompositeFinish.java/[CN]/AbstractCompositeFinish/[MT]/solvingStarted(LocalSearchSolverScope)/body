@@ -1,5 +1,0 @@
-{
-  for (  Finish finish : finishList) {
-    finish.solvingStarted(localSearchSolverScope);
-  }
-}
