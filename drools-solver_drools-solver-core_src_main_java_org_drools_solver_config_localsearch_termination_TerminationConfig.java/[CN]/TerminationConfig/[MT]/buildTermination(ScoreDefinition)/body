@@ -39,9 +39,9 @@ catch (    IllegalAccessException e) {
     termination.setMaximumTimeMillisSpend(maximumHouresSpend * 3600000L);
     terminationList.add(termination);
   }
-  if (feasableScore != null) {
-    FeasableScoreTermination termination=new FeasableScoreTermination();
-    termination.setFeasableScore(scoreDefinition.parseScore(feasableScore));
+  if (scoreAttained != null) {
+    ScoreAttainedTermination termination=new ScoreAttainedTermination();
+    termination.setScoreAttained(scoreDefinition.parseScore(scoreAttained));
     terminationList.add(termination);
   }
   if (maximumUnimprovedStepCount != null) {

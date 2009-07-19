@@ -23,8 +23,8 @@
   if (maximumHouresSpend == null) {
     maximumHouresSpend=inheritedConfig.getMaximumHouresSpend();
   }
-  if (feasableScore == null) {
-    feasableScore=inheritedConfig.getFeasableScore();
+  if (scoreAttained == null) {
+    scoreAttained=inheritedConfig.getScoreAttained();
   }
   if (maximumUnimprovedStepCount == null) {
     maximumUnimprovedStepCount=inheritedConfig.getMaximumUnimprovedStepCount();

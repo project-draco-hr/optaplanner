@@ -2,5 +2,5 @@
   LocalSearchSolverScope localSearchSolverScope=stepScope.getLocalSearchSolverScope();
   Score startingScore=localSearchSolverScope.getStartingScore();
   Score stepScore=localSearchSolverScope.getLastCompletedStepScope().getScore();
-  return localSearchSolverScope.getScoreDefinition().calculateTimeGradient(startingScore,feasableScore,stepScore);
+  return localSearchSolverScope.getScoreDefinition().calculateTimeGradient(startingScore,scoreAttained,stepScore);
 }
