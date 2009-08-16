@@ -1,4 +1,4 @@
 {
-  super(lecture.toString());
+  super(lecture.getLabel());
   this.lecture=lecture;
 }
