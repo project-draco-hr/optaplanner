@@ -1,0 +1,14 @@
+{
+  solutionBusiness.addSolverEventLister(new SolverEventListener(){
+    public void bestSolutionChanged(    BestSolutionChangedEvent event){
+      final Solution bestSolution=event.getNewBestSolution();
+      SwingUtilities.invokeLater(new Runnable(){
+        public void run(){
+          resultLabel.setText("Latest best score: " + bestSolution.getScore());
+        }
+      }
+);
+    }
+  }
+);
+}
