@@ -14,5 +14,6 @@
     clonedExamList.add(clonedExam);
   }
   clone.examList=clonedExamList;
+  clone.score=score;
   return clone;
 }

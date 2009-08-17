@@ -20,5 +20,6 @@
     clonedBedDesignationList.add(clonedBedDesignation);
   }
   clone.bedDesignationList=clonedBedDesignationList;
+  clone.score=score;
   return clone;
 }

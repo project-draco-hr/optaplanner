@@ -11,5 +11,6 @@
     clonedSeatDesignationList.add(seatDesignation.clone());
   }
   clone.seatDesignationList=clonedSeatDesignationList;
+  clone.score=score;
   return clone;
 }

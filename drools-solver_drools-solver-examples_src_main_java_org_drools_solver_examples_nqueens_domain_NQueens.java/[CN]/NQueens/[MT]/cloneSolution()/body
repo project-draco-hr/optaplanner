@@ -6,5 +6,6 @@
     clonedQueenList.add(queen.clone());
   }
   clone.queenList=clonedQueenList;
+  clone.score=score;
   return clone;
 }

@@ -9,5 +9,6 @@
     clonedLessonList.add(lesson.clone());
   }
   clone.lessonList=clonedLessonList;
+  clone.score=score;
   return clone;
 }

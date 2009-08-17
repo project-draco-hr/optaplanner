@@ -1,4 +1,6 @@
 {
   workingMemory.fireAllRules();
-  return workingScoreCalculator.calculateScore();
+  Score score=workingScoreCalculator.calculateScore();
+  workingSolution.setScore(score);
+  return score;
 }

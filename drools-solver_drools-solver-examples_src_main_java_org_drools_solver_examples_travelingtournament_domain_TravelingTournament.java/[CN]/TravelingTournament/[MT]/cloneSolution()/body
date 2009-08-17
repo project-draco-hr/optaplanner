@@ -8,5 +8,6 @@
     clonedMatchList.add(match.clone());
   }
   clone.matchList=clonedMatchList;
+  clone.score=score;
   return clone;
 }

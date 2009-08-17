@@ -16,5 +16,6 @@
     clonedLectureList.add(clonedLecture);
   }
   clone.lectureList=clonedLectureList;
+  clone.score=score;
   return clone;
 }
