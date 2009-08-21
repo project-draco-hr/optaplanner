@@ -1,7 +1,7 @@
 {
   final Iterator<SolverEventListener> iter=getEventListenersIterator();
   if (iter.hasNext()) {
-    final BestSolutionChangedEvent event=new BestSolutionChangedEvent(newBestSolution);
+    final BestSolutionChangedEvent event=new BestSolutionChangedEvent(source,timeMillisSpend,newBestSolution);
     do {
       iter.next().bestSolutionChanged(event);
     }

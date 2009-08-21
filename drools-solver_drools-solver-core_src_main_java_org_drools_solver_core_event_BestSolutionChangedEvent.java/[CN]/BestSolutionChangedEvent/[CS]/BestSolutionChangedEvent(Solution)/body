@@ -1,4 +1,0 @@
-{
-  super(newBestSolution);
-  this.newBestSolution=newBestSolution;
-}
