@@ -1,0 +1,36 @@
+{
+  Set<String> configNameSet=bestSolutionStatisticListenerMap.keySet();
+  List<TimeMillisSpendDetail> timeMillisSpendDetailList=extractTimeMillisSpendDetailList();
+  File statisticFile=new File(solverStatisticFilesDirectory,baseName + "Statistic.txt");
+  Writer writer=null;
+  try {
+    writer=new OutputStreamWriter(new FileOutputStream(statisticFile),"utf-8");
+    for (    TimeMillisSpendDetail timeMillisSpendDetail : timeMillisSpendDetailList) {
+      writer.write(Long.toString(timeMillisSpendDetail.getTimeMillisSpend()));
+      for (      String configName : configNameSet) {
+        writer.append(";");
+        Score score=timeMillisSpendDetail.getConfigNameToScoreMap().get(configName);
+        if (score != null) {
+          int scoreAlias;
+          if (score instanceof SimpleScore) {
+            scoreAlias=((SimpleScore)score).getScore();
+          }
+ else           if (score instanceof HardAndSoftScore) {
+            scoreAlias=((HardAndSoftScore)score).getSoftScore();
+          }
+ else {
+            throw new IllegalStateException("Score class (" + score.getClass() + ") not supported.");
+          }
+          writer.append(Integer.toString(scoreAlias));
+        }
+      }
+      writer.append("\n");
+    }
+  }
+ catch (  IOException e) {
+    throw new IllegalArgumentException("Problem writing statisticFile: " + statisticFile,e);
+  }
+ finally {
+    IOUtils.closeQuietly(writer);
+  }
+}

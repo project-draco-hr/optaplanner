@@ -9,6 +9,6 @@ return patient.getGender() == Gender.FEMALE;
 case SAME_GENDER:
 return true;
 default :
-throw new IllegalStateException("genderLimitation (" + genderLimitation + ") not implemented");
+throw new IllegalStateException("The genderLimitation (" + genderLimitation + ") is not implemented");
 }
 }

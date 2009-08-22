@@ -1,0 +1,10 @@
+{
+switch (this) {
+case NONE:
+    return null;
+case BEST_SOLUTION_CHANGED:
+  return new BestSolutionStatistic();
+default :
+throw new IllegalStateException("The solverStatisticType (" + this + ") is not implemented");
+}
+}

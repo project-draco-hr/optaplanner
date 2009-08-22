@@ -3,13 +3,13 @@
     return;
   }
   File solvedSolutionFile=null;
+  String baseName=FilenameUtils.getBaseName(result.getUnsolvedSolutionFile().getName());
+  String solverBenchmarkName=solverBenchmark.getName().replaceAll(" ","_").replaceAll("[^\\w\\d_\\-]","");
+  String scoreString=result.getScore().toString().replaceAll("[\\/ ]","_");
+  String timeString=TIME_FORMAT.format(result.getTimeMillesSpend()) + "ms";
+  solvedSolutionFile=new File(solvedSolutionFilesDirectory,baseName + "_" + solverBenchmarkName+ "_score"+ scoreString+ "_time"+ timeString+ ".xml");
   Writer writer=null;
   try {
-    String baseName=FilenameUtils.getBaseName(result.getUnsolvedSolutionFile().getName());
-    String solverBenchmarkName=solverBenchmark.getName().replaceAll(" ","_").replaceAll("[^\\w\\d_\\-]","");
-    String scoreString=result.getScore().toString().replaceAll("[\\/ ]","_");
-    String timeString=TIME_FORMAT.format(result.getTimeMillesSpend()) + "ms";
-    solvedSolutionFile=new File(solvedSolutionFilesDirectory,baseName + "_" + solverBenchmarkName+ "_score"+ scoreString+ "_time"+ timeString+ ".xml");
     writer=new OutputStreamWriter(new FileOutputStream(solvedSolutionFile),"utf-8");
     xStream.toXML(solvedSolution,writer);
   }

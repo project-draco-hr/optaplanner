@@ -1,6 +1,6 @@
 {
   xStream=new XStream(new PureJavaReflectionProvider(new FieldDictionary(new NativeFieldKeySorter())));
   xStream.setMode(XStream.ID_REFERENCES);
-  Annotations.configureAliases(xStream,SolverBenchmarkSuite.class);
-  Annotations.configureAliases(xStream,SolverBenchmark.class);
+  xStream.processAnnotations(SolverBenchmarkSuite.class);
+  xStream.processAnnotations(SolverBenchmark.class);
 }

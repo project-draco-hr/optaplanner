@@ -1,0 +1,4 @@
+{
+  this.timeMillisSpend=timeMillisSpend;
+  configNameToScoreMap=new HashMap<String,Score>();
+}

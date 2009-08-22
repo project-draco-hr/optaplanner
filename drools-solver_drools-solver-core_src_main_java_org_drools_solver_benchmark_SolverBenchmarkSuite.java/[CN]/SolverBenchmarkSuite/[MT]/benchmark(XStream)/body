@@ -3,17 +3,44 @@
   if (solvedSolutionFilesDirectory != null) {
     solvedSolutionFilesDirectory.mkdirs();
   }
+  Map<File,SolverStatistic> unsolvedSolutionFileToStatisticMap;
+  if (solverStatisticType != SolverStatisticType.NONE) {
+    unsolvedSolutionFileToStatisticMap=new HashMap<File,SolverStatistic>();
+    if (solverStatisticFilesDirectory == null) {
+      throw new IllegalArgumentException("With solverStatisticType (" + solverStatisticType + ") the solverStatisticFilesDirectory must not be null.");
+    }
+    solverStatisticFilesDirectory.mkdirs();
+  }
+ else {
+    unsolvedSolutionFileToStatisticMap=null;
+  }
   for (  SolverBenchmark solverBenchmark : solverBenchmarkList) {
     Solver solver=solverBenchmark.getLocalSearchSolverConfig().buildSolver();
     for (    SolverBenchmarkResult result : solverBenchmark.getSolverBenchmarkResultList()) {
       File unsolvedSolutionFile=result.getUnsolvedSolutionFile();
       Solution unsolvedSolution=readUnsolvedSolution(xStream,unsolvedSolutionFile);
       solver.setStartingSolution(unsolvedSolution);
+      if (solverStatisticType != SolverStatisticType.NONE) {
+        SolverStatistic statistic=unsolvedSolutionFileToStatisticMap.get(unsolvedSolutionFile);
+        if (statistic == null) {
+          statistic=solverStatisticType.create();
+          unsolvedSolutionFileToStatisticMap.put(unsolvedSolutionFile,statistic);
+        }
+        statistic.addListener(solver,solverBenchmark.getName());
+      }
       solver.solve();
       result.setTimeMillesSpend(solver.getTimeMillisSpend());
       Solution solvedSolution=solver.getBestSolution();
       result.setScore(solvedSolution.getScore());
       writeSolvedSolution(xStream,solverBenchmark,result,solvedSolution);
+    }
+    if (solverStatisticType != SolverStatisticType.NONE) {
+      for (      Map.Entry<File,SolverStatistic> entry : unsolvedSolutionFileToStatisticMap.entrySet()) {
+        File unsolvedSolutionFile=entry.getKey();
+        SolverStatistic statistic=entry.getValue();
+        String baseName=FilenameUtils.getBaseName(unsolvedSolutionFile.getName());
+        statistic.writeStatistic(solverStatisticFilesDirectory,baseName);
+      }
     }
   }
   benchmarkingEnded();
