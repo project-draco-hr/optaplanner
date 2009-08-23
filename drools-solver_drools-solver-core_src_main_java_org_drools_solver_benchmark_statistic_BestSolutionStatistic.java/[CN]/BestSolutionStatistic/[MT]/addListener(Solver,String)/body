@@ -1,8 +1,0 @@
-{
-  if (bestSolutionStatisticListenerMap.containsKey(configName)) {
-    throw new IllegalArgumentException("Cannot add a listener with the same configName (" + configName + ") twice.");
-  }
-  BestSolutionStatisticListener bestSolutionStatisticListener=new BestSolutionStatisticListener();
-  solver.addEventListener(bestSolutionStatisticListener);
-  bestSolutionStatisticListenerMap.put(configName,bestSolutionStatisticListener);
-}

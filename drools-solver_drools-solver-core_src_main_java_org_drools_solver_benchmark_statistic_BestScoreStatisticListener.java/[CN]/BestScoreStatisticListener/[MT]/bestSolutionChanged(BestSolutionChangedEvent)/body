@@ -1,0 +1,3 @@
+{
+  bestScoreStatisticPointList.add(new BestScoreStatisticPoint(event));
+}

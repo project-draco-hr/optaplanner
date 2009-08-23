@@ -1,3 +1,0 @@
-{
-  bestSolutionStatisticDetailList.add(new BestSolutionStatisticDetail(event));
-}

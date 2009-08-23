@@ -32,6 +32,10 @@
       result.setTimeMillesSpend(solver.getTimeMillisSpend());
       Solution solvedSolution=solver.getBestSolution();
       result.setScore(solvedSolution.getScore());
+      if (solverStatisticType != SolverStatisticType.NONE) {
+        SolverStatistic statistic=unsolvedSolutionFileToStatisticMap.get(unsolvedSolutionFile);
+        statistic.removeListener(solver,solverBenchmark.getName());
+      }
       writeSolvedSolution(xStream,solverBenchmark,result,solvedSolution);
     }
     if (solverStatisticType != SolverStatisticType.NONE) {
