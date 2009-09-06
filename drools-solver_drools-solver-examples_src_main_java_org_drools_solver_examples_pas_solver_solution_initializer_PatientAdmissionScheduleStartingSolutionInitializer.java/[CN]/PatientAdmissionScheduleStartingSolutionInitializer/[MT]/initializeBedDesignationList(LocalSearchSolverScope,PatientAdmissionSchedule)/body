@@ -17,9 +17,6 @@
     Bed bestBed=null;
     FactHandle bedDesignationHandle=null;
     for (    Bed bed : bedListInPriority) {
-      if (!bed.allowsAdmissionPart(bedDesignation.getAdmissionPart())) {
-        continue;
-      }
       if (checkSameBedInSameNight) {
         boolean taken=false;
         Set<Integer> takenNightIndexSet=bedToTakenNightIndexSetMap.get(bed);

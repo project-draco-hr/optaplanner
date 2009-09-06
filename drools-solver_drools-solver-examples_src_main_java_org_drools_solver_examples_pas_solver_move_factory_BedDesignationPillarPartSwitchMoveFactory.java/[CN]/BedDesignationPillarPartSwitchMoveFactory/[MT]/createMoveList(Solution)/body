@@ -47,7 +47,6 @@
           otherBed=leftBed;
           rightMinimumLastNightIndex=lastNightIndex;
         }
-        boolean allBedsAllowAdmissionPart=otherBed.allowsAdmissionPart(pillarPartBedDesignation.getAdmissionPart());
         moveListByPillarPartDuo.add(new BedChangeMove(pillarPartBedDesignation,otherBed));
         while (lowestIt.hasNextWithMaximumFirstNightIndexes(leftMinimumLastNightIndex,rightMinimumLastNightIndex)) {
           pillarPartBedDesignation=lowestIt.next();
@@ -60,12 +59,9 @@
             otherBed=leftBed;
             rightMinimumLastNightIndex=Math.max(rightMinimumLastNightIndex,lastNightIndex);
           }
-          allBedsAllowAdmissionPart=allBedsAllowAdmissionPart && otherBed.allowsAdmissionPart(pillarPartBedDesignation.getAdmissionPart());
           moveListByPillarPartDuo.add(new BedChangeMove(pillarPartBedDesignation,otherBed));
         }
-        if (allBedsAllowAdmissionPart || !checkBedAllowsAdmissionPart) {
-          moveList.add(new CompositeMove(moveListByPillarPartDuo));
-        }
+        moveList.add(new CompositeMove(moveListByPillarPartDuo));
       }
     }
   }

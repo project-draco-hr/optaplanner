@@ -1,3 +1,0 @@
-{
-  return hasRequiredRoomProperties(admissionPart.getPatient());
-}
