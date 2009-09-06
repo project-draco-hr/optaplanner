@@ -9,7 +9,7 @@
       }
     }
     if (!hasRequiredEquipment) {
-      count++;
+      count+=50;
     }
   }
   return count;

@@ -1,5 +1,5 @@
 {
   this.bedDesignation=bedDesignation;
-  this.disallowedCount=disallowedCount;
   this.nightCount=nightCount;
+  this.disallowedCount=disallowedCount;
 }

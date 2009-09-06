@@ -1,14 +1,14 @@
 {
-  if (disallowedCount < other.disallowedCount) {
-    return 1;
-  }
- else   if (disallowedCount > other.disallowedCount) {
-    return -1;
-  }
- else   if (nightCount < other.nightCount) {
+  if (nightCount < other.nightCount) {
     return 1;
   }
  else   if (nightCount > other.nightCount) {
+    return -1;
+  }
+ else   if (disallowedCount < other.disallowedCount) {
+    return 1;
+  }
+ else   if (disallowedCount > other.disallowedCount) {
     return -1;
   }
  else {

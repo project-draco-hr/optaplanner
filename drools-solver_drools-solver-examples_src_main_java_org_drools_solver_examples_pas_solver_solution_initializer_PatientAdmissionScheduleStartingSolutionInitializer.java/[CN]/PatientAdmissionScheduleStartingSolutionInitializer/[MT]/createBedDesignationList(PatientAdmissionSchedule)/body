@@ -8,7 +8,7 @@
     for (    Room room : patientAdmissionSchedule.getRoomList()) {
       disallowedCount+=(room.getCapacity() * room.countDisallowedAdmissionPart(admissionPart));
     }
-    initializationWeightList.add(new BedDesignationInitializationWeight(bedDesignation,disallowedCount,bedDesignation.getAdmissionPart().getNightCount()));
+    initializationWeightList.add(new BedDesignationInitializationWeight(bedDesignation,bedDesignation.getAdmissionPart().getNightCount(),disallowedCount));
   }
   Collections.sort(initializationWeightList);
   List<BedDesignation> bedDesignationList=new ArrayList<BedDesignation>(patientAdmissionSchedule.getAdmissionPartList().size());
