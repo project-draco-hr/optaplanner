@@ -1,4 +1,16 @@
 {
   int count=0;
+  for (  PreferredPatientEquipment preferredPatientEquipment : patient.getPreferredPatientEquipmentList()) {
+    Equipment preferredEquipment=preferredPatientEquipment.getEquipment();
+    boolean hasPreferredEquipment=false;
+    for (    RoomEquipment roomEquipment : roomEquipmentList) {
+      if (roomEquipment.getEquipment().equals(preferredEquipment)) {
+        hasPreferredEquipment=true;
+      }
+    }
+    if (!hasPreferredEquipment) {
+      count+=20;
+    }
+  }
   return count;
 }
