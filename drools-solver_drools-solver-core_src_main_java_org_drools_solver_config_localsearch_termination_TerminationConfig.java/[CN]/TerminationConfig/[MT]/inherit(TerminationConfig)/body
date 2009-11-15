@@ -20,8 +20,8 @@
   if (maximumMinutesSpend == null) {
     maximumMinutesSpend=inheritedConfig.getMaximumMinutesSpend();
   }
-  if (maximumHouresSpend == null) {
-    maximumHouresSpend=inheritedConfig.getMaximumHouresSpend();
+  if (maximumHoursSpend == null) {
+    maximumHoursSpend=inheritedConfig.getMaximumHoursSpend();
   }
   if (scoreAttained == null) {
     scoreAttained=inheritedConfig.getScoreAttained();

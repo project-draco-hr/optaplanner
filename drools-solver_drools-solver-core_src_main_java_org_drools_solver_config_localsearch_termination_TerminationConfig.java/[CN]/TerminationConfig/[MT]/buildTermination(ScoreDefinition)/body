@@ -34,9 +34,9 @@ catch (    IllegalAccessException e) {
     termination.setMaximumTimeMillisSpend(maximumMinutesSpend * 60000L);
     terminationList.add(termination);
   }
-  if (maximumHouresSpend != null) {
+  if (maximumHoursSpend != null) {
     TimeMillisSpendTermination termination=new TimeMillisSpendTermination();
-    termination.setMaximumTimeMillisSpend(maximumHouresSpend * 3600000L);
+    termination.setMaximumTimeMillisSpend(maximumHoursSpend * 3600000L);
     terminationList.add(termination);
   }
   if (scoreAttained != null) {
