@@ -2,7 +2,7 @@
   XmlSolverConfigurer configurer=new XmlSolverConfigurer();
   configurer.configure(SOLVER_CONFIG);
   Solver solver=configurer.buildSolver();
-  SolutionDao solutionDao=new XstreamSolutionDaoImpl();
+  SolutionDao solutionDao=new NQueensDaoImpl();
   Solution startingSolution=solutionDao.readSolution(getClass().getResourceAsStream(UNSOLVED_DATA));
   solver.setStartingSolution(startingSolution);
   solver.solve();

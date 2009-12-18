@@ -1,7 +1,6 @@
 {
   File inputDir=getInputDir();
   File outputDir=getOutputDir();
-  XstreamSolutionDaoImpl solutionDao=new XstreamSolutionDaoImpl();
   File[] inputFiles=inputDir.listFiles();
   Arrays.sort(inputFiles);
   if (inputFiles == null) {

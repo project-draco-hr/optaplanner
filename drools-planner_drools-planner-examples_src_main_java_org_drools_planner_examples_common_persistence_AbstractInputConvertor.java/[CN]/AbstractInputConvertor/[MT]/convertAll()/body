@@ -1,7 +1,6 @@
 {
   File inputDir=getInputDir();
   File outputDir=getOutputDir();
-  XstreamSolutionDaoImpl solutionDao=new XstreamSolutionDaoImpl();
   File[] inputFiles=inputDir.listFiles();
   if (inputFiles == null) {
     throw new IllegalArgumentException("Your working dir should be drools-planner-examples and contain: " + inputDir);

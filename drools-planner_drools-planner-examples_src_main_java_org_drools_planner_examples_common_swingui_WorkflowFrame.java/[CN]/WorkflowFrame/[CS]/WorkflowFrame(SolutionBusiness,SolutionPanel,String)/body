@@ -1,5 +1,5 @@
 {
-  super("Drools solver example " + exampleName);
+  super("Drools planner example " + exampleName);
   this.solutionBusiness=solutionBusiness;
   this.solutionPanel=solutionPanel;
   solutionPanel.setSolutionBusiness(solutionBusiness);

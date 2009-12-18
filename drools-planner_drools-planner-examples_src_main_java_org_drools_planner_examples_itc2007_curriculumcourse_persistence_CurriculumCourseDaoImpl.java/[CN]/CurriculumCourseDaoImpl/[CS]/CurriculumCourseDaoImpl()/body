@@ -1,0 +1,3 @@
+{
+  super("itc2007/curriculumcourse",CurriculumCourseSchedule.class);
+}

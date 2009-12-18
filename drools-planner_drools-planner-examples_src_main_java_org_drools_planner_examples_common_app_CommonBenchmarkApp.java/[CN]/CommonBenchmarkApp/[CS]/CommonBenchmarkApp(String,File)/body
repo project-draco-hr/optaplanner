@@ -1,5 +1,0 @@
-{
-  super(LOGGING_CONFIG);
-  this.resultFile=resultFile;
-  solverBenchmarker=new XmlSolverBenchmarker().configure(solverBenchmarkConfig);
-}

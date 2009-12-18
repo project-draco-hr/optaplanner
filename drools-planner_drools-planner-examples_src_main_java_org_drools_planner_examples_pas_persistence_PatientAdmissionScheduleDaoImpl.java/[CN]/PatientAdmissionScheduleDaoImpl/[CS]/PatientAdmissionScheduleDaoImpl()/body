@@ -1,0 +1,3 @@
+{
+  super("pas",PatientAdmissionSchedule.class);
+}
