@@ -1,5 +1,0 @@
-{
-  List<File> inputFileList=Arrays.asList(inputDir.listFiles(new ExamInputFileFilter()));
-  Collections.sort(inputFileList);
-  return inputFileList;
-}

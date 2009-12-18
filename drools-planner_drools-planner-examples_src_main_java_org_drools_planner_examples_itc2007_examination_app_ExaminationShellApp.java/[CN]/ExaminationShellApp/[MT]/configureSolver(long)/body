@@ -1,6 +1,0 @@
-{
-  XmlSolverConfigurer configurer=new XmlSolverConfigurer();
-  configurer.configure(SOLVER_CONFIG);
-  configurer.getConfig().getTerminationConfig().setMaximumSecondsSpend(maximumSecondsSpend);
-  solver=configurer.buildSolver();
-}

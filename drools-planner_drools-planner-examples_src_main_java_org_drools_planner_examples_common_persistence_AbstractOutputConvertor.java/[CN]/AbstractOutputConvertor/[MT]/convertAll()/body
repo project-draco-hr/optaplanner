@@ -5,7 +5,7 @@
   File[] inputFiles=inputDir.listFiles();
   Arrays.sort(inputFiles);
   if (inputFiles == null) {
-    throw new IllegalArgumentException("Your working dir should be drools-solver-examples and contain: " + inputDir);
+    throw new IllegalArgumentException("Your working dir should be drools-planner-examples and contain: " + inputDir);
   }
   for (  File inputFile : inputFiles) {
     String inputFileName=inputFile.getName();

@@ -1,4 +1,0 @@
-{
-  String outputFileName=inputFile.getName().replaceAll("\\.exam$",".sln");
-  return new File(outputDir,outputFileName);
-}
