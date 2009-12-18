@@ -5,7 +5,7 @@ case 0:
 case 1:
   return "Constraint type";
 case 2:
-return "# occurences";
+return "# occurrences";
 case 3:
 return "Score total";
 default :

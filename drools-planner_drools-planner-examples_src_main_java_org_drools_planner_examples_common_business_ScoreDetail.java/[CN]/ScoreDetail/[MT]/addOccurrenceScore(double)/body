@@ -1,0 +1,4 @@
+{
+  scoreTotal+=occurrenceScore;
+  occurrenceSize++;
+}

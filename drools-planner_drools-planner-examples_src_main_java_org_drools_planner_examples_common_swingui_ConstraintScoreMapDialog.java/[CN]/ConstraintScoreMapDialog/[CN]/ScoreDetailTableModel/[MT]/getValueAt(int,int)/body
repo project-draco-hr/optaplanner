@@ -6,7 +6,7 @@ case 0:
 case 1:
   return scoreDetail.getConstraintType();
 case 2:
-return scoreDetail.getOccurenceSize();
+return scoreDetail.getOccurrenceSize();
 case 3:
 return scoreDetail.getScoreTotal();
 default :
