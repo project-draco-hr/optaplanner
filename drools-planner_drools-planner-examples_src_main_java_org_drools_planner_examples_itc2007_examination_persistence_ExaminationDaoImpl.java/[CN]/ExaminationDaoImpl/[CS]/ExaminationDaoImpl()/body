@@ -1,3 +1,0 @@
-{
-  super("itc2007/examination",Examination.class);
-}
