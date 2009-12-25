@@ -2,6 +2,6 @@
   deciderScoreComparatorFactory.beforeDeciding(stepScope);
   stepScope.setDeciderScoreComparator(deciderScoreComparatorFactory.createDeciderScoreComparator());
   selector.beforeDeciding(stepScope);
-  accepter.beforeDeciding(stepScope);
+  acceptor.beforeDeciding(stepScope);
   forager.beforeDeciding(stepScope);
 }

@@ -1,0 +1,7 @@
+{
+  double acceptChance=1.0;
+  for (  Acceptor acceptor : acceptorList) {
+    acceptChance*=acceptor.calculateAcceptChance(moveScope);
+  }
+  return acceptChance;
+}

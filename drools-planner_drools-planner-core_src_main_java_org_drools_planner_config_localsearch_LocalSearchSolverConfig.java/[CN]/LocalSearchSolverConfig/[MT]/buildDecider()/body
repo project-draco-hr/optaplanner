@@ -2,7 +2,7 @@
   DefaultDecider decider=new DefaultDecider();
   decider.setDeciderScoreComparator(deciderScoreComparatorFactoryConfig.buildDeciderScoreComparatorFactory());
   decider.setSelector(selectorConfig.buildSelector());
-  decider.setAccepter(accepterConfig.buildAccepter());
+  decider.setAcceptor(acceptorConfig.buildAcceptor());
   decider.setForager(foragerConfig.buildForager());
   return decider;
 }

@@ -1,0 +1,81 @@
+{
+  List<Acceptor> acceptorList=new ArrayList<Acceptor>();
+  if (acceptor != null) {
+    acceptorList.add(acceptor);
+  }
+  if (acceptorClass != null) {
+    try {
+      acceptorList.add(acceptorClass.newInstance());
+    }
+ catch (    InstantiationException e) {
+      throw new IllegalArgumentException("acceptorClass (" + acceptorClass.getName() + ") does not have a public no-arg constructor",e);
+    }
+catch (    IllegalAccessException e) {
+      throw new IllegalArgumentException("acceptorClass (" + acceptorClass.getName() + ") does not have a public no-arg constructor",e);
+    }
+  }
+  if ((acceptorTypeList != null && acceptorTypeList.contains(AcceptorType.MOVE_TABU)) || completeMoveTabuSize != null || partialMoveTabuSize != null) {
+    MoveTabuAcceptor moveTabuAcceptor=new MoveTabuAcceptor();
+    moveTabuAcceptor.setUseUndoMoveAsTabuMove(false);
+    if (completeMoveTabuSize != null) {
+      moveTabuAcceptor.setCompleteTabuSize(completeMoveTabuSize);
+    }
+    if (partialMoveTabuSize != null) {
+      moveTabuAcceptor.setPartialTabuSize(partialMoveTabuSize);
+    }
+    acceptorList.add(moveTabuAcceptor);
+  }
+  if ((acceptorTypeList != null && acceptorTypeList.contains(AcceptorType.UNDO_MOVE_TABU)) || completeUndoMoveTabuSize != null || partialUndoMoveTabuSize != null) {
+    MoveTabuAcceptor undoMoveTabuAcceptor=new MoveTabuAcceptor();
+    undoMoveTabuAcceptor.setUseUndoMoveAsTabuMove(true);
+    if (completeUndoMoveTabuSize != null) {
+      undoMoveTabuAcceptor.setCompleteTabuSize(completeUndoMoveTabuSize);
+    }
+    if (partialUndoMoveTabuSize != null) {
+      undoMoveTabuAcceptor.setPartialTabuSize(partialUndoMoveTabuSize);
+    }
+    acceptorList.add(undoMoveTabuAcceptor);
+  }
+  if ((acceptorTypeList != null && acceptorTypeList.contains(AcceptorType.PROPERTY_TABU)) || completePropertyTabuSize != null || partialPropertyTabuSize != null) {
+    PropertyTabuAcceptor propertyTabuAcceptor=new PropertyTabuAcceptor();
+    if (completePropertyTabuSize != null) {
+      propertyTabuAcceptor.setCompleteTabuSize(completePropertyTabuSize);
+    }
+    if (partialPropertyTabuSize != null) {
+      propertyTabuAcceptor.setPartialTabuSize(partialPropertyTabuSize);
+    }
+    acceptorList.add(propertyTabuAcceptor);
+  }
+  if ((acceptorTypeList != null && acceptorTypeList.contains(AcceptorType.SOLUTION_TABU)) || completeSolutionTabuSize != null || partialSolutionTabuSize != null) {
+    SolutionTabuAcceptor solutionTabuAcceptor=new SolutionTabuAcceptor();
+    if (completeSolutionTabuSize != null) {
+      solutionTabuAcceptor.setCompleteTabuSize(completeSolutionTabuSize);
+    }
+    if (partialSolutionTabuSize != null) {
+      solutionTabuAcceptor.setPartialTabuSize(partialSolutionTabuSize);
+    }
+    acceptorList.add(solutionTabuAcceptor);
+  }
+  if ((acceptorTypeList != null && acceptorTypeList.contains(AcceptorType.SIMULATED_ANNEALING))) {
+    SimulatedAnnealingAcceptor simulatedAnnealingAcceptor=new SimulatedAnnealingAcceptor();
+    acceptorList.add(simulatedAnnealingAcceptor);
+  }
+  if ((acceptorTypeList != null && acceptorTypeList.contains(AcceptorType.GREAT_DELUGE)) || greatDelugeWaterLevelUpperBoundRate != null || greatDelugeWaterRisingRate != null) {
+    double waterLevelUpperBoundRate=(Double)ObjectUtils.defaultIfNull(greatDelugeWaterLevelUpperBoundRate,1.20);
+    double waterRisingRate=(Double)ObjectUtils.defaultIfNull(greatDelugeWaterRisingRate,0.0000001);
+    acceptorList.add(new GreatDelugeAcceptor(waterLevelUpperBoundRate,waterRisingRate));
+  }
+  if (acceptorList.size() == 1) {
+    return acceptorList.get(0);
+  }
+ else   if (acceptorList.size() > 1) {
+    CompositeAcceptor compositeAcceptor=new CompositeAcceptor();
+    compositeAcceptor.setAcceptorList(acceptorList);
+    return compositeAcceptor;
+  }
+ else {
+    SolutionTabuAcceptor solutionTabuAcceptor=new SolutionTabuAcceptor();
+    solutionTabuAcceptor.setCompleteTabuSize(1500);
+    return solutionTabuAcceptor;
+  }
+}

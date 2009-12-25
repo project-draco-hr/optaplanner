@@ -43,11 +43,11 @@
  else   if (inheritedConfig.getSelectorConfig() != null) {
     selectorConfig.inherit(inheritedConfig.getSelectorConfig());
   }
-  if (accepterConfig == null) {
-    accepterConfig=inheritedConfig.getAccepterConfig();
+  if (acceptorConfig == null) {
+    acceptorConfig=inheritedConfig.getAcceptorConfig();
   }
- else   if (inheritedConfig.getAccepterConfig() != null) {
-    accepterConfig.inherit(inheritedConfig.getAccepterConfig());
+ else   if (inheritedConfig.getAcceptorConfig() != null) {
+    acceptorConfig.inherit(inheritedConfig.getAcceptorConfig());
   }
   if (foragerConfig == null) {
     foragerConfig=inheritedConfig.getForagerConfig();

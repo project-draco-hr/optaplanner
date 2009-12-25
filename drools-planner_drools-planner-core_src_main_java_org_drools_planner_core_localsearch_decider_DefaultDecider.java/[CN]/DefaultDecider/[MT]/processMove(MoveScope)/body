@@ -1,7 +1,7 @@
 {
   Score score=moveScope.getStepScope().getLocalSearchSolverScope().calculateScoreFromWorkingMemory();
   moveScope.setScore(score);
-  double acceptChance=accepter.calculateAcceptChance(moveScope);
+  double acceptChance=acceptor.calculateAcceptChance(moveScope);
   moveScope.setAcceptChance(acceptChance);
   forager.addMove(moveScope);
 }

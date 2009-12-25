@@ -1,0 +1,18 @@
+{
+  Acceptor acceptor=new GreatDelugeAcceptor(1.20,0.01);
+  LocalSearchSolverScope localSearchSolverScope=createLocalSearchSolverScope();
+  acceptor.solvingStarted(localSearchSolverScope);
+  StepScope stepScope=new StepScope(localSearchSolverScope);
+  stepScope.setStepIndex(0);
+  acceptor.beforeDeciding(stepScope);
+  MoveScope a1=createMoveScope(stepScope,DefaultSimpleScore.valueOf(-2000));
+  MoveScope a2=createMoveScope(stepScope,DefaultSimpleScore.valueOf(-1300));
+  MoveScope a3=createMoveScope(stepScope,DefaultSimpleScore.valueOf(-1200));
+  MoveScope b1=createMoveScope(stepScope,DefaultSimpleScore.valueOf(-1200));
+  MoveScope b2=createMoveScope(stepScope,DefaultSimpleScore.valueOf(-100));
+  MoveScope c1=createMoveScope(stepScope,DefaultSimpleScore.valueOf(-1100));
+  MoveScope c2=createMoveScope(stepScope,DefaultSimpleScore.valueOf(-120));
+  assertEquals(0.0,acceptor.calculateAcceptChance(a1));
+  assertEquals(0.0,acceptor.calculateAcceptChance(a2));
+  assertEquals(1.0,acceptor.calculateAcceptChance(a3));
+}

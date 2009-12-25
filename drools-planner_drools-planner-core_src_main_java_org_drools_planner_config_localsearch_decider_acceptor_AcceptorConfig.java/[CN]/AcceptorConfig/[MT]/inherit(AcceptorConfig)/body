@@ -1,0 +1,45 @@
+{
+  if (acceptor == null) {
+    acceptor=inheritedConfig.getAcceptor();
+  }
+  if (acceptorClass == null) {
+    acceptorClass=inheritedConfig.getAcceptorClass();
+  }
+  if (acceptorTypeList == null) {
+    acceptorTypeList=inheritedConfig.getAcceptorTypeList();
+  }
+ else {
+    List<AcceptorType> inheritedAcceptorTypeList=inheritedConfig.getAcceptorTypeList();
+    if (inheritedAcceptorTypeList != null) {
+      for (      AcceptorType acceptorType : inheritedAcceptorTypeList) {
+        if (!acceptorTypeList.contains(acceptorType)) {
+          acceptorTypeList.add(acceptorType);
+        }
+      }
+    }
+  }
+  if (completeMoveTabuSize == null) {
+    completeMoveTabuSize=inheritedConfig.getCompleteMoveTabuSize();
+  }
+  if (partialMoveTabuSize == null) {
+    partialMoveTabuSize=inheritedConfig.getPartialMoveTabuSize();
+  }
+  if (completeUndoMoveTabuSize == null) {
+    completeUndoMoveTabuSize=inheritedConfig.getCompleteUndoMoveTabuSize();
+  }
+  if (partialUndoMoveTabuSize == null) {
+    partialUndoMoveTabuSize=inheritedConfig.getPartialUndoMoveTabuSize();
+  }
+  if (completePropertyTabuSize == null) {
+    completePropertyTabuSize=inheritedConfig.getCompletePropertyTabuSize();
+  }
+  if (partialPropertyTabuSize == null) {
+    partialPropertyTabuSize=inheritedConfig.getPartialPropertyTabuSize();
+  }
+  if (completeSolutionTabuSize == null) {
+    completeSolutionTabuSize=inheritedConfig.getCompleteSolutionTabuSize();
+  }
+  if (partialSolutionTabuSize == null) {
+    partialSolutionTabuSize=inheritedConfig.getPartialSolutionTabuSize();
+  }
+}
