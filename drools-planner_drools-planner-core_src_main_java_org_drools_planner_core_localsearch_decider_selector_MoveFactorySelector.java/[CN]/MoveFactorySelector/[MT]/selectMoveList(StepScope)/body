@@ -10,5 +10,10 @@
     }
     moveList=moveList.subList(0,selectionSize);
   }
+  if (absoluteSelection != null) {
+    if (moveList.size() > absoluteSelection) {
+      moveList=moveList.subList(0,absoluteSelection);
+    }
+  }
   return moveList;
 }

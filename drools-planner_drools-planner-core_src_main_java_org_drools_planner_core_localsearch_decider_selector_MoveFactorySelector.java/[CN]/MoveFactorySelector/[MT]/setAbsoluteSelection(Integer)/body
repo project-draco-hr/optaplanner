@@ -1,0 +1,6 @@
+{
+  this.absoluteSelection=absoluteSelection;
+  if (absoluteSelection < 1) {
+    throw new IllegalArgumentException("The selector's absoluteSelection (" + absoluteSelection + ") must be at least 1.");
+  }
+}

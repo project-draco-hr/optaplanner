@@ -20,6 +20,9 @@
   if (relativeSelection == null) {
     relativeSelection=inheritedConfig.getRelativeSelection();
   }
+  if (absoluteSelection == null) {
+    absoluteSelection=inheritedConfig.getAbsoluteSelection();
+  }
   if (topSize == null) {
     topSize=inheritedConfig.getTopSize();
   }
