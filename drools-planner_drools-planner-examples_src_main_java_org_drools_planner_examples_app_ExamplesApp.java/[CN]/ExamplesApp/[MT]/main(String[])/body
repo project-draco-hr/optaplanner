@@ -1,6 +1,5 @@
 {
   ExamplesApp examplesApp=new ExamplesApp();
   examplesApp.pack();
-  examplesApp.setLocationRelativeTo(null);
   examplesApp.setVisible(true);
 }
