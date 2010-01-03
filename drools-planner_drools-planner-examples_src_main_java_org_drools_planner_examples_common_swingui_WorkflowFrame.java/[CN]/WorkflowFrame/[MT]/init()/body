@@ -1,4 +1,5 @@
 {
   setContentPane(createContentPane());
   pack();
+  setLocationRelativeTo(null);
 }

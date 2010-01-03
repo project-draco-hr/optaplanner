@@ -1,26 +1,6 @@
 {
-  String[] options={"NQueens","LessonSchedule","TravelingTournament","ITC2007 Examination","ITC2007 CurriculumCourse","Miss Manners 2009"};
-  int choice=JOptionPane.showOptionDialog(null,"Which example do you want to see?","Choose an example",JOptionPane.DEFAULT_OPTION,JOptionPane.INFORMATION_MESSAGE,null,options,options[0]);
-switch (choice) {
-case 0:
-    new NQueensApp().init();
-  break;
-case 1:
-new LessonScheduleApp().init();
-break;
-case 2:
-new SmartTravelingTournamentApp().init();
-break;
-case 3:
-new ExaminationApp().init();
-break;
-case 4:
-new CurriculumCourseApp().init();
-break;
-case 5:
-new Manners2009App().init();
-break;
-default :
-throw new IllegalArgumentException("Unknown example choice(" + choice + ").");
-}
+  ExamplesApp examplesApp=new ExamplesApp();
+  examplesApp.pack();
+  examplesApp.setLocationRelativeTo(null);
+  examplesApp.setVisible(true);
 }
