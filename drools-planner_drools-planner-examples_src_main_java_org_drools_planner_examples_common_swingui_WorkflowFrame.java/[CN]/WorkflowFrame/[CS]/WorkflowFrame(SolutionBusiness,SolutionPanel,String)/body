@@ -7,5 +7,5 @@
   registerSolverEventListener();
   constraintScoreMapDialog=new ConstraintScoreMapDialog(this);
   constraintScoreMapDialog.setSolutionBusiness(solutionBusiness);
-  setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+  setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 }

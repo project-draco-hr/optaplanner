@@ -1,5 +1,4 @@
 {
-  setDefaultCloseOperation(solving ? JFrame.DO_NOTHING_ON_CLOSE : JFrame.DISPOSE_ON_CLOSE);
   for (  Action action : loadUnsolvedActionList) {
     action.setEnabled(!solving);
   }
