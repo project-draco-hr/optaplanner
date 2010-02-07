@@ -1,10 +1,12 @@
 {
   DefaultLocalSearchSolver localSearchSolver=new DefaultLocalSearchSolver();
-  if (randomSeed != null) {
-    localSearchSolver.setRandomSeed(randomSeed);
-  }
+  if (environmentMode != EnvironmentMode.PRODUCTION) {
+    if (randomSeed != null) {
+      localSearchSolver.setRandomSeed(randomSeed);
+    }
  else {
-    localSearchSolver.setRandomSeed(0L);
+      localSearchSolver.setRandomSeed(DEFAULT_RANDOM_SEED);
+    }
   }
   localSearchSolver.setRuleBase(buildRuleBase());
   ScoreDefinition scoreDefinition=scoreDefinitionConfig.buildScoreDefinition();

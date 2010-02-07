@@ -1,9 +1,9 @@
 {
-  if (randomSeed == null) {
-    randomSeed=inheritedConfig.getRandomSeed();
-  }
   if (environmentMode == null) {
     environmentMode=inheritedConfig.getEnvironmentMode();
+  }
+  if (randomSeed == null) {
+    randomSeed=inheritedConfig.getRandomSeed();
   }
   if (scoreDrlList == null) {
     scoreDrlList=inheritedConfig.getScoreDrlList();

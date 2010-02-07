@@ -1,7 +1,13 @@
 {
   localSearchSolverScope.resetTimeMillisSpend();
-  logger.info("Solving with random seed ({}).",randomSeed);
-  localSearchSolverScope.setWorkingRandom(new Random(randomSeed));
+  if (randomSeed != null) {
+    logger.info("Solving with random seed ({}).",randomSeed);
+    localSearchSolverScope.setWorkingRandom(new Random(randomSeed));
+  }
+ else {
+    logger.info("Solving without a fixed random seed.");
+    localSearchSolverScope.setWorkingRandom(new Random());
+  }
   if (startingSolutionInitializer != null) {
     if (!startingSolutionInitializer.isSolutionInitialized(localSearchSolverScope)) {
       logger.info("Initializing solution.");
