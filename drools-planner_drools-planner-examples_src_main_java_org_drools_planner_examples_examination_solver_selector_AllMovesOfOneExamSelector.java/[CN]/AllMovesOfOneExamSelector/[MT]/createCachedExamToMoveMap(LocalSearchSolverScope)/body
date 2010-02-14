@@ -1,0 +1,13 @@
+{
+  Examination examination=(Examination)localSearchSolverScope.getWorkingSolution();
+  int examListSize=examination.getExamList().size();
+  List<Move> cachedPeriodChangeMoveList=periodChangeMoveFactory.getCachedMoveList();
+  List<Move> cachedRoomChangeMoveList=roomChangeMoveFactory.getCachedMoveList();
+  List<Move> cachedExamSwitchMoveList=examSwitchMoveFactory.getCachedMoveList();
+  cachedExamToMoveMap=new HashMap<Exam,List<Move>>(cachedPeriodChangeMoveList.size() + cachedRoomChangeMoveList.size() + cachedExamSwitchMoveList.size());
+  addToCachedExamToMoveMap(examListSize,cachedPeriodChangeMoveList);
+  addToCachedExamToMoveMap(examListSize,cachedRoomChangeMoveList);
+  addToCachedExamToMoveMap(examListSize,cachedExamSwitchMoveList);
+  shuffledExamList=new ArrayList<Exam>(cachedExamToMoveMap.keySet());
+  nextShuffledExamListIndex=Integer.MAX_VALUE;
+}

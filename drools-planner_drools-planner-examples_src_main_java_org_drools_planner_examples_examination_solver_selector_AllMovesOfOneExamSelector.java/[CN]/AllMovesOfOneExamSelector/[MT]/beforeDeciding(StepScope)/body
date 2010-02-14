@@ -1,0 +1,5 @@
+{
+  periodChangeMoveFactory.beforeDeciding(stepScope);
+  roomChangeMoveFactory.beforeDeciding(stepScope);
+  examSwitchMoveFactory.beforeDeciding(stepScope);
+}

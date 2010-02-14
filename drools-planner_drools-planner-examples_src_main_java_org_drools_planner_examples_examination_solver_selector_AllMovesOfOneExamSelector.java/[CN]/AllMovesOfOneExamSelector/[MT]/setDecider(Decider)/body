@@ -1,0 +1,6 @@
+{
+  super.setDecider(decider);
+  periodChangeMoveFactory.setDecider(decider);
+  roomChangeMoveFactory.setDecider(decider);
+  examSwitchMoveFactory.setDecider(decider);
+}

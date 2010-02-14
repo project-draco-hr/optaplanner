@@ -1,0 +1,2 @@
+int examListSize
+List<Move> cachedMoveList
