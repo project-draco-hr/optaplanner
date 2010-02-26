@@ -1,3 +1,0 @@
-{
-  removeListener(solver,"solver");
-}

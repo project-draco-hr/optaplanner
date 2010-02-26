@@ -1,0 +1,20 @@
+{
+  Number scoreAlias;
+  if (score instanceof SimpleScore) {
+    SimpleScore simpleScore=(SimpleScore)score;
+    scoreAlias=simpleScore.getScore();
+  }
+ else   if (score instanceof HardAndSoftScore) {
+    HardAndSoftScore hardAndSoftScore=(HardAndSoftScore)score;
+    if (hardAndSoftScore.getHardScore() == 0) {
+      scoreAlias=hardAndSoftScore.getSoftScore();
+    }
+ else {
+      scoreAlias=null;
+    }
+  }
+ else {
+    throw new IllegalStateException("Score class (" + score.getClass() + ") not supported.");
+  }
+  return scoreAlias;
+}

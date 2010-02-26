@@ -1,0 +1,29 @@
+{
+  File graphStatisticFile=new File(solverStatisticFilesDirectory,baseName + "Statistic.png");
+  XYSeriesCollection seriesCollection=new XYSeriesCollection();
+  for (  Map.Entry<String,BestScoreStatisticListener> listenerEntry : bestScoreStatisticListenerMap.entrySet()) {
+    String configName=listenerEntry.getKey();
+    XYSeries configSeries=new XYSeries(configName);
+    List<BestScoreStatisticPoint> statisticPointList=listenerEntry.getValue().getBestScoreStatisticPointList();
+    for (    BestScoreStatisticPoint statisticPoint : statisticPointList) {
+      long timeMillisSpend=statisticPoint.getTimeMillisSpend();
+      Score score=statisticPoint.getScore();
+      Number scoreAlias=extractScoreAlias(score);
+      configSeries.add(timeMillisSpend,scoreAlias);
+    }
+    seriesCollection.addSeries(configSeries);
+  }
+  JFreeChart chart=ChartFactory.createXYLineChart(baseName + " best score statistic","Time millis spend","Score",seriesCollection,PlotOrientation.VERTICAL,true,true,false);
+  BufferedImage chartImage=chart.createBufferedImage(800,600);
+  OutputStream out=null;
+  try {
+    out=new FileOutputStream(graphStatisticFile);
+    ImageIO.write(chartImage,"png",out);
+  }
+ catch (  IOException e) {
+    throw new IllegalArgumentException("Problem writing graphStatisticFile: " + graphStatisticFile,e);
+  }
+ finally {
+    IOUtils.closeQuietly(out);
+  }
+}
