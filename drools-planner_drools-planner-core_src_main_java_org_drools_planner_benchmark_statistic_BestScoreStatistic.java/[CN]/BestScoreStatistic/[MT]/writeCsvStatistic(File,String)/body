@@ -15,7 +15,7 @@
         writer.append(",");
         Score score=timeToBestScoresLine.getConfigNameToScoreMap().get(configName);
         if (score != null) {
-          Number scoreAlias=extractScoreAlias(score);
+          Integer scoreAlias=extractScoreAlias(score);
           if (scoreAlias != null) {
             writer.append(scoreAlias.toString());
           }

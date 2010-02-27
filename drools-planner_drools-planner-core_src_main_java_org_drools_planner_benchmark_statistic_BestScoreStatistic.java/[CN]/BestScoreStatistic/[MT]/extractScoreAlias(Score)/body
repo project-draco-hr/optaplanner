@@ -1,5 +1,5 @@
 {
-  Number scoreAlias;
+  Integer scoreAlias;
   if (score instanceof SimpleScore) {
     SimpleScore simpleScore=(SimpleScore)score;
     scoreAlias=simpleScore.getScore();
