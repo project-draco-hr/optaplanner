@@ -35,4 +35,5 @@
  finally {
     IOUtils.closeQuietly(out);
   }
+  return "  <img src=\"" + graphStatisticFile.getName() + "\"/>";
 }

@@ -1,0 +1,24 @@
+{
+  File htmlOverviewFile=new File(solverStatisticFilesDirectory,"index.html");
+  Writer writer=null;
+  try {
+    writer=new OutputStreamWriter(new FileOutputStream(htmlOverviewFile),"utf-8");
+    writer.append("<html>\n");
+    writer.append("<head>\n");
+    writer.append("  <title>Statistic</title>\n");
+    writer.append("</head>\n");
+    writer.append("<body>\n");
+    writer.append("  <h1>Statistic ").append(solverStatisticType.toString()).append("</h1>\n");
+    for (    CharSequence htmlFragment : htmlFragments) {
+      writer.append(htmlFragment);
+    }
+    writer.append("</body>\n");
+    writer.append("</html>\n");
+  }
+ catch (  IOException e) {
+    throw new IllegalArgumentException("Problem writing htmlOverviewFile: " + htmlOverviewFile,e);
+  }
+ finally {
+    IOUtils.closeQuietly(writer);
+  }
+}

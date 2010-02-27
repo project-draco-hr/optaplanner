@@ -40,12 +40,17 @@
     }
   }
   if (solverStatisticType != SolverStatisticType.NONE) {
+    List<CharSequence> htmlFragments=new ArrayList<CharSequence>(unsolvedSolutionFileToStatisticMap.size());
     for (    Map.Entry<File,SolverStatistic> entry : unsolvedSolutionFileToStatisticMap.entrySet()) {
       File unsolvedSolutionFile=entry.getKey();
       SolverStatistic statistic=entry.getValue();
       String baseName=FilenameUtils.getBaseName(unsolvedSolutionFile.getName());
-      statistic.writeStatistic(solverStatisticFilesDirectory,baseName);
+      StringBuilder htmlFragment=new StringBuilder();
+      htmlFragment.append("  <h2>").append(baseName).append("</h2>");
+      htmlFragment.append(statistic.writeStatistic(solverStatisticFilesDirectory,baseName));
+      htmlFragments.add(htmlFragment);
     }
+    writeHtmlOverview(htmlFragments);
   }
   benchmarkingEnded();
 }
