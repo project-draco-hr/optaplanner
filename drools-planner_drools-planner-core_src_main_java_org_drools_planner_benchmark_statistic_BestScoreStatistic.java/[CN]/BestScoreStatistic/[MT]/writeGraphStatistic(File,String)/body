@@ -18,7 +18,7 @@
   xAxis.setAutoRangeIncludesZero(false);
   NumberAxis yAxis=new NumberAxis("Score");
   yAxis.setAutoRangeIncludesZero(false);
-  XYItemRenderer renderer=new XYLineAndShapeRenderer(true,false);
+  XYItemRenderer renderer=new XYStepRenderer();
   XYPlot plot=new XYPlot(seriesCollection,xAxis,yAxis,renderer);
   plot.setOrientation(PlotOrientation.VERTICAL);
   JFreeChart chart=new JFreeChart(baseName + " best score statistic",JFreeChart.DEFAULT_TITLE_FONT,plot,true);
