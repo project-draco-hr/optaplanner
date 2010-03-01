@@ -8,14 +8,12 @@
       break;
     }
     for (    ExamToHandle examToHandle : examToHandleList) {
-      workingMemory.modifyRetract(examToHandle.getExamHandle());
       examToHandle.getExam().setPeriod(periodScoring.getPeriod());
-      workingMemory.modifyInsert(examToHandle.getExamHandle(),examToHandle.getExam());
+      workingMemory.update(examToHandle.getExamHandle(),examToHandle.getExam());
     }
     for (    Room room : roomList) {
-      workingMemory.modifyRetract(leaderHandle);
       leader.setRoom(room);
-      workingMemory.modifyInsert(leaderHandle,leader);
+      workingMemory.update(leaderHandle,leader);
       Score score=localSearchSolverScope.calculateScoreFromWorkingMemory();
       if (score.compareTo(unscheduledScore) < 0) {
         if (score.compareTo(bestScore) > 0) {
@@ -40,13 +38,11 @@
     if (bestPeriod == null || bestRoom == null) {
       throw new IllegalStateException("The bestPeriod (" + bestPeriod + ") or the bestRoom ("+ bestRoom+ ") cannot be null.");
     }
-    workingMemory.modifyRetract(leaderHandle);
     leader.setRoom(bestRoom);
-    workingMemory.modifyInsert(leaderHandle,leader);
+    workingMemory.update(leaderHandle,leader);
     for (    ExamToHandle examToHandle : examToHandleList) {
-      workingMemory.modifyRetract(examToHandle.getExamHandle());
       examToHandle.getExam().setPeriod(bestPeriod);
-      workingMemory.modifyInsert(examToHandle.getExamHandle(),examToHandle.getExam());
+      workingMemory.update(examToHandle.getExamHandle(),examToHandle.getExam());
     }
   }
   logger.debug("    Exam ({}) initialized for starting solution.",leader);

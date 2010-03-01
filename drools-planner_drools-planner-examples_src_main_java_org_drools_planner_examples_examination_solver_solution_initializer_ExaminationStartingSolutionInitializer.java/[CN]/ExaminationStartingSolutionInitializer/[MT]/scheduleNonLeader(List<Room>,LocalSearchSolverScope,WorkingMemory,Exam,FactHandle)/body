@@ -7,9 +7,8 @@
   Score bestScore=DefaultHardAndSoftScore.valueOf(Integer.MIN_VALUE,Integer.MIN_VALUE);
   Room bestRoom=null;
   for (  Room room : roomList) {
-    workingMemory.modifyRetract(examHandle);
     exam.setRoom(room);
-    workingMemory.modifyInsert(examHandle,exam);
+    workingMemory.update(examHandle,exam);
     Score score=localSearchSolverScope.calculateScoreFromWorkingMemory();
     if (score.compareTo(unscheduledScore) < 0) {
       if (score.compareTo(bestScore) > 0) {
@@ -29,9 +28,8 @@
     if (bestRoom == null) {
       throw new IllegalStateException("The bestRoom (" + bestRoom + ") cannot be null.");
     }
-    workingMemory.modifyRetract(examHandle);
     exam.setRoom(bestRoom);
-    workingMemory.modifyInsert(examHandle,exam);
+    workingMemory.update(examHandle,exam);
   }
   logger.debug("    Exam ({}) initialized for starting solution. *",exam);
 }

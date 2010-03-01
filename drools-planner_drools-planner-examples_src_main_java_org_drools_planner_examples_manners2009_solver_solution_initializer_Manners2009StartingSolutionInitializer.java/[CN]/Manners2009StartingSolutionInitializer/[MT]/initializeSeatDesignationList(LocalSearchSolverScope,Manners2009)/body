@@ -13,9 +13,8 @@
           seatDesignationHandle=workingMemory.insert(seatDesignation);
         }
  else {
-          workingMemory.modifyRetract(seatDesignationHandle);
           seatDesignation.setSeat(seat);
-          workingMemory.modifyInsert(seatDesignationHandle,seatDesignation);
+          workingMemory.update(seatDesignationHandle,seatDesignation);
         }
         Score score=localSearchSolverScope.calculateScoreFromWorkingMemory();
         if (score.compareTo(bestScore) > 0) {
@@ -27,9 +26,8 @@
     if (bestSeat == null) {
       throw new IllegalStateException("The bestSeat (" + bestSeat + ") cannot be null.");
     }
-    workingMemory.modifyRetract(seatDesignationHandle);
     seatDesignation.setSeat(bestSeat);
-    workingMemory.modifyInsert(seatDesignationHandle,seatDesignation);
+    workingMemory.update(seatDesignationHandle,seatDesignation);
     undesignatedSeatList.remove(bestSeat);
   }
   Collections.sort(seatDesignationList,new PersistableIdComparator());

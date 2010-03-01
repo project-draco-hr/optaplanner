@@ -1,6 +1,5 @@
 {
   FactHandle lessonHandle=workingMemory.getFactHandle(lesson);
-  workingMemory.modifyRetract(lessonHandle);
   lesson.setTimeslot(toTimeslot);
-  workingMemory.modifyInsert(lessonHandle,lesson);
+  workingMemory.update(lessonHandle,lesson);
 }

@@ -28,9 +28,8 @@
           }
         }
  else {
-          workingMemory.modifyRetract(examToHandle.getExamHandle());
           examToHandle.getExam().setPeriod(period);
-          workingMemory.modifyInsert(examToHandle.getExamHandle(),examToHandle.getExam());
+          workingMemory.update(examToHandle.getExamHandle(),examToHandle.getExam());
         }
       }
       Score score=localSearchSolverScope.calculateScoreFromWorkingMemory();
