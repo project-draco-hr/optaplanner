@@ -1,0 +1,15 @@
+{
+  BufferedReader bufferedReader=null;
+  try {
+    bufferedReader=new BufferedReader(new FileReader(inputFile));
+    TxtInputBuilder txtInputBuilder=createTxtInputBuilder();
+    txtInputBuilder.setBufferedReader(bufferedReader);
+    return txtInputBuilder.readSolution();
+  }
+ catch (  IOException e) {
+    throw new IllegalArgumentException(e);
+  }
+ finally {
+    IOUtils.closeQuietly(bufferedReader);
+  }
+}

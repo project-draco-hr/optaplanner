@@ -1,0 +1,16 @@
+{
+  BufferedWriter bufferedWriter=null;
+  try {
+    bufferedWriter=new BufferedWriter(new FileWriter(outputFile));
+    TxtOutputBuilder txtOutputBuilder=createTxtOutputBuilder();
+    txtOutputBuilder.setBufferedWriter(bufferedWriter);
+    txtOutputBuilder.setSolution(solution);
+    txtOutputBuilder.writeSolution();
+  }
+ catch (  IOException e) {
+    throw new IllegalArgumentException(e);
+  }
+ finally {
+    IOUtils.closeQuietly(bufferedWriter);
+  }
+}

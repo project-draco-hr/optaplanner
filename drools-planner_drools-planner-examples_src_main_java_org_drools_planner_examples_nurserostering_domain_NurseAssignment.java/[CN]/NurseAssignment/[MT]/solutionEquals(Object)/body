@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof NurseAssignment) {
+    NurseAssignment other=(NurseAssignment)o;
+    return new EqualsBuilder().append(id,other.id).isEquals();
+  }
+ else {
+    return false;
+  }
+}

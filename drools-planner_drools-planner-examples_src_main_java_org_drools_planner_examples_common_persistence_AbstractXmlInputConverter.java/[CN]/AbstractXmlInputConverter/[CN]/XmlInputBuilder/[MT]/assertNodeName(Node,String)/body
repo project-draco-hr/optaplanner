@@ -1,0 +1,5 @@
+{
+  if (!node.getNodeName().equals(nodeName)) {
+    throw new IllegalArgumentException("The node name (" + node.getNodeName() + ") is expected to be "+ nodeName+ ".");
+  }
+}

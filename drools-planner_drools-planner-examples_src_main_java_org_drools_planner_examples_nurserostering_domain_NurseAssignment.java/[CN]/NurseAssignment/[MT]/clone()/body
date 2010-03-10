@@ -1,0 +1,5 @@
+{
+  NurseAssignment clone=new NurseAssignment();
+  clone.id=id;
+  return clone;
+}

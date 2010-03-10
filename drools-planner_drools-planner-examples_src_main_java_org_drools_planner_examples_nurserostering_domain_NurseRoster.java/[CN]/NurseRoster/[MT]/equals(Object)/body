@@ -1,0 +1,22 @@
+{
+  if (this == o) {
+    return true;
+  }
+  if (id == null || !(o instanceof NurseRoster)) {
+    return false;
+  }
+ else {
+    NurseRoster other=(NurseRoster)o;
+    if (nurseAssignmentList.size() != other.nurseAssignmentList.size()) {
+      return false;
+    }
+    for (Iterator<NurseAssignment> it=nurseAssignmentList.iterator(), otherIt=other.nurseAssignmentList.iterator(); it.hasNext(); ) {
+      NurseAssignment nurseAssignment=it.next();
+      NurseAssignment otherNurseAssignment=otherIt.next();
+      if (!nurseAssignment.solutionEquals(otherNurseAssignment)) {
+        return false;
+      }
+    }
+    return true;
+  }
+}

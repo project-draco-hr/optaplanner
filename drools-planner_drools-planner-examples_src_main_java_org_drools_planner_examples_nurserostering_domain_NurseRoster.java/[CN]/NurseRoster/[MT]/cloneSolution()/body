@@ -1,0 +1,15 @@
+{
+  NurseRoster clone=new NurseRoster();
+  clone.id=id;
+  clone.code=code;
+  clone.skillList=skillList;
+  clone.shiftTypeList=shiftTypeList;
+  List<NurseAssignment> clonedLectureList=new ArrayList<NurseAssignment>(nurseAssignmentList.size());
+  for (  NurseAssignment nurseAssignment : nurseAssignmentList) {
+    NurseAssignment clonedNurseAssignment=nurseAssignment.clone();
+    clonedLectureList.add(clonedNurseAssignment);
+  }
+  clone.nurseAssignmentList=clonedLectureList;
+  clone.score=score;
+  return clone;
+}

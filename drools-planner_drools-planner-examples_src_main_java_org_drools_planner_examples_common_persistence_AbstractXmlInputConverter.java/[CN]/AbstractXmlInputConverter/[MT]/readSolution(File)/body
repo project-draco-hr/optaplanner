@@ -1,0 +1,23 @@
+{
+  InputStream in=null;
+  try {
+    in=new FileInputStream(inputFile);
+    DocumentBuilder documentBuilder=DocumentBuilderFactory.newInstance().newDocumentBuilder();
+    Document document=documentBuilder.parse(in);
+    XmlInputBuilder txtInputBuilder=createXmlInputBuilder();
+    txtInputBuilder.setDocument(document);
+    return txtInputBuilder.readSolution();
+  }
+ catch (  IOException e) {
+    throw new IllegalArgumentException(e);
+  }
+catch (  ParserConfigurationException e) {
+    throw new IllegalArgumentException(e);
+  }
+catch (  SAXException e) {
+    throw new IllegalArgumentException(e);
+  }
+ finally {
+    IOUtils.closeQuietly(in);
+  }
+}

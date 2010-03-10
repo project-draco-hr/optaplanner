@@ -1,0 +1,7 @@
+{
+  HashCodeBuilder hashCodeBuilder=new HashCodeBuilder();
+  for (  NurseAssignment nurseAssignment : nurseAssignmentList) {
+    hashCodeBuilder.append(nurseAssignment.solutionHashCode());
+  }
+  return hashCodeBuilder.toHashCode();
+}
