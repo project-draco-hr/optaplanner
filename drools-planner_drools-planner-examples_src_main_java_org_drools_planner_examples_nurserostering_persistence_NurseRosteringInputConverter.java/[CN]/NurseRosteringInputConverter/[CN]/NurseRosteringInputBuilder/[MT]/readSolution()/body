@@ -7,6 +7,7 @@
   Map<String,Skill> skillMap=readSkillList(nurseRoster,schedulingPeriodElement.getChild("Skills"));
   Map<String,ShiftType> shiftTypeMap=readShiftTypeList(nurseRoster,skillMap,schedulingPeriodElement.getChild("ShiftTypes"));
   Map<String,ShiftPattern> shiftPatternMap=readShiftPatternList(nurseRoster,shiftTypeMap,schedulingPeriodElement.getChild("Patterns"));
+  Map<String,Contract> contractMap=readContractList(nurseRoster,shiftPatternMap,schedulingPeriodElement.getChild("Contracts"));
   logger.info("NurseRoster {} with TODO.",new Object[]{nurseRoster.getCode()});
   return nurseRoster;
 }

@@ -1,0 +1,26 @@
+{
+  List<Element> contractElementList=(List<Element>)contractsElement.getChildren();
+  List<Contract> contractList=new ArrayList<Contract>(contractElementList.size());
+  Map<String,Contract> contractMap=new HashMap<String,Contract>(contractElementList.size());
+  long id=0L;
+  for (  Element element : contractElementList) {
+    assertElementName(element,"Contract");
+    Contract contract=new Contract();
+    contract.setId(id);
+    contract.setCode(element.getAttribute("ID").getValue());
+    contract.setDescription(element.getChild("Description").getText());
+    List<Element> unwantedPatternElementList=(List<Element>)element.getChild("UnwantedPatterns").getChildren();
+    for (    Element patternElement : unwantedPatternElementList) {
+      assertElementName(patternElement,"Pattern");
+      ShiftPattern shiftPattern=shiftPatternMap.get(patternElement.getText());
+      if (shiftPattern == null) {
+        throw new IllegalArgumentException("The shiftPattern (" + patternElement.getText() + ") of contract ("+ contract.getCode()+ ") does not exist.");
+      }
+    }
+    contractList.add(contract);
+    contractMap.put(contract.getCode(),contract);
+    id++;
+  }
+  nurseRoster.setContractList(contractList);
+  return contractMap;
+}
