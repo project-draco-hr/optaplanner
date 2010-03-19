@@ -1,0 +1,3 @@
+NurseRoster nurseRoster
+Map<String,ShiftType> shiftTypeMap
+Element patternsElement

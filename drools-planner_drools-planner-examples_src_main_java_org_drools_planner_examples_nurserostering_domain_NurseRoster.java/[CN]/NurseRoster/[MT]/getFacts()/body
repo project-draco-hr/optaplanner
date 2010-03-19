@@ -3,6 +3,7 @@
   facts.add(skillList);
   facts.addAll(shiftTypeList);
   facts.addAll(shiftTypeSkillRequirementList);
+  facts.addAll(shiftPatternList);
   if (isInitialized()) {
     facts.addAll(nurseAssignmentList);
   }

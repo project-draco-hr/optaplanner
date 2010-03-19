@@ -1,9 +1,12 @@
 {
   Element schedulingPeriodElement=document.getRootElement();
+  assertElementName(schedulingPeriodElement,"SchedulingPeriod");
   NurseRoster nurseRoster=new NurseRoster();
   nurseRoster.setId(0L);
   nurseRoster.setCode(schedulingPeriodElement.getAttribute("ID").getValue());
   Map<String,Skill> skillMap=readSkillList(nurseRoster,schedulingPeriodElement.getChild("Skills"));
-  readShiftTypeList(nurseRoster,skillMap,schedulingPeriodElement.getChild("ShiftTypes"));
+  Map<String,ShiftType> shiftTypeMap=readShiftTypeList(nurseRoster,skillMap,schedulingPeriodElement.getChild("ShiftTypes"));
+  Map<String,ShiftPattern> shiftPatternMap=readShiftPatternList(nurseRoster,shiftTypeMap,schedulingPeriodElement.getChild("Patterns"));
+  logger.info("NurseRoster {} with TODO.",new Object[]{nurseRoster.getCode()});
   return nurseRoster;
 }

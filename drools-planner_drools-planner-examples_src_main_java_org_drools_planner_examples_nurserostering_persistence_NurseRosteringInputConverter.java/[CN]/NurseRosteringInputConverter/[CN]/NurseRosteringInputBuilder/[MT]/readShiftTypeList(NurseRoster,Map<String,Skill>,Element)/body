@@ -1,18 +1,19 @@
 {
   List<Element> shiftElementList=(List<Element>)shiftTypesElement.getChildren();
   List<ShiftType> shiftTypeList=new ArrayList<ShiftType>(shiftElementList.size());
+  Map<String,ShiftType> shiftTypeMap=new HashMap<String,ShiftType>(shiftElementList.size());
   long id=0L;
   List<ShiftTypeSkillRequirement> shiftTypeSkillRequirementList=new ArrayList<ShiftTypeSkillRequirement>(shiftElementList.size() * 2);
   long shiftTypeSkillRequirementId=0L;
-  for (  Element shiftElement : shiftElementList) {
-    assertElementName(shiftElement,"Shift");
+  for (  Element element : shiftElementList) {
+    assertElementName(element,"Shift");
     ShiftType shiftType=new ShiftType();
     shiftType.setId(id);
-    shiftType.setCode(shiftElement.getAttribute("ID").getValue());
-    shiftType.setStartTimeString(shiftElement.getChild("StartTime").getText());
-    shiftType.setEndTimeString(shiftElement.getChild("EndTime").getText());
-    shiftType.setDescription(shiftElement.getChild("Description").getText());
-    List<Element> skillElementList=(List<Element>)shiftElement.getChild("Skills").getChildren();
+    shiftType.setCode(element.getAttribute("ID").getValue());
+    shiftType.setStartTimeString(element.getChild("StartTime").getText());
+    shiftType.setEndTimeString(element.getChild("EndTime").getText());
+    shiftType.setDescription(element.getChild("Description").getText());
+    List<Element> skillElementList=(List<Element>)element.getChild("Skills").getChildren();
     for (    Element skillElement : skillElementList) {
       assertElementName(skillElement,"Skill");
       ShiftTypeSkillRequirement shiftTypeSkillRequirement=new ShiftTypeSkillRequirement();
@@ -27,8 +28,10 @@
       shiftTypeSkillRequirementId++;
     }
     shiftTypeList.add(shiftType);
+    shiftTypeMap.put(shiftType.getCode(),shiftType);
     id++;
   }
   nurseRoster.setShiftTypeList(shiftTypeList);
   nurseRoster.setShiftTypeSkillRequirementList(shiftTypeSkillRequirementList);
+  return shiftTypeMap;
 }

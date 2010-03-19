@@ -3,11 +3,11 @@
   List<Skill> skillList=new ArrayList<Skill>(skillElementList.size());
   Map<String,Skill> skillMap=new HashMap<String,Skill>(skillElementList.size());
   long id=0L;
-  for (  Element skillElement : skillElementList) {
-    assertElementName(skillElement,"Skill");
+  for (  Element element : skillElementList) {
+    assertElementName(element,"Skill");
     Skill skill=new Skill();
     skill.setId(id);
-    skill.setCode(skillElement.getText());
+    skill.setCode(element.getText());
     skillList.add(skill);
     skillMap.put(skill.getCode(),skill);
     id++;
