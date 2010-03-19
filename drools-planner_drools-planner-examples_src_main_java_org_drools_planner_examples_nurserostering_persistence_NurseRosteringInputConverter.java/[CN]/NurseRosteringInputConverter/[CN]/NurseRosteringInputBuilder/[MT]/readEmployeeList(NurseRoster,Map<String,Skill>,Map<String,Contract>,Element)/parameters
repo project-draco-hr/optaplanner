@@ -1,0 +1,4 @@
+NurseRoster nurseRoster
+Map<String,Skill> skillMap
+Map<String,Contract> contractMap
+Element employeesElement

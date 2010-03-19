@@ -1,0 +1,3 @@
+{
+  return new CompareToBuilder().append(employee,other.employee).append(skill,other.skill).toComparison();
+}

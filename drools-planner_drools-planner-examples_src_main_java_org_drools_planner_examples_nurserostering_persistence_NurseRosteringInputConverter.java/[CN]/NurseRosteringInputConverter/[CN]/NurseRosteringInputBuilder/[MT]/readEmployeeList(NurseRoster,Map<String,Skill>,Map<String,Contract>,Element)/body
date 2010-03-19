@@ -1,0 +1,41 @@
+{
+  List<Element> employeeElementList=(List<Element>)employeesElement.getChildren();
+  List<Employee> employeeList=new ArrayList<Employee>(employeeElementList.size());
+  Map<String,Employee> employeeMap=new HashMap<String,Employee>(employeeElementList.size());
+  long id=0L;
+  List<SkillProficiency> skillProficiencyList=new ArrayList<SkillProficiency>(employeeElementList.size() * 2);
+  long skillProficiencyId=0L;
+  for (  Element element : employeeElementList) {
+    assertElementName(element,"Employee");
+    Employee employee=new Employee();
+    employee.setId(id);
+    employee.setCode(element.getAttribute("ID").getValue());
+    employee.setName(element.getChild("Name").getText());
+    Element contractElement=element.getChild("ContractID");
+    Contract contract=contractMap.get(contractElement.getText());
+    if (contract == null) {
+      throw new IllegalArgumentException("The contract (" + contractElement.getText() + ") of employee ("+ employee.getCode()+ ") does not exist.");
+    }
+    employee.setContract(contract);
+    List<Element> skillElementList=(List<Element>)element.getChild("Skills").getChildren();
+    for (    Element skillElement : skillElementList) {
+      assertElementName(skillElement,"Skill");
+      Skill skill=skillMap.get(skillElement.getText());
+      if (skill == null) {
+        throw new IllegalArgumentException("The skill (" + skillElement.getText() + ") of employee ("+ employee.getCode()+ ") does not exist.");
+      }
+      SkillProficiency skillProficiency=new SkillProficiency();
+      skillProficiency.setId(skillProficiencyId);
+      skillProficiency.setEmployee(employee);
+      skillProficiency.setSkill(skill);
+      skillProficiencyList.add(skillProficiency);
+      skillProficiencyId++;
+    }
+    employeeList.add(employee);
+    employeeMap.put(employee.getCode(),employee);
+    id++;
+  }
+  nurseRoster.setEmployeeList(employeeList);
+  nurseRoster.setSkillProficiencyList(skillProficiencyList);
+  return employeeMap;
+}
