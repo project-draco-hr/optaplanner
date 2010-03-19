@@ -1,0 +1,3 @@
+{
+  return new CompareToBuilder().append(shiftType,other.shiftType).append(skill,other.skill).toComparison();
+}

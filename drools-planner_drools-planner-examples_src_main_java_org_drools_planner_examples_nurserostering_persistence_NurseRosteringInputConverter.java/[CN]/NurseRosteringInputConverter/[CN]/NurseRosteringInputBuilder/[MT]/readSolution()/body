@@ -1,20 +1,9 @@
 {
+  Element schedulingPeriodElement=document.getRootElement();
   NurseRoster nurseRoster=new NurseRoster();
   nurseRoster.setId(0L);
-  Node schedulingPeriodNode=document.getChildNodes().item(0);
-  nurseRoster.setCode(schedulingPeriodNode.getAttributes().getNamedItem("ID").getNodeValue());
-  Node skillsNode=schedulingPeriodNode.getChildNodes().item(5);
-  assertNodeName(skillsNode,"Skills");
-  NodeList skillNodeList=skillsNode.getChildNodes();
-  List<Skill> skillList=new ArrayList<Skill>(skillNodeList.getLength());
-  for (int i=1; i < skillNodeList.getLength(); i+=2) {
-    Node skillNode=skillNodeList.item(i);
-    assertNodeName(skillNode,"Skill");
-    Skill skill=new Skill();
-    skill.setId((long)i);
-    skill.setCode(skillNode.getTextContent());
-    skillList.add(skill);
-  }
-  nurseRoster.setSkillList(skillList);
+  nurseRoster.setCode(schedulingPeriodElement.getAttribute("ID").getValue());
+  Map<String,Skill> skillMap=readSkillList(nurseRoster,schedulingPeriodElement.getChild("Skills"));
+  readShiftTypeList(nurseRoster,skillMap,schedulingPeriodElement.getChild("ShiftTypes"));
   return nurseRoster;
 }

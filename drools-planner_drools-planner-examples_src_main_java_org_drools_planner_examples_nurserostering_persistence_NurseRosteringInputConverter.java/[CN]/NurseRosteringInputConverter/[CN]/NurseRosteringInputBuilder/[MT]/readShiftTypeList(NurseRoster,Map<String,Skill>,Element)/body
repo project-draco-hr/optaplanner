@@ -1,0 +1,34 @@
+{
+  List<Element> shiftElementList=(List<Element>)shiftTypesElement.getChildren();
+  List<ShiftType> shiftTypeList=new ArrayList<ShiftType>(shiftElementList.size());
+  long id=0L;
+  List<ShiftTypeSkillRequirement> shiftTypeSkillRequirementList=new ArrayList<ShiftTypeSkillRequirement>(shiftElementList.size() * 2);
+  long shiftTypeSkillRequirementId=0L;
+  for (  Element shiftElement : shiftElementList) {
+    assertElementName(shiftElement,"Shift");
+    ShiftType shiftType=new ShiftType();
+    shiftType.setId(id);
+    shiftType.setCode(shiftElement.getAttribute("ID").getValue());
+    shiftType.setStartTimeString(shiftElement.getChild("StartTime").getText());
+    shiftType.setEndTimeString(shiftElement.getChild("EndTime").getText());
+    shiftType.setDescription(shiftElement.getChild("Description").getText());
+    List<Element> skillElementList=(List<Element>)shiftElement.getChild("Skills").getChildren();
+    for (    Element skillElement : skillElementList) {
+      assertElementName(skillElement,"Skill");
+      ShiftTypeSkillRequirement shiftTypeSkillRequirement=new ShiftTypeSkillRequirement();
+      shiftTypeSkillRequirement.setId(shiftTypeSkillRequirementId);
+      shiftTypeSkillRequirement.setShiftType(shiftType);
+      Skill skill=skillMap.get(skillElement.getText());
+      if (skill == null) {
+        throw new IllegalArgumentException("The skill (" + skillElement.getText() + ") of shiftType ("+ shiftType.getCode()+ ") does not exist.");
+      }
+      shiftTypeSkillRequirement.setSkill(skill);
+      shiftTypeSkillRequirementList.add(shiftTypeSkillRequirement);
+      shiftTypeSkillRequirementId++;
+    }
+    shiftTypeList.add(shiftType);
+    id++;
+  }
+  nurseRoster.setShiftTypeList(shiftTypeList);
+  nurseRoster.setShiftTypeSkillRequirementList(shiftTypeSkillRequirementList);
+}

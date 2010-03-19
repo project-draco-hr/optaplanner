@@ -1,0 +1,17 @@
+{
+  List<Element> skillElementList=(List<Element>)skillsElement.getChildren();
+  List<Skill> skillList=new ArrayList<Skill>(skillElementList.size());
+  Map<String,Skill> skillMap=new HashMap<String,Skill>(skillElementList.size());
+  long id=0L;
+  for (  Element skillElement : skillElementList) {
+    assertElementName(skillElement,"Skill");
+    Skill skill=new Skill();
+    skill.setId(id);
+    skill.setCode(skillElement.getText());
+    skillList.add(skill);
+    skillMap.put(skill.getCode(),skill);
+    id++;
+  }
+  nurseRoster.setSkillList(skillList);
+  return skillMap;
+}

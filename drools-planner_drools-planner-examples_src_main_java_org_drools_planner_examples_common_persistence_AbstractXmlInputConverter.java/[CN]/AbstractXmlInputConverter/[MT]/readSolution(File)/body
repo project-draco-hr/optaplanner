@@ -2,8 +2,8 @@
   InputStream in=null;
   try {
     in=new FileInputStream(inputFile);
-    DocumentBuilder documentBuilder=DocumentBuilderFactory.newInstance().newDocumentBuilder();
-    Document document=documentBuilder.parse(in);
+    SAXBuilder builder=new SAXBuilder(false);
+    Document document=builder.build(in);
     XmlInputBuilder txtInputBuilder=createXmlInputBuilder();
     txtInputBuilder.setDocument(document);
     return txtInputBuilder.readSolution();
@@ -11,10 +11,7 @@
  catch (  IOException e) {
     throw new IllegalArgumentException(e);
   }
-catch (  ParserConfigurationException e) {
-    throw new IllegalArgumentException(e);
-  }
-catch (  SAXException e) {
+catch (  JDOMException e) {
     throw new IllegalArgumentException(e);
   }
  finally {

@@ -1,0 +1,5 @@
+{
+  if (!element.getName().equals(name)) {
+    throw new IllegalStateException("Element name (" + element.getName() + ") should be "+ name+ ".");
+  }
+}

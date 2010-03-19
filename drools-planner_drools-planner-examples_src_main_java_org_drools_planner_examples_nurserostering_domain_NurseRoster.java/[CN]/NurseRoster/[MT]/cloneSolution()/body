@@ -4,6 +4,7 @@
   clone.code=code;
   clone.skillList=skillList;
   clone.shiftTypeList=shiftTypeList;
+  clone.shiftTypeSkillRequirementList=shiftTypeSkillRequirementList;
   List<NurseAssignment> clonedLectureList=new ArrayList<NurseAssignment>(nurseAssignmentList.size());
   for (  NurseAssignment nurseAssignment : nurseAssignmentList) {
     NurseAssignment clonedNurseAssignment=nurseAssignment.clone();

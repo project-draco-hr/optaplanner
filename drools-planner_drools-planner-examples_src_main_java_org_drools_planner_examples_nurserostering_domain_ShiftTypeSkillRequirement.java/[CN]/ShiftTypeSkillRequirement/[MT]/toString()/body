@@ -1,0 +1,3 @@
+{
+  return shiftType + "-" + skill;
+}

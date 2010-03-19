@@ -2,6 +2,7 @@
   List<Object> facts=new ArrayList<Object>();
   facts.add(skillList);
   facts.addAll(shiftTypeList);
+  facts.addAll(shiftTypeSkillRequirementList);
   if (isInitialized()) {
     facts.addAll(nurseAssignmentList);
   }
