@@ -4,6 +4,7 @@
   NurseRoster nurseRoster=new NurseRoster();
   nurseRoster.setId(0L);
   nurseRoster.setCode(schedulingPeriodElement.getAttribute("ID").getValue());
+  Map<String,ShiftDate> shiftDateMap=generateShiftDateList(nurseRoster,schedulingPeriodElement.getChild("StartDate"),schedulingPeriodElement.getChild("EndDate"));
   Map<String,Skill> skillMap=readSkillList(nurseRoster,schedulingPeriodElement.getChild("Skills"));
   Map<String,ShiftType> shiftTypeMap=readShiftTypeList(nurseRoster,skillMap,schedulingPeriodElement.getChild("ShiftTypes"));
   Map<String,ShiftPattern> shiftPatternMap=readShiftPatternList(nurseRoster,shiftTypeMap,schedulingPeriodElement.getChild("Patterns"));
