@@ -4,7 +4,7 @@
   }
  else   if (o instanceof NurseAssignment) {
     NurseAssignment other=(NurseAssignment)o;
-    return new EqualsBuilder().append(id,other.id).isEquals();
+    return new EqualsBuilder().append(id,other.id).append(shift,other.shift).append(employee,other.employee).isEquals();
   }
  else {
     return false;

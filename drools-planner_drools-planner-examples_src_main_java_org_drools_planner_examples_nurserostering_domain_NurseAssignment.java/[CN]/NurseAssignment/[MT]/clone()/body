@@ -1,5 +1,7 @@
 {
   NurseAssignment clone=new NurseAssignment();
   clone.id=id;
+  clone.shift=shift;
+  clone.employee=employee;
   return clone;
 }

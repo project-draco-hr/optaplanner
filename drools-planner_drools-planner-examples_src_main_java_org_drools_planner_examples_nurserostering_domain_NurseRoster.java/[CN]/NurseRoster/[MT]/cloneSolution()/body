@@ -10,6 +10,11 @@
   clone.employeeList=employeeList;
   clone.skillProficiencyList=skillProficiencyList;
   clone.shiftDateList=shiftDateList;
+  clone.shiftList=shiftList;
+  clone.dayOffRequestList=dayOffRequestList;
+  clone.dayOnRequestList=dayOnRequestList;
+  clone.shiftOffRequestList=shiftOffRequestList;
+  clone.shiftOnRequestList=shiftOnRequestList;
   List<NurseAssignment> clonedLectureList=new ArrayList<NurseAssignment>(nurseAssignmentList.size());
   for (  NurseAssignment nurseAssignment : nurseAssignmentList) {
     NurseAssignment clonedNurseAssignment=nurseAssignment.clone();

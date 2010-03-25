@@ -1,6 +1,6 @@
 {
   List<Object> facts=new ArrayList<Object>();
-  facts.add(skillList);
+  facts.addAll(skillList);
   facts.addAll(shiftTypeList);
   facts.addAll(shiftTypeSkillRequirementList);
   facts.addAll(shiftPatternList);
@@ -8,6 +8,11 @@
   facts.addAll(employeeList);
   facts.addAll(skillProficiencyList);
   facts.addAll(shiftDateList);
+  facts.addAll(shiftList);
+  facts.addAll(dayOffRequestList);
+  facts.addAll(dayOnRequestList);
+  facts.addAll(shiftOffRequestList);
+  facts.addAll(shiftOnRequestList);
   if (isInitialized()) {
     facts.addAll(nurseAssignmentList);
   }

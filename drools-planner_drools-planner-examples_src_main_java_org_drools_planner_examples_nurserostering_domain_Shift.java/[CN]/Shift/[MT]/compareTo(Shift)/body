@@ -1,0 +1,3 @@
+{
+  return new CompareToBuilder().append(shiftDate,other.shiftDate).append(shiftType,other.shiftType).toComparison();
+}
