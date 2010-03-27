@@ -1,4 +1,7 @@
 {
+  if (patternsElement == null) {
+    return;
+  }
   List<Element> patternElementList=(List<Element>)patternsElement.getChildren();
   List<ShiftPattern> shiftPatternList=new ArrayList<ShiftPattern>(patternElementList.size());
   shiftPatternMap=new HashMap<String,ShiftPattern>(patternElementList.size());

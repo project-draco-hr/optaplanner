@@ -1,0 +1,29 @@
+{
+  if (dayOnRequestsElement == null) {
+    return;
+  }
+  List<Element> dayOnElementList=(List<Element>)dayOnRequestsElement.getChildren();
+  List<DayOnRequest> dayOnRequestList=new ArrayList<DayOnRequest>(dayOnElementList.size());
+  long id=0L;
+  for (  Element element : dayOnElementList) {
+    assertElementName(element,"DayOn");
+    DayOnRequest dayOnRequest=new DayOnRequest();
+    dayOnRequest.setId(id);
+    Element employeeElement=element.getChild("EmployeeID");
+    Employee employee=employeeMap.get(employeeElement.getText());
+    if (employee == null) {
+      throw new IllegalArgumentException("The shiftDate (" + employeeElement.getText() + ") of dayOnRequest ("+ dayOnRequest+ ") does not exist.");
+    }
+    dayOnRequest.setEmployee(employee);
+    Element dateElement=element.getChild("Date");
+    ShiftDate shiftDate=shiftDateMap.get(dateElement.getText());
+    if (shiftDate == null) {
+      throw new IllegalArgumentException("The date (" + dateElement.getText() + ") of dayOnRequest ("+ dayOnRequest+ ") does not exist.");
+    }
+    dayOnRequest.setShiftDate(shiftDate);
+    dayOnRequest.setWeight(element.getAttribute("weight").getIntValue());
+    dayOnRequestList.add(dayOnRequest);
+    id++;
+  }
+  nurseRoster.setDayOnRequestList(dayOnRequestList);
+}

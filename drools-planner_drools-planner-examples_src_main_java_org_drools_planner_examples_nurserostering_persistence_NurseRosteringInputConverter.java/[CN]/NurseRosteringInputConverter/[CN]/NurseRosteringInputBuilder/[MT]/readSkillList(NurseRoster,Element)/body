@@ -1,4 +1,7 @@
 {
+  if (skillsElement == null) {
+    return;
+  }
   List<Element> skillElementList=(List<Element>)skillsElement.getChildren();
   List<Skill> skillList=new ArrayList<Skill>(skillElementList.size());
   skillMap=new HashMap<String,Skill>(skillElementList.size());

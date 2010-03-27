@@ -13,19 +13,22 @@
     shiftType.setStartTimeString(element.getChild("StartTime").getText());
     shiftType.setEndTimeString(element.getChild("EndTime").getText());
     shiftType.setDescription(element.getChild("Description").getText());
-    List<Element> skillElementList=(List<Element>)element.getChild("Skills").getChildren();
-    for (    Element skillElement : skillElementList) {
-      assertElementName(skillElement,"Skill");
-      ShiftTypeSkillRequirement shiftTypeSkillRequirement=new ShiftTypeSkillRequirement();
-      shiftTypeSkillRequirement.setId(shiftTypeSkillRequirementId);
-      shiftTypeSkillRequirement.setShiftType(shiftType);
-      Skill skill=skillMap.get(skillElement.getText());
-      if (skill == null) {
-        throw new IllegalArgumentException("The skill (" + skillElement.getText() + ") of shiftType ("+ shiftType.getCode()+ ") does not exist.");
+    Element skillsElement=element.getChild("Skills");
+    if (skillsElement != null) {
+      List<Element> skillElementList=(List<Element>)skillsElement.getChildren();
+      for (      Element skillElement : skillElementList) {
+        assertElementName(skillElement,"Skill");
+        ShiftTypeSkillRequirement shiftTypeSkillRequirement=new ShiftTypeSkillRequirement();
+        shiftTypeSkillRequirement.setId(shiftTypeSkillRequirementId);
+        shiftTypeSkillRequirement.setShiftType(shiftType);
+        Skill skill=skillMap.get(skillElement.getText());
+        if (skill == null) {
+          throw new IllegalArgumentException("The skill (" + skillElement.getText() + ") of shiftType ("+ shiftType.getCode()+ ") does not exist.");
+        }
+        shiftTypeSkillRequirement.setSkill(skill);
+        shiftTypeSkillRequirementList.add(shiftTypeSkillRequirement);
+        shiftTypeSkillRequirementId++;
       }
-      shiftTypeSkillRequirement.setSkill(skill);
-      shiftTypeSkillRequirementList.add(shiftTypeSkillRequirement);
-      shiftTypeSkillRequirementId++;
     }
     shiftTypeList.add(shiftType);
     shiftTypeMap.put(shiftType.getCode(),shiftType);

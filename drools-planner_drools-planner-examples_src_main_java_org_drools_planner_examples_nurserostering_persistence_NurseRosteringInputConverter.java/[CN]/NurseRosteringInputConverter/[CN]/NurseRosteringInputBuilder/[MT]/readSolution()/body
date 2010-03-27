@@ -10,6 +10,8 @@
   readShiftPatternList(nurseRoster,schedulingPeriodElement.getChild("Patterns"));
   readContractList(nurseRoster,schedulingPeriodElement.getChild("Contracts"));
   readEmployeeList(nurseRoster,schedulingPeriodElement.getChild("Employees"));
+  readDayOffRequestList(nurseRoster,schedulingPeriodElement.getChild("DayOffRequests"));
+  readDayOnRequestList(nurseRoster,schedulingPeriodElement.getChild("DayOnRequests"));
   logger.info("NurseRoster {} with TODO.",new Object[]{nurseRoster.getCode()});
   return nurseRoster;
 }

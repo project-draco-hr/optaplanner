@@ -17,19 +17,22 @@
       throw new IllegalArgumentException("The contract (" + contractElement.getText() + ") of employee ("+ employee.getCode()+ ") does not exist.");
     }
     employee.setContract(contract);
-    List<Element> skillElementList=(List<Element>)element.getChild("Skills").getChildren();
-    for (    Element skillElement : skillElementList) {
-      assertElementName(skillElement,"Skill");
-      Skill skill=skillMap.get(skillElement.getText());
-      if (skill == null) {
-        throw new IllegalArgumentException("The skill (" + skillElement.getText() + ") of employee ("+ employee.getCode()+ ") does not exist.");
+    Element skillsElement=element.getChild("Skills");
+    if (skillsElement != null) {
+      List<Element> skillElementList=(List<Element>)skillsElement.getChildren();
+      for (      Element skillElement : skillElementList) {
+        assertElementName(skillElement,"Skill");
+        Skill skill=skillMap.get(skillElement.getText());
+        if (skill == null) {
+          throw new IllegalArgumentException("The skill (" + skillElement.getText() + ") of employee ("+ employee.getCode()+ ") does not exist.");
+        }
+        SkillProficiency skillProficiency=new SkillProficiency();
+        skillProficiency.setId(skillProficiencyId);
+        skillProficiency.setEmployee(employee);
+        skillProficiency.setSkill(skill);
+        skillProficiencyList.add(skillProficiency);
+        skillProficiencyId++;
       }
-      SkillProficiency skillProficiency=new SkillProficiency();
-      skillProficiency.setId(skillProficiencyId);
-      skillProficiency.setEmployee(employee);
-      skillProficiency.setSkill(skill);
-      skillProficiencyList.add(skillProficiency);
-      skillProficiencyId++;
     }
     employeeList.add(employee);
     employeeMap.put(employee.getCode(),employee);
