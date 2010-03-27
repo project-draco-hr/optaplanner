@@ -1,7 +1,7 @@
 {
   List<Element> patternElementList=(List<Element>)patternsElement.getChildren();
   List<ShiftPattern> shiftPatternList=new ArrayList<ShiftPattern>(patternElementList.size());
-  Map<String,ShiftPattern> shiftPatternMap=new HashMap<String,ShiftPattern>(patternElementList.size());
+  shiftPatternMap=new HashMap<String,ShiftPattern>(patternElementList.size());
   long id=0L;
   for (  Element element : patternElementList) {
     assertElementName(element,"Pattern");
@@ -29,5 +29,4 @@
     id++;
   }
   nurseRoster.setShiftPatternList(shiftPatternList);
-  return shiftPatternMap;
 }

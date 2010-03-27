@@ -1,7 +1,7 @@
 {
   List<Element> shiftElementList=(List<Element>)shiftTypesElement.getChildren();
   List<ShiftType> shiftTypeList=new ArrayList<ShiftType>(shiftElementList.size());
-  Map<String,ShiftType> shiftTypeMap=new HashMap<String,ShiftType>(shiftElementList.size());
+  shiftTypeMap=new HashMap<String,ShiftType>(shiftElementList.size());
   long id=0L;
   List<ShiftTypeSkillRequirement> shiftTypeSkillRequirementList=new ArrayList<ShiftTypeSkillRequirement>(shiftElementList.size() * 2);
   long shiftTypeSkillRequirementId=0L;
@@ -33,5 +33,4 @@
   }
   nurseRoster.setShiftTypeList(shiftTypeList);
   nurseRoster.setShiftTypeSkillRequirementList(shiftTypeSkillRequirementList);
-  return shiftTypeMap;
 }

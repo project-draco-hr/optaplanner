@@ -1,7 +1,7 @@
 {
   List<Element> employeeElementList=(List<Element>)employeesElement.getChildren();
   List<Employee> employeeList=new ArrayList<Employee>(employeeElementList.size());
-  Map<String,Employee> employeeMap=new HashMap<String,Employee>(employeeElementList.size());
+  employeeMap=new HashMap<String,Employee>(employeeElementList.size());
   long id=0L;
   List<SkillProficiency> skillProficiencyList=new ArrayList<SkillProficiency>(employeeElementList.size() * 2);
   long skillProficiencyId=0L;
@@ -37,5 +37,4 @@
   }
   nurseRoster.setEmployeeList(employeeList);
   nurseRoster.setSkillProficiencyList(skillProficiencyList);
-  return employeeMap;
 }

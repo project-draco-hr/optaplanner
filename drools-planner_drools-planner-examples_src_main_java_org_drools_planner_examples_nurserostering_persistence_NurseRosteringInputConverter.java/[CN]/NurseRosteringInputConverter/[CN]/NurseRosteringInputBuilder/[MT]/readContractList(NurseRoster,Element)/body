@@ -1,7 +1,7 @@
 {
   List<Element> contractElementList=(List<Element>)contractsElement.getChildren();
   List<Contract> contractList=new ArrayList<Contract>(contractElementList.size());
-  Map<String,Contract> contractMap=new HashMap<String,Contract>(contractElementList.size());
+  contractMap=new HashMap<String,Contract>(contractElementList.size());
   long id=0L;
   for (  Element element : contractElementList) {
     assertElementName(element,"Contract");
@@ -22,5 +22,4 @@
     id++;
   }
   nurseRoster.setContractList(contractList);
-  return contractMap;
 }

@@ -4,12 +4,12 @@
   NurseRoster nurseRoster=new NurseRoster();
   nurseRoster.setId(0L);
   nurseRoster.setCode(schedulingPeriodElement.getAttribute("ID").getValue());
-  Map<String,ShiftDate> shiftDateMap=generateShiftDateList(nurseRoster,schedulingPeriodElement.getChild("StartDate"),schedulingPeriodElement.getChild("EndDate"));
-  Map<String,Skill> skillMap=readSkillList(nurseRoster,schedulingPeriodElement.getChild("Skills"));
-  Map<String,ShiftType> shiftTypeMap=readShiftTypeList(nurseRoster,skillMap,schedulingPeriodElement.getChild("ShiftTypes"));
-  Map<String,ShiftPattern> shiftPatternMap=readShiftPatternList(nurseRoster,shiftTypeMap,schedulingPeriodElement.getChild("Patterns"));
-  Map<String,Contract> contractMap=readContractList(nurseRoster,shiftPatternMap,schedulingPeriodElement.getChild("Contracts"));
-  Map<String,Employee> employeeMap=readEmployeeList(nurseRoster,skillMap,contractMap,schedulingPeriodElement.getChild("Employees"));
+  generateShiftDateList(nurseRoster,schedulingPeriodElement.getChild("StartDate"),schedulingPeriodElement.getChild("EndDate"));
+  readSkillList(nurseRoster,schedulingPeriodElement.getChild("Skills"));
+  readShiftTypeList(nurseRoster,schedulingPeriodElement.getChild("ShiftTypes"));
+  readShiftPatternList(nurseRoster,schedulingPeriodElement.getChild("Patterns"));
+  readContractList(nurseRoster,schedulingPeriodElement.getChild("Contracts"));
+  readEmployeeList(nurseRoster,schedulingPeriodElement.getChild("Employees"));
   logger.info("NurseRoster {} with TODO.",new Object[]{nurseRoster.getCode()});
   return nurseRoster;
 }

@@ -40,7 +40,7 @@
   }
   int shiftDateSize=maxDayIndex + 1;
   List<ShiftDate> shiftDateList=new ArrayList<ShiftDate>(shiftDateSize);
-  Map<String,ShiftDate> shiftDateMap=new HashMap<String,ShiftDate>(shiftDateSize);
+  shiftDateMap=new HashMap<String,ShiftDate>(shiftDateSize);
   long id=0L;
   int dayIndex=0;
   calendar.setTime(startDate);
@@ -52,11 +52,10 @@
     shiftDate.setDateString(dateString);
     shiftDate.setDayOfWeek(DayOfWeek.valueOfCalendar(calendar.get(Calendar.DAY_OF_WEEK)));
     shiftDateList.add(shiftDate);
-    shiftDateMap.put(dateString,shiftDate);
+    this.shiftDateMap.put(dateString,shiftDate);
     id++;
     dayIndex++;
     calendar.add(Calendar.DAY_OF_YEAR,1);
   }
   nurseRoster.setShiftDateList(shiftDateList);
-  return shiftDateMap;
 }

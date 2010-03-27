@@ -1,3 +1,2 @@
 NurseRoster nurseRoster
-Map<String,Skill> skillMap
 Element shiftTypesElement
