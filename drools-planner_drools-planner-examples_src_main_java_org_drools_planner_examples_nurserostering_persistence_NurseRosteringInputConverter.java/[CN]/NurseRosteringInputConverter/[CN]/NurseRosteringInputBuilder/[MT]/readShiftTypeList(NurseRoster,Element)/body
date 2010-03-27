@@ -5,6 +5,10 @@
   long id=0L;
   List<ShiftTypeSkillRequirement> shiftTypeSkillRequirementList=new ArrayList<ShiftTypeSkillRequirement>(shiftElementList.size() * 2);
   long shiftTypeSkillRequirementId=0L;
+  int shiftListSize=shiftDateMap.size() * shiftElementList.size();
+  List<Shift> shiftList=new ArrayList<Shift>(shiftListSize);
+  shiftMap=new HashMap<List<String>,Shift>(shiftListSize);
+  long shiftId=0L;
   for (  Element element : shiftElementList) {
     assertElementName(element,"Shift");
     ShiftType shiftType=new ShiftType();
@@ -30,10 +34,20 @@
         shiftTypeSkillRequirementId++;
       }
     }
+    for (    Map.Entry<String,ShiftDate> shiftDateEntry : shiftDateMap.entrySet()) {
+      Shift shift=new Shift();
+      shift.setId(shiftId);
+      shift.setShiftDate(shiftDateEntry.getValue());
+      shift.setShiftType(shiftType);
+      shiftList.add(shift);
+      shiftMap.put(Arrays.asList(shiftDateEntry.getKey(),shiftType.getCode()),shift);
+      shiftId++;
+    }
     shiftTypeList.add(shiftType);
     shiftTypeMap.put(shiftType.getCode(),shiftType);
     id++;
   }
   nurseRoster.setShiftTypeList(shiftTypeList);
   nurseRoster.setShiftTypeSkillRequirementList(shiftTypeSkillRequirementList);
+  nurseRoster.setShiftList(shiftList);
 }
