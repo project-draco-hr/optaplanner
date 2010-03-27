@@ -1,0 +1,30 @@
+{
+  if (shiftOnRequestsElement == null) {
+    return;
+  }
+  List<Element> shiftOnElementList=(List<Element>)shiftOnRequestsElement.getChildren();
+  List<ShiftOnRequest> shiftOnRequestList=new ArrayList<ShiftOnRequest>(shiftOnElementList.size());
+  long id=0L;
+  for (  Element element : shiftOnElementList) {
+    assertElementName(element,"ShiftOn");
+    ShiftOnRequest shiftOnRequest=new ShiftOnRequest();
+    shiftOnRequest.setId(id);
+    Element employeeElement=element.getChild("EmployeeID");
+    Employee employee=employeeMap.get(employeeElement.getText());
+    if (employee == null) {
+      throw new IllegalArgumentException("The shift (" + employeeElement.getText() + ") of shiftOnRequest ("+ shiftOnRequest+ ") does not exist.");
+    }
+    shiftOnRequest.setEmployee(employee);
+    Element dateElement=element.getChild("Date");
+    Element shiftTypeElement=element.getChild("ShiftTypeID");
+    Shift shift=shiftMap.get(Arrays.asList(dateElement.getText(),shiftTypeElement.getText()));
+    if (shift == null) {
+      throw new IllegalArgumentException("The date (" + dateElement.getText() + ") or the shiftType ("+ shiftTypeElement.getText()+ ") of shiftOnRequest ("+ shiftOnRequest+ ") does not exist.");
+    }
+    shiftOnRequest.setShift(shift);
+    shiftOnRequest.setWeight(element.getAttribute("weight").getIntValue());
+    shiftOnRequestList.add(shiftOnRequest);
+    id++;
+  }
+  nurseRoster.setShiftOnRequestList(shiftOnRequestList);
+}
