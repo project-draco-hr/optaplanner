@@ -1,29 +1,32 @@
 {
+  List<DayOffRequest> dayOffRequestList;
   if (dayOffRequestsElement == null) {
-    return;
+    dayOffRequestList=Collections.emptyList();
   }
-  List<Element> dayOffElementList=(List<Element>)dayOffRequestsElement.getChildren();
-  List<DayOffRequest> dayOffRequestList=new ArrayList<DayOffRequest>(dayOffElementList.size());
-  long id=0L;
-  for (  Element element : dayOffElementList) {
-    assertElementName(element,"DayOff");
-    DayOffRequest dayOffRequest=new DayOffRequest();
-    dayOffRequest.setId(id);
-    Element employeeElement=element.getChild("EmployeeID");
-    Employee employee=employeeMap.get(employeeElement.getText());
-    if (employee == null) {
-      throw new IllegalArgumentException("The shiftDate (" + employeeElement.getText() + ") of dayOffRequest ("+ dayOffRequest+ ") does not exist.");
+ else {
+    List<Element> dayOffElementList=(List<Element>)dayOffRequestsElement.getChildren();
+    dayOffRequestList=new ArrayList<DayOffRequest>(dayOffElementList.size());
+    long id=0L;
+    for (    Element element : dayOffElementList) {
+      assertElementName(element,"DayOff");
+      DayOffRequest dayOffRequest=new DayOffRequest();
+      dayOffRequest.setId(id);
+      Element employeeElement=element.getChild("EmployeeID");
+      Employee employee=employeeMap.get(employeeElement.getText());
+      if (employee == null) {
+        throw new IllegalArgumentException("The shiftDate (" + employeeElement.getText() + ") of dayOffRequest ("+ dayOffRequest+ ") does not exist.");
+      }
+      dayOffRequest.setEmployee(employee);
+      Element dateElement=element.getChild("Date");
+      ShiftDate shiftDate=shiftDateMap.get(dateElement.getText());
+      if (shiftDate == null) {
+        throw new IllegalArgumentException("The date (" + dateElement.getText() + ") of dayOffRequest ("+ dayOffRequest+ ") does not exist.");
+      }
+      dayOffRequest.setShiftDate(shiftDate);
+      dayOffRequest.setWeight(element.getAttribute("weight").getIntValue());
+      dayOffRequestList.add(dayOffRequest);
+      id++;
     }
-    dayOffRequest.setEmployee(employee);
-    Element dateElement=element.getChild("Date");
-    ShiftDate shiftDate=shiftDateMap.get(dateElement.getText());
-    if (shiftDate == null) {
-      throw new IllegalArgumentException("The date (" + dateElement.getText() + ") of dayOffRequest ("+ dayOffRequest+ ") does not exist.");
-    }
-    dayOffRequest.setShiftDate(shiftDate);
-    dayOffRequest.setWeight(element.getAttribute("weight").getIntValue());
-    dayOffRequestList.add(dayOffRequest);
-    id++;
   }
   nurseRoster.setDayOffRequestList(dayOffRequestList);
 }

@@ -12,9 +12,9 @@
     List<Element> unwantedPatternElementList=(List<Element>)element.getChild("UnwantedPatterns").getChildren();
     for (    Element patternElement : unwantedPatternElementList) {
       assertElementName(patternElement,"Pattern");
-      ShiftPattern shiftPattern=shiftPatternMap.get(patternElement.getText());
-      if (shiftPattern == null) {
-        throw new IllegalArgumentException("The shiftPattern (" + patternElement.getText() + ") of contract ("+ contract.getCode()+ ") does not exist.");
+      Pattern pattern=patternMap.get(patternElement.getText());
+      if (pattern == null) {
+        throw new IllegalArgumentException("The pattern (" + patternElement.getText() + ") of contract ("+ contract.getCode()+ ") does not exist.");
       }
     }
     contractList.add(contract);

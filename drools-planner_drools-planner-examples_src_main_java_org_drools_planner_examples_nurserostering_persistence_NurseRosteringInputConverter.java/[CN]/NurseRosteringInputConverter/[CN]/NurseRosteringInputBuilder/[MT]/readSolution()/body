@@ -7,7 +7,7 @@
   generateShiftDateList(nurseRoster,schedulingPeriodElement.getChild("StartDate"),schedulingPeriodElement.getChild("EndDate"));
   readSkillList(nurseRoster,schedulingPeriodElement.getChild("Skills"));
   readShiftTypeList(nurseRoster,schedulingPeriodElement.getChild("ShiftTypes"));
-  readShiftPatternList(nurseRoster,schedulingPeriodElement.getChild("Patterns"));
+  readPatternList(nurseRoster,schedulingPeriodElement.getChild("Patterns"));
   readContractList(nurseRoster,schedulingPeriodElement.getChild("Contracts"));
   readEmployeeList(nurseRoster,schedulingPeriodElement.getChild("Employees"));
   readRequiredEmployeeSizes(nurseRoster,schedulingPeriodElement.getChild("CoverRequirements"));
@@ -15,6 +15,6 @@
   readDayOnRequestList(nurseRoster,schedulingPeriodElement.getChild("DayOnRequests"));
   readShiftOffRequestList(nurseRoster,schedulingPeriodElement.getChild("ShiftOffRequests"));
   readShiftOnRequestList(nurseRoster,schedulingPeriodElement.getChild("ShiftOnRequests"));
-  logger.info("NurseRoster {} with TODO.",new Object[]{nurseRoster.getCode()});
+  logger.info("NurseRoster {} with {} skills, {} shiftTypes, {} patterns, {} contracts, {} employees," + " {} shiftDates, {} shifts and {} requests.",new Object[]{nurseRoster.getCode(),nurseRoster.getSkillList().size(),nurseRoster.getShiftTypeList().size(),nurseRoster.getPatternList().size(),nurseRoster.getContractList().size(),nurseRoster.getEmployeeList().size(),nurseRoster.getShiftDateList().size(),nurseRoster.getShiftList().size(),nurseRoster.getDayOffRequestList().size() + nurseRoster.getDayOnRequestList().size() + nurseRoster.getShiftOffRequestList().size()+ nurseRoster.getShiftOnRequestList().size()});
   return nurseRoster;
 }

@@ -1,19 +1,22 @@
 {
+  List<Skill> skillList;
   if (skillsElement == null) {
-    return;
+    skillList=Collections.emptyList();
   }
-  List<Element> skillElementList=(List<Element>)skillsElement.getChildren();
-  List<Skill> skillList=new ArrayList<Skill>(skillElementList.size());
-  skillMap=new HashMap<String,Skill>(skillElementList.size());
-  long id=0L;
-  for (  Element element : skillElementList) {
-    assertElementName(element,"Skill");
-    Skill skill=new Skill();
-    skill.setId(id);
-    skill.setCode(element.getText());
-    skillList.add(skill);
-    skillMap.put(skill.getCode(),skill);
-    id++;
+ else {
+    List<Element> skillElementList=(List<Element>)skillsElement.getChildren();
+    skillList=new ArrayList<Skill>(skillElementList.size());
+    skillMap=new HashMap<String,Skill>(skillElementList.size());
+    long id=0L;
+    for (    Element element : skillElementList) {
+      assertElementName(element,"Skill");
+      Skill skill=new Skill();
+      skill.setId(id);
+      skill.setCode(element.getText());
+      skillList.add(skill);
+      skillMap.put(skill.getCode(),skill);
+      id++;
+    }
   }
   nurseRoster.setSkillList(skillList);
 }
