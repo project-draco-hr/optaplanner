@@ -1,0 +1,17 @@
+{
+  List<Employee> employeeList=nurseRoster.getEmployeeList();
+  List<EmployeeAssignment> employeeAssignmentList=new ArrayList<EmployeeAssignment>(employeeList.size() * 5);
+  List<ShiftDate> shiftDateList=nurseRoster.getShiftDateList();
+  int employeeAssignmentId=0;
+  for (  Employee employee : employeeList) {
+    for (    ShiftDate shiftDate : shiftDateList) {
+      EmployeeAssignment employeeAssignment=new EmployeeAssignment();
+      employeeAssignment.setId((long)employeeAssignmentId);
+      employeeAssignmentId++;
+      employeeAssignment.setEmployee(employee);
+      employeeAssignment.setShiftDate(shiftDate);
+      employeeAssignmentList.add(employeeAssignment);
+    }
+  }
+  return employeeAssignmentList;
+}

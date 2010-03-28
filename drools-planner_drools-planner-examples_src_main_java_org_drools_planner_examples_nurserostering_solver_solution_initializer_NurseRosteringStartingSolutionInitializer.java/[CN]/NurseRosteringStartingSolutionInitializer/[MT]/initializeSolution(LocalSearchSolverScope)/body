@@ -1,0 +1,4 @@
+{
+  NurseRoster schedule=(NurseRoster)localSearchSolverScope.getWorkingSolution();
+  initializeEmployeeAssignmentList(localSearchSolverScope,schedule);
+}

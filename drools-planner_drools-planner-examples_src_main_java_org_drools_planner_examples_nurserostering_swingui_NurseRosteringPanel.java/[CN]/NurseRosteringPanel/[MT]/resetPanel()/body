@@ -1,0 +1,41 @@
+{
+  removeAll();
+  NurseRoster schedule=getNurseRoster();
+  gridLayout.setColumns(schedule.getEmployeeList().size() + 1);
+  JLabel headerCornerLabel=new JLabel("Shift         \\         Employee");
+  headerCornerLabel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.DARK_GRAY),BorderFactory.createEmptyBorder(2,2,2,2)));
+  headerCornerLabel.setBackground(HEADER_COLOR);
+  headerCornerLabel.setOpaque(true);
+  add(headerCornerLabel);
+  for (  Employee employee : schedule.getEmployeeList()) {
+    JLabel employeeLabel=new JLabel(employee.toString());
+    employeeLabel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.DARK_GRAY),BorderFactory.createEmptyBorder(2,2,2,2)));
+    employeeLabel.setBackground(HEADER_COLOR);
+    employeeLabel.setOpaque(true);
+    add(employeeLabel);
+  }
+  Map<Shift,Map<Employee,ShiftEmployeePanel>> shiftEmployeePanelMap=new HashMap<Shift,Map<Employee,ShiftEmployeePanel>>();
+  for (  Shift shift : schedule.getShiftList()) {
+    JLabel shiftLabel=new JLabel(shift.toString());
+    shiftLabel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.DARK_GRAY),BorderFactory.createEmptyBorder(2,2,2,2)));
+    shiftLabel.setBackground(HEADER_COLOR);
+    shiftLabel.setOpaque(true);
+    add(shiftLabel);
+    Map<Employee,ShiftEmployeePanel> employeePanelMap=new HashMap<Employee,ShiftEmployeePanel>();
+    shiftEmployeePanelMap.put(shift,employeePanelMap);
+    for (    Employee employee : schedule.getEmployeeList()) {
+      ShiftEmployeePanel shiftEmployeePanel=new ShiftEmployeePanel();
+      add(shiftEmployeePanel);
+      employeePanelMap.put(employee,shiftEmployeePanel);
+    }
+  }
+  if (schedule.isInitialized()) {
+    for (    EmployeeAssignment employeeAssignment : schedule.getEmployeeAssignmentList()) {
+      Shift shift=employeeAssignment.getShift();
+      if (shift != null) {
+        ShiftEmployeePanel shiftEmployeePanel=shiftEmployeePanelMap.get(shift).get(employeeAssignment.getEmployee());
+        shiftEmployeePanel.addEmployeeAssignment(employeeAssignment);
+      }
+    }
+  }
+}
