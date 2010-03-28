@@ -15,12 +15,12 @@
   clone.dayOnRequestList=dayOnRequestList;
   clone.shiftOffRequestList=shiftOffRequestList;
   clone.shiftOnRequestList=shiftOnRequestList;
-  List<NurseAssignment> clonedLectureList=new ArrayList<NurseAssignment>(nurseAssignmentList.size());
-  for (  NurseAssignment nurseAssignment : nurseAssignmentList) {
-    NurseAssignment clonedNurseAssignment=nurseAssignment.clone();
-    clonedLectureList.add(clonedNurseAssignment);
+  List<EmployeeAssignment> clonedLectureList=new ArrayList<EmployeeAssignment>(employeeAssignmentList.size());
+  for (  EmployeeAssignment employeeAssignment : employeeAssignmentList) {
+    EmployeeAssignment clonedEmployeeAssignment=employeeAssignment.clone();
+    clonedLectureList.add(clonedEmployeeAssignment);
   }
-  clone.nurseAssignmentList=clonedLectureList;
+  clone.employeeAssignmentList=clonedLectureList;
   clone.score=score;
   return clone;
 }

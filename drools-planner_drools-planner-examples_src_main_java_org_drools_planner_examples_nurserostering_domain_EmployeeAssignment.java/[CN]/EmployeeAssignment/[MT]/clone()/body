@@ -1,5 +1,5 @@
 {
-  NurseAssignment clone=new NurseAssignment();
+  EmployeeAssignment clone=new EmployeeAssignment();
   clone.id=id;
   clone.shift=shift;
   clone.employee=employee;

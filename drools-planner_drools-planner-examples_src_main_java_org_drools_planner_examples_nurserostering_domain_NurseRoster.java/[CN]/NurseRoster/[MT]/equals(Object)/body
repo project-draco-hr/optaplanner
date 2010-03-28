@@ -7,13 +7,13 @@
   }
  else {
     NurseRoster other=(NurseRoster)o;
-    if (nurseAssignmentList.size() != other.nurseAssignmentList.size()) {
+    if (employeeAssignmentList.size() != other.employeeAssignmentList.size()) {
       return false;
     }
-    for (Iterator<NurseAssignment> it=nurseAssignmentList.iterator(), otherIt=other.nurseAssignmentList.iterator(); it.hasNext(); ) {
-      NurseAssignment nurseAssignment=it.next();
-      NurseAssignment otherNurseAssignment=otherIt.next();
-      if (!nurseAssignment.solutionEquals(otherNurseAssignment)) {
+    for (Iterator<EmployeeAssignment> it=employeeAssignmentList.iterator(), otherIt=other.employeeAssignmentList.iterator(); it.hasNext(); ) {
+      EmployeeAssignment employeeAssignment=it.next();
+      EmployeeAssignment otherEmployeeAssignment=otherIt.next();
+      if (!employeeAssignment.solutionEquals(otherEmployeeAssignment)) {
         return false;
       }
     }
