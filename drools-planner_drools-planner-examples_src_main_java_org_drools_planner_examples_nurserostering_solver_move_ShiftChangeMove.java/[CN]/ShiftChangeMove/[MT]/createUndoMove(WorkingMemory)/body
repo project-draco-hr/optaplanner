@@ -1,0 +1,3 @@
+{
+  return new ShiftChangeMove(employeeAssignment,employeeAssignment.getShift());
+}

@@ -1,0 +1,3 @@
+{
+  NurseRosterMoveHelper.moveShift(workingMemory,employeeAssignment,toShift);
+}

@@ -1,0 +1,11 @@
+{
+  NurseRoster nurseRoster=(NurseRoster)solution;
+  List<Move> moveList=new ArrayList<Move>();
+  for (  EmployeeAssignment employeeAssignment : nurseRoster.getEmployeeAssignmentList()) {
+    ShiftDate shiftDate=employeeAssignment.getShiftDate();
+    for (    Shift shift : shiftDate.getShiftList()) {
+      moveList.add(new ShiftChangeMove(employeeAssignment,shift));
+    }
+  }
+  return moveList;
+}
