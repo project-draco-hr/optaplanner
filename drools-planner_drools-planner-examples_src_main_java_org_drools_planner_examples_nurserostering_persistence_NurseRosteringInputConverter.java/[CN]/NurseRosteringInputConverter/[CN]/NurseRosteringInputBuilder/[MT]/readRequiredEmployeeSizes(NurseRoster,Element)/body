@@ -1,0 +1,53 @@
+{
+  List<Element> coverRequirementElementList=(List<Element>)coverRequirementsElement.getChildren();
+  for (  Element element : coverRequirementElementList) {
+    if (element.getName().equals("DayOfWeekCover")) {
+      Element dayOfWeekElement=element.getChild("Day");
+      DayOfWeek dayOfWeek=DayOfWeek.valueOfCode(dayOfWeekElement.getText());
+      if (dayOfWeek == null) {
+        throw new IllegalArgumentException("The dayOfWeek (" + dayOfWeekElement.getText() + ") of an entity DayOfWeekCover does not exist.");
+      }
+      List<Element> coverElementList=(List<Element>)element.getChildren("Cover");
+      for (      Element coverElement : coverElementList) {
+        Element shiftTypeElement=coverElement.getChild("Shift");
+        ShiftType shiftType=shiftTypeMap.get(shiftTypeElement.getText());
+        if (shiftType == null) {
+          if (shiftTypeElement.getText().equals("Any")) {
+            throw new IllegalStateException("The shiftType Any is not supported on DayOfWeekCover.");
+          }
+ else           if (shiftTypeElement.getText().equals("None")) {
+            throw new IllegalStateException("The shiftType None is not supported on DayOfWeekCover.");
+          }
+ else {
+            throw new IllegalArgumentException("The shiftType (" + shiftTypeElement.getText() + ") of an entity DayOfWeekCover does not exist.");
+          }
+        }
+        List<Object> key=Arrays.<Object>asList(dayOfWeek,shiftType);
+        List<Shift> shiftList=dayOfWeekAndShiftTypeToShiftListMap.get(key);
+        if (shiftList == null) {
+          throw new IllegalArgumentException("The dayOfWeek (" + dayOfWeekElement.getText() + ") with the shiftType ("+ shiftTypeElement.getText()+ ") of an entity DayOfWeekCover does not have any shifts.");
+        }
+        int requiredEmployeeSize=Integer.parseInt(coverElement.getChild("Preferred").getText());
+        for (        Shift shift : shiftList) {
+          shift.setRequiredEmployeeSize(shift.getRequiredEmployeeSize() + requiredEmployeeSize);
+        }
+      }
+    }
+ else     if (element.getName().equals("DateSpecificCover")) {
+      Element dateElement=element.getChild("Date");
+      List<Element> coverElementList=(List<Element>)element.getChildren("Cover");
+      for (      Element coverElement : coverElementList) {
+        Element shiftTypeElement=coverElement.getChild("Shift");
+        Shift shift=dateAndShiftTypeToShiftMap.get(Arrays.asList(dateElement.getText(),shiftTypeElement.getText()));
+        if (shift == null) {
+          throw new IllegalArgumentException("The date (" + dateElement.getText() + ") with the shiftType ("+ shiftTypeElement.getText()+ ") of an entity DateSpecificCover does not have a shift.");
+        }
+        int requiredEmployeeSize=Integer.parseInt(coverElement.getChild("Preferred").getText());
+        shift.setRequiredEmployeeSize(shift.getRequiredEmployeeSize() + requiredEmployeeSize);
+      }
+    }
+ else {
+      throw new IllegalArgumentException("Unknown cover entity (" + element.getName() + ").");
+    }
+  }
+}
