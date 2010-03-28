@@ -1,3 +1,6 @@
 {
+  if (shift != null && !shift.getShiftDate().equals(shiftDate)) {
+    throw new IllegalArgumentException("The EmployeeAssignment (" + this + ") cannot have a shift ("+ shift+ ") with a different shiftDate.");
+  }
   this.shift=shift;
 }
