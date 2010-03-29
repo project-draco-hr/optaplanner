@@ -4,7 +4,7 @@
   }
  else   if (o instanceof EmployeeAssignment) {
     EmployeeAssignment other=(EmployeeAssignment)o;
-    return new EqualsBuilder().append(id,other.id).append(shift,other.shift).append(employee,other.employee).isEquals();
+    return new EqualsBuilder().append(id,other.id).append(employee,other.employee).append(shiftDate,other.shiftDate).append(shift,other.shift).isEquals();
   }
  else {
     return false;

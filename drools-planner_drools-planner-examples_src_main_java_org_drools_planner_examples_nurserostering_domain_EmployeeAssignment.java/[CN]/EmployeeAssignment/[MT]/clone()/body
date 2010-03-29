@@ -1,7 +1,8 @@
 {
   EmployeeAssignment clone=new EmployeeAssignment();
   clone.id=id;
-  clone.shift=shift;
   clone.employee=employee;
+  clone.shiftDate=shiftDate;
+  clone.shift=shift;
   return clone;
 }

@@ -3,6 +3,7 @@
   List<EmployeeAssignment> employeeAssignmentList=new ArrayList<EmployeeAssignment>(employeeList.size() * 5);
   List<ShiftDate> shiftDateList=nurseRoster.getShiftDateList();
   int employeeAssignmentId=0;
+  Random random=new Random();
   for (  Employee employee : employeeList) {
     for (    ShiftDate shiftDate : shiftDateList) {
       EmployeeAssignment employeeAssignment=new EmployeeAssignment();
@@ -10,6 +11,9 @@
       employeeAssignmentId++;
       employeeAssignment.setEmployee(employee);
       employeeAssignment.setShiftDate(shiftDate);
+      List<Shift> shiftList=shiftDate.getShiftList();
+      int randomInt=random.nextInt(shiftList.size() + 1);
+      employeeAssignment.setShift(randomInt == shiftList.size() ? null : shiftList.get(randomInt));
       employeeAssignmentList.add(employeeAssignment);
     }
   }
