@@ -1,0 +1,6 @@
+{
+  Shift oldLeftShift=leftEmployeeAssignment.getShift();
+  Shift oldRightShift=rightEmployeeAssignment.getShift();
+  NurseRosterMoveHelper.moveShift(workingMemory,leftEmployeeAssignment,oldRightShift);
+  NurseRosterMoveHelper.moveShift(workingMemory,rightEmployeeAssignment,oldLeftShift);
+}
