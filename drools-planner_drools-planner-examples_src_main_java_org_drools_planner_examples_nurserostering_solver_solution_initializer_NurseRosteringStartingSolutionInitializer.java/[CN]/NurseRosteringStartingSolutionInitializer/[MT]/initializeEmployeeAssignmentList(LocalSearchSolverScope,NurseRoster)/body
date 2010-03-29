@@ -2,6 +2,9 @@
   List<Shift> shiftList=nurseRoster.getShiftList();
   WorkingMemory workingMemory=localSearchSolverScope.getWorkingMemory();
   List<EmployeeAssignment> employeeAssignmentList=createEmployeeAssignmentList(nurseRoster);
+  for (  EmployeeAssignment employeeAssignment : employeeAssignmentList) {
+    workingMemory.insert(employeeAssignment);
+  }
   Collections.sort(employeeAssignmentList,new PersistableIdComparator());
   nurseRoster.setEmployeeAssignmentList(employeeAssignmentList);
 }
