@@ -1,7 +1,0 @@
-{
-  this.leftEmployeeAssignment=leftEmployeeAssignment;
-  this.rightEmployeeAssignment=rightEmployeeAssignment;
-  if (!leftEmployeeAssignment.getShiftDate().equals(rightEmployeeAssignment.getShiftDate())) {
-    throw new IllegalArgumentException("The leftEmployeeAssignment (" + leftEmployeeAssignment + ") must have the same shiftDate as the rightEmployeeAssignment ("+ rightEmployeeAssignment+ ").");
-  }
-}

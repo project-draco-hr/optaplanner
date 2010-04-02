@@ -1,11 +1,11 @@
 {
-  List<Shift> shiftList=getNurseRoster().getShiftList();
-  JComboBox shiftListField=new JComboBox(shiftList.toArray());
-  shiftListField.setSelectedItem(employeeAssignment.getShift());
-  int result=JOptionPane.showConfirmDialog(NurseRosteringPanel.this.getRootPane(),shiftListField,"Select shift",JOptionPane.OK_CANCEL_OPTION);
+  List<Employee> employeeList=getNurseRoster().getEmployeeList();
+  JComboBox employeeListField=new JComboBox(employeeList.toArray());
+  employeeListField.setSelectedItem(employeeAssignment.getShift());
+  int result=JOptionPane.showConfirmDialog(NurseRosteringPanel.this.getRootPane(),employeeListField,"Select employee",JOptionPane.OK_CANCEL_OPTION);
   if (result == JOptionPane.OK_OPTION) {
-    Shift toShift=(Shift)shiftListField.getSelectedItem();
-    solutionBusiness.doMove(new ShiftChangeMove(employeeAssignment,toShift));
+    Employee toEmployee=(Employee)employeeListField.getSelectedItem();
+    solutionBusiness.doMove(new EmployeeChangeMove(employeeAssignment,toEmployee));
     workflowFrame.updateScreen();
   }
 }

@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof EmployeeChangeMove) {
+    EmployeeChangeMove other=(EmployeeChangeMove)o;
+    return new EqualsBuilder().append(employeeAssignment,other.employeeAssignment).append(toEmployee,other.toEmployee).isEquals();
+  }
+ else {
+    return false;
+  }
+}

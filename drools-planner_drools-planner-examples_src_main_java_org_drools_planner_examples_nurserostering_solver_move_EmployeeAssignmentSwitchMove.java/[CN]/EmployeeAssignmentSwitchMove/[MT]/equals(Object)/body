@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof EmployeeAssignmentSwitchMove) {
+    EmployeeAssignmentSwitchMove other=(EmployeeAssignmentSwitchMove)o;
+    return new EqualsBuilder().append(leftEmployeeAssignment,other.leftEmployeeAssignment).append(rightEmployeeAssignment,other.rightEmployeeAssignment).isEquals();
+  }
+ else {
+    return false;
+  }
+}

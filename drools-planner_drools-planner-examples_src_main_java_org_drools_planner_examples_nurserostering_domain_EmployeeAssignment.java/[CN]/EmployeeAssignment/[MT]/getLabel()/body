@@ -1,3 +1,3 @@
 {
-  return employee + "->" + (shift == null ? "FREE" : shift.getShiftType());
+  return shift + "->" + employee;
 }

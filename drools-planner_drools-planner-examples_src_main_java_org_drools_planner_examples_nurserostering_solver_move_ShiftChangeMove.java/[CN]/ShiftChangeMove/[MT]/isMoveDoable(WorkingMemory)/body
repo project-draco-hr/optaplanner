@@ -1,3 +1,0 @@
-{
-  return !ObjectUtils.equals(employeeAssignment.getShift(),toShift);
-}

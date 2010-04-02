@@ -1,0 +1,6 @@
+{
+  Employee oldLeftEmployee=leftEmployeeAssignment.getEmployee();
+  Employee oldRightEmployee=rightEmployeeAssignment.getEmployee();
+  NurseRosterMoveHelper.moveEmployee(workingMemory,leftEmployeeAssignment,oldRightEmployee);
+  NurseRosterMoveHelper.moveEmployee(workingMemory,rightEmployeeAssignment,oldLeftEmployee);
+}

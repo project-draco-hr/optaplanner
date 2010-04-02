@@ -32,10 +32,8 @@
   if (schedule.isInitialized()) {
     for (    EmployeeAssignment employeeAssignment : schedule.getEmployeeAssignmentList()) {
       Shift shift=employeeAssignment.getShift();
-      if (shift != null) {
-        ShiftEmployeePanel shiftEmployeePanel=shiftEmployeePanelMap.get(shift).get(employeeAssignment.getEmployee());
-        shiftEmployeePanel.addEmployeeAssignment(employeeAssignment);
-      }
+      ShiftEmployeePanel shiftEmployeePanel=shiftEmployeePanelMap.get(shift).get(employeeAssignment.getEmployee());
+      shiftEmployeePanel.addEmployeeAssignment(employeeAssignment);
     }
   }
 }

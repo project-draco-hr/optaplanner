@@ -1,0 +1,13 @@
+{
+  NurseRoster nurseRoster=(NurseRoster)solution;
+  List<EmployeeAssignment> employeeAssignmentList=nurseRoster.getEmployeeAssignmentList();
+  List<Move> moveList=new ArrayList<Move>();
+  for (ListIterator<EmployeeAssignment> leftIt=employeeAssignmentList.listIterator(); leftIt.hasNext(); ) {
+    EmployeeAssignment leftEmployeeAssignment=leftIt.next();
+    for (ListIterator<EmployeeAssignment> rightIt=employeeAssignmentList.listIterator(leftIt.nextIndex()); rightIt.hasNext(); ) {
+      EmployeeAssignment rightEmployeeAssignment=rightIt.next();
+      moveList.add(new EmployeeAssignmentSwitchMove(leftEmployeeAssignment,rightEmployeeAssignment));
+    }
+  }
+  return moveList;
+}
