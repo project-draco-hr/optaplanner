@@ -8,6 +8,8 @@
   solveAction.setEnabled(!solving);
   cancelSolvingAction.setEnabled(solving);
   saveAction.setEnabled(!solving);
+  importAction.setEnabled(!solving && solutionBusiness.hasImporter());
+  exportAction.setEnabled(!solving && solutionBusiness.hasExporter());
   solutionPanel.setEnabled(!solving);
   progressBar.setIndeterminate(solving);
   progressBar.setStringPainted(solving);

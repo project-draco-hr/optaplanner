@@ -1,0 +1,3 @@
+{
+  new CurriculumCourseSolutionImporter().convertAll();
+}

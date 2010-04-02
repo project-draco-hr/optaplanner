@@ -1,0 +1,4 @@
+{
+  Solution solution=importer.readSolution(file);
+  solver.setStartingSolution(solution);
+}

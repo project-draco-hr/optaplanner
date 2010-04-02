@@ -11,6 +11,6 @@
 );
   int approved=fileChooser.showSaveDialog(WorkflowFrame.this);
   if (approved == JFileChooser.APPROVE_OPTION) {
-    solutionBusiness.save(fileChooser.getSelectedFile());
+    solutionBusiness.saveSolution(fileChooser.getSelectedFile());
   }
 }

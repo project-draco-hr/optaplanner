@@ -1,0 +1,4 @@
+{
+  Solution solution=localSearchSolverScope.getWorkingSolution();
+  exporter.writeSolution(solution,file);
+}

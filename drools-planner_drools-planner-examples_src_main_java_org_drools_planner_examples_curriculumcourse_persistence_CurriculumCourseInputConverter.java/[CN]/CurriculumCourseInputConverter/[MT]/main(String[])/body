@@ -1,3 +1,0 @@
-{
-  new CurriculumCourseInputConverter().convertAll();
-}

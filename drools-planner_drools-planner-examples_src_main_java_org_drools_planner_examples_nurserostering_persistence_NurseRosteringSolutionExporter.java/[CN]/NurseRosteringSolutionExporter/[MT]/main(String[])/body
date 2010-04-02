@@ -1,0 +1,3 @@
+{
+  new NurseRosteringSolutionExporter().convertAll();
+}

@@ -1,3 +1,0 @@
-{
-  new NurseRosteringOutputConverter().convertAll();
-}

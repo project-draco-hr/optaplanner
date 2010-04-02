@@ -1,6 +1,4 @@
 {
-  solutionBusiness.load(file);
-  solveAction.setEnabled(true);
-  saveAction.setEnabled(true);
-  updateScreen();
+  solutionBusiness.loadSolution(file);
+  setSolutionLoaded();
 }

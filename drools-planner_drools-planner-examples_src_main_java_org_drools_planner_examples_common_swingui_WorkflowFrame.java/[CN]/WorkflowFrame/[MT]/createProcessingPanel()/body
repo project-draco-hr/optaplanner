@@ -9,5 +9,11 @@
   saveAction=new SaveAction();
   saveAction.setEnabled(false);
   panel.add(new JButton(saveAction));
+  importAction=new ImportAction();
+  importAction.setEnabled(solutionBusiness.hasImporter());
+  panel.add(new JButton(importAction));
+  exportAction=new ExportAction();
+  exportAction.setEnabled(false);
+  panel.add(new JButton(exportAction));
   return panel;
 }

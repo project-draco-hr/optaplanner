@@ -1,4 +1,10 @@
 {
+  if (hasImporter()) {
+    importDataDir=new File(dataDir,"input");
+    if (!importDataDir.exists()) {
+      throw new IllegalStateException("The directory importDataDir (" + importDataDir.getAbsolutePath() + ") does not exist. The working directory should be set to drools-planner-examples.");
+    }
+  }
   unsolvedDataDir=new File(dataDir,"unsolved");
   if (!unsolvedDataDir.exists()) {
     throw new IllegalStateException("The directory unsolvedDataDir (" + unsolvedDataDir.getAbsolutePath() + ") does not exist. The working directory should be set to drools-planner-examples.");
@@ -6,5 +12,11 @@
   solvedDataDir=new File(dataDir,"solved");
   if (!solvedDataDir.exists()) {
     throw new IllegalStateException("The directory solvedDataDir (" + solvedDataDir.getAbsolutePath() + ") does not exist. The working directory should be set to drools-planner-examples.");
+  }
+  if (hasExporter()) {
+    exportDataDir=new File(dataDir,"output");
+    if (!exportDataDir.exists()) {
+      throw new IllegalStateException("The directory exportDataDir (" + exportDataDir.getAbsolutePath() + ") does not exist. The working directory should be set to drools-planner-examples.");
+    }
   }
 }
