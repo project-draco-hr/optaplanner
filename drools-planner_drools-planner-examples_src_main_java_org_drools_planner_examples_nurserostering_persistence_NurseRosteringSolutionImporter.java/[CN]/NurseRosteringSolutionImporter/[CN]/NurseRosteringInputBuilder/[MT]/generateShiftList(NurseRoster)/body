@@ -1,0 +1,26 @@
+{
+  List<ShiftType> shiftTypeList=nurseRoster.getShiftTypeList();
+  int shiftListSize=shiftDateMap.size() * shiftTypeList.size();
+  List<Shift> shiftList=new ArrayList<Shift>(shiftListSize);
+  dateAndShiftTypeToShiftMap=new HashMap<List<String>,Shift>(shiftListSize);
+  dayOfWeekAndShiftTypeToShiftListMap=new HashMap<List<Object>,List<Shift>>(7 * shiftTypeList.size());
+  long id=0L;
+  int index=0;
+  for (  ShiftDate shiftDate : nurseRoster.getShiftDateList()) {
+    for (    ShiftType shiftType : shiftTypeList) {
+      Shift shift=new Shift();
+      shift.setId(id);
+      shift.setShiftDate(shiftDate);
+      shiftDate.getShiftList().add(shift);
+      shift.setShiftType(shiftType);
+      shift.setIndex(index);
+      shift.setRequiredEmployeeSize(0);
+      shiftList.add(shift);
+      dateAndShiftTypeToShiftMap.put(Arrays.asList(shiftDate.getDateString(),shiftType.getCode()),shift);
+      addShiftToDayOfWeekAndShiftTypeToShiftListMap(shiftDate,shiftType,shift);
+      id++;
+      index++;
+    }
+  }
+  nurseRoster.setShiftList(shiftList);
+}
