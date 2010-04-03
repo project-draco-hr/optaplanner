@@ -1,4 +1,3 @@
 {
   super(System.out);
-  excessMap=new LinkedHashMap<String,Integer>();
 }
