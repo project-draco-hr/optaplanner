@@ -7,6 +7,7 @@
   clone.shiftTypeSkillRequirementList=shiftTypeSkillRequirementList;
   clone.patternList=patternList;
   clone.contractList=contractList;
+  clone.contractLineList=contractLineList;
   clone.employeeList=employeeList;
   clone.skillProficiencyList=skillProficiencyList;
   clone.shiftDateList=shiftDateList;

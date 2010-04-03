@@ -1,14 +1,56 @@
 {
+  int contractLineTypeListSize=ContractLineType.values().length;
   List<Element> contractElementList=(List<Element>)contractsElement.getChildren();
   List<Contract> contractList=new ArrayList<Contract>(contractElementList.size());
   contractMap=new HashMap<String,Contract>(contractElementList.size());
   long id=0L;
+  List<ContractLine> contractLineList=new ArrayList<ContractLine>(contractElementList.size() * contractLineTypeListSize);
+  long contractLineId=0L;
   for (  Element element : contractElementList) {
     assertElementName(element,"Contract");
     Contract contract=new Contract();
     contract.setId(id);
     contract.setCode(element.getAttribute("ID").getValue());
     contract.setDescription(element.getChild("Description").getText());
+    List<ContractLine> contractLineListOfContract=new ArrayList<ContractLine>(contractLineTypeListSize);
+    Element maxElement=element.getChild("MaxConsecutiveWorkingDays");
+    Element minElement=element.getChild("MinConsecutiveWorkingDays");
+    boolean minimumEnabled=minElement.getAttribute("on").getBooleanValue();
+    boolean maximumEnabled=maxElement.getAttribute("on").getBooleanValue();
+    ContractLine contractLine=new ContractLine();
+    contractLine.setId(contractLineId);
+    contractLine.setContract(contract);
+    contractLine.setContractLineType(ContractLineType.CONSECUTIVE_WORKING_DAYS);
+    contractLine.setMinimumEnabled(minimumEnabled);
+    if (minimumEnabled) {
+      int minimumValue=Integer.parseInt(minElement.getText());
+      if (minimumValue < 1) {
+        throw new IllegalArgumentException("The minimumValue (" + minimumValue + ") of contract ("+ contract.getCode()+ ") should be at least 1.");
+      }
+      contractLine.setMinimumValue(minimumValue);
+      int minimumWeight=minElement.getAttribute("weight").getIntValue();
+      if (minimumWeight < 1) {
+        throw new IllegalArgumentException("The minimumWeight (" + minimumWeight + ") of contract ("+ contract.getCode()+ ") should be at least 1.");
+      }
+      contractLine.setMinimumWeight(minimumWeight);
+    }
+    contractLine.setMaximumEnabled(maximumEnabled);
+    if (maximumEnabled) {
+      int maximumValue=Integer.parseInt(maxElement.getText());
+      if (maximumValue < 1) {
+        throw new IllegalArgumentException("The maximumValue (" + maximumValue + ") of contract ("+ contract.getCode()+ ") should be at least 1.");
+      }
+      contractLine.setMaximumValue(maximumValue);
+      int maximumWeight=maxElement.getAttribute("weight").getIntValue();
+      if (maximumWeight < 1) {
+        throw new IllegalArgumentException("The maximumWeight (" + maximumWeight + ") of contract ("+ contract.getCode()+ ") should be at least 1.");
+      }
+      contractLine.setMaximumWeight(maximumWeight);
+    }
+    contractLineList.add(contractLine);
+    contractLineListOfContract.add(contractLine);
+    contractLineId++;
+    contract.setContractLineList(contractLineListOfContract);
     List<Element> unwantedPatternElementList=(List<Element>)element.getChild("UnwantedPatterns").getChildren();
     for (    Element patternElement : unwantedPatternElementList) {
       assertElementName(patternElement,"Pattern");
@@ -22,4 +64,5 @@
     id++;
   }
   nurseRoster.setContractList(contractList);
+  nurseRoster.setContractLineList(contractLineList);
 }
