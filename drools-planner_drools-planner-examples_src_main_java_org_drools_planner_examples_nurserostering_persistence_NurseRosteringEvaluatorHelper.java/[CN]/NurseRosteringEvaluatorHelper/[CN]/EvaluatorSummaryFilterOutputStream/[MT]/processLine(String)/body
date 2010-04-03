@@ -1,0 +1,15 @@
+{
+  int excessIndex=line.indexOf(EXCESS_PATTERN);
+  if (excessIndex >= 0) {
+    String key=line.substring(0,excessIndex);
+    int value=Integer.parseInt(line.substring(excessIndex).replaceAll("excess = (\\d+) .*","$1"));
+    Integer count=excessMap.get(key);
+    if (count == null) {
+      count=value;
+    }
+ else {
+      count+=value;
+    }
+    excessMap.put(key,count);
+  }
+}

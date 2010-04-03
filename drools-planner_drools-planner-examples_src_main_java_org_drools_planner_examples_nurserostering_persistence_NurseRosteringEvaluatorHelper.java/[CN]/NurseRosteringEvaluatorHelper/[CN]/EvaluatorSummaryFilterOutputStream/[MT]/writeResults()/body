@@ -1,0 +1,7 @@
+{
+  System.out.println("EvaluatorHelper results");
+  System.out.println("=======================");
+  for (  Map.Entry<String,Integer> entry : excessMap.entrySet()) {
+    System.out.println(entry.getKey() + " count = " + entry.getValue());
+  }
+}

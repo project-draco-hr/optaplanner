@@ -1,5 +1,4 @@
 {
-  solutionDao=createSolutionDao();
   solutionBusiness=createSolutionBusiness();
-  workflowFrame=new WorkflowFrame(solutionBusiness,createSolutionPanel(),solutionDao.getDirName());
+  workflowFrame=new WorkflowFrame(solutionBusiness,createSolutionPanel(),solutionBusiness.getDirName());
 }
