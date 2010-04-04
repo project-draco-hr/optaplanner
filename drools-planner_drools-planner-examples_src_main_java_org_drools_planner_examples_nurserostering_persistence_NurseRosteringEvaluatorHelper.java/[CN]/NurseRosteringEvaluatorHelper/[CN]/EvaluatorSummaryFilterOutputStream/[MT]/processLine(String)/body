@@ -1,5 +1,5 @@
 {
-  int excessIndex=line.indexOf(EXCESS_PATTERN);
+  int excessIndex=line.indexOf("excess = ");
   if (excessIndex >= 0) {
     String key=line.substring(0,excessIndex);
     int value=Integer.parseInt(line.substring(excessIndex).replaceAll("excess = (\\d+) .*","$1"));
@@ -12,5 +12,15 @@
       excess[0]++;
       excess[1]+=value;
     }
+  }
+  int employeeIndex=line.indexOf("Employee: ");
+  if (employeeIndex >= 0) {
+    lastEmployeeCode=line.substring(employeeIndex).replaceAll("Employee: (.+)","$1");
+  }
+ else   if (line.contains("Penalty:")) {
+    lastEmployeeCode=null;
+  }
+  if (lastEmployeeCode != null) {
+    System.out.print("E(" + lastEmployeeCode + ")  ");
   }
 }

@@ -1,10 +1,10 @@
 {
-  super.write(b);
-  if (b == '\n') {
+  super.write(c);
+  if (c == '\n') {
     processLine(lineBuffer.toString());
     lineBuffer.delete(0,lineBuffer.length());
   }
  else {
-    lineBuffer.append((char)b);
+    lineBuffer.append((char)c);
   }
 }
