@@ -10,7 +10,7 @@
     Score undoScore=moveScope.getStepScope().getLocalSearchSolverScope().calculateScoreFromWorkingMemory();
     Score lastCompletedStepScore=moveScope.getStepScope().getLocalSearchSolverScope().getLastCompletedStepScope().getScore();
     if (!undoScore.equals(lastCompletedStepScore)) {
-      throw new IllegalStateException("Corrupted undo move (" + undoMove + ") received from move ("+ move+ ").\n"+ "Unequal lastCompletedStepScore ("+ lastCompletedStepScore+ ") and undoScore ("+ undoScore+ ").");
+      throw new IllegalStateException("Corrupted undo move (" + undoMove + ") received from move ("+ move+ ").\n"+ "Unequal lastCompletedStepScore ("+ lastCompletedStepScore+ ") and undoScore ("+ undoScore+ ").\n"+ moveScope.getStepScope().getLocalSearchSolverScope().buildConstraintOccurrenceSummary());
     }
   }
   logger.debug("    Move ({}) with score ({}) and acceptChance ({}).",new Object[]{moveScope.getMove(),moveScope.getScore(),moveScope.getAcceptChance()});

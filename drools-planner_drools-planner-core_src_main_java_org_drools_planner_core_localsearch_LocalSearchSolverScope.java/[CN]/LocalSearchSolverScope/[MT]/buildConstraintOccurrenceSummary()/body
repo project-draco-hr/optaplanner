@@ -1,0 +1,34 @@
+{
+  if (workingMemory == null) {
+    return "  The workingMemory is null.";
+  }
+  Map<String,Number> scoreTotalMap=new TreeMap<String,Number>();
+  Iterator<ConstraintOccurrence> it=(Iterator<ConstraintOccurrence>)workingMemory.iterateObjects(new ClassObjectFilter(ConstraintOccurrence.class));
+  while (it.hasNext()) {
+    ConstraintOccurrence occurrence=it.next();
+    Number scoreTotalNumber=scoreTotalMap.get(occurrence.getRuleId());
+    if (occurrence instanceof IntConstraintOccurrence) {
+      int scoreTotal=scoreTotalNumber == null ? 0 : (Integer)scoreTotalNumber;
+      scoreTotal+=((IntConstraintOccurrence)occurrence).getWeight();
+      scoreTotalMap.put(occurrence.getRuleId(),scoreTotal);
+    }
+ else     if (occurrence instanceof DoubleConstraintOccurrence) {
+      double scoreTotal=scoreTotalNumber == null ? 0 : (Double)scoreTotalNumber;
+      scoreTotal+=((DoubleConstraintOccurrence)occurrence).getWeight();
+      scoreTotalMap.put(occurrence.getRuleId(),scoreTotal);
+    }
+ else     if (occurrence instanceof UnweightedConstraintOccurrence) {
+      int scoreTotal=scoreTotalNumber == null ? 0 : (Integer)scoreTotalNumber;
+      scoreTotal+=1;
+      scoreTotalMap.put(occurrence.getRuleId(),scoreTotal);
+    }
+ else {
+      throw new IllegalStateException("Cannot determine occurrenceScore of ConstraintOccurrence class: " + occurrence.getClass());
+    }
+  }
+  StringBuilder summary=new StringBuilder();
+  for (  Map.Entry<String,Number> scoreTotalEntry : scoreTotalMap.entrySet()) {
+    summary.append("  Score rule (").append(scoreTotalEntry.getKey()).append(") has score total (").append(scoreTotalEntry.getValue()).append(").\n");
+  }
+  return summary.toString();
+}
