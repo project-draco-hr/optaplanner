@@ -1,3 +1,3 @@
 {
-  return !ObjectUtils.equals(leftEmployeeAssignment.getShift(),rightEmployeeAssignment.getShift());
+  return !ObjectUtils.equals(leftEmployeeAssignment.getEmployee(),rightEmployeeAssignment.getEmployee());
 }
