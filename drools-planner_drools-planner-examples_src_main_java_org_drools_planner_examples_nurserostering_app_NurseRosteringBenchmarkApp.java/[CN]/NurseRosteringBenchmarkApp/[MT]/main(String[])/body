@@ -10,6 +10,9 @@
  else     if (args[0].equals("long")) {
       solverConfig=LONG_SOLVER_BENCHMARK_CONFIG;
     }
+ else     if (args[0].equals("stepLimit")) {
+      solverConfig=STEP_LIMIT_SOLVER_BENCHMARK_CONFIG;
+    }
  else {
       throw new IllegalArgumentException("The program argument (" + args[0] + ") is not supported.");
     }
