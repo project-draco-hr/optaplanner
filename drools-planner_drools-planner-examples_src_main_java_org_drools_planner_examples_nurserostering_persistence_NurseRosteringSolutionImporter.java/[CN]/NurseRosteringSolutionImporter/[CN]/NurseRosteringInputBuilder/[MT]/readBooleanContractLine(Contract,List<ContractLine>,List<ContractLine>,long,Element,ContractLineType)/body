@@ -1,0 +1,18 @@
+{
+  boolean enabled=Boolean.valueOf(element.getText());
+  if (enabled) {
+    BooleanContractLine contractLine=new BooleanContractLine();
+    contractLine.setId(contractLineId);
+    contractLine.setContract(contract);
+    contractLine.setContractLineType(contractLineType);
+    int weight=element.getAttribute("weight").getIntValue();
+    if (weight < 1) {
+      throw new IllegalArgumentException("The weight (" + weight + ") of contract ("+ contract.getCode()+ ") and contractLineType ("+ contractLineType+ ") should be at least 1.");
+    }
+    contractLine.setWeight(weight);
+    contractLineList.add(contractLine);
+    contractLineListOfContract.add(contractLine);
+    contractLineId++;
+  }
+  return contractLineId;
+}

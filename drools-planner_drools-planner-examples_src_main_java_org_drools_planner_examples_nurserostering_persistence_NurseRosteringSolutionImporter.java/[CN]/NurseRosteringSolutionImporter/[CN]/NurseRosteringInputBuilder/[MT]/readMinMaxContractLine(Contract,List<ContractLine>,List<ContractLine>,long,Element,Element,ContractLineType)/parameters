@@ -1,0 +1,7 @@
+Contract contract
+List<ContractLine> contractLineList
+List<ContractLine> contractLineListOfContract
+long contractLineId
+Element minElement
+Element maxElement
+ContractLineType contractLineType

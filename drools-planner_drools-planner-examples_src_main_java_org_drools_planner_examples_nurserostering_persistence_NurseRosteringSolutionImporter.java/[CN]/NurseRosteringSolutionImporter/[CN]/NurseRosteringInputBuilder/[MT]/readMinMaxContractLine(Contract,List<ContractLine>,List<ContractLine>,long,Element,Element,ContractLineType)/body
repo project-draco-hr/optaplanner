@@ -1,0 +1,40 @@
+{
+  boolean minimumEnabled=minElement == null ? false : minElement.getAttribute("on").getBooleanValue();
+  boolean maximumEnabled=maxElement == null ? false : maxElement.getAttribute("on").getBooleanValue();
+  if (minimumEnabled || maximumEnabled) {
+    MinMaxContractLine contractLine=new MinMaxContractLine();
+    contractLine.setId(contractLineId);
+    contractLine.setContract(contract);
+    contractLine.setContractLineType(contractLineType);
+    contractLine.setMinimumEnabled(minimumEnabled);
+    if (minimumEnabled) {
+      int minimumValue=Integer.parseInt(minElement.getText());
+      if (minimumValue < 1) {
+        throw new IllegalArgumentException("The minimumValue (" + minimumValue + ") of contract ("+ contract.getCode()+ ") should be at least 1.");
+      }
+      contractLine.setMinimumValue(minimumValue);
+      int minimumWeight=minElement.getAttribute("weight").getIntValue();
+      if (minimumWeight < 1) {
+        throw new IllegalArgumentException("The minimumWeight (" + minimumWeight + ") of contract ("+ contract.getCode()+ ") and contractLineType ("+ contractLineType+ ") should be at least 1.");
+      }
+      contractLine.setMinimumWeight(minimumWeight);
+    }
+    contractLine.setMaximumEnabled(maximumEnabled);
+    if (maximumEnabled) {
+      int maximumValue=Integer.parseInt(maxElement.getText());
+      if (maximumValue < 1) {
+        throw new IllegalArgumentException("The maximumValue (" + maximumValue + ") of contract ("+ contract.getCode()+ ") should be at least 1.");
+      }
+      contractLine.setMaximumValue(maximumValue);
+      int maximumWeight=maxElement.getAttribute("weight").getIntValue();
+      if (maximumWeight < 1) {
+        throw new IllegalArgumentException("The maximumWeight (" + maximumWeight + ") of contract ("+ contract.getCode()+ ") and contractLineType ("+ contractLineType+ ") should be at least 1.");
+      }
+      contractLine.setMaximumWeight(maximumWeight);
+    }
+    contractLineList.add(contractLine);
+    contractLineListOfContract.add(contractLine);
+    contractLineId++;
+  }
+  return contractLineId;
+}
