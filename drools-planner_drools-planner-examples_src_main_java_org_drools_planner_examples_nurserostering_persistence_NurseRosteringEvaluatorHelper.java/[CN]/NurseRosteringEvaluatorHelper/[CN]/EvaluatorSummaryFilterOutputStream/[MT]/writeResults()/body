@@ -1,5 +1,8 @@
 {
   System.out.println("EvaluatorHelper results for " + name);
+  if (lineContainsFilter != null) {
+    System.out.println("with lineContainsFilter (" + lineContainsFilter + ")");
+  }
   for (  Map.Entry<String,int[]> entry : excessMap.entrySet()) {
     int[] excess=entry.getValue();
     System.out.println(entry.getKey() + " count = " + excess[0]+ " total = "+ excess[1]);
