@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof EmployeeConsecutiveAssignment) {
+    EmployeeConsecutiveAssignment other=(EmployeeConsecutiveAssignment)o;
+    return new EqualsBuilder().append(employee,other.employee).append(firstShiftDate,other.firstShiftDate).append(lastShiftDate,other.lastShiftDate).isEquals();
+  }
+ else {
+    return false;
+  }
+}

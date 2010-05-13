@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof EmployeeConsecutiveAssignmentEnd) {
+    EmployeeConsecutiveAssignmentEnd other=(EmployeeConsecutiveAssignmentEnd)o;
+    return new EqualsBuilder().append(employee,other.employee).append(shiftDate,other.shiftDate).isEquals();
+  }
+ else {
+    return false;
+  }
+}

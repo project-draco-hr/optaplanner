@@ -1,3 +1,0 @@
-{
-  return maximumValue - 1;
-}
