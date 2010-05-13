@@ -8,7 +8,7 @@
     File evaluatorDir=new File("local/competition/nurserostering/");
     String command="java -jar evaluator.jar " + inputFile.getAbsolutePath() + " "+ outputFile.getAbsolutePath();
     process=Runtime.getRuntime().exec(command,null,evaluatorDir);
-    EvaluatorSummaryFilterOutputStream out=new EvaluatorSummaryFilterOutputStream();
+    EvaluatorSummaryFilterOutputStream out=new EvaluatorSummaryFilterOutputStream(outputFile.getName());
     IOUtils.copy(process.getInputStream(),out);
     IOUtils.copy(process.getErrorStream(),System.err);
     out.writeResults();
