@@ -1,14 +1,24 @@
 {
   boolean enabled=Boolean.valueOf(element.getText());
+  int weight;
+  if (enabled) {
+    weight=element.getAttribute("weight").getIntValue();
+    if (weight < 0) {
+      throw new IllegalArgumentException("The weight (" + weight + ") of contract ("+ contract.getCode()+ ") and contractLineType ("+ contractLineType+ ") should be 0 or at least 1.");
+    }
+ else     if (weight == 0) {
+      enabled=false;
+      logger.warn("In contract ({}), the contractLineType ({}) is enabled with weight 0.",contract.getCode(),contractLineType);
+    }
+  }
+ else {
+    weight=0;
+  }
   if (enabled) {
     BooleanContractLine contractLine=new BooleanContractLine();
     contractLine.setId(contractLineId);
     contractLine.setContract(contract);
     contractLine.setContractLineType(contractLineType);
-    int weight=element.getAttribute("weight").getIntValue();
-    if (weight < 1) {
-      throw new IllegalArgumentException("The weight (" + weight + ") of contract ("+ contract.getCode()+ ") and contractLineType ("+ contractLineType+ ") should be at least 1.");
-    }
     contractLine.setWeight(weight);
     contractLineList.add(contractLine);
     contractLineListOfContract.add(contractLine);
