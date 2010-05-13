@@ -20,7 +20,10 @@
  else   if (line.contains("Penalty:")) {
     lastEmployeeCode=null;
   }
-  if (lastEmployeeCode != null) {
-    System.out.print("E(" + lastEmployeeCode + ")  ");
+  if (lineContainsFilter == null || line.contains(lineContainsFilter)) {
+    if (lastEmployeeCode != null) {
+      System.out.print("E(" + lastEmployeeCode + ")  ");
+    }
+    System.out.println(line);
   }
 }

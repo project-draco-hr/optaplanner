@@ -1,8 +1,8 @@
 {
-  super.write(c);
   if (c == '\n') {
-    processLine(lineBuffer.toString());
+    String line=lineBuffer.toString();
     lineBuffer.delete(0,lineBuffer.length());
+    processLine(line);
   }
  else {
     lineBuffer.append((char)c);

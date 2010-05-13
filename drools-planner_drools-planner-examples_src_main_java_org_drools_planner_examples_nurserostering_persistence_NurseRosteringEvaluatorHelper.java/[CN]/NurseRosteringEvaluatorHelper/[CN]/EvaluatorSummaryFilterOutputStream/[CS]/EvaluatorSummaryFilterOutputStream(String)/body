@@ -1,4 +1,0 @@
-{
-  super(System.out);
-  this.name=name;
-}
