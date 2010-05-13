@@ -1,0 +1,20 @@
+{
+  boolean added=constraintOccurrenceSet.add(constraintOccurrence);
+  if (!added) {
+    throw new IllegalArgumentException("Add the same constraintOccurrence (" + constraintOccurrence + ") twice.");
+  }
+  double occurrenceScore;
+  if (constraintOccurrence instanceof IntConstraintOccurrence) {
+    occurrenceScore=((IntConstraintOccurrence)constraintOccurrence).getWeight();
+  }
+ else   if (constraintOccurrence instanceof DoubleConstraintOccurrence) {
+    occurrenceScore=((DoubleConstraintOccurrence)constraintOccurrence).getWeight();
+  }
+ else   if (constraintOccurrence instanceof UnweightedConstraintOccurrence) {
+    occurrenceScore=1.0;
+  }
+ else {
+    throw new IllegalStateException("Cannot determine occurrenceScore of ConstraintOccurrence class: " + constraintOccurrence.getClass());
+  }
+  scoreTotal+=occurrenceScore;
+}

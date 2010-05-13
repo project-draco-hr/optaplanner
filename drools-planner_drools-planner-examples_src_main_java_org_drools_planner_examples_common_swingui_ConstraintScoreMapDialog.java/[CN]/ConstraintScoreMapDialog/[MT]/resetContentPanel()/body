@@ -1,9 +1,27 @@
 {
-  List<ScoreDetail> scoreDetailList=solutionBusiness.getScoreDetailList();
-  JTable table=new JTable(new ScoreDetailTableModel(scoreDetailList));
-  JScrollPane scrollpane=new JScrollPane(table);
-  scrollpane.setPreferredSize(new Dimension(700,300));
-  setContentPane(scrollpane);
+  final List<ScoreDetail> scoreDetailList=solutionBusiness.getScoreDetailList();
+  JPanel contentPane=new JPanel(new BorderLayout());
+  final JTable table=new JTable(new ScoreDetailTableModel(scoreDetailList));
+  JScrollPane tableScrollPane=new JScrollPane(table);
+  tableScrollPane.setPreferredSize(new Dimension(700,300));
+  contentPane.add(tableScrollPane,BorderLayout.CENTER);
+  final JTextArea detailTextArea=new JTextArea(10,80);
+  JScrollPane detailScrollPane=new JScrollPane(detailTextArea);
+  contentPane.add(detailScrollPane,BorderLayout.SOUTH);
+  table.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
+    public void valueChanged(    ListSelectionEvent event){
+      int selectedRow=table.getSelectedRow();
+      if (selectedRow < 0) {
+        detailTextArea.setText("");
+      }
+ else {
+        ScoreDetail scoreDetail=scoreDetailList.get(selectedRow);
+        detailTextArea.setText(scoreDetail.buildConstraintOccurrenceListText());
+      }
+    }
+  }
+);
+  setContentPane(contentPane);
   pack();
   setLocationRelativeTo(getParent());
 }
