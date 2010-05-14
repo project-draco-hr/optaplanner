@@ -1,0 +1,3 @@
+{
+  return new CompareToBuilder().append(team,other.team).append(fromTeam,other.fromTeam).append(toTeam,other.toTeam).toComparison();
+}
