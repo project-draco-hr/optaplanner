@@ -38,7 +38,7 @@
     if (minimumEnabled) {
       int minimumValue=Integer.parseInt(minElement.getText());
       if (minimumValue < 1) {
-        throw new IllegalArgumentException("The minimumValue (" + minimumValue + ") of contract ("+ contract.getCode()+ ") should be at least 1.");
+        throw new IllegalArgumentException("The minimumValue (" + minimumValue + ") of contract ("+ contract.getCode()+ ") and contractLineType ("+ contractLineType+ ") should be at least 1.");
       }
       contractLine.setMinimumValue(minimumValue);
       contractLine.setMinimumWeight(minimumWeight);
@@ -47,7 +47,7 @@
     if (maximumEnabled) {
       int maximumValue=Integer.parseInt(maxElement.getText());
       if (maximumValue < 1) {
-        throw new IllegalArgumentException("The maximumValue (" + maximumValue + ") of contract ("+ contract.getCode()+ ") should be at least 1.");
+        throw new IllegalArgumentException("The maximumValue (" + maximumValue + ") of contract ("+ contract.getCode()+ ") and contractLineType ("+ contractLineType+ ") should be at least 1.");
       }
       contractLine.setMaximumValue(maximumValue);
       contractLine.setMaximumWeight(maximumWeight);

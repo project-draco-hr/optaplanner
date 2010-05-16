@@ -30,6 +30,9 @@
         }
       }
       patternList.add(pattern);
+      if (patternMap.containsKey(pattern.getCode())) {
+        throw new IllegalArgumentException("There are 2 patterns with the same code (" + pattern.getCode() + ").");
+      }
       patternMap.put(pattern.getCode(),pattern);
       id++;
     }

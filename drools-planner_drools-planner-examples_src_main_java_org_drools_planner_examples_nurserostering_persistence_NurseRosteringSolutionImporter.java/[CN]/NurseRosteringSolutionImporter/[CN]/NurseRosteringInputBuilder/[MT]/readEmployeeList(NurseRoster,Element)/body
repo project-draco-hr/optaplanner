@@ -35,6 +35,9 @@
       }
     }
     employeeList.add(employee);
+    if (employeeMap.containsKey(employee.getCode())) {
+      throw new IllegalArgumentException("There are 2 employees with the same code (" + employee.getCode() + ").");
+    }
     employeeMap.put(employee.getCode(),employee);
     id++;
   }

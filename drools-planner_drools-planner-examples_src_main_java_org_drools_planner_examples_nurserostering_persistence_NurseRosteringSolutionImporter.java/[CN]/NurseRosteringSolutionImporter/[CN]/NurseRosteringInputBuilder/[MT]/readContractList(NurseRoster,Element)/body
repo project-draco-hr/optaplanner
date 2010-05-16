@@ -33,6 +33,9 @@
       }
     }
     contractList.add(contract);
+    if (contractMap.containsKey(contract.getCode())) {
+      throw new IllegalArgumentException("There are 2 contracts with the same code (" + contract.getCode() + ").");
+    }
     contractMap.put(contract.getCode(),contract);
     id++;
   }

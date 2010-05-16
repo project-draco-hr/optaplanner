@@ -33,6 +33,9 @@
       }
     }
     shiftTypeList.add(shiftType);
+    if (shiftTypeMap.containsKey(shiftType.getCode())) {
+      throw new IllegalArgumentException("There are 2 shiftTypes with the same code (" + shiftType.getCode() + ").");
+    }
     shiftTypeMap.put(shiftType.getCode(),shiftType);
     id++;
     index++;
