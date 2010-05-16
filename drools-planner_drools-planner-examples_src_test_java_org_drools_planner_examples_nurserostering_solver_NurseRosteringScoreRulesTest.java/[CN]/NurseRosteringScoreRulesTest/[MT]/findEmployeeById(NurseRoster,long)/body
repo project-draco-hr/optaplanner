@@ -1,0 +1,8 @@
+{
+  for (  Employee employee : nurseRoster.getEmployeeList()) {
+    if (employee.getId() == id) {
+      return employee;
+    }
+  }
+  throw new IllegalArgumentException("Invalid id (" + id + ")");
+}

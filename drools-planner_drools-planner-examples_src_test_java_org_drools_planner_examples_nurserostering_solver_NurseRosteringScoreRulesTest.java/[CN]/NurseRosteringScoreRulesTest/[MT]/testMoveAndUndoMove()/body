@@ -1,0 +1,22 @@
+{
+  LocalSearchSolverScope localSearchSolverScope=new LocalSearchSolverScope();
+  localSearchSolverScope.setRuleBase(buildRuleBase());
+  localSearchSolverScope.setWorkingScoreCalculator(new DefaultHardAndSoftConstraintScoreCalculator());
+  NurseRoster nurseRoster=(NurseRoster)new NurseRosteringDaoImpl().readSolution(getClass().getResourceAsStream("/org/drools/planner/examples/nurserostering/data/testNurseRosteringScoreRules.xml"));
+  localSearchSolverScope.setWorkingSolution(nurseRoster);
+  WorkingMemory workingMemory=localSearchSolverScope.getWorkingMemory();
+  Score firstScore=localSearchSolverScope.calculateScoreFromWorkingMemory();
+  Employee leftEmployee=findEmployeeById(nurseRoster,0L);
+  EmployeeAssignment leftEmployeeAssignment=findEmployeeAssignmentById(nurseRoster,200204001L);
+  assertEquals(leftEmployee,leftEmployeeAssignment.getEmployee());
+  Employee rightEmployee=findEmployeeById(nurseRoster,12L);
+  EmployeeAssignment rightEmployeeAssignment=findEmployeeAssignmentById(nurseRoster,200204002L);
+  assertEquals(rightEmployee,rightEmployeeAssignment.getEmployee());
+  NurseRosterMoveHelper.moveEmployee(workingMemory,leftEmployeeAssignment,rightEmployee);
+  NurseRosterMoveHelper.moveEmployee(workingMemory,rightEmployeeAssignment,leftEmployee);
+  localSearchSolverScope.calculateScoreFromWorkingMemory();
+  NurseRosterMoveHelper.moveEmployee(workingMemory,rightEmployeeAssignment,rightEmployee);
+  NurseRosterMoveHelper.moveEmployee(workingMemory,leftEmployeeAssignment,leftEmployee);
+  Score secondScore=localSearchSolverScope.calculateScoreFromWorkingMemory();
+  assertEquals(firstScore,secondScore);
+}

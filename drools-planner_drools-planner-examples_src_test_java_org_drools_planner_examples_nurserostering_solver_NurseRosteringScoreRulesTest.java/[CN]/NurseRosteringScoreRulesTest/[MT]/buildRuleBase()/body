@@ -1,0 +1,23 @@
+{
+  PackageBuilder packageBuilder=new PackageBuilder();
+  InputStream scoreDrlIn=getClass().getResourceAsStream("/org/drools/planner/examples/nurserostering/solver/nurseRosteringScoreRules.drl");
+  try {
+    packageBuilder.addPackageFromDrl(new InputStreamReader(scoreDrlIn,"utf-8"));
+  }
+ catch (  DroolsParserException e) {
+    throw new IllegalArgumentException("scoreDrl could not be loaded.",e);
+  }
+catch (  IOException e) {
+    throw new IllegalArgumentException("scoreDrl could not be loaded.",e);
+  }
+ finally {
+    IOUtils.closeQuietly(scoreDrlIn);
+  }
+  RuleBaseConfiguration ruleBaseConfiguration=new RuleBaseConfiguration();
+  RuleBase ruleBase=RuleBaseFactory.newRuleBase(ruleBaseConfiguration);
+  if (packageBuilder.hasErrors()) {
+    throw new IllegalStateException("There are errors in the scoreDrl:" + packageBuilder.getErrors().toString());
+  }
+  ruleBase.addPackage(packageBuilder.getPackage());
+  return ruleBase;
+}
