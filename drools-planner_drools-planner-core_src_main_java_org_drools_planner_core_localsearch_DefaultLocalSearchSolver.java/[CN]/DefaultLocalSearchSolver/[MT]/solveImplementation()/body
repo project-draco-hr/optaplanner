@@ -15,6 +15,9 @@
     stepDecided(stepScope);
     nextStep.doMove(stepScope.getWorkingMemory());
     localSearchSolverScope.getWorkingSolution().setScore(stepScope.getScore());
+    if (assertStepScoreIsUncorrupted) {
+      localSearchSolverScope.assertWorkingScore(stepScope.getScore());
+    }
     stepTaken(stepScope);
     stepScope=createNextStepScope(localSearchSolverScope,stepScope);
   }

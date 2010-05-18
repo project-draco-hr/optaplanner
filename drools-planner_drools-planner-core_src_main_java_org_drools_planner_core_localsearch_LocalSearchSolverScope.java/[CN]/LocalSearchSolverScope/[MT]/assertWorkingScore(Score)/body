@@ -1,0 +1,14 @@
+{
+  StatefulSession tmpWorkingMemory=ruleBase.newStatefulSession();
+  ScoreCalculator tmpScoreCalculator=workingScoreCalculator.clone();
+  tmpWorkingMemory.setGlobal(GLOBAL_SCORE_CALCULATOR_KEY,tmpScoreCalculator);
+  for (  Object fact : workingSolution.getFacts()) {
+    tmpWorkingMemory.insert(fact);
+  }
+  tmpWorkingMemory.fireAllRules();
+  Score score=tmpScoreCalculator.calculateScore();
+  tmpWorkingMemory.dispose();
+  if (!presumedScore.equals(score)) {
+    throw new IllegalStateException("The presumedScore (" + presumedScore + ") is corrupted because it is not the real score  ("+ score+ ").\n"+ buildConstraintOccurrenceSummary());
+  }
+}
