@@ -1,0 +1,8 @@
+{
+  for (  Exam exam : examination.getExamList()) {
+    if (exam.getId() == id) {
+      return exam;
+    }
+  }
+  throw new IllegalArgumentException("Invalid id (" + id + ")");
+}
