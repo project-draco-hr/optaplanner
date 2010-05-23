@@ -15,7 +15,7 @@
   facts.addAll(shiftOffRequestList);
   facts.addAll(shiftOnRequestList);
   if (isInitialized()) {
-    facts.addAll(employeeAssignmentList);
+    facts.addAll(assignmentList);
   }
   return facts;
 }

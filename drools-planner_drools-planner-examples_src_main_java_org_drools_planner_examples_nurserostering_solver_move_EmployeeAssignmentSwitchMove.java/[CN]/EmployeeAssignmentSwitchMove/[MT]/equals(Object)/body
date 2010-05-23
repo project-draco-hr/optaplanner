@@ -4,7 +4,7 @@
   }
  else   if (o instanceof EmployeeAssignmentSwitchMove) {
     EmployeeAssignmentSwitchMove other=(EmployeeAssignmentSwitchMove)o;
-    return new EqualsBuilder().append(leftEmployeeAssignment,other.leftEmployeeAssignment).append(rightEmployeeAssignment,other.rightEmployeeAssignment).isEquals();
+    return new EqualsBuilder().append(leftAssignment,other.leftAssignment).append(rightAssignment,other.rightAssignment).isEquals();
   }
  else {
     return false;

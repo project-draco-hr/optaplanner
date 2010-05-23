@@ -10,8 +10,8 @@
   Element softConstraintsPenaltyElement=new Element("SoftConstraintsPenalty");
   softConstraintsPenaltyElement.setText(Integer.toString(nurseRoster.getScore().getSoftScore()));
   solutionElement.addContent(softConstraintsPenaltyElement);
-  for (  EmployeeAssignment employeeAssignment : nurseRoster.getEmployeeAssignmentList()) {
-    Shift shift=employeeAssignment.getShift();
+  for (  Assignment assignment : nurseRoster.getEmployeeAssignmentList()) {
+    Shift shift=assignment.getShift();
     if (shift != null) {
       Element assignmentElement=new Element("Assignment");
       solutionElement.addContent(assignmentElement);
@@ -19,7 +19,7 @@
       dateElement.setText(shift.getShiftDate().getDateString());
       assignmentElement.addContent(dateElement);
       Element employeeElement=new Element("Employee");
-      employeeElement.setText(employeeAssignment.getEmployee().getCode());
+      employeeElement.setText(assignment.getEmployee().getCode());
       assignmentElement.addContent(employeeElement);
       Element shiftTypeElement=new Element("ShiftType");
       shiftTypeElement.setText(shift.getShiftType().getCode());

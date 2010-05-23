@@ -1,0 +1,4 @@
+{
+  this.assignment=assignment;
+  this.toEmployee=toEmployee;
+}

@@ -2,8 +2,8 @@
   if (this == o) {
     return true;
   }
- else   if (o instanceof EmployeeAssignment) {
-    EmployeeAssignment other=(EmployeeAssignment)o;
+ else   if (o instanceof Assignment) {
+    Assignment other=(Assignment)o;
     return new EqualsBuilder().append(id,other.id).append(shift,other.shift).append(employee,other.employee).isEquals();
   }
  else {

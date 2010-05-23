@@ -1,7 +1,7 @@
 {
   HashCodeBuilder hashCodeBuilder=new HashCodeBuilder();
-  for (  EmployeeAssignment employeeAssignment : employeeAssignmentList) {
-    hashCodeBuilder.append(employeeAssignment.solutionHashCode());
+  for (  Assignment assignment : assignmentList) {
+    hashCodeBuilder.append(assignment.solutionHashCode());
   }
   return hashCodeBuilder.toHashCode();
 }

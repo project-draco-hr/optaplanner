@@ -1,4 +1,0 @@
-{
-  super(employeeAssignment.getLabel());
-  this.employeeAssignment=employeeAssignment;
-}

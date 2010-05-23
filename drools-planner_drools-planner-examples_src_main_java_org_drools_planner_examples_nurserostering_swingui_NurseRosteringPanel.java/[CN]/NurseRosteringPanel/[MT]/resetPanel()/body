@@ -33,10 +33,10 @@
     }
   }
   if (schedule.isInitialized()) {
-    for (    EmployeeAssignment employeeAssignment : schedule.getEmployeeAssignmentList()) {
-      Employee employee=employeeAssignment.getEmployee();
-      EmployeeShiftDatePanel employeeShiftDatePanel=employeeShiftDatePanelMap.get(employee).get(employeeAssignment.getShiftDate());
-      employeeShiftDatePanel.addEmployeeAssignment(employeeAssignment);
+    for (    Assignment assignment : schedule.getEmployeeAssignmentList()) {
+      Employee employee=assignment.getEmployee();
+      EmployeeShiftDatePanel employeeShiftDatePanel=employeeShiftDatePanelMap.get(employee).get(assignment.getShiftDate());
+      employeeShiftDatePanel.addEmployeeAssignment(assignment);
     }
   }
 }

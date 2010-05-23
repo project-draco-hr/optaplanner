@@ -1,10 +1,10 @@
 {
   List<Shift> shiftList=nurseRoster.getShiftList();
   WorkingMemory workingMemory=localSearchSolverScope.getWorkingMemory();
-  List<EmployeeAssignment> employeeAssignmentList=createEmployeeAssignmentList(nurseRoster);
-  for (  EmployeeAssignment employeeAssignment : employeeAssignmentList) {
-    workingMemory.insert(employeeAssignment);
+  List<Assignment> assignmentList=createEmployeeAssignmentList(nurseRoster);
+  for (  Assignment assignment : assignmentList) {
+    workingMemory.insert(assignment);
   }
-  Collections.sort(employeeAssignmentList,new PersistableIdComparator());
-  nurseRoster.setEmployeeAssignmentList(employeeAssignmentList);
+  Collections.sort(assignmentList,new PersistableIdComparator());
+  nurseRoster.setEmployeeAssignmentList(assignmentList);
 }

@@ -1,11 +1,11 @@
 {
   List<Employee> employeeList=getNurseRoster().getEmployeeList();
   JComboBox employeeListField=new JComboBox(employeeList.toArray());
-  employeeListField.setSelectedItem(employeeAssignment.getEmployee());
+  employeeListField.setSelectedItem(assignment.getEmployee());
   int result=JOptionPane.showConfirmDialog(NurseRosteringPanel.this.getRootPane(),employeeListField,"Select employee",JOptionPane.OK_CANCEL_OPTION);
   if (result == JOptionPane.OK_OPTION) {
     Employee toEmployee=(Employee)employeeListField.getSelectedItem();
-    solutionBusiness.doMove(new EmployeeChangeMove(employeeAssignment,toEmployee));
+    solutionBusiness.doMove(new EmployeeChangeMove(assignment,toEmployee));
     workflowFrame.updateScreen();
   }
 }

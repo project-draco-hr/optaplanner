@@ -1,0 +1,4 @@
+{
+  JButton button=new JButton(new EmployeeAssignmentAction(assignment));
+  add(button);
+}

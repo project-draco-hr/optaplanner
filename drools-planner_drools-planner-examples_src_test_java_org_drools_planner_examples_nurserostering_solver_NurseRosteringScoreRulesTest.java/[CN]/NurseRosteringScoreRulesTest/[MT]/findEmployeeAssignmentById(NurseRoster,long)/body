@@ -1,7 +1,7 @@
 {
-  for (  EmployeeAssignment employeeAssignment : nurseRoster.getEmployeeAssignmentList()) {
-    if (employeeAssignment.getId() == id) {
-      return employeeAssignment;
+  for (  Assignment assignment : nurseRoster.getEmployeeAssignmentList()) {
+    if (assignment.getId() == id) {
+      return assignment;
     }
   }
   throw new IllegalArgumentException("Invalid id (" + id + ")");
