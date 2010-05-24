@@ -1,0 +1,4 @@
+{
+  this.employee=employee;
+  this.total=total;
+}

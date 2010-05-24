@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof EmployeeAssignmentTotal) {
+    EmployeeAssignmentTotal other=(EmployeeAssignmentTotal)o;
+    return new EqualsBuilder().append(employee,other.employee).append(total,other.total).isEquals();
+  }
+ else {
+    return false;
+  }
+}
