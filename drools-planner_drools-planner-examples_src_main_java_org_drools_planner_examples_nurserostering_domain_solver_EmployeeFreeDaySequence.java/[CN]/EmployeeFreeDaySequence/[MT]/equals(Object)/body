@@ -4,7 +4,7 @@
   }
  else   if (o instanceof EmployeeFreeDaySequence) {
     EmployeeFreeDaySequence other=(EmployeeFreeDaySequence)o;
-    return new EqualsBuilder().append(employee,other.employee).append(firstShiftDate,other.firstShiftDate).append(lastShiftDate,other.lastShiftDate).isEquals();
+    return new EqualsBuilder().append(employee,other.employee).append(firstDayIndex,other.firstDayIndex).append(lastDayIndex,other.lastDayIndex).isEquals();
   }
  else {
     return false;
