@@ -10,15 +10,16 @@
     int excessIndex=line.indexOf("excess = ");
     if (excessIndex >= 0) {
       String key=line.substring(0,excessIndex);
-      int value=Integer.parseInt(line.substring(excessIndex).replaceAll("excess = (\\d+) .*","$1"));
-      int[] excess=excessMap.get(key);
-      if (excess == null) {
-        excess=new int[]{1,value};
-        excessMap.put(key,excess);
+      int costIndex=line.indexOf("cost = ");
+      int value=Integer.parseInt((line.substring(costIndex) + " ").replaceAll("cost = (\\d+) .*","$1"));
+      int[] cost=costMap.get(key);
+      if (cost == null) {
+        cost=new int[]{1,value};
+        costMap.put(key,cost);
       }
  else {
-        excess[0]++;
-        excess[1]+=value;
+        cost[0]++;
+        cost[1]+=value;
       }
     }
     if (lastEmployeeCode != null) {
