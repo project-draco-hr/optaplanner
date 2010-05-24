@@ -19,6 +19,8 @@
     contractLineId=readMinMaxContractLine(contract,contractLineList,contractLineListOfContract,contractLineId,element.getChild("MinConsecutiveFreeDays"),element.getChild("MaxConsecutiveFreeDays"),ContractLineType.CONSECUTIVE_FREE_DAYS);
     contractLineId=readMinMaxContractLine(contract,contractLineList,contractLineListOfContract,contractLineId,element.getChild("MinConsecutiveWorkingWeekends"),element.getChild("MaxConsecutiveWorkingWeekends"),ContractLineType.CONSECUTIVE_WORKING_WEEKENDS);
     contractLineId=readMinMaxContractLine(contract,contractLineList,contractLineListOfContract,contractLineId,null,element.getChild("MaxWorkingWeekendsInFourWeeks"),ContractLineType.TOTAL_WORKING_WEEKENDS_IN_FOUR_WEEKS);
+    WeekendDefinition weekendDefinition=WeekendDefinition.valueOfCode(element.getChild("WeekendDefinition").getText());
+    contract.setWeekendDefinition(weekendDefinition);
     contractLineId=readBooleanContractLine(contract,contractLineList,contractLineListOfContract,contractLineId,element.getChild("CompleteWeekends"),ContractLineType.COMPLETE_WEEKENDS);
     contractLineId=readBooleanContractLine(contract,contractLineList,contractLineListOfContract,contractLineId,element.getChild("IdenticalShiftTypesDuringWeekend"),ContractLineType.IDENTICAL_SHIFT_TYPES_DURING_WEEKEND);
     contractLineId=readBooleanContractLine(contract,contractLineList,contractLineListOfContract,contractLineId,element.getChild("NoNightShiftBeforeFreeWeekend"),ContractLineType.NO_NIGHT_SHIFT_BEFORE_FREE_WEEKEND);

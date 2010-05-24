@@ -46,8 +46,8 @@
     contractLine.setMaximumEnabled(maximumEnabled);
     if (maximumEnabled) {
       int maximumValue=Integer.parseInt(maxElement.getText());
-      if (maximumValue < 1) {
-        throw new IllegalArgumentException("The maximumValue (" + maximumValue + ") of contract ("+ contract.getCode()+ ") and contractLineType ("+ contractLineType+ ") should be at least 1.");
+      if (maximumValue < 0) {
+        throw new IllegalArgumentException("The maximumValue (" + maximumValue + ") of contract ("+ contract.getCode()+ ") and contractLineType ("+ contractLineType+ ") should be at least 0.");
       }
       contractLine.setMaximumValue(maximumValue);
       contractLine.setMaximumWeight(maximumWeight);
