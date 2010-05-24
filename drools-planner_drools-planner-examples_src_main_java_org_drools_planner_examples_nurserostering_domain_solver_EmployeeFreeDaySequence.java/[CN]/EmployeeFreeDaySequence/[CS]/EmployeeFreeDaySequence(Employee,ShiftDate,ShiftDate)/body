@@ -1,0 +1,5 @@
+{
+  this.employee=employee;
+  this.firstShiftDate=firstShiftDate;
+  this.lastShiftDate=lastShiftDate;
+}
