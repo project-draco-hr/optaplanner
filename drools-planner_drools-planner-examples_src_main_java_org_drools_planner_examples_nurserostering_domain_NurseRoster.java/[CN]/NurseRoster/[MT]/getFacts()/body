@@ -1,5 +1,6 @@
 {
   List<Object> facts=new ArrayList<Object>();
+  facts.add(new RosterInfo(shiftDateList.get(0),shiftDateList.get(shiftDateList.size() - 1)));
   facts.addAll(skillList);
   facts.addAll(shiftTypeList);
   facts.addAll(shiftTypeSkillRequirementList);

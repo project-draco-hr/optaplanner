@@ -1,0 +1,4 @@
+{
+  this.firstShiftDate=firstShiftDate;
+  this.lastShiftDate=lastShiftDate;
+}

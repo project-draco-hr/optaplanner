@@ -1,0 +1,3 @@
+{
+  return new CompareToBuilder().append(firstShiftDate,other.firstShiftDate).append(lastShiftDate,other.lastShiftDate).toComparison();
+}
