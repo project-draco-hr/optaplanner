@@ -1,0 +1,5 @@
+{
+  WeekendDefinition weekendDefinition=employee.getContract().getWeekendDefinition();
+  DayOfWeek dayOfWeek=shiftDate.getDayOfWeek();
+  return dayOfWeek.getDistanceToNext(weekendDefinition.getLastDayOfWeekend());
+}

@@ -1,0 +1,5 @@
+{
+  WeekendDefinition weekendDefinition=employee.getContract().getWeekendDefinition();
+  DayOfWeek dayOfWeek=shiftDate.getDayOfWeek();
+  return weekendDefinition.isWeekend(dayOfWeek) && weekendDefinition.getFirstDayOfWeekend() != dayOfWeek;
+}
