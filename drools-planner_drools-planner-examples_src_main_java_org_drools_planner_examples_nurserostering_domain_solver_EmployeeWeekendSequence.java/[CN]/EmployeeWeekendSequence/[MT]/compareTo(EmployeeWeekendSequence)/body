@@ -1,0 +1,3 @@
+{
+  return new CompareToBuilder().append(employee,other.employee).append(firstSundayIndex,other.firstSundayIndex).append(lastSundayIndex,other.lastSundayIndex).toComparison();
+}

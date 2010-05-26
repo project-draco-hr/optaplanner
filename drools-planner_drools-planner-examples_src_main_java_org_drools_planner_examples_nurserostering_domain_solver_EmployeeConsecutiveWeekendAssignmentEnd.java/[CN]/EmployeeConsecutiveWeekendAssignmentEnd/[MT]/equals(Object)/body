@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof EmployeeConsecutiveWeekendAssignmentEnd) {
+    EmployeeConsecutiveWeekendAssignmentEnd other=(EmployeeConsecutiveWeekendAssignmentEnd)o;
+    return new EqualsBuilder().append(employee,other.employee).append(sundayIndex,other.sundayIndex).isEquals();
+  }
+ else {
+    return false;
+  }
+}
