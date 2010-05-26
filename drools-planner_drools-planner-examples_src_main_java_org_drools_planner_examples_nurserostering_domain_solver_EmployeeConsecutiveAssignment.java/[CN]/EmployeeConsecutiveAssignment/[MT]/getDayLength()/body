@@ -1,3 +1,0 @@
-{
-  return lastShiftDate.getDayIndex() - firstShiftDate.getDayIndex() + 1;
-}

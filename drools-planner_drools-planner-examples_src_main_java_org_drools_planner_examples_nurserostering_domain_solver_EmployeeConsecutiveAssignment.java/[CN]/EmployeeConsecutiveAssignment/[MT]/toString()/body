@@ -1,3 +1,0 @@
-{
-  return employee + " is working between " + firstShiftDate+ " - "+ lastShiftDate;
-}

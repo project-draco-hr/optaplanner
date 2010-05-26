@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof EmployeeWorkSequence) {
+    EmployeeWorkSequence other=(EmployeeWorkSequence)o;
+    return new EqualsBuilder().append(employee,other.employee).append(firstDayIndex,other.firstDayIndex).append(lastDayIndex,other.lastDayIndex).isEquals();
+  }
+ else {
+    return false;
+  }
+}

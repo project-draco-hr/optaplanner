@@ -1,0 +1,5 @@
+{
+  this.employee=employee;
+  this.firstDayIndex=firstDayIndex;
+  this.lastDayIndex=lastDayIndex;
+}
