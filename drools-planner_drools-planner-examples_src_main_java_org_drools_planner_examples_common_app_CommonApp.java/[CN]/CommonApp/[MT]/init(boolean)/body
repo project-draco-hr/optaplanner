@@ -1,0 +1,5 @@
+{
+  workflowFrame.setDefaultCloseOperation(exitOnClose ? JFrame.EXIT_ON_CLOSE : JFrame.DISPOSE_ON_CLOSE);
+  workflowFrame.init();
+  workflowFrame.setVisible(true);
+}

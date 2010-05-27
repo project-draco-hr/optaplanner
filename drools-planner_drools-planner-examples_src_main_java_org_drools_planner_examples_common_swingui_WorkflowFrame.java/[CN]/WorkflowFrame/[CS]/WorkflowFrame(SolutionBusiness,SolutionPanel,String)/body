@@ -4,8 +4,7 @@
   this.solutionPanel=solutionPanel;
   solutionPanel.setSolutionBusiness(solutionBusiness);
   solutionPanel.setWorkflowFrame(this);
-  registerSolverEventListener();
+  registerListeners();
   constraintScoreMapDialog=new ConstraintScoreMapDialog(this);
   constraintScoreMapDialog.setSolutionBusiness(solutionBusiness);
-  setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 }
