@@ -28,6 +28,15 @@
             throw new IllegalArgumentException("The shiftType (" + shiftTypeElement.getText() + ") of pattern ("+ pattern.getCode()+ ") does not exist.");
           }
         }
+        Element dayElement=patternEntryElement.getChild("Day");
+        DayOfWeek dayOfWeek=DayOfWeek.valueOfCode(dayElement.getText());
+        if (dayOfWeek == null) {
+          if (dayElement.getText().equals("Any")) {
+          }
+ else {
+            throw new IllegalArgumentException("The dayOfWeek (" + dayElement.getText() + ") of pattern ("+ pattern.getCode()+ ") does not exist.");
+          }
+        }
       }
       patternList.add(pattern);
       if (patternMap.containsKey(pattern.getCode())) {
