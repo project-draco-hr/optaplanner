@@ -1,0 +1,3 @@
+{
+  return patternEntry + " for " + employee+ " on "+ shiftDate;
+}

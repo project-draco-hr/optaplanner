@@ -5,8 +5,10 @@
   facts.addAll(shiftTypeList);
   facts.addAll(shiftTypeSkillRequirementList);
   facts.addAll(patternList);
+  facts.addAll(patternEntryList);
   facts.addAll(contractList);
   facts.addAll(contractLineList);
+  facts.addAll(patternContractLineList);
   facts.addAll(employeeList);
   facts.addAll(skillProficiencyList);
   facts.addAll(shiftDateList);

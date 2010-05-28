@@ -1,0 +1,3 @@
+{
+  return pattern + "-" + entryIndex+ ": "+ dayOfWeekWildcard+ "("+ dayOfWeek+ ") "+ shiftTypeWildcard+ "("+ shiftType+ ")";
+}

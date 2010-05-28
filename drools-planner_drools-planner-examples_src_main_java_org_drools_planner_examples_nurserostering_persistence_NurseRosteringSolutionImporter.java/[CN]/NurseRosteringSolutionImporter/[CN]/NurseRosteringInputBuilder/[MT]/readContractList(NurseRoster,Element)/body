@@ -6,6 +6,8 @@
   long id=0L;
   List<ContractLine> contractLineList=new ArrayList<ContractLine>(contractElementList.size() * contractLineTypeListSize);
   long contractLineId=0L;
+  List<PatternContractLine> patternContractLineList=new ArrayList<PatternContractLine>(contractElementList.size() * 3);
+  long patternContractLineId=0L;
   for (  Element element : contractElementList) {
     assertElementName(element,"Contract");
     Contract contract=new Contract();
@@ -33,6 +35,12 @@
       if (pattern == null) {
         throw new IllegalArgumentException("The pattern (" + patternElement.getText() + ") of contract ("+ contract.getCode()+ ") does not exist.");
       }
+      PatternContractLine patternContractLine=new PatternContractLine();
+      patternContractLine.setId(patternContractLineId);
+      patternContractLine.setContract(contract);
+      patternContractLine.setPattern(pattern);
+      patternContractLineList.add(patternContractLine);
+      patternContractLineId++;
     }
     contractList.add(contract);
     if (contractMap.containsKey(contract.getCode())) {
@@ -43,4 +51,5 @@
   }
   nurseRoster.setContractList(contractList);
   nurseRoster.setContractLineList(contractLineList);
+  nurseRoster.setPatternContractLineList(patternContractLineList);
 }
