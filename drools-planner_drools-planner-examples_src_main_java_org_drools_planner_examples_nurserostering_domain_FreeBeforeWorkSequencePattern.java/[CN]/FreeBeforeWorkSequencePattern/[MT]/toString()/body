@@ -1,3 +1,0 @@
-{
-  return "Free followed by " + workDayLength + " work days of "+ workShiftType+ " beginning on "+ firstWorkDayOfWeek;
-}

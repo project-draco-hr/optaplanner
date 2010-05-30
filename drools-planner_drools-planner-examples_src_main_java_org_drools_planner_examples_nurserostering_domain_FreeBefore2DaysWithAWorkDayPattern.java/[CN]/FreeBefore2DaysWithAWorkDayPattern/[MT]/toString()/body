@@ -1,0 +1,3 @@
+{
+  return "Free on " + freeDayOfWeek + " followed by a work day within 2 days";
+}

@@ -19,7 +19,10 @@
       }
       Pattern pattern;
       if (patternEntryElementList.get(0).getChild("ShiftType").getText().equals("None")) {
-        pattern=new FreeBeforeWorkSequencePattern();
+        pattern=new FreeBefore2DaysWithAWorkDayPattern();
+        if (patternEntryElementList.size() != 3) {
+          throw new IllegalStateException("boe");
+        }
       }
  else       if (patternEntryElementList.get(1).getChild("ShiftType").getText().equals("None")) {
         pattern=new WorkBeforeFreeSequencePattern();
@@ -88,21 +91,18 @@ if (firstDayOfweek != null) {
   }
 }
 }
-if (pattern instanceof FreeBeforeWorkSequencePattern) {
-FreeBeforeWorkSequencePattern castedPattern=(FreeBeforeWorkSequencePattern)pattern;
-if (patternEntryIndex == 1) {
+if (pattern instanceof FreeBefore2DaysWithAWorkDayPattern) {
+FreeBefore2DaysWithAWorkDayPattern castedPattern=(FreeBefore2DaysWithAWorkDayPattern)pattern;
+if (patternEntryIndex == 0) {
   if (dayOfWeek == null) {
     throw new UnsupportedOperationException("On patternEntryIndex (" + patternEntryIndex + ") of FreeBeforeWorkSequence pattern ("+ pattern.getCode()+ ") the dayOfWeek should not be (Any)."+ "\n None of the test data exhibits such a pattern.");
   }
-  castedPattern.setFirstWorkDayOfWeek(dayOfWeek);
+  castedPattern.setFreeDayOfWeek(dayOfWeek);
+}
+if (patternEntryIndex == 1) {
   if (shiftType != null) {
     throw new UnsupportedOperationException("On patternEntryIndex (" + patternEntryIndex + ") of FreeBeforeWorkSequence pattern ("+ pattern.getCode()+ ") the shiftType should be (Any)."+ "\n None of the test data exhibits such a pattern.");
   }
-  castedPattern.setWorkShiftType(shiftType);
-  castedPattern.setWorkDayLength(patternEntryElementList.size() - 1);
-}
-if (patternEntryIndex > 1 && shiftType != castedPattern.getWorkShiftType()) {
-  throw new IllegalArgumentException("On patternEntryIndex (" + patternEntryIndex + ") of FreeBeforeWorkSequence pattern ("+ pattern.getCode()+ ") the shiftType ("+ shiftType+ ") should be ("+ castedPattern.getWorkShiftType()+ ").");
 }
 if (patternEntryIndex != 0 && shiftTypeIsNone) {
   throw new IllegalArgumentException("On patternEntryIndex (" + patternEntryIndex + ") of FreeBeforeWorkSequence pattern ("+ pattern.getCode()+ ") the shiftType can not be (None).");
