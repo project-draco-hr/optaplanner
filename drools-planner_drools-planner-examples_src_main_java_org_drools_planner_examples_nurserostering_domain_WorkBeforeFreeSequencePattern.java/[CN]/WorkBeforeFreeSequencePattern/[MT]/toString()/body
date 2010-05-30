@@ -1,0 +1,3 @@
+{
+  return "Work " + workShiftType + " on "+ workDayOfWeek+ " followed by "+ freeDayLength+ " free days";
+}
