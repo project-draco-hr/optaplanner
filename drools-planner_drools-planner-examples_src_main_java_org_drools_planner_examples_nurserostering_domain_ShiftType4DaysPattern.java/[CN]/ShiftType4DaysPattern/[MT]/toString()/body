@@ -1,3 +1,0 @@
-{
-  return "Work starting on " + startDayOfWeek + " in sequence: "+ dayIndex0ShiftType+ ", "+ dayIndex1ShiftType+ ", "+ dayIndex2ShiftType+ ", "+ dayIndex3ShiftType;
-}

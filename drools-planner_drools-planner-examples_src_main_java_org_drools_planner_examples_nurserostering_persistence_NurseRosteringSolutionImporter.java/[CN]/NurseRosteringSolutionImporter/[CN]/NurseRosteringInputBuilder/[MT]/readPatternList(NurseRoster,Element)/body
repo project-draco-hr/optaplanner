@@ -33,11 +33,8 @@ case 2:
 case 3:
       pattern=new ShiftType3DaysPattern();
     break;
-case 4:
-  pattern=new ShiftType4DaysPattern();
-break;
 default :
-throw new IllegalArgumentException("A size of PatternEntries (" + patternEntryElementList.size() + ") of pattern ("+ code+ ") above 4 is not supported.");
+  throw new IllegalArgumentException("A size of PatternEntries (" + patternEntryElementList.size() + ") of pattern ("+ code+ ") above 3 is not supported.");
 }
 }
 pattern.setId(id);
@@ -62,7 +59,7 @@ shiftType=null;
 shiftTypeIsNone=false;
 shiftType=shiftTypeMap.get(shiftTypeElement.getText());
 if (shiftType == null) {
-throw new IllegalArgumentException("The shiftType (" + shiftTypeElement.getText() + ") of pattern ("+ pattern.getCode()+ ") does not exist.");
+  throw new IllegalArgumentException("The shiftType (" + shiftTypeElement.getText() + ") of pattern ("+ pattern.getCode()+ ") does not exist.");
 }
 }
 Element dayElement=patternEntryElement.getChild("Day");
@@ -73,7 +70,7 @@ dayOfWeek=null;
  else {
 dayOfWeek=DayOfWeek.valueOfCode(dayElement.getText());
 if (dayOfWeek == null) {
-throw new IllegalArgumentException("The dayOfWeek (" + dayElement.getText() + ") of pattern ("+ pattern.getCode()+ ") does not exist.");
+  throw new IllegalArgumentException("The dayOfWeek (" + dayElement.getText() + ") of pattern ("+ pattern.getCode()+ ") does not exist.");
 }
 }
 if (patternEntryIndex == 0) {
@@ -81,61 +78,60 @@ firstDayOfweek=dayOfWeek;
 }
  else {
 if (firstDayOfweek != null) {
-if (firstDayOfweek.getDistanceToNext(dayOfWeek) != patternEntryIndex) {
-throw new IllegalArgumentException("On patternEntryIndex (" + patternEntryIndex + ") of pattern ("+ pattern.getCode()+ ") the dayOfWeek ("+ dayOfWeek+ ") is not valid with previous entries.");
-}
+  if (firstDayOfweek.getDistanceToNext(dayOfWeek) != patternEntryIndex) {
+    throw new IllegalArgumentException("On patternEntryIndex (" + patternEntryIndex + ") of pattern ("+ pattern.getCode()+ ") the dayOfWeek ("+ dayOfWeek+ ") is not valid with previous entries.");
+  }
 }
  else {
-if (dayOfWeek != null) {
-throw new IllegalArgumentException("On patternEntryIndex (" + patternEntryIndex + ") of pattern ("+ pattern.getCode()+ ") the dayOfWeek should be (Any), in line with previous entries.");
-}
+  if (dayOfWeek != null) {
+    throw new IllegalArgumentException("On patternEntryIndex (" + patternEntryIndex + ") of pattern ("+ pattern.getCode()+ ") the dayOfWeek should be (Any), in line with previous entries.");
+  }
 }
 }
 if (pattern instanceof FreeBeforeWorkSequencePattern) {
 FreeBeforeWorkSequencePattern castedPattern=(FreeBeforeWorkSequencePattern)pattern;
 if (patternEntryIndex == 1) {
-if (dayOfWeek == null) {
-throw new UnsupportedOperationException("On patternEntryIndex (" + patternEntryIndex + ") of FreeBeforeWorkSequence pattern ("+ pattern.getCode()+ ") the dayOfWeek should not be (Any)."+ "\n None of the test data exhibits such a pattern.");
-}
-castedPattern.setFirstWorkDayOfWeek(dayOfWeek);
-if (shiftType != null) {
-throw new UnsupportedOperationException("On patternEntryIndex (" + patternEntryIndex + ") of FreeBeforeWorkSequence pattern ("+ pattern.getCode()+ ") the shiftType should be (Any)."+ "\n None of the test data exhibits such a pattern.");
-}
-castedPattern.setWorkShiftType(shiftType);
-castedPattern.setWorkDayLength(patternEntryElementList.size() - 1);
+  if (dayOfWeek == null) {
+    throw new UnsupportedOperationException("On patternEntryIndex (" + patternEntryIndex + ") of FreeBeforeWorkSequence pattern ("+ pattern.getCode()+ ") the dayOfWeek should not be (Any)."+ "\n None of the test data exhibits such a pattern.");
+  }
+  castedPattern.setFirstWorkDayOfWeek(dayOfWeek);
+  if (shiftType != null) {
+    throw new UnsupportedOperationException("On patternEntryIndex (" + patternEntryIndex + ") of FreeBeforeWorkSequence pattern ("+ pattern.getCode()+ ") the shiftType should be (Any)."+ "\n None of the test data exhibits such a pattern.");
+  }
+  castedPattern.setWorkShiftType(shiftType);
+  castedPattern.setWorkDayLength(patternEntryElementList.size() - 1);
 }
 if (patternEntryIndex > 1 && shiftType != castedPattern.getWorkShiftType()) {
-throw new IllegalArgumentException("On patternEntryIndex (" + patternEntryIndex + ") of FreeBeforeWorkSequence pattern ("+ pattern.getCode()+ ") the shiftType ("+ shiftType+ ") should be ("+ castedPattern.getWorkShiftType()+ ").");
+  throw new IllegalArgumentException("On patternEntryIndex (" + patternEntryIndex + ") of FreeBeforeWorkSequence pattern ("+ pattern.getCode()+ ") the shiftType ("+ shiftType+ ") should be ("+ castedPattern.getWorkShiftType()+ ").");
 }
 if (patternEntryIndex != 0 && shiftTypeIsNone) {
-throw new IllegalArgumentException("On patternEntryIndex (" + patternEntryIndex + ") of FreeBeforeWorkSequence pattern ("+ pattern.getCode()+ ") the shiftType can not be (None).");
+  throw new IllegalArgumentException("On patternEntryIndex (" + patternEntryIndex + ") of FreeBeforeWorkSequence pattern ("+ pattern.getCode()+ ") the shiftType can not be (None).");
 }
 }
  else if (pattern instanceof WorkBeforeFreeSequencePattern) {
 WorkBeforeFreeSequencePattern castedPattern=(WorkBeforeFreeSequencePattern)pattern;
 if (patternEntryIndex == 0) {
-castedPattern.setWorkDayOfWeek(dayOfWeek);
-castedPattern.setWorkShiftType(shiftType);
-castedPattern.setFreeDayLength(patternEntryElementList.size() - 1);
+  castedPattern.setWorkDayOfWeek(dayOfWeek);
+  castedPattern.setWorkShiftType(shiftType);
+  castedPattern.setFreeDayLength(patternEntryElementList.size() - 1);
 }
 if (patternEntryIndex != 0 && !shiftTypeIsNone) {
-throw new IllegalArgumentException("On patternEntryIndex (" + patternEntryIndex + ") of WorkBeforeFreeSequence pattern ("+ pattern.getCode()+ ") the shiftType should be (None).");
+  throw new IllegalArgumentException("On patternEntryIndex (" + patternEntryIndex + ") of WorkBeforeFreeSequence pattern ("+ pattern.getCode()+ ") the shiftType should be (None).");
 }
 }
  else if (pattern instanceof ShiftType2DaysPattern) {
 ShiftType2DaysPattern castedPattern=(ShiftType2DaysPattern)pattern;
 if (patternEntryIndex == 0) {
-if (dayOfWeek != null) {
-throw new UnsupportedOperationException("On patternEntryIndex (" + patternEntryIndex + ") of FreeBeforeWorkSequence pattern ("+ pattern.getCode()+ ") the dayOfWeek should be (Any)."+ "\n None of the test data exhibits such a pattern.");
-}
-castedPattern.setStartDayOfWeek(dayOfWeek);
+  if (dayOfWeek != null) {
+    throw new UnsupportedOperationException("On patternEntryIndex (" + patternEntryIndex + ") of FreeBeforeWorkSequence pattern ("+ pattern.getCode()+ ") the dayOfWeek should be (Any)."+ "\n None of the test data exhibits such a pattern.");
+  }
 }
 if (shiftType == null) {
-throw new UnsupportedOperationException("On patternEntryIndex (" + patternEntryIndex + ") of FreeBeforeWorkSequence pattern ("+ pattern.getCode()+ ") the shiftType should not be (Any)."+ "\n None of the test data exhibits such a pattern.");
+  throw new UnsupportedOperationException("On patternEntryIndex (" + patternEntryIndex + ") of FreeBeforeWorkSequence pattern ("+ pattern.getCode()+ ") the shiftType should not be (Any)."+ "\n None of the test data exhibits such a pattern.");
 }
 switch (patternEntryIndex) {
 case 0:
-castedPattern.setDayIndex0ShiftType(shiftType);
+  castedPattern.setDayIndex0ShiftType(shiftType);
 break;
 case 1:
 castedPattern.setDayIndex1ShiftType(shiftType);
@@ -145,7 +141,9 @@ break;
  else if (pattern instanceof ShiftType3DaysPattern) {
 ShiftType3DaysPattern castedPattern=(ShiftType3DaysPattern)pattern;
 if (patternEntryIndex == 0) {
-castedPattern.setStartDayOfWeek(dayOfWeek);
+if (dayOfWeek != null) {
+throw new UnsupportedOperationException("On patternEntryIndex (" + patternEntryIndex + ") of FreeBeforeWorkSequence pattern ("+ pattern.getCode()+ ") the dayOfWeek should be (Any)."+ "\n None of the test data exhibits such a pattern.");
+}
 }
 if (shiftType == null) {
 throw new UnsupportedOperationException("On patternEntryIndex (" + patternEntryIndex + ") of FreeBeforeWorkSequence pattern ("+ pattern.getCode()+ ") the shiftType should not be (Any)."+ "\n None of the test data exhibits such a pattern.");
@@ -159,29 +157,6 @@ castedPattern.setDayIndex1ShiftType(shiftType);
 break;
 case 2:
 castedPattern.setDayIndex2ShiftType(shiftType);
-break;
-}
-}
- else if (pattern instanceof ShiftType4DaysPattern) {
-ShiftType4DaysPattern castedPattern=(ShiftType4DaysPattern)pattern;
-if (patternEntryIndex == 0) {
-castedPattern.setStartDayOfWeek(dayOfWeek);
-}
-if (shiftType == null) {
-throw new UnsupportedOperationException("On patternEntryIndex (" + patternEntryIndex + ") of FreeBeforeWorkSequence pattern ("+ pattern.getCode()+ ") the shiftType should not be (Any)."+ "\n None of the test data exhibits such a pattern.");
-}
-switch (patternEntryIndex) {
-case 0:
-castedPattern.setDayIndex0ShiftType(shiftType);
-break;
-case 1:
-castedPattern.setDayIndex1ShiftType(shiftType);
-break;
-case 2:
-castedPattern.setDayIndex1ShiftType(shiftType);
-break;
-case 3:
-castedPattern.setDayIndex1ShiftType(shiftType);
 break;
 }
 }
