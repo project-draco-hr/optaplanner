@@ -1,5 +1,0 @@
-{
-  this.patternEntry=patternEntry;
-  this.employee=employee;
-  this.shiftDate=shiftDate;
-}

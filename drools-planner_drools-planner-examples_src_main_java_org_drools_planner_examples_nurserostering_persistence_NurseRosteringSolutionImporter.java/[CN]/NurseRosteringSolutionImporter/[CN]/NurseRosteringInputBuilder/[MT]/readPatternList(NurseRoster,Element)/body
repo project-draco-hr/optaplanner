@@ -1,16 +1,13 @@
 {
   List<Pattern> patternList;
-  List<PatternEntry> patternEntryList;
   if (patternsElement == null) {
     patternList=Collections.emptyList();
-    patternEntryList=Collections.emptyList();
   }
  else {
     List<Element> patternElementList=(List<Element>)patternsElement.getChildren();
     patternList=new ArrayList<Pattern>(patternElementList.size());
     patternMap=new HashMap<String,Pattern>(patternElementList.size());
     long id=0L;
-    patternEntryList=new ArrayList<PatternEntry>(patternElementList.size() * 3);
     long patternEntryId=0L;
     for (    Element element : patternElementList) {
       assertElementName(element,"Pattern");

@@ -1,3 +1,0 @@
-{
-  return pattern.getCode() + "-" + entryIndex+ ": "+ (shiftTypeWildcard == PatternEntryPropertyWildcard.SPECIFIC ? shiftType : shiftTypeWildcard)+ " on "+ (dayOfWeekWildcard == PatternEntryPropertyWildcard.SPECIFIC ? dayOfWeek : dayOfWeekWildcard);
-}

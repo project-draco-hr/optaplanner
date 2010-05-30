@@ -1,3 +1,0 @@
-{
-  return new HashCodeBuilder().append(patternEntry).append(employee).append(shiftDate).toHashCode();
-}
