@@ -2,8 +2,8 @@
   if (this == o) {
     return true;
   }
- else   if (o instanceof EmployeeFreeDaySequence) {
-    EmployeeFreeDaySequence other=(EmployeeFreeDaySequence)o;
+ else   if (o instanceof EmployeeFreeSequence) {
+    EmployeeFreeSequence other=(EmployeeFreeSequence)o;
     return new EqualsBuilder().append(employee,other.employee).append(firstDayIndex,other.firstDayIndex).append(lastDayIndex,other.lastDayIndex).isEquals();
   }
  else {
