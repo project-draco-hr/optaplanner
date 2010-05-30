@@ -1,13 +1,13 @@
 {
   System.out.println("EvaluatorHelper results for " + name);
-  int grandTotal=0;
+  penaltyTotal=0;
   if (lineContainsFilter != null) {
     System.out.println("with lineContainsFilter (" + lineContainsFilter + ")");
   }
   for (  Map.Entry<String,int[]> entry : costMap.entrySet()) {
     int[] cost=entry.getValue();
-    grandTotal+=cost[1];
+    penaltyTotal+=cost[1];
     System.out.println(entry.getKey() + " count = " + cost[0]+ " total = "+ cost[1]);
   }
-  System.out.println("Grand total: " + grandTotal);
+  System.out.println("The penaltyTotal: " + penaltyTotal);
 }

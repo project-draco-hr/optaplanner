@@ -6,26 +6,23 @@
  else {
     lineContainsFilter=DEFAULT_LINE_CONTAINS_FILTER;
   }
-  NurseRosteringApp nurseRosteringApp=new NurseRosteringApp();
-  SolutionBusiness solutionBusiness=nurseRosteringApp.createSolutionBusiness();
-  Process process=null;
-  try {
-    File inputFile=new File(solutionBusiness.getImportDataDir(),INPUT_FILE_PREFIX + ".xml").getCanonicalFile();
-    File outputFile=new File(solutionBusiness.getExportDataDir(),INPUT_FILE_PREFIX + OUTPUT_FILE_SUFFIX + ".xml").getCanonicalFile();
-    File evaluatorDir=new File("local/competition/nurserostering/");
-    String command="java -jar evaluator.jar " + inputFile.getAbsolutePath() + " "+ outputFile.getAbsolutePath();
-    process=Runtime.getRuntime().exec(command,null,evaluatorDir);
-    EvaluatorSummaryFilterOutputStream out=new EvaluatorSummaryFilterOutputStream(outputFile.getName(),lineContainsFilter);
-    IOUtils.copy(process.getInputStream(),out);
-    IOUtils.copy(process.getErrorStream(),System.err);
-    out.writeResults();
+  NurseRosteringEvaluatorHelper helper=new NurseRosteringEvaluatorHelper();
+  if (!ALL_INPUT_FILES) {
+    helper.evaluate(INPUT_FILE_PREFIX,OUTPUT_FILE_SUFFIX,lineContainsFilter);
   }
- catch (  IOException e) {
-    throw new IllegalStateException(e);
-  }
- finally {
-    if (process != null) {
-      process.destroy();
+ else {
+    File inputDir=helper.getImportDir();
+    File[] inputFiles=inputDir.listFiles();
+    if (inputFiles == null) {
+      throw new IllegalArgumentException("Your working dir should be drools-planner-examples and contain: " + inputDir);
+    }
+    Arrays.sort(inputFiles);
+    for (    File inputFile : inputFiles) {
+      String inputFileName=inputFile.getName();
+      if (inputFileName.endsWith(".xml")) {
+        String filePrefix=inputFileName.substring(0,inputFileName.lastIndexOf(".xml"));
+        helper.evaluate(filePrefix,OUTPUT_FILE_SUFFIX,lineContainsFilter);
+      }
     }
   }
 }

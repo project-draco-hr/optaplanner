@@ -1,0 +1,4 @@
+{
+  nurseRosteringApp=new NurseRosteringApp();
+  solutionBusiness=nurseRosteringApp.createSolutionBusiness();
+}
