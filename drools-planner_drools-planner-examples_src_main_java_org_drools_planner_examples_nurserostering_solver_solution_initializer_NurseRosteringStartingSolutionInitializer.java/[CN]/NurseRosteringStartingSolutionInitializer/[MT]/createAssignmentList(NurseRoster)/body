@@ -1,18 +1,21 @@
 {
-  List<Employee> employeeList=nurseRoster.getEmployeeList();
-  List<Assignment> assignmentList=new ArrayList<Assignment>(employeeList.size() * 5);
   List<Shift> shiftList=nurseRoster.getShiftList();
-  int employeeAssignmentId=0;
-  Random random=new Random();
+  List<ShiftDate> shiftDateList=nurseRoster.getShiftDateList();
+  List<ShiftInitializationWeight> shiftInitializationWeightList=new ArrayList<ShiftInitializationWeight>(shiftList.size());
   for (  Shift shift : shiftList) {
+    shiftInitializationWeightList.add(new ShiftInitializationWeight(nurseRoster,shift));
+  }
+  Collections.sort(shiftInitializationWeightList);
+  List<Assignment> assignmentList=new ArrayList<Assignment>(shiftDateList.size() * nurseRoster.getEmployeeList().size());
+  int assignmentId=0;
+  for (  ShiftInitializationWeight shiftInitializationWeight : shiftInitializationWeightList) {
+    Shift shift=shiftInitializationWeight.getShift();
     for (int i=0; i < shift.getRequiredEmployeeSize(); i++) {
       Assignment assignment=new Assignment();
-      assignment.setId((long)employeeAssignmentId);
-      employeeAssignmentId++;
+      assignment.setId((long)assignmentId);
       assignment.setShift(shift);
-      int randomInt=random.nextInt(employeeList.size());
-      assignment.setEmployee(employeeList.get(randomInt));
       assignmentList.add(assignment);
+      assignmentId++;
     }
   }
   return assignmentList;
