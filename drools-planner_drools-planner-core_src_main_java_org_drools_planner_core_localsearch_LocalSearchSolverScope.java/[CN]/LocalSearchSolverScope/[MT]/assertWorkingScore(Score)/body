@@ -9,6 +9,6 @@
   Score realScore=tmpScoreCalculator.calculateScore();
   tmpWorkingMemory.dispose();
   if (!presumedScore.equals(realScore)) {
-    throw new IllegalStateException("The presumedScore (" + presumedScore + ") is corrupted because it is not the realScore  ("+ realScore+ ").\n"+ buildConstraintOccurrenceSummary());
+    throw new IllegalStateException("The presumedScore (" + presumedScore + ") is corrupted because it is not the realScore  ("+ realScore+ ").\n"+ "Presumed workingMemory:\n"+ buildConstraintOccurrenceSummary(workingMemory)+ "Real workingMemory:\n"+ buildConstraintOccurrenceSummary(tmpWorkingMemory));
   }
 }
