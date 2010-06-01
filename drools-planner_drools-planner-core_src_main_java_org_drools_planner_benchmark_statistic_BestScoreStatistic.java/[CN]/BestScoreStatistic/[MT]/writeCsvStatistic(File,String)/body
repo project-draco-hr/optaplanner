@@ -15,9 +15,9 @@
         writer.append(",");
         Score score=timeToBestScoresLine.getConfigNameToScoreMap().get(configName);
         if (score != null) {
-          Integer scoreAlias=extractScoreAlias(score);
-          if (scoreAlias != null) {
-            writer.append(scoreAlias.toString());
+          Double scoreGraphValue=scoreDefinition.translateScoreToGraphValue(score);
+          if (scoreGraphValue != null) {
+            writer.append(scoreGraphValue.toString());
           }
         }
       }

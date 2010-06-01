@@ -1,0 +1,24 @@
+{
+  DefaultCategoryDataset dataset=new DefaultCategoryDataset();
+  for (  SolverBenchmark solverBenchmark : solverBenchmarkList) {
+    ScoreDefinition scoreDefinition=solverBenchmark.getLocalSearchSolverConfig().getScoreDefinitionConfig().buildScoreDefinition();
+    for (    SolverBenchmarkResult result : solverBenchmark.getSolverBenchmarkResultList()) {
+      Double scoreGraphValue=scoreDefinition.translateScoreToGraphValue(result.getScore());
+      dataset.addValue(scoreGraphValue,solverBenchmark.getName(),result.getUnsolvedSolutionFile().getName());
+    }
+  }
+  JFreeChart chart=ChartFactory.createBarChart("Best score summary","Data","Score",dataset,PlotOrientation.VERTICAL,true,true,false);
+  BufferedImage chartImage=chart.createBufferedImage(800,600);
+  File chartSummaryFile=new File(solverStatisticFilesDirectory,"summary.png");
+  OutputStream out=null;
+  try {
+    out=new FileOutputStream(chartSummaryFile);
+    ImageIO.write(chartImage,"png",out);
+  }
+ catch (  IOException e) {
+    throw new IllegalArgumentException("Problem writing graphStatisticFile: " + chartSummaryFile,e);
+  }
+ finally {
+    IOUtils.closeQuietly(out);
+  }
+}

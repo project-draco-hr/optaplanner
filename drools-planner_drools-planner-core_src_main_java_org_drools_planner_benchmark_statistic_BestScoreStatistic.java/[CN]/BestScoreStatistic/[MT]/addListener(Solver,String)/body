@@ -6,4 +6,12 @@
   BestScoreStatisticListener bestScoreStatisticListener=new BestScoreStatisticListener();
   solver.addEventListener(bestScoreStatisticListener);
   bestScoreStatisticListenerMap.put(configName,bestScoreStatisticListener);
+  if (scoreDefinition == null) {
+    scoreDefinition=solver.getScoreDefinition();
+  }
+ else {
+    if (!scoreDefinition.getClass().equals(solver.getScoreDefinition().getClass())) {
+      throw new IllegalStateException("The scoreDefinition (" + solver.getScoreDefinition() + ") should be of the same class as the other scoreDefinition ("+ scoreDefinition+ ")");
+    }
+  }
 }

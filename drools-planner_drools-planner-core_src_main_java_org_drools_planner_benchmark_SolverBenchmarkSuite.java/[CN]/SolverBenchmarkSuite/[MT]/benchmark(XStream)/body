@@ -39,6 +39,7 @@
       writeSolvedSolution(xStream,solverBenchmark,result,solvedSolution);
     }
   }
+  writeGraphSummary();
   if (solverStatisticType != SolverStatisticType.NONE) {
     List<CharSequence> htmlFragments=new ArrayList<CharSequence>(unsolvedSolutionFileToStatisticMap.size());
     for (    Map.Entry<File,SolverStatistic> entry : unsolvedSolutionFileToStatisticMap.entrySet()) {

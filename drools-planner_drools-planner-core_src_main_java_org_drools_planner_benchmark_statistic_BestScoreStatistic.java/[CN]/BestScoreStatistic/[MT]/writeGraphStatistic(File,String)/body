@@ -7,9 +7,9 @@
     for (    BestScoreStatisticPoint statisticPoint : statisticPointList) {
       long timeMillisSpend=statisticPoint.getTimeMillisSpend();
       Score score=statisticPoint.getScore();
-      Integer scoreAlias=extractScoreAlias(score);
-      if (scoreAlias != null) {
-        configSeries.add(timeMillisSpend,scoreAlias);
+      Double scoreGraphValue=scoreDefinition.translateScoreToGraphValue(score);
+      if (scoreGraphValue != null) {
+        configSeries.add(timeMillisSpend,scoreGraphValue);
       }
     }
     seriesCollection.addSeries(configSeries);
