@@ -7,7 +7,7 @@
       dataset.addValue(scoreGraphValue,solverBenchmark.getName(),result.getUnsolvedSolutionFile().getName());
     }
   }
-  JFreeChart chart=ChartFactory.createBarChart("Best score summary","Data","Score",dataset,PlotOrientation.VERTICAL,true,true,false);
+  JFreeChart chart=ChartFactory.createBarChart("Best score summary (higher is better)","Data","Score",dataset,PlotOrientation.VERTICAL,true,true,false);
   BufferedImage chartImage=chart.createBufferedImage(800,600);
   File chartSummaryFile=new File(solverStatisticFilesDirectory,"summary.png");
   OutputStream out=null;
