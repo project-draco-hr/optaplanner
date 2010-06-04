@@ -41,17 +41,18 @@
   }
   writeGraphSummary();
   if (solverStatisticType != SolverStatisticType.NONE) {
-    List<CharSequence> htmlFragments=new ArrayList<CharSequence>(unsolvedSolutionFileToStatisticMap.size());
+    StringBuilder htmlFragment=new StringBuilder(unsolvedSolutionFileToStatisticMap.size() * 160);
+    htmlFragment.append("  <h1>Summary</h1>\n");
+    htmlFragment.append(writeGraphSummary()).append("\n");
+    htmlFragment.append("  <h1>Statistic ").append(solverStatisticType.toString()).append("</h1>\n");
     for (    Map.Entry<File,SolverStatistic> entry : unsolvedSolutionFileToStatisticMap.entrySet()) {
       File unsolvedSolutionFile=entry.getKey();
       SolverStatistic statistic=entry.getValue();
       String baseName=FilenameUtils.getBaseName(unsolvedSolutionFile.getName());
-      StringBuilder htmlFragment=new StringBuilder();
-      htmlFragment.append("  <h2>").append(baseName).append("</h2>");
-      htmlFragment.append(statistic.writeStatistic(solverStatisticFilesDirectory,baseName));
-      htmlFragments.add(htmlFragment);
+      htmlFragment.append("  <h2>").append(baseName).append("</h2>\n");
+      htmlFragment.append(statistic.writeStatistic(solverStatisticFilesDirectory,baseName)).append("\n");
     }
-    writeHtmlOverview(htmlFragments);
+    writeHtmlOverview(htmlFragment);
   }
   benchmarkingEnded();
 }

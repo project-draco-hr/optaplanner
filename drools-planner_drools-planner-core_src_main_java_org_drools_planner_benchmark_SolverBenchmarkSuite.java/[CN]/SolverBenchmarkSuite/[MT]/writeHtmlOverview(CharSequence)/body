@@ -8,10 +8,7 @@
     writer.append("  <title>Statistic</title>\n");
     writer.append("</head>\n");
     writer.append("<body>\n");
-    writer.append("  <h1>Statistic ").append(solverStatisticType.toString()).append("</h1>\n");
-    for (    CharSequence htmlFragment : htmlFragments) {
-      writer.append(htmlFragment);
-    }
+    writer.append(htmlFragment);
     writer.append("</body>\n");
     writer.append("</html>\n");
   }

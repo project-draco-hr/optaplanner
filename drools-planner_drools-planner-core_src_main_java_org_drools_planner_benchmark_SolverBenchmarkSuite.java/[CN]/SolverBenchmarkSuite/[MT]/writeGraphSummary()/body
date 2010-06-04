@@ -21,4 +21,5 @@
  finally {
     IOUtils.closeQuietly(out);
   }
+  return "  <img src=\"" + chartSummaryFile.getName() + "\"/>";
 }
