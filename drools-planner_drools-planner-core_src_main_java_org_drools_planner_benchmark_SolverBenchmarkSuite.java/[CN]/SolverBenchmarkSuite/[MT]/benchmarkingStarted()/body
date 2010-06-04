@@ -28,4 +28,16 @@
     solverBenchmark.setName(generatedName);
     generatedNameIndex++;
   }
+  if (benchmarkDirectory == null) {
+    throw new IllegalArgumentException("The benchmarkDirectory (" + benchmarkDirectory + ") must not be null.");
+  }
+  benchmarkDirectory.mkdirs();
+  if (solvedSolutionFilesDirectory == null) {
+    solvedSolutionFilesDirectory=new File(benchmarkDirectory,"solved");
+  }
+  solvedSolutionFilesDirectory.mkdirs();
+  if (solverStatisticFilesDirectory == null) {
+    solverStatisticFilesDirectory=new File(benchmarkDirectory,"statistic");
+  }
+  solverStatisticFilesDirectory.mkdirs();
 }
