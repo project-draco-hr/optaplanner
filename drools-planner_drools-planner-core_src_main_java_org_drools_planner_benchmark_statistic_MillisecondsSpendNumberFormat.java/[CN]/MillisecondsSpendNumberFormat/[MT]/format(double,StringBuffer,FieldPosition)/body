@@ -1,0 +1,3 @@
+{
+  return format((long)number,toAppendTo,pos);
+}
