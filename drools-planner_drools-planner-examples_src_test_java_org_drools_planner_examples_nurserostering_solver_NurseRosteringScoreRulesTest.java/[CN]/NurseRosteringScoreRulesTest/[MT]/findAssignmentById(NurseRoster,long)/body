@@ -1,5 +1,5 @@
 {
-  for (  Assignment assignment : nurseRoster.getEmployeeAssignmentList()) {
+  for (  Assignment assignment : nurseRoster.getAssignmentList()) {
     if (assignment.getId() == id) {
       return assignment;
     }

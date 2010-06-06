@@ -7,10 +7,10 @@
   WorkingMemory workingMemory=localSearchSolverScope.getWorkingMemory();
   Score firstScore=localSearchSolverScope.calculateScoreFromWorkingMemory();
   Employee leftEmployee=findEmployeeById(nurseRoster,0L);
-  Assignment leftAssignment=findEmployeeAssignmentById(nurseRoster,200204001L);
+  Assignment leftAssignment=findAssignmentById(nurseRoster,200204001L);
   assertEquals(leftEmployee,leftAssignment.getEmployee());
   Employee rightEmployee=findEmployeeById(nurseRoster,12L);
-  Assignment rightAssignment=findEmployeeAssignmentById(nurseRoster,200204002L);
+  Assignment rightAssignment=findAssignmentById(nurseRoster,200204002L);
   assertEquals(rightEmployee,rightAssignment.getEmployee());
   NurseRosterMoveHelper.moveEmployee(workingMemory,leftAssignment,rightEmployee);
   NurseRosterMoveHelper.moveEmployee(workingMemory,rightAssignment,leftEmployee);

@@ -34,10 +34,10 @@
     }
   }
   if (schedule.isInitialized()) {
-    for (    Assignment assignment : schedule.getEmployeeAssignmentList()) {
+    for (    Assignment assignment : schedule.getAssignmentList()) {
       Employee employee=assignment.getEmployee();
       EmployeeShiftDatePanel employeeShiftDatePanel=employeeShiftDatePanelMap.get(employee).get(assignment.getShiftDate());
-      employeeShiftDatePanel.addEmployeeAssignment(assignment);
+      employeeShiftDatePanel.addAssignment(assignment);
     }
   }
 }

@@ -29,5 +29,5 @@
     logger.debug("    Assignment ({}) initialized for starting solution.",assignment);
   }
   Collections.sort(assignmentList,new PersistableIdComparator());
-  nurseRoster.setEmployeeAssignmentList(assignmentList);
+  nurseRoster.setAssignmentList(assignmentList);
 }

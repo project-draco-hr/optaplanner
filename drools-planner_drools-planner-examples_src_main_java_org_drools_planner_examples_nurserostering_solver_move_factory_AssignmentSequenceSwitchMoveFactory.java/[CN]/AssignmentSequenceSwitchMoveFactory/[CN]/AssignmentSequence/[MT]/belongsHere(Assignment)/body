@@ -1,0 +1,3 @@
+{
+  return assignment.getShiftDateDayIndex() <= (lastDayIndex + 1);
+}
