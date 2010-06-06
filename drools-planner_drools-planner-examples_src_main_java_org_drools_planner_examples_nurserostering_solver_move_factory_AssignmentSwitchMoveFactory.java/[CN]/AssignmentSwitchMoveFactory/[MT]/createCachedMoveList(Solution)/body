@@ -6,7 +6,7 @@
     Assignment leftAssignment=leftIt.next();
     for (ListIterator<Assignment> rightIt=assignmentList.listIterator(leftIt.nextIndex()); rightIt.hasNext(); ) {
       Assignment rightAssignment=rightIt.next();
-      moveList.add(new EmployeeAssignmentSwitchMove(leftAssignment,rightAssignment));
+      moveList.add(new AssignmentSwitchMove(leftAssignment,rightAssignment));
     }
   }
   return moveList;
