@@ -6,6 +6,9 @@
   cancelSolvingAction=new CancelSolvingAction();
   cancelSolvingAction.setEnabled(false);
   panel.add(new JButton(cancelSolvingAction));
+  openAction=new OpenAction();
+  openAction.setEnabled(true);
+  panel.add(new JButton(openAction));
   saveAction=new SaveAction();
   saveAction.setEnabled(false);
   panel.add(new JButton(saveAction));

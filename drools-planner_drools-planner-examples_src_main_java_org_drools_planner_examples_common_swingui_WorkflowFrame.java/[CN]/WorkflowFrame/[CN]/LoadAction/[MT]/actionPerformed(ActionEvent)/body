@@ -1,4 +1,4 @@
 {
-  solutionBusiness.loadSolution(file);
+  solutionBusiness.openSolution(file);
   setSolutionLoaded();
 }
