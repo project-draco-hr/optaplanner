@@ -6,7 +6,7 @@
   String baseName=FilenameUtils.getBaseName(result.getUnsolvedSolutionFile().getName());
   String solverBenchmarkName=solverBenchmark.getName().replaceAll(" ","_").replaceAll("[^\\w\\d_\\-]","");
   String scoreString=result.getScore().toString().replaceAll("[\\/ ]","_");
-  String timeString=TIME_FORMAT.format(result.getTimeMillesSpend()) + "ms";
+  String timeString=TIME_FORMAT.format(result.getTimeMillisSpend()) + "ms";
   solvedSolutionFile=new File(solvedSolutionFilesDirectory,baseName + "_" + solverBenchmarkName+ "_score"+ scoreString+ "_time"+ timeString+ ".xml");
   Writer writer=null;
   try {

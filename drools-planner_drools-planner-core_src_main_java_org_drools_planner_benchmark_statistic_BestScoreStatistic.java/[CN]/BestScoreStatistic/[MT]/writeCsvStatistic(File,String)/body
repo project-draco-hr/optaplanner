@@ -30,5 +30,5 @@
  finally {
     IOUtils.closeQuietly(writer);
   }
-  return "  <p><a href=\"" + csvStatisticFile.getName() + "\">CVS file</a></p>";
+  return "  <p><a href=\"" + csvStatisticFile.getName() + "\">CVS file</a></p>\n";
 }
