@@ -1,14 +1,5 @@
 {
   JFileChooser fileChooser=new JFileChooser(solutionBusiness.getExportDataDir());
-  fileChooser.setFileFilter(new FileFilter(){
-    public boolean accept(    File file){
-      return file.isDirectory() || file.getName().endsWith(".xml");
-    }
-    public String getDescription(){
-      return "Solver xml files";
-    }
-  }
-);
   int approved=fileChooser.showSaveDialog(WorkflowFrame.this);
   if (approved == JFileChooser.APPROVE_OPTION) {
     solutionBusiness.exportSolution(fileChooser.getSelectedFile());
