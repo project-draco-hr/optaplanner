@@ -1,4 +1,5 @@
 {
+  this.employee=employee;
   assignmentList=new ArrayList<Assignment>();
   assignmentList.add(assignment);
   firstDayIndex=assignment.getShiftDateDayIndex();

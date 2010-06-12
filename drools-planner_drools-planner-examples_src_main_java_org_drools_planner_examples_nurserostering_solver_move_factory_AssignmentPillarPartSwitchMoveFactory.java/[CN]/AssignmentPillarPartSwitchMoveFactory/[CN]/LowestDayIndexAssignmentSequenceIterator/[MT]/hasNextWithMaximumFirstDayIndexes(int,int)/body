@@ -1,0 +1,14 @@
+{
+  if (!hasNext()) {
+    return false;
+  }
+  boolean nextIsLeft=nextIsLeft();
+  if (nextIsLeft) {
+    int firstDayIndex=nextLeft.getFirstDayIndex();
+    return firstDayIndex > leftMinimumFirstDayIndex && firstDayIndex <= rightMinimumFirstDayIndex;
+  }
+ else {
+    int firstDayIndex=nextRight.getFirstDayIndex();
+    return firstDayIndex > rightMinimumFirstDayIndex && firstDayIndex <= leftMinimumFirstDayIndex;
+  }
+}

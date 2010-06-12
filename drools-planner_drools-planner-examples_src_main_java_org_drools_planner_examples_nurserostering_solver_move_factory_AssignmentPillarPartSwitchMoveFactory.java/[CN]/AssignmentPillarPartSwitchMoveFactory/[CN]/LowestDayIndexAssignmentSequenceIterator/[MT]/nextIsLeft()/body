@@ -1,0 +1,22 @@
+{
+  boolean returnLeft;
+  if (leftHasNext) {
+    if (rightHasNext) {
+      int leftFirstDayIndex=nextLeft.getFirstDayIndex();
+      int rightFirstDayIndex=nextRight.getFirstDayIndex();
+      returnLeft=leftFirstDayIndex <= rightFirstDayIndex;
+    }
+ else {
+      returnLeft=true;
+    }
+  }
+ else {
+    if (rightHasNext) {
+      returnLeft=false;
+    }
+ else {
+      throw new NoSuchElementException();
+    }
+  }
+  return returnLeft;
+}
