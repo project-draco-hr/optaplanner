@@ -1,5 +1,0 @@
-{
-  assignmentList=new ArrayList<Assignment>();
-  firstDayIndex=assignment.getShiftDateDayIndex();
-  lastDayIndex=firstDayIndex;
-}
