@@ -1,5 +1,5 @@
 {
-  super(COMPETITION_LOGGING_CONFIG);
+  super();
   inputDir=new File("input");
   if (!inputDir.exists()) {
     throw new IllegalArgumentException("The input directory  (" + inputDir + ") does not exist.");
