@@ -1,0 +1,7 @@
+{
+  List<Score> aScoreList=a.getScoreList();
+  Collections.sort(aScoreList);
+  List<Score> bScoreList=b.getScoreList();
+  Collections.sort(bScoreList);
+  return new CompareToBuilder().append(bScoreList.toArray(),aScoreList.toArray()).toComparison();
+}

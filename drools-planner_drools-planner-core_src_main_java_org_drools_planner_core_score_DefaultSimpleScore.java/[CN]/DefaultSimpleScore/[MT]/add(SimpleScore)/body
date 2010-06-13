@@ -1,3 +1,3 @@
 {
-  return new DefaultSimpleScore(this.score + augend.getScore());
+  return new DefaultSimpleScore(this.score + augment.getScore());
 }

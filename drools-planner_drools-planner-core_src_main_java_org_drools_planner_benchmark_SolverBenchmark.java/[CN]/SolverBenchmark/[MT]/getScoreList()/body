@@ -1,0 +1,7 @@
+{
+  List<Score> scoreList=new ArrayList<Score>(solverBenchmarkResultList.size());
+  for (  SolverBenchmarkResult solverBenchmarkResult : solverBenchmarkResultList) {
+    scoreList.add(solverBenchmarkResult.getScore());
+  }
+  return scoreList;
+}
