@@ -14,5 +14,5 @@
  else {
     maximumSecondsSpend=DEFAULT_TIME_SECONDS_SPEND;
   }
-  new NurseRosteringCompetitionSprintApp(maximumSecondsSpend).solve();
+  new NurseRosteringCompetitionMediumApp(maximumSecondsSpend).solve();
 }
