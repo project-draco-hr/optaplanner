@@ -4,6 +4,7 @@
       solverBenchmarkComparator=new AverageScoreSolverBenchmarkComparator();
     }
     Collections.sort(solverBenchmarkList,solverBenchmarkComparator);
+    Collections.reverse(solverBenchmarkList);
   }
   writeBestScoreSummary();
   StringBuilder htmlFragment=new StringBuilder(unsolvedSolutionFileToStatisticMap.size() * 160);

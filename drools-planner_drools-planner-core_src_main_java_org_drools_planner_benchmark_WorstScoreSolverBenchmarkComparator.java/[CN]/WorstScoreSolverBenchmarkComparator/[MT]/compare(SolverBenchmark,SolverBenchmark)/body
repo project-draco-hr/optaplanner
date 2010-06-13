@@ -3,5 +3,5 @@
   Collections.sort(aScoreList);
   List<Score> bScoreList=b.getScoreList();
   Collections.sort(bScoreList);
-  return new CompareToBuilder().append(bScoreList.toArray(),aScoreList.toArray()).toComparison();
+  return new CompareToBuilder().append(aScoreList.toArray(),bScoreList.toArray()).toComparison();
 }
