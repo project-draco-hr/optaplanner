@@ -1,2 +1,2 @@
-int leftMinimumLastNightIndex
-int rightMinimumLastNightIndex
+int leftMinimumFirstNightIndex
+int rightMinimumFirstNightIndex

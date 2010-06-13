@@ -37,27 +37,27 @@
         List<Move> moveListByPillarPartDuo=new ArrayList<Move>(leftBedDesignationList.size() + rightBedDesignationList.size());
         int lastNightIndex=pillarPartBedDesignation.getAdmissionPart().getLastNight().getIndex();
         Bed otherBed;
-        int leftMinimumLastNightIndex=Integer.MIN_VALUE;
-        int rightMinimumLastNightIndex=Integer.MIN_VALUE;
+        int leftMinimumFirstNightIndex=Integer.MIN_VALUE;
+        int rightMinimumFirstNightIndex=Integer.MIN_VALUE;
         if (lowestIt.isLastNextWasLeft()) {
           otherBed=rightBed;
-          leftMinimumLastNightIndex=lastNightIndex;
+          leftMinimumFirstNightIndex=lastNightIndex;
         }
  else {
           otherBed=leftBed;
-          rightMinimumLastNightIndex=lastNightIndex;
+          rightMinimumFirstNightIndex=lastNightIndex;
         }
         moveListByPillarPartDuo.add(new BedChangeMove(pillarPartBedDesignation,otherBed));
-        while (lowestIt.hasNextWithMaximumFirstNightIndexes(leftMinimumLastNightIndex,rightMinimumLastNightIndex)) {
+        while (lowestIt.hasNextWithMaximumFirstNightIndexes(leftMinimumFirstNightIndex,rightMinimumFirstNightIndex)) {
           pillarPartBedDesignation=lowestIt.next();
           lastNightIndex=pillarPartBedDesignation.getAdmissionPart().getLastNight().getIndex();
           if (lowestIt.isLastNextWasLeft()) {
             otherBed=rightBed;
-            leftMinimumLastNightIndex=Math.max(leftMinimumLastNightIndex,lastNightIndex);
+            leftMinimumFirstNightIndex=Math.max(leftMinimumFirstNightIndex,lastNightIndex);
           }
  else {
             otherBed=leftBed;
-            rightMinimumLastNightIndex=Math.max(rightMinimumLastNightIndex,lastNightIndex);
+            rightMinimumFirstNightIndex=Math.max(rightMinimumFirstNightIndex,lastNightIndex);
           }
           moveListByPillarPartDuo.add(new BedChangeMove(pillarPartBedDesignation,otherBed));
         }

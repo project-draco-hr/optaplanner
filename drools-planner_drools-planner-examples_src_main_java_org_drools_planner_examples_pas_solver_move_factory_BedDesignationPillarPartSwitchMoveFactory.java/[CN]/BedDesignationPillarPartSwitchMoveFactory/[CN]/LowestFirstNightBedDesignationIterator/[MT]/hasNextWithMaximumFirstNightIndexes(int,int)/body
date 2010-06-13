@@ -5,10 +5,10 @@
   boolean nextIsLeft=nextIsLeft();
   if (nextIsLeft) {
     int firstNightIndex=nextLeft.getAdmissionPart().getFirstNight().getIndex();
-    return firstNightIndex > leftMinimumLastNightIndex && firstNightIndex <= rightMinimumLastNightIndex;
+    return firstNightIndex > leftMinimumFirstNightIndex && firstNightIndex <= rightMinimumFirstNightIndex;
   }
  else {
     int firstNightIndex=nextRight.getAdmissionPart().getFirstNight().getIndex();
-    return firstNightIndex > rightMinimumLastNightIndex && firstNightIndex <= leftMinimumLastNightIndex;
+    return firstNightIndex > rightMinimumFirstNightIndex && firstNightIndex <= leftMinimumFirstNightIndex;
   }
 }
