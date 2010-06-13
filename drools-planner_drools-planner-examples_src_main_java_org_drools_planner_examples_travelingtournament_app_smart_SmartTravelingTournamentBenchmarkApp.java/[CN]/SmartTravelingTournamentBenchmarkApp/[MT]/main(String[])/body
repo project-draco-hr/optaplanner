@@ -6,5 +6,5 @@
  else {
     solverBenchmarkConfig=SOLVER_BENCHMARK_CONFIG;
   }
-  new SmartTravelingTournamentBenchmarkApp(solverBenchmarkConfig,SOLVER_BENCHMARK_RESULT_FILE).process();
+  new SmartTravelingTournamentBenchmarkApp(solverBenchmarkConfig).process();
 }

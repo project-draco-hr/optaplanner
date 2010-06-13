@@ -20,5 +20,5 @@
  else {
     solverConfig=MEDIUM_SOLVER_BENCHMARK_CONFIG;
   }
-  new NurseRosteringBenchmarkApp(solverConfig,SOLVER_BENCHMARK_RESULT_FILE).process();
+  new NurseRosteringBenchmarkApp(solverConfig).process();
 }

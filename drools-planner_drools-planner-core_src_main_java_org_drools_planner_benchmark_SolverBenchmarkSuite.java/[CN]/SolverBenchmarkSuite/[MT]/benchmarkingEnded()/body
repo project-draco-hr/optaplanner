@@ -1,8 +1,0 @@
-{
-  if (sortSolverBenchmarks) {
-    if (solverBenchmarkComparator == null) {
-      solverBenchmarkComparator=new AverageScoreSolverBenchmarkComparator();
-    }
-    Collections.sort(solverBenchmarkList,solverBenchmarkComparator);
-  }
-}

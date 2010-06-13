@@ -6,5 +6,5 @@
  else {
     solverConfig=DEFAULT_SOLVER_BENCHMARK_CONFIG;
   }
-  new PatientAdmissionScheduleBenchmarkApp(solverConfig,SOLVER_BENCHMARK_RESULT_FILE).process();
+  new PatientAdmissionScheduleBenchmarkApp(solverConfig).process();
 }

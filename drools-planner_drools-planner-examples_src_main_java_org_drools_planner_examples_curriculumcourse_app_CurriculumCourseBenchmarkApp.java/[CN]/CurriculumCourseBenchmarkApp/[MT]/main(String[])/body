@@ -14,5 +14,5 @@
  else {
     solverConfig=DEFAULT_SOLVER_BENCHMARK_CONFIG;
   }
-  new CurriculumCourseBenchmarkApp(solverConfig,SOLVER_BENCHMARK_RESULT_FILE).process();
+  new CurriculumCourseBenchmarkApp(solverConfig).process();
 }

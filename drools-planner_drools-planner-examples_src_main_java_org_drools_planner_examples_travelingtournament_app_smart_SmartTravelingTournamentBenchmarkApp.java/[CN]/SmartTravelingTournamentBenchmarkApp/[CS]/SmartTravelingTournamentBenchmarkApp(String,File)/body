@@ -1,3 +1,0 @@
-{
-  super(solverBenchmarkConfig,resultFile,TravelingTournament.class);
-}
