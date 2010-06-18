@@ -2,5 +2,6 @@
   workingMemory.fireAllRules();
   Score score=workingScoreCalculator.calculateScore();
   workingSolution.setScore(score);
+  calculateCount++;
   return score;
 }

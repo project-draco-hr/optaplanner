@@ -2,5 +2,7 @@
   bestSolutionRecaller.solvingEnded(localSearchSolverScope);
   termination.solvingEnded(localSearchSolverScope);
   decider.solvingEnded(localSearchSolverScope);
-  logger.info("Solved at step index ({}) with time spend ({}) for best score ({}).",new Object[]{localSearchSolverScope.getLastCompletedStepScope().getStepIndex(),localSearchSolverScope.calculateTimeMillisSpend(),localSearchSolverScope.getBestScore()});
+  long timeMillisSpend=localSearchSolverScope.calculateTimeMillisSpend();
+  long averageCalculateCountPerSecond=localSearchSolverScope.getCalculateCount() * 1000L / timeMillisSpend;
+  logger.info("Solved at step index ({}) with time spend ({}) for best score ({})" + " with average calculate count per second ({}).",new Object[]{localSearchSolverScope.getLastCompletedStepScope().getStepIndex(),timeMillisSpend,localSearchSolverScope.getBestScore(),averageCalculateCountPerSecond});
 }

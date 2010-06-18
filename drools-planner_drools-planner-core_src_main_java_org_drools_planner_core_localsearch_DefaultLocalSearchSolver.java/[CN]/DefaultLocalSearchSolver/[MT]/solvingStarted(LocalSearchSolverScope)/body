@@ -1,5 +1,5 @@
 {
-  localSearchSolverScope.resetTimeMillisSpend();
+  localSearchSolverScope.reset();
   if (randomSeed != null) {
     logger.info("Solving with random seed ({}).",randomSeed);
     localSearchSolverScope.setWorkingRandom(new Random(randomSeed));
