@@ -1,6 +1,6 @@
 {
   acceptedMoveScopeComparator.setDeciderScoreComparator(stepScope.getDeciderScoreComparator());
-  acceptedList=new ArrayList<MoveScope>();
+  acceptedList=new ArrayList<MoveScope>(1024);
   listSorted=false;
   maxScore=stepScope.getLocalSearchSolverScope().getScoreDefinition().getPerfectMinimumScore();
   acceptChanceMaxScoreTotal=0.0;
