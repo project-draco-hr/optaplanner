@@ -1,0 +1,5 @@
+{
+  super.stepTaken(stepScope);
+  double timeGradient=stepScope.getTimeGradient();
+  temperature=startingTemperature * timeGradient;
+}

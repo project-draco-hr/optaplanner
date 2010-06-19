@@ -1,6 +1,9 @@
 {
-  if (startingTemperature < 0.0) {
-    throw new IllegalArgumentException("The startingTemperature (" + startingTemperature + ") cannot be negative.");
+  if (startingTemperature <= 0.0) {
+    throw new IllegalArgumentException("The startingTemperature (" + startingTemperature + ") cannot be negative or zero.");
+  }
+  if (temperatureSurvival <= 0.0) {
+    throw new IllegalArgumentException("The temperatureSurvival (" + temperatureSurvival + ") cannot be negative or zero.");
   }
   temperature=startingTemperature;
 }

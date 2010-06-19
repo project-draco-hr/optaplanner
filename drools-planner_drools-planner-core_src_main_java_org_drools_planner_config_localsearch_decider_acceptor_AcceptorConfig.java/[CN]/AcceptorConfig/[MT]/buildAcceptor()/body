@@ -61,6 +61,9 @@ catch (    IllegalAccessException e) {
     if (simulatedAnnealingStartingTemperature != null) {
       simulatedAnnealingAcceptor.setStartingTemperature(simulatedAnnealingStartingTemperature);
     }
+    if (simulatedAnnealingTemperatureSurvival != null) {
+      simulatedAnnealingAcceptor.setTemperatureSurvival(simulatedAnnealingTemperatureSurvival);
+    }
     acceptorList.add(simulatedAnnealingAcceptor);
   }
   if ((acceptorTypeList != null && acceptorTypeList.contains(AcceptorType.GREAT_DELUGE)) || greatDelugeWaterLevelUpperBoundRate != null || greatDelugeWaterRisingRate != null) {
