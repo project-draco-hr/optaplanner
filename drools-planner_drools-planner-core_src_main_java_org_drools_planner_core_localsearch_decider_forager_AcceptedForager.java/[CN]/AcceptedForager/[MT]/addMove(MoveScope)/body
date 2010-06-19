@@ -1,4 +1,5 @@
 {
+  selectedCount++;
   if (moveScope.getAcceptChance() > 0.0) {
     checkPickEarly(moveScope);
     addMoveScopeToAcceptedList(moveScope);

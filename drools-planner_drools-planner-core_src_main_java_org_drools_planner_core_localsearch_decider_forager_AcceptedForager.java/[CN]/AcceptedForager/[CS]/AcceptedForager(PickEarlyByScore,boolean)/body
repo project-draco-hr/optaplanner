@@ -1,3 +1,0 @@
-{
-  this(pickEarlyByScore,pickEarlyRandomly,new AcceptedMoveScopeComparator());
-}

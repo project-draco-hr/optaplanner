@@ -15,7 +15,7 @@
     }
   }
   if (pickedMoveScope == null) {
-    logger.warn("Underflow occured with acceptChanceMaxScoreTotal ({}) " + "and randomChance ({}).",acceptChanceMaxScoreTotal,randomChance);
+    logger.warn("Underflow occurred with acceptChanceMaxScoreTotal ({}) " + "and randomChance ({}).",acceptChanceMaxScoreTotal,randomChance);
     pickedMoveScope=acceptedList.get(acceptedList.size() - 1);
   }
   return pickedMoveScope;

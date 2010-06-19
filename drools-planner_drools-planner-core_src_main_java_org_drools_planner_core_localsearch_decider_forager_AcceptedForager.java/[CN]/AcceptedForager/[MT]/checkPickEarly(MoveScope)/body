@@ -15,15 +15,4 @@ break;
 default :
 throw new IllegalStateException("The pickEarlyByScore (" + pickEarlyByScore + ") is not implemented");
 }
-if (pickEarlyRandomly) {
-if (moveScope.getAcceptChance() >= 1.0) {
-earlyPickedMoveScope=moveScope;
-}
- else {
-double randomChance=moveScope.getWorkingRandom().nextDouble();
-if (randomChance <= moveScope.getAcceptChance()) {
-earlyPickedMoveScope=moveScope;
-}
-}
-}
 }

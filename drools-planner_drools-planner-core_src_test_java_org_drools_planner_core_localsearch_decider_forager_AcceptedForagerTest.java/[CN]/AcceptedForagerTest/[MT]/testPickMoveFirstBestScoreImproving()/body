@@ -1,5 +1,5 @@
 {
-  Forager forager=new AcceptedForager(PickEarlyByScore.FIRST_BEST_SCORE_IMPROVING,false);
+  Forager forager=new AcceptedForager(PickEarlyByScore.FIRST_BEST_SCORE_IMPROVING,Integer.MAX_VALUE);
   LocalSearchSolverScope localSearchSolverScope=createLocalSearchSolverScope();
   forager.solvingStarted(localSearchSolverScope);
   StepScope stepScope=createStepScope(localSearchSolverScope);

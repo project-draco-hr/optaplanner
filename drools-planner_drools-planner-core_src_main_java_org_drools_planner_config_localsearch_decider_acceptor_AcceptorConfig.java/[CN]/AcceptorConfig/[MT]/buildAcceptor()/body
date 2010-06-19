@@ -56,8 +56,11 @@ catch (    IllegalAccessException e) {
     }
     acceptorList.add(solutionTabuAcceptor);
   }
-  if ((acceptorTypeList != null && acceptorTypeList.contains(AcceptorType.SIMULATED_ANNEALING))) {
+  if ((acceptorTypeList != null && acceptorTypeList.contains(AcceptorType.SIMULATED_ANNEALING)) || simulatedAnnealingStartingTemperature != null) {
     SimulatedAnnealingAcceptor simulatedAnnealingAcceptor=new SimulatedAnnealingAcceptor();
+    if (simulatedAnnealingStartingTemperature != null) {
+      simulatedAnnealingAcceptor.setStartingTemperature(simulatedAnnealingStartingTemperature);
+    }
     acceptorList.add(simulatedAnnealingAcceptor);
   }
   if ((acceptorTypeList != null && acceptorTypeList.contains(AcceptorType.GREAT_DELUGE)) || greatDelugeWaterLevelUpperBoundRate != null || greatDelugeWaterRisingRate != null) {

@@ -42,4 +42,13 @@
   if (partialSolutionTabuSize == null) {
     partialSolutionTabuSize=inheritedConfig.getPartialSolutionTabuSize();
   }
+  if (simulatedAnnealingStartingTemperature == null) {
+    simulatedAnnealingStartingTemperature=inheritedConfig.getSimulatedAnnealingStartingTemperature();
+  }
+  if (greatDelugeWaterLevelUpperBoundRate == null) {
+    greatDelugeWaterLevelUpperBoundRate=inheritedConfig.getGreatDelugeWaterLevelUpperBoundRate();
+  }
+  if (greatDelugeWaterRisingRate == null) {
+    greatDelugeWaterRisingRate=inheritedConfig.getGreatDelugeWaterRisingRate();
+  }
 }

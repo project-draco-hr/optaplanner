@@ -1,0 +1,10 @@
+{
+  List<Iterator<Move>> moveIteratorList=new ArrayList<Iterator<Move>>(selectorList.size());
+  for (  Selector selector : selectorList) {
+    Iterator<Move> moveIterator=selector.moveIterator(stepScope);
+    if (moveIterator.hasNext()) {
+      moveIteratorList.add(moveIterator);
+    }
+  }
+  return new CompositeSelectorMoveIterator(stepScope.getWorkingRandom(),moveIteratorList);
+}

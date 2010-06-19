@@ -30,13 +30,7 @@ catch (      IllegalAccessException e) {
       selector.setShuffle(shuffle.booleanValue());
     }
  else {
-      selector.setShuffle(relativeSelection != null || absoluteSelection != null);
-    }
-    if (relativeSelection != null) {
-      selector.setRelativeSelection(relativeSelection);
-    }
-    if (absoluteSelection != null) {
-      selector.setAbsoluteSelection(absoluteSelection);
+      selector.setShuffle(true);
     }
     return selector;
   }
