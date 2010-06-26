@@ -1,7 +1,7 @@
 {
   if (deciderScoreComparatorClass == null && deciderScoreComparatorFactoryType == null) {
     deciderScoreComparatorClass=inheritedConfig.getDeciderScoreComparatorClass();
-    deciderScoreComparatorFactoryType=inheritedConfig.getForagerType();
+    deciderScoreComparatorFactoryType=inheritedConfig.getDeciderScoreComparatorFactoryType();
   }
   if (hardScoreActivationThreshold == null) {
     hardScoreActivationThreshold=inheritedConfig.getHardScoreActivationThreshold();

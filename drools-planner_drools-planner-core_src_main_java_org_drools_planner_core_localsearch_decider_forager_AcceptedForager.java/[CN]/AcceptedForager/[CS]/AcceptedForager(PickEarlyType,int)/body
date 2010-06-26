@@ -1,4 +1,4 @@
 {
-  this.pickEarlyByScore=pickEarlyByScore;
+  this.pickEarlyType=pickEarlyType;
   this.minimalAcceptedSelection=minimalAcceptedSelection;
 }

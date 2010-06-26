@@ -1,6 +1,6 @@
 {
-switch (pickEarlyByScore) {
-case NONE:
+switch (pickEarlyType) {
+case NEVER:
     break;
 case FIRST_BEST_SCORE_IMPROVING:
   if (moveScope.getStepScope().getDeciderScoreComparator().compare(moveScope.getScore(),moveScope.getStepScope().getLocalSearchSolverScope().getBestScore()) > 0) {
@@ -13,6 +13,6 @@ earlyPickedMoveScope=moveScope;
 }
 break;
 default :
-throw new IllegalStateException("The pickEarlyByScore (" + pickEarlyByScore + ") is not implemented");
+throw new IllegalStateException("The pickEarlyType (" + pickEarlyType + ") is not implemented");
 }
 }

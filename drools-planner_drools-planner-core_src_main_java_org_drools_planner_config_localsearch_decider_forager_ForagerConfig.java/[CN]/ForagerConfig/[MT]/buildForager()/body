@@ -13,28 +13,7 @@ catch (    IllegalAccessException e) {
       throw new IllegalArgumentException("foragerClass (" + foragerClass.getName() + ") does not have a public no-arg constructor",e);
     }
   }
-  PickEarlyByScore pickEarlyByScore;
-  if (foragerType != null) {
-switch (foragerType) {
-case MAX_SCORE_OF_ALL:
-      pickEarlyByScore=PickEarlyByScore.NONE;
-    break;
-case FIRST_BEST_SCORE_IMPROVING:
-  pickEarlyByScore=PickEarlyByScore.FIRST_BEST_SCORE_IMPROVING;
-break;
-case FIRST_LAST_STEP_SCORE_IMPROVING:
-pickEarlyByScore=PickEarlyByScore.FIRST_LAST_STEP_SCORE_IMPROVING;
-break;
-case FIRST_RANDOMLY_ACCEPTED:
-pickEarlyByScore=PickEarlyByScore.NONE;
-break;
-default :
-throw new IllegalStateException("The foragerType (" + foragerType + ") is not implemented");
-}
-}
- else {
-pickEarlyByScore=PickEarlyByScore.NONE;
-}
-int minimalAcceptedSelection=(this.minimalAcceptedSelection == null) ? Integer.MAX_VALUE : this.minimalAcceptedSelection;
-return new AcceptedForager(pickEarlyByScore,minimalAcceptedSelection);
+  PickEarlyType pickEarlyType=(this.pickEarlyType == null) ? PickEarlyType.NEVER : this.pickEarlyType;
+  int minimalAcceptedSelection=(this.minimalAcceptedSelection == null) ? Integer.MAX_VALUE : this.minimalAcceptedSelection;
+  return new AcceptedForager(pickEarlyType,minimalAcceptedSelection);
 }
