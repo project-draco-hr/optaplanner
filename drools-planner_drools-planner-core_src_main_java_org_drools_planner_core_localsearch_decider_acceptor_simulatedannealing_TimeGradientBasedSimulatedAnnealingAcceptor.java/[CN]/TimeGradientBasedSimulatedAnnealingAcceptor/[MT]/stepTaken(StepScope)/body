@@ -1,5 +1,8 @@
 {
   super.stepTaken(stepScope);
   double timeGradient=stepScope.getTimeGradient();
-  temperature=startingTemperature * timeGradient;
+  temperature=startingTemperature * (1.0 - timeGradient);
+  if (temperature < temperatureMinimum) {
+    temperature=temperatureMinimum;
+  }
 }
