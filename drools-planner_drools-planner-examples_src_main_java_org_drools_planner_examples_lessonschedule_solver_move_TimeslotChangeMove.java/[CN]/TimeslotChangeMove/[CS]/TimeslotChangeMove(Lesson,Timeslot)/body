@@ -1,4 +1,0 @@
-{
-  this.lesson=lesson;
-  this.toTimeslot=toTimeslot;
-}

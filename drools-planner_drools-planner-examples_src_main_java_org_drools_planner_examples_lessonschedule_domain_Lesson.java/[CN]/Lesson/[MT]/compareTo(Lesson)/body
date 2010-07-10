@@ -1,3 +1,0 @@
-{
-  return new CompareToBuilder().append(timeslot,other.timeslot).append(teacher,other.teacher).append(group,other.group).append(id,other.id).toComparison();
-}

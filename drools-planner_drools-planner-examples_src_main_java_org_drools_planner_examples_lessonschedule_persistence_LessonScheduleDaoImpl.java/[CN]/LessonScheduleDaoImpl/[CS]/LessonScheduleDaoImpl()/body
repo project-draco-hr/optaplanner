@@ -1,3 +1,0 @@
-{
-  super("lessonschedule",LessonSchedule.class);
-}

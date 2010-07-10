@@ -1,3 +1,0 @@
-{
-  return new TimeslotChangeMove(lesson,lesson.getTimeslot());
-}

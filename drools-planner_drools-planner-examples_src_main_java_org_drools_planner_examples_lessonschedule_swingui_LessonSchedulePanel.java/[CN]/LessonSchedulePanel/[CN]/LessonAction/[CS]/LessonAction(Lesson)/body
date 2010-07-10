@@ -1,4 +1,0 @@
-{
-  super(lesson.toString());
-  this.lesson=lesson;
-}
