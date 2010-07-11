@@ -1,6 +1,0 @@
-{
-  if (startingTemperature < 0.0) {
-    throw new IllegalArgumentException("The startingTemperature (" + startingTemperature + ") cannot be negative.");
-  }
-  temperature=startingTemperature;
-}

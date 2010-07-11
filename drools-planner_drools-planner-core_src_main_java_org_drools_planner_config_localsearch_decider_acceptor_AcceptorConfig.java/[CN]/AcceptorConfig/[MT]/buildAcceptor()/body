@@ -61,15 +61,15 @@ catch (    IllegalAccessException e) {
     if (simulatedAnnealingStartingTemperature != null) {
       simulatedAnnealingAcceptor.setStartingTemperature(simulatedAnnealingStartingTemperature);
     }
-    if (simulatedAnnealingTemperatureSurvival != null) {
-      simulatedAnnealingAcceptor.setTemperatureSurvival(simulatedAnnealingTemperatureSurvival);
-    }
     acceptorList.add(simulatedAnnealingAcceptor);
   }
   if ((acceptorTypeList != null && acceptorTypeList.contains(AcceptorType.GREAT_DELUGE)) || greatDelugeWaterLevelUpperBoundRate != null || greatDelugeWaterRisingRate != null) {
     double waterLevelUpperBoundRate=(Double)ObjectUtils.defaultIfNull(greatDelugeWaterLevelUpperBoundRate,1.20);
     double waterRisingRate=(Double)ObjectUtils.defaultIfNull(greatDelugeWaterRisingRate,0.0000001);
     acceptorList.add(new GreatDelugeAcceptor(waterLevelUpperBoundRate,waterRisingRate));
+  }
+  if ((acceptorTypeList != null && acceptorTypeList.contains(AcceptorType.LATE_ACCEPTANCE))) {
+    throw new UnsupportedOperationException("LATE_ACCEPTANCE not yet supported.");
   }
   if (acceptorList.size() == 1) {
     return acceptorList.get(0);
