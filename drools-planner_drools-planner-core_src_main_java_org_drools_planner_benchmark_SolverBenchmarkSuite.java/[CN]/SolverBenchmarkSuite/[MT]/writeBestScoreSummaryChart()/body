@@ -3,7 +3,8 @@
   for (  SolverBenchmark solverBenchmark : solverBenchmarkList) {
     ScoreDefinition scoreDefinition=solverBenchmark.getLocalSearchSolverConfig().getScoreDefinitionConfig().buildScoreDefinition();
     for (    SolverBenchmarkResult result : solverBenchmark.getSolverBenchmarkResultList()) {
-      Double scoreGraphValue=scoreDefinition.translateScoreToGraphValue(result.getScore());
+      Score score=result.getScore();
+      Double scoreGraphValue=scoreDefinition.translateScoreToGraphValue(score);
       dataset.addValue(scoreGraphValue,solverBenchmark.getName(),result.getUnsolvedSolutionFile().getName());
     }
   }
