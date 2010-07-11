@@ -5,7 +5,7 @@
       totalScore=solverBenchmarkResult.getScore();
     }
  else {
-      totalScore.add(solverBenchmarkResult.getScore());
+      totalScore=totalScore.add(solverBenchmarkResult.getScore());
     }
   }
   return totalScore.divide(solverBenchmarkResultList.size());
