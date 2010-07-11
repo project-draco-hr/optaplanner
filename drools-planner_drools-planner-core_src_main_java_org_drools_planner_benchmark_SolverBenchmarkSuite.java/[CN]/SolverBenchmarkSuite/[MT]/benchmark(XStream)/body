@@ -1,6 +1,6 @@
 {
   benchmarkingStarted();
-  Map<File,SolverStatistic> unsolvedSolutionFileToStatisticMap=new HashMap<File,SolverStatistic>();
+  Map<File,SolverStatistic> unsolvedSolutionFileToStatisticMap=new LinkedHashMap<File,SolverStatistic>();
   for (  SolverBenchmark solverBenchmark : solverBenchmarkList) {
     Solver solver=solverBenchmark.getLocalSearchSolverConfig().buildSolver();
     for (    SolverBenchmarkResult result : solverBenchmark.getSolverBenchmarkResultList()) {
