@@ -9,6 +9,10 @@
     }
   }
   JFreeChart chart=ChartFactory.createBarChart("Best score summary (higher score is better)","Data","Score",dataset,PlotOrientation.VERTICAL,true,true,false);
+  CategoryItemRenderer renderer=((CategoryPlot)chart.getPlot()).getRenderer();
+  CategoryItemLabelGenerator generator=new StandardCategoryItemLabelGenerator();
+  renderer.setBaseItemLabelGenerator(generator);
+  renderer.setBaseItemLabelsVisible(true);
   BufferedImage chartImage=chart.createBufferedImage(1024,768);
   File chartSummaryFile=new File(solverStatisticFilesDirectory,"summary.png");
   OutputStream out=null;
