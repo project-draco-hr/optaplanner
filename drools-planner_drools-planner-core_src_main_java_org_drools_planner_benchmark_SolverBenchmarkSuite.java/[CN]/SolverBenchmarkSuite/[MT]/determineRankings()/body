@@ -1,0 +1,8 @@
+{
+  List<SolverBenchmark> sortedSolverBenchmarkList=new ArrayList<SolverBenchmark>(solverBenchmarkList);
+  Collections.sort(sortedSolverBenchmarkList,solverBenchmarkComparator);
+  Collections.reverse(sortedSolverBenchmarkList);
+  for (  SolverBenchmark solverBenchmark : solverBenchmarkList) {
+    solverBenchmark.setRanking(sortedSolverBenchmarkList.indexOf(solverBenchmark));
+  }
+}

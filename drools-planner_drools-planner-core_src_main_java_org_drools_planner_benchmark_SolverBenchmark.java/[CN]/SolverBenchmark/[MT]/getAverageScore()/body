@@ -1,12 +1,3 @@
 {
-  Score totalScore=null;
-  for (  SolverBenchmarkResult solverBenchmarkResult : solverBenchmarkResultList) {
-    if (totalScore == null) {
-      totalScore=solverBenchmarkResult.getScore();
-    }
- else {
-      totalScore=totalScore.add(solverBenchmarkResult.getScore());
-    }
-  }
-  return totalScore.divide(solverBenchmarkResultList.size());
+  return getTotalScore().divide(solverBenchmarkResultList.size());
 }

@@ -40,4 +40,7 @@
     solverStatisticFilesDirectory=new File(benchmarkDirectory,"statistic");
   }
   solverStatisticFilesDirectory.mkdirs();
+  if (solverBenchmarkComparator == null) {
+    solverBenchmarkComparator=new TotalScoreSolverBenchmarkComparator();
+  }
 }

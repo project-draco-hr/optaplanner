@@ -1,11 +1,5 @@
 {
-  if (sortSolverBenchmarks) {
-    if (solverBenchmarkComparator == null) {
-      solverBenchmarkComparator=new AverageScoreSolverBenchmarkComparator();
-    }
-    Collections.sort(solverBenchmarkList,solverBenchmarkComparator);
-    Collections.reverse(solverBenchmarkList);
-  }
+  determineRankings();
   writeBestScoreSummaryChart();
   StringBuilder htmlFragment=new StringBuilder(unsolvedSolutionFileToStatisticMap.size() * 160);
   htmlFragment.append("  <h1>Summary</h1>\n");
