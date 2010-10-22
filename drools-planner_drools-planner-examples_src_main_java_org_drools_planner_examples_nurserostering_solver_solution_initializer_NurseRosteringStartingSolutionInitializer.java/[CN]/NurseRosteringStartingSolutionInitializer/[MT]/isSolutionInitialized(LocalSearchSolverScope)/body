@@ -1,4 +1,4 @@
 {
-  NurseRoster schedule=(NurseRoster)localSearchSolverScope.getWorkingSolution();
-  return schedule.isInitialized();
+  NurseRoster nurseRoster=(NurseRoster)localSearchSolverScope.getWorkingSolution();
+  return nurseRoster.isInitialized();
 }
