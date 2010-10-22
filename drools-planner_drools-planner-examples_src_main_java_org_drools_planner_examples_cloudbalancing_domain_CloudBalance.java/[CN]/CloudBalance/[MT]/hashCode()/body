@@ -1,0 +1,7 @@
+{
+  HashCodeBuilder hashCodeBuilder=new HashCodeBuilder();
+  for (  CloudAssignment cloudAssignment : cloudAssignmentList) {
+    hashCodeBuilder.append(cloudAssignment.solutionHashCode());
+  }
+  return hashCodeBuilder.toHashCode();
+}

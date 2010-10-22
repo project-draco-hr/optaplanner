@@ -1,0 +1,22 @@
+{
+  if (this == o) {
+    return true;
+  }
+  if (id == null || !(o instanceof CloudBalance)) {
+    return false;
+  }
+ else {
+    CloudBalance other=(CloudBalance)o;
+    if (cloudAssignmentList.size() != other.cloudAssignmentList.size()) {
+      return false;
+    }
+    for (Iterator<CloudAssignment> it=cloudAssignmentList.iterator(), otherIt=other.cloudAssignmentList.iterator(); it.hasNext(); ) {
+      CloudAssignment cloudAssignment=it.next();
+      CloudAssignment otherCloudAssignment=otherIt.next();
+      if (!cloudAssignment.solutionEquals(otherCloudAssignment)) {
+        return false;
+      }
+    }
+    return true;
+  }
+}

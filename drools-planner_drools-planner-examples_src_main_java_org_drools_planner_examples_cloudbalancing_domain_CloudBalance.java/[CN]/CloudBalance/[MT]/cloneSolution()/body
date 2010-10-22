@@ -1,0 +1,14 @@
+{
+  CloudBalance clone=new CloudBalance();
+  clone.id=id;
+  clone.cloudComputerList=cloudComputerList;
+  clone.cloudProcessList=cloudProcessList;
+  List<CloudAssignment> clonedCloudAssignmentList=new ArrayList<CloudAssignment>(cloudAssignmentList.size());
+  for (  CloudAssignment cloudAssignment : cloudAssignmentList) {
+    CloudAssignment clonedCloudAssignment=cloudAssignment.clone();
+    clonedCloudAssignmentList.add(clonedCloudAssignment);
+  }
+  clone.cloudAssignmentList=clonedCloudAssignmentList;
+  clone.score=score;
+  return clone;
+}
