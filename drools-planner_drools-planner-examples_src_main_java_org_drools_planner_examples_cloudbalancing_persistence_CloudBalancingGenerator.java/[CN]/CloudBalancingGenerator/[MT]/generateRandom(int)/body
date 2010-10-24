@@ -1,9 +1,13 @@
 {
   double randomDouble=random.nextDouble();
-  double expRandomDouble=Math.expm1(randomDouble) / (Math.E - 1.0);
-  int value=((int)Math.floor(expRandomDouble * ((double)maximumValue))) + 1;
+  double parabolaBase=2000.0;
+  double parabolaRandomDouble=(Math.pow(parabolaBase,randomDouble) - 1.0) / (parabolaBase - 1.0);
+  if (parabolaRandomDouble < 0.0 || parabolaRandomDouble >= 1.0) {
+    throw new IllegalArgumentException("Invalid generated parabolaRandomDouble (" + parabolaRandomDouble + ")");
+  }
+  int value=((int)Math.floor(parabolaRandomDouble * ((double)maximumValue))) + 1;
   if (value < 1 || value > maximumValue) {
-    throw new IllegalArgumentException("Invalid generated valid (" + value + ")");
+    throw new IllegalArgumentException("Invalid generated value (" + value + ")");
   }
   return value;
 }

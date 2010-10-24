@@ -1,5 +1,6 @@
 {
-  writeCloudBalance(10,10);
-  writeCloudBalance(10,20);
+  writeCloudBalance(10,15);
+  writeCloudBalance(100,100);
   writeCloudBalance(100,200);
+  writeCloudBalance(100,250);
 }
