@@ -1,4 +1,4 @@
 {
-  super(cloudAssignment.getLabel());
+  super(Long.toString(cloudAssignment.getId()));
   this.cloudAssignment=cloudAssignment;
 }
