@@ -1,4 +1,4 @@
 {
-  super("Id " + cloudAssignment.getId());
+  super("=>");
   this.cloudAssignment=cloudAssignment;
 }

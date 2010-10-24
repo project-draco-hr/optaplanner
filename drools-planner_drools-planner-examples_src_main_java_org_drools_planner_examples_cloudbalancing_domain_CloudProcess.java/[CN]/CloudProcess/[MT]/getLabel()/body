@@ -1,3 +1,3 @@
 {
-  return "Minimal:\nCPU " + minimalCpuPower + " GHz\nRAM "+ minimalMemory+ " GB\nNetwork "+ minimalNetworkBandwidth+ " GB";
+  return "Id " + id + ",minimal:\nCPU "+ minimalCpuPower+ " GHz\nRAM "+ minimalMemory+ " GB\nNetwork "+ minimalNetworkBandwidth+ " GB";
 }

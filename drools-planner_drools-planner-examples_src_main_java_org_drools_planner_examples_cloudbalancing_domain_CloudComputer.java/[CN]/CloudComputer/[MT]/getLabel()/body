@@ -1,3 +1,3 @@
 {
-  return "Hardware:\nCPU " + cpuPower + " GHz\nRAM "+ memory+ " GB\nNetwork "+ networkBandwidth+ " GB";
+  return "Computer(" + id + "):\nCPU "+ cpuPower+ " GHz\nRAM "+ memory+ " GB\nNetwork "+ networkBandwidth+ " GB";
 }

@@ -1,8 +1,8 @@
 {
-  setLayout(new BoxLayout(this,BoxLayout.X_AXIS));
+  setLayout(new FlowLayout(FlowLayout.LEFT));
   this.cloudComputer=cloudComputer;
   setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.DARK_GRAY),BorderFactory.createEmptyBorder(2,2,2,2)));
-  JTextArea cloudComputerLabel=new JTextArea(cloudComputer.getLabel(),4,14);
+  JTextArea cloudComputerLabel=new JTextArea(cloudComputer.getLabel(),TEXT_AREA_ROWS,TEXT_AREA_COLUMNS);
   cloudComputerLabel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.DARK_GRAY),BorderFactory.createEmptyBorder(2,2,2,2)));
   cloudComputerLabel.setBackground(HEADER_COLOR);
   cloudComputerLabel.setEditable(false);
