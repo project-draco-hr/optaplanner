@@ -1,5 +1,5 @@
 {
-  if (cpuPowerPrices.length != memoryPrices.length || cpuPowerPrices.length != networkBandwidthPrices.length) {
+  if (CPU_POWER_PRICES.length != MEMORY_PRICES.length || CPU_POWER_PRICES.length != NETWORK_BANDWIDTH_PRICES.length) {
     throw new IllegalStateException("All price arrays must be equal in length.");
   }
 }

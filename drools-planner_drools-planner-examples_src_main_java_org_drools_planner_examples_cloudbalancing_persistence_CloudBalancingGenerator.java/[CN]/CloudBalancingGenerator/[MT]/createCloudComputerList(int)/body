@@ -3,13 +3,13 @@
   for (int i=0; i < cloudComputerListSize; i++) {
     CloudComputer cloudComputer=new CloudComputer();
     cloudComputer.setId((long)i);
-    int cpuPowerPricesIndex=random.nextInt(cpuPowerPrices.length);
-    cloudComputer.setCpuPower(cpuPowerPrices[cpuPowerPricesIndex].getHardwareValue());
-    int memoryPricesIndex=distortIndex(cpuPowerPricesIndex,memoryPrices.length);
-    cloudComputer.setMemory(memoryPrices[memoryPricesIndex].getHardwareValue());
-    int networkBandwidthPricesIndex=distortIndex(cpuPowerPricesIndex,networkBandwidthPrices.length);
-    cloudComputer.setNetworkBandwidth(networkBandwidthPrices[networkBandwidthPricesIndex].getHardwareValue());
-    int cost=cpuPowerPrices[cpuPowerPricesIndex].getCost() + memoryPrices[memoryPricesIndex].getCost() + networkBandwidthPrices[networkBandwidthPricesIndex].getCost();
+    int cpuPowerPricesIndex=random.nextInt(CPU_POWER_PRICES.length);
+    cloudComputer.setCpuPower(CPU_POWER_PRICES[cpuPowerPricesIndex].getHardwareValue());
+    int memoryPricesIndex=distortIndex(cpuPowerPricesIndex,MEMORY_PRICES.length);
+    cloudComputer.setMemory(MEMORY_PRICES[memoryPricesIndex].getHardwareValue());
+    int networkBandwidthPricesIndex=distortIndex(cpuPowerPricesIndex,NETWORK_BANDWIDTH_PRICES.length);
+    cloudComputer.setNetworkBandwidth(NETWORK_BANDWIDTH_PRICES[networkBandwidthPricesIndex].getHardwareValue());
+    int cost=CPU_POWER_PRICES[cpuPowerPricesIndex].getCost() + MEMORY_PRICES[memoryPricesIndex].getCost() + NETWORK_BANDWIDTH_PRICES[networkBandwidthPricesIndex].getCost();
     logger.info("Created cloudComputer with cpuPowerPricesIndex ({}), memoryPricesIndex({})," + " networkBandwidthPricesIndex({}).",new Object[]{cpuPowerPricesIndex,memoryPricesIndex,networkBandwidthPricesIndex});
     cloudComputer.setCost(cost);
     cloudComputerList.add(cloudComputer);
