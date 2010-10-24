@@ -1,0 +1,13 @@
+{
+  JPanel headerPanel=new JPanel(new GridLayout(1,0));
+  JLabel cloudComputerLabel=new JLabel("CloudComputer");
+  cloudComputerLabel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.DARK_GRAY),BorderFactory.createEmptyBorder(2,2,2,2)));
+  cloudComputerLabel.setBackground(HEADER_COLOR);
+  cloudComputerLabel.setOpaque(true);
+  headerPanel.add(cloudComputerLabel);
+  JLabel cloudProcessLabel=new JLabel("CloudProcess");
+  cloudProcessLabel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.DARK_GRAY),BorderFactory.createEmptyBorder(2,2,2,2)));
+  cloudProcessLabel.setOpaque(true);
+  headerPanel.add(cloudProcessLabel);
+  return headerPanel;
+}

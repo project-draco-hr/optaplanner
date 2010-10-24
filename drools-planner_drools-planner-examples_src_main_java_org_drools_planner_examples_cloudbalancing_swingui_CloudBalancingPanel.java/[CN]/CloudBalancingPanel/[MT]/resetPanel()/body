@@ -1,6 +1,7 @@
 {
   removeAll();
   CloudBalance cloudBalance=getCloudBalance();
+  add(createHeaderPanel());
   List<CloudComputer> cloudComputerList=cloudBalance.getCloudComputerList();
   Map<CloudComputer,CloudComputerPanel> computerToPanelMap=new HashMap<CloudComputer,CloudComputerPanel>(cloudComputerList.size());
   for (  CloudComputer cloudComputer : cloudComputerList) {
