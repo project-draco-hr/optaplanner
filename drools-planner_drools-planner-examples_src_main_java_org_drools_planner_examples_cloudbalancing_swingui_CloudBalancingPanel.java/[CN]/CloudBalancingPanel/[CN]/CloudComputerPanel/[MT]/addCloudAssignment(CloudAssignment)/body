@@ -1,9 +1,10 @@
 {
-  JPanel cloudAssignmentPanel=new JPanel(new GridLayout(1,0));
+  JPanel cloudAssignmentPanel=new JPanel();
+  cloudAssignmentPanel.setLayout(new BoxLayout(cloudAssignmentPanel,BoxLayout.X_AXIS));
   JButton button=new JButton(new CloudAssignmentAction(cloudAssignment));
   cloudAssignmentPanel.add(button);
   cloudAssignmentPanel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.DARK_GRAY),BorderFactory.createEmptyBorder(2,2,2,2)));
-  JTextArea cloudAssignmentLabel=new JTextArea(cloudAssignment.getLabel());
+  JTextArea cloudAssignmentLabel=new JTextArea(cloudAssignment.getLabel(),4,14);
   cloudAssignmentLabel.setEditable(false);
   cloudAssignmentPanel.add(cloudAssignmentLabel);
   add(cloudAssignmentPanel);
