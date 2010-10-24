@@ -1,0 +1,10 @@
+{
+  setLayout(new BoxLayout(this,BoxLayout.X_AXIS));
+  this.cloudComputer=cloudComputer;
+  setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.DARK_GRAY),BorderFactory.createEmptyBorder(2,2,2,2)));
+  JLabel cloudComputerLabel=new JLabel(cloudComputer.getName());
+  cloudComputerLabel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.DARK_GRAY),BorderFactory.createEmptyBorder(2,2,2,2)));
+  cloudComputerLabel.setBackground(HEADER_COLOR);
+  cloudComputerLabel.setOpaque(true);
+  add(cloudComputerLabel);
+}

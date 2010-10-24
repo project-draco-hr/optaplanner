@@ -1,0 +1,3 @@
+{
+  return new CompareToBuilder().append(other.cloudProcess.getMinimalMultiplicand(),cloudProcess.getMinimalMultiplicand()).toComparison();
+}

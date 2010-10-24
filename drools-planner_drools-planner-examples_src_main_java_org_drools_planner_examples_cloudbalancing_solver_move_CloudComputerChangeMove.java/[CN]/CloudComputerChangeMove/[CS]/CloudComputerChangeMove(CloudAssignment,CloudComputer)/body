@@ -1,0 +1,4 @@
+{
+  this.cloudAssignment=cloudAssignment;
+  this.toCloudComputer=toCloudComputer;
+}

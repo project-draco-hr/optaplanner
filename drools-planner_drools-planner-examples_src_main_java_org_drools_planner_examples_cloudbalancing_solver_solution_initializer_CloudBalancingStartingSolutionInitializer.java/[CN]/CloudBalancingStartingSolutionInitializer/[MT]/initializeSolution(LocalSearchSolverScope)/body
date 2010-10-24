@@ -1,0 +1,4 @@
+{
+  CloudBalance cloudBalance=(CloudBalance)localSearchSolverScope.getWorkingSolution();
+  initializeCloudAssignmentList(localSearchSolverScope,cloudBalance);
+}

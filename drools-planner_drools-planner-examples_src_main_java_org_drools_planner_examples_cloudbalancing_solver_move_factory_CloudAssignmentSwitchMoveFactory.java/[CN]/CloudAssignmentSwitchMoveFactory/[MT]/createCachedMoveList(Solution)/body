@@ -1,0 +1,13 @@
+{
+  CloudBalance cloudBalance=(CloudBalance)solution;
+  List<CloudAssignment> cloudAssignmentList=cloudBalance.getCloudAssignmentList();
+  List<Move> moveList=new ArrayList<Move>();
+  for (ListIterator<CloudAssignment> leftIt=cloudAssignmentList.listIterator(); leftIt.hasNext(); ) {
+    CloudAssignment leftCloudAssignment=leftIt.next();
+    for (ListIterator<CloudAssignment> rightIt=cloudAssignmentList.listIterator(leftIt.nextIndex()); rightIt.hasNext(); ) {
+      CloudAssignment rightCloudAssignment=rightIt.next();
+      moveList.add(new CloudAssignmentSwitchMove(leftCloudAssignment,rightCloudAssignment));
+    }
+  }
+  return moveList;
+}

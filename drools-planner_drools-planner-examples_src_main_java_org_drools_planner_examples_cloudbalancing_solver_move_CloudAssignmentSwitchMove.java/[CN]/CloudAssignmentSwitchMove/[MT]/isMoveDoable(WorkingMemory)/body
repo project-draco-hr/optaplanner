@@ -1,0 +1,3 @@
+{
+  return !ObjectUtils.equals(leftCloudAssignment.getCloudComputer(),rightCloudAssignment.getCloudComputer());
+}

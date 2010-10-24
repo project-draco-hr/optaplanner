@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof CloudComputerChangeMove) {
+    CloudComputerChangeMove other=(CloudComputerChangeMove)o;
+    return new EqualsBuilder().append(cloudAssignment,other.cloudAssignment).append(toCloudComputer,other.toCloudComputer).isEquals();
+  }
+ else {
+    return false;
+  }
+}

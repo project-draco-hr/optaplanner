@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof CloudAssignmentSwitchMove) {
+    CloudAssignmentSwitchMove other=(CloudAssignmentSwitchMove)o;
+    return new EqualsBuilder().append(leftCloudAssignment,other.leftCloudAssignment).append(rightCloudAssignment,other.rightCloudAssignment).isEquals();
+  }
+ else {
+    return false;
+  }
+}

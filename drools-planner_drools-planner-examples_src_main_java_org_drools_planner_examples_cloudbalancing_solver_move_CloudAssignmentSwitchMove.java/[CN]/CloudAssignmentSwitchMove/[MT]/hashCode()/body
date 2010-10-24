@@ -1,0 +1,3 @@
+{
+  return new HashCodeBuilder().append(leftCloudAssignment).append(rightCloudAssignment).toHashCode();
+}

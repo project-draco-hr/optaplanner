@@ -1,0 +1,11 @@
+{
+  List<CloudComputer> cloudComputerList=getCloudBalance().getCloudComputerList();
+  JComboBox cloudComputerListField=new JComboBox(cloudComputerList.toArray());
+  cloudComputerListField.setSelectedItem(cloudAssignment.getCloudComputer());
+  int result=JOptionPane.showConfirmDialog(CloudBalancingPanel.this.getRootPane(),cloudComputerListField,"Select cloud computer",JOptionPane.OK_CANCEL_OPTION);
+  if (result == JOptionPane.OK_OPTION) {
+    CloudComputer toCloudComputer=(CloudComputer)cloudComputerListField.getSelectedItem();
+    solutionBusiness.doMove(new CloudComputerChangeMove(cloudAssignment,toCloudComputer));
+    workflowFrame.updateScreen();
+  }
+}
