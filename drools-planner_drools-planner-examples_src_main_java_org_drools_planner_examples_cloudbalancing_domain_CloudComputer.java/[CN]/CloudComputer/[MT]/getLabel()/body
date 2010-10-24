@@ -1,0 +1,3 @@
+{
+  return "CPU " + cpuPower + " GHz / RAM "+ memory+ " GB / Network "+ networkBandwidth+ " GB";
+}

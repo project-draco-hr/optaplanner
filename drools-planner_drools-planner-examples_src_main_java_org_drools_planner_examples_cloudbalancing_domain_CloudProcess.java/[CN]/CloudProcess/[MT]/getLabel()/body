@@ -1,0 +1,3 @@
+{
+  return "Minimal: CPU " + minimalCpuPower + " GHz / RAM "+ minimalMemory+ " GB / Network "+ minimalNetworkBandwidth+ " GB";
+}

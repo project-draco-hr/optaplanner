@@ -1,3 +1,3 @@
 {
-  return cloudProcess.getName();
+  return cloudProcess.getLabel();
 }
