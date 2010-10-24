@@ -1,0 +1,9 @@
+{
+  List<CloudProcess> cloudProcessList=new ArrayList<CloudProcess>(cloudProcessListSize);
+  for (int i=0; i < cloudProcessListSize; i++) {
+    CloudProcess cloudProcess=new CloudProcess();
+    cloudProcess.setId((long)i);
+    cloudProcessList.add(cloudProcess);
+  }
+  return cloudProcessList;
+}

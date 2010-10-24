@@ -1,0 +1,5 @@
+{
+  this.hardwareValue=hardwareValue;
+  this.description=description;
+  this.cost=cost;
+}

@@ -1,0 +1,3 @@
+int hardwareValue
+String description
+int cost

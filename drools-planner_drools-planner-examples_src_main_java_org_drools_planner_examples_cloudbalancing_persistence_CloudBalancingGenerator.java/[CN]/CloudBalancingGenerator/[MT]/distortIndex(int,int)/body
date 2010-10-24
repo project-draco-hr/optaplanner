@@ -1,0 +1,15 @@
+{
+  int index=referenceIndex;
+  double randomDouble=random.nextDouble();
+  double loweringThreshold=0.25;
+  while (randomDouble < loweringThreshold && index >= 1) {
+    index--;
+    loweringThreshold*=0.10;
+  }
+  double heighteningThreshold=0.75;
+  while (randomDouble >= heighteningThreshold && index <= (length - 2)) {
+    index++;
+    heighteningThreshold=(1.0 - ((1.0 - heighteningThreshold) * 0.10));
+  }
+  return index;
+}

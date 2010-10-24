@@ -1,0 +1,7 @@
+{
+  CloudBalance cloudBalance=new CloudBalance();
+  cloudBalance.setId(0L);
+  cloudBalance.setCloudComputerList(createCloudComputerList(cloudComputerListSize));
+  cloudBalance.setCloudProcessList(createCloudProcessList(cloudProcessListSize));
+  return cloudBalance;
+}

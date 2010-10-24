@@ -1,0 +1,6 @@
+{
+  String outputFileName="unsolvedCloudBalance" + cloudComputerListSize + "-"+ cloudProcessListSize+ ".xml";
+  File outputFile=new File(outputDir,outputFileName);
+  CloudBalance cloudBalance=createCloudBalance(cloudComputerListSize,cloudProcessListSize);
+  solutionDao.writeSolution(cloudBalance,outputFile);
+}

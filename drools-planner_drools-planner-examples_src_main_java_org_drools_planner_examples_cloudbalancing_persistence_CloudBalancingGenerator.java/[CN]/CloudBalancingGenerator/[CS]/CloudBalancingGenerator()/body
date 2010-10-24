@@ -1,0 +1,5 @@
+{
+  checkConfiguration();
+  solutionDao=new CloudBalancingDaoImpl();
+  random=new Random(1981);
+}
