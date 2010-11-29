@@ -1,7 +1,7 @@
 {
   XmlSolverConfigurer configurer=new XmlSolverConfigurer();
   configurer.configure(SOLVER_CONFIG);
-  configurer.getConfig().setEnvironmentMode(LocalSearchSolverConfig.EnvironmentMode.DEBUG);
+  configurer.getConfig().setEnvironmentMode(EnvironmentMode.DEBUG);
   TerminationConfig terminationConfig=new TerminationConfig();
   terminationConfig.setMaximumStepCount(50);
   configurer.getConfig().setTerminationConfig(terminationConfig);
