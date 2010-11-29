@@ -16,7 +16,7 @@
   localSearchSolver.setBestSolutionRecaller(new BestSolutionRecaller());
   localSearchSolver.setTermination(terminationConfig.buildTermination(scoreDefinition));
   localSearchSolver.setDecider(buildDecider());
-  if (environmentMode == EnvironmentMode.DEBUG) {
+  if (environmentMode == EnvironmentMode.DEBUG || environmentMode == EnvironmentMode.TRACE) {
     localSearchSolver.setAssertStepScoreIsUncorrupted(true);
   }
   return localSearchSolver;

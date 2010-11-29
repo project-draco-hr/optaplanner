@@ -4,7 +4,10 @@
   decider.setSelector(selectorConfig.buildSelector());
   decider.setAcceptor(acceptorConfig.buildAcceptor());
   decider.setForager(foragerConfig.buildForager());
-  if (environmentMode == EnvironmentMode.DEBUG) {
+  if (environmentMode == EnvironmentMode.TRACE) {
+    decider.setAssertMoveScoreIsUncorrupted(true);
+  }
+  if (environmentMode == EnvironmentMode.DEBUG || environmentMode == EnvironmentMode.TRACE) {
     decider.setAssertUndoMoveIsUncorrupted(true);
   }
   return decider;
