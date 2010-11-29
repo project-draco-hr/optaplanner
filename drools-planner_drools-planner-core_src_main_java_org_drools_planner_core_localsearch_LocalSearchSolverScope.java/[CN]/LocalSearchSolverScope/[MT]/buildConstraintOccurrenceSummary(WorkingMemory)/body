@@ -1,4 +1,5 @@
 {
+  logger.trace("Building ConstraintOccurrence summary");
   if (summaryWorkingMemory == null) {
     return "  The workingMemory is null.";
   }
@@ -6,6 +7,7 @@
   Iterator<ConstraintOccurrence> it=(Iterator<ConstraintOccurrence>)summaryWorkingMemory.iterateObjects(new ClassObjectFilter(ConstraintOccurrence.class));
   while (it.hasNext()) {
     ConstraintOccurrence occurrence=it.next();
+    logger.trace("Adding ConstraintOccurrence ({})",occurrence);
     Number scoreTotalNumber=scoreTotalMap.get(occurrence.getRuleId());
     if (occurrence instanceof IntConstraintOccurrence) {
       int scoreTotal=scoreTotalNumber == null ? 0 : (Integer)scoreTotalNumber;
