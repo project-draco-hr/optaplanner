@@ -1,0 +1,17 @@
+{
+  XmlSolverConfigurer configurer=new XmlSolverConfigurer();
+  configurer.configure(SOLVER_CONFIG);
+  configurer.getConfig().setEnvironmentMode(LocalSearchSolverConfig.EnvironmentMode.DEBUG);
+  TerminationConfig terminationConfig=new TerminationConfig();
+  terminationConfig.setMaximumStepCount(50);
+  configurer.getConfig().setTerminationConfig(terminationConfig);
+  Solver solver=configurer.buildSolver();
+  SolutionDao solutionDao=new CurriculumCourseDaoImpl();
+  Solution startingSolution=solutionDao.readSolution(getClass().getResourceAsStream(UNSOLVED_DATA));
+  solver.setStartingSolution(startingSolution);
+  solver.solve();
+  Solution bestSolution=solver.getBestSolution();
+  assertNotNull(bestSolution);
+  Score bestScore=solver.getBestSolution().getScore();
+  assertTrue(bestScore.compareTo(DefaultHardAndSoftScore.valueOf(0,-500)) > 0);
+}
