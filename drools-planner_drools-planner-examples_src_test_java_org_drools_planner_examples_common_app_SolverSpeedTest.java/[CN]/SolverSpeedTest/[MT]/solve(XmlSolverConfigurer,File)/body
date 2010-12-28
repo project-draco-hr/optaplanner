@@ -1,0 +1,8 @@
+{
+  SolutionDao solutionDao=createSolutionDao();
+  Solution startingSolution=solutionDao.readSolution(unsolvedDataFile);
+  Solver solver=configurer.buildSolver();
+  solver.setStartingSolution(startingSolution);
+  solver.solve();
+  return solver;
+}

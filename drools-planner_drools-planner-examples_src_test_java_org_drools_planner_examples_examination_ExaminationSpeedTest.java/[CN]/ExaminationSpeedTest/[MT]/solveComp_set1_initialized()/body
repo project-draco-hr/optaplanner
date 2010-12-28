@@ -1,0 +1,3 @@
+{
+  runSpeedTest(new File("data/examination/unsolved/exam_comp_set1_initialized.xml"),"0hard/-7925soft");
+}
