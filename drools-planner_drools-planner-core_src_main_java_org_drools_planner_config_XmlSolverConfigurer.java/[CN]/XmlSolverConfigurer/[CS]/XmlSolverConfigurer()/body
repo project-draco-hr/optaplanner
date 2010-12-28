@@ -1,5 +1,5 @@
 {
   xStream=new XStream(new PureJavaReflectionProvider(new FieldDictionary(new NativeFieldKeySorter())));
   xStream.setMode(XStream.ID_REFERENCES);
-  Annotations.configureAliases(xStream,LocalSearchSolverConfig.class);
+  xStream.processAnnotations(LocalSearchSolverConfig.class);
 }
