@@ -1,0 +1,5 @@
+{
+  XmlSolverConfigurer configurer=buildConfigurer(scoreAttainedString,environmentMode);
+  Solver solver=solve(configurer,unsolvedDataFile);
+  assertBestSolution(solver,scoreAttainedString);
+}

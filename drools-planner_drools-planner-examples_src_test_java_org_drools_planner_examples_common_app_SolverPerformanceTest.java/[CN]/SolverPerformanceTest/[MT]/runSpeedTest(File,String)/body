@@ -1,5 +1,3 @@
 {
-  XmlSolverConfigurer configurer=buildConfigurer(scoreAttainedString);
-  Solver solver=solve(configurer,unsolvedDataFile);
-  assertBestSolution(solver,scoreAttainedString);
+  runSpeedTest(unsolvedDataFile,scoreAttainedString,EnvironmentMode.PRODUCTION);
 }
