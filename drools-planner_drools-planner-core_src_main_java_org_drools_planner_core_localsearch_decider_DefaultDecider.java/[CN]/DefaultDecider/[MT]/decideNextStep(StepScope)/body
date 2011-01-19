@@ -12,7 +12,7 @@
       }
     }
  else {
-      logger.debug("    Move ({}) ignored because it is not doable.",move);
+      logger.debug("    Ignoring not doable move ({}).",move);
     }
   }
   MoveScope pickedMoveScope=forager.pickMove(stepScope);
