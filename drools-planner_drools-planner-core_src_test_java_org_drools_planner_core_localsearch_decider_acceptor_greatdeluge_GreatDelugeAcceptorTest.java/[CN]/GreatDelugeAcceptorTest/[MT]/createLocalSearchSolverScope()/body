@@ -8,8 +8,8 @@
   }
 );
   localSearchSolverScope.setBestScore(DefaultSimpleScore.valueOf(-1000));
-  StepScope lastStepScope=new StepScope(localSearchSolverScope);
-  lastStepScope.setScore(DefaultSimpleScore.valueOf(-1000));
-  localSearchSolverScope.setLastCompletedStepScope(lastStepScope);
+  LocalSearchStepScope lastLocalSearchStepScope=new LocalSearchStepScope(localSearchSolverScope);
+  lastLocalSearchStepScope.setScore(DefaultSimpleScore.valueOf(-1000));
+  localSearchSolverScope.setLastCompletedLocalSearchStepScope(lastLocalSearchStepScope);
   return localSearchSolverScope;
 }

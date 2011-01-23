@@ -1,8 +1,0 @@
-{
-  if (earlyPickedMoveScope != null) {
-    return earlyPickedMoveScope;
-  }
- else {
-    return pickMaxScoreMoveScopeFromAcceptedList(stepScope);
-  }
-}

@@ -1,9 +1,0 @@
-{
-  acceptedMoveScopeComparator=new AcceptedMoveScopeComparator(stepScope.getDeciderScoreComparator());
-  selectedCount=0;
-  acceptedList=new ArrayList<MoveScope>(1024);
-  listSorted=false;
-  maxScore=stepScope.getLocalSearchSolverScope().getScoreDefinition().getPerfectMinimumScore();
-  acceptChanceMaxScoreTotal=0.0;
-  earlyPickedMoveScope=null;
-}

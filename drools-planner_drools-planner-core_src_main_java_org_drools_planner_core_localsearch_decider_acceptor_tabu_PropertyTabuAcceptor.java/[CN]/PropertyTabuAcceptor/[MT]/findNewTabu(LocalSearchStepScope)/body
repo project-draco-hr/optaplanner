@@ -1,0 +1,4 @@
+{
+  TabuPropertyEnabled tabuPropertyEnabled=(TabuPropertyEnabled)localSearchStepScope.getStep();
+  return tabuPropertyEnabled.getTabuProperties();
+}

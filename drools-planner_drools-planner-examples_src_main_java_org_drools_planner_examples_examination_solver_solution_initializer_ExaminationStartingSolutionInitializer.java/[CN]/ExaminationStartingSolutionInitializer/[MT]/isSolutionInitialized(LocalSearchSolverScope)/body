@@ -1,4 +1,0 @@
-{
-  Examination examination=(Examination)localSearchSolverScope.getWorkingSolution();
-  return examination.isInitialized();
-}

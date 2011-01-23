@@ -1,4 +1,0 @@
-{
-  PatientAdmissionSchedule patientAdmissionSchedule=(PatientAdmissionSchedule)localSearchSolverScope.getWorkingSolution();
-  initializeBedDesignationList(localSearchSolverScope,patientAdmissionSchedule);
-}

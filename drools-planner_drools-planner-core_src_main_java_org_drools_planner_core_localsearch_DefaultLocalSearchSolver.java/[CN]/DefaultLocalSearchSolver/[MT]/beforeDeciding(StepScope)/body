@@ -1,5 +1,0 @@
-{
-  bestSolutionRecaller.beforeDeciding(stepScope);
-  termination.beforeDeciding(stepScope);
-  decider.beforeDeciding(stepScope);
-}

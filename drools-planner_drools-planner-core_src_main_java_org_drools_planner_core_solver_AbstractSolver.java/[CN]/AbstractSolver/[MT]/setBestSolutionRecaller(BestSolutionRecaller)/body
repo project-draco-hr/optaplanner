@@ -1,0 +1,4 @@
+{
+  this.bestSolutionRecaller=bestSolutionRecaller;
+  this.bestSolutionRecaller.setSolverEventSupport(solverEventSupport);
+}

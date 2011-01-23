@@ -1,0 +1,33 @@
+{
+  List<CloudComputer> cloudComputerList=cloudBalance.getCloudComputerList();
+  WorkingMemory workingMemory=abstractSolverScope.getWorkingMemory();
+  List<CloudAssignment> cloudAssignmentList=createCloudAssignmentList(cloudBalance);
+  for (  CloudAssignment cloudAssignment : cloudAssignmentList) {
+    FactHandle cloudAssignmentHandle=null;
+    Score bestScore=DefaultHardAndSoftScore.valueOf(Integer.MIN_VALUE,Integer.MIN_VALUE);
+    CloudComputer bestCloudComputer=null;
+    for (    CloudComputer cloudComputer : cloudComputerList) {
+      if (cloudAssignmentHandle == null) {
+        cloudAssignment.setCloudComputer(cloudComputer);
+        cloudAssignmentHandle=workingMemory.insert(cloudAssignment);
+      }
+ else {
+        cloudAssignment.setCloudComputer(cloudComputer);
+        workingMemory.update(cloudAssignmentHandle,cloudAssignment);
+      }
+      Score score=abstractSolverScope.calculateScoreFromWorkingMemory();
+      if (score.compareTo(bestScore) > 0) {
+        bestScore=score;
+        bestCloudComputer=cloudComputer;
+      }
+    }
+    if (bestCloudComputer == null || bestCloudComputer == null) {
+      throw new IllegalStateException("The bestCloudComputer (" + bestCloudComputer + ") cannot be null.");
+    }
+    cloudAssignment.setCloudComputer(bestCloudComputer);
+    workingMemory.update(cloudAssignmentHandle,cloudAssignment);
+    logger.debug("    CloudAssignment ({}) initialized for starting solution.",cloudAssignment);
+  }
+  Collections.sort(cloudAssignmentList,new PersistableIdComparator());
+  cloudBalance.setCloudAssignmentList(cloudAssignmentList);
+}

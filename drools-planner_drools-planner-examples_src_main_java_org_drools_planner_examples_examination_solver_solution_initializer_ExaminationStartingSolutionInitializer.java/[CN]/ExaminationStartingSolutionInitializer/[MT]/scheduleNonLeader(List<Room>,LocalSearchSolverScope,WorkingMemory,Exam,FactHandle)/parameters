@@ -1,5 +1,0 @@
-List<Room> roomList
-LocalSearchSolverScope localSearchSolverScope
-WorkingMemory workingMemory
-Exam exam
-FactHandle examHandle

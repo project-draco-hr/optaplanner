@@ -1,0 +1,4 @@
+{
+  termination.beforeDeciding(localSearchStepScope);
+  decider.beforeDeciding(localSearchStepScope);
+}

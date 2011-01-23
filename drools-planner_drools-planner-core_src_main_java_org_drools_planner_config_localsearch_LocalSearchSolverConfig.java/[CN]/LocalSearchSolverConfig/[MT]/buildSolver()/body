@@ -1,20 +1,7 @@
 {
   DefaultLocalSearchSolver localSearchSolver=new DefaultLocalSearchSolver();
-  if (environmentMode != EnvironmentMode.PRODUCTION) {
-    if (randomSeed != null) {
-      localSearchSolver.setRandomSeed(randomSeed);
-    }
- else {
-      localSearchSolver.setRandomSeed(DEFAULT_RANDOM_SEED);
-    }
-  }
-  localSearchSolver.setRuleBase(buildRuleBase());
-  ScoreDefinition scoreDefinition=scoreDefinitionConfig.buildScoreDefinition();
-  localSearchSolver.setScoreDefinition(scoreDefinition);
-  localSearchSolver.setScoreCalculator(scoreDefinitionConfig.buildScoreCalculator());
-  localSearchSolver.setStartingSolutionInitializer(buildStartingSolutionInitializer());
-  localSearchSolver.setBestSolutionRecaller(new BestSolutionRecaller());
-  localSearchSolver.setTermination(terminationConfig.buildTermination(scoreDefinition));
+  configureAbstractSolver(localSearchSolver);
+  localSearchSolver.setTermination(terminationConfig.buildTermination(localSearchSolver.getScoreDefinition()));
   localSearchSolver.setDecider(buildDecider());
   if (environmentMode == EnvironmentMode.DEBUG || environmentMode == EnvironmentMode.TRACE) {
     localSearchSolver.setAssertStepScoreIsUncorrupted(true);
