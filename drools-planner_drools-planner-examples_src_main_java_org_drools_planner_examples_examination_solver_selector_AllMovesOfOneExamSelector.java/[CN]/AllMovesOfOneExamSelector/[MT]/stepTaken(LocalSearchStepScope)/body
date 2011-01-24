@@ -1,0 +1,5 @@
+{
+  periodChangeMoveFactory.stepTaken(localSearchStepScope);
+  roomChangeMoveFactory.stepTaken(localSearchStepScope);
+  examSwitchMoveFactory.stepTaken(localSearchStepScope);
+}

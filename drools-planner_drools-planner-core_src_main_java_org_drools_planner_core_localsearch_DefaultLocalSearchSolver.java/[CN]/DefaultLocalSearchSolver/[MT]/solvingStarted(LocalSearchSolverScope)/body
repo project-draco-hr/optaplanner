@@ -1,27 +1,5 @@
 {
-  if (localSearchSolverScope.getWorkingSolution() == null) {
-    throw new IllegalStateException("The startingSolution must not be null." + " Use Solver.setStartingSolution(Solution).");
-  }
-  localSearchSolverScope.reset();
-  if (randomSeed != null) {
-    logger.info("Solving with random seed ({}).",randomSeed);
-    localSearchSolverScope.setWorkingRandom(new Random(randomSeed));
-  }
- else {
-    logger.info("Solving with a non-fixed random seed.");
-    localSearchSolverScope.setWorkingRandom(new Random());
-  }
-  if (startingSolutionInitializer != null) {
-    if (!startingSolutionInitializer.isSolutionInitialized(localSearchSolverScope)) {
-      logger.info("Initializing solution.");
-      startingSolutionInitializer.initializeSolution(localSearchSolverScope);
-    }
- else {
-      logger.debug("Solution is already initialized.");
-    }
-  }
-  localSearchSolverScope.setStartingScore(localSearchSolverScope.calculateScoreFromWorkingMemory());
-  bestSolutionRecaller.solvingStarted(localSearchSolverScope);
+  super.solvingStarted(localSearchSolverScope);
   termination.solvingStarted(localSearchSolverScope);
   decider.solvingStarted(localSearchSolverScope);
 }

@@ -1,6 +1,0 @@
-{
-  deciderScoreComparatorFactory.stepTaken(stepScope);
-  selector.stepTaken(stepScope);
-  acceptor.stepTaken(stepScope);
-  forager.stepTaken(stepScope);
-}

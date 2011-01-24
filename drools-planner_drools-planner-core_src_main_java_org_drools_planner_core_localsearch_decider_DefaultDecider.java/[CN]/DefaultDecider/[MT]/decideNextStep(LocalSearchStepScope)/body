@@ -1,0 +1,25 @@
+{
+  WorkingMemory workingMemory=localSearchStepScope.getWorkingMemory();
+  Iterator<Move> moveIterator=selector.moveIterator(localSearchStepScope);
+  while (moveIterator.hasNext()) {
+    Move move=moveIterator.next();
+    MoveScope moveScope=new MoveScope(localSearchStepScope);
+    moveScope.setMove(move);
+    if (move.isMoveDoable(workingMemory)) {
+      doMove(moveScope);
+      if (forager.isQuitEarly()) {
+        break;
+      }
+    }
+ else {
+      logger.debug("    Ignoring not doable move ({}).",move);
+    }
+  }
+  MoveScope pickedMoveScope=forager.pickMove(localSearchStepScope);
+  if (pickedMoveScope != null) {
+    Move step=pickedMoveScope.getMove();
+    localSearchStepScope.setStep(step);
+    localSearchStepScope.setUndoStep(step.createUndoMove(workingMemory));
+    localSearchStepScope.setScore(pickedMoveScope.getScore());
+  }
+}

@@ -3,9 +3,9 @@
   localSearchSolverScope.setScoreDefinition(new HardAndSoftScoreDefinition());
   localSearchSolverScope.setBestScore(DefaultHardAndSoftScore.valueOf(-11,-200));
   localSearchSolverScope.setBestSolutionStepIndex(1000);
-  StepScope lastStepScope=new StepScope(localSearchSolverScope);
-  lastStepScope.setStepIndex(1000);
-  lastStepScope.setScore(DefaultHardAndSoftScore.valueOf(-11,-200));
-  localSearchSolverScope.setLastCompletedStepScope(lastStepScope);
+  LocalSearchStepScope lastLocalSearchStepScope=new LocalSearchStepScope(localSearchSolverScope);
+  lastLocalSearchStepScope.setStepIndex(1000);
+  lastLocalSearchStepScope.setScore(DefaultHardAndSoftScore.valueOf(-11,-200));
+  localSearchSolverScope.setLastCompletedLocalSearchStepScope(lastLocalSearchStepScope);
   return localSearchSolverScope;
 }

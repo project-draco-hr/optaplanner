@@ -1,0 +1,11 @@
+{
+  for (  PlanningVariableHandler planningVariableHandler : list) {
+    if (planningVariableHandler.hasNext()) {
+      planningVariableHandler.next();
+      break;
+    }
+ else {
+      planningVariableHandler.reset();
+    }
+  }
+}

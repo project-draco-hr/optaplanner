@@ -4,6 +4,6 @@
   configurer.getConfig().setEnvironmentMode(environmentMode);
   TerminationConfig terminationConfig=new TerminationConfig();
   terminationConfig.setScoreAttained(scoreAttainedString);
-  configurer.getConfig().setTerminationConfig(terminationConfig);
+  ((LocalSearchSolverConfig)configurer.getConfig()).setTerminationConfig(terminationConfig);
   return configurer;
 }

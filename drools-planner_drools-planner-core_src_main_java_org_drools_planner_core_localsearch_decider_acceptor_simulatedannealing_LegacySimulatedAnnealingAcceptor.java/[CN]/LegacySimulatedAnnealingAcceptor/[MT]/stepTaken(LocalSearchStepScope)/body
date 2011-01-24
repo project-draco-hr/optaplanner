@@ -1,0 +1,4 @@
+{
+  super.stepTaken(localSearchStepScope);
+  temperature*=temperatureSurvival;
+}

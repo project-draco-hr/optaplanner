@@ -1,0 +1,5 @@
+{
+  DefaultBruteForceSolver bruteForceSolver=new DefaultBruteForceSolver();
+  configureAbstractSolver(bruteForceSolver);
+  return bruteForceSolver;
+}

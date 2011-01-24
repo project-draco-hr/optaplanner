@@ -1,8 +1,8 @@
 {
-  bestSolutionRecaller.solvingEnded(localSearchSolverScope);
-  termination.solvingEnded(localSearchSolverScope);
   decider.solvingEnded(localSearchSolverScope);
+  termination.solvingEnded(localSearchSolverScope);
+  bestSolutionRecaller.solvingEnded(localSearchSolverScope);
   long timeMillisSpend=localSearchSolverScope.calculateTimeMillisSpend();
   long averageCalculateCountPerSecond=localSearchSolverScope.getCalculateCount() * 1000L / timeMillisSpend;
-  logger.info("Solved at step index ({}) with time spend ({}) for best score ({})" + " with average calculate count per second ({}).",new Object[]{localSearchSolverScope.getLastCompletedStepScope().getStepIndex(),timeMillisSpend,localSearchSolverScope.getBestScore(),averageCalculateCountPerSecond});
+  logger.info("Solved at step index ({}) with time spend ({}) for best score ({})" + " with average calculate count per second ({}).",new Object[]{localSearchSolverScope.getLastCompletedLocalSearchStepScope().getStepIndex(),timeMillisSpend,localSearchSolverScope.getBestScore(),averageCalculateCountPerSecond});
 }
