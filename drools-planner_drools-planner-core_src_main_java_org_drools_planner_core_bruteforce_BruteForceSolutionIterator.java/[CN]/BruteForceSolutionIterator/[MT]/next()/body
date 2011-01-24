@@ -1,11 +1,11 @@
 {
   for (  PlanningVariableHandler planningVariableHandler : list) {
     if (planningVariableHandler.hasNext()) {
-      planningVariableHandler.next();
+      planningVariableHandler.next(bruteForceSolverScope.getWorkingMemory());
       break;
     }
  else {
-      planningVariableHandler.reset();
+      planningVariableHandler.reset(bruteForceSolverScope.getWorkingMemory());
     }
   }
 }
