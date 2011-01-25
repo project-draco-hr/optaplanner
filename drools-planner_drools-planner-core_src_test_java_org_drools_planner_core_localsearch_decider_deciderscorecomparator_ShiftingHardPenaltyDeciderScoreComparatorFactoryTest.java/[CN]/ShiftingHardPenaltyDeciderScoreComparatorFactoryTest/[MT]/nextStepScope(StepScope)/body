@@ -1,6 +1,0 @@
-{
-  StepScope stepScope=new StepScope(lastStepScope.getLocalSearchSolverScope());
-  lastStepScope.getLocalSearchSolverScope().setLastCompletedStepScope(lastStepScope);
-  stepScope.setStepIndex(lastStepScope.getStepIndex() + 1);
-  return stepScope;
-}

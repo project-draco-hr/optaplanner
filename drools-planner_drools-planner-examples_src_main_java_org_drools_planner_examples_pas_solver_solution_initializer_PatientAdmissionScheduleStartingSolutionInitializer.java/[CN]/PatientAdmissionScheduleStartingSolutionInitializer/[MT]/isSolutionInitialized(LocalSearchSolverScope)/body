@@ -1,4 +1,0 @@
-{
-  PatientAdmissionSchedule patientAdmissionSchedule=(PatientAdmissionSchedule)localSearchSolverScope.getWorkingSolution();
-  return patientAdmissionSchedule.isInitialized();
-}

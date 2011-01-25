@@ -1,0 +1,4 @@
+{
+  CurriculumCourseSchedule schedule=(CurriculumCourseSchedule)abstractSolverScope.getWorkingSolution();
+  initializeLectureList(abstractSolverScope,schedule);
+}

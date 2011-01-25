@@ -1,0 +1,5 @@
+{
+  long timeMillisSpend=localSearchStepScope.getLocalSearchSolverScope().calculateTimeMillisSpend();
+  double timeGradient=((double)timeMillisSpend) / ((double)maximumTimeMillisSpend);
+  return Math.min(timeGradient,1.0);
+}

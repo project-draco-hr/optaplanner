@@ -4,7 +4,7 @@
   configurer.getConfig().setEnvironmentMode(EnvironmentMode.DEBUG);
   TerminationConfig terminationConfig=new TerminationConfig();
   terminationConfig.setMaximumStepCount(50);
-  configurer.getConfig().setTerminationConfig(terminationConfig);
+  ((LocalSearchSolverConfig)configurer.getConfig()).setTerminationConfig(terminationConfig);
   Solver solver=configurer.buildSolver();
   SolutionDao solutionDao=new CurriculumCourseDaoImpl();
   Solution startingSolution=solutionDao.readSolution(getClass().getResourceAsStream(UNSOLVED_DATA));

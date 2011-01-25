@@ -1,0 +1,10 @@
+{
+  Move tabuMove;
+  if (useUndoMoveAsTabuMove) {
+    tabuMove=localSearchStepScope.getUndoStep();
+  }
+ else {
+    tabuMove=localSearchStepScope.getStep();
+  }
+  return Collections.singletonList(tabuMove);
+}

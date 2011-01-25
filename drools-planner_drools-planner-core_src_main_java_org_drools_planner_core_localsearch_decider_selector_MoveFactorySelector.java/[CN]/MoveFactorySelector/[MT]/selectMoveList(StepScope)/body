@@ -1,7 +1,0 @@
-{
-  List<Move> moveList=moveFactory.createMoveList(stepScope.getWorkingSolution());
-  if (shuffle) {
-    Collections.shuffle(moveList,stepScope.getWorkingRandom());
-  }
-  return moveList;
-}

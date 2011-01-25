@@ -11,12 +11,12 @@
     return 1.0;
   }
   if (aspirationEnabled) {
-    if (moveScope.getScore().compareTo(moveScope.getStepScope().getLocalSearchSolverScope().getBestScore()) > 0) {
+    if (moveScope.getScore().compareTo(moveScope.getLocalSearchStepScope().getLocalSearchSolverScope().getBestScore()) > 0) {
       logger.debug("    Proposed move ({}) is tabu, but aspiration undoes its tabu.",moveScope.getMove());
       return 1.0;
     }
   }
-  int tabuStepCount=moveScope.getStepScope().getStepIndex() - maximumTabuStepIndex - 1;
+  int tabuStepCount=moveScope.getLocalSearchStepScope().getStepIndex() - maximumTabuStepIndex - 1;
   if (tabuStepCount < completeTabuSize) {
     logger.debug("    Proposed move ({}) is complete tabu.",moveScope.getMove());
     return 0.0;

@@ -1,4 +1,0 @@
-{
-  CloudBalance cloudBalance=(CloudBalance)localSearchSolverScope.getWorkingSolution();
-  return cloudBalance.isInitialized();
-}

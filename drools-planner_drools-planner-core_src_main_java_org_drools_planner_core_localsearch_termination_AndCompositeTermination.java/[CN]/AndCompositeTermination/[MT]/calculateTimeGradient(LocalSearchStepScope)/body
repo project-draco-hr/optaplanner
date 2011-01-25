@@ -1,0 +1,10 @@
+{
+  double timeGradient=1.0;
+  for (  Termination termination : terminationList) {
+    double nextTimeGradient=termination.calculateTimeGradient(localSearchStepScope);
+    if (nextTimeGradient >= 0.0) {
+      timeGradient=Math.min(timeGradient,nextTimeGradient);
+    }
+  }
+  return timeGradient;
+}

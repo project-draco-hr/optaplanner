@@ -1,5 +1,0 @@
-{
-  this.bestSolutionRecaller=bestSolutionRecaller;
-  this.bestSolutionRecaller.setLocalSearchSolver(this);
-  this.bestSolutionRecaller.setSolverEventSupport(solverEventSupport);
-}

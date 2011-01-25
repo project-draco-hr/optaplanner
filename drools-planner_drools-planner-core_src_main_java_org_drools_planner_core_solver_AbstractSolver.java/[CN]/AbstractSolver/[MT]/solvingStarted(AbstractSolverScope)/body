@@ -1,0 +1,25 @@
+{
+  if (abstractSolverScope.getWorkingSolution() == null) {
+    throw new IllegalStateException("The startingSolution must not be null." + " Use Solver.setStartingSolution(Solution).");
+  }
+  abstractSolverScope.reset();
+  if (randomSeed != null) {
+    logger.info("Solving with random seed ({}).",randomSeed);
+    abstractSolverScope.setWorkingRandom(new Random(randomSeed));
+  }
+ else {
+    logger.info("Solving with a non-fixed random seed.");
+    abstractSolverScope.setWorkingRandom(new Random());
+  }
+  if (startingSolutionInitializer != null) {
+    if (!startingSolutionInitializer.isSolutionInitialized(abstractSolverScope)) {
+      logger.info("Initializing solution.");
+      startingSolutionInitializer.initializeSolution(abstractSolverScope);
+    }
+ else {
+      logger.debug("Solution is already initialized.");
+    }
+  }
+  abstractSolverScope.setStartingScore(abstractSolverScope.calculateScoreFromWorkingMemory());
+  bestSolutionRecaller.solvingStarted(abstractSolverScope);
+}

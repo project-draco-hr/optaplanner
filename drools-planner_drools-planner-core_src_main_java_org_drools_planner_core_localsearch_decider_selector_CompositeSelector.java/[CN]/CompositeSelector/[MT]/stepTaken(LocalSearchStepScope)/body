@@ -1,0 +1,5 @@
+{
+  for (  Selector selector : selectorList) {
+    selector.stepTaken(localSearchStepScope);
+  }
+}

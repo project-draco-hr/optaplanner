@@ -1,0 +1,3 @@
+{
+  super.inherit(inheritedConfig);
+}
