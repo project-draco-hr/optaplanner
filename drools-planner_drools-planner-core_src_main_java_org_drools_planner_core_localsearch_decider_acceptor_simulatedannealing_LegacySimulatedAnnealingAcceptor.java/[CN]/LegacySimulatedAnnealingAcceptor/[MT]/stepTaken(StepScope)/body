@@ -1,4 +1,0 @@
-{
-  super.stepTaken(stepScope);
-  temperature*=temperatureSurvival;
-}

@@ -1,6 +1,6 @@
 {
   Map<String,ScoreDetail> scoreDetailMap=new HashMap<String,ScoreDetail>();
-  WorkingMemory workingMemory=localSearchSolverScope.getWorkingMemory();
+  WorkingMemory workingMemory=abstractSolverScope.getWorkingMemory();
   if (workingMemory == null) {
     return Collections.emptyList();
   }

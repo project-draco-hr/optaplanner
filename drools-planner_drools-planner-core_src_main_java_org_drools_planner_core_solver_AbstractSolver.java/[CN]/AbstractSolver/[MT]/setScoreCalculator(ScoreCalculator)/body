@@ -1,0 +1,3 @@
+{
+  getAbstractSolverScope().setWorkingScoreCalculator(scoreCalculator);
+}

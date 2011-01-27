@@ -1,0 +1,4 @@
+{
+  Examination examination=(Examination)abstractSolverScope.getWorkingSolution();
+  return examination.isInitialized();
+}

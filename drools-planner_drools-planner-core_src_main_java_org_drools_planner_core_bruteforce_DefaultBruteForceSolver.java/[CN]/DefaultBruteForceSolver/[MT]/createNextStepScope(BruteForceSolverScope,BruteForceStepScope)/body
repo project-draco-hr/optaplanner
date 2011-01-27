@@ -1,0 +1,10 @@
+{
+  if (completedBruteForceStepScope == null) {
+    completedBruteForceStepScope=new BruteForceStepScope(bruteForceSolverScope);
+    completedBruteForceStepScope.setScore(bruteForceSolverScope.getStartingScore());
+    completedBruteForceStepScope.setStepIndex(-1);
+  }
+  BruteForceStepScope bruteForceStepScope=new BruteForceStepScope(bruteForceSolverScope);
+  bruteForceStepScope.setStepIndex(completedBruteForceStepScope.getStepIndex() + 1);
+  return bruteForceStepScope;
+}

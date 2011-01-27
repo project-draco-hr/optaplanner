@@ -1,0 +1,13 @@
+{
+  FactHandle factHandle=workingMemory.getFactHandle(planningVariable);
+  try {
+    valueMethod.invoke(planningVariable,value);
+  }
+ catch (  IllegalAccessException e) {
+    throw new IllegalStateException("Could not call method to set planningValue",e);
+  }
+catch (  InvocationTargetException e) {
+    throw new IllegalStateException("Could not call method to set planningValue",e);
+  }
+  workingMemory.update(factHandle,planningVariable);
+}

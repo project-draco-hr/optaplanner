@@ -1,4 +1,0 @@
-{
-  TabuPropertyEnabled tabuPropertyEnabled=(TabuPropertyEnabled)stepScope.getStep();
-  return tabuPropertyEnabled.getTabuProperties();
-}

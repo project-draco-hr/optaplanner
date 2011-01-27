@@ -2,12 +2,12 @@
   Forager forager=new AcceptedForager(PickEarlyType.NEVER,1);
   LocalSearchSolverScope localSearchSolverScope=createLocalSearchSolverScope();
   forager.solvingStarted(localSearchSolverScope);
-  StepScope stepScope=createStepScope(localSearchSolverScope);
-  forager.beforeDeciding(stepScope);
-  MoveScope a=createMoveScope(stepScope,DefaultSimpleScore.valueOf(-20),0.0);
-  MoveScope b=createMoveScope(stepScope,DefaultSimpleScore.valueOf(-1),0.1);
-  MoveScope c=createMoveScope(stepScope,DefaultSimpleScore.valueOf(-1),0.0);
-  MoveScope d=createMoveScope(stepScope,DefaultSimpleScore.valueOf(-20),0.3);
+  LocalSearchStepScope localSearchStepScope=createStepScope(localSearchSolverScope);
+  forager.beforeDeciding(localSearchStepScope);
+  MoveScope a=createMoveScope(localSearchStepScope,DefaultSimpleScore.valueOf(-20),0.0);
+  MoveScope b=createMoveScope(localSearchStepScope,DefaultSimpleScore.valueOf(-1),0.1);
+  MoveScope c=createMoveScope(localSearchStepScope,DefaultSimpleScore.valueOf(-1),0.0);
+  MoveScope d=createMoveScope(localSearchStepScope,DefaultSimpleScore.valueOf(-20),0.3);
   forager.addMove(a);
   assertFalse(forager.isQuitEarly());
   forager.addMove(b);
@@ -16,7 +16,7 @@
   assertFalse(forager.isQuitEarly());
   forager.addMove(d);
   assertTrue(forager.isQuitEarly());
-  MoveScope pickedScope=forager.pickMove(stepScope);
+  MoveScope pickedScope=forager.pickMove(localSearchStepScope);
   assertSame(d,pickedScope);
   List<Move> topList=forager.getTopList(2);
   assertTrue(topList.contains(b.getMove()));

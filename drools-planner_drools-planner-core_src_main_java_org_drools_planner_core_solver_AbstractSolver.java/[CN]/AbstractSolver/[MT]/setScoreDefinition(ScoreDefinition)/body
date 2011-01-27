@@ -1,0 +1,3 @@
+{
+  getAbstractSolverScope().setScoreDefinition(scoreDefinition);
+}
