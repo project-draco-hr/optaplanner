@@ -1,9 +1,9 @@
 {
   DefaultDecider decider=new DefaultDecider();
   decider.setDeciderScoreComparator(deciderScoreComparatorFactoryConfig.buildDeciderScoreComparatorFactory());
-  decider.setSelector(selectorConfig.buildSelector());
-  decider.setAcceptor(acceptorConfig.buildAcceptor());
-  decider.setForager(foragerConfig.buildForager());
+  decider.setSelector(selectorConfig.buildSelector(scoreDefinition));
+  decider.setAcceptor(acceptorConfig.buildAcceptor(scoreDefinition));
+  decider.setForager(foragerConfig.buildForager(scoreDefinition));
   if (environmentMode == EnvironmentMode.TRACE) {
     decider.setAssertMoveScoreIsUncorrupted(true);
   }

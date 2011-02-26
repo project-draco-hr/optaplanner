@@ -2,15 +2,24 @@
   LocalSearchSolverScope localSearchSolverScope=moveScope.getLocalSearchStepScope().getLocalSearchSolverScope();
   Score lastStepScore=localSearchSolverScope.getLastCompletedLocalSearchStepScope().getScore();
   Score moveScore=moveScope.getScore();
-  if (moveScore.compareTo(lastStepScore) > 0) {
+  if (moveScore.compareTo(lastStepScore) >= 0) {
     return 1.0;
   }
   Score scoreDifference=lastStepScore.subtract(moveScore);
-  Double diff=localSearchSolverScope.getScoreDefinition().translateScoreToGraphValue(scoreDifference);
-  if (diff == null) {
-    return 0.0;
+  double acceptChance=1.0;
+  double[] scoreDifferenceParts=scoreDifference.toDoubleArray();
+  for (int i=0; i < partsLength; i++) {
+    double scoreDifferencePart=scoreDifferenceParts[i];
+    double temperaturePart=temperatureParts[i];
+    double acceptChancePart;
+    if (scoreDifferencePart <= 0.0) {
+      acceptChancePart=1.0;
+    }
+ else {
+      acceptChancePart=Math.exp(-scoreDifferencePart / temperaturePart);
+    }
+    acceptChance*=acceptChancePart;
   }
-  double acceptChance=Math.exp(-diff / temperature);
   if (moveScope.getWorkingRandom().nextDouble() < acceptChance) {
     return 1.0;
   }

@@ -2,7 +2,7 @@
   DefaultLocalSearchSolver localSearchSolver=new DefaultLocalSearchSolver();
   configureAbstractSolver(localSearchSolver);
   localSearchSolver.setTermination(terminationConfig.buildTermination(localSearchSolver.getScoreDefinition()));
-  localSearchSolver.setDecider(buildDecider());
+  localSearchSolver.setDecider(buildDecider(localSearchSolver.getScoreDefinition()));
   if (environmentMode == EnvironmentMode.DEBUG || environmentMode == EnvironmentMode.TRACE) {
     localSearchSolver.setAssertStepScoreIsUncorrupted(true);
   }

@@ -2,7 +2,7 @@
   if (selectorConfigList != null) {
     List<Selector> selectorList=new ArrayList<Selector>(selectorConfigList.size());
     for (    SelectorConfig selectorConfig : selectorConfigList) {
-      selectorList.add(selectorConfig.buildSelector());
+      selectorList.add(selectorConfig.buildSelector(scoreDefinition));
     }
     CompositeSelector selector=new CompositeSelector();
     selector.setSelectorList(selectorList);

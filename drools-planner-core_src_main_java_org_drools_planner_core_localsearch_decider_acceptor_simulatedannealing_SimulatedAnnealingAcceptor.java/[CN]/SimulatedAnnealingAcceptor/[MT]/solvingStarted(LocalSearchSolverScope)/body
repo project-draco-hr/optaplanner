@@ -1,9 +1,10 @@
 {
-  if (startingTemperature < 0.0) {
-    throw new IllegalArgumentException("The startingTemperature (" + startingTemperature + ") cannot be negative.");
-  }
-  if (startingTemperature < temperatureMinimum) {
-    throw new IllegalArgumentException("The startingTemperature (" + startingTemperature + ") cannot be less than the temperatureMinimum ("+ temperatureMinimum+ ").");
+  for (  double startingTemperaturePart : startingTemperature.toDoubleArray()) {
+    if (startingTemperaturePart < 0.0) {
+      throw new IllegalArgumentException("The startingTemperature (" + startingTemperature + ") cannot have negative part ("+ startingTemperaturePart+ ").");
+    }
   }
   temperature=startingTemperature;
+  temperatureParts=temperature.toDoubleArray();
+  partsLength=temperatureParts.length;
 }

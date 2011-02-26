@@ -56,10 +56,15 @@ catch (    IllegalAccessException e) {
     }
     acceptorList.add(solutionTabuAcceptor);
   }
-  if ((acceptorTypeList != null && acceptorTypeList.contains(AcceptorType.SIMULATED_ANNEALING)) || simulatedAnnealingStartingTemperature != null) {
+  if (oldSimulatedAnnealingStartingTemperature != null) {
+    OldSimulatedAnnealingAcceptor oldSimulatedAnnealingAcceptor=new OldSimulatedAnnealingAcceptor();
+    oldSimulatedAnnealingAcceptor.setStartingTemperature(oldSimulatedAnnealingStartingTemperature);
+    acceptorList.add(oldSimulatedAnnealingAcceptor);
+  }
+  if ((acceptorTypeList != null && acceptorTypeList.contains(AcceptorType.SIMULATED_ANNEALING)) || oldSimulatedAnnealingStartingTemperature != null || simulatedAnnealingStartingTemperature != null) {
     SimulatedAnnealingAcceptor simulatedAnnealingAcceptor=new SimulatedAnnealingAcceptor();
     if (simulatedAnnealingStartingTemperature != null) {
-      simulatedAnnealingAcceptor.setStartingTemperature(simulatedAnnealingStartingTemperature);
+      simulatedAnnealingAcceptor.setStartingTemperature(scoreDefinition.parseScore(simulatedAnnealingStartingTemperature));
     }
     acceptorList.add(simulatedAnnealingAcceptor);
   }

@@ -1,8 +1,11 @@
 {
   super.stepTaken(localSearchStepScope);
   double timeGradient=localSearchStepScope.getTimeGradient();
-  temperature=startingTemperature * (1.0 - timeGradient);
-  if (temperature < temperatureMinimum) {
-    temperature=temperatureMinimum;
+  temperature=startingTemperature.multiply(1.0 - timeGradient);
+  temperatureParts=temperature.toDoubleArray();
+  for (int i=0; i < partsLength; i++) {
+    if (temperatureParts[i] < temperatureMinimum) {
+      temperatureParts[i]=temperatureMinimum;
+    }
   }
 }
