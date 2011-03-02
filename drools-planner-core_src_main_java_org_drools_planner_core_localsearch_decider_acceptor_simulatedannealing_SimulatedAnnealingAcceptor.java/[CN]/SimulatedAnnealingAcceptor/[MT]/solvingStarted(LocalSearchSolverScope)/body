@@ -4,7 +4,7 @@
       throw new IllegalArgumentException("The startingTemperature (" + startingTemperature + ") cannot have negative part ("+ startingTemperaturePart+ ").");
     }
   }
-  temperature=startingTemperature;
-  temperatureParts=temperature.toDoubleArray();
-  partsLength=temperatureParts.length;
+  startingTemperatureParts=startingTemperature.toDoubleArray();
+  temperatureParts=startingTemperatureParts;
+  partsLength=startingTemperatureParts.length;
 }
