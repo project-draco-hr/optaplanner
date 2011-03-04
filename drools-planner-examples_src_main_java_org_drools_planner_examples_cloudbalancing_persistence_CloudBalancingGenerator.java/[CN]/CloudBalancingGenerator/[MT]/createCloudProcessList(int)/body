@@ -6,7 +6,6 @@
     int minimalCpuPower=generateRandom(MAXIMUM_MINIMAL_CPU_POWER);
     cloudProcess.setMinimalCpuPower(minimalCpuPower);
     int minimalMemory=generateRandom(MAXIMUM_MINIMAL_MEMORY);
-    ;
     cloudProcess.setMinimalMemory(minimalMemory);
     int minimalNetworkBandwidth=generateRandom(MAXIMUM_MINIMAL_NETWORK_BANDWIDTH);
     cloudProcess.setMinimalNetworkBandwidth(minimalNetworkBandwidth);
