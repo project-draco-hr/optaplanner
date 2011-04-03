@@ -1,0 +1,3 @@
+{
+  return new HashCodeBuilder().append(startCityAssignment).append(endCityAssignment).append(toAfterCityAssignment).toHashCode();
+}

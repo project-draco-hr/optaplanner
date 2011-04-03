@@ -1,0 +1,3 @@
+{
+  return !ObjectUtils.equals(startCityAssignment.getPreviousCityAssignment(),toAfterCityAssignment);
+}

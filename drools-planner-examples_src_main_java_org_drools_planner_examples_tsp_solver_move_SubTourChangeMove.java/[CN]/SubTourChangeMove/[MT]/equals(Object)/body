@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof SubTourChangeMove) {
+    SubTourChangeMove other=(SubTourChangeMove)o;
+    return new EqualsBuilder().append(startCityAssignment,other.startCityAssignment).append(endCityAssignment,other.endCityAssignment).append(toAfterCityAssignment,other.toAfterCityAssignment).isEquals();
+  }
+ else {
+    return false;
+  }
+}

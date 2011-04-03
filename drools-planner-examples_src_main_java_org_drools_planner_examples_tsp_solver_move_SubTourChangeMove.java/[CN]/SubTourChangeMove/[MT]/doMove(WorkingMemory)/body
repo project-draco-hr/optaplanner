@@ -1,0 +1,5 @@
+{
+  CityAssignment toBeforeCityAssignment=toAfterCityAssignment.getNextCityAssignment();
+  TspMoveHelper.moveCityAssignment(workingMemory,toAfterCityAssignment,startCityAssignment);
+  TspMoveHelper.moveCityAssignment(workingMemory,endCityAssignment,toBeforeCityAssignment);
+}

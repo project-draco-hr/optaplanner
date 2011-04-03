@@ -1,0 +1,8 @@
+{
+  FactHandle cityAssignmentFactHandle=workingMemory.getFactHandle(cityAssignment);
+  FactHandle toNextCityAssignmentFactHandle=workingMemory.getFactHandle(toNextCityAssignment);
+  cityAssignment.setNextCityAssignment(toNextCityAssignment);
+  toNextCityAssignment.setPreviousCityAssignment(cityAssignment);
+  workingMemory.update(cityAssignmentFactHandle,cityAssignment);
+  workingMemory.update(toNextCityAssignmentFactHandle,toNextCityAssignment);
+}

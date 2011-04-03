@@ -1,0 +1,11 @@
+{
+  TravelingSalesmanTour travelingSalesmanTour=(TravelingSalesmanTour)solution;
+  List<Move> moveList=new ArrayList<Move>();
+  List<CityAssignment> cityAssignmentList=travelingSalesmanTour.getCityAssignmentList();
+  for (  CityAssignment cityAssignment : cityAssignmentList) {
+    for (    CityAssignment toAfterCityAssignment : cityAssignmentList) {
+      moveList.add(new SubTourChangeMove(cityAssignment,cityAssignment,toAfterCityAssignment));
+    }
+  }
+  return moveList;
+}
