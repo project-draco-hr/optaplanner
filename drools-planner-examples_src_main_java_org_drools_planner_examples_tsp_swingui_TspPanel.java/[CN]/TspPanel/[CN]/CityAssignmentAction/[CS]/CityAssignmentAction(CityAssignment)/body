@@ -1,0 +1,4 @@
+{
+  super(cityAssignment.getCity().toString());
+  this.cityAssignment=cityAssignment;
+}

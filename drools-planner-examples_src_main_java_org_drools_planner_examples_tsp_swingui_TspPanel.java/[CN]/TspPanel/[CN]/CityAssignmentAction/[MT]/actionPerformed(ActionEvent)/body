@@ -1,0 +1,13 @@
+{
+  JPanel listFieldsPanel=new JPanel(new GridLayout(2,1));
+  List<CityAssignment> nextCityAssignmentList=getTravelingSalesmanSchedule().getCityAssignmentList();
+  JComboBox nextCityAssignmentListField=new JComboBox(nextCityAssignmentList.toArray());
+  nextCityAssignmentListField.setSelectedItem(cityAssignment.getNextCityAssignment());
+  listFieldsPanel.add(nextCityAssignmentListField);
+  int result=JOptionPane.showConfirmDialog(TspPanel.this.getRootPane(),listFieldsPanel,"Select next city",JOptionPane.OK_CANCEL_OPTION);
+  if (result == JOptionPane.OK_OPTION) {
+    CityAssignment toNextCityAssignement=(CityAssignment)nextCityAssignmentListField.getSelectedItem();
+    solutionBusiness.doMove(new NextCityAssignmentChangeMove(cityAssignment,toNextCityAssignement));
+    workflowFrame.updateScreen();
+  }
+}
