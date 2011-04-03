@@ -1,0 +1,3 @@
+{
+  return new CompareToBuilder().append(city,other.city).append(id,other.id).toComparison();
+}

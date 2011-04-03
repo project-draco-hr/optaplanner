@@ -1,0 +1,7 @@
+{
+  CityAssignment clone=new CityAssignment();
+  clone.id=id;
+  clone.city=city;
+  clone.nextCityAssignment=nextCityAssignment;
+  return clone;
+}

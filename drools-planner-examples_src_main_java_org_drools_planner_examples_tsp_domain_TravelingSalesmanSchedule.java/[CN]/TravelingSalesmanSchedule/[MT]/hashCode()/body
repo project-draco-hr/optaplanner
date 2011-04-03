@@ -1,0 +1,7 @@
+{
+  HashCodeBuilder hashCodeBuilder=new HashCodeBuilder();
+  for (  CityAssignment cityAssignment : cityAssignmentList) {
+    hashCodeBuilder.append(cityAssignment.solutionHashCode());
+  }
+  return hashCodeBuilder.toHashCode();
+}

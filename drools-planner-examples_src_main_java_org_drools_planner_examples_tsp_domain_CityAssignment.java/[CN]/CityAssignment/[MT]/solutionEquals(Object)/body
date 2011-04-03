@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof CityAssignment) {
+    CityAssignment other=(CityAssignment)o;
+    return new EqualsBuilder().append(id,other.id).append(city,other.city).append(nextCityAssignment,other.nextCityAssignment).isEquals();
+  }
+ else {
+    return false;
+  }
+}

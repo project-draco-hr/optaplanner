@@ -1,0 +1,18 @@
+{
+  TravelingSalesmanSchedule clone=new TravelingSalesmanSchedule();
+  clone.id=id;
+  clone.name=name;
+  clone.cityList=cityList;
+  clone.startCity=startCity;
+  List<CityAssignment> clonedCityAssignmentList=new ArrayList<CityAssignment>(cityAssignmentList.size());
+  for (  CityAssignment cityAssignment : cityAssignmentList) {
+    CityAssignment clonedCityAssignment=cityAssignment.clone();
+    clonedCityAssignmentList.add(clonedCityAssignment);
+    if (cityAssignment == startCityAssignment) {
+      clone.startCityAssignment=clonedCityAssignment;
+    }
+  }
+  clone.cityAssignmentList=clonedCityAssignmentList;
+  clone.score=score;
+  return clone;
+}

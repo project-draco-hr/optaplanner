@@ -1,0 +1,22 @@
+{
+  if (this == o) {
+    return true;
+  }
+  if (id == null || !(o instanceof TravelingSalesmanSchedule)) {
+    return false;
+  }
+ else {
+    TravelingSalesmanSchedule other=(TravelingSalesmanSchedule)o;
+    if (cityAssignmentList.size() != other.cityAssignmentList.size()) {
+      return false;
+    }
+    for (Iterator<CityAssignment> it=cityAssignmentList.iterator(), otherIt=other.cityAssignmentList.iterator(); it.hasNext(); ) {
+      CityAssignment cityAssignment=it.next();
+      CityAssignment otherCityAssignment=otherIt.next();
+      if (!cityAssignment.solutionEquals(otherCityAssignment)) {
+        return false;
+      }
+    }
+    return true;
+  }
+}
