@@ -5,12 +5,18 @@
   clone.cityList=cityList;
   clone.startCity=startCity;
   List<CityAssignment> clonedCityAssignmentList=new ArrayList<CityAssignment>(cityAssignmentList.size());
+  Map<Long,CityAssignment> idToClonedCityAssignmentMap=new HashMap<Long,CityAssignment>(cityAssignmentList.size());
   for (  CityAssignment cityAssignment : cityAssignmentList) {
     CityAssignment clonedCityAssignment=cityAssignment.clone();
     clonedCityAssignmentList.add(clonedCityAssignment);
+    idToClonedCityAssignmentMap.put(clonedCityAssignment.getId(),clonedCityAssignment);
     if (cityAssignment == startCityAssignment) {
       clone.startCityAssignment=clonedCityAssignment;
     }
+  }
+  for (  CityAssignment clonedCityAssignment : clonedCityAssignmentList) {
+    clonedCityAssignment.setPreviousCityAssignment(idToClonedCityAssignmentMap.get(clonedCityAssignment.getPreviousCityAssignment().getId()));
+    clonedCityAssignment.setNextCityAssignment(idToClonedCityAssignmentMap.get(clonedCityAssignment.getNextCityAssignment().getId()));
   }
   clone.cityAssignmentList=clonedCityAssignmentList;
   clone.score=score;

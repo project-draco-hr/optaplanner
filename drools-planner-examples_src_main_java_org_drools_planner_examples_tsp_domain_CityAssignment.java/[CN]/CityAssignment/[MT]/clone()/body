@@ -2,6 +2,7 @@
   CityAssignment clone=new CityAssignment();
   clone.id=id;
   clone.city=city;
+  clone.previousCityAssignment=previousCityAssignment;
   clone.nextCityAssignment=nextCityAssignment;
   return clone;
 }
