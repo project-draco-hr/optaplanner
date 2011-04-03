@@ -1,0 +1,4 @@
+{
+  String line=bufferedReader.readLine();
+  return removePrefixSuffixFromLine(line,prefix,suffix);
+}

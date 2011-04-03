@@ -1,0 +1,15 @@
+{
+  readConstantLine("NODE_COORD_SECTION");
+  List<City> cityList=new ArrayList<City>(cityListSize);
+  for (int i=0; i < cityListSize; i++) {
+    String line=bufferedReader.readLine();
+    String[] lineTokens=splitBySpace(line,3);
+    City city=new City();
+    city.setId(Long.parseLong(lineTokens[0]));
+    city.setX(Double.parseDouble(lineTokens[1]));
+    city.setY(Double.parseDouble(lineTokens[2]));
+    cityList.add(city);
+  }
+  travelingSalesmanSchedule.setCityList(cityList);
+  travelingSalesmanSchedule.setStartCity(cityList.get(0));
+}

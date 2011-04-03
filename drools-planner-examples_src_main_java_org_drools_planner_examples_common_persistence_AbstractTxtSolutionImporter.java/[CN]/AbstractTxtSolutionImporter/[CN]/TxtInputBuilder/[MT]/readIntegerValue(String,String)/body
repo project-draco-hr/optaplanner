@@ -1,15 +1,6 @@
 {
   String line=bufferedReader.readLine();
-  String value=line.trim();
-  if (!value.startsWith(prefix)) {
-    throw new IllegalArgumentException("Read line (" + line + ") is expected to start with prefix ("+ prefix+ ").");
-  }
-  value=value.substring(prefix.length());
-  if (!value.endsWith(suffix)) {
-    throw new IllegalArgumentException("Read line (" + line + ") is expected to end with suffix ("+ suffix+ ").");
-  }
-  value=value.substring(0,value.length() - suffix.length());
-  value=value.trim();
+  String value=removePrefixSuffixFromLine(line,prefix,suffix);
   try {
     return Integer.parseInt(value);
   }

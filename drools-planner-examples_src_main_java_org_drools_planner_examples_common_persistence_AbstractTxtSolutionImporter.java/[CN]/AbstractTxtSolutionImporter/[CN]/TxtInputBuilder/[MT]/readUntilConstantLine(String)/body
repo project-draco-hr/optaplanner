@@ -1,0 +1,8 @@
+{
+  String line=bufferedReader.readLine();
+  String value=line.trim();
+  while (!value.equals(constantValue)) {
+    line=bufferedReader.readLine();
+    value=line.trim();
+  }
+}
