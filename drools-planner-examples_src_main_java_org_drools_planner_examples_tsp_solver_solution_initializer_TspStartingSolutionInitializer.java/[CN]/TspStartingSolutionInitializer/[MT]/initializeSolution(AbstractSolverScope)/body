@@ -1,0 +1,4 @@
+{
+  TravelingSalesmanTour travelingSalesmanTour=(TravelingSalesmanTour)abstractSolverScope.getWorkingSolution();
+  initializeCityAssignmentList(abstractSolverScope,travelingSalesmanTour);
+}
