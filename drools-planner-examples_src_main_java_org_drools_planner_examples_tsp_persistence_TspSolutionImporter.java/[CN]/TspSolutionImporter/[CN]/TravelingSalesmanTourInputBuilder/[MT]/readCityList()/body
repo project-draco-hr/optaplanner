@@ -10,6 +10,6 @@
     city.setY(Double.parseDouble(lineTokens[2]));
     cityList.add(city);
   }
-  travelingSalesmanSchedule.setCityList(cityList);
-  travelingSalesmanSchedule.setStartCity(cityList.get(0));
+  travelingSalesmanTour.setCityList(cityList);
+  travelingSalesmanTour.setStartCity(cityList.get(0));
 }

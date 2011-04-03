@@ -1,13 +1,13 @@
 {
   removeAll();
-  TravelingSalesmanSchedule travelingSalesmanSchedule=getTravelingSalesmanSchedule();
-  JLabel headerLabel=new JLabel("Tour of " + travelingSalesmanSchedule.getName());
+  TravelingSalesmanTour travelingSalesmanTour=getTravelingSalesmanTour();
+  JLabel headerLabel=new JLabel("Tour of " + travelingSalesmanTour.getName());
   headerLabel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.DARK_GRAY),BorderFactory.createEmptyBorder(2,2,2,2)));
   headerLabel.setBackground(HEADER_COLOR);
   headerLabel.setOpaque(true);
   add(headerLabel);
-  if (travelingSalesmanSchedule.isInitialized()) {
-    for (    CityAssignment cityAssignment : travelingSalesmanSchedule.getCityAssignmentList()) {
+  if (travelingSalesmanTour.isInitialized()) {
+    for (    CityAssignment cityAssignment : travelingSalesmanTour.getCityAssignmentList()) {
       JPanel cityAssignmentPanel=new JPanel(new GridLayout(1,2));
       JButton button=new JButton(new CityAssignmentAction(cityAssignment));
       cityAssignmentPanel.add(button);

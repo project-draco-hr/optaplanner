@@ -1,5 +1,5 @@
 {
-  travelingSalesmanSchedule.setName(readStringValue("NAME :"));
+  travelingSalesmanTour.setName(readStringValue("NAME :"));
   readUntilConstantLine("TYPE : TSP");
   cityListSize=readIntegerValue("DIMENSION :");
   readConstantLine("EDGE_WEIGHT_TYPE : EUC_2D");

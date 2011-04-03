@@ -1,5 +1,5 @@
 {
-  TravelingSalesmanSchedule clone=new TravelingSalesmanSchedule();
+  TravelingSalesmanTour clone=new TravelingSalesmanTour();
   clone.id=id;
   clone.name=name;
   clone.cityList=cityList;

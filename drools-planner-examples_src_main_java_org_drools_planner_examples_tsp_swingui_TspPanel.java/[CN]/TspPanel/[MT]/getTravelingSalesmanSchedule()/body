@@ -1,3 +1,0 @@
-{
-  return (TravelingSalesmanSchedule)solutionBusiness.getSolution();
-}

@@ -1,6 +1,6 @@
 {
   JPanel listFieldsPanel=new JPanel(new GridLayout(2,1));
-  List<CityAssignment> nextCityAssignmentList=getTravelingSalesmanSchedule().getCityAssignmentList();
+  List<CityAssignment> nextCityAssignmentList=getTravelingSalesmanTour().getCityAssignmentList();
   JComboBox nextCityAssignmentListField=new JComboBox(nextCityAssignmentList.toArray());
   nextCityAssignmentListField.setSelectedItem(cityAssignment.getNextCityAssignment());
   listFieldsPanel.add(nextCityAssignmentListField);

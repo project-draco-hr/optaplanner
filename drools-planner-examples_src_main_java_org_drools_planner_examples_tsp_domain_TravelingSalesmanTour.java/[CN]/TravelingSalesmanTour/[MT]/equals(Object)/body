@@ -2,11 +2,11 @@
   if (this == o) {
     return true;
   }
-  if (id == null || !(o instanceof TravelingSalesmanSchedule)) {
+  if (id == null || !(o instanceof TravelingSalesmanTour)) {
     return false;
   }
  else {
-    TravelingSalesmanSchedule other=(TravelingSalesmanSchedule)o;
+    TravelingSalesmanTour other=(TravelingSalesmanTour)o;
     if (cityAssignmentList.size() != other.cityAssignmentList.size()) {
       return false;
     }
