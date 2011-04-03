@@ -15,6 +15,5 @@
     cloudAssignmentList.add(cloudAssignment);
     cloudAssignmentId++;
   }
-  Collections.sort(cloudAssignmentList);
   return cloudAssignmentList;
 }

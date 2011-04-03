@@ -18,6 +18,5 @@
       assignmentId++;
     }
   }
-  Collections.sort(assignmentList);
   return assignmentList;
 }
