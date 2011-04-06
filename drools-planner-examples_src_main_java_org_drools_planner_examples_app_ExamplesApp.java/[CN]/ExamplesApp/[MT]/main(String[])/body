@@ -1,5 +1,0 @@
-{
-  ExamplesApp examplesApp=new ExamplesApp();
-  examplesApp.pack();
-  examplesApp.setVisible(true);
-}

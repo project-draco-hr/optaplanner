@@ -1,0 +1,5 @@
+{
+  DroolsPlannerExamplesApp droolsPlannerExamplesApp=new DroolsPlannerExamplesApp();
+  droolsPlannerExamplesApp.pack();
+  droolsPlannerExamplesApp.setVisible(true);
+}
