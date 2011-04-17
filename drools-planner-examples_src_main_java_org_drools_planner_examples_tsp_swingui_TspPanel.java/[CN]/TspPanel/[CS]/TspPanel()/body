@@ -1,4 +1,11 @@
 {
-  gridLayout=new GridLayout(0,1);
-  setLayout(gridLayout);
+  setLayout(new BorderLayout());
+  JTabbedPane tabbedPane=new JTabbedPane();
+  tspWorldPanel=new TspWorldPanel(this);
+  tspWorldPanel.setPreferredSize(PREFERRED_SCROLLABLE_VIEWPORT_SIZE);
+  tabbedPane.add("World",tspWorldPanel);
+  tspListPanel=new TspListPanel(this);
+  JScrollPane tspListScrollPane=new JScrollPane(tspListPanel);
+  tabbedPane.add("List",tspListScrollPane);
+  add(tabbedPane,BorderLayout.CENTER);
 }

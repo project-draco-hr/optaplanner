@@ -1,0 +1,4 @@
+{
+  this.tspPanel=tspPanel;
+  setLayout(new GridLayout(0,1));
+}

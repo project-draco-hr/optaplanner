@@ -1,0 +1,6 @@
+{
+  super.paintComponent(g);
+  if (canvas != null) {
+    g.drawImage(canvas,0,0,this);
+  }
+}
