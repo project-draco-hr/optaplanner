@@ -3,10 +3,12 @@
 switch (scoreDefinitionType) {
 case SIMPLE:
       return new SimpleScoreCalculator();
+case SIMPLE_DOUBLE:
+    return new SimpleDoubleScoreCalculator();
 case HARD_AND_SOFT:
-    return new DefaultHardAndSoftConstraintScoreCalculator();
+  return new DefaultHardAndSoftConstraintScoreCalculator();
 default :
-  throw new IllegalStateException("The scoreDefinitionType (" + scoreDefinitionType + ") is not implemented");
+throw new IllegalStateException("The scoreDefinitionType (" + scoreDefinitionType + ") is not implemented");
 }
 }
  else {

@@ -17,10 +17,12 @@ catch (    IllegalAccessException e) {
 switch (scoreDefinitionType) {
 case SIMPLE:
       return new SimpleScoreDefinition();
+case SIMPLE_DOUBLE:
+    return new SimpleDoubleScoreDefinition();
 case HARD_AND_SOFT:
-    return new HardAndSoftScoreDefinition();
+  return new HardAndSoftScoreDefinition();
 default :
-  throw new IllegalStateException("The scoreDefinitionType (" + scoreDefinitionType + ") is not implemented");
+throw new IllegalStateException("The scoreDefinitionType (" + scoreDefinitionType + ") is not implemented");
 }
 }
  else {
