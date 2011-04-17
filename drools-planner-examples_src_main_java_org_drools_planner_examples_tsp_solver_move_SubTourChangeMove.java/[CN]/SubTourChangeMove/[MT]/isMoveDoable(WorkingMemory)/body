@@ -1,5 +1,8 @@
 {
   CityAssignment nextCityAssignment=startCityAssignment;
+  if (ObjectUtils.equals(startCityAssignment,toAfterCityAssignment.getNextCityAssignment())) {
+    return false;
+  }
   while (!ObjectUtils.equals(nextCityAssignment,endCityAssignment)) {
     if (ObjectUtils.equals(nextCityAssignment,toAfterCityAssignment)) {
       return false;
