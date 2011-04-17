@@ -1,5 +1,9 @@
 {
-  CityAssignment toBeforeCityAssignment=toAfterCityAssignment.getNextCityAssignment();
-  TspMoveHelper.moveCityAssignmentAfterCityAssignment(workingMemory,toAfterCityAssignment,startCityAssignment);
-  TspMoveHelper.moveCityAssignmentAfterCityAssignment(workingMemory,endCityAssignment,toBeforeCityAssignment);
+  CityAssignment newPreviousCityAssignment=toAfterCityAssignment;
+  CityAssignment newNextCityAssignment=newPreviousCityAssignment.getNextCityAssignment();
+  CityAssignment originalPreviousCityAssignment=startCityAssignment.getPreviousCityAssignment();
+  CityAssignment originalNextCityAssignment=endCityAssignment.getNextCityAssignment();
+  TspMoveHelper.moveCityAssignmentAfterCityAssignment(workingMemory,newPreviousCityAssignment,startCityAssignment);
+  TspMoveHelper.moveCityAssignmentAfterCityAssignment(workingMemory,endCityAssignment,newNextCityAssignment);
+  TspMoveHelper.moveCityAssignmentAfterCityAssignment(workingMemory,originalPreviousCityAssignment,originalNextCityAssignment);
 }

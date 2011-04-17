@@ -1,3 +1,13 @@
 {
-  return !ObjectUtils.equals(startCityAssignment.getPreviousCityAssignment(),toAfterCityAssignment);
+  CityAssignment nextCityAssignment=startCityAssignment;
+  while (!ObjectUtils.equals(nextCityAssignment,endCityAssignment)) {
+    if (ObjectUtils.equals(nextCityAssignment,toAfterCityAssignment)) {
+      return false;
+    }
+    nextCityAssignment=nextCityAssignment.getNextCityAssignment();
+  }
+  if (ObjectUtils.equals(endCityAssignment,toAfterCityAssignment)) {
+    return false;
+  }
+  return true;
 }
