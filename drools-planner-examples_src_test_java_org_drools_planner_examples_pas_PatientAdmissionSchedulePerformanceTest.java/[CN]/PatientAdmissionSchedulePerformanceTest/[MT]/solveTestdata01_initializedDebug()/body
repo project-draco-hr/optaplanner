@@ -1,0 +1,4 @@
+{
+  File unsolvedDataFile=new File("data/pas/unsolved/testdata01_initialized.xml");
+  runSpeedTest(unsolvedDataFile,"0hard/-8758soft",EnvironmentMode.DEBUG);
+}
