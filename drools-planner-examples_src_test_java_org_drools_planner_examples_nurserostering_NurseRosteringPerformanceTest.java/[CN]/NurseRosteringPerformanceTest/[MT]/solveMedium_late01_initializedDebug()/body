@@ -1,0 +1,4 @@
+{
+  File unsolvedDataFile=new File("data/nurserostering/unsolved/medium_late01_initialized.xml");
+  runSpeedTest(unsolvedDataFile,"-57hard/-3387soft",EnvironmentMode.DEBUG);
+}
