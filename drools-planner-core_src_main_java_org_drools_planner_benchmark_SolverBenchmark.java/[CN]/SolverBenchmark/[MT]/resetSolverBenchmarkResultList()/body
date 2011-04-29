@@ -1,0 +1,8 @@
+{
+  solverBenchmarkResultList=new ArrayList<SolverBenchmarkResult>();
+  for (  File unsolvedSolutionFile : unsolvedSolutionFileList) {
+    SolverBenchmarkResult result=new SolverBenchmarkResult();
+    result.setUnsolvedSolutionFile(unsolvedSolutionFile);
+    solverBenchmarkResultList.add(result);
+  }
+}

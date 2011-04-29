@@ -2,8 +2,10 @@
   StringBuilder htmlFragment=new StringBuilder(solverBenchmarkList.size() * 160);
   htmlFragment.append("  <table border=\"1\">\n");
   htmlFragment.append("    <tr><th/>");
-  for (  File unsolvedSolutionFile : inheritedUnsolvedSolutionFileList) {
-    htmlFragment.append("<th>").append(unsolvedSolutionFile.getName()).append("</th>");
+  if (inheritedSolverBenchmark != null && inheritedSolverBenchmark.getUnsolvedSolutionFileList() != null) {
+    for (    File unsolvedSolutionFile : inheritedSolverBenchmark.getUnsolvedSolutionFileList()) {
+      htmlFragment.append("<th>").append(unsolvedSolutionFile.getName()).append("</th>");
+    }
   }
   htmlFragment.append("<th>Average</th><th>Ranking</th></tr>\n");
   boolean oddLine=true;

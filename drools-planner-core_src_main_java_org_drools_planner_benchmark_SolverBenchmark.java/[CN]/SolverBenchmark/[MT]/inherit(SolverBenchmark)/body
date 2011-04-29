@@ -1,0 +1,18 @@
+{
+  if (localSearchSolverConfig == null) {
+    localSearchSolverConfig=inheritedSolverBenchmark.getLocalSearchSolverConfig();
+  }
+ else   if (inheritedSolverBenchmark.getLocalSearchSolverConfig() != null) {
+    localSearchSolverConfig.inherit(inheritedSolverBenchmark.getLocalSearchSolverConfig());
+  }
+  if (unsolvedSolutionFileList == null) {
+    unsolvedSolutionFileList=inheritedSolverBenchmark.getUnsolvedSolutionFileList();
+  }
+ else   if (inheritedSolverBenchmark.getUnsolvedSolutionFileList() != null) {
+    for (    File inheritedUnsolvedSolutionFile : inheritedSolverBenchmark.getUnsolvedSolutionFileList()) {
+      if (!unsolvedSolutionFileList.contains(inheritedUnsolvedSolutionFile)) {
+        unsolvedSolutionFileList.add(inheritedUnsolvedSolutionFile);
+      }
+    }
+  }
+}

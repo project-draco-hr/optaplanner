@@ -11,12 +11,10 @@
  else {
       noNameBenchmarkSet.add(solverBenchmark);
     }
-    if (inheritedLocalSearchSolverConfig != null) {
-      solverBenchmark.inheritLocalSearchSolverConfig(inheritedLocalSearchSolverConfig);
+    if (inheritedSolverBenchmark != null) {
+      solverBenchmark.inherit(inheritedSolverBenchmark);
     }
-    if (inheritedUnsolvedSolutionFileList != null) {
-      solverBenchmark.inheritUnsolvedSolutionFileList(inheritedUnsolvedSolutionFileList);
-    }
+    solverBenchmark.resetSolverBenchmarkResultList();
   }
   int generatedNameIndex=0;
   for (  SolverBenchmark solverBenchmark : noNameBenchmarkSet) {
