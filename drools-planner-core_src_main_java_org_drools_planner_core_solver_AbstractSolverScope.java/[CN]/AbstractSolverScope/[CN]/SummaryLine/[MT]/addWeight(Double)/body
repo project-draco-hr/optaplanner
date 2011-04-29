@@ -1,0 +1,6 @@
+{
+  if (weightTotal == null) {
+    weightTotal=0.0;
+  }
+  weightTotal=((Double)weightTotal) + weight;
+}
