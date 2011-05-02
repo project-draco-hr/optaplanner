@@ -1,10 +1,22 @@
 {
-  Collection<? extends Object> tabus=findTabu(moveScope);
+  Collection<? extends Object> checkingTabus=findTabu(moveScope);
   int maximumTabuStepIndex=-1;
-  for (  Object tabu : tabus) {
-    Integer tabuStepIndexInteger=tabuToStepIndexMap.get(tabu);
+  for (  Object checkingTabu : checkingTabus) {
+    Integer tabuStepIndexInteger=tabuToStepIndexMap.get(checkingTabu);
     if (tabuStepIndexInteger != null) {
       maximumTabuStepIndex=Math.max(tabuStepIndexInteger,maximumTabuStepIndex);
+    }
+    if (assertTabuHashCodeCorrectness) {
+      for (      Object tabu : tabuSequenceList) {
+        if (tabu.equals(checkingTabu)) {
+          if (tabu.hashCode() != checkingTabu.hashCode()) {
+            throw new IllegalStateException("HashCode violation: tabu (" + tabu + ") and checkingTabu ("+ checkingTabu+ ") are equal but have a different hashCode.");
+          }
+          if (tabuStepIndexInteger == null) {
+            throw new IllegalStateException("HashCode violation: the hashCode of tabu (" + tabu + ") probably changed since it was inserted in the tabu Map or Set.");
+          }
+        }
+      }
     }
   }
   if (maximumTabuStepIndex < 0) {

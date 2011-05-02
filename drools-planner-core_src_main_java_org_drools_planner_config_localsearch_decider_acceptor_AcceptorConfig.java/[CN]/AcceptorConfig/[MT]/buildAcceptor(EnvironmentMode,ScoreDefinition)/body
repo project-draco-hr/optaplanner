@@ -23,6 +23,9 @@ catch (    IllegalAccessException e) {
     if (partialMoveTabuSize != null) {
       moveTabuAcceptor.setPartialTabuSize(partialMoveTabuSize);
     }
+    if (environmentMode == EnvironmentMode.TRACE) {
+      moveTabuAcceptor.setAssertTabuHashCodeCorrectness(true);
+    }
     acceptorList.add(moveTabuAcceptor);
   }
   if ((acceptorTypeList != null && acceptorTypeList.contains(AcceptorType.UNDO_MOVE_TABU)) || completeUndoMoveTabuSize != null || partialUndoMoveTabuSize != null) {
@@ -34,6 +37,9 @@ catch (    IllegalAccessException e) {
     if (partialUndoMoveTabuSize != null) {
       undoMoveTabuAcceptor.setPartialTabuSize(partialUndoMoveTabuSize);
     }
+    if (environmentMode == EnvironmentMode.TRACE) {
+      undoMoveTabuAcceptor.setAssertTabuHashCodeCorrectness(true);
+    }
     acceptorList.add(undoMoveTabuAcceptor);
   }
   if ((acceptorTypeList != null && acceptorTypeList.contains(AcceptorType.PROPERTY_TABU)) || completePropertyTabuSize != null || partialPropertyTabuSize != null) {
@@ -44,6 +50,9 @@ catch (    IllegalAccessException e) {
     if (partialPropertyTabuSize != null) {
       propertyTabuAcceptor.setPartialTabuSize(partialPropertyTabuSize);
     }
+    if (environmentMode == EnvironmentMode.TRACE) {
+      propertyTabuAcceptor.setAssertTabuHashCodeCorrectness(true);
+    }
     acceptorList.add(propertyTabuAcceptor);
   }
   if ((acceptorTypeList != null && acceptorTypeList.contains(AcceptorType.SOLUTION_TABU)) || completeSolutionTabuSize != null || partialSolutionTabuSize != null) {
@@ -53,6 +62,9 @@ catch (    IllegalAccessException e) {
     }
     if (partialSolutionTabuSize != null) {
       solutionTabuAcceptor.setPartialTabuSize(partialSolutionTabuSize);
+    }
+    if (environmentMode == EnvironmentMode.TRACE) {
+      solutionTabuAcceptor.setAssertTabuHashCodeCorrectness(true);
     }
     acceptorList.add(solutionTabuAcceptor);
   }
@@ -80,6 +92,9 @@ catch (    IllegalAccessException e) {
  else {
     SolutionTabuAcceptor solutionTabuAcceptor=new SolutionTabuAcceptor();
     solutionTabuAcceptor.setCompleteTabuSize(1500);
+    if (environmentMode == EnvironmentMode.TRACE) {
+      solutionTabuAcceptor.setAssertTabuHashCodeCorrectness(true);
+    }
     return solutionTabuAcceptor;
   }
 }
