@@ -1,0 +1,17 @@
+{
+  if (configNameList.contains(configName)) {
+    throw new IllegalArgumentException("Cannot add a listener with the same configName (" + configName + ") twice.");
+  }
+  configNameList.add(configName);
+  CalculateCountStatisticListener statisticListener=new CalculateCountStatisticListener();
+  ((LocalSearchSolver)solver).addLocalSearchSolverLifecycleListener(statisticListener);
+  statisticListenerMap.put(configName,statisticListener);
+  if (scoreDefinition == null) {
+    scoreDefinition=solver.getScoreDefinition();
+  }
+ else {
+    if (!scoreDefinition.getClass().equals(solver.getScoreDefinition().getClass())) {
+      throw new IllegalStateException("The scoreDefinition (" + solver.getScoreDefinition() + ") should be of the same class as the other scoreDefinition ("+ scoreDefinition+ ")");
+    }
+  }
+}

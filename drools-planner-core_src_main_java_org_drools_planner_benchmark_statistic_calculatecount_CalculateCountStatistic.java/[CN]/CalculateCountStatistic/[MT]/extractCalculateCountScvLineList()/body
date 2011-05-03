@@ -1,0 +1,19 @@
+{
+  Map<Long,CalculateCountScvLine> timeToBestScoresLineMap=new HashMap<Long,CalculateCountScvLine>();
+  for (  Map.Entry<String,CalculateCountStatisticListener> listenerEntry : statisticListenerMap.entrySet()) {
+    String configName=listenerEntry.getKey();
+    List<CalculateCountStatisticPoint> statisticPointList=listenerEntry.getValue().getStatisticPointList();
+    for (    CalculateCountStatisticPoint statisticPoint : statisticPointList) {
+      long timeMillisSpend=statisticPoint.getTimeMillisSpend();
+      CalculateCountScvLine line=timeToBestScoresLineMap.get(timeMillisSpend);
+      if (line == null) {
+        line=new CalculateCountScvLine(timeMillisSpend);
+        timeToBestScoresLineMap.put(timeMillisSpend,line);
+      }
+      line.getConfigNameToCalculateCountPerSecondMap().put(configName,statisticPoint.getCalculateCountPerSecond());
+    }
+  }
+  List<CalculateCountScvLine> calculateCountScvLineList=new ArrayList<CalculateCountScvLine>(timeToBestScoresLineMap.values());
+  Collections.sort(calculateCountScvLineList);
+  return calculateCountScvLineList;
+}

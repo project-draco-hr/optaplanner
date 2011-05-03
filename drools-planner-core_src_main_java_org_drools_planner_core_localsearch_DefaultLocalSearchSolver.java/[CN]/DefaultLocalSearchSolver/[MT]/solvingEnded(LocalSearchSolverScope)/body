@@ -1,4 +1,5 @@
 {
+  localSearchSolverLifecycleSupport.fireSolvingEnded(localSearchSolverScope);
   decider.solvingEnded(localSearchSolverScope);
   termination.solvingEnded(localSearchSolverScope);
   bestSolutionRecaller.solvingEnded(localSearchSolverScope);

@@ -1,0 +1,13 @@
+{
+  long timeMillisSpend=localSearchStepScope.getLocalSearchSolverScope().calculateTimeMillisSpend();
+  if (timeMillisSpend >= nextTimeMillisThreshold) {
+    long timeMillisSpendInterval=timeMillisSpend - lastTimeMillisSpend;
+    long calculateCount=localSearchStepScope.getLocalSearchSolverScope().getCalculateCount();
+    long calculateCountInterval=calculateCount - lastCalculateCount;
+    long averageCalculateCountPerSecond=calculateCountInterval * 1000L / timeMillisSpendInterval;
+    statisticPointList.add(new CalculateCountStatisticPoint(timeMillisSpend,averageCalculateCountPerSecond));
+    lastTimeMillisSpend=timeMillisSpend;
+    lastCalculateCount=calculateCount;
+    nextTimeMillisThreshold+=timeMillisThresholdInterval;
+  }
+}

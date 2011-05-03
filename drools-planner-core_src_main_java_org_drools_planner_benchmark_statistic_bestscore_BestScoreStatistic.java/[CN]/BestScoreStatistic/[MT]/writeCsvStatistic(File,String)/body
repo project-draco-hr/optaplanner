@@ -1,0 +1,34 @@
+{
+  List<BestScoreScvLine> bestScoreScvLineList=extractBestScoreScvLineList();
+  File csvStatisticFile=new File(solverStatisticFilesDirectory,baseName + "BestScoreStatistic.csv");
+  Writer writer=null;
+  try {
+    writer=new OutputStreamWriter(new FileOutputStream(csvStatisticFile),"utf-8");
+    writer.append("\"TimeMillisSpend\"");
+    for (    String configName : configNameList) {
+      writer.append(",\"").append(configName.replaceAll("\\\"","\\\"")).append("\"");
+    }
+    writer.append("\n");
+    for (    BestScoreScvLine line : bestScoreScvLineList) {
+      writer.write(Long.toString(line.getTimeMillisSpend()));
+      for (      String configName : configNameList) {
+        writer.append(",");
+        Score score=line.getConfigNameToScoreMap().get(configName);
+        if (score != null) {
+          Double scoreGraphValue=scoreDefinition.translateScoreToGraphValue(score);
+          if (scoreGraphValue != null) {
+            writer.append(scoreGraphValue.toString());
+          }
+        }
+      }
+      writer.append("\n");
+    }
+  }
+ catch (  IOException e) {
+    throw new IllegalArgumentException("Problem writing csvStatisticFile: " + csvStatisticFile,e);
+  }
+ finally {
+    IOUtils.closeQuietly(writer);
+  }
+  return "  <p><a href=\"" + csvStatisticFile.getName() + "\">CVS file</a></p>\n";
+}

@@ -1,0 +1,6 @@
+{
+  final Iterator<LocalSearchSolverLifecycleListener> iter=getEventListenersIterator();
+  while (iter.hasNext()) {
+    iter.next().stepDecided(localSearchStepScope);
+  }
+}

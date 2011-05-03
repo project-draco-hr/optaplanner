@@ -1,4 +1,5 @@
 {
   termination.beforeDeciding(localSearchStepScope);
   decider.beforeDeciding(localSearchStepScope);
+  localSearchSolverLifecycleSupport.fireBeforeDeciding(localSearchStepScope);
 }

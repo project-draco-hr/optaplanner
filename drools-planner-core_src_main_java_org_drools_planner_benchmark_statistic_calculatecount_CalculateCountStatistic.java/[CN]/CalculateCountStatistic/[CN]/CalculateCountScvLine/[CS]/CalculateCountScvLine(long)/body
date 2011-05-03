@@ -1,0 +1,4 @@
+{
+  this.timeMillisSpend=timeMillisSpend;
+  configNameToCalculateCountPerSecondMap=new HashMap<String,Long>();
+}

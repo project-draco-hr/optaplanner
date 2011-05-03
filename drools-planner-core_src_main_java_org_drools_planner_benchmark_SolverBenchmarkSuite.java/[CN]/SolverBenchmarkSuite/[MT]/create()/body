@@ -4,6 +4,8 @@ case NONE:
     return null;
 case BEST_SOLUTION_CHANGED:
   return new BestScoreStatistic();
+case CALCULATE_COUNT_PER_SECOND:
+return new CalculateCountStatistic();
 default :
 throw new IllegalStateException("The solverStatisticType (" + this + ") is not implemented");
 }

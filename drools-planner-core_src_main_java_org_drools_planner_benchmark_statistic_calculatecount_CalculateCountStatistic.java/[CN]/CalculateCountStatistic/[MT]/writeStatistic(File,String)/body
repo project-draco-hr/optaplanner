@@ -1,0 +1,6 @@
+{
+  StringBuilder htmlFragment=new StringBuilder();
+  htmlFragment.append(writeCsvStatistic(solverStatisticFilesDirectory,baseName));
+  htmlFragment.append(writeGraphStatistic(solverStatisticFilesDirectory,baseName));
+  return htmlFragment;
+}

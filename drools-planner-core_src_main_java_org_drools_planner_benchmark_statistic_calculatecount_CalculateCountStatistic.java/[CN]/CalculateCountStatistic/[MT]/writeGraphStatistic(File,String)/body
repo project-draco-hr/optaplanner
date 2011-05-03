@@ -1,0 +1,36 @@
+{
+  XYSeriesCollection seriesCollection=new XYSeriesCollection();
+  for (  Map.Entry<String,CalculateCountStatisticListener> listenerEntry : statisticListenerMap.entrySet()) {
+    String configName=listenerEntry.getKey();
+    XYSeries configSeries=new XYSeries(configName);
+    List<CalculateCountStatisticPoint> statisticPointList=listenerEntry.getValue().getStatisticPointList();
+    for (    CalculateCountStatisticPoint statisticPoint : statisticPointList) {
+      long timeMillisSpend=statisticPoint.getTimeMillisSpend();
+      long calculateCountPerSecond=statisticPoint.getCalculateCountPerSecond();
+      configSeries.add(timeMillisSpend,calculateCountPerSecond);
+    }
+    seriesCollection.addSeries(configSeries);
+  }
+  NumberAxis xAxis=new NumberAxis("Time millis spend");
+  xAxis.setNumberFormatOverride(new MillisecondsSpendNumberFormat());
+  NumberAxis yAxis=new NumberAxis("Calculate count per second");
+  yAxis.setAutoRangeIncludesZero(false);
+  XYItemRenderer renderer=new XYLineAndShapeRenderer();
+  XYPlot plot=new XYPlot(seriesCollection,xAxis,yAxis,renderer);
+  plot.setOrientation(PlotOrientation.VERTICAL);
+  JFreeChart chart=new JFreeChart(baseName + " calculate count statistic",JFreeChart.DEFAULT_TITLE_FONT,plot,true);
+  BufferedImage chartImage=chart.createBufferedImage(1024,768);
+  File graphStatisticFile=new File(solverStatisticFilesDirectory,baseName + "CalculateCountStatistic.png");
+  OutputStream out=null;
+  try {
+    out=new FileOutputStream(graphStatisticFile);
+    ImageIO.write(chartImage,"png",out);
+  }
+ catch (  IOException e) {
+    throw new IllegalArgumentException("Problem writing graphStatisticFile: " + graphStatisticFile,e);
+  }
+ finally {
+    IOUtils.closeQuietly(out);
+  }
+  return "  <img src=\"" + graphStatisticFile.getName() + "\"/>\n";
+}

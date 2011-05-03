@@ -1,0 +1,39 @@
+{
+  XYSeriesCollection seriesCollection=new XYSeriesCollection();
+  for (  Map.Entry<String,BestScoreStatisticListener> listenerEntry : bestScoreStatisticListenerMap.entrySet()) {
+    String configName=listenerEntry.getKey();
+    XYSeries configSeries=new XYSeries(configName);
+    List<BestScoreStatisticPoint> statisticPointList=listenerEntry.getValue().getStatisticPointList();
+    for (    BestScoreStatisticPoint statisticPoint : statisticPointList) {
+      long timeMillisSpend=statisticPoint.getTimeMillisSpend();
+      Score score=statisticPoint.getScore();
+      Double scoreGraphValue=scoreDefinition.translateScoreToGraphValue(score);
+      if (scoreGraphValue != null) {
+        configSeries.add(timeMillisSpend,scoreGraphValue);
+      }
+    }
+    seriesCollection.addSeries(configSeries);
+  }
+  NumberAxis xAxis=new NumberAxis("Time millis spend");
+  xAxis.setNumberFormatOverride(new MillisecondsSpendNumberFormat());
+  NumberAxis yAxis=new NumberAxis("Score");
+  yAxis.setAutoRangeIncludesZero(false);
+  XYItemRenderer renderer=new XYStepRenderer();
+  XYPlot plot=new XYPlot(seriesCollection,xAxis,yAxis,renderer);
+  plot.setOrientation(PlotOrientation.VERTICAL);
+  JFreeChart chart=new JFreeChart(baseName + " best score statistic",JFreeChart.DEFAULT_TITLE_FONT,plot,true);
+  BufferedImage chartImage=chart.createBufferedImage(1024,768);
+  File graphStatisticFile=new File(solverStatisticFilesDirectory,baseName + "BestScoreStatistic.png");
+  OutputStream out=null;
+  try {
+    out=new FileOutputStream(graphStatisticFile);
+    ImageIO.write(chartImage,"png",out);
+  }
+ catch (  IOException e) {
+    throw new IllegalArgumentException("Problem writing graphStatisticFile: " + graphStatisticFile,e);
+  }
+ finally {
+    IOUtils.closeQuietly(out);
+  }
+  return "  <img src=\"" + graphStatisticFile.getName() + "\"/>\n";
+}
