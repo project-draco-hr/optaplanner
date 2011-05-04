@@ -1,0 +1,2 @@
+Map<File,List<SolverStatistic>> unsolvedSolutionFileToStatisticMap
+File unsolvedSolutionFile

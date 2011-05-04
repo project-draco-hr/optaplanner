@@ -1,2 +1,0 @@
-XStream xStream
-Map<File,SolverStatistic> unsolvedSolutionFileToStatisticMap

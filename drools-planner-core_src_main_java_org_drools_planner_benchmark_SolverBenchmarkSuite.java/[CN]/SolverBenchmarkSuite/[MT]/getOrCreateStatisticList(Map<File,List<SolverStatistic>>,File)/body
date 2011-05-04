@@ -1,0 +1,14 @@
+{
+  if (solverStatisticTypeList == null) {
+    return Collections.emptyList();
+  }
+  List<SolverStatistic> statisticList=unsolvedSolutionFileToStatisticMap.get(unsolvedSolutionFile);
+  if (statisticList == null) {
+    statisticList=new ArrayList<SolverStatistic>(solverStatisticTypeList.size());
+    for (    SolverStatisticType solverStatisticType : solverStatisticTypeList) {
+      statisticList.add(solverStatisticType.create());
+    }
+    unsolvedSolutionFileToStatisticMap.put(unsolvedSolutionFile,statisticList);
+  }
+  return statisticList;
+}

@@ -1,26 +1,21 @@
 {
   benchmarkingStarted();
-  Map<File,SolverStatistic> unsolvedSolutionFileToStatisticMap=new LinkedHashMap<File,SolverStatistic>();
+  Map<File,List<SolverStatistic>> unsolvedSolutionFileToStatisticMap=new LinkedHashMap<File,List<SolverStatistic>>();
   for (  SolverBenchmark solverBenchmark : solverBenchmarkList) {
     Solver solver=solverBenchmark.getLocalSearchSolverConfig().buildSolver();
     for (    SolverBenchmarkResult result : solverBenchmark.getSolverBenchmarkResultList()) {
       File unsolvedSolutionFile=result.getUnsolvedSolutionFile();
       Solution unsolvedSolution=readUnsolvedSolution(xStream,unsolvedSolutionFile);
       solver.setStartingSolution(unsolvedSolution);
-      if (solverStatisticType != SolverStatisticType.NONE) {
-        SolverStatistic statistic=unsolvedSolutionFileToStatisticMap.get(unsolvedSolutionFile);
-        if (statistic == null) {
-          statistic=solverStatisticType.create();
-          unsolvedSolutionFileToStatisticMap.put(unsolvedSolutionFile,statistic);
-        }
+      List<SolverStatistic> statisticList=getOrCreateStatisticList(unsolvedSolutionFileToStatisticMap,unsolvedSolutionFile);
+      for (      SolverStatistic statistic : statisticList) {
         statistic.addListener(solver,solverBenchmark.getName());
       }
       solver.solve();
       result.setTimeMillisSpend(solver.getTimeMillisSpend());
       Solution solvedSolution=solver.getBestSolution();
       result.setScore(solvedSolution.getScore());
-      if (solverStatisticType != SolverStatisticType.NONE) {
-        SolverStatistic statistic=unsolvedSolutionFileToStatisticMap.get(unsolvedSolutionFile);
+      for (      SolverStatistic statistic : statisticList) {
         statistic.removeListener(solver,solverBenchmark.getName());
       }
       writeSolvedSolution(xStream,solverBenchmark,result,solvedSolution);
