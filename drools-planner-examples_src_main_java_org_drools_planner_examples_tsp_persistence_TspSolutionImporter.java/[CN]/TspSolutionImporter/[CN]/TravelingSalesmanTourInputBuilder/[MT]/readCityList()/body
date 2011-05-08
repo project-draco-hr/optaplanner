@@ -6,8 +6,8 @@
     String[] lineTokens=splitBySpace(line,3);
     City city=new City();
     city.setId(Long.parseLong(lineTokens[0]));
-    city.setX(Double.parseDouble(lineTokens[1]));
-    city.setY(Double.parseDouble(lineTokens[2]));
+    city.setLatitude(Double.parseDouble(lineTokens[1]));
+    city.setLongitude(Double.parseDouble(lineTokens[2]));
     cityList.add(city);
   }
   travelingSalesmanTour.setCityList(cityList);

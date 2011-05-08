@@ -12,7 +12,7 @@
       cityAssignmentHandle=workingMemory.insert(cityAssignment);
     }
  else {
-      Score bestScore=DefaultSimpleDoubleScore.valueOf(-Double.MAX_VALUE);
+      Score bestScore=DefaultSimpleScore.valueOf(Integer.MIN_VALUE);
       CityAssignment bestAfterCityAssignment=null;
       FactHandle bestAfterCityAssignmentFactHandle=null;
       CityAssignment bestBeforeCityAssignment=null;

@@ -2,5 +2,8 @@
   travelingSalesmanTour.setName(readStringValue("NAME :"));
   readUntilConstantLine("TYPE : TSP");
   cityListSize=readIntegerValue("DIMENSION :");
-  readConstantLine("EDGE_WEIGHT_TYPE : EUC_2D");
+  String edgeWeightType=readStringValue("EDGE_WEIGHT_TYPE :");
+  if (!edgeWeightType.equalsIgnoreCase("EUC_2D")) {
+    throw new IllegalArgumentException("The edgeWeightType (" + edgeWeightType + ") is not supported.");
+  }
 }

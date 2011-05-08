@@ -1,0 +1,6 @@
+{
+  this.width=width;
+  this.height=height;
+  latitudeLength=maximumLatitude - minimumLatitude;
+  longitudeLength=maximumLongitude - minimumLongitude;
+}

@@ -1,5 +1,6 @@
 {
-  double xDifference=Math.abs(city.x - x);
-  double yDifference=Math.abs(city.y - y);
-  return Math.sqrt((xDifference * xDifference) + (yDifference * yDifference));
+  double latitudeDifference=Math.abs(city.latitude - latitude);
+  double longitudeDifference=Math.abs(city.longitude - longitude);
+  double distance=Math.sqrt((latitudeDifference * latitudeDifference) + (longitudeDifference * longitudeDifference));
+  return (int)(distance + 0.5);
 }
