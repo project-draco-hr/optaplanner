@@ -13,7 +13,7 @@
       line.getConfigNameToScoreMap().put(configName,statisticPoint.getScore());
     }
   }
-  List<BestScoreScvLine> bestScoreScvLineList=new ArrayList<BestScoreScvLine>(timeToBestScoresLineMap.values());
-  Collections.sort(bestScoreScvLineList);
-  return bestScoreScvLineList;
+  List<BestScoreScvLine> csvLineList=new ArrayList<BestScoreScvLine>(timeToBestScoresLineMap.values());
+  Collections.sort(csvLineList);
+  return csvLineList;
 }

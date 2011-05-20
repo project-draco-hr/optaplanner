@@ -1,5 +1,5 @@
 {
-  List<BestScoreScvLine> bestScoreScvLineList=extractBestScoreScvLineList();
+  List<BestScoreScvLine> scvLineList=extractCsvLineList();
   File csvStatisticFile=new File(solverStatisticFilesDirectory,baseName + "BestScoreStatistic.csv");
   Writer writer=null;
   try {
@@ -9,7 +9,7 @@
       writer.append(",\"").append(configName.replaceAll("\\\"","\\\"")).append("\"");
     }
     writer.append("\n");
-    for (    BestScoreScvLine line : bestScoreScvLineList) {
+    for (    BestScoreScvLine line : scvLineList) {
       writer.write(Long.toString(line.getTimeMillisSpend()));
       for (      String configName : configNameList) {
         writer.append(",");

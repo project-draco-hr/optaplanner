@@ -1,0 +1,34 @@
+{
+  List<MemoryUseScvLine> csvLineList=extractCsvLineList();
+  File csvStatisticFile=new File(solverStatisticFilesDirectory,baseName + "MemoryUseStatistic.csv");
+  Writer writer=null;
+  try {
+    writer=new OutputStreamWriter(new FileOutputStream(csvStatisticFile),"utf-8");
+    writer.append("\"TimeMillisSpend\"");
+    for (    String configName : configNameList) {
+      writer.append(",\"").append(configName.replaceAll("\\\"","\\\"")).append(" free\"");
+      writer.append(",\"").append(configName.replaceAll("\\\"","\\\"")).append(" total\"");
+    }
+    writer.append("\n");
+    for (    MemoryUseScvLine line : csvLineList) {
+      writer.write(Long.toString(line.getTimeMillisSpend()));
+      for (      String configName : configNameList) {
+        writer.append(",");
+        MemoryUseMeasurement memoryUseMeasurement=line.getConfigNameToMemoryUseMeasurementMap().get(configName);
+        if (memoryUseMeasurement != null) {
+          writer.append(Long.toString(memoryUseMeasurement.getFreeMemory()));
+          writer.append(",");
+          writer.append(Long.toString(memoryUseMeasurement.getTotalMemory()));
+        }
+      }
+      writer.append("\n");
+    }
+  }
+ catch (  IOException e) {
+    throw new IllegalArgumentException("Problem writing csvStatisticFile: " + csvStatisticFile,e);
+  }
+ finally {
+    IOUtils.closeQuietly(writer);
+  }
+  return "  <p><a href=\"" + csvStatisticFile.getName() + "\">CVS file</a></p>\n";
+}

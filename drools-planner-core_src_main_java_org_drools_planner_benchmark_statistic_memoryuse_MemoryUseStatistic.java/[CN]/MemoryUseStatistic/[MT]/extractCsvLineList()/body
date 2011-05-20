@@ -1,0 +1,19 @@
+{
+  Map<Long,MemoryUseScvLine> timeToBestScoresLineMap=new HashMap<Long,MemoryUseScvLine>();
+  for (  Map.Entry<String,MemoryUseStatisticListener> listenerEntry : statisticListenerMap.entrySet()) {
+    String configName=listenerEntry.getKey();
+    List<MemoryUseStatisticPoint> statisticPointList=listenerEntry.getValue().getStatisticPointList();
+    for (    MemoryUseStatisticPoint statisticPoint : statisticPointList) {
+      long timeMillisSpend=statisticPoint.getTimeMillisSpend();
+      MemoryUseScvLine line=timeToBestScoresLineMap.get(timeMillisSpend);
+      if (line == null) {
+        line=new MemoryUseScvLine(timeMillisSpend);
+        timeToBestScoresLineMap.put(timeMillisSpend,line);
+      }
+      line.getConfigNameToMemoryUseMeasurementMap().put(configName,statisticPoint.getMemoryUseMeasurement());
+    }
+  }
+  List<MemoryUseScvLine> csvLineList=new ArrayList<MemoryUseScvLine>(timeToBestScoresLineMap.values());
+  Collections.sort(csvLineList);
+  return csvLineList;
+}

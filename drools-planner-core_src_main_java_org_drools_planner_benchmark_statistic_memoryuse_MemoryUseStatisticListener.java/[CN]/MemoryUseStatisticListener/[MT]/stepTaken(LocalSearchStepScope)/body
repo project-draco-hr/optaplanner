@@ -1,0 +1,12 @@
+{
+  long timeMillisSpend=localSearchStepScope.getLocalSearchSolverScope().calculateTimeMillisSpend();
+  if (timeMillisSpend >= nextTimeMillisThreshold) {
+    Runtime runtime=Runtime.getRuntime();
+    statisticPointList.add(new MemoryUseStatisticPoint(timeMillisSpend,new MemoryUseMeasurement(runtime.freeMemory(),runtime.totalMemory())));
+    lastTimeMillisSpend=timeMillisSpend;
+    nextTimeMillisThreshold+=timeMillisThresholdInterval;
+    if (nextTimeMillisThreshold < timeMillisSpend) {
+      nextTimeMillisThreshold=timeMillisSpend;
+    }
+  }
+}

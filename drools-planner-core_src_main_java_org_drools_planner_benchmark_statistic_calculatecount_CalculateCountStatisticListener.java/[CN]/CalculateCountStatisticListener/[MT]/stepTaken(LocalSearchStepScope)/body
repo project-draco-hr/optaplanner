@@ -6,8 +6,11 @@
     long calculateCountInterval=calculateCount - lastCalculateCount;
     long averageCalculateCountPerSecond=calculateCountInterval * 1000L / timeMillisSpendInterval;
     statisticPointList.add(new CalculateCountStatisticPoint(timeMillisSpend,averageCalculateCountPerSecond));
-    lastTimeMillisSpend=timeMillisSpend;
     lastCalculateCount=calculateCount;
+    lastTimeMillisSpend=timeMillisSpend;
     nextTimeMillisThreshold+=timeMillisThresholdInterval;
+    if (nextTimeMillisThreshold < timeMillisSpend) {
+      nextTimeMillisThreshold=timeMillisSpend;
+    }
   }
 }

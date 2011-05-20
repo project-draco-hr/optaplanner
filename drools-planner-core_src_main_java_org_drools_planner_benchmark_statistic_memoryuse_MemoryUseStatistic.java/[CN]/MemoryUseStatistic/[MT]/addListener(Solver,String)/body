@@ -1,0 +1,9 @@
+{
+  if (configNameList.contains(configName)) {
+    throw new IllegalArgumentException("Cannot add a listener with the same configName (" + configName + ") twice.");
+  }
+  configNameList.add(configName);
+  MemoryUseStatisticListener statisticListener=new MemoryUseStatisticListener();
+  ((LocalSearchSolver)solver).addLocalSearchSolverLifecycleListener(statisticListener);
+  statisticListenerMap.put(configName,statisticListener);
+}

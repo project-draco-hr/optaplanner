@@ -1,5 +1,5 @@
 {
-  List<CalculateCountScvLine> calculateCountScvLineList=extractCalculateCountScvLineList();
+  List<CalculateCountScvLine> csvLineList=extractCsvLineList();
   File csvStatisticFile=new File(solverStatisticFilesDirectory,baseName + "CalculateCountStatistic.csv");
   Writer writer=null;
   try {
@@ -9,7 +9,7 @@
       writer.append(",\"").append(configName.replaceAll("\\\"","\\\"")).append("\"");
     }
     writer.append("\n");
-    for (    CalculateCountScvLine line : calculateCountScvLineList) {
+    for (    CalculateCountScvLine line : csvLineList) {
       writer.write(Long.toString(line.getTimeMillisSpend()));
       for (      String configName : configNameList) {
         writer.append(",");

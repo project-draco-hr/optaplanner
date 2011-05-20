@@ -13,7 +13,7 @@
       line.getConfigNameToCalculateCountPerSecondMap().put(configName,statisticPoint.getCalculateCountPerSecond());
     }
   }
-  List<CalculateCountScvLine> calculateCountScvLineList=new ArrayList<CalculateCountScvLine>(timeToBestScoresLineMap.values());
-  Collections.sort(calculateCountScvLineList);
-  return calculateCountScvLineList;
+  List<CalculateCountScvLine> csvLineList=new ArrayList<CalculateCountScvLine>(timeToBestScoresLineMap.values());
+  Collections.sort(csvLineList);
+  return csvLineList;
 }

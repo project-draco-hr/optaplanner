@@ -1,0 +1,4 @@
+{
+  this.freeMemory=freeMemory;
+  this.totalMemory=totalMemory;
+}
