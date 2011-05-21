@@ -18,7 +18,7 @@
   xAxis.setNumberFormatOverride(new MillisecondsSpendNumberFormat());
   NumberAxis yAxis=new NumberAxis("Memory");
   yAxis.setAutoRangeIncludesZero(false);
-  XYItemRenderer renderer=new XYLineAndShapeRenderer();
+  XYItemRenderer renderer=new XYAreaRenderer2();
   XYPlot plot=new XYPlot(seriesCollection,xAxis,yAxis,renderer);
   plot.setOrientation(PlotOrientation.VERTICAL);
   JFreeChart chart=new JFreeChart(baseName + " memory use statistic",JFreeChart.DEFAULT_TITLE_FONT,plot,true);
