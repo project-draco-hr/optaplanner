@@ -6,8 +6,8 @@
     writer=new OutputStreamWriter(new FileOutputStream(csvStatisticFile),"utf-8");
     writer.append("\"TimeMillisSpend\"");
     for (    String configName : configNameList) {
-      writer.append(",\"").append(configName.replaceAll("\\\"","\\\"")).append(" free\"");
-      writer.append(",\"").append(configName.replaceAll("\\\"","\\\"")).append(" total\"");
+      writer.append(",\"").append(configName.replaceAll("\\\"","\\\"")).append(" used\"");
+      writer.append(",\"").append(configName.replaceAll("\\\"","\\\"")).append(" max\"");
     }
     writer.append("\n");
     for (    MemoryUseScvLine line : csvLineList) {
@@ -16,9 +16,9 @@
         writer.append(",");
         MemoryUseMeasurement memoryUseMeasurement=line.getConfigNameToMemoryUseMeasurementMap().get(configName);
         if (memoryUseMeasurement != null) {
-          writer.append(Long.toString(memoryUseMeasurement.getFreeMemory()));
+          writer.append(Long.toString(memoryUseMeasurement.getUsedMemory()));
           writer.append(",");
-          writer.append(Long.toString(memoryUseMeasurement.getTotalMemory()));
+          writer.append(Long.toString(memoryUseMeasurement.getMaxMemory()));
         }
       }
       writer.append("\n");
