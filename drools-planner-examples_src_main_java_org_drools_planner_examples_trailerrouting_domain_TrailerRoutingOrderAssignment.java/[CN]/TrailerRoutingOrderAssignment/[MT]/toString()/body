@@ -1,0 +1,3 @@
+{
+  return order + " @ " + driver+ " + "+ truck+ " + "+ (secondaryTrailer == null ? primaryTrailer : primaryTrailer + " + " + secondaryTrailer);
+}

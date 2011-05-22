@@ -1,0 +1,7 @@
+{
+  HashCodeBuilder hashCodeBuilder=new HashCodeBuilder();
+  for (  TrailerRoutingOrderAssignment orderAssignment : orderAssignmentList) {
+    hashCodeBuilder.append(orderAssignment.solutionHashCode());
+  }
+  return hashCodeBuilder.toHashCode();
+}

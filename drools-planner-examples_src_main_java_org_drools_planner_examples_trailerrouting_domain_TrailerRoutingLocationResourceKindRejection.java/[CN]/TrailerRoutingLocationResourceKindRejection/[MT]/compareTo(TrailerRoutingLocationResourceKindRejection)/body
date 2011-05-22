@@ -1,0 +1,3 @@
+{
+  return new CompareToBuilder().append(location,other.location).append(resourceKind,other.resourceKind).toComparison();
+}

@@ -1,0 +1,20 @@
+{
+  TrailerRoutingSchedule clone=new TrailerRoutingSchedule();
+  clone.id=id;
+  clone.name=name;
+  clone.locationList=locationList;
+  clone.resourceKindList=resourceKindList;
+  clone.driverList=driverList;
+  clone.truckList=truckList;
+  clone.trailerList=trailerList;
+  clone.locationResourceKindRejectionList=locationResourceKindRejectionList;
+  clone.orderList=orderList;
+  List<TrailerRoutingOrderAssignment> clonedOrderAssignmentList=new ArrayList<TrailerRoutingOrderAssignment>(orderAssignmentList.size());
+  for (  TrailerRoutingOrderAssignment orderAssignment : orderAssignmentList) {
+    TrailerRoutingOrderAssignment clonedOrderAssignment=orderAssignment.clone();
+    clonedOrderAssignmentList.add(clonedOrderAssignment);
+  }
+  clone.orderAssignmentList=clonedOrderAssignmentList;
+  clone.score=score;
+  return clone;
+}

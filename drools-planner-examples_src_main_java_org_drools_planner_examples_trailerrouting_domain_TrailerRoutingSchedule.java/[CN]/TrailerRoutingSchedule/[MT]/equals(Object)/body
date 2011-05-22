@@ -1,0 +1,22 @@
+{
+  if (this == o) {
+    return true;
+  }
+  if (id == null || !(o instanceof TrailerRoutingSchedule)) {
+    return false;
+  }
+ else {
+    TrailerRoutingSchedule other=(TrailerRoutingSchedule)o;
+    if (orderAssignmentList.size() != other.orderAssignmentList.size()) {
+      return false;
+    }
+    for (Iterator<TrailerRoutingOrderAssignment> it=orderAssignmentList.iterator(), otherIt=other.orderAssignmentList.iterator(); it.hasNext(); ) {
+      TrailerRoutingOrderAssignment orderAssignment=it.next();
+      TrailerRoutingOrderAssignment otherOrderAssignment=otherIt.next();
+      if (!orderAssignment.solutionEquals(otherOrderAssignment)) {
+        return false;
+      }
+    }
+    return true;
+  }
+}

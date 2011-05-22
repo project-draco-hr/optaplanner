@@ -1,0 +1,7 @@
+{
+  TrailerRoutingSchedule schedule=new TrailerRoutingSchedule();
+  schedule.setId(0L);
+  readLocationList(schedule);
+  logger.info("TrailerRoutingSchedule with {} locations, {} drivers, {} trucks, {} trailers, {} orders" + " and {} unavailable period constraints.",new Object[]{schedule.getLocationList().size(),schedule.getDriverList().size(),schedule.getTruckList().size(),schedule.getTrailerList().size(),schedule.getOrderList().size()});
+  return schedule;
+}

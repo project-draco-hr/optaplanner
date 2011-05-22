@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof TrailerRoutingOrderAssignment) {
+    TrailerRoutingOrderAssignment other=(TrailerRoutingOrderAssignment)o;
+    return new EqualsBuilder().append(id,other.id).append(order,other.order).append(driver,other.driver).append(truck,other.truck).append(primaryTrailer,other.primaryTrailer).append(secondaryTrailer,other.secondaryTrailer).isEquals();
+  }
+ else {
+    return false;
+  }
+}
