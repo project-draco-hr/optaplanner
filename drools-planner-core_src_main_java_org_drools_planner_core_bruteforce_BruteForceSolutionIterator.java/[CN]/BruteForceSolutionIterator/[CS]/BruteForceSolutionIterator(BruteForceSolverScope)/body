@@ -2,10 +2,10 @@
   this.bruteForceSolverScope=bruteForceSolverScope;
   Collection<? extends Object> facts=bruteForceSolverScope.getWorkingSolution().getFacts();
   for (  Object fact : facts) {
-    PlanningVariableClass planningVariableClass=fact.getClass().getAnnotation(PlanningVariableClass.class);
-    if (planningVariableClass != null) {
-      PlanningVariableHandler planningVariableHandler=new PlanningVariableHandler(fact,planningVariableClass,facts);
-      list.add(planningVariableHandler);
+    PlanningEntity planningEntityAnnotation=fact.getClass().getAnnotation(PlanningEntity.class);
+    if (planningEntityAnnotation != null) {
+      PlanningEntityVariableIterator planningEntityVariableIterator=new PlanningEntityVariableIterator(fact,planningEntityAnnotation,facts);
+      list.add(planningEntityVariableIterator);
     }
   }
 }

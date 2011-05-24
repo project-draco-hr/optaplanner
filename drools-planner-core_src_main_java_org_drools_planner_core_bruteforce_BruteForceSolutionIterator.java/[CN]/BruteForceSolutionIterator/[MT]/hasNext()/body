@@ -1,6 +1,6 @@
 {
-  for (  PlanningVariableHandler planningVariableHandler : list) {
-    if (planningVariableHandler.hasNext()) {
+  for (  PlanningEntityVariableIterator planningEntityVariableIterator : list) {
+    if (planningEntityVariableIterator.hasNext()) {
       return true;
     }
   }

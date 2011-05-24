@@ -5,6 +5,12 @@
   if (randomSeed == null) {
     randomSeed=inheritedConfig.getRandomSeed();
   }
+  if (planningEntityClassSet == null) {
+    planningEntityClassSet=inheritedConfig.getPlanningEntityClassSet();
+  }
+ else   if (inheritedConfig.getPlanningEntityClassSet() != null) {
+    planningEntityClassSet.addAll(inheritedConfig.getPlanningEntityClassSet());
+  }
   if (scoreDrlList == null) {
     scoreDrlList=inheritedConfig.getScoreDrlList();
   }

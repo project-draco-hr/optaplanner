@@ -7,6 +7,7 @@
       abstractSolver.setRandomSeed(DEFAULT_RANDOM_SEED);
     }
   }
+  buildMeta();
   abstractSolver.setRuleBase(buildRuleBase());
   ScoreDefinition scoreDefinition=scoreDefinitionConfig.buildScoreDefinition();
   abstractSolver.setScoreDefinition(scoreDefinition);

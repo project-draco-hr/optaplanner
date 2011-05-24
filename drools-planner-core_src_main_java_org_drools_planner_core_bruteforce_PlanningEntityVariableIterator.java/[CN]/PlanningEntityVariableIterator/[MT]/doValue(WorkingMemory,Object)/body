@@ -1,7 +1,7 @@
 {
-  FactHandle factHandle=workingMemory.getFactHandle(planningVariable);
+  FactHandle factHandle=workingMemory.getFactHandle(planningEntity);
   try {
-    valueMethod.invoke(planningVariable,value);
+    valueMethod.invoke(planningEntity,value);
   }
  catch (  IllegalAccessException e) {
     throw new IllegalStateException("Could not call method to set planningValue",e);
@@ -9,5 +9,5 @@
 catch (  InvocationTargetException e) {
     throw new IllegalStateException("Could not call method to set planningValue",e);
   }
-  workingMemory.update(factHandle,planningVariable);
+  workingMemory.update(factHandle,planningEntity);
 }

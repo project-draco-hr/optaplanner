@@ -1,8 +1,8 @@
 {
-  this.planningVariable=planningVariable;
-  this.planningVariableClass=planningVariableClass;
-  for (  Method method : planningVariable.getClass().getMethods()) {
-    PlanningValueProperty planningValueProperty=method.getAnnotation(PlanningValueProperty.class);
+  this.planningEntity=planningEntity;
+  this.planningEntityAnnotation=planningEntityAnnotation;
+  for (  Method method : planningEntity.getClass().getMethods()) {
+    PlanningVariable planningValueProperty=method.getAnnotation(PlanningVariable.class);
     if (planningValueProperty != null) {
       valueMethod=method;
       Class<?> planningValueClass=valueMethod.getParameterTypes()[0];
