@@ -7,7 +7,7 @@
   List<Day> dayList=constructDayList(n);
   travelingTournament.setDayList(dayList);
   List<List<Integer>> outerDistanceList=readOuterDistanceList();
-  List<Match> matchList=constructMatchListAndSetDistancesInTeamList(teamList,outerDistanceList);
+  List<Match> matchList=createMatchListAndSetDistancesInTeamList(teamList,outerDistanceList);
   travelingTournament.setMatchList(matchList);
   initializeMatchDays(travelingTournament);
   return travelingTournament;

@@ -9,7 +9,7 @@
     cloudProcess.setMinimalMemory(minimalMemory);
     int minimalNetworkBandwidth=generateRandom(MAXIMUM_MINIMAL_NETWORK_BANDWIDTH);
     cloudProcess.setMinimalNetworkBandwidth(minimalNetworkBandwidth);
-    logger.info("Created CloudProcess with minimalCpuPower ({}), minimalMemory({})," + " minimalNetworkBandwidth({}).",new Object[]{minimalCpuPower,minimalMemory,minimalNetworkBandwidth});
+    logger.debug("Created CloudProcess with minimalCpuPower ({}), minimalMemory({})," + " minimalNetworkBandwidth({}).",new Object[]{minimalCpuPower,minimalMemory,minimalNetworkBandwidth});
     cloudProcessList.add(cloudProcess);
   }
   return cloudProcessList;

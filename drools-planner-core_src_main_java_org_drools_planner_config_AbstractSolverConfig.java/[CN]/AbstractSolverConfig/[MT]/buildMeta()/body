@@ -46,6 +46,7 @@
         if (variableDescriptor.getWriteMethod() == null) {
           throw new IllegalStateException("The planningEntityClass (" + planningEntityClass + ") has a PlanningVariable annotated property ("+ variableDescriptor.getName()+ ") that should have a setter.");
         }
+        System.out.println("yaay " + variableDescriptor.getName());
         ValueRangeFromSolutionProperty valueRangeFromSolutionPropertyAnnotation=variableDescriptor.getReadMethod().getAnnotation(ValueRangeFromSolutionProperty.class);
         if (valueRangeFromSolutionPropertyAnnotation == null) {
           throw new IllegalArgumentException("The planningEntityClass (" + planningEntityClass + ") has a PlanningVariable annotated property ("+ variableDescriptor.getName()+ ") that has no ValueRangeFromSolutionProperty annotation.");
@@ -59,7 +60,6 @@
           throw new IllegalArgumentException("The planningEntityClass (" + planningEntityClass + ") has a PlanningVariable annotated property ("+ variableDescriptor.getName()+ ") that refers to a solutionClass ("+ solutionClass+ ") solutionProperty ("+ solutionPropertyName+ ") that does not return a Collection.");
         }
         System.out.println("yes, solutionPropertyDescriptor " + solutionPropertyDescriptor.getName());
-        System.out.println("yaay " + variableDescriptor.getName());
       }
     }
     if (noPlanningVariableAnnotation) {

@@ -1,0 +1,12 @@
+{
+  List<CloudAssignment> cloudAssignmentList=new ArrayList<CloudAssignment>(cloudProcessList.size());
+  long id=0L;
+  for (  CloudProcess cloudProcess : cloudProcessList) {
+    CloudAssignment cloudAssignment=new CloudAssignment();
+    cloudAssignment.setId(id);
+    cloudAssignment.setCloudProcess(cloudProcess);
+    cloudAssignmentList.add(cloudAssignment);
+    id++;
+  }
+  return cloudAssignmentList;
+}

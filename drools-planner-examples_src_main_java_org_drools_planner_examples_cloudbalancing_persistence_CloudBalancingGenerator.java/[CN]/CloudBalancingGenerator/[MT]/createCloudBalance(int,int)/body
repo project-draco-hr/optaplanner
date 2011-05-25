@@ -4,5 +4,10 @@
   cloudBalance.setId(0L);
   cloudBalance.setCloudComputerList(createCloudComputerList(cloudComputerListSize));
   cloudBalance.setCloudProcessList(createCloudProcessList(cloudProcessListSize));
+  cloudBalance.setCloudAssignmentList(createCloudAssignmentList(cloudBalance.getCloudProcessList()));
+  logger.info("CloudBalance {} with {} computers and {} processes.",cloudBalance.getCloudComputerList().size(),cloudBalance.getCloudProcessList().size());
+  BigInteger possibleSolutionSize=BigInteger.valueOf(cloudBalance.getCloudComputerList().size()).pow(cloudBalance.getCloudAssignmentList().size());
+  String flooredPossibleSolutionSize="10^" + (possibleSolutionSize.toString().length() - 1);
+  logger.info("CloudBalance with flooredPossibleSolutionSize ({}) and possibleSolutionSize({}).",flooredPossibleSolutionSize,possibleSolutionSize);
   return cloudBalance;
 }
