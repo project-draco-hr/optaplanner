@@ -4,7 +4,7 @@
   }
   workingMemory=ruleBase.newStatefulSession();
   workingMemory.setGlobal(GLOBAL_SCORE_CALCULATOR_KEY,workingScoreCalculator);
-  for (  Object fact : workingSolution.getFacts()) {
+  for (  Object fact : getWorkingFacts()) {
     workingMemory.insert(fact);
   }
 }

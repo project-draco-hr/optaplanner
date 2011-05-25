@@ -1,9 +1,0 @@
-{
-  List<Object> facts=new ArrayList<Object>();
-  facts.addAll(cloudComputerList);
-  facts.addAll(cloudProcessList);
-  if (isInitialized()) {
-    facts.addAll(cloudAssignmentList);
-  }
-  return facts;
-}

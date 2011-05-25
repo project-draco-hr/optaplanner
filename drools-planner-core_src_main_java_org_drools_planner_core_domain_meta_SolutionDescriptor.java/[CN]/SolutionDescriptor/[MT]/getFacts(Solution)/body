@@ -1,0 +1,21 @@
+{
+  Collection<Object> planningFacts=new ArrayList<Object>();
+  for (  PropertyDescriptor factPropertyDescriptor : factPropertyDescriptorMap.values()) {
+    Object fact=DescriptorUtils.executeGetter(factPropertyDescriptor,solution);
+    planningFacts.add(fact);
+  }
+  for (  PropertyDescriptor factCollectionPropertyDescriptor : factCollectionPropertyDescriptorMap.values()) {
+    Collection<? extends Object> factCollection=(Collection<? extends Object>)DescriptorUtils.executeGetter(factCollectionPropertyDescriptor,solution);
+    planningFacts.addAll(factCollection);
+  }
+  for (  PropertyDescriptor entityCollectionPropertyDescriptor : entityCollectionPropertyDescriptorMap.values()) {
+    Collection<? extends Object> entityCollection=(Collection<? extends Object>)DescriptorUtils.executeGetter(entityCollectionPropertyDescriptor,solution);
+    for (    Object entity : entityCollection) {
+      PlanningEntityDescriptor planningEntityDescriptor=planningEntityDescriptorMap.get(entity.getClass());
+      if (planningEntityDescriptor.isInitialized(entity)) {
+        planningFacts.add(entity);
+      }
+    }
+  }
+  return planningFacts;
+}

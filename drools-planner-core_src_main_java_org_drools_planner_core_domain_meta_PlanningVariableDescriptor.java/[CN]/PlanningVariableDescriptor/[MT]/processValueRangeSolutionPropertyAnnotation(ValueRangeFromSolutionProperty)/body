@@ -1,0 +1,10 @@
+{
+  String solutionPropertyName=valueRangeFromSolutionPropertyAnnotation.propertyName();
+  rangePropertyDescriptor=planningEntityDescriptor.getSolutionDescriptor().getPropertyDescriptor(solutionPropertyName);
+  if (rangePropertyDescriptor == null) {
+    throw new IllegalArgumentException("The planningEntityClass (" + planningEntityDescriptor.getPlanningEntityClass() + ") has a PlanningVariable annotated property ("+ variablePropertyDescriptor.getName()+ ") that refers to a solutionClass ("+ planningEntityDescriptor.getSolutionDescriptor().getSolutionClass()+ ") solutionProperty ("+ solutionPropertyName+ ") that does not exist.");
+  }
+  if (!Collection.class.isAssignableFrom(rangePropertyDescriptor.getPropertyType())) {
+    throw new IllegalArgumentException("The planningEntityClass (" + planningEntityDescriptor.getPlanningEntityClass() + ") has a PlanningVariable annotated property ("+ variablePropertyDescriptor.getName()+ ") that refers to a solutionClass ("+ planningEntityDescriptor.getSolutionDescriptor().getSolutionClass()+ ") solutionProperty ("+ solutionPropertyName+ ") that does not return a Collection.");
+  }
+}

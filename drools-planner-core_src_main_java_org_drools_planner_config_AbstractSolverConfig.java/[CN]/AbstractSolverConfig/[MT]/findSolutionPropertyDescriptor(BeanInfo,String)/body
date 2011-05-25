@@ -1,8 +1,0 @@
-{
-  for (  PropertyDescriptor solutionPropertyDescriptor : solutionBeanInfo.getPropertyDescriptors()) {
-    if (solutionPropertyName.equals(solutionPropertyDescriptor.getName())) {
-      return solutionPropertyDescriptor;
-    }
-  }
-  return null;
-}

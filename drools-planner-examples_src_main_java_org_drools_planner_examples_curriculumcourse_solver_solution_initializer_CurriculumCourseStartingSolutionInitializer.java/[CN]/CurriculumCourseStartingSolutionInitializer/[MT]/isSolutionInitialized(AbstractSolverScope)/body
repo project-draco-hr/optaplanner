@@ -1,4 +1,3 @@
 {
-  CurriculumCourseSchedule schedule=(CurriculumCourseSchedule)abstractSolverScope.getWorkingSolution();
-  return schedule.isInitialized();
+  return false;
 }

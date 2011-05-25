@@ -1,6 +1,6 @@
 {
   this.bruteForceSolverScope=bruteForceSolverScope;
-  Collection<? extends Object> facts=bruteForceSolverScope.getWorkingSolution().getFacts();
+  Collection<? extends Object> facts=null;
   for (  Object fact : facts) {
     PlanningEntity planningEntityAnnotation=fact.getClass().getAnnotation(PlanningEntity.class);
     if (planningEntityAnnotation != null) {

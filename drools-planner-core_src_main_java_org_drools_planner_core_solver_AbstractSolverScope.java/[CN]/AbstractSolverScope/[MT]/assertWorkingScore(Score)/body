@@ -2,7 +2,7 @@
   StatefulSession tmpWorkingMemory=ruleBase.newStatefulSession();
   ScoreCalculator tmpScoreCalculator=workingScoreCalculator.clone();
   tmpWorkingMemory.setGlobal(GLOBAL_SCORE_CALCULATOR_KEY,tmpScoreCalculator);
-  for (  Object fact : workingSolution.getFacts()) {
+  for (  Object fact : getWorkingFacts()) {
     tmpWorkingMemory.insert(fact);
   }
   tmpWorkingMemory.fireAllRules();
