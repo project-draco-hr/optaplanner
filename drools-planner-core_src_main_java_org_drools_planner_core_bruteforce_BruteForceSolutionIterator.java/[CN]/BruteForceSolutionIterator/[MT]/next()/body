@@ -1,11 +1,11 @@
 {
-  for (  PlanningEntityVariableIterator planningEntityVariableIterator : list) {
-    if (planningEntityVariableIterator.hasNext()) {
-      planningEntityVariableIterator.next(bruteForceSolverScope.getWorkingMemory());
+  for (  BruteForcePlanningEntityIterator planningEntityIterator : planningEntityIteratorList) {
+    if (planningEntityIterator.hasNext()) {
+      planningEntityIterator.next();
       break;
     }
  else {
-      planningEntityVariableIterator.reset(bruteForceSolverScope.getWorkingMemory());
+      planningEntityIterator.reset();
     }
   }
 }

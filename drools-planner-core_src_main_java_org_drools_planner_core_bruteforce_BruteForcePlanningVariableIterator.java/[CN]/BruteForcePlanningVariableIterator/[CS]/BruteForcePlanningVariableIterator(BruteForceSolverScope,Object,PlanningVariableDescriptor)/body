@@ -1,0 +1,7 @@
+{
+  this.bruteForceSolverScope=bruteForceSolverScope;
+  this.planningEntity=planningEntity;
+  this.planningVariableDescriptor=planningVariableDescriptor;
+  planningValues=planningVariableDescriptor.getRangeValues(bruteForceSolverScope.getWorkingSolution());
+  planningValuesIterator=planningValues.iterator();
+}

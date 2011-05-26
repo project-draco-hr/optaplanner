@@ -1,6 +1,6 @@
 {
-  for (  PlanningEntityVariableIterator planningEntityVariableIterator : list) {
-    if (planningEntityVariableIterator.hasNext()) {
+  for (  BruteForcePlanningEntityIterator planningEntityIterator : planningEntityIteratorList) {
+    if (planningEntityIterator.hasNext()) {
       return true;
     }
   }

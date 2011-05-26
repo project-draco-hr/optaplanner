@@ -1,3 +1,0 @@
-Object planningEntity
-PlanningEntity planningEntityAnnotation
-Collection<? extends Object> facts

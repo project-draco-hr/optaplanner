@@ -1,0 +1,8 @@
+{
+  for (  BruteForcePlanningVariableIterator planningVariableIterator : planningVariableIteratorList) {
+    if (planningVariableIterator.hasNext()) {
+      return true;
+    }
+  }
+  return false;
+}

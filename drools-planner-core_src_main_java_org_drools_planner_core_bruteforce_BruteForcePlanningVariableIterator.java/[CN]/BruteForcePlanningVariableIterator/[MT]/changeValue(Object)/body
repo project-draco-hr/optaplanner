@@ -1,0 +1,6 @@
+{
+  WorkingMemory workingMemory=bruteForceSolverScope.getWorkingMemory();
+  FactHandle factHandle=workingMemory.getFactHandle(planningEntity);
+  planningVariableDescriptor.setValue(planningEntity,value);
+  workingMemory.update(factHandle,planningEntity);
+}

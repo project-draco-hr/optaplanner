@@ -1,0 +1,10 @@
+{
+  Collection<Object> planningEntities=new ArrayList<Object>();
+  for (  PropertyDescriptor entityCollectionPropertyDescriptor : entityCollectionPropertyDescriptorMap.values()) {
+    Collection<? extends Object> entityCollection=(Collection<? extends Object>)DescriptorUtils.executeGetter(entityCollectionPropertyDescriptor,solution);
+    for (    Object entity : entityCollection) {
+      planningEntities.add(entity);
+    }
+  }
+  return planningEntities;
+}

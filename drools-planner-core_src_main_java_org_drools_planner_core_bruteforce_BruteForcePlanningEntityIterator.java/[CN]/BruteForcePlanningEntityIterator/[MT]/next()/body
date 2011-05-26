@@ -1,0 +1,11 @@
+{
+  for (  BruteForcePlanningVariableIterator planningVariableIterator : planningVariableIteratorList) {
+    if (planningVariableIterator.hasNext()) {
+      planningVariableIterator.next();
+      break;
+    }
+ else {
+      planningVariableIterator.reset();
+    }
+  }
+}

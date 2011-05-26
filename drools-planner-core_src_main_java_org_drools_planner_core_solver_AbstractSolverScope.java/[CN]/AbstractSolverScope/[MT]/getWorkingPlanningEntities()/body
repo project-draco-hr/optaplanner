@@ -1,0 +1,3 @@
+{
+  return solutionDescriptor.getPlanningEntities(workingSolution);
+}

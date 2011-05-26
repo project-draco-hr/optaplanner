@@ -1,11 +1,7 @@
 {
   this.bruteForceSolverScope=bruteForceSolverScope;
-  Collection<? extends Object> facts=null;
-  for (  Object fact : facts) {
-    PlanningEntity planningEntityAnnotation=fact.getClass().getAnnotation(PlanningEntity.class);
-    if (planningEntityAnnotation != null) {
-      PlanningEntityVariableIterator planningEntityVariableIterator=new PlanningEntityVariableIterator(fact,planningEntityAnnotation,facts);
-      list.add(planningEntityVariableIterator);
-    }
+  for (  Object planningEntity : bruteForceSolverScope.getWorkingPlanningEntities()) {
+    BruteForcePlanningEntityIterator planningEntityIterator=new BruteForcePlanningEntityIterator(bruteForceSolverScope,planningEntity);
+    planningEntityIteratorList.add(planningEntityIterator);
   }
 }
