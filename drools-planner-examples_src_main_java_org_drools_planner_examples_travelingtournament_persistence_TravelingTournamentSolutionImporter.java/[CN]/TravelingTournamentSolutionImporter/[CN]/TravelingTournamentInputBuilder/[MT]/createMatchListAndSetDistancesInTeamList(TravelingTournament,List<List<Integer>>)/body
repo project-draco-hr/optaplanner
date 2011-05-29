@@ -1,4 +1,5 @@
 {
+  List<Team> teamList=travelingTournament.getTeamList();
   List<Match> matchList=new ArrayList<Match>();
   int i=0;
   long matchId=0;
@@ -19,5 +20,5 @@
     }
     i++;
   }
-  return matchList;
+  travelingTournament.setMatchList(matchList);
 }

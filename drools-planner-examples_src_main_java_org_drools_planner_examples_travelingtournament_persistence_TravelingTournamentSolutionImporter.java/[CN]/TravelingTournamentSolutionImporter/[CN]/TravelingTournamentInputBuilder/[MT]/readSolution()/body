@@ -2,13 +2,10 @@
   TravelingTournament travelingTournament=new TravelingTournament();
   travelingTournament.setId(0L);
   int n=readN();
-  List<Team> teamList=readTeamList(n);
-  travelingTournament.setTeamList(teamList);
-  List<Day> dayList=constructDayList(n);
-  travelingTournament.setDayList(dayList);
-  List<List<Integer>> outerDistanceList=readOuterDistanceList();
-  List<Match> matchList=createMatchListAndSetDistancesInTeamList(teamList,outerDistanceList);
-  travelingTournament.setMatchList(matchList);
+  readTeamList(travelingTournament,n);
+  createDayList(travelingTournament,n);
+  List<List<Integer>> outerDistanceList=readOuterDistanceList(travelingTournament);
+  createMatchListAndSetDistancesInTeamList(travelingTournament,outerDistanceList);
   initializeMatchDays(travelingTournament);
   return travelingTournament;
 }

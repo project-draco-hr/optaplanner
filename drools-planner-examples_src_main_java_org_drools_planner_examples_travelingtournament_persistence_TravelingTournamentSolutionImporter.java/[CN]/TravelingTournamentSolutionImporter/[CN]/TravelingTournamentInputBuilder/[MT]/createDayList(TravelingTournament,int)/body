@@ -12,5 +12,5 @@
     }
     previousDay=day;
   }
-  return dayList;
+  travelingTournament.setDayList(dayList);
 }

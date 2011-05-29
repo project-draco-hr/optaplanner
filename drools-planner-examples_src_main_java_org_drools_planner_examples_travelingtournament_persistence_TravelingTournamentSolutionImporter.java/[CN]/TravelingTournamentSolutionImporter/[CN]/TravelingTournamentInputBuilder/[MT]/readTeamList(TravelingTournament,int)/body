@@ -7,5 +7,5 @@
     team.setDistanceToTeamMap(new HashMap<Team,Integer>());
     teamList.add(team);
   }
-  return teamList;
+  travelingTournament.setTeamList(teamList);
 }
