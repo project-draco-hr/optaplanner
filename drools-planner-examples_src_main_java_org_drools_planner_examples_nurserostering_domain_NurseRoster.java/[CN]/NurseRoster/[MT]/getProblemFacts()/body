@@ -16,8 +16,5 @@
   facts.addAll(dayOnRequestList);
   facts.addAll(shiftOffRequestList);
   facts.addAll(shiftOnRequestList);
-  if (isInitialized()) {
-    facts.addAll(assignmentList);
-  }
   return facts;
 }

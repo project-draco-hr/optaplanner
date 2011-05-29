@@ -13,9 +13,6 @@
   facts.addAll(admissionPartList);
   facts.addAll(requiredPatientEquipmentList);
   facts.addAll(preferredPatientEquipmentList);
-  if (isInitialized()) {
-    facts.addAll(bedDesignationList);
-  }
   facts.addAll(calculateAdmissionPartConflictList());
   return facts;
 }

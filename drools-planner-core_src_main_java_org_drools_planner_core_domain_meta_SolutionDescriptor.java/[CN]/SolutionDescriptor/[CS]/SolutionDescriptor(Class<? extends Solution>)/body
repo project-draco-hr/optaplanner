@@ -8,8 +8,7 @@
   }
   int mapSize=solutionBeanInfo.getPropertyDescriptors().length;
   propertyDescriptorMap=new HashMap<String,PropertyDescriptor>(mapSize);
-  factPropertyDescriptorMap=new HashMap<String,PropertyDescriptor>(mapSize);
-  factCollectionPropertyDescriptorMap=new HashMap<String,PropertyDescriptor>(mapSize);
+  entityPropertyDescriptorMap=new HashMap<String,PropertyDescriptor>(mapSize);
   entityCollectionPropertyDescriptorMap=new HashMap<String,PropertyDescriptor>(mapSize);
   planningEntityDescriptorMap=new HashMap<Class<?>,PlanningEntityDescriptor>(mapSize);
   processPropertyAnnotations();

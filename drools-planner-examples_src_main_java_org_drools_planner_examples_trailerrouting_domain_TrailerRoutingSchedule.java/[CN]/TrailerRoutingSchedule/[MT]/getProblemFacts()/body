@@ -7,8 +7,5 @@
   facts.addAll(trailerList);
   facts.addAll(locationResourceKindRejectionList);
   facts.addAll(orderList);
-  if (isInitialized()) {
-    facts.addAll(orderAssignmentList);
-  }
   return facts;
 }

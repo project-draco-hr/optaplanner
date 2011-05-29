@@ -7,8 +7,5 @@
   facts.addAll(hobbyPracticianList);
   facts.addAll(tableList);
   facts.addAll(seatList);
-  if (isInitialized()) {
-    facts.addAll(seatDesignationList);
-  }
   return facts;
 }
