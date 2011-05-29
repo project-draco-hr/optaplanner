@@ -12,5 +12,5 @@
     logger.debug("Created CloudProcess with minimalCpuPower ({}), minimalMemory({})," + " minimalNetworkBandwidth({}).",new Object[]{minimalCpuPower,minimalMemory,minimalNetworkBandwidth});
     cloudProcessList.add(cloudProcess);
   }
-  return cloudProcessList;
+  cloudBalance.setCloudProcessList(cloudProcessList);
 }

@@ -1,11 +1,12 @@
 {
-  readHeader("CURRICULA:");
+  readEmptyLine();
+  readConstantLine("CURRICULA:");
   List<Curriculum> curriculumList=new ArrayList<Curriculum>(curriculumListSize);
   for (int i=0; i < curriculumListSize; i++) {
     Curriculum curriculum=new Curriculum();
     curriculum.setId((long)i);
     String line=bufferedReader.readLine();
-    String[] lineTokens=line.split(SPLIT_REGEX);
+    String[] lineTokens=splitBySpacesOrTabs(line);
     if (lineTokens.length < 2) {
       throw new IllegalArgumentException("Read line (" + line + ") is expected to contain at least 2 tokens.");
     }

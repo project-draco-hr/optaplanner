@@ -44,5 +44,5 @@
       examBefore.getAfterExamSet().add(afterExam);
     }
   }
-  return examList;
+  examination.setExamList(examList);
 }

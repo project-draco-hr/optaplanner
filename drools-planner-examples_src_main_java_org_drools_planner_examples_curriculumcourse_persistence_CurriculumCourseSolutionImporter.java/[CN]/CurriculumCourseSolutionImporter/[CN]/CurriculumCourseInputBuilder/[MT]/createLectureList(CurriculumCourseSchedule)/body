@@ -1,4 +1,5 @@
 {
+  List<Course> courseList=schedule.getCourseList();
   List<Lecture> lectureList=new ArrayList<Lecture>(courseList.size());
   long id=0L;
   for (  Course course : courseList) {
@@ -11,5 +12,5 @@
       lectureList.add(lecture);
     }
   }
-  return lectureList;
+  schedule.setLectureList(lectureList);
 }

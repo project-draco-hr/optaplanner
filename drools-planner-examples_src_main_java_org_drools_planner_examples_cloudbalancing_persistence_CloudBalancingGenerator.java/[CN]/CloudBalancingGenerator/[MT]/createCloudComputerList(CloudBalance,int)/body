@@ -14,5 +14,5 @@
     cloudComputer.setCost(cost);
     cloudComputerList.add(cloudComputer);
   }
-  return cloudComputerList;
+  cloudBalance.setCloudComputerList(cloudComputerList);
 }
