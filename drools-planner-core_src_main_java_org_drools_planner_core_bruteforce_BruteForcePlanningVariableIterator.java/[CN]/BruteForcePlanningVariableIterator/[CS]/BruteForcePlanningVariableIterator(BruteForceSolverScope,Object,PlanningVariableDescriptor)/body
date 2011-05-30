@@ -3,5 +3,5 @@
   this.planningEntity=planningEntity;
   this.planningVariableDescriptor=planningVariableDescriptor;
   planningValues=planningVariableDescriptor.getRangeValues(bruteForceSolverScope.getWorkingSolution());
-  planningValuesIterator=planningValues.iterator();
+  planningValueIterator=planningValues.iterator();
 }

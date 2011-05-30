@@ -1,4 +1,4 @@
 {
-  Object value=planningValuesIterator.next();
+  Object value=planningValueIterator.next();
   changeValue(value);
 }

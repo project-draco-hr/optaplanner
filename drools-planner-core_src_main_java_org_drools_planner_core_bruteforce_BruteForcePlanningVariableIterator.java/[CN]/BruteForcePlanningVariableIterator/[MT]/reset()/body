@@ -1,5 +1,5 @@
 {
-  planningValuesIterator=planningValues.iterator();
-  Object value=planningValuesIterator.next();
+  planningValueIterator=planningValues.iterator();
+  Object value=planningValueIterator.next();
   changeValue(value);
 }
