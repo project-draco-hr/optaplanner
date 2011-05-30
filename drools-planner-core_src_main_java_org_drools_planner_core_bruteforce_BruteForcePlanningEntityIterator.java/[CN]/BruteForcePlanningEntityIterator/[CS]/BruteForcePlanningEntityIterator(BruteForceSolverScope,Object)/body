@@ -1,9 +1,0 @@
-{
-  this.bruteForceSolverScope=bruteForceSolverScope;
-  this.planningEntity=planningEntity;
-  PlanningEntityDescriptor planningEntityDescriptor=bruteForceSolverScope.getSolutionDescriptor().getPlanningEntityDescriptor(planningEntity.getClass());
-  for (  PlanningVariableDescriptor planningVariableDescriptor : planningEntityDescriptor.getPlanningVariableDescriptors()) {
-    BruteForcePlanningVariableIterator planningVariableIterator=new BruteForcePlanningVariableIterator(bruteForceSolverScope,planningEntity,planningVariableDescriptor);
-    planningVariableIteratorList.add(planningVariableIterator);
-  }
-}

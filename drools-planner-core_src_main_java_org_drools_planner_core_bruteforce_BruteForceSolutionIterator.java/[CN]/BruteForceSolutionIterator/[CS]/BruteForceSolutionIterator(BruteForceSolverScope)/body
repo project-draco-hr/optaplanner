@@ -1,7 +1,0 @@
-{
-  this.bruteForceSolverScope=bruteForceSolverScope;
-  for (  Object planningEntity : bruteForceSolverScope.getWorkingPlanningEntities()) {
-    BruteForcePlanningEntityIterator planningEntityIterator=new BruteForcePlanningEntityIterator(bruteForceSolverScope,planningEntity);
-    planningEntityIteratorList.add(planningEntityIterator);
-  }
-}

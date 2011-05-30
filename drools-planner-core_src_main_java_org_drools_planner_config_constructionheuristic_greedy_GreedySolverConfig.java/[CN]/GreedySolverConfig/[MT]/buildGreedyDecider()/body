@@ -1,0 +1,6 @@
+{
+  DefaultGreedyDecider greedyDecider=new DefaultGreedyDecider();
+  PickEarlyFitType pickEarlyFitType=(this.pickEarlyFitType == null) ? PickEarlyFitType.NEVER : this.pickEarlyFitType;
+  greedyDecider.setPickEarlyFitType(pickEarlyFitType);
+  return greedyDecider;
+}

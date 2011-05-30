@@ -1,0 +1,10 @@
+{
+  if (completedGreedyStepScope == null) {
+    completedGreedyStepScope=new GreedyStepScope(greedySolverScope);
+    completedGreedyStepScope.setScore(greedySolverScope.getStartingScore());
+    completedGreedyStepScope.setStepIndex(-1);
+  }
+  GreedyStepScope greedyStepScope=new GreedyStepScope(greedySolverScope);
+  greedyStepScope.setStepIndex(completedGreedyStepScope.getStepIndex() + 1);
+  return greedyStepScope;
+}

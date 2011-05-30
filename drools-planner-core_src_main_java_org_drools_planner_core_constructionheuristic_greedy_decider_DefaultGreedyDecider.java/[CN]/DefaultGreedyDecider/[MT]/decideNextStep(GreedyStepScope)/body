@@ -1,0 +1,19 @@
+{
+  GreedySolverScope greedySolverScope=greedyStepScope.getGreedySolverScope();
+  Score lastStepScore=greedySolverScope.calculateScoreFromWorkingMemory();
+  BruteForcePlanningEntityIterator bruteForcePlanningEntityIterator=new BruteForcePlanningEntityIterator(greedySolverScope,greedyStepScope.getPlanningEntity());
+  Score maxScore=greedySolverScope.getScoreDefinition().getPerfectMinimumScore();
+  greedySolverScope.getWorkingMemory().insert(greedyStepScope.getPlanningEntity());
+  while (bruteForcePlanningEntityIterator.hasNext()) {
+    bruteForcePlanningEntityIterator.next();
+    Score score=greedySolverScope.calculateScoreFromWorkingMemory();
+    if (score.compareTo(maxScore) > 0) {
+      greedyStepScope.setVariableToValueMap(bruteForcePlanningEntityIterator.getVariableToValueMap());
+      maxScore=score;
+    }
+    if (pickEarlyFitType == PickEarlyFitType.FIRST_LAST_STEP_SCORE_IMPROVING_OR_EQUAL && score.compareTo(lastStepScore) >= 0) {
+      break;
+    }
+  }
+  greedyStepScope.setScore(maxScore);
+}

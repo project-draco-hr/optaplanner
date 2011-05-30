@@ -1,0 +1,9 @@
+{
+  super.inherit(inheritedConfig);
+  if (fitOrderPlanningEntityComparatorClass == null) {
+    fitOrderPlanningEntityComparatorClass=inheritedConfig.getFitOrderPlanningEntityComparatorClass();
+  }
+  if (pickEarlyFitType == null) {
+    pickEarlyFitType=inheritedConfig.getPickEarlyFitType();
+  }
+}

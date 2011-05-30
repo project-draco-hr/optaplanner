@@ -1,4 +1,5 @@
 {
+  bruteForceSolutionIterator.solvingEnded(bruteForceSolverScope);
   bestSolutionRecaller.solvingEnded(bruteForceSolverScope);
   long timeMillisSpend=bruteForceSolverScope.calculateTimeMillisSpend();
   long averageCalculateCountPerSecond=bruteForceSolverScope.getCalculateCount() * 1000L / timeMillisSpend;

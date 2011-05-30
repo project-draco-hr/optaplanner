@@ -1,9 +1,17 @@
 {
-  Score initialScore=abstractSolverScope.calculateScoreFromWorkingMemory();
+  boolean initializedSolution=true;
+  Score initialScore;
+  Solution newBestSolution;
+  if (initializedSolution) {
+    initialScore=abstractSolverScope.calculateScoreFromWorkingMemory();
+    newBestSolution=abstractSolverScope.getWorkingSolution().cloneSolution();
+  }
+ else {
+    initialScore=null;
+    newBestSolution=null;
+  }
   abstractSolverScope.setStartingScore(initialScore);
   abstractSolverScope.setBestSolutionStepIndex(-1);
-  Solution newBestSolution=abstractSolverScope.getWorkingSolution().cloneSolution();
   abstractSolverScope.setBestSolution(newBestSolution);
   abstractSolverScope.setBestScore(initialScore);
-  solverEventSupport.fireBestSolutionChanged(newBestSolution);
 }

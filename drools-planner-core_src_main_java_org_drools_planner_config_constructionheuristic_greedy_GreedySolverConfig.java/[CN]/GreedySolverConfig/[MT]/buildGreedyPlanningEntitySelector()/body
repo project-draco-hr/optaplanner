@@ -1,0 +1,17 @@
+{
+  GreedyPlanningEntitySelector greedyPlanningEntitySelector=new GreedyPlanningEntitySelector();
+  if (fitOrderPlanningEntityComparatorClass != null) {
+    Comparator<Object> fitOrderPlanningEntityComparator;
+    try {
+      fitOrderPlanningEntityComparator=fitOrderPlanningEntityComparatorClass.newInstance();
+    }
+ catch (    InstantiationException e) {
+      throw new IllegalArgumentException("The fitOrderPlanningEntityComparatorClass (" + fitOrderPlanningEntityComparatorClass.getName() + ") does not have a public no-arg constructor",e);
+    }
+catch (    IllegalAccessException e) {
+      throw new IllegalArgumentException("The fitOrderPlanningEntityComparatorClass (" + fitOrderPlanningEntityComparatorClass.getName() + ") does not have a public no-arg constructor",e);
+    }
+    greedyPlanningEntitySelector.setFitOrderPlanningEntityComparator(fitOrderPlanningEntityComparator);
+  }
+  return greedyPlanningEntitySelector;
+}

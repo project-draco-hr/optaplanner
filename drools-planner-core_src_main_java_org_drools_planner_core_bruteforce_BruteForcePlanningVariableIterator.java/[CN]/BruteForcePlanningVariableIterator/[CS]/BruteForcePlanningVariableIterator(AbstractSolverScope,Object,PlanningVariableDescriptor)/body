@@ -1,0 +1,7 @@
+{
+  this.solverScope=solverScope;
+  this.planningEntity=planningEntity;
+  this.planningVariableDescriptor=planningVariableDescriptor;
+  planningValues=planningVariableDescriptor.getRangeValues(solverScope.getWorkingSolution());
+  planningValueIterator=planningValues.iterator();
+}

@@ -1,9 +1,9 @@
 {
   BruteForceSolverScope bruteForceSolverScope=this.bruteForceSolverScope;
   solvingStarted(bruteForceSolverScope);
-  BruteForceSolutionIterator bruteForceSolutionIterator=new BruteForceSolutionIterator(bruteForceSolverScope);
   BruteForceStepScope bruteForceStepScope=createNextStepScope(bruteForceSolverScope,null);
-  for (; bruteForceSolutionIterator.hasNext(); bruteForceSolutionIterator.next()) {
+  while (bruteForceSolutionIterator.hasNext()) {
+    bruteForceSolutionIterator.next();
     Score score=bruteForceSolverScope.calculateScoreFromWorkingMemory();
     bruteForceStepScope.setScore(score);
     bestSolutionRecaller.stepTaken(bruteForceStepScope);
