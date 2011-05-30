@@ -3,7 +3,6 @@
   Score lastStepScore=greedySolverScope.calculateScoreFromWorkingMemory();
   BruteForcePlanningEntityIterator bruteForcePlanningEntityIterator=new BruteForcePlanningEntityIterator(greedySolverScope,greedyStepScope.getPlanningEntity());
   Score maxScore=greedySolverScope.getScoreDefinition().getPerfectMinimumScore();
-  greedySolverScope.getWorkingMemory().insert(greedyStepScope.getPlanningEntity());
   while (bruteForcePlanningEntityIterator.hasNext()) {
     bruteForcePlanningEntityIterator.next();
     Score score=greedySolverScope.calculateScoreFromWorkingMemory();

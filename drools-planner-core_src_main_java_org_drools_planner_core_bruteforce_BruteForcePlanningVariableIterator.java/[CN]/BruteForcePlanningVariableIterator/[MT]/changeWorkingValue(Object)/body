@@ -1,7 +1,6 @@
 {
   WorkingMemory workingMemory=solverScope.getWorkingMemory();
-  FactHandle factHandle=workingMemory.getFactHandle(planningEntity);
   planningVariableDescriptor.setValue(planningEntity,value);
-  workingMemory.update(factHandle,planningEntity);
+  workingMemory.update(planningEntityFactHandle,planningEntity);
   workingValue=value;
 }

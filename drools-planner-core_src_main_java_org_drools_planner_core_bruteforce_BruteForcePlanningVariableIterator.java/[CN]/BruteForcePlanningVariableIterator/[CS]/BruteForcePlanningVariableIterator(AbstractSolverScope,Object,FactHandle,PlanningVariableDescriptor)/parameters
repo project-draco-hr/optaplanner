@@ -1,3 +1,4 @@
 AbstractSolverScope solverScope
 Object planningEntity
+FactHandle planningEntityFactHandle
 PlanningVariableDescriptor planningVariableDescriptor

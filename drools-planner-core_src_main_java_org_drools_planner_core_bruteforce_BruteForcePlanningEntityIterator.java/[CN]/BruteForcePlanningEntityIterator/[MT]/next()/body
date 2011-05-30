@@ -1,4 +1,8 @@
 {
+  if (isFirst) {
+    isFirst=false;
+    return;
+  }
   for (  BruteForcePlanningVariableIterator planningVariableIterator : planningVariableIteratorList) {
     if (planningVariableIterator.hasNext()) {
       planningVariableIterator.next();
