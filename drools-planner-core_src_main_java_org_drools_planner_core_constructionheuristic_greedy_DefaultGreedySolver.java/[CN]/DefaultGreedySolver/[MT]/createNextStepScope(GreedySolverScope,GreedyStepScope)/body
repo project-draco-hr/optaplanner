@@ -4,6 +4,7 @@
     completedGreedyStepScope.setScore(greedySolverScope.getStartingScore());
     completedGreedyStepScope.setStepIndex(-1);
   }
+  greedySolverScope.setLastCompletedGreedyStepScope(completedGreedyStepScope);
   GreedyStepScope greedyStepScope=new GreedyStepScope(greedySolverScope);
   greedyStepScope.setStepIndex(completedGreedyStepScope.getStepIndex() + 1);
   return greedyStepScope;
