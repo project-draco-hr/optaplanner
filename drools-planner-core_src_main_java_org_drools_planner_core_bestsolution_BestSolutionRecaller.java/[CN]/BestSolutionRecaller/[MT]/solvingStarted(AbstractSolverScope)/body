@@ -1,5 +1,5 @@
 {
-  boolean initializedSolution=true;
+  boolean initializedSolution=abstractSolverScope.isWorkingSolutionInitialized();
   Score initialScore;
   Solution newBestSolution;
   if (initializedSolution) {
