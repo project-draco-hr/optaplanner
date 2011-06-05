@@ -7,4 +7,5 @@
     planningVariableDescriptor.setValue(planningEntity,value);
   }
   workingMemory.update(factHandle,planningEntity);
+  greedySolverScope.getWorkingSolution().setScore(score);
 }
