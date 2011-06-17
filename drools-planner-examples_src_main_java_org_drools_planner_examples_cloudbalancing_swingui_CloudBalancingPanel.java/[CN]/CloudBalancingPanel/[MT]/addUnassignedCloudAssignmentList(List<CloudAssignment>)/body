@@ -11,5 +11,5 @@
     usedNetworkBandwidth+=cloudAssignment.getMinimalNetworkBandwidth();
     colorIndex=(colorIndex + 1) % PROCESS_COLORS.length;
   }
-  addTotals(usedCpuPower,usedMemory,usedNetworkBandwidth);
+  addTotals(usedCpuPower,0,usedMemory,0,usedNetworkBandwidth,0);
 }

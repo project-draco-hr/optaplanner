@@ -18,6 +18,6 @@
     networkBandwidthBar.addProcessValue(cloudAssignment.getMinimalNetworkBandwidth());
     colorIndex=(colorIndex + 1) % PROCESS_COLORS.length;
   }
-  addTotals(usedCpuPower,usedMemory,usedNetworkBandwidth);
+  addTotals(usedCpuPower,cloudComputer.getCpuPower(),usedMemory,cloudComputer.getMemory(),usedNetworkBandwidth,cloudComputer.getNetworkBandwidth());
   addBars(cpuPowerBar,memoryBar,networkBandwidthBar);
 }

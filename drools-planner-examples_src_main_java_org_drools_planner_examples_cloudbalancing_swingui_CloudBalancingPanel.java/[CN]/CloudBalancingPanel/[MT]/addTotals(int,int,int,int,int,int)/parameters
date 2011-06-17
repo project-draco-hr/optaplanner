@@ -1,0 +1,6 @@
+int usedCpuPower
+int availableCpuPower
+int usedMemory
+int availableMemory
+int usedNetworkBandwidth
+int availableNetworkBandwidth
