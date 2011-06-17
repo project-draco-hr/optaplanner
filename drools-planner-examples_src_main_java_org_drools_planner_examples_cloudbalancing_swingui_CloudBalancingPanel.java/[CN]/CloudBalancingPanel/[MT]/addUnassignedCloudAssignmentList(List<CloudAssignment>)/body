@@ -1,0 +1,15 @@
+{
+  addUnassignedHeaders();
+  int usedCpuPower=0;
+  int usedMemory=0;
+  int usedNetworkBandwidth=0;
+  int colorIndex=0;
+  for (  CloudAssignment cloudAssignment : unassignedCloudAssignmentList) {
+    addCloudAssignment(cloudAssignment,PROCESS_COLORS[colorIndex]);
+    usedCpuPower+=cloudAssignment.getMinimalCpuPower();
+    usedMemory+=cloudAssignment.getMinimalMemory();
+    usedNetworkBandwidth+=cloudAssignment.getMinimalNetworkBandwidth();
+    colorIndex=(colorIndex + 1) % PROCESS_COLORS.length;
+  }
+  addTotals(usedCpuPower,usedMemory,usedNetworkBandwidth);
+}
