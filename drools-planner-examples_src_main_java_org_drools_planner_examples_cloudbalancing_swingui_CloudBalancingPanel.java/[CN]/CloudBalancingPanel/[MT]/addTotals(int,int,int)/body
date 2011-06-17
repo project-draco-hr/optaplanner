@@ -1,0 +1,14 @@
+{
+  JLabel totalLabel=new JLabel("    " + "Total");
+  add(totalLabel);
+  JTextField usedCpuPowerField=new JTextField(usedCpuPower + " GHz");
+  usedCpuPowerField.setEditable(false);
+  add(usedCpuPowerField);
+  JTextField usedMemoryField=new JTextField(usedMemory + " GB");
+  usedMemoryField.setEditable(false);
+  add(usedMemoryField);
+  JTextField usedNetworkBandwidthField=new JTextField(usedNetworkBandwidth + " GB");
+  usedNetworkBandwidthField.setEditable(false);
+  add(usedNetworkBandwidthField);
+  add(new JLabel(""));
+}

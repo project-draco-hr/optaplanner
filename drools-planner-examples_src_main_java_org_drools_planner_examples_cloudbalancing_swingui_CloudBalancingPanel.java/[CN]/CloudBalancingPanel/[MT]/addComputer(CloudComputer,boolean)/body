@@ -1,0 +1,17 @@
+{
+  JLabel computerLabel=new JLabel(cloudComputer.getLabel());
+  add(computerLabel);
+  JTextField cpuPowerField=new JTextField(cloudComputer.getCpuPower() + " GHz");
+  cpuPowerField.setEditable(false);
+  add(cpuPowerField);
+  JTextField memoryField=new JTextField(cloudComputer.getMemory() + " GB");
+  memoryField.setEditable(false);
+  add(memoryField);
+  JTextField networkBandwidthField=new JTextField(cloudComputer.getNetworkBandwidth() + " GB");
+  networkBandwidthField.setEditable(false);
+  add(networkBandwidthField);
+  JTextField costField=new JTextField(cloudComputer.getCost() + " $");
+  costField.setEditable(false);
+  costField.setEnabled(costUsed);
+  add(costField);
+}

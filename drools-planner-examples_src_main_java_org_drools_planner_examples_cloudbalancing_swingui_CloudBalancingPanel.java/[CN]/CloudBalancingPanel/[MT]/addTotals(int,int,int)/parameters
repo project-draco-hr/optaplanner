@@ -1,0 +1,3 @@
+int usedCpuPower
+int usedMemory
+int usedNetworkBandwidth

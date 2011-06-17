@@ -1,19 +1,21 @@
 {
   removeAll();
   CloudBalance cloudBalance=getCloudBalance();
-  add(createHeaderPanel());
+  addHeaders();
   List<CloudComputer> cloudComputerList=cloudBalance.getCloudComputerList();
-  Map<CloudComputer,CloudComputerPanel> computerToPanelMap=new HashMap<CloudComputer,CloudComputerPanel>(cloudComputerList.size());
+  Map<CloudComputer,List<CloudAssignment>> computerToAssignmentMap=new HashMap<CloudComputer,List<CloudAssignment>>(cloudComputerList.size());
   for (  CloudComputer cloudComputer : cloudComputerList) {
-    CloudComputerPanel cloudComputerPanel=new CloudComputerPanel(cloudComputer);
-    computerToPanelMap.put(cloudComputer,cloudComputerPanel);
-    add(cloudComputerPanel);
+    List<CloudAssignment> cloudAssignmentList=new ArrayList<CloudAssignment>();
+    computerToAssignmentMap.put(cloudComputer,cloudAssignmentList);
   }
   for (  CloudAssignment cloudAssignment : cloudBalance.getCloudAssignmentList()) {
     CloudComputer cloudComputer=cloudAssignment.getCloudComputer();
     if (cloudComputer != null) {
-      CloudComputerPanel cloudComputerPanel=computerToPanelMap.get(cloudComputer);
-      cloudComputerPanel.addCloudAssignment(cloudAssignment);
+      List<CloudAssignment> cloudAssignmentList=computerToAssignmentMap.get(cloudComputer);
+      cloudAssignmentList.add(cloudAssignment);
     }
+  }
+  for (  Map.Entry<CloudComputer,List<CloudAssignment>> entry : computerToAssignmentMap.entrySet()) {
+    addCloudComputer(entry.getKey(),entry.getValue());
   }
 }

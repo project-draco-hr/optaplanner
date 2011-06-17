@@ -1,0 +1,12 @@
+{
+  JLabel emptyLabel=new JLabel("");
+  add(emptyLabel);
+  JLabel cpuPowerLabel=new JLabel("CPU power");
+  add(cpuPowerLabel);
+  JLabel memoryLabel=new JLabel("Memory");
+  add(memoryLabel);
+  JLabel networkBandwidthLabel=new JLabel("Network bandwidth");
+  add(networkBandwidthLabel);
+  JLabel costLabel=new JLabel("Cost");
+  add(costLabel);
+}
