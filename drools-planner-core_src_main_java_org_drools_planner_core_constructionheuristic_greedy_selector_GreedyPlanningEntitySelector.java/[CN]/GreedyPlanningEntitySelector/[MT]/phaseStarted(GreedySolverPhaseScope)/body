@@ -1,11 +1,4 @@
 {
-  Collection<Object> planningEntities=greedySolverPhaseScope.getWorkingPlanningEntities();
-  if (fitOrderPlanningEntityComparator == null) {
-    fitOrderPlanningEntities=planningEntities;
-  }
- else {
-    List<Object> fitOrderPlanningEntityList=new ArrayList<Object>(planningEntities);
-    Collections.sort(fitOrderPlanningEntityList,fitOrderPlanningEntityComparator);
-    fitOrderPlanningEntities=fitOrderPlanningEntityList;
-  }
+  validateConfiguration();
+  initFitOrderPlanningEntities(greedySolverPhaseScope);
 }

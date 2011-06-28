@@ -1,0 +1,5 @@
+{
+  Course course=lecture.getCourse();
+  Course otherCourse=other.lecture.getCourse();
+  return new CompareToBuilder().append(otherCourse.getCurriculumList().size(),course.getCurriculumList().size()).append(other.unavailablePeriodConstraintCount,unavailablePeriodConstraintCount).append(otherCourse.getLectureSize(),course.getLectureSize()).append(otherCourse.getStudentSize(),course.getStudentSize()).append(otherCourse.getMinWorkingDaySize(),course.getMinWorkingDaySize()).append(lecture.getId(),other.lecture.getId()).toComparison();
+}

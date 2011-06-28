@@ -1,0 +1,12 @@
+{
+  CurriculumCourseSchedule schedule=(CurriculumCourseSchedule)solution;
+  Lecture lecture=(Lecture)planningEntity;
+  Course course=lecture.getCourse();
+  int unavailablePeriodConstraintCount=0;
+  for (  UnavailablePeriodConstraint constraint : schedule.getUnavailablePeriodConstraintList()) {
+    if (constraint.getCourse().equals(course)) {
+      unavailablePeriodConstraintCount++;
+    }
+  }
+  return new LectureDifficultyWeight(lecture,unavailablePeriodConstraintCount);
+}

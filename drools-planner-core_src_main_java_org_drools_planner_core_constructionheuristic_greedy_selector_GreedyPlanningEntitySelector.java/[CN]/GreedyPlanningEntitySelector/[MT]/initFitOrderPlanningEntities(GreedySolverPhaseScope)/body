@@ -1,0 +1,14 @@
+{
+  Collection<Object> planningEntities=greedySolverPhaseScope.getWorkingPlanningEntities();
+  if (fitOrderPlanningEntityComparator != null) {
+    List<Object> fitOrderPlanningEntityList=new ArrayList<Object>(planningEntities);
+    Collections.sort(fitOrderPlanningEntityList,fitOrderPlanningEntityComparator);
+    fitOrderPlanningEntities=fitOrderPlanningEntityList;
+  }
+ else   if (planningEntityDifficultyWeightFactory != null) {
+    fitOrderPlanningEntities=PlanningEntityDifficultyWeightUtils.sortByDifficultyWeight(greedySolverPhaseScope.getWorkingSolution(),planningEntities,planningEntityDifficultyWeightFactory,false);
+  }
+ else {
+    fitOrderPlanningEntities=planningEntities;
+  }
+}

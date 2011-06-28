@@ -1,5 +1,8 @@
 {
   GreedyPlanningEntitySelector greedyPlanningEntitySelector=new GreedyPlanningEntitySelector();
+  if (fitOrderPlanningEntityComparatorClass != null && planningEntityDifficultyWeightFactoryClass != null) {
+    throw new IllegalArgumentException("Cannot configure fitOrderPlanningEntityComparatorClass (" + fitOrderPlanningEntityComparatorClass + ") and planningEntityDifficultyWeightFactoryClass ("+ planningEntityDifficultyWeightFactoryClass+ ") at the same time.");
+  }
   if (fitOrderPlanningEntityComparatorClass != null) {
     Comparator<Object> fitOrderPlanningEntityComparator;
     try {
@@ -12,6 +15,19 @@ catch (    IllegalAccessException e) {
       throw new IllegalArgumentException("The fitOrderPlanningEntityComparatorClass (" + fitOrderPlanningEntityComparatorClass.getName() + ") does not have a public no-arg constructor",e);
     }
     greedyPlanningEntitySelector.setFitOrderPlanningEntityComparator(fitOrderPlanningEntityComparator);
+  }
+  if (planningEntityDifficultyWeightFactoryClass != null) {
+    PlanningEntityDifficultyWeightFactory planningEntityDifficultyWeightFactory;
+    try {
+      planningEntityDifficultyWeightFactory=planningEntityDifficultyWeightFactoryClass.newInstance();
+    }
+ catch (    InstantiationException e) {
+      throw new IllegalArgumentException("The planningEntityDifficultyWeightFactoryClass (" + planningEntityDifficultyWeightFactoryClass.getName() + ") does not have a public no-arg constructor",e);
+    }
+catch (    IllegalAccessException e) {
+      throw new IllegalArgumentException("The planningEntityDifficultyWeightFactoryClass (" + planningEntityDifficultyWeightFactoryClass.getName() + ") does not have a public no-arg constructor",e);
+    }
+    greedyPlanningEntitySelector.setPlanningEntityDifficultyWeightFactory(planningEntityDifficultyWeightFactory);
   }
   return greedyPlanningEntitySelector;
 }
