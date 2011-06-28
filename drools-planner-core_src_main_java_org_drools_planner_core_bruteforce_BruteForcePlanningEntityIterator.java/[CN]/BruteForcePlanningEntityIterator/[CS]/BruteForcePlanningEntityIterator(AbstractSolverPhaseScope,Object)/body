@@ -1,11 +1,14 @@
 {
   this.planningEntity=planningEntity;
-  planningEntityFactHandle=solverPhaseScope.getWorkingMemory().insert(planningEntity);
   PlanningEntityDescriptor planningEntityDescriptor=solverPhaseScope.getSolutionDescriptor().getPlanningEntityDescriptor(planningEntity.getClass());
   for (  PlanningVariableDescriptor planningVariableDescriptor : planningEntityDescriptor.getPlanningVariableDescriptors()) {
-    BruteForcePlanningVariableIterator planningVariableIterator=new BruteForcePlanningVariableIterator(solverPhaseScope,planningEntity,planningEntityFactHandle,planningVariableDescriptor);
+    BruteForcePlanningVariableIterator planningVariableIterator=new BruteForcePlanningVariableIterator(solverPhaseScope,planningEntity,planningVariableDescriptor);
     planningVariableIteratorList.add(planningVariableIterator);
+    planningVariableIterator.initialize();
   }
-  reset();
+  planningEntityFactHandle=solverPhaseScope.getWorkingMemory().insert(planningEntity);
+  for (  BruteForcePlanningVariableIterator planningVariableIterator : planningVariableIteratorList) {
+    planningVariableIterator.setPlanningEntityFactHandle(planningEntityFactHandle);
+  }
   isFirst=true;
 }

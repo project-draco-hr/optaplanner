@@ -1,4 +1,3 @@
 AbstractSolverPhaseScope solverPhaseScope
 Object planningEntity
-FactHandle planningEntityFactHandle
 PlanningVariableDescriptor planningVariableDescriptor
