@@ -1,7 +1,0 @@
-{
-  greedyPlanningEntitySelector.solvingEnded(greedySolverScope);
-  bestSolutionRecaller.solvingEnded(greedySolverScope);
-  long timeMillisSpend=greedySolverScope.calculateTimeMillisSpend();
-  long averageCalculateCountPerSecond=greedySolverScope.getCalculateCount() * 1000L / timeMillisSpend;
-  logger.info("Solved with time spend ({}) for best score ({})" + " with average calculate count per second ({}).",new Object[]{timeMillisSpend,greedySolverScope.getBestScore(),averageCalculateCountPerSecond});
-}

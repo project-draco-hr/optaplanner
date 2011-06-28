@@ -1,4 +1,4 @@
 {
   this.solver=solver;
-  this.abstractSolverScope=((AbstractSolver)solver).getAbstractSolverScope();
+  this.solverScope=((DefaultSolver)solver).getSolverScope();
 }

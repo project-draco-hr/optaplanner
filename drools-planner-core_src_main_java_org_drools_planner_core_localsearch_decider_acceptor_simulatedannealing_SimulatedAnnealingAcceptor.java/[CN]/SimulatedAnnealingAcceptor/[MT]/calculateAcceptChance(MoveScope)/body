@@ -1,6 +1,6 @@
 {
-  LocalSearchSolverScope localSearchSolverScope=moveScope.getLocalSearchStepScope().getLocalSearchSolverScope();
-  Score lastStepScore=localSearchSolverScope.getLastCompletedLocalSearchStepScope().getScore();
+  LocalSearchSolverPhaseScope localSearchSolverPhaseScope=moveScope.getLocalSearchStepScope().getLocalSearchSolverPhaseScope();
+  Score lastStepScore=localSearchSolverPhaseScope.getLastCompletedLocalSearchStepScope().getScore();
   Score moveScore=moveScope.getScore();
   if (moveScore.compareTo(lastStepScore) >= 0) {
     return 1.0;

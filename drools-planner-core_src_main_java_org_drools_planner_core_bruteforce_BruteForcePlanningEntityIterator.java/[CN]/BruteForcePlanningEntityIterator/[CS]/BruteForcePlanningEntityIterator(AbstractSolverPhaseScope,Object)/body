@@ -1,0 +1,11 @@
+{
+  this.planningEntity=planningEntity;
+  planningEntityFactHandle=solverPhaseScope.getWorkingMemory().insert(planningEntity);
+  PlanningEntityDescriptor planningEntityDescriptor=solverPhaseScope.getSolutionDescriptor().getPlanningEntityDescriptor(planningEntity.getClass());
+  for (  PlanningVariableDescriptor planningVariableDescriptor : planningEntityDescriptor.getPlanningVariableDescriptors()) {
+    BruteForcePlanningVariableIterator planningVariableIterator=new BruteForcePlanningVariableIterator(solverPhaseScope,planningEntity,planningEntityFactHandle,planningVariableDescriptor);
+    planningVariableIteratorList.add(planningVariableIterator);
+  }
+  reset();
+  isFirst=true;
+}

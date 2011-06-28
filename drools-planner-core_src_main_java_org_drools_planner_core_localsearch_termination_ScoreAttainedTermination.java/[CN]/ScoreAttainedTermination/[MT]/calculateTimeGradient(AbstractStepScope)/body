@@ -1,0 +1,6 @@
+{
+  AbstractSolverPhaseScope solverPhaseScope=stepScope.getSolverPhaseScope();
+  Score startingScore=solverPhaseScope.getStartingScore();
+  Score lastCompletedStepScore=solverPhaseScope.getLastCompletedStepScope().getScore();
+  return solverPhaseScope.getScoreDefinition().calculateTimeGradient(startingScore,scoreAttained,lastCompletedStepScore);
+}

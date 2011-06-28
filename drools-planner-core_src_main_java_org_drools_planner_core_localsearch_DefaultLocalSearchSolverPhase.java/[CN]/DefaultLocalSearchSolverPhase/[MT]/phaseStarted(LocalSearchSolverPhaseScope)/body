@@ -1,0 +1,5 @@
+{
+  super.phaseStarted(localSearchSolverPhaseScope);
+  termination.phaseStarted(localSearchSolverPhaseScope);
+  decider.phaseStarted(localSearchSolverPhaseScope);
+}

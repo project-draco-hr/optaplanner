@@ -1,0 +1,4 @@
+{
+  long timeMillisSpend=stepScope.getSolverPhaseScope().calculateTimeMillisSpend();
+  return timeMillisSpend >= maximumTimeMillisSpend;
+}

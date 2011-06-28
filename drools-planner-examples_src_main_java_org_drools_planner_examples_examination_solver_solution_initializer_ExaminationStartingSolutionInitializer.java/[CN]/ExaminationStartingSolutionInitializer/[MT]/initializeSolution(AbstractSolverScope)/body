@@ -1,4 +1,0 @@
-{
-  Examination examination=(Examination)abstractSolverScope.getWorkingSolution();
-  initializeExamList(abstractSolverScope,examination);
-}

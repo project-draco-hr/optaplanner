@@ -1,4 +1,0 @@
-{
-  super.solvingStarted(greedySolverScope);
-  greedyPlanningEntitySelector.solvingStarted(greedySolverScope);
-}

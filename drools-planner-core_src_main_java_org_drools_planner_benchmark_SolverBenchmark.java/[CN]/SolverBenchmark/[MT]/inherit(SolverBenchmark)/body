@@ -1,9 +1,9 @@
 {
-  if (localSearchSolverConfig == null) {
-    localSearchSolverConfig=inheritedSolverBenchmark.getLocalSearchSolverConfig();
+  if (solverConfig == null) {
+    solverConfig=inheritedSolverBenchmark.getSolverConfig();
   }
- else   if (inheritedSolverBenchmark.getLocalSearchSolverConfig() != null) {
-    localSearchSolverConfig.inherit(inheritedSolverBenchmark.getLocalSearchSolverConfig());
+ else   if (inheritedSolverBenchmark.getSolverConfig() != null) {
+    solverConfig.inherit(inheritedSolverBenchmark.getSolverConfig());
   }
   if (unsolvedSolutionFileList == null) {
     unsolvedSolutionFileList=inheritedSolverBenchmark.getUnsolvedSolutionFileList();

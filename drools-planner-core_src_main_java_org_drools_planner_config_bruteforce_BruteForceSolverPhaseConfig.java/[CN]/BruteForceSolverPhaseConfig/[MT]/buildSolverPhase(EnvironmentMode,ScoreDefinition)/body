@@ -1,0 +1,4 @@
+{
+  DefaultBruteForceSolverPhase bruteForceSolverPhase=new DefaultBruteForceSolverPhase();
+  return bruteForceSolverPhase;
+}

@@ -1,0 +1,7 @@
+{
+  super.phaseEnded(localSearchSolverPhaseScope);
+  decider.phaseEnded(localSearchSolverPhaseScope);
+  termination.phaseEnded(localSearchSolverPhaseScope);
+  AbstractStepScope lastCompletedStepScope=localSearchSolverPhaseScope.getLastCompletedStepScope();
+  logger.info("Local search phase ended at step index ({}) for best score ({}).",lastCompletedStepScope.getStepIndex(),localSearchSolverPhaseScope.getBestScore());
+}

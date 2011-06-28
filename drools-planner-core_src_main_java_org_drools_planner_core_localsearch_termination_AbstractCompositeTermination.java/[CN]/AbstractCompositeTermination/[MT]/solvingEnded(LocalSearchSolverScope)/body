@@ -1,5 +1,0 @@
-{
-  for (  Termination termination : terminationList) {
-    termination.solvingEnded(localSearchSolverScope);
-  }
-}

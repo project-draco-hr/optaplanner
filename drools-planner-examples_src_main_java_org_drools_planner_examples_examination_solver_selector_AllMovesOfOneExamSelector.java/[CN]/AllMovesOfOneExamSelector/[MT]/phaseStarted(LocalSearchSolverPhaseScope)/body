@@ -1,0 +1,6 @@
+{
+  periodChangeMoveFactory.phaseStarted(localSearchSolverPhaseScope);
+  roomChangeMoveFactory.phaseStarted(localSearchSolverPhaseScope);
+  examSwitchMoveFactory.phaseStarted(localSearchSolverPhaseScope);
+  createCachedExamToMoveMap(localSearchSolverPhaseScope);
+}

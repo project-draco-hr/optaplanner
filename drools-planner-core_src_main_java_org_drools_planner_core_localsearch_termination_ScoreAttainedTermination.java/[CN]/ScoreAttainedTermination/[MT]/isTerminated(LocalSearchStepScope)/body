@@ -1,4 +1,0 @@
-{
-  Score bestScore=localSearchStepScope.getLocalSearchSolverScope().getBestScore();
-  return bestScore.compareTo(scoreAttained) >= 0;
-}

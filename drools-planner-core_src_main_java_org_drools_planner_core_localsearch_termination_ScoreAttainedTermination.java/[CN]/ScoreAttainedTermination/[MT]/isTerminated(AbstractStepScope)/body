@@ -1,0 +1,4 @@
+{
+  Score bestScore=stepScope.getSolverPhaseScope().getBestScore();
+  return bestScore.compareTo(scoreAttained) >= 0;
+}

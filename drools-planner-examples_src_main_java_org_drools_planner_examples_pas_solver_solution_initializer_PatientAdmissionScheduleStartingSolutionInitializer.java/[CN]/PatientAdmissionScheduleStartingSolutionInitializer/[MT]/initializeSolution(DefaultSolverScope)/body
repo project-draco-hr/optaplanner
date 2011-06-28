@@ -1,0 +1,4 @@
+{
+  PatientAdmissionSchedule patientAdmissionSchedule=(PatientAdmissionSchedule)solverScope.getWorkingSolution();
+  initializeBedDesignationList(solverScope,patientAdmissionSchedule);
+}

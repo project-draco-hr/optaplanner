@@ -1,4 +1,4 @@
 {
-  config=(AbstractSolverConfig)xStream.fromXML(reader);
+  config=(SolverConfig)xStream.fromXML(reader);
   return this;
 }

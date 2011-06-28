@@ -1,0 +1,3 @@
+{
+  solverScope.setSolutionDescriptor(solutionDescriptor);
+}

@@ -1,0 +1,4 @@
+{
+  NurseRoster nurseRoster=(NurseRoster)solverScope.getWorkingSolution();
+  initializeAssignmentList(solverScope,nurseRoster);
+}

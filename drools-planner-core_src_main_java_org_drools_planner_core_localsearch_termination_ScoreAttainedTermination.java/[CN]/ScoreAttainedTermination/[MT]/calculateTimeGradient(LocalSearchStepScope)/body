@@ -1,6 +1,0 @@
-{
-  LocalSearchSolverScope localSearchSolverScope=localSearchStepScope.getLocalSearchSolverScope();
-  Score startingScore=localSearchSolverScope.getStartingScore();
-  Score stepScore=localSearchSolverScope.getLastCompletedLocalSearchStepScope().getScore();
-  return localSearchSolverScope.getScoreDefinition().calculateTimeGradient(startingScore,scoreAttained,stepScore);
-}

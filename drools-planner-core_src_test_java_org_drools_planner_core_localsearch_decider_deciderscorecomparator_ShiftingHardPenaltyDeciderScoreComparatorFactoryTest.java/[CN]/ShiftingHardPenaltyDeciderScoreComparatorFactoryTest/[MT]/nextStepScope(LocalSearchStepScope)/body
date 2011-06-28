@@ -1,6 +1,6 @@
 {
-  LocalSearchStepScope localSearchStepScope=new LocalSearchStepScope(lastLocalSearchStepScope.getLocalSearchSolverScope());
-  lastLocalSearchStepScope.getLocalSearchSolverScope().setLastCompletedLocalSearchStepScope(lastLocalSearchStepScope);
+  LocalSearchStepScope localSearchStepScope=new LocalSearchStepScope(lastLocalSearchStepScope.getLocalSearchSolverPhaseScope());
+  lastLocalSearchStepScope.getLocalSearchSolverPhaseScope().setLastCompletedLocalSearchStepScope(lastLocalSearchStepScope);
   localSearchStepScope.setStepIndex(lastLocalSearchStepScope.getStepIndex() + 1);
   return localSearchStepScope;
 }

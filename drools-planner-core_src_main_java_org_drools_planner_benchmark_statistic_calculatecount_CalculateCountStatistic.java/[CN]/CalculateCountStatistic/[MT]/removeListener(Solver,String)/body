@@ -1,4 +1,4 @@
 {
   CalculateCountStatisticListener statisticListener=statisticListenerMap.get(configName);
-  ((LocalSearchSolver)solver).removeLocalSearchSolverLifecycleListener(statisticListener);
+  ((DefaultSolver)solver).removeSolverPhaseLifecycleListener(statisticListener);
 }

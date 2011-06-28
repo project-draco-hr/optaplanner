@@ -19,6 +19,9 @@
   if (pickedMoveScope != null) {
     Move step=pickedMoveScope.getMove();
     localSearchStepScope.setStep(step);
+    if (logger.isInfoEnabled()) {
+      localSearchStepScope.setStepString(step.toString());
+    }
     localSearchStepScope.setUndoStep(step.createUndoMove(workingMemory));
     localSearchStepScope.setScore(pickedMoveScope.getScore());
   }

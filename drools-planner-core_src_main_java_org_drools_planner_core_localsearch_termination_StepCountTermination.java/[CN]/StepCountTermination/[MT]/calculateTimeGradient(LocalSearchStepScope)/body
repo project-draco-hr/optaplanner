@@ -1,5 +1,0 @@
-{
-  int stepIndex=localSearchStepScope.getStepIndex();
-  double timeGradient=((double)stepIndex) / ((double)maximumStepCount);
-  return Math.min(timeGradient,1.0);
-}

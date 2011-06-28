@@ -1,0 +1,5 @@
+{
+  for (  SolverPhase solverPhase : solverPhaseList) {
+    solverPhase.addSolverPhaseLifecycleListener(solverPhaseLifecycleListener);
+  }
+}

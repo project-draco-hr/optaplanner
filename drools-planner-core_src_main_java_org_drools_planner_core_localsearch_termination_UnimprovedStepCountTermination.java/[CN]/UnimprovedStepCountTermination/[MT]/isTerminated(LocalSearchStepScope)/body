@@ -1,4 +1,0 @@
-{
-  int unimprovedStepCount=calculateUnimprovedStepCount(localSearchStepScope);
-  return unimprovedStepCount >= maximumUnimprovedStepCount;
-}

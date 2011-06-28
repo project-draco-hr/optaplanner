@@ -1,4 +1,4 @@
 {
-  Solution solution=abstractSolverScope.getWorkingSolution();
+  Solution solution=solverScope.getWorkingSolution();
   solutionDao.writeSolution(solution,file);
 }

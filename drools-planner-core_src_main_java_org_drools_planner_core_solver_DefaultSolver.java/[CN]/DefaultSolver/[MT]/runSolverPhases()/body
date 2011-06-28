@@ -1,0 +1,8 @@
+{
+  for (  SolverPhase solverPhase : solverPhaseList) {
+    solverPhase.solve(solverScope);
+    if (terminatedEarlyHolder.get()) {
+      break;
+    }
+  }
+}

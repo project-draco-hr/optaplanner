@@ -1,0 +1,3 @@
+{
+  solverScope.setScoreDefinition(scoreDefinition);
+}

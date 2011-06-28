@@ -1,0 +1,3 @@
+{
+  solverPhaseLifecycleSupport.removeEventListener(lifecycleListener);
+}

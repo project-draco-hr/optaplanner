@@ -1,7 +1,0 @@
-{
-  DefaultGreedySolver greedySolver=new DefaultGreedySolver();
-  configureAbstractSolver(greedySolver);
-  greedySolver.setGreedyPlanningEntitySelector(buildGreedyPlanningEntitySelector());
-  greedySolver.setGreedyDecider(buildGreedyDecider());
-  return greedySolver;
-}

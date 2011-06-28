@@ -1,8 +1,0 @@
-{
-  for (  Termination termination : terminationList) {
-    if (termination.isTerminated(localSearchStepScope)) {
-      return true;
-    }
-  }
-  return false;
-}

@@ -5,9 +5,9 @@
   deciderScoreComparatorFactory.setSuccessiveNoHardChangeMaximum(3);
   deciderScoreComparatorFactory.setSuccessiveNoHardChangeRepetitionMultiplicand(5.0);
   deciderScoreComparatorFactory.setHardWeightSurvivalRatio(0.9);
-  LocalSearchSolverScope localSearchSolverScope=createLocalSearchSolverScope();
-  deciderScoreComparatorFactory.solvingStarted(localSearchSolverScope);
-  LocalSearchStepScope localSearchStepScope=localSearchSolverScope.getLastCompletedLocalSearchStepScope();
+  LocalSearchSolverPhaseScope localSearchSolverPhaseScope=createLocalSearchSolverPhaseScope();
+  deciderScoreComparatorFactory.phaseStarted(localSearchSolverPhaseScope);
+  LocalSearchStepScope localSearchStepScope=localSearchSolverPhaseScope.getLastCompletedLocalSearchStepScope();
   localSearchStepScope=nextStepScope(localSearchStepScope);
   deciderScoreComparatorFactory.beforeDeciding(localSearchStepScope);
   assertTrue(deciderScoreComparatorFactory.createDeciderScoreComparator() instanceof NaturalScoreComparator);
@@ -19,7 +19,7 @@
   assertTrue(deciderScoreComparatorFactory.createDeciderScoreComparator() instanceof NaturalScoreComparator);
   deciderScoreComparatorFactory.stepDecided(localSearchStepScope);
   localSearchStepScope.setScore(DefaultHardAndSoftScore.valueOf(-10,-200));
-  localSearchSolverScope.setBestSolutionStepIndex(localSearchStepScope.getStepIndex());
+  localSearchSolverPhaseScope.setBestSolutionStepIndex(localSearchStepScope.getStepIndex());
   deciderScoreComparatorFactory.stepTaken(localSearchStepScope);
   localSearchStepScope=nextStepScope(localSearchStepScope);
   deciderScoreComparatorFactory.beforeDeciding(localSearchStepScope);

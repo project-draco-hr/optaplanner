@@ -1,0 +1,5 @@
+{
+  bestSolutionRecaller.extractBestSolution(bruteForceStepScope);
+  BruteForceSolverPhaseScope bruteForceSolverPhaseScope=bruteForceStepScope.getBruteForceSolverPhaseScope();
+  logger.debug("Step index ({}), time spend ({}), score ({}), {} best score ({}).",new Object[]{bruteForceStepScope.getStepIndex(),bruteForceSolverPhaseScope.calculateTimeMillisSpend(),bruteForceStepScope.getScore(),(bruteForceStepScope.getBestScoreImproved() ? "new" : "   "),bruteForceSolverPhaseScope.getBestScore()});
+}

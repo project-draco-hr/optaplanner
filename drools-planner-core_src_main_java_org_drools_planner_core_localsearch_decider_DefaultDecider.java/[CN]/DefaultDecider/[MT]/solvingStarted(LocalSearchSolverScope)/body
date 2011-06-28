@@ -1,6 +1,0 @@
-{
-  deciderScoreComparatorFactory.solvingStarted(localSearchSolverScope);
-  selector.solvingStarted(localSearchSolverScope);
-  acceptor.solvingStarted(localSearchSolverScope);
-  forager.solvingStarted(localSearchSolverScope);
-}

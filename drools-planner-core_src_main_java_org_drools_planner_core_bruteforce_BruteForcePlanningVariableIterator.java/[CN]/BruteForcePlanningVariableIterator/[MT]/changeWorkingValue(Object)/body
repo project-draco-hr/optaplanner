@@ -1,5 +1,5 @@
 {
-  WorkingMemory workingMemory=solverScope.getWorkingMemory();
+  WorkingMemory workingMemory=solverPhaseScope.getWorkingMemory();
   planningVariableDescriptor.setValue(planningEntity,value);
   workingMemory.update(planningEntityFactHandle,planningEntity);
   workingValue=value;

@@ -1,4 +1,0 @@
-{
-  NurseRoster nurseRoster=(NurseRoster)abstractSolverScope.getWorkingSolution();
-  initializeAssignmentList(abstractSolverScope,nurseRoster);
-}

@@ -1,3 +1,0 @@
-{
-  getAbstractSolverScope().setSolutionDescriptor(solutionDescriptor);
-}

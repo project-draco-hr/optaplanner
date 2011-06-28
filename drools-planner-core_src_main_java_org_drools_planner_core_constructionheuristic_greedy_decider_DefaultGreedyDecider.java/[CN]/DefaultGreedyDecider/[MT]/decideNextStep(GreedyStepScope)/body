@@ -1,11 +1,11 @@
 {
-  GreedySolverScope greedySolverScope=greedyStepScope.getGreedySolverScope();
-  Score lastStepScore=greedySolverScope.calculateScoreFromWorkingMemory();
-  BruteForcePlanningEntityIterator bruteForcePlanningEntityIterator=new BruteForcePlanningEntityIterator(greedySolverScope,greedyStepScope.getPlanningEntity());
-  Score maxScore=greedySolverScope.getScoreDefinition().getPerfectMinimumScore();
+  GreedySolverPhaseScope greedySolverPhaseScope=greedyStepScope.getGreedySolverPhaseScope();
+  Score lastStepScore=greedySolverPhaseScope.calculateScoreFromWorkingMemory();
+  BruteForcePlanningEntityIterator bruteForcePlanningEntityIterator=new BruteForcePlanningEntityIterator(greedySolverPhaseScope,greedyStepScope.getPlanningEntity());
+  Score maxScore=greedySolverPhaseScope.getScoreDefinition().getPerfectMinimumScore();
   while (bruteForcePlanningEntityIterator.hasNext()) {
     bruteForcePlanningEntityIterator.next();
-    Score score=greedySolverScope.calculateScoreFromWorkingMemory();
+    Score score=greedySolverPhaseScope.calculateScoreFromWorkingMemory();
     if (score.compareTo(maxScore) > 0) {
       greedyStepScope.setVariableToValueMap(bruteForcePlanningEntityIterator.getVariableToValueMap());
       maxScore=score;

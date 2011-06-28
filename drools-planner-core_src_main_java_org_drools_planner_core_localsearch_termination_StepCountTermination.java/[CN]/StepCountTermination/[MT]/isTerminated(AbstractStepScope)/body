@@ -1,0 +1,4 @@
+{
+  int stepIndex=stepScope.getStepIndex();
+  return stepIndex >= maximumStepCount;
+}

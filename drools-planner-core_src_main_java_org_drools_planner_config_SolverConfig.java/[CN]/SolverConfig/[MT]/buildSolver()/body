@@ -1,0 +1,32 @@
+{
+  DefaultSolver solver=new DefaultSolver();
+  AtomicBoolean terminatedEarlyHolder=new AtomicBoolean(false);
+  solver.setTerminatedEarlyHolder(terminatedEarlyHolder);
+  if (environmentMode != EnvironmentMode.PRODUCTION) {
+    if (randomSeed != null) {
+      solver.setRandomSeed(randomSeed);
+    }
+ else {
+      solver.setRandomSeed(DEFAULT_RANDOM_SEED);
+    }
+  }
+  solver.setSolutionDescriptor(buildSolutionDescriptor());
+  solver.setRuleBase(buildRuleBase());
+  ScoreDefinition scoreDefinition=scoreDefinitionConfig.buildScoreDefinition();
+  solver.setScoreDefinition(scoreDefinition);
+  solver.setScoreCalculator(scoreDefinitionConfig.buildScoreCalculator());
+  BestSolutionRecaller bestSolutionRecaller=new BestSolutionRecaller();
+  solver.setBestSolutionRecaller(bestSolutionRecaller);
+  if (solverPhaseConfigList == null) {
+    throw new IllegalArgumentException("Configure <phases> in the solver configuration.");
+  }
+  List<SolverPhase> solverPhaseList=new ArrayList<SolverPhase>(solverPhaseConfigList.size());
+  for (  SolverPhaseConfig solverPhaseConfig : solverPhaseConfigList) {
+    SolverPhase solverPhase=solverPhaseConfig.buildSolverPhase(environmentMode,scoreDefinition);
+    ((AbstractSolverPhase)solverPhase).setTerminatedEarlyHolder(terminatedEarlyHolder);
+    ((AbstractSolverPhase)solverPhase).setBestSolutionRecaller(bestSolutionRecaller);
+    solverPhaseList.add(solverPhase);
+  }
+  solver.setSolverPhaseList(solverPhaseList);
+  return solver;
+}

@@ -1,4 +1,0 @@
-{
-  super.solvingStarted(bruteForceSolverScope);
-  bruteForceSolutionIterator.solvingStarted(bruteForceSolverScope);
-}

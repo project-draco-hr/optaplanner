@@ -1,4 +1,0 @@
-{
-  Manners2009 manners2009=(Manners2009)abstractSolverScope.getWorkingSolution();
-  initializeSeatDesignationList(abstractSolverScope,manners2009);
-}

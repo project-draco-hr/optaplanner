@@ -1,5 +1,0 @@
-{
-  for (  Acceptor acceptor : acceptorList) {
-    acceptor.solvingStarted(localSearchSolverScope);
-  }
-}

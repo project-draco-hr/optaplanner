@@ -1,0 +1,13 @@
+{
+  if (completedLocalSearchStepScope == null) {
+    completedLocalSearchStepScope=new LocalSearchStepScope(localSearchSolverPhaseScope);
+    completedLocalSearchStepScope.setScore(localSearchSolverPhaseScope.getStartingScore());
+    completedLocalSearchStepScope.setStepIndex(-1);
+    completedLocalSearchStepScope.setTimeGradient(0.0);
+  }
+  localSearchSolverPhaseScope.setLastCompletedLocalSearchStepScope(completedLocalSearchStepScope);
+  LocalSearchStepScope localSearchStepScope=new LocalSearchStepScope(localSearchSolverPhaseScope);
+  localSearchStepScope.setStepIndex(completedLocalSearchStepScope.getStepIndex() + 1);
+  localSearchStepScope.setSolutionInitialized(true);
+  return localSearchStepScope;
+}

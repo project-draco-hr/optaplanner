@@ -1,0 +1,6 @@
+{
+  deciderScoreComparatorFactory.phaseEnded(localSearchSolverPhaseScope);
+  selector.phaseEnded(localSearchSolverPhaseScope);
+  acceptor.phaseEnded(localSearchSolverPhaseScope);
+  forager.phaseEnded(localSearchSolverPhaseScope);
+}

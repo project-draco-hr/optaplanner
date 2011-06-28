@@ -4,6 +4,6 @@
   }
   configNameList.add(configName);
   MemoryUseStatisticListener statisticListener=new MemoryUseStatisticListener();
-  ((LocalSearchSolver)solver).addLocalSearchSolverLifecycleListener(statisticListener);
+  ((DefaultSolver)solver).addSolverPhaseLifecycleListener(statisticListener);
   statisticListenerMap.put(configName,statisticListener);
 }

@@ -1,0 +1,7 @@
+{
+  planningEntityIteratorList=new ArrayList<BruteForcePlanningEntityIterator>();
+  for (  Object planningEntity : bruteForceSolverPhaseScope.getWorkingPlanningEntities()) {
+    BruteForcePlanningEntityIterator planningEntityIterator=new BruteForcePlanningEntityIterator(bruteForceSolverPhaseScope,planningEntity);
+    planningEntityIteratorList.add(planningEntityIterator);
+  }
+}

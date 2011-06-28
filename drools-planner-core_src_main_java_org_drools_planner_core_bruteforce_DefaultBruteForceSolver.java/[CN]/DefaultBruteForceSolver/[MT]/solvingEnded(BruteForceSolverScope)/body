@@ -1,7 +1,0 @@
-{
-  bruteForceSolutionIterator.solvingEnded(bruteForceSolverScope);
-  bestSolutionRecaller.solvingEnded(bruteForceSolverScope);
-  long timeMillisSpend=bruteForceSolverScope.calculateTimeMillisSpend();
-  long averageCalculateCountPerSecond=bruteForceSolverScope.getCalculateCount() * 1000L / timeMillisSpend;
-  logger.info("Solved with time spend ({}) for best score ({})" + " with average calculate count per second ({}).",new Object[]{timeMillisSpend,bruteForceSolverScope.getBestScore(),averageCalculateCountPerSecond});
-}

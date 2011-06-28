@@ -1,0 +1,47 @@
+{
+  if (environmentMode == null) {
+    environmentMode=inheritedConfig.getEnvironmentMode();
+  }
+  if (randomSeed == null) {
+    randomSeed=inheritedConfig.getRandomSeed();
+  }
+  if (planningEntityClassSet == null) {
+    planningEntityClassSet=inheritedConfig.getPlanningEntityClassSet();
+  }
+ else   if (inheritedConfig.getPlanningEntityClassSet() != null) {
+    planningEntityClassSet.addAll(inheritedConfig.getPlanningEntityClassSet());
+  }
+  if (scoreDrlList == null) {
+    scoreDrlList=inheritedConfig.getScoreDrlList();
+  }
+ else {
+    List<String> inheritedScoreDrlList=inheritedConfig.getScoreDrlList();
+    if (inheritedScoreDrlList != null) {
+      for (      String inheritedScoreDrl : inheritedScoreDrlList) {
+        if (!scoreDrlList.contains(inheritedScoreDrl)) {
+          scoreDrlList.add(inheritedScoreDrl);
+        }
+      }
+    }
+  }
+  if (scoreDefinitionConfig == null) {
+    scoreDefinitionConfig=inheritedConfig.getScoreDefinitionConfig();
+  }
+ else   if (inheritedConfig.getScoreDefinitionConfig() != null) {
+    scoreDefinitionConfig.inherit(inheritedConfig.getScoreDefinitionConfig());
+  }
+  if (terminationConfig == null) {
+    terminationConfig=inheritedConfig.getTerminationConfig();
+  }
+ else   if (inheritedConfig.getTerminationConfig() != null) {
+    terminationConfig.inherit(inheritedConfig.getTerminationConfig());
+  }
+  if (solverPhaseConfigList == null) {
+    solverPhaseConfigList=inheritedConfig.getSolverPhaseConfigList();
+  }
+ else   if (inheritedConfig.getSolverPhaseConfigList() != null) {
+    List<SolverPhaseConfig> mergedList=new ArrayList<SolverPhaseConfig>(inheritedConfig.getSolverPhaseConfigList());
+    mergedList.addAll(solverPhaseConfigList);
+    solverPhaseConfigList=mergedList;
+  }
+}

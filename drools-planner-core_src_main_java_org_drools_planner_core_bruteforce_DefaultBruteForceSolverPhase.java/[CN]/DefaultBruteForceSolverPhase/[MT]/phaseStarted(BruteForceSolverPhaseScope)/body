@@ -1,0 +1,4 @@
+{
+  super.phaseStarted(bruteForceSolverPhaseScope);
+  bruteForceSolutionIterator.phaseStarted(bruteForceSolverPhaseScope);
+}

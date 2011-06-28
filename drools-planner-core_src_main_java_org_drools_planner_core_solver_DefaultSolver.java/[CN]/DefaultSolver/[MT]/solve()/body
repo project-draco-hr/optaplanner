@@ -1,0 +1,5 @@
+{
+  solvingStarted(solverScope);
+  runSolverPhases();
+  solvingEnded(solverScope);
+}

@@ -1,5 +1,5 @@
 {
-  WorkingMemory workingMemory=greedySolverScope.getWorkingMemory();
+  WorkingMemory workingMemory=greedySolverPhaseScope.getWorkingMemory();
   FactHandle factHandle=workingMemory.getFactHandle(planningEntity);
   for (  Map.Entry<PlanningVariableDescriptor,Object> entry : variableToValueMap.entrySet()) {
     PlanningVariableDescriptor planningVariableDescriptor=entry.getKey();
@@ -7,5 +7,5 @@
     planningVariableDescriptor.setValue(planningEntity,value);
   }
   workingMemory.update(factHandle,planningEntity);
-  greedySolverScope.getWorkingSolution().setScore(score);
+  greedySolverPhaseScope.getWorkingSolution().setScore(score);
 }

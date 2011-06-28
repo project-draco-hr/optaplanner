@@ -1,0 +1,6 @@
+{
+  DefaultGreedySolverPhase greedySolverPhase=new DefaultGreedySolverPhase();
+  greedySolverPhase.setGreedyPlanningEntitySelector(buildGreedyPlanningEntitySelector());
+  greedySolverPhase.setGreedyDecider(buildGreedyDecider());
+  return greedySolverPhase;
+}
