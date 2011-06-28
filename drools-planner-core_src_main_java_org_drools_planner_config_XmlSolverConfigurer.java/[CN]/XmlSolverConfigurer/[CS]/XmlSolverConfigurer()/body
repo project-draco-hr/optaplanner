@@ -1,8 +1,3 @@
 {
-  xStream=new XStream(new PureJavaReflectionProvider(new FieldDictionary(new NativeFieldKeySorter())));
-  xStream.setMode(XStream.ID_REFERENCES);
-  xStream.processAnnotations(SolverConfig.class);
-  xStream.processAnnotations(BruteForceSolverPhaseConfig.class);
-  xStream.processAnnotations(GreedySolverPhaseConfig.class);
-  xStream.processAnnotations(LocalSearchSolverPhaseConfig.class);
+  xStream=buildXstream();
 }
