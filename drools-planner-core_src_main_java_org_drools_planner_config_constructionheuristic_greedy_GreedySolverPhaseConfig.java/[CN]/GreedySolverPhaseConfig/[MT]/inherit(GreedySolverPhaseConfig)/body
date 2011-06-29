@@ -1,7 +1,13 @@
 {
   super.inherit(inheritedConfig);
+  if (resetInitializedPlanningEntities == null) {
+    resetInitializedPlanningEntities=inheritedConfig.getResetInitializedPlanningEntities();
+  }
   if (fitOrderPlanningEntityComparatorClass == null) {
     fitOrderPlanningEntityComparatorClass=inheritedConfig.getFitOrderPlanningEntityComparatorClass();
+  }
+  if (planningEntityDifficultyWeightFactoryClass == null) {
+    planningEntityDifficultyWeightFactoryClass=inheritedConfig.getPlanningEntityDifficultyWeightFactoryClass();
   }
   if (pickEarlyFitType == null) {
     pickEarlyFitType=inheritedConfig.getPickEarlyFitType();

@@ -1,5 +1,7 @@
 {
   GreedyPlanningEntitySelector greedyPlanningEntitySelector=new GreedyPlanningEntitySelector();
+  boolean resetInitializedPlanningEntitiesValue=resetInitializedPlanningEntities == null ? false : resetInitializedPlanningEntities.booleanValue();
+  greedyPlanningEntitySelector.setResetInitializedPlanningEntities(resetInitializedPlanningEntitiesValue);
   if (fitOrderPlanningEntityComparatorClass != null && planningEntityDifficultyWeightFactoryClass != null) {
     throw new IllegalArgumentException("Cannot configure fitOrderPlanningEntityComparatorClass (" + fitOrderPlanningEntityComparatorClass + ") and planningEntityDifficultyWeightFactoryClass ("+ planningEntityDifficultyWeightFactoryClass+ ") at the same time.");
   }

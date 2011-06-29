@@ -1,5 +1,19 @@
 {
   Collection<Object> planningEntities=greedySolverPhaseScope.getWorkingPlanningEntities();
+  for (Iterator<Object> it=planningEntities.iterator(); it.hasNext(); ) {
+    Object planningEntity=it.next();
+    PlanningEntityDescriptor planningEntityDescriptor=greedySolverPhaseScope.getSolutionDescriptor().getPlanningEntityDescriptor(planningEntity.getClass());
+    if (planningEntityDescriptor.isInitialized(planningEntity)) {
+      if (resetInitializedPlanningEntities) {
+        WorkingMemory workingMemory=greedySolverPhaseScope.getWorkingMemory();
+        workingMemory.retract(workingMemory.getFactHandle(planningEntity));
+        planningEntityDescriptor.uninitialize(planningEntity);
+      }
+ else {
+        it.remove();
+      }
+    }
+  }
   if (fitOrderPlanningEntityComparator != null) {
     List<Object> fitOrderPlanningEntityList=new ArrayList<Object>(planningEntities);
     Collections.sort(fitOrderPlanningEntityList,fitOrderPlanningEntityComparator);

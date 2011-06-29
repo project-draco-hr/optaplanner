@@ -1,0 +1,3 @@
+{
+  DescriptorUtils.executeSetter(variablePropertyDescriptor,planningEntity,null);
+}
