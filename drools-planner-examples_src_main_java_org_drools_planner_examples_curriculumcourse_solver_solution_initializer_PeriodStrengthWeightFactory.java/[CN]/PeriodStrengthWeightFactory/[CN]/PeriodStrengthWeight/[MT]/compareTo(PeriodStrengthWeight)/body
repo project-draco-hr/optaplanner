@@ -1,0 +1,3 @@
+{
+  return new CompareToBuilder().append(other.unavailablePeriodConstraintCount,unavailablePeriodConstraintCount).append(period.getDay().getDayIndex(),other.period.getDay().getDayIndex()).append(period.getTimeslot().getTimeslotIndex(),other.period.getTimeslot().getTimeslotIndex()).append(period.getId(),other.period.getId()).toComparison();
+}

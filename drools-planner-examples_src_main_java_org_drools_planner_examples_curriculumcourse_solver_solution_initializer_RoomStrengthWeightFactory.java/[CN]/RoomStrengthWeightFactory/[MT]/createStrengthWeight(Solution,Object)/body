@@ -1,0 +1,5 @@
+{
+  CurriculumCourseSchedule schedule=(CurriculumCourseSchedule)solution;
+  Room room=(Room)planningValue;
+  return new RoomStrengthWeight(room);
+}
