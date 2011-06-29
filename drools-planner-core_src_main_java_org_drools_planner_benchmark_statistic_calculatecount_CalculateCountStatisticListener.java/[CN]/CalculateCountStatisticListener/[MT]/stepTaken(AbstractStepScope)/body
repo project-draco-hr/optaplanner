@@ -1,5 +1,5 @@
 {
-  long timeMillisSpend=stepScope.getSolverPhaseScope().calculateTimeMillisSpend();
+  long timeMillisSpend=stepScope.getSolverPhaseScope().calculateSolverTimeMillisSpend();
   if (timeMillisSpend >= nextTimeMillisThreshold) {
     long timeMillisSpendInterval=timeMillisSpend - lastTimeMillisSpend;
     DefaultSolverScope solverScope=stepScope.getSolverPhaseScope().getSolverScope();

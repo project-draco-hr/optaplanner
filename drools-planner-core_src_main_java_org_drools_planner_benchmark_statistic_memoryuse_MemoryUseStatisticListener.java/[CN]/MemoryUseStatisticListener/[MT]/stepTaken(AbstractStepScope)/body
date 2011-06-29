@@ -1,5 +1,5 @@
 {
-  long timeMillisSpend=stepScope.getSolverPhaseScope().calculateTimeMillisSpend();
+  long timeMillisSpend=stepScope.getSolverPhaseScope().calculateSolverTimeMillisSpend();
   if (timeMillisSpend >= nextTimeMillisThreshold) {
     statisticPointList.add(new MemoryUseStatisticPoint(timeMillisSpend,MemoryUseMeasurement.create()));
     nextTimeMillisThreshold+=timeMillisThresholdInterval;
