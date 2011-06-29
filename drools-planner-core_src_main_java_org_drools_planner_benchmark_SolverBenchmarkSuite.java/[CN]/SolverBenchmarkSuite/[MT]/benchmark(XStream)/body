@@ -2,8 +2,8 @@
   benchmarkingStarted();
   Map<File,List<SolverStatistic>> unsolvedSolutionFileToStatisticMap=new LinkedHashMap<File,List<SolverStatistic>>();
   for (  SolverBenchmark solverBenchmark : solverBenchmarkList) {
-    Solver solver=solverBenchmark.getSolverConfig().buildSolver();
     for (    SolverBenchmarkResult result : solverBenchmark.getSolverBenchmarkResultList()) {
+      Solver solver=solverBenchmark.getSolverConfig().buildSolver();
       File unsolvedSolutionFile=result.getUnsolvedSolutionFile();
       Solution unsolvedSolution=readUnsolvedSolution(xStream,unsolvedSolutionFile);
       solver.setStartingSolution(unsolvedSolution);
