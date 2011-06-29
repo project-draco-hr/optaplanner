@@ -6,6 +6,9 @@
   while (bruteForcePlanningEntityIterator.hasNext()) {
     bruteForcePlanningEntityIterator.next();
     Score score=greedySolverPhaseScope.calculateScoreFromWorkingMemory();
+    if (assertMoveScoreIsUncorrupted) {
+      greedySolverPhaseScope.assertWorkingScore(score);
+    }
     if (score.compareTo(maxScore) > 0) {
       greedyStepScope.setVariableToValueMap(bruteForcePlanningEntityIterator.getVariableToValueMap());
       maxScore=score;

@@ -1,6 +1,6 @@
 {
   DefaultGreedySolverPhase greedySolverPhase=new DefaultGreedySolverPhase();
   greedySolverPhase.setGreedyPlanningEntitySelector(buildGreedyPlanningEntitySelector());
-  greedySolverPhase.setGreedyDecider(buildGreedyDecider());
+  greedySolverPhase.setGreedyDecider(buildGreedyDecider(environmentMode));
   return greedySolverPhase;
 }
