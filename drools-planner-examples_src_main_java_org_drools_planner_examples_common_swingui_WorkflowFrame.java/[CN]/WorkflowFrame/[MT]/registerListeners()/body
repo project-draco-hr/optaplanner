@@ -5,18 +5,12 @@
       latestBestSolutionReference.getAndSet(event.getNewBestSolution());
       SwingUtilities.invokeLater(new Runnable(){
         public void run(){
-          try {
-            Thread.sleep(500);
-          }
- catch (          InterruptedException e) {
-            e.printStackTrace();
-          }
           System.out.println("invokeLater");
           Solution latestBestSolution=latestBestSolutionReference.getAndSet(null);
           if (latestBestSolution != null) {
             System.out.println("invokeLater - " + latestBestSolution.getScore());
             if (refreshScreenDuringSolvingCheckBox.isSelected()) {
-              solutionPanel.resetPanel(solutionBusiness.getSolution());
+              solutionPanel.updatePanel(solutionBusiness.getSolution());
               validate();
             }
             resultLabel.setText("Latest best score: " + latestBestSolution.getScore());

@@ -1,0 +1,21 @@
+{
+  computerLabel=new JLabel(getComputerLabel());
+  computerLabel.setEnabled(false);
+  add(computerLabel);
+  cpuPowerField=new JTextField("0 GHz / " + getComputerCpuPower() + " GHz");
+  cpuPowerField.setEditable(false);
+  cpuPowerField.setEnabled(false);
+  add(cpuPowerField);
+  memoryField=new JTextField("0 GB / " + getComputerMemory() + " GB");
+  memoryField.setEditable(false);
+  memoryField.setEnabled(false);
+  add(memoryField);
+  networkBandwidthField=new JTextField("0 GB / " + getComputerNetworkBandwidth() + " GB");
+  networkBandwidthField.setEditable(false);
+  networkBandwidthField.setEnabled(false);
+  add(networkBandwidthField);
+  costField=new JTextField(getComputerCost() + " $");
+  costField.setEditable(false);
+  costField.setEnabled(false);
+  add(costField);
+}

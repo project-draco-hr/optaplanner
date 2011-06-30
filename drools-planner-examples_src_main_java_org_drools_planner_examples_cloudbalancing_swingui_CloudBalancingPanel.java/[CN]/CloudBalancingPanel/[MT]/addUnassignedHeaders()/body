@@ -1,7 +1,0 @@
-{
-  add(new JLabel("Unassigned"));
-  add(new JLabel(""));
-  add(new JLabel(""));
-  add(new JLabel(""));
-  add(new JLabel(""));
-}

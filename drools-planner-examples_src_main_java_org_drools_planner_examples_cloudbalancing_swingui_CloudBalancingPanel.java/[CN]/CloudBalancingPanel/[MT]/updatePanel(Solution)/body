@@ -1,0 +1,38 @@
+{
+  CloudBalance cloudBalance=(CloudBalance)solution;
+  Set<CloudComputer> deadCloudComputerSet=new LinkedHashSet<CloudComputer>(cloudComputerToPanelMap.keySet());
+  deadCloudComputerSet.remove(null);
+  for (  CloudComputer cloudComputer : ((CloudBalance)solution).getCloudComputerList()) {
+    deadCloudComputerSet.remove(cloudComputer);
+    CloudComputerPanel cloudComputerPanel=cloudComputerToPanelMap.get(cloudComputer);
+    if (cloudComputerPanel == null) {
+      cloudComputerPanel=new CloudComputerPanel(cloudComputer);
+      contentPanel.add(cloudComputerPanel);
+      cloudComputerToPanelMap.put(cloudComputer,cloudComputerPanel);
+    }
+  }
+  Set<CloudAssignment> deadCloudAssignmentSet=new LinkedHashSet<CloudAssignment>(cloudAssignmentToPanelMap.keySet());
+  for (  CloudAssignment cloudAssignment : cloudBalance.getCloudAssignmentList()) {
+    deadCloudAssignmentSet.remove(cloudAssignment);
+    CloudComputerPanel cloudComputerPanel=cloudAssignmentToPanelMap.get(cloudAssignment);
+    CloudComputer cloudComputer=cloudAssignment.getCloudComputer();
+    if (cloudComputerPanel != null && !ObjectUtils.equals(cloudComputerPanel.getCloudComputer(),cloudComputer)) {
+      cloudAssignmentToPanelMap.remove(cloudAssignment);
+      cloudComputerPanel.removeCloudAssignment(cloudAssignment);
+      cloudComputerPanel=null;
+    }
+    if (cloudComputerPanel == null) {
+      cloudComputerPanel=cloudComputerToPanelMap.get(cloudComputer);
+      cloudComputerPanel.addCloudAssignment(cloudAssignment);
+      cloudAssignmentToPanelMap.put(cloudAssignment,cloudComputerPanel);
+    }
+  }
+  for (  CloudAssignment deadCloudAssignment : deadCloudAssignmentSet) {
+    CloudComputerPanel deadCloudComputerPanel=cloudAssignmentToPanelMap.remove(deadCloudAssignment);
+    deadCloudComputerPanel.removeCloudAssignment(deadCloudAssignment);
+  }
+  for (  CloudComputer deadCloudComputer : deadCloudComputerSet) {
+    CloudComputerPanel deadCloudComputerPanel=cloudComputerToPanelMap.remove(deadCloudComputer);
+    contentPanel.remove(deadCloudComputerPanel);
+  }
+}

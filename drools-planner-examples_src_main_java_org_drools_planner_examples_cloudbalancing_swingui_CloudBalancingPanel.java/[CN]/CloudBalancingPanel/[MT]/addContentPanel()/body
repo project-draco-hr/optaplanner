@@ -1,0 +1,9 @@
+{
+  contentPanel=new JPanel(new GridLayout(0,1));
+  unassignedPanel=new CloudComputerPanel(null);
+  contentPanel.add(unassignedPanel);
+  cloudComputerToPanelMap=new LinkedHashMap<CloudComputer,CloudComputerPanel>();
+  cloudComputerToPanelMap.put(null,unassignedPanel);
+  cloudAssignmentToPanelMap=new LinkedHashMap<CloudAssignment,CloudComputerPanel>();
+  add(contentPanel,BorderLayout.SOUTH);
+}

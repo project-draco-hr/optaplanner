@@ -1,0 +1,33 @@
+{
+  Dimension size=getSize();
+  int rectHeight=size.height;
+  g.setColor(getBackground());
+  g.fillRect(0,0,size.width,rectHeight);
+  int computerWidth=size.width * 4 / 5;
+  computerWidth=Math.max(computerWidth,1);
+  if (this.computerValue > 0) {
+    g.setColor(isEnabled() ? Color.WHITE : getBackground());
+    g.fillRect(0,0,computerWidth,rectHeight);
+  }
+  int offset=0;
+  int colorIndex=0;
+  int safeComputerValue=this.computerValue;
+  if (safeComputerValue <= 0) {
+    safeComputerValue=0;
+    for (    int processValue : processValues) {
+      safeComputerValue+=processValue;
+    }
+  }
+  for (  int processValue : processValues) {
+    int processWidth=processValue * computerWidth / safeComputerValue;
+    processWidth=Math.max(processWidth,1);
+    g.setColor(CloudBalancingPanel.PROCESS_COLORS[colorIndex]);
+    g.fillRect(offset,0,processWidth,rectHeight);
+    offset+=processWidth;
+    colorIndex=(colorIndex + 1) % CloudBalancingPanel.PROCESS_COLORS.length;
+  }
+  if (this.computerValue > 0) {
+    g.setColor(isEnabled() ? Color.BLACK : Color.DARK_GRAY);
+    g.drawRect(0,0,computerWidth,rectHeight - 1);
+  }
+}

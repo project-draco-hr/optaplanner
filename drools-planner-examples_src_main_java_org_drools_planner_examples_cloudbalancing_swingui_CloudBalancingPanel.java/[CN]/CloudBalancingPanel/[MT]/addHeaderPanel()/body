@@ -1,0 +1,14 @@
+{
+  JPanel headerPanel=new JPanel(new GridLayout(0,5));
+  JLabel emptyLabel=new JLabel("");
+  headerPanel.add(emptyLabel);
+  JLabel cpuPowerLabel=new JLabel("CPU power");
+  headerPanel.add(cpuPowerLabel);
+  JLabel memoryLabel=new JLabel("Memory");
+  headerPanel.add(memoryLabel);
+  JLabel networkBandwidthLabel=new JLabel("Network bandwidth");
+  headerPanel.add(networkBandwidthLabel);
+  JLabel costLabel=new JLabel("Cost");
+  headerPanel.add(costLabel);
+  add(headerPanel,BorderLayout.NORTH);
+}

@@ -1,0 +1,7 @@
+{
+  super(new GridLayout(0,5));
+  this.cloudComputer=cloudComputer;
+  setBorder(BorderFactory.createCompoundBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(1,2,1,2),BorderFactory.createLineBorder(Color.BLACK)),BorderFactory.createEmptyBorder(1,1,1,1)));
+  addTotals();
+  addBars();
+}

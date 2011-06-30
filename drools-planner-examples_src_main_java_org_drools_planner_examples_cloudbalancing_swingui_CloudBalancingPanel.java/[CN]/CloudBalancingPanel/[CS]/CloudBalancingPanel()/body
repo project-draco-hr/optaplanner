@@ -1,3 +1,5 @@
 {
-  setLayout(new GridLayout(0,5));
+  setLayout(new BorderLayout());
+  addHeaderPanel();
+  addContentPanel();
 }

@@ -1,0 +1,15 @@
+{
+  numberOfProcessesLabel=new JLabel("    0 processes");
+  numberOfProcessesLabel.setEnabled(false);
+  add(numberOfProcessesLabel);
+  cpuPowerBar=new CloudBar(getComputerCpuPower());
+  cpuPowerBar.setEnabled(false);
+  add(cpuPowerBar);
+  memoryBar=new CloudBar(getComputerMemory());
+  memoryBar.setEnabled(false);
+  add(memoryBar);
+  networkBandwidthBar=new CloudBar(getComputerNetworkBandwidth());
+  networkBandwidthBar.setEnabled(false);
+  add(networkBandwidthBar);
+  add(new JLabel());
+}

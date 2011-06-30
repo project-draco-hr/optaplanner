@@ -1,7 +1,0 @@
-{
-  add(new JLabel(""));
-  add(cpuPowerBar);
-  add(memoryBar);
-  add(networkBandwidthBar);
-  add(new JLabel(""));
-}
