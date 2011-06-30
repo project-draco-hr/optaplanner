@@ -1,0 +1,40 @@
+{
+  removeAll();
+  CurriculumCourseSchedule schedule=(CurriculumCourseSchedule)solution;
+  gridLayout.setColumns(schedule.getRoomList().size() + 1);
+  JLabel headerCornerLabel=new JLabel("Period         \\         Room");
+  headerCornerLabel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.DARK_GRAY),BorderFactory.createEmptyBorder(2,2,2,2)));
+  headerCornerLabel.setBackground(HEADER_COLOR);
+  headerCornerLabel.setOpaque(true);
+  add(headerCornerLabel);
+  for (  Room room : schedule.getRoomList()) {
+    JLabel roomLabel=new JLabel(room.toString());
+    roomLabel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.DARK_GRAY),BorderFactory.createEmptyBorder(2,2,2,2)));
+    roomLabel.setBackground(HEADER_COLOR);
+    roomLabel.setOpaque(true);
+    add(roomLabel);
+  }
+  Map<Period,Map<Room,PeriodRoomPanel>> periodRoomPanelMap=new HashMap<Period,Map<Room,PeriodRoomPanel>>();
+  for (  Period period : schedule.getPeriodList()) {
+    JLabel periodLabel=new JLabel(period.toString());
+    periodLabel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.DARK_GRAY),BorderFactory.createEmptyBorder(2,2,2,2)));
+    periodLabel.setBackground(HEADER_COLOR);
+    periodLabel.setOpaque(true);
+    add(periodLabel);
+    Map<Room,PeriodRoomPanel> roomPanelMap=new HashMap<Room,PeriodRoomPanel>();
+    periodRoomPanelMap.put(period,roomPanelMap);
+    for (    Room room : schedule.getRoomList()) {
+      PeriodRoomPanel periodRoomPanel=new PeriodRoomPanel();
+      add(periodRoomPanel);
+      roomPanelMap.put(room,periodRoomPanel);
+    }
+  }
+  for (  Lecture lecture : schedule.getLectureList()) {
+    Period period=lecture.getPeriod();
+    Room room=lecture.getRoom();
+    if (period != null && room != null) {
+      PeriodRoomPanel periodRoomPanel=periodRoomPanelMap.get(period).get(room);
+      periodRoomPanel.addLecture(lecture);
+    }
+  }
+}

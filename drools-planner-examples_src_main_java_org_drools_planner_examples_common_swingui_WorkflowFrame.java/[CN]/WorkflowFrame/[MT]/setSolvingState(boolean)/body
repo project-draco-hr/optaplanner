@@ -6,7 +6,7 @@
     action.setEnabled(!solving);
   }
   solveAction.setEnabled(!solving);
-  cancelSolvingAction.setEnabled(solving);
+  terminateSolvingEarlyAction.setEnabled(solving);
   openAction.setEnabled(!solving);
   saveAction.setEnabled(!solving);
   importAction.setEnabled(!solving && solutionBusiness.hasImporter());

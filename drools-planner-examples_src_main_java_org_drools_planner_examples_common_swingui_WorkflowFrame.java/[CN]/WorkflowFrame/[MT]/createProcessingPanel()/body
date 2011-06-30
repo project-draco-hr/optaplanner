@@ -3,9 +3,11 @@
   solveAction=new SolveAction();
   solveAction.setEnabled(false);
   panel.add(new JButton(solveAction));
-  cancelSolvingAction=new CancelSolvingAction();
-  cancelSolvingAction.setEnabled(false);
-  panel.add(new JButton(cancelSolvingAction));
+  terminateSolvingEarlyAction=new TerminateSolvingEarlyAction();
+  terminateSolvingEarlyAction.setEnabled(false);
+  panel.add(new JButton(terminateSolvingEarlyAction));
+  refreshScreenDuringSolvingCheckBox=new JCheckBox("Refresh screen during solving",false);
+  panel.add(refreshScreenDuringSolvingCheckBox);
   openAction=new OpenAction();
   openAction.setEnabled(true);
   panel.add(new JButton(openAction));

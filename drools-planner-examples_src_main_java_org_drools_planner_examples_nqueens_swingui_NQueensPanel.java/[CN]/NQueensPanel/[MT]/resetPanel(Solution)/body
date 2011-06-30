@@ -1,0 +1,25 @@
+{
+  removeAll();
+  NQueens nQueens=(NQueens)solution;
+  int n=nQueens.getN();
+  List<Queen> queenList=nQueens.getQueenList();
+  setLayout(new GridLayout(n,n));
+  for (int i=0; i < n; i++) {
+    for (int j=0; j < n; j++) {
+      Queen queen=queenList.get(j);
+      if (queen.getY() == i) {
+        JButton button=new JButton(new QueenAction(queen));
+        button.setHorizontalTextPosition(SwingConstants.CENTER);
+        button.setVerticalTextPosition(SwingConstants.BOTTOM);
+        add(button);
+      }
+ else {
+        JPanel panel=new JPanel();
+        panel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.DARK_GRAY),BorderFactory.createEmptyBorder(5,5,5,5)));
+        Color background=(((i + j) % 2) == 0) ? Color.WHITE : Color.GRAY;
+        panel.setBackground(background);
+        add(panel);
+      }
+    }
+  }
+}
