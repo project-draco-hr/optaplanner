@@ -1,4 +1,5 @@
 {
+  solving.set(true);
   terminatedEarlyHolder.set(false);
   if (solverScope.getWorkingSolution() == null) {
     throw new IllegalStateException("The startingSolution must not be null." + " Use Solver.setStartingSolution(Solution).");
