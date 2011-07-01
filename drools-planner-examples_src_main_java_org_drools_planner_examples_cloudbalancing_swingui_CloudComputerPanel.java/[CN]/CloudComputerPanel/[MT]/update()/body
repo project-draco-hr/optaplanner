@@ -17,12 +17,5 @@
   }
   boolean used=cloudAssignmentList.size() > 0;
   updateTotals(usedCpuPower,usedMemory,usedNetworkBandwidth,used);
-  numberOfProcessesLabel.setText("    " + cloudAssignmentList.size() + " processes");
-  numberOfProcessesLabel.setEnabled(used);
-  cpuPowerBar.setEnabled(used);
-  cpuPowerBar.repaint();
-  memoryBar.setEnabled(used);
-  memoryBar.repaint();
-  networkBandwidthBar.setEnabled(used);
-  networkBandwidthBar.repaint();
+  updateBars(used);
 }
