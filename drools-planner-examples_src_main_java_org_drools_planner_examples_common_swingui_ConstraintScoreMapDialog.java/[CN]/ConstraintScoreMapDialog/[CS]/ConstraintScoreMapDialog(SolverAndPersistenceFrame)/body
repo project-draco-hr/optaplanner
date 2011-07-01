@@ -1,0 +1,4 @@
+{
+  super(solverAndPersistenceFrame,"Constraint scores",true);
+  this.solverAndPersistenceFrame=solverAndPersistenceFrame;
+}

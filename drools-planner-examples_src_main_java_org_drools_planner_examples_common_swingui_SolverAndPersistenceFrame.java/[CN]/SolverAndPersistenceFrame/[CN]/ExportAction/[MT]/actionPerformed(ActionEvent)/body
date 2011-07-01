@@ -1,0 +1,7 @@
+{
+  JFileChooser fileChooser=new JFileChooser(solutionBusiness.getExportDataDir());
+  int approved=fileChooser.showSaveDialog(SolverAndPersistenceFrame.this);
+  if (approved == JFileChooser.APPROVE_OPTION) {
+    solutionBusiness.exportSolution(fileChooser.getSelectedFile());
+  }
+}

@@ -11,5 +11,12 @@
   networkBandwidthBar=new CloudBar(getComputerNetworkBandwidth());
   networkBandwidthBar.setEnabled(false);
   add(networkBandwidthBar);
-  add(new JLabel());
+  add(new JButton(new AbstractAction("Details"){
+    public void actionPerformed(    ActionEvent e){
+      CloudAssignmentListDialog cloudAssignmentListDialog=new CloudAssignmentListDialog();
+      cloudAssignmentListDialog.setLocationRelativeTo(getRootPane());
+      cloudAssignmentListDialog.setVisible(true);
+    }
+  }
+));
 }

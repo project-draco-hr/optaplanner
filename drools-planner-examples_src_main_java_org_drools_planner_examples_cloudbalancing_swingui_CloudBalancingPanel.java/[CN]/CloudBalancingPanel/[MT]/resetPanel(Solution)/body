@@ -1,7 +1,7 @@
 {
   for (  CloudComputerPanel cloudComputerCloudComputerPanel : cloudComputerToPanelMap.values()) {
     if (cloudComputerCloudComputerPanel.getCloudComputer() != null) {
-      contentPanel.remove(cloudComputerCloudComputerPanel);
+      computersPanel.remove(cloudComputerCloudComputerPanel);
     }
   }
   cloudComputerToPanelMap.clear();

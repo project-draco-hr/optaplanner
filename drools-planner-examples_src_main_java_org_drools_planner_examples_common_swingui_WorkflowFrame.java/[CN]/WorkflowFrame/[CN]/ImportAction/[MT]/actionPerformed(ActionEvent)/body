@@ -1,8 +1,0 @@
-{
-  JFileChooser fileChooser=new JFileChooser(solutionBusiness.getImportDataDir());
-  int approved=fileChooser.showOpenDialog(WorkflowFrame.this);
-  if (approved == JFileChooser.APPROVE_OPTION) {
-    solutionBusiness.importSolution(fileChooser.getSelectedFile());
-    setSolutionLoaded();
-  }
-}

@@ -7,7 +7,7 @@
     CloudComputerPanel cloudComputerPanel=cloudComputerToPanelMap.get(cloudComputer);
     if (cloudComputerPanel == null) {
       cloudComputerPanel=new CloudComputerPanel(cloudComputer);
-      contentPanel.add(cloudComputerPanel);
+      computersPanel.add(cloudComputerPanel);
       cloudComputerToPanelMap.put(cloudComputer,cloudComputerPanel);
     }
   }
@@ -33,6 +33,6 @@
   }
   for (  CloudComputer deadCloudComputer : deadCloudComputerSet) {
     CloudComputerPanel deadCloudComputerPanel=cloudComputerToPanelMap.remove(deadCloudComputer);
-    contentPanel.remove(deadCloudComputerPanel);
+    computersPanel.remove(deadCloudComputerPanel);
   }
 }
