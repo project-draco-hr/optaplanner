@@ -1,0 +1,3 @@
+{
+  return (terminatedEarlyHolder.get() || termination.isPhaseTerminated(solverPhaseScope));
+}

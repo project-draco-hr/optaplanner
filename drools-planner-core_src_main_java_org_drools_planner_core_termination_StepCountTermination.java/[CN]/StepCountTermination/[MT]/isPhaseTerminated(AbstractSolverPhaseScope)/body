@@ -1,0 +1,4 @@
+{
+  int nextStepIndex=solverPhaseScope.getLastCompletedStepScope().getStepIndex() + 1;
+  return nextStepIndex >= maximumStepCount;
+}

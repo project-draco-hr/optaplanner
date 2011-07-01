@@ -1,3 +1,0 @@
-{
-  return (terminatedEarlyHolder.get() || termination.isPhaseTerminated(stepScope));
-}
