@@ -1,0 +1,4 @@
+{
+  long phaseTimeMillisSpend=stepScope.getSolverPhaseScope().calculatePhaseTimeMillisSpend();
+  return isTerminated(phaseTimeMillisSpend);
+}

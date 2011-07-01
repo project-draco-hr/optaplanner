@@ -1,0 +1,4 @@
+{
+  long solverTimeMillisSpend=lastSolverPhaseScope.getSolverScope().calculateTimeMillisSpend();
+  return isTerminated(solverTimeMillisSpend);
+}

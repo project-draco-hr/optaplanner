@@ -1,5 +1,0 @@
-{
-  long timeMillisSpend=stepScope.getSolverPhaseScope().calculatePhaseTimeMillisSpend();
-  double timeGradient=((double)timeMillisSpend) / ((double)maximumTimeMillisSpend);
-  return Math.min(timeGradient,1.0);
-}

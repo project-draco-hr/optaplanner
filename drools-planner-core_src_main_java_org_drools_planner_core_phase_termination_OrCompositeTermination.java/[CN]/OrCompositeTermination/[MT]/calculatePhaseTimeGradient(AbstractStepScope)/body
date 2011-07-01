@@ -1,0 +1,10 @@
+{
+  double timeGradient=0.0;
+  for (  Termination termination : terminationList) {
+    double nextTimeGradient=termination.calculatePhaseTimeGradient(stepScope);
+    if (nextTimeGradient >= 0.0) {
+      timeGradient=Math.max(timeGradient,nextTimeGradient);
+    }
+  }
+  return timeGradient;
+}
