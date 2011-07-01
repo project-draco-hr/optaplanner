@@ -3,7 +3,7 @@
   phaseStarted(greedySolverPhaseScope);
   GreedyStepScope greedyStepScope=createNextStepScope(greedySolverPhaseScope,null);
   Iterator it=greedyPlanningEntitySelector.iterator();
-  while (!terminatedEarlyHolder.get() && it.hasNext()) {
+  while (!mustTerminate(greedyStepScope) && it.hasNext()) {
     Object planningEntity=it.next();
     greedyStepScope.setPlanningEntity(planningEntity);
     beforeDeciding(greedyStepScope);

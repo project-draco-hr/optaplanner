@@ -1,4 +1,5 @@
 {
   bestSolutionRecaller.extractBestSolution(stepScope);
+  termination.stepTaken(stepScope);
   solverPhaseLifecycleSupport.fireStepTaken(stepScope);
 }

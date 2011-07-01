@@ -1,4 +1,0 @@
-{
-  Score bestScore=lastSolverPhaseScope.getSolverScope().getBestScore();
-  return isTerminated(bestScore);
-}

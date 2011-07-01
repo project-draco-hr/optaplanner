@@ -1,4 +1,0 @@
-{
-  long solverTimeMillisSpend=lastSolverPhaseScope.getSolverScope().calculateTimeMillisSpend();
-  return calculateTimeGradient(solverTimeMillisSpend);
-}

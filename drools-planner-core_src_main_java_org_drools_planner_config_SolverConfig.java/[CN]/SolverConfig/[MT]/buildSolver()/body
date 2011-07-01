@@ -15,6 +15,7 @@
   ScoreDefinition scoreDefinition=scoreDefinitionConfig.buildScoreDefinition();
   solver.setScoreDefinition(scoreDefinition);
   solver.setScoreCalculator(scoreDefinitionConfig.buildScoreCalculator());
+  solver.setTermination(terminationConfig.buildTermination(scoreDefinition));
   BestSolutionRecaller bestSolutionRecaller=new BestSolutionRecaller();
   solver.setBestSolutionRecaller(bestSolutionRecaller);
   if (solverPhaseConfigList == null) {

@@ -1,2 +1,8 @@
 {
+  if (terminationConfig == null) {
+    terminationConfig=inheritedConfig.getTerminationConfig();
+  }
+ else   if (inheritedConfig.getTerminationConfig() != null) {
+    terminationConfig.inherit(inheritedConfig.getTerminationConfig());
+  }
 }

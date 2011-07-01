@@ -1,8 +1,7 @@
 {
-  for (  SolverPhase solverPhase : solverPhaseList) {
+  Iterator<SolverPhase> it=solverPhaseList.iterator();
+  while (!mustTerminate(solverScope) && it.hasNext()) {
+    SolverPhase solverPhase=it.next();
     solverPhase.solve(solverScope);
-    if (terminatedEarlyHolder.get()) {
-      break;
-    }
   }
 }

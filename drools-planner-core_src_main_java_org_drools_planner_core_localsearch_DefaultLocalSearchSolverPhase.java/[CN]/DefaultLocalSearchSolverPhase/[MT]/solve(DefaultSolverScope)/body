@@ -2,7 +2,7 @@
   LocalSearchSolverPhaseScope localSearchSolverPhaseScope=new LocalSearchSolverPhaseScope(solverScope);
   phaseStarted(localSearchSolverPhaseScope);
   LocalSearchStepScope localSearchStepScope=createNextStepScope(localSearchSolverPhaseScope,null);
-  while (!terminatedEarlyHolder.get() && !termination.isPhaseTerminated(localSearchStepScope)) {
+  while (!mustTerminate(localSearchStepScope)) {
     localSearchStepScope.setTimeGradient(termination.calculatePhaseTimeGradient(localSearchStepScope));
     beforeDeciding(localSearchStepScope);
     decider.decideNextStep(localSearchStepScope);

@@ -1,5 +1,4 @@
 {
   super.stepDecided(localSearchStepScope);
-  termination.stepDecided(localSearchStepScope);
   decider.stepDecided(localSearchStepScope);
 }
