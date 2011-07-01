@@ -1,0 +1,3 @@
+{
+  planningFactChange.doChange(solverScope.getWorkingSolution(),solverScope.getWorkingMemory());
+}

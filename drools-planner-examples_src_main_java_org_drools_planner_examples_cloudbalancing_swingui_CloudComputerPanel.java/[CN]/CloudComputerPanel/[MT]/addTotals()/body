@@ -1,7 +1,18 @@
 {
+  JPanel labelAndDeletePanel=new JPanel(new BorderLayout());
   computerLabel=new JLabel(getComputerLabel());
   computerLabel.setEnabled(false);
-  add(computerLabel);
+  labelAndDeletePanel.add(computerLabel,BorderLayout.CENTER);
+  if (cloudComputer != null) {
+    deleteButton=new JButton(new AbstractAction("X"){
+      public void actionPerformed(      ActionEvent e){
+        cloudBalancingPanel.deleteComputer(cloudComputer);
+      }
+    }
+);
+    labelAndDeletePanel.add(deleteButton,BorderLayout.EAST);
+  }
+  add(labelAndDeletePanel);
   cpuPowerField=new JTextField("0 GHz / " + getComputerCpuPower() + " GHz");
   cpuPowerField.setEditable(false);
   cpuPowerField.setEnabled(false);

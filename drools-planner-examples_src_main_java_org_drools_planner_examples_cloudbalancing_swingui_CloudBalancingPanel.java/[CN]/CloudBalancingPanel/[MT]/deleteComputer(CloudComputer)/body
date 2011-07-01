@@ -1,0 +1,25 @@
+{
+  solutionBusiness.doPlanningFactChange(new PlanningFactChange(){
+    public void doChange(    Solution solution,    WorkingMemory workingMemory){
+      CloudBalance cloudBalance=(CloudBalance)solution;
+      for (      CloudAssignment cloudAssignment : cloudBalance.getCloudAssignmentList()) {
+        if (ObjectUtils.equals(cloudAssignment.getCloudComputer(),cloudComputer)) {
+          FactHandle cloudAssignmentHandle=workingMemory.getFactHandle(cloudAssignment);
+          cloudAssignment.setCloudComputer(null);
+          workingMemory.update(cloudAssignmentHandle,cloudAssignment);
+        }
+      }
+      for (Iterator<CloudComputer> it=cloudBalance.getCloudComputerList().iterator(); it.hasNext(); ) {
+        CloudComputer workingCloudComputer=it.next();
+        if (ObjectUtils.equals(workingCloudComputer,cloudComputer)) {
+          FactHandle cloudComputerHandle=workingMemory.getFactHandle(workingCloudComputer);
+          workingMemory.retract(cloudComputerHandle);
+          it.remove();
+          break;
+        }
+      }
+    }
+  }
+);
+  updatePanel(solutionBusiness.getSolution());
+}

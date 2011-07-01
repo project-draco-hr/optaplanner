@@ -6,6 +6,6 @@
   if (result == JOptionPane.OK_OPTION) {
     Employee toEmployee=(Employee)employeeListField.getSelectedItem();
     solutionBusiness.doMove(new EmployeeChangeMove(assignment,toEmployee));
-    solverAndPersistenceFrame.updateScreen();
+    solverAndPersistenceFrame.resetScreen();
   }
 }

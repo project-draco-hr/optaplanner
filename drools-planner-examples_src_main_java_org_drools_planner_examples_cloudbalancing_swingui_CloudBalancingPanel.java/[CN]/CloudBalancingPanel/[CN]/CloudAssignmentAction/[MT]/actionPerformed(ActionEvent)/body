@@ -6,6 +6,6 @@
   if (result == JOptionPane.OK_OPTION) {
     CloudComputer toCloudComputer=(CloudComputer)cloudComputerListField.getSelectedItem();
     solutionBusiness.doMove(new CloudComputerChangeMove(cloudAssignment,toCloudComputer));
-    solverAndPersistenceFrame.updateScreen();
+    solverAndPersistenceFrame.resetScreen();
   }
 }

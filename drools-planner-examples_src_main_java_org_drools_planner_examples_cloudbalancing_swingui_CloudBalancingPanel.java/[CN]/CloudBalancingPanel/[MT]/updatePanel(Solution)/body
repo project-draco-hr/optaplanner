@@ -6,7 +6,7 @@
     deadCloudComputerSet.remove(cloudComputer);
     CloudComputerPanel cloudComputerPanel=cloudComputerToPanelMap.get(cloudComputer);
     if (cloudComputerPanel == null) {
-      cloudComputerPanel=new CloudComputerPanel(cloudComputer);
+      cloudComputerPanel=new CloudComputerPanel(this,cloudComputer);
       computersPanel.add(cloudComputerPanel);
       cloudComputerToPanelMap.put(cloudComputer,cloudComputerPanel);
     }

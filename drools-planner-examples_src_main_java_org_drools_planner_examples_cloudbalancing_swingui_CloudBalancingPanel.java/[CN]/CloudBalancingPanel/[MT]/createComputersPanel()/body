@@ -1,6 +1,6 @@
 {
   computersPanel=new JPanel(new GridLayout(0,1));
-  unassignedPanel=new CloudComputerPanel(null);
+  unassignedPanel=new CloudComputerPanel(this,null);
   computersPanel.add(unassignedPanel);
   cloudComputerToPanelMap=new LinkedHashMap<CloudComputer,CloudComputerPanel>();
   cloudComputerToPanelMap.put(null,unassignedPanel);

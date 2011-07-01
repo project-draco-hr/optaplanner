@@ -11,7 +11,7 @@
       SwingUtilities.invokeLater(new Runnable(){
         public void run(){
           setSolvingState(false);
-          updateScreen();
+          resetScreen();
         }
       }
 );
