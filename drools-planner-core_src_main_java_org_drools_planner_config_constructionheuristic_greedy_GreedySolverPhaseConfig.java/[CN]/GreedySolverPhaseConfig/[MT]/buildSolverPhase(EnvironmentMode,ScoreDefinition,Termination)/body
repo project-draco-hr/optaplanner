@@ -1,0 +1,10 @@
+{
+  DefaultGreedySolverPhase greedySolverPhase=new DefaultGreedySolverPhase();
+  configureSolverPhase(greedySolverPhase,environmentMode,scoreDefinition,solverTermination);
+  greedySolverPhase.setGreedyPlanningEntitySelector(buildGreedyPlanningEntitySelector());
+  greedySolverPhase.setGreedyDecider(buildGreedyDecider(environmentMode));
+  if (environmentMode == EnvironmentMode.DEBUG || environmentMode == EnvironmentMode.TRACE) {
+    greedySolverPhase.setAssertStepScoreIsUncorrupted(true);
+  }
+  return greedySolverPhase;
+}

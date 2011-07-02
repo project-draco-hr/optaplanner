@@ -3,7 +3,7 @@
   phaseStarted(greedySolverPhaseScope);
   GreedyStepScope greedyStepScope=createNextStepScope(greedySolverPhaseScope,null);
   Iterator it=greedyPlanningEntitySelector.iterator();
-  while (!mustTerminate(greedySolverPhaseScope) && it.hasNext()) {
+  while (!termination.isPhaseTerminated(greedySolverPhaseScope) && it.hasNext()) {
     Object planningEntity=it.next();
     greedyStepScope.setPlanningEntity(planningEntity);
     beforeDeciding(greedyStepScope);
@@ -12,6 +12,9 @@
     greedyStepScope.doStep();
     if (!it.hasNext()) {
       greedyStepScope.setSolutionInitialized(true);
+    }
+    if (assertStepScoreIsUncorrupted) {
+      greedySolverPhaseScope.assertWorkingScore(greedyStepScope.getScore());
     }
     stepTaken(greedyStepScope);
     greedyStepScope=createNextStepScope(greedySolverPhaseScope,greedyStepScope);

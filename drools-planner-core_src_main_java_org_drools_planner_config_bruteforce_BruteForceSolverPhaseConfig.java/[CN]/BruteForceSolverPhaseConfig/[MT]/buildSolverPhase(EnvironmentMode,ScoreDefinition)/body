@@ -1,5 +1,0 @@
-{
-  DefaultBruteForceSolverPhase bruteForceSolverPhase=new DefaultBruteForceSolverPhase();
-  configureSolverPhase(bruteForceSolverPhase,environmentMode,scoreDefinition);
-  return bruteForceSolverPhase;
-}

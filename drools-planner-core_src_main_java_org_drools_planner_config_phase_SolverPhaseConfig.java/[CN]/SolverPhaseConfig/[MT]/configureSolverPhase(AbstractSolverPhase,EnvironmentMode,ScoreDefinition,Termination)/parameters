@@ -1,0 +1,4 @@
+AbstractSolverPhase solverPhase
+EnvironmentMode environmentMode
+ScoreDefinition scoreDefinition
+Termination solverTermination

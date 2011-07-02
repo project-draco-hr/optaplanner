@@ -1,7 +1,3 @@
 {
-  boolean terminationEarlySuccessful=!terminatedEarlyHolder.getAndSet(true);
-  if (terminationEarlySuccessful) {
-    logger.info("Terminating solver early.");
-  }
-  return terminationEarlySuccessful;
+  return basicPlumbingTermination.terminateEarly();
 }

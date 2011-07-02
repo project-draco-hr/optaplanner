@@ -1,0 +1,3 @@
+{
+  terminationList=Arrays.asList(terminations);
+}

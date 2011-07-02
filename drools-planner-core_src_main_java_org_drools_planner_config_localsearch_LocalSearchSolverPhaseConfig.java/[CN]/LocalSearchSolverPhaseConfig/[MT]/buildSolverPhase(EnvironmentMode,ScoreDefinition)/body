@@ -1,9 +1,0 @@
-{
-  DefaultLocalSearchSolverPhase localSearchSolverPhase=new DefaultLocalSearchSolverPhase();
-  configureSolverPhase(localSearchSolverPhase,environmentMode,scoreDefinition);
-  localSearchSolverPhase.setDecider(buildDecider(environmentMode,scoreDefinition));
-  if (environmentMode == EnvironmentMode.DEBUG || environmentMode == EnvironmentMode.TRACE) {
-    localSearchSolverPhase.setAssertStepScoreIsUncorrupted(true);
-  }
-  return localSearchSolverPhase;
-}

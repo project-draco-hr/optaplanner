@@ -1,3 +1,8 @@
 {
-  planningFactChange.doChange(solverScope.getWorkingSolution(),solverScope.getWorkingMemory());
+  if (solver.isSolving()) {
+    solver.addPlanningFactChange(planningFactChange);
+  }
+ else {
+    planningFactChange.doChange(solverScope.getWorkingSolution(),solverScope.getWorkingMemory());
+  }
 }

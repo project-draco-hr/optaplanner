@@ -1,3 +1,0 @@
-{
-  solverPhase.setTermination(terminationConfig.buildTermination(scoreDefinition));
-}

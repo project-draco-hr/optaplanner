@@ -1,7 +1,7 @@
 {
   DefaultSolver solver=new DefaultSolver();
-  AtomicBoolean terminatedEarlyHolder=new AtomicBoolean(false);
-  solver.setTerminatedEarlyHolder(terminatedEarlyHolder);
+  BasicPlumbingTermination basicPlumbingTermination=new BasicPlumbingTermination();
+  solver.setBasicPlumbingTermination(basicPlumbingTermination);
   if (environmentMode != EnvironmentMode.PRODUCTION) {
     if (randomSeed != null) {
       solver.setRandomSeed(randomSeed);
@@ -15,7 +15,8 @@
   ScoreDefinition scoreDefinition=scoreDefinitionConfig.buildScoreDefinition();
   solver.setScoreDefinition(scoreDefinition);
   solver.setScoreCalculator(scoreDefinitionConfig.buildScoreCalculator());
-  solver.setTermination(terminationConfig.buildTermination(scoreDefinition));
+  Termination termination=terminationConfig.buildTermination(scoreDefinition,basicPlumbingTermination);
+  solver.setTermination(termination);
   BestSolutionRecaller bestSolutionRecaller=new BestSolutionRecaller();
   solver.setBestSolutionRecaller(bestSolutionRecaller);
   if (solverPhaseConfigList == null) {
@@ -23,8 +24,7 @@
   }
   List<SolverPhase> solverPhaseList=new ArrayList<SolverPhase>(solverPhaseConfigList.size());
   for (  SolverPhaseConfig solverPhaseConfig : solverPhaseConfigList) {
-    SolverPhase solverPhase=solverPhaseConfig.buildSolverPhase(environmentMode,scoreDefinition);
-    ((AbstractSolverPhase)solverPhase).setTerminatedEarlyHolder(terminatedEarlyHolder);
+    SolverPhase solverPhase=solverPhaseConfig.buildSolverPhase(environmentMode,scoreDefinition,termination);
     ((AbstractSolverPhase)solverPhase).setBestSolutionRecaller(bestSolutionRecaller);
     solverPhaseList.add(solverPhase);
   }
