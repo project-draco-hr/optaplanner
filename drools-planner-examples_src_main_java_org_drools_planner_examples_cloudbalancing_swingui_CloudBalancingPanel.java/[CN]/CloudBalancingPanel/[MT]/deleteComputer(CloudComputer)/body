@@ -1,4 +1,5 @@
 {
+  logger.info("Scheduling deleting of computer ({}).",cloudComputer.getLabel());
   solutionBusiness.doPlanningFactChange(new PlanningFactChange(){
     public void doChange(    Solution solution,    WorkingMemory workingMemory){
       CloudBalance cloudBalance=(CloudBalance)solution;
