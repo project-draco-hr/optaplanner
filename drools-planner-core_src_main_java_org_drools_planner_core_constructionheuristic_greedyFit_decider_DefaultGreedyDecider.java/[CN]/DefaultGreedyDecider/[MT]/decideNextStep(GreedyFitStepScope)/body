@@ -1,6 +1,6 @@
 {
   GreedyFitSolverPhaseScope greedyFitSolverPhaseScope=greedyFitStepScope.getGreedyFitSolverPhaseScope();
-  Score lastStepScore=greedyFitSolverPhaseScope.calculateScoreFromWorkingMemory();
+  Score lastStepScore=greedyFitSolverPhaseScope.getLastCompletedStepScope().getScore();
   BruteForcePlanningEntityIterator bruteForcePlanningEntityIterator=new BruteForcePlanningEntityIterator(greedyFitSolverPhaseScope,greedyFitStepScope.getPlanningEntity());
   Score maxScore=greedyFitSolverPhaseScope.getScoreDefinition().getPerfectMinimumScore();
   while (bruteForcePlanningEntityIterator.hasNext()) {
