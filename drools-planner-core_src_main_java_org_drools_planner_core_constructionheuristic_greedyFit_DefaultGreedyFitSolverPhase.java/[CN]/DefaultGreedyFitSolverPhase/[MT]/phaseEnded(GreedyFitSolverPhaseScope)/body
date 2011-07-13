@@ -1,0 +1,5 @@
+{
+  super.phaseEnded(greedyFitSolverPhaseScope);
+  greedyPlanningEntitySelector.phaseEnded(greedyFitSolverPhaseScope);
+  logger.info("Greedy phase ended at step index ({}) for best score ({}).",greedyFitSolverPhaseScope.getLastCompletedStepScope().getStepIndex(),greedyFitSolverPhaseScope.getBestScore());
+}

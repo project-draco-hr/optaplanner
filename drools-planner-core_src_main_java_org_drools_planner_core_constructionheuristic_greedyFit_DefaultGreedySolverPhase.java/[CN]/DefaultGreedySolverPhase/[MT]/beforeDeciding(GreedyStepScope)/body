@@ -1,4 +1,0 @@
-{
-  super.beforeDeciding(greedyStepScope);
-  greedyPlanningEntitySelector.beforeDeciding(greedyStepScope);
-}

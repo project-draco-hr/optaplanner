@@ -1,0 +1,28 @@
+{
+  Collection<Object> planningEntities=greedyFitSolverPhaseScope.getWorkingPlanningEntities();
+  for (Iterator<Object> it=planningEntities.iterator(); it.hasNext(); ) {
+    Object planningEntity=it.next();
+    PlanningEntityDescriptor planningEntityDescriptor=greedyFitSolverPhaseScope.getSolutionDescriptor().getPlanningEntityDescriptor(planningEntity.getClass());
+    if (planningEntityDescriptor.isInitialized(planningEntity)) {
+      if (resetInitializedPlanningEntities) {
+        WorkingMemory workingMemory=greedyFitSolverPhaseScope.getWorkingMemory();
+        workingMemory.retract(workingMemory.getFactHandle(planningEntity));
+        planningEntityDescriptor.uninitialize(planningEntity);
+      }
+ else {
+        it.remove();
+      }
+    }
+  }
+  if (fitOrderPlanningEntityComparator != null) {
+    List<Object> fitOrderPlanningEntityList=new ArrayList<Object>(planningEntities);
+    Collections.sort(fitOrderPlanningEntityList,fitOrderPlanningEntityComparator);
+    fitOrderPlanningEntities=fitOrderPlanningEntityList;
+  }
+ else   if (planningEntityDifficultyWeightFactory != null) {
+    fitOrderPlanningEntities=PlanningEntityDifficultyWeightUtils.sortByDifficultyWeight(greedyFitSolverPhaseScope.getWorkingSolution(),planningEntities,planningEntityDifficultyWeightFactory,false);
+  }
+ else {
+    fitOrderPlanningEntities=planningEntities;
+  }
+}

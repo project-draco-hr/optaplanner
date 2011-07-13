@@ -3,7 +3,7 @@
   xStream.setMode(XStream.ID_REFERENCES);
   xStream.processAnnotations(SolverConfig.class);
   xStream.processAnnotations(BruteForceSolverPhaseConfig.class);
-  xStream.processAnnotations(GreedySolverPhaseConfig.class);
+  xStream.processAnnotations(GreedyFitSolverPhaseConfig.class);
   xStream.processAnnotations(LocalSearchSolverPhaseConfig.class);
   return xStream;
 }

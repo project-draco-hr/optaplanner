@@ -1,4 +1,0 @@
-{
-  validateConfiguration();
-  initFitOrderPlanningEntities(greedySolverPhaseScope);
-}

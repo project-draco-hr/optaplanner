@@ -1,0 +1,4 @@
+{
+  super.beforeDeciding(greedyFitStepScope);
+  greedyPlanningEntitySelector.beforeDeciding(greedyFitStepScope);
+}

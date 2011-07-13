@@ -1,4 +1,0 @@
-{
-  super.phaseStarted(greedySolverPhaseScope);
-  greedyPlanningEntitySelector.phaseStarted(greedySolverPhaseScope);
-}
