@@ -3,7 +3,7 @@
   planningFacts.addAll(solution.getProblemFacts());
   for (  PropertyDescriptor entityPropertyDescriptor : entityPropertyDescriptorMap.values()) {
     Object entity=DescriptorUtils.executeGetter(entityPropertyDescriptor,solution);
-    PlanningEntityDescriptor planningEntityDescriptor=planningEntityDescriptorMap.get(entity.getClass());
+    PlanningEntityDescriptor planningEntityDescriptor=getPlanningEntityDescriptor(entity.getClass());
     if (entity != null && planningEntityDescriptor.isInitialized(entity)) {
       planningFacts.add(entity);
     }
@@ -14,7 +14,7 @@
       throw new IllegalArgumentException("The entity collection property (" + entityCollectionPropertyDescriptor.getName() + ") should never return null.");
     }
     for (    Object entity : entityCollection) {
-      PlanningEntityDescriptor planningEntityDescriptor=planningEntityDescriptorMap.get(entity.getClass());
+      PlanningEntityDescriptor planningEntityDescriptor=getPlanningEntityDescriptor(entity.getClass());
       if (planningEntityDescriptor.isInitialized(entity)) {
         planningFacts.add(entity);
       }
