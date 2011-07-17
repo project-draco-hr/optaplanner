@@ -1,13 +1,12 @@
 {
   super.inherit(inheritedConfig);
-  if (resetInitializedPlanningEntities == null) {
-    resetInitializedPlanningEntities=inheritedConfig.getResetInitializedPlanningEntities();
+  if (greedyFitPlanningEntityConfigList == null) {
+    greedyFitPlanningEntityConfigList=inheritedConfig.getGreedyFitPlanningEntityConfigList();
   }
-  if (fitOrderPlanningEntityComparatorClass == null) {
-    fitOrderPlanningEntityComparatorClass=inheritedConfig.getFitOrderPlanningEntityComparatorClass();
-  }
-  if (planningEntityDifficultyWeightFactoryClass == null) {
-    planningEntityDifficultyWeightFactoryClass=inheritedConfig.getPlanningEntityDifficultyWeightFactoryClass();
+ else   if (inheritedConfig.getGreedyFitPlanningEntityConfigList() != null) {
+    List<GreedyFitPlanningEntityConfig> mergedList=new ArrayList<GreedyFitPlanningEntityConfig>(inheritedConfig.getGreedyFitPlanningEntityConfigList());
+    mergedList.addAll(greedyFitPlanningEntityConfigList);
+    greedyFitPlanningEntityConfigList=mergedList;
   }
   if (pickEarlyFitType == null) {
     pickEarlyFitType=inheritedConfig.getPickEarlyFitType();

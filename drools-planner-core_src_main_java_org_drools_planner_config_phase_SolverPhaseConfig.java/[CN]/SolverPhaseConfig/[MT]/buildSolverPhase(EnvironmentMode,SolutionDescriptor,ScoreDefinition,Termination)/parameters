@@ -1,0 +1,4 @@
+EnvironmentMode environmentMode
+SolutionDescriptor solutionDescriptor
+ScoreDefinition scoreDefinition
+Termination solverTermination

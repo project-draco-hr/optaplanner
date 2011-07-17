@@ -1,0 +1,3 @@
+{
+  return difficultyComparator != null || difficultyWeightFactory != null;
+}

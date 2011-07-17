@@ -10,7 +10,8 @@
       solver.setRandomSeed(DEFAULT_RANDOM_SEED);
     }
   }
-  solver.setSolutionDescriptor(buildSolutionDescriptor());
+  SolutionDescriptor solutionDescriptor=buildSolutionDescriptor();
+  solver.setSolutionDescriptor(solutionDescriptor);
   solver.setRuleBase(buildRuleBase());
   ScoreDefinition scoreDefinition=scoreDefinitionConfig.buildScoreDefinition();
   solver.setScoreDefinition(scoreDefinition);
@@ -24,7 +25,7 @@
   }
   List<SolverPhase> solverPhaseList=new ArrayList<SolverPhase>(solverPhaseConfigList.size());
   for (  SolverPhaseConfig solverPhaseConfig : solverPhaseConfigList) {
-    SolverPhase solverPhase=solverPhaseConfig.buildSolverPhase(environmentMode,scoreDefinition,termination);
+    SolverPhase solverPhase=solverPhaseConfig.buildSolverPhase(environmentMode,solutionDescriptor,scoreDefinition,termination);
     ((AbstractSolverPhase)solverPhase).setBestSolutionRecaller(bestSolutionRecaller);
     solverPhaseList.add(solverPhase);
   }

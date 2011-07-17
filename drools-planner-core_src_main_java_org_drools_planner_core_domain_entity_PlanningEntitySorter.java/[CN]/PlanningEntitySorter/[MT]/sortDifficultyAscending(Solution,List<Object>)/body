@@ -1,0 +1,20 @@
+{
+  if (difficultyComparator != null) {
+    Collections.sort(planningEntityList,difficultyComparator);
+  }
+ else   if (difficultyWeightFactory != null) {
+    SortedMap<Comparable,Object> planningEntityMap=new TreeMap<Comparable,Object>();
+    for (    Object planningEntity : planningEntityList) {
+      Comparable difficultyWeight=difficultyWeightFactory.createDifficultyWeight(solution,planningEntity);
+      Object previous=planningEntityMap.put(difficultyWeight,planningEntity);
+      if (previous != null) {
+        throw new IllegalStateException("The planningEntityList contains 2 times the same planningEntity (" + previous + ") and ("+ planningEntity+ ").");
+      }
+    }
+    planningEntityList.clear();
+    planningEntityList.addAll(planningEntityMap.values());
+  }
+ else {
+    throw new IllegalStateException("sortDifficultyDescending is impossible" + " because difficultyComparator and difficultyWeightFactory are null.");
+  }
+}

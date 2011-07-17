@@ -1,4 +1,0 @@
-Solution solution
-Collection<Object> planningEntities
-PlanningEntityDifficultyWeightFactory planningEntityDifficultyWeightFactory
-boolean ascending

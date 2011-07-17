@@ -1,17 +1,12 @@
 {
   this.solutionDescriptor=solutionDescriptor;
   this.planningEntityClass=planningEntityClass;
-  PlanningEntity planningEntityAnnotation=planningEntityClass.getAnnotation(PlanningEntity.class);
-  if (planningEntityAnnotation == null) {
-    throw new IllegalStateException("The planningEntityClass (" + planningEntityClass + ") has been specified as a planning entity in the configuration,"+ " but does not have a PlanningEntity annotation.");
-  }
   try {
     planningEntityBeanInfo=Introspector.getBeanInfo(planningEntityClass);
   }
  catch (  IntrospectionException e) {
     throw new IllegalStateException("The planningEntityClass (" + planningEntityClass + ") is not a valid java bean.",e);
   }
-  int mapSize=planningEntityBeanInfo.getPropertyDescriptors().length;
-  planningVariableDescriptorMap=new HashMap<String,PlanningVariableDescriptor>(mapSize);
+  processEntityAnnotations();
   processPropertyAnnotations();
 }

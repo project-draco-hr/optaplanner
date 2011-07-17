@@ -1,5 +1,0 @@
-{
-  if (fitOrderPlanningEntityComparator != null && planningEntityDifficultyWeightFactory != null) {
-    throw new IllegalArgumentException("The fitOrderPlanningEntityComparator and " + "planningEntityDifficultyWeightFactory cannot be applied together.");
-  }
-}

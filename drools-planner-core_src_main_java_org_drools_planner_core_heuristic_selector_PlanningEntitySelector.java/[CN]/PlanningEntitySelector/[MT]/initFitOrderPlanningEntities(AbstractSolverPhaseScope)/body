@@ -1,0 +1,33 @@
+{
+  List<Object> workingPlanningEntityList=solverPhaseScope.getWorkingPlanningEntityList();
+  for (Iterator<Object> it=workingPlanningEntityList.iterator(); it.hasNext(); ) {
+    Object planningEntity=it.next();
+    if (!planningEntityDescriptor.getPlanningEntityClass().isInstance(planningEntity)) {
+      it.remove();
+    }
+ else     if (planningEntityDescriptor.isInitialized(planningEntity)) {
+      if (resetInitializedPlanningEntities) {
+        WorkingMemory workingMemory=solverPhaseScope.getWorkingMemory();
+        workingMemory.retract(workingMemory.getFactHandle(planningEntity));
+        planningEntityDescriptor.uninitialize(planningEntity);
+      }
+ else {
+        it.remove();
+      }
+    }
+  }
+switch (selectionOrder) {
+case ORIGINAL:
+    break;
+case RANDOM:
+  Collections.shuffle(workingPlanningEntityList,solverPhaseScope.getWorkingRandom());
+break;
+case DECREASING_DIFFICULTY:
+PlanningEntitySorter planningEntitySorter=planningEntityDescriptor.getPlanningEntitySorter();
+planningEntitySorter.sortDifficultyDescending(solverPhaseScope.getWorkingSolution(),workingPlanningEntityList);
+break;
+default :
+throw new IllegalStateException("The selectionOrder (" + selectionOrder + ") is not implemented");
+}
+selectedPlanningEntityList=workingPlanningEntityList;
+}
