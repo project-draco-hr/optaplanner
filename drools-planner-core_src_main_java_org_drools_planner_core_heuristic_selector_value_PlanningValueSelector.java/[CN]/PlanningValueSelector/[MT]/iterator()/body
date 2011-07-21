@@ -1,0 +1,3 @@
+{
+  return selectedPlanningValueList.iterator();
+}

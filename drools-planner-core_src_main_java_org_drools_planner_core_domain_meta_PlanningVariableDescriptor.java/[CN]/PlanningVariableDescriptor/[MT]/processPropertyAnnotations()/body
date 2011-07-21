@@ -1,9 +1,0 @@
-{
-  Method propertyGetter=variablePropertyDescriptor.getReadMethod();
-  if (propertyGetter.isAnnotationPresent(ValueRangeFromSolutionProperty.class)) {
-    processValueRangeSolutionPropertyAnnotation(propertyGetter.getAnnotation(ValueRangeFromSolutionProperty.class));
-  }
- else {
-    throw new IllegalArgumentException("The planningEntityClass (" + planningEntityDescriptor.getPlanningEntityClass() + ") has a PlanningVariable annotated property ("+ variablePropertyDescriptor.getName()+ ") that has no ValueRange* annotation, such as ValueRangeFromSolutionProperty.");
-  }
-}

@@ -1,0 +1,20 @@
+{
+  if (strengthComparator != null) {
+    Collections.sort(planningValueList,strengthComparator);
+  }
+ else   if (strengthWeightFactory != null) {
+    SortedMap<Comparable,Object> planningValueMap=new TreeMap<Comparable,Object>();
+    for (    Object planningValue : planningValueList) {
+      Comparable strengthWeight=strengthWeightFactory.createStrengthWeight(solution,planningValue);
+      Object previous=planningValueMap.put(strengthWeight,planningValue);
+      if (previous != null) {
+        throw new IllegalStateException("The planningValueList contains 2 times the same planningValue (" + previous + ") and ("+ planningValue+ ").");
+      }
+    }
+    planningValueList.clear();
+    planningValueList.addAll(planningValueMap.values());
+  }
+ else {
+    throw new IllegalStateException("Sorting on strength is impossible" + " because strengthComparator and strengthWeightFactory are null.");
+  }
+}

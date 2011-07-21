@@ -1,0 +1,14 @@
+{
+  List<Object> planningEntityList=new ArrayList<Object>();
+  for (  PropertyDescriptor entityPropertyDescriptor : entityPropertyDescriptorMap.values()) {
+    Object entity=extractPlanningEntity(entityPropertyDescriptor,solution);
+    if (entity != null) {
+      planningEntityList.add(entity);
+    }
+  }
+  for (  PropertyDescriptor entityCollectionPropertyDescriptor : entityCollectionPropertyDescriptorMap.values()) {
+    Collection<?> entityCollection=extractPlanningEntityCollection(entityCollectionPropertyDescriptor,solution);
+    planningEntityList.addAll(entityCollection);
+  }
+  return planningEntityList;
+}

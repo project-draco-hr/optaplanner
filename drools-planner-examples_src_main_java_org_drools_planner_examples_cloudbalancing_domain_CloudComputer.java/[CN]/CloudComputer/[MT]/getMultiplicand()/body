@@ -1,0 +1,3 @@
+{
+  return cpuPower * memory * networkBandwidth;
+}

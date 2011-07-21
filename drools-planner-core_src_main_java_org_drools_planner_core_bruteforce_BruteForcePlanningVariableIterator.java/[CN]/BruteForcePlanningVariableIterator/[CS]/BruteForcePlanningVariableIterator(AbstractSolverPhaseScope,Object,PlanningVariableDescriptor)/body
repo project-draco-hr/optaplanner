@@ -2,6 +2,6 @@
   this.solverPhaseScope=solverPhaseScope;
   this.planningEntity=planningEntity;
   this.planningVariableDescriptor=planningVariableDescriptor;
-  planningValues=planningVariableDescriptor.getRangeValues(solverPhaseScope.getWorkingSolution());
-  planningValueIterator=planningValues.iterator();
+  planningValueList=planningVariableDescriptor.getPlanningValueList(solverPhaseScope.getWorkingSolution());
+  planningValueIterator=planningValueList.iterator();
 }

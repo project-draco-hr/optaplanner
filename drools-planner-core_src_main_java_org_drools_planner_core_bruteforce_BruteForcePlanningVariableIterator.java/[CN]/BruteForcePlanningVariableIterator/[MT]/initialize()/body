@@ -1,5 +1,5 @@
 {
-  planningValueIterator=planningValues.iterator();
+  planningValueIterator=planningValueList.iterator();
   Object value=planningValueIterator.next();
   planningVariableDescriptor.setValue(planningEntity,value);
   workingValue=value;

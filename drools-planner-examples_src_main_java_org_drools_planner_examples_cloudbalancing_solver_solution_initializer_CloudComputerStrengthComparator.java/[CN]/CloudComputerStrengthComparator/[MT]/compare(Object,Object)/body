@@ -1,0 +1,3 @@
+{
+  return compare((CloudComputer)a,(CloudComputer)b);
+}

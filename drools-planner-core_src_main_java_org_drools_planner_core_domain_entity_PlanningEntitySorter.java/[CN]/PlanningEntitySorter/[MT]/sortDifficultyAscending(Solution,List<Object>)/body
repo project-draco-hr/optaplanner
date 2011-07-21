@@ -15,6 +15,6 @@
     planningEntityList.addAll(planningEntityMap.values());
   }
  else {
-    throw new IllegalStateException("sortDifficultyDescending is impossible" + " because difficultyComparator and difficultyWeightFactory are null.");
+    throw new IllegalStateException("Sorting on difficulty is impossible" + " because difficultyComparator and difficultyWeightFactory are null.");
   }
 }
