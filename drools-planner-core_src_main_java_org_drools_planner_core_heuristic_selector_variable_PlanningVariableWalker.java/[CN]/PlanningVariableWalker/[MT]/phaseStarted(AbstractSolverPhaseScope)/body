@@ -1,0 +1,6 @@
+{
+  for (  PlanningValueWalker planningValueWalker : planningValueWalkerList) {
+    planningValueWalker.phaseStarted(solverPhaseScope);
+  }
+  workingMemory=solverPhaseScope.getWorkingMemory();
+}

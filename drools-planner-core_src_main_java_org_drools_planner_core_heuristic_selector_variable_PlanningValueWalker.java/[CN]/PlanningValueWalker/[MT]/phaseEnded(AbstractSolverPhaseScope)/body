@@ -1,0 +1,5 @@
+{
+  planningValueSelector.phaseEnded(solverPhaseScope);
+  workingMemory=null;
+  workingValue=null;
+}

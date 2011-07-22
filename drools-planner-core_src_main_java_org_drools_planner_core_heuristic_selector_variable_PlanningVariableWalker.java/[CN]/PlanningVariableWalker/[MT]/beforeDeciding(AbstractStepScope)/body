@@ -1,0 +1,5 @@
+{
+  for (  PlanningValueWalker planningValueWalker : planningValueWalkerList) {
+    planningValueWalker.beforeDeciding(stepScope);
+  }
+}

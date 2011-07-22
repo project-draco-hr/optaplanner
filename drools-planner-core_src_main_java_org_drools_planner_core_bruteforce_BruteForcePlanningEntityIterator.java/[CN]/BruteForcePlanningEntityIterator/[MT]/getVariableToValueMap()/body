@@ -1,7 +1,0 @@
-{
-  Map variableToValueMap=new LinkedHashMap<PlanningVariableDescriptor,Object>();
-  for (  BruteForcePlanningVariableIterator planningVariableIterator : planningVariableIteratorList) {
-    variableToValueMap.put(planningVariableIterator.getPlanningVariableDescriptor(),planningVariableIterator.getWorkingValue());
-  }
-  return variableToValueMap;
-}

@@ -1,0 +1,5 @@
+{
+  for (  PlanningVariableWalker planningVariableWalker : planningVariableWalkerList) {
+    planningVariableWalker.stepTaken(bruteForceStepScope);
+  }
+}

@@ -8,7 +8,7 @@
     mergedList.addAll(greedyFitPlanningEntityConfigList);
     greedyFitPlanningEntityConfigList=mergedList;
   }
-  if (pickEarlyFitType == null) {
-    pickEarlyFitType=inheritedConfig.getPickEarlyFitType();
+  if (pickEarlyGreedyFitType == null) {
+    pickEarlyGreedyFitType=inheritedConfig.getPickEarlyGreedyFitType();
   }
 }

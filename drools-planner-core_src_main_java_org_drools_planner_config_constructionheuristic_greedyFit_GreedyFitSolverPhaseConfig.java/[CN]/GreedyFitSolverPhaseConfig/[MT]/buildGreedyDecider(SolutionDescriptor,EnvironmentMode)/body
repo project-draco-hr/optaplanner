@@ -1,0 +1,13 @@
+{
+  DefaultGreedyDecider greedyDecider=new DefaultGreedyDecider();
+  PickEarlyGreedyFitType pickEarlyGreedyFitType=(this.pickEarlyGreedyFitType == null) ? PickEarlyGreedyFitType.NEVER : this.pickEarlyGreedyFitType;
+  PlanningVariableWalker planningVariableWalker=new PlanningVariableWalker(null);
+  List<PlanningValueWalker> planningValueWalkerList=new ArrayList<PlanningValueWalker>();
+  planningVariableWalker.setPlanningValueWalkerList(planningValueWalkerList);
+  greedyDecider.setPlanningVariableWalker(planningVariableWalker);
+  greedyDecider.setPickEarlyGreedyFitType(pickEarlyGreedyFitType);
+  if (environmentMode == EnvironmentMode.TRACE) {
+    greedyDecider.setAssertMoveScoreIsUncorrupted(true);
+  }
+  return greedyDecider;
+}

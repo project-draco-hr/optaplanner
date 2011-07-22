@@ -1,0 +1,10 @@
+{
+  this.planningEntity=planningEntity;
+  for (  PlanningValueWalker planningValueWalker : planningValueWalkerList) {
+    planningValueWalker.initWalk(planningEntity);
+  }
+  planningEntityFactHandle=workingMemory.insert(planningEntity);
+  for (  PlanningValueWalker planningValueWalker : planningValueWalkerList) {
+    planningValueWalker.initPlanningEntityFactHandle(planningEntityFactHandle);
+  }
+}

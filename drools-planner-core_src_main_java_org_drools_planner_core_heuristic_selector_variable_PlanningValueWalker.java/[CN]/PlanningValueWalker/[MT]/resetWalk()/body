@@ -1,0 +1,6 @@
+{
+  planningValueIterator=planningValueSelector.iterator();
+  Object value=planningValueIterator.next();
+  changeWorkingValue(value);
+  workingValue=value;
+}
