@@ -1,7 +1,7 @@
 {
   DefaultSolutionDirector solutionDirector=new DefaultSolutionDirector();
   solutionDirector.setRuleBase(buildRuleBase());
-  solutionDirector.setWorkingScoreCalculator(new DefaultHardAndSoftConstraintScoreCalculator());
+  solutionDirector.setScoreDefinition(new HardAndSoftScoreDefinition());
   Examination examination=(Examination)new ExaminationDaoImpl().readSolution(getClass().getResourceAsStream("/org/drools/planner/examples/examination/data/testExaminationScoreRules.xml"));
   solutionDirector.setWorkingSolution(examination);
   WorkingMemory workingMemory=solutionDirector.getWorkingMemory();
