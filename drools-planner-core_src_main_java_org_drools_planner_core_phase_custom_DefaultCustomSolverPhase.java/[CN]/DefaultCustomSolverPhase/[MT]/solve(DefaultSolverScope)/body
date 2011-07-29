@@ -1,0 +1,15 @@
+{
+  CustomSolverPhaseScope customSolverPhaseScope=new CustomSolverPhaseScope(solverScope);
+  phaseStarted(customSolverPhaseScope);
+  CustomStepScope customStepScope=createNextStepScope(customSolverPhaseScope,null);
+  Iterator<CustomSolverPhaseCommand> commandIterator=customSolverPhaseCommandList.iterator();
+  while (!termination.isPhaseTerminated(customSolverPhaseScope) && commandIterator.hasNext()) {
+    CustomSolverPhaseCommand customSolverPhaseCommand=commandIterator.next();
+    customSolverPhaseCommand.changeWorkingSolution(solverScope.getSolutionDirector());
+    Score score=customSolverPhaseScope.calculateScoreFromWorkingMemory();
+    customStepScope.setScore(score);
+    stepTaken(customStepScope);
+    customStepScope=createNextStepScope(customSolverPhaseScope,customStepScope);
+  }
+  phaseEnded(customSolverPhaseScope);
+}

@@ -1,0 +1,49 @@
+{
+  boolean perfectMatch=false;
+  Score bestScore=DefaultHardAndSoftScore.valueOf(Integer.MIN_VALUE,Integer.MIN_VALUE);
+  Period bestPeriod=null;
+  Room bestRoom=null;
+  for (  PeriodScoring periodScoring : periodScoringList) {
+    if (bestScore.compareTo(periodScoring.getScore()) >= 0) {
+      break;
+    }
+    for (    ExamToHandle examToHandle : examToHandleList) {
+      examToHandle.getExam().setPeriod(periodScoring.getPeriod());
+      workingMemory.update(examToHandle.getExamHandle(),examToHandle.getExam());
+    }
+    for (    Room room : roomList) {
+      leader.setRoom(room);
+      workingMemory.update(leaderHandle,leader);
+      Score score=solutionDirector.calculateScoreFromWorkingMemory();
+      if (score.compareTo(unscheduledScore) < 0) {
+        if (score.compareTo(bestScore) > 0) {
+          bestScore=score;
+          bestPeriod=periodScoring.getPeriod();
+          bestRoom=room;
+        }
+      }
+ else       if (score.equals(unscheduledScore)) {
+        perfectMatch=true;
+        break;
+      }
+ else {
+        throw new IllegalStateException("The score (" + score + ") cannot be higher than unscheduledScore ("+ unscheduledScore+ ").");
+      }
+    }
+    if (perfectMatch) {
+      break;
+    }
+  }
+  if (!perfectMatch) {
+    if (bestPeriod == null || bestRoom == null) {
+      throw new IllegalStateException("The bestPeriod (" + bestPeriod + ") or the bestRoom ("+ bestRoom+ ") cannot be null.");
+    }
+    leader.setRoom(bestRoom);
+    workingMemory.update(leaderHandle,leader);
+    for (    ExamToHandle examToHandle : examToHandleList) {
+      examToHandle.getExam().setPeriod(bestPeriod);
+      workingMemory.update(examToHandle.getExamHandle(),examToHandle.getExam());
+    }
+  }
+  logger.debug("    Exam ({}) initialized for starting solution.",leader);
+}

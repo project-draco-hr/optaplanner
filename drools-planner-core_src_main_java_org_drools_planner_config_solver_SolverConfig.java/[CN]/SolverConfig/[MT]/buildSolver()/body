@@ -22,8 +22,8 @@
   solver.setTermination(termination);
   BestSolutionRecaller bestSolutionRecaller=new BestSolutionRecaller();
   solver.setBestSolutionRecaller(bestSolutionRecaller);
-  if (solverPhaseConfigList == null) {
-    throw new IllegalArgumentException("Configure <phases> in the solver configuration.");
+  if (solverPhaseConfigList == null || solverPhaseConfigList.isEmpty()) {
+    throw new IllegalArgumentException("Configure at least 1 phase (for example <localSearch>) in the solver configuration.");
   }
   List<SolverPhase> solverPhaseList=new ArrayList<SolverPhase>(solverPhaseConfigList.size());
   for (  SolverPhaseConfig solverPhaseConfig : solverPhaseConfigList) {

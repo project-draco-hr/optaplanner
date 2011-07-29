@@ -1,0 +1,92 @@
+{
+  WorkingMemory workingMemory=solutionDirector.getWorkingMemory();
+  List<BedDesignation> bedDesignationList=createBedDesignationList(patientAdmissionSchedule);
+  Map<Bed,Set<Integer>> bedToTakenNightIndexSetMap=null;
+  if (checkSameBedInSameNight) {
+    bedToTakenNightIndexSetMap=new HashMap<Bed,Set<Integer>>(patientAdmissionSchedule.getBedList().size());
+  }
+  List<Bed> bedListInPriority=new ArrayList(patientAdmissionSchedule.getBedList());
+  for (  BedDesignation bedDesignation : bedDesignationList) {
+    Score unscheduledScore=solutionDirector.calculateScoreFromWorkingMemory();
+    int firstNightIndex=bedDesignation.getAdmissionPart().getFirstNight().getIndex();
+    int lastNightIndex=bedDesignation.getAdmissionPart().getLastNight().getIndex();
+    boolean perfectMatch=false;
+    Score bestScore=DefaultHardAndSoftScore.valueOf(Integer.MIN_VALUE);
+    Bed bestBed=null;
+    FactHandle bedDesignationHandle=null;
+    for (    Bed bed : bedListInPriority) {
+      if (checkSameBedInSameNight) {
+        boolean taken=false;
+        Set<Integer> takenNightIndexSet=bedToTakenNightIndexSetMap.get(bed);
+        if (takenNightIndexSet != null) {
+          for (int i=firstNightIndex; i <= lastNightIndex; i++) {
+            if (takenNightIndexSet.contains(i)) {
+              taken=true;
+              break;
+            }
+          }
+        }
+        if (taken) {
+          continue;
+        }
+      }
+      bedDesignation.setBed(bed);
+      if (bedDesignationHandle == null) {
+        bedDesignationHandle=workingMemory.insert(bedDesignation);
+      }
+ else {
+        workingMemory.update(bedDesignationHandle,bedDesignation);
+      }
+      Score score=solutionDirector.calculateScoreFromWorkingMemory();
+      if (score.compareTo(unscheduledScore) < 0) {
+        if (score.compareTo(bestScore) > 0) {
+          bestScore=score;
+          bestBed=bed;
+        }
+      }
+ else       if (score.equals(unscheduledScore)) {
+        perfectMatch=true;
+        bestScore=score;
+        bestBed=bed;
+        break;
+      }
+ else {
+        throw new IllegalStateException("The score (" + score + ") cannot be higher than unscheduledScore ("+ unscheduledScore+ ").");
+      }
+      if (perfectMatch) {
+        break;
+      }
+    }
+    if (bestBed == null) {
+      if (checkSameBedInSameNight) {
+        throw new IllegalArgumentException("The initializer could not locate an allowed and empty bed for admissionPart (" + bedDesignation.getAdmissionPart() + ").");
+      }
+ else {
+        throw new IllegalArgumentException("The initializer could not locate an allowed bed for admissionPart (" + bedDesignation.getAdmissionPart() + ").");
+      }
+    }
+    if (checkSameBedInSameNight) {
+      Set<Integer> takenNightIndexSet=bedToTakenNightIndexSetMap.get(bestBed);
+      if (takenNightIndexSet == null) {
+        takenNightIndexSet=new HashSet<Integer>(patientAdmissionSchedule.getNightList().size());
+        bedToTakenNightIndexSetMap.put(bestBed,takenNightIndexSet);
+      }
+      if (takenNightIndexSet != null) {
+        for (int i=firstNightIndex; i <= lastNightIndex; i++) {
+          boolean unique=takenNightIndexSet.add(i);
+          if (!unique) {
+            throw new IllegalStateException("The takenNightIndexSet cannot possibly already have nightIndex (" + i + ").");
+          }
+        }
+      }
+    }
+    if (!perfectMatch) {
+      bedDesignation.setBed(bestBed);
+      workingMemory.update(bedDesignationHandle,bedDesignation);
+    }
+    bedListInPriority.remove(bestBed);
+    bedListInPriority.add(bestBed);
+  }
+  Collections.sort(bedDesignationList,new PersistableIdComparator());
+  patientAdmissionSchedule.setBedDesignationList(bedDesignationList);
+}

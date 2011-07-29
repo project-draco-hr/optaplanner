@@ -1,0 +1,4 @@
+{
+  super.phaseEnded(customSolverPhaseScope);
+  logger.info("Custom phase ended at step index ({}) for best score ({}).",customSolverPhaseScope.getLastCompletedStepScope().getStepIndex(),customSolverPhaseScope.getBestScore());
+}

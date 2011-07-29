@@ -1,0 +1,21 @@
+{
+  DefaultCustomSolverPhase customSolverPhase=new DefaultCustomSolverPhase();
+  configureSolverPhase(customSolverPhase,environmentMode,scoreDefinition,solverTermination);
+  if (customSolverPhaseCommandClassList == null || customSolverPhaseCommandClassList.isEmpty()) {
+    throw new IllegalArgumentException("Configure at least 1 <customSolverPhaseCommandClass> in the customSolverPhase configuration.");
+  }
+  List<CustomSolverPhaseCommand> customSolverPhaseCommandList=new ArrayList<CustomSolverPhaseCommand>(customSolverPhaseCommandClassList.size());
+  for (  Class<CustomSolverPhaseCommand> customSolverPhaseCommandClass : customSolverPhaseCommandClassList) {
+    try {
+      customSolverPhaseCommandList.add(customSolverPhaseCommandClass.newInstance());
+    }
+ catch (    InstantiationException e) {
+      throw new IllegalArgumentException("customSolverPhaseCommandClass (" + customSolverPhaseCommandClass.getName() + ") does not have a public no-arg constructor",e);
+    }
+catch (    IllegalAccessException e) {
+      throw new IllegalArgumentException("customSolverPhaseCommandClass (" + customSolverPhaseCommandClass.getName() + ") does not have a public no-arg constructor",e);
+    }
+  }
+  customSolverPhase.setCustomSolverPhaseCommandList(customSolverPhaseCommandList);
+  return customSolverPhase;
+}

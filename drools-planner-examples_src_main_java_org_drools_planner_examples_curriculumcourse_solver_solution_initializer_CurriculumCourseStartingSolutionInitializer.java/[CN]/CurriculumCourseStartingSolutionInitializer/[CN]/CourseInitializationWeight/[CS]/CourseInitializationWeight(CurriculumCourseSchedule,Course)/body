@@ -1,9 +1,0 @@
-{
-  this.course=course;
-  unavailablePeriodConstraintCount=0;
-  for (  UnavailablePeriodConstraint constraint : schedule.getUnavailablePeriodConstraintList()) {
-    if (constraint.getCourse().equals(course)) {
-      unavailablePeriodConstraintCount++;
-    }
-  }
-}

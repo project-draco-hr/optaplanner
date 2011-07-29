@@ -1,4 +1,0 @@
-{
-  TravelingSalesmanTour travelingSalesmanTour=(TravelingSalesmanTour)solverScope.getWorkingSolution();
-  initializeCityAssignmentList(solverScope,travelingSalesmanTour);
-}
