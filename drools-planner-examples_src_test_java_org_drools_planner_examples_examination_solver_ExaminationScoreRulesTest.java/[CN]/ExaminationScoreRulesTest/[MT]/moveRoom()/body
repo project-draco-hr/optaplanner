@@ -1,15 +1,14 @@
 {
-  DefaultSolverScope solverScope=new DefaultSolverScope();
-  LocalSearchSolverPhaseScope localSearchSolverPhaseScope=new LocalSearchSolverPhaseScope(solverScope);
-  solverScope.setRuleBase(buildRuleBase());
-  solverScope.setWorkingScoreCalculator(new DefaultHardAndSoftConstraintScoreCalculator());
+  DefaultSolutionDirector solutionDirector=new DefaultSolutionDirector();
+  solutionDirector.setRuleBase(buildRuleBase());
+  solutionDirector.setWorkingScoreCalculator(new DefaultHardAndSoftConstraintScoreCalculator());
   Examination examination=(Examination)new ExaminationDaoImpl().readSolution(getClass().getResourceAsStream("/org/drools/planner/examples/examination/data/testExaminationScoreRules.xml"));
-  solverScope.setWorkingSolution(examination);
-  WorkingMemory workingMemory=localSearchSolverPhaseScope.getWorkingMemory();
-  localSearchSolverPhaseScope.calculateScoreFromWorkingMemory();
+  solutionDirector.setWorkingSolution(examination);
+  WorkingMemory workingMemory=solutionDirector.getWorkingMemory();
+  solutionDirector.calculateScoreFromWorkingMemory();
   Exam exam=findExamById(examination,123L);
   Room room=findRoomById(examination,0L);
   ExaminationMoveHelper.moveRoom(workingMemory,exam,room);
-  Score score=localSearchSolverPhaseScope.calculateScoreFromWorkingMemory();
-  localSearchSolverPhaseScope.assertWorkingScore(score);
+  Score score=solutionDirector.calculateScoreFromWorkingMemory();
+  solutionDirector.assertWorkingScore(score);
 }

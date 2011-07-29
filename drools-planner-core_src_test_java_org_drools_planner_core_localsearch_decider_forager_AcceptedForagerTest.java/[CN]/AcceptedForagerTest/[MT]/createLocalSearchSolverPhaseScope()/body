@@ -1,7 +1,9 @@
 {
   DefaultSolverScope solverScope=new DefaultSolverScope();
   LocalSearchSolverPhaseScope localSearchSolverPhaseScope=new LocalSearchSolverPhaseScope(solverScope);
-  solverScope.setScoreDefinition(new SimpleScoreDefinition());
+  DefaultSolutionDirector solutionDirector=new DefaultSolutionDirector();
+  solutionDirector.setScoreDefinition(new SimpleScoreDefinition());
+  solverScope.setSolutionDirector(solutionDirector);
   solverScope.setWorkingRandom(new Random(){
     public double nextDouble(){
       return 0.2;

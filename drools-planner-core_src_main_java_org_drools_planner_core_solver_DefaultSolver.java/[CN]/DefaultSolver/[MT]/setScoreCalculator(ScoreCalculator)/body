@@ -1,3 +1,0 @@
-{
-  solverScope.setWorkingScoreCalculator(scoreCalculator);
-}

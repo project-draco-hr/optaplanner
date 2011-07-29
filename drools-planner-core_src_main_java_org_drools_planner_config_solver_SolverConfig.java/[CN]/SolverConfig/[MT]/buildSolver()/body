@@ -11,11 +11,13 @@
     }
   }
   SolutionDescriptor solutionDescriptor=buildSolutionDescriptor();
-  solver.setSolutionDescriptor(solutionDescriptor);
-  solver.setRuleBase(buildRuleBase());
+  DefaultSolutionDirector solutionDirector=new DefaultSolutionDirector();
+  solutionDirector.setSolutionDescriptor(solutionDescriptor);
+  solutionDirector.setRuleBase(buildRuleBase());
   ScoreDefinition scoreDefinition=scoreDefinitionConfig.buildScoreDefinition();
-  solver.setScoreDefinition(scoreDefinition);
-  solver.setScoreCalculator(scoreDefinitionConfig.buildScoreCalculator());
+  solutionDirector.setScoreDefinition(scoreDefinition);
+  solutionDirector.setWorkingScoreCalculator(scoreDefinitionConfig.buildScoreCalculator());
+  solver.setSolutionDirector(solutionDirector);
   Termination termination=terminationConfig.buildTermination(scoreDefinition,basicPlumbingTermination);
   solver.setTermination(termination);
   BestSolutionRecaller bestSolutionRecaller=new BestSolutionRecaller();
