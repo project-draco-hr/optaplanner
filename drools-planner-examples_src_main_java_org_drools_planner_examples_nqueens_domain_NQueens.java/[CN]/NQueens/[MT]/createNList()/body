@@ -1,8 +1,0 @@
-{
-  int n=getN();
-  List<Integer> nList=new ArrayList<Integer>(n);
-  for (int i=0; i < n; i++) {
-    nList.add(i);
-  }
-  return nList;
-}
