@@ -3,6 +3,6 @@
     solver.addPlanningFactChange(planningFactChange);
   }
  else {
-    planningFactChange.doChange(solverScope.getWorkingSolution(),solverScope.getWorkingMemory());
+    planningFactChange.doChange(solverScope.getSolutionDirector());
   }
 }

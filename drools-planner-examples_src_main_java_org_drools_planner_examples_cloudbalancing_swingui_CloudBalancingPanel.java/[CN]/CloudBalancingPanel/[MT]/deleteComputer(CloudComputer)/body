@@ -1,8 +1,9 @@
 {
   logger.info("Scheduling deleting of computer ({}).",cloudComputer.getLabel());
   solutionBusiness.doPlanningFactChange(new PlanningFactChange(){
-    public void doChange(    Solution solution,    WorkingMemory workingMemory){
-      CloudBalance cloudBalance=(CloudBalance)solution;
+    public void doChange(    SolutionDirector solutionDirector){
+      CloudBalance cloudBalance=(CloudBalance)solutionDirector.getWorkingSolution();
+      WorkingMemory workingMemory=solutionDirector.getWorkingMemory();
       for (      CloudAssignment cloudAssignment : cloudBalance.getCloudAssignmentList()) {
         if (ObjectUtils.equals(cloudAssignment.getCloudComputer(),cloudComputer)) {
           FactHandle cloudAssignmentHandle=workingMemory.getFactHandle(cloudAssignment);
