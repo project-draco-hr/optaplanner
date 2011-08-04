@@ -12,9 +12,9 @@
  else   if (false) {
     if (pickEarlyGreedyFitType != null) {
     }
-    throw new UnsupportedOperationException("Detailed configuration is not yet implemented");
+    throw new UnsupportedOperationException("Detailed configuration is not yet implemented.");
   }
  else {
-    throw new IllegalArgumentException("A constructionHeuristic requires configuration, " + "for example a constructionHeuristicType..");
+    throw new IllegalArgumentException("A constructionHeuristic requires configuration, " + "for example a constructionHeuristicType.");
   }
 }
