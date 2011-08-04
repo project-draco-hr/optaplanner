@@ -1,14 +1,11 @@
 {
   solutionBusiness.addSolverEventLister(new SolverEventListener(){
     public void bestSolutionChanged(    BestSolutionChangedEvent event){
-      System.out.println("bestSolutionChanged - " + event.getNewBestSolution().getScore());
       latestBestSolutionReference.getAndSet(event.getNewBestSolution());
       SwingUtilities.invokeLater(new Runnable(){
         public void run(){
-          System.out.println("invokeLater");
           Solution latestBestSolution=latestBestSolutionReference.getAndSet(null);
           if (latestBestSolution != null) {
-            System.out.println("invokeLater - " + latestBestSolution.getScore());
             if (refreshScreenDuringSolvingCheckBox.isSelected()) {
               solutionPanel.updatePanel(solutionBusiness.getSolution());
               validate();
