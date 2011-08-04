@@ -10,7 +10,7 @@
     return greedySolverPhase;
   }
  else   if (false) {
-    if (pickEarlyGreedyFitType != null) {
+    if (constructionHeuristicPickEarlyType != null) {
     }
     throw new UnsupportedOperationException("Detailed configuration is not yet implemented.");
   }

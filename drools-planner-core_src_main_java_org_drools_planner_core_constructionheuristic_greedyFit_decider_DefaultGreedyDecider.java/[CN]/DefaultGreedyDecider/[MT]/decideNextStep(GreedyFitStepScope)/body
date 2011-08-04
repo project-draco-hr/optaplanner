@@ -13,7 +13,7 @@
       greedyFitStepScope.setVariableToValueMap(planningVariableWalker.getVariableToValueMap());
       maxScore=score;
     }
-    if (pickEarlyGreedyFitType == PickEarlyGreedyFitType.FIRST_LAST_STEP_SCORE_IMPROVING_OR_EQUAL && score.compareTo(lastStepScore) >= 0) {
+    if (constructionHeuristicPickEarlyType == ConstructionHeuristicPickEarlyType.FIRST_LAST_STEP_SCORE_EQUAL_OR_IMPROVING && lastStepScore != null && score.compareTo(lastStepScore) >= 0) {
       break;
     }
   }

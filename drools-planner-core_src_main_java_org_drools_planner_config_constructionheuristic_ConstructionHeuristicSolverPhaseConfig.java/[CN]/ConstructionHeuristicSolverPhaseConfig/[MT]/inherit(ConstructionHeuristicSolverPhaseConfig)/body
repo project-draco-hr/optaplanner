@@ -3,7 +3,7 @@
   if (constructionHeuristicType == null) {
     constructionHeuristicType=inheritedConfig.getConstructionHeuristicType();
   }
-  if (pickEarlyGreedyFitType == null) {
-    pickEarlyGreedyFitType=inheritedConfig.getPickEarlyGreedyFitType();
+  if (constructionHeuristicPickEarlyType == null) {
+    constructionHeuristicPickEarlyType=inheritedConfig.getConstructionHeuristicPickEarlyType();
   }
 }
