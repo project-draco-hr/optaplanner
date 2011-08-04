@@ -42,6 +42,9 @@ catch (    IllegalAccessException e) {
   if (propertyGetter.isAnnotationPresent(ValueRangeFromSolutionProperty.class)) {
     processValueRangeSolutionPropertyAnnotation(propertyGetter.getAnnotation(ValueRangeFromSolutionProperty.class));
   }
+ else   if (propertyGetter.isAnnotationPresent(ValueRangeUndefined.class)) {
+    processValueRangeUndefinedAnnotation(propertyGetter.getAnnotation(ValueRangeUndefined.class));
+  }
  else {
     throw new IllegalArgumentException("The planningEntityClass (" + planningEntityDescriptor.getPlanningEntityClass() + ") has a PlanningVariable annotated property ("+ variablePropertyDescriptor.getName()+ ") that has no ValueRange* annotation, such as ValueRangeFromSolutionProperty.");
   }
