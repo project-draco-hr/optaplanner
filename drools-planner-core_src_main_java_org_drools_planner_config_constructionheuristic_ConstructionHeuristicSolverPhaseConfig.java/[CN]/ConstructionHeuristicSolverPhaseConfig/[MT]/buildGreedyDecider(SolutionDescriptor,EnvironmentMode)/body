@@ -1,0 +1,25 @@
+{
+  DefaultGreedyDecider greedyDecider=new DefaultGreedyDecider();
+  PickEarlyGreedyFitType pickEarlyGreedyFitType=(this.pickEarlyGreedyFitType == null) ? PickEarlyGreedyFitType.NEVER : this.pickEarlyGreedyFitType;
+  Set<Class<?>> planningEntityImplementationClassSet=solutionDescriptor.getPlanningEntityImplementationClassSet();
+  if (planningEntityImplementationClassSet.size() != 1) {
+    throw new UnsupportedOperationException("Currently the greedyFit implementation only supports " + "1 planningEntityImplementationClass.");
+  }
+  Class<?> planningEntityImplementationClass=planningEntityImplementationClassSet.iterator().next();
+  PlanningEntityDescriptor planningEntityDescriptor=solutionDescriptor.getPlanningEntityDescriptor(planningEntityImplementationClass);
+  PlanningVariableWalker planningVariableWalker=new PlanningVariableWalker(planningEntityDescriptor);
+  List<PlanningValueWalker> planningValueWalkerList=new ArrayList<PlanningValueWalker>();
+  for (  PlanningVariableDescriptor planningVariableDescriptor : planningEntityDescriptor.getPlanningVariableDescriptors()) {
+    PlanningValueSelector planningValueSelector=new PlanningValueSelector(planningVariableDescriptor);
+    planningValueSelector.setSelectionOrder(determinePlanningValueSelectionOrder());
+    PlanningValueWalker planningValueWalker=new PlanningValueWalker(planningVariableDescriptor,planningValueSelector);
+    planningValueWalkerList.add(planningValueWalker);
+  }
+  planningVariableWalker.setPlanningValueWalkerList(planningValueWalkerList);
+  greedyDecider.setPlanningVariableWalker(planningVariableWalker);
+  greedyDecider.setPickEarlyGreedyFitType(pickEarlyGreedyFitType);
+  if (environmentMode == EnvironmentMode.TRACE) {
+    greedyDecider.setAssertMoveScoreIsUncorrupted(true);
+  }
+  return greedyDecider;
+}

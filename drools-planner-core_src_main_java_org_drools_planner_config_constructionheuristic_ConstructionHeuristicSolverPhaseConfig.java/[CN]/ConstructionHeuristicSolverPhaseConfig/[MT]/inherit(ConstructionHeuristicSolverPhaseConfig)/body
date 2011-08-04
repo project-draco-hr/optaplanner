@@ -1,0 +1,9 @@
+{
+  super.inherit(inheritedConfig);
+  if (constructionHeuristicType == null) {
+    constructionHeuristicType=inheritedConfig.getConstructionHeuristicType();
+  }
+  if (pickEarlyGreedyFitType == null) {
+    pickEarlyGreedyFitType=inheritedConfig.getPickEarlyGreedyFitType();
+  }
+}

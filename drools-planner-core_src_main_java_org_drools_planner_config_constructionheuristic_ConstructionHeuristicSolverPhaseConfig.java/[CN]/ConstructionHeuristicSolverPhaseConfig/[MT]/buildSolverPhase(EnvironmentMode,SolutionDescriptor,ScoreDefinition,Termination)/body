@@ -1,0 +1,20 @@
+{
+  if (constructionHeuristicType != null) {
+    DefaultGreedyFitSolverPhase greedySolverPhase=new DefaultGreedyFitSolverPhase();
+    configureSolverPhase(greedySolverPhase,environmentMode,scoreDefinition,solverTermination);
+    greedySolverPhase.setGreedyPlanningEntitySelector(buildGreedyPlanningEntitySelector(solutionDescriptor));
+    greedySolverPhase.setGreedyDecider(buildGreedyDecider(solutionDescriptor,environmentMode));
+    if (environmentMode == EnvironmentMode.DEBUG || environmentMode == EnvironmentMode.TRACE) {
+      greedySolverPhase.setAssertStepScoreIsUncorrupted(true);
+    }
+    return greedySolverPhase;
+  }
+ else   if (false) {
+    if (pickEarlyGreedyFitType != null) {
+    }
+    throw new UnsupportedOperationException("Detailed configuration is not yet implemented");
+  }
+ else {
+    throw new IllegalArgumentException("A constructionHeuristic requires configuration, " + "for example a constructionHeuristicType..");
+  }
+}
