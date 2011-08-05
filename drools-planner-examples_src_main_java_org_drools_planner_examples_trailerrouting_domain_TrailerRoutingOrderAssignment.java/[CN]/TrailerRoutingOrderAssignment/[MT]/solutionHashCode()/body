@@ -1,3 +1,0 @@
-{
-  return new HashCodeBuilder().append(id).append(order).append(driver).append(truck).append(primaryTrailer).append(secondaryTrailer).toHashCode();
-}
