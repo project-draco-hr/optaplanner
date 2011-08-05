@@ -2,14 +2,14 @@
   removeAll();
   Manners2009 manners2009=(Manners2009)solution;
   gridLayout.setColumns((int)Math.ceil(Math.sqrt(manners2009.getTableList().size())));
-  Map<Table,JPanel> tablePanelMap=new HashMap<Table,JPanel>(manners2009.getTableList().size());
   Map<Seat,SeatPanel> seatPanelMap=new HashMap<Seat,SeatPanel>(manners2009.getSeatList().size());
+  SeatPanel unassignedPanel=new SeatPanel(null);
+  seatPanelMap.put(null,unassignedPanel);
   for (  Table table : manners2009.getTableList()) {
     int edgeLength=(int)Math.ceil(((double)(table.getSeatList().size() + 4)) / 4.0);
     JPanel tablePanel=new JPanel(new GridLayout(0,edgeLength));
     tablePanel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(5,5,5,5),BorderFactory.createTitledBorder("Table " + table.getTableIndex())));
     add(tablePanel);
-    tablePanelMap.put(table,tablePanel);
     for (int y=0; y < edgeLength; y++) {
       for (int x=0; x < edgeLength; x++) {
         int index;
@@ -40,10 +40,8 @@
       }
     }
   }
-  if (manners2009.isInitialized()) {
-    for (    SeatDesignation seatDesignation : manners2009.getSeatDesignationList()) {
-      SeatPanel seatPanel=seatPanelMap.get(seatDesignation.getSeat());
-      seatPanel.addSeatDesignation(seatDesignation);
-    }
+  for (  SeatDesignation seatDesignation : manners2009.getSeatDesignationList()) {
+    SeatPanel seatPanel=seatPanelMap.get(seatDesignation.getSeat());
+    seatPanel.addSeatDesignation(seatDesignation);
   }
 }

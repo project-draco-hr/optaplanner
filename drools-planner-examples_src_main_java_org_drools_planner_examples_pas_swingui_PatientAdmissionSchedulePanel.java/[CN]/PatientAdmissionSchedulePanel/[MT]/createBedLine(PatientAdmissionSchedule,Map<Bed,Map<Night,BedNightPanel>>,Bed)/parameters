@@ -1,0 +1,3 @@
+PatientAdmissionSchedule patientAdmissionSchedule
+Map<Bed,Map<Night,BedNightPanel>> bedNightPanelMap
+Bed bed
