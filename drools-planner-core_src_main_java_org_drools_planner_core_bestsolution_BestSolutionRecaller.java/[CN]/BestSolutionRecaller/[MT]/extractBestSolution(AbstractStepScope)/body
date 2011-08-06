@@ -3,14 +3,21 @@
     return;
   }
   AbstractSolverPhaseScope solverPhaseScope=stepScope.getSolverPhaseScope();
+  DefaultSolverScope solverScope=solverPhaseScope.getSolverScope();
   Score newScore=stepScope.getScore();
   Score bestScore=solverPhaseScope.getBestScore();
-  boolean bestScoreImproved=bestScore == null || newScore.compareTo(bestScore) > 0;
+  boolean bestScoreImproved;
+  if (bestScore == null) {
+    bestScoreImproved=true;
+    solverScope.setStartingInitializedScore(newScore);
+  }
+ else {
+    bestScoreImproved=newScore.compareTo(bestScore) > 0;
+  }
   stepScope.setBestScoreImproved(bestScoreImproved);
   if (bestScoreImproved) {
     solverPhaseScope.setBestSolutionStepIndex(stepScope.getStepIndex());
     Solution newBestSolution=stepScope.createOrGetClonedSolution();
-    DefaultSolverScope solverScope=solverPhaseScope.getSolverScope();
     solverScope.setBestSolution(newBestSolution);
     solverScope.setBestScore(newBestSolution.getScore());
     solverEventSupport.fireBestSolutionChanged(newBestSolution);

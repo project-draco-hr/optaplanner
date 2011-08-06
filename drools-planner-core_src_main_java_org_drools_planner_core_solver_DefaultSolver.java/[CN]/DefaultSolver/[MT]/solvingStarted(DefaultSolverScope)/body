@@ -12,5 +12,5 @@
     solverScope.setWorkingRandom(new Random());
   }
   bestSolutionRecaller.solvingStarted(solverScope);
-  logger.info("Starting with time spend ({}), score ({}), new best score ({}).",new Object[]{solverScope.calculateTimeMillisSpend(),solverScope.getStartingScore(),solverScope.getBestScore()});
+  logger.info("Starting with time spend ({}), score ({}), new best score ({}).",new Object[]{solverScope.calculateTimeMillisSpend(),solverScope.getStartingInitializedScore(),solverScope.getBestScore()});
 }
