@@ -2,17 +2,17 @@
   XYSeriesCollection seriesCollection=new XYSeriesCollection();
   for (  Map.Entry<String,MemoryUseStatisticListener> listenerEntry : statisticListenerMap.entrySet()) {
     String configName=listenerEntry.getKey();
-    XYSeries configUsedSeries=new XYSeries(configName + " used");
-    XYSeries configMaxSeries=new XYSeries(configName + " max");
+    XYSeries usedSeries=new XYSeries(configName + " used");
+    XYSeries maxSeries=new XYSeries(configName + " max");
     List<MemoryUseStatisticPoint> statisticPointList=listenerEntry.getValue().getStatisticPointList();
     for (    MemoryUseStatisticPoint statisticPoint : statisticPointList) {
       long timeMillisSpend=statisticPoint.getTimeMillisSpend();
       MemoryUseMeasurement memoryUseMeasurement=statisticPoint.getMemoryUseMeasurement();
-      configUsedSeries.add(timeMillisSpend,memoryUseMeasurement.getUsedMemory());
-      configMaxSeries.add(timeMillisSpend,memoryUseMeasurement.getMaxMemory());
+      usedSeries.add(timeMillisSpend,memoryUseMeasurement.getUsedMemory());
+      maxSeries.add(timeMillisSpend,memoryUseMeasurement.getMaxMemory());
     }
-    seriesCollection.addSeries(configUsedSeries);
-    seriesCollection.addSeries(configMaxSeries);
+    seriesCollection.addSeries(usedSeries);
+    seriesCollection.addSeries(maxSeries);
   }
   NumberAxis xAxis=new NumberAxis("Time millis spend");
   xAxis.setNumberFormatOverride(new MillisecondsSpendNumberFormat());

@@ -2,14 +2,14 @@
   XYSeriesCollection seriesCollection=new XYSeriesCollection();
   for (  Map.Entry<String,CalculateCountStatisticListener> listenerEntry : statisticListenerMap.entrySet()) {
     String configName=listenerEntry.getKey();
-    XYSeries configSeries=new XYSeries(configName);
+    XYSeries series=new XYSeries(configName);
     List<CalculateCountStatisticPoint> statisticPointList=listenerEntry.getValue().getStatisticPointList();
     for (    CalculateCountStatisticPoint statisticPoint : statisticPointList) {
       long timeMillisSpend=statisticPoint.getTimeMillisSpend();
       long calculateCountPerSecond=statisticPoint.getCalculateCountPerSecond();
-      configSeries.add(timeMillisSpend,calculateCountPerSecond);
+      series.add(timeMillisSpend,calculateCountPerSecond);
     }
-    seriesCollection.addSeries(configSeries);
+    seriesCollection.addSeries(series);
   }
   NumberAxis xAxis=new NumberAxis("Time millis spend");
   xAxis.setNumberFormatOverride(new MillisecondsSpendNumberFormat());
