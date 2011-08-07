@@ -1,0 +1,19 @@
+{
+  if (maximumTimeMillisSpend == null && maximumSecondsSpend == null && maximumMinutesSpend == null && maximumHoursSpend == null) {
+    return null;
+  }
+  long maximumTimeMillisSpendTotal=0L;
+  if (maximumTimeMillisSpend != null) {
+    maximumTimeMillisSpendTotal+=maximumTimeMillisSpend;
+  }
+  if (maximumSecondsSpend != null) {
+    maximumTimeMillisSpendTotal+=maximumSecondsSpend * 1000L;
+  }
+  if (maximumMinutesSpend != null) {
+    maximumTimeMillisSpendTotal+=maximumMinutesSpend * 60000L;
+  }
+  if (maximumHoursSpend != null) {
+    maximumTimeMillisSpendTotal+=maximumHoursSpend * 3600000L;
+  }
+  return maximumTimeMillisSpendTotal;
+}

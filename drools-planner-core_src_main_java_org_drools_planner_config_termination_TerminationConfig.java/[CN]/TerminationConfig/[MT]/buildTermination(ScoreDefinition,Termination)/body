@@ -1,72 +1,7 @@
 {
-  List<Termination> terminationList=new ArrayList<Termination>();
-  if (termination != null) {
-    terminationList.add(termination);
-  }
-  if (terminationClass != null) {
-    try {
-      terminationList.add(terminationClass.newInstance());
-    }
- catch (    InstantiationException e) {
-      throw new IllegalArgumentException("terminationClass (" + terminationClass.getName() + ") does not have a public no-arg constructor",e);
-    }
-catch (    IllegalAccessException e) {
-      throw new IllegalArgumentException("terminationClass (" + terminationClass.getName() + ") does not have a public no-arg constructor",e);
-    }
-  }
-  if (maximumStepCount != null) {
-    StepCountTermination termination=new StepCountTermination();
-    termination.setMaximumStepCount(maximumStepCount);
-    terminationList.add(termination);
-  }
-  if (maximumTimeMillisSpend != null) {
-    TimeMillisSpendTermination termination=new TimeMillisSpendTermination();
-    termination.setMaximumTimeMillisSpend(maximumTimeMillisSpend);
-    terminationList.add(termination);
-  }
-  if (maximumSecondsSpend != null) {
-    TimeMillisSpendTermination termination=new TimeMillisSpendTermination();
-    termination.setMaximumTimeMillisSpend(maximumSecondsSpend * 1000L);
-    terminationList.add(termination);
-  }
-  if (maximumMinutesSpend != null) {
-    TimeMillisSpendTermination termination=new TimeMillisSpendTermination();
-    termination.setMaximumTimeMillisSpend(maximumMinutesSpend * 60000L);
-    terminationList.add(termination);
-  }
-  if (maximumHoursSpend != null) {
-    TimeMillisSpendTermination termination=new TimeMillisSpendTermination();
-    termination.setMaximumTimeMillisSpend(maximumHoursSpend * 3600000L);
-    terminationList.add(termination);
-  }
-  if (scoreAttained != null) {
-    ScoreAttainedTermination termination=new ScoreAttainedTermination();
-    termination.setScoreAttained(scoreDefinition.parseScore(scoreAttained));
-    terminationList.add(termination);
-  }
-  if (maximumUnimprovedStepCount != null) {
-    UnimprovedStepCountTermination termination=new UnimprovedStepCountTermination();
-    termination.setMaximumUnimprovedStepCount(maximumUnimprovedStepCount);
-    terminationList.add(termination);
-  }
-  if (terminationList.size() == 1) {
-    return new OrCompositeTermination(chainedTermination,terminationList.get(0));
-  }
- else   if (terminationList.size() > 1) {
-    AbstractCompositeTermination compositeTermination;
-    if (terminationCompositionStyle == null || terminationCompositionStyle == TerminationCompositionStyle.OR) {
-      compositeTermination=new OrCompositeTermination();
-    }
- else     if (terminationCompositionStyle == TerminationCompositionStyle.AND) {
-      compositeTermination=new AndCompositeTermination();
-    }
- else {
-      throw new IllegalStateException("The terminationCompositionStyle (" + terminationCompositionStyle + ") is not implemented");
-    }
-    compositeTermination.setTerminationList(terminationList);
-    return new OrCompositeTermination(chainedTermination,compositeTermination);
-  }
- else {
+  Termination termination=buildTermination(scoreDefinition);
+  if (termination == null) {
     return chainedTermination;
   }
+  return new OrCompositeTermination(chainedTermination,termination);
 }

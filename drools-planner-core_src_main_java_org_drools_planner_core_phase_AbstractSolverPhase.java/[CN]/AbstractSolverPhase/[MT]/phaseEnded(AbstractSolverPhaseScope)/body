@@ -1,6 +1,9 @@
 {
   DefaultSolverScope solverScope=solverPhaseScope.getSolverScope();
-  solverScope.getSolutionDirector().setWorkingSolution(solverScope.getBestSolution());
+  Solution bestSolution=solverScope.getBestSolution();
+  if (bestSolution != null) {
+    solverScope.getSolutionDirector().setWorkingSolution(bestSolution);
+  }
   termination.phaseEnded(solverPhaseScope);
   solverPhaseLifecycleSupport.firePhaseEnded(solverPhaseScope);
 }

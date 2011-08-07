@@ -1,0 +1,9 @@
+{
+  Long oldMaximumTimeMillisSpendTotal=calculateMaximumTimeMillisSpendTotal();
+  if (oldMaximumTimeMillisSpendTotal == null || maximumTimeMillisSpendTotal < oldMaximumTimeMillisSpendTotal) {
+    maximumTimeMillisSpend=maximumTimeMillisSpendTotal;
+    maximumSecondsSpend=null;
+    maximumMinutesSpend=null;
+    maximumHoursSpend=null;
+  }
+}
