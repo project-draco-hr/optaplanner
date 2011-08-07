@@ -1,0 +1,4 @@
+{
+  Examination examination=(Examination)solutionDirector.getWorkingSolution();
+  initializeExamList(solutionDirector,examination);
+}

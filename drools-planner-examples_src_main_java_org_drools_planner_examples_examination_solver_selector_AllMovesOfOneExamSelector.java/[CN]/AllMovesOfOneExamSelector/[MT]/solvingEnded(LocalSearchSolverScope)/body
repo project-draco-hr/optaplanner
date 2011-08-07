@@ -1,5 +1,0 @@
-{
-  periodChangeMoveFactory.solvingEnded(localSearchSolverScope);
-  roomChangeMoveFactory.solvingEnded(localSearchSolverScope);
-  examSwitchMoveFactory.solvingEnded(localSearchSolverScope);
-}

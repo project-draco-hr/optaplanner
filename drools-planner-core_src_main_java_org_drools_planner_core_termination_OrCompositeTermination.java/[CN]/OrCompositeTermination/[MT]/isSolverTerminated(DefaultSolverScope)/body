@@ -1,0 +1,8 @@
+{
+  for (  Termination termination : terminationList) {
+    if (termination.isSolverTerminated(solverScope)) {
+      return true;
+    }
+  }
+  return false;
+}

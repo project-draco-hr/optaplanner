@@ -4,6 +4,6 @@
   }
   configNameList.add(configName);
   CalculateCountStatisticListener statisticListener=new CalculateCountStatisticListener();
-  ((LocalSearchSolver)solver).addLocalSearchSolverLifecycleListener(statisticListener);
+  ((DefaultSolver)solver).addSolverPhaseLifecycleListener(statisticListener);
   statisticListenerMap.put(configName,statisticListener);
 }

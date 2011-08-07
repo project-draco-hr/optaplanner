@@ -1,0 +1,3 @@
+{
+  planningEntityDescriptorMap.put(planningEntityDescriptor.getPlanningEntityClass(),planningEntityDescriptor);
+}

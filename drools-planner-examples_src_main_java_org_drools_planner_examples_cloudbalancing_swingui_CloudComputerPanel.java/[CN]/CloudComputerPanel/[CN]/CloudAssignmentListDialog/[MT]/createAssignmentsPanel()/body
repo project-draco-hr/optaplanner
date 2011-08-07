@@ -1,0 +1,21 @@
+{
+  JPanel assignmentsPanel=new JPanel(new GridLayout(0,5));
+  int colorIndex=0;
+  for (  CloudAssignment cloudAssignment : cloudAssignmentList) {
+    JLabel cloudAssignmentLabel=new JLabel(cloudAssignment.getLabel());
+    cloudAssignmentLabel.setForeground(CloudBalancingPanel.PROCESS_COLORS[colorIndex]);
+    assignmentsPanel.add(cloudAssignmentLabel);
+    JTextField cpuPowerField=new JTextField(cloudAssignment.getMinimalCpuPower() + " GHz");
+    cpuPowerField.setEditable(false);
+    assignmentsPanel.add(cpuPowerField);
+    JTextField memoryField=new JTextField(cloudAssignment.getMinimalMemory() + " GB");
+    memoryField.setEditable(false);
+    assignmentsPanel.add(memoryField);
+    JTextField networkBandwidthField=new JTextField(cloudAssignment.getMinimalNetworkBandwidth() + " GB");
+    networkBandwidthField.setEditable(false);
+    assignmentsPanel.add(networkBandwidthField);
+    assignmentsPanel.add(new JLabel(""));
+    colorIndex=(colorIndex + 1) % CloudBalancingPanel.PROCESS_COLORS.length;
+  }
+  return assignmentsPanel;
+}

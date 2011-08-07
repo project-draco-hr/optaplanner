@@ -1,0 +1,3 @@
+{
+  return getSolverPhaseScope().getWorkingMemory();
+}

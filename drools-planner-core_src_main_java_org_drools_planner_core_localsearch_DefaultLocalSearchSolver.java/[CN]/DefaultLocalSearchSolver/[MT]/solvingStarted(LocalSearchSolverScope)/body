@@ -1,6 +1,0 @@
-{
-  super.solvingStarted(localSearchSolverScope);
-  termination.solvingStarted(localSearchSolverScope);
-  decider.solvingStarted(localSearchSolverScope);
-  localSearchSolverLifecycleSupport.fireSolvingStarted(localSearchSolverScope);
-}

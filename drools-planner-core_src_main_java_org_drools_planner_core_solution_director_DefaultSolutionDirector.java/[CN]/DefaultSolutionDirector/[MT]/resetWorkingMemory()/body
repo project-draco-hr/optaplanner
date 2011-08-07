@@ -1,0 +1,10 @@
+{
+  if (workingMemory != null) {
+    workingMemory.dispose();
+  }
+  workingMemory=ruleBase.newStatefulSession();
+  workingMemory.setGlobal(GLOBAL_SCORE_CALCULATOR_KEY,workingScoreCalculator);
+  for (  Object fact : getWorkingFacts()) {
+    workingMemory.insert(fact);
+  }
+}

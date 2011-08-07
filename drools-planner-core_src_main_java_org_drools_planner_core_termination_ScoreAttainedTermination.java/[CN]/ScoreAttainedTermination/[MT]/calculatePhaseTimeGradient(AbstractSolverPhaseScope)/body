@@ -1,0 +1,5 @@
+{
+  Score startingInitializedScore=solverPhaseScope.getStartingScore();
+  Score bestScore=solverPhaseScope.getBestScore();
+  return solverPhaseScope.getScoreDefinition().calculateTimeGradient(startingInitializedScore,scoreAttained,bestScore);
+}

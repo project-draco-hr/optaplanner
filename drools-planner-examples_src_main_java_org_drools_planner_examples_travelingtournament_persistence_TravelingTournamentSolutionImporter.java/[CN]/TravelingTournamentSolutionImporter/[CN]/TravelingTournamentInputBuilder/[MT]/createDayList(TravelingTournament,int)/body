@@ -1,0 +1,16 @@
+{
+  List<Day> dayList=new ArrayList<Day>();
+  int daySize=(n - 1) * 2;
+  Day previousDay=null;
+  for (int i=0; i < daySize; i++) {
+    Day day=new Day();
+    day.setId((long)i);
+    day.setIndex(i);
+    dayList.add(day);
+    if (previousDay != null) {
+      previousDay.setNextDay(day);
+    }
+    previousDay=day;
+  }
+  travelingTournament.setDayList(dayList);
+}

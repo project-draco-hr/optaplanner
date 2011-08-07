@@ -8,6 +8,6 @@
   if (result == JOptionPane.OK_OPTION) {
     CityAssignment toAfterCityAssignment=(CityAssignment)afterCityAssignmentListField.getSelectedItem();
     tspPanel.doMove(new SubTourChangeMove(cityAssignment,cityAssignment,toAfterCityAssignment));
-    tspPanel.getWorkflowFrame().updateScreen();
+    tspPanel.getWorkflowFrame().resetScreen();
   }
 }

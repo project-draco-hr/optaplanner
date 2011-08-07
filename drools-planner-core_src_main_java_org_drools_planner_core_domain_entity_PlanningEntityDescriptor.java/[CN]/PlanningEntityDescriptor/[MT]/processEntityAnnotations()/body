@@ -1,0 +1,44 @@
+{
+  PlanningEntity planningEntityAnnotation=planningEntityClass.getAnnotation(PlanningEntity.class);
+  if (planningEntityAnnotation == null) {
+    throw new IllegalStateException("The planningEntityClass (" + planningEntityClass + ") has been specified as a planning entity in the configuration,"+ " but does not have a PlanningEntity annotation.");
+  }
+  Class<? extends Comparator> difficultyComparatorClass=planningEntityAnnotation.difficultyComparatorClass();
+  if (difficultyComparatorClass == PlanningEntity.NullDifficultyComparator.class) {
+    difficultyComparatorClass=null;
+  }
+  Class<? extends PlanningEntityDifficultyWeightFactory> difficultyWeightFactoryClass=planningEntityAnnotation.difficultyWeightFactoryClass();
+  if (difficultyWeightFactoryClass == PlanningEntity.NullDifficultyWeightFactory.class) {
+    difficultyWeightFactoryClass=null;
+  }
+  if (difficultyComparatorClass != null && difficultyWeightFactoryClass != null) {
+    throw new IllegalStateException("The planningEntityClass (" + planningEntityClass + ") cannot have a difficultyComparatorClass ("+ difficultyComparatorClass.getName()+ ") and a difficultyWeightFactoryClass ("+ difficultyWeightFactoryClass.getName()+ ") at the same time.");
+  }
+  planningEntitySorter=new PlanningEntitySorter();
+  if (difficultyComparatorClass != null) {
+    Comparator<Object> difficultyComparator;
+    try {
+      difficultyComparator=difficultyComparatorClass.newInstance();
+    }
+ catch (    InstantiationException e) {
+      throw new IllegalArgumentException("The difficultyComparatorClass (" + difficultyComparatorClass.getName() + ") does not have a public no-arg constructor",e);
+    }
+catch (    IllegalAccessException e) {
+      throw new IllegalArgumentException("The difficultyComparatorClass (" + difficultyComparatorClass.getName() + ") does not have a public no-arg constructor",e);
+    }
+    planningEntitySorter.setDifficultyComparator(difficultyComparator);
+  }
+  if (difficultyWeightFactoryClass != null) {
+    PlanningEntityDifficultyWeightFactory difficultyWeightFactory;
+    try {
+      difficultyWeightFactory=difficultyWeightFactoryClass.newInstance();
+    }
+ catch (    InstantiationException e) {
+      throw new IllegalArgumentException("The difficultyWeightFactoryClass (" + difficultyWeightFactoryClass.getName() + ") does not have a public no-arg constructor",e);
+    }
+catch (    IllegalAccessException e) {
+      throw new IllegalArgumentException("The difficultyWeightFactoryClass (" + difficultyWeightFactoryClass.getName() + ") does not have a public no-arg constructor",e);
+    }
+    planningEntitySorter.setDifficultyWeightFactory(difficultyWeightFactory);
+  }
+}

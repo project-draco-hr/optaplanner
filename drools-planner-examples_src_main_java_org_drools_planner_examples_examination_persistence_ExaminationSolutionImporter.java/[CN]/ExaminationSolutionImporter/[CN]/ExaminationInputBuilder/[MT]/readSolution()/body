@@ -13,6 +13,7 @@
   readInstitutionalWeighting(examination);
   tagFrontLoadLargeTopics(examination);
   tagFrontLoadLastPeriods(examination);
+  createExamList(examination);
   logger.info("Examination with {} students, {} topics/exams, {} periods, {} rooms, {} period constraints" + " and {} room constraints.",new Object[]{examination.getStudentList().size(),examination.getTopicList().size(),examination.getPeriodList().size(),examination.getRoomList().size(),examination.getPeriodHardConstraintList().size(),examination.getRoomHardConstraintList().size()});
   int possibleForOneExamSize=examination.getPeriodList().size() * examination.getRoomList().size();
   BigInteger possibleSolutionSize=BigInteger.valueOf(possibleForOneExamSize).pow(examination.getTopicList().size());

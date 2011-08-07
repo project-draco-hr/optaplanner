@@ -1,0 +1,13 @@
+{
+  Collection<PlanningVariableDescriptor> planningVariableDescriptors=planningEntityDescriptor.getPlanningVariableDescriptors();
+  List<PlanningValueWalker> planningValueWalkerList=new ArrayList<PlanningValueWalker>(planningVariableDescriptors.size());
+  for (  PlanningVariableDescriptor planningVariableDescriptor : planningVariableDescriptors) {
+    PlanningValueSelector planningValueSelector=new PlanningValueSelector(planningVariableDescriptor);
+    planningValueSelector.setSelectionOrder(PlanningValueSelectionOrder.ORIGINAL);
+    planningValueSelector.setSelectionPromotion(PlanningValueSelectionPromotion.NONE);
+    planningValueSelector.setRoundRobinSelection(false);
+    PlanningValueWalker planningValueWalker=new PlanningValueWalker(planningVariableDescriptor,planningValueSelector);
+    planningValueWalkerList.add(planningValueWalker);
+  }
+  return planningValueWalkerList;
+}

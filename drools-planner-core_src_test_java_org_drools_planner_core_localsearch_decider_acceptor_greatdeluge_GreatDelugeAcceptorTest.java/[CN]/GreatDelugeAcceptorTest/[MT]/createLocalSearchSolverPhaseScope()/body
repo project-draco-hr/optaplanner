@@ -1,0 +1,18 @@
+{
+  DefaultSolverScope solverScope=new DefaultSolverScope();
+  LocalSearchSolverPhaseScope localSearchSolverPhaseScope=new LocalSearchSolverPhaseScope(solverScope);
+  DefaultSolutionDirector solutionDirector=new DefaultSolutionDirector();
+  solutionDirector.setScoreDefinition(new SimpleScoreDefinition());
+  solverScope.setSolutionDirector(solutionDirector);
+  solverScope.setWorkingRandom(new Random(){
+    public double nextDouble(){
+      return 0.2;
+    }
+  }
+);
+  solverScope.setBestScore(DefaultSimpleScore.valueOf(-1000));
+  LocalSearchStepScope lastLocalSearchStepScope=new LocalSearchStepScope(localSearchSolverPhaseScope);
+  lastLocalSearchStepScope.setScore(DefaultSimpleScore.valueOf(-1000));
+  localSearchSolverPhaseScope.setLastCompletedLocalSearchStepScope(lastLocalSearchStepScope);
+  return localSearchSolverPhaseScope;
+}

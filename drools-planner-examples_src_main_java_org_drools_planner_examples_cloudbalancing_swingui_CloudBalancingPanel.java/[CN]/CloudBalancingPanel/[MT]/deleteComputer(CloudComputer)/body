@@ -1,0 +1,27 @@
+{
+  logger.info("Scheduling deleting of computer ({}).",cloudComputer.getLabel());
+  solutionBusiness.doPlanningFactChange(new PlanningFactChange(){
+    public void doChange(    SolutionDirector solutionDirector){
+      CloudBalance cloudBalance=(CloudBalance)solutionDirector.getWorkingSolution();
+      WorkingMemory workingMemory=solutionDirector.getWorkingMemory();
+      for (      CloudAssignment cloudAssignment : cloudBalance.getCloudAssignmentList()) {
+        if (ObjectUtils.equals(cloudAssignment.getCloudComputer(),cloudComputer)) {
+          FactHandle cloudAssignmentHandle=workingMemory.getFactHandle(cloudAssignment);
+          cloudAssignment.setCloudComputer(null);
+          workingMemory.retract(cloudAssignmentHandle);
+        }
+      }
+      for (Iterator<CloudComputer> it=cloudBalance.getCloudComputerList().iterator(); it.hasNext(); ) {
+        CloudComputer workingCloudComputer=it.next();
+        if (ObjectUtils.equals(workingCloudComputer,cloudComputer)) {
+          FactHandle cloudComputerHandle=workingMemory.getFactHandle(workingCloudComputer);
+          workingMemory.retract(cloudComputerHandle);
+          it.remove();
+          break;
+        }
+      }
+    }
+  }
+);
+  updatePanel(solutionBusiness.getSolution());
+}

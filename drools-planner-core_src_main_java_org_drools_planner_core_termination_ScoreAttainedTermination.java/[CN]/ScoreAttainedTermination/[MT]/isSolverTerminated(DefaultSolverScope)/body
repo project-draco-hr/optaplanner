@@ -1,0 +1,4 @@
+{
+  Score bestScore=solverScope.getBestScore();
+  return isTerminated(bestScore);
+}

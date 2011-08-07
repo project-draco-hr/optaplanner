@@ -1,0 +1,7 @@
+{
+  for (  PlanningValueWalker planningValueWalker : planningValueWalkerList) {
+    planningValueWalker.phaseEnded(solverPhaseScope);
+  }
+  workingMemory=null;
+  planningEntity=null;
+}

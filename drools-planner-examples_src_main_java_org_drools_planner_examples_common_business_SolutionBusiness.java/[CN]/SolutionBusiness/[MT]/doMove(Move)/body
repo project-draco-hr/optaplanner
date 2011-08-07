@@ -1,8 +1,8 @@
 {
-  if (!move.isMoveDoable(abstractSolverScope.getWorkingMemory())) {
+  if (!move.isMoveDoable(solverScope.getWorkingMemory())) {
     logger.info("Not doing user move ({}) because it is not doable.",move);
     return;
   }
   logger.info("Doing user move ({}).",move);
-  move.doMove(abstractSolverScope.getWorkingMemory());
+  move.doMove(solverScope.getWorkingMemory());
 }

@@ -1,9 +1,0 @@
-{
-  Score initialScore=abstractSolverScope.calculateScoreFromWorkingMemory();
-  abstractSolverScope.setStartingScore(initialScore);
-  abstractSolverScope.setBestSolutionStepIndex(-1);
-  Solution newBestSolution=abstractSolverScope.getWorkingSolution().cloneSolution();
-  abstractSolverScope.setBestSolution(newBestSolution);
-  abstractSolverScope.setBestScore(initialScore);
-  solverEventSupport.fireBestSolutionChanged(newBestSolution);
-}

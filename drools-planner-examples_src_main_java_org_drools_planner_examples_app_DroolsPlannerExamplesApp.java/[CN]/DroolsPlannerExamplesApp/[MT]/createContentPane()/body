@@ -13,12 +13,6 @@
     }
   }
 ));
-  contentPane.add(new JButton(new AbstractAction("Traveling salesman problem (TSP)"){
-    public void actionPerformed(    ActionEvent e){
-      new TspApp().init(false);
-    }
-  }
-));
   contentPane.add(new JButton(new AbstractAction("Traveling tournament problem (TTP)"){
     public void actionPerformed(    ActionEvent e){
       new SmartTravelingTournamentApp().init(false);
@@ -43,7 +37,7 @@
     }
   }
 ));
-  contentPane.add(new JButton(new AbstractAction("Patient admission schedule (hospital bed planning)"){
+  contentPane.add(new JButton(new AbstractAction("Patient admission scheduling (hospital bed planning)"){
     public void actionPerformed(    ActionEvent e){
       new PatientAdmissionScheduleApp().init(false);
     }

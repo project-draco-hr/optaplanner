@@ -1,0 +1,12 @@
+{
+  if (completedCustomStepScope == null) {
+    completedCustomStepScope=new CustomStepScope(customSolverPhaseScope);
+    completedCustomStepScope.setScore(customSolverPhaseScope.getStartingScore());
+    completedCustomStepScope.setStepIndex(-1);
+  }
+  customSolverPhaseScope.setLastCompletedCustomStepScope(completedCustomStepScope);
+  CustomStepScope customStepScope=new CustomStepScope(customSolverPhaseScope);
+  customStepScope.setStepIndex(completedCustomStepScope.getStepIndex() + 1);
+  customStepScope.setSolutionInitialized(true);
+  return customStepScope;
+}

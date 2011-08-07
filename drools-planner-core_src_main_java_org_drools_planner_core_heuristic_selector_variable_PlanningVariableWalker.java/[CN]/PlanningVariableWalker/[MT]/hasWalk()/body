@@ -1,0 +1,8 @@
+{
+  for (  PlanningValueWalker planningValueWalker : planningValueWalkerList) {
+    if (planningValueWalker.hasWalk()) {
+      return true;
+    }
+  }
+  return false;
+}

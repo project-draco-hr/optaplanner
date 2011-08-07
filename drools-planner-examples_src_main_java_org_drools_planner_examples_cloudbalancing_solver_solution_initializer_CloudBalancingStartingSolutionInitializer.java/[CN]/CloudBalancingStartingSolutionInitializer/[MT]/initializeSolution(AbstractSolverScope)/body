@@ -1,4 +1,0 @@
-{
-  CloudBalance cloudBalance=(CloudBalance)abstractSolverScope.getWorkingSolution();
-  initializeCloudAssignmentList(abstractSolverScope,cloudBalance);
-}

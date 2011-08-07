@@ -1,0 +1,16 @@
+{
+  List<City> cityList=travelingSalesmanTour.getCityList();
+  List<CityAssignment> cityAssignmentList=new ArrayList<CityAssignment>(cityList.size());
+  long id=0L;
+  for (  City city : cityList) {
+    CityAssignment cityAssignment=new CityAssignment();
+    cityAssignment.setId((long)id);
+    id++;
+    cityAssignment.setCity(city);
+    cityAssignmentList.add(cityAssignment);
+    if (city.equals(travelingSalesmanTour.getStartCity())) {
+      travelingSalesmanTour.setStartCityAssignment(cityAssignment);
+    }
+  }
+  travelingSalesmanTour.setCityAssignmentList(cityAssignmentList);
+}

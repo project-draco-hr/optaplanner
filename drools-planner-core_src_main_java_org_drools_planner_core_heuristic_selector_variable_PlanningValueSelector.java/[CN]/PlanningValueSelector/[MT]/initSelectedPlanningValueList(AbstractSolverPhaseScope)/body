@@ -1,0 +1,17 @@
+{
+  List<Object> workingPlanningValueList=planningVariableDescriptor.getPlanningValueList(solverPhaseScope.getWorkingSolution());
+switch (selectionOrder) {
+case ORIGINAL:
+    break;
+case RANDOM:
+  Collections.shuffle(workingPlanningValueList,solverPhaseScope.getWorkingRandom());
+break;
+case INCREASING_STRENGTH:
+PlanningValueSorter planningValueSorter=planningVariableDescriptor.getPlanningValueSorter();
+planningValueSorter.sortStrengthAscending(solverPhaseScope.getWorkingSolution(),workingPlanningValueList);
+break;
+default :
+throw new IllegalStateException("The selectionOrder (" + selectionOrder + ") is not implemented");
+}
+selectedPlanningValueList=workingPlanningValueList;
+}

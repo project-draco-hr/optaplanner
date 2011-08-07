@@ -1,0 +1,12 @@
+{
+  PlanningEntityDescriptor planningEntityDescriptor=null;
+  Class<?> planningEntityClass=planningEntityImplementationClass;
+  while (planningEntityClass != null) {
+    planningEntityDescriptor=planningEntityDescriptorMap.get(planningEntityClass);
+    if (planningEntityDescriptor != null) {
+      return planningEntityDescriptor;
+    }
+    planningEntityClass=planningEntityClass.getSuperclass();
+  }
+  return null;
+}

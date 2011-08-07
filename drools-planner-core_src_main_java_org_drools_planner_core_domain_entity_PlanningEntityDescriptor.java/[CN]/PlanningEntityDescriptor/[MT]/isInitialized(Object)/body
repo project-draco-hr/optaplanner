@@ -1,0 +1,8 @@
+{
+  for (  PlanningVariableDescriptor planningVariableDescriptor : planningVariableDescriptorMap.values()) {
+    if (!planningVariableDescriptor.isInitialized(planningEntity)) {
+      return false;
+    }
+  }
+  return true;
+}

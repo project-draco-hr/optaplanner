@@ -1,0 +1,3 @@
+NurseRoster nurseRoster
+Map<Employee,Map<ShiftDate,EmployeeShiftDatePanel>> employeeShiftDatePanelMap
+Employee employee

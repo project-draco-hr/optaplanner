@@ -1,0 +1,19 @@
+{
+  JLabel employeeLabel=new JLabel(employee == null ? "Unassigned" : employee.toString());
+  employeeLabel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.DARK_GRAY),BorderFactory.createEmptyBorder(2,2,2,2)));
+  employeeLabel.setBackground(HEADER_COLOR);
+  employeeLabel.setOpaque(true);
+  add(employeeLabel);
+  Map<ShiftDate,EmployeeShiftDatePanel> shiftDatePanelMap=new HashMap<ShiftDate,EmployeeShiftDatePanel>();
+  employeeShiftDatePanelMap.put(employee,shiftDatePanelMap);
+  for (  ShiftDate shiftDate : nurseRoster.getShiftDateList()) {
+    EmployeeShiftDatePanel employeeShiftDatePanel=new EmployeeShiftDatePanel();
+    WeekendDefinition weekendDefinition=(employee == null) ? WeekendDefinition.SATURDAY_SUNDAY : employee.getContract().getWeekendDefinition();
+    if (weekendDefinition.isWeekend(shiftDate.getDayOfWeek())) {
+      employeeShiftDatePanel.setBackground(Color.LIGHT_GRAY);
+    }
+    employeeShiftDatePanel.setToolTipText((employee == null ? "Unassigned" : "employee " + employee.getCode()) + " on dayIndex " + shiftDate.getDayIndex());
+    add(employeeShiftDatePanel);
+    shiftDatePanelMap.put(shiftDate,employeeShiftDatePanel);
+  }
+}

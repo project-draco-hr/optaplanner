@@ -1,4 +1,0 @@
-{
-  tspWorldPanel.resetPanel();
-  tspListPanel.resetPanel();
-}

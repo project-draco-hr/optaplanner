@@ -23,7 +23,7 @@
     return 1.0;
   }
   if (aspirationEnabled) {
-    if (moveScope.getScore().compareTo(moveScope.getLocalSearchStepScope().getLocalSearchSolverScope().getBestScore()) > 0) {
+    if (moveScope.getScore().compareTo(moveScope.getLocalSearchStepScope().getLocalSearchSolverPhaseScope().getBestScore()) > 0) {
       logger.debug("    Proposed move ({}) is tabu, but aspiration undoes its tabu.",moveScope.getMove());
       return 1.0;
     }

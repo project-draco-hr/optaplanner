@@ -1,0 +1,11 @@
+{
+  for (  PlanningVariableWalker planningVariableWalker : planningVariableWalkerList) {
+    if (planningVariableWalker.hasWalk()) {
+      planningVariableWalker.walk();
+      break;
+    }
+ else {
+      planningVariableWalker.resetWalk();
+    }
+  }
+}

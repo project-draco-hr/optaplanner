@@ -20,7 +20,7 @@
     idToRoomMap.put(room.getId(),room);
     String[] roomSpecialismTokens=splitBySpace(lineTokens[4]);
     if (roomSpecialismTokens.length % 2 != 0) {
-      throw new IllegalArgumentException("Read line (" + line + ") is expected to contain even number of tokens ("+ roomSpecialismTokens.length+ ") after 4th pipeline (|) seperated by a space ( ).");
+      throw new IllegalArgumentException("Read line (" + line + ") is expected to contain even number of tokens ("+ roomSpecialismTokens.length+ ") after 4th pipeline (|) separated by a space ( ).");
     }
     List<RoomSpecialism> roomSpecialismListOfRoom=new ArrayList<RoomSpecialism>(roomSpecialismTokens.length / 2);
     for (int j=0; j < roomSpecialismTokens.length; j+=2) {

@@ -1,0 +1,4 @@
+{
+  long phaseTimeMillisSpend=solverPhaseScope.calculatePhaseTimeMillisSpend();
+  return calculateTimeGradient(phaseTimeMillisSpend);
+}

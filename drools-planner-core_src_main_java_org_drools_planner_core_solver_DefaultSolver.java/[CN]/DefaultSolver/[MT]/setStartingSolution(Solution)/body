@@ -1,0 +1,3 @@
+{
+  solverScope.getSolutionDirector().setWorkingSolution(startingSolution);
+}

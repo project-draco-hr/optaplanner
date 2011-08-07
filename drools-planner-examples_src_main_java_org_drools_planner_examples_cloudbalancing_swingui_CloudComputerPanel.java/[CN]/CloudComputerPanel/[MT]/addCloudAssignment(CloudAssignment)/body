@@ -1,0 +1,4 @@
+{
+  cloudAssignmentList.add(cloudAssignment);
+  update();
+}

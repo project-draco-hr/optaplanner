@@ -1,0 +1,24 @@
+{
+  LocalSearchSolverPhaseScope localSearchSolverPhaseScope=new LocalSearchSolverPhaseScope(solverScope);
+  phaseStarted(localSearchSolverPhaseScope);
+  LocalSearchStepScope localSearchStepScope=createNextStepScope(localSearchSolverPhaseScope,null);
+  while (!termination.isPhaseTerminated(localSearchSolverPhaseScope)) {
+    localSearchStepScope.setTimeGradient(termination.calculatePhaseTimeGradient(localSearchSolverPhaseScope));
+    beforeDeciding(localSearchStepScope);
+    decider.decideNextStep(localSearchStepScope);
+    Move nextStep=localSearchStepScope.getStep();
+    if (nextStep == null) {
+      logger.warn("No move accepted for step index ({}) out of {} accepted moves. Terminating by exception.",localSearchStepScope.getStepIndex(),decider.getForager().getAcceptedMovesSize());
+      break;
+    }
+    stepDecided(localSearchStepScope);
+    nextStep.doMove(localSearchStepScope.getWorkingMemory());
+    localSearchSolverPhaseScope.getWorkingSolution().setScore(localSearchStepScope.getScore());
+    if (assertStepScoreIsUncorrupted) {
+      localSearchSolverPhaseScope.assertWorkingScore(localSearchStepScope.getScore());
+    }
+    stepTaken(localSearchStepScope);
+    localSearchStepScope=createNextStepScope(localSearchSolverPhaseScope,localSearchStepScope);
+  }
+  phaseEnded(localSearchSolverPhaseScope);
+}

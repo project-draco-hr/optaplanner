@@ -1,0 +1,11 @@
+{
+  super.inherit(inheritedConfig);
+  if (customSolverPhaseCommandClassList == null) {
+    customSolverPhaseCommandClassList=inheritedConfig.getCustomSolverPhaseCommandClassList();
+  }
+ else   if (inheritedConfig.getCustomSolverPhaseCommandClassList() != null) {
+    List<Class<CustomSolverPhaseCommand>> mergedList=new ArrayList<Class<CustomSolverPhaseCommand>>(inheritedConfig.getCustomSolverPhaseCommandClassList());
+    mergedList.addAll(customSolverPhaseCommandClassList);
+    customSolverPhaseCommandClassList=mergedList;
+  }
+}

@@ -1,6 +1,6 @@
 {
   super(new GridLayout(0,1));
   setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.DARK_GRAY),BorderFactory.createEmptyBorder(2,2,2,2)));
-  JLabel seatLabel=new JLabel("Seat " + seat.getSeatIndexInTable(),SwingConstants.CENTER);
-  add(seatLabel);
+  String seatLabelText=seat == null ? "Unassigned" : "Seat " + seat.getSeatIndexInTable();
+  add(new JLabel(seatLabelText,SwingConstants.CENTER));
 }

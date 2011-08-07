@@ -1,0 +1,4 @@
+{
+  TravelingSalesmanTour travelingSalesmanTour=(TravelingSalesmanTour)solutionDirector.getWorkingSolution();
+  initializeCityAssignmentList(solutionDirector,travelingSalesmanTour);
+}

@@ -1,0 +1,6 @@
+{
+  String outputFileName="unsolvedNQueens" + (n < 10 ? "0" : "") + n+ ".xml";
+  File outputFile=new File(outputDir,outputFileName);
+  NQueens nQueens=createNQueens(n);
+  solutionDao.writeSolution(nQueens,outputFile);
+}

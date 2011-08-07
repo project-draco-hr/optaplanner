@@ -1,4 +1,0 @@
-{
-  terminatedEarly.set(false);
-  solveImplementation();
-}

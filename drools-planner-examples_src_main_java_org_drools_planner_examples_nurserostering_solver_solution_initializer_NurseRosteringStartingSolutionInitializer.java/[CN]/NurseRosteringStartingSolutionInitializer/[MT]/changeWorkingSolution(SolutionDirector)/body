@@ -1,0 +1,4 @@
+{
+  NurseRoster nurseRoster=(NurseRoster)solutionDirector.getWorkingSolution();
+  initializeAssignmentList(solutionDirector,nurseRoster);
+}

@@ -1,14 +1,12 @@
 {
-  readHeader("ROOMS:");
+  readEmptyLine();
+  readConstantLine("ROOMS:");
   List<Room> roomList=new ArrayList<Room>(roomListSize);
   for (int i=0; i < roomListSize; i++) {
     Room room=new Room();
     room.setId((long)i);
     String line=bufferedReader.readLine();
-    String[] lineTokens=line.split(SPLIT_REGEX);
-    if (lineTokens.length != 2) {
-      throw new IllegalArgumentException("Read line (" + line + ") is expected to contain 2 tokens.");
-    }
+    String[] lineTokens=splitBySpacesOrTabs(line,2);
     room.setCode(lineTokens[0]);
     room.setCapacity(Integer.parseInt(lineTokens[1]));
     roomList.add(room);

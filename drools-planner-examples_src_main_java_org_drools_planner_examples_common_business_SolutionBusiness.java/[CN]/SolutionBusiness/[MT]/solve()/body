@@ -1,5 +1,3 @@
 {
   solver.solve();
-  Solution solution=solver.getBestSolution();
-  solver.setStartingSolution(solution);
 }

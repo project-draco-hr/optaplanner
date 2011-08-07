@@ -1,0 +1,4 @@
+{
+  validateConfiguration();
+  initSelectedPlanningEntityList(solverPhaseScope);
+}

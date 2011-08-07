@@ -1,3 +1,0 @@
-{
-  getAbstractSolverScope().setRuleBase(ruleBase);
-}

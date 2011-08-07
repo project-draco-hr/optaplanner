@@ -1,0 +1,4 @@
+{
+  termination.beforeDeciding(stepScope);
+  solverPhaseLifecycleSupport.fireBeforeDeciding(stepScope);
+}

@@ -1,6 +1,0 @@
-{
-  bestSolutionRecaller.stepTaken(localSearchStepScope);
-  termination.stepTaken(localSearchStepScope);
-  decider.stepTaken(localSearchStepScope);
-  localSearchSolverLifecycleSupport.fireStepTaken(localSearchStepScope);
-}

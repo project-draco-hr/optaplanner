@@ -1,0 +1,14 @@
+{
+  JLabel bedLabel=new JLabel(bed == null ? "Unassigned" : bed.toString());
+  bedLabel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.DARK_GRAY),BorderFactory.createEmptyBorder(2,2,2,2)));
+  bedLabel.setBackground(HEADER_COLOR);
+  bedLabel.setOpaque(true);
+  add(bedLabel);
+  Map<Night,BedNightPanel> nightPanelMap=new HashMap<Night,BedNightPanel>();
+  bedNightPanelMap.put(bed,nightPanelMap);
+  for (  Night night : patientAdmissionSchedule.getNightList()) {
+    BedNightPanel bedNightPanel=new BedNightPanel();
+    add(bedNightPanel);
+    nightPanelMap.put(night,bedNightPanel);
+  }
+}

@@ -1,0 +1,4 @@
+{
+  cloudAssignmentList.clear();
+  update();
+}

@@ -1,0 +1,32 @@
+{
+  JPanel labelAndDeletePanel=new JPanel(new BorderLayout());
+  computerLabel=new JLabel(getComputerLabel());
+  computerLabel.setEnabled(false);
+  labelAndDeletePanel.add(computerLabel,BorderLayout.CENTER);
+  if (cloudComputer != null) {
+    deleteButton=new JButton(new AbstractAction("X"){
+      public void actionPerformed(      ActionEvent e){
+        cloudBalancingPanel.deleteComputer(cloudComputer);
+      }
+    }
+);
+    labelAndDeletePanel.add(deleteButton,BorderLayout.EAST);
+  }
+  add(labelAndDeletePanel);
+  cpuPowerField=new JTextField("0 GHz / " + getComputerCpuPower() + " GHz");
+  cpuPowerField.setEditable(false);
+  cpuPowerField.setEnabled(false);
+  add(cpuPowerField);
+  memoryField=new JTextField("0 GB / " + getComputerMemory() + " GB");
+  memoryField.setEditable(false);
+  memoryField.setEnabled(false);
+  add(memoryField);
+  networkBandwidthField=new JTextField("0 GB / " + getComputerNetworkBandwidth() + " GB");
+  networkBandwidthField.setEditable(false);
+  networkBandwidthField.setEnabled(false);
+  add(networkBandwidthField);
+  costField=new JTextField(getComputerCost() + " $");
+  costField.setEditable(false);
+  costField.setEnabled(false);
+  add(costField);
+}

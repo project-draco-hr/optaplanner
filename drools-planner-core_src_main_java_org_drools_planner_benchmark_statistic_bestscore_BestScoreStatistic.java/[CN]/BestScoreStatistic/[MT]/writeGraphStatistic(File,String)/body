@@ -1,25 +1,33 @@
 {
-  XYSeriesCollection seriesCollection=new XYSeriesCollection();
+  NumberAxis xAxis=new NumberAxis("Time millis spend");
+  xAxis.setNumberFormatOverride(new MillisecondsSpendNumberFormat());
+  NumberAxis yAxis=new NumberAxis("Score");
+  yAxis.setAutoRangeIncludesZero(false);
+  XYPlot plot=new XYPlot(null,xAxis,yAxis,null);
+  int seriesIndex=0;
   for (  Map.Entry<String,BestScoreStatisticListener> listenerEntry : bestScoreStatisticListenerMap.entrySet()) {
     String configName=listenerEntry.getKey();
-    XYSeries configSeries=new XYSeries(configName);
+    XYSeries series=new XYSeries(configName);
     List<BestScoreStatisticPoint> statisticPointList=listenerEntry.getValue().getStatisticPointList();
     for (    BestScoreStatisticPoint statisticPoint : statisticPointList) {
       long timeMillisSpend=statisticPoint.getTimeMillisSpend();
       Score score=statisticPoint.getScore();
       Double scoreGraphValue=scoreDefinition.translateScoreToGraphValue(score);
       if (scoreGraphValue != null) {
-        configSeries.add(timeMillisSpend,scoreGraphValue);
+        series.add(timeMillisSpend,scoreGraphValue);
       }
     }
-    seriesCollection.addSeries(configSeries);
+    XYSeriesCollection seriesCollection=new XYSeriesCollection();
+    seriesCollection.addSeries(series);
+    plot.setDataset(seriesIndex,seriesCollection);
+    XYItemRenderer renderer;
+    renderer=new XYStepRenderer();
+    if (statisticPointList.size() <= 1) {
+      renderer=new StandardXYItemRenderer(StandardXYItemRenderer.SHAPES);
+    }
+    plot.setRenderer(seriesIndex,renderer);
+    seriesIndex++;
   }
-  NumberAxis xAxis=new NumberAxis("Time millis spend");
-  xAxis.setNumberFormatOverride(new MillisecondsSpendNumberFormat());
-  NumberAxis yAxis=new NumberAxis("Score");
-  yAxis.setAutoRangeIncludesZero(false);
-  XYItemRenderer renderer=new XYStepRenderer();
-  XYPlot plot=new XYPlot(seriesCollection,xAxis,yAxis,renderer);
   plot.setOrientation(PlotOrientation.VERTICAL);
   JFreeChart chart=new JFreeChart(baseName + " best score statistic",JFreeChart.DEFAULT_TITLE_FONT,plot,true);
   BufferedImage chartImage=chart.createBufferedImage(1024,768);

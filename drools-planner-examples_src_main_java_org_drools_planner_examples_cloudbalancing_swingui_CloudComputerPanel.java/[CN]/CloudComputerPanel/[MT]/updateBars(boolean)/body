@@ -1,0 +1,11 @@
+{
+  numberOfProcessesLabel.setText("    " + cloudAssignmentList.size() + " processes");
+  numberOfProcessesLabel.setEnabled(used);
+  cpuPowerBar.setEnabled(used);
+  cpuPowerBar.repaint();
+  memoryBar.setEnabled(used);
+  memoryBar.repaint();
+  networkBandwidthBar.setEnabled(used);
+  networkBandwidthBar.repaint();
+  detailsButton.setEnabled(used);
+}

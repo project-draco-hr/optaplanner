@@ -1,0 +1,14 @@
+{
+  DefaultSolverScope solverScope=new DefaultSolverScope();
+  LocalSearchSolverPhaseScope localSearchSolverPhaseScope=new LocalSearchSolverPhaseScope(solverScope);
+  DefaultSolutionDirector solutionDirector=new DefaultSolutionDirector();
+  solutionDirector.setScoreDefinition(new HardAndSoftScoreDefinition());
+  solverScope.setSolutionDirector(solutionDirector);
+  solverScope.setBestScore(DefaultHardAndSoftScore.valueOf(-11,-200));
+  localSearchSolverPhaseScope.setBestSolutionStepIndex(1000);
+  LocalSearchStepScope lastLocalSearchStepScope=new LocalSearchStepScope(localSearchSolverPhaseScope);
+  lastLocalSearchStepScope.setStepIndex(1000);
+  lastLocalSearchStepScope.setScore(DefaultHardAndSoftScore.valueOf(-11,-200));
+  localSearchSolverPhaseScope.setLastCompletedLocalSearchStepScope(lastLocalSearchStepScope);
+  return localSearchSolverPhaseScope;
+}

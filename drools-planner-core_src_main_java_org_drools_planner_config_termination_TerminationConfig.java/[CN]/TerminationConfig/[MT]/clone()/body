@@ -1,0 +1,21 @@
+{
+  TerminationConfig clone=new TerminationConfig();
+  clone.terminationClass=terminationClass;
+  clone.terminationCompositionStyle=terminationCompositionStyle;
+  clone.maximumStepCount=maximumStepCount;
+  clone.maximumTimeMillisSpend=maximumTimeMillisSpend;
+  clone.maximumSecondsSpend=maximumSecondsSpend;
+  clone.maximumMinutesSpend=maximumMinutesSpend;
+  clone.maximumHoursSpend=maximumHoursSpend;
+  clone.scoreAttained=scoreAttained;
+  clone.maximumUnimprovedStepCount=maximumUnimprovedStepCount;
+  if (terminationConfigList != null) {
+    List<TerminationConfig> clonedTerminationConfigList=new ArrayList<TerminationConfig>(terminationConfigList.size());
+    for (    TerminationConfig terminationConfig : terminationConfigList) {
+      TerminationConfig clonedTerminationConfig=terminationConfig.clone();
+      clonedTerminationConfigList.add(clonedTerminationConfig);
+    }
+    clone.terminationConfigList=clonedTerminationConfigList;
+  }
+  return clone;
+}

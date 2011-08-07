@@ -1,4 +1,0 @@
-{
-  Object value=planningValueListIterator.next();
-  doValue(workingMemory,value);
-}

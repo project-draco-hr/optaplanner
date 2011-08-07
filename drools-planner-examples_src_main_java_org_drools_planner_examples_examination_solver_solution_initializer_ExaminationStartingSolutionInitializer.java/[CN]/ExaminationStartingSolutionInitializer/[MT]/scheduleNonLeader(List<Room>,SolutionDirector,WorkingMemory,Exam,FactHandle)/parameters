@@ -1,0 +1,5 @@
+List<Room> roomList
+SolutionDirector solutionDirector
+WorkingMemory workingMemory
+Exam exam
+FactHandle examHandle

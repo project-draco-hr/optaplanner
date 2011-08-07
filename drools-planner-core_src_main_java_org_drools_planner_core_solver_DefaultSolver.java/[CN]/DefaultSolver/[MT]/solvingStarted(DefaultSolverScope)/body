@@ -1,0 +1,16 @@
+{
+  if (solverScope.getWorkingSolution() == null) {
+    throw new IllegalStateException("The startingSolution must not be null." + " Use Solver.setStartingSolution(Solution).");
+  }
+  solverScope.reset();
+  if (randomSeed != null) {
+    logger.info("Solving with random seed ({}).",randomSeed);
+    solverScope.setWorkingRandom(new Random(randomSeed));
+  }
+ else {
+    logger.info("Solving with a non-fixed random seed.");
+    solverScope.setWorkingRandom(new Random());
+  }
+  bestSolutionRecaller.solvingStarted(solverScope);
+  logger.info("Starting with time spend ({}), score ({}), new best score ({}).",new Object[]{solverScope.calculateTimeMillisSpend(),solverScope.getStartingInitializedScore(),solverScope.getBestScore()});
+}

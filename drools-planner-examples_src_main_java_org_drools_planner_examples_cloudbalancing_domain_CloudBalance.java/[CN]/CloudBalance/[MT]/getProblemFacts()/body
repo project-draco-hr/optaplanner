@@ -1,0 +1,6 @@
+{
+  List<Object> facts=new ArrayList<Object>();
+  facts.addAll(cloudComputerList);
+  facts.addAll(cloudProcessList);
+  return facts;
+}

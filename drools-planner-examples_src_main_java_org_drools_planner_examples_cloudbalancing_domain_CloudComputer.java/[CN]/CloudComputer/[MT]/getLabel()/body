@@ -1,3 +1,3 @@
 {
-  return "Computer " + id + ", hardware:\nCPU: "+ cpuPower+ " GHz\nRAM: "+ memory+ " GB\nNetwork: "+ networkBandwidth+ " GB";
+  return "Computer " + id;
 }

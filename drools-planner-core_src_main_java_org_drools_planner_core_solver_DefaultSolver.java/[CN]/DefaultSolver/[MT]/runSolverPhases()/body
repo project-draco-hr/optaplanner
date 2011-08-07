@@ -1,0 +1,7 @@
+{
+  Iterator<SolverPhase> it=solverPhaseList.iterator();
+  while (!termination.isSolverTerminated(solverScope) && it.hasNext()) {
+    SolverPhase solverPhase=it.next();
+    solverPhase.solve(solverScope);
+  }
+}

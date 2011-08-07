@@ -1,0 +1,13 @@
+{
+  solving.set(true);
+  basicPlumbingTermination.resetTerminateEarly();
+  solverScope.setRestartSolver(true);
+  while (solverScope.isRestartSolver()) {
+    solverScope.setRestartSolver(false);
+    solvingStarted(solverScope);
+    runSolverPhases();
+    solvingEnded(solverScope);
+    checkPlanningFactChanges();
+  }
+  solving.set(false);
+}

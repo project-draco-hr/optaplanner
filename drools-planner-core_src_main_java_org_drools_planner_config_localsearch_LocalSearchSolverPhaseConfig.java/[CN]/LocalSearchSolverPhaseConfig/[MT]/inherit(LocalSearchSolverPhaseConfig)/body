@@ -1,0 +1,27 @@
+{
+  super.inherit(inheritedConfig);
+  if (deciderScoreComparatorFactoryConfig == null) {
+    deciderScoreComparatorFactoryConfig=inheritedConfig.getDeciderScoreComparatorFactoryConfig();
+  }
+ else   if (inheritedConfig.getDeciderScoreComparatorFactoryConfig() != null) {
+    deciderScoreComparatorFactoryConfig.inherit(inheritedConfig.getDeciderScoreComparatorFactoryConfig());
+  }
+  if (selectorConfig == null) {
+    selectorConfig=inheritedConfig.getSelectorConfig();
+  }
+ else   if (inheritedConfig.getSelectorConfig() != null) {
+    selectorConfig.inherit(inheritedConfig.getSelectorConfig());
+  }
+  if (acceptorConfig == null) {
+    acceptorConfig=inheritedConfig.getAcceptorConfig();
+  }
+ else   if (inheritedConfig.getAcceptorConfig() != null) {
+    acceptorConfig.inherit(inheritedConfig.getAcceptorConfig());
+  }
+  if (foragerConfig == null) {
+    foragerConfig=inheritedConfig.getForagerConfig();
+  }
+ else   if (inheritedConfig.getForagerConfig() != null) {
+    foragerConfig.inherit(inheritedConfig.getForagerConfig());
+  }
+}

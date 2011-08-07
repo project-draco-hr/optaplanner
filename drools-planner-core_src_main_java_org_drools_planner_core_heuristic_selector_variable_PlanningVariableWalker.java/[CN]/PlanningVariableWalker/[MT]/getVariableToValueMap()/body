@@ -1,0 +1,7 @@
+{
+  Map<PlanningVariableDescriptor,Object> variableToValueMap=new LinkedHashMap<PlanningVariableDescriptor,Object>(planningValueWalkerList.size());
+  for (  PlanningValueWalker planningValueWalker : planningValueWalkerList) {
+    variableToValueMap.put(planningValueWalker.getPlanningVariableDescriptor(),planningValueWalker.getWorkingValue());
+  }
+  return variableToValueMap;
+}

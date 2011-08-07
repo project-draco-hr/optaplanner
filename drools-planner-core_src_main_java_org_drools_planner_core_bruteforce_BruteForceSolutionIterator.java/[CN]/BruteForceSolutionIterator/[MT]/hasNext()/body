@@ -1,8 +1,0 @@
-{
-  for (  PlanningVariableHandler planningVariableHandler : list) {
-    if (planningVariableHandler.hasNext()) {
-      return true;
-    }
-  }
-  return false;
-}

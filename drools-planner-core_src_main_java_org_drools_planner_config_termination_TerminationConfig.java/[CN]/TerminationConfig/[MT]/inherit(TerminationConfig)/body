@@ -1,0 +1,37 @@
+{
+  if (terminationClass == null) {
+    terminationClass=inheritedConfig.getTerminationClass();
+  }
+  if (terminationCompositionStyle == null) {
+    terminationCompositionStyle=inheritedConfig.getTerminationCompositionStyle();
+  }
+  if (maximumStepCount == null) {
+    maximumStepCount=inheritedConfig.getMaximumStepCount();
+  }
+  if (maximumTimeMillisSpend == null) {
+    maximumTimeMillisSpend=inheritedConfig.getMaximumTimeMillisSpend();
+  }
+  if (maximumSecondsSpend == null) {
+    maximumSecondsSpend=inheritedConfig.getMaximumSecondsSpend();
+  }
+  if (maximumMinutesSpend == null) {
+    maximumMinutesSpend=inheritedConfig.getMaximumMinutesSpend();
+  }
+  if (maximumHoursSpend == null) {
+    maximumHoursSpend=inheritedConfig.getMaximumHoursSpend();
+  }
+  if (scoreAttained == null) {
+    scoreAttained=inheritedConfig.getScoreAttained();
+  }
+  if (maximumUnimprovedStepCount == null) {
+    maximumUnimprovedStepCount=inheritedConfig.getMaximumUnimprovedStepCount();
+  }
+  if (terminationConfigList == null) {
+    terminationConfigList=inheritedConfig.getTerminationConfigList();
+  }
+ else   if (inheritedConfig.getTerminationConfigList() != null) {
+    List<TerminationConfig> mergedList=new ArrayList<TerminationConfig>(inheritedConfig.getTerminationConfigList());
+    mergedList.addAll(terminationConfigList);
+    terminationConfigList=mergedList;
+  }
+}

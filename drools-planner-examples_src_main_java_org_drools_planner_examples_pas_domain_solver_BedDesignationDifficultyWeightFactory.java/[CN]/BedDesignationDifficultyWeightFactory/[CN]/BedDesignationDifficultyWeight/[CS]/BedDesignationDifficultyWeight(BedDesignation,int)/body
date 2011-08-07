@@ -1,0 +1,5 @@
+{
+  this.bedDesignation=bedDesignation;
+  this.nightCount=bedDesignation.getAdmissionPart().getNightCount();
+  this.disallowedCount=disallowedCount;
+}

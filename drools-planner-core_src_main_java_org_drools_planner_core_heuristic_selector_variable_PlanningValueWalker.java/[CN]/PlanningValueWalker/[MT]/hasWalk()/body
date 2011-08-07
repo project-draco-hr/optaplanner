@@ -1,0 +1,6 @@
+{
+  if (isFirstValue) {
+    return true;
+  }
+  return planningValueIterator.hasNext();
+}

@@ -1,0 +1,23 @@
+{
+  GreedyFitSolverPhaseScope greedyFitSolverPhaseScope=new GreedyFitSolverPhaseScope(solverScope);
+  phaseStarted(greedyFitSolverPhaseScope);
+  GreedyFitStepScope greedyFitStepScope=createNextStepScope(greedyFitSolverPhaseScope,null);
+  Iterator it=greedyPlanningEntitySelector.iterator();
+  while (!termination.isPhaseTerminated(greedyFitSolverPhaseScope) && it.hasNext()) {
+    Object planningEntity=it.next();
+    greedyFitStepScope.setPlanningEntity(planningEntity);
+    beforeDeciding(greedyFitStepScope);
+    greedyDecider.decideNextStep(greedyFitStepScope);
+    stepDecided(greedyFitStepScope);
+    greedyFitStepScope.doStep();
+    if (!it.hasNext()) {
+      greedyFitStepScope.setSolutionInitialized(true);
+    }
+    if (assertStepScoreIsUncorrupted) {
+      greedyFitSolverPhaseScope.assertWorkingScore(greedyFitStepScope.getScore());
+    }
+    stepTaken(greedyFitStepScope);
+    greedyFitStepScope=createNextStepScope(greedyFitSolverPhaseScope,greedyFitStepScope);
+  }
+  phaseEnded(greedyFitSolverPhaseScope);
+}

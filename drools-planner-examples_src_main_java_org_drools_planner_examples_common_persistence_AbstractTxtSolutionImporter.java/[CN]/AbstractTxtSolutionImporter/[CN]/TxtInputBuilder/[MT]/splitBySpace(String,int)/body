@@ -1,5 +1,5 @@
 {
-  String[] lineTokens=line.split("\\ ");
+  String[] lineTokens=splitBySpace(line);
   if (lineTokens.length != numberOfTokens) {
     throw new IllegalArgumentException("Read line (" + line + ") is expected to contain "+ numberOfTokens+ " tokens separated by a space ( ).");
   }

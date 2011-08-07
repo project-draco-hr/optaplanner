@@ -1,4 +1,7 @@
 {
+  if (solverBenchmarkList == null || solverBenchmarkList.isEmpty()) {
+    throw new IllegalArgumentException("Configure at least 1 <solverBenchmark> in the <solverBenchmarkSuite> configuration.");
+  }
   Set<String> nameSet=new HashSet<String>(solverBenchmarkList.size());
   Set<SolverBenchmark> noNameBenchmarkSet=new LinkedHashSet<SolverBenchmark>(solverBenchmarkList.size());
   for (  SolverBenchmark solverBenchmark : solverBenchmarkList) {
@@ -14,6 +17,7 @@
     if (inheritedSolverBenchmark != null) {
       solverBenchmark.inherit(inheritedSolverBenchmark);
     }
+    solverBenchmark.validate();
     solverBenchmark.resetSolverBenchmarkResultList();
   }
   int generatedNameIndex=0;

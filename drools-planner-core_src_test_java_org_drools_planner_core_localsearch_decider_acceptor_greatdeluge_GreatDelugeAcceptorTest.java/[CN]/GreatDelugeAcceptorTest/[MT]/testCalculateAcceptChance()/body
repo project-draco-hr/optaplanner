@@ -1,8 +1,8 @@
 {
   Acceptor acceptor=new GreatDelugeAcceptor(1.20,0.01);
-  LocalSearchSolverScope localSearchSolverScope=createLocalSearchSolverScope();
-  acceptor.solvingStarted(localSearchSolverScope);
-  LocalSearchStepScope localSearchStepScope=new LocalSearchStepScope(localSearchSolverScope);
+  LocalSearchSolverPhaseScope localSearchSolverPhaseScope=createLocalSearchSolverPhaseScope();
+  acceptor.phaseStarted(localSearchSolverPhaseScope);
+  LocalSearchStepScope localSearchStepScope=new LocalSearchStepScope(localSearchSolverPhaseScope);
   localSearchStepScope.setStepIndex(0);
   acceptor.beforeDeciding(localSearchStepScope);
   MoveScope a1=createMoveScope(localSearchStepScope,DefaultSimpleScore.valueOf(-2000));

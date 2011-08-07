@@ -1,0 +1,6 @@
+{
+  for (  PlanningVariableWalker planningVariableWalker : planningVariableWalkerList) {
+    planningVariableWalker.phaseEnded(bruteForceSolverPhaseScope);
+  }
+  planningVariableWalkerList=null;
+}

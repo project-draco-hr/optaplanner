@@ -1,0 +1,11 @@
+{
+  CurriculumCourseSchedule schedule=(CurriculumCourseSchedule)solution;
+  Period period=(Period)planningValue;
+  int unavailablePeriodConstraintCount=0;
+  for (  UnavailablePeriodConstraint constraint : schedule.getUnavailablePeriodConstraintList()) {
+    if (constraint.getPeriod().equals(period)) {
+      unavailablePeriodConstraintCount++;
+    }
+  }
+  return new PeriodStrengthWeight(period,unavailablePeriodConstraintCount);
+}

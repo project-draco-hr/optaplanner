@@ -1,0 +1,12 @@
+{
+  for (  CloudComputerPanel cloudComputerCloudComputerPanel : cloudComputerToPanelMap.values()) {
+    if (cloudComputerCloudComputerPanel.getCloudComputer() != null) {
+      computersPanel.remove(cloudComputerCloudComputerPanel);
+    }
+  }
+  cloudComputerToPanelMap.clear();
+  cloudComputerToPanelMap.put(null,unassignedPanel);
+  cloudAssignmentToPanelMap.clear();
+  unassignedPanel.clearCloudAssignments();
+  updatePanel(solution);
+}

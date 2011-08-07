@@ -1,0 +1,4 @@
+{
+  this.lecture=lecture;
+  this.unavailablePeriodConstraintCount=unavailablePeriodConstraintCount;
+}

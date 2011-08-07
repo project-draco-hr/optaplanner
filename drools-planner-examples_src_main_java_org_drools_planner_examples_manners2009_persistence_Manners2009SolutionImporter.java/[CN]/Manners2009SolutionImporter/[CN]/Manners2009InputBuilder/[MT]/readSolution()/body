@@ -3,6 +3,7 @@
   manners2009.setId(0L);
   readTableListAndSeatList(manners2009);
   readJobListGuestListAndHobbyPracticianList(manners2009);
+  createSeatDesignationList(manners2009);
   logger.info("Manners2009 with {} jobs, {} guests, {} hobby practicians, {} tables and {} seats.",new Object[]{manners2009.getJobList().size(),manners2009.getGuestList().size(),manners2009.getHobbyPracticianList().size(),manners2009.getTableList().size(),manners2009.getSeatList().size()});
   return manners2009;
 }

@@ -1,6 +1,0 @@
-{
-  periodChangeMoveFactory.solvingStarted(localSearchSolverScope);
-  roomChangeMoveFactory.solvingStarted(localSearchSolverScope);
-  examSwitchMoveFactory.solvingStarted(localSearchSolverScope);
-  createCachedExamToMoveMap(localSearchSolverScope);
-}

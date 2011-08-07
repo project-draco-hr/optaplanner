@@ -1,0 +1,5 @@
+{
+  solverPhaseScope.reset();
+  termination.phaseStarted(solverPhaseScope);
+  solverPhaseLifecycleSupport.firePhaseStarted(solverPhaseScope);
+}

@@ -1,0 +1,35 @@
+{
+  DefaultSolver solver=new DefaultSolver();
+  BasicPlumbingTermination basicPlumbingTermination=new BasicPlumbingTermination();
+  solver.setBasicPlumbingTermination(basicPlumbingTermination);
+  if (environmentMode != EnvironmentMode.PRODUCTION) {
+    if (randomSeed != null) {
+      solver.setRandomSeed(randomSeed);
+    }
+ else {
+      solver.setRandomSeed(DEFAULT_RANDOM_SEED);
+    }
+  }
+  SolutionDescriptor solutionDescriptor=buildSolutionDescriptor();
+  DefaultSolutionDirector solutionDirector=new DefaultSolutionDirector();
+  solutionDirector.setSolutionDescriptor(solutionDescriptor);
+  solutionDirector.setRuleBase(buildRuleBase());
+  ScoreDefinition scoreDefinition=scoreDefinitionConfig.buildScoreDefinition();
+  solutionDirector.setScoreDefinition(scoreDefinition);
+  solver.setSolutionDirector(solutionDirector);
+  Termination termination=terminationConfig.buildTermination(scoreDefinition,basicPlumbingTermination);
+  solver.setTermination(termination);
+  BestSolutionRecaller bestSolutionRecaller=new BestSolutionRecaller();
+  solver.setBestSolutionRecaller(bestSolutionRecaller);
+  if (solverPhaseConfigList == null || solverPhaseConfigList.isEmpty()) {
+    throw new IllegalArgumentException("Configure at least 1 phase (for example <localSearch>) in the solver configuration.");
+  }
+  List<SolverPhase> solverPhaseList=new ArrayList<SolverPhase>(solverPhaseConfigList.size());
+  for (  SolverPhaseConfig solverPhaseConfig : solverPhaseConfigList) {
+    SolverPhase solverPhase=solverPhaseConfig.buildSolverPhase(environmentMode,solutionDescriptor,scoreDefinition,termination);
+    ((AbstractSolverPhase)solverPhase).setBestSolutionRecaller(bestSolutionRecaller);
+    solverPhaseList.add(solverPhase);
+  }
+  solver.setSolverPhaseList(solverPhaseList);
+  return solver;
+}

@@ -1,0 +1,4 @@
+{
+  this.scoreDefinition=scoreDefinition;
+  workingScoreCalculator=scoreDefinition.buildScoreCalculator();
+}

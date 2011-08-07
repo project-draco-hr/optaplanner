@@ -1,0 +1,13 @@
+{
+  computerLabel.setEnabled(used);
+  cpuPowerField.setText(usedCpuPower + " GHz / " + getComputerCpuPower()+ " GHz");
+  cpuPowerField.setForeground(usedCpuPower > getComputerCpuPower() ? Color.RED : Color.BLACK);
+  cpuPowerField.setEnabled(used);
+  memoryField.setText(usedMemory + " GB / " + getComputerMemory()+ " GB");
+  memoryField.setForeground(usedMemory > getComputerMemory() ? Color.RED : Color.BLACK);
+  memoryField.setEnabled(used);
+  networkBandwidthField.setText(usedNetworkBandwidth + " GB / " + getComputerNetworkBandwidth()+ " GB");
+  networkBandwidthField.setForeground(usedNetworkBandwidth > getComputerNetworkBandwidth() ? Color.RED : Color.BLACK);
+  networkBandwidthField.setEnabled(used);
+  costField.setEnabled(used);
+}

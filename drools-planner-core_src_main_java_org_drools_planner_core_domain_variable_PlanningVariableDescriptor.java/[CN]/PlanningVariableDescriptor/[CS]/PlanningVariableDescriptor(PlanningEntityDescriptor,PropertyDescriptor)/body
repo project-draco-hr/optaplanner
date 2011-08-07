@@ -1,0 +1,5 @@
+{
+  this.planningEntityDescriptor=planningEntityDescriptor;
+  this.variablePropertyDescriptor=variablePropertyDescriptor;
+  processPropertyAnnotations();
+}

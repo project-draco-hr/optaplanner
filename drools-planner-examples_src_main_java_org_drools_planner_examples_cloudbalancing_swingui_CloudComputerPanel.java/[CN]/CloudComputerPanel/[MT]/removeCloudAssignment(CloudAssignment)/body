@@ -1,0 +1,4 @@
+{
+  cloudAssignmentList.remove(cloudAssignment);
+  update();
+}

@@ -1,0 +1,10 @@
+{
+  super(exampleName + " Drools Planner example");
+  this.solutionBusiness=solutionBusiness;
+  this.solutionPanel=solutionPanel;
+  solutionPanel.setSolutionBusiness(solutionBusiness);
+  solutionPanel.setSolverAndPersistenceFrame(this);
+  registerListeners();
+  constraintScoreMapDialog=new ConstraintScoreMapDialog(this);
+  constraintScoreMapDialog.setSolutionBusiness(solutionBusiness);
+}

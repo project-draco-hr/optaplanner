@@ -1,4 +1,0 @@
-{
-  int stepIndex=localSearchStepScope.getStepIndex();
-  return stepIndex >= maximumStepCount;
-}

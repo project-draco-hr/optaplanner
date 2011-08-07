@@ -1,0 +1,12 @@
+{
+  if (completedGreedyFitStepScope == null) {
+    completedGreedyFitStepScope=new GreedyFitStepScope(greedyFitSolverPhaseScope);
+    completedGreedyFitStepScope.setScore(greedyFitSolverPhaseScope.getStartingScore());
+    completedGreedyFitStepScope.setStepIndex(-1);
+  }
+  greedyFitSolverPhaseScope.setLastCompletedGreedyFitStepScope(completedGreedyFitStepScope);
+  GreedyFitStepScope greedyFitStepScope=new GreedyFitStepScope(greedyFitSolverPhaseScope);
+  greedyFitStepScope.setStepIndex(completedGreedyFitStepScope.getStepIndex() + 1);
+  greedyFitStepScope.setSolutionInitialized(false);
+  return greedyFitStepScope;
+}

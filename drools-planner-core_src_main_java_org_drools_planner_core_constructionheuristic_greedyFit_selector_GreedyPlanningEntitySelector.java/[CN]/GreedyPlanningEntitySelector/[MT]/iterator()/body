@@ -1,0 +1,7 @@
+{
+  IteratorChain iteratorChain=new IteratorChain();
+  for (  PlanningEntitySelector planningEntitySelector : planningEntitySelectorList) {
+    iteratorChain.addIterator(planningEntitySelector.iterator());
+  }
+  return iteratorChain;
+}

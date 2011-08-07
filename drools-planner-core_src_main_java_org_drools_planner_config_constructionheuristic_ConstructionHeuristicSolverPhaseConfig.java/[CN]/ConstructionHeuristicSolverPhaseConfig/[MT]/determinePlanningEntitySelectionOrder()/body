@@ -1,0 +1,12 @@
+{
+switch (constructionHeuristicType) {
+case FIRST_FIT:
+case BEST_FIT:
+    return PlanningEntitySelectionOrder.ORIGINAL;
+case FIRST_FIT_DECREASING:
+case BEST_FIT_DECREASING:
+  return PlanningEntitySelectionOrder.DECREASING_DIFFICULTY;
+default :
+throw new IllegalStateException("The constructionHeuristicType (" + constructionHeuristicType + ") is not implemented");
+}
+}

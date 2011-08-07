@@ -1,4 +1,4 @@
 {
   solutionBusiness=createSolutionBusiness();
-  workflowFrame=new WorkflowFrame(solutionBusiness,createSolutionPanel(),solutionBusiness.getDirName());
+  solverAndPersistenceFrame=new SolverAndPersistenceFrame(solutionBusiness,createSolutionPanel(),solutionBusiness.getDirName());
 }

@@ -1,7 +1,7 @@
 {
-  Score score=moveScope.getLocalSearchStepScope().getLocalSearchSolverScope().calculateScoreFromWorkingMemory();
+  Score score=moveScope.getLocalSearchStepScope().getLocalSearchSolverPhaseScope().calculateScoreFromWorkingMemory();
   if (assertMoveScoreIsUncorrupted) {
-    moveScope.getLocalSearchStepScope().getLocalSearchSolverScope().assertWorkingScore(score);
+    moveScope.getLocalSearchStepScope().getLocalSearchSolverPhaseScope().assertWorkingScore(score);
   }
   moveScope.setScore(score);
   double acceptChance=acceptor.calculateAcceptChance(moveScope);

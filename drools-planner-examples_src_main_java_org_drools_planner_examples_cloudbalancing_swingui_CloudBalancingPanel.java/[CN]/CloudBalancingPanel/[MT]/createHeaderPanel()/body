@@ -1,14 +1,14 @@
 {
-  JPanel headerPanel=new JPanel(new FlowLayout(FlowLayout.LEFT));
-  headerPanel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.LIGHT_GRAY),BorderFactory.createEmptyBorder(2,2,2,2)));
-  JTextArea cloudComputerLabel=new JTextArea("CloudComputer",TEXT_AREA_ROWS,TEXT_AREA_COLUMNS);
-  cloudComputerLabel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.DARK_GRAY),BorderFactory.createEmptyBorder(2,2,2,2)));
-  cloudComputerLabel.setBackground(HEADER_COLOR);
-  cloudComputerLabel.setEditable(false);
-  headerPanel.add(cloudComputerLabel);
-  JTextArea cloudProcessLabel=new JTextArea("CloudProcess",TEXT_AREA_ROWS,TEXT_AREA_COLUMNS);
-  cloudProcessLabel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.DARK_GRAY),BorderFactory.createEmptyBorder(2,2,2,2)));
-  cloudProcessLabel.setEditable(false);
-  headerPanel.add(cloudProcessLabel);
+  JPanel headerPanel=new JPanel(new GridLayout(0,5));
+  JLabel emptyLabel=new JLabel("");
+  headerPanel.add(emptyLabel);
+  JLabel cpuPowerLabel=new JLabel("CPU power");
+  headerPanel.add(cpuPowerLabel);
+  JLabel memoryLabel=new JLabel("Memory");
+  headerPanel.add(memoryLabel);
+  JLabel networkBandwidthLabel=new JLabel("Network bandwidth");
+  headerPanel.add(networkBandwidthLabel);
+  JLabel costLabel=new JLabel("Cost");
+  headerPanel.add(costLabel);
   return headerPanel;
 }

@@ -1,0 +1,24 @@
+{
+  JPanel panel=new JPanel(new GridLayout(0,1));
+  solveAction=new SolveAction();
+  solveAction.setEnabled(false);
+  panel.add(new JButton(solveAction));
+  terminateSolvingEarlyAction=new TerminateSolvingEarlyAction();
+  terminateSolvingEarlyAction.setEnabled(false);
+  panel.add(new JButton(terminateSolvingEarlyAction));
+  refreshScreenDuringSolvingCheckBox=new JCheckBox("Refresh screen during solving",false);
+  panel.add(refreshScreenDuringSolvingCheckBox);
+  openAction=new OpenAction();
+  openAction.setEnabled(true);
+  panel.add(new JButton(openAction));
+  saveAction=new SaveAction();
+  saveAction.setEnabled(false);
+  panel.add(new JButton(saveAction));
+  importAction=new ImportAction();
+  importAction.setEnabled(solutionBusiness.hasImporter());
+  panel.add(new JButton(importAction));
+  exportAction=new ExportAction();
+  exportAction.setEnabled(false);
+  panel.add(new JButton(exportAction));
+  return panel;
+}

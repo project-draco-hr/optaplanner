@@ -1,0 +1,5 @@
+{
+  int bestStepIndex=solverPhaseScope.getBestSolutionStepIndex();
+  int lastStepIndex=solverPhaseScope.getLastCompletedStepScope().getStepIndex();
+  return lastStepIndex - bestStepIndex;
+}

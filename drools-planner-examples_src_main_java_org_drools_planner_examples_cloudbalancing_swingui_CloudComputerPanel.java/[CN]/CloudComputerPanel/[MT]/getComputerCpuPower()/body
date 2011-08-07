@@ -1,0 +1,3 @@
+{
+  return cloudComputer == null ? 0 : cloudComputer.getCpuPower();
+}
