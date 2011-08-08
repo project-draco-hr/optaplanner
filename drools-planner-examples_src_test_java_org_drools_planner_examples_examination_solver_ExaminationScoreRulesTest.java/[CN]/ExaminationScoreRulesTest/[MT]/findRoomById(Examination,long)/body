@@ -1,8 +1,0 @@
-{
-  for (  Room room : examination.getRoomList()) {
-    if (room.getId() == id) {
-      return room;
-    }
-  }
-  throw new IllegalArgumentException("Invalid id (" + id + ")");
-}
