@@ -1,0 +1,4 @@
+{
+  this.queen=queen;
+  this.distanceFromMiddle=distanceFromMiddle;
+}

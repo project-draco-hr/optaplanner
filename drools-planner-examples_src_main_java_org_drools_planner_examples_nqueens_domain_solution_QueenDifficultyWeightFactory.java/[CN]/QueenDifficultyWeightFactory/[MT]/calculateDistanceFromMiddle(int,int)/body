@@ -1,0 +1,8 @@
+{
+  int middle=n / 2;
+  int distanceFromMiddle=Math.abs(x - middle);
+  if ((n % 2 == 0) && (x < middle)) {
+    distanceFromMiddle--;
+  }
+  return distanceFromMiddle;
+}
