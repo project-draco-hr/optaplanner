@@ -1,11 +1,11 @@
 {
   readConstantLine("\"Network\";;;;;;");
-  readConstantLine("\"Origin\";\"Destination\";\"Distance (Miles)\";\"Max Train Length(Feet)\";\"Max Tonnage (Tons)\";\"Max # of Trains\";");
+  readConstantLine("\"Origin\";\"Destination\";\"Distance\";\"Max Train Length(Feet)\";\"Max Tonnage (Tons)\";\"Max # of Trains\";");
   List<RailArc> railArcListList=new ArrayList<RailArc>();
   String line=bufferedReader.readLine();
   long id=0L;
   while (!line.equals(";;;;;;")) {
-    String[] lineTokens=splitBySemicolonSeparatedValue(line,7);
+    String[] lineTokens=splitBySemicolonSeparatedValue(line,6);
     RailArc railArc=new RailArc();
     railArc.setId(id);
     id++;
@@ -19,7 +19,7 @@
       throw new IllegalArgumentException("Read line (" + line + ") has a non existing destination ("+ lineTokens[1]+ ").");
     }
     railArc.setDestination(destination);
-    railArc.setDistance(Integer.parseInt(lineTokens[2]));
+    railArc.setDistance(readDistance(lineTokens[2]));
     railArc.setMaximumTrainLength(Integer.parseInt(lineTokens[3]));
     railArc.setMaximumTonnage(Integer.parseInt(lineTokens[4]));
     railArc.setMaximumNumberOfTrains(Integer.parseInt(lineTokens[5]));

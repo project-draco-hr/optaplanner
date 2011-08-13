@@ -1,17 +1,17 @@
 {
   readConstantLine("\"Network Nodes\";;;;;;");
-  readConstantLine("\"Node \";\"BlockSwap Cost\";;;;;");
+  readConstantLine("\"Node\";\"BlockSwap Cost\";;;;;");
   List<RailNode> railNodeList=new ArrayList<RailNode>();
   nameToRailNodeMap=new HashMap<String,RailNode>();
   String line=bufferedReader.readLine();
   long id=0L;
   while (!line.equals(";;;;;;")) {
-    String[] lineTokens=splitBySemicolonSeparatedValue(line,7);
+    String[] lineTokens=splitBySemicolonSeparatedValue(line,2);
     RailNode railNode=new RailNode();
     railNode.setId(id);
     id++;
     railNode.setName(lineTokens[0]);
-    railNode.setBlockSwapCost(Integer.parseInt(lineTokens[2]));
+    railNode.setBlockSwapCost(Integer.parseInt(lineTokens[1]));
     railNodeList.add(railNode);
     nameToRailNodeMap.put(railNode.getName(),railNode);
     line=bufferedReader.readLine();
