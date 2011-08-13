@@ -1,4 +1,3 @@
 {
-  String[] lineTokens=line.split("\\ ");
-  return lineTokens;
+  return splitBySpace(line,null);
 }

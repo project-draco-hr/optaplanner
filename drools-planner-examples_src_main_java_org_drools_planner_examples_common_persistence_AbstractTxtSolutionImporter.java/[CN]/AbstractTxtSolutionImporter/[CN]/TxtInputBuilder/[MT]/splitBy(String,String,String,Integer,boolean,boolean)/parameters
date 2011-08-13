@@ -1,0 +1,6 @@
+String line
+String tokenRegex
+String tokenName
+Integer numberOfTokens
+boolean trim
+boolean removeQuotes

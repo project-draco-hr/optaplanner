@@ -9,7 +9,7 @@
   long preferredPatientEquipmentId=0L;
   for (int i=0; i < patientListSize; i++) {
     String line=bufferedReader.readLine();
-    String[] lineTokens=splitByPipeline(line,6);
+    String[] lineTokens=splitByPipelineAndTrim(line,6);
     String[] nightTokens=splitBySpace(lineTokens[1],2);
     int firstNightIndex=Integer.parseInt(nightTokens[0]);
     int lastNightIndex=Integer.parseInt(nightTokens[1]);

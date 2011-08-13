@@ -4,7 +4,7 @@
   long id=0L;
   for (  AdmissionPart admissionPart : admissionPartList) {
     BedDesignation bedDesignation=new BedDesignation();
-    bedDesignation.setId((long)id);
+    bedDesignation.setId(id);
     id++;
     bedDesignation.setAdmissionPart(admissionPart);
     bedDesignationList.add(bedDesignation);

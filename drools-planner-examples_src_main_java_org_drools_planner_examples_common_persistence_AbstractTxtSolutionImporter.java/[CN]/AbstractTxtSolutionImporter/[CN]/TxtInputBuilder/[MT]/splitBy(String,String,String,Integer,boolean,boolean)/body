@@ -1,0 +1,19 @@
+{
+  String[] lineTokens=line.split(tokenRegex);
+  if (numberOfTokens != null && lineTokens.length != numberOfTokens) {
+    throw new IllegalArgumentException("Read line (" + line + ") is expected to contain "+ numberOfTokens+ " tokens separated by "+ tokenName+ ".");
+  }
+  if (trim) {
+    for (int i=0; i < lineTokens.length; i++) {
+      lineTokens[i]=lineTokens[i].trim();
+    }
+  }
+  if (removeQuotes) {
+    for (int i=0; i < lineTokens.length; i++) {
+      if (lineTokens[i].startsWith("\"") && lineTokens[i].endsWith("\"")) {
+        lineTokens[i]=lineTokens[i].substring(1,lineTokens[i].length() - 1);
+      }
+    }
+  }
+  return lineTokens;
+}

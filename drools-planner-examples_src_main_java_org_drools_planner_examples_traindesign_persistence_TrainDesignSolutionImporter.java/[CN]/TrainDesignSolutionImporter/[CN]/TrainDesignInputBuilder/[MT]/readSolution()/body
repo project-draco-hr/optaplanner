@@ -1,0 +1,9 @@
+{
+  trainDesign=new TrainDesign();
+  trainDesign.setId(0L);
+  readRailNodeList();
+  readCarBlockList();
+  readRailArcList();
+  logger.info("TrainDesign with {} rail nodes and {} rail arcs.",new Object[]{trainDesign.getRailNodeList().size(),trainDesign.getRailArcList().size()});
+  return trainDesign;
+}

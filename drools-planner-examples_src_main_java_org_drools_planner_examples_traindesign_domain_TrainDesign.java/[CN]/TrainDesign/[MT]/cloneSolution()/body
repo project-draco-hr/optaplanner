@@ -1,0 +1,14 @@
+{
+  TrainDesign clone=new TrainDesign();
+  clone.id=id;
+  clone.railNodeList=railNodeList;
+  clone.railArcList=railArcList;
+  List<BedDesignation> clonedBedDesignationList=new ArrayList<BedDesignation>(bedDesignationList.size());
+  for (  BedDesignation bedDesignation : bedDesignationList) {
+    BedDesignation clonedBedDesignation=bedDesignation.clone();
+    clonedBedDesignationList.add(clonedBedDesignation);
+  }
+  clone.bedDesignationList=clonedBedDesignationList;
+  clone.score=score;
+  return clone;
+}

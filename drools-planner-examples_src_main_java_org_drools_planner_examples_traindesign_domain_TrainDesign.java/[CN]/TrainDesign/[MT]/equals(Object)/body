@@ -1,0 +1,22 @@
+{
+  if (this == o) {
+    return true;
+  }
+  if (id == null || !(o instanceof TrainDesign)) {
+    return false;
+  }
+ else {
+    TrainDesign other=(TrainDesign)o;
+    if (bedDesignationList.size() != other.bedDesignationList.size()) {
+      return false;
+    }
+    for (Iterator<BedDesignation> it=bedDesignationList.iterator(), otherIt=other.bedDesignationList.iterator(); it.hasNext(); ) {
+      BedDesignation bedDesignation=it.next();
+      BedDesignation otherBedDesignation=otherIt.next();
+      if (!bedDesignation.solutionEquals(otherBedDesignation)) {
+        return false;
+      }
+    }
+    return true;
+  }
+}

@@ -1,7 +1,0 @@
-{
-  String[] lineTokens=splitBySpacesOrTabs(line);
-  if (lineTokens.length != numberOfTokens) {
-    throw new IllegalArgumentException("Read line (" + line + ") is expected to contain "+ numberOfTokens+ " tokens separated by spaces or tabs.");
-  }
-  return lineTokens;
-}

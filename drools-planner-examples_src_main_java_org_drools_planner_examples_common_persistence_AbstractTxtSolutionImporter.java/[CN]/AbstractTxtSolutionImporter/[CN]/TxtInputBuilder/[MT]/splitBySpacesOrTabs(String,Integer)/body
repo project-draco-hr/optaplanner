@@ -1,0 +1,3 @@
+{
+  return splitBy(line,"[\\ \\t]+","spaces or tabs",numberOfTokens,false,false);
+}

@@ -1,0 +1,10 @@
+{
+  readConstantLine("\"Blocks\";;;;;;");
+  readConstantLine("\"BlockID\";\"Origin\";\"Destination\";\"# of Cars\";\"Total Length (Feet)\";\"Total Tonnage (Tons)\";\"Shortest Distance (Miles)\"");
+  String line=bufferedReader.readLine();
+  long id=0L;
+  while (!line.equals(";;;;;;")) {
+    String[] lineTokens=splitBySemicolonSeparatedValue(line,7);
+    line=bufferedReader.readLine();
+  }
+}
