@@ -1,0 +1,3 @@
+{
+  this.twoInARowPenalty=twoInARowPenalty;
+}
