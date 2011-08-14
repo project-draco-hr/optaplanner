@@ -10,11 +10,11 @@
     RailNode railNode=new RailNode();
     railNode.setId(id);
     id++;
-    railNode.setName(lineTokens[0]);
+    railNode.setCode(lineTokens[0]);
     railNode.setBlockSwapCost(Integer.parseInt(lineTokens[1]));
     railNode.setOriginatingRailArcList(new ArrayList<RailArc>());
     railNodeList.add(railNode);
-    nameToRailNodeMap.put(railNode.getName(),railNode);
+    nameToRailNodeMap.put(railNode.getCode(),railNode);
     line=bufferedReader.readLine();
   }
   trainDesign.setRailNodeList(railNodeList);

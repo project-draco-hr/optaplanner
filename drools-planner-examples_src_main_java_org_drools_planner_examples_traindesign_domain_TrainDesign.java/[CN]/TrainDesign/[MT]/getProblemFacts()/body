@@ -2,5 +2,6 @@
   List<Object> facts=new ArrayList<Object>();
   facts.addAll(railNodeList);
   facts.addAll(railArcList);
+  facts.addAll(carBlockList);
   return facts;
 }
