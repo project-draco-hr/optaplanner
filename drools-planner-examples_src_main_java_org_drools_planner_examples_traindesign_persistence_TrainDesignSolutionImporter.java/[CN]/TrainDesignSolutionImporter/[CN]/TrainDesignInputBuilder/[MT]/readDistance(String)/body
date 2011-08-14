@@ -1,5 +1,5 @@
 {
-  BigDecimal distanceBigDecimal=new BigDecimal(lineToken).multiply(DISTANCE_MULTIPLICANT);
+  BigDecimal distanceBigDecimal=new BigDecimal(lineToken).multiply(DISTANCE_MULTIPLICAND);
   if (distanceBigDecimal.remainder(BigDecimal.ONE).compareTo(BigDecimal.ZERO) != 0) {
     throw new IllegalArgumentException("The distance (" + lineToken + ") is too detailed.");
   }

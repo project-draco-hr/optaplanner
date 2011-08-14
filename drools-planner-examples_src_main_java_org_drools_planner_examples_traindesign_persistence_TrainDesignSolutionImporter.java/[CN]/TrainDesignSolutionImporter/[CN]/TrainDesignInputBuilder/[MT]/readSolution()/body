@@ -4,6 +4,8 @@
   readRailNodeList();
   readCarBlockList();
   readRailArcList();
+  readCrewSegmentList();
+  readTrainDesignParametrization();
   logger.info("TrainDesign with {} rail nodes and {} rail arcs.",new Object[]{trainDesign.getRailNodeList().size(),trainDesign.getRailArcList().size()});
   return trainDesign;
 }

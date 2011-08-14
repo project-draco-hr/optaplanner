@@ -1,6 +1,7 @@
 {
   TrainDesign clone=new TrainDesign();
   clone.id=id;
+  clone.trainDesignParametrization=trainDesignParametrization;
   clone.railNodeList=railNodeList;
   clone.railArcList=railArcList;
   clone.carBlockList=carBlockList;

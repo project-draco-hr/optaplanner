@@ -1,5 +1,6 @@
 {
   List<Object> facts=new ArrayList<Object>();
+  facts.add(trainDesignParametrization);
   facts.addAll(railNodeList);
   facts.addAll(railArcList);
   facts.addAll(carBlockList);
