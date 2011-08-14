@@ -1,7 +1,7 @@
 {
   readConstantLine("\"Network\";;;;;;");
   readConstantLine("\"Origin\";\"Destination\";\"Distance\";\"Max Train Length(Feet)\";\"Max Tonnage (Tons)\";\"Max # of Trains\";");
-  List<RailArc> railArcListList=new ArrayList<RailArc>();
+  List<RailArc> railArcList=new ArrayList<RailArc>();
   String line=bufferedReader.readLine();
   long id=0L;
   while (!line.equals(";;;;;;")) {
@@ -38,9 +38,9 @@
     int maximumNumberOfTrains=Integer.parseInt(lineTokens[5]);
     railArc.setMaximumNumberOfTrains(maximumNumberOfTrains);
     reverseRailArc.setMaximumNumberOfTrains(maximumNumberOfTrains);
-    railArcListList.add(railArc);
-    railArcListList.add(reverseRailArc);
+    railArcList.add(railArc);
+    railArcList.add(reverseRailArc);
     line=bufferedReader.readLine();
   }
-  trainDesign.setRailArcList(railArcListList);
+  trainDesign.setRailArcList(railArcList);
 }
