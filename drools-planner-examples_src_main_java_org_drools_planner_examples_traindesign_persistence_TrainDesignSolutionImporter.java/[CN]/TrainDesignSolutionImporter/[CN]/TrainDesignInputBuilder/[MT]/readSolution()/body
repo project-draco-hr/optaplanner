@@ -6,6 +6,7 @@
   readRailArcList();
   readTrainCrewList();
   readTrainDesignParametrization();
-  logger.info("TrainDesign with {} rail nodes, {} rail arcs, {} car blocks, {}  train crews.",new Object[]{trainDesign.getRailNodeList().size(),trainDesign.getRailArcList().size(),trainDesign.getCarBlockList().size(),trainDesign.getTrainCrewList().size()});
+  buildTodo();
+  logger.info("TrainDesign with {} rail nodes, {} rail arcs, {} car blocks, {} train crews.",new Object[]{trainDesign.getRailNodeList().size(),trainDesign.getRailArcList().size(),trainDesign.getCarBlockList().size(),trainDesign.getTrainCrewList().size()});
   return trainDesign;
 }
