@@ -1,5 +1,0 @@
-{
-  for (  CrewSegment crewSegment : trainDesign.getCrewSegmentList()) {
-    Dijkstra shortestDijkstra=findShortestDijkstra(crewSegment);
-  }
-}

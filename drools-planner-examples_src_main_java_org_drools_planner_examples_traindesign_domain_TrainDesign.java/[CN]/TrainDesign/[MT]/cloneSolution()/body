@@ -6,6 +6,7 @@
   clone.railArcList=railArcList;
   clone.carBlockList=carBlockList;
   clone.crewSegmentList=crewSegmentList;
+  clone.crewSegmentPathList=crewSegmentPathList;
   List<BedDesignation> clonedBedDesignationList=new ArrayList<BedDesignation>(bedDesignationList.size());
   for (  BedDesignation bedDesignation : bedDesignationList) {
     BedDesignation clonedBedDesignation=bedDesignation.clone();

@@ -1,0 +1,16 @@
+{
+  List<CrewSegmentPath> crewSegmentPathList=new ArrayList<CrewSegmentPath>(trainDesign.getCrewSegmentList().size() * 2);
+  long id=0L;
+  for (  CrewSegment crewSegment : trainDesign.getCrewSegmentList()) {
+    Dijkstra shortestDijkstra=findShortestDijkstra(crewSegment);
+    for (    List<RailArc> railPath : shortestDijkstra.getRailPathList()) {
+      CrewSegmentPath crewSegmentPath=new CrewSegmentPath();
+      crewSegmentPath.setId(id);
+      id++;
+      crewSegmentPath.setCrewSegment(crewSegment);
+      crewSegmentPath.setRailPath(railPath);
+      crewSegmentPathList.add(crewSegmentPath);
+    }
+  }
+  trainDesign.setCrewSegmentPathList(crewSegmentPathList);
+}
