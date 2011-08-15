@@ -4,6 +4,6 @@
   facts.addAll(railNodeList);
   facts.addAll(railArcList);
   facts.addAll(carBlockList);
-  facts.addAll(crewSegmentList);
+  facts.addAll(trainCrewList);
   return facts;
 }
