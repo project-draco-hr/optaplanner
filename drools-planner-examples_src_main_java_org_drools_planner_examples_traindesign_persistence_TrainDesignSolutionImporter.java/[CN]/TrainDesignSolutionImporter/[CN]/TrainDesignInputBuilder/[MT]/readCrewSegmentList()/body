@@ -1,26 +1,26 @@
 {
   readConstantLine("\"Crew Segments\";;;;;;");
   readConstantLine("\"Node1\";\"Node2\";;;;;");
-  List<TrainCrew> trainCrewList=new ArrayList<TrainCrew>();
+  List<CrewSegment> crewSegmentList=new ArrayList<CrewSegment>();
   String line=bufferedReader.readLine();
   long id=0L;
   while (!line.equals(";;;;;;")) {
     String[] lineTokens=splitBySemicolonSeparatedValue(line,2);
-    TrainCrew trainCrew=new TrainCrew();
-    trainCrew.setId(id);
+    CrewSegment crewSegment=new CrewSegment();
+    crewSegment.setId(id);
     id++;
     RailNode home=nameToRailNodeMap.get(lineTokens[0]);
     if (home == null) {
       throw new IllegalArgumentException("Read line (" + line + ") has a non existing crew home ("+ lineTokens[0]+ ").");
     }
-    trainCrew.setHome(home);
+    crewSegment.setHome(home);
     RailNode away=nameToRailNodeMap.get(lineTokens[1]);
     if (away == null) {
       throw new IllegalArgumentException("Read line (" + line + ") has a non existing crew away ("+ lineTokens[1]+ ").");
     }
-    trainCrew.setAway(away);
-    trainCrewList.add(trainCrew);
+    crewSegment.setAway(away);
+    crewSegmentList.add(crewSegment);
     line=bufferedReader.readLine();
   }
-  trainDesign.setTrainCrewList(trainCrewList);
+  trainDesign.setCrewSegmentList(crewSegmentList);
 }
