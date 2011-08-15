@@ -1,8 +1,0 @@
-{
-  if (solver.isSolving()) {
-    solver.addPlanningFactChange(planningFactChange);
-  }
- else {
-    planningFactChange.doChange(solverScope.getSolutionDirector());
-  }
-}

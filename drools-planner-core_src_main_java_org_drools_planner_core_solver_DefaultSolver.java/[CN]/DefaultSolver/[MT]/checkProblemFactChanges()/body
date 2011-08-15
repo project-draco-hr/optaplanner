@@ -1,0 +1,15 @@
+{
+  BlockingQueue<ProblemFactChange> problemFactChangeQueue=basicPlumbingTermination.getProblemFactChangeQueue();
+  if (!problemFactChangeQueue.isEmpty()) {
+    solverScope.setRestartSolver(true);
+    Score score=null;
+    int count=0;
+    ProblemFactChange problemFactChange=problemFactChangeQueue.poll();
+    while (problemFactChange != null) {
+      score=doProblemFactChange(problemFactChange);
+      count++;
+      problemFactChange=problemFactChangeQueue.poll();
+    }
+    logger.info("Done {} ProblemFactChange(s), score ({}), possibly uninitialized. Restarting solver.",count,score);
+  }
+}

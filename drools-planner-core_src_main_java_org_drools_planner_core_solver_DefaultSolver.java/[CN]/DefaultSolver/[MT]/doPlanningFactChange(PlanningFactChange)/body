@@ -1,6 +1,0 @@
-{
-  planningFactChange.doChange(solverScope.getSolutionDirector());
-  Score score=solverScope.calculateScoreFromWorkingMemory();
-  logger.debug("PlanningFactChange done with new score ({}).",score);
-  return score;
-}

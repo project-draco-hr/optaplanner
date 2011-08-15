@@ -1,0 +1,8 @@
+{
+  if (solver.isSolving()) {
+    solver.addProblemFactChange(problemFactChange);
+  }
+ else {
+    problemFactChange.doChange(solverScope.getSolutionDirector());
+  }
+}

@@ -1,3 +1,0 @@
-{
-  return basicPlumbingTermination.addPlanningFactChange(planningFactChange);
-}

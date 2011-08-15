@@ -7,7 +7,7 @@
     solvingStarted(solverScope);
     runSolverPhases();
     solvingEnded(solverScope);
-    checkPlanningFactChanges();
+    checkProblemFactChanges();
   }
   solving.set(false);
 }
