@@ -38,6 +38,8 @@
     int maximumNumberOfTrains=Integer.parseInt(lineTokens[5]);
     railArc.setMaximumNumberOfTrains(maximumNumberOfTrains);
     reverseRailArc.setMaximumNumberOfTrains(maximumNumberOfTrains);
+    railArc.setReverse(reverseRailArc);
+    reverseRailArc.setReverse(railArc);
     railArcList.add(railArc);
     railArcList.add(reverseRailArc);
     line=bufferedReader.readLine();

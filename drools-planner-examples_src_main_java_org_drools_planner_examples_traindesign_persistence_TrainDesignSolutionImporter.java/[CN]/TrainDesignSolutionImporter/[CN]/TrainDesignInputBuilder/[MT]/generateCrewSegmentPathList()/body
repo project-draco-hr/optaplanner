@@ -5,10 +5,22 @@
     Dijkstra shortestDijkstra=findShortestDijkstra(crewSegment);
     for (    List<RailArc> railPath : shortestDijkstra.getRailPathList()) {
       CrewSegmentPath crewSegmentPath=new CrewSegmentPath();
+      CrewSegmentPath reverseCrewSegmentPath=new CrewSegmentPath();
       crewSegmentPath.setId(id);
       id++;
+      reverseCrewSegmentPath.setId(id);
+      id++;
       crewSegmentPath.setCrewSegment(crewSegment);
+      reverseCrewSegmentPath.setCrewSegment(crewSegment);
       crewSegmentPath.setRailPath(railPath);
+      List<RailArc> reverseRailPath=new ArrayList<RailArc>(railPath.size());
+      for (      RailArc railArc : railPath) {
+        reverseRailPath.add(railArc.getReverse());
+      }
+      Collections.reverse(reverseRailPath);
+      reverseCrewSegmentPath.setRailPath(reverseRailPath);
+      crewSegmentPath.setReverse(reverseCrewSegmentPath);
+      reverseCrewSegmentPath.setReverse(crewSegmentPath);
       crewSegmentPathList.add(crewSegmentPath);
     }
   }
