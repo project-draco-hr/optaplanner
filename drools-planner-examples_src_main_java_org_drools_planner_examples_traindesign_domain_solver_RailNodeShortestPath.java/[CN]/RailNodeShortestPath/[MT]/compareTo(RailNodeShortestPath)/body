@@ -1,0 +1,3 @@
+{
+  return new CompareToBuilder().append(distance,other.distance).append(railPathList.size(),other.railPathList.size()).append(id,other.id).toComparison();
+}

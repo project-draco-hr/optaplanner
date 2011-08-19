@@ -3,6 +3,7 @@
   try {
     reader=new InputStreamReader(in,"UTF-8");
     Solution solution=(Solution)xStream.fromXML(reader);
+    postRead(solution);
     return solution;
   }
  catch (  IOException e) {

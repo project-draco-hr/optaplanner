@@ -1,0 +1,3 @@
+{
+  railPathList=new ArrayList<RailPath>(2);
+}

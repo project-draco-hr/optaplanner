@@ -1,0 +1,6 @@
+{
+  List<RailNode> railNodeList=trainDesign.getRailNodeList();
+  for (  RailNode origin : railNodeList) {
+    origin.initializeShortestPathMap(railNodeList);
+  }
+}
