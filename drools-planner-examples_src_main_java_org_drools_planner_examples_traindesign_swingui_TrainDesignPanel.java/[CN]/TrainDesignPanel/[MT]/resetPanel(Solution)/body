@@ -1,0 +1,4 @@
+{
+  removeAll();
+  TrainDesign trainDesign=(TrainDesign)solution;
+}
