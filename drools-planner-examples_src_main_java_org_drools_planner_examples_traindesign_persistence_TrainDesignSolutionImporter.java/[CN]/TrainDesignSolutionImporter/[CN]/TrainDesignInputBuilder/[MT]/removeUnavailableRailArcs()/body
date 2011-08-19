@@ -1,0 +1,19 @@
+{
+  List<RailArc> unavailableRailArcList=new ArrayList<RailArc>(trainDesign.getRailArcList());
+  for (  CrewSegment crewSegment : trainDesign.getCrewSegmentList()) {
+    for (    RailPath railPath : crewSegment.getHomeAwayShortestPath().getRailPathList()) {
+      unavailableRailArcList.removeAll(railPath.getRailArcList());
+    }
+    for (    RailPath railPath : crewSegment.getAwayHomeShortestPath().getRailPathList()) {
+      unavailableRailArcList.removeAll(railPath.getRailArcList());
+    }
+  }
+  if (!unavailableRailArcList.isEmpty()) {
+    logger.warn("There are unavailable railArcs (" + unavailableRailArcList + "): removing them.");
+    trainDesign.getRailArcList().removeAll(unavailableRailArcList);
+    for (    RailNode railNode : trainDesign.getRailNodeList()) {
+      railNode.getOriginatingRailArcList().removeAll(unavailableRailArcList);
+    }
+    trainDesign.initializeTransientProperties();
+  }
+}
