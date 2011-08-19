@@ -1,0 +1,7 @@
+{
+  this.railArcList=railArcList;
+  distance=0;
+  for (  RailArc railArc : railArcList) {
+    distance+=railArc.getDistance();
+  }
+}

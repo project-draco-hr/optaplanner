@@ -1,6 +1,6 @@
 {
   HashCodeBuilder hashCodeBuilder=new HashCodeBuilder();
-  for (  BedDesignation bedDesignation : bedDesignationList) {
+  for (  CarBlockDesignation bedDesignation : carBlockDesignationList) {
     hashCodeBuilder.append(bedDesignation.solutionHashCode());
   }
   return hashCodeBuilder.toHashCode();

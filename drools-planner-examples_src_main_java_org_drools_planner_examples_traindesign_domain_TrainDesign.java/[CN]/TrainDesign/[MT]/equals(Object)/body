@@ -7,13 +7,13 @@
   }
  else {
     TrainDesign other=(TrainDesign)o;
-    if (bedDesignationList.size() != other.bedDesignationList.size()) {
+    if (carBlockDesignationList.size() != other.carBlockDesignationList.size()) {
       return false;
     }
-    for (Iterator<BedDesignation> it=bedDesignationList.iterator(), otherIt=other.bedDesignationList.iterator(); it.hasNext(); ) {
-      BedDesignation bedDesignation=it.next();
-      BedDesignation otherBedDesignation=otherIt.next();
-      if (!bedDesignation.solutionEquals(otherBedDesignation)) {
+    for (Iterator<CarBlockDesignation> it=carBlockDesignationList.iterator(), otherIt=other.carBlockDesignationList.iterator(); it.hasNext(); ) {
+      CarBlockDesignation bedDesignation=it.next();
+      CarBlockDesignation otherCarBlockDesignation=otherIt.next();
+      if (!bedDesignation.solutionEquals(otherCarBlockDesignation)) {
         return false;
       }
     }

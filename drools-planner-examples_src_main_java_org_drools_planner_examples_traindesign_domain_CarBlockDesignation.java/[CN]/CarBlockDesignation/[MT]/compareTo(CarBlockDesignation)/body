@@ -1,0 +1,3 @@
+{
+  return new CompareToBuilder().append(carBlock,other.carBlock).append(railPath,other.railPath).append(id,other.id).toComparison();
+}

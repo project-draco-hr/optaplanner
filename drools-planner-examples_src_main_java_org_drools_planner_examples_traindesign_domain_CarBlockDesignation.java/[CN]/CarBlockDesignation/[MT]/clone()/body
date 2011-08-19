@@ -1,0 +1,7 @@
+{
+  CarBlockDesignation clone=new CarBlockDesignation();
+  clone.id=id;
+  clone.carBlock=carBlock;
+  clone.railPath=railPath;
+  return clone;
+}
