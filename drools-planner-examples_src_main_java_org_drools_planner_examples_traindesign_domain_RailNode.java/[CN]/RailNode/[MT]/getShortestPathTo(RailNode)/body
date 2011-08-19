@@ -1,0 +1,3 @@
+{
+  return shortestPathMap.get(other);
+}

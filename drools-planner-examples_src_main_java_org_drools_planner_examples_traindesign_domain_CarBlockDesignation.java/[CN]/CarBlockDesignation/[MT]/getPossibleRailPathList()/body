@@ -1,0 +1,3 @@
+{
+  return carBlock.getOrigin().getShortestPathTo(carBlock.getDestination()).getRailPathList();
+}
