@@ -1,0 +1,8 @@
+{
+  for (  RailNode origin : railNodeList) {
+    origin.initializeShortestPathMap(railNodeList);
+  }
+  for (  CrewSegment crewSegment : crewSegmentList) {
+    crewSegment.initializeShortestPath();
+  }
+}

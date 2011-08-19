@@ -1,3 +1,0 @@
-{
-  railPathList=new ArrayList<List<RailArc>>(2);
-}

@@ -5,6 +5,5 @@
   facts.addAll(railArcList);
   facts.addAll(carBlockList);
   facts.addAll(crewSegmentList);
-  facts.addAll(crewSegmentPathList);
   return facts;
 }

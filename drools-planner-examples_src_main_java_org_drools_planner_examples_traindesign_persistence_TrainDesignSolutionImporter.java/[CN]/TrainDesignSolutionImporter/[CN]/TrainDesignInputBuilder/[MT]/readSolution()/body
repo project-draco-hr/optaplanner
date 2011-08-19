@@ -6,8 +6,7 @@
   readRailArcList();
   readCrewSegmentList();
   readTrainDesignParametrization();
-  initializeShortestPathMaps();
-  generateCrewSegmentPathList();
-  logger.info("TrainDesign with {} rail nodes, {} rail arcs, {} car blocks, {} train crews.",new Object[]{trainDesign.getRailNodeList().size(),trainDesign.getRailArcList().size(),trainDesign.getCarBlockList().size(),trainDesign.getCrewSegmentList().size()});
+  trainDesign.initializeTransientProperties();
+  logger.info("TrainDesign with {} rail nodes, {} rail arcs, {} car blocks, {} crew segments.",new Object[]{trainDesign.getRailNodeList().size(),trainDesign.getRailArcList().size(),trainDesign.getCarBlockList().size(),trainDesign.getCrewSegmentList().size()});
   return trainDesign;
 }

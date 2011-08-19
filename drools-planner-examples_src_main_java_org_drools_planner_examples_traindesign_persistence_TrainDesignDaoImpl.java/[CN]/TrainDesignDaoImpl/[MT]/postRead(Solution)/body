@@ -1,6 +1,4 @@
 {
   TrainDesign trainDesign=(TrainDesign)solution;
-  for (  RailNode origin : trainDesign.getRailNodeList()) {
-    origin.initializeShortestPathMap(trainDesign.getRailNodeList());
-  }
+  trainDesign.initializeTransientProperties();
 }
