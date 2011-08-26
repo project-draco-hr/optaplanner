@@ -19,5 +19,4 @@
     }
   }
   writeHtmlOverview(htmlFragment);
-  writeBenchmarkResult(xStream);
 }
