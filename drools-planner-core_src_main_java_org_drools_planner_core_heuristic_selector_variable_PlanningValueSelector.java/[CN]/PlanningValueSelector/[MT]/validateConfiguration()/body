@@ -1,7 +1,7 @@
 {
   if (selectionOrder == PlanningValueSelectionOrder.INCREASING_STRENGTH) {
-    PlanningValueSorter planningValueSorter=planningVariableDescriptor.getPlanningValueSorter();
-    if (!planningValueSorter.isSortStrengthSupported()) {
+    PlanningValueSorter valueSorter=planningVariableDescriptor.getValueSorter();
+    if (!valueSorter.isSortStrengthSupported()) {
       throw new IllegalStateException("The selectionOrder (" + selectionOrder + ") can not be used on PlanningEntity ("+ planningVariableDescriptor.getPlanningEntityDescriptor().getPlanningEntityClass().getName()+ ")'s planningVariable ("+ planningVariableDescriptor.getVariablePropertyName()+ ") that has no support for strength sorting. Check the @PlanningVariable annotation.");
     }
   }

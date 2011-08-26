@@ -11,7 +11,7 @@
   if (strengthComparatorClass != null && strengthWeightFactoryClass != null) {
     throw new IllegalStateException("The planningEntityClass (" + planningEntityDescriptor.getPlanningEntityClass() + ") "+ variablePropertyDescriptor.getName()+ ") cannot have a strengthComparatorClass ("+ strengthComparatorClass.getName()+ ") and a strengthWeightFactoryClass ("+ strengthWeightFactoryClass.getName()+ ") at the same time.");
   }
-  planningValueSorter=new PlanningValueSorter();
+  valueSorter=new PlanningValueSorter();
   if (strengthComparatorClass != null) {
     Comparator<Object> strengthComparator;
     try {
@@ -23,7 +23,7 @@
 catch (    IllegalAccessException e) {
       throw new IllegalArgumentException("The strengthComparatorClass (" + strengthComparatorClass.getName() + ") does not have a public no-arg constructor",e);
     }
-    planningValueSorter.setStrengthComparator(strengthComparator);
+    valueSorter.setStrengthComparator(strengthComparator);
   }
   if (strengthWeightFactoryClass != null) {
     PlanningValueStrengthWeightFactory strengthWeightFactory;
@@ -36,19 +36,26 @@ catch (    IllegalAccessException e) {
 catch (    IllegalAccessException e) {
       throw new IllegalArgumentException("The strengthWeightFactoryClass (" + strengthWeightFactoryClass.getName() + ") does not have a public no-arg constructor",e);
     }
-    planningValueSorter.setStrengthWeightFactory(strengthWeightFactory);
+    valueSorter.setStrengthWeightFactory(strengthWeightFactory);
   }
   Method propertyGetter=variablePropertyDescriptor.getReadMethod();
+  int valueRangeAnnotationCount=0;
   if (propertyGetter.isAnnotationPresent(ValueRangeFromSolutionProperty.class)) {
-    processValueRangeSolutionPropertyAnnotation(propertyGetter.getAnnotation(ValueRangeFromSolutionProperty.class));
+    valueRangeDescriptor=new SolutionPropertyPlanningValueRangeDescriptor(this,propertyGetter.getAnnotation(ValueRangeFromSolutionProperty.class));
+    valueRangeAnnotationCount++;
   }
- else   if (propertyGetter.isAnnotationPresent(ValueRangeFromPlanningEntityProperty.class)) {
-    processValueRangeFromPlanningEntityPropertyAnnotation(propertyGetter.getAnnotation(ValueRangeFromPlanningEntityProperty.class));
+  if (propertyGetter.isAnnotationPresent(ValueRangeFromPlanningEntityProperty.class)) {
+    valueRangeDescriptor=new PlanningEntityPropertyPlanningValueRangeDescriptor(this,propertyGetter.getAnnotation(ValueRangeFromPlanningEntityProperty.class));
+    valueRangeAnnotationCount++;
   }
- else   if (propertyGetter.isAnnotationPresent(ValueRangeUndefined.class)) {
-    processValueRangeUndefinedAnnotation(propertyGetter.getAnnotation(ValueRangeUndefined.class));
+  if (propertyGetter.isAnnotationPresent(ValueRangeUndefined.class)) {
+    valueRangeDescriptor=new UndefinedPlanningValueRangeDescriptor(this,propertyGetter.getAnnotation(ValueRangeUndefined.class));
+    valueRangeAnnotationCount++;
   }
- else {
+  if (valueRangeAnnotationCount <= 0) {
     throw new IllegalArgumentException("The planningEntityClass (" + planningEntityDescriptor.getPlanningEntityClass() + ") has a PlanningVariable annotated property ("+ variablePropertyDescriptor.getName()+ ") that has no ValueRange* annotation, such as ValueRangeFromSolutionProperty.");
+  }
+  if (valueRangeAnnotationCount > 1) {
+    throw new IllegalArgumentException("The planningEntityClass (" + planningEntityDescriptor.getPlanningEntityClass() + ") has a PlanningVariable annotated property ("+ variablePropertyDescriptor.getName()+ ") that has multiple ValueRange* annotations.");
   }
 }

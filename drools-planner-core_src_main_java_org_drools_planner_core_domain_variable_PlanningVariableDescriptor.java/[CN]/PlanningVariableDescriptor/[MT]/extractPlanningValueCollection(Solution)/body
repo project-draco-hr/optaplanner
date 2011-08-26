@@ -1,6 +1,0 @@
-{
-  if (rangePropertyDescriptor == null) {
-    throw new IllegalStateException("The planningEntityClass (" + planningEntityDescriptor.getPlanningEntityClass() + ") has a PlanningVariable annotated property ("+ variablePropertyDescriptor.getName()+ ") which uses a @ValueRangeUndefined.");
-  }
-  return (Collection<?>)DescriptorUtils.executeGetter(rangePropertyDescriptor,solution);
-}

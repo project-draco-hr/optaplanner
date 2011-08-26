@@ -1,5 +1,5 @@
 {
-  planningValueIterator=planningValueSelector.iterator();
+  planningValueIterator=planningValueSelector.iterator(planningEntity);
   Object value=planningValueIterator.next();
   changeWorkingValue(value);
   workingValue=value;

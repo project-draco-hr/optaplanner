@@ -1,0 +1,10 @@
+{
+  if (cachedPlanningValues != null) {
+    return cachedPlanningValues.iterator();
+  }
+ else {
+    Collection<?> planningValues=planningVariableDescriptor.extractPlanningValues(solutionDirector,planningEntity);
+    planningValues=applySelectionOrder(planningValues);
+    return planningValues.iterator();
+  }
+}

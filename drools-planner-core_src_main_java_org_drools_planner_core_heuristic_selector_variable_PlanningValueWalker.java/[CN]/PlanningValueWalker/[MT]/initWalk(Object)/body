@@ -1,6 +1,6 @@
 {
   this.planningEntity=planningEntity;
-  planningValueIterator=planningValueSelector.iterator();
+  planningValueIterator=planningValueSelector.iterator(planningEntity);
   Object value=planningValueIterator.next();
   planningVariableDescriptor.setValue(planningEntity,value);
   isFirstValue=true;

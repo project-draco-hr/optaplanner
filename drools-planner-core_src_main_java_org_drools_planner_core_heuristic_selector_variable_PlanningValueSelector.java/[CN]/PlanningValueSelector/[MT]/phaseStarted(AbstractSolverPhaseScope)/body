@@ -1,4 +1,6 @@
 {
   validateConfiguration();
+  solutionDirector=solverPhaseScope.getSolutionDirector();
+  workingRandom=solverPhaseScope.getWorkingRandom();
   initSelectedPlanningValueList(solverPhaseScope);
 }
