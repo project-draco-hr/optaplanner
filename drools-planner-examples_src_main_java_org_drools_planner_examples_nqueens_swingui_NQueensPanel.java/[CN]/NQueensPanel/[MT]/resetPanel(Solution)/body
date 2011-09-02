@@ -4,10 +4,13 @@
   int n=nQueens.getN();
   List<Queen> queenList=nQueens.getQueenList();
   setLayout(new GridLayout(n,n));
-  for (int i=0; i < n; i++) {
-    for (int j=0; j < n; j++) {
-      Queen queen=queenList.get(j);
-      if (queen.getY() == i) {
+  for (int y=0; y < n; y++) {
+    for (int x=0; x < n; x++) {
+      Queen queen=queenList.get(x);
+      if (queen.getX() != x) {
+        throw new IllegalStateException("The queenList is not in the expected order.");
+      }
+      if (queen.getY() != null && queen.getY() == y) {
         JButton button=new JButton(new QueenAction(queen));
         button.setHorizontalTextPosition(SwingConstants.CENTER);
         button.setVerticalTextPosition(SwingConstants.BOTTOM);
@@ -16,7 +19,7 @@
  else {
         JPanel panel=new JPanel();
         panel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.DARK_GRAY),BorderFactory.createEmptyBorder(5,5,5,5)));
-        Color background=(((i + j) % 2) == 0) ? Color.WHITE : Color.GRAY;
+        Color background=(((y + x) % 2) == 0) ? Color.WHITE : Color.GRAY;
         panel.setBackground(background);
         add(panel);
       }
