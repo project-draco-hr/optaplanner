@@ -2,7 +2,7 @@
   NQueens nQueens=(NQueens)solution;
   int n=nQueens.getN();
   Queen queen=(Queen)planningEntity;
-  int x=queen.getX();
-  int distanceFromMiddle=calculateDistanceFromMiddle(n,x);
+  int columnIndex=queen.getColumnIndex();
+  int distanceFromMiddle=calculateDistanceFromMiddle(n,columnIndex);
   return new QueenDifficultyWeight(queen,distanceFromMiddle);
 }

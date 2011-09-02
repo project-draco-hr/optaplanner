@@ -1,0 +1,5 @@
+{
+  FactHandle queenHandle=workingMemory.getFactHandle(queen);
+  queen.setRow(toRow);
+  workingMemory.update(queenHandle,queen);
+}

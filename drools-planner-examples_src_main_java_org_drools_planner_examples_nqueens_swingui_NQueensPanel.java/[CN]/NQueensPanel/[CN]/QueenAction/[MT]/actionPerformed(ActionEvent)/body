@@ -1,11 +1,11 @@
 {
-  List<Integer> yList=getNQueens().getRowList();
-  JComboBox yListField=new JComboBox(yList.toArray());
-  yListField.setSelectedItem(queen.getY());
-  int result=JOptionPane.showConfirmDialog(NQueensPanel.this.getRootPane(),yListField,"Select y",JOptionPane.OK_CANCEL_OPTION);
+  List<Row> rowList=getNQueens().getRowList();
+  JComboBox rowListField=new JComboBox(rowList.toArray());
+  rowListField.setSelectedItem(queen.getRow());
+  int result=JOptionPane.showConfirmDialog(NQueensPanel.this.getRootPane(),rowListField,"Select row",JOptionPane.OK_CANCEL_OPTION);
   if (result == JOptionPane.OK_OPTION) {
-    Integer toY=(Integer)yListField.getSelectedItem();
-    Move move=new YChangeMove(queen,toY);
+    Row toRow=(Row)rowListField.getSelectedItem();
+    Move move=new RowChangeMove(queen,toRow);
     solutionBusiness.doMove(move);
     solverAndPersistenceFrame.resetScreen();
   }

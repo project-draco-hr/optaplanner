@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof RowChangeMove) {
+    RowChangeMove other=(RowChangeMove)o;
+    return new EqualsBuilder().append(queen,other.queen).append(toRow,other.toRow).isEquals();
+  }
+ else {
+    return false;
+  }
+}

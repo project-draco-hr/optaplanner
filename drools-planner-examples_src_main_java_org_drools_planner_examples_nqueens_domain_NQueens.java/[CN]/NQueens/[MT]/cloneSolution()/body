@@ -2,6 +2,8 @@
   NQueens clone=new NQueens();
   clone.id=id;
   clone.n=n;
+  clone.columnList=columnList;
+  clone.rowList=rowList;
   List<Queen> clonedQueenList=new ArrayList<Queen>(queenList.size());
   for (  Queen queen : queenList) {
     clonedQueenList.add(queen.clone());

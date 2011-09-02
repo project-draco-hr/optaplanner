@@ -1,3 +1,6 @@
 {
-  return Collections.emptyList();
+  List<Object> facts=new ArrayList<Object>();
+  facts.addAll(columnList);
+  facts.addAll(rowList);
+  return facts;
 }
