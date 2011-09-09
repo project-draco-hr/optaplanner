@@ -1,0 +1,23 @@
+{
+  SolverConfig solverConfig=new SolverConfig();
+  solverConfig.setSolutionClass(NQueens.class);
+  Set<Class<?>> planningEntityClassSet=new HashSet<Class<?>>();
+  planningEntityClassSet.add(Queen.class);
+  solverConfig.setPlanningEntityClassSet(planningEntityClassSet);
+  solverConfig.setScoreDrlList(Arrays.asList("/org/drools/planner/examples/nqueens/solver/nQueensScoreRules.drl"));
+  ScoreDefinitionConfig scoreDefinitionConfig=solverConfig.getScoreDefinitionConfig();
+  scoreDefinitionConfig.setScoreDefinitionType(ScoreDefinitionConfig.ScoreDefinitionType.SIMPLE);
+  TerminationConfig terminationConfig=solverConfig.getTerminationConfig();
+  terminationConfig.setScoreAttained("0");
+  List<SolverPhaseConfig> solverPhaseConfigList=new ArrayList<SolverPhaseConfig>();
+  ConstructionHeuristicSolverPhaseConfig constructionHeuristicSolverPhaseConfig=new ConstructionHeuristicSolverPhaseConfig();
+  constructionHeuristicSolverPhaseConfig.setConstructionHeuristicType(ConstructionHeuristicSolverPhaseConfig.ConstructionHeuristicType.FIRST_FIT_DECREASING);
+  constructionHeuristicSolverPhaseConfig.setConstructionHeuristicPickEarlyType(ConstructionHeuristicPickEarlyType.FIRST_LAST_STEP_SCORE_EQUAL_OR_IMPROVING);
+  solverPhaseConfigList.add(constructionHeuristicSolverPhaseConfig);
+  LocalSearchSolverPhaseConfig localSearchSolverPhaseConfig=new LocalSearchSolverPhaseConfig();
+  localSearchSolverPhaseConfig.getSelectorConfig().setMoveFactoryClass(RowChangeMoveFactory.class);
+  localSearchSolverPhaseConfig.getAcceptorConfig().setCompleteSolutionTabuSize(1000);
+  solverPhaseConfigList.add(localSearchSolverPhaseConfig);
+  solverConfig.setSolverPhaseConfigList(solverPhaseConfigList);
+  return solverConfig.buildSolver();
+}
