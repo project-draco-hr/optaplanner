@@ -1,0 +1,4 @@
+{
+  JButton button=new JButton(new ShiftAssignmentAction(shiftAssignment));
+  add(button);
+}

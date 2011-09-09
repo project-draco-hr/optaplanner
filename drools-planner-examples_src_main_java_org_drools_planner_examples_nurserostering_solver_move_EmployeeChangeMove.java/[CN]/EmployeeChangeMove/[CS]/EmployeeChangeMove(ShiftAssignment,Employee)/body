@@ -1,0 +1,4 @@
+{
+  this.shiftAssignment=shiftAssignment;
+  this.toEmployee=toEmployee;
+}

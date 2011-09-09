@@ -1,3 +1,0 @@
-{
-  return compare((Assignment)a,(Assignment)b);
-}

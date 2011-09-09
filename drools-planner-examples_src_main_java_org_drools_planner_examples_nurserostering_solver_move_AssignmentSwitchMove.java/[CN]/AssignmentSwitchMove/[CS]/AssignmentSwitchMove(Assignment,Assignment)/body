@@ -1,4 +1,0 @@
-{
-  this.leftAssignment=leftAssignment;
-  this.rightAssignment=rightAssignment;
-}

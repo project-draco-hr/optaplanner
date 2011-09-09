@@ -1,3 +1,0 @@
-{
-  return Arrays.<Assignment>asList(leftAssignment,rightAssignment);
-}

@@ -19,9 +19,9 @@
     createEmployeeLine(nurseRoster,employeeShiftDatePanelMap,employee);
   }
   createEmployeeLine(nurseRoster,employeeShiftDatePanelMap,null);
-  for (  Assignment assignment : nurseRoster.getAssignmentList()) {
-    Employee employee=assignment.getEmployee();
-    EmployeeShiftDatePanel employeeShiftDatePanel=employeeShiftDatePanelMap.get(employee).get(assignment.getShiftDate());
-    employeeShiftDatePanel.addAssignment(assignment);
+  for (  ShiftAssignment shiftAssignment : nurseRoster.getShiftAssignmentList()) {
+    Employee employee=shiftAssignment.getEmployee();
+    EmployeeShiftDatePanel employeeShiftDatePanel=employeeShiftDatePanelMap.get(employee).get(shiftAssignment.getShiftDate());
+    employeeShiftDatePanel.addShiftAssignment(shiftAssignment);
   }
 }

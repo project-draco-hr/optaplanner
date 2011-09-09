@@ -2,9 +2,9 @@
   NurseRoster nurseRoster=(NurseRoster)solution;
   List<Move> moveList=new ArrayList<Move>();
   List<Employee> employeeList=nurseRoster.getEmployeeList();
-  for (  Assignment assignment : nurseRoster.getAssignmentList()) {
+  for (  ShiftAssignment shiftAssignment : nurseRoster.getShiftAssignmentList()) {
     for (    Employee employee : employeeList) {
-      moveList.add(new EmployeeChangeMove(assignment,employee));
+      moveList.add(new EmployeeChangeMove(shiftAssignment,employee));
     }
   }
   return moveList;

@@ -6,17 +6,17 @@
     shiftInitializationWeightList.add(new ShiftInitializationWeight(nurseRoster,shift));
   }
   Collections.sort(shiftInitializationWeightList);
-  List<Assignment> assignmentList=new ArrayList<Assignment>(shiftDateList.size() * nurseRoster.getEmployeeList().size());
+  List<ShiftAssignment> shiftAssignmentList=new ArrayList<ShiftAssignment>(shiftDateList.size() * nurseRoster.getEmployeeList().size());
   int assignmentId=0;
   for (  ShiftInitializationWeight shiftInitializationWeight : shiftInitializationWeightList) {
     Shift shift=shiftInitializationWeight.getShift();
     for (int i=0; i < shift.getRequiredEmployeeSize(); i++) {
-      Assignment assignment=new Assignment();
-      assignment.setId((long)assignmentId);
-      assignment.setShift(shift);
-      assignmentList.add(assignment);
+      ShiftAssignment shiftAssignment=new ShiftAssignment();
+      shiftAssignment.setId((long)assignmentId);
+      shiftAssignment.setShift(shift);
+      shiftAssignmentList.add(shiftAssignment);
       assignmentId++;
     }
   }
-  return assignmentList;
+  return shiftAssignmentList;
 }

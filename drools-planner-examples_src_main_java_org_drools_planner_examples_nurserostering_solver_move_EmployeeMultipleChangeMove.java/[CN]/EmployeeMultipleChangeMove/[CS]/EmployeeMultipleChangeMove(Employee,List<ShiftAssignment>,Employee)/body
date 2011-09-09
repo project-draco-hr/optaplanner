@@ -1,0 +1,5 @@
+{
+  this.fromEmployee=fromEmployee;
+  this.shiftAssignmentList=shiftAssignmentList;
+  this.toEmployee=toEmployee;
+}

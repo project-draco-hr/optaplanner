@@ -1,0 +1,8 @@
+{
+  shiftAssignmentList.add(shiftAssignment);
+  int dayIndex=shiftAssignment.getShiftDateDayIndex();
+  if (dayIndex < lastDayIndex) {
+    throw new IllegalStateException("The shiftAssignmentList is expected to be sorted by shiftDate.");
+  }
+  lastDayIndex=dayIndex;
+}

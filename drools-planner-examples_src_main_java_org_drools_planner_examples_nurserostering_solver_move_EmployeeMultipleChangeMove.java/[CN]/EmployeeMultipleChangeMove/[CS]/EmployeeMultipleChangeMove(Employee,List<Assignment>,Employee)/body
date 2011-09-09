@@ -1,5 +1,0 @@
-{
-  this.fromEmployee=fromEmployee;
-  this.assignmentList=assignmentList;
-  this.toEmployee=toEmployee;
-}

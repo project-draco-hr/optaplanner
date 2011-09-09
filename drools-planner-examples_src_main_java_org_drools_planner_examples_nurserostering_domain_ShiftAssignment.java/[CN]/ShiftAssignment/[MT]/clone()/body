@@ -1,0 +1,7 @@
+{
+  ShiftAssignment clone=new ShiftAssignment();
+  clone.id=id;
+  clone.shift=shift;
+  clone.employee=employee;
+  return clone;
+}

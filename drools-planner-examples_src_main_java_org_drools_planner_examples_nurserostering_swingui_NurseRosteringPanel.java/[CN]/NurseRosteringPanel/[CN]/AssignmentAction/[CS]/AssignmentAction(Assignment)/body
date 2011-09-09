@@ -1,4 +1,0 @@
-{
-  super(assignment.getLabel());
-  this.assignment=assignment;
-}

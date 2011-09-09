@@ -4,7 +4,7 @@
   }
  else   if (o instanceof EmployeeMultipleChangeMove) {
     EmployeeMultipleChangeMove other=(EmployeeMultipleChangeMove)o;
-    return new EqualsBuilder().append(fromEmployee,other.fromEmployee).append(assignmentList,other.assignmentList).append(toEmployee,other.toEmployee).isEquals();
+    return new EqualsBuilder().append(fromEmployee,other.fromEmployee).append(shiftAssignmentList,other.shiftAssignmentList).append(toEmployee,other.toEmployee).isEquals();
   }
  else {
     return false;

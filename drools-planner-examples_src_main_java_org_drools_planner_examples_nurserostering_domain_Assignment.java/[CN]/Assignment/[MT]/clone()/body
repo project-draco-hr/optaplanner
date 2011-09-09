@@ -1,7 +1,0 @@
-{
-  Assignment clone=new Assignment();
-  clone.id=id;
-  clone.shift=shift;
-  clone.employee=employee;
-  return clone;
-}

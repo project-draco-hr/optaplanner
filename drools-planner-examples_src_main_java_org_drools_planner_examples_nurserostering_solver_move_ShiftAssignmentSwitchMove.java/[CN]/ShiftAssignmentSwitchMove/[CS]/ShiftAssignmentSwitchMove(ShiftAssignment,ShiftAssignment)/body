@@ -1,0 +1,4 @@
+{
+  this.leftShiftAssignment=leftShiftAssignment;
+  this.rightShiftAssignment=rightShiftAssignment;
+}

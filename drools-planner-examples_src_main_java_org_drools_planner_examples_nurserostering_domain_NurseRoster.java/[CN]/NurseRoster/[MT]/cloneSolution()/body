@@ -17,12 +17,12 @@
   clone.dayOnRequestList=dayOnRequestList;
   clone.shiftOffRequestList=shiftOffRequestList;
   clone.shiftOnRequestList=shiftOnRequestList;
-  List<Assignment> clonedAssignmentList=new ArrayList<Assignment>(assignmentList.size());
-  for (  Assignment assignment : assignmentList) {
-    Assignment clonedAssignment=assignment.clone();
-    clonedAssignmentList.add(clonedAssignment);
+  List<ShiftAssignment> clonedShiftAssignmentList=new ArrayList<ShiftAssignment>(shiftAssignmentList.size());
+  for (  ShiftAssignment shiftAssignment : shiftAssignmentList) {
+    ShiftAssignment clonedShiftAssignment=shiftAssignment.clone();
+    clonedShiftAssignmentList.add(clonedShiftAssignment);
   }
-  clone.assignmentList=clonedAssignmentList;
+  clone.shiftAssignmentList=clonedShiftAssignmentList;
   clone.score=score;
   return clone;
 }

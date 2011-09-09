@@ -1,18 +1,18 @@
 {
   List<Employee> employeeList=nurseRoster.getEmployeeList();
   WorkingMemory workingMemory=solutionDirector.getWorkingMemory();
-  List<Assignment> assignmentList=createAssignmentList(nurseRoster);
-  for (  Assignment assignment : assignmentList) {
+  List<ShiftAssignment> shiftAssignmentList=createAssignmentList(nurseRoster);
+  for (  ShiftAssignment shiftAssignment : shiftAssignmentList) {
     FactHandle assignmentHandle=null;
     Score bestScore=DefaultHardAndSoftScore.valueOf(Integer.MIN_VALUE,Integer.MIN_VALUE);
     Employee bestEmployee=null;
     for (    Employee employee : employeeList) {
-      assignment.setEmployee(employee);
+      shiftAssignment.setEmployee(employee);
       if (assignmentHandle == null) {
-        assignmentHandle=workingMemory.insert(assignment);
+        assignmentHandle=workingMemory.insert(shiftAssignment);
       }
  else {
-        workingMemory.update(assignmentHandle,assignment);
+        workingMemory.update(assignmentHandle,shiftAssignment);
       }
       Score score=solutionDirector.calculateScoreFromWorkingMemory();
       if (score.compareTo(bestScore) > 0) {
@@ -23,10 +23,10 @@
     if (bestEmployee == null) {
       throw new IllegalStateException("The bestEmployee (" + bestEmployee + ") cannot be null.");
     }
-    assignment.setEmployee(bestEmployee);
-    workingMemory.update(assignmentHandle,assignment);
-    logger.debug("    Assignment ({}) initialized for starting solution.",assignment);
+    shiftAssignment.setEmployee(bestEmployee);
+    workingMemory.update(assignmentHandle,shiftAssignment);
+    logger.debug("    ShiftAssignment ({}) initialized for starting solution.",shiftAssignment);
   }
-  Collections.sort(assignmentList,new PersistableIdComparator());
-  nurseRoster.setAssignmentList(assignmentList);
+  Collections.sort(shiftAssignmentList,new PersistableIdComparator());
+  nurseRoster.setShiftAssignmentList(shiftAssignmentList);
 }
