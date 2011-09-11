@@ -1,3 +1,3 @@
 {
-  return new CompareToBuilder().append(distanceFromMiddle,other.distanceFromMiddle).append(row.getIndex(),other.row.getIndex()).toComparison();
+  return new CompareToBuilder().append(other.distanceFromMiddle,distanceFromMiddle).append(row.getIndex(),other.row.getIndex()).toComparison();
 }
