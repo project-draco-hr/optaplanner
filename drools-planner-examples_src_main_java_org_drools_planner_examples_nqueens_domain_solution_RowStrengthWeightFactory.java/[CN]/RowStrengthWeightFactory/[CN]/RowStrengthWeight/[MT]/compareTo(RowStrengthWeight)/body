@@ -1,0 +1,3 @@
+{
+  return new CompareToBuilder().append(distanceFromMiddle,other.distanceFromMiddle).append(row.getIndex(),other.row.getIndex()).toComparison();
+}

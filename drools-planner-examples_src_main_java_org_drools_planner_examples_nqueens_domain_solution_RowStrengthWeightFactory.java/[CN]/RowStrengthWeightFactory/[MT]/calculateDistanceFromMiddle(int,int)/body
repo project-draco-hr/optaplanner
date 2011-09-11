@@ -1,0 +1,8 @@
+{
+  int middle=n / 2;
+  int distanceFromMiddle=Math.abs(columnIndex - middle);
+  if ((n % 2 == 0) && (columnIndex < middle)) {
+    distanceFromMiddle--;
+  }
+  return distanceFromMiddle;
+}
