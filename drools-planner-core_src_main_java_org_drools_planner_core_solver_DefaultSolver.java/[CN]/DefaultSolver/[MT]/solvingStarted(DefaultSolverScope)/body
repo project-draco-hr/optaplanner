@@ -1,6 +1,6 @@
 {
-  if (solverScope.getWorkingSolution() == null) {
-    throw new IllegalStateException("The startingSolution must not be null." + " Use Solver.setStartingSolution(Solution).");
+  if (solverScope.getSolutionDirector().getWorkingSolution() == null) {
+    throw new IllegalStateException("The planningProblem must not be null." + " Use Solver.setPlanningProblem(Solution).");
   }
   solverScope.reset();
   if (randomSeed != null) {

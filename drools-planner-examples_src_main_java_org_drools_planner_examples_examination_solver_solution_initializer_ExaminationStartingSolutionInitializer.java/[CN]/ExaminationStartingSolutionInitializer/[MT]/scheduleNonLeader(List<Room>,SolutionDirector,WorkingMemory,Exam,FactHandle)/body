@@ -31,5 +31,5 @@
     exam.setRoom(bestRoom);
     workingMemory.update(examHandle,exam);
   }
-  logger.debug("    Exam ({}) initialized for starting solution. *",exam);
+  logger.debug("    Exam ({}) initialized.",exam);
 }

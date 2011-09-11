@@ -45,5 +45,5 @@
       workingMemory.update(examToHandle.getExamHandle(),examToHandle.getExam());
     }
   }
-  logger.debug("    Exam ({}) initialized for starting solution.",leader);
+  logger.debug("    Exam ({}) initialized.",leader);
 }

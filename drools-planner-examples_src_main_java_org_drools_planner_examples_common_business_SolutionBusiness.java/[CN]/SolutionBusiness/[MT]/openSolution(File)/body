@@ -1,4 +1,4 @@
 {
   Solution solution=solutionDao.readSolution(file);
-  solver.setStartingSolution(solution);
+  solver.setPlanningProblem(solution);
 }

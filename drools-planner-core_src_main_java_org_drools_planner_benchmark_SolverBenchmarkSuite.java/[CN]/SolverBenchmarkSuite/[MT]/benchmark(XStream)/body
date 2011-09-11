@@ -38,7 +38,7 @@
       Solver solver=solverBenchmark.getSolverConfig().buildSolver();
       File unsolvedSolutionFile=result.getUnsolvedSolutionFile();
       Solution unsolvedSolution=readUnsolvedSolution(xStream,unsolvedSolutionFile);
-      solver.setStartingSolution(unsolvedSolution);
+      solver.setPlanningProblem(unsolvedSolution);
       solver.solve();
       solverBenchmark.getSolverConfig().setTerminationConfig(originalTerminationConfig);
       long timeSpend=System.currentTimeMillis() - startingTimeMillis;
@@ -53,7 +53,7 @@
       Solver solver=solverBenchmark.getSolverConfig().buildSolver();
       File unsolvedSolutionFile=result.getUnsolvedSolutionFile();
       Solution unsolvedSolution=readUnsolvedSolution(xStream,unsolvedSolutionFile);
-      solver.setStartingSolution(unsolvedSolution);
+      solver.setPlanningProblem(unsolvedSolution);
       List<SolverStatistic> statisticList=getOrCreateStatisticList(unsolvedSolutionFileToStatisticMap,unsolvedSolutionFile);
       for (      SolverStatistic statistic : statisticList) {
         statistic.addListener(solver,solverBenchmark.getName());
