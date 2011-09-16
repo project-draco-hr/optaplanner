@@ -1,6 +1,6 @@
 {
   problemFactChange.doChange(solverScope.getSolutionDirector());
   Score score=solverScope.calculateScoreFromWorkingMemory();
-  logger.debug("    ProblemFactChange done with new score ({}).",score);
+  logger.debug("    Done ProblemFactChange: new score ({}).",score);
   return score;
 }

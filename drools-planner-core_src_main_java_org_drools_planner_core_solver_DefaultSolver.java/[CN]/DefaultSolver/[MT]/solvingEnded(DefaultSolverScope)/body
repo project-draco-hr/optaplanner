@@ -6,5 +6,5 @@
     timeMillisSpend=1L;
   }
   long averageCalculateCountPerSecond=solverScope.getCalculateCount() * 1000L / timeMillisSpend;
-  logger.info("Solved with time spend ({}) for best score ({})" + " with average calculate count per second ({}).",new Object[]{timeMillisSpend,solverScope.getBestScore(),averageCalculateCountPerSecond});
+  logger.info("Solved: time spend ({}), best score ({}), average calculate count per second ({}).",new Object[]{timeMillisSpend,solverScope.getBestScore(),averageCalculateCountPerSecond});
 }
