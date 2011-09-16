@@ -13,5 +13,5 @@
       throw new IllegalStateException("Corrupted undo move (" + undoMove + ") received from move ("+ move+ ").\n"+ "Unequal lastCompletedStepScore ("+ lastCompletedStepScore+ ") and undoScore ("+ undoScore+ ").\n"+ moveScope.getLocalSearchStepScope().getLocalSearchSolverPhaseScope().getSolverScope().getSolutionDirector().buildConstraintOccurrenceSummary());
     }
   }
-  logger.debug("    Move score ({}), accept chance ({}) for move ({}).",new Object[]{moveScope.getScore(),moveScope.getAcceptChance(),moveScope.getMove()});
+  logger.trace("        Move score ({}), accept chance ({}) for move ({}).",new Object[]{moveScope.getScore(),moveScope.getAcceptChance(),moveScope.getMove()});
 }

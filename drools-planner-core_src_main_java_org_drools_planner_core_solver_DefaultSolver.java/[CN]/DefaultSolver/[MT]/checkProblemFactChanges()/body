@@ -10,6 +10,6 @@
       count++;
       problemFactChange=problemFactChangeQueue.poll();
     }
-    logger.info("Done {} ProblemFactChange(s), score ({}), possibly uninitialized. Restarting solver.",count,score);
+    logger.info("Executed {} ProblemFactChange(s), score ({}), possibly uninitialized. Restarting solver.",count,score);
   }
 }
