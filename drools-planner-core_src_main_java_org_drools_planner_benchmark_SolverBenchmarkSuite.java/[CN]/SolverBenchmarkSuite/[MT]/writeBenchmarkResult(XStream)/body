@@ -1,5 +1,5 @@
 {
-  File benchmarkResultFile=new File(benchmarkDirectory,"benchmarkResult.xml");
+  File benchmarkResultFile=new File(benchmarkInstanceDirectory,"benchmarkResult.xml");
   OutputStreamWriter writer=null;
   try {
     writer=new OutputStreamWriter(new FileOutputStream(benchmarkResultFile),"utf-8");
