@@ -11,9 +11,7 @@
     List<SolverStatistic> statisticList=entry.getValue();
     String baseName=FilenameUtils.getBaseName(unsolvedSolutionFile.getName());
     htmlFragment.append("  <h2>").append(baseName).append("</h2>\n");
-    Iterator<SolverStatisticType> typeIt=solverStatisticTypeList.iterator();
     for (    SolverStatistic statistic : statisticList) {
-      htmlFragment.append("  <h3>").append(typeIt.next().toString()).append("</h3>\n");
       htmlFragment.append(statistic.writeStatistic(solverStatisticFilesDirectory,baseName));
     }
   }

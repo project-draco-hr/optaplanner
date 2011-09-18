@@ -1,0 +1,3 @@
+{
+  super(SolverStatisticType.BEST_SOLUTION_CHANGED);
+}
