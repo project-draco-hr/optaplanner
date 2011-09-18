@@ -1,0 +1,38 @@
+{
+  DefaultCategoryDataset dataset=new DefaultCategoryDataset();
+  for (  SolverBenchmark solverBenchmark : solverBenchmarkList) {
+    for (    SolverBenchmarkResult result : solverBenchmark.getSolverBenchmarkResultList()) {
+      long timeMillisSpend=result.getTimeMillisSpend();
+      String solverLabel=solverBenchmark.getName();
+      dataset.addValue(timeMillisSpend,solverLabel,result.getUnsolvedSolutionFile().getName());
+    }
+  }
+  CategoryAxis xAxis=new CategoryAxis("Data");
+  NumberAxis yAxis=new NumberAxis("Time millis spend");
+  yAxis.setNumberFormatOverride(new MillisecondsSpendNumberFormat());
+  BarRenderer renderer=new BarRenderer();
+  ItemLabelPosition position1=new ItemLabelPosition(ItemLabelAnchor.OUTSIDE12,TextAnchor.BOTTOM_CENTER);
+  renderer.setBasePositiveItemLabelPosition(position1);
+  ItemLabelPosition position2=new ItemLabelPosition(ItemLabelAnchor.OUTSIDE6,TextAnchor.TOP_CENTER);
+  renderer.setBaseNegativeItemLabelPosition(position2);
+  renderer.setBaseItemLabelGenerator(new StandardCategoryItemLabelGenerator(StandardCategoryItemLabelGenerator.DEFAULT_LABEL_FORMAT_STRING,new MillisecondsSpendNumberFormat()));
+  renderer.setBaseItemLabelsVisible(true);
+  renderer.setBaseToolTipGenerator(new StandardCategoryToolTipGenerator());
+  CategoryPlot plot=new CategoryPlot(dataset,xAxis,yAxis,renderer);
+  plot.setOrientation(PlotOrientation.VERTICAL);
+  JFreeChart chart=new JFreeChart("Time spend summary (lower time is better)",JFreeChart.DEFAULT_TITLE_FONT,plot,true);
+  BufferedImage chartImage=chart.createBufferedImage(1024,768);
+  File chartSummaryFile=new File(solverStatisticFilesDirectory,"bestSpendSummary.png");
+  OutputStream out=null;
+  try {
+    out=new FileOutputStream(chartSummaryFile);
+    ImageIO.write(chartImage,"png",out);
+  }
+ catch (  IOException e) {
+    throw new IllegalArgumentException("Problem writing graphStatisticFile: " + chartSummaryFile,e);
+  }
+ finally {
+    IOUtils.closeQuietly(out);
+  }
+  return "  <h2>Time spend summary chart</h2>\n" + "  <img src=\"" + chartSummaryFile.getName() + "\"/>\n";
+}

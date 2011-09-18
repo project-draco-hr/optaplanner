@@ -1,5 +1,6 @@
 {
   StringBuilder htmlFragment=new StringBuilder(solverBenchmarkList.size() * 160);
+  htmlFragment.append("  <h2>Best score summary table</h2>\n");
   htmlFragment.append("  <table border=\"1\">\n");
   htmlFragment.append("    <tr><th/>");
   if (inheritedSolverBenchmark != null && inheritedSolverBenchmark.getUnsolvedSolutionFileList() != null) {
@@ -10,7 +11,7 @@
   htmlFragment.append("<th>Average</th><th>Ranking</th></tr>\n");
   boolean oddLine=true;
   for (  SolverBenchmark solverBenchmark : solverBenchmarkList) {
-    String backgroundColor=solverBenchmark.getRanking() == 0 ? "Yellow" : oddLine ? "White" : "Gray";
+    String backgroundColor=solverBenchmark.getRanking() == 0 ? "Yellow" : oddLine ? "White" : "LightGray";
     htmlFragment.append("    <tr style=\"background-color: ").append(backgroundColor).append("\"><th>").append(solverBenchmark.getName()).append("</th>");
     for (    SolverBenchmarkResult result : solverBenchmark.getSolverBenchmarkResultList()) {
       Score score=result.getScore();
