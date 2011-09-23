@@ -1,8 +1,12 @@
 {
-  String line=bufferedReader.readLine();
-  String value=line.trim();
-  while (!value.equals(constantValue)) {
+  String line;
+  String value;
+  do {
     line=bufferedReader.readLine();
+    if (line == null) {
+      throw new IllegalArgumentException("File ends before a line is expected to be a constant value (" + constantValue + ").");
+    }
     value=line.trim();
   }
+ while (!value.equals(constantValue));
 }

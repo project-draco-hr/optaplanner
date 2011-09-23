@@ -1,4 +1,7 @@
 {
   String line=bufferedReader.readLine();
+  if (line == null) {
+    throw new IllegalArgumentException("File ends before a line is expected to contain an string value (" + prefix + "<value>"+ suffix+ ").");
+  }
   return removePrefixSuffixFromLine(line,prefix,suffix);
 }
