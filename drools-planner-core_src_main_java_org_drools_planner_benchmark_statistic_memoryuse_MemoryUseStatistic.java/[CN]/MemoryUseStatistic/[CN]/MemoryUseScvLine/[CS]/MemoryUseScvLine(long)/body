@@ -1,4 +1,4 @@
 {
-  this.timeMillisSpend=timeMillisSpend;
+  super(timeMillisSpend);
   configNameToMemoryUseMeasurementMap=new HashMap<String,MemoryUseMeasurement>();
 }

@@ -1,3 +1,0 @@
-{
-  return timeMillisSpend < other.timeMillisSpend ? -1 : (timeMillisSpend > other.timeMillisSpend ? 1 : 0);
-}
