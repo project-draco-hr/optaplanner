@@ -1,0 +1,45 @@
+{
+  NumberAxis xAxis=new NumberAxis("Score");
+  xAxis.setAutoRangeIncludesZero(false);
+  NumberAxis yAxis=new NumberAxis("Time millis spend");
+  yAxis.setNumberFormatOverride(new MillisecondsSpendNumberFormat());
+  XYPlot plot=new XYPlot(null,xAxis,yAxis,null);
+  int seriesIndex=0;
+  for (  SolverBenchmark solverBenchmark : solverBenchmarkList) {
+    XYSeries series=new XYSeries(solverBenchmark.getName());
+    ScoreDefinition scoreDefinition=solverBenchmark.getSolverConfig().getScoreDefinitionConfig().buildScoreDefinition();
+    for (    SolverBenchmarkResult result : solverBenchmark.getSolverBenchmarkResultList()) {
+      Long timeMillisSpend=result.getTimeMillisSpend();
+      Score score=result.getScore();
+      Double scoreGraphValue=scoreDefinition.translateScoreToGraphValue(score);
+      if (scoreGraphValue != null) {
+        series.add(scoreGraphValue,timeMillisSpend);
+      }
+    }
+    XYSeriesCollection seriesCollection=new XYSeriesCollection();
+    seriesCollection.addSeries(series);
+    plot.setDataset(seriesIndex,seriesCollection);
+    XYItemRenderer renderer=new StandardXYItemRenderer(StandardXYItemRenderer.SHAPES);
+    ItemLabelPosition positiveItemLabelPosition=new ItemLabelPosition(ItemLabelAnchor.OUTSIDE12,TextAnchor.BOTTOM_CENTER);
+    renderer.setBasePositiveItemLabelPosition(positiveItemLabelPosition);
+    renderer.setBaseItemLabelsVisible(true);
+    plot.setRenderer(seriesIndex,renderer);
+    seriesIndex++;
+  }
+  plot.setOrientation(PlotOrientation.VERTICAL);
+  JFreeChart chart=new JFreeChart("Scalability summary",JFreeChart.DEFAULT_TITLE_FONT,plot,true);
+  BufferedImage chartImage=chart.createBufferedImage(1024,768);
+  File chartSummaryFile=new File(solverStatisticFilesDirectory,"scalabilitySummary.png");
+  OutputStream out=null;
+  try {
+    out=new FileOutputStream(chartSummaryFile);
+    ImageIO.write(chartImage,"png",out);
+  }
+ catch (  IOException e) {
+    throw new IllegalArgumentException("Problem writing graphStatisticFile: " + chartSummaryFile,e);
+  }
+ finally {
+    IOUtils.closeQuietly(out);
+  }
+  return "  <h2>Scalability summary chart</h2>\n" + "  <img src=\"" + chartSummaryFile.getName() + "\"/>\n";
+}
