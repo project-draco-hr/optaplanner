@@ -9,5 +9,6 @@
   }
  finally {
     IOUtils.closeQuietly(reader);
+    IOUtils.closeQuietly(in);
   }
 }
