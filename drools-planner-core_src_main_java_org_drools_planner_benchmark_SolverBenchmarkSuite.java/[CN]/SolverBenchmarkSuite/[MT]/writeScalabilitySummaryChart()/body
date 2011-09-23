@@ -1,6 +1,6 @@
 {
   NumberAxis xAxis=new NumberAxis("Score");
-  xAxis.setAutoRangeIncludesZero(false);
+  xAxis.setInverted(true);
   NumberAxis yAxis=new NumberAxis("Time millis spend");
   yAxis.setNumberFormatOverride(new MillisecondsSpendNumberFormat());
   XYPlot plot=new XYPlot(null,xAxis,yAxis,null);
@@ -19,10 +19,7 @@
     XYSeriesCollection seriesCollection=new XYSeriesCollection();
     seriesCollection.addSeries(series);
     plot.setDataset(seriesIndex,seriesCollection);
-    XYItemRenderer renderer=new StandardXYItemRenderer(StandardXYItemRenderer.SHAPES);
-    ItemLabelPosition positiveItemLabelPosition=new ItemLabelPosition(ItemLabelAnchor.OUTSIDE12,TextAnchor.BOTTOM_CENTER);
-    renderer.setBasePositiveItemLabelPosition(positiveItemLabelPosition);
-    renderer.setBaseItemLabelsVisible(true);
+    XYItemRenderer renderer=new StandardXYItemRenderer(StandardXYItemRenderer.SHAPES_AND_LINES);
     plot.setRenderer(seriesIndex,renderer);
     seriesIndex++;
   }
