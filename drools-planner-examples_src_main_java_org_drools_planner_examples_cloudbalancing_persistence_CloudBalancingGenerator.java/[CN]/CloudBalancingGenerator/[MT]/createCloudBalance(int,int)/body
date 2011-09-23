@@ -1,5 +1,5 @@
 {
-  random=new Random(37);
+  random=new Random(47);
   CloudBalance cloudBalance=new CloudBalance();
   cloudBalance.setId(0L);
   createCloudComputerList(cloudBalance,cloudComputerListSize);
