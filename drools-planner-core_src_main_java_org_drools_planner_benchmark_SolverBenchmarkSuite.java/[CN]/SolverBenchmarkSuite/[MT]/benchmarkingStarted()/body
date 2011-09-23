@@ -35,7 +35,7 @@
   }
   benchmarkDirectory.mkdirs();
   if (solvedSolutionFilesDirectory == null) {
-    String timestampDirectory=TIMESTAMP_DIRECTORY_FORMAT.format(new Date());
+    String timestampDirectory=new SimpleDateFormat("yyyy-MM-dd_HHmmss").format(new Date());
     benchmarkInstanceDirectory=new File(benchmarkDirectory,timestampDirectory);
   }
   benchmarkInstanceDirectory.mkdirs();
