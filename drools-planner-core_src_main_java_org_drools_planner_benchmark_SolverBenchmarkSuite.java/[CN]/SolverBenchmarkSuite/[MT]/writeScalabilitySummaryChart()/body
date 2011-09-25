@@ -1,6 +1,6 @@
 {
   NumberAxis xAxis=new NumberAxis("Planning entity count");
-  NumberAxis yAxis=new NumberAxis("Time millis spend");
+  NumberAxis yAxis=new NumberAxis("Time spend");
   yAxis.setNumberFormatOverride(new MillisecondsSpendNumberFormat());
   XYPlot plot=new XYPlot(null,xAxis,yAxis,null);
   int seriesIndex=0;
