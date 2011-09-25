@@ -62,6 +62,8 @@
       result.setTimeMillisSpend(solver.getTimeMillisSpend());
       Solution solvedSolution=solver.getBestSolution();
       result.setScore(solvedSolution.getScore());
+      SolutionDescriptor solutionDescriptor=((DefaultSolver)solver).getSolutionDescriptor();
+      result.setPlanningEntityCount(solutionDescriptor.getPlanningEntityCount(solvedSolution));
       for (      SolverStatistic statistic : statisticList) {
         statistic.removeListener(solver,solverBenchmark.getName());
       }
