@@ -1,0 +1,4 @@
+{
+  Object oldPlanningValue=planningVariableDescriptor.getValue(planningEntity);
+  return !ObjectUtils.equals(oldPlanningValue,toPlanningValue);
+}

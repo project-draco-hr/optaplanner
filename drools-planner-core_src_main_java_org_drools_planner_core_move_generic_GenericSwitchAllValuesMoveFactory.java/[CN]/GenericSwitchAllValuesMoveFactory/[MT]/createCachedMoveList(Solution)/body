@@ -1,0 +1,17 @@
+{
+  List<Move> moveList=new ArrayList<Move>();
+  List<Object> planningEntityList=solutionDescriptor.getPlanningEntityList(solution);
+  for (  Object leftPlanningEntity : planningEntityList) {
+    FactHandle leftPlanningEntityFactHandle=solutionDirector.getWorkingMemory().getFactHandle(leftPlanningEntity);
+    PlanningEntityDescriptor leftPlanningEntityDescriptor=solutionDescriptor.getPlanningEntityDescriptor(leftPlanningEntity.getClass());
+    Collection<PlanningVariableDescriptor> planningVariableDescriptors=leftPlanningEntityDescriptor.getPlanningVariableDescriptors();
+    for (    Object rightPlanningEntity : planningEntityList) {
+      PlanningEntityDescriptor rightPlanningEntityDescriptor=solutionDescriptor.getPlanningEntityDescriptor(leftPlanningEntity.getClass());
+      if (leftPlanningEntityDescriptor.getPlanningEntityClass().equals(rightPlanningEntityDescriptor.getPlanningEntityClass())) {
+        FactHandle rightPlanningEntityFactHandle=solutionDirector.getWorkingMemory().getFactHandle(rightPlanningEntity);
+        moveList.add(new GenericSwitchAllValuesMove(planningVariableDescriptors,leftPlanningEntity,leftPlanningEntityFactHandle,rightPlanningEntity,rightPlanningEntityFactHandle));
+      }
+    }
+  }
+  return moveList;
+}

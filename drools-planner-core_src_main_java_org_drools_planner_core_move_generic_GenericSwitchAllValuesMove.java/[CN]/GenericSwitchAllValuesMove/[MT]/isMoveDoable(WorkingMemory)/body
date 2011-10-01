@@ -1,0 +1,10 @@
+{
+  for (  PlanningVariableDescriptor planningVariableDescriptor : planningVariableDescriptors) {
+    Object leftValue=planningVariableDescriptor.getValue(leftPlanningEntity);
+    Object rightValue=planningVariableDescriptor.getValue(rightPlanningEntity);
+    if (!ObjectUtils.equals(leftValue,rightValue)) {
+      return true;
+    }
+  }
+  return false;
+}

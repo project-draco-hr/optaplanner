@@ -1,0 +1,4 @@
+Object planningEntity
+FactHandle planningEntityFactHandle
+PlanningVariableDescriptor planningVariableDescriptor
+Object toPlanningValue

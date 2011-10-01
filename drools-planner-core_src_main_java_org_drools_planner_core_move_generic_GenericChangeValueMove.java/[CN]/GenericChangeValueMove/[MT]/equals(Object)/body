@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof GenericChangeValueMove) {
+    GenericChangeValueMove other=(GenericChangeValueMove)o;
+    return new EqualsBuilder().append(planningEntity,other.planningEntity).append(planningVariableDescriptor.getVariablePropertyName(),other.planningVariableDescriptor.getVariablePropertyName()).append(toPlanningValue,other.toPlanningValue).isEquals();
+  }
+ else {
+    return false;
+  }
+}

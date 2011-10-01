@@ -1,0 +1,5 @@
+Collection<PlanningVariableDescriptor> planningVariableDescriptors
+Object leftPlanningEntity
+FactHandle leftPlanningEntityFactHandle
+Object rightPlanningEntity
+FactHandle rightPlanningEntityFactHandle

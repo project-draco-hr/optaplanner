@@ -1,0 +1,6 @@
+{
+  this.planningEntity=planningEntity;
+  this.planningEntityFactHandle=planningEntityFactHandle;
+  this.planningVariableDescriptor=planningVariableDescriptor;
+  this.toPlanningValue=toPlanningValue;
+}
