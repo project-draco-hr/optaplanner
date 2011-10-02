@@ -1,0 +1,3 @@
+{
+  return super.acceptInputFile(inputFile) && inputFile.getName().startsWith("model_");
+}

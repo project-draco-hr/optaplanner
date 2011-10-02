@@ -1,0 +1,16 @@
+{
+  int resourceListSize=readIntegerValue();
+  List<MrResource> resourceList=new ArrayList<MrResource>(resourceListSize);
+  long resourceId=0L;
+  for (int i=0; i < resourceListSize; i++) {
+    String line=bufferedReader.readLine();
+    String[] lineTokens=splitBySpace(line,2);
+    MrResource resource=new MrResource();
+    resource.setId(resourceId);
+    resourceId++;
+    resource.setTransientlyConsumed(parseBooleanFromNumber(lineTokens[0]));
+    resource.setWeight(Integer.parseInt(lineTokens[1]));
+    resourceList.add(resource);
+  }
+  machineReassignment.setResourceList(resourceList);
+}

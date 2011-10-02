@@ -1,0 +1,3 @@
+{
+  super("machinereassignment",MachineReassignment.class);
+}
