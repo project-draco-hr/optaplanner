@@ -1,5 +1,8 @@
 {
   List<Object> facts=new ArrayList<Object>();
   facts.addAll(resourceList);
+  facts.addAll(machineList);
+  facts.addAll(serviceList);
+  facts.addAll(processList);
   return facts;
 }

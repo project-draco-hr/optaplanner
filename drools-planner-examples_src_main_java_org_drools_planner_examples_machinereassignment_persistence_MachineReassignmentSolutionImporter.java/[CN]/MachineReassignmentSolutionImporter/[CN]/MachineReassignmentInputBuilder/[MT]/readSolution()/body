@@ -2,6 +2,7 @@
   machineReassignment=new MachineReassignment();
   machineReassignment.setId(0L);
   readResourceList();
+  readMachineList();
   logger.info("MachineReassignment with {} resources.",new Object[]{machineReassignment.getResourceList().size()});
   return machineReassignment;
 }

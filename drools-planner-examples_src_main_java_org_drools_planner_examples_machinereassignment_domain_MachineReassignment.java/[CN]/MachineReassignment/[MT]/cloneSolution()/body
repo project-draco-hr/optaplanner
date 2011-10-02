@@ -2,6 +2,9 @@
   MachineReassignment clone=new MachineReassignment();
   clone.id=id;
   clone.resourceList=resourceList;
+  clone.machineList=machineList;
+  clone.serviceList=serviceList;
+  clone.processList=processList;
   List<BedDesignation> clonedBedDesignationList=new ArrayList<BedDesignation>(bedDesignationList.size());
   for (  BedDesignation bedDesignation : bedDesignationList) {
     BedDesignation clonedBedDesignation=bedDesignation.clone();
