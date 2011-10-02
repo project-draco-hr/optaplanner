@@ -1,0 +1,14 @@
+{
+  int processListSize=readIntegerValue();
+  List<MrProcess> processList=new ArrayList<MrProcess>(processListSize);
+  long processId=0L;
+  for (int i=0; i < processListSize; i++) {
+    String line=readStringValue();
+    String[] lineTokens=splitBySpace(line);
+    MrProcess process=new MrProcess();
+    process.setId(processId);
+    processId++;
+    processList.add(process);
+  }
+  machineReassignment.setProcessList(processList);
+}

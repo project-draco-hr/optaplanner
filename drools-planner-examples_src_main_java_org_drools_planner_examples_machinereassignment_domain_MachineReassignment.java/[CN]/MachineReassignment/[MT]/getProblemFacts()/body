@@ -1,8 +1,10 @@
 {
   List<Object> facts=new ArrayList<Object>();
+  facts.add(globalPenaltyInfo);
   facts.addAll(resourceList);
   facts.addAll(machineList);
   facts.addAll(serviceList);
   facts.addAll(processList);
+  facts.addAll(balancePenaltyList);
   return facts;
 }
