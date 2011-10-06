@@ -1,0 +1,4 @@
+{
+  cloudProcessAssignmentList.add(cloudProcessAssignment);
+  update();
+}

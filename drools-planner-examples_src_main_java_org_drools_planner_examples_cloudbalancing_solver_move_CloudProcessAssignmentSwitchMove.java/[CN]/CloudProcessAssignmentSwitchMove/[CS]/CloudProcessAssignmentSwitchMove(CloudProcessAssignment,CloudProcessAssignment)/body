@@ -1,0 +1,4 @@
+{
+  this.leftCloudProcessAssignment=leftCloudProcessAssignment;
+  this.rightCloudProcessAssignment=rightCloudProcessAssignment;
+}

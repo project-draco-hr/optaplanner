@@ -1,0 +1,3 @@
+{
+  return compare((CloudProcessAssignment)a,(CloudProcessAssignment)b);
+}

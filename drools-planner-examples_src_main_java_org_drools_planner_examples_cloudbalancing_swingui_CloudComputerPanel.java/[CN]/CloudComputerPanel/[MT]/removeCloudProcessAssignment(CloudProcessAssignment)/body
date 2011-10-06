@@ -1,0 +1,4 @@
+{
+  cloudProcessAssignmentList.remove(cloudProcessAssignment);
+  update();
+}

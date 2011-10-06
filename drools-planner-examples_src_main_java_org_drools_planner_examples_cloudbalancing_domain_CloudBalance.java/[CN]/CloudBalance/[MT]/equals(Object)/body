@@ -7,13 +7,13 @@
   }
  else {
     CloudBalance other=(CloudBalance)o;
-    if (cloudAssignmentList.size() != other.cloudAssignmentList.size()) {
+    if (cloudProcessAssignmentList.size() != other.cloudProcessAssignmentList.size()) {
       return false;
     }
-    for (Iterator<CloudAssignment> it=cloudAssignmentList.iterator(), otherIt=other.cloudAssignmentList.iterator(); it.hasNext(); ) {
-      CloudAssignment cloudAssignment=it.next();
-      CloudAssignment otherCloudAssignment=otherIt.next();
-      if (!cloudAssignment.solutionEquals(otherCloudAssignment)) {
+    for (Iterator<CloudProcessAssignment> it=cloudProcessAssignmentList.iterator(), otherIt=other.cloudProcessAssignmentList.iterator(); it.hasNext(); ) {
+      CloudProcessAssignment cloudProcessAssignment=it.next();
+      CloudProcessAssignment otherCloudProcessAssignment=otherIt.next();
+      if (!cloudProcessAssignment.solutionEquals(otherCloudProcessAssignment)) {
         return false;
       }
     }

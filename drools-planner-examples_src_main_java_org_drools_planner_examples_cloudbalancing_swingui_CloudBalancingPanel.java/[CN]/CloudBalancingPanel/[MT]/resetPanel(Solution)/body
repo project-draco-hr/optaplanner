@@ -6,7 +6,7 @@
   }
   cloudComputerToPanelMap.clear();
   cloudComputerToPanelMap.put(null,unassignedPanel);
-  cloudAssignmentToPanelMap.clear();
-  unassignedPanel.clearCloudAssignments();
+  cloudProcessAssignmentToPanelMap.clear();
+  unassignedPanel.clearCloudProcessAssignments();
   updatePanel(solution);
 }

@@ -3,12 +3,12 @@
   clone.id=id;
   clone.cloudComputerList=cloudComputerList;
   clone.cloudProcessList=cloudProcessList;
-  List<CloudAssignment> clonedCloudAssignmentList=new ArrayList<CloudAssignment>(cloudAssignmentList.size());
-  for (  CloudAssignment cloudAssignment : cloudAssignmentList) {
-    CloudAssignment clonedCloudAssignment=cloudAssignment.clone();
-    clonedCloudAssignmentList.add(clonedCloudAssignment);
+  List<CloudProcessAssignment> clonedCloudProcessAssignmentList=new ArrayList<CloudProcessAssignment>(cloudProcessAssignmentList.size());
+  for (  CloudProcessAssignment cloudProcessAssignment : cloudProcessAssignmentList) {
+    CloudProcessAssignment clonedCloudProcessAssignment=cloudProcessAssignment.clone();
+    clonedCloudProcessAssignmentList.add(clonedCloudProcessAssignment);
   }
-  clone.cloudAssignmentList=clonedCloudAssignmentList;
+  clone.cloudProcessAssignmentList=clonedCloudProcessAssignmentList;
   clone.score=score;
   return clone;
 }

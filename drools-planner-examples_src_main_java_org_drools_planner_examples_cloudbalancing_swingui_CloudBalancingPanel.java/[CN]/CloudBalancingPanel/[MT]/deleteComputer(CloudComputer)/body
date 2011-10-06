@@ -4,11 +4,11 @@
     public void doChange(    SolutionDirector solutionDirector){
       CloudBalance cloudBalance=(CloudBalance)solutionDirector.getWorkingSolution();
       WorkingMemory workingMemory=solutionDirector.getWorkingMemory();
-      for (      CloudAssignment cloudAssignment : cloudBalance.getCloudAssignmentList()) {
-        if (ObjectUtils.equals(cloudAssignment.getCloudComputer(),cloudComputer)) {
-          FactHandle cloudAssignmentHandle=workingMemory.getFactHandle(cloudAssignment);
-          cloudAssignment.setCloudComputer(null);
-          workingMemory.retract(cloudAssignmentHandle);
+      for (      CloudProcessAssignment cloudProcessAssignment : cloudBalance.getCloudProcessAssignmentList()) {
+        if (ObjectUtils.equals(cloudProcessAssignment.getCloudComputer(),cloudComputer)) {
+          FactHandle cloudProcessAssignmentHandle=workingMemory.getFactHandle(cloudProcessAssignment);
+          cloudProcessAssignment.setCloudComputer(null);
+          workingMemory.retract(cloudProcessAssignmentHandle);
         }
       }
       for (Iterator<CloudComputer> it=cloudBalance.getCloudComputerList().iterator(); it.hasNext(); ) {

@@ -1,0 +1,3 @@
+{
+  return Arrays.<CloudProcessAssignment>asList(leftCloudProcessAssignment,rightCloudProcessAssignment);
+}

@@ -4,6 +4,6 @@
   computersPanel.add(unassignedPanel);
   cloudComputerToPanelMap=new LinkedHashMap<CloudComputer,CloudComputerPanel>();
   cloudComputerToPanelMap.put(null,unassignedPanel);
-  cloudAssignmentToPanelMap=new LinkedHashMap<CloudAssignment,CloudComputerPanel>();
+  cloudProcessAssignmentToPanelMap=new LinkedHashMap<CloudProcessAssignment,CloudComputerPanel>();
   return computersPanel;
 }

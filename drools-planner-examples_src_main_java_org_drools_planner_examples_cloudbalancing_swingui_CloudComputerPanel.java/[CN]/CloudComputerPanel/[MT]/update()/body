@@ -6,16 +6,16 @@
   int usedNetworkBandwidth=0;
   networkBandwidthBar.clearProcessValues();
   int colorIndex=0;
-  for (  CloudAssignment cloudAssignment : cloudAssignmentList) {
-    usedCpuPower+=cloudAssignment.getMinimalCpuPower();
-    cpuPowerBar.addProcessValue(cloudAssignment.getMinimalCpuPower());
-    usedMemory+=cloudAssignment.getMinimalMemory();
-    memoryBar.addProcessValue(cloudAssignment.getMinimalMemory());
-    usedNetworkBandwidth+=cloudAssignment.getMinimalNetworkBandwidth();
-    networkBandwidthBar.addProcessValue(cloudAssignment.getMinimalNetworkBandwidth());
+  for (  CloudProcessAssignment cloudProcessAssignment : cloudProcessAssignmentList) {
+    usedCpuPower+=cloudProcessAssignment.getMinimalCpuPower();
+    cpuPowerBar.addProcessValue(cloudProcessAssignment.getMinimalCpuPower());
+    usedMemory+=cloudProcessAssignment.getMinimalMemory();
+    memoryBar.addProcessValue(cloudProcessAssignment.getMinimalMemory());
+    usedNetworkBandwidth+=cloudProcessAssignment.getMinimalNetworkBandwidth();
+    networkBandwidthBar.addProcessValue(cloudProcessAssignment.getMinimalNetworkBandwidth());
     colorIndex=(colorIndex + 1) % CloudBalancingPanel.PROCESS_COLORS.length;
   }
-  boolean used=cloudAssignmentList.size() > 0;
+  boolean used=cloudProcessAssignmentList.size() > 0;
   updateTotals(usedCpuPower,usedMemory,usedNetworkBandwidth,used);
   updateBars(used);
 }
