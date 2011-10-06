@@ -1,3 +1,0 @@
-{
-  return new CompareToBuilder().append(cloudProcess,other.cloudProcess).append(cloudComputer,other.cloudComputer).toComparison();
-}
