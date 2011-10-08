@@ -1,3 +1,0 @@
-{
-  return compare((ShiftAssignment)a,(ShiftAssignment)b);
-}
