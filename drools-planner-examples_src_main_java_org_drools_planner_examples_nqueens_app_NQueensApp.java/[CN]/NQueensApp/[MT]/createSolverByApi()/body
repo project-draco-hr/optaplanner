@@ -16,7 +16,7 @@
   solverPhaseConfigList.add(constructionHeuristicSolverPhaseConfig);
   LocalSearchSolverPhaseConfig localSearchSolverPhaseConfig=new LocalSearchSolverPhaseConfig();
   localSearchSolverPhaseConfig.getSelectorConfig().setMoveFactoryClass(RowChangeMoveFactory.class);
-  localSearchSolverPhaseConfig.getAcceptorConfig().setCompleteSolutionTabuSize(1000);
+  localSearchSolverPhaseConfig.getAcceptorConfig().setSolutionTabuSize(1000);
   solverPhaseConfigList.add(localSearchSolverPhaseConfig);
   solverConfig.setSolverPhaseConfigList(solverPhaseConfigList);
   return solverConfig.buildSolver();

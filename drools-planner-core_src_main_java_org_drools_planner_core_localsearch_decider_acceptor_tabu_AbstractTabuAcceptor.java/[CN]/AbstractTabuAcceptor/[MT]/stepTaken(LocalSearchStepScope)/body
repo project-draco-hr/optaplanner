@@ -5,7 +5,7 @@
       tabuToStepIndexMap.remove(tabu);
       tabuSequenceList.remove(tabu);
     }
-    int maximumTabuListSize=completeTabuSize + partialTabuSize;
+    int maximumTabuListSize=tabuSize + partialTabuSize;
     while (tabuSequenceList.size() >= maximumTabuListSize) {
       Iterator<Object> it=tabuSequenceList.iterator();
       Object removeTabu=it.next();

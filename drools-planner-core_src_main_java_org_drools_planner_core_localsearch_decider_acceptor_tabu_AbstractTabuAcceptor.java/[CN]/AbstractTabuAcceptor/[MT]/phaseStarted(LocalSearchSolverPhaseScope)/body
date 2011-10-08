@@ -1,5 +1,5 @@
 {
   validateConfiguration();
-  tabuToStepIndexMap=new HashMap<Object,Integer>(completeTabuSize + partialTabuSize);
+  tabuToStepIndexMap=new HashMap<Object,Integer>(tabuSize + partialTabuSize);
   tabuSequenceList=new LinkedList<Object>();
 }

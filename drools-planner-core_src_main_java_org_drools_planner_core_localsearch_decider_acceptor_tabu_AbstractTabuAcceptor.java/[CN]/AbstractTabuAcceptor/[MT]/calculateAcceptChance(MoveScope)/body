@@ -29,11 +29,11 @@
     }
   }
   int tabuStepCount=moveScope.getLocalSearchStepScope().getStepIndex() - maximumTabuStepIndex - 1;
-  if (tabuStepCount < completeTabuSize) {
-    logger.trace("        Proposed move ({}) is complete tabu.",moveScope.getMove());
+  if (tabuStepCount < tabuSize) {
+    logger.trace("        Proposed move ({}) is tabu.",moveScope.getMove());
     return 0.0;
   }
-  double acceptChance=calculatePartialTabuAcceptChance(tabuStepCount - completeTabuSize);
+  double acceptChance=calculatePartialTabuAcceptChance(tabuStepCount - tabuSize);
   logger.trace("        Proposed move ({}) is partially tabu with accept chance ({}).",moveScope.getMove(),acceptChance);
   return acceptChance;
 }

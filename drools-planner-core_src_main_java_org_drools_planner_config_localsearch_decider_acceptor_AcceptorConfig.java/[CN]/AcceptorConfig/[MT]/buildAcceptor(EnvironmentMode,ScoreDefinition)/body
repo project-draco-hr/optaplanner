@@ -14,11 +14,11 @@ catch (    IllegalAccessException e) {
       throw new IllegalArgumentException("acceptorClass (" + acceptorClass.getName() + ") does not have a public no-arg constructor",e);
     }
   }
-  if ((acceptorTypeList != null && acceptorTypeList.contains(AcceptorType.MOVE_TABU)) || completeMoveTabuSize != null || partialMoveTabuSize != null) {
+  if ((acceptorTypeList != null && acceptorTypeList.contains(AcceptorType.MOVE_TABU)) || moveTabuSize != null || partialMoveTabuSize != null) {
     MoveTabuAcceptor moveTabuAcceptor=new MoveTabuAcceptor();
     moveTabuAcceptor.setUseUndoMoveAsTabuMove(false);
-    if (completeMoveTabuSize != null) {
-      moveTabuAcceptor.setCompleteTabuSize(completeMoveTabuSize);
+    if (moveTabuSize != null) {
+      moveTabuAcceptor.setTabuSize(moveTabuSize);
     }
     if (partialMoveTabuSize != null) {
       moveTabuAcceptor.setPartialTabuSize(partialMoveTabuSize);
@@ -28,11 +28,11 @@ catch (    IllegalAccessException e) {
     }
     acceptorList.add(moveTabuAcceptor);
   }
-  if ((acceptorTypeList != null && acceptorTypeList.contains(AcceptorType.UNDO_MOVE_TABU)) || completeUndoMoveTabuSize != null || partialUndoMoveTabuSize != null) {
+  if ((acceptorTypeList != null && acceptorTypeList.contains(AcceptorType.UNDO_MOVE_TABU)) || undoMoveTabuSize != null || partialUndoMoveTabuSize != null) {
     MoveTabuAcceptor undoMoveTabuAcceptor=new MoveTabuAcceptor();
     undoMoveTabuAcceptor.setUseUndoMoveAsTabuMove(true);
-    if (completeUndoMoveTabuSize != null) {
-      undoMoveTabuAcceptor.setCompleteTabuSize(completeUndoMoveTabuSize);
+    if (undoMoveTabuSize != null) {
+      undoMoveTabuAcceptor.setTabuSize(undoMoveTabuSize);
     }
     if (partialUndoMoveTabuSize != null) {
       undoMoveTabuAcceptor.setPartialTabuSize(partialUndoMoveTabuSize);
@@ -42,10 +42,10 @@ catch (    IllegalAccessException e) {
     }
     acceptorList.add(undoMoveTabuAcceptor);
   }
-  if ((acceptorTypeList != null && acceptorTypeList.contains(AcceptorType.PROPERTY_TABU)) || completePropertyTabuSize != null || partialPropertyTabuSize != null) {
+  if ((acceptorTypeList != null && acceptorTypeList.contains(AcceptorType.PROPERTY_TABU)) || propertyTabuSize != null || partialPropertyTabuSize != null) {
     PropertyTabuAcceptor propertyTabuAcceptor=new PropertyTabuAcceptor();
-    if (completePropertyTabuSize != null) {
-      propertyTabuAcceptor.setCompleteTabuSize(completePropertyTabuSize);
+    if (propertyTabuSize != null) {
+      propertyTabuAcceptor.setTabuSize(propertyTabuSize);
     }
     if (partialPropertyTabuSize != null) {
       propertyTabuAcceptor.setPartialTabuSize(partialPropertyTabuSize);
@@ -55,10 +55,10 @@ catch (    IllegalAccessException e) {
     }
     acceptorList.add(propertyTabuAcceptor);
   }
-  if ((acceptorTypeList != null && acceptorTypeList.contains(AcceptorType.SOLUTION_TABU)) || completeSolutionTabuSize != null || partialSolutionTabuSize != null) {
+  if ((acceptorTypeList != null && acceptorTypeList.contains(AcceptorType.SOLUTION_TABU)) || solutionTabuSize != null || partialSolutionTabuSize != null) {
     SolutionTabuAcceptor solutionTabuAcceptor=new SolutionTabuAcceptor();
-    if (completeSolutionTabuSize != null) {
-      solutionTabuAcceptor.setCompleteTabuSize(completeSolutionTabuSize);
+    if (solutionTabuSize != null) {
+      solutionTabuAcceptor.setTabuSize(solutionTabuSize);
     }
     if (partialSolutionTabuSize != null) {
       solutionTabuAcceptor.setPartialTabuSize(partialSolutionTabuSize);
@@ -91,7 +91,7 @@ catch (    IllegalAccessException e) {
   }
  else {
     SolutionTabuAcceptor solutionTabuAcceptor=new SolutionTabuAcceptor();
-    solutionTabuAcceptor.setCompleteTabuSize(1500);
+    solutionTabuAcceptor.setTabuSize(1500);
     if (environmentMode == EnvironmentMode.TRACE) {
       solutionTabuAcceptor.setAssertTabuHashCodeCorrectness(true);
     }

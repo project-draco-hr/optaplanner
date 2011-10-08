@@ -18,26 +18,26 @@
       }
     }
   }
-  if (completeMoveTabuSize == null) {
-    completeMoveTabuSize=inheritedConfig.getCompleteMoveTabuSize();
+  if (moveTabuSize == null) {
+    moveTabuSize=inheritedConfig.getMoveTabuSize();
   }
   if (partialMoveTabuSize == null) {
     partialMoveTabuSize=inheritedConfig.getPartialMoveTabuSize();
   }
-  if (completeUndoMoveTabuSize == null) {
-    completeUndoMoveTabuSize=inheritedConfig.getCompleteUndoMoveTabuSize();
+  if (undoMoveTabuSize == null) {
+    undoMoveTabuSize=inheritedConfig.getUndoMoveTabuSize();
   }
   if (partialUndoMoveTabuSize == null) {
     partialUndoMoveTabuSize=inheritedConfig.getPartialUndoMoveTabuSize();
   }
-  if (completePropertyTabuSize == null) {
-    completePropertyTabuSize=inheritedConfig.getCompletePropertyTabuSize();
+  if (propertyTabuSize == null) {
+    propertyTabuSize=inheritedConfig.getPropertyTabuSize();
   }
   if (partialPropertyTabuSize == null) {
     partialPropertyTabuSize=inheritedConfig.getPartialPropertyTabuSize();
   }
-  if (completeSolutionTabuSize == null) {
-    completeSolutionTabuSize=inheritedConfig.getCompleteSolutionTabuSize();
+  if (solutionTabuSize == null) {
+    solutionTabuSize=inheritedConfig.getSolutionTabuSize();
   }
   if (partialSolutionTabuSize == null) {
     partialSolutionTabuSize=inheritedConfig.getPartialSolutionTabuSize();
