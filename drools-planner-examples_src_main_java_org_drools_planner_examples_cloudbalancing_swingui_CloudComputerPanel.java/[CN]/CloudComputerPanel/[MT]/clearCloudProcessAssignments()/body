@@ -1,4 +1,3 @@
 {
   cloudProcessAssignmentList.clear();
-  update();
 }

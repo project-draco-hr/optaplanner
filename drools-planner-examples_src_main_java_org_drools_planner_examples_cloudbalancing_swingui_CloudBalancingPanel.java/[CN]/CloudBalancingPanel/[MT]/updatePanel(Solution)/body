@@ -35,4 +35,7 @@
     CloudComputerPanel deadCloudComputerPanel=cloudComputerToPanelMap.remove(deadCloudComputer);
     computersPanel.remove(deadCloudComputerPanel);
   }
+  for (  CloudComputerPanel cloudComputerPanel : cloudComputerToPanelMap.values()) {
+    cloudComputerPanel.update();
+  }
 }
