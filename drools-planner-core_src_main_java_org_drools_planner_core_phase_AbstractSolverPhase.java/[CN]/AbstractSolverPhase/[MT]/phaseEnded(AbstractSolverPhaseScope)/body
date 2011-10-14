@@ -2,7 +2,7 @@
   DefaultSolverScope solverScope=solverPhaseScope.getSolverScope();
   Solution bestSolution=solverScope.getBestSolution();
   if (bestSolution != null) {
-    solverScope.getSolutionDirector().setWorkingSolution(bestSolution);
+    solverScope.getSolutionDirector().setWorkingSolution(bestSolution.cloneSolution());
   }
   termination.phaseEnded(solverPhaseScope);
   solverPhaseLifecycleSupport.firePhaseEnded(solverPhaseScope);
