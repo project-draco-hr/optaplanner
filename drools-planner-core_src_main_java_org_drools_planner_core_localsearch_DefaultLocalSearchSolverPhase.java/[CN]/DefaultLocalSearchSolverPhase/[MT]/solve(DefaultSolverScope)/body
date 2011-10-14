@@ -8,7 +8,7 @@
     decider.decideNextStep(localSearchStepScope);
     Move nextStep=localSearchStepScope.getStep();
     if (nextStep == null) {
-      logger.warn("No move accepted for step index ({}) out of {} accepted moves. Terminating by exception.",localSearchStepScope.getStepIndex(),decider.getForager().getAcceptedMovesSize());
+      logger.warn("    Cancelled step index ({}), time spend ({}): there is no doable move. Terminating phase early.",localSearchStepScope.getStepIndex(),localSearchSolverPhaseScope.calculateSolverTimeMillisSpend());
       break;
     }
     stepDecided(localSearchStepScope);
