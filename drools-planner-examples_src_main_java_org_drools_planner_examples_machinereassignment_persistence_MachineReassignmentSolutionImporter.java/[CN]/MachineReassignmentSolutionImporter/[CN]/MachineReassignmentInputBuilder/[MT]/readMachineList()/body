@@ -1,5 +1,9 @@
 {
   int machineListSize=readIntegerValue();
+  List<MrNeighborhood> neighborhoodList=new ArrayList<MrNeighborhood>(machineListSize);
+  Map<String,MrNeighborhood> idToNeighborhoodMap=new HashMap<String,MrNeighborhood>(machineListSize);
+  List<MrLocation> locationList=new ArrayList<MrLocation>(machineListSize);
+  Map<String,MrLocation> idToLocationMap=new HashMap<String,MrLocation>(machineListSize);
   List<MrMachine> machineList=new ArrayList<MrMachine>(machineListSize);
   long machineId=0L;
   for (int i=0; i < machineListSize; i++) {
@@ -8,7 +12,23 @@
     MrMachine machine=new MrMachine();
     machine.setId(machineId);
     machineId++;
+    long neighborhoodId=Long.parseLong(lineTokens[0]);
+    MrNeighborhood neighborhood=idToNeighborhoodMap.get(neighborhoodId);
+    if (neighborhood == null) {
+      neighborhood=new MrNeighborhood();
+      neighborhood.setId(neighborhoodId);
+    }
+    machine.setNeighborhood(neighborhood);
+    long locationId=Long.parseLong(lineTokens[0]);
+    MrLocation location=idToLocationMap.get(locationId);
+    if (location == null) {
+      location=new MrLocation();
+      location.setId(locationId);
+    }
+    machine.setLocation(location);
     machineList.add(machine);
   }
+  machineReassignment.setNeighborhoodList(neighborhoodList);
+  machineReassignment.setLocationList(locationList);
   machineReassignment.setMachineList(machineList);
 }

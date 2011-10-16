@@ -3,6 +3,8 @@
   clone.id=id;
   clone.globalPenaltyInfo=globalPenaltyInfo;
   clone.resourceList=resourceList;
+  clone.neighborhoodList=neighborhoodList;
+  clone.locationList=locationList;
   clone.machineList=machineList;
   clone.serviceList=serviceList;
   clone.processList=processList;
