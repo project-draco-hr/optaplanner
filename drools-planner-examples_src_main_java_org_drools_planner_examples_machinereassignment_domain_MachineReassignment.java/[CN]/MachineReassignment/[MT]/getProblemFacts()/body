@@ -5,6 +5,7 @@
   facts.addAll(neighborhoodList);
   facts.addAll(locationList);
   facts.addAll(machineList);
+  facts.addAll(capacityList);
   facts.addAll(serviceList);
   facts.addAll(processList);
   facts.addAll(balancePenaltyList);
