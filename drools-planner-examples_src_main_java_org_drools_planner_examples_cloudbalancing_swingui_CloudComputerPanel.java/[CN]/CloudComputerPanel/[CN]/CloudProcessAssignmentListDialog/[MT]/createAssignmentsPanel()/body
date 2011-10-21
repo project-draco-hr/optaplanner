@@ -5,13 +5,13 @@
     JLabel cloudProcessAssignmentLabel=new JLabel(cloudProcessAssignment.getLabel());
     cloudProcessAssignmentLabel.setForeground(CloudBalancingPanel.PROCESS_COLORS[colorIndex]);
     assignmentsPanel.add(cloudProcessAssignmentLabel);
-    JTextField cpuPowerField=new JTextField(cloudProcessAssignment.getMinimalCpuPower() + " GHz");
+    JTextField cpuPowerField=new JTextField(cloudProcessAssignment.getRequiredCpuPower() + " GHz");
     cpuPowerField.setEditable(false);
     assignmentsPanel.add(cpuPowerField);
-    JTextField memoryField=new JTextField(cloudProcessAssignment.getMinimalMemory() + " GB");
+    JTextField memoryField=new JTextField(cloudProcessAssignment.getRequiredMemory() + " GB");
     memoryField.setEditable(false);
     assignmentsPanel.add(memoryField);
-    JTextField networkBandwidthField=new JTextField(cloudProcessAssignment.getMinimalNetworkBandwidth() + " GB");
+    JTextField networkBandwidthField=new JTextField(cloudProcessAssignment.getRequiredNetworkBandwidth() + " GB");
     networkBandwidthField.setEditable(false);
     assignmentsPanel.add(networkBandwidthField);
     assignmentsPanel.add(new JLabel(""));

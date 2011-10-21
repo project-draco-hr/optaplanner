@@ -3,13 +3,13 @@
   for (int i=0; i < cloudProcessListSize; i++) {
     CloudProcess cloudProcess=new CloudProcess();
     cloudProcess.setId((long)i);
-    int minimalCpuPower=generateRandom(MAXIMUM_MINIMAL_CPU_POWER);
-    cloudProcess.setMinimalCpuPower(minimalCpuPower);
-    int minimalMemory=generateRandom(MAXIMUM_MINIMAL_MEMORY);
-    cloudProcess.setMinimalMemory(minimalMemory);
-    int minimalNetworkBandwidth=generateRandom(MAXIMUM_MINIMAL_NETWORK_BANDWIDTH);
-    cloudProcess.setMinimalNetworkBandwidth(minimalNetworkBandwidth);
-    logger.debug("Created CloudProcess with minimalCpuPower ({}), minimalMemory({})," + " minimalNetworkBandwidth({}).",new Object[]{minimalCpuPower,minimalMemory,minimalNetworkBandwidth});
+    int requiredCpuPower=generateRandom(MAXIMUM_REQUIRED_CPU_POWER);
+    cloudProcess.setRequiredCpuPower(requiredCpuPower);
+    int requiredMemory=generateRandom(MAXIMUM_REQUIRED_MEMORY);
+    cloudProcess.setRequiredMemory(requiredMemory);
+    int requiredNetworkBandwidth=generateRandom(MAXIMUM_REQUIRED_NETWORK_BANDWIDTH);
+    cloudProcess.setRequiredNetworkBandwidth(requiredNetworkBandwidth);
+    logger.debug("Created CloudProcess with requiredCpuPower ({}), requiredMemory({})," + " requiredNetworkBandwidth({}).",new Object[]{requiredCpuPower,requiredMemory,requiredNetworkBandwidth});
     cloudProcessList.add(cloudProcess);
   }
   cloudBalance.setCloudProcessList(cloudProcessList);
