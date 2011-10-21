@@ -1,7 +1,0 @@
-{
-  CloudProcessAssignment clone=new CloudProcessAssignment();
-  clone.id=id;
-  clone.cloudProcess=cloudProcess;
-  clone.cloudComputer=cloudComputer;
-  return clone;
-}

@@ -1,3 +1,3 @@
 {
-  return Collections.singletonList(cloudProcessAssignment);
+  return Collections.singletonList(cloudProcess);
 }

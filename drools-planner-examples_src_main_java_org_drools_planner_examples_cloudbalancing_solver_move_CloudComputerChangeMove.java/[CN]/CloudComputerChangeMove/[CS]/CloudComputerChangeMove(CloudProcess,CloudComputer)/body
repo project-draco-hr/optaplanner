@@ -1,0 +1,4 @@
+{
+  this.cloudProcess=cloudProcess;
+  this.toCloudComputer=toCloudComputer;
+}

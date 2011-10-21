@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof CloudProcessSwitchMove) {
+    CloudProcessSwitchMove other=(CloudProcessSwitchMove)o;
+    return new EqualsBuilder().append(leftCloudProcess,other.leftCloudProcess).append(rightCloudProcess,other.rightCloudProcess).isEquals();
+  }
+ else {
+    return false;
+  }
+}

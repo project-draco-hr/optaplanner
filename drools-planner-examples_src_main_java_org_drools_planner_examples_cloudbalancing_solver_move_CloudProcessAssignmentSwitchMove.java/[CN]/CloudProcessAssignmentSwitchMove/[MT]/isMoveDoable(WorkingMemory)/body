@@ -1,3 +1,0 @@
-{
-  return !ObjectUtils.equals(leftCloudProcessAssignment.getCloudComputer(),rightCloudProcessAssignment.getCloudComputer());
-}

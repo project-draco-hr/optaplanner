@@ -4,7 +4,7 @@
   }
  else   if (o instanceof CloudComputerChangeMove) {
     CloudComputerChangeMove other=(CloudComputerChangeMove)o;
-    return new EqualsBuilder().append(cloudProcessAssignment,other.cloudProcessAssignment).append(toCloudComputer,other.toCloudComputer).isEquals();
+    return new EqualsBuilder().append(cloudProcess,other.cloudProcess).append(toCloudComputer,other.toCloudComputer).isEquals();
   }
  else {
     return false;

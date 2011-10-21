@@ -1,3 +1,0 @@
-{
-  return cloudProcess + "->" + cloudComputer;
-}

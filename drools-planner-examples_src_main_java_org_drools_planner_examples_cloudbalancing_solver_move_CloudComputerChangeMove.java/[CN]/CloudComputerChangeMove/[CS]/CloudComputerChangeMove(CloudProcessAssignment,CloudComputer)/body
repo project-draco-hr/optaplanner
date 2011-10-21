@@ -1,4 +1,0 @@
-{
-  this.cloudProcessAssignment=cloudProcessAssignment;
-  this.toCloudComputer=toCloudComputer;
-}

@@ -2,13 +2,12 @@
   CloudBalance clone=new CloudBalance();
   clone.id=id;
   clone.cloudComputerList=cloudComputerList;
-  clone.cloudProcessList=cloudProcessList;
-  List<CloudProcessAssignment> clonedCloudProcessAssignmentList=new ArrayList<CloudProcessAssignment>(cloudProcessAssignmentList.size());
-  for (  CloudProcessAssignment cloudProcessAssignment : cloudProcessAssignmentList) {
-    CloudProcessAssignment clonedCloudProcessAssignment=cloudProcessAssignment.clone();
-    clonedCloudProcessAssignmentList.add(clonedCloudProcessAssignment);
+  List<CloudProcess> clonedCloudProcessList=new ArrayList<CloudProcess>(cloudProcessList.size());
+  for (  CloudProcess cloudProcess : cloudProcessList) {
+    CloudProcess clonedCloudProcess=cloudProcess.clone();
+    clonedCloudProcessList.add(clonedCloudProcess);
   }
-  clone.cloudProcessAssignmentList=clonedCloudProcessAssignmentList;
+  clone.cloudProcessList=clonedCloudProcessList;
   clone.score=score;
   return clone;
 }

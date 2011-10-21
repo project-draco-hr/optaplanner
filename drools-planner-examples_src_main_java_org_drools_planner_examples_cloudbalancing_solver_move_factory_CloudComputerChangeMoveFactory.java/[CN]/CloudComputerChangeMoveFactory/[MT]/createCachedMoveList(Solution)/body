@@ -2,9 +2,9 @@
   CloudBalance cloudBalance=(CloudBalance)solution;
   List<Move> moveList=new ArrayList<Move>();
   List<CloudComputer> cloudComputerList=cloudBalance.getCloudComputerList();
-  for (  CloudProcessAssignment cloudProcessAssignment : cloudBalance.getCloudProcessAssignmentList()) {
+  for (  CloudProcess cloudProcess : cloudBalance.getCloudProcessList()) {
     for (    CloudComputer cloudComputer : cloudComputerList) {
-      moveList.add(new CloudComputerChangeMove(cloudProcessAssignment,cloudComputer));
+      moveList.add(new CloudComputerChangeMove(cloudProcess,cloudComputer));
     }
   }
   return moveList;

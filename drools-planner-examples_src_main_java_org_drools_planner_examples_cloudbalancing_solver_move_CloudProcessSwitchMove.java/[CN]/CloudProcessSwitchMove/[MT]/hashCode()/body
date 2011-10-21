@@ -1,0 +1,3 @@
+{
+  return new HashCodeBuilder().append(leftCloudProcess).append(rightCloudProcess).toHashCode();
+}

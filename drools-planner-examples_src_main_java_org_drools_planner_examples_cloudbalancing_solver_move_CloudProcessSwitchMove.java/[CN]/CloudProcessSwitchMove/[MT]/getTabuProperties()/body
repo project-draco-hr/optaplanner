@@ -1,0 +1,3 @@
+{
+  return Arrays.<CloudProcess>asList(leftCloudProcess,rightCloudProcess);
+}

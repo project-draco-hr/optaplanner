@@ -1,0 +1,6 @@
+{
+  CloudComputer oldLeftCloudComputer=leftCloudProcess.getCloudComputer();
+  CloudComputer oldRightCloudComputer=rightCloudProcess.getCloudComputer();
+  CloudBalancingMoveHelper.moveCloudComputer(workingMemory,leftCloudProcess,oldRightCloudComputer);
+  CloudBalancingMoveHelper.moveCloudComputer(workingMemory,rightCloudProcess,oldLeftCloudComputer);
+}

@@ -1,0 +1,4 @@
+{
+  this.leftCloudProcess=leftCloudProcess;
+  this.rightCloudProcess=rightCloudProcess;
+}

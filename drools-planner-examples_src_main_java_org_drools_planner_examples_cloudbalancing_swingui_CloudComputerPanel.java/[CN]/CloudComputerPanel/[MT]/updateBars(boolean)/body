@@ -1,5 +1,5 @@
 {
-  numberOfProcessesLabel.setText("    " + cloudProcessAssignmentList.size() + " processes");
+  numberOfProcessesLabel.setText("    " + cloudProcessList.size() + " processes");
   numberOfProcessesLabel.setEnabled(used);
   cpuPowerBar.setEnabled(used);
   cpuPowerBar.repaint();
