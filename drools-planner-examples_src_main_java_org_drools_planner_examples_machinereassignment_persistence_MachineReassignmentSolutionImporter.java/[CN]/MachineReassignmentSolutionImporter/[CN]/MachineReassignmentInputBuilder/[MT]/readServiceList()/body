@@ -1,7 +1,6 @@
 {
   int serviceListSize=readIntegerValue();
   serviceList=new ArrayList<MrService>(serviceListSize);
-  List<MrServiceDependency> serviceDependencyList=new ArrayList<MrServiceDependency>(serviceListSize * 5);
   long serviceId=0L;
   for (int i=0; i < serviceListSize; i++) {
     MrService service=new MrService();
@@ -9,6 +8,8 @@
     serviceList.add(service);
     serviceId++;
   }
+  List<MrServiceDependency> serviceDependencyList=new ArrayList<MrServiceDependency>(serviceListSize * 5);
+  long serviceDependencyId=0L;
   for (int i=0; i < serviceListSize; i++) {
     MrService service=serviceList.get(i);
     String line=readStringValue();
@@ -17,6 +18,7 @@
     int serviceDependencyListSize=Integer.parseInt(lineTokens[1]);
     for (int j=0; j < serviceDependencyListSize; j++) {
       MrServiceDependency serviceDependency=new MrServiceDependency();
+      serviceDependency.setId(serviceDependencyId);
       serviceDependency.setFromService(service);
       int toServiceIndex=Integer.parseInt(lineTokens[0]);
       if (toServiceIndex >= serviceList.size()) {
@@ -25,6 +27,7 @@
       MrService toService=serviceList.get(toServiceIndex);
       serviceDependency.setToService(toService);
       serviceDependencyList.add(serviceDependency);
+      serviceDependencyId++;
     }
   }
   machineReassignment.setServiceList(serviceList);

@@ -4,6 +4,7 @@
   long processId=0L;
   int resourceListSize=resourceList.size();
   List<MrProcessRequirement> processRequirementList=new ArrayList<MrProcessRequirement>(processListSize * resourceListSize);
+  long processRequirementId=0L;
   for (int i=0; i < processListSize; i++) {
     String line=readStringValue();
     String[] lineTokens=splitBySpace(line);
@@ -17,10 +18,12 @@
     process.setService(service);
     for (int j=0; j < resourceListSize; j++) {
       MrProcessRequirement processRequirement=new MrProcessRequirement();
+      processRequirement.setId(processRequirementId);
       processRequirement.setProcess(process);
       processRequirement.setResource(resourceList.get(j));
       processRequirement.setUsage(Integer.parseInt(lineTokens[1 + j]));
       processRequirementList.add(processRequirement);
+      processRequirementId++;
     }
     processList.add(process);
     processId++;

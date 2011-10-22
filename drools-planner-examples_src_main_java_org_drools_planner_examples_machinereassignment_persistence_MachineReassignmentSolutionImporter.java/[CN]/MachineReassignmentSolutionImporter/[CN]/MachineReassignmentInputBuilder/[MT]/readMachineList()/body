@@ -5,9 +5,10 @@
   List<MrLocation> locationList=new ArrayList<MrLocation>(machineListSize);
   Map<String,MrLocation> idToLocationMap=new HashMap<String,MrLocation>(machineListSize);
   List<MrMachine> machineList=new ArrayList<MrMachine>(machineListSize);
+  long machineId=0L;
   int resourceListSize=resourceList.size();
   List<MrMachineCapacity> machineCapacityList=new ArrayList<MrMachineCapacity>(machineListSize * resourceListSize);
-  long machineId=0L;
+  long machineCapacityId=0L;
   for (int i=0; i < machineListSize; i++) {
     String line=readStringValue();
     String[] lineTokens=splitBySpace(line);
@@ -29,11 +30,13 @@
     machine.setLocation(location);
     for (int j=0; j < resourceListSize; j++) {
       MrMachineCapacity machineCapacity=new MrMachineCapacity();
+      machineCapacity.setId(machineCapacityId);
       machineCapacity.setMachine(machine);
       machineCapacity.setResource(resourceList.get(j));
       machineCapacity.setMaximumCapacity(Integer.parseInt(lineTokens[2 + j]));
       machineCapacity.setSafetyCapacity(Integer.parseInt(lineTokens[2 + resourceListSize + j]));
       machineCapacityList.add(machineCapacity);
+      machineCapacityId++;
     }
     machineList.add(machine);
     machineId++;
