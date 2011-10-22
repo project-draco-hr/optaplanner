@@ -2,7 +2,7 @@
   CloudBalance cloudBalance=(CloudBalance)solution;
   Set<CloudComputer> deadCloudComputerSet=new LinkedHashSet<CloudComputer>(cloudComputerToPanelMap.keySet());
   deadCloudComputerSet.remove(null);
-  for (  CloudComputer cloudComputer : ((CloudBalance)solution).getCloudComputerList()) {
+  for (  CloudComputer cloudComputer : cloudBalance.getCloudComputerList()) {
     deadCloudComputerSet.remove(cloudComputer);
     CloudComputerPanel cloudComputerPanel=cloudComputerToPanelMap.get(cloudComputer);
     if (cloudComputerPanel == null) {
