@@ -20,7 +20,7 @@
       MrServiceDependency serviceDependency=new MrServiceDependency();
       serviceDependency.setId(serviceDependencyId);
       serviceDependency.setFromService(service);
-      int toServiceIndex=Integer.parseInt(lineTokens[0]);
+      int toServiceIndex=Integer.parseInt(lineTokens[2 + j]);
       if (toServiceIndex >= serviceList.size()) {
         throw new IllegalArgumentException("Service with id (" + serviceId + ") has a non existing toServiceIndex ("+ toServiceIndex+ ").");
       }
@@ -28,6 +28,10 @@
       serviceDependency.setToService(toService);
       serviceDependencyList.add(serviceDependency);
       serviceDependencyId++;
+    }
+    int numberOfTokens=2 + serviceDependencyListSize;
+    if (lineTokens.length != numberOfTokens) {
+      throw new IllegalArgumentException("Read line (" + line + ") has "+ lineTokens.length+ " tokens but is expected to contain "+ numberOfTokens+ " tokens separated by space.");
     }
   }
   machineReassignment.setServiceList(serviceList);
