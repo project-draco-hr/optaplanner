@@ -9,6 +9,7 @@
   clone.capacityList=capacityList;
   clone.serviceList=serviceList;
   clone.processList=processList;
+  clone.requirementList=requirementList;
   clone.balancePenaltyList=balancePenaltyList;
   List<BedDesignation> clonedBedDesignationList=new ArrayList<BedDesignation>(bedDesignationList.size());
   for (  BedDesignation bedDesignation : bedDesignationList) {

@@ -1,14 +1,16 @@
 {
   int serviceListSize=readIntegerValue();
   List<MrService> serviceList=new ArrayList<MrService>(serviceListSize);
+  idToServiceMap=new HashMap<Long,MrService>(serviceListSize);
   long serviceId=0L;
   for (int i=0; i < serviceListSize; i++) {
     String line=readStringValue();
     String[] lineTokens=splitBySpace(line);
     MrService service=new MrService();
     service.setId(serviceId);
-    serviceId++;
     serviceList.add(service);
+    idToServiceMap.put(serviceId,service);
+    serviceId++;
   }
   machineReassignment.setServiceList(serviceList);
 }

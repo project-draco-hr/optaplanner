@@ -8,6 +8,7 @@
   facts.addAll(capacityList);
   facts.addAll(serviceList);
   facts.addAll(processList);
+  facts.addAll(requirementList);
   facts.addAll(balancePenaltyList);
   return facts;
 }

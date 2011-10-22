@@ -7,14 +7,13 @@
   List<MrMachine> machineList=new ArrayList<MrMachine>(machineListSize);
   List<MrResource> resourceList=machineReassignment.getResourceList();
   int resourceListSize=resourceList.size();
-  List<MrCapacity> capacityList=new ArrayList<MrCapacity>(machineListSize * resourceListSize * 2);
+  List<MrCapacity> capacityList=new ArrayList<MrCapacity>(machineListSize * resourceListSize);
   long machineId=0L;
   for (int i=0; i < machineListSize; i++) {
     String line=readStringValue();
     String[] lineTokens=splitBySpace(line);
     MrMachine machine=new MrMachine();
     machine.setId(machineId);
-    machineId++;
     long neighborhoodId=Long.parseLong(lineTokens[0]);
     MrNeighborhood neighborhood=idToNeighborhoodMap.get(neighborhoodId);
     if (neighborhood == null) {
@@ -22,7 +21,7 @@
       neighborhood.setId(neighborhoodId);
     }
     machine.setNeighborhood(neighborhood);
-    long locationId=Long.parseLong(lineTokens[0]);
+    long locationId=Long.parseLong(lineTokens[1]);
     MrLocation location=idToLocationMap.get(locationId);
     if (location == null) {
       location=new MrLocation();
@@ -34,9 +33,11 @@
       capacity.setMachine(machine);
       capacity.setResource(resourceList.get(j));
       capacity.setMaximumCapacity(Integer.parseInt(lineTokens[2 + j]));
-      capacity.setSafetyCapacity(Integer.parseInt(lineTokens[2 + (j * 2)]));
+      capacity.setSafetyCapacity(Integer.parseInt(lineTokens[2 + resourceListSize + j]));
+      capacityList.add(capacity);
     }
     machineList.add(machine);
+    machineId++;
   }
   machineReassignment.setNeighborhoodList(neighborhoodList);
   machineReassignment.setLocationList(locationList);

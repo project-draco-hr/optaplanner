@@ -7,9 +7,9 @@
     String[] lineTokens=splitBySpace(line);
     MrBalancePenalty balancePenalty=new MrBalancePenalty();
     balancePenalty.setId(balancePenaltyId);
-    balancePenaltyId++;
     int weight=readIntegerValue();
     balancePenaltyList.add(balancePenalty);
+    balancePenaltyId++;
   }
   machineReassignment.setBalancePenaltyList(balancePenaltyList);
 }
