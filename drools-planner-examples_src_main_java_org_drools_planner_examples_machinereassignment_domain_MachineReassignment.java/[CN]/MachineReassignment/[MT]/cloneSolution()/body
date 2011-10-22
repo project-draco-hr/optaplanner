@@ -8,6 +8,7 @@
   clone.machineList=machineList;
   clone.capacityList=capacityList;
   clone.serviceList=serviceList;
+  clone.serviceDependencyList=serviceDependencyList;
   clone.processList=processList;
   clone.requirementList=requirementList;
   clone.balancePenaltyList=balancePenaltyList;

@@ -2,7 +2,6 @@
   int processListSize=readIntegerValue();
   List<MrProcess> processList=new ArrayList<MrProcess>(processListSize);
   long processId=0L;
-  List<MrResource> resourceList=machineReassignment.getResourceList();
   int resourceListSize=resourceList.size();
   List<MrRequirement> requirementList=new ArrayList<MrRequirement>(processListSize * resourceListSize);
   for (int i=0; i < processListSize; i++) {
@@ -10,11 +9,11 @@
     String[] lineTokens=splitBySpace(line);
     MrProcess process=new MrProcess();
     process.setId(processId);
-    long serviceId=Long.parseLong(lineTokens[0]);
-    MrService service=idToServiceMap.get(serviceId);
-    if (service == null) {
-      throw new IllegalArgumentException("Process with id (" + processId + ") has a non existing serviceId ("+ serviceId+ ").");
+    int serviceIndex=Integer.parseInt(lineTokens[0]);
+    if (serviceIndex >= serviceList.size()) {
+      throw new IllegalArgumentException("Process with id (" + processId + ") has a non existing serviceIndex ("+ serviceIndex+ ").");
     }
+    MrService service=serviceList.get(serviceIndex);
     process.setService(service);
     for (int j=0; j < resourceListSize; j++) {
       MrRequirement requirement=new MrRequirement();
