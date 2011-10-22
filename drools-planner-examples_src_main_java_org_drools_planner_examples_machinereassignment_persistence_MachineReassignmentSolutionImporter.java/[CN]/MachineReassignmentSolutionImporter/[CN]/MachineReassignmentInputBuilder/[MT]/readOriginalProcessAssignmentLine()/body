@@ -1,0 +1,27 @@
+{
+  String inputFileName=inputFile.getName();
+  String inputFilePrefix="model_";
+  if (!inputFileName.startsWith(inputFilePrefix)) {
+    throw new IllegalArgumentException("The inputFile (" + inputFile + ") is expected to start with \""+ inputFilePrefix+ "\".");
+  }
+  File assignmentInputFile=new File(inputFile.getParent(),inputFileName.replaceFirst(inputFilePrefix,"assignment_"));
+  BufferedReader assignmentBufferedReader=null;
+  try {
+    assignmentBufferedReader=new BufferedReader(new FileReader(assignmentInputFile));
+    try {
+      return assignmentBufferedReader.readLine();
+    }
+ catch (    IllegalArgumentException e) {
+      throw new IllegalArgumentException("Exception in assignmentInputFile (" + assignmentInputFile + ")",e);
+    }
+catch (    IllegalStateException e) {
+      throw new IllegalStateException("Exception in assignmentInputFile (" + assignmentInputFile + ")",e);
+    }
+  }
+ catch (  IOException e) {
+    throw new IllegalArgumentException("Could not read the file (" + assignmentInputFile.getName() + ").",e);
+  }
+ finally {
+    IOUtils.closeQuietly(assignmentBufferedReader);
+  }
+}

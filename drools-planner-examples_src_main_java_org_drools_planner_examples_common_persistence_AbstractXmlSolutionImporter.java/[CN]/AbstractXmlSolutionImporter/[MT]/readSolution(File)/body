@@ -5,6 +5,7 @@
     SAXBuilder builder=new SAXBuilder(false);
     Document document=builder.build(in);
     XmlInputBuilder txtInputBuilder=createXmlInputBuilder();
+    txtInputBuilder.setInputFile(inputFile);
     txtInputBuilder.setDocument(document);
     try {
       return txtInputBuilder.readSolution();

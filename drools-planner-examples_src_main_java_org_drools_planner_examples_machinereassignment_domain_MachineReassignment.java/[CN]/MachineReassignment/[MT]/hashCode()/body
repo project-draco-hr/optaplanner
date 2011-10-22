@@ -1,7 +1,7 @@
 {
   HashCodeBuilder hashCodeBuilder=new HashCodeBuilder();
-  for (  BedDesignation bedDesignation : bedDesignationList) {
-    hashCodeBuilder.append(bedDesignation.solutionHashCode());
+  for (  MrProcessAssignment processAssignment : processAssignmentList) {
+    hashCodeBuilder.append(processAssignment.solutionHashCode());
   }
   return hashCodeBuilder.toHashCode();
 }

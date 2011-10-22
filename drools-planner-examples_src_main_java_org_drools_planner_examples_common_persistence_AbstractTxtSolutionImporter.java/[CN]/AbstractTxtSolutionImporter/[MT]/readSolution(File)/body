@@ -3,6 +3,7 @@
   try {
     bufferedReader=new BufferedReader(new FileReader(inputFile));
     TxtInputBuilder txtInputBuilder=createTxtInputBuilder();
+    txtInputBuilder.setInputFile(inputFile);
     txtInputBuilder.setBufferedReader(bufferedReader);
     try {
       return txtInputBuilder.readSolution();

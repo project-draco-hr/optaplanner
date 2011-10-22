@@ -13,12 +13,12 @@
   clone.processList=processList;
   clone.processRequirementList=processRequirementList;
   clone.balancePenaltyList=balancePenaltyList;
-  List<BedDesignation> clonedBedDesignationList=new ArrayList<BedDesignation>(bedDesignationList.size());
-  for (  BedDesignation bedDesignation : bedDesignationList) {
-    BedDesignation clonedBedDesignation=bedDesignation.clone();
-    clonedBedDesignationList.add(clonedBedDesignation);
+  List<MrProcessAssignment> clonedProcessAssignmentList=new ArrayList<MrProcessAssignment>(processAssignmentList.size());
+  for (  MrProcessAssignment processAssignment : processAssignmentList) {
+    MrProcessAssignment clonedProcessAssignment=processAssignment.clone();
+    clonedProcessAssignmentList.add(clonedProcessAssignment);
   }
-  clone.bedDesignationList=clonedBedDesignationList;
+  clone.processAssignmentList=clonedProcessAssignmentList;
   clone.score=score;
   return clone;
 }

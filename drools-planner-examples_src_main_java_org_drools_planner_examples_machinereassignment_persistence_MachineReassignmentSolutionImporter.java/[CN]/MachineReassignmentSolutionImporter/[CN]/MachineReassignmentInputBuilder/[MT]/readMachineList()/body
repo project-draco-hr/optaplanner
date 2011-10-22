@@ -4,7 +4,7 @@
   Map<Long,MrNeighborhood> idToNeighborhoodMap=new HashMap<Long,MrNeighborhood>(machineListSize);
   List<MrLocation> locationList=new ArrayList<MrLocation>(machineListSize);
   Map<Long,MrLocation> idToLocationMap=new HashMap<Long,MrLocation>(machineListSize);
-  List<MrMachine> machineList=new ArrayList<MrMachine>(machineListSize);
+  machineList=new ArrayList<MrMachine>(machineListSize);
   long machineId=0L;
   List<MrMachineCapacity> machineCapacityList=new ArrayList<MrMachineCapacity>(machineListSize * resourceListSize);
   long machineCapacityId=0L;

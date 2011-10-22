@@ -1,0 +1,19 @@
+{
+  String line=readOriginalProcessAssignmentLine();
+  String[] lineTokens=splitBySpace(line,processListSize);
+  List<MrProcessAssignment> processAssignmentList=new ArrayList<MrProcessAssignment>(processListSize);
+  long processAssignmentId=0L;
+  for (int i=0; i < processListSize; i++) {
+    MrProcessAssignment processAssignment=new MrProcessAssignment();
+    processAssignment.setId(processAssignmentId);
+    processAssignment.setProcess(processList.get(i));
+    int machineIndex=Integer.parseInt(lineTokens[i]);
+    if (machineIndex >= machineList.size()) {
+      throw new IllegalArgumentException("ProcessAssignment with id (" + processAssignmentId + ") has a non existing machineIndex ("+ machineIndex+ ").");
+    }
+    processAssignment.setOriginalMachine(machineList.get(machineIndex));
+    processAssignmentList.add(processAssignment);
+    processAssignmentId++;
+  }
+  machineReassignment.setProcessAssignmentList(processAssignmentList);
+}

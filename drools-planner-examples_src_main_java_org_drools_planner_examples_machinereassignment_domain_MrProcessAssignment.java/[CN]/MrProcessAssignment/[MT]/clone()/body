@@ -1,0 +1,8 @@
+{
+  MrProcessAssignment clone=new MrProcessAssignment();
+  clone.id=id;
+  clone.process=process;
+  clone.originalMachine=originalMachine;
+  clone.machine=machine;
+  return clone;
+}

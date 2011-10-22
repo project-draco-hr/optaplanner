@@ -7,13 +7,13 @@
   }
  else {
     MachineReassignment other=(MachineReassignment)o;
-    if (bedDesignationList.size() != other.bedDesignationList.size()) {
+    if (processAssignmentList.size() != other.processAssignmentList.size()) {
       return false;
     }
-    for (Iterator<BedDesignation> it=bedDesignationList.iterator(), otherIt=other.bedDesignationList.iterator(); it.hasNext(); ) {
-      BedDesignation bedDesignation=it.next();
-      BedDesignation otherBedDesignation=otherIt.next();
-      if (!bedDesignation.solutionEquals(otherBedDesignation)) {
+    for (Iterator<MrProcessAssignment> it=processAssignmentList.iterator(), otherIt=other.processAssignmentList.iterator(); it.hasNext(); ) {
+      MrProcessAssignment processAssignment=it.next();
+      MrProcessAssignment otherProcessAssignment=otherIt.next();
+      if (!processAssignment.solutionEquals(otherProcessAssignment)) {
         return false;
       }
     }

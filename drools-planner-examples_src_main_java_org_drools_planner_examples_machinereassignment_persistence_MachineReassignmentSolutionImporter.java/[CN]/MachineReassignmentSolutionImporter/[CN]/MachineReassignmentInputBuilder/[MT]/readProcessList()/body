@@ -1,6 +1,6 @@
 {
-  int processListSize=readIntegerValue();
-  List<MrProcess> processList=new ArrayList<MrProcess>(processListSize);
+  processListSize=readIntegerValue();
+  processList=new ArrayList<MrProcess>(processListSize);
   long processId=0L;
   List<MrProcessRequirement> processRequirementList=new ArrayList<MrProcessRequirement>(processListSize * resourceListSize);
   long processRequirementId=0L;
