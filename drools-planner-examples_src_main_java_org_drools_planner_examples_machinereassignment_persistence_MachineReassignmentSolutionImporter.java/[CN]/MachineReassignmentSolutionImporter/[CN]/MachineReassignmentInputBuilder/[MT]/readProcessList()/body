@@ -24,6 +24,7 @@
       processRequirementList.add(processRequirement);
       processRequirementId++;
     }
+    process.setMoveCost(Integer.parseInt(lineTokens[1 + resourceListSize]));
     processList.add(process);
     processId++;
   }
