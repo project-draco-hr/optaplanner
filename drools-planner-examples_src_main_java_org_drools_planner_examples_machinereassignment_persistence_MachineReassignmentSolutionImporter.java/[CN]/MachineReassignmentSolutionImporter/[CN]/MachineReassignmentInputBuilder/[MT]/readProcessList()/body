@@ -3,7 +3,7 @@
   List<MrProcess> processList=new ArrayList<MrProcess>(processListSize);
   long processId=0L;
   int resourceListSize=resourceList.size();
-  List<MrRequirement> requirementList=new ArrayList<MrRequirement>(processListSize * resourceListSize);
+  List<MrProcessRequirement> processRequirementList=new ArrayList<MrProcessRequirement>(processListSize * resourceListSize);
   for (int i=0; i < processListSize; i++) {
     String line=readStringValue();
     String[] lineTokens=splitBySpace(line);
@@ -16,15 +16,15 @@
     MrService service=serviceList.get(serviceIndex);
     process.setService(service);
     for (int j=0; j < resourceListSize; j++) {
-      MrRequirement requirement=new MrRequirement();
-      requirement.setProcess(process);
-      requirement.setResource(resourceList.get(j));
-      requirement.setUsage(Integer.parseInt(lineTokens[1 + j]));
-      requirementList.add(requirement);
+      MrProcessRequirement processRequirement=new MrProcessRequirement();
+      processRequirement.setProcess(process);
+      processRequirement.setResource(resourceList.get(j));
+      processRequirement.setUsage(Integer.parseInt(lineTokens[1 + j]));
+      processRequirementList.add(processRequirement);
     }
     processList.add(process);
     processId++;
   }
   machineReassignment.setProcessList(processList);
-  machineReassignment.setRequirementList(requirementList);
+  machineReassignment.setProcessRequirementList(processRequirementList);
 }
