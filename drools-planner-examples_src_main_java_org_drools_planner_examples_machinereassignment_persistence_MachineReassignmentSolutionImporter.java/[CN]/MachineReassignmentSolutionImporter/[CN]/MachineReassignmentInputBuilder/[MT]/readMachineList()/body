@@ -6,7 +6,6 @@
   Map<String,MrLocation> idToLocationMap=new HashMap<String,MrLocation>(machineListSize);
   List<MrMachine> machineList=new ArrayList<MrMachine>(machineListSize);
   long machineId=0L;
-  int resourceListSize=resourceList.size();
   List<MrMachineCapacity> machineCapacityList=new ArrayList<MrMachineCapacity>(machineListSize * resourceListSize);
   long machineCapacityId=0L;
   for (int i=0; i < machineListSize; i++) {

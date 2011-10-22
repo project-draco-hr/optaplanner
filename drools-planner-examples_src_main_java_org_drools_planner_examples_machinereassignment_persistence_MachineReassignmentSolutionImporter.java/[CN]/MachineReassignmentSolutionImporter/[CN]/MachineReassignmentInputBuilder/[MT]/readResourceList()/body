@@ -1,5 +1,5 @@
 {
-  int resourceListSize=readIntegerValue();
+  resourceListSize=readIntegerValue();
   resourceList=new ArrayList<MrResource>(resourceListSize);
   long resourceId=0L;
   for (int i=0; i < resourceListSize; i++) {
