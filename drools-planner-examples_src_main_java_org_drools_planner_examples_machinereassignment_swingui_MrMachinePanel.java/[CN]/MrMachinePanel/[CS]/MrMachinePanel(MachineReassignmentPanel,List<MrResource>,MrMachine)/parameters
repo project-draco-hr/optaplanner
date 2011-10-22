@@ -1,0 +1,3 @@
+MachineReassignmentPanel machineReassignmentPanel
+List<MrResource> resourceList
+MrMachine machine

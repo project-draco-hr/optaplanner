@@ -1,0 +1,42 @@
+{
+  MachineReassignment machineReassignment=(MachineReassignment)solution;
+  Set<MrMachine> deadMachineSet=new LinkedHashSet<MrMachine>(machineToPanelMap.keySet());
+  deadMachineSet.remove(null);
+  List<MrResource> resourceList=machineReassignment.getResourceList();
+  for (  MrMachine machine : machineReassignment.getMachineList()) {
+    deadMachineSet.remove(machine);
+    MrMachinePanel machinePanel=machineToPanelMap.get(machine);
+    if (machinePanel == null) {
+      machinePanel=new MrMachinePanel(this,resourceList,machine);
+      machineListPanel.add(machinePanel);
+      machineToPanelMap.put(machine,machinePanel);
+    }
+  }
+  Set<MrProcessAssignment> deadProcessAssignmentSet=new LinkedHashSet<MrProcessAssignment>(processAssignmentToPanelMap.keySet());
+  for (  MrProcessAssignment processAssignment : machineReassignment.getProcessAssignmentList()) {
+    deadProcessAssignmentSet.remove(processAssignment);
+    MrMachinePanel machinePanel=processAssignmentToPanelMap.get(processAssignment);
+    MrMachine machine=processAssignment.getMachine();
+    if (machinePanel != null && !ObjectUtils.equals(machinePanel.getMachine(),machine)) {
+      processAssignmentToPanelMap.remove(processAssignment);
+      machinePanel.removeMrProcessAssignment(processAssignment);
+      machinePanel=null;
+    }
+    if (machinePanel == null) {
+      machinePanel=machineToPanelMap.get(machine);
+      machinePanel.addMrProcessAssignment(processAssignment);
+      processAssignmentToPanelMap.put(processAssignment,machinePanel);
+    }
+  }
+  for (  MrProcessAssignment deadProcessAssignment : deadProcessAssignmentSet) {
+    MrMachinePanel deadMachinePanel=processAssignmentToPanelMap.remove(deadProcessAssignment);
+    deadMachinePanel.removeMrProcessAssignment(deadProcessAssignment);
+  }
+  for (  MrMachine deadMachine : deadMachineSet) {
+    MrMachinePanel deadMachinePanel=machineToPanelMap.remove(deadMachine);
+    machineListPanel.remove(deadMachinePanel);
+  }
+  for (  MrMachinePanel machinePanel : machineToPanelMap.values()) {
+    machinePanel.update();
+  }
+}

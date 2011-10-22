@@ -1,0 +1,3 @@
+{
+  return machine == null ? "Unassigned" : machine.getLabel();
+}

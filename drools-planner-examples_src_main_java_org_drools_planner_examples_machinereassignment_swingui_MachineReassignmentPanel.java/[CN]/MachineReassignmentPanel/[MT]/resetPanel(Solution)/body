@@ -1,0 +1,12 @@
+{
+  for (  MrMachinePanel machinePanel : machineToPanelMap.values()) {
+    if (machinePanel.getMachine() != null) {
+      machineListPanel.remove(machinePanel);
+    }
+  }
+  machineToPanelMap.clear();
+  machineToPanelMap.put(null,unassignedPanel);
+  processAssignmentToPanelMap.clear();
+  unassignedPanel.clearMrProcessAssignments();
+  updatePanel(solution);
+}

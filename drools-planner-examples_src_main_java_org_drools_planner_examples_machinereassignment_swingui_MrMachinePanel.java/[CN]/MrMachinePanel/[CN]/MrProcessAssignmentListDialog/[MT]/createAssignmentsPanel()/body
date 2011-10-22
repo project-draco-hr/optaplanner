@@ -1,0 +1,16 @@
+{
+  JPanel assignmentsPanel=new JPanel(new GridLayout(0,resourceList.size()));
+  int colorIndex=0;
+  for (  MrProcessAssignment processAssignment : processAssignmentList) {
+    JLabel processAssignmentLabel=new JLabel(processAssignment.getLabel());
+    processAssignmentLabel.setForeground(MachineReassignmentPanel.PROCESS_COLORS[colorIndex]);
+    assignmentsPanel.add(processAssignmentLabel);
+    for (    MrResource resource : resourceList) {
+      JTextField resourceField=new JTextField("TODO");
+      resourceField.setEditable(false);
+      assignmentsPanel.add(resourceField);
+    }
+    colorIndex=(colorIndex + 1) % MachineReassignmentPanel.PROCESS_COLORS.length;
+  }
+  return assignmentsPanel;
+}

@@ -1,0 +1,13 @@
+{
+  setModal(true);
+  setTitle(getMachineLabel());
+  JPanel contentPanel=new JPanel();
+  GroupLayout layout=new GroupLayout(contentPanel);
+  contentPanel.setLayout(layout);
+  JPanel assignmentsPanel=createAssignmentsPanel();
+  JScrollPane contentScrollPane=new JScrollPane(assignmentsPanel);
+  contentScrollPane.setPreferredSize(new Dimension(800,200));
+  contentScrollPane.getVerticalScrollBar().setUnitIncrement(20);
+  setContentPane(contentScrollPane);
+  pack();
+}

@@ -1,0 +1,8 @@
+{
+  super(new BorderLayout());
+  this.machineReassignmentPanel=machineReassignmentPanel;
+  this.resourceList=resourceList;
+  this.machine=machine;
+  setBorder(BorderFactory.createCompoundBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(1,2,1,2),BorderFactory.createLineBorder(Color.BLACK)),BorderFactory.createEmptyBorder(1,1,1,1)));
+  addTotals();
+}
