@@ -1,6 +1,7 @@
 {
   JPanel labelAndDeletePanel=new JPanel(new BorderLayout());
   machineLabel=new JLabel(getMachineLabel());
+  machineLabel.setPreferredSize(new Dimension(100,20));
   machineLabel.setEnabled(false);
   labelAndDeletePanel.add(machineLabel,BorderLayout.CENTER);
   if (machine != null) {
@@ -14,10 +15,10 @@
   }
   add(labelAndDeletePanel,BorderLayout.WEST);
   JPanel resourceListPanel=new JPanel(new GridLayout(1,resourceList.size()));
-  resourceFieldList=new ArrayList<JTextField>(resourceList.size());
+  resourceFieldMap=new HashMap<MrResource,JTextField>(resourceList.size());
   for (  MrResource resource : resourceList) {
     JTextField resourceField=new JTextField("0 / " + "TODO");
-    resourceFieldList.add(resourceField);
+    resourceFieldMap.put(resource,resourceField);
     resourceField.setEditable(false);
     resourceField.setEnabled(false);
     resourceListPanel.add(resourceField);

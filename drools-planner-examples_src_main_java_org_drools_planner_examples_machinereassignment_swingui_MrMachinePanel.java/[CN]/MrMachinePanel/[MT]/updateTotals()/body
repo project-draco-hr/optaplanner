@@ -1,0 +1,17 @@
+{
+  boolean used=processAssignmentList.size() > 0;
+  machineLabel.setEnabled(used);
+  for (  MrResource resource : resourceList) {
+    JTextField resourceField=resourceFieldMap.get(resource);
+    MrMachineCapacity machineCapacity=machine.getMachineCapacity(resource);
+    int maximumCapacity=machineCapacity.getMaximumCapacity();
+    int safetyCapacity=machineCapacity.getSafetyCapacity();
+    int usedTotal=0;
+    for (    MrProcessAssignment processAssignment : processAssignmentList) {
+      usedTotal+=processAssignment.getProcess().getProcessRequirement(resource).getUsage();
+    }
+    resourceField.setText(usedTotal + " / " + maximumCapacity);
+    resourceField.setForeground(usedTotal > maximumCapacity ? Color.RED : (usedTotal > safetyCapacity ? Color.YELLOW : Color.BLACK));
+    resourceField.setEnabled(used);
+  }
+}

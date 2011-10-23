@@ -15,6 +15,7 @@
     }
     MrService service=serviceList.get(serviceIndex);
     process.setService(service);
+    Map<MrResource,MrProcessRequirement> processRequirementMap=new LinkedHashMap<MrResource,MrProcessRequirement>(resourceListSize);
     for (int j=0; j < resourceListSize; j++) {
       MrProcessRequirement processRequirement=new MrProcessRequirement();
       processRequirement.setId(processRequirementId);
@@ -22,8 +23,10 @@
       processRequirement.setResource(resourceList.get(j));
       processRequirement.setUsage(Integer.parseInt(lineTokens[1 + j]));
       processRequirementList.add(processRequirement);
+      processRequirementMap.put(resourceList.get(j),processRequirement);
       processRequirementId++;
     }
+    process.setProcessRequirementMap(processRequirementMap);
     process.setMoveCost(Integer.parseInt(lineTokens[1 + resourceListSize]));
     processList.add(process);
     processId++;
