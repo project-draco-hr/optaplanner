@@ -6,7 +6,8 @@
     processAssignmentLabel.setForeground(MachineReassignmentPanel.PROCESS_COLORS[colorIndex]);
     assignmentsPanel.add(processAssignmentLabel);
     for (    MrResource resource : resourceList) {
-      JTextField resourceField=new JTextField("TODO");
+      int usage=processAssignment.getProcess().getProcessRequirement(resource).getUsage();
+      JTextField resourceField=new JTextField(usage);
       resourceField.setEditable(false);
       assignmentsPanel.add(resourceField);
     }

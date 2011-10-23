@@ -1,0 +1,17 @@
+{
+  this.resourceList=resourceList;
+  if (resourceListPanel != null) {
+    remove(resourceListPanel);
+  }
+  resourceListPanel=new JPanel(new GridLayout(1,resourceList.size()));
+  resourceFieldMap=new LinkedHashMap<MrResource,JTextField>(resourceList.size());
+  for (  MrResource resource : resourceList) {
+    int maximumCapacity=machine == null ? 0 : machine.getMachineCapacity(resource).getMaximumCapacity();
+    JTextField resourceField=new JTextField("0 / " + maximumCapacity);
+    resourceFieldMap.put(resource,resourceField);
+    resourceField.setEditable(false);
+    resourceField.setEnabled(false);
+    resourceListPanel.add(resourceField);
+  }
+  add(resourceListPanel,BorderLayout.CENTER);
+}

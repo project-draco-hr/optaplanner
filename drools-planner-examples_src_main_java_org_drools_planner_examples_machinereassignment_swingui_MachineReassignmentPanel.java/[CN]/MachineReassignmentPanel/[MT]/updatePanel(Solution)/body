@@ -1,8 +1,9 @@
 {
   MachineReassignment machineReassignment=(MachineReassignment)solution;
+  List<MrResource> resourceList=machineReassignment.getResourceList();
+  unassignedPanel.setResourceList(resourceList);
   Set<MrMachine> deadMachineSet=new LinkedHashSet<MrMachine>(machineToPanelMap.keySet());
   deadMachineSet.remove(null);
-  List<MrResource> resourceList=machineReassignment.getResourceList();
   for (  MrMachine machine : machineReassignment.getMachineList()) {
     deadMachineSet.remove(machine);
     MrMachinePanel machinePanel=machineToPanelMap.get(machine);

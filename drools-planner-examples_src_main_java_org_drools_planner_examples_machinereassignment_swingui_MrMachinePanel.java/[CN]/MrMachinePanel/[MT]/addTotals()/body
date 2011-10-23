@@ -14,18 +14,11 @@
     labelAndDeletePanel.add(deleteButton,BorderLayout.EAST);
   }
   add(labelAndDeletePanel,BorderLayout.WEST);
-  JPanel resourceListPanel=new JPanel(new GridLayout(1,resourceList.size()));
-  resourceFieldMap=new HashMap<MrResource,JTextField>(resourceList.size());
-  for (  MrResource resource : resourceList) {
-    JTextField resourceField=new JTextField("0 / " + "TODO");
-    resourceFieldMap.put(resource,resourceField);
-    resourceField.setEditable(false);
-    resourceField.setEnabled(false);
-    resourceListPanel.add(resourceField);
-  }
-  add(resourceListPanel,BorderLayout.CENTER);
+  setResourceList(resourceList);
   JPanel numberAndDetailsPanel=new JPanel(new BorderLayout());
-  numberOfProcessesLabel=new JLabel("    0 processes");
+  numberOfProcessesLabel=new JLabel("0 processes ");
+  numberOfProcessesLabel.setPreferredSize(new Dimension(100,20));
+  numberOfProcessesLabel.setAlignmentX(RIGHT_ALIGNMENT);
   numberOfProcessesLabel.setEnabled(false);
   numberAndDetailsPanel.add(numberOfProcessesLabel,BorderLayout.WEST);
   detailsButton=new JButton(new AbstractAction("Details"){
