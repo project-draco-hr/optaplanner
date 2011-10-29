@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof MrMachineUsage) {
+    MrMachineUsage other=(MrMachineUsage)o;
+    return new EqualsBuilder().append(machine,other.machine).append(resource,other.resource).append(usageTotal,other.usageTotal).isEquals();
+  }
+ else {
+    return false;
+  }
+}
