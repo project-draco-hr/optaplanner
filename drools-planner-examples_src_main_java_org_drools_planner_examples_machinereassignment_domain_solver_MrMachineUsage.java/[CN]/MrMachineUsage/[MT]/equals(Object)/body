@@ -4,7 +4,7 @@
   }
  else   if (o instanceof MrMachineUsage) {
     MrMachineUsage other=(MrMachineUsage)o;
-    return new EqualsBuilder().append(machine,other.machine).append(resource,other.resource).append(usageTotal,other.usageTotal).isEquals();
+    return new EqualsBuilder().append(machineCapacity,other.machineCapacity).append(usage,other.usage).isEquals();
   }
  else {
     return false;

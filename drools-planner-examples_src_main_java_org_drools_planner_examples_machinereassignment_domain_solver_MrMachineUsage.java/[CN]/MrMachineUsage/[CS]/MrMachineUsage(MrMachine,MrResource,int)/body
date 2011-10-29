@@ -1,5 +1,0 @@
-{
-  this.machine=machine;
-  this.resource=resource;
-  this.usageTotal=usageTotal;
-}
