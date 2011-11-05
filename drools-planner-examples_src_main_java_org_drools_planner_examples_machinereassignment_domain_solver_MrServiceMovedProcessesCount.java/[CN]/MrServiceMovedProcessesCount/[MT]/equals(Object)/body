@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof MrServiceMovedProcessesCount) {
+    MrServiceMovedProcessesCount other=(MrServiceMovedProcessesCount)o;
+    return new EqualsBuilder().append(service,other.service).append(movedProcessesCount,other.movedProcessesCount).isEquals();
+  }
+ else {
+    return false;
+  }
+}

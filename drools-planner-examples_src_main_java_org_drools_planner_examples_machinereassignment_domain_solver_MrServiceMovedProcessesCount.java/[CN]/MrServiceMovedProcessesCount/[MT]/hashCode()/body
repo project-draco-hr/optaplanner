@@ -1,0 +1,3 @@
+{
+  return new HashCodeBuilder().append(service).append(movedProcessesCount).toHashCode();
+}
