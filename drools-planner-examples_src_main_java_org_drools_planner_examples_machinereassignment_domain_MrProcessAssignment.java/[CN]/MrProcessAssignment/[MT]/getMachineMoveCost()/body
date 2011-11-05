@@ -1,0 +1,3 @@
+{
+  return machine == null ? 0 : originalMachine.getMoveCostTo(machine);
+}

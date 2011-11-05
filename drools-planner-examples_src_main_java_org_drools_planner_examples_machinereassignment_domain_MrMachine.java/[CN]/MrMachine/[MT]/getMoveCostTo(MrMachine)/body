@@ -1,0 +1,3 @@
+{
+  return machineMoveCostMap.get(toMachine).getMoveCost();
+}
