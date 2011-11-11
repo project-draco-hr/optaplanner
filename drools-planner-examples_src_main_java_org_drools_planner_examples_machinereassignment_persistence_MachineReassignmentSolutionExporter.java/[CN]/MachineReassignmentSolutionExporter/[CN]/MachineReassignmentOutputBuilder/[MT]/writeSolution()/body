@@ -1,0 +1,13 @@
+{
+  boolean first=true;
+  List<MrMachine> machineList=machineReassignment.getMachineList();
+  for (  MrProcessAssignment processAssignment : machineReassignment.getProcessAssignmentList()) {
+    if (first) {
+      first=false;
+    }
+ else {
+      bufferedWriter.write(" ");
+    }
+    bufferedWriter.write(Integer.toString(machineList.indexOf(processAssignment.getMachine())));
+  }
+}
