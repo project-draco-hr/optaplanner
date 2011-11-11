@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof MrMachineTransientUsage) {
+    MrMachineTransientUsage other=(MrMachineTransientUsage)o;
+    return new EqualsBuilder().append(machineCapacity,other.machineCapacity).append(usage,other.usage).isEquals();
+  }
+ else {
+    return false;
+  }
+}

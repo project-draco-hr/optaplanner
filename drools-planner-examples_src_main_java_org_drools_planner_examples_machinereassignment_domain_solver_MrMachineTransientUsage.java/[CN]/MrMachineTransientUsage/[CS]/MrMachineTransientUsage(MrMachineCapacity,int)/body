@@ -1,0 +1,4 @@
+{
+  this.machineCapacity=machineCapacity;
+  this.usage=usage;
+}
