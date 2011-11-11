@@ -1,0 +1,3 @@
+{
+  return new CompareToBuilder().append(machineCapacity,other.machineCapacity).append(usage,other.usage).toComparison();
+}

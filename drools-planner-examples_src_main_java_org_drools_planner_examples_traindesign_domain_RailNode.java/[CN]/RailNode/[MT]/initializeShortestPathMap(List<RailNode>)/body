@@ -37,6 +37,11 @@
         }
       }
     }
-    Collections.sort(unvisitedShortestPathList);
+    Collections.sort(unvisitedShortestPathList,new Comparator<RailNodeShortestPath>(){
+      public int compare(      RailNodeShortestPath a,      RailNodeShortestPath b){
+        return new CompareToBuilder().append(a.getDistance(),b.getDistance()).append(a.getRailPathList().size(),b.getRailPathList().size()).append(a.getId(),b.getId()).toComparison();
+      }
+    }
+);
   }
 }

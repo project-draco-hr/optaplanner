@@ -1,3 +1,0 @@
-{
-  return new CompareToBuilder().append(guest,other.guest).append(seat,other.seat).append(id,other.id).toComparison();
-}

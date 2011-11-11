@@ -1,3 +1,0 @@
-{
-  return new CompareToBuilder().append(admissionPart,other.admissionPart).append(bed,other.bed).append(id,other.id).toComparison();
-}

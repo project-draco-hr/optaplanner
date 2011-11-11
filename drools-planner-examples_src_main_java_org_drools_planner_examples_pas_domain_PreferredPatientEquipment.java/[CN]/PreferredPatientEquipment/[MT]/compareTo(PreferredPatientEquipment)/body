@@ -1,3 +1,0 @@
-{
-  return new CompareToBuilder().append(patient,other.patient).append(equipment,other.equipment).append(id,other.id).toComparison();
-}

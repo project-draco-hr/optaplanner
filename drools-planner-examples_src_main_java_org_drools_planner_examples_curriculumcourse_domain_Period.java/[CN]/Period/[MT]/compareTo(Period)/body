@@ -1,3 +1,0 @@
-{
-  return new CompareToBuilder().append(day,other.day).append(timeslot,other.timeslot).toComparison();
-}
