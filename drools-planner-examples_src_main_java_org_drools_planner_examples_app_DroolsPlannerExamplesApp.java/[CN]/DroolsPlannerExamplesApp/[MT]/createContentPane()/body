@@ -13,6 +13,12 @@
     }
   }
 ));
+  contentPane.add(new JButton(new AbstractAction("Machine reassignment (ROADEF 2012)"){
+    public void actionPerformed(    ActionEvent e){
+      new MachineReassignmentApp().init(false);
+    }
+  }
+));
   contentPane.add(new JButton(new AbstractAction("Miss Manners 2009"){
     public void actionPerformed(    ActionEvent e){
       new Manners2009App().init(false);
