@@ -1,0 +1,8 @@
+{
+  if (score.getHardScore() == 0) {
+    return Double.valueOf(score.getSoftScore());
+  }
+ else {
+    return null;
+  }
+}

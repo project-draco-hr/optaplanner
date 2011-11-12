@@ -21,6 +21,8 @@ case SIMPLE_DOUBLE:
     return new SimpleDoubleScoreDefinition();
 case HARD_AND_SOFT:
   return new HardAndSoftScoreDefinition();
+case HARD_AND_SOFT_LONG:
+return new HardAndSoftLongScoreDefinition();
 default :
 throw new IllegalStateException("The scoreDefinitionType (" + scoreDefinitionType + ") is not implemented");
 }
