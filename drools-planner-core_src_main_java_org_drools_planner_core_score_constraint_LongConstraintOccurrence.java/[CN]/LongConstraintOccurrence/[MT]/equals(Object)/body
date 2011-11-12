@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof LongConstraintOccurrence) {
+    LongConstraintOccurrence other=(LongConstraintOccurrence)o;
+    return new EqualsBuilder().appendSuper(super.equals(other)).append(weight,other.weight).isEquals();
+  }
+ else {
+    return false;
+  }
+}

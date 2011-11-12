@@ -1,0 +1,4 @@
+String ruleId
+ConstraintType constraintType
+long weight
+Object causes
