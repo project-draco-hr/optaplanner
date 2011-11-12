@@ -10,6 +10,9 @@
  else   if (constraintOccurrence instanceof DoubleConstraintOccurrence) {
     occurrenceScore=((DoubleConstraintOccurrence)constraintOccurrence).getWeight();
   }
+ else   if (constraintOccurrence instanceof LongConstraintOccurrence) {
+    occurrenceScore=((LongConstraintOccurrence)constraintOccurrence).getWeight();
+  }
  else   if (constraintOccurrence instanceof UnweightedConstraintOccurrence) {
     occurrenceScore=1.0;
   }

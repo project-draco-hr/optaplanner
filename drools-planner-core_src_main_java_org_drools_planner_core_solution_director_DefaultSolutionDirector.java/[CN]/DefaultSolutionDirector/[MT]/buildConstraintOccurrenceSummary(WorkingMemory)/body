@@ -20,6 +20,9 @@
  else     if (occurrence instanceof DoubleConstraintOccurrence) {
       summaryLine.addWeight(((DoubleConstraintOccurrence)occurrence).getWeight());
     }
+ else     if (occurrence instanceof LongConstraintOccurrence) {
+      summaryLine.addWeight(((LongConstraintOccurrence)occurrence).getWeight());
+    }
  else     if (occurrence instanceof UnweightedConstraintOccurrence) {
       summaryLine.addWeight(1);
     }

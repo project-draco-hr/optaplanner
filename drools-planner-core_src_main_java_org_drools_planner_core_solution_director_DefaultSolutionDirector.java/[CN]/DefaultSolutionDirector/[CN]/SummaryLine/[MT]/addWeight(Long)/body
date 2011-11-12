@@ -1,0 +1,6 @@
+{
+  if (weightTotal == null) {
+    weightTotal=0L;
+  }
+  weightTotal=((Long)weightTotal) + weight;
+}
