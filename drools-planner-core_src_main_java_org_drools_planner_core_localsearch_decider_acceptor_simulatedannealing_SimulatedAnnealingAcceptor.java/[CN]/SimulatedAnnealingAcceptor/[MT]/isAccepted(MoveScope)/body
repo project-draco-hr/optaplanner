@@ -3,7 +3,7 @@
   Score lastStepScore=localSearchSolverPhaseScope.getLastCompletedLocalSearchStepScope().getScore();
   Score moveScore=moveScope.getScore();
   if (moveScore.compareTo(lastStepScore) >= 0) {
-    return 1.0;
+    return true;
   }
   Score scoreDifference=lastStepScore.subtract(moveScore);
   double acceptChance=1.0;
@@ -21,9 +21,9 @@
     acceptChance*=acceptChancePart;
   }
   if (moveScope.getWorkingRandom().nextDouble() < acceptChance) {
-    return 1.0;
+    return true;
   }
  else {
-    return 0.0;
+    return false;
   }
 }

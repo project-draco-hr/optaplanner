@@ -1,22 +1,10 @@
 {
-  if (acceptedList.isEmpty()) {
+  if (maxScoreAcceptedList.isEmpty()) {
     return null;
   }
-  sortAcceptedList();
-  MoveScope pickedMoveScope=null;
-  double randomChance=localSearchStepScope.getWorkingRandom().nextDouble();
-  double acceptMark=acceptChanceMaxScoreTotal * randomChance;
-  for (ListIterator<MoveScope> it=acceptedList.listIterator(acceptedList.size()); it.hasPrevious(); ) {
-    MoveScope moveScope=it.previous();
-    acceptMark-=moveScope.getAcceptChance();
-    if (acceptMark < 0.0) {
-      pickedMoveScope=moveScope;
-      break;
-    }
+  if (maxScoreAcceptedList.size() == 1) {
+    return maxScoreAcceptedList.get(0);
   }
-  if (pickedMoveScope == null) {
-    logger.warn("Underflow occurred with acceptChanceMaxScoreTotal ({}) " + "and randomChance ({}).",acceptChanceMaxScoreTotal,randomChance);
-    pickedMoveScope=acceptedList.get(acceptedList.size() - 1);
-  }
-  return pickedMoveScope;
+  int randomIndex=localSearchStepScope.getWorkingRandom().nextInt(maxScoreAcceptedList.size());
+  return maxScoreAcceptedList.get(randomIndex);
 }

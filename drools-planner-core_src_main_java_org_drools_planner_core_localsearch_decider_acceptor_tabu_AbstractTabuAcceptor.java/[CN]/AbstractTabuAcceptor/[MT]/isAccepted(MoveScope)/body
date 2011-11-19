@@ -20,20 +20,26 @@
     }
   }
   if (maximumTabuStepIndex < 0) {
-    return 1.0;
+    return true;
   }
   if (aspirationEnabled) {
     if (moveScope.getScore().compareTo(moveScope.getLocalSearchStepScope().getLocalSearchSolverPhaseScope().getBestScore()) > 0) {
-      logger.trace("        Proposed move ({}) is tabu, but aspiration undoes its tabu.",moveScope.getMove());
-      return 1.0;
+      logger.trace("        Proposed move ({}) is tabu, but is accepted anyway due to aspiration.",moveScope.getMove());
+      return true;
     }
   }
   int tabuStepCount=moveScope.getLocalSearchStepScope().getStepIndex() - maximumTabuStepIndex - 1;
   if (tabuStepCount < tabuSize) {
-    logger.trace("        Proposed move ({}) is tabu.",moveScope.getMove());
-    return 0.0;
+    logger.trace("        Proposed move ({}) is tabu and is therefore not accepted.",moveScope.getMove());
+    return false;
   }
   double acceptChance=calculatePartialTabuAcceptChance(tabuStepCount - tabuSize);
-  logger.trace("        Proposed move ({}) is partially tabu with accept chance ({}).",moveScope.getMove(),acceptChance);
-  return acceptChance;
+  boolean accepted=moveScope.getWorkingRandom().nextDouble() < acceptChance;
+  if (accepted) {
+    logger.trace("        Proposed move ({}) is partially tabu with acceptChance ({}) and is accepted.",moveScope.getMove(),acceptChance);
+  }
+ else {
+    logger.trace("        Proposed move ({}) is partially tabu with acceptChance ({}) and is not accepted.",moveScope.getMove(),acceptChance);
+  }
+  return accepted;
 }

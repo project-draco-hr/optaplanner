@@ -2,6 +2,6 @@
   MoveScope moveScope=new MoveScope(localSearchStepScope);
   moveScope.setMove(new DummyMove());
   moveScope.setScore(score);
-  moveScope.setAcceptChance(acceptChance);
+  moveScope.setAccepted(accepted);
   return moveScope;
 }

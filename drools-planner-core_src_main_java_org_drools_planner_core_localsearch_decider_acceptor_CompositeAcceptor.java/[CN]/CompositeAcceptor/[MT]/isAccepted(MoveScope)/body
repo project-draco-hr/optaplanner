@@ -1,0 +1,9 @@
+{
+  for (  Acceptor acceptor : acceptorList) {
+    boolean accepted=acceptor.isAccepted(moveScope);
+    if (!accepted) {
+      return false;
+    }
+  }
+  return true;
+}
