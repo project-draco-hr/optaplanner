@@ -5,6 +5,9 @@
     DefaultSolverScope solverScope=stepScope.getSolverPhaseScope().getSolverScope();
     long calculateCount=solverScope.getCalculateCount();
     long calculateCountInterval=calculateCount - lastCalculateCount;
+    if (calculateCountInterval == 0L) {
+      calculateCountInterval=1L;
+    }
     long averageCalculateCountPerSecond=calculateCountInterval * 1000L / timeMillisSpendInterval;
     statisticPointList.add(new CalculateCountStatisticPoint(timeMillisSpend,averageCalculateCountPerSecond));
     lastCalculateCount=calculateCount;

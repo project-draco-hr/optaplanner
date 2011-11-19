@@ -19,4 +19,5 @@
  finally {
     IOUtils.closeQuietly(writer);
   }
+  result.setSolvedSolutionFile(solvedSolutionFile);
 }

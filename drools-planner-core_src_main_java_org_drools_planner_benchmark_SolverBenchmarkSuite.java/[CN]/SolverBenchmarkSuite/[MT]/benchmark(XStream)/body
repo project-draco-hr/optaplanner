@@ -59,8 +59,10 @@
         statistic.addListener(solver,solverBenchmark.getName());
       }
       solver.solve();
-      result.setTimeMillisSpend(solver.getTimeMillisSpend());
       Solution solvedSolution=solver.getBestSolution();
+      result.setTimeMillisSpend(solver.getTimeMillisSpend());
+      DefaultSolverScope solverScope=((DefaultSolver)solver).getSolverScope();
+      result.setCalculateCount(solverScope.getCalculateCount());
       result.setScore(solvedSolution.getScore());
       SolutionDescriptor solutionDescriptor=((DefaultSolver)solver).getSolutionDescriptor();
       result.setPlanningEntityCount(solutionDescriptor.getPlanningEntityCount(solvedSolution));
