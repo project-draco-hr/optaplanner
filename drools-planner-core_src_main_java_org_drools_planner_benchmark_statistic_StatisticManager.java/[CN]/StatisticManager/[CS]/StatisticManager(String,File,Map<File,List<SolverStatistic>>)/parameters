@@ -1,0 +1,3 @@
+String benchmarkName
+File solverStatisticFilesDirectory
+Map<File,List<SolverStatistic>> unsolvedSolutionFileToStatisticMap

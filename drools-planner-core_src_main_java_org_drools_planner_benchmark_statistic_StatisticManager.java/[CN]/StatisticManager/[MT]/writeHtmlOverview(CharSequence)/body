@@ -5,7 +5,7 @@
     writer=new OutputStreamWriter(new FileOutputStream(htmlOverviewFile),"utf-8");
     writer.append("<html>\n");
     writer.append("<head>\n");
-    writer.append("  <title>Statistic</title>\n");
+    writer.append("  <title>Statistic ").append(benchmarkName).append("</title>\n");
     writer.append("</head>\n");
     writer.append("<body>\n");
     writer.append(htmlFragment);

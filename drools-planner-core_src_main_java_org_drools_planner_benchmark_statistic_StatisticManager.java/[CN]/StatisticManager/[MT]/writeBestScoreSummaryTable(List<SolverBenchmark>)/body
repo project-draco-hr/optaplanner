@@ -1,0 +1,40 @@
+{
+  StringBuilder htmlFragment=new StringBuilder(solverBenchmarkList.size() * 160);
+  htmlFragment.append("  <h2>Best score summary table</h2>\n");
+  htmlFragment.append("  <table border=\"1\">\n");
+  htmlFragment.append("    <tr><th>Solver</th>");
+  Set<File> unsolvedSolutionFileSet=new LinkedHashSet<File>();
+  for (  SolverBenchmark solverBenchmark : solverBenchmarkList) {
+    for (    SolverBenchmarkResult result : solverBenchmark.getSolverBenchmarkResultList()) {
+      File unsolvedSolutionFile=result.getUnsolvedSolutionFile();
+      if (unsolvedSolutionFileSet.add(unsolvedSolutionFile)) {
+        htmlFragment.append("<th>").append(unsolvedSolutionFile.getName()).append("</th>");
+      }
+    }
+  }
+  htmlFragment.append("<th>Average</th><th>Ranking</th></tr>\n");
+  boolean oddLine=true;
+  for (  SolverBenchmark solverBenchmark : solverBenchmarkList) {
+    String backgroundColor=solverBenchmark.getRanking() == 0 ? "Yellow" : oddLine ? "White" : "LightGray";
+    htmlFragment.append("    <tr style=\"background-color: ").append(backgroundColor).append("\"><th>").append(solverBenchmark.getName()).append("</th>");
+    for (    File unsolvedSolutionFile : unsolvedSolutionFileSet) {
+      boolean noResult=true;
+      for (      SolverBenchmarkResult result : solverBenchmark.getSolverBenchmarkResultList()) {
+        if (unsolvedSolutionFile.equals(result.getUnsolvedSolutionFile())) {
+          Score score=result.getScore();
+          htmlFragment.append("<td>").append(score.toString()).append("</td>");
+          noResult=false;
+          break;
+        }
+      }
+      if (noResult) {
+        htmlFragment.append("<td/>");
+      }
+    }
+    htmlFragment.append("<td>").append(solverBenchmark.getAverageScore().toString()).append("</td><td>").append(solverBenchmark.getRanking()).append("</td>");
+    htmlFragment.append("</tr>\n");
+    oddLine=!oddLine;
+  }
+  htmlFragment.append("  </table>\n");
+  return htmlFragment.toString();
+}

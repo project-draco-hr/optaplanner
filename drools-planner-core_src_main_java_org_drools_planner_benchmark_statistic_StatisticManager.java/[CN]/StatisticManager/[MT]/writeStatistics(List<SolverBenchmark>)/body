@@ -1,0 +1,20 @@
+{
+  StringBuilder htmlFragment=new StringBuilder(unsolvedSolutionFileToStatisticMap.size() * 160);
+  htmlFragment.append("  <h1>Summary</h1>\n");
+  htmlFragment.append(writeBestScoreSummaryChart(solverBenchmarkList));
+  htmlFragment.append(writeTimeSpendSummaryChart(solverBenchmarkList));
+  htmlFragment.append(writeScalabilitySummaryChart(solverBenchmarkList));
+  htmlFragment.append(writeAverageCalculateCountPerSecondSummaryChart(solverBenchmarkList));
+  htmlFragment.append(writeBestScoreSummaryTable(solverBenchmarkList));
+  htmlFragment.append("  <h1>Statistics</h1>\n");
+  for (  Map.Entry<File,List<SolverStatistic>> entry : unsolvedSolutionFileToStatisticMap.entrySet()) {
+    File unsolvedSolutionFile=entry.getKey();
+    List<SolverStatistic> statisticList=entry.getValue();
+    String baseName=FilenameUtils.getBaseName(unsolvedSolutionFile.getName());
+    htmlFragment.append("  <h2>").append(baseName).append("</h2>\n");
+    for (    SolverStatistic statistic : statisticList) {
+      htmlFragment.append(statistic.writeStatistic(solverStatisticFilesDirectory,baseName));
+    }
+  }
+  writeHtmlOverview(htmlFragment);
+}

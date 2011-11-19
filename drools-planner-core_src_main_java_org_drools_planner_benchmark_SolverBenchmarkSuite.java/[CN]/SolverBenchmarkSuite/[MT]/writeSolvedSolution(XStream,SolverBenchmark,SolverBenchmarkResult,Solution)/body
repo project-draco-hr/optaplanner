@@ -1,7 +1,4 @@
 {
-  if (solvedSolutionFilesDirectory == null) {
-    return;
-  }
   File solvedSolutionFile=null;
   String baseName=FilenameUtils.getBaseName(result.getUnsolvedSolutionFile().getName());
   String solverBenchmarkName=solverBenchmark.getName().replaceAll(" ","_").replaceAll("[^\\w\\d_\\-]","");
