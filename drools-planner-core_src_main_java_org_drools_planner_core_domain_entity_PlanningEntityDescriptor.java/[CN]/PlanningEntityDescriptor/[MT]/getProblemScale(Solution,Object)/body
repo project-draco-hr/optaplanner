@@ -1,0 +1,7 @@
+{
+  long problemScale=1L;
+  for (  PlanningVariableDescriptor planningVariableDescriptor : planningVariableDescriptorMap.values()) {
+    problemScale*=planningVariableDescriptor.getProblemScale(solution,planningEntity);
+  }
+  return problemScale;
+}

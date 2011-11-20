@@ -1,5 +1,5 @@
 {
-  NumberAxis xAxis=new NumberAxis("Planning entity count");
+  NumberAxis xAxis=new NumberAxis("Problem scale");
   NumberAxis yAxis=new NumberAxis("Average calculate count per second");
   XYPlot plot=new XYPlot(null,xAxis,yAxis,null);
   int seriesIndex=0;
@@ -7,9 +7,9 @@
     XYSeries series=new XYSeries(solverBenchmark.getName());
     ScoreDefinition scoreDefinition=solverBenchmark.getSolverConfig().getScoreDefinitionConfig().buildScoreDefinition();
     for (    SolverBenchmarkResult result : solverBenchmark.getSolverBenchmarkResultList()) {
+      long problemScale=result.getProblemScale();
       long averageCalculateCountPerSecond=result.getAverageCalculateCountPerSecond();
-      Integer planningEntityCount=result.getPlanningEntityCount();
-      series.add(planningEntityCount,(Long)averageCalculateCountPerSecond);
+      series.add((Long)problemScale,(Long)averageCalculateCountPerSecond);
     }
     XYSeriesCollection seriesCollection=new XYSeriesCollection();
     seriesCollection.addSeries(series);
