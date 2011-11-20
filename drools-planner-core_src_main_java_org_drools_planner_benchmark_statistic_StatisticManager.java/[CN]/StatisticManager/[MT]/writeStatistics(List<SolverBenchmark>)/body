@@ -2,6 +2,7 @@
   StringBuilder htmlFragment=new StringBuilder(unsolvedSolutionFileToStatisticMap.size() * 160);
   htmlFragment.append("  <h1>Summary</h1>\n");
   htmlFragment.append(writeBestScoreSummaryChart(solverBenchmarkList));
+  htmlFragment.append(writeWinningScoreDifferenceSummaryChart(solverBenchmarkList));
   htmlFragment.append(writeTimeSpendSummaryChart(solverBenchmarkList));
   htmlFragment.append(writeScalabilitySummaryChart(solverBenchmarkList));
   htmlFragment.append(writeAverageCalculateCountPerSecondSummaryChart(solverBenchmarkList));
