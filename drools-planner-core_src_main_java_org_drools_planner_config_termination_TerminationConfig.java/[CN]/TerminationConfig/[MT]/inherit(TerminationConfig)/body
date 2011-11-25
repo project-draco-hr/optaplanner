@@ -5,9 +5,6 @@
   if (terminationCompositionStyle == null) {
     terminationCompositionStyle=inheritedConfig.getTerminationCompositionStyle();
   }
-  if (maximumStepCount == null) {
-    maximumStepCount=inheritedConfig.getMaximumStepCount();
-  }
   if (maximumTimeMillisSpend == null) {
     maximumTimeMillisSpend=inheritedConfig.getMaximumTimeMillisSpend();
   }
@@ -22,6 +19,9 @@
   }
   if (scoreAttained == null) {
     scoreAttained=inheritedConfig.getScoreAttained();
+  }
+  if (maximumStepCount == null) {
+    maximumStepCount=inheritedConfig.getMaximumStepCount();
   }
   if (maximumUnimprovedStepCount == null) {
     maximumUnimprovedStepCount=inheritedConfig.getMaximumUnimprovedStepCount();

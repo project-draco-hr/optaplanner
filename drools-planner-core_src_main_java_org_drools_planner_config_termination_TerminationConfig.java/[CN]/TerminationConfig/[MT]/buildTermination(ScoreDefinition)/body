@@ -11,11 +11,6 @@ catch (    IllegalAccessException e) {
       throw new IllegalArgumentException("terminationClass (" + terminationClass.getName() + ") does not have a public no-arg constructor",e);
     }
   }
-  if (maximumStepCount != null) {
-    StepCountTermination termination=new StepCountTermination();
-    termination.setMaximumStepCount(maximumStepCount);
-    terminationList.add(termination);
-  }
   Long maximumTimeMillisSpendTotal=calculateMaximumTimeMillisSpendTotal();
   if (maximumTimeMillisSpendTotal != null) {
     TimeMillisSpendTermination termination=new TimeMillisSpendTermination();
@@ -25,6 +20,11 @@ catch (    IllegalAccessException e) {
   if (scoreAttained != null) {
     ScoreAttainedTermination termination=new ScoreAttainedTermination();
     termination.setScoreAttained(scoreDefinition.parseScore(scoreAttained));
+    terminationList.add(termination);
+  }
+  if (maximumStepCount != null) {
+    StepCountTermination termination=new StepCountTermination();
+    termination.setMaximumStepCount(maximumStepCount);
     terminationList.add(termination);
   }
   if (maximumUnimprovedStepCount != null) {
