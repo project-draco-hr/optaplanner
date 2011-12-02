@@ -2,8 +2,8 @@
   if (this == o) {
     return true;
   }
- else   if (o instanceof GenericChangeValueMove) {
-    GenericChangeValueMove other=(GenericChangeValueMove)o;
+ else   if (o instanceof GenericChangeMove) {
+    GenericChangeMove other=(GenericChangeMove)o;
     return new EqualsBuilder().append(planningEntity,other.planningEntity).append(planningVariableDescriptor.getVariablePropertyName(),other.planningVariableDescriptor.getVariablePropertyName()).append(toPlanningValue,other.toPlanningValue).isEquals();
   }
  else {

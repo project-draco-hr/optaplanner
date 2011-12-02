@@ -5,7 +5,7 @@
     PlanningEntityDescriptor planningEntityDescriptor=solutionDescriptor.getPlanningEntityDescriptor(planningEntity.getClass());
     for (    PlanningVariableDescriptor planningVariableDescriptor : planningEntityDescriptor.getPlanningVariableDescriptors()) {
       for (      Object toPlanningValue : planningVariableDescriptor.extractPlanningValues(solutionDirector.getWorkingSolution(),planningEntity)) {
-        moveList.add(new GenericChangeValueMove(planningEntity,planningEntityFactHandle,planningVariableDescriptor,toPlanningValue));
+        moveList.add(new GenericChangeMove(planningEntity,planningEntityFactHandle,planningVariableDescriptor,toPlanningValue));
       }
     }
   }

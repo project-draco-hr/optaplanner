@@ -11,7 +11,7 @@
       PlanningEntityDescriptor rightPlanningEntityDescriptor=solutionDescriptor.getPlanningEntityDescriptor(leftPlanningEntity.getClass());
       if (leftPlanningEntityDescriptor.getPlanningEntityClass().equals(rightPlanningEntityDescriptor.getPlanningEntityClass())) {
         FactHandle rightPlanningEntityFactHandle=solutionDirector.getWorkingMemory().getFactHandle(rightPlanningEntity);
-        moveList.add(new GenericSwitchAllValuesMove(planningVariableDescriptors,leftPlanningEntity,leftPlanningEntityFactHandle,rightPlanningEntity,rightPlanningEntityFactHandle));
+        moveList.add(new GenericSwapMove(planningVariableDescriptors,leftPlanningEntity,leftPlanningEntityFactHandle,rightPlanningEntity,rightPlanningEntityFactHandle));
       }
     }
   }

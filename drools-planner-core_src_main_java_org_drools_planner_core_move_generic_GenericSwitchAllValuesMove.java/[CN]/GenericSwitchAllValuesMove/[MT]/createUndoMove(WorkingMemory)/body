@@ -1,3 +1,0 @@
-{
-  return new GenericSwitchAllValuesMove(planningVariableDescriptors,rightPlanningEntity,rightPlanningEntityFactHandle,leftPlanningEntity,leftPlanningEntityFactHandle);
-}

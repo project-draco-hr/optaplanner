@@ -2,8 +2,8 @@
   if (this == o) {
     return true;
   }
- else   if (o instanceof GenericSwitchAllValuesMove) {
-    GenericSwitchAllValuesMove other=(GenericSwitchAllValuesMove)o;
+ else   if (o instanceof GenericSwapMove) {
+    GenericSwapMove other=(GenericSwapMove)o;
     return new EqualsBuilder().append(leftPlanningEntity,other.leftPlanningEntity).append(rightPlanningEntity,other.rightPlanningEntity).isEquals();
   }
  else {
