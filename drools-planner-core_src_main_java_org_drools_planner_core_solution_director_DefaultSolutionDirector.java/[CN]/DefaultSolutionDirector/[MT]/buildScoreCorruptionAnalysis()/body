@@ -1,0 +1,7 @@
+{
+  DefaultSolutionDirector uncorruptedSolutionDirector=buildUncorruptedSolutionDirector();
+  uncorruptedSolutionDirector.calculateScoreFromWorkingMemory();
+  String scoreCorruptionAnalysis=buildScoreCorruptionAnalysis(uncorruptedSolutionDirector);
+  uncorruptedSolutionDirector.dispose();
+  return scoreCorruptionAnalysis;
+}

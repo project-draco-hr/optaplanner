@@ -1,6 +1,0 @@
-{
-  if (weightTotal == null) {
-    weightTotal=0;
-  }
-  weightTotal=((Integer)weightTotal) + weight;
-}
