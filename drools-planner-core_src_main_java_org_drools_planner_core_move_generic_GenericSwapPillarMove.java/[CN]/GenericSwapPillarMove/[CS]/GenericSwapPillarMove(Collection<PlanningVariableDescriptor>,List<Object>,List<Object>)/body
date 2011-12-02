@@ -1,0 +1,5 @@
+{
+  this.planningVariableDescriptors=planningVariableDescriptors;
+  this.leftPlanningEntityList=leftPlanningEntityList;
+  this.rightPlanningEntityList=rightPlanningEntityList;
+}

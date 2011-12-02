@@ -1,0 +1,5 @@
+{
+  solutionDescriptor=localSearchSolverPhaseScope.getSolutionDescriptor();
+  solutionDirector=localSearchSolverPhaseScope.getSolutionDirector();
+  super.phaseStarted(localSearchSolverPhaseScope);
+}
