@@ -1,4 +1,0 @@
-{
-  configureLogback(getClass().getResource(loggingConfig));
-  logger=LoggerFactory.getLogger(getClass());
-}

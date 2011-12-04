@@ -1,3 +1,0 @@
-{
-  LoggingMain.configureLogback(LoggingTest.class.getResource(DEFAULT_LOGGING_CONFIG));
-}

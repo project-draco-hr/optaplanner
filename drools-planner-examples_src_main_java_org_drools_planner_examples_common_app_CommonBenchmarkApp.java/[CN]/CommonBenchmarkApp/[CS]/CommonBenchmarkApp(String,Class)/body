@@ -1,5 +1,4 @@
 {
-  super(LOGGING_CONFIG);
   solverBenchmarker=new XmlSolverBenchmarker().configure(solverBenchmarkConfig);
   solverBenchmarker.addXstreamAnnotations(xstreamAnnotations);
 }
