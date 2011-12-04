@@ -1,3 +1,3 @@
 {
-  DOMConfigurator.configure(LoggingTest.class.getResource(DEFAULT_LOGGING_CONFIG));
+  LoggingMain.configureLogback(LoggingTest.class.getResource(DEFAULT_LOGGING_CONFIG));
 }

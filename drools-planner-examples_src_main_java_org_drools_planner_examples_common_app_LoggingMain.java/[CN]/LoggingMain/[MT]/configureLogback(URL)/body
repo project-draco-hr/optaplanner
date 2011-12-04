@@ -1,0 +1,16 @@
+{
+  if (loggingConfigUrl == null) {
+    throw new IllegalArgumentException("The loggingConfig does not exist.");
+  }
+  LoggerContext context=(LoggerContext)LoggerFactory.getILoggerFactory();
+  try {
+    JoranConfigurator configurator=new JoranConfigurator();
+    configurator.setContext(context);
+    context.reset();
+    configurator.doConfigure(loggingConfigUrl);
+  }
+ catch (  JoranException je) {
+    throw new IllegalArgumentException("Logging configuration failed",je);
+  }
+  StatusPrinter.printInCaseOfErrorsOrWarnings(context);
+}

@@ -1,4 +1,4 @@
 {
-  DOMConfigurator.configure(getClass().getResource(loggingConfig));
+  configureLogback(getClass().getResource(loggingConfig));
   logger=LoggerFactory.getLogger(getClass());
 }
