@@ -1,0 +1,3 @@
+{
+  return "/org/drools/planner/examples/machinereassignment/solver/machineReassignmentSolverConfig.xml";
+}

@@ -1,0 +1,4 @@
+{
+  File unsolvedDataFile=new File("data/machinereassignment/unsolved/model_a2_1.xml");
+  runSpeedTest(unsolvedDataFile,"0hard/-272621414soft",EnvironmentMode.DEBUG);
+}
