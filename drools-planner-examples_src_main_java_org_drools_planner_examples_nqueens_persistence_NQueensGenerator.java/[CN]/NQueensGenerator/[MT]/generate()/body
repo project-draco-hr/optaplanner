@@ -5,4 +5,5 @@
   writeNQueens(16);
   writeNQueens(32);
   writeNQueens(64);
+  writeNQueens(256);
 }
