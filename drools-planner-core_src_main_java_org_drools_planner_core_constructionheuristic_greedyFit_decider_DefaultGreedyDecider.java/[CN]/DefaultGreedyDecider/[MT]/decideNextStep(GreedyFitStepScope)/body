@@ -13,6 +13,7 @@
       greedyFitStepScope.setVariableToValueMap(planningVariableWalker.getVariableToValueMap());
       maxScore=score;
     }
+    logger.trace("        Move score ({}) for planning entity ({}) for move (TODO).",new Object[]{score,greedyFitStepScope.getPlanningEntity()});
     if (constructionHeuristicPickEarlyType == ConstructionHeuristicPickEarlyType.FIRST_LAST_STEP_SCORE_EQUAL_OR_IMPROVING && lastStepScore != null && score.compareTo(lastStepScore) >= 0) {
       break;
     }
