@@ -1,3 +1,3 @@
 {
-  return Integer.toString(index);
+  return "col" + index;
 }
