@@ -1,0 +1,12 @@
+{
+  int generatedNameIndex=0;
+  for (  SolverBenchmark solverBenchmark : noNameBenchmarkSet) {
+    String generatedName="Config_" + generatedNameIndex;
+    while (nameSet.contains(generatedName)) {
+      generatedNameIndex++;
+      generatedName="Config_" + generatedNameIndex;
+    }
+    solverBenchmark.setName(generatedName);
+    generatedNameIndex++;
+  }
+}
