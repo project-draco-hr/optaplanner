@@ -1,7 +1,7 @@
 {
   DefaultCategoryDataset dataset=new DefaultCategoryDataset();
   for (  SolverBenchmark solverBenchmark : solverBenchmarkList) {
-    for (    SolverBenchmarkResult result : solverBenchmark.getSolverBenchmarkResultList()) {
+    for (    PlannerBenchmarkResult result : solverBenchmark.getPlannerBenchmarkResultList()) {
       long timeMillisSpend=result.getTimeMillisSpend();
       String solverLabel=solverBenchmark.getName();
       dataset.addValue(timeMillisSpend,solverLabel,result.getUnsolvedSolutionFile().getName());

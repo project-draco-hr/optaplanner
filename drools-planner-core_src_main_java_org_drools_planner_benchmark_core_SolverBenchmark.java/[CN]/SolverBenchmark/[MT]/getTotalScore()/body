@@ -1,11 +1,11 @@
 {
   Score totalScore=null;
-  for (  SolverBenchmarkResult solverBenchmarkResult : solverBenchmarkResultList) {
+  for (  PlannerBenchmarkResult plannerBenchmarkResult : plannerBenchmarkResultList) {
     if (totalScore == null) {
-      totalScore=solverBenchmarkResult.getScore();
+      totalScore=plannerBenchmarkResult.getScore();
     }
  else {
-      totalScore=totalScore.add(solverBenchmarkResult.getScore());
+      totalScore=totalScore.add(plannerBenchmarkResult.getScore());
     }
   }
   return totalScore;

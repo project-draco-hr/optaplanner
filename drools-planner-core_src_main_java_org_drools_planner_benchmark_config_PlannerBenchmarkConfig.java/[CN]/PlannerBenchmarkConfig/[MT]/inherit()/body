@@ -1,0 +1,7 @@
+{
+  if (inheritedSolverBenchmarkConfig != null) {
+    for (    SolverBenchmarkConfig solverBenchmarkConfig : solverBenchmarkConfigList) {
+      solverBenchmarkConfig.inherit(inheritedSolverBenchmarkConfig);
+    }
+  }
+}

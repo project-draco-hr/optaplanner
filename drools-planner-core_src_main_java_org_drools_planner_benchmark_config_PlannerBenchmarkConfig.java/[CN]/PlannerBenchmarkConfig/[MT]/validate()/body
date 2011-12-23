@@ -1,0 +1,5 @@
+{
+  if (solverBenchmarkConfigList == null || solverBenchmarkConfigList.isEmpty()) {
+    throw new IllegalArgumentException("Configure at least 1 <solverBenchmark> in the <plannerBenchmark> configuration.");
+  }
+}

@@ -1,7 +1,7 @@
 {
-  List<Score> scoreList=new ArrayList<Score>(solverBenchmarkResultList.size());
-  for (  SolverBenchmarkResult solverBenchmarkResult : solverBenchmarkResultList) {
-    scoreList.add(solverBenchmarkResult.getScore());
+  List<Score> scoreList=new ArrayList<Score>(plannerBenchmarkResultList.size());
+  for (  PlannerBenchmarkResult plannerBenchmarkResult : plannerBenchmarkResultList) {
+    scoreList.add(plannerBenchmarkResult.getScore());
   }
   return scoreList;
 }

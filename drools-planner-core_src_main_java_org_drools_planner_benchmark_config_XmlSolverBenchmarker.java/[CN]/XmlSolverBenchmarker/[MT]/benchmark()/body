@@ -1,6 +1,4 @@
 {
-  if (suite == null) {
-    throw new IllegalStateException("No configuration found, call SolverBenchmarker.configure(...) first.");
-  }
-  suite.benchmark(xStream);
+  PlannerBenchmark plannerBenchmark=buildPlannerBenchmark();
+  plannerBenchmark.benchmark(xStream);
 }

@@ -1,0 +1,17 @@
+{
+  Map<File,PlannerBenchmarkResult> winningResultMap=new LinkedHashMap<File,PlannerBenchmarkResult>();
+  for (  SolverBenchmark solverBenchmark : solverBenchmarkList) {
+    for (    PlannerBenchmarkResult result : solverBenchmark.getPlannerBenchmarkResultList()) {
+      PlannerBenchmarkResult winningResult=winningResultMap.get(result.getUnsolvedSolutionFile());
+      if (winningResult == null || result.getScore().compareTo(winningResult.getScore()) > 0) {
+        winningResultMap.put(result.getUnsolvedSolutionFile(),result);
+      }
+    }
+  }
+  for (  SolverBenchmark solverBenchmark : solverBenchmarkList) {
+    for (    PlannerBenchmarkResult result : solverBenchmark.getPlannerBenchmarkResultList()) {
+      PlannerBenchmarkResult winningResult=winningResultMap.get(result.getUnsolvedSolutionFile());
+      result.setWinningScoreDifference(result.getScore().subtract(winningResult.getScore()));
+    }
+  }
+}

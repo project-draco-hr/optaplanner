@@ -1,6 +1,0 @@
-{
-  determineWinningResultScoreDelta();
-  determineRanking();
-  StatisticManager statisticManager=new StatisticManager(benchmarkInstanceDirectory.getName(),solverStatisticFilesDirectory,unsolvedSolutionFileToStatisticMap);
-  statisticManager.writeStatistics(solverBenchmarkList);
-}

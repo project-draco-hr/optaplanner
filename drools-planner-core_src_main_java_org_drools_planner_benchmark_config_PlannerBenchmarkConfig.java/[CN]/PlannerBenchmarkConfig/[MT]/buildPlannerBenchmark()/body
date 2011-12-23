@@ -1,0 +1,19 @@
+{
+  validate();
+  generateSolverBenchmarkConfigNames();
+  inherit();
+  DefaultPlannerBenchmark plannerBenchmark=new DefaultPlannerBenchmark();
+  plannerBenchmark.setBenchmarkDirectory(benchmarkDirectory);
+  plannerBenchmark.setBenchmarkInstanceDirectory(benchmarkInstanceDirectory);
+  plannerBenchmark.setSolvedSolutionFilesDirectory(solvedSolutionFilesDirectory);
+  plannerBenchmark.setSolverStatisticFilesDirectory(solverStatisticFilesDirectory);
+  plannerBenchmark.setSolverStatisticTypeList(solverStatisticTypeList);
+  plannerBenchmark.setSolverBenchmarkComparator(solverBenchmarkComparator);
+  plannerBenchmark.setWarmUpTimeMillisSpend(calculateWarmUpTimeMillisSpendTotal());
+  List<SolverBenchmark> solverBenchmarkList=new ArrayList<SolverBenchmark>(solverBenchmarkConfigList.size());
+  for (  SolverBenchmarkConfig solverBenchmarkConfig : solverBenchmarkConfigList) {
+    solverBenchmarkList.add(solverBenchmarkConfig.buildSolverBenchmark());
+  }
+  plannerBenchmark.setSolverBenchmarkList(solverBenchmarkList);
+  return plannerBenchmark;
+}

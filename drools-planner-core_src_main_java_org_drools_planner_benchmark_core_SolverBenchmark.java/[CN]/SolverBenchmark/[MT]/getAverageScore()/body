@@ -1,3 +1,3 @@
 {
-  return getTotalScore().divide(solverBenchmarkResultList.size());
+  return getTotalScore().divide(plannerBenchmarkResultList.size());
 }
