@@ -1,4 +1,4 @@
 {
   PlannerBenchmark plannerBenchmark=buildPlannerBenchmark();
-  plannerBenchmark.benchmark(xStream);
+  plannerBenchmark.benchmark();
 }

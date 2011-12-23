@@ -1,0 +1,8 @@
+{
+  winningPlannerBenchmarkResult=null;
+  for (  PlannerBenchmarkResult result : plannerBenchmarkResultList) {
+    if (winningPlannerBenchmarkResult == null || result.getScore().compareTo(winningPlannerBenchmarkResult.getScore()) > 0) {
+      winningPlannerBenchmarkResult=result;
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  xstreamAnnotationClassList=ConfigUtils.inheritListProperty(xstreamAnnotationClassList,inheritedConfig.getXstreamAnnotationClassList());
+  inputSolutionFileList=ConfigUtils.inheritListProperty(inputSolutionFileList,inheritedConfig.getInputSolutionFileList());
+  solverStatisticTypeList=ConfigUtils.inheritListProperty(solverStatisticTypeList,inheritedConfig.getSolverStatisticTypeList());
+}

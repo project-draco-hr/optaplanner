@@ -1,0 +1,8 @@
+{
+  benchmarkingStarted();
+  warmUp();
+  for (  PlanningProblemBenchmark planningProblemBenchmark : unifiedPlanningProblemBenchmarkList) {
+    planningProblemBenchmark.benchmark();
+  }
+  benchmarkingEnded();
+}

@@ -4,7 +4,8 @@
     for (    PlannerBenchmarkResult result : solverBenchmark.getPlannerBenchmarkResultList()) {
       long timeMillisSpend=result.getTimeMillisSpend();
       String solverLabel=solverBenchmark.getName();
-      dataset.addValue(timeMillisSpend,solverLabel,result.getUnsolvedSolutionFile().getName());
+      String planningProblemLabel=result.getPlanningProblemBenchmark().getName();
+      dataset.addValue(timeMillisSpend,solverLabel,planningProblemLabel);
     }
   }
   CategoryAxis xAxis=new CategoryAxis("Data");

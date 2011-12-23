@@ -9,4 +9,8 @@
   for (  SolverBenchmark solverBenchmark : solverBenchmarkList) {
     solverBenchmark.benchmarkingStarted();
   }
+  for (  PlanningProblemBenchmark planningProblemBenchmark : unifiedPlanningProblemBenchmarkList) {
+    planningProblemBenchmark.setOutputSolutionFilesDirectory(outputSolutionFilesDirectory);
+    planningProblemBenchmark.benchmarkingStarted();
+  }
 }

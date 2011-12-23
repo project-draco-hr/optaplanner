@@ -1,0 +1,20 @@
+{
+  if (warmUpTimeMillisSpend != null) {
+    logger.info("================================================================================");
+    logger.info("Warming up");
+    logger.info("================================================================================");
+    long startingTimeMillis=System.currentTimeMillis();
+    long timeLeft=warmUpTimeMillisSpend;
+    Iterator<PlanningProblemBenchmark> planningProblemBenchmarkIt=unifiedPlanningProblemBenchmarkList.iterator();
+    while (timeLeft > 0L) {
+      if (!planningProblemBenchmarkIt.hasNext()) {
+        planningProblemBenchmarkIt=unifiedPlanningProblemBenchmarkList.iterator();
+      }
+      PlanningProblemBenchmark planningProblemBenchmark=planningProblemBenchmarkIt.next();
+      timeLeft=planningProblemBenchmark.warmUp(startingTimeMillis,warmUpTimeMillisSpend,timeLeft);
+    }
+    logger.info("================================================================================");
+    logger.info("Finished warmUp");
+    logger.info("================================================================================");
+  }
+}

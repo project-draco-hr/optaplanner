@@ -1,0 +1,5 @@
+{
+  if (inputSolutionFileList == null || inputSolutionFileList.isEmpty()) {
+    throw new IllegalArgumentException("Configure at least 1 <inputSolutionFile> for the solverBenchmark (" + solverBenchmark.getName() + ") directly or indirectly by inheriting it.");
+  }
+}

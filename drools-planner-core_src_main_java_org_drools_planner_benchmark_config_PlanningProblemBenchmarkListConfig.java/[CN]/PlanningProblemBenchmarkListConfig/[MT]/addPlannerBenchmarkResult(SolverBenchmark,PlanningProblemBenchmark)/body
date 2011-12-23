@@ -1,0 +1,7 @@
+{
+  PlannerBenchmarkResult result=new PlannerBenchmarkResult();
+  result.setSolverBenchmark(solverBenchmark);
+  solverBenchmark.getPlannerBenchmarkResultList().add(result);
+  result.setPlanningProblemBenchmark(planningProblemBenchmark);
+  planningProblemBenchmark.getPlannerBenchmarkResultList().add(result);
+}

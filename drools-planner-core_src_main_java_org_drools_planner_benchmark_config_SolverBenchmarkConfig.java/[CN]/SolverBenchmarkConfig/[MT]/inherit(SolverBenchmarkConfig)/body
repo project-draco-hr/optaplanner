@@ -5,16 +5,10 @@
  else   if (inheritedConfig.getSolverConfig() != null) {
     solverConfig.inherit(inheritedConfig.getSolverConfig());
   }
-  if (unsolvedSolutionFileList == null) {
-    unsolvedSolutionFileList=inheritedConfig.getUnsolvedSolutionFileList();
+  if (planningProblemBenchmarkListConfig == null) {
+    planningProblemBenchmarkListConfig=inheritedConfig.getPlanningProblemBenchmarkListConfig();
   }
- else   if (inheritedConfig.getUnsolvedSolutionFileList() != null) {
-    List<File> mergedList=new ArrayList<File>(inheritedConfig.getUnsolvedSolutionFileList());
-    for (    File unsolvedSolutionFile : unsolvedSolutionFileList) {
-      if (!mergedList.contains(unsolvedSolutionFile)) {
-        mergedList.add(unsolvedSolutionFile);
-      }
-    }
-    unsolvedSolutionFileList=mergedList;
+ else   if (inheritedConfig.getSolverConfig() != null) {
+    planningProblemBenchmarkListConfig.inherit(inheritedConfig.getPlanningProblemBenchmarkListConfig());
   }
 }

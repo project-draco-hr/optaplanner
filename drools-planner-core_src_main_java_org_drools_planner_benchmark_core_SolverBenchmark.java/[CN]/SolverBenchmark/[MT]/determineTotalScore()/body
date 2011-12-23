@@ -1,0 +1,11 @@
+{
+  totalScore=null;
+  for (  PlannerBenchmarkResult plannerBenchmarkResult : plannerBenchmarkResultList) {
+    if (totalScore == null) {
+      totalScore=plannerBenchmarkResult.getScore();
+    }
+ else {
+      totalScore=totalScore.add(plannerBenchmarkResult.getScore());
+    }
+  }
+}

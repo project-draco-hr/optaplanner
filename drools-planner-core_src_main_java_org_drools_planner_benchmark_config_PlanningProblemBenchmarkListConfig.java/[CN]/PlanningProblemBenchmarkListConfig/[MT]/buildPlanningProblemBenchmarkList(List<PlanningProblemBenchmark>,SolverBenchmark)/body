@@ -1,0 +1,20 @@
+{
+  validate(solverBenchmark);
+  XStream xStream=buildXStream();
+  List<PlanningProblemBenchmark> planningProblemBenchmarkList=new ArrayList<PlanningProblemBenchmark>(inputSolutionFileList.size());
+  for (  File inputSolutionFile : inputSolutionFileList) {
+    PlanningProblemBenchmark newPlanningProblemBenchmark=buildPlanningProblemBenchmark(xStream,inputSolutionFile);
+    PlanningProblemBenchmark planningProblemBenchmark;
+    int index=unifiedPlanningProblemBenchmarkList.indexOf(newPlanningProblemBenchmark);
+    if (index < 0) {
+      planningProblemBenchmark=newPlanningProblemBenchmark;
+      unifiedPlanningProblemBenchmarkList.add(planningProblemBenchmark);
+    }
+ else {
+      planningProblemBenchmark=unifiedPlanningProblemBenchmarkList.get(index);
+    }
+    addPlannerBenchmarkResult(solverBenchmark,planningProblemBenchmark);
+    planningProblemBenchmarkList.add(planningProblemBenchmark);
+  }
+  return planningProblemBenchmarkList;
+}

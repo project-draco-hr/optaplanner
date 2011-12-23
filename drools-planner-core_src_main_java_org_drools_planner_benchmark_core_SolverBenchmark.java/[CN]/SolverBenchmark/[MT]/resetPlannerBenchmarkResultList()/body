@@ -1,8 +1,0 @@
-{
-  plannerBenchmarkResultList=new ArrayList<PlannerBenchmarkResult>();
-  for (  File unsolvedSolutionFile : unsolvedSolutionFileList) {
-    PlannerBenchmarkResult result=new PlannerBenchmarkResult();
-    result.setUnsolvedSolutionFile(unsolvedSolutionFile);
-    plannerBenchmarkResultList.add(result);
-  }
-}

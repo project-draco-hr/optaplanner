@@ -1,0 +1,10 @@
+{
+  XStream xStream=new XStream(new PureJavaReflectionProvider(new FieldDictionary(new NativeFieldKeySorter())));
+  xStream.setMode(XStream.ID_REFERENCES);
+  if (xstreamAnnotationClassList != null) {
+    for (    Class xstreamAnnotationClass : xstreamAnnotationClassList) {
+      xStream.processAnnotations(xstreamAnnotationClass);
+    }
+  }
+  return xStream;
+}

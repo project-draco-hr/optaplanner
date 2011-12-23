@@ -8,10 +8,10 @@
     benchmarkInstanceDirectory=new File(benchmarkDirectory,timestampDirectory);
   }
   benchmarkInstanceDirectory.mkdirs();
-  if (solvedSolutionFilesDirectory == null) {
-    solvedSolutionFilesDirectory=new File(benchmarkInstanceDirectory,"solved");
+  if (outputSolutionFilesDirectory == null) {
+    outputSolutionFilesDirectory=new File(benchmarkInstanceDirectory,"output");
   }
-  solvedSolutionFilesDirectory.mkdirs();
+  outputSolutionFilesDirectory.mkdirs();
   if (solverStatisticFilesDirectory == null) {
     solverStatisticFilesDirectory=new File(benchmarkInstanceDirectory,"statistic");
   }

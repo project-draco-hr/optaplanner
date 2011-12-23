@@ -1,9 +1,0 @@
-{
-  for (  SolverBenchmark solverBenchmark : solverBenchmarkList) {
-    solverBenchmark.benchmarkingEnded();
-  }
-  determineWinningResultScoreDelta();
-  determineRanking();
-  StatisticManager statisticManager=new StatisticManager(benchmarkInstanceDirectory.getName(),solverStatisticFilesDirectory,unsolvedSolutionFileToStatisticMap);
-  statisticManager.writeStatistics(solverBenchmarkList);
-}

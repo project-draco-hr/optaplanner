@@ -3,24 +3,18 @@
   htmlFragment.append("  <h2>Best score summary table</h2>\n");
   htmlFragment.append("  <table border=\"1\">\n");
   htmlFragment.append("    <tr><th>Solver</th>");
-  Set<File> unsolvedSolutionFileSet=new LinkedHashSet<File>();
-  for (  SolverBenchmark solverBenchmark : solverBenchmarkList) {
-    for (    PlannerBenchmarkResult result : solverBenchmark.getPlannerBenchmarkResultList()) {
-      File unsolvedSolutionFile=result.getUnsolvedSolutionFile();
-      if (unsolvedSolutionFileSet.add(unsolvedSolutionFile)) {
-        htmlFragment.append("<th>").append(unsolvedSolutionFile.getName()).append("</th>");
-      }
-    }
+  for (  PlanningProblemBenchmark planningProblemBenchmark : planningProblemBenchmarkList) {
+    htmlFragment.append("<th>").append(planningProblemBenchmark.getName()).append("</th>");
   }
   htmlFragment.append("<th>Average</th><th>Ranking</th></tr>\n");
   boolean oddLine=true;
   for (  SolverBenchmark solverBenchmark : solverBenchmarkList) {
-    String backgroundColor=solverBenchmark.getRanking() == 0 ? "Yellow" : oddLine ? "White" : "LightGray";
+    String backgroundColor=solverBenchmark.isRankingBest() ? "Yellow" : oddLine ? "White" : "LightGray";
     htmlFragment.append("    <tr style=\"background-color: ").append(backgroundColor).append("\"><th>").append(solverBenchmark.getName()).append("</th>");
-    for (    File unsolvedSolutionFile : unsolvedSolutionFileSet) {
+    for (    PlanningProblemBenchmark planningProblemBenchmark : planningProblemBenchmarkList) {
       boolean noResult=true;
       for (      PlannerBenchmarkResult result : solverBenchmark.getPlannerBenchmarkResultList()) {
-        if (unsolvedSolutionFile.equals(result.getUnsolvedSolutionFile())) {
+        if (planningProblemBenchmark.equals(result.getPlanningProblemBenchmark())) {
           Score score=result.getScore();
           htmlFragment.append("<td>").append(score.toString()).append("</td>");
           noResult=false;

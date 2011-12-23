@@ -1,8 +1,0 @@
-{
-  validate();
-  SolverBenchmark solverBenchmark=new SolverBenchmark();
-  solverBenchmark.setName(name);
-  solverBenchmark.setSolverConfig(solverConfig);
-  solverBenchmark.setUnsolvedSolutionFileList(unsolvedSolutionFileList);
-  return solverBenchmark;
-}
