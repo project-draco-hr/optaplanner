@@ -7,17 +7,17 @@
     }
     solver.setPlanningProblem(readPlanningProblem());
     solver.solve();
-    Solution solvedSolution=solver.getBestSolution();
+    Solution outputSolution=solver.getBestSolution();
     result.setTimeMillisSpend(solver.getTimeMillisSpend());
     DefaultSolverScope solverScope=((DefaultSolver)solver).getSolverScope();
     result.setCalculateCount(solverScope.getCalculateCount());
-    result.setScore(solvedSolution.getScore());
+    result.setScore(outputSolution.getScore());
     SolutionDescriptor solutionDescriptor=((DefaultSolver)solver).getSolutionDescriptor();
-    result.setPlanningEntityCount(solutionDescriptor.getPlanningEntityCount(solvedSolution));
-    result.setProblemScale(solutionDescriptor.getProblemScale(solvedSolution));
+    result.setPlanningEntityCount(solutionDescriptor.getPlanningEntityCount(outputSolution));
+    result.setProblemScale(solutionDescriptor.getProblemScale(outputSolution));
     for (    SolverStatistic statistic : solverStatisticList) {
       statistic.removeListener(solver,solverBenchmark.getName());
     }
-    writeSolution(result,solvedSolution);
+    writeSolution(result,outputSolution);
   }
 }

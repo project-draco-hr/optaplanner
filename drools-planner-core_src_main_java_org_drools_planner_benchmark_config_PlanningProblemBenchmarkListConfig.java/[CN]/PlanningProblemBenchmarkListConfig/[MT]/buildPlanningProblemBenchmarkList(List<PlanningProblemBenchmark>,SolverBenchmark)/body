@@ -1,9 +1,9 @@
 {
   validate(solverBenchmark);
-  XStream xStream=buildXStream();
+  PlanningProblemIO planningProblemIO=buildPlanningProblemIO();
   List<PlanningProblemBenchmark> planningProblemBenchmarkList=new ArrayList<PlanningProblemBenchmark>(inputSolutionFileList.size());
   for (  File inputSolutionFile : inputSolutionFileList) {
-    PlanningProblemBenchmark newPlanningProblemBenchmark=buildPlanningProblemBenchmark(xStream,inputSolutionFile);
+    PlanningProblemBenchmark newPlanningProblemBenchmark=buildPlanningProblemBenchmark(planningProblemIO,inputSolutionFile);
     PlanningProblemBenchmark planningProblemBenchmark;
     int index=unifiedPlanningProblemBenchmarkList.indexOf(newPlanningProblemBenchmark);
     if (index < 0) {

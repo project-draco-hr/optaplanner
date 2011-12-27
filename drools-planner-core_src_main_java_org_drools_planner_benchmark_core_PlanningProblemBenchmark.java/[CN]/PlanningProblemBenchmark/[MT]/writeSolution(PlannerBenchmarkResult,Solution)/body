@@ -1,16 +1,6 @@
 {
-  File solvedSolutionFile=null;
   String solverBenchmarkName=result.getSolverBenchmark().getName().replaceAll(" ","_").replaceAll("[^\\w\\d_\\-]","");
-  solvedSolutionFile=new File(outputSolutionFilesDirectory,name + "_" + solverBenchmarkName+ ".xml");
-  Writer writer=null;
-  try {
-    writer=new OutputStreamWriter(new FileOutputStream(solvedSolutionFile),"utf-8");
-    xStream.toXML(solvedSolution,writer);
-  }
- catch (  IOException e) {
-    throw new IllegalArgumentException("Problem writing solvedSolutionFile: " + solvedSolutionFile,e);
-  }
- finally {
-    IOUtils.closeQuietly(writer);
-  }
+  String filename=name + "_" + solverBenchmarkName+ "."+ planningProblemIO.getFileExtension();
+  File outputSolutionFile=new File(outputSolutionFilesDirectory,filename);
+  planningProblemIO.write(outputSolution,outputSolutionFile);
 }

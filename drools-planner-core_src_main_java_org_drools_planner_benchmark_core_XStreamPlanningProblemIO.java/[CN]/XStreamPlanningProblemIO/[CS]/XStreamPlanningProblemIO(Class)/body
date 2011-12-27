@@ -1,0 +1,4 @@
+{
+  this();
+  xStream.processAnnotations(xstreamAnnotatedClasses);
+}

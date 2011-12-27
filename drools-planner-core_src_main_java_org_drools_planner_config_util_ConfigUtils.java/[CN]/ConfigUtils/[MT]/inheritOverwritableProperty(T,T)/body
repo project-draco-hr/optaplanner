@@ -1,0 +1,8 @@
+{
+  if (original != null) {
+    return original;
+  }
+ else {
+    return inherited;
+  }
+}
