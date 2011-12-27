@@ -1,7 +1,7 @@
 {
   Writer writer=null;
   try {
-    writer=new OutputStreamWriter(new FileOutputStream(outputSolutionFile),"utf-8");
+    writer=new OutputStreamWriter(new FileOutputStream(outputSolutionFile),"UTF-8");
     xStream.toXML(solution,writer);
   }
  catch (  IOException e) {

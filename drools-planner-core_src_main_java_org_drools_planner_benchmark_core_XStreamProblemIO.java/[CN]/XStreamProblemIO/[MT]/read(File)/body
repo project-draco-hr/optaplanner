@@ -2,7 +2,7 @@
   Solution unsolvedSolution;
   Reader reader=null;
   try {
-    reader=new InputStreamReader(new FileInputStream(inputSolutionFile),"utf-8");
+    reader=new InputStreamReader(new FileInputStream(inputSolutionFile),"UTF-8");
     unsolvedSolution=(Solution)xStream.fromXML(reader);
   }
  catch (  XStreamException e) {
