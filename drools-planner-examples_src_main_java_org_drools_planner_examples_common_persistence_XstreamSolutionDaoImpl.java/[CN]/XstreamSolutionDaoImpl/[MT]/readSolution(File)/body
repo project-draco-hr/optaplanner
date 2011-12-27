@@ -1,22 +1,6 @@
 {
-  Reader reader=null;
-  try {
-    reader=new InputStreamReader(new FileInputStream(file),"UTF-8");
-    Solution solution=(Solution)xStream.fromXML(reader);
-    logger.info("Loaded: {}",file);
-    return solution;
-  }
- catch (  IOException e) {
-    throw new IllegalArgumentException("Could not read file: " + file,e);
-  }
- finally {
-    if (reader != null) {
-      try {
-        reader.close();
-      }
- catch (      IOException e) {
-        logger.warn("Problem closing file (" + file + ")",e);
-      }
-    }
-  }
+  Solution solution=xStreamProblemIO.read(inputSolutionFile);
+  postRead(solution);
+  logger.info("Loaded: {}",inputSolutionFile);
+  return solution;
 }

@@ -1,21 +1,4 @@
 {
-  Writer writer=null;
-  try {
-    writer=new OutputStreamWriter(new FileOutputStream(file),"UTF-8");
-    xStream.toXML(solution,writer);
-    logger.info("Saved: {}",file);
-  }
- catch (  IOException e) {
-    throw new IllegalArgumentException("Could not write file (" + file + ")",e);
-  }
- finally {
-    if (writer != null) {
-      try {
-        writer.close();
-      }
- catch (      IOException e) {
-        logger.warn("Problem closing file (" + file + ")",e);
-      }
-    }
-  }
+  xStreamProblemIO.write(solution,outputSolutionFile);
+  logger.info("Saved: {}",outputSolutionFile);
 }
