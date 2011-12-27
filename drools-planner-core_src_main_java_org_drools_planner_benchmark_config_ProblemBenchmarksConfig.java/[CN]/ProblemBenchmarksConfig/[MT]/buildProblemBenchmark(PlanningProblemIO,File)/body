@@ -1,0 +1,16 @@
+{
+  ProblemBenchmark problemBenchmark=new ProblemBenchmark();
+  String name=FilenameUtils.getBaseName(inputSolutionFile.getName());
+  problemBenchmark.setName(name);
+  problemBenchmark.setPlanningProblemIO(planningProblemIO);
+  problemBenchmark.setInputSolutionFile(inputSolutionFile);
+  List<SolverStatistic> solverStatisticList=new ArrayList<SolverStatistic>(solverStatisticTypeList == null ? 0 : solverStatisticTypeList.size());
+  if (solverStatisticTypeList != null) {
+    for (    SolverStatisticType solverStatisticType : solverStatisticTypeList) {
+      solverStatisticList.add(solverStatisticType.create());
+    }
+  }
+  problemBenchmark.setSolverStatisticList(solverStatisticList);
+  problemBenchmark.setPlannerBenchmarkResultList(new ArrayList<PlannerBenchmarkResult>());
+  return problemBenchmark;
+}

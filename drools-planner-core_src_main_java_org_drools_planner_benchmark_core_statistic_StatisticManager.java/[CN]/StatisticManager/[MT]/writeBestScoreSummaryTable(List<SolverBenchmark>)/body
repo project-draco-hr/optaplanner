@@ -3,18 +3,18 @@
   htmlFragment.append("  <h2>Best score summary table</h2>\n");
   htmlFragment.append("  <table border=\"1\">\n");
   htmlFragment.append("    <tr><th>Solver</th>");
-  for (  PlanningProblemBenchmark planningProblemBenchmark : planningProblemBenchmarkList) {
-    htmlFragment.append("<th>").append(planningProblemBenchmark.getName()).append("</th>");
+  for (  ProblemBenchmark problemBenchmark : problemBenchmarkList) {
+    htmlFragment.append("<th>").append(problemBenchmark.getName()).append("</th>");
   }
   htmlFragment.append("<th>Average</th><th>Ranking</th></tr>\n");
   boolean oddLine=true;
   for (  SolverBenchmark solverBenchmark : solverBenchmarkList) {
     String backgroundColor=solverBenchmark.isRankingBest() ? "Yellow" : oddLine ? "White" : "LightGray";
     htmlFragment.append("    <tr style=\"background-color: ").append(backgroundColor).append("\"><th>").append(solverBenchmark.getName()).append("</th>");
-    for (    PlanningProblemBenchmark planningProblemBenchmark : planningProblemBenchmarkList) {
+    for (    ProblemBenchmark problemBenchmark : problemBenchmarkList) {
       boolean noResult=true;
       for (      PlannerBenchmarkResult result : solverBenchmark.getPlannerBenchmarkResultList()) {
-        if (planningProblemBenchmark.equals(result.getPlanningProblemBenchmark())) {
+        if (problemBenchmark.equals(result.getProblemBenchmark())) {
           Score score=result.getScore();
           htmlFragment.append("<td>").append(score.toString()).append("</td>");
           noResult=false;

@@ -9,7 +9,7 @@
       if (solverBenchmark.isRankingBest()) {
         solverLabel+=" (winner)";
       }
-      String planningProblemLabel=result.getPlanningProblemBenchmark().getName();
+      String planningProblemLabel=result.getProblemBenchmark().getName();
       dataset.addValue(scoreGraphValue,solverLabel,planningProblemLabel);
     }
   }

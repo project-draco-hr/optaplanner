@@ -4,7 +4,7 @@
     for (    PlannerBenchmarkResult result : solverBenchmark.getPlannerBenchmarkResultList()) {
       long timeMillisSpend=result.getTimeMillisSpend();
       String solverLabel=solverBenchmark.getName();
-      String planningProblemLabel=result.getPlanningProblemBenchmark().getName();
+      String planningProblemLabel=result.getProblemBenchmark().getName();
       dataset.addValue(timeMillisSpend,solverLabel,planningProblemLabel);
     }
   }

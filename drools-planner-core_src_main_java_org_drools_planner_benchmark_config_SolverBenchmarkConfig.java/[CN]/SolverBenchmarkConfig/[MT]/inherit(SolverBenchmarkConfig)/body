@@ -5,10 +5,10 @@
  else   if (inheritedConfig.getSolverConfig() != null) {
     solverConfig.inherit(inheritedConfig.getSolverConfig());
   }
-  if (planningProblemBenchmarkListConfig == null) {
-    planningProblemBenchmarkListConfig=inheritedConfig.getPlanningProblemBenchmarkListConfig();
+  if (problemBenchmarksConfig == null) {
+    problemBenchmarksConfig=inheritedConfig.getProblemBenchmarksConfig();
   }
- else   if (inheritedConfig.getPlanningProblemBenchmarkListConfig() != null) {
-    planningProblemBenchmarkListConfig.inherit(inheritedConfig.getPlanningProblemBenchmarkListConfig());
+ else   if (inheritedConfig.getProblemBenchmarksConfig() != null) {
+    problemBenchmarksConfig.inherit(inheritedConfig.getProblemBenchmarksConfig());
   }
 }

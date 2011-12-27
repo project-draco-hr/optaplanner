@@ -1,0 +1,3 @@
+String benchmarkName
+File solverStatisticFilesDirectory
+List<ProblemBenchmark> problemBenchmarkList

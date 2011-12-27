@@ -1,9 +1,0 @@
-{
-  SolverBenchmark solverBenchmark=new SolverBenchmark();
-  solverBenchmark.setName(name);
-  solverBenchmark.setSolverConfig(solverConfig);
-  solverBenchmark.setPlannerBenchmarkResultList(new ArrayList<PlannerBenchmarkResult>());
-  List<PlanningProblemBenchmark> planningProblemBenchmarkList=planningProblemBenchmarkListConfig.buildPlanningProblemBenchmarkList(unifiedPlanningProblemBenchmarkList,solverBenchmark);
-  solverBenchmark.setPlanningProblemBenchmarkList(planningProblemBenchmarkList);
-  return solverBenchmark;
-}

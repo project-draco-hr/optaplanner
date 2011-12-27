@@ -5,13 +5,13 @@
     logger.info("================================================================================");
     long startingTimeMillis=System.currentTimeMillis();
     long timeLeft=warmUpTimeMillisSpend;
-    Iterator<PlanningProblemBenchmark> planningProblemBenchmarkIt=unifiedPlanningProblemBenchmarkList.iterator();
+    Iterator<ProblemBenchmark> it=unifiedProblemBenchmarkList.iterator();
     while (timeLeft > 0L) {
-      if (!planningProblemBenchmarkIt.hasNext()) {
-        planningProblemBenchmarkIt=unifiedPlanningProblemBenchmarkList.iterator();
+      if (!it.hasNext()) {
+        it=unifiedProblemBenchmarkList.iterator();
       }
-      PlanningProblemBenchmark planningProblemBenchmark=planningProblemBenchmarkIt.next();
-      timeLeft=planningProblemBenchmark.warmUp(startingTimeMillis,warmUpTimeMillisSpend,timeLeft);
+      ProblemBenchmark problemBenchmark=it.next();
+      timeLeft=problemBenchmark.warmUp(startingTimeMillis,warmUpTimeMillisSpend,timeLeft);
     }
     logger.info("================================================================================");
     logger.info("Finished warmUp");

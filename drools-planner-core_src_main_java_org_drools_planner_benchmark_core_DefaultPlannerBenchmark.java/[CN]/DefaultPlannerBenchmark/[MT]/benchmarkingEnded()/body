@@ -1,11 +1,11 @@
 {
-  for (  PlanningProblemBenchmark planningProblemBenchmark : unifiedPlanningProblemBenchmarkList) {
-    planningProblemBenchmark.benchmarkingEnded();
+  for (  ProblemBenchmark problemBenchmark : unifiedProblemBenchmarkList) {
+    problemBenchmark.benchmarkingEnded();
   }
   for (  SolverBenchmark solverBenchmark : solverBenchmarkList) {
     solverBenchmark.benchmarkingEnded();
   }
   determineRanking();
-  StatisticManager statisticManager=new StatisticManager(benchmarkInstanceDirectory.getName(),solverStatisticFilesDirectory,unifiedPlanningProblemBenchmarkList);
+  StatisticManager statisticManager=new StatisticManager(benchmarkInstanceDirectory.getName(),solverStatisticFilesDirectory,unifiedProblemBenchmarkList);
   statisticManager.writeStatistics(solverBenchmarkList);
 }
