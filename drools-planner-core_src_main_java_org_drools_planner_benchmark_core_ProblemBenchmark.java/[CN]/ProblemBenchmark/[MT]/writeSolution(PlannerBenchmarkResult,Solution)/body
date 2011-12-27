@@ -1,6 +1,6 @@
 {
   String solverBenchmarkName=result.getSolverBenchmark().getName().replaceAll(" ","_").replaceAll("[^\\w\\d_\\-]","");
-  String filename=name + "_" + solverBenchmarkName+ "."+ planningProblemIO.getFileExtension();
+  String filename=name + "_" + solverBenchmarkName+ "."+ problemIO.getFileExtension();
   File outputSolutionFile=new File(outputSolutionFilesDirectory,filename);
-  planningProblemIO.write(outputSolution,outputSolutionFile);
+  problemIO.write(outputSolution,outputSolutionFile);
 }

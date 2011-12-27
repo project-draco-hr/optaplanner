@@ -1,0 +1,26 @@
+{
+  if (problemIOClass != null && xstreamAnnotatedClassList != null) {
+    throw new IllegalArgumentException("Cannot use problemIOClass (" + problemIOClass + ") and xstreamAnnotatedClassList ("+ xstreamAnnotatedClassList+ ") together.");
+  }
+  if (problemIOClass != null) {
+    try {
+      return problemIOClass.newInstance();
+    }
+ catch (    InstantiationException e) {
+      throw new IllegalArgumentException("problemIOClass (" + problemIOClass.getName() + ") does not have a public no-arg constructor",e);
+    }
+catch (    IllegalAccessException e) {
+      throw new IllegalArgumentException("problemIOClass (" + problemIOClass.getName() + ") does not have a public no-arg constructor",e);
+    }
+  }
+ else {
+    Class[] xstreamAnnotatedClasses;
+    if (xstreamAnnotatedClassList != null) {
+      xstreamAnnotatedClasses=xstreamAnnotatedClassList.toArray(new Class[xstreamAnnotatedClassList.size()]);
+    }
+ else {
+      xstreamAnnotatedClasses=new Class[0];
+    }
+    return new XStreamProblemIO(xstreamAnnotatedClasses);
+  }
+}

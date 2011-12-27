@@ -2,7 +2,7 @@
   ProblemBenchmark problemBenchmark=new ProblemBenchmark();
   String name=FilenameUtils.getBaseName(inputSolutionFile.getName());
   problemBenchmark.setName(name);
-  problemBenchmark.setPlanningProblemIO(planningProblemIO);
+  problemBenchmark.setProblemIO(problemIO);
   problemBenchmark.setInputSolutionFile(inputSolutionFile);
   List<SolverStatistic> solverStatisticList=new ArrayList<SolverStatistic>(solverStatisticTypeList == null ? 0 : solverStatisticTypeList.size());
   if (solverStatisticTypeList != null) {
