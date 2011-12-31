@@ -6,6 +6,6 @@
     solverBenchmark.benchmarkingEnded();
   }
   determineRanking();
-  StatisticManager statisticManager=new StatisticManager(benchmarkInstanceDirectory.getName(),solverStatisticFilesDirectory,unifiedProblemBenchmarkList);
+  StatisticManager statisticManager=new StatisticManager(benchmarkInstanceDirectory.getName(),statisticDirectory,unifiedProblemBenchmarkList);
   statisticManager.writeStatistics(solverBenchmarkList);
 }

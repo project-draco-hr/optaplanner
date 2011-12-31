@@ -12,8 +12,8 @@
     outputSolutionFilesDirectory=new File(benchmarkInstanceDirectory,"output");
   }
   outputSolutionFilesDirectory.mkdirs();
-  if (solverStatisticFilesDirectory == null) {
-    solverStatisticFilesDirectory=new File(benchmarkInstanceDirectory,"statistic");
+  if (statisticDirectory == null) {
+    statisticDirectory=new File(benchmarkInstanceDirectory,"statistic");
   }
-  solverStatisticFilesDirectory.mkdirs();
+  statisticDirectory.mkdirs();
 }

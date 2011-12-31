@@ -1,5 +1,5 @@
 {
   this.benchmarkName=benchmarkName;
-  this.solverStatisticFilesDirectory=solverStatisticFilesDirectory;
+  this.statisticDirectory=statisticDirectory;
   this.problemBenchmarkList=problemBenchmarkList;
 }

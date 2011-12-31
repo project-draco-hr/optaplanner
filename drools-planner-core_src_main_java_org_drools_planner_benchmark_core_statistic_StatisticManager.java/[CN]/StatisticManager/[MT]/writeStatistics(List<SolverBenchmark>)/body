@@ -11,8 +11,8 @@
   for (  ProblemBenchmark problemBenchmark : problemBenchmarkList) {
     String problemBenchmarkName=problemBenchmark.getName();
     htmlFragment.append("  <h2>").append(problemBenchmarkName).append("</h2>\n");
-    for (    SolverStatistic statistic : problemBenchmark.getSolverStatisticList()) {
-      htmlFragment.append(statistic.writeStatistic(solverStatisticFilesDirectory,problemBenchmarkName));
+    for (    ProblemStatistic statistic : problemBenchmark.getProblemStatisticList()) {
+      htmlFragment.append(statistic.writeStatistic(statisticDirectory,problemBenchmarkName));
     }
   }
   writeHtmlOverview(htmlFragment);

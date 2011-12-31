@@ -1,6 +1,6 @@
 {
   List<BestScoreScvLine> scvLineList=extractCsvLineList();
-  File csvStatisticFile=new File(solverStatisticFilesDirectory,baseName + "BestScoreStatistic.csv");
+  File csvStatisticFile=new File(statisticDirectory,baseName + "BestScoreStatistic.csv");
   Writer writer=null;
   try {
     writer=new OutputStreamWriter(new FileOutputStream(csvStatisticFile),"UTF-8");

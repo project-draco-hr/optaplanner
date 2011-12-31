@@ -1,6 +1,6 @@
 {
   List<CalculateCountScvLine> csvLineList=extractCsvLineList();
-  File csvStatisticFile=new File(solverStatisticFilesDirectory,baseName + "CalculateCountStatistic.csv");
+  File csvStatisticFile=new File(statisticDirectory,baseName + "CalculateCountStatistic.csv");
   Writer writer=null;
   try {
     writer=new OutputStreamWriter(new FileOutputStream(csvStatisticFile),"UTF-8");

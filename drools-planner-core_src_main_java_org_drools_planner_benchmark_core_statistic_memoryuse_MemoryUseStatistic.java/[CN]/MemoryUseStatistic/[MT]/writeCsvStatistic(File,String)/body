@@ -1,6 +1,6 @@
 {
   List<MemoryUseScvLine> csvLineList=extractCsvLineList();
-  File csvStatisticFile=new File(solverStatisticFilesDirectory,baseName + "MemoryUseStatistic.csv");
+  File csvStatisticFile=new File(statisticDirectory,baseName + "MemoryUseStatistic.csv");
   Writer writer=null;
   try {
     writer=new OutputStreamWriter(new FileOutputStream(csvStatisticFile),"UTF-8");

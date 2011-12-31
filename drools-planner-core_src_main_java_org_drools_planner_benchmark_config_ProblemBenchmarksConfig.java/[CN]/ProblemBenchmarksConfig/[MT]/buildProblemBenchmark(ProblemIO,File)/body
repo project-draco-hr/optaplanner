@@ -4,13 +4,13 @@
   problemBenchmark.setName(name);
   problemBenchmark.setProblemIO(problemIO);
   problemBenchmark.setInputSolutionFile(inputSolutionFile);
-  List<SolverStatistic> solverStatisticList=new ArrayList<SolverStatistic>(solverStatisticTypeList == null ? 0 : solverStatisticTypeList.size());
-  if (solverStatisticTypeList != null) {
-    for (    SolverStatisticType solverStatisticType : solverStatisticTypeList) {
-      solverStatisticList.add(solverStatisticType.create());
+  List<ProblemStatistic> problemStatisticList=new ArrayList<ProblemStatistic>(problemStatisticTypeList == null ? 0 : problemStatisticTypeList.size());
+  if (problemStatisticTypeList != null) {
+    for (    ProblemStatisticType problemStatisticType : problemStatisticTypeList) {
+      problemStatisticList.add(problemStatisticType.create());
     }
   }
-  problemBenchmark.setSolverStatisticList(solverStatisticList);
+  problemBenchmark.setProblemStatisticList(problemStatisticList);
   problemBenchmark.setPlannerBenchmarkResultList(new ArrayList<PlannerBenchmarkResult>());
   return problemBenchmark;
 }

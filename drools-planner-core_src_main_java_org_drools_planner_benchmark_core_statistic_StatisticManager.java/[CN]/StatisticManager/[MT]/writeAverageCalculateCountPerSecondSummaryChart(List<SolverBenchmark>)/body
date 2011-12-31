@@ -22,7 +22,7 @@
   plot.setOrientation(PlotOrientation.VERTICAL);
   JFreeChart chart=new JFreeChart("Average calculate count summary (higher is better)",JFreeChart.DEFAULT_TITLE_FONT,plot,true);
   BufferedImage chartImage=chart.createBufferedImage(1024,768);
-  File chartSummaryFile=new File(solverStatisticFilesDirectory,"averageCalculateCountSummary.png");
+  File chartSummaryFile=new File(statisticDirectory,"averageCalculateCountSummary.png");
   OutputStream out=null;
   try {
     out=new FileOutputStream(chartSummaryFile);

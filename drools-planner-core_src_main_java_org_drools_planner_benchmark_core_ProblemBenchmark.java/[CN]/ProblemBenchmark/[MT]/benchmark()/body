@@ -2,7 +2,7 @@
   for (  PlannerBenchmarkResult result : plannerBenchmarkResultList) {
     SolverBenchmark solverBenchmark=result.getSolverBenchmark();
     Solver solver=solverBenchmark.getSolverConfig().buildSolver();
-    for (    SolverStatistic statistic : solverStatisticList) {
+    for (    ProblemStatistic statistic : problemStatisticList) {
       statistic.addListener(solver,solverBenchmark.getName());
     }
     solver.setPlanningProblem(readPlanningProblem());
@@ -15,7 +15,7 @@
     SolutionDescriptor solutionDescriptor=((DefaultSolver)solver).getSolutionDescriptor();
     result.setPlanningEntityCount(solutionDescriptor.getPlanningEntityCount(outputSolution));
     result.setProblemScale(solutionDescriptor.getProblemScale(outputSolution));
-    for (    SolverStatistic statistic : solverStatisticList) {
+    for (    ProblemStatistic statistic : problemStatisticList) {
       statistic.removeListener(solver,solverBenchmark.getName());
     }
     writeSolution(result,outputSolution);
