@@ -1,4 +1,3 @@
 {
   solverBenchmarker=new XmlSolverBenchmarker().configure(solverBenchmarkConfig);
-  solverBenchmarker.addXstreamAnnotations(xstreamAnnotations);
 }
