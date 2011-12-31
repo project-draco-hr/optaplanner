@@ -5,5 +5,8 @@
   for (  SolverBenchmark solverBenchmark : solverBenchmarkList) {
     int ranking=sortedSolverBenchmarkList.indexOf(solverBenchmark);
     solverBenchmark.setRanking(ranking);
+    if (ranking == 0) {
+      winningSolverBenchmark=solverBenchmark;
+    }
   }
 }

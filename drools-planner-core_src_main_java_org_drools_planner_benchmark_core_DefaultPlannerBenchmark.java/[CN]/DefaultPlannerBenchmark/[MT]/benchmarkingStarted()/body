@@ -13,4 +13,5 @@
     problemBenchmark.setOutputSolutionFilesDirectory(outputSolutionFilesDirectory);
     problemBenchmark.benchmarkingStarted();
   }
+  logger.info("Benchmarking started: solverBenchmarkList size ({}).",solverBenchmarkList.size());
 }

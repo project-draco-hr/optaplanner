@@ -10,5 +10,5 @@
     solverScope.setWorkingRandom(new Random());
   }
   bestSolutionRecaller.solvingStarted(solverScope);
-  logger.info("Solver started: time spend ({}), score ({}), new best score ({}), random seed ({}).",new Object[]{solverScope.calculateTimeMillisSpend(),solverScope.getStartingInitializedScore(),solverScope.getBestScore(),(randomSeed != null ? randomSeed : "not fixed")});
+  logger.info("Solving started: time spend ({}), score ({}), new best score ({}), random seed ({}).",new Object[]{solverScope.calculateTimeMillisSpend(),solverScope.getStartingInitializedScore(),solverScope.getBestScore(),(randomSeed != null ? randomSeed : "not fixed")});
 }

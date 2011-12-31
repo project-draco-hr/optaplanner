@@ -1,5 +1,4 @@
 {
-  File htmlOverviewFile=new File(statisticDirectory,"index.html");
   Writer writer=null;
   try {
     writer=new OutputStreamWriter(new FileOutputStream(htmlOverviewFile),"UTF-8");
