@@ -1,18 +1,18 @@
 {
-  String solverBenchmarkConfig;
+  String benchmarkerConfig;
   if (args.length > 0) {
     if (args[0].equals("default")) {
-      solverBenchmarkConfig=SOLVER_BENCHMARK_CONFIG;
+      benchmarkerConfig=BENCHMARKER_CONFIG;
     }
  else     if (args[0].equals("stepLimit")) {
-      solverBenchmarkConfig=STEP_LIMIT_SOLVER_BENCHMARK_CONFIG;
+      benchmarkerConfig=STEP_LIMIT_BENCHMARKER_CONFIG;
     }
  else {
-      solverBenchmarkConfig=SOLVER_BENCHMARK_CONFIG_PREFIX + args[0] + "SolverBenchmarkConfig.xml";
+      benchmarkerConfig=BENCHMARKER_CONFIG_PREFIX + args[0] + "BenchmarkerConfig.xml";
     }
   }
  else {
-    solverBenchmarkConfig=SOLVER_BENCHMARK_CONFIG;
+    benchmarkerConfig=BENCHMARKER_CONFIG;
   }
-  new SmartTravelingTournamentBenchmarkApp(solverBenchmarkConfig).process();
+  new SmartTravelingTournamentBenchmarkApp(benchmarkerConfig).process();
 }

@@ -2,17 +2,17 @@
   String solverConfig;
   if (args.length > 0) {
     if (args[0].equals("default")) {
-      solverConfig=DEFAULT_SOLVER_BENCHMARK_CONFIG;
+      solverConfig=DEFAULT_BENCHMARKER_CONFIG;
     }
  else     if (args[0].equals("stepLimit")) {
-      solverConfig=STEP_LIMIT_SOLVER_BENCHMARK_CONFIG;
+      solverConfig=STEP_LIMIT_BENCHMARKER_CONFIG;
     }
  else {
       throw new IllegalArgumentException("The program argument (" + args[0] + ") is not supported.");
     }
   }
  else {
-    solverConfig=DEFAULT_SOLVER_BENCHMARK_CONFIG;
+    solverConfig=DEFAULT_BENCHMARKER_CONFIG;
   }
   new CurriculumCourseBenchmarkApp(solverConfig).process();
 }
