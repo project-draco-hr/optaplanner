@@ -42,12 +42,5 @@
  else   if (inheritedConfig.getTerminationConfig() != null) {
     terminationConfig.inherit(inheritedConfig.getTerminationConfig());
   }
-  if (solverPhaseConfigList == null) {
-    solverPhaseConfigList=inheritedConfig.getSolverPhaseConfigList();
-  }
- else   if (inheritedConfig.getSolverPhaseConfigList() != null) {
-    List<SolverPhaseConfig> mergedList=new ArrayList<SolverPhaseConfig>(inheritedConfig.getSolverPhaseConfigList());
-    mergedList.addAll(solverPhaseConfigList);
-    solverPhaseConfigList=mergedList;
-  }
+  solverPhaseConfigList=ConfigUtils.inheritMergeableListProperty(solverPhaseConfigList,inheritedConfig.getSolverPhaseConfigList());
 }

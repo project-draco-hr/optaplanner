@@ -26,12 +26,5 @@
   if (maximumUnimprovedStepCount == null) {
     maximumUnimprovedStepCount=inheritedConfig.getMaximumUnimprovedStepCount();
   }
-  if (terminationConfigList == null) {
-    terminationConfigList=inheritedConfig.getTerminationConfigList();
-  }
- else   if (inheritedConfig.getTerminationConfigList() != null) {
-    List<TerminationConfig> mergedList=new ArrayList<TerminationConfig>(inheritedConfig.getTerminationConfigList());
-    mergedList.addAll(terminationConfigList);
-    terminationConfigList=mergedList;
-  }
+  terminationConfigList=ConfigUtils.inheritMergeableListProperty(terminationConfigList,inheritedConfig.getTerminationConfigList());
 }

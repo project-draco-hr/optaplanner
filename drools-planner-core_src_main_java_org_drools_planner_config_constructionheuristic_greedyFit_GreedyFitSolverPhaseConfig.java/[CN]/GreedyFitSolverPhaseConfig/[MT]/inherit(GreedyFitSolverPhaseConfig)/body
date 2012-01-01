@@ -1,13 +1,6 @@
 {
   super.inherit(inheritedConfig);
-  if (greedyFitPlanningEntityConfigList == null) {
-    greedyFitPlanningEntityConfigList=inheritedConfig.getGreedyFitPlanningEntityConfigList();
-  }
- else   if (inheritedConfig.getGreedyFitPlanningEntityConfigList() != null) {
-    List<GreedyFitPlanningEntityConfig> mergedList=new ArrayList<GreedyFitPlanningEntityConfig>(inheritedConfig.getGreedyFitPlanningEntityConfigList());
-    mergedList.addAll(greedyFitPlanningEntityConfigList);
-    greedyFitPlanningEntityConfigList=mergedList;
-  }
+  greedyFitPlanningEntityConfigList=ConfigUtils.inheritMergeableListProperty(greedyFitPlanningEntityConfigList,inheritedConfig.getGreedyFitPlanningEntityConfigList());
   if (constructionHeuristicPickEarlyType == null) {
     constructionHeuristicPickEarlyType=inheritedConfig.getConstructionHeuristicPickEarlyType();
   }
