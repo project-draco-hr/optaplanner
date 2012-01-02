@@ -1,0 +1,3 @@
+{
+  xStream.processAnnotations(xstreamAnnotations);
+}
