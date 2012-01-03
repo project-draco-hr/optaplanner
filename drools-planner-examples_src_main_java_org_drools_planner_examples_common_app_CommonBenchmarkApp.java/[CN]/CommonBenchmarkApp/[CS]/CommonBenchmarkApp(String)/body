@@ -1,3 +1,3 @@
 {
-  plannerBenchmarkFactory=new XmlPlannerBenchmarkFactory().configure(benchmarkerConfig);
+  plannerBenchmarkFactory=new XmlPlannerBenchmarkFactory().configure(benchmarkConfig);
 }

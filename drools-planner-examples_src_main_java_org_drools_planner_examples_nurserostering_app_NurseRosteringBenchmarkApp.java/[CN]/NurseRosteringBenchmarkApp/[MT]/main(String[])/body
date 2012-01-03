@@ -2,23 +2,23 @@
   String solverConfig;
   if (args.length > 0) {
     if (args[0].equals("sprint")) {
-      solverConfig=SPRINT_BENCHMARKER_CONFIG;
+      solverConfig=SPRINT_BENCHMARK_CONFIG;
     }
  else     if (args[0].equals("medium")) {
-      solverConfig=MEDIUM_BENCHMARKER_CONFIG;
+      solverConfig=MEDIUM_BENCHMARK_CONFIG;
     }
  else     if (args[0].equals("long")) {
-      solverConfig=LONG_BENCHMARKER_CONFIG;
+      solverConfig=LONG_BENCHMARK_CONFIG;
     }
  else     if (args[0].equals("stepLimit")) {
-      solverConfig=STEP_LIMIT_BENCHMARKER_CONFIG;
+      solverConfig=STEP_LIMIT_BENCHMARK_CONFIG;
     }
  else {
       throw new IllegalArgumentException("The program argument (" + args[0] + ") is not supported.");
     }
   }
  else {
-    solverConfig=MEDIUM_BENCHMARKER_CONFIG;
+    solverConfig=MEDIUM_BENCHMARK_CONFIG;
   }
   new NurseRosteringBenchmarkApp(solverConfig).process();
 }

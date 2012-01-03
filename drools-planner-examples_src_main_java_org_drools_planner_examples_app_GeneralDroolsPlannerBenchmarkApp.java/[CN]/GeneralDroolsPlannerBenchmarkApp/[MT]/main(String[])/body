@@ -1,4 +1,4 @@
 {
-  String solverConfig=DEFAULT_BENCHMARKER_CONFIG;
+  String solverConfig=DEFAULT_BENCHMARK_CONFIG;
   new GeneralDroolsPlannerBenchmarkApp(solverConfig).process();
 }
