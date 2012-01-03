@@ -1,4 +1,0 @@
-{
-  PlannerBenchmark plannerBenchmark=buildPlannerBenchmark();
-  plannerBenchmark.benchmark();
-}

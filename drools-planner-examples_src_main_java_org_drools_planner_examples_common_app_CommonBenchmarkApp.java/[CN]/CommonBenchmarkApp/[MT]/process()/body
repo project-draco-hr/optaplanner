@@ -1,3 +1,4 @@
 {
-  solverBenchmarker.benchmark();
+  PlannerBenchmark plannerBenchmark=solverBenchmarker.buildPlannerBenchmark();
+  plannerBenchmark.benchmark();
 }
