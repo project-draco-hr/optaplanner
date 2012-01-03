@@ -1,9 +1,0 @@
-{
-  XmlSolverConfigurer configurer=new XmlSolverConfigurer();
-  configurer.configure(createSolverConfigResource());
-  configurer.getSolverConfig().setEnvironmentMode(environmentMode);
-  TerminationConfig terminationConfig=new TerminationConfig();
-  terminationConfig.setScoreAttained(scoreAttainedString);
-  configurer.getSolverConfig().setTerminationConfig(terminationConfig);
-  return configurer;
-}

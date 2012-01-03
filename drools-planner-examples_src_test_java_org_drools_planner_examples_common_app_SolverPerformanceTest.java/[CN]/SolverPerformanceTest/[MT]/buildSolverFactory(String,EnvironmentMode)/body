@@ -1,0 +1,9 @@
+{
+  XmlSolverFactory solverFactory=new XmlSolverFactory();
+  solverFactory.configure(createSolverConfigResource());
+  solverFactory.getSolverConfig().setEnvironmentMode(environmentMode);
+  TerminationConfig terminationConfig=new TerminationConfig();
+  terminationConfig.setScoreAttained(scoreAttainedString);
+  solverFactory.getSolverConfig().setTerminationConfig(terminationConfig);
+  return solverFactory;
+}
