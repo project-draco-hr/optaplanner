@@ -1,0 +1,6 @@
+{
+  if (plannerBenchmarkConfig == null) {
+    throw new IllegalStateException("The plannerBenchmarkConfig (" + plannerBenchmarkConfig + ") is null,"+ " call configure(...) first.");
+  }
+  return plannerBenchmarkConfig;
+}
