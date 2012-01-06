@@ -1,0 +1,4 @@
+{
+  processEntityAnnotations();
+  processPropertyAnnotations();
+}

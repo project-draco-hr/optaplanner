@@ -1,0 +1,4 @@
+{
+  processPropertyAnnotations();
+  dependentPlanningVariableDescriptorMap=new HashMap<String,DependentPlanningVariableDescriptor>(2);
+}

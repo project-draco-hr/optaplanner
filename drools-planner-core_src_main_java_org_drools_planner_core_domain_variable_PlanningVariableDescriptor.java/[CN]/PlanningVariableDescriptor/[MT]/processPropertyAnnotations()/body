@@ -9,7 +9,7 @@
     strengthWeightFactoryClass=null;
   }
   if (strengthComparatorClass != null && strengthWeightFactoryClass != null) {
-    throw new IllegalStateException("The planningEntityClass (" + planningEntityDescriptor.getPlanningEntityClass() + ") "+ variablePropertyDescriptor.getName()+ ") cannot have a strengthComparatorClass ("+ strengthComparatorClass.getName()+ ") and a strengthWeightFactoryClass ("+ strengthWeightFactoryClass.getName()+ ") at the same time.");
+    throw new IllegalStateException("The planningEntityClass (" + planningEntityDescriptor.getPlanningEntityClass() + ") property ("+ variablePropertyDescriptor.getName()+ ") cannot have a strengthComparatorClass ("+ strengthComparatorClass.getName()+ ") and a strengthWeightFactoryClass ("+ strengthWeightFactoryClass.getName()+ ") at the same time.");
   }
   valueSorter=new PlanningValueSorter();
   if (strengthComparatorClass != null) {
