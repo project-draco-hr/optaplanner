@@ -1,15 +1,15 @@
 {
-  CityAssignment nextCityAssignment=startCityAssignment;
-  if (ObjectUtils.equals(startCityAssignment,toAfterCityAssignment.getNextCityAssignment())) {
+  Journey nextJourney=startJourney;
+  if (ObjectUtils.equals(startJourney,toAfterJourney.getNextJourney())) {
     return false;
   }
-  while (!ObjectUtils.equals(nextCityAssignment,endCityAssignment)) {
-    if (ObjectUtils.equals(nextCityAssignment,toAfterCityAssignment)) {
+  while (!ObjectUtils.equals(nextJourney,endJourney)) {
+    if (ObjectUtils.equals(nextJourney,toAfterJourney)) {
       return false;
     }
-    nextCityAssignment=nextCityAssignment.getNextCityAssignment();
+    nextJourney=nextJourney.getNextJourney();
   }
-  if (ObjectUtils.equals(endCityAssignment,toAfterCityAssignment)) {
+  if (ObjectUtils.equals(endJourney,toAfterJourney)) {
     return false;
   }
   return true;

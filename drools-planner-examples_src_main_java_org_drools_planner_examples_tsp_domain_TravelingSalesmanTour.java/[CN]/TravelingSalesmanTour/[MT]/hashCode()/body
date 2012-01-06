@@ -1,7 +1,7 @@
 {
   HashCodeBuilder hashCodeBuilder=new HashCodeBuilder();
-  for (  CityAssignment cityAssignment : cityAssignmentList) {
-    hashCodeBuilder.append(cityAssignment.solutionHashCode());
+  for (  Journey journey : journeyList) {
+    hashCodeBuilder.append(journey.solutionHashCode());
   }
   return hashCodeBuilder.toHashCode();
 }

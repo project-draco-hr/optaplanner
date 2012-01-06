@@ -1,0 +1,16 @@
+{
+  List<City> cityList=travelingSalesmanTour.getCityList();
+  List<Journey> journeyList=new ArrayList<Journey>(cityList.size());
+  long id=0L;
+  for (  City city : cityList) {
+    Journey journey=new Journey();
+    journey.setId(id);
+    id++;
+    journey.setCity(city);
+    journeyList.add(journey);
+    if (city.equals(travelingSalesmanTour.getStartCity())) {
+      travelingSalesmanTour.setStartJourney(journey);
+    }
+  }
+  travelingSalesmanTour.setJourneyList(journeyList);
+}

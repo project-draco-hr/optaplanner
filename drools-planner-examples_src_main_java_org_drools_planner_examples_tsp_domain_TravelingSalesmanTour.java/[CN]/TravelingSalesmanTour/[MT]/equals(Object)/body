@@ -7,13 +7,13 @@
   }
  else {
     TravelingSalesmanTour other=(TravelingSalesmanTour)o;
-    if (cityAssignmentList.size() != other.cityAssignmentList.size()) {
+    if (journeyList.size() != other.journeyList.size()) {
       return false;
     }
-    for (Iterator<CityAssignment> it=cityAssignmentList.iterator(), otherIt=other.cityAssignmentList.iterator(); it.hasNext(); ) {
-      CityAssignment cityAssignment=it.next();
-      CityAssignment otherCityAssignment=otherIt.next();
-      if (!cityAssignment.solutionEquals(otherCityAssignment)) {
+    for (Iterator<Journey> it=journeyList.iterator(), otherIt=other.journeyList.iterator(); it.hasNext(); ) {
+      Journey journey=it.next();
+      Journey otherJourney=otherIt.next();
+      if (!journey.solutionEquals(otherJourney)) {
         return false;
       }
     }

@@ -6,18 +6,18 @@
   headerLabel.setBackground(HEADER_COLOR);
   headerLabel.setOpaque(true);
   add(headerLabel);
-  for (  CityAssignment cityAssignment : travelingSalesmanTour.getCityAssignmentList()) {
-    JPanel cityAssignmentPanel=new JPanel(new GridLayout(1,2));
-    JButton button=new JButton(new CityAssignmentAction(cityAssignment));
-    cityAssignmentPanel.add(button);
+  for (  Journey journey : travelingSalesmanTour.getJourneyList()) {
+    JPanel journeyPanel=new JPanel(new GridLayout(1,2));
+    JButton button=new JButton(new JourneyAction(journey));
+    journeyPanel.add(button);
     String distanceLabelString;
-    if (cityAssignment.getNextCityAssignment() == null) {
+    if (journey.getNextJourney() == null) {
       distanceLabelString="Unassigned";
     }
  else {
-      distanceLabelString="Distance to next: " + cityAssignment.getDistanceToNextCityAssignment();
+      distanceLabelString="Distance to next: " + journey.getDistanceToNextJourney();
     }
-    cityAssignmentPanel.add(new JLabel(distanceLabelString));
-    add(cityAssignmentPanel);
+    journeyPanel.add(new JLabel(distanceLabelString));
+    add(journeyPanel);
   }
 }

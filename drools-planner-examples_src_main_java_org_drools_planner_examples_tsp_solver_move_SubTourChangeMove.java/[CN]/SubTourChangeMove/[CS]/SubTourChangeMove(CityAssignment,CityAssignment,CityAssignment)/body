@@ -1,5 +1,0 @@
-{
-  this.startCityAssignment=startCityAssignment;
-  this.endCityAssignment=endCityAssignment;
-  this.toAfterCityAssignment=toAfterCityAssignment;
-}

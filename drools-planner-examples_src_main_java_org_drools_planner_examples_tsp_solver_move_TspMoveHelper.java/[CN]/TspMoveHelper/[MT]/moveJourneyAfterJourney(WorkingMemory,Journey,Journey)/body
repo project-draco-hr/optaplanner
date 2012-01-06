@@ -1,0 +1,8 @@
+{
+  FactHandle journeyFactHandle=workingMemory.getFactHandle(journey);
+  FactHandle toNextJourneyFactHandle=workingMemory.getFactHandle(toNextJourney);
+  journey.setNextJourney(toNextJourney);
+  toNextJourney.setPreviousJourney(journey);
+  workingMemory.update(journeyFactHandle,journey);
+  workingMemory.update(toNextJourneyFactHandle,toNextJourney);
+}

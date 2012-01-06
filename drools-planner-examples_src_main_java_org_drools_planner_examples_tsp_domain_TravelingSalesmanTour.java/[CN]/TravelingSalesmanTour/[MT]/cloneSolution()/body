@@ -4,21 +4,21 @@
   clone.name=name;
   clone.cityList=cityList;
   clone.startCity=startCity;
-  List<CityAssignment> clonedCityAssignmentList=new ArrayList<CityAssignment>(cityAssignmentList.size());
-  Map<Long,CityAssignment> idToClonedCityAssignmentMap=new HashMap<Long,CityAssignment>(cityAssignmentList.size());
-  for (  CityAssignment cityAssignment : cityAssignmentList) {
-    CityAssignment clonedCityAssignment=cityAssignment.clone();
-    clonedCityAssignmentList.add(clonedCityAssignment);
-    idToClonedCityAssignmentMap.put(clonedCityAssignment.getId(),clonedCityAssignment);
-    if (cityAssignment == startCityAssignment) {
-      clone.startCityAssignment=clonedCityAssignment;
+  List<Journey> clonedJourneyList=new ArrayList<Journey>(journeyList.size());
+  Map<Long,Journey> idToClonedJourneyMap=new HashMap<Long,Journey>(journeyList.size());
+  for (  Journey journey : journeyList) {
+    Journey clonedJourney=journey.clone();
+    clonedJourneyList.add(clonedJourney);
+    idToClonedJourneyMap.put(clonedJourney.getId(),clonedJourney);
+    if (journey == startJourney) {
+      clone.startJourney=clonedJourney;
     }
   }
-  for (  CityAssignment clonedCityAssignment : clonedCityAssignmentList) {
-    clonedCityAssignment.setPreviousCityAssignment(idToClonedCityAssignmentMap.get(clonedCityAssignment.getPreviousCityAssignment().getId()));
-    clonedCityAssignment.setNextCityAssignment(idToClonedCityAssignmentMap.get(clonedCityAssignment.getNextCityAssignment().getId()));
+  for (  Journey clonedJourney : clonedJourneyList) {
+    clonedJourney.setPreviousJourney(idToClonedJourneyMap.get(clonedJourney.getPreviousJourney().getId()));
+    clonedJourney.setNextJourney(idToClonedJourneyMap.get(clonedJourney.getNextJourney().getId()));
   }
-  clone.cityAssignmentList=clonedCityAssignmentList;
+  clone.journeyList=clonedJourneyList;
   clone.score=score;
   return clone;
 }

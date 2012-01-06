@@ -1,0 +1,8 @@
+{
+  Journey clone=new Journey();
+  clone.id=id;
+  clone.city=city;
+  clone.previousJourney=previousJourney;
+  clone.nextJourney=nextJourney;
+  return clone;
+}

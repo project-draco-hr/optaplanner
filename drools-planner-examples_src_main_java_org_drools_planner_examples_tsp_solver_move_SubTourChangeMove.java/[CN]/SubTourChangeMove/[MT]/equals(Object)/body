@@ -4,7 +4,7 @@
   }
  else   if (o instanceof SubTourChangeMove) {
     SubTourChangeMove other=(SubTourChangeMove)o;
-    return new EqualsBuilder().append(startCityAssignment,other.startCityAssignment).append(endCityAssignment,other.endCityAssignment).append(toAfterCityAssignment,other.toAfterCityAssignment).isEquals();
+    return new EqualsBuilder().append(startJourney,other.startJourney).append(endJourney,other.endJourney).append(toAfterJourney,other.toAfterJourney).isEquals();
   }
  else {
     return false;
