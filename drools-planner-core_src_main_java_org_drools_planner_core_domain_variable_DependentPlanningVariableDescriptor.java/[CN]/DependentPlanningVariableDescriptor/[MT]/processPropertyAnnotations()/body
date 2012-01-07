@@ -17,6 +17,5 @@
     if (mappedByPlanningVariableDescriptor == null) {
       throw new IllegalStateException("The planningEntityClass (" + planningEntityDescriptor.getPlanningEntityClass() + ") has a DependentPlanningVariable annotated property ("+ variablePropertyDescriptor.getName()+ ") that refers to a mappedByPropertyName ("+ mappedByPropertyName+ ") that is not a PlanningVariable on the oppositeClass ("+ oppositeClass+ ").");
     }
-    System.out.println("mappedByPropertyName " + mappedByPropertyName);
   }
 }
