@@ -1,0 +1,5 @@
+SolutionDirector solutionDirector
+Object planningEntity
+String variableName
+Object oldValue
+Object newValue
