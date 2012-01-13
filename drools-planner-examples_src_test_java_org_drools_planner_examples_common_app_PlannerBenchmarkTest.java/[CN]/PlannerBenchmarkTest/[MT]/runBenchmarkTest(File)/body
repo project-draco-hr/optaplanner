@@ -1,0 +1,5 @@
+{
+  XmlPlannerBenchmarkFactory plannerBenchmarkFactory=buildPlannerBenchmarkFactory(unsolvedDataFile);
+  PlannerBenchmark plannerBenchmark=plannerBenchmarkFactory.buildPlannerBenchmark();
+  plannerBenchmark.benchmark();
+}

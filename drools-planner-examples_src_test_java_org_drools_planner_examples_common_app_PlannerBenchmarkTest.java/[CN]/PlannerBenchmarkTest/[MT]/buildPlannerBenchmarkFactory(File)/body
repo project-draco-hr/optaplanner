@@ -1,0 +1,28 @@
+{
+  XmlPlannerBenchmarkFactory benchmarkFactory=new XmlPlannerBenchmarkFactory();
+  benchmarkFactory.configure(createBenchmarkConfigResource());
+  PlannerBenchmarkConfig plannerBenchmarkConfig=benchmarkFactory.getPlannerBenchmarkConfig();
+  plannerBenchmarkConfig.setBenchmarkDirectory(new File("target/test/data/nqueens"));
+  plannerBenchmarkConfig.setWarmUpHoursSpend(0L);
+  plannerBenchmarkConfig.setWarmUpMinutesSpend(0L);
+  plannerBenchmarkConfig.setWarmUpSecondsSpend(WARM_UP_SECONDS_SPEND);
+  plannerBenchmarkConfig.setWarmUpTimeMillisSpend(0L);
+  List<SolverBenchmarkConfig> solverBenchmarkConfigList=plannerBenchmarkConfig.getSolverBenchmarkConfigList();
+  if (solverBenchmarkConfigList.size() > MAXIMUM_SOLVER_BENCHMARK_SIZE) {
+    solverBenchmarkConfigList=solverBenchmarkConfigList.subList(0,MAXIMUM_SOLVER_BENCHMARK_SIZE);
+    plannerBenchmarkConfig.setSolverBenchmarkConfigList(solverBenchmarkConfigList);
+  }
+  long maximumSecondsSpendPerSolverBenchmark=MAXIMUM_SECONDS_SPEND / solverBenchmarkConfigList.size();
+  SolverBenchmarkConfig inheritedSolverBenchmarkConfig=plannerBenchmarkConfig.getInheritedSolverBenchmarkConfig();
+  if (inheritedSolverBenchmarkConfig != null) {
+    inheritedSolverBenchmarkConfig.getProblemBenchmarksConfig().setInputSolutionFileList(Collections.singletonList(unsolvedDataFile));
+    TerminationConfig terminationConfig=new TerminationConfig();
+    terminationConfig.setMaximumSecondsSpend(maximumSecondsSpendPerSolverBenchmark);
+    inheritedSolverBenchmarkConfig.getSolverConfig().setTerminationConfig(terminationConfig);
+  }
+  for (  SolverBenchmarkConfig solverBenchmarkConfig : solverBenchmarkConfigList) {
+    solverBenchmarkConfig.getProblemBenchmarksConfig().setInputSolutionFileList(null);
+    solverBenchmarkConfig.getSolverConfig().setTerminationConfig(new TerminationConfig());
+  }
+  return benchmarkFactory;
+}
