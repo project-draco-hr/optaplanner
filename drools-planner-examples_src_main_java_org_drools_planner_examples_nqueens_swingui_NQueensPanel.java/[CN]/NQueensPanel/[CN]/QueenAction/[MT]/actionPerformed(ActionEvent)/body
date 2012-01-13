@@ -1,8 +1,11 @@
 {
   List<Row> rowList=getNQueens().getRowList();
+  JPanel messagePanel=new JPanel(new BorderLayout());
+  messagePanel.add(new JLabel("Move to row: "),BorderLayout.WEST);
   JComboBox rowListField=new JComboBox(rowList.toArray());
   rowListField.setSelectedItem(queen.getRow());
-  int result=JOptionPane.showConfirmDialog(NQueensPanel.this.getRootPane(),rowListField,"Select row",JOptionPane.OK_CANCEL_OPTION);
+  messagePanel.add(rowListField,BorderLayout.CENTER);
+  int result=JOptionPane.showConfirmDialog(NQueensPanel.this.getRootPane(),messagePanel,"Queen in column " + queen.getColumn().getIndex(),JOptionPane.OK_CANCEL_OPTION);
   if (result == JOptionPane.OK_OPTION) {
     Row toRow=(Row)rowListField.getSelectedItem();
     Move move=new RowChangeMove(queen,toRow);

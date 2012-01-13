@@ -1,4 +1,5 @@
 {
   setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
+  setBackground(Color.BLACK);
   queenImageIcon=new ImageIcon(getClass().getResource(QUEEN_IMAGE_PATH));
 }
