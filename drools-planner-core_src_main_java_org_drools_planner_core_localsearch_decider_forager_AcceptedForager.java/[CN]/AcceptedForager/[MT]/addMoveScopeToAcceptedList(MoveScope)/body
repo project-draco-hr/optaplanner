@@ -1,7 +1,6 @@
 {
   acceptedList.add(moveScope);
-  listSorted=false;
-  if (moveScope.getLocalSearchStepScope().getDeciderScoreComparator().compare(moveScope.getScore(),maxScore) > 0) {
+  if (scoreComparator.compare(moveScope.getScore(),maxScore) > 0) {
     maxScore=moveScope.getScore();
     maxScoreAcceptedList.clear();
     maxScoreAcceptedList.add(moveScope);

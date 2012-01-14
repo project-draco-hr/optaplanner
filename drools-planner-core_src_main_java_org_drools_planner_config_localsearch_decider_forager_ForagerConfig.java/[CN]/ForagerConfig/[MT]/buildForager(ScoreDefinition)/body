@@ -15,5 +15,7 @@ catch (    IllegalAccessException e) {
   }
   PickEarlyType pickEarlyType=(this.pickEarlyType == null) ? PickEarlyType.NEVER : this.pickEarlyType;
   int minimalAcceptedSelection=(this.minimalAcceptedSelection == null) ? Integer.MAX_VALUE : this.minimalAcceptedSelection;
-  return new AcceptedForager(pickEarlyType,minimalAcceptedSelection);
+  AcceptedForager forager=new AcceptedForager(pickEarlyType,minimalAcceptedSelection);
+  forager.setDeciderScoreComparatorFactory(deciderScoreComparatorFactoryConfig.buildDeciderScoreComparatorFactory());
+  return forager;
 }

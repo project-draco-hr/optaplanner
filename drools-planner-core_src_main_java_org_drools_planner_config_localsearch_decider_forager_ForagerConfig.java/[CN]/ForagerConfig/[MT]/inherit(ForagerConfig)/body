@@ -5,4 +5,10 @@
     pickEarlyType=inheritedConfig.getPickEarlyType();
     minimalAcceptedSelection=inheritedConfig.getMinimalAcceptedSelection();
   }
+  if (deciderScoreComparatorFactoryConfig == null) {
+    deciderScoreComparatorFactoryConfig=inheritedConfig.getDeciderScoreComparatorFactoryConfig();
+  }
+ else   if (inheritedConfig.getDeciderScoreComparatorFactoryConfig() != null) {
+    deciderScoreComparatorFactoryConfig.inherit(inheritedConfig.getDeciderScoreComparatorFactoryConfig());
+  }
 }

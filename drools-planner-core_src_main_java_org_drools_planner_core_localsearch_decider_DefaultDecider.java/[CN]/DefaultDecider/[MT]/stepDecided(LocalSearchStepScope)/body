@@ -1,5 +1,4 @@
 {
-  deciderScoreComparatorFactory.stepDecided(localSearchStepScope);
   selector.stepDecided(localSearchStepScope);
   acceptor.stepDecided(localSearchStepScope);
   forager.stepDecided(localSearchStepScope);

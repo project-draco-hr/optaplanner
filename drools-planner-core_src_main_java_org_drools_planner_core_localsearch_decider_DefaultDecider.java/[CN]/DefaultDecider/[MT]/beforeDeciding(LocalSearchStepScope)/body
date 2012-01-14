@@ -1,6 +1,4 @@
 {
-  deciderScoreComparatorFactory.beforeDeciding(localSearchStepScope);
-  localSearchStepScope.setDeciderScoreComparator(deciderScoreComparatorFactory.createDeciderScoreComparator());
   selector.beforeDeciding(localSearchStepScope);
   acceptor.beforeDeciding(localSearchStepScope);
   forager.beforeDeciding(localSearchStepScope);
