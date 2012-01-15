@@ -1,0 +1,59 @@
+{
+  FactHandle planningEntityFactHandle=workingMemory.insert(planningEntity);
+  if (planningValueWalkerList.size() == 1) {
+    PlanningValueWalker planningValueWalker=planningValueWalkerList.iterator().next();
+    planningValueWalker.initPlanningEntityFactHandle(planningEntityFactHandle);
+    return planningValueWalker.moveIterator(planningEntity);
+  }
+ else {
+    final List<Iterator<Move>> moveIteratorList=new ArrayList<Iterator<Move>>(planningValueWalkerList.size());
+    final List<Move> composedMoveList=new ArrayList<Move>(planningValueWalkerList.size());
+    boolean moveIteratorIsFirst=true;
+    for (    PlanningValueWalker planningValueWalker : planningValueWalkerList) {
+      planningValueWalker.initPlanningEntityFactHandle(planningEntityFactHandle);
+      Iterator<Move> moveIterator=planningValueWalker.moveIterator(planningEntity);
+      moveIteratorList.add(moveIterator);
+      Move initialMove;
+      if (moveIteratorIsFirst) {
+        initialMove=null;
+        moveIteratorIsFirst=false;
+      }
+ else {
+        if (!moveIterator.hasNext()) {
+          throw new IllegalStateException("The planning entity class (" + planningEntityDescriptor.getPlanningEntityClass() + ") for planning variable ("+ planningValueWalker.getPlanningVariableDescriptor().getVariablePropertyName()+ ") has an empty planning value range for planning entity ("+ planningEntity+ ").");
+        }
+        initialMove=moveIterator.next();
+      }
+      composedMoveList.add(initialMove);
+    }
+    return new Iterator<Move>(){
+      public boolean hasNext(){
+        for (        Iterator<Move> moveIterator : moveIteratorList) {
+          if (moveIterator.hasNext()) {
+            return true;
+          }
+        }
+        return false;
+      }
+      public Move next(){
+        for (int i=0; i < moveIteratorList.size(); i++) {
+          Iterator<Move> moveIterator=moveIteratorList.get(i);
+          if (moveIterator.hasNext()) {
+            composedMoveList.set(i,moveIterator.next());
+            break;
+          }
+ else {
+            moveIterator=planningValueWalkerList.get(i).moveIterator(planningEntity);
+            moveIteratorList.set(i,moveIterator);
+            composedMoveList.set(i,moveIterator.next());
+          }
+        }
+        return new CompositeMove(new ArrayList<Move>(composedMoveList));
+      }
+      public void remove(){
+        throw new UnsupportedOperationException();
+      }
+    }
+;
+  }
+}

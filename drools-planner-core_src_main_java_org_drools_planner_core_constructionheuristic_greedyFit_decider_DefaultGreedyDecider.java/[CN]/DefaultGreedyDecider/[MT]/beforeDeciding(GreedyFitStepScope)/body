@@ -1,3 +1,4 @@
 {
   planningVariableWalker.beforeDeciding(greedyFitStepScope);
+  forager.beforeDeciding(greedyFitStepScope);
 }

@@ -1,23 +1,29 @@
 {
-  GreedyFitSolverPhaseScope greedyFitSolverPhaseScope=new GreedyFitSolverPhaseScope(solverScope);
-  phaseStarted(greedyFitSolverPhaseScope);
-  GreedyFitStepScope greedyFitStepScope=createNextStepScope(greedyFitSolverPhaseScope,null);
+  GreedyFitSolverPhaseScope solverPhaseScope=new GreedyFitSolverPhaseScope(solverScope);
+  phaseStarted(solverPhaseScope);
+  GreedyFitStepScope stepScope=createNextStepScope(solverPhaseScope,null);
   Iterator it=greedyPlanningEntitySelector.iterator();
-  while (!termination.isPhaseTerminated(greedyFitSolverPhaseScope) && it.hasNext()) {
+  while (!termination.isPhaseTerminated(solverPhaseScope) && it.hasNext()) {
     Object planningEntity=it.next();
-    greedyFitStepScope.setPlanningEntity(planningEntity);
-    beforeDeciding(greedyFitStepScope);
-    greedyDecider.decideNextStep(greedyFitStepScope);
-    stepDecided(greedyFitStepScope);
-    greedyFitStepScope.doStep();
-    if (!it.hasNext()) {
-      greedyFitStepScope.setSolutionInitialized(true);
+    stepScope.setPlanningEntity(planningEntity);
+    beforeDeciding(stepScope);
+    greedyDecider.decideNextStep(stepScope);
+    Move nextStep=stepScope.getStep();
+    if (nextStep == null) {
+      logger.warn("    Cancelled step index ({}), time spend ({}): there is no doable move. Terminating phase early.",stepScope.getStepIndex(),solverPhaseScope.calculateSolverTimeMillisSpend());
+      break;
     }
+    stepDecided(stepScope);
+    nextStep.doMove(stepScope.getWorkingMemory());
+    solverPhaseScope.getWorkingSolution().setScore(stepScope.getScore());
     if (assertStepScoreIsUncorrupted) {
-      greedyFitSolverPhaseScope.assertWorkingScore(greedyFitStepScope.getScore());
+      solverPhaseScope.assertWorkingScore(stepScope.getScore());
     }
-    stepTaken(greedyFitStepScope);
-    greedyFitStepScope=createNextStepScope(greedyFitSolverPhaseScope,greedyFitStepScope);
+    if (!it.hasNext()) {
+      stepScope.setSolutionInitialized(true);
+    }
+    stepTaken(stepScope);
+    stepScope=createNextStepScope(solverPhaseScope,stepScope);
   }
-  phaseEnded(greedyFitSolverPhaseScope);
+  phaseEnded(solverPhaseScope);
 }

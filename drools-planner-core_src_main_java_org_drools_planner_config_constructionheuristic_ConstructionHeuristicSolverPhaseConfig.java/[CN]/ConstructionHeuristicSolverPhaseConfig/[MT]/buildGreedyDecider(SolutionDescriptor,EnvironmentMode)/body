@@ -1,6 +1,5 @@
 {
   DefaultGreedyDecider greedyDecider=new DefaultGreedyDecider();
-  ConstructionHeuristicPickEarlyType pickEarlyType=(this.constructionHeuristicPickEarlyType == null) ? ConstructionHeuristicPickEarlyType.NEVER : this.constructionHeuristicPickEarlyType;
   Set<Class<?>> planningEntityImplementationClassSet=solutionDescriptor.getPlanningEntityImplementationClassSet();
   if (planningEntityImplementationClassSet.size() != 1) {
     throw new UnsupportedOperationException("Currently the greedyFit implementation only supports " + "1 planningEntityImplementationClass.");
@@ -17,9 +16,12 @@
   }
   planningVariableWalker.setPlanningValueWalkerList(planningValueWalkerList);
   greedyDecider.setPlanningVariableWalker(planningVariableWalker);
-  greedyDecider.setConstructionHeuristicPickEarlyType(pickEarlyType);
+  greedyDecider.setForager(buildGreedyForager());
   if (environmentMode == EnvironmentMode.TRACE) {
     greedyDecider.setAssertMoveScoreIsUncorrupted(true);
+  }
+  if (environmentMode == EnvironmentMode.DEBUG || environmentMode == EnvironmentMode.TRACE) {
+    greedyDecider.setAssertUndoMoveIsUncorrupted(true);
   }
   return greedyDecider;
 }

@@ -1,0 +1,6 @@
+{
+  GreedyForager forager=new GreedyForager();
+  ConstructionHeuristicPickEarlyType pickEarlyType=(this.constructionHeuristicPickEarlyType == null) ? ConstructionHeuristicPickEarlyType.NEVER : this.constructionHeuristicPickEarlyType;
+  forager.setPickEarlyType(pickEarlyType);
+  return forager;
+}

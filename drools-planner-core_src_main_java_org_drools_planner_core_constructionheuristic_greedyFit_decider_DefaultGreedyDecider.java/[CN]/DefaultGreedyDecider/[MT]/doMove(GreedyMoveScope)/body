@@ -1,0 +1,19 @@
+{
+  WorkingMemory workingMemory=moveScope.getWorkingMemory();
+  Move move=moveScope.getMove();
+  Move undoMove=move.createUndoMove(workingMemory);
+  moveScope.setUndoMove(undoMove);
+  move.doMove(workingMemory);
+  processMove(moveScope);
+  undoMove.doMove(workingMemory);
+  if (assertUndoMoveIsUncorrupted) {
+    GreedyFitSolverPhaseScope greedyFitSolverPhaseScope=moveScope.getGreedyFitStepScope().getGreedyFitSolverPhaseScope();
+    Score undoScore=greedyFitSolverPhaseScope.calculateScoreFromWorkingMemory();
+    Score lastCompletedStepScore=greedyFitSolverPhaseScope.getLastCompletedStepScope().getScore();
+    if (!undoScore.equals(lastCompletedStepScore)) {
+      greedyFitSolverPhaseScope.getSolverScope().getSolutionDirector().assertWorkingScore(undoScore);
+      throw new IllegalStateException("The moveClass (" + move.getClass() + ")'s move ("+ move+ ") probably has a corrupted undoMove ("+ undoMove+ ")."+ " Or maybe there are corrupted score rules.\n"+ "Check the Move.createUndoMove(...) method of that Move class"+ " and enable EnvironmentMode TRACE to fail-faster on corrupted score rules.\n"+ "Score corruption: the lastCompletedStepScore ("+ lastCompletedStepScore+ ") is not the undoScore ("+ undoScore+ ").");
+    }
+  }
+  logger.trace("        Move score ({}) for move ({}).",new Object[]{moveScope.getScore(),moveScope.getMove()});
+}
