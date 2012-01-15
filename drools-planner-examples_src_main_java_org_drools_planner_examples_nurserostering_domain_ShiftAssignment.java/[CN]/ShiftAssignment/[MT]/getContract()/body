@@ -1,3 +1,6 @@
 {
+  if (employee == null) {
+    return null;
+  }
   return employee.getContract();
 }

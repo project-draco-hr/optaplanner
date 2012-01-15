@@ -1,3 +1,6 @@
 {
+  if (period == null) {
+    return null;
+  }
   return period.getDay();
 }
