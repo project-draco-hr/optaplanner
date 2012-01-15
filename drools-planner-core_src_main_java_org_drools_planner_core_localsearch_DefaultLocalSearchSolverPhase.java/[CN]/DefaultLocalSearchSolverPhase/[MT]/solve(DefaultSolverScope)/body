@@ -1,24 +1,24 @@
 {
-  LocalSearchSolverPhaseScope localSearchSolverPhaseScope=new LocalSearchSolverPhaseScope(solverScope);
-  phaseStarted(localSearchSolverPhaseScope);
-  LocalSearchStepScope localSearchStepScope=createNextStepScope(localSearchSolverPhaseScope,null);
-  while (!termination.isPhaseTerminated(localSearchSolverPhaseScope)) {
-    localSearchStepScope.setTimeGradient(termination.calculatePhaseTimeGradient(localSearchSolverPhaseScope));
-    beforeDeciding(localSearchStepScope);
-    decider.decideNextStep(localSearchStepScope);
-    Move nextStep=localSearchStepScope.getStep();
+  LocalSearchSolverPhaseScope solverPhaseScope=new LocalSearchSolverPhaseScope(solverScope);
+  phaseStarted(solverPhaseScope);
+  LocalSearchStepScope stepScope=createNextStepScope(solverPhaseScope,null);
+  while (!termination.isPhaseTerminated(solverPhaseScope)) {
+    stepScope.setTimeGradient(termination.calculatePhaseTimeGradient(solverPhaseScope));
+    beforeDeciding(stepScope);
+    decider.decideNextStep(stepScope);
+    Move nextStep=stepScope.getStep();
     if (nextStep == null) {
-      logger.warn("    Cancelled step index ({}), time spend ({}): there is no doable move. Terminating phase early.",localSearchStepScope.getStepIndex(),localSearchSolverPhaseScope.calculateSolverTimeMillisSpend());
+      logger.warn("    Cancelled step index ({}), time spend ({}): there is no doable move. Terminating phase early.",stepScope.getStepIndex(),solverPhaseScope.calculateSolverTimeMillisSpend());
       break;
     }
-    stepDecided(localSearchStepScope);
-    nextStep.doMove(localSearchStepScope.getWorkingMemory());
-    localSearchSolverPhaseScope.getWorkingSolution().setScore(localSearchStepScope.getScore());
+    stepDecided(stepScope);
+    nextStep.doMove(stepScope.getWorkingMemory());
+    solverPhaseScope.getWorkingSolution().setScore(stepScope.getScore());
     if (assertStepScoreIsUncorrupted) {
-      localSearchSolverPhaseScope.assertWorkingScore(localSearchStepScope.getScore());
+      solverPhaseScope.assertWorkingScore(stepScope.getScore());
     }
-    stepTaken(localSearchStepScope);
-    localSearchStepScope=createNextStepScope(localSearchSolverPhaseScope,localSearchStepScope);
+    stepTaken(stepScope);
+    stepScope=createNextStepScope(solverPhaseScope,stepScope);
   }
-  phaseEnded(localSearchSolverPhaseScope);
+  phaseEnded(solverPhaseScope);
 }
