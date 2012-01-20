@@ -11,5 +11,4 @@
     cityList.add(city);
   }
   travelingSalesmanTour.setCityList(cityList);
-  travelingSalesmanTour.setStartCity(cityList.get(0));
 }

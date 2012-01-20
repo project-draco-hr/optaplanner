@@ -4,7 +4,7 @@
   }
  else   if (o instanceof Journey) {
     Journey other=(Journey)o;
-    return new EqualsBuilder().append(id,other.id).append(city,other.city).append(previousJourney,other.previousJourney).append(nextJourney,other.nextJourney).isEquals();
+    return new EqualsBuilder().append(id,other.id).append(city,other.city).append(previousTerminal,other.previousTerminal).isEquals();
   }
  else {
     return false;

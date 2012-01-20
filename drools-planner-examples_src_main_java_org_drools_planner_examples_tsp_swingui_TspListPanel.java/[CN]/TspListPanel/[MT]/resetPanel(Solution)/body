@@ -11,11 +11,11 @@
     JButton button=new JButton(new JourneyAction(journey));
     journeyPanel.add(button);
     String distanceLabelString;
-    if (journey.getNextJourney() == null) {
+    if (journey.getPreviousTerminal() == null) {
       distanceLabelString="Unassigned";
     }
  else {
-      distanceLabelString="Distance to next: " + journey.getDistanceToNextJourney();
+      distanceLabelString="Distance from previous: " + journey.getDistanceToPreviousTerminal();
     }
     journeyPanel.add(new JLabel(distanceLabelString));
     add(journeyPanel);

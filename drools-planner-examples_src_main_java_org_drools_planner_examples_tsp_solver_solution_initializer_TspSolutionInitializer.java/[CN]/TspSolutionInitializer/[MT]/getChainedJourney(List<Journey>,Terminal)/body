@@ -1,0 +1,8 @@
+{
+  for (  Journey journey : initializedJourneyList) {
+    if (journey.getPreviousTerminal() == previousTerminal) {
+      return journey;
+    }
+  }
+  return null;
+}

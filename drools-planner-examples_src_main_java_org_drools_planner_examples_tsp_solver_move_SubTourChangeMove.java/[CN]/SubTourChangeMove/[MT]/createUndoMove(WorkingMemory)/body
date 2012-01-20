@@ -1,3 +1,0 @@
-{
-  return new SubTourChangeMove(startJourney,endJourney,startJourney.getPreviousJourney());
-}

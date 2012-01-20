@@ -1,6 +1,6 @@
 {
   List<Object> facts=new ArrayList<Object>();
   facts.addAll(cityList);
-  facts.add(startCity);
+  facts.addAll(depotList);
   return facts;
 }

@@ -1,9 +1,0 @@
-{
-  Journey newPreviousJourney=toAfterJourney;
-  Journey newNextJourney=newPreviousJourney.getNextJourney();
-  Journey originalPreviousJourney=startJourney.getPreviousJourney();
-  Journey originalNextJourney=endJourney.getNextJourney();
-  TspMoveHelper.moveJourneyAfterJourney(workingMemory,newPreviousJourney,startJourney);
-  TspMoveHelper.moveJourneyAfterJourney(workingMemory,endJourney,newNextJourney);
-  TspMoveHelper.moveJourneyAfterJourney(workingMemory,originalPreviousJourney,originalNextJourney);
-}

@@ -1,5 +1,0 @@
-{
-  this.startJourney=startJourney;
-  this.endJourney=endJourney;
-  this.toAfterJourney=toAfterJourney;
-}

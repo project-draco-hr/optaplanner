@@ -1,3 +1,0 @@
-{
-  return new HashCodeBuilder().append(startJourney).append(endJourney).append(toAfterJourney).toHashCode();
-}

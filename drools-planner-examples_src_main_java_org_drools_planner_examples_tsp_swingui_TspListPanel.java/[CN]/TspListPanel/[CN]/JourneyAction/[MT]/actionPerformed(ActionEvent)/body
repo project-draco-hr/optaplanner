@@ -1,13 +1,3 @@
 {
-  JPanel listFieldsPanel=new JPanel(new GridLayout(2,1));
-  List<Journey> afterJourneyList=tspPanel.getTravelingSalesmanTour().getJourneyList();
-  JComboBox afterJourneyListField=new JComboBox(afterJourneyList.toArray());
-  afterJourneyListField.setSelectedItem(journey.getNextJourney());
-  listFieldsPanel.add(afterJourneyListField);
-  int result=JOptionPane.showConfirmDialog(TspListPanel.this.getRootPane(),listFieldsPanel,"Select to move after city",JOptionPane.OK_CANCEL_OPTION);
-  if (result == JOptionPane.OK_OPTION) {
-    Journey toAfterJourney=(Journey)afterJourneyListField.getSelectedItem();
-    tspPanel.doMove(new SubTourChangeMove(journey,journey,toAfterJourney));
-    tspPanel.getWorkflowFrame().resetScreen();
-  }
+  JOptionPane.showMessageDialog(TspListPanel.this,"Unsupported operation.");
 }
