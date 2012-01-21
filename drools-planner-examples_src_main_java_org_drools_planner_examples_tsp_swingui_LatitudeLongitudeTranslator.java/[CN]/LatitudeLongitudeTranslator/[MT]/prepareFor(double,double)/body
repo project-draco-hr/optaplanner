@@ -1,6 +1,12 @@
 {
-  this.width=width;
-  this.height=height;
   latitudeLength=maximumLatitude - minimumLatitude;
   longitudeLength=maximumLongitude - minimumLongitude;
+  if (width > height * longitudeLength / latitudeLength) {
+    adjustedWidth=height * longitudeLength / latitudeLength;
+    adjustedHeight=height;
+  }
+ else {
+    adjustedWidth=width;
+    adjustedHeight=width * latitudeLength / longitudeLength;
+  }
 }
