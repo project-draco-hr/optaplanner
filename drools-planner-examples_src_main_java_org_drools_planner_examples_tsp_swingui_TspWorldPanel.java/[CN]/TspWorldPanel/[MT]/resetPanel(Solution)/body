@@ -9,13 +9,19 @@
   double height=size.getHeight();
   translator.prepareFor(width,height);
   Graphics g=createCanvas(width,height);
-  g.setColor(Color.RED);
+  g.setColor(TangoColors.SKY_BLUE_1);
   for (  City city : travelingSalesmanTour.getCityList()) {
     int x=translator.translateLongitude(city.getLongitude());
     int y=translator.translateLatitude(city.getLatitude());
     g.fillRect(x - 1,y - 1,3,3);
   }
-  g.setColor(Color.BLACK);
+  g.setColor(TangoColors.SCARLET_1);
+  for (  Depot depot : travelingSalesmanTour.getDepotList()) {
+    int x=translator.translateLongitude(depot.getCity().getLongitude());
+    int y=translator.translateLatitude(depot.getCity().getLatitude());
+    g.fillRect(x - 2,y - 2,5,5);
+  }
+  g.setColor(TangoColors.CHOCOLATE_1);
   for (  Journey journey : travelingSalesmanTour.getJourneyList()) {
     if (journey.getPreviousTerminal() != null) {
       City city1=journey.getPreviousTerminal().getCity();
