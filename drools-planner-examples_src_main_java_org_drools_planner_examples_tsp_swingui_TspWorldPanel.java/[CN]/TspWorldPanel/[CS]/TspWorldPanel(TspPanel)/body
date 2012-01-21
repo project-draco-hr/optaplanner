@@ -1,3 +1,9 @@
 {
   this.tspPanel=tspPanel;
+  addComponentListener(new ComponentAdapter(){
+    @Override public void componentResized(    ComponentEvent e){
+      resetPanel(TspWorldPanel.this.tspPanel.getTravelingSalesmanTour());
+    }
+  }
+);
 }
