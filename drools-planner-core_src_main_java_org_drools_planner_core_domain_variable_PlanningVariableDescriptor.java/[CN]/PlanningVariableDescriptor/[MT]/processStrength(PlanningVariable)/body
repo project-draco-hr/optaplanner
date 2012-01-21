@@ -1,0 +1,39 @@
+{
+  Class<? extends Comparator> strengthComparatorClass=planningVariableAnnotation.strengthComparatorClass();
+  if (strengthComparatorClass == PlanningVariable.NullStrengthComparator.class) {
+    strengthComparatorClass=null;
+  }
+  Class<? extends PlanningValueStrengthWeightFactory> strengthWeightFactoryClass=planningVariableAnnotation.strengthWeightFactoryClass();
+  if (strengthWeightFactoryClass == PlanningVariable.NullStrengthWeightFactory.class) {
+    strengthWeightFactoryClass=null;
+  }
+  if (strengthComparatorClass != null && strengthWeightFactoryClass != null) {
+    throw new IllegalStateException("The planningEntityClass (" + planningEntityDescriptor.getPlanningEntityClass() + ") property ("+ variablePropertyDescriptor.getName()+ ") cannot have a strengthComparatorClass ("+ strengthComparatorClass.getName()+ ") and a strengthWeightFactoryClass ("+ strengthWeightFactoryClass.getName()+ ") at the same time.");
+  }
+  if (strengthComparatorClass != null) {
+    Comparator<Object> strengthComparator;
+    try {
+      strengthComparator=strengthComparatorClass.newInstance();
+    }
+ catch (    InstantiationException e) {
+      throw new IllegalArgumentException("The strengthComparatorClass (" + strengthComparatorClass.getName() + ") does not have a public no-arg constructor",e);
+    }
+catch (    IllegalAccessException e) {
+      throw new IllegalArgumentException("The strengthComparatorClass (" + strengthComparatorClass.getName() + ") does not have a public no-arg constructor",e);
+    }
+    valueSorter.setStrengthComparator(strengthComparator);
+  }
+  if (strengthWeightFactoryClass != null) {
+    PlanningValueStrengthWeightFactory strengthWeightFactory;
+    try {
+      strengthWeightFactory=strengthWeightFactoryClass.newInstance();
+    }
+ catch (    InstantiationException e) {
+      throw new IllegalArgumentException("The strengthWeightFactoryClass (" + strengthWeightFactoryClass.getName() + ") does not have a public no-arg constructor",e);
+    }
+catch (    IllegalAccessException e) {
+      throw new IllegalArgumentException("The strengthWeightFactoryClass (" + strengthWeightFactoryClass.getName() + ") does not have a public no-arg constructor",e);
+    }
+    valueSorter.setStrengthWeightFactory(strengthWeightFactory);
+  }
+}

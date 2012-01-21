@@ -1,0 +1,17 @@
+{
+  excludeUninitializedPlanningEntity=valueRangeAnnotation.excludeUninitializedPlanningEntity();
+  if (excludeUninitializedPlanningEntity) {
+    Class<?> variablePropertyType=variableDescriptor.getVariablePropertyType();
+    Set<Class<?>> entityClassSet=variableDescriptor.getPlanningEntityDescriptor().getSolutionDescriptor().getPlanningEntityImplementationClassSet();
+    boolean assignableFrom=false;
+    for (    Class<?> entityClass : entityClassSet) {
+      if (variablePropertyType.isAssignableFrom(entityClass)) {
+        assignableFrom=true;
+        break;
+      }
+    }
+    if (!assignableFrom) {
+      throw new IllegalArgumentException("The planningEntityClass (" + variableDescriptor.getPlanningEntityDescriptor().getPlanningEntityClass() + ") has a PlanningVariable annotated property ("+ variableDescriptor.getVariablePropertyName()+ ") with excludeUninitializedPlanningEntity (true), but there is no planning entity class"+ " that extends the variablePropertyType ("+ variablePropertyType+ ").");
+    }
+  }
+}

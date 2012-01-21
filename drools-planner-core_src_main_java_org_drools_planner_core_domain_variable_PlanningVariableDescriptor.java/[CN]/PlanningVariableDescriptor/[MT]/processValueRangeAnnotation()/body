@@ -1,0 +1,21 @@
+{
+  Method propertyGetter=variablePropertyDescriptor.getReadMethod();
+  ValueRange valueRangeAnnotation=propertyGetter.getAnnotation(ValueRange.class);
+  ValueRanges valueRangesAnnotation=propertyGetter.getAnnotation(ValueRanges.class);
+  if (valueRangeAnnotation != null) {
+    if (valueRangesAnnotation != null) {
+      throw new IllegalArgumentException("The planningEntityClass (" + planningEntityDescriptor.getPlanningEntityClass() + ") has a PlanningVariable annotated property ("+ variablePropertyDescriptor.getName()+ ") that has a @ValueRange and @ValueRanges annotation: fold them into 1 @ValueRanges.");
+    }
+    valueRangeDescriptor=buildValueRangeDescriptor(valueRangeAnnotation);
+  }
+ else {
+    if (valueRangesAnnotation == null) {
+      throw new IllegalArgumentException("The planningEntityClass (" + planningEntityDescriptor.getPlanningEntityClass() + ") has a PlanningVariable annotated property ("+ variablePropertyDescriptor.getName()+ ") that has no @ValueRange or @ValueRanges annotation.");
+    }
+    List<PlanningValueRangeDescriptor> valueRangeDescriptorList=new ArrayList<PlanningValueRangeDescriptor>(valueRangesAnnotation.value().length);
+    for (    ValueRange partialValueRangeAnnotation : valueRangesAnnotation.value()) {
+      valueRangeDescriptorList.add(buildValueRangeDescriptor(partialValueRangeAnnotation));
+    }
+    valueRangeDescriptor=new CompositePlanningValueRangeDescriptor(this,valueRangeDescriptorList);
+  }
+}

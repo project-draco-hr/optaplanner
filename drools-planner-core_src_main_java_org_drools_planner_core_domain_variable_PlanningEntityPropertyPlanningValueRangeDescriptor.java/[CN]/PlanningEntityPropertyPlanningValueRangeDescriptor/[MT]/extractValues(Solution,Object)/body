@@ -1,3 +1,4 @@
 {
-  return (Collection<?>)DescriptorUtils.executeGetter(rangePropertyDescriptor,planningEntity);
+  Collection<?> values=extractValuesWithoutFiltering(planningEntity);
+  return applyFiltering(values);
 }
