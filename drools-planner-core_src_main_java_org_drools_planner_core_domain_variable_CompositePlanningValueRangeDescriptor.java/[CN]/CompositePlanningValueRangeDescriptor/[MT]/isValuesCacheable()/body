@@ -1,0 +1,8 @@
+{
+  for (  PlanningValueRangeDescriptor valueRangeDescriptor : valueRangeDescriptorList) {
+    if (!valueRangeDescriptor.isValuesCacheable()) {
+      return false;
+    }
+  }
+  return true;
+}

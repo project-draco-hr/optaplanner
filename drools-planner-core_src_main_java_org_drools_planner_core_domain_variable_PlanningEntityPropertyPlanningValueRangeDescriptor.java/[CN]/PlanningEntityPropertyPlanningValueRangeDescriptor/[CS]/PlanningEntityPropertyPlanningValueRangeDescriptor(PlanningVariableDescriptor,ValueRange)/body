@@ -1,0 +1,5 @@
+{
+  super(variableDescriptor);
+  validate(valueRangeAnnotation);
+  processValueRangeAnnotation(valueRangeAnnotation);
+}

@@ -1,0 +1,7 @@
+{
+  long problemScale=0L;
+  for (  PlanningValueRangeDescriptor valueRangeDescriptor : valueRangeDescriptorList) {
+    problemScale+=valueRangeDescriptor.getProblemScale(solution,planningEntity);
+  }
+  return problemScale;
+}

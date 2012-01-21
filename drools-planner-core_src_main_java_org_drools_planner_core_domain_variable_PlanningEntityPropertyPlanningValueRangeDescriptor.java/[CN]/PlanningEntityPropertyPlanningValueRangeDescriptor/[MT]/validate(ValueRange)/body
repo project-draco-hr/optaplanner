@@ -1,0 +1,8 @@
+{
+  if (!valueRangeAnnotation.solutionProperty().equals("")) {
+    throw new IllegalArgumentException("The planningEntityClass (" + variableDescriptor.getPlanningEntityDescriptor().getPlanningEntityClass() + ") has a PlanningVariable annotated property ("+ variableDescriptor.getVariablePropertyName()+ ") that with a non-empty solutionProperty ("+ valueRangeAnnotation.solutionProperty()+ ").");
+  }
+  if (valueRangeAnnotation.planningEntityProperty().equals("")) {
+    throw new IllegalArgumentException("The planningEntityClass (" + variableDescriptor.getPlanningEntityDescriptor().getPlanningEntityClass() + ") has a PlanningVariable annotated property ("+ variableDescriptor.getVariablePropertyName()+ ") that with an empty planningEntityProperty ("+ valueRangeAnnotation.planningEntityProperty()+ ").");
+  }
+}

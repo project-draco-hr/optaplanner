@@ -1,2 +1,2 @@
 PlanningVariableDescriptor variableDescriptor
-ValueRangeUndefined valueRangeUndefined
+ValueRange valueRangeAnnotation

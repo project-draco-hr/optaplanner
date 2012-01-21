@@ -1,0 +1,2 @@
+PlanningVariableDescriptor variableDescriptor
+List<PlanningValueRangeDescriptor> valueRangeDescriptorList

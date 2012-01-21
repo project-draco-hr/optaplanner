@@ -1,5 +1,5 @@
 {
-  String solutionPropertyName=valueRangeFromSolutionPropertyAnnotation.propertyName();
+  String solutionPropertyName=valueRangeAnnotation.solutionProperty();
   PlanningEntityDescriptor planningEntityDescriptor=variableDescriptor.getPlanningEntityDescriptor();
   rangePropertyDescriptor=planningEntityDescriptor.getSolutionDescriptor().getPropertyDescriptor(solutionPropertyName);
   if (rangePropertyDescriptor == null) {
