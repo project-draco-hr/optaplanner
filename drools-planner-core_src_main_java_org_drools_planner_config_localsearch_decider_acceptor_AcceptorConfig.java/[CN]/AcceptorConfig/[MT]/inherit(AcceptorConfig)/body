@@ -1,7 +1,4 @@
 {
-  if (acceptor == null) {
-    acceptor=inheritedConfig.getAcceptor();
-  }
   if (acceptorClass == null) {
     acceptorClass=inheritedConfig.getAcceptorClass();
   }

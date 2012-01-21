@@ -1,8 +1,5 @@
 {
   List<Acceptor> acceptorList=new ArrayList<Acceptor>();
-  if (acceptor != null) {
-    acceptorList.add(acceptor);
-  }
   if (acceptorClass != null) {
     try {
       acceptorList.add(acceptorClass.newInstance());

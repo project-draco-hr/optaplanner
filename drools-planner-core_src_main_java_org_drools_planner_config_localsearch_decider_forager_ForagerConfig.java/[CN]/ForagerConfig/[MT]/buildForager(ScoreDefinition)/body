@@ -1,8 +1,5 @@
 {
-  if (forager != null) {
-    return forager;
-  }
- else   if (foragerClass != null) {
+  if (foragerClass != null) {
     try {
       return foragerClass.newInstance();
     }

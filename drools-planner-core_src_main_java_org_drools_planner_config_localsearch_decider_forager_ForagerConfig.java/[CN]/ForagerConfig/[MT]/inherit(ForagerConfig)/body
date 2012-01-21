@@ -1,6 +1,5 @@
 {
-  if (forager == null && foragerClass == null && pickEarlyType == null && minimalAcceptedSelection == null) {
-    forager=inheritedConfig.getForager();
+  if (foragerClass == null && pickEarlyType == null && minimalAcceptedSelection == null) {
     foragerClass=inheritedConfig.getForagerClass();
     pickEarlyType=inheritedConfig.getPickEarlyType();
     minimalAcceptedSelection=inheritedConfig.getMinimalAcceptedSelection();
