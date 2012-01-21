@@ -1,7 +1,5 @@
 {
-  if (acceptorClass == null) {
-    acceptorClass=inheritedConfig.getAcceptorClass();
-  }
+  acceptorClassList=ConfigUtils.inheritMergeableListProperty(acceptorClassList,inheritedConfig.getAcceptorClassList());
   if (acceptorTypeList == null) {
     acceptorTypeList=inheritedConfig.getAcceptorTypeList();
   }

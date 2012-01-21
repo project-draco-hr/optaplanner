@@ -1,14 +1,16 @@
 {
   List<Acceptor> acceptorList=new ArrayList<Acceptor>();
-  if (acceptorClass != null) {
-    try {
-      acceptorList.add(acceptorClass.newInstance());
-    }
- catch (    InstantiationException e) {
-      throw new IllegalArgumentException("acceptorClass (" + acceptorClass.getName() + ") does not have a public no-arg constructor",e);
-    }
-catch (    IllegalAccessException e) {
-      throw new IllegalArgumentException("acceptorClass (" + acceptorClass.getName() + ") does not have a public no-arg constructor",e);
+  if (acceptorClassList != null) {
+    for (    Class<? extends Acceptor> acceptorClass : acceptorClassList) {
+      try {
+        acceptorList.add(acceptorClass.newInstance());
+      }
+ catch (      InstantiationException e) {
+        throw new IllegalArgumentException("acceptorClass (" + acceptorClass.getName() + ") does not have a public no-arg constructor",e);
+      }
+catch (      IllegalAccessException e) {
+        throw new IllegalArgumentException("acceptorClass (" + acceptorClass.getName() + ") does not have a public no-arg constructor",e);
+      }
     }
   }
   if ((acceptorTypeList != null && acceptorTypeList.contains(AcceptorType.MOVE_TABU)) || moveTabuSize != null || partialMoveTabuSize != null) {
