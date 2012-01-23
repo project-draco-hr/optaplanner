@@ -1,6 +1,6 @@
 {
   if (period == null) {
-    return -1;
+    return Integer.MIN_VALUE;
   }
   return period.getTimeslot().getTimeslotIndex();
 }
