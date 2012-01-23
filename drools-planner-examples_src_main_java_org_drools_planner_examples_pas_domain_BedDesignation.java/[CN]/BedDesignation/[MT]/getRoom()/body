@@ -1,3 +1,6 @@
 {
+  if (bed == null) {
+    return null;
+  }
   return bed.getRoom();
 }

@@ -1,3 +1,6 @@
 {
+  if (bed == null) {
+    return Integer.MIN_VALUE;
+  }
   return bed.getRoom().getCapacity();
 }

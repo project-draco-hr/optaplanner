@@ -1,3 +1,6 @@
 {
-  return getSeat().getTable();
+  if (seat == null) {
+    return null;
+  }
+  return seat.getTable();
 }

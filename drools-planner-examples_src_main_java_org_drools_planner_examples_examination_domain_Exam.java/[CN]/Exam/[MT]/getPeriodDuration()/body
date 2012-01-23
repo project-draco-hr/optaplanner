@@ -1,3 +1,6 @@
 {
-  return getPeriod().getDuration();
+  if (period == null) {
+    return Integer.MIN_VALUE;
+  }
+  return period.getDuration();
 }
