@@ -1,0 +1,20 @@
+{
+  List<Object> planningEntityList=new ArrayList<Object>();
+  for (  PropertyDescriptor entityPropertyDescriptor : entityPropertyDescriptorMap.values()) {
+    if (entityPropertyDescriptor.getPropertyType().isAssignableFrom(planningEntityClass)) {
+      Object entity=extractPlanningEntity(entityPropertyDescriptor,solution);
+      if (entity != null && planningEntityClass.isInstance(entity)) {
+        planningEntityList.add(entity);
+      }
+    }
+  }
+  for (  PropertyDescriptor entityCollectionPropertyDescriptor : entityCollectionPropertyDescriptorMap.values()) {
+    Collection<?> entityCollection=extractPlanningEntityCollection(entityCollectionPropertyDescriptor,solution);
+    for (    Object entity : entityCollection) {
+      if (planningEntityClass.isInstance(entity)) {
+        planningEntityList.add(entity);
+      }
+    }
+  }
+  return planningEntityList;
+}

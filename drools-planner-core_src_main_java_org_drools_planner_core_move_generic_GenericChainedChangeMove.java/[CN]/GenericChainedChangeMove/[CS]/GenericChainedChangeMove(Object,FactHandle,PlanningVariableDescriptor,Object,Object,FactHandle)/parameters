@@ -1,0 +1,6 @@
+Object planningEntity
+FactHandle planningEntityFactHandle
+PlanningVariableDescriptor planningVariableDescriptor
+Object toPlanningValue
+Object chainedEntity
+FactHandle chainedEntityFactHandle

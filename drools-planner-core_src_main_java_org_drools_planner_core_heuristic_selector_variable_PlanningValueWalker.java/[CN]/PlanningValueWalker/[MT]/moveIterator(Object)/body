@@ -1,16 +1,24 @@
 {
   final Iterator<?> planningValueIterator=planningValueSelector.iterator(planningEntity);
-  return new Iterator<Move>(){
-    public boolean hasNext(){
-      return planningValueIterator.hasNext();
-    }
-    public Move next(){
-      Object toPlanningValue=planningValueIterator.next();
-      return new GenericChangeMove(planningEntity,planningEntityFactHandle,planningVariableDescriptor,toPlanningValue);
-    }
-    public void remove(){
-      throw new UnsupportedOperationException();
-    }
+  if (!planningVariableDescriptor.isTriggerChainCorrection()) {
+    return new ChangeMoveIterator(planningValueIterator,planningEntity);
   }
-;
+ else {
+    Object chainedEntity=null;
+    PlanningEntityDescriptor entityDescriptor=planningVariableDescriptor.getPlanningEntityDescriptor();
+    SolutionDescriptor solutionDescriptor=entityDescriptor.getSolutionDescriptor();
+    for (    Object suspectedChainedEntity : solutionDescriptor.getPlanningEntityListByPlanningEntityClass(workingSolution,entityDescriptor.getPlanningEntityClass())) {
+      if (planningVariableDescriptor.getValue(suspectedChainedEntity) == planningEntity) {
+        if (chainedEntity != null) {
+          throw new IllegalStateException("The planningEntity (" + planningEntity + ") has multiple chained entities ("+ chainedEntity+ ") ("+ suspectedChainedEntity+ ") pointing to it.");
+        }
+        chainedEntity=suspectedChainedEntity;
+      }
+    }
+    if (chainedEntity == null) {
+      return new ChangeMoveIterator(planningValueIterator,planningEntity);
+    }
+    FactHandle chainedEntityFactHandle=workingMemory.getFactHandle(chainedEntity);
+    return new ChainedChangeMoveIterator(planningValueIterator,planningEntity,chainedEntity,chainedEntityFactHandle);
+  }
 }

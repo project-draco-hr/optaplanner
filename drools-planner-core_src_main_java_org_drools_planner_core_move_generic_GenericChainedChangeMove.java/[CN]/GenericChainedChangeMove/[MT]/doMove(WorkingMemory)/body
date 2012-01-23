@@ -1,0 +1,7 @@
+{
+  Object oldPlanningValue=planningVariableDescriptor.getValue(planningEntity);
+  planningVariableDescriptor.setValue(planningEntity,toPlanningValue);
+  workingMemory.update(planningEntityFactHandle,planningEntity);
+  planningVariableDescriptor.setValue(chainedEntity,oldPlanningValue);
+  workingMemory.update(chainedEntityFactHandle,chainedEntity);
+}

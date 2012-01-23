@@ -1,4 +1,5 @@
 {
   planningValueSelector.phaseStarted(solverPhaseScope);
   workingMemory=solverPhaseScope.getWorkingMemory();
+  workingSolution=solverPhaseScope.getWorkingSolution();
 }

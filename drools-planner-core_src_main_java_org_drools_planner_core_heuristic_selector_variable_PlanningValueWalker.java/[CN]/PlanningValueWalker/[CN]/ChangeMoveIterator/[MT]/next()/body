@@ -1,0 +1,4 @@
+{
+  Object toPlanningValue=planningValueIterator.next();
+  return new GenericChangeMove(planningEntity,planningEntityFactHandle,planningVariableDescriptor,toPlanningValue);
+}

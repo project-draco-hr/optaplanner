@@ -1,0 +1,4 @@
+{
+  this.planningValueIterator=planningValueIterator;
+  this.planningEntity=planningEntity;
+}
