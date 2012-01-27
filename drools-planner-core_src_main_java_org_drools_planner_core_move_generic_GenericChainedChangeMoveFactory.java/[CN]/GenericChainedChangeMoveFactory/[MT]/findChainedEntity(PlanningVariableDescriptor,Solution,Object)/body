@@ -1,0 +1,14 @@
+{
+  Object chainedEntity=null;
+  PlanningEntityDescriptor entityDescriptor=planningVariableDescriptor.getPlanningEntityDescriptor();
+  SolutionDescriptor solutionDescriptor=entityDescriptor.getSolutionDescriptor();
+  for (  Object suspectedChainedEntity : solutionDescriptor.getPlanningEntityListByPlanningEntityClass(solution,entityDescriptor.getPlanningEntityClass())) {
+    if (planningVariableDescriptor.getValue(suspectedChainedEntity) == planningEntity) {
+      if (chainedEntity != null) {
+        throw new IllegalStateException("The planningEntity (" + planningEntity + ") has multiple chained entities ("+ chainedEntity+ ") ("+ suspectedChainedEntity+ ") pointing to it.");
+      }
+      chainedEntity=suspectedChainedEntity;
+    }
+  }
+  return chainedEntity;
+}

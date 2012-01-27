@@ -1,0 +1,4 @@
+{
+  solutionDescriptor=localSearchSolverPhaseScope.getSolutionDescriptor();
+  solutionDirector=localSearchSolverPhaseScope.getSolutionDirector();
+}
