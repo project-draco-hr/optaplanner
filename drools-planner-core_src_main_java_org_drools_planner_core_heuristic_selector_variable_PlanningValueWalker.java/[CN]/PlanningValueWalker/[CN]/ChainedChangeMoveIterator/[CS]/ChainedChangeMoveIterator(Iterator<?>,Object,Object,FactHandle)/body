@@ -1,5 +1,5 @@
 {
   super(planningValueIterator,planningEntity);
-  this.chainedEntity=chainedEntity;
-  this.chainedEntityFactHandle=chainedEntityFactHandle;
+  this.oldChainedEntity=oldChainedEntity;
+  this.oldChainedEntityFactHandle=oldChainedEntityFactHandle;
 }

@@ -1,5 +1,0 @@
-{
-  super(planningEntity,planningEntityFactHandle,planningVariableDescriptor,toPlanningValue);
-  this.chainedEntity=chainedEntity;
-  this.chainedEntityFactHandle=chainedEntityFactHandle;
-}

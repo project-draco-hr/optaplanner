@@ -4,21 +4,8 @@
     return new ChangeMoveIterator(planningValueIterator,planningEntity);
   }
  else {
-    Object chainedEntity=null;
-    PlanningEntityDescriptor entityDescriptor=planningVariableDescriptor.getPlanningEntityDescriptor();
-    SolutionDescriptor solutionDescriptor=entityDescriptor.getSolutionDescriptor();
-    for (    Object suspectedChainedEntity : solutionDescriptor.getPlanningEntityListByPlanningEntityClass(workingSolution,entityDescriptor.getPlanningEntityClass())) {
-      if (planningVariableDescriptor.getValue(suspectedChainedEntity) == planningEntity) {
-        if (chainedEntity != null) {
-          throw new IllegalStateException("The planningEntity (" + planningEntity + ") has multiple chained entities ("+ chainedEntity+ ") ("+ suspectedChainedEntity+ ") pointing to it.");
-        }
-        chainedEntity=suspectedChainedEntity;
-      }
-    }
-    if (chainedEntity == null) {
-      return new ChangeMoveIterator(planningValueIterator,planningEntity);
-    }
-    FactHandle chainedEntityFactHandle=workingMemory.getFactHandle(chainedEntity);
-    return new ChainedChangeMoveIterator(planningValueIterator,planningEntity,chainedEntity,chainedEntityFactHandle);
+    Object oldChainedEntity=findChainedEntity(planningEntity);
+    FactHandle oldChainedEntityFactHandle=oldChainedEntity == null ? null : workingMemory.getFactHandle(oldChainedEntity);
+    return new ChainedChangeMoveIterator(planningValueIterator,planningEntity,oldChainedEntity,oldChainedEntityFactHandle);
   }
 }

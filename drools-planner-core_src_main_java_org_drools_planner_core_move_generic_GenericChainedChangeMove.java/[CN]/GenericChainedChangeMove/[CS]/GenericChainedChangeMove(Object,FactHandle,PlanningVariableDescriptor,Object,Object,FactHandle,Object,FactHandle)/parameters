@@ -2,5 +2,7 @@ Object planningEntity
 FactHandle planningEntityFactHandle
 PlanningVariableDescriptor planningVariableDescriptor
 Object toPlanningValue
-Object chainedEntity
-FactHandle chainedEntityFactHandle
+Object oldChainedEntity
+FactHandle oldChainedEntityFactHandle
+Object newChainedEntity
+FactHandle newChainedEntityFactHandle
