@@ -2,12 +2,12 @@
   Object oldPlanningValue=planningVariableDescriptor.getValue(planningEntity);
   planningVariableDescriptor.setValue(planningEntity,toPlanningValue);
   workingMemory.update(planningEntityFactHandle,planningEntity);
-  if (oldPlanningValue != null) {
+  if (oldChainedEntity != null) {
     planningVariableDescriptor.setValue(oldChainedEntity,oldPlanningValue);
     workingMemory.update(oldChainedEntityFactHandle,oldChainedEntity);
   }
   if (newChainedEntity != null) {
-    planningVariableDescriptor.setValue(newChainedEntity,toPlanningValue);
+    planningVariableDescriptor.setValue(newChainedEntity,planningEntity);
     workingMemory.update(newChainedEntityFactHandle,newChainedEntity);
   }
 }
