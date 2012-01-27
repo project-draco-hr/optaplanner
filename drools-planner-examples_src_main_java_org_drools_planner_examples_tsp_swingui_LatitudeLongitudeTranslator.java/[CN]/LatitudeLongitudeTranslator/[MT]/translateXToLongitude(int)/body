@@ -1,0 +1,3 @@
+{
+  return minimumLongitude + (((double)x) * longitudeLength / adjustedWidth);
+}

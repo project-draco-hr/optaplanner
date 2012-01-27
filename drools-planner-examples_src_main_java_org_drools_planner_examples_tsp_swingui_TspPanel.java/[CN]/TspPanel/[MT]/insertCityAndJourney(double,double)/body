@@ -1,0 +1,27 @@
+{
+  final City newCity=new City();
+  Long cityId=0L;
+  for (  City city : getTravelingSalesmanTour().getCityList()) {
+    if (cityId <= city.getId()) {
+      cityId=city.getId() + 1L;
+    }
+  }
+  newCity.setId(cityId);
+  newCity.setLongitude(longitude);
+  newCity.setLatitude(latitude);
+  logger.info("Scheduling insertion of newCity ({}).",newCity);
+  solutionBusiness.doProblemFactChange(new ProblemFactChange(){
+    public void doChange(    SolutionDirector solutionDirector){
+      TravelingSalesmanTour solution=(TravelingSalesmanTour)solutionDirector.getWorkingSolution();
+      WorkingMemory workingMemory=solutionDirector.getWorkingMemory();
+      solution.getCityList().add(newCity);
+      workingMemory.insert(newCity);
+      Journey newJourney=new Journey();
+      newJourney.setId(newCity.getId());
+      newJourney.setCity(newCity);
+      solution.getJourneyList().add(newJourney);
+    }
+  }
+);
+  updatePanel(solutionBusiness.getSolution());
+}
