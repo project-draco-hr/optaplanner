@@ -1,22 +1,26 @@
 {
   List<Move> moveList=new ArrayList<Move>();
+  Solution workingSolution=solutionDirector.getWorkingSolution();
   WorkingMemory workingMemory=solutionDirector.getWorkingMemory();
-  for (  Object planningEntity : solutionDescriptor.getPlanningEntityList(solution)) {
-    FactHandle planningEntityFactHandle=workingMemory.getFactHandle(planningEntity);
-    PlanningEntityDescriptor planningEntityDescriptor=solutionDescriptor.getPlanningEntityDescriptor(planningEntity.getClass());
-    for (    PlanningVariableDescriptor planningVariableDescriptor : planningEntityDescriptor.getPlanningVariableDescriptors()) {
-      if (!planningVariableDescriptor.isTriggerChainCorrection()) {
-        for (        Object toPlanningValue : planningVariableDescriptor.extractPlanningValues(solutionDirector.getWorkingSolution(),planningEntity)) {
-          moveList.add(new GenericChangeMove(planningEntity,planningEntityFactHandle,planningVariableDescriptor,toPlanningValue));
+  for (  PlanningEntityDescriptor entityDescriptor : solutionDescriptor.getPlanningEntityDescriptors()) {
+    for (    PlanningVariableDescriptor variableDescriptor : entityDescriptor.getPlanningVariableDescriptors()) {
+      Map<Object,List<Object>> variableToEntitiesMap=solutionDirector.getVariableToEntitiesMap(variableDescriptor);
+      List<Object> entityList=solutionDescriptor.getPlanningEntityListByPlanningEntityClass(workingSolution,variableDescriptor.getPlanningEntityDescriptor().getPlanningEntityClass());
+      for (      Object entity : entityList) {
+        FactHandle entityFactHandle=workingMemory.getFactHandle(entity);
+        if (!variableDescriptor.isTriggerChainCorrection()) {
+          for (          Object toPlanningValue : variableDescriptor.extractPlanningValues(workingSolution,entity)) {
+            moveList.add(new GenericChangeMove(entity,entityFactHandle,variableDescriptor,toPlanningValue));
+          }
         }
-      }
  else {
-        Object oldChainedEntity=findChainedEntity(planningVariableDescriptor,solution,planningEntity);
-        FactHandle oldChainedEntityFactHandle=oldChainedEntity == null ? null : workingMemory.getFactHandle(oldChainedEntity);
-        for (        Object toPlanningValue : planningVariableDescriptor.extractPlanningValues(solutionDirector.getWorkingSolution(),planningEntity)) {
-          Object newChainedEntity=findChainedEntity(planningVariableDescriptor,solution,toPlanningValue);
-          FactHandle newChainedEntityFactHandle=newChainedEntity == null ? null : workingMemory.getFactHandle(newChainedEntity);
-          moveList.add(new GenericChainedChangeMove(planningEntity,planningEntityFactHandle,planningVariableDescriptor,toPlanningValue,oldChainedEntity,oldChainedEntityFactHandle,newChainedEntity,newChainedEntityFactHandle));
+          Object oldChainedEntity=findChainedEntity(variableToEntitiesMap,entity);
+          FactHandle oldChainedEntityFactHandle=oldChainedEntity == null ? null : workingMemory.getFactHandle(oldChainedEntity);
+          for (          Object toPlanningValue : variableDescriptor.extractPlanningValues(workingSolution,entity)) {
+            Object newChainedEntity=findChainedEntity(variableToEntitiesMap,toPlanningValue);
+            FactHandle newChainedEntityFactHandle=newChainedEntity == null ? null : workingMemory.getFactHandle(newChainedEntity);
+            moveList.add(new GenericChainedChangeMove(entity,entityFactHandle,variableDescriptor,toPlanningValue,oldChainedEntity,oldChainedEntityFactHandle,newChainedEntity,newChainedEntityFactHandle));
+          }
         }
       }
     }

@@ -1,0 +1,10 @@
+{
+  List<Object> chainedEntities=variableToEntitiesMap.get(planningValue);
+  if (chainedEntities == null) {
+    return null;
+  }
+  if (chainedEntities.size() > 1) {
+    throw new IllegalStateException("The planningValue (" + planningValue + ") has multiple chained entities ("+ chainedEntities+ ") pointing to it.");
+  }
+  return chainedEntities.get(0);
+}
