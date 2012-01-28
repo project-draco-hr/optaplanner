@@ -1,12 +1,16 @@
 {
   latitudeLength=maximumLatitude - minimumLatitude;
   longitudeLength=maximumLongitude - minimumLongitude;
-  if (width > height * longitudeLength / latitudeLength) {
-    adjustedWidth=height * longitudeLength / latitudeLength;
-    adjustedHeight=height;
+  innerWidthMargin=width * MARGIN_RATIO;
+  innerHeightMargin=height * MARGIN_RATIO;
+  innerWidth=width - (2.0 * innerWidthMargin);
+  innerHeight=height - (2.0 * innerHeightMargin);
+  if (innerWidth > innerHeight * longitudeLength / latitudeLength) {
+    innerWidth=innerHeight * longitudeLength / latitudeLength;
   }
  else {
-    adjustedWidth=width;
-    adjustedHeight=width * latitudeLength / longitudeLength;
+    innerHeight=innerWidth * latitudeLength / longitudeLength;
   }
+  imageWidth=(int)Math.floor((2.0 * innerWidthMargin) + innerWidth);
+  imageHeight=(int)Math.floor((2.0 * innerHeightMargin) + innerHeight);
 }

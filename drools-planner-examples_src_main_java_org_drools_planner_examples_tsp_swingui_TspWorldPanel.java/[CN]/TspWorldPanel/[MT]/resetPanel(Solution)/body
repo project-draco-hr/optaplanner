@@ -9,13 +9,17 @@
   double height=size.getHeight();
   translator.prepareFor(width,height);
   Graphics g=createCanvas(width,height);
-  g.setColor(TangoColors.SKY_BLUE_1);
+  String tourName=travelingSalesmanTour.getName();
+  if (tourName.startsWith("europe")) {
+    g.drawImage(europaBackground.getImage(),0,0,translator.getImageWidth(),translator.getImageHeight(),this);
+  }
+  g.setColor(TangoColors.PLUM_2);
   for (  City city : travelingSalesmanTour.getCityList()) {
     int x=translator.translateLongitudeToX(city.getLongitude());
     int y=translator.translateLatitudeToY(city.getLatitude());
     g.fillRect(x - 1,y - 1,3,3);
   }
-  g.setColor(TangoColors.SCARLET_1);
+  g.setColor(TangoColors.SCARLET_2);
   for (  Depot depot : travelingSalesmanTour.getDepotList()) {
     int x=translator.translateLongitudeToX(depot.getCity().getLongitude());
     int y=translator.translateLatitudeToY(depot.getCity().getLatitude());

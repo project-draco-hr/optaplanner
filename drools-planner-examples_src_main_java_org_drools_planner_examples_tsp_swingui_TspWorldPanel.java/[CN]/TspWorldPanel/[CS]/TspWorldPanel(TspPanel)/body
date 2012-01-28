@@ -19,4 +19,5 @@
     }
   }
 );
+  europaBackground=new ImageIcon(getClass().getResource("/org/drools/planner/examples/tsp/swingui/europaBackground.png"));
 }
