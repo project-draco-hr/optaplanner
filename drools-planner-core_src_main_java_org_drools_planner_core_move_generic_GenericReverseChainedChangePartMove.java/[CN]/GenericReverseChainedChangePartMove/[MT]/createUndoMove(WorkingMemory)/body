@@ -1,0 +1,6 @@
+{
+  Object oldFirstPlanningValue=planningVariableDescriptor.getValue(firstEntity);
+  ArrayList<Object> reversedEntitiesSubChain=new ArrayList<Object>(entitiesSubChain);
+  Collections.reverse(reversedEntitiesSubChain);
+  return new GenericReverseChainedChangePartMove(reversedEntitiesSubChain,planningVariableDescriptor,oldFirstPlanningValue,newChainedEntity,newChainedEntityFactHandle,oldChainedEntity,oldChainedEntityFactHandle);
+}

@@ -1,0 +1,11 @@
+{
+  this.entitiesSubChain=entitiesSubChain;
+  this.planningVariableDescriptor=planningVariableDescriptor;
+  this.toPlanningValue=toPlanningValue;
+  this.oldChainedEntity=oldChainedEntity;
+  this.oldChainedEntityFactHandle=oldChainedEntityFactHandle;
+  this.newChainedEntity=newChainedEntity;
+  this.newChainedEntityFactHandle=newChainedEntityFactHandle;
+  firstEntity=this.entitiesSubChain.get(0);
+  lastEntity=this.entitiesSubChain.get(entitiesSubChain.size() - 1);
+}
