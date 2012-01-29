@@ -1,5 +1,5 @@
 {
-  List<Object> entityList=solutionDescriptor.getPlanningEntityListByPlanningEntityClass(workingSolution,variableDescriptor.getPlanningEntityDescriptor().getPlanningEntityClass());
+  List<Object> entityList=variableDescriptor.getPlanningEntityDescriptor().extractEntities(workingSolution);
   Map<Object,List<Object>> variableToEntitiesMap=new HashMap<Object,List<Object>>(entityList.size());
   for (  Object entity : entityList) {
     Object variable=variableDescriptor.getValue(entity);
