@@ -1,3 +1,3 @@
 {
-  return city.toString();
+  return city + "(after " + (previousTerminal == null ? "null" : previousTerminal.getCity())+ ")";
 }
