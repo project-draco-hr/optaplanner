@@ -1,0 +1,52 @@
+{
+  List<Move> moveList=new ArrayList<Move>();
+  Solution workingSolution=solutionDirector.getWorkingSolution();
+  WorkingMemory workingMemory=solutionDirector.getWorkingMemory();
+  for (  PlanningEntityDescriptor entityDescriptor : solutionDescriptor.getPlanningEntityDescriptors()) {
+    for (    PlanningVariableDescriptor variableDescriptor : entityDescriptor.getPlanningVariableDescriptors()) {
+      if (variableDescriptor.isTriggerChainCorrection()) {
+        Map<Object,List<Object>> variableToEntitiesMap=solutionDirector.getVariableToEntitiesMap(variableDescriptor);
+        Collection<?> values=variableDescriptor.extractAllPlanningValues(workingSolution);
+        for (        Object value : values) {
+          if (!entityDescriptor.getPlanningEntityClass().isAssignableFrom(value.getClass())) {
+            List<Object> valueWithEntitiesChain=new ArrayList<Object>(values.size());
+            valueWithEntitiesChain.add(value);
+            List<Object> chainedEntities=variableToEntitiesMap.get(value);
+            while (chainedEntities != null) {
+              if (chainedEntities.size() > 1) {
+                throw new IllegalStateException("The planningValue (" + value + ") has multiple chained entities ("+ chainedEntities+ ") pointing to it.");
+              }
+              Object chainedEntity=chainedEntities.get(0);
+              valueWithEntitiesChain.add(chainedEntity);
+              chainedEntities=variableToEntitiesMap.get(chainedEntity);
+            }
+            for (int fromIndex=1; fromIndex < valueWithEntitiesChain.size(); fromIndex++) {
+              Object oldToValue=valueWithEntitiesChain.get(fromIndex - 1);
+              for (int toIndex=fromIndex + 2; toIndex <= valueWithEntitiesChain.size(); toIndex++) {
+                List<Object> entitiesSubChain=valueWithEntitiesChain.subList(fromIndex,toIndex);
+                Object oldChainedEntity;
+                FactHandle oldChainedEntityFactHandle;
+                if (toIndex < valueWithEntitiesChain.size()) {
+                  oldChainedEntity=valueWithEntitiesChain.get(toIndex);
+                  oldChainedEntityFactHandle=workingMemory.getFactHandle(oldChainedEntity);
+                }
+ else {
+                  oldChainedEntity=null;
+                  oldChainedEntityFactHandle=null;
+                }
+                for (                Object toValue : values) {
+                  if (!entitiesSubChain.contains(toValue) && !oldToValue.equals((toValue))) {
+                    Object newChainedEntity=findChainedEntity(variableToEntitiesMap,toValue);
+                    FactHandle newChainedEntityFactHandle=newChainedEntity == null ? null : workingMemory.getFactHandle(newChainedEntity);
+                    moveList.add(new GenericChainedChangePartMove(entitiesSubChain,variableDescriptor,toValue,oldChainedEntity,oldChainedEntityFactHandle,newChainedEntity,newChainedEntityFactHandle));
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  return moveList;
+}

@@ -1,0 +1,5 @@
+{
+  super.phaseEnded(localSearchSolverPhaseScope);
+  solutionDescriptor=null;
+  solutionDirector=null;
+}

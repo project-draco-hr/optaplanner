@@ -1,0 +1,15 @@
+{
+  Object oldFirstPlanningValue=planningVariableDescriptor.getValue(firstEntity);
+  planningVariableDescriptor.setValue(firstEntity,toPlanningValue);
+  for (  Object entity : entitiesSubChain) {
+    workingMemory.update(workingMemory.getFactHandle(entity),entity);
+  }
+  if (oldChainedEntity != null) {
+    planningVariableDescriptor.setValue(oldChainedEntity,oldFirstPlanningValue);
+    workingMemory.update(oldChainedEntityFactHandle,oldChainedEntity);
+  }
+  if (newChainedEntity != null) {
+    planningVariableDescriptor.setValue(newChainedEntity,lastEntity);
+    workingMemory.update(newChainedEntityFactHandle,newChainedEntity);
+  }
+}
