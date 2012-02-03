@@ -3,7 +3,7 @@
   clone.id=id;
   clone.name=name;
   clone.cityList=cityList;
-  clone.depotList=depotList;
+  clone.domicileList=domicileList;
   List<Visit> clonedVisitList=new ArrayList<Visit>(visitList.size());
   Map<Long,Visit> idToClonedVisitMap=new HashMap<Long,Visit>(visitList.size());
   for (  Visit visit : visitList) {
