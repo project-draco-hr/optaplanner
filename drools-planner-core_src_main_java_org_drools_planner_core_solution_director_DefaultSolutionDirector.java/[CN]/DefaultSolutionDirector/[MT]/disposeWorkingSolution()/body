@@ -1,5 +1,6 @@
 {
   if (workingMemory != null) {
     workingMemory.dispose();
+    workingMemory=null;
   }
 }

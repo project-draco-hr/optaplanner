@@ -1,6 +1,5 @@
 {
   bestSolutionRecaller.solvingEnded(solverScope);
-  ;
   long timeMillisSpend=solverScope.calculateTimeMillisSpend();
   if (timeMillisSpend == 0L) {
     timeMillisSpend=1L;

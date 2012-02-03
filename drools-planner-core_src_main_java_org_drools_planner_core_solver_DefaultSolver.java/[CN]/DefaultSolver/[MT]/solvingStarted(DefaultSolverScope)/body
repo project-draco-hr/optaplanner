@@ -1,5 +1,5 @@
 {
-  if (solverScope.getSolutionDirector().getWorkingSolution() == null) {
+  if (solverScope.getBestSolution() == null) {
     throw new IllegalStateException("The planningProblem must not be null." + " Use Solver.setPlanningProblem(Solution).");
   }
   solverScope.reset();
@@ -9,6 +9,7 @@
  else {
     solverScope.setWorkingRandom(new Random());
   }
+  solverScope.setWorkingSolutionFromBestSolution();
   bestSolutionRecaller.solvingStarted(solverScope);
   logger.info("Solving started: time spend ({}), score ({}), new best score ({}), random seed ({}).",new Object[]{solverScope.calculateTimeMillisSpend(),solverScope.getStartingInitializedScore(),solverScope.getBestScore(),(randomSeed != null ? randomSeed : "not fixed")});
 }

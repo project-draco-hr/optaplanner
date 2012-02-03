@@ -1,0 +1,8 @@
+{
+  Solution solution=solutionBusiness.getSolution();
+  if (refreshScreenDuringSolvingCheckBox.isSelected()) {
+    solutionPanel.updatePanel(solution);
+    validate();
+  }
+  resultLabel.setText("Latest best score: " + solution.getScore());
+}

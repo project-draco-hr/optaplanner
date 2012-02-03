@@ -3,5 +3,8 @@
   while (!termination.isSolverTerminated(solverScope) && it.hasNext()) {
     SolverPhase solverPhase=it.next();
     solverPhase.solve(solverScope);
+    if (it.hasNext()) {
+      solverScope.setWorkingSolutionFromBestSolution();
+    }
   }
 }

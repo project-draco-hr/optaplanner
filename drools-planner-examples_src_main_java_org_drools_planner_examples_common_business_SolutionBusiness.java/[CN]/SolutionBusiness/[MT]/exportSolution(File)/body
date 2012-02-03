@@ -1,4 +1,4 @@
 {
-  Solution solution=solverScope.getWorkingSolution();
+  Solution solution=guiSolutionDirector.getWorkingSolution();
   exporter.writeSolution(solution,file);
 }

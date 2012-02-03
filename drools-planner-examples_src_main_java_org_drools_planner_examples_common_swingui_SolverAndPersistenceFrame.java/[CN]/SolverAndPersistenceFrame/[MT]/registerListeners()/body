@@ -1,23 +1,5 @@
 {
-  solutionBusiness.addSolverEventLister(new SolverEventListener(){
-    public void bestSolutionChanged(    BestSolutionChangedEvent event){
-      latestBestSolutionReference.getAndSet(event.getNewBestSolution());
-      SwingUtilities.invokeLater(new Runnable(){
-        public void run(){
-          Solution latestBestSolution=latestBestSolutionReference.getAndSet(null);
-          if (latestBestSolution != null) {
-            if (refreshScreenDuringSolvingCheckBox.isSelected()) {
-              solutionPanel.updatePanel(solutionBusiness.getSolution());
-              validate();
-            }
-            resultLabel.setText("Latest best score: " + latestBestSolution.getScore());
-          }
-        }
-      }
-);
-    }
-  }
-);
+  solutionBusiness.registerForBestSolutionChanges(this);
   addWindowListener(new WindowAdapter(){
     public void windowClosing(    WindowEvent e){
       solutionBusiness.terminateSolvingEarly();

@@ -1,4 +1,4 @@
 {
   Solution solution=importer.readSolution(file);
-  solver.setPlanningProblem(solution);
+  guiSolutionDirector.setWorkingSolution(solution);
 }

@@ -1,4 +1,4 @@
 {
   this.solver=solver;
-  this.solverScope=((DefaultSolver)solver).getSolverScope();
+  this.guiSolutionDirector=((DefaultSolver)solver).getSolverScope().getSolutionDirector().cloneWithoutWorkingSolution();
 }

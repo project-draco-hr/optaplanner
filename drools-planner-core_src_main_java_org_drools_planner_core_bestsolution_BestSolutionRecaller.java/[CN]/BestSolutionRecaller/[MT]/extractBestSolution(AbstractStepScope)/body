@@ -18,8 +18,6 @@
   if (bestScoreImproved) {
     solverPhaseScope.setBestSolutionStepIndex(stepScope.getStepIndex());
     Solution newBestSolution=stepScope.createOrGetClonedSolution();
-    solverScope.setBestSolution(newBestSolution);
-    solverScope.setBestScore(newBestSolution.getScore());
-    solverEventSupport.fireBestSolutionChanged(newBestSolution);
+    updateBestSolution(solverScope,newBestSolution);
   }
 }

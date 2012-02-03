@@ -1,8 +1,0 @@
-{
-  DefaultSolutionDirector uncorruptedSolutionDirector=new DefaultSolutionDirector();
-  uncorruptedSolutionDirector.setSolutionDescriptor(solutionDescriptor);
-  uncorruptedSolutionDirector.setRuleBase(ruleBase);
-  uncorruptedSolutionDirector.setScoreDefinition(scoreDefinition);
-  uncorruptedSolutionDirector.setWorkingSolution(workingSolution);
-  return uncorruptedSolutionDirector;
-}
