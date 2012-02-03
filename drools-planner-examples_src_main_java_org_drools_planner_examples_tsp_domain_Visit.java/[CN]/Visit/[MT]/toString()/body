@@ -1,3 +1,3 @@
 {
-  return city + "(after " + (previousTerminal == null ? "null" : previousTerminal.getCity())+ ")";
+  return city + "(after " + (previousAppearance == null ? "null" : previousAppearance.getCity())+ ")";
 }

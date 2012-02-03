@@ -1,6 +1,0 @@
-{
-  if (previousTerminal == null) {
-    return 0;
-  }
-  return getDistanceTo(previousTerminal);
-}

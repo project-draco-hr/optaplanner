@@ -2,6 +2,6 @@
   Visit clone=new Visit();
   clone.id=id;
   clone.city=city;
-  clone.previousTerminal=previousTerminal;
+  clone.previousAppearance=previousAppearance;
   return clone;
 }
