@@ -8,12 +8,20 @@
     workingMemory.update(workingMemory.getFactHandle(previousEntity),previousEntity);
     previousEntity=entity;
   }
-  if (oldChainedEntity != null) {
-    planningVariableDescriptor.setValue(oldChainedEntity,oldFirstPlanningValue);
-    workingMemory.update(oldChainedEntityFactHandle,oldChainedEntity);
+  if (firstEntity.equals(newChainedEntity)) {
+    if (oldChainedEntity != null) {
+      planningVariableDescriptor.setValue(oldChainedEntity,firstEntity);
+      workingMemory.update(oldChainedEntityFactHandle,oldChainedEntity);
+    }
   }
-  if (newChainedEntity != null) {
-    planningVariableDescriptor.setValue(newChainedEntity,firstEntity);
-    workingMemory.update(newChainedEntityFactHandle,newChainedEntity);
+ else {
+    if (oldChainedEntity != null) {
+      planningVariableDescriptor.setValue(oldChainedEntity,oldFirstPlanningValue);
+      workingMemory.update(oldChainedEntityFactHandle,oldChainedEntity);
+    }
+    if (newChainedEntity != null) {
+      planningVariableDescriptor.setValue(newChainedEntity,firstEntity);
+      workingMemory.update(newChainedEntityFactHandle,newChainedEntity);
+    }
   }
 }
