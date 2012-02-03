@@ -16,4 +16,5 @@
   progressBar.setStringPainted(solving);
   progressBar.setString(solving ? "Solving..." : null);
   showConstraintScoreMapDialogAction.setEnabled(!solving);
+  solutionPanel.setSolvingState(solving);
 }

@@ -1,0 +1,6 @@
+{
+  if (name == null) {
+    return id.toString();
+  }
+  return name;
+}

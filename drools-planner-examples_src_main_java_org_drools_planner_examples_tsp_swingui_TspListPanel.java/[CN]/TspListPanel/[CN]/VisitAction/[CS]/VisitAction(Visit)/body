@@ -1,4 +1,4 @@
 {
-  super(visit.getCity().toString());
+  super(visit.getCity().getSafeName());
   this.visit=visit;
 }

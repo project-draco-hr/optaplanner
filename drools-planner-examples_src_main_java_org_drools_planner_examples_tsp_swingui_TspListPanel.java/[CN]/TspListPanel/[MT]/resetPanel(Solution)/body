@@ -6,6 +6,10 @@
   headerLabel.setBackground(HEADER_COLOR);
   headerLabel.setOpaque(true);
   add(headerLabel);
+  for (  Domicile domicile : travelingSalesmanTour.getDomicileList()) {
+    JLabel domicileLabel=new JLabel(domicile.getCity().getSafeName());
+    add(domicileLabel);
+  }
   for (  Visit visit : travelingSalesmanTour.getVisitList()) {
     JPanel visitPanel=new JPanel(new GridLayout(1,2));
     JButton button=new JButton(new VisitAction(visit));
@@ -15,7 +19,7 @@
       distanceLabelString="Unassigned";
     }
  else {
-      distanceLabelString="Distance from previous: " + visit.getDistanceToPreviousAppearance();
+      distanceLabelString="After " + visit.getPreviousAppearance().getCity().getSafeName() + " with distance "+ visit.getDistanceToPreviousAppearance();
     }
     visitPanel.add(new JLabel(distanceLabelString));
     add(visitPanel);
