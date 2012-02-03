@@ -16,10 +16,10 @@
       WorkingMemory workingMemory=solutionDirector.getWorkingMemory();
       solution.getCityList().add(newCity);
       workingMemory.insert(newCity);
-      Journey newJourney=new Journey();
-      newJourney.setId(newCity.getId());
-      newJourney.setCity(newCity);
-      solution.getJourneyList().add(newJourney);
+      Visit newVisit=new Visit();
+      newVisit.setId(newCity.getId());
+      newVisit.setCity(newCity);
+      solution.getVisitList().add(newVisit);
     }
   }
 );

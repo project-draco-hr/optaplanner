@@ -1,4 +1,0 @@
-{
-  super(journey.getCity().toString());
-  this.journey=journey;
-}

@@ -4,7 +4,7 @@
   readHeaders();
   readCityList();
   readConstantLine("EOF");
-  createJourneyList();
+  createVisitList();
   logger.info("TravelingSalesmanTour with {} cities.",travelingSalesmanTour.getCityList().size());
   BigInteger possibleSolutionSize=factorial(travelingSalesmanTour.getCityList().size() - 1);
   String flooredPossibleSolutionSize="10^" + (possibleSolutionSize.toString().length() - 1);

@@ -1,0 +1,4 @@
+{
+  super(visit.getCity().toString());
+  this.visit=visit;
+}

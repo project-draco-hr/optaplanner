@@ -4,21 +4,21 @@
   clone.name=name;
   clone.cityList=cityList;
   clone.depotList=depotList;
-  List<Journey> clonedJourneyList=new ArrayList<Journey>(journeyList.size());
-  Map<Long,Journey> idToClonedJourneyMap=new HashMap<Long,Journey>(journeyList.size());
-  for (  Journey journey : journeyList) {
-    Journey clonedJourney=journey.clone();
-    clonedJourneyList.add(clonedJourney);
-    idToClonedJourneyMap.put(clonedJourney.getId(),clonedJourney);
+  List<Visit> clonedVisitList=new ArrayList<Visit>(visitList.size());
+  Map<Long,Visit> idToClonedVisitMap=new HashMap<Long,Visit>(visitList.size());
+  for (  Visit visit : visitList) {
+    Visit clonedVisit=visit.clone();
+    clonedVisitList.add(clonedVisit);
+    idToClonedVisitMap.put(clonedVisit.getId(),clonedVisit);
   }
-  for (  Journey clonedJourney : clonedJourneyList) {
-    Terminal previousTerminal=clonedJourney.getPreviousTerminal();
-    if (previousTerminal instanceof Journey) {
-      Long previousJourneyId=((Journey)previousTerminal).getId();
-      clonedJourney.setPreviousTerminal(idToClonedJourneyMap.get(previousJourneyId));
+  for (  Visit clonedVisit : clonedVisitList) {
+    Terminal previousTerminal=clonedVisit.getPreviousTerminal();
+    if (previousTerminal instanceof Visit) {
+      Long previousVisitId=((Visit)previousTerminal).getId();
+      clonedVisit.setPreviousTerminal(idToClonedVisitMap.get(previousVisitId));
     }
   }
-  clone.journeyList=clonedJourneyList;
+  clone.visitList=clonedVisitList;
   clone.score=score;
   return clone;
 }

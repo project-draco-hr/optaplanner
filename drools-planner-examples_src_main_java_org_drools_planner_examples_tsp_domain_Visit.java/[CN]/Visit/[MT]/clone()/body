@@ -1,5 +1,5 @@
 {
-  Journey clone=new Journey();
+  Visit clone=new Visit();
   clone.id=id;
   clone.city=city;
   clone.previousTerminal=previousTerminal;

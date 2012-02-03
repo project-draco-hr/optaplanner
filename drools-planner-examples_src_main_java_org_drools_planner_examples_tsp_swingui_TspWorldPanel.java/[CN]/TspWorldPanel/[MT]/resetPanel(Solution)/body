@@ -35,18 +35,18 @@
     g.fillRect(x - 2,y - 2,5,5);
   }
   g.setColor(TangoColors.CHOCOLATE_1);
-  for (  Journey journey : travelingSalesmanTour.getJourneyList()) {
-    if (journey.getPreviousTerminal() != null) {
-      City previousCity=journey.getPreviousTerminal().getCity();
+  for (  Visit visit : travelingSalesmanTour.getVisitList()) {
+    if (visit.getPreviousTerminal() != null) {
+      City previousCity=visit.getPreviousTerminal().getCity();
       int previousX=translator.translateLongitudeToX(previousCity.getLongitude());
       int previousY=translator.translateLatitudeToY(previousCity.getLatitude());
-      City city=journey.getCity();
+      City city=visit.getCity();
       int x=translator.translateLongitudeToX(city.getLongitude());
       int y=translator.translateLatitudeToY(city.getLatitude());
       g.drawLine(previousX,previousY,x,y);
       boolean needsBackToDepotLineDraw=true;
-      for (      Journey chainedJourney : travelingSalesmanTour.getJourneyList()) {
-        if (chainedJourney.getPreviousTerminal() == journey) {
+      for (      Visit chainedVisit : travelingSalesmanTour.getVisitList()) {
+        if (chainedVisit.getPreviousTerminal() == visit) {
           needsBackToDepotLineDraw=false;
           break;
         }

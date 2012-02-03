@@ -2,8 +2,8 @@
   if (this == o) {
     return true;
   }
- else   if (o instanceof Journey) {
-    Journey other=(Journey)o;
+ else   if (o instanceof Visit) {
+    Visit other=(Visit)o;
     return new EqualsBuilder().append(id,other.id).append(city,other.city).append(previousTerminal,other.previousTerminal).isEquals();
   }
  else {
