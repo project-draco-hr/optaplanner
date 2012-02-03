@@ -1,4 +1,0 @@
-{
-  TravelingSalesmanTour travelingSalesmanTour=(TravelingSalesmanTour)solutionDirector.getWorkingSolution();
-  initializeJourneyList(solutionDirector,travelingSalesmanTour);
-}
