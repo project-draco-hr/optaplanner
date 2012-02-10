@@ -1,0 +1,4 @@
+{
+  File unsolvedDataFile=new File("data/tsp/unsolved/europe40.xml");
+  runSpeedTest(unsolvedDataFile,"-219798",EnvironmentMode.DEBUG);
+}

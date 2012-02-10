@@ -1,0 +1,3 @@
+{
+  return "/org/drools/planner/examples/tsp/solver/tspSolverConfig.xml";
+}
