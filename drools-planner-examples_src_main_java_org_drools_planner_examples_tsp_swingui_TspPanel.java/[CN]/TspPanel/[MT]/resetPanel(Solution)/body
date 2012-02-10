@@ -1,4 +1,6 @@
 {
-  tspWorldPanel.resetPanel(solution);
-  tspListPanel.resetPanel(solution);
+  TravelingSalesmanTour travelingSalesmanTour=(TravelingSalesmanTour)solution;
+  tspWorldPanel.resetPanel(travelingSalesmanTour);
+  tspListPanel.resetPanel(travelingSalesmanTour);
+  resetNextCityId();
 }

@@ -1,0 +1,5 @@
+{
+  TravelingSalesmanTour travelingSalesmanTour=(TravelingSalesmanTour)solution;
+  tspWorldPanel.updatePanel(travelingSalesmanTour);
+  tspListPanel.updatePanel(travelingSalesmanTour);
+}

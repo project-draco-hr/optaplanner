@@ -1,0 +1,9 @@
+{
+  long highestCityId=0L;
+  for (  City city : getTravelingSalesmanTour().getCityList()) {
+    if (highestCityId < city.getId().longValue()) {
+      highestCityId=city.getId();
+    }
+  }
+  nextCityId=highestCityId + 1L;
+}

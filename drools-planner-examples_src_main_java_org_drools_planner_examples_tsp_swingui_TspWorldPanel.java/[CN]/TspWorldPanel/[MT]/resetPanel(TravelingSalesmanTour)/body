@@ -1,5 +1,4 @@
 {
-  TravelingSalesmanTour travelingSalesmanTour=(TravelingSalesmanTour)solution;
   translator=new LatitudeLongitudeTranslator();
   for (  City city : travelingSalesmanTour.getCityList()) {
     translator.addCoordinates(city.getLatitude(),city.getLongitude());

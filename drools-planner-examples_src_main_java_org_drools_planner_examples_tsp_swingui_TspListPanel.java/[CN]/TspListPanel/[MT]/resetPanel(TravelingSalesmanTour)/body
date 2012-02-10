@@ -1,6 +1,5 @@
 {
   removeAll();
-  TravelingSalesmanTour travelingSalesmanTour=(TravelingSalesmanTour)solution;
   JLabel headerLabel=new JLabel("Tour of " + travelingSalesmanTour.getName());
   headerLabel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.DARK_GRAY),BorderFactory.createEmptyBorder(2,2,2,2)));
   headerLabel.setBackground(HEADER_COLOR);
