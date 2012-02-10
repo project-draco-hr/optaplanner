@@ -1,6 +1,6 @@
 {
   Object toPlanningValue=planningValueIterator.next();
-  Object newChainedEntity=findChainedEntity(toPlanningValue);
-  FactHandle newChainedEntityFactHandle=newChainedEntity == null ? null : workingMemory.getFactHandle(newChainedEntity);
-  return new GenericChainedChangeMove(planningEntity,planningEntityFactHandle,planningVariableDescriptor,toPlanningValue,oldChainedEntity,oldChainedEntityFactHandle,newChainedEntity,newChainedEntityFactHandle);
+  Object newTrailingEntity=findTrailingEntity(toPlanningValue);
+  FactHandle newTrailingEntityFactHandle=newTrailingEntity == null ? null : workingMemory.getFactHandle(newTrailingEntity);
+  return new GenericChainedChangeMove(planningEntity,planningEntityFactHandle,planningVariableDescriptor,toPlanningValue,oldTrailingEntity,oldTrailingEntityFactHandle,newTrailingEntity,newTrailingEntityFactHandle);
 }

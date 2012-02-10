@@ -1,11 +1,11 @@
 {
   final Iterator<?> planningValueIterator=planningValueSelector.iterator(planningEntity);
-  if (!planningVariableDescriptor.isTriggerChainCorrection()) {
+  if (!planningVariableDescriptor.isChained()) {
     return new ChangeMoveIterator(planningValueIterator,planningEntity);
   }
  else {
-    Object oldChainedEntity=findChainedEntity(planningEntity);
-    FactHandle oldChainedEntityFactHandle=oldChainedEntity == null ? null : workingMemory.getFactHandle(oldChainedEntity);
-    return new ChainedChangeMoveIterator(planningValueIterator,planningEntity,oldChainedEntity,oldChainedEntityFactHandle);
+    Object oldTrailingEntity=findTrailingEntity(planningEntity);
+    FactHandle oldTrailingEntityFactHandle=oldTrailingEntity == null ? null : workingMemory.getFactHandle(oldTrailingEntity);
+    return new ChainedChangeMoveIterator(planningValueIterator,planningEntity,oldTrailingEntity,oldTrailingEntityFactHandle);
   }
 }

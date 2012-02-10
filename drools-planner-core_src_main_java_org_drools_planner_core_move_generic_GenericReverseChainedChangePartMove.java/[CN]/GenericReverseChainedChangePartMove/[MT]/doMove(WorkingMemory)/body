@@ -8,20 +8,20 @@
     workingMemory.update(workingMemory.getFactHandle(previousEntity),previousEntity);
     previousEntity=entity;
   }
-  if (firstEntity.equals(newChainedEntity)) {
-    if (oldChainedEntity != null) {
-      planningVariableDescriptor.setValue(oldChainedEntity,firstEntity);
-      workingMemory.update(oldChainedEntityFactHandle,oldChainedEntity);
+  if (firstEntity.equals(newTrailingEntity)) {
+    if (oldTrailingEntity != null) {
+      planningVariableDescriptor.setValue(oldTrailingEntity,firstEntity);
+      workingMemory.update(oldTrailingEntityFactHandle,oldTrailingEntity);
     }
   }
  else {
-    if (oldChainedEntity != null) {
-      planningVariableDescriptor.setValue(oldChainedEntity,oldFirstPlanningValue);
-      workingMemory.update(oldChainedEntityFactHandle,oldChainedEntity);
+    if (oldTrailingEntity != null) {
+      planningVariableDescriptor.setValue(oldTrailingEntity,oldFirstPlanningValue);
+      workingMemory.update(oldTrailingEntityFactHandle,oldTrailingEntity);
     }
-    if (newChainedEntity != null) {
-      planningVariableDescriptor.setValue(newChainedEntity,firstEntity);
-      workingMemory.update(newChainedEntityFactHandle,newChainedEntity);
+    if (newTrailingEntity != null) {
+      planningVariableDescriptor.setValue(newTrailingEntity,firstEntity);
+      workingMemory.update(newTrailingEntityFactHandle,newTrailingEntity);
     }
   }
 }

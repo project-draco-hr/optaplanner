@@ -1,0 +1,13 @@
+{
+  Object trailingEntity=null;
+  PlanningEntityDescriptor entityDescriptor=planningVariableDescriptor.getPlanningEntityDescriptor();
+  for (  Object suspectedTrailingEntity : entityDescriptor.extractEntities(workingSolution)) {
+    if (planningVariableDescriptor.getValue(suspectedTrailingEntity) == planningEntity) {
+      if (trailingEntity != null) {
+        throw new IllegalStateException("The planningEntity (" + planningEntity + ") has multiple trailing entities ("+ trailingEntity+ ") ("+ suspectedTrailingEntity+ ") pointing to it for chained planningVariable ("+ planningVariableDescriptor.getVariablePropertyName()+ ").");
+      }
+      trailingEntity=suspectedTrailingEntity;
+    }
+  }
+  return trailingEntity;
+}

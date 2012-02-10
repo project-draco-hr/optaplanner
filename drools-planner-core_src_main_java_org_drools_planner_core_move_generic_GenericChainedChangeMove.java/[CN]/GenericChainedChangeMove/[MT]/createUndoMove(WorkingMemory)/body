@@ -1,4 +1,4 @@
 {
   Object oldPlanningValue=planningVariableDescriptor.getValue(planningEntity);
-  return new GenericChainedChangeMove(planningEntity,planningEntityFactHandle,planningVariableDescriptor,oldPlanningValue,newChainedEntity,newChainedEntityFactHandle,oldChainedEntity,oldChainedEntityFactHandle);
+  return new GenericChainedChangeMove(planningEntity,planningEntityFactHandle,planningVariableDescriptor,oldPlanningValue,newTrailingEntity,newTrailingEntityFactHandle,oldTrailingEntity,oldTrailingEntityFactHandle);
 }

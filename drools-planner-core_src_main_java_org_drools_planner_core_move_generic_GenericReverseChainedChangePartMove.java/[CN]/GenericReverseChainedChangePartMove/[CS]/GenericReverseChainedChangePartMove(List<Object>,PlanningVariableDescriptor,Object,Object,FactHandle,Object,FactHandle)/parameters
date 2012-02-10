@@ -1,7 +1,7 @@
 List<Object> entitiesSubChain
 PlanningVariableDescriptor planningVariableDescriptor
 Object toPlanningValue
-Object oldChainedEntity
-FactHandle oldChainedEntityFactHandle
-Object newChainedEntity
-FactHandle newChainedEntityFactHandle
+Object oldTrailingEntity
+FactHandle oldTrailingEntityFactHandle
+Object newTrailingEntity
+FactHandle newTrailingEntityFactHandle

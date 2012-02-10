@@ -2,6 +2,6 @@
   PlanningVariable planningVariableAnnotation=variablePropertyDescriptor.getReadMethod().getAnnotation(PlanningVariable.class);
   valueSorter=new PlanningValueSorter();
   processStrength(planningVariableAnnotation);
-  processTriggerChainCorrection(planningVariableAnnotation);
+  processChained(planningVariableAnnotation);
   processValueRangeAnnotation();
 }

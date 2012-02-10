@@ -1,4 +1,4 @@
 Iterator<?> planningValueIterator
 Object planningEntity
-Object oldChainedEntity
-FactHandle oldChainedEntityFactHandle
+Object oldTrailingEntity
+FactHandle oldTrailingEntityFactHandle

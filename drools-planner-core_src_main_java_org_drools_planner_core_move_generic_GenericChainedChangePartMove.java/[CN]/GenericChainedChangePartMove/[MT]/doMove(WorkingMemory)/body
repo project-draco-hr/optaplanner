@@ -4,12 +4,12 @@
   for (  Object entity : entitiesSubChain) {
     workingMemory.update(workingMemory.getFactHandle(entity),entity);
   }
-  if (oldChainedEntity != null) {
-    planningVariableDescriptor.setValue(oldChainedEntity,oldFirstPlanningValue);
-    workingMemory.update(oldChainedEntityFactHandle,oldChainedEntity);
+  if (oldTrailingEntity != null) {
+    planningVariableDescriptor.setValue(oldTrailingEntity,oldFirstPlanningValue);
+    workingMemory.update(oldTrailingEntityFactHandle,oldTrailingEntity);
   }
-  if (newChainedEntity != null) {
-    planningVariableDescriptor.setValue(newChainedEntity,lastEntity);
-    workingMemory.update(newChainedEntityFactHandle,newChainedEntity);
+  if (newTrailingEntity != null) {
+    planningVariableDescriptor.setValue(newTrailingEntity,lastEntity);
+    workingMemory.update(newTrailingEntityFactHandle,newTrailingEntity);
   }
 }
