@@ -4,9 +4,6 @@
     if (args[0].equals("default")) {
       benchmarkConfig=DEFAULT_BENCHMARK_CONFIG;
     }
- else     if (args[0].equals("stepLimit")) {
-      benchmarkConfig=STEP_LIMIT_BENCHMARK_CONFIG;
-    }
  else {
       throw new IllegalArgumentException("The program argument (" + args[0] + ") is not supported.");
     }
@@ -14,5 +11,5 @@
  else {
     benchmarkConfig=DEFAULT_BENCHMARK_CONFIG;
   }
-  new ExaminationBenchmarkApp(benchmarkConfig).process();
+  new TspBenchmarkApp(benchmarkConfig).process();
 }
