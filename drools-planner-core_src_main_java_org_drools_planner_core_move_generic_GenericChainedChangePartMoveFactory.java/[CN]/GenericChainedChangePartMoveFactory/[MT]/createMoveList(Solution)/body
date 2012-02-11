@@ -20,13 +20,14 @@
               valueWithEntitiesChain.add(trailingEntity);
               trailingEntities=variableToEntitiesMap.get(trailingEntity);
             }
-            for (int fromIndex=1; fromIndex < valueWithEntitiesChain.size(); fromIndex++) {
+            int chainSize=valueWithEntitiesChain.size();
+            for (int fromIndex=1; fromIndex < chainSize; fromIndex++) {
               Object oldToValue=valueWithEntitiesChain.get(fromIndex - 1);
-              for (int toIndex=fromIndex + 2; toIndex <= valueWithEntitiesChain.size(); toIndex++) {
+              for (int toIndex=fromIndex + 2; toIndex <= chainSize; toIndex++) {
                 List<Object> entitiesSubChain=valueWithEntitiesChain.subList(fromIndex,toIndex);
                 Object oldTrailingEntity;
                 FactHandle oldTrailingEntityFactHandle;
-                if (toIndex < valueWithEntitiesChain.size()) {
+                if (toIndex < chainSize) {
                   oldTrailingEntity=valueWithEntitiesChain.get(toIndex);
                   oldTrailingEntityFactHandle=workingMemory.getFactHandle(oldTrailingEntity);
                 }
