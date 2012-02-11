@@ -1,11 +1,11 @@
 {
   CurriculumCourseSchedule schedule=(CurriculumCourseSchedule)solution;
   Period period=(Period)planningValue;
-  int unavailablePeriodConstraintCount=0;
-  for (  UnavailablePeriodConstraint constraint : schedule.getUnavailablePeriodConstraintList()) {
-    if (constraint.getPeriod().equals(period)) {
-      unavailablePeriodConstraintCount++;
+  int unavailablePeriodPenaltyCount=0;
+  for (  UnavailablePeriodPenalty penalty : schedule.getUnavailablePeriodPenaltyList()) {
+    if (penalty.getPeriod().equals(period)) {
+      unavailablePeriodPenaltyCount++;
     }
   }
-  return new PeriodStrengthWeight(period,unavailablePeriodConstraintCount);
+  return new PeriodStrengthWeight(period,unavailablePeriodPenaltyCount);
 }

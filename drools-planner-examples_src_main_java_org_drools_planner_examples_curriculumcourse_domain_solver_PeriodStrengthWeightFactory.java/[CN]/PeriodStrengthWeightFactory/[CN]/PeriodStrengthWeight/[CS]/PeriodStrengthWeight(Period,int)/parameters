@@ -1,2 +1,2 @@
 Period period
-int unavailablePeriodConstraintCount
+int unavailablePeriodPenaltyCount

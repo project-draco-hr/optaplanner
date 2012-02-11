@@ -1,21 +1,21 @@
 {
   readEmptyLine();
   readConstantLine("UNAVAILABILITY_CONSTRAINTS:");
-  List<UnavailablePeriodConstraint> constraintList=new ArrayList<UnavailablePeriodConstraint>(unavailablePeriodConstraintListSize);
-  for (int i=0; i < unavailablePeriodConstraintListSize; i++) {
-    UnavailablePeriodConstraint constraint=new UnavailablePeriodConstraint();
-    constraint.setId((long)i);
+  List<UnavailablePeriodPenalty> penaltyList=new ArrayList<UnavailablePeriodPenalty>(unavailablePeriodPenaltyListSize);
+  for (int i=0; i < unavailablePeriodPenaltyListSize; i++) {
+    UnavailablePeriodPenalty penalty=new UnavailablePeriodPenalty();
+    penalty.setId((long)i);
     String line=bufferedReader.readLine();
     String[] lineTokens=splitBySpacesOrTabs(line,3);
-    constraint.setCourse(courseMap.get(lineTokens[0]));
+    penalty.setCourse(courseMap.get(lineTokens[0]));
     int dayIndex=Integer.parseInt(lineTokens[1]);
     int timeslotIndex=Integer.parseInt(lineTokens[2]);
     Period period=periodMap.get(Arrays.asList(dayIndex,timeslotIndex));
     if (period == null) {
       throw new IllegalArgumentException("Read line (" + line + ") uses an unexisting period("+ dayIndex+ " "+ timeslotIndex+ ").");
     }
-    constraint.setPeriod(period);
-    constraintList.add(constraint);
+    penalty.setPeriod(period);
+    penaltyList.add(penalty);
   }
-  schedule.setUnavailablePeriodConstraintList(constraintList);
+  schedule.setUnavailablePeriodPenaltyList(penaltyList);
 }

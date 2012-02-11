@@ -2,11 +2,11 @@
   CurriculumCourseSchedule schedule=(CurriculumCourseSchedule)solution;
   Lecture lecture=(Lecture)planningEntity;
   Course course=lecture.getCourse();
-  int unavailablePeriodConstraintCount=0;
-  for (  UnavailablePeriodConstraint constraint : schedule.getUnavailablePeriodConstraintList()) {
-    if (constraint.getCourse().equals(course)) {
-      unavailablePeriodConstraintCount++;
+  int unavailablePeriodPenaltyCount=0;
+  for (  UnavailablePeriodPenalty penalty : schedule.getUnavailablePeriodPenaltyList()) {
+    if (penalty.getCourse().equals(course)) {
+      unavailablePeriodPenaltyCount++;
     }
   }
-  return new LectureDifficultyWeight(lecture,unavailablePeriodConstraintCount);
+  return new LectureDifficultyWeight(lecture,unavailablePeriodPenaltyCount);
 }

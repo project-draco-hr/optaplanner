@@ -7,6 +7,6 @@
   facts.addAll(timeslotList);
   facts.addAll(periodList);
   facts.addAll(roomList);
-  facts.addAll(unavailablePeriodConstraintList);
+  facts.addAll(unavailablePeriodPenaltyList);
   return facts;
 }

@@ -1,4 +1,4 @@
 {
   this.lecture=lecture;
-  this.unavailablePeriodConstraintCount=unavailablePeriodConstraintCount;
+  this.unavailablePeriodPenaltyCount=unavailablePeriodPenaltyCount;
 }
