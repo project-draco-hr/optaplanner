@@ -6,8 +6,8 @@
   clone.topicList=topicList;
   clone.periodList=periodList;
   clone.roomList=roomList;
-  clone.periodHardConstraintList=periodHardConstraintList;
-  clone.roomHardConstraintList=roomHardConstraintList;
+  clone.periodPenaltyList=periodPenaltyList;
+  clone.roomPenaltyList=roomPenaltyList;
   List<Exam> clonedExamList=new ArrayList<Exam>(examList.size());
   for (  Exam exam : examList) {
     Exam clonedExam=exam.clone();

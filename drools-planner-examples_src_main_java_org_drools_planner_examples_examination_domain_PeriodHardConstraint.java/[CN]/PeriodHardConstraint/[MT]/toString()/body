@@ -1,3 +1,0 @@
-{
-  return periodHardConstraintType + "@" + leftSideTopic.getId()+ "&"+ rightSideTopic.getId();
-}

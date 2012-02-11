@@ -1,0 +1,3 @@
+{
+  return roomPenaltyType + "@" + topic.getId();
+}
