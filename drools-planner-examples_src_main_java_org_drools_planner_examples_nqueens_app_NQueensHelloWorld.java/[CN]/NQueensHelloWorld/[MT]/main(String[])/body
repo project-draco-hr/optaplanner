@@ -1,0 +1,9 @@
+{
+  SolverFactory solverFactory=new XmlSolverFactory("/org/drools/planner/examples/nqueens/solver/nqueensSolverConfig.xml");
+  Solver solver=solverFactory.buildSolver();
+  NQueens unsolved8Queens=new NQueensGenerator().createNQueens(8);
+  solver.setPlanningProblem(unsolved8Queens);
+  solver.solve();
+  NQueens solved8Queens=(NQueens)solver.getBestSolution();
+  System.out.println("\nSolved 8 queens:\n" + toGridString(solved8Queens));
+}

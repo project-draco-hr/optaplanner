@@ -1,0 +1,22 @@
+{
+  StringBuilder gridString=new StringBuilder();
+  int n=nQueens.getN();
+  List<Queen> queenList=nQueens.getQueenList();
+  for (int row=0; row < n; row++) {
+    for (int column=0; column < n; column++) {
+      Queen queen=queenList.get(column);
+      if (queen.getColumn().getIndex() != column) {
+        throw new IllegalStateException("The queenList is not in the expected order.");
+      }
+      gridString.append(" ");
+      if (queen.getRow() != null && queen.getRow().getIndex() == row) {
+        gridString.append("Q");
+      }
+ else {
+        gridString.append("_");
+      }
+    }
+    gridString.append("\n");
+  }
+  return gridString.toString();
+}
