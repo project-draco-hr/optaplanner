@@ -1,7 +1,6 @@
 {
   JPanel panel=new JPanel(new GridLayout(0,3,5,5));
   panel.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
-  panel.setBackground(TangoColors.SCARLET_1);
   panel.add(createExampleButton("Traveling tournament problem","(TTP)",null,new Runnable(){
     public void run(){
       new SmartTravelingTournamentApp().init(false);

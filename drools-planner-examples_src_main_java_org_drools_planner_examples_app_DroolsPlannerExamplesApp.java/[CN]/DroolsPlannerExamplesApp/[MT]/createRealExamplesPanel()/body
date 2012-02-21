@@ -1,7 +1,6 @@
 {
   JPanel panel=new JPanel(new GridLayout(0,3,5,5));
   panel.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
-  panel.setBackground(TangoColors.BUTTER_1);
   panel.add(createExampleButton("Curriculum course timetabling","(ITC2007 track3)",null,new Runnable(){
     public void run(){
       new CurriculumCourseApp().init(false);
