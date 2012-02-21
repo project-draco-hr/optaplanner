@@ -13,7 +13,7 @@
     memoryBar.addProcessValue(cloudProcess.getRequiredMemory());
     usedNetworkBandwidth+=cloudProcess.getRequiredNetworkBandwidth();
     networkBandwidthBar.addProcessValue(cloudProcess.getRequiredNetworkBandwidth());
-    colorIndex=(colorIndex + 1) % CloudBalancingPanel.PROCESS_COLORS.length;
+    colorIndex=(colorIndex + 1) % TangoColors.SEQUENCE_1.length;
   }
   boolean used=cloudProcessList.size() > 0;
   updateTotals(usedCpuPower,usedMemory,usedNetworkBandwidth,used);

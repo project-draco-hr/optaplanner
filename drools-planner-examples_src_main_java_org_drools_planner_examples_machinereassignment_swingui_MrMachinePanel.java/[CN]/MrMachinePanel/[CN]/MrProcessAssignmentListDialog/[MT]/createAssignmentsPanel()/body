@@ -3,7 +3,7 @@
   int colorIndex=0;
   for (  MrProcessAssignment processAssignment : processAssignmentList) {
     JLabel processAssignmentLabel=new JLabel(processAssignment.getLabel());
-    processAssignmentLabel.setForeground(MachineReassignmentPanel.PROCESS_COLORS[colorIndex]);
+    processAssignmentLabel.setForeground(TangoColors.SEQUENCE_1[colorIndex]);
     assignmentsPanel.add(processAssignmentLabel);
     for (    MrResource resource : resourceList) {
       int usage=processAssignment.getProcess().getProcessRequirement(resource).getUsage();
@@ -11,7 +11,7 @@
       resourceField.setEditable(false);
       assignmentsPanel.add(resourceField);
     }
-    colorIndex=(colorIndex + 1) % MachineReassignmentPanel.PROCESS_COLORS.length;
+    colorIndex=(colorIndex + 1) % TangoColors.SEQUENCE_1.length;
   }
   return assignmentsPanel;
 }

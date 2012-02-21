@@ -21,10 +21,10 @@
   for (  int processValue : processValues) {
     int processWidth=processValue * computerWidth / safeComputerValue;
     processWidth=Math.max(processWidth,1);
-    g.setColor(CloudBalancingPanel.PROCESS_COLORS[colorIndex]);
+    g.setColor(TangoColors.SEQUENCE_1[colorIndex]);
     g.fillRect(offset,0,processWidth,rectHeight);
     offset+=processWidth;
-    colorIndex=(colorIndex + 1) % CloudBalancingPanel.PROCESS_COLORS.length;
+    colorIndex=(colorIndex + 1) % TangoColors.SEQUENCE_1.length;
   }
   if (this.computerValue > 0) {
     g.setColor(isEnabled() ? Color.BLACK : Color.DARK_GRAY);

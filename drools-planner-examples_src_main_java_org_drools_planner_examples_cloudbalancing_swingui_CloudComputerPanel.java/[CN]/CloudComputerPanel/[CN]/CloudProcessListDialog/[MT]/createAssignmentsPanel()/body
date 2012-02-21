@@ -3,7 +3,7 @@
   int colorIndex=0;
   for (  CloudProcess cloudProcess : cloudProcessList) {
     JLabel cloudProcessLabel=new JLabel(cloudProcess.getLabel());
-    cloudProcessLabel.setForeground(CloudBalancingPanel.PROCESS_COLORS[colorIndex]);
+    cloudProcessLabel.setForeground(TangoColors.SEQUENCE_1[colorIndex]);
     assignmentsPanel.add(cloudProcessLabel);
     JTextField cpuPowerField=new JTextField(cloudProcess.getRequiredCpuPower() + " GHz");
     cpuPowerField.setEditable(false);
@@ -15,7 +15,7 @@
     networkBandwidthField.setEditable(false);
     assignmentsPanel.add(networkBandwidthField);
     assignmentsPanel.add(new JLabel(""));
-    colorIndex=(colorIndex + 1) % CloudBalancingPanel.PROCESS_COLORS.length;
+    colorIndex=(colorIndex + 1) % TangoColors.SEQUENCE_1.length;
   }
   return assignmentsPanel;
 }
