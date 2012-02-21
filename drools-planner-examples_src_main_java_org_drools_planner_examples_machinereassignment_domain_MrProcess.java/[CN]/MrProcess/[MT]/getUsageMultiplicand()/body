@@ -1,0 +1,7 @@
+{
+  int multiplicand=1;
+  for (  MrProcessRequirement processRequirement : processRequirementList) {
+    multiplicand*=processRequirement.getUsage();
+  }
+  return multiplicand;
+}
