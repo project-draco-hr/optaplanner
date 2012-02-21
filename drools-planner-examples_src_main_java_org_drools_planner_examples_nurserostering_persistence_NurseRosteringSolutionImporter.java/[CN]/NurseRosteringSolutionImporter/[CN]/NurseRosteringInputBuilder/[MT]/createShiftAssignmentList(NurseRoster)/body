@@ -8,6 +8,7 @@
       shiftAssignment.setId(id);
       id++;
       shiftAssignment.setShift(shift);
+      shiftAssignment.setIndexInShift(i);
       shiftAssignmentList.add(shiftAssignment);
     }
   }
