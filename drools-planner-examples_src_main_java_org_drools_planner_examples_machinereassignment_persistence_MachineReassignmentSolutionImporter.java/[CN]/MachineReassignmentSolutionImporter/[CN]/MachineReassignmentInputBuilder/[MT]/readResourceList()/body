@@ -7,6 +7,7 @@
     String[] lineTokens=splitBySpace(line,2);
     MrResource resource=new MrResource();
     resource.setId(resourceId);
+    resource.setIndex(i);
     resource.setTransientlyConsumed(parseBooleanFromNumber(lineTokens[0]));
     resource.setLoadCostWeight(Integer.parseInt(lineTokens[1]));
     resourceList.add(resource);

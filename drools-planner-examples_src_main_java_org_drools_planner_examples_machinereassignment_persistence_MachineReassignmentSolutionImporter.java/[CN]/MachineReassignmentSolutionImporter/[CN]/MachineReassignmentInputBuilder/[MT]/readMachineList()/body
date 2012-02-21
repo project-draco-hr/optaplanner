@@ -39,7 +39,7 @@
       idToLocationMap.put(locationId,location);
     }
     machine.setLocation(location);
-    Map<MrResource,MrMachineCapacity> machineCapacityMap=new LinkedHashMap<MrResource,MrMachineCapacity>(resourceListSize);
+    List<MrMachineCapacity> machineCapacityListOfMachine=new ArrayList<MrMachineCapacity>(resourceListSize);
     for (int j=0; j < resourceListSize; j++) {
       MrMachineCapacity machineCapacity=new MrMachineCapacity();
       machineCapacity.setId(machineCapacityId);
@@ -48,10 +48,10 @@
       machineCapacity.setMaximumCapacity(Integer.parseInt(lineTokens[2 + j]));
       machineCapacity.setSafetyCapacity(Integer.parseInt(lineTokens[2 + resourceListSize + j]));
       machineCapacityList.add(machineCapacity);
-      machineCapacityMap.put(resourceList.get(j),machineCapacity);
+      machineCapacityListOfMachine.add(machineCapacity);
       machineCapacityId++;
     }
-    machine.setMachineCapacityMap(machineCapacityMap);
+    machine.setMachineCapacityList(machineCapacityListOfMachine);
     Map<MrMachine,MrMachineMoveCost> machineMoveCostMap=new LinkedHashMap<MrMachine,MrMachineMoveCost>(machineListSize);
     for (int j=0; j < machineListSize; j++) {
       MrMachineMoveCost machineMoveCost=new MrMachineMoveCost();

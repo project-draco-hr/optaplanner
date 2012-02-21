@@ -1,3 +1,3 @@
 {
-  return processRequirementMap.get(resource).getUsage();
+  return processRequirementList.get(resource.getIndex()).getUsage();
 }

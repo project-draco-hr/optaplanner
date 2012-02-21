@@ -11,7 +11,6 @@
   clone.serviceList=serviceList;
   clone.serviceDependencyList=serviceDependencyList;
   clone.processList=processList;
-  clone.processRequirementList=processRequirementList;
   clone.balancePenaltyList=balancePenaltyList;
   List<MrProcessAssignment> clonedProcessAssignmentList=new ArrayList<MrProcessAssignment>(processAssignmentList.size());
   for (  MrProcessAssignment processAssignment : processAssignmentList) {

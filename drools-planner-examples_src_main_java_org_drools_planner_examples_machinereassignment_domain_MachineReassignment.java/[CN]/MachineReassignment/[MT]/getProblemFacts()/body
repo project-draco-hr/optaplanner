@@ -10,7 +10,6 @@
   facts.addAll(serviceList);
   facts.addAll(serviceDependencyList);
   facts.addAll(processList);
-  facts.addAll(processRequirementList);
   facts.addAll(balancePenaltyList);
   return facts;
 }

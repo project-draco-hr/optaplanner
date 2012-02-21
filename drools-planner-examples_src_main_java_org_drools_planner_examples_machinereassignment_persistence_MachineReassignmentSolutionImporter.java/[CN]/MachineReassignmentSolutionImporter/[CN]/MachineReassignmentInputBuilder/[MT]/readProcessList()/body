@@ -2,7 +2,6 @@
   processListSize=readIntegerValue();
   processList=new ArrayList<MrProcess>(processListSize);
   long processId=0L;
-  List<MrProcessRequirement> processRequirementList=new ArrayList<MrProcessRequirement>(processListSize * resourceListSize);
   long processRequirementId=0L;
   for (int i=0; i < processListSize; i++) {
     String line=readStringValue();
@@ -15,7 +14,7 @@
     }
     MrService service=serviceList.get(serviceIndex);
     process.setService(service);
-    Map<MrResource,MrProcessRequirement> processRequirementMap=new LinkedHashMap<MrResource,MrProcessRequirement>(resourceListSize);
+    List<MrProcessRequirement> processRequirementList=new ArrayList<MrProcessRequirement>(resourceListSize);
     for (int j=0; j < resourceListSize; j++) {
       MrProcessRequirement processRequirement=new MrProcessRequirement();
       processRequirement.setId(processRequirementId);
@@ -23,14 +22,12 @@
       processRequirement.setResource(resourceList.get(j));
       processRequirement.setUsage(Integer.parseInt(lineTokens[1 + j]));
       processRequirementList.add(processRequirement);
-      processRequirementMap.put(resourceList.get(j),processRequirement);
       processRequirementId++;
     }
-    process.setProcessRequirementMap(processRequirementMap);
+    process.setProcessRequirementList(processRequirementList);
     process.setMoveCost(Integer.parseInt(lineTokens[1 + resourceListSize]));
     processList.add(process);
     processId++;
   }
   machineReassignment.setProcessList(processList);
-  machineReassignment.setProcessRequirementList(processRequirementList);
 }
