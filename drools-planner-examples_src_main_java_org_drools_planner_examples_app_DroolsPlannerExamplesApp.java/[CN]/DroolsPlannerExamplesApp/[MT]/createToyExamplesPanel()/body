@@ -1,0 +1,30 @@
+{
+  JPanel panel=new JPanel(new GridLayout(0,3,5,5));
+  panel.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
+  panel.setBackground(TangoColors.CHAMELEON_1);
+  panel.add(createExampleButton("N queens","",new Runnable(){
+    public void run(){
+      new NQueensApp().init(false);
+    }
+  }
+));
+  panel.add(createExampleButton("Cloud balancing","",new Runnable(){
+    public void run(){
+      new CloudBalancingApp().init(false);
+    }
+  }
+));
+  panel.add(createExampleButton("Miss Manners 2009","",new Runnable(){
+    public void run(){
+      new Manners2009App().init(false);
+    }
+  }
+));
+  panel.add(createExampleButton("Traveling salesman problem","(TSP)",new Runnable(){
+    public void run(){
+      new TspApp().init(false);
+    }
+  }
+));
+  return panel;
+}

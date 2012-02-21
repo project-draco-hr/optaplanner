@@ -1,65 +1,10 @@
 {
-  JPanel contentPane=new JPanel(new GridLayout(0,1));
-  contentPane.add(new JLabel("Which example do you want to see?"));
-  contentPane.add(new JButton(new AbstractAction("N queens"){
-    public void actionPerformed(    ActionEvent e){
-      new NQueensApp().init(false);
-    }
-  }
-));
-  contentPane.add(new JButton(new AbstractAction("Cloud balancing"){
-    public void actionPerformed(    ActionEvent e){
-      new CloudBalancingApp().init(false);
-    }
-  }
-));
-  contentPane.add(new JButton(new AbstractAction("Machine reassignment (ROADEF 2012)"){
-    public void actionPerformed(    ActionEvent e){
-      new MachineReassignmentApp().init(false);
-    }
-  }
-));
-  contentPane.add(new JButton(new AbstractAction("Miss Manners 2009"){
-    public void actionPerformed(    ActionEvent e){
-      new Manners2009App().init(false);
-    }
-  }
-));
-  contentPane.add(new JButton(new AbstractAction("Traveling salesman problem (TSP)"){
-    public void actionPerformed(    ActionEvent e){
-      new TspApp().init(false);
-    }
-  }
-));
-  contentPane.add(new JButton(new AbstractAction("Traveling tournament problem (TTP)"){
-    public void actionPerformed(    ActionEvent e){
-      new SmartTravelingTournamentApp().init(false);
-    }
-  }
-));
-  contentPane.add(new JButton(new AbstractAction("Curriculum course timetabling (ITC2007 track3)"){
-    public void actionPerformed(    ActionEvent e){
-      new CurriculumCourseApp().init(false);
-    }
-  }
-));
-  contentPane.add(new JButton(new AbstractAction("Examination timetabling (ITC2007 track1)"){
-    public void actionPerformed(    ActionEvent e){
-      new ExaminationApp().init(false);
-    }
-  }
-));
-  contentPane.add(new JButton(new AbstractAction("Patient admission scheduling (hospital bed planning)"){
-    public void actionPerformed(    ActionEvent e){
-      new PatientAdmissionScheduleApp().init(false);
-    }
-  }
-));
-  contentPane.add(new JButton(new AbstractAction("Nurse rostering (INRC2010)"){
-    public void actionPerformed(    ActionEvent e){
-      new NurseRosteringApp().init(false);
-    }
-  }
-));
+  JPanel contentPane=new JPanel(new BorderLayout());
+  JLabel titleLabel=new JLabel("Which example do you want to see?",JLabel.CENTER);
+  titleLabel.setFont(titleLabel.getFont().deriveFont(20.0f));
+  contentPane.add(titleLabel,BorderLayout.NORTH);
+  JPanel examplesPanel=createExamplesPanel();
+  contentPane.add(examplesPanel,BorderLayout.CENTER);
+  contentPane.add(createDescriptionPanel(),BorderLayout.SOUTH);
   return contentPane;
 }

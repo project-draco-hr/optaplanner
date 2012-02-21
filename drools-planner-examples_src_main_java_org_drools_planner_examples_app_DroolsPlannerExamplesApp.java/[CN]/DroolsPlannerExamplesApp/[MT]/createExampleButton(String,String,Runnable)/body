@@ -1,0 +1,18 @@
+{
+  JButton button=new JButton(new AbstractAction(title){
+    public void actionPerformed(    ActionEvent e){
+      runnable.run();
+    }
+  }
+);
+  button.addMouseListener(new MouseAdapter(){
+    public void mouseEntered(    MouseEvent e){
+      descriptionTextArea.setText(description);
+    }
+    public void mouseExited(    MouseEvent e){
+      descriptionTextArea.setText("");
+    }
+  }
+);
+  return button;
+}

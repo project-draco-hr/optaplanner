@@ -1,0 +1,17 @@
+{
+  JPanel examplesPanel=new JPanel();
+  GroupLayout layout=new GroupLayout(examplesPanel);
+  examplesPanel.setLayout(layout);
+  JLabel toyExamplesLabel=new JLabel(" Toy examples");
+  toyExamplesLabel.setForeground(TangoColors.CHAMELEON_3);
+  JScrollPane toyExamplesScrollPane=new JScrollPane(createToyExamplesPanel());
+  JLabel realExamplesLabel=new JLabel(" Real examples");
+  realExamplesLabel.setForeground(TangoColors.BUTTER_3);
+  JScrollPane realExamplesScrollPane=new JScrollPane(createRealExamplesPanel());
+  JLabel difficultExamplesLabel=new JLabel(" Difficult examples");
+  difficultExamplesLabel.setForeground(TangoColors.SCARLET_3);
+  JScrollPane difficultExamplesScrollPane=new JScrollPane(createDifficultExamplesPanel());
+  layout.setHorizontalGroup(layout.createParallelGroup().addComponent(toyExamplesLabel).addComponent(toyExamplesScrollPane).addComponent(realExamplesLabel).addComponent(realExamplesScrollPane).addComponent(difficultExamplesLabel).addComponent(difficultExamplesScrollPane));
+  layout.setVerticalGroup(layout.createSequentialGroup().addComponent(toyExamplesLabel,GroupLayout.PREFERRED_SIZE,GroupLayout.PREFERRED_SIZE,GroupLayout.PREFERRED_SIZE).addComponent(toyExamplesScrollPane,GroupLayout.PREFERRED_SIZE,GroupLayout.PREFERRED_SIZE,GroupLayout.PREFERRED_SIZE).addComponent(realExamplesLabel,GroupLayout.PREFERRED_SIZE,GroupLayout.PREFERRED_SIZE,GroupLayout.PREFERRED_SIZE).addComponent(realExamplesScrollPane,GroupLayout.PREFERRED_SIZE,GroupLayout.PREFERRED_SIZE,GroupLayout.PREFERRED_SIZE).addComponent(difficultExamplesLabel,GroupLayout.PREFERRED_SIZE,GroupLayout.PREFERRED_SIZE,GroupLayout.PREFERRED_SIZE).addComponent(difficultExamplesScrollPane,GroupLayout.PREFERRED_SIZE,GroupLayout.PREFERRED_SIZE,GroupLayout.PREFERRED_SIZE));
+  return examplesPanel;
+}

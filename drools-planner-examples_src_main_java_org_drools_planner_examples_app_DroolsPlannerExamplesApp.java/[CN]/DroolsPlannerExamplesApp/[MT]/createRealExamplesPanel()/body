@@ -1,0 +1,30 @@
+{
+  JPanel panel=new JPanel(new GridLayout(0,3,5,5));
+  panel.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
+  panel.setBackground(TangoColors.BUTTER_1);
+  panel.add(createExampleButton("Curriculum course timetabling","(ITC2007 track3)",new Runnable(){
+    public void run(){
+      new CurriculumCourseApp().init(false);
+    }
+  }
+));
+  panel.add(createExampleButton("Machine reassignment","(ROADEF 2012)",new Runnable(){
+    public void run(){
+      new MachineReassignmentApp().init(false);
+    }
+  }
+));
+  panel.add(createExampleButton("Patient admission scheduling","Hospital bed planning",new Runnable(){
+    public void run(){
+      new PatientAdmissionScheduleApp().init(false);
+    }
+  }
+));
+  panel.add(createExampleButton("Nurse rostering","(INRC2010)",new Runnable(){
+    public void run(){
+      new NurseRosteringApp().init(false);
+    }
+  }
+));
+  return panel;
+}

@@ -1,0 +1,8 @@
+{
+  JPanel descriptionPanel=new JPanel(new BorderLayout());
+  descriptionPanel.add(new JLabel("Description"),BorderLayout.NORTH);
+  descriptionTextArea=new JTextArea(8,80);
+  descriptionTextArea.setEditable(false);
+  descriptionPanel.add(new JScrollPane(descriptionTextArea,JScrollPane.VERTICAL_SCROLLBAR_NEVER,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED),BorderLayout.CENTER);
+  return descriptionPanel;
+}
