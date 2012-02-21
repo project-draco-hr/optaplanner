@@ -1,5 +1,5 @@
 {
-  logger.info("Scheduling deleting of machine ({}).",machine.getLabel());
+  logger.info("Scheduling delete of machine ({}).",machine);
   solutionBusiness.doProblemFactChange(new ProblemFactChange(){
     public void doChange(    SolutionDirector solutionDirector){
       MachineReassignment machineReassignment=(MachineReassignment)solutionDirector.getWorkingSolution();

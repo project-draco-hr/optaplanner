@@ -1,0 +1,3 @@
+{
+  return shiftDate.getLabel() + " - " + shiftType.getCode();
+}

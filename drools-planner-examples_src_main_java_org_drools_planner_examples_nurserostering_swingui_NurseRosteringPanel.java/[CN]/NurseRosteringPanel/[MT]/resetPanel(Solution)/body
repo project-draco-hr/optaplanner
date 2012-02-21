@@ -1,27 +1,12 @@
 {
-  removeAll();
-  NurseRoster nurseRoster=(NurseRoster)solution;
-  gridLayout.setColumns(nurseRoster.getShiftDateList().size() + 1);
-  JLabel headerCornerLabel=new JLabel("E \\ SD");
-  headerCornerLabel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.DARK_GRAY),BorderFactory.createEmptyBorder(2,2,2,2)));
-  headerCornerLabel.setBackground(HEADER_COLOR);
-  headerCornerLabel.setOpaque(true);
-  add(headerCornerLabel);
-  for (  ShiftDate shiftDate : nurseRoster.getShiftDateList()) {
-    JLabel shiftDateLabel=new JLabel(shiftDate.getLabel());
-    shiftDateLabel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.DARK_GRAY),BorderFactory.createEmptyBorder(2,2,2,2)));
-    shiftDateLabel.setBackground(HEADER_COLOR);
-    shiftDateLabel.setOpaque(true);
-    add(shiftDateLabel);
+  for (  EmployeePanel employeePanel : employeeToPanelMap.values()) {
+    if (employeePanel.getEmployee() != null) {
+      employeeListPanel.remove(employeePanel);
+    }
   }
-  Map<Employee,Map<ShiftDate,EmployeeShiftDatePanel>> employeeShiftDatePanelMap=new HashMap<Employee,Map<ShiftDate,EmployeeShiftDatePanel>>();
-  for (  Employee employee : nurseRoster.getEmployeeList()) {
-    createEmployeeLine(nurseRoster,employeeShiftDatePanelMap,employee);
-  }
-  createEmployeeLine(nurseRoster,employeeShiftDatePanelMap,null);
-  for (  ShiftAssignment shiftAssignment : nurseRoster.getShiftAssignmentList()) {
-    Employee employee=shiftAssignment.getEmployee();
-    EmployeeShiftDatePanel employeeShiftDatePanel=employeeShiftDatePanelMap.get(employee).get(shiftAssignment.getShiftDate());
-    employeeShiftDatePanel.addShiftAssignment(shiftAssignment);
-  }
+  employeeToPanelMap.clear();
+  employeeToPanelMap.put(null,unassignedPanel);
+  shiftAssignmentToPanelMap.clear();
+  unassignedPanel.clearShiftAssignments();
+  updatePanel(solution);
 }

@@ -1,4 +1,0 @@
-{
-  super(shiftAssignment.getLabel());
-  this.shiftAssignment=shiftAssignment;
-}

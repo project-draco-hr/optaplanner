@@ -1,0 +1,4 @@
+{
+  solutionBusiness.doMove(new EmployeeChangeMove(shiftAssignment,toEmployee));
+  solverAndPersistenceFrame.resetScreen();
+}

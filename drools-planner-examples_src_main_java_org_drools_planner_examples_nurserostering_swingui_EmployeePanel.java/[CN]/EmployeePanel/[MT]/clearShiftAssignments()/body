@@ -1,0 +1,6 @@
+{
+  for (  JPanel shiftPanel : shiftPanelMap.values()) {
+    shiftPanel.removeAll();
+  }
+  shiftAssignmentButtonMap.clear();
+}

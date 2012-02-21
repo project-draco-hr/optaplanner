@@ -1,8 +1,9 @@
 {
-  super(new GridLayout(0,5));
-  this.cloudBalancingPanel=cloudBalancingPanel;
-  this.cloudComputer=cloudComputer;
+  super(new BorderLayout());
+  this.nurseRosteringPanel=nurseRosteringPanel;
+  this.shiftDateList=shiftDateList;
+  this.shiftList=shiftList;
+  this.employee=employee;
   setBorder(BorderFactory.createCompoundBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(1,2,1,2),BorderFactory.createLineBorder(Color.BLACK)),BorderFactory.createEmptyBorder(1,1,1,1)));
-  createTotalsUI();
-  createBarsUI();
+  createUI();
 }

@@ -1,0 +1,44 @@
+{
+  NurseRoster nurseRoster=(NurseRoster)solution;
+  List<ShiftDate> shiftDateList=nurseRoster.getShiftDateList();
+  List<Shift> shiftList=nurseRoster.getShiftList();
+  unassignedPanel.setShiftDateListAndShiftList(shiftDateList,shiftList);
+  Set<Employee> deadEmployeeSet=new LinkedHashSet<Employee>(employeeToPanelMap.keySet());
+  deadEmployeeSet.remove(null);
+  for (  Employee employee : nurseRoster.getEmployeeList()) {
+    deadEmployeeSet.remove(employee);
+    EmployeePanel employeePanel=employeeToPanelMap.get(employee);
+    if (employeePanel == null) {
+      employeePanel=new EmployeePanel(this,shiftDateList,shiftList,employee);
+      employeeListPanel.add(employeePanel);
+      employeeToPanelMap.put(employee,employeePanel);
+    }
+  }
+  Set<ShiftAssignment> deadShiftAssignmentSet=new LinkedHashSet<ShiftAssignment>(shiftAssignmentToPanelMap.keySet());
+  for (  ShiftAssignment shiftAssignment : nurseRoster.getShiftAssignmentList()) {
+    deadShiftAssignmentSet.remove(shiftAssignment);
+    EmployeePanel employeePanel=shiftAssignmentToPanelMap.get(shiftAssignment);
+    Employee employee=shiftAssignment.getEmployee();
+    if (employeePanel != null && !ObjectUtils.equals(employeePanel.getEmployee(),employee)) {
+      shiftAssignmentToPanelMap.remove(shiftAssignment);
+      employeePanel.removeShiftAssignment(shiftAssignment);
+      employeePanel=null;
+    }
+    if (employeePanel == null) {
+      employeePanel=employeeToPanelMap.get(employee);
+      employeePanel.addShiftAssignment(shiftAssignment);
+      shiftAssignmentToPanelMap.put(shiftAssignment,employeePanel);
+    }
+  }
+  for (  ShiftAssignment deadShiftAssignment : deadShiftAssignmentSet) {
+    EmployeePanel deadEmployeePanel=shiftAssignmentToPanelMap.remove(deadShiftAssignment);
+    deadEmployeePanel.removeShiftAssignment(deadShiftAssignment);
+  }
+  for (  Employee deadEmployee : deadEmployeeSet) {
+    EmployeePanel deadEmployeePanel=employeeToPanelMap.remove(deadEmployee);
+    employeeListPanel.remove(deadEmployeePanel);
+  }
+  for (  EmployeePanel employeePanel : employeeToPanelMap.values()) {
+    employeePanel.update();
+  }
+}

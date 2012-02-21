@@ -1,0 +1,5 @@
+{
+  this.shiftDateList=shiftDateList;
+  this.shiftList=shiftList;
+  resetShiftListPanel();
+}

@@ -1,0 +1,29 @@
+{
+  if (shiftDateListPanel != null) {
+    remove(shiftDateListPanel);
+  }
+  WeekendDefinition weekendDefinition=(employee == null) ? WeekendDefinition.SATURDAY_SUNDAY : employee.getContract().getWeekendDefinition();
+  shiftDateListPanel=new JPanel(new GridLayout(1,0));
+  shiftDatePanelMap=new LinkedHashMap<ShiftDate,JPanel>(shiftDateList.size());
+  for (  ShiftDate shiftDate : shiftDateList) {
+    JPanel shiftDatePanel=new JPanel();
+    shiftDatePanel.setLayout(new BoxLayout(shiftDatePanel,BoxLayout.X_AXIS));
+    if (weekendDefinition.isWeekend(shiftDate.getDayOfWeek())) {
+      shiftDatePanel.setBackground(TangoColors.ALUMINIUM_2);
+    }
+    shiftDatePanel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(TangoColors.ALUMINIUM_6),BorderFactory.createEmptyBorder(2,2,2,2)));
+    shiftDatePanelMap.put(shiftDate,shiftDatePanel);
+    shiftDateListPanel.add(shiftDatePanel);
+  }
+  shiftPanelMap=new LinkedHashMap<Shift,JPanel>(shiftList.size());
+  for (  Shift shift : shiftList) {
+    JPanel shiftDatePanel=shiftDatePanelMap.get(shift.getShiftDate());
+    JPanel shiftPanel=new JPanel();
+    shiftPanel.setLayout(new BoxLayout(shiftPanel,BoxLayout.Y_AXIS));
+    shiftPanel.setBackground(shiftDatePanel.getBackground());
+    shiftPanel.setToolTipText((employee == null ? "Unassigned" : employee.getLabel()) + " on " + shift.getLabel());
+    shiftPanelMap.put(shift,shiftPanel);
+    shiftDatePanel.add(shiftPanel);
+  }
+  add(shiftDateListPanel,BorderLayout.CENTER);
+}

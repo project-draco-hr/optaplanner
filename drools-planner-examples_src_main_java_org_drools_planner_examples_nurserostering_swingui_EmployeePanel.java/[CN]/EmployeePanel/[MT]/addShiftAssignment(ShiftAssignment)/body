@@ -1,0 +1,8 @@
+{
+  JPanel shiftPanel=shiftPanelMap.get(shiftAssignment.getShift());
+  JButton shiftAssignmentButton=new JButton(new ShiftAssignmentAction(shiftAssignment));
+  shiftAssignmentButton.setMargin(new Insets(0,0,0,0));
+  shiftAssignmentButton.setToolTipText((employee == null ? "Unassigned" : employee.getLabel()) + " on " + shiftAssignment.getShift().getLabel());
+  shiftPanel.add(shiftAssignmentButton);
+  shiftAssignmentButtonMap.put(shiftAssignment,shiftAssignmentButton);
+}

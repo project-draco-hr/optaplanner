@@ -1,0 +1,4 @@
+NurseRosteringPanel nurseRosteringPanel
+List<ShiftDate> shiftDateList
+List<Shift> shiftList
+Employee employee

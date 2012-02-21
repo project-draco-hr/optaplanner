@@ -1,0 +1,3 @@
+{
+  numberOfShiftAssignmentsLabel.setText(shiftAssignmentButtonMap.size() + " assignments");
+}
