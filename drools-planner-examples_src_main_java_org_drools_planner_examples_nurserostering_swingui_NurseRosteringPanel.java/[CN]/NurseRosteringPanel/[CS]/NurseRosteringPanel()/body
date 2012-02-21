@@ -2,7 +2,7 @@
   GroupLayout layout=new GroupLayout(this);
   setLayout(layout);
   createEmployeeListPanel();
-  JPanel headerPanel=new JPanel();
+  JPanel headerPanel=createHeaderPanel();
   layout.setHorizontalGroup(layout.createParallelGroup().addComponent(headerPanel).addComponent(employeeListPanel));
   layout.setVerticalGroup(layout.createSequentialGroup().addComponent(headerPanel,GroupLayout.PREFERRED_SIZE,GroupLayout.PREFERRED_SIZE,GroupLayout.PREFERRED_SIZE).addComponent(employeeListPanel,GroupLayout.PREFERRED_SIZE,GroupLayout.PREFERRED_SIZE,GroupLayout.PREFERRED_SIZE));
 }

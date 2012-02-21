@@ -1,6 +1,6 @@
 {
   JPanel labelAndDeletePanel=new JPanel(new BorderLayout());
-  labelAndDeletePanel.setPreferredSize(new Dimension(150,20));
+  labelAndDeletePanel.setPreferredSize(new Dimension(WEST_HEADER_WIDTH,20));
   employeeLabel=new JLabel(getEmployeeLabel());
   employeeLabel.setEnabled(false);
   labelAndDeletePanel.add(employeeLabel,BorderLayout.CENTER);
@@ -16,7 +16,7 @@
   add(labelAndDeletePanel,BorderLayout.WEST);
   resetShiftListPanel();
   numberOfShiftAssignmentsLabel=new JLabel("0 assignments",JLabel.RIGHT);
-  numberOfShiftAssignmentsLabel.setPreferredSize(new Dimension(130,20));
+  numberOfShiftAssignmentsLabel.setPreferredSize(new Dimension(EAST_HEADER_WIDTH,20));
   numberOfShiftAssignmentsLabel.setEnabled(false);
   add(numberOfShiftAssignmentsLabel,BorderLayout.EAST);
 }

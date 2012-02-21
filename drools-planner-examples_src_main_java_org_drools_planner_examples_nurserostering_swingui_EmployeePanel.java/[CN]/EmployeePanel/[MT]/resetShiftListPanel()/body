@@ -12,7 +12,16 @@
     }
     shiftDatePanel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(TangoColors.ALUMINIUM_6),BorderFactory.createEmptyBorder(2,2,2,2)));
     shiftDatePanelMap.put(shiftDate,shiftDatePanel);
-    shiftDateListPanel.add(shiftDatePanel);
+    if (employee == null) {
+      JPanel wrappingShiftDatePanel=new JPanel(new BorderLayout());
+      JLabel shiftDateLabel=new JLabel(shiftDate.getLabel(),JLabel.CENTER);
+      wrappingShiftDatePanel.add(shiftDateLabel,BorderLayout.NORTH);
+      wrappingShiftDatePanel.add(shiftDatePanel,BorderLayout.CENTER);
+      shiftDateListPanel.add(wrappingShiftDatePanel);
+    }
+ else {
+      shiftDateListPanel.add(shiftDatePanel);
+    }
   }
   shiftPanelMap=new LinkedHashMap<Shift,JPanel>(shiftList.size());
   for (  Shift shift : shiftList) {
