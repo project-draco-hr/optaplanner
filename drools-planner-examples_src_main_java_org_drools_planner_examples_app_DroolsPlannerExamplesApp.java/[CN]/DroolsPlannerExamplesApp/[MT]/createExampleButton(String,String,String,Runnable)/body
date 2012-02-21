@@ -1,10 +1,13 @@
 {
-  JButton button=new JButton(new AbstractAction(title){
+  ImageIcon icon=iconResource == null ? null : new ImageIcon(getClass().getResource(iconResource));
+  JButton button=new JButton(new AbstractAction(title,icon){
     public void actionPerformed(    ActionEvent e){
       runnable.run();
     }
   }
 );
+  button.setHorizontalTextPosition(JButton.CENTER);
+  button.setVerticalTextPosition(JButton.BOTTOM);
   button.addMouseListener(new MouseAdapter(){
     public void mouseEntered(    MouseEvent e){
       descriptionTextArea.setText(description);
