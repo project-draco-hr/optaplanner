@@ -15,7 +15,7 @@
     }
   }
 ));
-  panel.add(createExampleButton("Traveling salesman","Official competition name: TSP - Traveling salesman problem\n" + "Determine the order in which to visit all cities.\n\n" + "Find the shortest route to visit all cities.",null,new Runnable(){
+  panel.add(createExampleButton("Traveling salesman","Official competition name: TSP - Traveling salesman problem\n" + "Determine the order in which to visit all cities.\n\n" + "Find the shortest route to visit all cities.",TspPanel.LOGO_PATH,new Runnable(){
     public void run(){
       new TspApp().init(false);
     }
