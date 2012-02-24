@@ -1,5 +1,4 @@
 {
-  DefaultSolverScope solverScope=solverPhaseScope.getSolverScope();
   termination.phaseEnded(solverPhaseScope);
   solverPhaseLifecycleSupport.firePhaseEnded(solverPhaseScope);
 }
