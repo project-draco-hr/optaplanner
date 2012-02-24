@@ -9,7 +9,7 @@
     }
   }
 ));
-  panel.add(createExampleButton("Employee rostering","Official competition name: INRC2010 - Nurse rostering\n" + "Assign shifts to employees.",null,new Runnable(){
+  panel.add(createExampleButton("Employee rostering","Official competition name: INRC2010 - Nurse rostering\n" + "Assign shifts to employees.",NurseRosteringPanel.LOGO_PATH,new Runnable(){
     public void run(){
       new NurseRosteringApp().init(false);
     }

@@ -3,7 +3,7 @@
   TitledBorder titledBorder=BorderFactory.createTitledBorder("Toy examples");
   titledBorder.setTitleColor(TangoColors.CHAMELEON_3);
   panel.setBorder(BorderFactory.createCompoundBorder(titledBorder,BorderFactory.createEmptyBorder(5,5,5,5)));
-  panel.add(createExampleButton("N queens","Place queens on a chessboard.\n\n" + "No 2 queens must be able to attack each other.","/org/drools/planner/examples/nqueens/swingui/queenImage.png",new Runnable(){
+  panel.add(createExampleButton("N queens","Place queens on a chessboard.\n\n" + "No 2 queens must be able to attack each other.",NQueensPanel.LOGO_PATH,new Runnable(){
     public void run(){
       new NQueensApp().init(false);
     }
