@@ -1,4 +1,7 @@
 {
   super.phaseStarted(localSearchSolverPhaseScope);
   decider.phaseStarted(localSearchSolverPhaseScope);
+  if (!localSearchSolverPhaseScope.isWorkingSolutionInitialized()) {
+    throw new IllegalStateException("Phase localSearch started with an uninitialized Solution." + " First initialize the Solution. For example, run a phase constructionHeuristic first.");
+  }
 }

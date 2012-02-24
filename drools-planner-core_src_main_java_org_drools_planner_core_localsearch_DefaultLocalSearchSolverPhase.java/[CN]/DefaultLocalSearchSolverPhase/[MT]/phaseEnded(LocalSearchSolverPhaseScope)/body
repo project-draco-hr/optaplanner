@@ -1,5 +1,5 @@
 {
   super.phaseEnded(localSearchSolverPhaseScope);
   decider.phaseEnded(localSearchSolverPhaseScope);
-  logger.info("Phase local search ended: step total ({}), time spend ({}), best score ({}).",new Object[]{localSearchSolverPhaseScope.getLastCompletedStepScope().getStepIndex() + 1,localSearchSolverPhaseScope.calculateSolverTimeMillisSpend(),localSearchSolverPhaseScope.getBestScore()});
+  logger.info("Phase localSearch ended: step total ({}), time spend ({}), best score ({}).",new Object[]{localSearchSolverPhaseScope.getLastCompletedStepScope().getStepIndex() + 1,localSearchSolverPhaseScope.calculateSolverTimeMillisSpend(),localSearchSolverPhaseScope.getBestScore()});
 }

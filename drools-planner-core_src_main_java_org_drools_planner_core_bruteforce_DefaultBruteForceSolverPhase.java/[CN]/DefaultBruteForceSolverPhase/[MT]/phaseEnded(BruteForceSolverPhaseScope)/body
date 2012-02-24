@@ -1,5 +1,5 @@
 {
   super.phaseEnded(bruteForceSolverPhaseScope);
   bruteForceEntityWalker.phaseEnded(bruteForceSolverPhaseScope);
-  logger.info("Phase brute force ended: step total ({}), time spend ({}), best score ({}).",new Object[]{bruteForceSolverPhaseScope.getLastCompletedStepScope().getStepIndex() + 1,bruteForceSolverPhaseScope.calculateSolverTimeMillisSpend(),bruteForceSolverPhaseScope.getBestScore()});
+  logger.info("Phase bruteForce ended: step total ({}), time spend ({}), best score ({}).",new Object[]{bruteForceSolverPhaseScope.getLastCompletedStepScope().getStepIndex() + 1,bruteForceSolverPhaseScope.calculateSolverTimeMillisSpend(),bruteForceSolverPhaseScope.getBestScore()});
 }
