@@ -3,27 +3,27 @@
   TitledBorder titledBorder=BorderFactory.createTitledBorder("Toy examples");
   titledBorder.setTitleColor(TangoColors.CHAMELEON_3);
   panel.setBorder(BorderFactory.createCompoundBorder(titledBorder,BorderFactory.createEmptyBorder(5,5,5,5)));
-  panel.add(createExampleButton("N queens","No 2 queens can attack each other.","/org/drools/planner/examples/nqueens/swingui/queenImage.png",new Runnable(){
+  panel.add(createExampleButton("N queens","Place n queens on a chessboard of size N.\n\n" + "No 2 queens must be able to attack each other.","/org/drools/planner/examples/nqueens/swingui/queenImage.png",new Runnable(){
     public void run(){
       new NQueensApp().init(false);
     }
   }
 ));
-  panel.add(createExampleButton("Cloud balancing","Assign processes to servers.",null,new Runnable(){
+  panel.add(createExampleButton("Traveling salesman","Official competition name: TSP - Traveling salesman problem\n" + "Determine the order in which to visit all cities.\n\n" + "Find the shortest route to visit all cities.",null,new Runnable(){
     public void run(){
-      new CloudBalancingApp().init(false);
+      new TspApp().init(false);
     }
   }
 ));
-  panel.add(createExampleButton("Miss Manners 2009","Assign guests to tables.",null,new Runnable(){
+  panel.add(createExampleButton("Miss Manners 2009","A much larger variant of the classic Miss Manners problem.\n" + "Assign guests to seats at tables.",null,new Runnable(){
     public void run(){
       new Manners2009App().init(false);
     }
   }
 ));
-  panel.add(createExampleButton("Traveling salesman problem","Find the shortest route to visit all cities.",null,new Runnable(){
+  panel.add(createExampleButton("Cloud balancing","Assign processes to servers.\n\n" + "Each server must have enough hardware to run all of it's processes.\n" + "Each server used inflicts a maintenance cost.",null,new Runnable(){
     public void run(){
-      new TspApp().init(false);
+      new CloudBalancingApp().init(false);
     }
   }
 ));
