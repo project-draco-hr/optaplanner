@@ -1,7 +1,7 @@
 {
   BufferedWriter bufferedWriter=null;
   try {
-    bufferedWriter=new BufferedWriter(new FileWriter(outputFile));
+    bufferedWriter=new BufferedWriter(new OutputStreamWriter(new FileOutputStream(outputFile),"UTF-8"));
     TxtOutputBuilder txtOutputBuilder=createTxtOutputBuilder();
     txtOutputBuilder.setBufferedWriter(bufferedWriter);
     txtOutputBuilder.setSolution(solution);

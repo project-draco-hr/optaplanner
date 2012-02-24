@@ -1,7 +1,7 @@
 {
   BufferedReader bufferedReader=null;
   try {
-    bufferedReader=new BufferedReader(new FileReader(inputFile));
+    bufferedReader=new BufferedReader(new InputStreamReader(new FileInputStream(inputFile),"UTF-8"));
     TxtInputBuilder txtInputBuilder=createTxtInputBuilder();
     txtInputBuilder.setInputFile(inputFile);
     txtInputBuilder.setBufferedReader(bufferedReader);
