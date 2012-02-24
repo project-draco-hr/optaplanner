@@ -9,7 +9,7 @@
     }
   }
 ));
-  panel.add(createExampleButton("Machine reassignment","Official competition name: Google ROADEF 2012 - Machine reassignment.\n" + "Reassign processes to machines.",null,new Runnable(){
+  panel.add(createExampleButton("Machine reassignment","Official competition name: Google ROADEF 2012 - Machine reassignment.\n" + "Reassign processes to machines.",MachineReassignmentPanel.LOGO_PATH,new Runnable(){
     public void run(){
       new MachineReassignmentApp().init(false);
     }
