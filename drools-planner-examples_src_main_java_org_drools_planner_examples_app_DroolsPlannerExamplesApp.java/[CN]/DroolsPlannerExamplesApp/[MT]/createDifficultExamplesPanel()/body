@@ -1,6 +1,8 @@
 {
-  JPanel panel=new JPanel(new GridLayout(0,3,5,5));
-  panel.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
+  JPanel panel=new JPanel(new GridLayout(0,1,5,5));
+  TitledBorder titledBorder=BorderFactory.createTitledBorder("Difficult examples");
+  titledBorder.setTitleColor(TangoColors.SCARLET_3);
+  panel.setBorder(BorderFactory.createCompoundBorder(titledBorder,BorderFactory.createEmptyBorder(5,5,5,5)));
   panel.add(createExampleButton("Traveling tournament problem","(TTP)",null,new Runnable(){
     public void run(){
       new SmartTravelingTournamentApp().init(false);
