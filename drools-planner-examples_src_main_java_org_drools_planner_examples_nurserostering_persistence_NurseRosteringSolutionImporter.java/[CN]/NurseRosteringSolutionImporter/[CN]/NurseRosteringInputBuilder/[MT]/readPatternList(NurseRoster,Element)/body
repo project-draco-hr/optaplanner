@@ -136,6 +136,8 @@ break;
 case 1:
 castedPattern.setDayIndex1ShiftType(shiftType);
 break;
+default :
+throw new IllegalArgumentException("The patternEntryIndex (" + patternEntryIndex + ") is not supported.");
 }
 }
  else if (pattern instanceof ShiftType3DaysPattern) {
@@ -158,6 +160,8 @@ break;
 case 2:
 castedPattern.setDayIndex2ShiftType(shiftType);
 break;
+default :
+throw new IllegalArgumentException("The patternEntryIndex (" + patternEntryIndex + ") is not supported.");
 }
 }
  else {
