@@ -3,14 +3,7 @@
   TitledBorder titledBorder=BorderFactory.createTitledBorder("Real examples");
   titledBorder.setTitleColor(TangoColors.BUTTER_3);
   panel.setBorder(BorderFactory.createCompoundBorder(titledBorder,BorderFactory.createEmptyBorder(5,5,5,5)));
-  panel.add(createExampleButton("Hospital bed planning","Official competition name: PAS - Patient admission scheduling\n" + "Assign patients to beds.",null,new Runnable(){
-    public void run(){
-      new PatientAdmissionScheduleApp().init(false);
-    }
-  }
-));
-  panel.add(createDisabledExampleButton("Vehicle routing","Not yet implemented",null));
-  panel.add(createExampleButton("Course timetabling","Official competition name: ITC 2007 track3 - Curriculum course timetabling\n" + "Assign lectures to periods and rooms.",null,new Runnable(){
+  panel.add(createExampleButton("Course timetabling","Official competition name: ITC 2007 track3 - Curriculum course scheduling\n" + "Assign lectures to periods and rooms.",null,new Runnable(){
     public void run(){
       new CurriculumCourseApp().init(false);
     }
@@ -19,6 +12,13 @@
   panel.add(createExampleButton("Machine reassignment","Official competition name: Google ROADEF 2012 - Machine reassignment.\n" + "Reassign processes to machines.",null,new Runnable(){
     public void run(){
       new MachineReassignmentApp().init(false);
+    }
+  }
+));
+  panel.add(createDisabledExampleButton("Vehicle routing","Not yet implemented",null));
+  panel.add(createExampleButton("Hospital bed planning","Official competition name: PAS - Patient admission scheduling\n" + "Assign patients to beds.",null,new Runnable(){
+    public void run(){
+      new PatientAdmissionScheduleApp().init(false);
     }
   }
 ));

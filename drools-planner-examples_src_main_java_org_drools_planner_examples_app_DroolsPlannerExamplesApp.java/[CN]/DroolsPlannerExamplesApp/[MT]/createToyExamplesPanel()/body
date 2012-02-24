@@ -3,9 +3,15 @@
   TitledBorder titledBorder=BorderFactory.createTitledBorder("Toy examples");
   titledBorder.setTitleColor(TangoColors.CHAMELEON_3);
   panel.setBorder(BorderFactory.createCompoundBorder(titledBorder,BorderFactory.createEmptyBorder(5,5,5,5)));
-  panel.add(createExampleButton("N queens","Place n queens on a chessboard of size N.\n\n" + "No 2 queens must be able to attack each other.","/org/drools/planner/examples/nqueens/swingui/queenImage.png",new Runnable(){
+  panel.add(createExampleButton("N queens","Place queens on a chessboard.\n\n" + "No 2 queens must be able to attack each other.","/org/drools/planner/examples/nqueens/swingui/queenImage.png",new Runnable(){
     public void run(){
       new NQueensApp().init(false);
+    }
+  }
+));
+  panel.add(createExampleButton("Cloud balancing","Assign processes to servers.\n\n" + "Each server must have enough hardware to run all of it's processes.\n" + "Each server used inflicts a maintenance cost.",null,new Runnable(){
+    public void run(){
+      new CloudBalancingApp().init(false);
     }
   }
 ));
@@ -15,15 +21,9 @@
     }
   }
 ));
-  panel.add(createExampleButton("Miss Manners 2009","A much larger variant of the classic Miss Manners problem.\n" + "Assign guests to seats at tables.",null,new Runnable(){
+  panel.add(createExampleButton("Manners 2009","A much larger variant of the classic Miss Manners problem.\n" + "Assign guests to seats at tables.",null,new Runnable(){
     public void run(){
       new Manners2009App().init(false);
-    }
-  }
-));
-  panel.add(createExampleButton("Cloud balancing","Assign processes to servers.\n\n" + "Each server must have enough hardware to run all of it's processes.\n" + "Each server used inflicts a maintenance cost.",null,new Runnable(){
-    public void run(){
-      new CloudBalancingApp().init(false);
     }
   }
 ));

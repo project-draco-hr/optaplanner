@@ -3,21 +3,21 @@
   TitledBorder titledBorder=BorderFactory.createTitledBorder("Difficult examples");
   titledBorder.setTitleColor(TangoColors.SCARLET_3);
   panel.setBorder(BorderFactory.createCompoundBorder(titledBorder,BorderFactory.createEmptyBorder(5,5,5,5)));
+  panel.add(createExampleButton("Exam timetabling","Official competition name: ITC 2007 track1 - Examination timetabling\n" + "Assign exams to timeslots and rooms.",null,new Runnable(){
+    public void run(){
+      new ExaminationApp().init(false);
+    }
+  }
+));
   panel.add(createExampleButton("Employee rostering","Official competition name: INRC2010 - Nurse rostering\n" + "Assign shifts to employees.",null,new Runnable(){
     public void run(){
       new NurseRosteringApp().init(false);
     }
   }
 ));
-  panel.add(createExampleButton("Traveling tournament problem","Official competition name: TTP - Traveling tournament problem\n" + "Assign matches to days.",null,new Runnable(){
+  panel.add(createExampleButton("Sport scheduling","Official competition name: TTP - Traveling tournament problem\n" + "Assign matches to days.",null,new Runnable(){
     public void run(){
       new SmartTravelingTournamentApp().init(false);
-    }
-  }
-));
-  panel.add(createExampleButton("Exam timetabling","Official competition name: ITC 2007 track1 - Examination timetabling\n" + "Assign exams to timeslots and rooms.",null,new Runnable(){
-    public void run(){
-      new ExaminationApp().init(false);
     }
   }
 ));
