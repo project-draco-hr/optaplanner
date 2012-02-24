@@ -7,5 +7,6 @@
   shiftAssignmentButton.setBackground(TangoColors.SEQUENCE_1[colorIndex]);
   shiftAssignmentButton.setToolTipText((employee == null ? "Unassigned" : employee.getLabel()) + " on " + shift.getLabel());
   shiftPanel.add(shiftAssignmentButton);
+  shiftPanel.repaint();
   shiftAssignmentButtonMap.put(shiftAssignment,shiftAssignmentButton);
 }
