@@ -7,7 +7,7 @@
   File assignmentInputFile=new File(inputFile.getParent(),inputFileName.replaceFirst(inputFilePrefix,"assignment_"));
   BufferedReader assignmentBufferedReader=null;
   try {
-    assignmentBufferedReader=new BufferedReader(new FileReader(assignmentInputFile));
+    assignmentBufferedReader=new BufferedReader(new InputStreamReader(new FileInputStream(assignmentInputFile),"UTF-8"));
     try {
       return assignmentBufferedReader.readLine();
     }
