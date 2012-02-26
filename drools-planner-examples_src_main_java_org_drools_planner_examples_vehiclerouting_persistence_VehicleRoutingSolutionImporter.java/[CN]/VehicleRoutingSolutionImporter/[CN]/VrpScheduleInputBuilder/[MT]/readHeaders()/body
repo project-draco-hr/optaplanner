@@ -1,0 +1,10 @@
+{
+  vrpSchedule.setName(readStringValue("NAME :"));
+  readUntilConstantLine("TYPE : CVRP");
+  locationListSize=readIntegerValue("DIMENSION :");
+  String edgeWeightType=readStringValue("EDGE_WEIGHT_TYPE :");
+  if (!edgeWeightType.equalsIgnoreCase("EUC_2D")) {
+    throw new IllegalArgumentException("The edgeWeightType (" + edgeWeightType + ") is not supported.");
+  }
+  capacity=readIntegerValue("CAPACITY :");
+}

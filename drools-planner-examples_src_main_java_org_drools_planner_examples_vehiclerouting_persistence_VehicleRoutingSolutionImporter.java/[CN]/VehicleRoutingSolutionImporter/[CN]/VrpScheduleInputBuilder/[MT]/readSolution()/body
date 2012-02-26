@@ -1,0 +1,14 @@
+{
+  vrpSchedule=new VrpSchedule();
+  vrpSchedule.setId(0L);
+  readHeaders();
+  readLocationList();
+  readCustomerList();
+  readVehicleList();
+  readConstantLine("EOF");
+  logger.info("VrpSchedule with {} vehicles and {} customers.",vrpSchedule.getVehicleList().size(),vrpSchedule.getCustomerList().size());
+  BigInteger possibleSolutionSize=factorial(vrpSchedule.getLocationList().size() - 1);
+  String flooredPossibleSolutionSize="10^" + (possibleSolutionSize.toString().length() - 1);
+  logger.info("VrpSchedule with flooredPossibleSolutionSize ({}) and possibleSolutionSize ({}).",flooredPossibleSolutionSize,possibleSolutionSize);
+  return vrpSchedule;
+}

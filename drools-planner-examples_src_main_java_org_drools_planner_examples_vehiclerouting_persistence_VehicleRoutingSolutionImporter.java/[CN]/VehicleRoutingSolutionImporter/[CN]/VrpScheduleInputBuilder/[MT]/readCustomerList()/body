@@ -1,0 +1,19 @@
+{
+  readConstantLine("DEMAND_SECTION");
+  List<VrpCustomer> customerList=new ArrayList<VrpCustomer>(locationListSize);
+  for (int i=0; i < locationListSize; i++) {
+    String line=bufferedReader.readLine();
+    String[] lineTokens=splitBySpace(line.trim().replaceAll(" +"," "),2);
+    VrpCustomer customer=new VrpCustomer();
+    long id=Long.parseLong(lineTokens[0]);
+    customer.setId(id);
+    VrpLocation location=locationMap.get(id);
+    if (location == null) {
+      throw new IllegalArgumentException("The customer with id (" + id + ") has no location ("+ location+ ").");
+    }
+    customer.setLocation(location);
+    customer.setDemand(Integer.parseInt(lineTokens[1]));
+    customerList.add(customer);
+  }
+  vrpSchedule.setCustomerList(customerList);
+}

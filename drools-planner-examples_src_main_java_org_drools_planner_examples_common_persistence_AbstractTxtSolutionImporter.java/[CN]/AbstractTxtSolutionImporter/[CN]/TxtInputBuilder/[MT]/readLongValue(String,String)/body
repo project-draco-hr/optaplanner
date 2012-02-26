@@ -1,0 +1,13 @@
+{
+  String line=bufferedReader.readLine();
+  if (line == null) {
+    throw new IllegalArgumentException("File ends before a line is expected to contain an integer value (" + prefix + "<value>"+ suffix+ ").");
+  }
+  String value=removePrefixSuffixFromLine(line,prefix,suffix);
+  try {
+    return Long.parseLong(value);
+  }
+ catch (  NumberFormatException e) {
+    throw new IllegalArgumentException("Read line (" + line + ") is expected to contain an integer value ("+ value+ ").",e);
+  }
+}

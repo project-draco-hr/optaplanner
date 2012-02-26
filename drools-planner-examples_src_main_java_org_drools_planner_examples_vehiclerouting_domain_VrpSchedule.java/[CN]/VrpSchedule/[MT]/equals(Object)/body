@@ -12,8 +12,8 @@
     }
     for (Iterator<VrpCustomer> it=customerList.iterator(), otherIt=other.customerList.iterator(); it.hasNext(); ) {
       VrpCustomer customer=it.next();
-      VrpCustomer otherVrpCustomer=otherIt.next();
-      if (!customer.solutionEquals(otherVrpCustomer)) {
+      VrpCustomer otherCustomer=otherIt.next();
+      if (!customer.solutionEquals(otherCustomer)) {
         return false;
       }
     }
