@@ -1,0 +1,24 @@
+{
+  VehicleRoutingSchedule clone=new VehicleRoutingSchedule();
+  clone.id=id;
+  clone.name=name;
+  clone.locationList=locationList;
+  clone.vehicleList=vehicleList;
+  List<VrpCustomer> clonedVrpCustomerList=new ArrayList<VrpCustomer>(customerList.size());
+  Map<Long,VrpCustomer> idToClonedVrpCustomerMap=new HashMap<Long,VrpCustomer>(customerList.size());
+  for (  VrpCustomer customer : customerList) {
+    VrpCustomer clonedVrpCustomer=customer.clone();
+    clonedVrpCustomerList.add(clonedVrpCustomer);
+    idToClonedVrpCustomerMap.put(clonedVrpCustomer.getId(),clonedVrpCustomer);
+  }
+  for (  VrpCustomer clonedVrpCustomer : clonedVrpCustomerList) {
+    VrpAppearance previousVrpAppearance=clonedVrpCustomer.getPreviousAppearance();
+    if (previousVrpAppearance instanceof VrpCustomer) {
+      Long previousVrpCustomerId=((VrpCustomer)previousVrpAppearance).getId();
+      clonedVrpCustomer.setPreviousAppearance(idToClonedVrpCustomerMap.get(previousVrpCustomerId));
+    }
+  }
+  clone.customerList=clonedVrpCustomerList;
+  clone.score=score;
+  return clone;
+}

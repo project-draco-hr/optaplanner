@@ -1,0 +1,22 @@
+{
+  if (this == o) {
+    return true;
+  }
+  if (id == null || !(o instanceof VehicleRoutingSchedule)) {
+    return false;
+  }
+ else {
+    VehicleRoutingSchedule other=(VehicleRoutingSchedule)o;
+    if (customerList.size() != other.customerList.size()) {
+      return false;
+    }
+    for (Iterator<VrpCustomer> it=customerList.iterator(), otherIt=other.customerList.iterator(); it.hasNext(); ) {
+      VrpCustomer customer=it.next();
+      VrpCustomer otherVrpCustomer=otherIt.next();
+      if (!customer.solutionEquals(otherVrpCustomer)) {
+        return false;
+      }
+    }
+    return true;
+  }
+}
