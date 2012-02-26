@@ -1,0 +1,7 @@
+{
+  VrpAppearance firstAppearance=getPreviousAppearance();
+  while (firstAppearance instanceof VrpCustomer) {
+    firstAppearance=((VrpCustomer)firstAppearance).getPreviousAppearance();
+  }
+  return (VrpVehicle)firstAppearance;
+}

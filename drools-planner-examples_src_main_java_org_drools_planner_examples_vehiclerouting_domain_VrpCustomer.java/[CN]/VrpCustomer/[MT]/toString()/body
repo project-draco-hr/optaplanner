@@ -1,0 +1,3 @@
+{
+  return location + "(after " + (previousAppearance == null ? "null" : previousAppearance.getLocation())+ ")";
+}

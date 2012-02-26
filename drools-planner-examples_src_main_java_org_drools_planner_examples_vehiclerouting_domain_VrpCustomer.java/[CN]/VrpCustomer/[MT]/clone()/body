@@ -1,0 +1,7 @@
+{
+  VrpCustomer clone=new VrpCustomer();
+  clone.id=id;
+  clone.location=location;
+  clone.previousAppearance=previousAppearance;
+  return clone;
+}

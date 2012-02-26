@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof VrpCustomer) {
+    VrpCustomer other=(VrpCustomer)o;
+    return new EqualsBuilder().append(id,other.id).append(location,other.location).append(previousAppearance,other.previousAppearance).isEquals();
+  }
+ else {
+    return false;
+  }
+}
