@@ -1,0 +1,3 @@
+{
+  super("vehiclerouting",VrpSchedule.class);
+}

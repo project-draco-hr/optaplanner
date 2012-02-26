@@ -2,11 +2,11 @@
   if (this == o) {
     return true;
   }
-  if (id == null || !(o instanceof VehicleRoutingSchedule)) {
+  if (id == null || !(o instanceof VrpSchedule)) {
     return false;
   }
  else {
-    VehicleRoutingSchedule other=(VehicleRoutingSchedule)o;
+    VrpSchedule other=(VrpSchedule)o;
     if (customerList.size() != other.customerList.size()) {
       return false;
     }

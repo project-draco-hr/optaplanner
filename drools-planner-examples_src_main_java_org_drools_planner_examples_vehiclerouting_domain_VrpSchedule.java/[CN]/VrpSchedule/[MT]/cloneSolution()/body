@@ -1,5 +1,5 @@
 {
-  VehicleRoutingSchedule clone=new VehicleRoutingSchedule();
+  VrpSchedule clone=new VrpSchedule();
   clone.id=id;
   clone.name=name;
   clone.locationList=locationList;
