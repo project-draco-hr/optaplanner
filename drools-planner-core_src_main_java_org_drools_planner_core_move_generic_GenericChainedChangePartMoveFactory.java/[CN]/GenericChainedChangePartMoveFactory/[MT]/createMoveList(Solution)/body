@@ -7,6 +7,9 @@
       if (variableDescriptor.isChained()) {
         Map<Object,List<Object>> variableToEntitiesMap=solutionDirector.getVariableToEntitiesMap(variableDescriptor);
         Collection<?> values=variableDescriptor.extractAllPlanningValues(workingSolution);
+        if (values.size() > 500) {
+          throw new IllegalStateException("TODO fix JBRULES-3371 so this works.");
+        }
         for (        Object anchor : values) {
           if (!entityDescriptor.getPlanningEntityClass().isAssignableFrom(anchor.getClass())) {
             List<Object> anchorWithChain=new ArrayList<Object>(values.size());
