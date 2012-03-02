@@ -15,7 +15,7 @@
     }
   }
 ));
-  panel.add(createExampleButton("Vehicle routing","Pick up all items of all customers with limited vehicles in the shortest route possible.",null,new Runnable(){
+  panel.add(createExampleButton("Vehicle routing","Pick up all items of all customers with a few vehicles in the shortest route possible.",VehicleRoutingPanel.LOGO_PATH,new Runnable(){
     public void run(){
       new VehicleRoutingApp().init(false);
     }
