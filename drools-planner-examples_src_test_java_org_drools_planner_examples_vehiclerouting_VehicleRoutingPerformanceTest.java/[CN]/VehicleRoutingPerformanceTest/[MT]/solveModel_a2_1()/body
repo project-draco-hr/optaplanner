@@ -1,0 +1,4 @@
+{
+  File unsolvedDataFile=new File("data/tsp/unsolved/A-n33-k6.xml");
+  runSpeedTest(unsolvedDataFile,"0hard/-950soft");
+}
