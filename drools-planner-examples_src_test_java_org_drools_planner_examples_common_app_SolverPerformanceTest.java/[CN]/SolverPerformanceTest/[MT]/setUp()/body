@@ -1,0 +1,7 @@
+{
+  solutionDao=createSolutionDao();
+  File dataDir=solutionDao.getDataDir();
+  if (!dataDir.exists()) {
+    throw new IllegalStateException("The directory dataDir (" + dataDir.getAbsolutePath() + ") does not exist."+ " The working directory should be set to the directory that contains the data directory."+ " This is different in a git clone (drools-planner/drools-planner-examples)"+ " and the release zip (examples).");
+  }
+}
