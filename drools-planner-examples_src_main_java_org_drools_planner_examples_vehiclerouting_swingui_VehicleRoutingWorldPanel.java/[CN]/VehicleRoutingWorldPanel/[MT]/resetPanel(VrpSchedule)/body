@@ -1,0 +1,66 @@
+{
+  translator=new LatitudeLongitudeTranslator();
+  for (  VrpLocation location : schedule.getLocationList()) {
+    translator.addCoordinates(location.getLatitude(),location.getLongitude());
+  }
+  Dimension size=getSize();
+  double width=size.getWidth();
+  double height=size.getHeight();
+  translator.prepareFor(width,height);
+  Graphics g=createCanvas(width,height);
+  g.setColor(TangoColors.ALUMINIUM_6);
+  g.setFont(g.getFont().deriveFont(8.0f));
+  for (  VrpLocation location : schedule.getLocationList()) {
+    if (location.getName() != null) {
+      int x=translator.translateLongitudeToX(location.getLongitude());
+      int y=translator.translateLatitudeToY(location.getLatitude());
+      g.drawString(location.getName(),x + 3,y - 3);
+    }
+  }
+  g.setColor(TangoColors.PLUM_2);
+  for (  VrpLocation location : schedule.getLocationList()) {
+    int x=translator.translateLongitudeToX(location.getLongitude());
+    int y=translator.translateLatitudeToY(location.getLatitude());
+    g.fillRect(x - 1,y - 1,3,3);
+  }
+  g.setColor(TangoColors.SCARLET_2);
+  for (  VrpVehicle vehicle : schedule.getVehicleList()) {
+    int x=translator.translateLongitudeToX(vehicle.getLocation().getLongitude());
+    int y=translator.translateLatitudeToY(vehicle.getLocation().getLatitude());
+    g.fillRect(x - 2,y - 2,5,5);
+  }
+  g.setColor(TangoColors.CHOCOLATE_1);
+  for (  VrpCustomer customer : schedule.getCustomerList()) {
+    if (customer.getPreviousAppearance() != null) {
+      VrpLocation previousLocation=customer.getPreviousAppearance().getLocation();
+      int previousX=translator.translateLongitudeToX(previousLocation.getLongitude());
+      int previousY=translator.translateLatitudeToY(previousLocation.getLatitude());
+      VrpLocation location=customer.getLocation();
+      int x=translator.translateLongitudeToX(location.getLongitude());
+      int y=translator.translateLatitudeToY(location.getLatitude());
+      g.drawLine(previousX,previousY,x,y);
+      boolean needsBackToVehicleLineDraw=true;
+      for (      VrpCustomer trailingCustomer : schedule.getCustomerList()) {
+        if (trailingCustomer.getPreviousAppearance() == customer) {
+          needsBackToVehicleLineDraw=false;
+          break;
+        }
+      }
+      if (needsBackToVehicleLineDraw) {
+        VrpVehicle vehicle=schedule.getVehicleList().get(0);
+        VrpLocation vehicleLocation=vehicle.getLocation();
+        int vehicleX=translator.translateLongitudeToX(vehicleLocation.getLongitude());
+        int vehicleY=translator.translateLatitudeToY(vehicleLocation.getLatitude());
+        g.drawLine(x,y,vehicleX,vehicleY);
+      }
+    }
+  }
+  g.setFont(g.getFont().deriveFont(8.0f));
+  g.setColor(TangoColors.PLUM_2);
+  g.fillRect(6,(int)height - 19,3,3);
+  g.drawString("Customer",15,(int)height - 15);
+  g.setColor(TangoColors.SCARLET_2);
+  g.fillRect(5,(int)height - 10,5,5);
+  g.drawString("Vehicle",15,(int)height - 5);
+  repaint();
+}

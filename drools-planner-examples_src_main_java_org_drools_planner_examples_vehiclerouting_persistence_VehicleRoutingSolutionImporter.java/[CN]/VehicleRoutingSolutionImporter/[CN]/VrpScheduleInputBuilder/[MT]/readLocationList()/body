@@ -15,5 +15,5 @@
     locationList.add(location);
     locationMap.put(location.getId(),location);
   }
-  vrpSchedule.setLocationList(locationList);
+  schedule.setLocationList(locationList);
 }

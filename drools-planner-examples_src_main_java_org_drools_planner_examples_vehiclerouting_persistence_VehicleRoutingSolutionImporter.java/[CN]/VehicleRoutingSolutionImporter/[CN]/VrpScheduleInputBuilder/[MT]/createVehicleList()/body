@@ -1,0 +1,26 @@
+{
+  String inputFileName=inputFile.getName();
+  String inputFileNameRegex="^.+\\-k(\\d+)\\.vrp$";
+  if (!inputFileName.matches(inputFileNameRegex)) {
+    throw new IllegalArgumentException("The inputFileName (" + inputFileName + ") does not match the inputFileNameRegex ("+ inputFileNameRegex+ ").");
+  }
+  String vehicleListSizeString=inputFileName.replaceAll(inputFileNameRegex,"$1");
+  int vehicleListSize;
+  try {
+    vehicleListSize=Integer.parseInt(vehicleListSizeString);
+  }
+ catch (  NumberFormatException e) {
+    throw new IllegalArgumentException("The inputFileName (" + inputFileName + ") has a vehicleListSizeString ("+ vehicleListSizeString+ ") that is not a number.",e);
+  }
+  List<VrpVehicle> vehicleList=new ArrayList<VrpVehicle>(vehicleListSize);
+  long id=0;
+  for (int i=0; i < vehicleListSize; i++) {
+    VrpVehicle vehicle=new VrpVehicle();
+    vehicle.setId(id);
+    id++;
+    vehicle.setCapacity(capacity);
+    vehicle.setDepot(depotList.get(0));
+    vehicleList.add(vehicle);
+  }
+  schedule.setVehicleList(vehicleList);
+}

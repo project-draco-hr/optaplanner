@@ -15,7 +15,12 @@
     }
   }
 ));
-  panel.add(createDisabledExampleButton("Vehicle routing","Not yet implemented",null));
+  panel.add(createExampleButton("Vehicle routing","Pick up all items of all customers with limited vehicles in the shortest route possible.",null,new Runnable(){
+    public void run(){
+      new VehicleRoutingApp().init(false);
+    }
+  }
+));
   panel.add(createExampleButton("Hospital bed planning","Official competition name: PAS - Patient admission scheduling\n" + "Assign patients to beds.",null,new Runnable(){
     public void run(){
       new PatientAdmissionScheduleApp().init(false);

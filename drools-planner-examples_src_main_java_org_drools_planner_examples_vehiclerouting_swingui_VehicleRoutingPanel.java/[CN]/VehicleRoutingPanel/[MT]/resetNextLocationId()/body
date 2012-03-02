@@ -1,0 +1,9 @@
+{
+  long highestLocationId=0L;
+  for (  VrpLocation location : getSchedule().getLocationList()) {
+    if (highestLocationId < location.getId().longValue()) {
+      highestLocationId=location.getId();
+    }
+  }
+  nextLocationId=highestLocationId + 1L;
+}

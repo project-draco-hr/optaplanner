@@ -1,0 +1,9 @@
+{
+  int canvasWidth=(int)Math.ceil(width) + 1;
+  int canvasHeight=(int)Math.ceil(height) + 1;
+  canvas=new BufferedImage(canvasWidth,canvasHeight,BufferedImage.TYPE_INT_RGB);
+  Graphics g=canvas.getGraphics();
+  g.setColor(Color.WHITE);
+  g.fillRect(0,0,canvasWidth,canvasHeight);
+  return g;
+}

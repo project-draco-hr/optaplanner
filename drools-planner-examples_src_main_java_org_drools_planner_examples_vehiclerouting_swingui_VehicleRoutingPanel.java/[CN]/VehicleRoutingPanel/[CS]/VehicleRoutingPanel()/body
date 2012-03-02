@@ -1,0 +1,8 @@
+{
+  setLayout(new BorderLayout());
+  JTabbedPane tabbedPane=new JTabbedPane();
+  vehicleRoutingWorldPanel=new VehicleRoutingWorldPanel(this);
+  vehicleRoutingWorldPanel.setPreferredSize(PREFERRED_SCROLLABLE_VIEWPORT_SIZE);
+  tabbedPane.add("World",vehicleRoutingWorldPanel);
+  add(tabbedPane,BorderLayout.CENTER);
+}

@@ -15,5 +15,5 @@
     customer.setDemand(Integer.parseInt(lineTokens[1]));
     customerList.add(customer);
   }
-  vrpSchedule.setCustomerList(customerList);
+  schedule.setCustomerList(customerList);
 }

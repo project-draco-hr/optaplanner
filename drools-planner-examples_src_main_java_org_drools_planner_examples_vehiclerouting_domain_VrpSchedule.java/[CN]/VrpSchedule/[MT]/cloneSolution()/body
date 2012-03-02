@@ -3,6 +3,7 @@
   clone.id=id;
   clone.name=name;
   clone.locationList=locationList;
+  clone.depotList=depotList;
   clone.vehicleList=vehicleList;
   List<VrpCustomer> clonedCustomerList=new ArrayList<VrpCustomer>(customerList.size());
   Map<Long,VrpCustomer> idToClonedCustomerMap=new HashMap<Long,VrpCustomer>(customerList.size());

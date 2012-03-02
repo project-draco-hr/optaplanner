@@ -1,5 +1,5 @@
 {
-  vrpSchedule.setName(readStringValue("NAME :"));
+  schedule.setName(readStringValue("NAME :"));
   readUntilConstantLine("TYPE : CVRP");
   locationListSize=readIntegerValue("DIMENSION :");
   String edgeWeightType=readStringValue("EDGE_WEIGHT_TYPE :");

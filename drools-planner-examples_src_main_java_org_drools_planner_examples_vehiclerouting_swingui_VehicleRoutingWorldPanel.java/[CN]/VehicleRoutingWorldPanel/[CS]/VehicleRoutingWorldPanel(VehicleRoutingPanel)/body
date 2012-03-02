@@ -1,0 +1,22 @@
+{
+  this.vehicleRoutingPanel=vehicleRoutingPanel;
+  addComponentListener(new ComponentAdapter(){
+    @Override public void componentResized(    ComponentEvent e){
+      VrpSchedule schedule=VehicleRoutingWorldPanel.this.vehicleRoutingPanel.getSchedule();
+      if (schedule != null) {
+        resetPanel(schedule);
+      }
+    }
+  }
+);
+  addMouseListener(new MouseAdapter(){
+    @Override public void mousePressed(    MouseEvent e){
+      if (translator != null) {
+        double longitude=translator.translateXToLongitude(e.getX());
+        double latitude=translator.translateYToLatitude(e.getY());
+        VehicleRoutingWorldPanel.this.vehicleRoutingPanel.insertLocationAndCustomer(longitude,latitude);
+      }
+    }
+  }
+);
+}

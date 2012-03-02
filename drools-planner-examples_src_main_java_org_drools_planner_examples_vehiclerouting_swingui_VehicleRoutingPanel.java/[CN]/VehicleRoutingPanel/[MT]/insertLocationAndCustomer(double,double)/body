@@ -1,0 +1,23 @@
+{
+  final VrpLocation newLocation=new VrpLocation();
+  newLocation.setId(nextLocationId);
+  nextLocationId++;
+  newLocation.setLongitude(longitude);
+  newLocation.setLatitude(latitude);
+  logger.info("Scheduling insertion of newLocation ({}).",newLocation);
+  solutionBusiness.doProblemFactChange(new ProblemFactChange(){
+    public void doChange(    SolutionDirector solutionDirector){
+      VrpSchedule solution=(VrpSchedule)solutionDirector.getWorkingSolution();
+      WorkingMemory workingMemory=solutionDirector.getWorkingMemory();
+      solution.getLocationList().add(newLocation);
+      workingMemory.insert(newLocation);
+      VrpCustomer newCustomer=new VrpCustomer();
+      newCustomer.setId(newLocation.getId());
+      newCustomer.setLocation(newLocation);
+      newCustomer.setDemand(demandRandom.nextInt(5));
+      solution.getCustomerList().add(newCustomer);
+    }
+  }
+);
+  updatePanel(solutionBusiness.getSolution());
+}

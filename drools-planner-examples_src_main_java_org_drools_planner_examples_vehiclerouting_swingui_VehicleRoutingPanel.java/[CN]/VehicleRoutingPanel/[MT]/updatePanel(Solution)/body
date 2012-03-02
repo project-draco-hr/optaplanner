@@ -1,0 +1,4 @@
+{
+  VrpSchedule schedule=(VrpSchedule)solution;
+  vehicleRoutingWorldPanel.updatePanel(schedule);
+}

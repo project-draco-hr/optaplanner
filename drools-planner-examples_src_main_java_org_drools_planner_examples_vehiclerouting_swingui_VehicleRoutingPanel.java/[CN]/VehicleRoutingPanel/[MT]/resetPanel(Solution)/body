@@ -1,0 +1,5 @@
+{
+  VrpSchedule schedule=(VrpSchedule)solution;
+  vehicleRoutingWorldPanel.resetPanel(schedule);
+  resetNextLocationId();
+}
