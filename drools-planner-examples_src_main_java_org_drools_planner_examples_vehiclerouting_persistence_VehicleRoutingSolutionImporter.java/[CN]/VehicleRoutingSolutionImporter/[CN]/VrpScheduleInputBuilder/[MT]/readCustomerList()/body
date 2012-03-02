@@ -12,8 +12,11 @@
       throw new IllegalArgumentException("The customer with id (" + id + ") has no location ("+ location+ ").");
     }
     customer.setLocation(location);
-    customer.setDemand(Integer.parseInt(lineTokens[1]));
-    customerList.add(customer);
+    int demand=Integer.parseInt(lineTokens[1]);
+    customer.setDemand(demand);
+    if (demand != 0) {
+      customerList.add(customer);
+    }
   }
   schedule.setCustomerList(customerList);
 }
