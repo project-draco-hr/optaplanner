@@ -8,5 +8,5 @@
     }
     planningEntityClass=planningEntityClass.getSuperclass();
   }
-  return null;
+  throw new IllegalArgumentException("A planningEntity is an instance of a planningEntityImplementationClass (" + planningEntityImplementationClass + ") that is not configured as a planningEntity.\n"+ "If that class ("+ planningEntityImplementationClass.getSimpleName()+ ") is not a "+ "planningEntityClass (or subclass thereof), check your Solution implementation's annotated methods.\n"+ "If it is, check your solver configuration.");
 }
