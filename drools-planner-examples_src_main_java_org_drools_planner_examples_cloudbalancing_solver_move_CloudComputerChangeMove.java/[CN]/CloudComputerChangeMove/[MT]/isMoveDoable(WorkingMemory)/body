@@ -1,3 +1,3 @@
 {
-  return !ObjectUtils.equals(cloudProcess.getCloudComputer(),toCloudComputer);
+  return !ObjectUtils.equals(cloudProcess.getComputer(),toCloudComputer);
 }

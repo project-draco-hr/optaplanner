@@ -1,7 +1,7 @@
 {
   HashCodeBuilder hashCodeBuilder=new HashCodeBuilder();
-  for (  CloudProcess cloudProcess : cloudProcessList) {
-    hashCodeBuilder.append(cloudProcess.solutionHashCode());
+  for (  CloudProcess process : processList) {
+    hashCodeBuilder.append(process.solutionHashCode());
   }
   return hashCodeBuilder.toHashCode();
 }

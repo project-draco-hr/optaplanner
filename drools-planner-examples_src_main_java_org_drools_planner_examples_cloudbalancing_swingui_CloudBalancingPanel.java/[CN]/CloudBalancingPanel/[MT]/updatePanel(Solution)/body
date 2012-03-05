@@ -2,7 +2,7 @@
   CloudBalance cloudBalance=(CloudBalance)solution;
   Set<CloudComputer> deadCloudComputerSet=new LinkedHashSet<CloudComputer>(cloudComputerToPanelMap.keySet());
   deadCloudComputerSet.remove(null);
-  for (  CloudComputer cloudComputer : cloudBalance.getCloudComputerList()) {
+  for (  CloudComputer cloudComputer : cloudBalance.getComputerList()) {
     deadCloudComputerSet.remove(cloudComputer);
     CloudComputerPanel cloudComputerPanel=cloudComputerToPanelMap.get(cloudComputer);
     if (cloudComputerPanel == null) {
@@ -12,10 +12,10 @@
     }
   }
   Set<CloudProcess> deadCloudProcessSet=new LinkedHashSet<CloudProcess>(cloudProcessToPanelMap.keySet());
-  for (  CloudProcess cloudProcess : cloudBalance.getCloudProcessList()) {
+  for (  CloudProcess cloudProcess : cloudBalance.getProcessList()) {
     deadCloudProcessSet.remove(cloudProcess);
     CloudComputerPanel cloudComputerPanel=cloudProcessToPanelMap.get(cloudProcess);
-    CloudComputer cloudComputer=cloudProcess.getCloudComputer();
+    CloudComputer cloudComputer=cloudProcess.getComputer();
     if (cloudComputerPanel != null && !ObjectUtils.equals(cloudComputerPanel.getCloudComputer(),cloudComputer)) {
       cloudProcessToPanelMap.remove(cloudProcess);
       cloudComputerPanel.removeCloudProcess(cloudProcess);

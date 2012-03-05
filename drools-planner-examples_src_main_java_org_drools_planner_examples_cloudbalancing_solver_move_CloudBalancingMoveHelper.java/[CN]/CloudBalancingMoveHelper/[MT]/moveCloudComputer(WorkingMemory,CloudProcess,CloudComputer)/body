@@ -1,5 +1,5 @@
 {
   FactHandle factHandle=workingMemory.getFactHandle(cloudProcess);
-  cloudProcess.setCloudComputer(toCloudComputer);
+  cloudProcess.setComputer(toCloudComputer);
   workingMemory.update(factHandle,cloudProcess);
 }

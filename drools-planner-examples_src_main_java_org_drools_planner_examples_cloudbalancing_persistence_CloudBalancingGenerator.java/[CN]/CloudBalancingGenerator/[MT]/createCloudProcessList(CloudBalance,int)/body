@@ -12,5 +12,5 @@
     logger.debug("Created CloudProcess with requiredCpuPower ({}), requiredMemory({})," + " requiredNetworkBandwidth({}).",new Object[]{requiredCpuPower,requiredMemory,requiredNetworkBandwidth});
     cloudProcessList.add(cloudProcess);
   }
-  cloudBalance.setCloudProcessList(cloudProcessList);
+  cloudBalance.setProcessList(cloudProcessList);
 }

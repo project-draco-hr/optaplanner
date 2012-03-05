@@ -1,5 +1,5 @@
 {
   List<Object> facts=new ArrayList<Object>();
-  facts.addAll(cloudComputerList);
+  facts.addAll(computerList);
   return facts;
 }

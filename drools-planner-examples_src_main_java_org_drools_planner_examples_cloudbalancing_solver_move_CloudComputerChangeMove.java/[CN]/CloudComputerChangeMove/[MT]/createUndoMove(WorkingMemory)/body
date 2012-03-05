@@ -1,3 +1,3 @@
 {
-  return new CloudComputerChangeMove(cloudProcess,cloudProcess.getCloudComputer());
+  return new CloudComputerChangeMove(cloudProcess,cloudProcess.getComputer());
 }

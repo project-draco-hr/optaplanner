@@ -4,7 +4,7 @@
   }
  else   if (o instanceof CloudProcess) {
     CloudProcess other=(CloudProcess)o;
-    return new EqualsBuilder().append(id,other.id).append(cloudComputer,other.cloudComputer).isEquals();
+    return new EqualsBuilder().append(id,other.id).append(computer,other.computer).isEquals();
   }
  else {
     return false;
