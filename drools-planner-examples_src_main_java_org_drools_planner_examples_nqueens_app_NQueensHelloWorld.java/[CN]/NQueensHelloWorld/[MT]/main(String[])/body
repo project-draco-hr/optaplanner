@@ -5,5 +5,5 @@
   solver.setPlanningProblem(unsolved8Queens);
   solver.solve();
   NQueens solved8Queens=(NQueens)solver.getBestSolution();
-  System.out.println("\nSolved 8 queens:\n" + toGridString(solved8Queens));
+  System.out.println("\nSolved 8 queens:\n" + toDisplayString(solved8Queens));
 }

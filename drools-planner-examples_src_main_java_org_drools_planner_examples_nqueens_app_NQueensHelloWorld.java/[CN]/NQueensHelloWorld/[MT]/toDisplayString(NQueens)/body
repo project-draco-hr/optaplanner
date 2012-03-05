@@ -1,5 +1,5 @@
 {
-  StringBuilder gridString=new StringBuilder();
+  StringBuilder displayString=new StringBuilder();
   int n=nQueens.getN();
   List<Queen> queenList=nQueens.getQueenList();
   for (int row=0; row < n; row++) {
@@ -8,15 +8,15 @@
       if (queen.getColumn().getIndex() != column) {
         throw new IllegalStateException("The queenList is not in the expected order.");
       }
-      gridString.append(" ");
+      displayString.append(" ");
       if (queen.getRow() != null && queen.getRow().getIndex() == row) {
-        gridString.append("Q");
+        displayString.append("Q");
       }
  else {
-        gridString.append("_");
+        displayString.append("_");
       }
     }
-    gridString.append("\n");
+    displayString.append("\n");
   }
-  return gridString.toString();
+  return displayString.toString();
 }
