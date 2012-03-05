@@ -6,16 +6,16 @@
   int usedNetworkBandwidth=0;
   networkBandwidthBar.clearProcessValues();
   int colorIndex=0;
-  for (  CloudProcess cloudProcess : cloudProcessList) {
-    usedCpuPower+=cloudProcess.getRequiredCpuPower();
-    cpuPowerBar.addProcessValue(cloudProcess.getRequiredCpuPower());
-    usedMemory+=cloudProcess.getRequiredMemory();
-    memoryBar.addProcessValue(cloudProcess.getRequiredMemory());
-    usedNetworkBandwidth+=cloudProcess.getRequiredNetworkBandwidth();
-    networkBandwidthBar.addProcessValue(cloudProcess.getRequiredNetworkBandwidth());
+  for (  CloudProcess process : processList) {
+    usedCpuPower+=process.getRequiredCpuPower();
+    cpuPowerBar.addProcessValue(process.getRequiredCpuPower());
+    usedMemory+=process.getRequiredMemory();
+    memoryBar.addProcessValue(process.getRequiredMemory());
+    usedNetworkBandwidth+=process.getRequiredNetworkBandwidth();
+    networkBandwidthBar.addProcessValue(process.getRequiredNetworkBandwidth());
     colorIndex=(colorIndex + 1) % TangoColors.SEQUENCE_1.length;
   }
-  boolean used=cloudProcessList.size() > 0;
+  boolean used=processList.size() > 0;
   updateTotals(usedCpuPower,usedMemory,usedNetworkBandwidth,used);
   updateBars(used);
 }

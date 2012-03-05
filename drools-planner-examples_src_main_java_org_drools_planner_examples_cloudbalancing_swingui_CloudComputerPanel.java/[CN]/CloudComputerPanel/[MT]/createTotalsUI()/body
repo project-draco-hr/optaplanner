@@ -3,10 +3,10 @@
   computerLabel=new JLabel(getComputerLabel());
   computerLabel.setEnabled(false);
   labelAndDeletePanel.add(computerLabel,BorderLayout.CENTER);
-  if (cloudComputer != null) {
+  if (computer != null) {
     deleteButton=new JButton(new AbstractAction("X"){
       public void actionPerformed(      ActionEvent e){
-        cloudBalancingPanel.deleteComputer(cloudComputer);
+        cloudBalancingPanel.deleteComputer(computer);
       }
     }
 );

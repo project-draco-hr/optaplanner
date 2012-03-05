@@ -1,3 +1,0 @@
-{
-  cloudProcessList.remove(cloudProcess);
-}

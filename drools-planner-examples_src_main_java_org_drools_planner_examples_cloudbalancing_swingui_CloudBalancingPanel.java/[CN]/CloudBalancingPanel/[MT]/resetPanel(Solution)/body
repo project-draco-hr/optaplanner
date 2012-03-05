@@ -1,12 +1,12 @@
 {
-  for (  CloudComputerPanel cloudComputerCloudComputerPanel : cloudComputerToPanelMap.values()) {
-    if (cloudComputerCloudComputerPanel.getCloudComputer() != null) {
-      computersPanel.remove(cloudComputerCloudComputerPanel);
+  for (  CloudComputerPanel computerPanel : computerToPanelMap.values()) {
+    if (computerPanel.getComputer() != null) {
+      computersPanel.remove(computerPanel);
     }
   }
-  cloudComputerToPanelMap.clear();
-  cloudComputerToPanelMap.put(null,unassignedPanel);
-  cloudProcessToPanelMap.clear();
-  unassignedPanel.clearCloudProcesss();
+  computerToPanelMap.clear();
+  computerToPanelMap.put(null,unassignedPanel);
+  processToPanelMap.clear();
+  unassignedPanel.clearProcess();
   updatePanel(solution);
 }

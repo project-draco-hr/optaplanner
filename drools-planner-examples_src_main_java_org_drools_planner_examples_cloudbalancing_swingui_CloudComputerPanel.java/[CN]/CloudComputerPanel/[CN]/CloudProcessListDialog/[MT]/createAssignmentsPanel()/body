@@ -1,17 +1,17 @@
 {
   JPanel assignmentsPanel=new JPanel(new GridLayout(0,5));
   int colorIndex=0;
-  for (  CloudProcess cloudProcess : cloudProcessList) {
-    JLabel cloudProcessLabel=new JLabel(cloudProcess.getLabel());
-    cloudProcessLabel.setForeground(TangoColors.SEQUENCE_1[colorIndex]);
-    assignmentsPanel.add(cloudProcessLabel);
-    JTextField cpuPowerField=new JTextField(cloudProcess.getRequiredCpuPower() + " GHz");
+  for (  CloudProcess process : processList) {
+    JLabel processLabel=new JLabel(process.getLabel());
+    processLabel.setForeground(TangoColors.SEQUENCE_1[colorIndex]);
+    assignmentsPanel.add(processLabel);
+    JTextField cpuPowerField=new JTextField(process.getRequiredCpuPower() + " GHz");
     cpuPowerField.setEditable(false);
     assignmentsPanel.add(cpuPowerField);
-    JTextField memoryField=new JTextField(cloudProcess.getRequiredMemory() + " GB");
+    JTextField memoryField=new JTextField(process.getRequiredMemory() + " GB");
     memoryField.setEditable(false);
     assignmentsPanel.add(memoryField);
-    JTextField networkBandwidthField=new JTextField(cloudProcess.getRequiredNetworkBandwidth() + " GB");
+    JTextField networkBandwidthField=new JTextField(process.getRequiredNetworkBandwidth() + " GB");
     networkBandwidthField.setEditable(false);
     assignmentsPanel.add(networkBandwidthField);
     assignmentsPanel.add(new JLabel(""));
