@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof ExamSwapMove) {
+    ExamSwapMove other=(ExamSwapMove)o;
+    return new EqualsBuilder().append(leftExam,other.leftExam).append(rightExam,other.rightExam).isEquals();
+  }
+ else {
+    return false;
+  }
+}

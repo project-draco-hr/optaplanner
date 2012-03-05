@@ -1,3 +1,0 @@
-{
-  return new BedDesignationSwitchMove(rightBedDesignation,leftBedDesignation);
-}

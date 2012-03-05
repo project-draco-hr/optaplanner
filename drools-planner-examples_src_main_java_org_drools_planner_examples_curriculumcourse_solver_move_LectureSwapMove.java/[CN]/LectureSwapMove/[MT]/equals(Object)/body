@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof LectureSwapMove) {
+    LectureSwapMove other=(LectureSwapMove)o;
+    return new EqualsBuilder().append(leftLecture,other.leftLecture).append(rightLecture,other.rightLecture).isEquals();
+  }
+ else {
+    return false;
+  }
+}

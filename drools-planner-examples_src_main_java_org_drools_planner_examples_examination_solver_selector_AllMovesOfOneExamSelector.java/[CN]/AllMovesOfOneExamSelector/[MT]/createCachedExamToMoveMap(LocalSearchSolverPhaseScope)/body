@@ -3,11 +3,11 @@
   int examListSize=examination.getExamList().size();
   List<Move> cachedPeriodChangeMoveList=periodChangeMoveFactory.getCachedMoveList();
   List<Move> cachedRoomChangeMoveList=roomChangeMoveFactory.getCachedMoveList();
-  List<Move> cachedExamSwitchMoveList=examSwitchMoveFactory.getCachedMoveList();
-  cachedExamToMoveMap=new HashMap<Exam,List<Move>>(cachedPeriodChangeMoveList.size() + cachedRoomChangeMoveList.size() + cachedExamSwitchMoveList.size());
+  List<Move> cachedExamSwapMoveList=examSwapMoveFactory.getCachedMoveList();
+  cachedExamToMoveMap=new HashMap<Exam,List<Move>>(cachedPeriodChangeMoveList.size() + cachedRoomChangeMoveList.size() + cachedExamSwapMoveList.size());
   addToCachedExamToMoveMap(examListSize,cachedPeriodChangeMoveList);
   addToCachedExamToMoveMap(examListSize,cachedRoomChangeMoveList);
-  addToCachedExamToMoveMap(examListSize,cachedExamSwitchMoveList);
+  addToCachedExamToMoveMap(examListSize,cachedExamSwapMoveList);
   shuffledExamList=new ArrayList<Exam>(cachedExamToMoveMap.keySet());
   nextShuffledExamListIndex=Integer.MAX_VALUE;
 }

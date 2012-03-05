@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof ShiftAssignmentSwapMove) {
+    ShiftAssignmentSwapMove other=(ShiftAssignmentSwapMove)o;
+    return new EqualsBuilder().append(leftShiftAssignment,other.leftShiftAssignment).append(rightShiftAssignment,other.rightShiftAssignment).isEquals();
+  }
+ else {
+    return false;
+  }
+}

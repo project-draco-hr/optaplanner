@@ -1,5 +1,5 @@
 {
   periodChangeMoveFactory.stepDecided(localSearchStepScope);
   roomChangeMoveFactory.stepDecided(localSearchStepScope);
-  examSwitchMoveFactory.stepDecided(localSearchStepScope);
+  examSwapMoveFactory.stepDecided(localSearchStepScope);
 }
