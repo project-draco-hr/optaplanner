@@ -1,6 +1,9 @@
 {
   VrpAppearance firstAppearance=getPreviousAppearance();
   while (firstAppearance instanceof VrpCustomer) {
+    if (firstAppearance == this) {
+      throw new IllegalStateException("Impossible state");
+    }
     firstAppearance=((VrpCustomer)firstAppearance).getPreviousAppearance();
   }
   return (VrpVehicle)firstAppearance;
