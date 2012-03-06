@@ -1,19 +1,15 @@
 {
   Object oldFirstPlanningValue=planningVariableDescriptor.getValue(firstEntity);
-  planningVariableDescriptor.setValue(firstEntity,toPlanningValue);
   if (oldTrailingEntity != null) {
     planningVariableDescriptor.setValue(oldTrailingEntity,oldFirstPlanningValue);
+    workingMemory.update(oldTrailingEntityFactHandle,oldTrailingEntity);
   }
-  if (newTrailingEntity != null) {
-    planningVariableDescriptor.setValue(newTrailingEntity,lastEntity);
-  }
+  planningVariableDescriptor.setValue(firstEntity,toPlanningValue);
   for (  Object entity : entitiesSubChain) {
     workingMemory.update(workingMemory.getFactHandle(entity),entity);
   }
-  if (oldTrailingEntity != null) {
-    workingMemory.update(oldTrailingEntityFactHandle,oldTrailingEntity);
-  }
   if (newTrailingEntity != null) {
+    planningVariableDescriptor.setValue(newTrailingEntity,lastEntity);
     workingMemory.update(newTrailingEntityFactHandle,newTrailingEntity);
   }
 }
