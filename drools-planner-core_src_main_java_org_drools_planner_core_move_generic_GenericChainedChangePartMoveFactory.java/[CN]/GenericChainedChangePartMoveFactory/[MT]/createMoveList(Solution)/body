@@ -45,7 +45,9 @@
                     if (!oldToValue.equals((toValue))) {
                       moveList.add(new GenericChainedChangePartMove(entitiesSubChain,variableDescriptor,toValue,oldTrailingEntity,oldTrailingEntityFactHandle,newTrailingEntity,newTrailingEntityFactHandle));
                     }
-                    moveList.add(new GenericReverseChainedChangePartMove(entitiesSubChain,variableDescriptor,toValue,oldTrailingEntity,oldTrailingEntityFactHandle,newTrailingEntity,newTrailingEntityFactHandle));
+                    if (chainSize != entitiesSubChain.size()) {
+                      moveList.add(new GenericReverseChainedChangePartMove(entitiesSubChain,variableDescriptor,toValue,oldTrailingEntity,oldTrailingEntityFactHandle,newTrailingEntity,newTrailingEntityFactHandle));
+                    }
                   }
                 }
               }
