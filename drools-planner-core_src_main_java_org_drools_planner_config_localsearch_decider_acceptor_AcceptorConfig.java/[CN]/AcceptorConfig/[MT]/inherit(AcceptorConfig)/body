@@ -25,11 +25,11 @@
   if (partialUndoMoveTabuSize == null) {
     partialUndoMoveTabuSize=inheritedConfig.getPartialUndoMoveTabuSize();
   }
-  if (propertyTabuSize == null) {
-    propertyTabuSize=inheritedConfig.getPropertyTabuSize();
+  if (planningEntityTabuSize == null) {
+    planningEntityTabuSize=inheritedConfig.getPlanningEntityTabuSize();
   }
-  if (partialPropertyTabuSize == null) {
-    partialPropertyTabuSize=inheritedConfig.getPartialPropertyTabuSize();
+  if (partialPlanningEntityTabuSize == null) {
+    partialPlanningEntityTabuSize=inheritedConfig.getPartialPlanningEntityTabuSize();
   }
   if (solutionTabuSize == null) {
     solutionTabuSize=inheritedConfig.getSolutionTabuSize();
