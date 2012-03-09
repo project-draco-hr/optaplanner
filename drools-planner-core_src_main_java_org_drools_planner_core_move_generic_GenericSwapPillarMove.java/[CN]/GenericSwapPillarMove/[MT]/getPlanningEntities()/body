@@ -1,0 +1,6 @@
+{
+  List<Object> entities=new ArrayList<Object>(leftPlanningEntityList.size() + rightPlanningEntityList.size());
+  entities.addAll(leftPlanningEntityList);
+  entities.addAll(rightPlanningEntityList);
+  return entities;
+}

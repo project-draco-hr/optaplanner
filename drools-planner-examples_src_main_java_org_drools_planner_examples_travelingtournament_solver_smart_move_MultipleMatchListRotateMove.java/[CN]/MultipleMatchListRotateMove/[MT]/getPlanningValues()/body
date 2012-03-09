@@ -1,0 +1,10 @@
+{
+  List<Day> values=new ArrayList<Day>(firstMatchList.size() + secondMatchList.size());
+  for (  Match match : firstMatchList) {
+    values.add(match.getDay());
+  }
+  for (  Match match : secondMatchList) {
+    values.add(match.getDay());
+  }
+  return values;
+}

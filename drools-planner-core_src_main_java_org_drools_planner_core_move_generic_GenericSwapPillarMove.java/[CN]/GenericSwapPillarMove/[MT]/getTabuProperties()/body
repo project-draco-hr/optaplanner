@@ -1,6 +1,0 @@
-{
-  List<Object> tabuProperties=new ArrayList<Object>(leftPlanningEntityList.size() + rightPlanningEntityList.size());
-  tabuProperties.addAll(leftPlanningEntityList);
-  tabuProperties.addAll(rightPlanningEntityList);
-  return tabuProperties;
-}

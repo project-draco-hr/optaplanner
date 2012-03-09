@@ -1,4 +1,4 @@
 {
-  this.firstMatch=firstMatch;
-  this.secondMatch=secondMatch;
+  this.leftMatch=leftMatch;
+  this.rightMatch=rightMatch;
 }

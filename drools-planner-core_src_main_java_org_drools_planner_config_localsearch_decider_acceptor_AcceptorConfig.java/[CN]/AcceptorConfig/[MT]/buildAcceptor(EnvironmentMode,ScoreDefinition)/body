@@ -41,7 +41,7 @@ catch (      IllegalAccessException e) {
     }
     acceptorList.add(undoMoveTabuAcceptor);
   }
-  if ((acceptorTypeList != null && acceptorTypeList.contains(AcceptorType.PROPERTY_TABU)) || propertyTabuSize != null || partialPropertyTabuSize != null) {
+  if ((acceptorTypeList != null && acceptorTypeList.contains(AcceptorType.PLANNING_ENTITY_TABU)) || propertyTabuSize != null || partialPropertyTabuSize != null) {
     PropertyTabuAcceptor propertyTabuAcceptor=new PropertyTabuAcceptor();
     if (propertyTabuSize != null) {
       propertyTabuAcceptor.setTabuSize(propertyTabuSize);

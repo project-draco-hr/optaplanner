@@ -1,7 +1,6 @@
 {
   for (  Move cachedMove : cachedMoveList) {
-    TabuPropertyEnabled tabuPropertyEnabledMove=(TabuPropertyEnabled)cachedMove;
-    for (    Object o : tabuPropertyEnabledMove.getTabuProperties()) {
+    for (    Object o : cachedMove.getPlanningEntities()) {
       Exam exam=(Exam)o;
       List<Move> moveList=cachedExamToMoveMap.get(exam);
       if (moveList == null) {

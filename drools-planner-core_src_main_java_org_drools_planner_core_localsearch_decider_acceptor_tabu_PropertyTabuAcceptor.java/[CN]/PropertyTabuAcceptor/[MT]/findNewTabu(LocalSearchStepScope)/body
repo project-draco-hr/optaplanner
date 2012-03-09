@@ -1,4 +1,3 @@
 {
-  TabuPropertyEnabled tabuPropertyEnabled=(TabuPropertyEnabled)localSearchStepScope.getStep();
-  return tabuPropertyEnabled.getTabuProperties();
+  return stepScope.getStep().getPlanningEntities();
 }

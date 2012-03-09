@@ -1,0 +1,3 @@
+{
+  return Arrays.<Object>asList(leftExam.getPeriod(),leftExam.getRoom(),rightExam.getPeriod(),rightExam.getRoom());
+}

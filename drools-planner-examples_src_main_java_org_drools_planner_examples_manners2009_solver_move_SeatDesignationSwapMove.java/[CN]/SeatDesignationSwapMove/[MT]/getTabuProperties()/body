@@ -1,3 +1,0 @@
-{
-  return Arrays.<SeatDesignation>asList(leftSeatDesignation,rightSeatDesignation);
-}

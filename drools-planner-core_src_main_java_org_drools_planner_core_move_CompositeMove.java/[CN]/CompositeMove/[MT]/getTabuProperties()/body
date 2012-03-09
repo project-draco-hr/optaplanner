@@ -1,7 +1,0 @@
-{
-  Set<Object> tabuProperties=new LinkedHashSet<Object>(moveList.size() * 2);
-  for (  Move move : moveList) {
-    tabuProperties.addAll(((TabuPropertyEnabled)move).getTabuProperties());
-  }
-  return tabuProperties;
-}

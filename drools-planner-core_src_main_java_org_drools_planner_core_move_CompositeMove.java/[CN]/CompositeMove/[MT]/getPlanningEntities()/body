@@ -1,0 +1,7 @@
+{
+  Set<Object> entities=new LinkedHashSet<Object>(moveList.size() * 2);
+  for (  Move move : moveList) {
+    entities.addAll(move.getPlanningEntities());
+  }
+  return entities;
+}

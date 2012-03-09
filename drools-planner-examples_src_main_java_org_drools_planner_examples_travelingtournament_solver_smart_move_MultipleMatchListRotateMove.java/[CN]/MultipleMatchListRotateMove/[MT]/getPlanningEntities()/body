@@ -1,0 +1,6 @@
+{
+  List<Match> entities=new ArrayList<Match>(firstMatchList.size() + secondMatchList.size());
+  entities.addAll(firstMatchList);
+  entities.addAll(secondMatchList);
+  return entities;
+}

@@ -4,7 +4,7 @@
   }
  else   if (o instanceof MatchSwapMove) {
     MatchSwapMove other=(MatchSwapMove)o;
-    return new EqualsBuilder().append(firstMatch,other.firstMatch).append(secondMatch,other.secondMatch).isEquals();
+    return new EqualsBuilder().append(leftMatch,other.leftMatch).append(rightMatch,other.rightMatch).isEquals();
   }
  else {
     return false;

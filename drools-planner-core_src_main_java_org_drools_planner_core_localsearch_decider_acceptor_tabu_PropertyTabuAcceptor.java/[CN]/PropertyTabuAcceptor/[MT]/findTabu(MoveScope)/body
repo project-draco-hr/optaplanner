@@ -1,4 +1,3 @@
 {
-  TabuPropertyEnabled tabuPropertyEnabled=(TabuPropertyEnabled)moveScope.getMove();
-  return tabuPropertyEnabled.getTabuProperties();
+  return moveScope.getMove().getPlanningEntities();
 }
