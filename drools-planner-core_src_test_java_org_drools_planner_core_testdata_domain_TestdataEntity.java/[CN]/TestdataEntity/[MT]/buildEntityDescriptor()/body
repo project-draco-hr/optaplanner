@@ -1,0 +1,5 @@
+{
+  PlanningEntityDescriptor entityDescriptor=new PlanningEntityDescriptor(mock(SolutionDescriptor.class),TestdataEntity.class);
+  entityDescriptor.processAnnotations();
+  return entityDescriptor;
+}

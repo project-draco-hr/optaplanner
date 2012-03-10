@@ -1,0 +1,6 @@
+{
+  MoveScope moveScope=new MoveScope(stepScope);
+  moveScope.setMove(new GenericChangeMove(entity,mock(FactHandle.class),mock(PlanningVariableDescriptor.class),new TestdataValue("mock")));
+  moveScope.setScore(new DefaultSimpleScore(score));
+  return moveScope;
+}
