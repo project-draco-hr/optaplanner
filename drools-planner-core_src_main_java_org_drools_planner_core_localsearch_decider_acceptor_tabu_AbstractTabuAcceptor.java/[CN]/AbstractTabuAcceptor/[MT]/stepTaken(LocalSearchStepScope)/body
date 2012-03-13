@@ -1,18 +1,23 @@
 {
+  int maximumTabuListSize=tabuSize + partialTabuSize;
+  int tabuStepIndex=localSearchStepScope.getStepIndex();
+  for (Iterator<Object> it=tabuSequenceList.iterator(); it.hasNext(); ) {
+    Object oldTabu=it.next();
+    Integer oldTabuStepIndexInteger=tabuToStepIndexMap.get(oldTabu);
+    int oldTabuStepCount=tabuStepIndex - oldTabuStepIndexInteger;
+    if (oldTabuStepCount < maximumTabuListSize) {
+      break;
+    }
+    it.remove();
+    tabuToStepIndexMap.remove(oldTabu);
+  }
   Collection<? extends Object> tabus=findNewTabu(localSearchStepScope);
   for (  Object tabu : tabus) {
     if (tabuToStepIndexMap.containsKey(tabu)) {
       tabuToStepIndexMap.remove(tabu);
       tabuSequenceList.remove(tabu);
     }
-    int maximumTabuListSize=tabuSize + partialTabuSize;
-    while (tabuSequenceList.size() >= maximumTabuListSize) {
-      Iterator<Object> it=tabuSequenceList.iterator();
-      Object removeTabu=it.next();
-      it.remove();
-      tabuToStepIndexMap.remove(removeTabu);
-    }
-    tabuToStepIndexMap.put(tabu,localSearchStepScope.getStepIndex());
+    tabuToStepIndexMap.put(tabu,tabuStepIndex);
     tabuSequenceList.add(tabu);
   }
 }

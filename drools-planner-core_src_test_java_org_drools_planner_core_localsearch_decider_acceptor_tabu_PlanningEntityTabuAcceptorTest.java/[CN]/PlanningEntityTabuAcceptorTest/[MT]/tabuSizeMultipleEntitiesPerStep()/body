@@ -69,7 +69,7 @@
   stepScope2.setStep(buildMoveScope(stepScope2,e3,e4).getMove());
   tabuAcceptor.stepTaken(stepScope2);
   LocalSearchStepScope stepScope3=new LocalSearchStepScope(solverPhaseScope);
-  stepScope3.setStepIndex(2);
+  stepScope3.setStepIndex(3);
   assertEquals(true,tabuAcceptor.isAccepted(buildMoveScope(stepScope3,e0)));
   assertEquals(false,tabuAcceptor.isAccepted(buildMoveScope(stepScope3,e1)));
   assertEquals(true,tabuAcceptor.isAccepted(buildMoveScope(stepScope3,e2)));

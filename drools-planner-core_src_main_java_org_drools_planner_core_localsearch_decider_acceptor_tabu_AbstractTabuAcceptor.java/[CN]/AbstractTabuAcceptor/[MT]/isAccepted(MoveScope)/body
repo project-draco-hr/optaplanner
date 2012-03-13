@@ -28,8 +28,8 @@
       return true;
     }
   }
-  int tabuStepCount=moveScope.getLocalSearchStepScope().getStepIndex() - maximumTabuStepIndex - 1;
-  if (tabuStepCount < tabuSize) {
+  int tabuStepCount=moveScope.getLocalSearchStepScope().getStepIndex() - maximumTabuStepIndex;
+  if (tabuStepCount <= tabuSize) {
     logger.trace("        Proposed move ({}) is tabu and is therefore not accepted.",moveScope.getMove());
     return false;
   }
