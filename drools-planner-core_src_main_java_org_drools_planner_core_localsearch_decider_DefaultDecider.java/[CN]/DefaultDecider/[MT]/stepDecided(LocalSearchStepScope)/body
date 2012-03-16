@@ -1,5 +1,0 @@
-{
-  selector.stepDecided(localSearchStepScope);
-  acceptor.stepDecided(localSearchStepScope);
-  forager.stepDecided(localSearchStepScope);
-}

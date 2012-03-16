@@ -1,4 +1,0 @@
-{
-  super.stepDecided(localSearchStepScope);
-  decider.stepDecided(localSearchStepScope);
-}

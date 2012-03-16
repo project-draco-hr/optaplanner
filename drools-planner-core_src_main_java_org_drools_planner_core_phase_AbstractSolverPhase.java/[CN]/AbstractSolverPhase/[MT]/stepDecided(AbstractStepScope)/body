@@ -1,4 +1,0 @@
-{
-  termination.stepDecided(stepScope);
-  solverPhaseLifecycleSupport.fireStepDecided(stepScope);
-}

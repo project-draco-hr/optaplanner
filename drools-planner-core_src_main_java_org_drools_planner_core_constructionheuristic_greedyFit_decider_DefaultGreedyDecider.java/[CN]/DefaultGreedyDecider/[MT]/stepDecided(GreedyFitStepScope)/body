@@ -1,4 +1,0 @@
-{
-  planningVariableWalker.stepDecided(greedyFitStepScope);
-  forager.stepDecided(greedyFitStepScope);
-}
