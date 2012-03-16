@@ -11,6 +11,7 @@
       PlanningEntityDescriptor rightEntityDescriptor=solutionDescriptor.getPlanningEntityDescriptor(leftEntity.getClass());
       if (leftEntityDescriptor.getPlanningEntityClass().equals(rightEntityDescriptor.getPlanningEntityClass())) {
         FactHandle rightEntityFactHandle=solutionDirector.getWorkingMemory().getFactHandle(rightEntity);
+        throw new UnsupportedOperationException("Not yet implemented");
       }
     }
   }
