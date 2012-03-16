@@ -78,8 +78,8 @@
       boolean ascending=(previousLocation.getLongitude() < location.getLongitude()) ^ (previousLocation.getLatitude() < location.getLatitude());
       ImageIcon vehicleImageIcon=vehicleImageIcons[colorIndex];
       int vehicleInfoHeight=vehicleImageIcon.getIconHeight() + 2 + TEXT_SIZE;
-      g.drawImage(vehicleImageIcon.getImage(),x,(ascending ? y - vehicleInfoHeight : y),this);
-      g.drawString(load + " / " + vehicle.getCapacity(),x,(ascending ? y : y + vehicleInfoHeight));
+      g.drawImage(vehicleImageIcon.getImage(),x + 1,(ascending ? y - vehicleInfoHeight - 1 : y + 1),this);
+      g.drawString(load + " / " + vehicle.getCapacity(),x + 1,(ascending ? y - 1 : y + vehicleInfoHeight + 1));
     }
     colorIndex=(colorIndex + 1) % TangoColors.SEQUENCE_2.length;
   }
@@ -89,5 +89,18 @@
   g.setColor(TangoColors.ORANGE_2);
   g.fillRect(6,(int)height - 6 - (TEXT_SIZE / 2),3,3);
   g.drawString("Customer demand",15,(int)height - 5);
+  g.setColor(TangoColors.SCARLET_2);
+  HardAndSoftScore score=schedule.getScore();
+  if (score != null) {
+    String totalDistanceString;
+    if (!score.isFeasible()) {
+      totalDistanceString="Not feasible";
+    }
+ else {
+      totalDistanceString=numberFormat.format(-score.getSoftScore()) + " fuel";
+    }
+    g.setFont(g.getFont().deriveFont(Font.BOLD,(float)TEXT_SIZE * 2));
+    g.drawString(totalDistanceString,(int)width - g.getFontMetrics().stringWidth(totalDistanceString) - 10,(int)height - 10);
+  }
   repaint();
 }
