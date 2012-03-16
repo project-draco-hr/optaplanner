@@ -26,8 +26,8 @@
   int colorIndex=0;
   for (  VrpVehicle vehicle : schedule.getVehicleList()) {
     g.setColor(TangoColors.SEQUENCE_2[colorIndex]);
-    VrpCustomer longestDistanceCustomer=null;
-    int longestDistance=-1;
+    VrpCustomer vehicleInfoCustomer=null;
+    int longestNonDepotDistance=-1;
     int load=0;
     for (    VrpCustomer customer : schedule.getCustomerList()) {
       if (customer.getPreviousAppearance() != null && customer.getVehicle() == vehicle) {
@@ -40,9 +40,14 @@
         int y=translator.translateLatitudeToY(location.getLatitude());
         g.drawLine(previousX,previousY,x,y);
         int distance=customer.getDistanceToPreviousAppearance();
-        if (longestDistance < distance) {
-          longestDistance=distance;
-          longestDistanceCustomer=customer;
+        if (customer.getPreviousAppearance() instanceof VrpCustomer) {
+          if (longestNonDepotDistance < distance) {
+            longestNonDepotDistance=distance;
+            vehicleInfoCustomer=customer;
+          }
+        }
+ else         if (vehicleInfoCustomer == null) {
+          vehicleInfoCustomer=customer;
         }
         boolean needsBackToVehicleLineDraw=true;
         for (        VrpCustomer trailingCustomer : schedule.getCustomerList()) {
@@ -59,18 +64,21 @@
         }
       }
     }
-    if (longestDistanceCustomer != null) {
+    if (vehicleInfoCustomer != null) {
       if (load > vehicle.getCapacity()) {
         g.setColor(TangoColors.SCARLET_2);
       }
-      VrpLocation previousLocation=longestDistanceCustomer.getPreviousAppearance().getLocation();
-      VrpLocation location=longestDistanceCustomer.getLocation();
+      VrpLocation previousLocation=vehicleInfoCustomer.getPreviousAppearance().getLocation();
+      VrpLocation location=vehicleInfoCustomer.getLocation();
       double longitude=(previousLocation.getLongitude() + location.getLongitude()) / 2.0;
       int x=translator.translateLongitudeToX(longitude);
       double latitude=(previousLocation.getLatitude() + location.getLatitude()) / 2.0;
       int y=translator.translateLatitudeToY(latitude);
       boolean ascending=(previousLocation.getLongitude() < location.getLongitude()) ^ (previousLocation.getLatitude() < location.getLatitude());
-      g.drawString(load + " / " + vehicle.getCapacity(),x + 3,(ascending ? y - 3 : y + TEXT_SIZE + 3));
+      Image vehicleImage=vehicleImageIcons[colorIndex].getImage();
+      int vehicleInfoHeight=vehicleImage.getHeight(this) + 2 + TEXT_SIZE;
+      g.drawImage(vehicleImage,x,(ascending ? y - vehicleInfoHeight : y),this);
+      g.drawString(load + " / " + vehicle.getCapacity(),x,(ascending ? y : y + vehicleInfoHeight));
     }
     colorIndex=(colorIndex + 1) % TangoColors.SEQUENCE_2.length;
   }

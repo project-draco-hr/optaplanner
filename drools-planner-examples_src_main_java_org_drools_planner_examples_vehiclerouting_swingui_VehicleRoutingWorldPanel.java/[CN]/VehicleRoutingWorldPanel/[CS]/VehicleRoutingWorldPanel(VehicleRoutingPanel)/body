@@ -1,5 +1,9 @@
 {
   this.vehicleRoutingPanel=vehicleRoutingPanel;
+  vehicleImageIcons=new ImageIcon[]{new ImageIcon(getClass().getResource(VEHICLE_IMAGE_PATH_PREFIX + "vehicleChameleon.png")),new ImageIcon(getClass().getResource(VEHICLE_IMAGE_PATH_PREFIX + "vehicleButter.png")),new ImageIcon(getClass().getResource(VEHICLE_IMAGE_PATH_PREFIX + "vehicleSkyBlue.png")),new ImageIcon(getClass().getResource(VEHICLE_IMAGE_PATH_PREFIX + "vehicleChocolate.png")),new ImageIcon(getClass().getResource(VEHICLE_IMAGE_PATH_PREFIX + "vehiclePlum.png"))};
+  if (vehicleImageIcons.length != TangoColors.SEQUENCE_1.length) {
+    throw new IllegalStateException("The vehicleImageIcons length (" + vehicleImageIcons.length + ") should be equal to the TangoColors.SEQUENCE length ("+ TangoColors.SEQUENCE_1.length+ ").");
+  }
   addComponentListener(new ComponentAdapter(){
     @Override public void componentResized(    ComponentEvent e){
       VrpSchedule schedule=VehicleRoutingWorldPanel.this.vehicleRoutingPanel.getSchedule();
