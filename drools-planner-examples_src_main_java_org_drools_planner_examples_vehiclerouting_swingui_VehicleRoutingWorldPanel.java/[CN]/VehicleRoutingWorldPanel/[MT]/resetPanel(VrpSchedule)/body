@@ -22,6 +22,7 @@
     int x=translator.translateLongitudeToX(depot.getLocation().getLongitude());
     int y=translator.translateLatitudeToY(depot.getLocation().getLatitude());
     g.fillRect(x - 2,y - 2,5,5);
+    g.drawImage(depotImageIcon.getImage(),x - depotImageIcon.getIconWidth() / 2,y - 2 - depotImageIcon.getIconHeight(),this);
   }
   int colorIndex=0;
   for (  VrpVehicle vehicle : schedule.getVehicleList()) {
@@ -75,20 +76,18 @@
       double latitude=(previousLocation.getLatitude() + location.getLatitude()) / 2.0;
       int y=translator.translateLatitudeToY(latitude);
       boolean ascending=(previousLocation.getLongitude() < location.getLongitude()) ^ (previousLocation.getLatitude() < location.getLatitude());
-      Image vehicleImage=vehicleImageIcons[colorIndex].getImage();
-      int vehicleInfoHeight=vehicleImage.getHeight(this) + 2 + TEXT_SIZE;
-      g.drawImage(vehicleImage,x,(ascending ? y - vehicleInfoHeight : y),this);
+      ImageIcon vehicleImageIcon=vehicleImageIcons[colorIndex];
+      int vehicleInfoHeight=vehicleImageIcon.getIconHeight() + 2 + TEXT_SIZE;
+      g.drawImage(vehicleImageIcon.getImage(),x,(ascending ? y - vehicleInfoHeight : y),this);
       g.drawString(load + " / " + vehicle.getCapacity(),x,(ascending ? y : y + vehicleInfoHeight));
     }
     colorIndex=(colorIndex + 1) % TangoColors.SEQUENCE_2.length;
   }
   g.setColor(TangoColors.ALUMINIUM_4);
-  g.fillRect(5,(int)height - 17 - (2 * TEXT_SIZE)- (TEXT_SIZE / 2),5,5);
-  g.drawString("Depot",15,(int)height - 15 - (2 * TEXT_SIZE));
+  g.fillRect(5,(int)height - 12 - TEXT_SIZE- (TEXT_SIZE / 2),5,5);
+  g.drawString("Depot",15,(int)height - 10 - TEXT_SIZE);
   g.setColor(TangoColors.ORANGE_2);
-  g.fillRect(6,(int)height - 11 - TEXT_SIZE- (TEXT_SIZE / 2),3,3);
-  g.drawString("Customer demand",15,(int)height - 10 - TEXT_SIZE);
-  g.setColor(TangoColors.SCARLET_2);
-  g.drawString(schedule.getVehicleList().size() + " vehicles: load / capacity",15,(int)height - 5);
+  g.fillRect(6,(int)height - 6 - (TEXT_SIZE / 2),3,3);
+  g.drawString("Customer demand",15,(int)height - 5);
   repaint();
 }
