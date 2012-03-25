@@ -25,7 +25,7 @@
   entitiesSubChain.add(a2);
   entitiesSubChain.add(a3);
   entitiesSubChain.add(a4);
-  GenericReverseChainedChangePartMove move=new GenericReverseChainedChangePartMove(entitiesSubChain,variableDescriptor,a1,a5,a5FactHandle,a2,a2FactHandle);
+  GenericReverseChainedChangePartMove move=new GenericReverseChainedChangePartMove(entitiesSubChain,variableDescriptor,a1,a5,a2);
   move.doMove(workingMemory);
   assertEquals(a0,a1.getChainedObject());
   assertEquals(a1,a4.getChainedObject());
@@ -33,11 +33,9 @@
   assertEquals(a3,a2.getChainedObject());
   assertEquals(a2,a5.getChainedObject());
   verify(workingMemory,atLeast(1)).update(a5FactHandle,a5);
-  verify(workingMemory).getFactHandle(a4);
   verify(workingMemory).update(a4FactHandle,a4);
-  verify(workingMemory).getFactHandle(a3);
   verify(workingMemory).update(a3FactHandle,a3);
-  verify(workingMemory).getFactHandle(a2);
   verify(workingMemory).update(a2FactHandle,a2);
+  verify(workingMemory,atLeast(0)).getFactHandle(anyObject());
   verifyNoMoreInteractions(workingMemory);
 }

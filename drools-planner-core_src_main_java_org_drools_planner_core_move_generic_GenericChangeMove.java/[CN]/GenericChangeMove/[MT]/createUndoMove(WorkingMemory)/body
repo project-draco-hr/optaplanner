@@ -1,4 +1,4 @@
 {
   Object oldPlanningValue=planningVariableDescriptor.getValue(planningEntity);
-  return new GenericChangeMove(planningEntity,planningEntityFactHandle,planningVariableDescriptor,oldPlanningValue);
+  return new GenericChangeMove(planningEntity,planningVariableDescriptor,oldPlanningValue);
 }

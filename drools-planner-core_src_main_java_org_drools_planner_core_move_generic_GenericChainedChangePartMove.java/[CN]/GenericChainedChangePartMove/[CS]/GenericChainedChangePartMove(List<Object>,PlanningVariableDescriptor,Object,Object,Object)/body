@@ -3,9 +3,7 @@
   this.planningVariableDescriptor=planningVariableDescriptor;
   this.toPlanningValue=toPlanningValue;
   this.oldTrailingEntity=oldTrailingEntity;
-  this.oldTrailingEntityFactHandle=oldTrailingEntityFactHandle;
   this.newTrailingEntity=newTrailingEntity;
-  this.newTrailingEntityFactHandle=newTrailingEntityFactHandle;
   firstEntity=this.entitiesSubChain.get(0);
   lastEntity=this.entitiesSubChain.get(entitiesSubChain.size() - 1);
 }

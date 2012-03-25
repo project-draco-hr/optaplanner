@@ -1,0 +1,5 @@
+{
+  super(planningEntity,planningVariableDescriptor,toPlanningValue);
+  this.oldTrailingEntity=oldTrailingEntity;
+  this.newTrailingEntity=newTrailingEntity;
+}

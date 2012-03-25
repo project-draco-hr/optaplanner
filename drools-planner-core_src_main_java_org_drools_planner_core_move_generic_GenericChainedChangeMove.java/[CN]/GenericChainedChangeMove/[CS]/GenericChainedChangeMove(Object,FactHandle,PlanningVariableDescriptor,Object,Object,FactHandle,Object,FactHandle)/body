@@ -1,7 +1,0 @@
-{
-  super(planningEntity,planningEntityFactHandle,planningVariableDescriptor,toPlanningValue);
-  this.oldTrailingEntity=oldTrailingEntity;
-  this.oldTrailingEntityFactHandle=oldTrailingEntityFactHandle;
-  this.newTrailingEntity=newTrailingEntity;
-  this.newTrailingEntityFactHandle=newTrailingEntityFactHandle;
-}

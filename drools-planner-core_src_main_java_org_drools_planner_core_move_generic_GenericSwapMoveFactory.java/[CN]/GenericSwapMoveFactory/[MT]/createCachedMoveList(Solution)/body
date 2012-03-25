@@ -3,7 +3,6 @@
   List<Object> entityList=solutionDescriptor.getPlanningEntityList(solution);
   for (ListIterator<Object> leftIt=entityList.listIterator(); leftIt.hasNext(); ) {
     Object leftEntity=leftIt.next();
-    FactHandle leftEntityFactHandle=solutionDirector.getWorkingMemory().getFactHandle(leftEntity);
     PlanningEntityDescriptor leftEntityDescriptor=solutionDescriptor.getPlanningEntityDescriptor(leftEntity.getClass());
     Collection<PlanningVariableDescriptor> variableDescriptors=leftEntityDescriptor.getPlanningVariableDescriptors();
     for (    PlanningVariableDescriptor variableDescriptor : variableDescriptors) {
@@ -15,8 +14,7 @@
       Object rightEntity=rightIt.next();
       PlanningEntityDescriptor rightEntityDescriptor=solutionDescriptor.getPlanningEntityDescriptor(leftEntity.getClass());
       if (leftEntityDescriptor.getPlanningEntityClass().equals(rightEntityDescriptor.getPlanningEntityClass())) {
-        FactHandle rightEntityFactHandle=solutionDirector.getWorkingMemory().getFactHandle(rightEntity);
-        moveList.add(new GenericSwapMove(variableDescriptors,leftEntity,leftEntityFactHandle,rightEntity,rightEntityFactHandle));
+        moveList.add(new GenericSwapMove(variableDescriptors,leftEntity,rightEntity));
       }
     }
   }

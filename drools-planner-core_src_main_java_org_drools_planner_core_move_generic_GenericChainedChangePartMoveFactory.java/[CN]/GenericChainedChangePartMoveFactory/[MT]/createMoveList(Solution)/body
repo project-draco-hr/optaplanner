@@ -29,24 +29,20 @@
               for (int toIndex=fromIndex + 2; toIndex <= chainSize; toIndex++) {
                 List<Object> entitiesSubChain=anchorWithChain.subList(fromIndex,toIndex);
                 Object oldTrailingEntity;
-                FactHandle oldTrailingEntityFactHandle;
                 if (toIndex < chainSize) {
                   oldTrailingEntity=anchorWithChain.get(toIndex);
-                  oldTrailingEntityFactHandle=workingMemory.getFactHandle(oldTrailingEntity);
                 }
  else {
                   oldTrailingEntity=null;
-                  oldTrailingEntityFactHandle=null;
                 }
                 for (                Object toValue : values) {
                   if (!entitiesSubChain.contains(toValue)) {
                     Object newTrailingEntity=findTrailingEntity(variableToEntitiesMap,variableDescriptor,toValue);
-                    FactHandle newTrailingEntityFactHandle=newTrailingEntity == null ? null : workingMemory.getFactHandle(newTrailingEntity);
                     if (!oldToValue.equals((toValue))) {
-                      moveList.add(new GenericChainedChangePartMove(entitiesSubChain,variableDescriptor,toValue,oldTrailingEntity,oldTrailingEntityFactHandle,newTrailingEntity,newTrailingEntityFactHandle));
+                      moveList.add(new GenericChainedChangePartMove(entitiesSubChain,variableDescriptor,toValue,oldTrailingEntity,newTrailingEntity));
                     }
                     if (chainSize != entitiesSubChain.size()) {
-                      moveList.add(new GenericReverseChainedChangePartMove(entitiesSubChain,variableDescriptor,toValue,oldTrailingEntity,oldTrailingEntityFactHandle,newTrailingEntity,newTrailingEntityFactHandle));
+                      moveList.add(new GenericReverseChainedChangePartMove(entitiesSubChain,variableDescriptor,toValue,oldTrailingEntity,newTrailingEntity));
                     }
                   }
                 }

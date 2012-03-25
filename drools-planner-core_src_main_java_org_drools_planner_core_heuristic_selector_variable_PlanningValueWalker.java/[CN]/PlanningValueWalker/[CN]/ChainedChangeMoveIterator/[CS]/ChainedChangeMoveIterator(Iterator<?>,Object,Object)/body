@@ -1,5 +1,4 @@
 {
   super(planningValueIterator,planningEntity);
   this.oldTrailingEntity=oldTrailingEntity;
-  this.oldTrailingEntityFactHandle=oldTrailingEntityFactHandle;
 }

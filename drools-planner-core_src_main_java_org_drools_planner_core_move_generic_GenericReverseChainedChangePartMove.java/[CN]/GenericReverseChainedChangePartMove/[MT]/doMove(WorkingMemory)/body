@@ -3,13 +3,13 @@
   if (firstEntity.equals(newTrailingEntity)) {
     if (oldTrailingEntity != null) {
       planningVariableDescriptor.setValue(oldTrailingEntity,oldFirstPlanningValue);
-      workingMemory.update(oldTrailingEntityFactHandle,oldTrailingEntity);
+      workingMemory.update(workingMemory.getFactHandle(oldTrailingEntity),oldTrailingEntity);
     }
   }
  else {
     if (oldTrailingEntity != null) {
       planningVariableDescriptor.setValue(oldTrailingEntity,oldFirstPlanningValue);
-      workingMemory.update(oldTrailingEntityFactHandle,oldTrailingEntity);
+      workingMemory.update(workingMemory.getFactHandle(oldTrailingEntity),oldTrailingEntity);
     }
   }
   Object nextEntity=toPlanningValue;
@@ -22,13 +22,13 @@
   if (firstEntity.equals(newTrailingEntity)) {
     if (oldTrailingEntity != null) {
       planningVariableDescriptor.setValue(oldTrailingEntity,firstEntity);
-      workingMemory.update(oldTrailingEntityFactHandle,oldTrailingEntity);
+      workingMemory.update(workingMemory.getFactHandle(oldTrailingEntity),oldTrailingEntity);
     }
   }
  else {
     if (newTrailingEntity != null) {
       planningVariableDescriptor.setValue(newTrailingEntity,firstEntity);
-      workingMemory.update(newTrailingEntityFactHandle,newTrailingEntity);
+      workingMemory.update(workingMemory.getFactHandle(newTrailingEntity),newTrailingEntity);
     }
   }
 }

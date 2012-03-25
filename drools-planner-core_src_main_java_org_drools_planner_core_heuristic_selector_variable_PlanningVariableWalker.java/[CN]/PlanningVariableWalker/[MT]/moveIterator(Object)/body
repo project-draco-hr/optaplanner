@@ -1,8 +1,7 @@
 {
-  FactHandle planningEntityFactHandle=workingMemory.insert(planningEntity);
+  workingMemory.insert(planningEntity);
   if (planningValueWalkerList.size() == 1) {
     PlanningValueWalker planningValueWalker=planningValueWalkerList.iterator().next();
-    planningValueWalker.initPlanningEntityFactHandle(planningEntityFactHandle);
     return planningValueWalker.moveIterator(planningEntity);
   }
  else {
@@ -10,7 +9,6 @@
     final List<Move> composedMoveList=new ArrayList<Move>(planningValueWalkerList.size());
     boolean moveIteratorIsFirst=true;
     for (    PlanningValueWalker planningValueWalker : planningValueWalkerList) {
-      planningValueWalker.initPlanningEntityFactHandle(planningEntityFactHandle);
       Iterator<Move> moveIterator=planningValueWalker.moveIterator(planningEntity);
       moveIteratorList.add(moveIterator);
       Move initialMove;

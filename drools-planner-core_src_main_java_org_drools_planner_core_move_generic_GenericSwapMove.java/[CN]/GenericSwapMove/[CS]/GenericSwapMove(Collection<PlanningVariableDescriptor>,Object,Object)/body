@@ -1,7 +1,5 @@
 {
   this.planningVariableDescriptors=planningVariableDescriptors;
   this.leftPlanningEntity=leftPlanningEntity;
-  this.leftPlanningEntityFactHandle=leftPlanningEntityFactHandle;
   this.rightPlanningEntity=rightPlanningEntity;
-  this.rightPlanningEntityFactHandle=rightPlanningEntityFactHandle;
 }
