@@ -1,5 +1,0 @@
-{
-  FactHandle factHandle=workingMemory.getFactHandle(shiftAssignment);
-  shiftAssignment.setEmployee(toEmployee);
-  workingMemory.update(factHandle,shiftAssignment);
-}

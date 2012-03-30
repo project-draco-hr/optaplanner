@@ -11,12 +11,12 @@
     }
   }
   SolutionDescriptor solutionDescriptor=buildSolutionDescriptor();
-  DefaultSolutionDirector solutionDirector=new DefaultSolutionDirector();
-  solutionDirector.setSolutionDescriptor(solutionDescriptor);
-  solutionDirector.setRuleBase(buildRuleBase());
+  DroolsScoreDirectorFactory scoreDirectorFactory=new DroolsScoreDirectorFactory();
+  scoreDirectorFactory.setSolutionDescriptor(solutionDescriptor);
+  scoreDirectorFactory.setRuleBase(buildRuleBase());
   ScoreDefinition scoreDefinition=scoreDefinitionConfig.buildScoreDefinition();
-  solutionDirector.setScoreDefinition(scoreDefinition);
-  solver.setSolutionDirector(solutionDirector);
+  scoreDirectorFactory.setScoreDefinition(scoreDefinition);
+  solver.setScoreDirectorFactory(scoreDirectorFactory);
   Termination termination=terminationConfig.buildTermination(scoreDefinition,basicPlumbingTermination);
   solver.setTermination(termination);
   BestSolutionRecaller bestSolutionRecaller=new BestSolutionRecaller();

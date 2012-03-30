@@ -1,9 +1,0 @@
-{
-  List<Move> undoMoveList=new ArrayList<Move>(moveList.size());
-  for (  Move move : moveList) {
-    Move undoMove=move.createUndoMove(workingMemory);
-    undoMoveList.add(undoMove);
-  }
-  Collections.reverse(undoMoveList);
-  return new CompositeMove(undoMoveList);
-}

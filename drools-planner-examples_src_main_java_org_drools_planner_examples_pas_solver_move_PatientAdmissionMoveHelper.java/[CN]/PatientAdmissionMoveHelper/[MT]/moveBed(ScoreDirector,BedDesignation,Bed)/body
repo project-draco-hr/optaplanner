@@ -1,0 +1,5 @@
+{
+  scoreDirector.beforeVariableChanged(bedDesignation,"bed");
+  bedDesignation.setBed(toBed);
+  scoreDirector.afterVariableChanged(bedDesignation,"bed");
+}

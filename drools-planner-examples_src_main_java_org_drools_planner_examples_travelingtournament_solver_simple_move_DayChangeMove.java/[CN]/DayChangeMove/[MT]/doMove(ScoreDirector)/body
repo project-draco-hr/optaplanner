@@ -1,0 +1,3 @@
+{
+  TravelingTournamentMoveHelper.moveDay(scoreDirector,match,toDay);
+}

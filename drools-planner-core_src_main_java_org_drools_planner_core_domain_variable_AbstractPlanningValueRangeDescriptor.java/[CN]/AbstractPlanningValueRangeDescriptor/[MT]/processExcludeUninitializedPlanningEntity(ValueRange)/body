@@ -11,7 +11,7 @@
       }
     }
     if (!assignableFrom) {
-      throw new IllegalArgumentException("The planningEntityClass (" + variableDescriptor.getPlanningEntityDescriptor().getPlanningEntityClass() + ") has a PlanningVariable annotated property ("+ variableDescriptor.getVariablePropertyName()+ ") with excludeUninitializedPlanningEntity (true), but there is no planning entity class"+ " that extends the variablePropertyType ("+ variablePropertyType+ ").");
+      throw new IllegalArgumentException("The planningEntityClass (" + variableDescriptor.getPlanningEntityDescriptor().getPlanningEntityClass() + ") has a PlanningVariable annotated property ("+ variableDescriptor.getVariableName()+ ") with excludeUninitializedPlanningEntity (true), but there is no planning entity class"+ " that extends the variablePropertyType ("+ variablePropertyType+ ").");
     }
   }
 }

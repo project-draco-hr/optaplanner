@@ -1,5 +1,5 @@
 {
   startingSystemTimeMillis=System.currentTimeMillis();
   bestSolutionStepIndex=-1;
-  startingScore=solverScope.calculateScoreFromWorkingMemory();
+  startingScore=solverScope.calculateScore();
 }

@@ -1,22 +1,21 @@
 {
   logger.info("Scheduling delete of employee ({}).",employee);
   solutionBusiness.doProblemFactChange(new ProblemFactChange(){
-    public void doChange(    SolutionDirector solutionDirector){
-      NurseRoster nurseRoster=(NurseRoster)solutionDirector.getWorkingSolution();
-      WorkingMemory workingMemory=solutionDirector.getWorkingMemory();
+    public void doChange(    ScoreDirector scoreDirector){
+      NurseRoster nurseRoster=(NurseRoster)scoreDirector.getWorkingSolution();
       for (      ShiftAssignment shiftAssignment : nurseRoster.getShiftAssignmentList()) {
         if (ObjectUtils.equals(shiftAssignment.getEmployee(),employee)) {
-          FactHandle shiftAssignmentHandle=workingMemory.getFactHandle(shiftAssignment);
+          scoreDirector.beforeEntityRemoved(shiftAssignment);
           shiftAssignment.setEmployee(null);
-          workingMemory.retract(shiftAssignmentHandle);
+          scoreDirector.afterEntityRemoved(shiftAssignment);
         }
       }
       for (Iterator<Employee> it=nurseRoster.getEmployeeList().iterator(); it.hasNext(); ) {
         Employee workingEmployee=it.next();
         if (ObjectUtils.equals(workingEmployee,employee)) {
-          FactHandle employeeHandle=workingMemory.getFactHandle(workingEmployee);
-          workingMemory.retract(employeeHandle);
+          scoreDirector.beforeProblemFactRemoved(workingEmployee);
           it.remove();
+          scoreDirector.beforeProblemFactRemoved(employee);
           break;
         }
       }

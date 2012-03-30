@@ -1,0 +1,6 @@
+{
+  scoreDirector.beforeAllVariablesChanged(lecture);
+  lecture.setPeriod(period);
+  lecture.setRoom(room);
+  scoreDirector.afterAllVariablesChanged(lecture);
+}

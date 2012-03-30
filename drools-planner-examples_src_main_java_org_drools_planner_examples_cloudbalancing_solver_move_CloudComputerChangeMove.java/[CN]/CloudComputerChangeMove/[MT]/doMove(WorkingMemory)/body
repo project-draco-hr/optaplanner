@@ -1,3 +1,0 @@
-{
-  CloudBalancingMoveHelper.moveCloudComputer(workingMemory,cloudProcess,toCloudComputer);
-}

@@ -4,9 +4,9 @@
     PlanningEntityDescriptor entityDescriptor=solutionDescriptor.getPlanningEntityDescriptor(entity.getClass());
     for (    PlanningVariableDescriptor variableDescriptor : entityDescriptor.getPlanningVariableDescriptors()) {
       if (variableDescriptor.isChained()) {
-        throw new IllegalStateException("The planningEntityClass (" + entityDescriptor.getPlanningEntityClass() + ")'s planningVariableDescriptor ("+ variableDescriptor.getVariablePropertyName()+ ") is chained and can therefor not use the moveFactory ("+ this.getClass()+ ").");
+        throw new IllegalStateException("The planningEntityClass (" + entityDescriptor.getPlanningEntityClass() + ")'s planningVariableDescriptor ("+ variableDescriptor.getVariableName()+ ") is chained and can therefor not use the moveFactory ("+ this.getClass()+ ").");
       }
-      for (      Object toPlanningValue : variableDescriptor.extractPlanningValues(solutionDirector.getWorkingSolution(),entity)) {
+      for (      Object toPlanningValue : variableDescriptor.extractPlanningValues(scoreDirector.getWorkingSolution(),entity)) {
         moveList.add(new GenericChangeMove(entity,variableDescriptor,toPlanningValue));
       }
     }

@@ -1,5 +1,5 @@
 {
-  Score score=moveScope.getLocalSearchStepScope().getLocalSearchSolverPhaseScope().calculateScoreFromWorkingMemory();
+  Score score=moveScope.getLocalSearchStepScope().getLocalSearchSolverPhaseScope().calculateScore();
   if (assertMoveScoreIsUncorrupted) {
     moveScope.getLocalSearchStepScope().getLocalSearchSolverPhaseScope().assertWorkingScore(score);
   }

@@ -1,0 +1,3 @@
+{
+  CurriculumCourseMoveHelper.movePeriod(scoreDirector,lecture,toPeriod);
+}

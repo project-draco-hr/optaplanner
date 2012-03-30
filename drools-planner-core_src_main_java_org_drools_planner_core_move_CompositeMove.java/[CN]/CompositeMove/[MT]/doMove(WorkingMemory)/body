@@ -1,5 +1,0 @@
-{
-  for (  Move move : moveList) {
-    move.doMove(workingMemory);
-  }
-}

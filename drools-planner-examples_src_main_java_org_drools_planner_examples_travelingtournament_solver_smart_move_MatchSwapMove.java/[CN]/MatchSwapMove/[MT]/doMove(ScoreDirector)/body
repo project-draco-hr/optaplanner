@@ -1,0 +1,6 @@
+{
+  Day oldLeftDay=leftMatch.getDay();
+  Day oldRightDay=rightMatch.getDay();
+  TravelingTournamentMoveHelper.moveDay(scoreDirector,leftMatch,oldRightDay);
+  TravelingTournamentMoveHelper.moveDay(scoreDirector,rightMatch,oldLeftDay);
+}

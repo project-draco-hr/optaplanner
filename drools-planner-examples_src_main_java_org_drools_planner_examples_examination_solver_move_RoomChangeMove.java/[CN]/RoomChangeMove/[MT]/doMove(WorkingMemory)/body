@@ -1,3 +1,0 @@
-{
-  ExaminationMoveHelper.moveRoom(workingMemory,exam,toRoom);
-}

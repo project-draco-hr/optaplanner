@@ -11,7 +11,7 @@
       logger.warn("    Cancelled step index ({}), time spend ({}): there is no doable move. Terminating phase early.",stepScope.getStepIndex(),solverPhaseScope.calculateSolverTimeMillisSpend());
       break;
     }
-    nextStep.doMove(stepScope.getWorkingMemory());
+    nextStep.doMove(stepScope.getScoreDirector());
     solverPhaseScope.getWorkingSolution().setScore(stepScope.getScore());
     if (assertStepScoreIsUncorrupted) {
       solverPhaseScope.assertWorkingScore(stepScope.getScore());

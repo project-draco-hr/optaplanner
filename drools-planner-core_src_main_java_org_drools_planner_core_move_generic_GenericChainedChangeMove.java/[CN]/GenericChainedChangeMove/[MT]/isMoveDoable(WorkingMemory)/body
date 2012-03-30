@@ -1,3 +1,0 @@
-{
-  return super.isMoveDoable(workingMemory) && !ObjectUtils.equals(planningEntity,toPlanningValue);
-}

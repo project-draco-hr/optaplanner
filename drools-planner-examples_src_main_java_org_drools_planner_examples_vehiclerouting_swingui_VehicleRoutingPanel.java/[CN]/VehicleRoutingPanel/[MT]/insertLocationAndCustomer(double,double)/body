@@ -6,16 +6,18 @@
   newLocation.setLatitude(latitude);
   logger.info("Scheduling insertion of newLocation ({}).",newLocation);
   solutionBusiness.doProblemFactChange(new ProblemFactChange(){
-    public void doChange(    SolutionDirector solutionDirector){
-      VrpSchedule solution=(VrpSchedule)solutionDirector.getWorkingSolution();
-      WorkingMemory workingMemory=solutionDirector.getWorkingMemory();
+    public void doChange(    ScoreDirector scoreDirector){
+      VrpSchedule solution=(VrpSchedule)scoreDirector.getWorkingSolution();
+      scoreDirector.beforeProblemFactAdded(newLocation);
       solution.getLocationList().add(newLocation);
-      workingMemory.insert(newLocation);
+      scoreDirector.afterProblemFactAdded(newLocation);
       VrpCustomer newCustomer=new VrpCustomer();
       newCustomer.setId(newLocation.getId());
       newCustomer.setLocation(newLocation);
       newCustomer.setDemand(demandRandom.nextInt(10) + 1);
+      scoreDirector.beforeEntityAdded(newCustomer);
       solution.getCustomerList().add(newCustomer);
+      scoreDirector.afterEntityAdded(newCustomer);
     }
   }
 );

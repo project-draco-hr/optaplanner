@@ -1,3 +1,0 @@
-{
-  return new CompareToBuilder().append(shift.getShiftDate(),other.shift.getShiftDate()).append(other.shift.getRequiredEmployeeSize(),shift.getRequiredEmployeeSize()).append(shift.getShiftType(),other.shift.getShiftType()).toComparison();
-}

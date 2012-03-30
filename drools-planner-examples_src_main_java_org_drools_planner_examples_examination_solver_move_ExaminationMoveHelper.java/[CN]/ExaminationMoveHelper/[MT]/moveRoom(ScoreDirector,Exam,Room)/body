@@ -1,0 +1,5 @@
+{
+  scoreDirector.beforeVariableChanged(exam,"room");
+  exam.setRoom(room);
+  scoreDirector.afterVariableChanged(exam,"room");
+}

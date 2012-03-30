@@ -1,7 +1,0 @@
-{
-  WorkingMemory workingMemory=solutionDirector.getWorkingMemory();
-  for (  MrProcessAssignment processAssignment : machineReassignment.getProcessAssignmentList()) {
-    processAssignment.setMachine(processAssignment.getOriginalMachine());
-    workingMemory.insert(processAssignment);
-  }
-}

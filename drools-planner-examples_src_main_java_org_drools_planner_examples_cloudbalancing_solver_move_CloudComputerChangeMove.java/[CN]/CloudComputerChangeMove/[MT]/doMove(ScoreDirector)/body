@@ -1,0 +1,3 @@
+{
+  CloudBalancingMoveHelper.moveCloudComputer(scoreDirector,cloudProcess,toCloudComputer);
+}

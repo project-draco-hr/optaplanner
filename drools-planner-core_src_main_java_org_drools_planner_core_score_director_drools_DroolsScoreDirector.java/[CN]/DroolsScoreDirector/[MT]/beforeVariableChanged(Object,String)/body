@@ -1,0 +1,3 @@
+{
+  beforeAllVariablesChanged(entity);
+}

@@ -1,0 +1,18 @@
+{
+  for (  PlanningVariableDescriptor planningVariableDescriptor : planningVariableDescriptors) {
+    Object leftValue=planningVariableDescriptor.getValue(leftPlanningEntityList.get(0));
+    Object rightValue=planningVariableDescriptor.getValue(rightPlanningEntityList.get(0));
+    if (!ObjectUtils.equals(leftValue,rightValue)) {
+      for (      Object leftPlanningEntity : leftPlanningEntityList) {
+        scoreDirector.beforeVariableChanged(leftPlanningEntity,planningVariableDescriptor.getVariableName());
+        planningVariableDescriptor.setValue(leftPlanningEntity,rightValue);
+        scoreDirector.afterVariableChanged(leftPlanningEntity,planningVariableDescriptor.getVariableName());
+      }
+      for (      Object rightPlanningEntity : rightPlanningEntityList) {
+        scoreDirector.beforeVariableChanged(rightPlanningEntity,planningVariableDescriptor.getVariableName());
+        planningVariableDescriptor.setValue(rightPlanningEntity,leftValue);
+        scoreDirector.afterVariableChanged(rightPlanningEntity,planningVariableDescriptor.getVariableName());
+      }
+    }
+  }
+}

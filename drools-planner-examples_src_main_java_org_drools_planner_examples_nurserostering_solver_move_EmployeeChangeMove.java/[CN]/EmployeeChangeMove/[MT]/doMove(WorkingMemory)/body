@@ -1,3 +1,0 @@
-{
-  NurseRosteringMoveHelper.moveEmployee(workingMemory,shiftAssignment,toEmployee);
-}

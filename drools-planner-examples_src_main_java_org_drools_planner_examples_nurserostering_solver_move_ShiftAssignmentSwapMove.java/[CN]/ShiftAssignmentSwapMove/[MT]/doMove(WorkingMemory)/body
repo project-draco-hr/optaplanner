@@ -1,6 +1,0 @@
-{
-  Employee oldLeftEmployee=leftShiftAssignment.getEmployee();
-  Employee oldRightEmployee=rightShiftAssignment.getEmployee();
-  NurseRosteringMoveHelper.moveEmployee(workingMemory,leftShiftAssignment,oldRightEmployee);
-  NurseRosteringMoveHelper.moveEmployee(workingMemory,rightShiftAssignment,oldLeftEmployee);
-}

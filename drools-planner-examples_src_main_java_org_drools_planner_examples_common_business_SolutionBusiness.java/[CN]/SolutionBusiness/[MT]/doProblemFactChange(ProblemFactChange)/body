@@ -3,6 +3,6 @@
     solver.addProblemFactChange(problemFactChange);
   }
  else {
-    problemFactChange.doChange(guiSolutionDirector);
+    problemFactChange.doChange(guiScoreDirector);
   }
 }

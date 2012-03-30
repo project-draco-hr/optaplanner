@@ -9,6 +9,6 @@
     solvingEnded(solverScope);
     checkProblemFactChanges();
   }
-  solverScope.getSolutionDirector().disposeWorkingSolution();
+  solverScope.getScoreDirector().dispose();
   solving.set(false);
 }

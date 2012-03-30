@@ -1,0 +1,12 @@
+{
+  Iterator<Match> it=matchList.iterator();
+  Match previousMatch=it.next();
+  Match match=null;
+  Day firstDay=previousMatch.getDay();
+  while (it.hasNext()) {
+    match=it.next();
+    TravelingTournamentMoveHelper.moveDay(scoreDirector,previousMatch,match.getDay());
+    previousMatch=match;
+  }
+  TravelingTournamentMoveHelper.moveDay(scoreDirector,match,firstDay);
+}

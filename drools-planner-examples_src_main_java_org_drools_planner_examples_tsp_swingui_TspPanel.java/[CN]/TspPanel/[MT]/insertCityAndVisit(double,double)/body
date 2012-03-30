@@ -6,15 +6,17 @@
   newCity.setLatitude(latitude);
   logger.info("Scheduling insertion of newCity ({}).",newCity);
   solutionBusiness.doProblemFactChange(new ProblemFactChange(){
-    public void doChange(    SolutionDirector solutionDirector){
-      TravelingSalesmanTour solution=(TravelingSalesmanTour)solutionDirector.getWorkingSolution();
-      WorkingMemory workingMemory=solutionDirector.getWorkingMemory();
+    public void doChange(    ScoreDirector scoreDirector){
+      TravelingSalesmanTour solution=(TravelingSalesmanTour)scoreDirector.getWorkingSolution();
+      scoreDirector.beforeProblemFactAdded(newCity);
       solution.getCityList().add(newCity);
-      workingMemory.insert(newCity);
+      scoreDirector.afterProblemFactAdded(newCity);
       Visit newVisit=new Visit();
       newVisit.setId(newCity.getId());
       newVisit.setCity(newCity);
+      scoreDirector.beforeEntityAdded(newVisit);
       solution.getVisitList().add(newVisit);
+      scoreDirector.afterEntityAdded(newVisit);
     }
   }
 );

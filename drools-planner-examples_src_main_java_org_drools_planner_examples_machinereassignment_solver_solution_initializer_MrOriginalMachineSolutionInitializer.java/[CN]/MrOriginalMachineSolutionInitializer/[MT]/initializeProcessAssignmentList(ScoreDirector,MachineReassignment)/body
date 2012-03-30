@@ -1,0 +1,7 @@
+{
+  for (  MrProcessAssignment processAssignment : machineReassignment.getProcessAssignmentList()) {
+    scoreDirector.beforeEntityAdded(processAssignment);
+    processAssignment.setMachine(processAssignment.getOriginalMachine());
+    scoreDirector.afterEntityAdded(processAssignment);
+  }
+}

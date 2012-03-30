@@ -1,5 +1,0 @@
-{
-  FactHandle matchHandle=workingMemory.getFactHandle(match);
-  match.setDay(toDay);
-  workingMemory.update(matchHandle,match);
-}

@@ -1,0 +1,5 @@
+{
+  scoreDirector.beforeVariableChanged(cloudProcess,"computer");
+  cloudProcess.setComputer(toCloudComputer);
+  scoreDirector.afterVariableChanged(cloudProcess,"computer");
+}

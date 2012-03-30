@@ -1,3 +1,0 @@
-{
-  CurriculumCourseMoveHelper.movePeriod(workingMemory,lecture,toPeriod);
-}

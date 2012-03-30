@@ -1,4 +1,0 @@
-{
-  planningVariableDescriptor.setValue(planningEntity,toPlanningValue);
-  workingMemory.update(workingMemory.getFactHandle(planningEntity),planningEntity);
-}

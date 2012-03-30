@@ -1,0 +1,3 @@
+{
+  PatientAdmissionMoveHelper.moveBed(scoreDirector,bedDesignation,toBed);
+}

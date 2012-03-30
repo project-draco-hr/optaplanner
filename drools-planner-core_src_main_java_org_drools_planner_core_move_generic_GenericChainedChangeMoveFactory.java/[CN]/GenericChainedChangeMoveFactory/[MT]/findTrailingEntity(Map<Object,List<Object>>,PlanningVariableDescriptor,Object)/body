@@ -4,7 +4,7 @@
     return null;
   }
   if (trailingEntities.size() > 1) {
-    throw new IllegalStateException("The planningValue (" + planningValue + ") has multiple trailing entities ("+ trailingEntities+ ") pointing to it for chained planningVariable ("+ variableDescriptor.getVariablePropertyName()+ ").");
+    throw new IllegalStateException("The planningValue (" + planningValue + ") has multiple trailing entities ("+ trailingEntities+ ") pointing to it for chained planningVariable ("+ variableDescriptor.getVariableName()+ ").");
   }
   return trailingEntities.get(0);
 }

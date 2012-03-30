@@ -1,4 +1,4 @@
 {
   Solution solution=solutionDao.readSolution(file);
-  guiSolutionDirector.setWorkingSolution(solution);
+  guiScoreDirector.setWorkingSolution(solution);
 }

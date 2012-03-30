@@ -1,6 +1,6 @@
 {
   Map<String,ScoreDetail> scoreDetailMap=new HashMap<String,ScoreDetail>();
-  WorkingMemory workingMemory=guiSolutionDirector.getWorkingMemory();
+  WorkingMemory workingMemory=guiScoreDirector.getWorkingMemory();
   if (workingMemory == null) {
     return Collections.emptyList();
   }

@@ -1,0 +1,55 @@
+{
+  boolean perfectMatch=false;
+  Score bestScore=DefaultHardAndSoftScore.valueOf(Integer.MIN_VALUE,Integer.MIN_VALUE);
+  Period bestPeriod=null;
+  Room bestRoom=null;
+  for (  PeriodScoring periodScoring : periodScoringList) {
+    if (bestScore.compareTo(periodScoring.getScore()) >= 0) {
+      break;
+    }
+    for (    ExamToHandle examToHandle : examToHandleList) {
+      Exam exam=examToHandle.getExam();
+      scoreDirector.beforeVariableChanged(exam,"period");
+      exam.setPeriod(periodScoring.getPeriod());
+      scoreDirector.afterVariableChanged(exam,"period");
+    }
+    for (    Room room : roomList) {
+      scoreDirector.beforeVariableChanged(leader,"room");
+      leader.setRoom(room);
+      scoreDirector.afterVariableChanged(leader,"room");
+      Score score=scoreDirector.calculateScore();
+      if (score.compareTo(unscheduledScore) < 0) {
+        if (score.compareTo(bestScore) > 0) {
+          bestScore=score;
+          bestPeriod=periodScoring.getPeriod();
+          bestRoom=room;
+        }
+      }
+ else       if (score.equals(unscheduledScore)) {
+        perfectMatch=true;
+        break;
+      }
+ else {
+        throw new IllegalStateException("The score (" + score + ") cannot be higher than unscheduledScore ("+ unscheduledScore+ ").");
+      }
+    }
+    if (perfectMatch) {
+      break;
+    }
+  }
+  if (!perfectMatch) {
+    if (bestPeriod == null || bestRoom == null) {
+      throw new IllegalStateException("The bestPeriod (" + bestPeriod + ") or the bestRoom ("+ bestRoom+ ") cannot be null.");
+    }
+    scoreDirector.beforeVariableChanged(leader,"room");
+    leader.setRoom(bestRoom);
+    scoreDirector.afterVariableChanged(leader,"room");
+    for (    ExamToHandle examToHandle : examToHandleList) {
+      Exam exam=examToHandle.getExam();
+      scoreDirector.beforeVariableChanged(exam,"period");
+      exam.setPeriod(bestPeriod);
+      scoreDirector.afterVariableChanged(exam,"period");
+    }
+  }
+  logger.debug("    Exam ({}) initialized.",leader);
+}

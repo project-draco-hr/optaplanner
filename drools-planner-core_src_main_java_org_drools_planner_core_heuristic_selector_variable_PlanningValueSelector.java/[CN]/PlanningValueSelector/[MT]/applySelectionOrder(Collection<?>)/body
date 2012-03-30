@@ -9,7 +9,7 @@ return randomPlanningValueList;
 case INCREASING_STRENGTH:
 List<Object> increasingStrengthPlanningValueList=new ArrayList<Object>(workingPlanningValues);
 PlanningValueSorter valueSorter=planningVariableDescriptor.getValueSorter();
-valueSorter.sortStrengthAscending(solutionDirector.getWorkingSolution(),increasingStrengthPlanningValueList);
+valueSorter.sortStrengthAscending(scoreDirector.getWorkingSolution(),increasingStrengthPlanningValueList);
 return increasingStrengthPlanningValueList;
 default :
 throw new IllegalStateException("The selectionOrder (" + selectionOrder + ") is not implemented");

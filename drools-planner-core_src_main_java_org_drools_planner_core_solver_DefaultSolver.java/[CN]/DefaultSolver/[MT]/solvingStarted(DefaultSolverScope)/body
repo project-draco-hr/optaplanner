@@ -2,7 +2,8 @@
   if (solverScope.getBestSolution() == null) {
     throw new IllegalStateException("The planningProblem must not be null." + " Use Solver.setPlanningProblem(Solution).");
   }
-  solverScope.reset();
+  solverScope.setStartingSystemTimeMillis(System.currentTimeMillis());
+  solverScope.setScoreDirector(scoreDirectorFactory.buildScoreDirector());
   if (randomSeed != null) {
     solverScope.setWorkingRandom(new Random(randomSeed));
   }

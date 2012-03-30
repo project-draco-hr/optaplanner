@@ -1,7 +1,0 @@
-{
-  DefaultSolutionDirector clone=new DefaultSolutionDirector();
-  clone.setSolutionDescriptor(solutionDescriptor);
-  clone.setRuleBase(ruleBase);
-  clone.setScoreDefinition(scoreDefinition);
-  return clone;
-}

@@ -1,6 +1,0 @@
-{
-  Bed oldLeftBed=leftBedDesignation.getBed();
-  Bed oldRightBed=rightBedDesignation.getBed();
-  moveBed(workingMemory,leftBedDesignation,oldRightBed);
-  moveBed(workingMemory,rightBedDesignation,oldLeftBed);
-}

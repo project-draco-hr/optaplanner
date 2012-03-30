@@ -1,4 +1,0 @@
-{
-  Manners2009 manners2009=(Manners2009)solutionDirector.getWorkingSolution();
-  initializeSeatDesignationList(solutionDirector,manners2009);
-}

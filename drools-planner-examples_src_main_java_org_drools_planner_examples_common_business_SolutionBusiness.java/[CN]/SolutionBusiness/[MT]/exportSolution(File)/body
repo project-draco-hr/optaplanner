@@ -1,4 +1,4 @@
 {
-  Solution solution=guiSolutionDirector.getWorkingSolution();
+  Solution solution=guiScoreDirector.getWorkingSolution();
   exporter.writeSolution(solution,file);
 }

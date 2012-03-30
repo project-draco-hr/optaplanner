@@ -1,0 +1,6 @@
+{
+  rotateList(scoreDirector,firstMatchList);
+  if (!secondMatchList.isEmpty()) {
+    rotateList(scoreDirector,secondMatchList);
+  }
+}

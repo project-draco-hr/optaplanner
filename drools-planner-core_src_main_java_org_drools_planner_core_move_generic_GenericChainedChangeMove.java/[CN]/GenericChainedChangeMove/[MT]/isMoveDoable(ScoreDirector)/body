@@ -1,0 +1,3 @@
+{
+  return super.isMoveDoable(scoreDirector) && !ObjectUtils.equals(planningEntity,toPlanningValue);
+}

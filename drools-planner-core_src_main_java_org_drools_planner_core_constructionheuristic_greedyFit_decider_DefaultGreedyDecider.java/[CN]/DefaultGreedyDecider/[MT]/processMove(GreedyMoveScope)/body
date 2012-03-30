@@ -1,5 +1,5 @@
 {
-  Score score=moveScope.getGreedyFitStepScope().getGreedyFitSolverPhaseScope().calculateScoreFromWorkingMemory();
+  Score score=moveScope.getGreedyFitStepScope().getGreedyFitSolverPhaseScope().calculateScore();
   if (assertMoveScoreIsUncorrupted) {
     moveScope.getGreedyFitStepScope().getGreedyFitSolverPhaseScope().assertWorkingScore(score);
   }

@@ -1,5 +1,0 @@
-{
-  FactHandle factHandle=workingMemory.getFactHandle(lecture);
-  lecture.setRoom(room);
-  workingMemory.update(factHandle,lecture);
-}

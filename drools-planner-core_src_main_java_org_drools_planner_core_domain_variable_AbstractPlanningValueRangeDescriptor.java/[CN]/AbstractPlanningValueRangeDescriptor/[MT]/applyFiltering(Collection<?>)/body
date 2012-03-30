@@ -7,7 +7,7 @@
     if (value.getClass().isAnnotationPresent(PlanningEntity.class)) {
       PlanningEntityDescriptor entityDescriptor=variableDescriptor.getPlanningEntityDescriptor().getSolutionDescriptor().getPlanningEntityDescriptor(value.getClass());
       if (entityDescriptor == null) {
-        throw new IllegalArgumentException("The planningEntityClass (" + variableDescriptor.getPlanningEntityDescriptor().getPlanningEntityClass() + ") has a PlanningVariable annotated property ("+ variableDescriptor.getVariablePropertyName()+ ") with excludeUninitializedPlanningEntity (true),"+ " but a planning value class ("+ value.getClass()+ ") annotated with PlanningEntity is a non configured as a planning entity.");
+        throw new IllegalArgumentException("The planningEntityClass (" + variableDescriptor.getPlanningEntityDescriptor().getPlanningEntityClass() + ") has a PlanningVariable annotated property ("+ variableDescriptor.getVariableName()+ ") with excludeUninitializedPlanningEntity (true),"+ " but a planning value class ("+ value.getClass()+ ") annotated with PlanningEntity is a non configured as a planning entity.");
       }
       if (entityDescriptor.isInitialized(value)) {
         filteredValues.add(value);

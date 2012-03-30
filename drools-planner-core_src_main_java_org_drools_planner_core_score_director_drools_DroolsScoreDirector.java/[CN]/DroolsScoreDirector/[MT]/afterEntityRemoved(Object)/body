@@ -1,0 +1,7 @@
+{
+  FactHandle factHandle=workingMemory.getFactHandle(entity);
+  if (factHandle == null) {
+    throw new IllegalArgumentException("The entity (" + entity + ") was never added to this ScoreDirector.");
+  }
+  workingMemory.retract(factHandle);
+}

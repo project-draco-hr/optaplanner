@@ -1,9 +1,0 @@
-{
-  Day oldFirstMatchDay=leftMatch.getDay();
-  FactHandle firstMatchHandle=workingMemory.getFactHandle(leftMatch);
-  FactHandle secondMatchHandle=workingMemory.getFactHandle(rightMatch);
-  leftMatch.setDay(rightMatch.getDay());
-  rightMatch.setDay(oldFirstMatchDay);
-  workingMemory.update(firstMatchHandle,leftMatch);
-  workingMemory.update(secondMatchHandle,rightMatch);
-}

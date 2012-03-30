@@ -1,0 +1,5 @@
+{
+  scoreDirector.beforeVariableChanged(shiftAssignment,"employee");
+  shiftAssignment.setEmployee(toEmployee);
+  scoreDirector.afterVariableChanged(shiftAssignment,"employee");
+}

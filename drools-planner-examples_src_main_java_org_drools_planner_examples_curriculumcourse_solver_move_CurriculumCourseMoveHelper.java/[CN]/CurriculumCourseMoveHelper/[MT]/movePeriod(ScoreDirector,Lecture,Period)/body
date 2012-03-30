@@ -1,0 +1,5 @@
+{
+  scoreDirector.beforeVariableChanged(lecture,"period");
+  lecture.setPeriod(period);
+  scoreDirector.afterVariableChanged(lecture,"period");
+}

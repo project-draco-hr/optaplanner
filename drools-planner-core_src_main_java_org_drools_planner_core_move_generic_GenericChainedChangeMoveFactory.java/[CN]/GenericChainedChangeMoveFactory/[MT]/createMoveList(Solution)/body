@@ -1,10 +1,9 @@
 {
   List<Move> moveList=new ArrayList<Move>();
-  Solution workingSolution=solutionDirector.getWorkingSolution();
-  WorkingMemory workingMemory=solutionDirector.getWorkingMemory();
+  Solution workingSolution=scoreDirector.getWorkingSolution();
   for (  PlanningEntityDescriptor entityDescriptor : solutionDescriptor.getPlanningEntityDescriptors()) {
     for (    PlanningVariableDescriptor variableDescriptor : entityDescriptor.getPlanningVariableDescriptors()) {
-      Map<Object,List<Object>> variableToEntitiesMap=solutionDirector.getVariableToEntitiesMap(variableDescriptor);
+      Map<Object,List<Object>> variableToEntitiesMap=scoreDirector.getVariableToEntitiesMap(variableDescriptor);
       List<Object> entityList=entityDescriptor.extractEntities(workingSolution);
       for (      Object entity : entityList) {
         if (!variableDescriptor.isChained()) {

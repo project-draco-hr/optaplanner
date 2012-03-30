@@ -1,0 +1,5 @@
+{
+  scoreDirector.beforeVariableChanged(match,"day");
+  match.setDay(toDay);
+  scoreDirector.afterVariableChanged(match,"day");
+}

@@ -1,0 +1,39 @@
+{
+  Object oldFirstPlanningValue=planningVariableDescriptor.getValue(firstEntity);
+  if (firstEntity.equals(newTrailingEntity)) {
+    if (oldTrailingEntity != null) {
+      scoreDirector.beforeVariableChanged(oldTrailingEntity,planningVariableDescriptor.getVariableName());
+      planningVariableDescriptor.setValue(oldTrailingEntity,oldFirstPlanningValue);
+      scoreDirector.afterVariableChanged(oldTrailingEntity,planningVariableDescriptor.getVariableName());
+    }
+  }
+ else {
+    if (oldTrailingEntity != null) {
+      scoreDirector.beforeVariableChanged(oldTrailingEntity,planningVariableDescriptor.getVariableName());
+      planningVariableDescriptor.setValue(oldTrailingEntity,oldFirstPlanningValue);
+      scoreDirector.afterVariableChanged(oldTrailingEntity,planningVariableDescriptor.getVariableName());
+    }
+  }
+  Object nextEntity=toPlanningValue;
+  for (ListIterator<Object> it=entitiesSubChain.listIterator(entitiesSubChain.size()); it.hasPrevious(); ) {
+    Object entity=it.previous();
+    scoreDirector.beforeVariableChanged(entity,planningVariableDescriptor.getVariableName());
+    planningVariableDescriptor.setValue(entity,nextEntity);
+    scoreDirector.afterVariableChanged(entity,planningVariableDescriptor.getVariableName());
+    nextEntity=entity;
+  }
+  if (firstEntity.equals(newTrailingEntity)) {
+    if (oldTrailingEntity != null) {
+      scoreDirector.beforeVariableChanged(oldTrailingEntity,planningVariableDescriptor.getVariableName());
+      planningVariableDescriptor.setValue(oldTrailingEntity,firstEntity);
+      scoreDirector.afterVariableChanged(oldTrailingEntity,planningVariableDescriptor.getVariableName());
+    }
+  }
+ else {
+    if (newTrailingEntity != null) {
+      scoreDirector.beforeVariableChanged(newTrailingEntity,planningVariableDescriptor.getVariableName());
+      planningVariableDescriptor.setValue(newTrailingEntity,firstEntity);
+      scoreDirector.afterVariableChanged(newTrailingEntity,planningVariableDescriptor.getVariableName());
+    }
+  }
+}

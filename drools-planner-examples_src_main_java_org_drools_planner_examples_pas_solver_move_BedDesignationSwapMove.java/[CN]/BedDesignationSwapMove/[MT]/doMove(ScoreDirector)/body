@@ -1,0 +1,6 @@
+{
+  Bed oldLeftBed=leftBedDesignation.getBed();
+  Bed oldRightBed=rightBedDesignation.getBed();
+  PatientAdmissionMoveHelper.moveBed(scoreDirector,leftBedDesignation,oldRightBed);
+  PatientAdmissionMoveHelper.moveBed(scoreDirector,rightBedDesignation,oldLeftBed);
+}

@@ -1,6 +1,0 @@
-{
-  rotateList(firstMatchList,workingMemory);
-  if (!secondMatchList.isEmpty()) {
-    rotateList(secondMatchList,workingMemory);
-  }
-}

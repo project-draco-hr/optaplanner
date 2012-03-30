@@ -2,7 +2,5 @@
   for (  PlanningValueWalker planningValueWalker : planningValueWalkerList) {
     planningValueWalker.phaseStarted(solverPhaseScope);
   }
-  workingMemory=solverPhaseScope.getWorkingMemory();
-  solutionDescriptor=solverPhaseScope.getSolutionDescriptor();
-  solutionDirector=solverPhaseScope.getSolutionDirector();
+  scoreDirector=solverPhaseScope.getScoreDirector();
 }

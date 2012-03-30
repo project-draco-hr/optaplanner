@@ -1,0 +1,18 @@
+{
+  Period oldLeftPeriod=leftExam.getPeriod();
+  Period oldRightPeriod=rightExam.getPeriod();
+  Room oldLeftRoom=leftExam.getRoom();
+  Room oldRightRoom=rightExam.getRoom();
+  if (oldLeftPeriod.equals(oldRightPeriod)) {
+    ExaminationMoveHelper.moveRoom(scoreDirector,leftExam,oldRightRoom);
+    ExaminationMoveHelper.moveRoom(scoreDirector,rightExam,oldLeftRoom);
+  }
+ else   if (oldLeftRoom.equals(oldRightRoom)) {
+    ExaminationMoveHelper.movePeriod(scoreDirector,leftExam,oldRightPeriod);
+    ExaminationMoveHelper.movePeriod(scoreDirector,rightExam,oldLeftPeriod);
+  }
+ else {
+    ExaminationMoveHelper.moveExam(scoreDirector,leftExam,oldRightPeriod,oldRightRoom);
+    ExaminationMoveHelper.moveExam(scoreDirector,rightExam,oldLeftPeriod,oldLeftRoom);
+  }
+}

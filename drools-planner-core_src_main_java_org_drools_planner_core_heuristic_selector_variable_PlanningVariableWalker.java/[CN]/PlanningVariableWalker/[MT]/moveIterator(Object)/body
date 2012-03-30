@@ -1,5 +1,6 @@
 {
-  workingMemory.insert(planningEntity);
+  scoreDirector.beforeEntityAdded(planningEntity);
+  scoreDirector.afterEntityAdded(planningEntity);
   if (planningValueWalkerList.size() == 1) {
     PlanningValueWalker planningValueWalker=planningValueWalkerList.iterator().next();
     return planningValueWalker.moveIterator(planningEntity);
@@ -18,7 +19,7 @@
       }
  else {
         if (!moveIterator.hasNext()) {
-          throw new IllegalStateException("The planning entity class (" + planningEntityDescriptor.getPlanningEntityClass() + ") for planning variable ("+ planningValueWalker.getPlanningVariableDescriptor().getVariablePropertyName()+ ") has an empty planning value range for planning entity ("+ planningEntity+ ").");
+          throw new IllegalStateException("The planning entity class (" + planningEntityDescriptor.getPlanningEntityClass() + ") for planning variable ("+ planningValueWalker.getPlanningVariableDescriptor().getVariableName()+ ") has an empty planning value range for planning entity ("+ planningEntity+ ").");
         }
         initialMove=moveIterator.next();
       }

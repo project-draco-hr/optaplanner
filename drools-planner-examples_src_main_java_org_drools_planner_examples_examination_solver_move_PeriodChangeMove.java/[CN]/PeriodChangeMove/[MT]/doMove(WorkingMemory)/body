@@ -1,3 +1,0 @@
-{
-  ExaminationMoveHelper.movePeriod(workingMemory,exam,toPeriod);
-}

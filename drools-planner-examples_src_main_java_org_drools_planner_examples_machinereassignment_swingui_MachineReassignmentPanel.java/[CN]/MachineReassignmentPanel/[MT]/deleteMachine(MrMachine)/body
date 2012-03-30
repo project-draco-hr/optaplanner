@@ -1,22 +1,21 @@
 {
   logger.info("Scheduling delete of machine ({}).",machine);
   solutionBusiness.doProblemFactChange(new ProblemFactChange(){
-    public void doChange(    SolutionDirector solutionDirector){
-      MachineReassignment machineReassignment=(MachineReassignment)solutionDirector.getWorkingSolution();
-      WorkingMemory workingMemory=solutionDirector.getWorkingMemory();
+    public void doChange(    ScoreDirector scoreDirector){
+      MachineReassignment machineReassignment=(MachineReassignment)scoreDirector.getWorkingSolution();
       for (      MrProcessAssignment processAssignment : machineReassignment.getProcessAssignmentList()) {
         if (ObjectUtils.equals(processAssignment.getMachine(),machine)) {
-          FactHandle processAssignmentHandle=workingMemory.getFactHandle(processAssignment);
+          scoreDirector.beforeEntityRemoved(processAssignment);
           processAssignment.setMachine(null);
-          workingMemory.retract(processAssignmentHandle);
+          scoreDirector.afterEntityRemoved(processAssignment);
         }
       }
       for (Iterator<MrMachine> it=machineReassignment.getMachineList().iterator(); it.hasNext(); ) {
-        MrMachine workingMrMachine=it.next();
-        if (ObjectUtils.equals(workingMrMachine,machine)) {
-          FactHandle machineHandle=workingMemory.getFactHandle(workingMrMachine);
-          workingMemory.retract(machineHandle);
+        MrMachine workingMachine=it.next();
+        if (ObjectUtils.equals(workingMachine,machine)) {
+          scoreDirector.beforeProblemFactRemoved(workingMachine);
           it.remove();
+          scoreDirector.beforeProblemFactRemoved(workingMachine);
           break;
         }
       }

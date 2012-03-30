@@ -4,7 +4,7 @@
   }
  else   if (o instanceof GenericReverseChainedChangePartMove) {
     GenericReverseChainedChangePartMove other=(GenericReverseChainedChangePartMove)o;
-    return new EqualsBuilder().append(entitiesSubChain,other.entitiesSubChain).append(planningVariableDescriptor.getVariablePropertyName(),other.planningVariableDescriptor.getVariablePropertyName()).append(toPlanningValue,other.toPlanningValue).isEquals();
+    return new EqualsBuilder().append(entitiesSubChain,other.entitiesSubChain).append(planningVariableDescriptor.getVariableName(),other.planningVariableDescriptor.getVariableName()).append(toPlanningValue,other.toPlanningValue).isEquals();
   }
  else {
     return false;

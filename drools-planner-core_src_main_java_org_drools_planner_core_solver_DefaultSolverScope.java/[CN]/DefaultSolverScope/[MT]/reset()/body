@@ -1,4 +1,0 @@
-{
-  startingSystemTimeMillis=System.currentTimeMillis();
-  solutionDirector.resetCalculateCount();
-}

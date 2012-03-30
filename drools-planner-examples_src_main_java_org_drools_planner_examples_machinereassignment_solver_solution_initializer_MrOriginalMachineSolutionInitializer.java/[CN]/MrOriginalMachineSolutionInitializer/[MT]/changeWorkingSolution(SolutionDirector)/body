@@ -1,4 +1,0 @@
-{
-  MachineReassignment machineReassignment=(MachineReassignment)solutionDirector.getWorkingSolution();
-  initializeProcessAssignmentList(solutionDirector,machineReassignment);
-}

@@ -1,0 +1,11 @@
+{
+  if (workingMemory != null) {
+    workingMemory.dispose();
+  }
+  workingMemory=getRuleBase().newStatefulSession();
+  workingScoreHolder=getScoreDefinition().buildScoreHolder();
+  workingMemory.setGlobal(GLOBAL_SCORE_HOLDER_KEY,workingScoreHolder);
+  for (  Object fact : getWorkingFacts()) {
+    workingMemory.insert(fact);
+  }
+}

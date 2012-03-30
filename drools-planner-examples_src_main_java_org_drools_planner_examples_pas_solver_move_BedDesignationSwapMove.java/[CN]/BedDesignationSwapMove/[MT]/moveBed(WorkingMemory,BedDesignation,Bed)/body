@@ -1,5 +1,0 @@
-{
-  FactHandle factHandle=workingMemory.getFactHandle(bedDesignation);
-  bedDesignation.setBed(toBed);
-  workingMemory.update(factHandle,bedDesignation);
-}

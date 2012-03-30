@@ -1,4 +1,0 @@
-{
-  PatientAdmissionSchedule patientAdmissionSchedule=(PatientAdmissionSchedule)solutionDirector.getWorkingSolution();
-  initializeBedDesignationList(solutionDirector,patientAdmissionSchedule);
-}

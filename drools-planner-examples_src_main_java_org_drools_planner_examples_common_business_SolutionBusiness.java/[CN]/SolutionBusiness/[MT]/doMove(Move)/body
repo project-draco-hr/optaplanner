@@ -3,10 +3,10 @@
     logger.error("Not doing user move ({}) because the solver is solving.",move);
     return;
   }
-  if (!move.isMoveDoable(guiSolutionDirector.getWorkingMemory())) {
+  if (!move.isMoveDoable(guiScoreDirector)) {
     logger.warn("Not doing user move ({}) because it is not doable.",move);
     return;
   }
   logger.info("Doing user move ({}).",move);
-  move.doMove(guiSolutionDirector.getWorkingMemory());
+  move.doMove(guiScoreDirector);
 }
