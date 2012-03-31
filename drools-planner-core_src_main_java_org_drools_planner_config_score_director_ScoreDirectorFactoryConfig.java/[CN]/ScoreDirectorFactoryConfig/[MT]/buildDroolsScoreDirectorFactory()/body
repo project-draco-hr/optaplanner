@@ -1,0 +1,5 @@
+{
+  DroolsScoreDirectorFactory scoreDirectorFactory=new DroolsScoreDirectorFactory();
+  scoreDirectorFactory.setRuleBase(buildRuleBase());
+  return scoreDirectorFactory;
+}

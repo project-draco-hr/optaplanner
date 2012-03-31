@@ -4,6 +4,9 @@
     if (args[0].equals("default")) {
       benchmarkConfig=DEFAULT_BENCHMARK_CONFIG;
     }
+ else     if (args[0].equals("scoreDirector")) {
+      benchmarkConfig=SCORE_DIRECTOR_BENCHMARK_CONFIG;
+    }
  else {
       throw new IllegalArgumentException("The program argument (" + args[0] + ") is not supported.");
     }

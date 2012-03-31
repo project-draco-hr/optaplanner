@@ -1,6 +1,9 @@
 {
+  if (!(guiScoreDirector instanceof DroolsScoreDirector)) {
+    return null;
+  }
   Map<String,ScoreDetail> scoreDetailMap=new HashMap<String,ScoreDetail>();
-  WorkingMemory workingMemory=guiScoreDirector.getWorkingMemory();
+  WorkingMemory workingMemory=((DroolsScoreDirector)guiScoreDirector).getWorkingMemory();
   if (workingMemory == null) {
     return Collections.emptyList();
   }

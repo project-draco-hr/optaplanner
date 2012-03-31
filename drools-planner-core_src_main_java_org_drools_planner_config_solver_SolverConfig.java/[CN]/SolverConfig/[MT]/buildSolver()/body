@@ -11,12 +11,9 @@
     }
   }
   SolutionDescriptor solutionDescriptor=buildSolutionDescriptor();
-  DroolsScoreDirectorFactory scoreDirectorFactory=new DroolsScoreDirectorFactory();
-  scoreDirectorFactory.setSolutionDescriptor(solutionDescriptor);
-  scoreDirectorFactory.setRuleBase(buildRuleBase());
-  ScoreDefinition scoreDefinition=scoreDefinitionConfig.buildScoreDefinition();
-  scoreDirectorFactory.setScoreDefinition(scoreDefinition);
+  ScoreDirectorFactory scoreDirectorFactory=scoreDirectorFactoryConfig.buildScoreDirectorFactory(solutionDescriptor);
   solver.setScoreDirectorFactory(scoreDirectorFactory);
+  ScoreDefinition scoreDefinition=scoreDirectorFactory.getScoreDefinition();
   Termination termination=terminationConfig.buildTermination(scoreDefinition,basicPlumbingTermination);
   solver.setTermination(termination);
   BestSolutionRecaller bestSolutionRecaller=new BestSolutionRecaller();

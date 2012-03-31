@@ -1,0 +1,3 @@
+Map<CloudComputer,Integer> cpuPowerUsageMap
+Map<CloudComputer,Integer> memoryUsageMap
+Map<CloudComputer,Integer> networkBandwidthUsageMap

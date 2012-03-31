@@ -1,0 +1,22 @@
+{
+  int hardScore=0;
+  for (  Map.Entry<CloudComputer,Integer> entry : cpuPowerUsageMap.entrySet()) {
+    int cpuPowerAvailable=entry.getKey().getCpuPower() - entry.getValue();
+    if (cpuPowerAvailable < 0) {
+      hardScore+=cpuPowerAvailable;
+    }
+  }
+  for (  Map.Entry<CloudComputer,Integer> entry : memoryUsageMap.entrySet()) {
+    int memoryAvailable=entry.getKey().getMemory() - entry.getValue();
+    if (memoryAvailable < 0) {
+      hardScore+=memoryAvailable;
+    }
+  }
+  for (  Map.Entry<CloudComputer,Integer> entry : networkBandwidthUsageMap.entrySet()) {
+    int networkBandwidthAvailable=entry.getKey().getNetworkBandwidth() - entry.getValue();
+    if (networkBandwidthAvailable < 0) {
+      hardScore+=networkBandwidthAvailable;
+    }
+  }
+  return hardScore;
+}

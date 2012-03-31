@@ -1,0 +1,11 @@
+{
+  ScoreDefinition scoreDefinition=buildScoreDefinition();
+  AbstractScoreDirectorFactory scoreDirectorFactory;
+  scoreDirectorFactory=buildSimpleScoreDirectorFactory();
+  if (scoreDirectorFactory == null) {
+    scoreDirectorFactory=buildDroolsScoreDirectorFactory();
+  }
+  scoreDirectorFactory.setSolutionDescriptor(solutionDescriptor);
+  scoreDirectorFactory.setScoreDefinition(scoreDefinition);
+  return scoreDirectorFactory;
+}

@@ -5,7 +5,6 @@
   int seriesIndex=0;
   for (  SolverBenchmark solverBenchmark : solverBenchmarkList) {
     XYSeries series=new XYSeries(solverBenchmark.getName());
-    ScoreDefinition scoreDefinition=solverBenchmark.getSolverConfig().getScoreDefinitionConfig().buildScoreDefinition();
     for (    PlannerBenchmarkResult result : solverBenchmark.getPlannerBenchmarkResultList()) {
       long problemScale=result.getProblemScale();
       long averageCalculateCountPerSecond=result.getAverageCalculateCountPerSecond();

@@ -1,0 +1,7 @@
+{
+  int softScore=0;
+  for (  CloudComputer usedComputer : usedComputerSet) {
+    softScore-=usedComputer.getCost();
+  }
+  return softScore;
+}

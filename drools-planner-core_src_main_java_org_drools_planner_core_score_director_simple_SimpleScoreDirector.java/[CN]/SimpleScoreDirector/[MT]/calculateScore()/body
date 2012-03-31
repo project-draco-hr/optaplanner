@@ -1,0 +1,6 @@
+{
+  Score score=simpleScoreCalculator.calculateScore(workingSolution);
+  workingSolution.setScore(score);
+  calculateCount++;
+  return score;
+}

@@ -1,0 +1,14 @@
+{
+  for (  CloudProcess process : processList) {
+    CloudComputer computer=process.getComputer();
+    if (computer != null) {
+      int cpuPowerUsage=cpuPowerUsageMap.get(computer) + process.getRequiredCpuPower();
+      cpuPowerUsageMap.put(computer,cpuPowerUsage);
+      int memoryUsage=memoryUsageMap.get(computer) + process.getRequiredMemory();
+      memoryUsageMap.put(computer,memoryUsage);
+      int networkBandwidthUsage=networkBandwidthUsageMap.get(computer) + process.getRequiredNetworkBandwidth();
+      networkBandwidthUsageMap.put(computer,networkBandwidthUsage);
+      usedComputerSet.add(computer);
+    }
+  }
+}

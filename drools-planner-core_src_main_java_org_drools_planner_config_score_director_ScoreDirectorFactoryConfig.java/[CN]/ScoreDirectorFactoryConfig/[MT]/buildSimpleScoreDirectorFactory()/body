@@ -1,0 +1,21 @@
+{
+  if (simpleScoreCalculator != null) {
+    return new SimpleScoreDirectorFactory(simpleScoreCalculator);
+  }
+ else   if (simpleScoreCalculatorClass != null) {
+    SimpleScoreCalculator simpleScoreCalculator;
+    try {
+      simpleScoreCalculator=simpleScoreCalculatorClass.newInstance();
+    }
+ catch (    InstantiationException e) {
+      throw new IllegalArgumentException("simpleScoreCalculatorClass (" + simpleScoreCalculatorClass.getName() + ") does not have a public no-arg constructor",e);
+    }
+catch (    IllegalAccessException e) {
+      throw new IllegalArgumentException("simpleScoreCalculatorClass (" + simpleScoreCalculatorClass.getName() + ") does not have a public no-arg constructor",e);
+    }
+    return new SimpleScoreDirectorFactory(simpleScoreCalculator);
+  }
+ else {
+    return null;
+  }
+}

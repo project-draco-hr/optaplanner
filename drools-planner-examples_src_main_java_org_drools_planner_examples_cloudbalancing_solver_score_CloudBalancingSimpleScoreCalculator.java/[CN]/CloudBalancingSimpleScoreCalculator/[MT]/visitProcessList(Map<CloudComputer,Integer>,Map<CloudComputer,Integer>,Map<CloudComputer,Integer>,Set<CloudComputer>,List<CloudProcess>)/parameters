@@ -1,0 +1,5 @@
+Map<CloudComputer,Integer> cpuPowerUsageMap
+Map<CloudComputer,Integer> memoryUsageMap
+Map<CloudComputer,Integer> networkBandwidthUsageMap
+Set<CloudComputer> usedComputerSet
+List<CloudProcess> processList

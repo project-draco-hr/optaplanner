@@ -5,7 +5,7 @@
   if (!workingScore.equals(uncorruptedScore)) {
     String scoreCorruptionAnalysis=buildScoreCorruptionAnalysis(uncorruptedScoreDirector);
     uncorruptedScoreDirector.dispose();
-    throw new IllegalStateException("Score corruption: the workingScore (" + workingScore + ") is not the uncorruptedScore ("+ uncorruptedScore+ "):\n"+ scoreCorruptionAnalysis);
+    throw new IllegalStateException("Score corruption: the workingScore (" + workingScore + ") is not the uncorruptedScore ("+ uncorruptedScore+ ")"+ (scoreCorruptionAnalysis == null ? "." : ":\n" + scoreCorruptionAnalysis));
   }
  else {
     uncorruptedScoreDirector.dispose();

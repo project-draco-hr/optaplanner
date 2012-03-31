@@ -14,27 +14,11 @@
  else   if (inheritedConfig.getPlanningEntityClassSet() != null) {
     planningEntityClassSet.addAll(inheritedConfig.getPlanningEntityClassSet());
   }
-  if (ruleBase == null) {
-    ruleBase=inheritedConfig.getRuleBase();
+  if (scoreDirectorFactoryConfig == null) {
+    scoreDirectorFactoryConfig=inheritedConfig.getScoreDirectorFactoryConfig();
   }
-  if (scoreDrlList == null) {
-    scoreDrlList=inheritedConfig.getScoreDrlList();
-  }
- else {
-    List<String> inheritedScoreDrlList=inheritedConfig.getScoreDrlList();
-    if (inheritedScoreDrlList != null) {
-      for (      String inheritedScoreDrl : inheritedScoreDrlList) {
-        if (!scoreDrlList.contains(inheritedScoreDrl)) {
-          scoreDrlList.add(inheritedScoreDrl);
-        }
-      }
-    }
-  }
-  if (scoreDefinitionConfig == null) {
-    scoreDefinitionConfig=inheritedConfig.getScoreDefinitionConfig();
-  }
- else   if (inheritedConfig.getScoreDefinitionConfig() != null) {
-    scoreDefinitionConfig.inherit(inheritedConfig.getScoreDefinitionConfig());
+ else   if (inheritedConfig.getScoreDirectorFactoryConfig() != null) {
+    scoreDirectorFactoryConfig.inherit(inheritedConfig.getScoreDirectorFactoryConfig());
   }
   if (terminationConfig == null) {
     terminationConfig=inheritedConfig.getTerminationConfig();

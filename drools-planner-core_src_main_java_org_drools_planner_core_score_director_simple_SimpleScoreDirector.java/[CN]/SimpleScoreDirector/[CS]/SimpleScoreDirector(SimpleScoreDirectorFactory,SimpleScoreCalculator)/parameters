@@ -1,0 +1,2 @@
+SimpleScoreDirectorFactory scoreDirectorFactory
+SimpleScoreCalculator simpleScoreCalculator
