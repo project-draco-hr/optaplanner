@@ -1,5 +1,5 @@
 {
   this.solver=solver;
-  ScoreDirectorFactory scoreDirectorFactory=((DefaultSolver)solver).getScoreDirectorFactory();
+  ScoreDirectorFactory scoreDirectorFactory=solver.getScoreDirectorFactory();
   guiScoreDirector=scoreDirectorFactory.buildScoreDirector();
 }
