@@ -10,9 +10,6 @@
   if (simpleScoreCalculatorClass == null) {
     simpleScoreCalculatorClass=inheritedConfig.getSimpleScoreCalculatorClass();
   }
-  if (incrementalScoreCalculator == null) {
-    incrementalScoreCalculator=inheritedConfig.getIncrementalScoreCalculator();
-  }
   if (incrementalScoreCalculatorClass == null) {
     incrementalScoreCalculatorClass=inheritedConfig.getIncrementalScoreCalculatorClass();
   }

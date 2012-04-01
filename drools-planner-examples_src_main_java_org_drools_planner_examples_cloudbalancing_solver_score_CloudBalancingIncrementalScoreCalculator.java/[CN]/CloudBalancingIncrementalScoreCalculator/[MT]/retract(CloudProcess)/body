@@ -28,8 +28,5 @@
       softScore+=computer.getCost();
     }
     processCountMap.put(computer,newProcessCount);
-    if (hardScore > 0 || softScore > 0) {
-      throw new IllegalArgumentException();
-    }
   }
 }
