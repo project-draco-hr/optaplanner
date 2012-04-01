@@ -1,0 +1,4 @@
+{
+  this.workingSolution=workingSolution;
+  incrementalScoreCalculator.resetWorkingSolution(workingSolution);
+}

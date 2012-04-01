@@ -1,0 +1,3 @@
+{
+  incrementalScoreCalculator.beforeVariableChanged(entity,variableName);
+}

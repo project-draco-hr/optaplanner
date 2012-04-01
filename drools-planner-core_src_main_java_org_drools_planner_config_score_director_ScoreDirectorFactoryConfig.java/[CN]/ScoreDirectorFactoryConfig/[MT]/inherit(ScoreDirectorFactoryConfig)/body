@@ -4,6 +4,18 @@
     scoreDefinitionClass=inheritedConfig.getScoreDefinitionClass();
     scoreDefinitionType=inheritedConfig.getScoreDefinitionType();
   }
+  if (simpleScoreCalculator == null) {
+    simpleScoreCalculator=inheritedConfig.getSimpleScoreCalculator();
+  }
+  if (simpleScoreCalculatorClass == null) {
+    simpleScoreCalculatorClass=inheritedConfig.getSimpleScoreCalculatorClass();
+  }
+  if (incrementalScoreCalculator == null) {
+    incrementalScoreCalculator=inheritedConfig.getIncrementalScoreCalculator();
+  }
+  if (incrementalScoreCalculatorClass == null) {
+    incrementalScoreCalculatorClass=inheritedConfig.getIncrementalScoreCalculatorClass();
+  }
   if (ruleBase == null) {
     ruleBase=inheritedConfig.getRuleBase();
   }
