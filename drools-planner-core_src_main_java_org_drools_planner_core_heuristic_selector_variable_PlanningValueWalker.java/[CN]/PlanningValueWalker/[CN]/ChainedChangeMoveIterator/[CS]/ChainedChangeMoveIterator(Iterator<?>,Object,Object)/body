@@ -1,4 +1,0 @@
-{
-  super(planningValueIterator,planningEntity);
-  this.oldTrailingEntity=oldTrailingEntity;
-}

@@ -1,14 +1,16 @@
 {
   if (hasChainedVariables) {
-    for (    Map.Entry<PlanningVariableDescriptor,Map<Object,Object>> entry : chainedVariableToTrailingEntityMap.entrySet()) {
+    for (    Map.Entry<PlanningVariableDescriptor,Map<Object,List<Object>>> entry : chainedVariableToTrailingEntitiesMap.entrySet()) {
       PlanningVariableDescriptor variableDescriptor=entry.getKey();
-      if (variableDescriptor.getPlanningEntityDescriptor().appliesToPlanningEntity(entity.getClass())) {
+      if (variableDescriptor.getPlanningEntityDescriptor().appliesToPlanningEntity(entity)) {
         Object value=variableDescriptor.getValue(entity);
-        Map<Object,Object> valueToTrailingEntityMap=entry.getValue();
-        Object previousValue=valueToTrailingEntityMap.put(value,entity);
-        if (previousValue != null) {
-          throw new IllegalArgumentException("The chainedPlanningVariable (" + variableDescriptor.getVariableName() + ") for the entity ("+ entity+ ") is trailing multiple values ("+ value+ ") ("+ previousValue+ ")."+ " This is a theoretically impossible and a bug in Planner.");
+        Map<Object,List<Object>> valueToTrailingEntityMap=entry.getValue();
+        List<Object> trailingEntities=valueToTrailingEntityMap.get(value);
+        if (trailingEntities == null) {
+          trailingEntities=new ArrayList<Object>();
+          valueToTrailingEntityMap.put(value,trailingEntities);
         }
+        trailingEntities.add(entity);
       }
     }
   }

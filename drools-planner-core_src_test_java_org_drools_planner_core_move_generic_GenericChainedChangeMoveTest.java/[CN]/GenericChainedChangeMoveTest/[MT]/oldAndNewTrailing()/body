@@ -12,7 +12,11 @@
   PlanningEntityDescriptor entityDescriptor=TestdataChainedEntity.buildEntityDescriptor();
   PlanningVariableDescriptor variableDescriptor=entityDescriptor.getPlanningVariableDescriptor("chainedObject");
   ScoreDirector scoreDirector=mock(ScoreDirector.class);
-  GenericChainedChangeMove move=new GenericChainedChangeMove(a2,variableDescriptor,b0,a3,b1);
+  when(scoreDirector.getTrailingEntity(variableDescriptor,a0)).thenReturn(a1);
+  when(scoreDirector.getTrailingEntity(variableDescriptor,a1)).thenReturn(a2);
+  when(scoreDirector.getTrailingEntity(variableDescriptor,a2)).thenReturn(a3);
+  when(scoreDirector.getTrailingEntity(variableDescriptor,b0)).thenReturn(b1);
+  GenericChainedChangeMove move=new GenericChainedChangeMove(a2,variableDescriptor,b0);
   move.doMove(scoreDirector);
   assertEquals(a0,a1.getChainedObject());
   assertEquals(a1,a3.getChainedObject());
@@ -24,5 +28,4 @@
   verify(scoreDirector).afterVariableChanged(a3,"chainedObject");
   verify(scoreDirector).beforeVariableChanged(b1,"chainedObject");
   verify(scoreDirector).afterVariableChanged(b1,"chainedObject");
-  verifyNoMoreInteractions(scoreDirector);
 }

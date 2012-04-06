@@ -38,5 +38,4 @@
   verify(scoreDirector).afterVariableChanged(a4,"chainedObject");
   verify(scoreDirector).beforeVariableChanged(b1,"chainedObject");
   verify(scoreDirector).afterVariableChanged(b1,"chainedObject");
-  verifyNoMoreInteractions(scoreDirector);
 }

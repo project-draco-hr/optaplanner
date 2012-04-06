@@ -3,7 +3,6 @@
   Solution workingSolution=scoreDirector.getWorkingSolution();
   for (  PlanningEntityDescriptor entityDescriptor : solutionDescriptor.getPlanningEntityDescriptors()) {
     for (    PlanningVariableDescriptor variableDescriptor : entityDescriptor.getPlanningVariableDescriptors()) {
-      Map<Object,List<Object>> variableToEntitiesMap=scoreDirector.getVariableToEntitiesMap(variableDescriptor);
       List<Object> entityList=entityDescriptor.extractEntities(workingSolution);
       for (      Object entity : entityList) {
         if (!variableDescriptor.isChained()) {
@@ -12,10 +11,8 @@
           }
         }
  else {
-          Object oldTrailingEntity=findTrailingEntity(variableToEntitiesMap,variableDescriptor,entity);
           for (          Object toPlanningValue : variableDescriptor.extractPlanningValues(workingSolution,entity)) {
-            Object newTrailingEntity=findTrailingEntity(variableToEntitiesMap,variableDescriptor,toPlanningValue);
-            moveList.add(new GenericChainedChangeMove(entity,variableDescriptor,toPlanningValue,oldTrailingEntity,newTrailingEntity));
+            moveList.add(new GenericChainedChangeMove(entity,variableDescriptor,toPlanningValue));
           }
         }
       }

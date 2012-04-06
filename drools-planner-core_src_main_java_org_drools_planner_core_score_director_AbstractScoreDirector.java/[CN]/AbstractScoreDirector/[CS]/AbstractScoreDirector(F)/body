@@ -2,8 +2,8 @@
   this.scoreDirectorFactory=scoreDirectorFactory;
   Collection<PlanningVariableDescriptor> chainedVariableDescriptors=getSolutionDescriptor().getChainedVariableDescriptors();
   hasChainedVariables=!chainedVariableDescriptors.isEmpty();
-  chainedVariableToTrailingEntityMap=new HashMap<PlanningVariableDescriptor,Map<Object,Object>>(chainedVariableDescriptors.size());
+  chainedVariableToTrailingEntitiesMap=new HashMap<PlanningVariableDescriptor,Map<Object,List<Object>>>(chainedVariableDescriptors.size());
   for (  PlanningVariableDescriptor chainedVariableDescriptor : chainedVariableDescriptors) {
-    chainedVariableToTrailingEntityMap.put(chainedVariableDescriptor,null);
+    chainedVariableToTrailingEntitiesMap.put(chainedVariableDescriptor,null);
   }
 }

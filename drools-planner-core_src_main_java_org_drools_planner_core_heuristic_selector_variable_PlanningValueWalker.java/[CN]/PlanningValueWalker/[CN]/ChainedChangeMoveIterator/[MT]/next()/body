@@ -1,5 +1,4 @@
 {
   Object toPlanningValue=planningValueIterator.next();
-  Object newTrailingEntity=findTrailingEntity(toPlanningValue);
-  return new GenericChainedChangeMove(planningEntity,planningVariableDescriptor,toPlanningValue,oldTrailingEntity,newTrailingEntity);
+  return new GenericChainedChangeMove(planningEntity,planningVariableDescriptor,toPlanningValue);
 }

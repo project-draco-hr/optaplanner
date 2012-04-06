@@ -1,0 +1,8 @@
+{
+  SolutionDescriptor solutionDescriptor=new SolutionDescriptor(TestdataChainedSolution.class);
+  solutionDescriptor.processAnnotations();
+  PlanningEntityDescriptor entityDescriptor=new PlanningEntityDescriptor(solutionDescriptor,TestdataChainedEntity.class);
+  entityDescriptor.processAnnotations();
+  solutionDescriptor.addPlanningEntityDescriptor(entityDescriptor);
+  return solutionDescriptor;
+}

@@ -1,0 +1,3 @@
+Collection<PlanningVariableDescriptor> planningVariableDescriptors
+Object leftPlanningEntity
+Object rightPlanningEntity

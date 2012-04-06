@@ -2,6 +2,7 @@
   DefaultSolverScope solverScope=new DefaultSolverScope();
   LocalSearchSolverPhaseScope localSearchSolverPhaseScope=new LocalSearchSolverPhaseScope(solverScope);
   DroolsScoreDirectorFactory scoreDirectorFactory=new DroolsScoreDirectorFactory();
+  scoreDirectorFactory.setSolutionDescriptor(TestdataSolution.buildSolutionDescriptor());
   scoreDirectorFactory.setScoreDefinition(new SimpleScoreDefinition());
   solverScope.setScoreDirector(scoreDirectorFactory.buildScoreDirector());
   solverScope.setWorkingRandom(new Random(){

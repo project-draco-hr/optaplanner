@@ -1,0 +1,3 @@
+{
+  return new GenericChainedSwapMove(planningVariableDescriptors,rightPlanningEntity,leftPlanningEntity);
+}

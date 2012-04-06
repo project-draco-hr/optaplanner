@@ -1,11 +1,18 @@
 {
   if (hasChainedVariables) {
-    for (    Map.Entry<PlanningVariableDescriptor,Map<Object,Object>> entry : chainedVariableToTrailingEntityMap.entrySet()) {
+    for (    Map.Entry<PlanningVariableDescriptor,Map<Object,List<Object>>> entry : chainedVariableToTrailingEntitiesMap.entrySet()) {
       PlanningVariableDescriptor variableDescriptor=entry.getKey();
-      if (variableDescriptor.getPlanningEntityDescriptor().appliesToPlanningEntity(entity.getClass())) {
+      if (variableDescriptor.getPlanningEntityDescriptor().appliesToPlanningEntity(entity)) {
         Object value=variableDescriptor.getValue(entity);
-        Map<Object,Object> valueToTrailingEntityMap=entry.getValue();
-        valueToTrailingEntityMap.put(value,null);
+        Map<Object,List<Object>> valueToTrailingEntityMap=entry.getValue();
+        List<Object> trailingEntities=valueToTrailingEntityMap.get(value);
+        boolean removeSucceeded=trailingEntities.remove(entity);
+        if (!removeSucceeded) {
+          throw new IllegalStateException("The ScoreDirector (" + getClass() + ") is corrupted.");
+        }
+        if (trailingEntities.isEmpty()) {
+          valueToTrailingEntityMap.put(value,null);
+        }
       }
     }
   }

@@ -1,0 +1,4 @@
+ScoreDirector scoreDirector
+PlanningVariableDescriptor variableDescriptor
+Object planningEntity
+Object toPlanningValue

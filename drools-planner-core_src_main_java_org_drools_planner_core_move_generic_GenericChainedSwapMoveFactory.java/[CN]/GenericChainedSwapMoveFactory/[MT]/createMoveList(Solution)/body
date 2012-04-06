@@ -9,7 +9,7 @@
       Object rightEntity=rightIt.next();
       PlanningEntityDescriptor rightEntityDescriptor=solutionDescriptor.getPlanningEntityDescriptor(leftEntity.getClass());
       if (leftEntityDescriptor.getPlanningEntityClass().equals(rightEntityDescriptor.getPlanningEntityClass())) {
-        throw new UnsupportedOperationException("Not yet implemented");
+        moveList.add(new GenericChainedSwapMove(variableDescriptors,leftEntity,rightEntity));
       }
     }
   }

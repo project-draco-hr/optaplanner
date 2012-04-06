@@ -4,7 +4,6 @@
     return new ChangeMoveIterator(planningValueIterator,planningEntity);
   }
  else {
-    Object oldTrailingEntity=findTrailingEntity(planningEntity);
-    return new ChainedChangeMoveIterator(planningValueIterator,planningEntity,oldTrailingEntity);
+    return new ChainedChangeMoveIterator(planningValueIterator,planningEntity);
   }
 }

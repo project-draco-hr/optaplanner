@@ -1,5 +1,7 @@
 {
   Object oldPlanningValue=planningVariableDescriptor.getValue(planningEntity);
+  Object oldTrailingEntity=scoreDirector.getTrailingEntity(planningVariableDescriptor,planningEntity);
+  Object newTrailingEntity=toPlanningValue == null ? null : scoreDirector.getTrailingEntity(planningVariableDescriptor,toPlanningValue);
   if (oldTrailingEntity != null) {
     scoreDirector.beforeVariableChanged(oldTrailingEntity,planningVariableDescriptor.getVariableName());
     planningVariableDescriptor.setValue(oldTrailingEntity,oldPlanningValue);
