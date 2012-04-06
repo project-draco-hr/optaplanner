@@ -1,7 +1,6 @@
 {
   workingMemory.fireAllRules();
   Score score=workingScoreHolder.extractScore();
-  workingSolution.setScore(score);
-  calculateCount++;
+  setCalculatedScore(score);
   return score;
 }

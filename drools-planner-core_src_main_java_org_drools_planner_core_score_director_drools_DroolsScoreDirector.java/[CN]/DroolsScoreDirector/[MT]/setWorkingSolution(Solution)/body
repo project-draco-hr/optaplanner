@@ -1,4 +1,4 @@
 {
-  this.workingSolution=workingSolution;
+  super.setWorkingSolution(workingSolution);
   resetWorkingMemory();
 }

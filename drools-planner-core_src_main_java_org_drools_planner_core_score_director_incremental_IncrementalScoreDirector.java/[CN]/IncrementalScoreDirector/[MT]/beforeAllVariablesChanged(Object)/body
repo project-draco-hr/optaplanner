@@ -1,3 +1,4 @@
 {
+  super.beforeAllVariablesChanged(entity);
   incrementalScoreCalculator.beforeAllVariablesChanged(entity);
 }

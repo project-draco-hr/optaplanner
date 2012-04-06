@@ -1,4 +1,5 @@
 {
+  super.afterEntityAdded(entity);
   if (entity == null) {
     throw new IllegalArgumentException("The entity (" + entity + ") cannot be added to the ScoreDirector.");
   }

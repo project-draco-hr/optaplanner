@@ -1,4 +1,5 @@
 {
+  super.afterProblemFactRemoved(problemFact);
   FactHandle factHandle=workingMemory.getFactHandle(problemFact);
   if (factHandle == null) {
     throw new IllegalArgumentException("The problemFact (" + problemFact + ") was never added to this ScoreDirector.");

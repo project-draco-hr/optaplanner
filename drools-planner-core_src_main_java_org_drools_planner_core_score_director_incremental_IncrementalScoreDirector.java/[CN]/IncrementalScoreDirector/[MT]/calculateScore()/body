@@ -1,6 +1,5 @@
 {
   Score score=incrementalScoreCalculator.calculateScore();
-  workingSolution.setScore(score);
-  calculateCount++;
+  setCalculatedScore(score);
   return score;
 }

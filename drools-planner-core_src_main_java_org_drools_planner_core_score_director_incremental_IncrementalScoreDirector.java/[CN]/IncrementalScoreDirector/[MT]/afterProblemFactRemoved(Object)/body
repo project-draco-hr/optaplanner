@@ -1,3 +1,4 @@
 {
+  super.afterProblemFactRemoved(problemFact);
   incrementalScoreCalculator.resetWorkingSolution(workingSolution);
 }
