@@ -1,0 +1,11 @@
+{
+  Collection<PlanningVariableDescriptor> chainedVariableDescriptors=new ArrayList<PlanningVariableDescriptor>();
+  for (  PlanningEntityDescriptor entityDescriptor : planningEntityDescriptorMap.values()) {
+    for (    PlanningVariableDescriptor variableDescriptor : entityDescriptor.getPlanningVariableDescriptors()) {
+      if (variableDescriptor.isChained()) {
+        chainedVariableDescriptors.add(variableDescriptor);
+      }
+    }
+  }
+  return chainedVariableDescriptors;
+}

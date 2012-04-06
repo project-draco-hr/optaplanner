@@ -1,0 +1,11 @@
+{
+  if (hasChainedVariables) {
+    List<Object> entityList=getSolutionDescriptor().getPlanningEntityList(workingSolution);
+    for (    Map.Entry<PlanningVariableDescriptor,Map<Object,Object>> entry : chainedVariableToTrailingEntityMap.entrySet()) {
+      entry.setValue(new HashMap<Object,Object>(entityList.size()));
+    }
+    for (    Object entity : entityList) {
+      insertInTrailingEntityMap(entity);
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  if (hasChainedVariables) {
+    for (    Map.Entry<PlanningVariableDescriptor,Map<Object,Object>> entry : chainedVariableToTrailingEntityMap.entrySet()) {
+      PlanningVariableDescriptor variableDescriptor=entry.getKey();
+      if (variableDescriptor.getPlanningEntityDescriptor().appliesToPlanningEntity(entity.getClass())) {
+        Object value=variableDescriptor.getValue(entity);
+        Map<Object,Object> valueToTrailingEntityMap=entry.getValue();
+        valueToTrailingEntityMap.put(value,null);
+      }
+    }
+  }
+}

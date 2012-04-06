@@ -1,4 +1,4 @@
 {
-  super.beforeEntityAdded(entity);
   incrementalScoreCalculator.beforeEntityAdded(entity);
+  super.beforeEntityAdded(entity);
 }
