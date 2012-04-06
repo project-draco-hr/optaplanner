@@ -1,0 +1,3 @@
+{
+  return new CompareToBuilder().append(a.getLocation().getLatitude(),b.getLocation().getLatitude()).append(a.getLocation().getLongitude(),b.getLocation().getLongitude()).append(a.getDemand(),b.getDemand()).append(a.getId(),b.getId()).toComparison();
+}
