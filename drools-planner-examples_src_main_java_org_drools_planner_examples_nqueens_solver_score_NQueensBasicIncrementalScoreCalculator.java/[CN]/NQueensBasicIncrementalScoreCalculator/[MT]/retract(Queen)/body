@@ -1,0 +1,17 @@
+{
+  Row row=queen.getRow();
+  if (row != null) {
+    insertedQueenList.remove(queen);
+    for (    Queen otherQueen : insertedQueenList) {
+      if (queen.getRowIndex() == otherQueen.getRowIndex()) {
+        score++;
+      }
+      if (queen.getAscendingDiagonalIndex() == otherQueen.getAscendingDiagonalIndex()) {
+        score++;
+      }
+      if (queen.getDescendingDiagonalIndex() == otherQueen.getDescendingDiagonalIndex()) {
+        score++;
+      }
+    }
+  }
+}

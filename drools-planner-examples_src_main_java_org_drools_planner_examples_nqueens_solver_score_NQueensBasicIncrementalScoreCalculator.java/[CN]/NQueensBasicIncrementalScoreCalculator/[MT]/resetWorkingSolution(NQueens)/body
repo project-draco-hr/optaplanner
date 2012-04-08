@@ -1,0 +1,7 @@
+{
+  insertedQueenList=new ArrayList<Queen>(nQueens.getN());
+  score=0;
+  for (  Queen queen : nQueens.getQueenList()) {
+    insert(queen);
+  }
+}
