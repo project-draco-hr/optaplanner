@@ -1,9 +1,11 @@
 {
   Object planningEntity=stepScope.getPlanningEntity();
+  int moveIndex=0;
   Iterator<Move> moveIterator=planningVariableWalker.moveIterator(planningEntity);
   while (moveIterator.hasNext()) {
     Move move=moveIterator.next();
     GreedyMoveScope moveScope=new GreedyMoveScope(stepScope);
+    moveScope.setMoveIndex(moveIndex);
     moveScope.setMove(move);
     if (move.isMoveDoable(stepScope.getScoreDirector())) {
       doMove(moveScope);
@@ -14,6 +16,7 @@
  else {
       logger.trace("        Ignoring not doable move ({}).",move);
     }
+    moveIndex++;
   }
   GreedyMoveScope pickedMoveScope=forager.pickMove(stepScope);
   if (pickedMoveScope != null) {
