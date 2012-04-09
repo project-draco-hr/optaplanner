@@ -1,0 +1,5 @@
+{
+  solver.setPlanningProblem(planningProblem);
+  solver.solve();
+  return solver.getBestSolution();
+}

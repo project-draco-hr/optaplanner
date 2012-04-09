@@ -1,6 +1,0 @@
-{
-  solver.setPlanningProblem(guiScoreDirector.getWorkingSolution());
-  solver.solve();
-  Solution bestSolution=solver.getBestSolution();
-  guiScoreDirector.setWorkingSolution(bestSolution);
-}

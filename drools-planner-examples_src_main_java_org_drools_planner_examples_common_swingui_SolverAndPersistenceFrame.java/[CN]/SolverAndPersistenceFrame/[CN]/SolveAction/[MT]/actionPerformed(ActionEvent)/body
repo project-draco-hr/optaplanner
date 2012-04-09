@@ -1,15 +1,22 @@
 {
   setSolvingState(true);
+  final Solution planningProblem=solutionBusiness.getSolution();
   solvingExecutor.submit(new Runnable(){
     public void run(){
+      Solution bestSolution;
       try {
-        solutionBusiness.solve();
+        bestSolution=solutionBusiness.solve(planningProblem);
       }
  catch (      final Throwable e) {
         logger.error("Solving failed.",e);
+        bestSolution=null;
       }
+      final Solution newSolution=bestSolution;
       SwingUtilities.invokeLater(new Runnable(){
         public void run(){
+          if (newSolution != null) {
+            solutionBusiness.setSolution(newSolution);
+          }
           setSolvingState(false);
           resetScreen();
         }
