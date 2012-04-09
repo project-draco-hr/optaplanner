@@ -9,7 +9,7 @@
     descendingDiagonalIndexMap.put(i,new ArrayList<Queen>(n));
     if (i != 0) {
       ascendingDiagonalIndexMap.put(n - 1 + i,new ArrayList<Queen>(n));
-      descendingDiagonalIndexMap.put(-i,new ArrayList<Queen>(n));
+      descendingDiagonalIndexMap.put((-i),new ArrayList<Queen>(n));
     }
   }
   score=0;

@@ -1,7 +1,8 @@
 {
   Row row=queen.getRow();
   if (row != null) {
-    List<Queen> rowIndexList=rowIndexMap.get(queen.getRowIndex());
+    int rowIndex=queen.getRowIndex();
+    List<Queen> rowIndexList=rowIndexMap.get(rowIndex);
     score-=rowIndexList.size();
     rowIndexList.add(queen);
     List<Queen> ascendingDiagonalIndexList=ascendingDiagonalIndexMap.get(queen.getAscendingDiagonalIndex());
