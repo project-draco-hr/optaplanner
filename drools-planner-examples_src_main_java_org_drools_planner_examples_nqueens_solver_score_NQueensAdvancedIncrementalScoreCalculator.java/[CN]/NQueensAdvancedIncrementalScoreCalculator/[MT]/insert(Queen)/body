@@ -1,0 +1,14 @@
+{
+  Row row=queen.getRow();
+  if (row != null) {
+    List<Queen> rowIndexList=rowIndexMap.get(queen.getRowIndex());
+    score-=rowIndexList.size();
+    rowIndexList.add(queen);
+    List<Queen> ascendingDiagonalIndexList=ascendingDiagonalIndexMap.get(queen.getAscendingDiagonalIndex());
+    score-=ascendingDiagonalIndexList.size();
+    ascendingDiagonalIndexList.add(queen);
+    List<Queen> descendingDiagonalIndexList=descendingDiagonalIndexMap.get(queen.getDescendingDiagonalIndex());
+    score-=descendingDiagonalIndexList.size();
+    descendingDiagonalIndexList.add(queen);
+  }
+}

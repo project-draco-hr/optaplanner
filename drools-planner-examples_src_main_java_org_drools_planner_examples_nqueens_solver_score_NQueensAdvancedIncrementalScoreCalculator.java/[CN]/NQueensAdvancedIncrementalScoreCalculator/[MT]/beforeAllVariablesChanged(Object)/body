@@ -1,0 +1,3 @@
+{
+  retract((Queen)entity);
+}
