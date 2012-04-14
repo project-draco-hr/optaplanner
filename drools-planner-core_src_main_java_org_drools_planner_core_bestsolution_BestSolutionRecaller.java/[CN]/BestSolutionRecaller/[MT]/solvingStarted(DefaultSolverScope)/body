@@ -9,4 +9,5 @@
   }
   solverScope.setStartingInitializedScore(startingInitializedScore);
   solverScope.setBestScore(startingInitializedScore);
+  solverScope.getBestSolution().setScore(startingInitializedScore);
 }
