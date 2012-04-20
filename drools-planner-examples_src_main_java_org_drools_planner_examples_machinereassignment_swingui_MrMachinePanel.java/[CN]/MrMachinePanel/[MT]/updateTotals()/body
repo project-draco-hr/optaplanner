@@ -14,7 +14,7 @@
       maximumCapacity=0;
       safetyCapacity=0;
     }
-    int usedTotal=0;
+    long usedTotal=0;
     for (    MrProcessAssignment processAssignment : processAssignmentList) {
       usedTotal+=processAssignment.getProcess().getProcessRequirement(resource).getUsage();
     }

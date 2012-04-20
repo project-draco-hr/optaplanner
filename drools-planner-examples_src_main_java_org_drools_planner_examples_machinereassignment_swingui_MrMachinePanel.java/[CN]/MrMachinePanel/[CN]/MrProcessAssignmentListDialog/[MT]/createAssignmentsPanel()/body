@@ -6,8 +6,8 @@
     processAssignmentLabel.setForeground(TangoColors.SEQUENCE_1[colorIndex]);
     assignmentsPanel.add(processAssignmentLabel);
     for (    MrResource resource : resourceList) {
-      int usage=processAssignment.getProcess().getProcessRequirement(resource).getUsage();
-      JTextField resourceField=new JTextField(usage);
+      long usage=processAssignment.getProcess().getProcessRequirement(resource).getUsage();
+      JTextField resourceField=new JTextField(Long.toString(usage));
       resourceField.setEditable(false);
       assignmentsPanel.add(resourceField);
     }
