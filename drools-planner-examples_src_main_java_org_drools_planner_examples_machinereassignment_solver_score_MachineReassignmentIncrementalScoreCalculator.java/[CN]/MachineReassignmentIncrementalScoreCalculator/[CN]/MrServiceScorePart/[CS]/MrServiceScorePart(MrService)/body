@@ -1,0 +1,13 @@
+{
+  this.service=service;
+  toDependencyServiceList=new ArrayList<MrService>(machineReassignment.getServiceList().size());
+  fromDependencyServiceList=new ArrayList<MrService>(machineReassignment.getServiceList().size());
+  locationBag=new HashMap<MrLocation,Integer>(machineReassignment.getLocationList().size());
+  hardScore-=service.getLocationSpread();
+  List<MrNeighborhood> neighborhoodList=machineReassignment.getNeighborhoodList();
+  neighborhoodBag=new HashMap<MrNeighborhood,Integer>(neighborhoodList.size());
+  for (  MrNeighborhood neighborhood : neighborhoodList) {
+    neighborhoodBag.put(neighborhood,0);
+  }
+  movedProcessCount=0;
+}

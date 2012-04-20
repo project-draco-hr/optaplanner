@@ -1,0 +1,6 @@
+{
+  if (fromDependencyService.equals(service)) {
+    throw new IllegalStateException("The fromDependencyService (" + fromDependencyService + ") cannot be equal to the service ("+ service+ ").");
+  }
+  fromDependencyServiceList.add(fromDependencyService);
+}

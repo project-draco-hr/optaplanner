@@ -1,0 +1,45 @@
+{
+  MrLocation location=processAssignment.getLocation();
+  Integer locationProcessCount=locationBag.get(location);
+  if (locationProcessCount == null) {
+    if (service.getLocationSpread() > locationBag.size()) {
+      hardScore+=(service.getLocationSpread() - locationBag.size());
+    }
+    locationBag.put(location,1);
+    if (service.getLocationSpread() > locationBag.size()) {
+      hardScore-=(service.getLocationSpread() - locationBag.size());
+    }
+  }
+ else {
+    locationBag.put(location,locationProcessCount + 1);
+  }
+  MrNeighborhood neighborhood=processAssignment.getNeighborhood();
+  int neighborhoodProcessCount=neighborhoodBag.get(neighborhood) + 1;
+  neighborhoodBag.put(neighborhood,neighborhoodProcessCount);
+  for (  MrService toDependencyService : toDependencyServiceList) {
+    int toDependencyNeighborhoodProcessCount=serviceScorePartMap.get(toDependencyService).neighborhoodBag.get(neighborhood);
+    if (toDependencyNeighborhoodProcessCount == 0) {
+      hardScore--;
+    }
+  }
+  if (neighborhoodProcessCount == 1) {
+    for (    MrService fromDependencyService : fromDependencyServiceList) {
+      int fromDependencyNeighborhoodProcessCount=serviceScorePartMap.get(fromDependencyService).neighborhoodBag.get(neighborhood);
+      hardScore+=fromDependencyNeighborhoodProcessCount;
+    }
+  }
+  if (processAssignment.isMoved()) {
+    int oldServiceCount=movedProcessCountToServiceCount.get(movedProcessCount);
+    movedProcessCountToServiceCount.put(movedProcessCount,oldServiceCount - 1);
+    if (serviceMoveCost == movedProcessCount) {
+      serviceMoveCost++;
+      softScore-=globalPenaltyInfo.getServiceMoveCostWeight();
+    }
+    movedProcessCount++;
+    Integer newServiceCount=movedProcessCountToServiceCount.get(movedProcessCount);
+    if (newServiceCount == null) {
+      newServiceCount=0;
+    }
+    movedProcessCountToServiceCount.put(movedProcessCount,newServiceCount + 1);
+  }
+}

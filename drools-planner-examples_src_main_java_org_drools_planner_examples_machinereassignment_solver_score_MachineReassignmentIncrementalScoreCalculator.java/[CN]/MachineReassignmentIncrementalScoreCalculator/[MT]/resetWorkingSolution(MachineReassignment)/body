@@ -1,0 +1,32 @@
+{
+  this.machineReassignment=machineReassignment;
+  hardScore=0L;
+  softScore=0L;
+  globalPenaltyInfo=machineReassignment.getGlobalPenaltyInfo();
+  List<MrService> serviceList=machineReassignment.getServiceList();
+  serviceScorePartMap=new HashMap<MrService,MrServiceScorePart>(serviceList.size());
+  for (  MrService service : serviceList) {
+    serviceScorePartMap.put(service,new MrServiceScorePart(service));
+  }
+  for (  MrServiceDependency serviceDependency : machineReassignment.getServiceDependencyList()) {
+    serviceScorePartMap.get(serviceDependency.getFromService()).initToDependencyService(serviceDependency.getToService());
+    serviceScorePartMap.get(serviceDependency.getToService()).initFromDependencyService(serviceDependency.getFromService());
+  }
+  movedProcessCountToServiceCount=new HashMap<Integer,Integer>(serviceList.size());
+  movedProcessCountToServiceCount.put(0,serviceList.size());
+  serviceMoveCost=0;
+  List<MrMachine> machineList=machineReassignment.getMachineList();
+  machineScorePartMap=new HashMap<MrMachine,MrMachineScorePart>(machineList.size());
+  for (  MrMachine machine : machineList) {
+    machineScorePartMap.put(machine,new MrMachineScorePart(machine));
+  }
+  for (  MrProcessAssignment processAssignment : machineReassignment.getProcessAssignmentList()) {
+    MrMachine originalMachine=processAssignment.getOriginalMachine();
+    if (originalMachine != null) {
+      machineScorePartMap.get(originalMachine).initOriginalProcessAssignment(processAssignment);
+    }
+  }
+  for (  MrProcessAssignment processAssignment : machineReassignment.getProcessAssignmentList()) {
+    insert(processAssignment);
+  }
+}

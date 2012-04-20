@@ -1,0 +1,9 @@
+{
+  MrMachine machine=processAssignment.getMachine();
+  if (machine != null) {
+    MrServiceScorePart serviceScorePart=serviceScorePartMap.get(processAssignment.getService());
+    serviceScorePart.addProcessAssignment(processAssignment);
+    MrMachineScorePart machineScorePart=machineScorePartMap.get(machine);
+    machineScorePart.addProcessAssignment(processAssignment);
+  }
+}

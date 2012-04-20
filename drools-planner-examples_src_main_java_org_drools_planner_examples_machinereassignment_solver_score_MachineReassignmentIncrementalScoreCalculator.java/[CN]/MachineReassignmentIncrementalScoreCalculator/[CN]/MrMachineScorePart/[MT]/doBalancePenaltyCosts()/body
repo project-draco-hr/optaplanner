@@ -1,0 +1,12 @@
+{
+  for (  MrBalancePenalty balancePenalty : machineReassignment.getBalancePenaltyList()) {
+    long originAvailable=machineCapacityScorePartList.get(balancePenalty.getOriginResource().getIndex()).getBalanceAvailable();
+    long targetAvailable=machineCapacityScorePartList.get(balancePenalty.getTargetResource().getIndex()).getBalanceAvailable();
+    if (originAvailable > 0L) {
+      long minimumTargetAvailable=originAvailable * balancePenalty.getMultiplicand();
+      if (targetAvailable < minimumTargetAvailable) {
+        softScore-=(minimumTargetAvailable - targetAvailable);
+      }
+    }
+  }
+}

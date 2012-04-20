@@ -1,0 +1,6 @@
+{
+  this.machineCapacity=machineCapacity;
+  maximumAvailable=machineCapacity.getMaximumCapacity();
+  safetyAvailable=machineCapacity.getSafetyCapacity();
+  balanceAvailable=machineCapacity.getMaximumCapacity();
+}

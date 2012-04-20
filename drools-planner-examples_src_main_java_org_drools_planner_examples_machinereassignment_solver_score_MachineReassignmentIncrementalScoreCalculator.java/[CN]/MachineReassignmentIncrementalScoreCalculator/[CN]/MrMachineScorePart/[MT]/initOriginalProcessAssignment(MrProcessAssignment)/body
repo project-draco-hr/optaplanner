@@ -1,0 +1,5 @@
+{
+  for (  MrMachineCapacityScorePart machineCapacityScorePart : machineCapacityScorePartList) {
+    machineCapacityScorePart.initOriginalProcessAssignment(processAssignment);
+  }
+}

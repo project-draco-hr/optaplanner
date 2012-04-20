@@ -1,0 +1,12 @@
+{
+  long processUsage=processAssignment.getUsage(machineCapacity.getResource());
+  if (!machineCapacity.isTransientlyConsumed() || processAssignment.isMoved()) {
+    hardScore-=Math.min(maximumAvailable,0);
+    maximumAvailable+=processUsage;
+    hardScore+=Math.min(maximumAvailable,0);
+  }
+  softScore-=Math.min(safetyAvailable,0);
+  safetyAvailable+=processUsage;
+  softScore+=Math.min(safetyAvailable,0);
+  balanceAvailable+=processUsage;
+}

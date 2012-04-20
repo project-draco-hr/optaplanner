@@ -1,0 +1,21 @@
+{
+  undoBalancePenaltyCosts();
+  for (  MrMachineCapacityScorePart machineCapacityScorePart : machineCapacityScorePartList) {
+    machineCapacityScorePart.addProcessAssignment(processAssignment);
+  }
+  MrService service=processAssignment.getService();
+  int serviceProcessCount=serviceBag.get(service);
+  if (serviceProcessCount > 1) {
+    hardScore+=(serviceProcessCount - 1);
+  }
+  serviceProcessCount++;
+  if (serviceProcessCount > 1) {
+    hardScore-=(serviceProcessCount - 1);
+  }
+  serviceBag.put(service,serviceProcessCount);
+  doBalancePenaltyCosts();
+  if (processAssignment.isMoved()) {
+    softScore-=processAssignment.getProcessMoveCost() * globalPenaltyInfo.getProcessMoveCostWeight();
+    softScore-=processAssignment.getMachineMoveCost() * globalPenaltyInfo.getMachineMoveCostWeight();
+  }
+}

@@ -1,0 +1,8 @@
+{
+  if (machineCapacity.isTransientlyConsumed()) {
+    long processUsage=processAssignment.getProcess().getProcessRequirement(machineCapacity.getResource()).getUsage();
+    hardScore-=Math.min(maximumAvailable,0);
+    maximumAvailable-=processUsage;
+    hardScore+=Math.min(maximumAvailable,0);
+  }
+}
