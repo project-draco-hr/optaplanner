@@ -10,4 +10,5 @@
   for (  MrService service : serviceList) {
     serviceBag.put(service,0);
   }
+  doBalancePenaltyCosts();
 }

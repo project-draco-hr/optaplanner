@@ -5,7 +5,7 @@
     if (originAvailable > 0L) {
       long minimumTargetAvailable=originAvailable * balancePenalty.getMultiplicand();
       if (targetAvailable < minimumTargetAvailable) {
-        softScore+=(minimumTargetAvailable - targetAvailable);
+        softScore+=(minimumTargetAvailable - targetAvailable) * balancePenalty.getWeight();
       }
     }
   }
