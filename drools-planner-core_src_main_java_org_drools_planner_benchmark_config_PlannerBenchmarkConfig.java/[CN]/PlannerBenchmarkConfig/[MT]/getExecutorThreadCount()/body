@@ -4,7 +4,7 @@
   }
  else   if (getThreadsUse().equals("AUTO")) {
     int availableThreads=Runtime.getRuntime().availableProcessors();
-    int useThreads=Math.max(1,availableThreads - 1);
+    int useThreads=Math.max(1,availableThreads - 2);
     return useThreads;
   }
  else {
