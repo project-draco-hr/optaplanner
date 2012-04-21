@@ -1,0 +1,2 @@
+Map<SolverBenchmark,Integer> numBeatOthers
+Comparator<SolverBenchmark> comparator
