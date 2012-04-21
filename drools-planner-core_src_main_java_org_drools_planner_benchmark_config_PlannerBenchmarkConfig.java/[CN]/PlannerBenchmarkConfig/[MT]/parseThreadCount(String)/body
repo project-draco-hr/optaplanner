@@ -1,0 +1,12 @@
+{
+  try {
+    int numThreads=Integer.valueOf(num);
+    if (numThreads < 1) {
+      throw new IllegalStateException("Number of threads must not be smaller than 1.");
+    }
+    return numThreads;
+  }
+ catch (  Exception ex) {
+    throw new IllegalStateException("Requested (" + num + ") threads. Please use a positive integer, +/- positive integer or 'AUTO'.");
+  }
+}
