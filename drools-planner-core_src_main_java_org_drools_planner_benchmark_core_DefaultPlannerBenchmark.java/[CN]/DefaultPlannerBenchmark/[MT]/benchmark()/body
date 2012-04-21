@@ -13,5 +13,6 @@
       logger.warn("One of the benchmarks failed.",e);
     }
   }
+  unifiedProblemBenchmarkList.get(0).getExecutor().shutdownNow();
   benchmarkingEnded();
 }
