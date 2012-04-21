@@ -1,23 +1,7 @@
 {
+  Collection<Future<Boolean>> benchmarks=new ArrayList<Future<Boolean>>(plannerBenchmarkResultList.size());
   for (  PlannerBenchmarkResult result : plannerBenchmarkResultList) {
-    SolverBenchmark solverBenchmark=result.getSolverBenchmark();
-    Solver solver=solverBenchmark.getSolverConfig().buildSolver();
-    for (    ProblemStatistic statistic : problemStatisticList) {
-      statistic.addListener(solver,solverBenchmark.getName());
-    }
-    solver.setPlanningProblem(readPlanningProblem());
-    solver.solve();
-    Solution outputSolution=solver.getBestSolution();
-    result.setTimeMillisSpend(solver.getTimeMillisSpend());
-    DefaultSolverScope solverScope=((DefaultSolver)solver).getSolverScope();
-    result.setCalculateCount(solverScope.getCalculateCount());
-    result.setScore(outputSolution.getScore());
-    SolutionDescriptor solutionDescriptor=((DefaultSolver)solver).getSolutionDescriptor();
-    result.setPlanningEntityCount(solutionDescriptor.getPlanningEntityCount(outputSolution));
-    result.setProblemScale(solutionDescriptor.getProblemScale(outputSolution));
-    for (    ProblemStatistic statistic : problemStatisticList) {
-      statistic.removeListener(solver,solverBenchmark.getName());
-    }
-    writeSolution(result,outputSolution);
+    benchmarks.add(executor.submit(new BenchmarkRunner(result,this)));
   }
+  return benchmarks;
 }

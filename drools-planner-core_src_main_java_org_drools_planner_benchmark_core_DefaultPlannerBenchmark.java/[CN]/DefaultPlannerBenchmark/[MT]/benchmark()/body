@@ -1,8 +1,20 @@
 {
   benchmarkingStarted();
   warmUp();
+  Collection<Future<Boolean>> benchmarks=new ArrayList<Future<Boolean>>();
   for (  ProblemBenchmark problemBenchmark : unifiedProblemBenchmarkList) {
-    problemBenchmark.benchmark();
+    benchmarks.addAll(problemBenchmark.benchmark());
+  }
+  for (  Future<Boolean> benchmark : benchmarks) {
+    try {
+      benchmark.get();
+    }
+ catch (    InterruptedException e) {
+      e.printStackTrace();
+    }
+catch (    ExecutionException e) {
+      e.printStackTrace();
+    }
   }
   benchmarkingEnded();
 }

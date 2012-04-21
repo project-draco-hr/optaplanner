@@ -3,7 +3,9 @@
     return Executors.newFixedThreadPool(1);
   }
  else   if (getThreadsUse().equals("AUTO")) {
-    return Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors() - 1);
+    int availableThreads=Runtime.getRuntime().availableProcessors();
+    int useThreads=Math.max(1,availableThreads - 1);
+    return Executors.newFixedThreadPool(useThreads);
   }
  else {
     try {
