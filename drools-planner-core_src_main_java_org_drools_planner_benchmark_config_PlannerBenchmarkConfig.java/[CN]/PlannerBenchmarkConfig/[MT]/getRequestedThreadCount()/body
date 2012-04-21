@@ -1,6 +1,6 @@
 {
   int cpuCount=Runtime.getRuntime().availableProcessors();
-  String request=this.getThreadsUse().trim();
+  String request=this.getThreadsUse();
   if (request == null) {
     return 1;
   }
