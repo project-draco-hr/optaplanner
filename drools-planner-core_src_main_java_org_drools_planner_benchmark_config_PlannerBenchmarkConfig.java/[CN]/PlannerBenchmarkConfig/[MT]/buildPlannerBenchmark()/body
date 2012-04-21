@@ -7,6 +7,7 @@
   plannerBenchmark.setBenchmarkInstanceDirectory(benchmarkInstanceDirectory);
   plannerBenchmark.setOutputSolutionFilesDirectory(outputSolutionFilesDirectory);
   plannerBenchmark.setStatisticDirectory(statisticDirectory);
+  plannerBenchmark.setSolverBenchmarkRanker(solverBenchmarkRanker);
   plannerBenchmark.setSolverBenchmarkComparator(solverBenchmarkComparator);
   plannerBenchmark.setWarmUpTimeMillisSpend(calculateWarmUpTimeMillisSpendTotal());
   List<SolverBenchmark> solverBenchmarkList=new ArrayList<SolverBenchmark>(solverBenchmarkConfigList.size());
