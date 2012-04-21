@@ -3,7 +3,7 @@
   ProblemIO problemIO=buildProblemIO();
   List<ProblemBenchmark> problemBenchmarkList=new ArrayList<ProblemBenchmark>(inputSolutionFileList.size());
   for (  File inputSolutionFile : inputSolutionFileList) {
-    ProblemBenchmark newProblemBenchmark=buildProblemBenchmark(problemIO,inputSolutionFile);
+    ProblemBenchmark newProblemBenchmark=buildProblemBenchmark(problemIO,inputSolutionFile,executor);
     ProblemBenchmark problemBenchmark;
     int index=unifiedProblemBenchmarkList.indexOf(newProblemBenchmark);
     if (index < 0) {

@@ -9,10 +9,11 @@
   plannerBenchmark.setStatisticDirectory(statisticDirectory);
   plannerBenchmark.setSolverBenchmarkComparator(solverBenchmarkComparator);
   plannerBenchmark.setWarmUpTimeMillisSpend(calculateWarmUpTimeMillisSpendTotal());
+  ExecutorService executor=getExecutor();
   List<SolverBenchmark> solverBenchmarkList=new ArrayList<SolverBenchmark>(solverBenchmarkConfigList.size());
   List<ProblemBenchmark> unifiedProblemBenchmarkList=new ArrayList<ProblemBenchmark>();
   for (  SolverBenchmarkConfig solverBenchmarkConfig : solverBenchmarkConfigList) {
-    SolverBenchmark solverBenchmark=solverBenchmarkConfig.buildSolverBenchmark(unifiedProblemBenchmarkList);
+    SolverBenchmark solverBenchmark=solverBenchmarkConfig.buildSolverBenchmark(unifiedProblemBenchmarkList,executor);
     solverBenchmarkList.add(solverBenchmark);
   }
   plannerBenchmark.setSolverBenchmarkList(solverBenchmarkList);

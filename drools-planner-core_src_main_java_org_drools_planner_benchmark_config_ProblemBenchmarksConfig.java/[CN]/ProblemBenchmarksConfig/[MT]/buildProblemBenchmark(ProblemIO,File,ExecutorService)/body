@@ -1,6 +1,7 @@
 {
   ProblemBenchmark problemBenchmark=new ProblemBenchmark();
   String name=FilenameUtils.getBaseName(inputSolutionFile.getName());
+  problemBenchmark.setExecutor(executor);
   problemBenchmark.setName(name);
   problemBenchmark.setProblemIO(problemIO);
   problemBenchmark.setInputSolutionFile(inputSolutionFile);
