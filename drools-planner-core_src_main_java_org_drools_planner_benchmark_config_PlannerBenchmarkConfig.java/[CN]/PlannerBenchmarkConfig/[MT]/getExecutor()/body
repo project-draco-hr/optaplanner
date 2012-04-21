@@ -1,22 +1,5 @@
 {
-  if (getThreadsUse() == null) {
-    return Executors.newFixedThreadPool(1);
-  }
- else   if (getThreadsUse().equals("AUTO")) {
-    int availableThreads=Runtime.getRuntime().availableProcessors();
-    int useThreads=Math.max(1,availableThreads - 1);
-    return Executors.newFixedThreadPool(useThreads);
-  }
- else {
-    try {
-      int numThreads=Integer.valueOf(getThreadsUse());
-      if (numThreads < 1) {
-        throw new IllegalStateException("Number of threads must not be smaller than 1.");
-      }
-      return Executors.newFixedThreadPool(numThreads);
-    }
- catch (    Exception ex) {
-      throw new IllegalStateException("Requested (" + getThreadsUse() + ") threads. Please use a positive integer or 'AUTO'.");
-    }
-  }
+  int threadCount=this.getExecutorThreadCount();
+  logger.debug("Benchmarking will use (" + threadCount + ") threads.");
+  return Executors.newFixedThreadPool(threadCount);
 }
