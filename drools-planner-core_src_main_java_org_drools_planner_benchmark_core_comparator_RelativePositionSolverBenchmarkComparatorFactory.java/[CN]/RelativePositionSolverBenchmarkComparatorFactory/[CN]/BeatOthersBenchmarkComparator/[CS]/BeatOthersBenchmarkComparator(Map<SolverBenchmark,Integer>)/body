@@ -1,0 +1,4 @@
+{
+  this.numBeatOthers=numBeatOthers;
+  whenBeatOthersEqualComparator=new TotalScoreSolverBenchmarkComparator();
+}

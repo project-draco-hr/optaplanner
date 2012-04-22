@@ -1,4 +1,0 @@
-{
-  this.numBeatOthers=numBeatOthers;
-  whenBeatOthersEqualComparator=comparator;
-}

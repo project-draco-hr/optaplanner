@@ -1,3 +1,0 @@
-{
-  return rankedBenchmarks.indexOf(benchmark);
-}

@@ -1,0 +1,14 @@
+{
+  if (solverBenchmarkComparatorFactoryClass != null) {
+    try {
+      return solverBenchmarkComparatorFactoryClass.newInstance();
+    }
+ catch (    InstantiationException e) {
+      throw new IllegalArgumentException("solverBenchmarkComparatorFactoryClass (" + solverBenchmarkComparatorFactoryClass.getName() + ") does not have a public no-arg constructor",e);
+    }
+catch (    IllegalAccessException e) {
+      throw new IllegalArgumentException("solverBenchmarkComparatorFactoryClass (" + solverBenchmarkComparatorFactoryClass.getName() + ") does not have a public no-arg constructor",e);
+    }
+  }
+  return null;
+}

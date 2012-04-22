@@ -1,0 +1,3 @@
+{
+  this.solverBenchmarkComparatorFactory=solverBenchmarkComparatorFactory;
+}

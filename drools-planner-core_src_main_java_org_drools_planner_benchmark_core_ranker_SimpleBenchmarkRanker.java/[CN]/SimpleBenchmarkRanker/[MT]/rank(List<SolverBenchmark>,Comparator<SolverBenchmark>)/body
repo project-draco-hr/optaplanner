@@ -1,5 +1,0 @@
-{
-  rankedBenchmarks=benchmarks;
-  Collections.sort(rankedBenchmarks,comparator);
-  Collections.reverse(rankedBenchmarks);
-}

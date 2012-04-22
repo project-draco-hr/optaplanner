@@ -1,11 +1,13 @@
 {
   List<SolverBenchmark> sortedSolverBenchmarkList=new ArrayList<SolverBenchmark>(solverBenchmarkList);
-  solverBenchmarkRanker.rank(sortedSolverBenchmarkList,solverBenchmarkComparator);
-  for (  SolverBenchmark solverBenchmark : solverBenchmarkList) {
-    int ranking=solverBenchmarkRanker.getRanking(solverBenchmark);
+  Comparator<SolverBenchmark> comparator=solverBenchmarkComparatorFactory.createSolverBenchmarkComparator(sortedSolverBenchmarkList);
+  Collections.sort(sortedSolverBenchmarkList,Collections.reverseOrder(comparator));
+  int ranking=0;
+  for (  SolverBenchmark solverBenchmark : sortedSolverBenchmarkList) {
     solverBenchmark.setRanking(ranking);
     if (ranking == 0) {
       winningSolverBenchmark=solverBenchmark;
     }
+    ranking++;
   }
 }

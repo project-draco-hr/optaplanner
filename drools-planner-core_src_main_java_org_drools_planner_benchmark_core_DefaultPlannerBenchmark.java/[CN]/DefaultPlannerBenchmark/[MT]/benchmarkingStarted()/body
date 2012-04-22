@@ -3,11 +3,8 @@
     throw new IllegalArgumentException("The solverBenchmarkList (" + solverBenchmarkList + ") cannot be empty.");
   }
   initBenchmarkDirectoryAndSubdirs();
-  if (solverBenchmarkRanker == null) {
-    solverBenchmarkRanker=new SimpleBenchmarkRanker();
-  }
-  if (solverBenchmarkComparator == null) {
-    solverBenchmarkComparator=new TotalScoreSolverBenchmarkComparator();
+  if (solverBenchmarkComparatorFactory == null) {
+    solverBenchmarkComparatorFactory=new SimpleSolverBenchmarkComparatorFactory();
   }
   for (  SolverBenchmark solverBenchmark : solverBenchmarkList) {
     solverBenchmark.benchmarkingStarted();
