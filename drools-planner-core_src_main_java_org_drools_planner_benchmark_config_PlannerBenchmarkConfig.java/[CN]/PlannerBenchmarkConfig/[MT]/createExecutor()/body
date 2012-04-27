@@ -1,0 +1,12 @@
+{
+  int resolvedParallelBenchmarkCount=resolveParallelBenchmarkCount();
+  if (resolvedParallelBenchmarkCount > Runtime.getRuntime().availableProcessors()) {
+    logger.warn("Benchmarker will use more threads than there are CPUs. Results may be compromised.");
+  }
+ else   if (resolvedParallelBenchmarkCount < 1) {
+    logger.warn("Requested number of threads (" + resolvedParallelBenchmarkCount + ") is invalid.");
+    resolvedParallelBenchmarkCount=1;
+  }
+  logger.info("Benchmarking will use (" + resolvedParallelBenchmarkCount + ") threads.");
+  return Executors.newFixedThreadPool(resolvedParallelBenchmarkCount);
+}

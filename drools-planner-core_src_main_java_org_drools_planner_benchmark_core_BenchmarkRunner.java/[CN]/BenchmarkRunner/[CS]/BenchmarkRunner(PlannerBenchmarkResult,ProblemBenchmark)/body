@@ -1,4 +1,4 @@
 {
-  this.result=result;
-  this.problem=problem;
+  this.benchmarkResult=benchmarkResult;
+  this.problemBenchmark=problemBenchmark;
 }

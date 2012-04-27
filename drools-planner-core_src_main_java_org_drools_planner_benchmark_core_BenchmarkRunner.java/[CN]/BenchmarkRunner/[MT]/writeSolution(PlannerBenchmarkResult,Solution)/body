@@ -1,7 +1,0 @@
-{
-  ProblemIO problemIo=problem.getProblemIO();
-  String solverBenchmarkName=result.getSolverBenchmark().getName().replaceAll(" ","_").replaceAll("[^\\w\\d_\\-]","");
-  String filename=problem.getName() + "_" + solverBenchmarkName+ "."+ problemIo.getFileExtension();
-  File outputSolutionFile=new File(problem.getOutputSolutionFilesDirectory(),filename);
-  problemIo.write(outputSolution,outputSolutionFile);
-}
