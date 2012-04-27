@@ -13,5 +13,9 @@
     problemBenchmark.setOutputSolutionFilesDirectory(outputSolutionFilesDirectory);
     problemBenchmark.benchmarkingStarted();
   }
-  logger.info("Benchmarking started: solverBenchmarkList size ({}).",solverBenchmarkList.size());
+  executorService=Executors.newFixedThreadPool(parallelBenchmarkCount);
+  failureCount=0;
+  firstFailureThrowable=null;
+  winningSolverBenchmark=null;
+  logger.info("Benchmarking started: solverBenchmarkList size ({}), parallelBenchmarkCount({}).",solverBenchmarkList.size(),parallelBenchmarkCount);
 }

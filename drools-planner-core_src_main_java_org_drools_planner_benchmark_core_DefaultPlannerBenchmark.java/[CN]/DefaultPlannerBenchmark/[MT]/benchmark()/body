@@ -1,18 +1,47 @@
 {
   benchmarkingStarted();
   warmUp();
-  Collection<Future<Boolean>> benchmarks=new ArrayList<Future<Boolean>>();
+  Map<PlannerBenchmarkResult,Future<PlannerBenchmarkResult>> futureMap=new HashMap<PlannerBenchmarkResult,Future<PlannerBenchmarkResult>>();
   for (  ProblemBenchmark problemBenchmark : unifiedProblemBenchmarkList) {
-    benchmarks.addAll(problemBenchmark.benchmark());
+    for (    PlannerBenchmarkResult result : problemBenchmark.getPlannerBenchmarkResultList()) {
+      Future<PlannerBenchmarkResult> future=executorService.submit(result);
+      futureMap.put(result,future);
+    }
   }
-  for (  Future<Boolean> benchmark : benchmarks) {
+  for (  Map.Entry<PlannerBenchmarkResult,Future<PlannerBenchmarkResult>> futureEntry : futureMap.entrySet()) {
+    PlannerBenchmarkResult result=futureEntry.getKey();
+    Future<PlannerBenchmarkResult> future=futureEntry.getValue();
+    Throwable failureThrowable=null;
     try {
-      benchmark.get();
+      result=future.get();
+      if (result.getScore() == null) {
+        throw new IllegalStateException("Score is null. TODO fix JBRULES-3462.");
+      }
     }
- catch (    Exception e) {
-      logger.warn("One of the benchmarks failed.",e);
+ catch (    InterruptedException e) {
+      logger.error("The plannerBenchmarkResult (" + result.getName() + ") was interrupted.",e);
+      failureThrowable=e;
+    }
+catch (    ExecutionException e) {
+      Throwable cause=e.getCause();
+      logger.error("The plannerBenchmarkResult (" + result.getName() + ") failed.",cause);
+      failureThrowable=cause;
+    }
+catch (    IllegalStateException e) {
+      logger.error("The plannerBenchmarkResult (" + result.getName() + ") failed.",e);
+      failureThrowable=e;
+    }
+    if (failureThrowable == null) {
+      result.setSuccess(true);
+    }
+ else {
+      result.setSuccess(false);
+      result.setFailureThrowable(failureThrowable);
+      failureCount++;
+      if (firstFailureThrowable == null) {
+        firstFailureThrowable=failureThrowable;
+      }
     }
   }
-  unifiedProblemBenchmarkList.get(0).getExecutor().shutdownNow();
   benchmarkingEnded();
 }

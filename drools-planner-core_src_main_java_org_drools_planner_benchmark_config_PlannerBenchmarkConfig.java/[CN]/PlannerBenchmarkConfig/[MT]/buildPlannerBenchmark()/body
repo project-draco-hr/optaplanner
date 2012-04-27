@@ -8,12 +8,12 @@
   plannerBenchmark.setOutputSolutionFilesDirectory(outputSolutionFilesDirectory);
   plannerBenchmark.setStatisticDirectory(statisticDirectory);
   plannerBenchmark.setSolverBenchmarkComparator(solverBenchmarkComparator);
+  plannerBenchmark.setParallelBenchmarkCount(resolveParallelBenchmarkCount());
   plannerBenchmark.setWarmUpTimeMillisSpend(calculateWarmUpTimeMillisSpendTotal());
-  ExecutorService executor=createExecutor();
   List<SolverBenchmark> solverBenchmarkList=new ArrayList<SolverBenchmark>(solverBenchmarkConfigList.size());
   List<ProblemBenchmark> unifiedProblemBenchmarkList=new ArrayList<ProblemBenchmark>();
   for (  SolverBenchmarkConfig solverBenchmarkConfig : solverBenchmarkConfigList) {
-    SolverBenchmark solverBenchmark=solverBenchmarkConfig.buildSolverBenchmark(unifiedProblemBenchmarkList,executor);
+    SolverBenchmark solverBenchmark=solverBenchmarkConfig.buildSolverBenchmark(unifiedProblemBenchmarkList);
     solverBenchmarkList.add(solverBenchmark);
   }
   plannerBenchmark.setSolverBenchmarkList(solverBenchmarkList);

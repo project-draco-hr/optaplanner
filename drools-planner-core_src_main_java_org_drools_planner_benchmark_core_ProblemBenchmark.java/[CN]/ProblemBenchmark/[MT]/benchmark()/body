@@ -1,7 +1,0 @@
-{
-  Collection<Future<Boolean>> benchmarks=new ArrayList<Future<Boolean>>(plannerBenchmarkResultList.size());
-  for (  PlannerBenchmarkResult result : plannerBenchmarkResultList) {
-    benchmarks.add(executor.submit(new BenchmarkRunner(result,this)));
-  }
-  return benchmarks;
-}

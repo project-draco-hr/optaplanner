@@ -1,0 +1,21 @@
+{
+  Solver solver=solverBenchmark.getSolverConfig().buildSolver();
+  for (  ProblemStatistic statistic : problemBenchmark.getProblemStatisticList()) {
+    statistic.addListener(solver,solverBenchmark.getName());
+  }
+  solver.setPlanningProblem(problemBenchmark.readPlanningProblem());
+  solver.solve();
+  Solution outputSolution=solver.getBestSolution();
+  timeMillisSpend=solver.getTimeMillisSpend();
+  DefaultSolverScope solverScope=((DefaultSolver)solver).getSolverScope();
+  calculateCount=solverScope.getCalculateCount();
+  score=outputSolution.getScore();
+  SolutionDescriptor solutionDescriptor=((DefaultSolver)solver).getSolutionDescriptor();
+  planningEntityCount=solutionDescriptor.getPlanningEntityCount(outputSolution);
+  problemScale=solutionDescriptor.getProblemScale(outputSolution);
+  for (  ProblemStatistic statistic : problemBenchmark.getProblemStatisticList()) {
+    statistic.removeListener(solver,solverBenchmark.getName());
+  }
+  problemBenchmark.writeSolution(this,outputSolution);
+  return this;
+}
