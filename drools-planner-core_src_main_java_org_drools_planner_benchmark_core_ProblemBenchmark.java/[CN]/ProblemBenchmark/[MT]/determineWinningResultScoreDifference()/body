@@ -1,5 +1,8 @@
 {
   for (  PlannerBenchmarkResult result : plannerBenchmarkResultList) {
+    if (result.isFailure()) {
+      continue;
+    }
     result.setWinningScoreDifference(result.getScore().subtract(winningPlannerBenchmarkResult.getScore()));
   }
 }

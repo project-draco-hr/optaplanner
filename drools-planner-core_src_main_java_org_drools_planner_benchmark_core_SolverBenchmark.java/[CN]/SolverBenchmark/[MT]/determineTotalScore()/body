@@ -1,11 +1,16 @@
 {
+  failureCount=0;
   totalScore=null;
-  for (  PlannerBenchmarkResult plannerBenchmarkResult : plannerBenchmarkResultList) {
+  for (  PlannerBenchmarkResult result : plannerBenchmarkResultList) {
+    if (result.isFailure()) {
+      failureCount++;
+      continue;
+    }
     if (totalScore == null) {
-      totalScore=plannerBenchmarkResult.getScore();
+      totalScore=result.getScore();
     }
  else {
-      totalScore=totalScore.add(plannerBenchmarkResult.getScore());
+      totalScore=totalScore.add(result.getScore());
     }
   }
 }

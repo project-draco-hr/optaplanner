@@ -1,3 +1,6 @@
 {
-  return getTotalScore().divide(plannerBenchmarkResultList.size());
+  if (totalScore == null) {
+    return null;
+  }
+  return getTotalScore().divide(plannerBenchmarkResultList.size() - failureCount);
 }
