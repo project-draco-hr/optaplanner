@@ -1,0 +1,3 @@
+{
+  return new CompareToBuilder().append(betterCount,other.betterCount).append(equalCount,other.equalCount).append(solverBenchmark,other.solverBenchmark,totalScoreSolverBenchmarkRankingComparator).toComparison();
+}

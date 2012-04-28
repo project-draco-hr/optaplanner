@@ -1,7 +1,23 @@
 {
   List<SolverBenchmark> sortedSolverBenchmarkList=new ArrayList<SolverBenchmark>(solverBenchmarkList);
-  Comparator<SolverBenchmark> comparator=solverBenchmarkComparatorFactory.createSolverBenchmarkComparator(sortedSolverBenchmarkList);
-  Collections.sort(sortedSolverBenchmarkList,Collections.reverseOrder(comparator));
+  if (solverBenchmarkRankingComparator != null) {
+    Collections.sort(sortedSolverBenchmarkList,Collections.reverseOrder(solverBenchmarkRankingComparator));
+  }
+ else   if (solverBenchmarkRankingWeightFactory != null) {
+    SortedMap<Comparable,SolverBenchmark> sortedSolverBenchmarkMap=new TreeMap<Comparable,SolverBenchmark>(new ReverseComparator());
+    for (    SolverBenchmark solverBenchmark : solverBenchmarkList) {
+      Comparable rankingWeight=solverBenchmarkRankingWeightFactory.createRankingWeight(solverBenchmarkList,solverBenchmark);
+      Object previous=sortedSolverBenchmarkMap.put(rankingWeight,solverBenchmark);
+      if (previous != null) {
+        throw new IllegalStateException("The solverBenchmarkList contains 2 times" + " the same solverBenchmark (" + previous + ") and ("+ solverBenchmark+ ").");
+      }
+    }
+    sortedSolverBenchmarkList.clear();
+    sortedSolverBenchmarkList.addAll(sortedSolverBenchmarkMap.values());
+  }
+ else {
+    throw new IllegalStateException("Ranking is impossible" + " because solverBenchmarkRankingComparator and solverBenchmarkRankingWeightFactory are null.");
+  }
   int ranking=0;
   for (  SolverBenchmark solverBenchmark : sortedSolverBenchmarkList) {
     solverBenchmark.setRanking(ranking);

@@ -1,0 +1,5 @@
+{
+  this.solverBenchmark=solverBenchmark;
+  this.betterCount=betterCount;
+  this.equalCount=equalCount;
+}
