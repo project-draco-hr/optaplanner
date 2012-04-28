@@ -3,9 +3,6 @@
     throw new IllegalArgumentException("The solverBenchmarkList (" + solverBenchmarkList + ") cannot be empty.");
   }
   initBenchmarkDirectoryAndSubdirs();
-  if (solverBenchmarkComparator == null) {
-    solverBenchmarkComparator=new TotalScoreSolverBenchmarkComparator();
-  }
   for (  SolverBenchmark solverBenchmark : solverBenchmarkList) {
     solverBenchmark.benchmarkingStarted();
   }

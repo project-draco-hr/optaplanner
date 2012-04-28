@@ -1,0 +1,9 @@
+{
+  int compare=numBeatOthers.get(o1).compareTo(numBeatOthers.get(o2));
+  if (compare == 0) {
+    return whenBeatOthersEqualComparator.compare(o1,o2);
+  }
+ else {
+    return compare;
+  }
+}
