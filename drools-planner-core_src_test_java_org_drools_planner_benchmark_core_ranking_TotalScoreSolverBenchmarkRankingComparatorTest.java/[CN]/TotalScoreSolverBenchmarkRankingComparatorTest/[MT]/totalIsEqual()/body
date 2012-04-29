@@ -1,0 +1,19 @@
+{
+  TotalScoreSolverBenchmarkRankingComparator comparator=new TotalScoreSolverBenchmarkRankingComparator();
+  SolverBenchmark a=new SolverBenchmark();
+  List<PlannerBenchmarkResult> aResultList=new ArrayList<PlannerBenchmarkResult>();
+  addPlannerBenchmarkResult(aResultList,-1005);
+  addPlannerBenchmarkResult(aResultList,-200);
+  addPlannerBenchmarkResult(aResultList,-30);
+  a.setPlannerBenchmarkResultList(aResultList);
+  a.benchmarkingEnded();
+  SolverBenchmark b=new SolverBenchmark();
+  List<PlannerBenchmarkResult> bResultList=new ArrayList<PlannerBenchmarkResult>();
+  addPlannerBenchmarkResult(bResultList,-1000);
+  addPlannerBenchmarkResult(bResultList,-200);
+  addPlannerBenchmarkResult(bResultList,-35);
+  b.setPlannerBenchmarkResultList(bResultList);
+  b.benchmarkingEnded();
+  assertEquals(-1,comparator.compare(a,b));
+  assertEquals(1,comparator.compare(b,a));
+}

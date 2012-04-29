@@ -1,0 +1,37 @@
+{
+  TotalRankSolverBenchmarkRankingWeightFactory factory=new TotalRankSolverBenchmarkRankingWeightFactory();
+  List<SolverBenchmark> solverBenchmarkList=new ArrayList<SolverBenchmark>();
+  SolverBenchmark a=new SolverBenchmark();
+  List<PlannerBenchmarkResult> aResultList=new ArrayList<PlannerBenchmarkResult>();
+  addPlannerBenchmarkResult(aResultList,-5000);
+  addPlannerBenchmarkResult(aResultList,-900);
+  addPlannerBenchmarkResult(aResultList,-90);
+  a.setPlannerBenchmarkResultList(aResultList);
+  a.benchmarkingEnded();
+  solverBenchmarkList.add(a);
+  SolverBenchmark b=new SolverBenchmark();
+  List<PlannerBenchmarkResult> bResultList=new ArrayList<PlannerBenchmarkResult>();
+  addPlannerBenchmarkResult(bResultList,-1000);
+  addPlannerBenchmarkResult(bResultList,-200);
+  addPlannerBenchmarkResult(bResultList,-20);
+  b.setPlannerBenchmarkResultList(bResultList);
+  b.benchmarkingEnded();
+  solverBenchmarkList.add(b);
+  SolverBenchmark c=new SolverBenchmark();
+  List<PlannerBenchmarkResult> cResultList=new ArrayList<PlannerBenchmarkResult>();
+  addPlannerBenchmarkResult(cResultList,-5000);
+  addPlannerBenchmarkResult(cResultList,-100);
+  addPlannerBenchmarkResult(cResultList,-10);
+  c.setPlannerBenchmarkResultList(cResultList);
+  c.benchmarkingEnded();
+  solverBenchmarkList.add(c);
+  Comparable aWeight=factory.createRankingWeight(solverBenchmarkList,a);
+  Comparable bWeight=factory.createRankingWeight(solverBenchmarkList,b);
+  Comparable cWeight=factory.createRankingWeight(solverBenchmarkList,c);
+  assertEquals(-1,aWeight.compareTo(bWeight));
+  assertEquals(1,bWeight.compareTo(aWeight));
+  assertEquals(-1,aWeight.compareTo(cWeight));
+  assertEquals(1,cWeight.compareTo(aWeight));
+  assertEquals(-1,bWeight.compareTo(cWeight));
+  assertEquals(1,cWeight.compareTo(bWeight));
+}
