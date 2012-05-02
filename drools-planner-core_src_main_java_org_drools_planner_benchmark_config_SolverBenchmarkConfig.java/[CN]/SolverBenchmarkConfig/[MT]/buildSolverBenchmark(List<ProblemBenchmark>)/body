@@ -3,7 +3,7 @@
   SolverBenchmark solverBenchmark=new SolverBenchmark();
   solverBenchmark.setName(name);
   solverBenchmark.setSolverConfig(solverConfig);
-  solverBenchmark.setPlannerBenchmarkResultList(new ArrayList<PlannerBenchmarkResult>());
+  solverBenchmark.setSingleBenchmarkList(new ArrayList<SingleBenchmark>());
   List<ProblemBenchmark> problemBenchmarkList=problemBenchmarksConfig.buildProblemBenchmarkList(unifiedProblemBenchmarkList,solverBenchmark);
   solverBenchmark.setProblemBenchmarkList(problemBenchmarkList);
   return solverBenchmark;

@@ -1,4 +1,4 @@
 {
-  determineWinningResult();
-  determineWinningResultScoreDifference();
+  determineWinningSingleBenchmark();
+  determineWinningSingleBenchmarkScoreDifference();
 }

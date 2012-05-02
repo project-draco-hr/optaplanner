@@ -1,16 +1,16 @@
 {
   failureCount=0;
   totalScore=null;
-  for (  PlannerBenchmarkResult result : plannerBenchmarkResultList) {
-    if (result.isFailure()) {
+  for (  SingleBenchmark singleBenchmark : singleBenchmarkList) {
+    if (singleBenchmark.isFailure()) {
       failureCount++;
       continue;
     }
     if (totalScore == null) {
-      totalScore=result.getScore();
+      totalScore=singleBenchmark.getScore();
     }
  else {
-      totalScore=totalScore.add(result.getScore());
+      totalScore=totalScore.add(singleBenchmark.getScore());
     }
   }
 }

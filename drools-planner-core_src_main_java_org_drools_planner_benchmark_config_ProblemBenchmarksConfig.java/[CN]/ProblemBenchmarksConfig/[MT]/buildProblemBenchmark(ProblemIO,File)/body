@@ -11,6 +11,6 @@
     }
   }
   problemBenchmark.setProblemStatisticList(problemStatisticList);
-  problemBenchmark.setPlannerBenchmarkResultList(new ArrayList<PlannerBenchmarkResult>());
+  problemBenchmark.setSingleBenchmarkList(new ArrayList<SingleBenchmark>());
   return problemBenchmark;
 }

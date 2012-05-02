@@ -1,0 +1,5 @@
+{
+  String filename=singleBenchmark.getName() + "." + problemIO.getFileExtension();
+  File outputSolutionFile=new File(outputSolutionFilesDirectory,filename);
+  problemIO.write(outputSolution,outputSolutionFile);
+}

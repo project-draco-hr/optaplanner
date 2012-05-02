@@ -2,5 +2,5 @@
   if (totalScore == null) {
     return null;
   }
-  return getTotalScore().divide(plannerBenchmarkResultList.size() - failureCount);
+  return getTotalScore().divide(singleBenchmarkList.size() - failureCount);
 }

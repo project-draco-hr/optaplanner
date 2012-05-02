@@ -1,5 +1,0 @@
-{
-  PlannerBenchmarkResult result=new PlannerBenchmarkResult();
-  result.setScore(DefaultSimpleScore.valueOf(score));
-  plannerBenchmarkResultList.add(result);
-}

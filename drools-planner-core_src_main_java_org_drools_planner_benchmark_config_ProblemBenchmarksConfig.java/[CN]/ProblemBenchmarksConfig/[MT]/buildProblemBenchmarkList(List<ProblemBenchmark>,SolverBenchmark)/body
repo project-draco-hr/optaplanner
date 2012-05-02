@@ -13,7 +13,7 @@
  else {
       problemBenchmark=unifiedProblemBenchmarkList.get(index);
     }
-    addPlannerBenchmarkResult(solverBenchmark,problemBenchmark);
+    addSingleBenchmark(solverBenchmark,problemBenchmark);
     problemBenchmarkList.add(problemBenchmark);
   }
   return problemBenchmarkList;

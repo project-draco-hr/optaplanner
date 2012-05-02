@@ -5,9 +5,9 @@
   int seriesIndex=0;
   for (  SolverBenchmark solverBenchmark : solverBenchmarkList) {
     XYSeries series=new XYSeries(solverBenchmark.getName());
-    for (    PlannerBenchmarkResult result : solverBenchmark.getPlannerBenchmarkResultList()) {
-      long problemScale=result.getProblemScale();
-      long averageCalculateCountPerSecond=result.getAverageCalculateCountPerSecond();
+    for (    SingleBenchmark singleBenchmark : solverBenchmark.getSingleBenchmarkList()) {
+      long problemScale=singleBenchmark.getProblemScale();
+      long averageCalculateCountPerSecond=singleBenchmark.getAverageCalculateCountPerSecond();
       series.add((Long)problemScale,(Long)averageCalculateCountPerSecond);
     }
     XYSeriesCollection seriesCollection=new XYSeriesCollection();

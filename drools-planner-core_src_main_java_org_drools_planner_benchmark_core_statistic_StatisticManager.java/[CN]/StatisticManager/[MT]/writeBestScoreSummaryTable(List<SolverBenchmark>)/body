@@ -12,16 +12,16 @@
     String backgroundColor=solverBenchmark.isRankingBest() ? "Yellow" : oddLine ? "White" : "LightGray";
     htmlFragment.append("    <tr style=\"background-color: ").append(backgroundColor).append("\"><th>").append(solverBenchmark.getName()).append("</th>");
     for (    ProblemBenchmark problemBenchmark : problemBenchmarkList) {
-      boolean noResult=true;
-      for (      PlannerBenchmarkResult result : solverBenchmark.getPlannerBenchmarkResultList()) {
-        if (problemBenchmark.equals(result.getProblemBenchmark())) {
-          Score score=result.getScore();
+      boolean noSingleBenchmark=true;
+      for (      SingleBenchmark singleBenchmark : solverBenchmark.getSingleBenchmarkList()) {
+        if (problemBenchmark.equals(singleBenchmark.getProblemBenchmark())) {
+          Score score=singleBenchmark.getScore();
           htmlFragment.append("<td>").append(score.toString()).append("</td>");
-          noResult=false;
+          noSingleBenchmark=false;
           break;
         }
       }
-      if (noResult) {
+      if (noSingleBenchmark) {
         htmlFragment.append("<td/>");
       }
     }

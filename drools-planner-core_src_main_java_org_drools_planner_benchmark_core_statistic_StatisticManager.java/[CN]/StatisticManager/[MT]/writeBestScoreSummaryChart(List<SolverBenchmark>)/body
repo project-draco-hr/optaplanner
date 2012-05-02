@@ -2,14 +2,14 @@
   DefaultCategoryDataset dataset=new DefaultCategoryDataset();
   for (  SolverBenchmark solverBenchmark : solverBenchmarkList) {
     ScoreDefinition scoreDefinition=solverBenchmark.getSolverConfig().getScoreDirectorFactoryConfig().buildScoreDefinition();
-    for (    PlannerBenchmarkResult result : solverBenchmark.getPlannerBenchmarkResultList()) {
-      Score score=result.getScore();
+    for (    SingleBenchmark singleBenchmark : solverBenchmark.getSingleBenchmarkList()) {
+      Score score=singleBenchmark.getScore();
       Double scoreGraphValue=scoreDefinition.translateScoreToGraphValue(score);
       String solverLabel=solverBenchmark.getName();
       if (solverBenchmark.isRankingBest()) {
         solverLabel+=" (winner)";
       }
-      String planningProblemLabel=result.getProblemBenchmark().getName();
+      String planningProblemLabel=singleBenchmark.getProblemBenchmark().getName();
       dataset.addValue(scoreGraphValue,solverLabel,planningProblemLabel);
     }
   }
