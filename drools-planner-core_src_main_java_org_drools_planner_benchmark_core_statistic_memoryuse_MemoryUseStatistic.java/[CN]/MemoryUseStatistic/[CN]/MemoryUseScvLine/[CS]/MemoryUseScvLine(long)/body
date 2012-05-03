@@ -1,4 +1,0 @@
-{
-  super(timeMillisSpend);
-  configNameToMemoryUseMeasurementMap=new HashMap<String,MemoryUseMeasurement>();
-}

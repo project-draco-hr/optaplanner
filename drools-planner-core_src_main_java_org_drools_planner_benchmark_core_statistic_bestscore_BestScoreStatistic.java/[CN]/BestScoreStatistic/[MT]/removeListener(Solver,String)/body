@@ -1,4 +1,0 @@
-{
-  BestScoreStatisticListener bestScoreStatisticListener=bestScoreStatisticListenerMap.get(configName);
-  solver.removeEventListener(bestScoreStatisticListener);
-}

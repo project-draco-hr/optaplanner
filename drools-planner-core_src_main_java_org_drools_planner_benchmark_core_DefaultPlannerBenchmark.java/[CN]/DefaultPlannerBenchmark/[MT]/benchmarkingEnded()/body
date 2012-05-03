@@ -7,9 +7,9 @@
     solverBenchmark.benchmarkingEnded();
   }
   determineRanking();
-  StatisticManager statisticManager=new StatisticManager(benchmarkInstanceDirectory.getName(),statisticDirectory,unifiedProblemBenchmarkList);
-  statisticManager.writeStatistics(solverBenchmarkList);
-  logger.info("Benchmarking ended: winning solverBenchmark ({}), statistic html overview ({}).",winningSolverBenchmark.getName(),statisticManager.getHtmlOverviewFile().getAbsolutePath());
+  PlannerStatistic plannerStatistic=new PlannerStatistic(this);
+  plannerStatistic.writeStatistics(solverBenchmarkList);
+  logger.info("Benchmarking ended: winning solverBenchmark ({}), statistic html overview ({}).",winningSolverBenchmark.getName(),plannerStatistic.getHtmlOverviewFile().getAbsolutePath());
   if (failureCount > 0) {
     throw new IllegalStateException("Benchmarking failed: failureCount (" + failureCount + ").",firstFailureThrowable);
   }

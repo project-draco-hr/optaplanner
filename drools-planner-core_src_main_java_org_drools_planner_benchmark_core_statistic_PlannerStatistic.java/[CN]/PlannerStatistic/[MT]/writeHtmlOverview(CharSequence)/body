@@ -1,0 +1,20 @@
+{
+  Writer writer=null;
+  try {
+    writer=new OutputStreamWriter(new FileOutputStream(htmlOverviewFile),"UTF-8");
+    writer.append("<html>\n");
+    writer.append("<head>\n");
+    writer.append("  <title>Statistic ").append(plannerBenchmark.getName()).append("</title>\n");
+    writer.append("</head>\n");
+    writer.append("<body>\n");
+    writer.append(htmlFragment);
+    writer.append("</body>\n");
+    writer.append("</html>\n");
+  }
+ catch (  IOException e) {
+    throw new IllegalArgumentException("Problem writing htmlOverviewFile: " + htmlOverviewFile,e);
+  }
+ finally {
+    IOUtils.closeQuietly(writer);
+  }
+}

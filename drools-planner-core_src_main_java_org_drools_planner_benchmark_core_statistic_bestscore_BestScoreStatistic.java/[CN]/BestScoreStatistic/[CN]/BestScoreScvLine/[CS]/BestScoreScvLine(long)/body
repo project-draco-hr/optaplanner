@@ -1,4 +1,0 @@
-{
-  super(timeMillisSpend);
-  configNameToScoreMap=new HashMap<String,Score>();
-}

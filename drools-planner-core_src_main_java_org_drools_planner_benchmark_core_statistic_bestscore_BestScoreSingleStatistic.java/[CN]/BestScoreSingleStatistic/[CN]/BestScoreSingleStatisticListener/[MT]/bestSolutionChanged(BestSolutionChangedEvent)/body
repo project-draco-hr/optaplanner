@@ -1,0 +1,3 @@
+{
+  pointList.add(new BestScoreSingleStatisticPoint(event));
+}

@@ -1,6 +1,0 @@
-{
-  this.benchmarkName=benchmarkName;
-  this.statisticDirectory=statisticDirectory;
-  htmlOverviewFile=new File(statisticDirectory,"index.html");
-  this.problemBenchmarkList=problemBenchmarkList;
-}

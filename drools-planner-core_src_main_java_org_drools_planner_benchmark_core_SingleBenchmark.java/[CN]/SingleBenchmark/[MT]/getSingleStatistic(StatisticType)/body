@@ -1,0 +1,3 @@
+{
+  return singleStatisticMap.get(statisticType);
+}

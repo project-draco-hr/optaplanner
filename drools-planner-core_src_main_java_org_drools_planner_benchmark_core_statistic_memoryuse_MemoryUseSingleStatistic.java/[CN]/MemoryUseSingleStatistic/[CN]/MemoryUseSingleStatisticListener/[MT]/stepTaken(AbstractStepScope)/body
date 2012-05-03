@@ -1,0 +1,10 @@
+{
+  long timeMillisSpend=stepScope.getSolverPhaseScope().calculateSolverTimeMillisSpend();
+  if (timeMillisSpend >= nextTimeMillisThreshold) {
+    pointList.add(new MemoryUseSingleStatisticPoint(timeMillisSpend,MemoryUseMeasurement.create()));
+    nextTimeMillisThreshold+=timeMillisThresholdInterval;
+    if (nextTimeMillisThreshold < timeMillisSpend) {
+      nextTimeMillisThreshold=timeMillisSpend;
+    }
+  }
+}

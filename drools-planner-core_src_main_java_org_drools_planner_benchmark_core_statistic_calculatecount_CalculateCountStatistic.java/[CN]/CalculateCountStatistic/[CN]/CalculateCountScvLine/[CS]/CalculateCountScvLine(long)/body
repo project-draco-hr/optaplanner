@@ -1,4 +1,0 @@
-{
-  super(timeMillisSpend);
-  configNameToCalculateCountPerSecondMap=new HashMap<String,Long>();
-}

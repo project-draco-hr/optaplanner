@@ -1,4 +1,0 @@
-{
-  CalculateCountStatisticListener statisticListener=statisticListenerMap.get(configName);
-  ((DefaultSolver)solver).removeSolverPhaseLifecycleListener(statisticListener);
-}

@@ -1,0 +1,3 @@
+{
+  addPoint(singleBenchmark,timeMillisSpend,Long.toString(value));
+}

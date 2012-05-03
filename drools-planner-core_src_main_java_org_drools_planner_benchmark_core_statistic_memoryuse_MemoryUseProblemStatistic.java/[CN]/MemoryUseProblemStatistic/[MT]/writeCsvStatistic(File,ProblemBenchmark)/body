@@ -1,0 +1,14 @@
+{
+  ProblemStatisticCsv csv=new ProblemStatisticCsv();
+  for (  SingleBenchmark singleBenchmark : problemBenchmark.getSingleBenchmarkList()) {
+    MemoryUseSingleStatistic singleStatistic=(MemoryUseSingleStatistic)singleBenchmark.getSingleStatistic(problemStatisticType);
+    for (    MemoryUseSingleStatisticPoint point : singleStatistic.getPointList()) {
+      long timeMillisSpend=point.getTimeMillisSpend();
+      MemoryUseMeasurement memoryUseMeasurement=point.getMemoryUseMeasurement();
+      String value="\"" + Long.toString(memoryUseMeasurement.getUsedMemory()) + "/"+ Long.toString(memoryUseMeasurement.getMaxMemory())+ "\"";
+      csv.addPoint(singleBenchmark,timeMillisSpend,value);
+    }
+  }
+  File csvStatisticFile=new File(statisticDirectory,problemBenchmark.getName() + "MemoryUseStatistic.csv");
+  return csv.writeCsvStatisticFile(csvStatisticFile,problemBenchmark);
+}
