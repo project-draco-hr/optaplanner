@@ -1,11 +1,14 @@
 {
+  failureCount=0;
   winningSingleBenchmark=null;
   for (  SingleBenchmark singleBenchmark : singleBenchmarkList) {
     if (singleBenchmark.isFailure()) {
-      continue;
+      failureCount++;
     }
-    if (winningSingleBenchmark == null || singleBenchmark.getScore().compareTo(winningSingleBenchmark.getScore()) > 0) {
-      winningSingleBenchmark=singleBenchmark;
+ else {
+      if (winningSingleBenchmark == null || singleBenchmark.getScore().compareTo(winningSingleBenchmark.getScore()) > 0) {
+        winningSingleBenchmark=singleBenchmark;
+      }
     }
   }
 }

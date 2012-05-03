@@ -4,13 +4,14 @@
   for (  SingleBenchmark singleBenchmark : singleBenchmarkList) {
     if (singleBenchmark.isFailure()) {
       failureCount++;
-      continue;
-    }
-    if (totalScore == null) {
-      totalScore=singleBenchmark.getScore();
     }
  else {
-      totalScore=totalScore.add(singleBenchmark.getScore());
+      if (totalScore == null) {
+        totalScore=singleBenchmark.getScore();
+      }
+ else {
+        totalScore=totalScore.add(singleBenchmark.getScore());
+      }
     }
   }
 }
