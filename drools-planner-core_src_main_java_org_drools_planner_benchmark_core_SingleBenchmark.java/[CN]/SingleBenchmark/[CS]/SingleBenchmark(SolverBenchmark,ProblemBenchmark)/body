@@ -1,3 +1,4 @@
 {
   this.solverBenchmark=solverBenchmark;
+  this.problemBenchmark=problemBenchmark;
 }
