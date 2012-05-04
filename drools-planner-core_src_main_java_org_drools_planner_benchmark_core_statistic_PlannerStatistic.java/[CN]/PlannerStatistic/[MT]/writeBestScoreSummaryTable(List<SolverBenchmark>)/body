@@ -12,17 +12,22 @@
     String backgroundColor=solverBenchmark.isRankingBest() ? "Yellow" : oddLine ? "White" : "LightGray";
     htmlFragment.append("    <tr style=\"background-color: ").append(backgroundColor).append("\"><th>").append(solverBenchmark.getName()).append("</th>");
     for (    ProblemBenchmark problemBenchmark : plannerBenchmark.getUnifiedProblemBenchmarkList()) {
-      boolean noSingleBenchmark=true;
-      for (      SingleBenchmark singleBenchmark : solverBenchmark.getSingleBenchmarkList()) {
-        if (problemBenchmark.equals(singleBenchmark.getProblemBenchmark())) {
-          Score score=singleBenchmark.getScore();
-          htmlFragment.append("<td>").append(score.toString()).append("</td>");
-          noSingleBenchmark=false;
+      SingleBenchmark singleBenchmark=null;
+      for (      SingleBenchmark possibleSingleBenchmark : solverBenchmark.getSingleBenchmarkList()) {
+        if (problemBenchmark.equals(possibleSingleBenchmark.getProblemBenchmark())) {
+          singleBenchmark=possibleSingleBenchmark;
           break;
         }
       }
-      if (noSingleBenchmark) {
+      if (singleBenchmark == null) {
         htmlFragment.append("<td/>");
+      }
+ else       if (!singleBenchmark.isSuccess()) {
+        htmlFragment.append("<td>failed</td>");
+      }
+ else {
+        Score score=singleBenchmark.getScore();
+        htmlFragment.append("<td>").append(score.toString()).append("</td>");
       }
     }
     htmlFragment.append("<td>").append(solverBenchmark.getAverageScore().toString()).append("</td><td>").append(solverBenchmark.getRanking()).append("</td>");

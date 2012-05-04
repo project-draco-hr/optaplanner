@@ -1,0 +1,3 @@
+{
+  return singleBenchmarkList.size() - failureCount > 0;
+}

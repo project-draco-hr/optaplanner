@@ -3,14 +3,16 @@
   for (  SolverBenchmark solverBenchmark : solverBenchmarkList) {
     ScoreDefinition scoreDefinition=solverBenchmark.getSolverConfig().getScoreDirectorFactoryConfig().buildScoreDefinition();
     for (    SingleBenchmark singleBenchmark : solverBenchmark.getSingleBenchmarkList()) {
-      Score score=singleBenchmark.getScore();
-      Double scoreGraphValue=scoreDefinition.translateScoreToGraphValue(score);
-      String solverLabel=solverBenchmark.getName();
-      if (solverBenchmark.isRankingBest()) {
-        solverLabel+=" (winner)";
+      if (singleBenchmark.isSuccess()) {
+        Score score=singleBenchmark.getScore();
+        Double scoreGraphValue=scoreDefinition.translateScoreToGraphValue(score);
+        String solverLabel=solverBenchmark.getName();
+        if (solverBenchmark.isRankingBest()) {
+          solverLabel+=" (winner)";
+        }
+        String planningProblemLabel=singleBenchmark.getProblemBenchmark().getName();
+        dataset.addValue(scoreGraphValue,solverLabel,planningProblemLabel);
       }
-      String planningProblemLabel=singleBenchmark.getProblemBenchmark().getName();
-      dataset.addValue(scoreGraphValue,solverLabel,planningProblemLabel);
     }
   }
   CategoryAxis xAxis=new CategoryAxis("Data");

@@ -10,8 +10,13 @@
   htmlFragment.append("  <h1>Statistics</h1>\n");
   for (  ProblemBenchmark problemBenchmark : plannerBenchmark.getUnifiedProblemBenchmarkList()) {
     htmlFragment.append("  <h2>").append(problemBenchmark.getName()).append("</h2>\n");
-    for (    ProblemStatistic problemStatistic : problemBenchmark.getProblemStatisticList()) {
-      htmlFragment.append(problemStatistic.writeStatistic(statisticDirectory,problemBenchmark));
+    if (problemBenchmark.hasFailure()) {
+      htmlFragment.append("  <p>This has ").append(problemBenchmark.getFailureCount()).append(" failures.</p>\n");
+    }
+    if (problemBenchmark.hasAnySuccess()) {
+      for (      ProblemStatistic problemStatistic : problemBenchmark.getProblemStatisticList()) {
+        htmlFragment.append(problemStatistic.writeStatistic(statisticDirectory,problemBenchmark));
+      }
     }
   }
   writeHtmlOverview(htmlFragment);

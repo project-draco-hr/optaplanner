@@ -6,9 +6,11 @@
   for (  SolverBenchmark solverBenchmark : solverBenchmarkList) {
     XYSeries series=new XYSeries(solverBenchmark.getName());
     for (    SingleBenchmark singleBenchmark : solverBenchmark.getSingleBenchmarkList()) {
-      long problemScale=singleBenchmark.getProblemScale();
-      long averageCalculateCountPerSecond=singleBenchmark.getAverageCalculateCountPerSecond();
-      series.add((Long)problemScale,(Long)averageCalculateCountPerSecond);
+      if (singleBenchmark.isSuccess()) {
+        long problemScale=singleBenchmark.getProblemScale();
+        long averageCalculateCountPerSecond=singleBenchmark.getAverageCalculateCountPerSecond();
+        series.add((Long)problemScale,(Long)averageCalculateCountPerSecond);
+      }
     }
     XYSeriesCollection seriesCollection=new XYSeriesCollection();
     seriesCollection.addSeries(series);

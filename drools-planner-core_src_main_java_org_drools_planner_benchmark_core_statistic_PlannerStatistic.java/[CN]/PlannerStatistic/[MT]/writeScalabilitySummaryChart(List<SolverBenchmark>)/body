@@ -7,9 +7,11 @@
   for (  SolverBenchmark solverBenchmark : solverBenchmarkList) {
     XYSeries series=new XYSeries(solverBenchmark.getName());
     for (    SingleBenchmark singleBenchmark : solverBenchmark.getSingleBenchmarkList()) {
-      long problemScale=singleBenchmark.getProblemScale();
-      long timeMillisSpend=singleBenchmark.getTimeMillisSpend();
-      series.add((Long)problemScale,(Long)timeMillisSpend);
+      if (singleBenchmark.isSuccess()) {
+        long problemScale=singleBenchmark.getProblemScale();
+        long timeMillisSpend=singleBenchmark.getTimeMillisSpend();
+        series.add((Long)problemScale,(Long)timeMillisSpend);
+      }
     }
     XYSeriesCollection seriesCollection=new XYSeriesCollection();
     seriesCollection.addSeries(series);

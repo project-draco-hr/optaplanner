@@ -2,10 +2,12 @@
   DefaultCategoryDataset dataset=new DefaultCategoryDataset();
   for (  SolverBenchmark solverBenchmark : solverBenchmarkList) {
     for (    SingleBenchmark singleBenchmark : solverBenchmark.getSingleBenchmarkList()) {
-      long timeMillisSpend=singleBenchmark.getTimeMillisSpend();
-      String solverLabel=solverBenchmark.getName();
-      String planningProblemLabel=singleBenchmark.getProblemBenchmark().getName();
-      dataset.addValue(timeMillisSpend,solverLabel,planningProblemLabel);
+      if (singleBenchmark.isSuccess()) {
+        long timeMillisSpend=singleBenchmark.getTimeMillisSpend();
+        String solverLabel=solverBenchmark.getName();
+        String planningProblemLabel=singleBenchmark.getProblemBenchmark().getName();
+        dataset.addValue(timeMillisSpend,solverLabel,planningProblemLabel);
+      }
     }
   }
   CategoryAxis xAxis=new CategoryAxis("Data");
