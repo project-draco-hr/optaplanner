@@ -3,6 +3,9 @@
   ProblemIO problemIO=buildProblemIO();
   List<ProblemBenchmark> problemBenchmarkList=new ArrayList<ProblemBenchmark>(inputSolutionFileList.size());
   for (  File inputSolutionFile : inputSolutionFileList) {
+    if (!inputSolutionFile.exists()) {
+      throw new IllegalArgumentException("The inputSolutionFile (" + inputSolutionFile + ") does not exist.");
+    }
     ProblemBenchmark newProblemBenchmark=buildProblemBenchmark(problemIO,inputSolutionFile);
     ProblemBenchmark problemBenchmark;
     int index=unifiedProblemBenchmarkList.indexOf(newProblemBenchmark);
