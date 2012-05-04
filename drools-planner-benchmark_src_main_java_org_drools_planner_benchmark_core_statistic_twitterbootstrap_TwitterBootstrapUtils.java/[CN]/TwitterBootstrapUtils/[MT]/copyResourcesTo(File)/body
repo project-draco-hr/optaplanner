@@ -1,0 +1,10 @@
+{
+  copyResource(statisticDirectory,"css/bootstrap-responsive.css");
+  copyResource(statisticDirectory,"css/bootstrap-responsive.min.css");
+  copyResource(statisticDirectory,"css/bootstrap.css");
+  copyResource(statisticDirectory,"css/bootstrap.min.css");
+  copyResource(statisticDirectory,"img/glyphicons-halflings-white.png");
+  copyResource(statisticDirectory,"img/glyphicons-halflings.png");
+  copyResource(statisticDirectory,"js/bootstrap.js");
+  copyResource(statisticDirectory,"js/bootstrap.min.js");
+}

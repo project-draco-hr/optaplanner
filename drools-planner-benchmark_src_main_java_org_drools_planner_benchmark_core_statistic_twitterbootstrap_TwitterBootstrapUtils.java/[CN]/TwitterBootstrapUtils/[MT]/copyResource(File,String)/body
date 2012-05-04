@@ -1,0 +1,21 @@
+{
+  File outputFile=new File(statisticDirectory,twitterBootstrapResource);
+  InputStream in=null;
+  OutputStream out=null;
+  try {
+    in=TwitterBootstrapUtils.class.getResourceAsStream(RESOURCE_NAMESPACE + twitterBootstrapResource);
+    if (in == null) {
+      throw new IllegalStateException("The twitterBootstrapResource (" + twitterBootstrapResource + ") does not exist.");
+    }
+    outputFile.getParentFile().mkdirs();
+    out=new FileOutputStream(outputFile);
+    IOUtils.copy(in,out);
+  }
+ catch (  IOException e) {
+    throw new IllegalStateException("Could not copy twitterBootstrapResource (" + twitterBootstrapResource + ") to outputFile ("+ outputFile+ ").",e);
+  }
+ finally {
+    IOUtils.closeQuietly(in);
+    IOUtils.closeQuietly(out);
+  }
+}

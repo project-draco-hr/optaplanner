@@ -1,4 +1,5 @@
 {
+  TwitterBootstrapUtils.copyResourcesTo(statisticDirectory);
   StringBuilder htmlFragment=new StringBuilder(plannerBenchmark.getUnifiedProblemBenchmarkList().size() * 160);
   htmlFragment.append("  <h1>Summary</h1>\n");
   htmlFragment.append(writeBestScoreSummaryChart(solverBenchmarkList));
