@@ -41,5 +41,5 @@
  finally {
     IOUtils.closeQuietly(out);
   }
-  return "  <h2>Best score summary chart</h2>\n" + "  <img src=\"" + chartSummaryFile.getName() + "\"/>\n";
+  return "    <h2>Best score summary chart</h2>\n" + "  <img src=\"" + chartSummaryFile.getName() + "\"/>\n";
 }

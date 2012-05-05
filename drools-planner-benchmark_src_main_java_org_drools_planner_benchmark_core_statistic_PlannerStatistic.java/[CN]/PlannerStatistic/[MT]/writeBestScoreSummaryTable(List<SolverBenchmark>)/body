@@ -1,8 +1,8 @@
 {
   StringBuilder htmlFragment=new StringBuilder(solverBenchmarkList.size() * 160);
-  htmlFragment.append("  <h2>Best score summary table</h2>\n");
-  htmlFragment.append("  <table class=\"table table-striped table-bordered\">\n");
-  htmlFragment.append("    <tr><th>Solver</th>");
+  htmlFragment.append("    <h2>Best score summary table</h2>\n");
+  htmlFragment.append("    <table class=\"table table-striped table-bordered\">\n");
+  htmlFragment.append("      <tr><th>Solver</th>");
   for (  ProblemBenchmark problemBenchmark : plannerBenchmark.getUnifiedProblemBenchmarkList()) {
     htmlFragment.append("<th>").append(problemBenchmark.getName()).append("</th>");
   }
@@ -35,13 +35,13 @@
       htmlFragment.append("<td/>");
     }
  else     if (solverBenchmark.isRankingBest()) {
-      htmlFragment.append("<td><span class=\"label label-success\">").append(ranking).append("</span></td>");
+      htmlFragment.append("<td><span class=\"badge badge-success\">").append(ranking).append("</span></td>");
     }
  else {
-      htmlFragment.append("<td><span class=\"label\">").append(ranking).append("</span></td>");
+      htmlFragment.append("<td><span class=\"badge\">").append(ranking).append("</span></td>");
     }
     htmlFragment.append("</tr>\n");
   }
-  htmlFragment.append("  </table>\n");
+  htmlFragment.append("    </table>\n");
   return htmlFragment.toString();
 }

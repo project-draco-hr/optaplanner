@@ -27,5 +27,5 @@
  finally {
     IOUtils.closeQuietly(writer);
   }
-  return "  <p><a href=\"" + csvStatisticFile.getName() + "\">CVS file</a></p>\n";
+  return "    <div class=\"btn-group\">" + "      <button class=\"btn\" onclick=\"window.location.href='" + csvStatisticFile.getName() + "'\">CVS file</button>\n"+ "    </div>";
 }
