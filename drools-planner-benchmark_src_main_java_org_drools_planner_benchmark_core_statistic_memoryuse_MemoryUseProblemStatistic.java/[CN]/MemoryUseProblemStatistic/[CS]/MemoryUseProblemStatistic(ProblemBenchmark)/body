@@ -1,0 +1,3 @@
+{
+  super(problemBenchmark,ProblemStatisticType.MEMORY_USE);
+}

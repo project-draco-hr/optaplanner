@@ -16,6 +16,8 @@
     writer.append("</head>\n");
     writer.append("<body>\n");
     writer.append(htmlFragment);
+    writer.append("  <script src=\"js/jquery.js\"></script>\n");
+    writer.append("  <script src=\"js/bootstrap.js\"></script>\n");
     writer.append("</body>\n");
     writer.append("</html>\n");
   }

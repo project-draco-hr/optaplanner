@@ -1,3 +1,0 @@
-{
-  super(ProblemStatisticType.BEST_SOLUTION_CHANGED);
-}
