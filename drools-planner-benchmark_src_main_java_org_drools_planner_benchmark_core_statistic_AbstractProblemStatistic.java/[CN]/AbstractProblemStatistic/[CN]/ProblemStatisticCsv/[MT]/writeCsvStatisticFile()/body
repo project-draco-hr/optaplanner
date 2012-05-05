@@ -1,0 +1,30 @@
+{
+  List<ProblemStatisticCsvLine> lines=new ArrayList<ProblemStatisticCsvLine>(timeToLineMap.values());
+  Collections.sort(lines);
+  Writer writer=null;
+  try {
+    writer=new OutputStreamWriter(new FileOutputStream(csvStatisticFile),"UTF-8");
+    writer.append("\"TimeMillisSpend\"");
+    for (    SingleBenchmark singleBenchmark : problemBenchmark.getSingleBenchmarkList()) {
+      writer.append(",\"").append(singleBenchmark.getSolverBenchmark().getName().replaceAll("\\\"","\\\"")).append("\"");
+    }
+    writer.append("\n");
+    for (    ProblemStatisticCsvLine line : lines) {
+      writer.write(Long.toString(line.getTimeMillisSpend()));
+      for (      SingleBenchmark singleBenchmark : problemBenchmark.getSingleBenchmarkList()) {
+        writer.append(",");
+        String value=line.getValueMap().get(singleBenchmark);
+        if (value != null) {
+          writer.append(value);
+        }
+      }
+      writer.append("\n");
+    }
+  }
+ catch (  IOException e) {
+    throw new IllegalArgumentException("Problem writing csvStatisticFile: " + csvStatisticFile,e);
+  }
+ finally {
+    IOUtils.closeQuietly(writer);
+  }
+}

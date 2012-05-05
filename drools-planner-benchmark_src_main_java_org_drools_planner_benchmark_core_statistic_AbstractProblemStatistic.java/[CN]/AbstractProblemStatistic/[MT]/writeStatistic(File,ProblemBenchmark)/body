@@ -1,7 +1,0 @@
-{
-  StringBuilder htmlFragment=new StringBuilder();
-  htmlFragment.append("    <h3>").append(problemStatisticType.toString()).append("</h3>\n");
-  htmlFragment.append(writeCsvStatistic(statisticDirectory,problemBenchmark));
-  htmlFragment.append(writeGraphStatistic(statisticDirectory,problemBenchmark));
-  return htmlFragment;
-}

@@ -1,0 +1,37 @@
+{
+  XYSeriesCollection seriesCollection=new XYSeriesCollection();
+  for (  SingleBenchmark singleBenchmark : problemBenchmark.getSingleBenchmarkList()) {
+    MemoryUseSingleStatistic singleStatistic=(MemoryUseSingleStatistic)singleBenchmark.getSingleStatistic(problemStatisticType);
+    XYSeries usedSeries=new XYSeries(singleBenchmark.getSolverBenchmark().getName() + " used");
+    XYSeries maxSeries=new XYSeries(singleBenchmark.getSolverBenchmark().getName() + " max");
+    for (    MemoryUseSingleStatisticPoint point : singleStatistic.getPointList()) {
+      long timeMillisSpend=point.getTimeMillisSpend();
+      MemoryUseMeasurement memoryUseMeasurement=point.getMemoryUseMeasurement();
+      usedSeries.add(timeMillisSpend,memoryUseMeasurement.getUsedMemory());
+      maxSeries.add(timeMillisSpend,memoryUseMeasurement.getMaxMemory());
+    }
+    seriesCollection.addSeries(usedSeries);
+    seriesCollection.addSeries(maxSeries);
+  }
+  NumberAxis xAxis=new NumberAxis("Time spend");
+  xAxis.setNumberFormatOverride(new MillisecondsSpendNumberFormat());
+  NumberAxis yAxis=new NumberAxis("Memory");
+  yAxis.setAutoRangeIncludesZero(false);
+  XYItemRenderer renderer=new XYAreaRenderer2();
+  XYPlot plot=new XYPlot(seriesCollection,xAxis,yAxis,renderer);
+  plot.setOrientation(PlotOrientation.VERTICAL);
+  JFreeChart chart=new JFreeChart(problemBenchmark.getName() + " memory use statistic",JFreeChart.DEFAULT_TITLE_FONT,plot,true);
+  BufferedImage chartImage=chart.createBufferedImage(1024,768);
+  graphStatisticFile=new File(statisticDirectory,problemBenchmark.getName() + "MemoryUseStatistic.png");
+  OutputStream out=null;
+  try {
+    out=new FileOutputStream(graphStatisticFile);
+    ImageIO.write(chartImage,"png",out);
+  }
+ catch (  IOException e) {
+    throw new IllegalArgumentException("Problem writing graphStatisticFile: " + graphStatisticFile,e);
+  }
+ finally {
+    IOUtils.closeQuietly(out);
+  }
+}
