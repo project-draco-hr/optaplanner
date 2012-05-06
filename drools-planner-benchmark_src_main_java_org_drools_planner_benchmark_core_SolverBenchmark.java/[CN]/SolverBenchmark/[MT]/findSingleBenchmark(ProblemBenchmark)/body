@@ -1,0 +1,8 @@
+{
+  for (  SingleBenchmark singleBenchmark : singleBenchmarkList) {
+    if (problemBenchmark.equals(singleBenchmark.getProblemBenchmark())) {
+      return singleBenchmark;
+    }
+  }
+  return null;
+}

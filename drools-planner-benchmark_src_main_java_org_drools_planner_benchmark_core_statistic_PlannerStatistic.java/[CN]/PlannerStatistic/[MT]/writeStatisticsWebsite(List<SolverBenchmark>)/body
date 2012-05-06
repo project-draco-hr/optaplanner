@@ -1,0 +1,24 @@
+{
+  TwitterBootstrapUtils.copyResourcesTo(statisticDirectory);
+  Configuration freemarkerCfg=new Configuration();
+  freemarkerCfg.setDefaultEncoding("UTF-8");
+  freemarkerCfg.setClassForTemplateLoading(PlannerStatistic.class,"");
+  String templateFilename="index.ftl";
+  Map<String,Object> model=new HashMap<String,Object>();
+  model.put("plannerStatistic",this);
+  Writer writer=null;
+  try {
+    Template template=freemarkerCfg.getTemplate(templateFilename);
+    writer=new OutputStreamWriter(new FileOutputStream(htmlOverviewFile),"UTF-8");
+    template.process(model,writer);
+  }
+ catch (  IOException e) {
+    throw new IllegalArgumentException("Can not read templateFilename (" + templateFilename + ") or write htmlOverviewFile ("+ htmlOverviewFile+ ").",e);
+  }
+catch (  TemplateException e) {
+    throw new IllegalArgumentException("Can not process Freemarker templateFilename (" + templateFilename + ") to htmlOverviewFile ("+ htmlOverviewFile+ ").",e);
+  }
+ finally {
+    IOUtils.closeQuietly(writer);
+  }
+}

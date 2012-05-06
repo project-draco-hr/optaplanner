@@ -4,7 +4,6 @@
   writeTimeSpendSummaryChart(solverBenchmarkList);
   writeScalabilitySummaryChart(solverBenchmarkList);
   writeAverageCalculateCountPerSecondSummaryChart(solverBenchmarkList);
-  writeBestScoreSummaryTable(solverBenchmarkList);
   for (  ProblemBenchmark problemBenchmark : plannerBenchmark.getUnifiedProblemBenchmarkList()) {
     if (problemBenchmark.hasAnySuccess()) {
       for (      ProblemStatistic problemStatistic : problemBenchmark.getProblemStatisticList()) {
@@ -12,70 +11,5 @@
       }
     }
   }
-  TwitterBootstrapUtils.copyResourcesTo(statisticDirectory);
-  StringBuilder htmlFragment=new StringBuilder(plannerBenchmark.getUnifiedProblemBenchmarkList().size() * 160);
-  htmlFragment.append("  <div class=\"navbar navbar-fixed-top\">\n");
-  htmlFragment.append("    <div class=\"navbar-inner\">\n");
-  htmlFragment.append("      <div class=\"container\">\n");
-  htmlFragment.append("        <ul class=\"nav\">\n");
-  htmlFragment.append("          <li><a href=\"#summary\">Summary</a></li>\n");
-  for (  ProblemBenchmark problemBenchmark : plannerBenchmark.getUnifiedProblemBenchmarkList()) {
-    htmlFragment.append("          <li><a href=\"#problem_").append(problemBenchmark.getName()).append("\">").append(problemBenchmark.getName()).append("</a></li>\n");
-  }
-  htmlFragment.append("        </ul>\n");
-  htmlFragment.append("      </div>\n");
-  htmlFragment.append("    </div>\n");
-  htmlFragment.append("  </div>\n");
-  htmlFragment.append("  <section id=\"summary\">\n");
-  htmlFragment.append("    <h1>Summary</h1>\n");
-  htmlFragment.append("    <h2>Best score summary chart</h2>\n");
-  htmlFragment.append("    <img src=\"").append(bestScoreSummaryFile.getName()).append("\"/>\n");
-  htmlFragment.append("    <h2>Winning score difference summary chart</h2>\n");
-  htmlFragment.append("    <img src=\"").append(winningScoreDifferenceSummaryFile.getName()).append("\"/>\n");
-  htmlFragment.append("    <h2>Time spend summary chart</h2>\n");
-  htmlFragment.append("    <img src=\"").append(timeSpendSummaryFile.getName()).append("\"/>\n");
-  htmlFragment.append("    <h2>Scalability summary chart</h2>\n");
-  htmlFragment.append("    <img src=\"").append(scalabilitySummaryFile.getName()).append("\"/>\n");
-  htmlFragment.append("    <h2>Average calculate count summary chart</h2>\n");
-  htmlFragment.append("    <img src=\"").append(averageCalculateCountSummaryFile.getName()).append("\"/>\n");
-  htmlFragment.append(writeBestScoreSummaryTable(solverBenchmarkList));
-  htmlFragment.append("  </section>\n");
-  htmlFragment.append("  <h1>Solver benchmarks</h1>\n");
-  htmlFragment.append("  <p>TODO</p>\n");
-  htmlFragment.append("  <h1>Problem benchmarks</h1>\n");
-  for (  ProblemBenchmark problemBenchmark : plannerBenchmark.getUnifiedProblemBenchmarkList()) {
-    htmlFragment.append("  <section id=\"problem_").append(problemBenchmark.getName()).append("\">\n");
-    htmlFragment.append("    <div class=\"page-header\">\n");
-    htmlFragment.append("      <h2>").append(problemBenchmark.getName()).append("</h2>\n");
-    htmlFragment.append("    </div>\n");
-    if (problemBenchmark.hasFailure()) {
-      htmlFragment.append("    <p>This has ").append(problemBenchmark.getFailureCount()).append(" failures.</p>\n");
-    }
-    if (problemBenchmark.hasAnySuccess() && problemBenchmark.getProblemStatisticList().size() > 0) {
-      htmlFragment.append("    <div class=\"tabbable\">\n");
-      htmlFragment.append("      <ul class=\"nav nav-tabs\">\n");
-      boolean firstRow=true;
-      for (      ProblemStatistic problemStatistic : problemBenchmark.getProblemStatisticList()) {
-        htmlFragment.append("        <li").append(firstRow ? " class=\"active\"" : "").append("><a href=\"#problemStatistic_").append(problemStatistic.getAnchorId()).append("\" data-toggle=\"tab\">").append(problemStatistic.getProblemStatisticType()).append("</a></li>\n");
-        firstRow=false;
-      }
-      htmlFragment.append("      </ul>\n");
-      htmlFragment.append("      <div class=\"tab-content\">\n");
-      firstRow=true;
-      for (      ProblemStatistic problemStatistic : problemBenchmark.getProblemStatisticList()) {
-        htmlFragment.append("        <div class=\"tab-pane").append(firstRow ? " active" : "").append("\" id=\"problemStatistic_").append(problemStatistic.getAnchorId()).append("\">\n");
-        htmlFragment.append("          <h3>").append(problemStatistic.getProblemStatisticType()).append("</h3>\n");
-        htmlFragment.append("          <div class=\"btn-group\">\n");
-        htmlFragment.append("            <button class=\"btn\" onclick=\"window.location.href='").append(problemStatistic.getCsvFilePath()).append("'\">CVS file</button>\n");
-        htmlFragment.append("          </div>\n");
-        htmlFragment.append("          <img src=\"").append(problemStatistic.getGraphFilePath()).append("\"/>\n");
-        htmlFragment.append("        </div>\n");
-        firstRow=false;
-      }
-      htmlFragment.append("      </div>\n");
-      htmlFragment.append("    </div>\n");
-    }
-    htmlFragment.append("  </section>\n");
-  }
-  writeHtmlOverview(htmlFragment);
+  writeStatisticsWebsite(solverBenchmarkList);
 }
