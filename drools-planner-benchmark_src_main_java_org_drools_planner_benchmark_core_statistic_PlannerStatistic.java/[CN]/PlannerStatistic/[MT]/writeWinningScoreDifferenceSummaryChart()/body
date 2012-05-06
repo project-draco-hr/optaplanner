@@ -1,10 +1,10 @@
 {
   DefaultCategoryDataset dataset=new DefaultCategoryDataset();
-  for (  SolverBenchmark solverBenchmark : solverBenchmarkList) {
+  for (  SolverBenchmark solverBenchmark : plannerBenchmark.getSolverBenchmarkList()) {
     ScoreDefinition scoreDefinition=solverBenchmark.getSolverConfig().getScoreDirectorFactoryConfig().buildScoreDefinition();
     for (    SingleBenchmark singleBenchmark : solverBenchmark.getSingleBenchmarkList()) {
       if (singleBenchmark.isSuccess()) {
-        Score score=singleBenchmark.getScore();
+        Score score=singleBenchmark.getWinningScoreDifference();
         Double scoreGraphValue=scoreDefinition.translateScoreToGraphValue(score);
         String solverLabel=solverBenchmark.getName();
         if (solverBenchmark.isRankingBest()) {
@@ -17,7 +17,7 @@
   }
   CategoryAxis xAxis=new CategoryAxis("Data");
   xAxis.setCategoryMargin(0.40);
-  NumberAxis yAxis=new NumberAxis("Score");
+  NumberAxis yAxis=new NumberAxis("Winning score difference");
   BarRenderer renderer=new BarRenderer();
   ItemLabelPosition positiveItemLabelPosition=new ItemLabelPosition(ItemLabelAnchor.OUTSIDE12,TextAnchor.BOTTOM_CENTER);
   renderer.setBasePositiveItemLabelPosition(positiveItemLabelPosition);
@@ -27,16 +27,16 @@
   renderer.setBaseItemLabelsVisible(true);
   CategoryPlot plot=new CategoryPlot(dataset,xAxis,yAxis,renderer);
   plot.setOrientation(PlotOrientation.VERTICAL);
-  JFreeChart chart=new JFreeChart("Best score summary (higher score is better)",JFreeChart.DEFAULT_TITLE_FONT,plot,true);
+  JFreeChart chart=new JFreeChart("Winning score difference summary (higher is better)",JFreeChart.DEFAULT_TITLE_FONT,plot,true);
   BufferedImage chartImage=chart.createBufferedImage(1024,768);
-  bestScoreSummaryFile=new File(statisticDirectory,"bestScoreSummary.png");
+  winningScoreDifferenceSummaryFile=new File(statisticDirectory,"winningScoreDifferenceSummary.png");
   OutputStream out=null;
   try {
-    out=new FileOutputStream(bestScoreSummaryFile);
+    out=new FileOutputStream(winningScoreDifferenceSummaryFile);
     ImageIO.write(chartImage,"png",out);
   }
  catch (  IOException e) {
-    throw new IllegalArgumentException("Problem writing bestScoreSummaryFile: " + bestScoreSummaryFile,e);
+    throw new IllegalArgumentException("Problem writing winningScoreDifferenceSummaryFile: " + winningScoreDifferenceSummaryFile,e);
   }
  finally {
     IOUtils.closeQuietly(out);

@@ -4,7 +4,7 @@
   yAxis.setNumberFormatOverride(new MillisecondsSpendNumberFormat());
   XYPlot plot=new XYPlot(null,xAxis,yAxis,null);
   int seriesIndex=0;
-  for (  SolverBenchmark solverBenchmark : solverBenchmarkList) {
+  for (  SolverBenchmark solverBenchmark : plannerBenchmark.getSolverBenchmarkList()) {
     XYSeries series=new XYSeries(solverBenchmark.getName());
     for (    SingleBenchmark singleBenchmark : solverBenchmark.getSingleBenchmarkList()) {
       if (singleBenchmark.isSuccess()) {

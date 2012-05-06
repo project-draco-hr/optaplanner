@@ -1,0 +1,15 @@
+{
+  writeBestScoreSummaryChart();
+  writeWinningScoreDifferenceSummaryChart();
+  writeTimeSpendSummaryChart();
+  writeScalabilitySummaryChart();
+  writeAverageCalculateCountPerSecondSummaryChart();
+  for (  ProblemBenchmark problemBenchmark : plannerBenchmark.getUnifiedProblemBenchmarkList()) {
+    if (problemBenchmark.hasAnySuccess()) {
+      for (      ProblemStatistic problemStatistic : problemBenchmark.getProblemStatisticList()) {
+        problemStatistic.writeStatistic(statisticDirectory);
+      }
+    }
+  }
+  writeStatisticsWebsite();
+}
