@@ -24,17 +24,16 @@
   plot.setOrientation(PlotOrientation.VERTICAL);
   JFreeChart chart=new JFreeChart("Time spend summary (lower time is better)",JFreeChart.DEFAULT_TITLE_FONT,plot,true);
   BufferedImage chartImage=chart.createBufferedImage(1024,768);
-  File chartSummaryFile=new File(statisticDirectory,"timeSpendSummary.png");
+  timeSpendSummaryFile=new File(statisticDirectory,"timeSpendSummary.png");
   OutputStream out=null;
   try {
-    out=new FileOutputStream(chartSummaryFile);
+    out=new FileOutputStream(timeSpendSummaryFile);
     ImageIO.write(chartImage,"png",out);
   }
  catch (  IOException e) {
-    throw new IllegalArgumentException("Problem writing graphStatisticFile: " + chartSummaryFile,e);
+    throw new IllegalArgumentException("Problem writing timeSpendSummaryFile: " + timeSpendSummaryFile,e);
   }
  finally {
     IOUtils.closeQuietly(out);
   }
-  return "    <h2>Time spend summary chart</h2>\n" + "  <img src=\"" + chartSummaryFile.getName() + "\"/>\n";
 }

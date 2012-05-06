@@ -1,4 +1,10 @@
 {
+  writeBestScoreSummaryChart(solverBenchmarkList);
+  writeWinningScoreDifferenceSummaryChart(solverBenchmarkList);
+  writeTimeSpendSummaryChart(solverBenchmarkList);
+  writeScalabilitySummaryChart(solverBenchmarkList);
+  writeAverageCalculateCountPerSecondSummaryChart(solverBenchmarkList);
+  writeBestScoreSummaryTable(solverBenchmarkList);
   for (  ProblemBenchmark problemBenchmark : plannerBenchmark.getUnifiedProblemBenchmarkList()) {
     if (problemBenchmark.hasAnySuccess()) {
       for (      ProblemStatistic problemStatistic : problemBenchmark.getProblemStatisticList()) {
@@ -22,11 +28,16 @@
   htmlFragment.append("  </div>\n");
   htmlFragment.append("  <section id=\"summary\">\n");
   htmlFragment.append("    <h1>Summary</h1>\n");
-  htmlFragment.append(writeBestScoreSummaryChart(solverBenchmarkList));
-  htmlFragment.append(writeWinningScoreDifferenceSummaryChart(solverBenchmarkList));
-  htmlFragment.append(writeTimeSpendSummaryChart(solverBenchmarkList));
-  htmlFragment.append(writeScalabilitySummaryChart(solverBenchmarkList));
-  htmlFragment.append(writeAverageCalculateCountPerSecondSummaryChart(solverBenchmarkList));
+  htmlFragment.append("    <h2>Best score summary chart</h2>\n");
+  htmlFragment.append("    <img src=\"").append(bestScoreSummaryFile.getName()).append("\"/>\n");
+  htmlFragment.append("    <h2>Winning score difference summary chart</h2>\n");
+  htmlFragment.append("    <img src=\"").append(winningScoreDifferenceSummaryFile.getName()).append("\"/>\n");
+  htmlFragment.append("    <h2>Time spend summary chart</h2>\n");
+  htmlFragment.append("    <img src=\"").append(timeSpendSummaryFile.getName()).append("\"/>\n");
+  htmlFragment.append("    <h2>Scalability summary chart</h2>\n");
+  htmlFragment.append("    <img src=\"").append(scalabilitySummaryFile.getName()).append("\"/>\n");
+  htmlFragment.append("    <h2>Average calculate count summary chart</h2>\n");
+  htmlFragment.append("    <img src=\"").append(averageCalculateCountSummaryFile.getName()).append("\"/>\n");
   htmlFragment.append(writeBestScoreSummaryTable(solverBenchmarkList));
   htmlFragment.append("  </section>\n");
   htmlFragment.append("  <h1>Solver benchmarks</h1>\n");
