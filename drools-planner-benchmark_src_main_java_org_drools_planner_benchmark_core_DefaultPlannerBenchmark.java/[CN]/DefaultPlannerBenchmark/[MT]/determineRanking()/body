@@ -2,7 +2,7 @@
   List<SolverBenchmark> rankedSolverBenchmarkList=new ArrayList<SolverBenchmark>(solverBenchmarkList);
   for (Iterator<SolverBenchmark> it=rankedSolverBenchmarkList.iterator(); it.hasNext(); ) {
     SolverBenchmark solverBenchmark=it.next();
-    if (solverBenchmark.hasFailure()) {
+    if (solverBenchmark.hasAnyFailure()) {
       it.remove();
     }
   }
