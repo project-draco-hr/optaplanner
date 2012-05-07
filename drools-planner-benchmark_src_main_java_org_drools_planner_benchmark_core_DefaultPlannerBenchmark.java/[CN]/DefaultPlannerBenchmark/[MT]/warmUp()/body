@@ -1,5 +1,5 @@
 {
-  if (warmUpTimeMillisSpend != null) {
+  if (warmUpTimeMillisSpend > 0L) {
     logger.info("================================================================================");
     logger.info("Warming up");
     logger.info("================================================================================");

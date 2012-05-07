@@ -1,4 +1,5 @@
 {
+  startingTimestamp=new Date();
   if (solverBenchmarkList == null || solverBenchmarkList.isEmpty()) {
     throw new IllegalArgumentException("The solverBenchmarkList (" + solverBenchmarkList + ") cannot be empty.");
   }
