@@ -1,5 +1,5 @@
 {
-  File outputFile=new File(statisticDirectory,websiteResource);
+  File outputFile=new File(benchmarkReportDirectory,websiteResource);
   InputStream in=null;
   OutputStream out=null;
   try {

@@ -29,7 +29,7 @@
   plot.setOrientation(PlotOrientation.VERTICAL);
   JFreeChart chart=new JFreeChart("Winning score difference summary (higher is better)",JFreeChart.DEFAULT_TITLE_FONT,plot,true);
   BufferedImage chartImage=chart.createBufferedImage(1024,768);
-  winningScoreDifferenceSummaryFile=new File(statisticDirectory,"winningScoreDifferenceSummary.png");
+  winningScoreDifferenceSummaryFile=new File(plannerBenchmark.getBenchmarkReportDirectory(),"winningScoreDifferenceSummary.png");
   OutputStream out=null;
   try {
     out=new FileOutputStream(winningScoreDifferenceSummaryFile);

@@ -1,5 +1,5 @@
 {
-  WebsiteResourceUtils.copyResourcesTo(statisticDirectory);
+  WebsiteResourceUtils.copyResourcesTo(plannerBenchmark.getBenchmarkReportDirectory());
   Configuration freemarkerCfg=new Configuration();
   freemarkerCfg.setDefaultEncoding("UTF-8");
   freemarkerCfg.setClassForTemplateLoading(PlannerStatistic.class,"");

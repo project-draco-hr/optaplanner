@@ -1,2 +1,4 @@
 {
+  problemReportDirectory=new File(plannerBenchmark.getBenchmarkReportDirectory(),name);
+  problemReportDirectory.mkdirs();
 }

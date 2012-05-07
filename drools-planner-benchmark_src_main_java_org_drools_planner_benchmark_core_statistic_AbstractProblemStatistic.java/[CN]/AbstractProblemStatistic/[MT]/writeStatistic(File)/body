@@ -1,4 +1,0 @@
-{
-  writeCsvStatistic(statisticDirectory);
-  writeGraphStatistic(statisticDirectory);
-}

@@ -1,7 +1,7 @@
 {
   TotalRankSolverBenchmarkRankingWeightFactory factory=new TotalRankSolverBenchmarkRankingWeightFactory();
   List<SolverBenchmark> solverBenchmarkList=new ArrayList<SolverBenchmark>();
-  SolverBenchmark a=new SolverBenchmark();
+  SolverBenchmark a=new SolverBenchmark(null);
   List<SingleBenchmark> aSingleBenchmarkList=new ArrayList<SingleBenchmark>();
   addPlannerBenchmarkResult(aSingleBenchmarkList,-1000);
   addPlannerBenchmarkResult(aSingleBenchmarkList,-300);
@@ -9,7 +9,7 @@
   a.setSingleBenchmarkList(aSingleBenchmarkList);
   a.benchmarkingEnded();
   solverBenchmarkList.add(a);
-  SolverBenchmark b=new SolverBenchmark();
+  SolverBenchmark b=new SolverBenchmark(null);
   List<SingleBenchmark> bSingleBenchmarkList=new ArrayList<SingleBenchmark>();
   addPlannerBenchmarkResult(bSingleBenchmarkList,-2000);
   addPlannerBenchmarkResult(bSingleBenchmarkList,-200);

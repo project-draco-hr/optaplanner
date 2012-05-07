@@ -27,7 +27,7 @@
   plot.setOrientation(PlotOrientation.VERTICAL);
   JFreeChart chart=new JFreeChart("Time spend summary (lower time is better)",JFreeChart.DEFAULT_TITLE_FONT,plot,true);
   BufferedImage chartImage=chart.createBufferedImage(1024,768);
-  timeSpendSummaryFile=new File(statisticDirectory,"timeSpendSummary.png");
+  timeSpendSummaryFile=new File(plannerBenchmark.getBenchmarkReportDirectory(),"timeSpendSummary.png");
   OutputStream out=null;
   try {
     out=new FileOutputStream(timeSpendSummaryFile);

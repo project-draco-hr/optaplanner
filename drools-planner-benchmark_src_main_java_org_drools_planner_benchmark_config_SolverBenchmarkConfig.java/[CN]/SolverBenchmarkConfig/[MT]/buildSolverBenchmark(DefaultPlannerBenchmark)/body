@@ -1,0 +1,10 @@
+{
+  validate();
+  SolverBenchmark solverBenchmark=new SolverBenchmark(plannerBenchmark);
+  solverBenchmark.setName(name);
+  solverBenchmark.setSolverConfig(solverConfig);
+  solverBenchmark.setSingleBenchmarkList(new ArrayList<SingleBenchmark>());
+  List<ProblemBenchmark> problemBenchmarkList=problemBenchmarksConfig.buildProblemBenchmarkList(plannerBenchmark,solverBenchmark);
+  solverBenchmark.setProblemBenchmarkList(problemBenchmarkList);
+  return solverBenchmark;
+}

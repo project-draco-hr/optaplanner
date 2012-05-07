@@ -4,19 +4,16 @@
   inherit();
   DefaultPlannerBenchmark plannerBenchmark=new DefaultPlannerBenchmark();
   plannerBenchmark.setBenchmarkDirectory(benchmarkDirectory);
-  plannerBenchmark.setBenchmarkInstanceDirectory(benchmarkInstanceDirectory);
-  plannerBenchmark.setOutputSolutionFilesDirectory(outputSolutionFilesDirectory);
-  plannerBenchmark.setStatisticDirectory(statisticDirectory);
   supplySolverBenchmarkRanking(plannerBenchmark);
   plannerBenchmark.setParallelBenchmarkCount(resolveParallelBenchmarkCount());
   plannerBenchmark.setWarmUpTimeMillisSpend(calculateWarmUpTimeMillisSpendTotal());
   List<SolverBenchmark> solverBenchmarkList=new ArrayList<SolverBenchmark>(solverBenchmarkConfigList.size());
   List<ProblemBenchmark> unifiedProblemBenchmarkList=new ArrayList<ProblemBenchmark>();
+  plannerBenchmark.setUnifiedProblemBenchmarkList(unifiedProblemBenchmarkList);
   for (  SolverBenchmarkConfig solverBenchmarkConfig : solverBenchmarkConfigList) {
-    SolverBenchmark solverBenchmark=solverBenchmarkConfig.buildSolverBenchmark(unifiedProblemBenchmarkList);
+    SolverBenchmark solverBenchmark=solverBenchmarkConfig.buildSolverBenchmark(plannerBenchmark);
     solverBenchmarkList.add(solverBenchmark);
   }
   plannerBenchmark.setSolverBenchmarkList(solverBenchmarkList);
-  plannerBenchmark.setUnifiedProblemBenchmarkList(unifiedProblemBenchmarkList);
   return plannerBenchmark;
 }

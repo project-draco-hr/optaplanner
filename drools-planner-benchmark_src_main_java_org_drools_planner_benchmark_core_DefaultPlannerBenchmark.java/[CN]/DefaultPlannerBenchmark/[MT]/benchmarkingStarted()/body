@@ -8,7 +8,6 @@
     solverBenchmark.benchmarkingStarted();
   }
   for (  ProblemBenchmark problemBenchmark : unifiedProblemBenchmarkList) {
-    problemBenchmark.setOutputSolutionFilesDirectory(outputSolutionFilesDirectory);
     problemBenchmark.benchmarkingStarted();
   }
   executorService=Executors.newFixedThreadPool(parallelBenchmarkCount);

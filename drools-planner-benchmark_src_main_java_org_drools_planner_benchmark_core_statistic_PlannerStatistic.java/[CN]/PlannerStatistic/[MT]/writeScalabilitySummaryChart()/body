@@ -28,7 +28,7 @@
   plot.setOrientation(PlotOrientation.VERTICAL);
   JFreeChart chart=new JFreeChart("Scalability summary (lower is better)",JFreeChart.DEFAULT_TITLE_FONT,plot,true);
   BufferedImage chartImage=chart.createBufferedImage(1024,768);
-  scalabilitySummaryFile=new File(statisticDirectory,"scalabilitySummary.png");
+  scalabilitySummaryFile=new File(plannerBenchmark.getBenchmarkReportDirectory(),"scalabilitySummary.png");
   OutputStream out=null;
   try {
     out=new FileOutputStream(scalabilitySummaryFile);
