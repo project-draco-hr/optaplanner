@@ -1,5 +1,5 @@
 {
-  TwitterBootstrapUtils.copyResourcesTo(statisticDirectory);
+  WebsiteResourceUtils.copyResourcesTo(statisticDirectory);
   Configuration freemarkerCfg=new Configuration();
   freemarkerCfg.setDefaultEncoding("UTF-8");
   freemarkerCfg.setClassForTemplateLoading(PlannerStatistic.class,"");

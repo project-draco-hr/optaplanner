@@ -9,4 +9,5 @@
   copyResource(statisticDirectory,"twitterbootstrap/js/bootstrap.min.js");
   copyResource(statisticDirectory,"twitterbootstrap/js/jquery.js");
   copyResource(statisticDirectory,"twitterbootstrap/js/jquery.min.js");
+  copyResource(statisticDirectory,"website/img/droolsPlannerLogo.png");
 }
