@@ -1,0 +1,6 @@
+{
+  this.childMoveSelector=childMoveSelector;
+  if (childMoveSelector.isNeverEnding()) {
+    throw new IllegalStateException("The childMoveSelector (" + childMoveSelector + ") has sizeInfinite ("+ childMoveSelector.isNeverEnding()+ ") on a class ("+ getClass().getName()+ ") instance.");
+  }
+}

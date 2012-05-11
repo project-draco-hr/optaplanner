@@ -1,0 +1,6 @@
+{
+  super.stepEnded(stepScope);
+  if (cacheType == SelectorCacheType.STEP) {
+    disposeCache(stepScope.getSolverPhaseScope().getSolverScope());
+  }
+}

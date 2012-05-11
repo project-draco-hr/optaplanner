@@ -1,0 +1,10 @@
+{
+  cachedSize=childMoveSelector.getSize();
+  if (cachedSize > (long)Integer.MAX_VALUE) {
+    throw new IllegalStateException("The moveSelector (" + this + ") has a childMoveSelector ("+ childMoveSelector+ ") with cachedSize ("+ cachedSize+ ") which is higher then Integer.MAX_VALUE.");
+  }
+  cachedMoveList=new ArrayList<Move>((int)cachedSize);
+  CollectionUtils.addAll(cachedMoveList,childMoveSelector.iterator());
+  cachedRandomProbabilityWeight=childMoveSelector.getRandomProbabilityWeight();
+  orderCache(solverScope);
+}

@@ -1,0 +1,6 @@
+{
+  super.phaseEnded(solverPhaseScope);
+  if (cacheType == SelectorCacheType.PHASE) {
+    disposeCache(solverPhaseScope.getSolverScope());
+  }
+}
