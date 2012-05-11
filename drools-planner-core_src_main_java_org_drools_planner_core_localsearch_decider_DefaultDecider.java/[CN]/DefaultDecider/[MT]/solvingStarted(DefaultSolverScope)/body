@@ -1,0 +1,5 @@
+{
+  selector.solvingStarted(solverScope);
+  acceptor.solvingStarted(solverScope);
+  forager.solvingStarted(solverScope);
+}

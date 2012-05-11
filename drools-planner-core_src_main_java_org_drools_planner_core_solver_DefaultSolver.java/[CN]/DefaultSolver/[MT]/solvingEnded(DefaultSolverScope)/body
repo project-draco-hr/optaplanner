@@ -1,4 +1,7 @@
 {
+  for (  SolverPhase solverPhase : solverPhaseList) {
+    solverPhase.solvingEnded(solverScope);
+  }
   bestSolutionRecaller.solvingEnded(solverScope);
   long timeMillisSpend=solverScope.calculateTimeMillisSpend();
   if (timeMillisSpend == 0L) {
