@@ -6,7 +6,7 @@
   while (!termination.isPhaseTerminated(solverPhaseScope) && it.hasNext()) {
     Object planningEntity=it.next();
     stepScope.setPlanningEntity(planningEntity);
-    beforeDeciding(stepScope);
+    stepStarted(stepScope);
     greedyDecider.decideNextStep(stepScope);
     Move nextStep=stepScope.getStep();
     if (nextStep == null) {
@@ -21,7 +21,7 @@
     if (!it.hasNext()) {
       stepScope.setSolutionInitialized(true);
     }
-    stepTaken(stepScope);
+    stepEnded(stepScope);
     stepScope=createNextStepScope(solverPhaseScope,stepScope);
   }
   phaseEnded(solverPhaseScope);

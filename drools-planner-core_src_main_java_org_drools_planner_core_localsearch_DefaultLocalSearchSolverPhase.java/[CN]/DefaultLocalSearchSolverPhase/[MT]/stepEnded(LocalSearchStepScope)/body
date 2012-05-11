@@ -1,0 +1,6 @@
+{
+  super.stepEnded(localSearchStepScope);
+  decider.stepEnded(localSearchStepScope);
+  LocalSearchSolverPhaseScope localSearchSolverPhaseScope=localSearchStepScope.getLocalSearchSolverPhaseScope();
+  logger.debug("    Step index ({}), time spend ({}), score ({}), {} best score ({}), accepted move size ({})" + " for picked step ({}).",new Object[]{localSearchStepScope.getStepIndex(),localSearchSolverPhaseScope.calculateSolverTimeMillisSpend(),localSearchStepScope.getScore(),(localSearchStepScope.getBestScoreImproved() ? "new" : "   "),localSearchSolverPhaseScope.getBestScore(),decider.getForager().getAcceptedMovesSize(),localSearchStepScope.getStepString()});
+}

@@ -4,7 +4,7 @@
   acceptor.phaseStarted(localSearchSolverPhaseScope);
   LocalSearchStepScope localSearchStepScope=new LocalSearchStepScope(localSearchSolverPhaseScope);
   localSearchStepScope.setStepIndex(0);
-  acceptor.beforeDeciding(localSearchStepScope);
+  acceptor.stepStarted(localSearchStepScope);
   MoveScope a1=createMoveScope(localSearchStepScope,DefaultSimpleScore.valueOf(-2000));
   MoveScope a2=createMoveScope(localSearchStepScope,DefaultSimpleScore.valueOf(-1300));
   MoveScope a3=createMoveScope(localSearchStepScope,DefaultSimpleScore.valueOf(-1200));

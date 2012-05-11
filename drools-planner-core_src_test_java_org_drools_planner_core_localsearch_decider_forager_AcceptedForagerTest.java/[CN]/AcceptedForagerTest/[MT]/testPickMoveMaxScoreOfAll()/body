@@ -4,7 +4,7 @@
   LocalSearchSolverPhaseScope localSearchSolverPhaseScope=createLocalSearchSolverPhaseScope();
   forager.phaseStarted(localSearchSolverPhaseScope);
   LocalSearchStepScope localSearchStepScope=createStepScope(localSearchSolverPhaseScope);
-  forager.beforeDeciding(localSearchStepScope);
+  forager.stepStarted(localSearchStepScope);
   MoveScope a=createMoveScope(localSearchStepScope,DefaultSimpleScore.valueOf(-20),true);
   MoveScope b=createMoveScope(localSearchStepScope,DefaultSimpleScore.valueOf(-1),true);
   MoveScope c=createMoveScope(localSearchStepScope,DefaultSimpleScore.valueOf(-20),false);

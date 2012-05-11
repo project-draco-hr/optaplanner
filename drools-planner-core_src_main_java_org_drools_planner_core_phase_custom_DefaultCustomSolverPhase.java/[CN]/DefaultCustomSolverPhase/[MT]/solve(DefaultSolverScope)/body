@@ -8,7 +8,7 @@
     customSolverPhaseCommand.changeWorkingSolution(solverScope.getScoreDirector());
     Score score=customSolverPhaseScope.calculateScore();
     customStepScope.setScore(score);
-    stepTaken(customStepScope);
+    stepEnded(customStepScope);
     customStepScope=createNextStepScope(customSolverPhaseScope,customStepScope);
   }
   phaseEnded(customSolverPhaseScope);

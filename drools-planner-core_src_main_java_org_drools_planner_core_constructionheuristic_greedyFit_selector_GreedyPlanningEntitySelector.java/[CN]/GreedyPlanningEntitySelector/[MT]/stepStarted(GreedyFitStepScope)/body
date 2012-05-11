@@ -1,0 +1,5 @@
+{
+  for (  PlanningEntitySelector planningEntitySelector : planningEntitySelectorList) {
+    planningEntitySelector.stepStarted(greedyFitStepScope);
+  }
+}

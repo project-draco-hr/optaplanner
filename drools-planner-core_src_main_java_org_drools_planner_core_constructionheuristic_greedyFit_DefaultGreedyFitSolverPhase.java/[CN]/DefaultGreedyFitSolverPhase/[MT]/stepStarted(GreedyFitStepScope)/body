@@ -1,0 +1,5 @@
+{
+  super.stepStarted(greedyFitStepScope);
+  greedyPlanningEntitySelector.stepStarted(greedyFitStepScope);
+  greedyDecider.stepStarted(greedyFitStepScope);
+}

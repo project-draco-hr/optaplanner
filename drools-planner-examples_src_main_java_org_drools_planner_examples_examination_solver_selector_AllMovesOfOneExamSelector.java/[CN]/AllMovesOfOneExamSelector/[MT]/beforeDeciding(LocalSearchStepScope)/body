@@ -1,5 +1,0 @@
-{
-  periodChangeMoveFactory.beforeDeciding(localSearchStepScope);
-  roomChangeMoveFactory.beforeDeciding(localSearchStepScope);
-  examSwapMoveFactory.beforeDeciding(localSearchStepScope);
-}

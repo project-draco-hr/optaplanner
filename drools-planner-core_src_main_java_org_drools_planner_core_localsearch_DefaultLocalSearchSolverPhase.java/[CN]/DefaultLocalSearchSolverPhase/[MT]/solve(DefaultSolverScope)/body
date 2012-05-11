@@ -4,7 +4,7 @@
   LocalSearchStepScope stepScope=createNextStepScope(solverPhaseScope,null);
   while (!termination.isPhaseTerminated(solverPhaseScope)) {
     stepScope.setTimeGradient(termination.calculatePhaseTimeGradient(solverPhaseScope));
-    beforeDeciding(stepScope);
+    stepStarted(stepScope);
     decider.decideNextStep(stepScope);
     Move nextStep=stepScope.getStep();
     if (nextStep == null) {
@@ -16,7 +16,7 @@
     if (assertStepScoreIsUncorrupted) {
       solverPhaseScope.assertWorkingScore(stepScope.getScore());
     }
-    stepTaken(stepScope);
+    stepEnded(stepScope);
     stepScope=createNextStepScope(solverPhaseScope,stepScope);
   }
   phaseEnded(solverPhaseScope);

@@ -21,7 +21,7 @@
   assertEquals(true,tabuAcceptor.isAccepted(buildMoveScope(stepScope0,e4)));
   assertEquals(true,tabuAcceptor.isAccepted(buildMoveScope(stepScope0,e2)));
   stepScope0.setStep(moveScope1.getMove());
-  tabuAcceptor.stepTaken(stepScope0);
+  tabuAcceptor.stepEnded(stepScope0);
   LocalSearchStepScope stepScope1=new LocalSearchStepScope(solverPhaseScope);
   stepScope1.setStepIndex(1);
   MoveScope moveScope2=buildMoveScope(stepScope1,e2);
@@ -32,7 +32,7 @@
   assertEquals(true,tabuAcceptor.isAccepted(buildMoveScope(stepScope1,e4)));
   assertEquals(true,tabuAcceptor.isAccepted(buildMoveScope(stepScope1,e2)));
   stepScope1.setStep(moveScope2.getMove());
-  tabuAcceptor.stepTaken(stepScope1);
+  tabuAcceptor.stepEnded(stepScope1);
   LocalSearchStepScope stepScope2=new LocalSearchStepScope(solverPhaseScope);
   stepScope2.setStepIndex(2);
   MoveScope moveScope4=buildMoveScope(stepScope1,e4);
@@ -43,7 +43,7 @@
   assertEquals(true,tabuAcceptor.isAccepted(moveScope4));
   assertEquals(false,tabuAcceptor.isAccepted(buildMoveScope(stepScope2,e2)));
   stepScope2.setStep(moveScope4.getMove());
-  tabuAcceptor.stepTaken(stepScope2);
+  tabuAcceptor.stepEnded(stepScope2);
   LocalSearchStepScope stepScope3=new LocalSearchStepScope(solverPhaseScope);
   stepScope3.setStepIndex(3);
   MoveScope moveScope3=buildMoveScope(stepScope1,e3);
@@ -54,7 +54,7 @@
   assertEquals(false,tabuAcceptor.isAccepted(buildMoveScope(stepScope3,e4)));
   assertEquals(false,tabuAcceptor.isAccepted(buildMoveScope(stepScope3,e2)));
   stepScope3.setStep(moveScope3.getMove());
-  tabuAcceptor.stepTaken(stepScope3);
+  tabuAcceptor.stepEnded(stepScope3);
   LocalSearchStepScope stepScope4=new LocalSearchStepScope(solverPhaseScope);
   stepScope4.setStepIndex(4);
   MoveScope moveScope1Again=buildMoveScope(stepScope1,e1);
@@ -65,6 +65,6 @@
   assertEquals(false,tabuAcceptor.isAccepted(buildMoveScope(stepScope4,e4)));
   assertEquals(true,tabuAcceptor.isAccepted(buildMoveScope(stepScope4,e2)));
   stepScope4.setStep(moveScope1Again.getMove());
-  tabuAcceptor.stepTaken(stepScope4);
+  tabuAcceptor.stepEnded(stepScope4);
   tabuAcceptor.phaseEnded(solverPhaseScope);
 }

@@ -1,0 +1,3 @@
+{
+  planningValueSelector.stepEnded(stepScope);
+}

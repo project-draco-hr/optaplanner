@@ -6,7 +6,7 @@
     bruteForceEntityWalker.walk();
     Score score=bruteForceSolverPhaseScope.calculateScore();
     bruteForceStepScope.setScore(score);
-    stepTaken(bruteForceStepScope);
+    stepEnded(bruteForceStepScope);
     bruteForceStepScope=createNextStepScope(bruteForceSolverPhaseScope,bruteForceStepScope);
   }
   phaseEnded(bruteForceSolverPhaseScope);
