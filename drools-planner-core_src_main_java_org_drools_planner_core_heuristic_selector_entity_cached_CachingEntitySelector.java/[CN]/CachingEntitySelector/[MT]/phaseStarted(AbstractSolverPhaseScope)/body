@@ -1,0 +1,6 @@
+{
+  super.phaseStarted(solverPhaseScope);
+  if (cacheType == SelectorCacheType.PHASE) {
+    constructCache(solverPhaseScope.getSolverScope());
+  }
+}

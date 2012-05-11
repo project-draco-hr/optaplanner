@@ -1,0 +1,6 @@
+{
+  this.childEntitySelector=childEntitySelector;
+  if (childEntitySelector.isNeverEnding()) {
+    throw new IllegalStateException("The childEntitySelector (" + childEntitySelector + ") has sizeInfinite ("+ childEntitySelector.isNeverEnding()+ ") on a class ("+ getClass().getName()+ ") instance.");
+  }
+}

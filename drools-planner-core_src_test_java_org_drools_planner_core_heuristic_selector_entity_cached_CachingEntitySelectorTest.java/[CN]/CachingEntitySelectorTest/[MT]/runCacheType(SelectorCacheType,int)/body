@@ -1,0 +1,56 @@
+{
+  CachingEntitySelector entitySelector=new CachingEntitySelector(cacheType);
+  EntitySelector childEntitySelector=mock(EntitySelector.class);
+  final List<Object> entityList=Arrays.<Object>asList(new TestdataEntity("e1"),new TestdataEntity("e2"),new TestdataEntity("e3"));
+  when(childEntitySelector.iterator()).thenAnswer(new Answer<Object>(){
+    public Object answer(    InvocationOnMock invocation) throws Throwable {
+      return entityList.iterator();
+    }
+  }
+);
+  when(childEntitySelector.isContinuous()).thenReturn(false);
+  when(childEntitySelector.isNeverEnding()).thenReturn(false);
+  when(childEntitySelector.getSize()).thenReturn((long)entityList.size());
+  when(childEntitySelector.getRandomProbabilityWeight()).thenReturn(7L);
+  entitySelector.setChildEntitySelector(childEntitySelector);
+  verify(childEntitySelector,times(1)).isNeverEnding();
+  DefaultSolverScope solverScope=mock(DefaultSolverScope.class);
+  entitySelector.solvingStarted(solverScope);
+  AbstractSolverPhaseScope phaseScopeA=mock(AbstractSolverPhaseScope.class);
+  when(phaseScopeA.getSolverScope()).thenReturn(solverScope);
+  entitySelector.phaseStarted(phaseScopeA);
+  AbstractStepScope stepScopeA1=mock(AbstractStepScope.class);
+  when(stepScopeA1.getSolverPhaseScope()).thenReturn(phaseScopeA);
+  entitySelector.stepStarted(stepScopeA1);
+  runAsserts(entitySelector);
+  entitySelector.stepEnded(stepScopeA1);
+  AbstractStepScope stepScopeA2=mock(AbstractStepScope.class);
+  when(stepScopeA2.getSolverPhaseScope()).thenReturn(phaseScopeA);
+  entitySelector.stepStarted(stepScopeA2);
+  runAsserts(entitySelector);
+  entitySelector.stepEnded(stepScopeA2);
+  entitySelector.phaseEnded(phaseScopeA);
+  AbstractSolverPhaseScope phaseScopeB=mock(AbstractSolverPhaseScope.class);
+  when(phaseScopeB.getSolverScope()).thenReturn(solverScope);
+  entitySelector.phaseStarted(phaseScopeB);
+  AbstractStepScope stepScopeB1=mock(AbstractStepScope.class);
+  when(stepScopeB1.getSolverPhaseScope()).thenReturn(phaseScopeB);
+  entitySelector.stepStarted(stepScopeB1);
+  runAsserts(entitySelector);
+  entitySelector.stepEnded(stepScopeB1);
+  AbstractStepScope stepScopeB2=mock(AbstractStepScope.class);
+  when(stepScopeB2.getSolverPhaseScope()).thenReturn(phaseScopeB);
+  entitySelector.stepStarted(stepScopeB2);
+  runAsserts(entitySelector);
+  entitySelector.stepEnded(stepScopeB2);
+  AbstractStepScope stepScopeB3=mock(AbstractStepScope.class);
+  when(stepScopeB3.getSolverPhaseScope()).thenReturn(phaseScopeB);
+  entitySelector.stepStarted(stepScopeB3);
+  runAsserts(entitySelector);
+  entitySelector.stepEnded(stepScopeB3);
+  entitySelector.phaseEnded(phaseScopeB);
+  entitySelector.solvingEnded(solverScope);
+  verify(childEntitySelector,times(timesCalled)).iterator();
+  verify(childEntitySelector,times(timesCalled)).getSize();
+  verify(childEntitySelector,times(timesCalled)).getRandomProbabilityWeight();
+}

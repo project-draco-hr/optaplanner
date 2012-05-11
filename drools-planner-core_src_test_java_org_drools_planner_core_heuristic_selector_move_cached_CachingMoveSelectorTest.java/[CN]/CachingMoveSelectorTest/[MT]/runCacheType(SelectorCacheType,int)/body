@@ -1,7 +1,7 @@
 {
   CachingMoveSelector moveSelector=new CachingMoveSelector(cacheType);
   MoveSelector childMoveSelector=mock(MoveSelector.class);
-  final List<Move> moveList=Arrays.<Move>asList(new DummyMove(),new DummyMove());
+  final List<Move> moveList=Arrays.<Move>asList(new DummyMove(),new DummyMove(),new DummyMove());
   when(childMoveSelector.iterator()).thenAnswer(new Answer<Object>(){
     public Object answer(    InvocationOnMock invocation) throws Throwable {
       return moveList.iterator();

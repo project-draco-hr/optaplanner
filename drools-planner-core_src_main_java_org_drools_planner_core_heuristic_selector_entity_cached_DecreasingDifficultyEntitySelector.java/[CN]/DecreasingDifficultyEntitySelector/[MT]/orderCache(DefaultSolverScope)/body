@@ -1,0 +1,3 @@
+{
+  planningEntitySorter.sortDifficultyDescending(solverScope.getWorkingSolution(),cachedEntityList);
+}

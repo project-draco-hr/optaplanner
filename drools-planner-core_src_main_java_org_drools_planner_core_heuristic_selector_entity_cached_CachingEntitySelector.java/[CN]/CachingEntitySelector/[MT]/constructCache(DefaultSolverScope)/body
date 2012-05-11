@@ -1,0 +1,10 @@
+{
+  cachedSize=childEntitySelector.getSize();
+  if (cachedSize > (long)Integer.MAX_VALUE) {
+    throw new IllegalStateException("The entitySelector (" + this + ") has a childEntitySelector ("+ childEntitySelector+ ") with cachedSize ("+ cachedSize+ ") which is higher then Integer.MAX_VALUE.");
+  }
+  cachedEntityList=new ArrayList<Object>((int)cachedSize);
+  CollectionUtils.addAll(cachedEntityList,childEntitySelector.iterator());
+  cachedRandomProbabilityWeight=childEntitySelector.getRandomProbabilityWeight();
+  orderCache(solverScope);
+}

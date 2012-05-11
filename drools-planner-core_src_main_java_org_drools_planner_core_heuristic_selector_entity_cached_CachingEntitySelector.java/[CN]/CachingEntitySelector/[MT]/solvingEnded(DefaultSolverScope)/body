@@ -1,0 +1,6 @@
+{
+  super.solvingEnded(solverScope);
+  if (cacheType == SelectorCacheType.SOLVER) {
+    disposeCache(solverScope);
+  }
+}

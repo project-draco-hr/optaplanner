@@ -1,0 +1,4 @@
+{
+  super.phaseEnded(solverPhaseScope);
+  entityList=null;
+}

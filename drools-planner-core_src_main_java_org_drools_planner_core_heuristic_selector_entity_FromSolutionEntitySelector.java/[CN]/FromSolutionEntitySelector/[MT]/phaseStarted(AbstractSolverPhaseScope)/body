@@ -1,0 +1,4 @@
+{
+  super.phaseStarted(solverPhaseScope);
+  entityList=entityDescriptor.extractEntities(solverPhaseScope.getWorkingSolution());
+}
