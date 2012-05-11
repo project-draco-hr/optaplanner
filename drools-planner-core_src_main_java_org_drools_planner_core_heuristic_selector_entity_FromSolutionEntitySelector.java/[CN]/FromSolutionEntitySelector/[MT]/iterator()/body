@@ -1,3 +1,6 @@
 {
+  if (randomSelection) {
+    new RandomIterator(entityList,workingRandom);
+  }
   return entityList.iterator();
 }

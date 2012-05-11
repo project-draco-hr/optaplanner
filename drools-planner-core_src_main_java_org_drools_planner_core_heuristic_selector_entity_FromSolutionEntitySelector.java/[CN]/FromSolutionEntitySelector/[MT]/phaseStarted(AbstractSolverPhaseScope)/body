@@ -1,4 +1,5 @@
 {
   super.phaseStarted(solverPhaseScope);
+  workingRandom=solverPhaseScope.getWorkingRandom();
   entityList=entityDescriptor.extractEntities(solverPhaseScope.getWorkingSolution());
 }
