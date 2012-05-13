@@ -1,0 +1,6 @@
+{
+  XStream xStream=XmlSolverFactory.buildXstream();
+  xStream.setMode(XStream.NO_REFERENCES);
+  String xml=xStream.toXML(solverConfig);
+  return StringEscapeUtils.escapeHtml(xml);
+}
