@@ -1,4 +1,4 @@
 {
-  validateConfiguration();
+  validate();
   initSelectedPlanningEntityList(solverPhaseScope);
 }
