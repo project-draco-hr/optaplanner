@@ -1,0 +1,4 @@
+{
+  this.moveList=moveList;
+  this.randomProbabilityWeight=randomProbabilityWeight;
+}

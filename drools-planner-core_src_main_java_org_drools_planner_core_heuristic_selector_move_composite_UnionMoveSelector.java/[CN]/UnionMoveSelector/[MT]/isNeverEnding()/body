@@ -1,0 +1,16 @@
+{
+  if (randomSelection) {
+    for (    MoveSelector moveSelector : childMoveSelectorList) {
+      if (moveSelector.isNeverEnding()) {
+        return true;
+      }
+    }
+    return false;
+  }
+ else {
+    if (!childMoveSelectorList.isEmpty() && childMoveSelectorList.get(childMoveSelectorList.size() - 1).isNeverEnding()) {
+      return true;
+    }
+    return false;
+  }
+}

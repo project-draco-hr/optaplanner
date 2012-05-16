@@ -2,11 +2,11 @@
   Iterator<Move> iterator=moveSelector.iterator();
   assertNotNull(iterator);
   assertTrue(iterator.hasNext());
-  assertNotNull(iterator.next());
+  assertCode("a1",iterator.next());
   assertTrue(iterator.hasNext());
-  assertNotNull(iterator.next());
+  assertCode("a2",iterator.next());
   assertTrue(iterator.hasNext());
-  assertNotNull(iterator.next());
+  assertCode("a3",iterator.next());
   assertFalse(iterator.hasNext());
   assertEquals(false,moveSelector.isContinuous());
   assertEquals(false,moveSelector.isNeverEnding());

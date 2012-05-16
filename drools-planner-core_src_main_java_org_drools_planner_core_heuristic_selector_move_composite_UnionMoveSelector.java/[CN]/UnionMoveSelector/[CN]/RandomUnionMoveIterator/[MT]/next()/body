@@ -1,0 +1,11 @@
+{
+  long randomProbability=RandomUtils.nextLong(workingRandom,randomProbabilityWeightTotal);
+  Map.Entry<Long,Iterator<Move>> entry=moveIteratorMap.floorEntry(randomProbability);
+  Iterator<Move> moveIterator=entry.getValue();
+  Move next=moveIterator.next();
+  if (!moveIterator.hasNext()) {
+    moveSelectorMap.remove(moveIterator);
+    refreshMoveIteratorMap();
+  }
+  return next;
+}

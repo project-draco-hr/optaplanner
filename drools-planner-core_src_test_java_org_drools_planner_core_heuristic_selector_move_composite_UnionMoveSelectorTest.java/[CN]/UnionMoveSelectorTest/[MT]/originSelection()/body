@@ -1,0 +1,34 @@
+{
+  UnionMoveSelector moveSelector=new UnionMoveSelector();
+  moveSelector.setRandomSelection(false);
+  ArrayList<MoveSelector> childMoveSelectorList=new ArrayList<MoveSelector>();
+  childMoveSelectorList.add(new DummyMoveSelector(Arrays.<Move>asList(new DummyMove("a1"),new DummyMove("a2"),new DummyMove("a3"))));
+  childMoveSelectorList.add(new DummyMoveSelector(Arrays.<Move>asList(new DummyMove("a4"),new DummyMove("a5"))));
+  moveSelector.setChildMoveSelectorList(childMoveSelectorList);
+  DefaultSolverScope solverScope=mock(DefaultSolverScope.class);
+  moveSelector.solvingStarted(solverScope);
+  AbstractSolverPhaseScope phaseScopeA=mock(AbstractSolverPhaseScope.class);
+  when(phaseScopeA.getSolverScope()).thenReturn(solverScope);
+  moveSelector.phaseStarted(phaseScopeA);
+  AbstractStepScope stepScopeA1=mock(AbstractStepScope.class);
+  when(stepScopeA1.getSolverPhaseScope()).thenReturn(phaseScopeA);
+  moveSelector.stepStarted(stepScopeA1);
+  assertEquals(false,moveSelector.isContinuous());
+  assertEquals(false,moveSelector.isNeverEnding());
+  assertEquals(5L,moveSelector.getSize());
+  Iterator<Move> iterator=moveSelector.iterator();
+  assertTrue(iterator.hasNext());
+  assertCode("a1",iterator.next());
+  assertTrue(iterator.hasNext());
+  assertCode("a2",iterator.next());
+  assertTrue(iterator.hasNext());
+  assertCode("a3",iterator.next());
+  assertTrue(iterator.hasNext());
+  assertCode("a4",iterator.next());
+  assertTrue(iterator.hasNext());
+  assertCode("a5",iterator.next());
+  assertFalse(iterator.hasNext());
+  moveSelector.stepEnded(stepScopeA1);
+  moveSelector.phaseEnded(phaseScopeA);
+  moveSelector.solvingEnded(solverScope);
+}

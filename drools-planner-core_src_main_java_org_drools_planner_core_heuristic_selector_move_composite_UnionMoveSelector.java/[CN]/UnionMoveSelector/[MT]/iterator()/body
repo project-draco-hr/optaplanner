@@ -1,0 +1,12 @@
+{
+  if (!randomSelection) {
+    List<Iterator<Move>> iteratorList=new ArrayList<Iterator<Move>>(childMoveSelectorList.size());
+    for (    MoveSelector moveSelector : childMoveSelectorList) {
+      iteratorList.add(moveSelector.iterator());
+    }
+    return new IteratorChain(iteratorList);
+  }
+ else {
+    return new RandomUnionMoveIterator();
+  }
+}

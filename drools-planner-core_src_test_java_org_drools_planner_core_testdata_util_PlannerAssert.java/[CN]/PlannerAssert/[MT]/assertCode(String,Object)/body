@@ -1,0 +1,4 @@
+{
+  assertTrue(o instanceof CodeAssertable);
+  assertCode(code,(CodeAssertable)o);
+}
