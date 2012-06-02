@@ -2,6 +2,9 @@
   Configuration freemarkerCfg=new Configuration();
   freemarkerCfg.setDefaultEncoding("UTF-8");
   freemarkerCfg.setNumberFormat("computer");
+  freemarkerCfg.setDateFormat("yyyy-mm-dd");
+  freemarkerCfg.setDateTimeFormat("yyyy-mm-dd HH:mm:ss.SSS z");
+  freemarkerCfg.setTimeFormat("HH:mm:ss.SSS");
   String templateFilename="benchmarkTemplate.ftl";
   Template template;
   try {
