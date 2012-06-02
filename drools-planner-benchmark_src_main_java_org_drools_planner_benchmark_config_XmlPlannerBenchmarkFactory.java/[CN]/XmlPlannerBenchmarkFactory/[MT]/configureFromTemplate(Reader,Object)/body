@@ -1,0 +1,11 @@
+{
+  Configuration cfg=new Configuration();
+  cfg.setObjectWrapper(new DefaultObjectWrapper());
+  cfg.setNumberFormat("computer");
+  try {
+    return this.configureFromTemplate(new Template("benchmarkTemplate.ftl",reader,cfg,"UTF-8"),model);
+  }
+ catch (  IOException e) {
+    throw new IllegalStateException("The template for a benchmark cannot be read.",e);
+  }
+}
