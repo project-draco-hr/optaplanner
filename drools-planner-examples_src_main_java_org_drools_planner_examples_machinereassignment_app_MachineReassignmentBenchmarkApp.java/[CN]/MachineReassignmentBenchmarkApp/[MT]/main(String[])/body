@@ -17,5 +17,5 @@
  else {
     benchmarkConfig=DEFAULT_BENCHMARK_CONFIG;
   }
-  new MachineReassignmentBenchmarkApp(benchmarkConfig).process();
+  new MachineReassignmentBenchmarkApp().buildAndBenchmark(benchmarkConfig);
 }

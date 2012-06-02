@@ -1,3 +1,3 @@
 {
-  new PatientAdmissionScheduleBenchmarkApp(DEFAULT_BENCHMARK_CONFIG).process();
+  new PatientAdmissionScheduleBenchmarkApp().buildAndBenchmark(DEFAULT_BENCHMARK_CONFIG);
 }

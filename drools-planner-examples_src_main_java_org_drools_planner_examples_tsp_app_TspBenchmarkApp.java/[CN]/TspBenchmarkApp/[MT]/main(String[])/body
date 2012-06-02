@@ -11,5 +11,5 @@
  else {
     benchmarkConfig=DEFAULT_BENCHMARK_CONFIG;
   }
-  new TspBenchmarkApp(benchmarkConfig).process();
+  new TspBenchmarkApp().buildAndBenchmark(benchmarkConfig);
 }

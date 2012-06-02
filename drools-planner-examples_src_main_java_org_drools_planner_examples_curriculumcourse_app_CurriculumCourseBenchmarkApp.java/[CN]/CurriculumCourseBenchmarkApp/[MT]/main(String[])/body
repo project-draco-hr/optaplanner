@@ -14,5 +14,5 @@
  else {
     benchmarkConfig=DEFAULT_BENCHMARK_CONFIG;
   }
-  new CurriculumCourseBenchmarkApp(benchmarkConfig).process();
+  new CurriculumCourseBenchmarkApp().buildAndBenchmark(benchmarkConfig);
 }

@@ -17,5 +17,5 @@
  else {
     benchmarkConfig=DEFAULT_BENCHMARK_CONFIG;
   }
-  new NQueensBenchmarkApp(benchmarkConfig).process();
+  new NQueensBenchmarkApp().buildAndBenchmark(benchmarkConfig);
 }

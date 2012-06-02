@@ -14,5 +14,5 @@
  else {
     benchmarkConfig=DEFAULT_BENCHMARK_CONFIG;
   }
-  new ExaminationBenchmarkApp(benchmarkConfig).process();
+  new ExaminationBenchmarkApp().buildAndBenchmark(benchmarkConfig);
 }

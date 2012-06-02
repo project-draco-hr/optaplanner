@@ -20,5 +20,5 @@
  else {
     benchmarkConfig=MEDIUM_BENCHMARK_CONFIG;
   }
-  new NurseRosteringBenchmarkApp(benchmarkConfig).process();
+  new NurseRosteringBenchmarkApp().buildAndBenchmark(benchmarkConfig);
 }

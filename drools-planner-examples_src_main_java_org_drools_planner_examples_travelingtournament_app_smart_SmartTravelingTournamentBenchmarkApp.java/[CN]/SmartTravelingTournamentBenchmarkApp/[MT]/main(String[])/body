@@ -14,5 +14,5 @@
  else {
     benchmarkConfig=BENCHMARK_CONFIG;
   }
-  new SmartTravelingTournamentBenchmarkApp(benchmarkConfig).process();
+  new SmartTravelingTournamentBenchmarkApp().buildAndBenchmark(benchmarkConfig);
 }
