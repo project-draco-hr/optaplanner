@@ -4,10 +4,10 @@
     template.process(model,out);
     return this.configure(new StringReader(out.toString()));
   }
- catch (  TemplateException e) {
-    throw new IllegalStateException("There was a problem with the benchmark template.",e);
-  }
-catch (  IOException e) {
+ catch (  IOException e) {
     throw new IllegalStateException("There was a problem writing the benchmark config from the template.",e);
+  }
+catch (  TemplateException e) {
+    throw new IllegalStateException("There was a problem with the benchmark template.",e);
   }
 }
