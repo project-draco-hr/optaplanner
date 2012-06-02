@@ -1,7 +1,7 @@
 {
   Reader reader=null;
   try {
-    reader=new InputStreamReader(in,"UTF-8");
+    reader=new InputStreamReader(templateIn,"UTF-8");
     return configureFromTemplate(reader,model);
   }
  catch (  UnsupportedEncodingException e) {
@@ -9,6 +9,6 @@
   }
  finally {
     IOUtils.closeQuietly(reader);
-    IOUtils.closeQuietly(in);
+    IOUtils.closeQuietly(templateIn);
   }
 }

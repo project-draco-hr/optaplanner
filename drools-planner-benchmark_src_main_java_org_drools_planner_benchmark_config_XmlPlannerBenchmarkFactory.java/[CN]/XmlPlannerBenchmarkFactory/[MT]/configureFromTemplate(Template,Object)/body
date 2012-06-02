@@ -1,13 +1,17 @@
 {
-  StringWriter out=new StringWriter();
+  StringWriter configWriter=new StringWriter();
   try {
-    template.process(model,out);
-    return this.configure(new StringReader(out.toString()));
+    template.process(model,configWriter);
   }
  catch (  IOException e) {
-    throw new IllegalStateException("There was a problem writing the benchmark config from the template.",e);
+    throw new IllegalArgumentException("Can not write to configWriter.",e);
   }
 catch (  TemplateException e) {
-    throw new IllegalStateException("There was a problem with the benchmark template.",e);
+    throw new IllegalArgumentException("Can not process Freemarker template to configWriter.",e);
   }
+ finally {
+    IOUtils.closeQuietly(configWriter);
+  }
+  StringReader configReader=new StringReader(configWriter.toString());
+  return this.configure(configReader);
 }
