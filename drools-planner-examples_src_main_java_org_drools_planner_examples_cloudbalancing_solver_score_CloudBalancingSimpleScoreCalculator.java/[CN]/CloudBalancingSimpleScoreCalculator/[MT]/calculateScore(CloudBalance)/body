@@ -1,16 +1,34 @@
 {
-  int computerListSize=cloudBalance.getComputerList().size();
-  Map<CloudComputer,Integer> cpuPowerUsageMap=new HashMap<CloudComputer,Integer>(computerListSize);
-  Map<CloudComputer,Integer> memoryUsageMap=new HashMap<CloudComputer,Integer>(computerListSize);
-  Map<CloudComputer,Integer> networkBandwidthUsageMap=new HashMap<CloudComputer,Integer>(computerListSize);
+  int hardScore=0;
+  int softScore=0;
   for (  CloudComputer computer : cloudBalance.getComputerList()) {
-    cpuPowerUsageMap.put(computer,0);
-    memoryUsageMap.put(computer,0);
-    networkBandwidthUsageMap.put(computer,0);
+    int cpuPowerUsage=0;
+    int memoryUsage=0;
+    int networkBandwidthUsage=0;
+    boolean used=false;
+    for (    CloudProcess process : cloudBalance.getProcessList()) {
+      if (computer.equals(process.getComputer())) {
+        cpuPowerUsage+=process.getRequiredCpuPower();
+        memoryUsage+=process.getRequiredMemory();
+        networkBandwidthUsage+=process.getRequiredNetworkBandwidth();
+        used=true;
+      }
+    }
+    int cpuPowerAvailable=computer.getCpuPower() - cpuPowerUsage;
+    if (cpuPowerAvailable < 0) {
+      hardScore+=cpuPowerAvailable;
+    }
+    int memoryAvailable=computer.getMemory() - memoryUsage;
+    if (memoryAvailable < 0) {
+      hardScore+=memoryAvailable;
+    }
+    int networkBandwidthAvailable=computer.getNetworkBandwidth() - networkBandwidthUsage;
+    if (networkBandwidthAvailable < 0) {
+      hardScore+=networkBandwidthAvailable;
+    }
+    if (used) {
+      softScore-=computer.getCost();
+    }
   }
-  Set<CloudComputer> usedComputerSet=new HashSet<CloudComputer>(computerListSize);
-  visitProcessList(cpuPowerUsageMap,memoryUsageMap,networkBandwidthUsageMap,usedComputerSet,cloudBalance.getProcessList());
-  int hardScore=sumHardScore(cpuPowerUsageMap,memoryUsageMap,networkBandwidthUsageMap);
-  int softScore=sumSoftScore(usedComputerSet);
   return DefaultHardAndSoftScore.valueOf(hardScore,softScore);
 }
