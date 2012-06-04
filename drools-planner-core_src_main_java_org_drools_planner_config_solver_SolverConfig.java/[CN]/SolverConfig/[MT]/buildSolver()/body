@@ -16,7 +16,7 @@
   ScoreDefinition scoreDefinition=scoreDirectorFactory.getScoreDefinition();
   Termination termination=terminationConfig.buildTermination(scoreDefinition,basicPlumbingTermination);
   solver.setTermination(termination);
-  BestSolutionRecaller bestSolutionRecaller=new BestSolutionRecaller();
+  BestSolutionRecaller bestSolutionRecaller=buildBestSolutionRecaller();
   solver.setBestSolutionRecaller(bestSolutionRecaller);
   if (solverPhaseConfigList == null || solverPhaseConfigList.isEmpty()) {
     throw new IllegalArgumentException("Configure at least 1 phase (for example <localSearch>) in the solver configuration.");

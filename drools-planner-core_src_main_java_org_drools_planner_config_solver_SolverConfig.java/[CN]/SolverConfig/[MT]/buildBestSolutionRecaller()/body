@@ -1,0 +1,7 @@
+{
+  BestSolutionRecaller bestSolutionRecaller=new BestSolutionRecaller();
+  if (environmentMode == EnvironmentMode.TRACE) {
+    bestSolutionRecaller.setAssertBestSolutionIsUnmodified(true);
+  }
+  return bestSolutionRecaller;
+}
