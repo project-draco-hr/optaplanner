@@ -1,0 +1,9 @@
+{
+  ScoreDirector uncorruptedScoreDirector=buildScoreDirector();
+  uncorruptedScoreDirector.setWorkingSolution(solution);
+  Score uncorruptedScore=uncorruptedScoreDirector.calculateScore();
+  uncorruptedScoreDirector.dispose();
+  if (!solution.getScore().equals(uncorruptedScore)) {
+    throw new IllegalStateException("Score corruption: the solution's score (" + solution.getScore() + ") is not the uncorruptedScore ("+ uncorruptedScore+ ").");
+  }
+}
