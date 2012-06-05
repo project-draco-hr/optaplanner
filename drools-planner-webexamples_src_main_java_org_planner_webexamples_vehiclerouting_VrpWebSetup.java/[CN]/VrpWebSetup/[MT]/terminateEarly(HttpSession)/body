@@ -1,0 +1,4 @@
+{
+  final Solver solver=(Solver)session.getAttribute(VrpSessionAttributeName.SOLVER);
+  solver.terminateEarly();
+}
