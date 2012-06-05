@@ -1,0 +1,24 @@
+{
+  BufferedReader bufferedReader=null;
+  try {
+    bufferedReader=new BufferedReader(new InputStreamReader(inputURL.openStream(),"UTF-8"));
+    TxtInputBuilder txtInputBuilder=createTxtInputBuilder();
+    txtInputBuilder.setInputFile(new File(inputURL.getFile()));
+    txtInputBuilder.setBufferedReader(bufferedReader);
+    try {
+      return txtInputBuilder.readSolution();
+    }
+ catch (    IllegalArgumentException e) {
+      throw new IllegalArgumentException("Exception in inputURL (" + inputURL + ")",e);
+    }
+catch (    IllegalStateException e) {
+      throw new IllegalStateException("Exception in inputURL (" + inputURL + ")",e);
+    }
+  }
+ catch (  IOException e) {
+    throw new IllegalArgumentException("Could not read the inputURL (" + inputURL + ").",e);
+  }
+ finally {
+    IOUtils.closeQuietly(bufferedReader);
+  }
+}

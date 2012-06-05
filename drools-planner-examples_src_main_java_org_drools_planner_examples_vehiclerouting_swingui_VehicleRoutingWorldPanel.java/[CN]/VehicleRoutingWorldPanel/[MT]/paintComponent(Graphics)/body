@@ -1,5 +1,6 @@
 {
   super.paintComponent(g);
+  BufferedImage canvas=schedulePainter.getCanvas();
   if (canvas != null) {
     g.drawImage(canvas,0,0,this);
   }

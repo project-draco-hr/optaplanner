@@ -1,0 +1,7 @@
+{
+  depotImageIcon=new ImageIcon(getClass().getResource(IMAGE_PATH_PREFIX + "depot.png"));
+  vehicleImageIcons=new ImageIcon[]{new ImageIcon(getClass().getResource(IMAGE_PATH_PREFIX + "vehicleChameleon.png")),new ImageIcon(getClass().getResource(IMAGE_PATH_PREFIX + "vehicleButter.png")),new ImageIcon(getClass().getResource(IMAGE_PATH_PREFIX + "vehicleSkyBlue.png")),new ImageIcon(getClass().getResource(IMAGE_PATH_PREFIX + "vehicleChocolate.png")),new ImageIcon(getClass().getResource(IMAGE_PATH_PREFIX + "vehiclePlum.png"))};
+  if (vehicleImageIcons.length != TangoColors.SEQUENCE_1.length) {
+    throw new IllegalStateException("The vehicleImageIcons length (" + vehicleImageIcons.length + ") should be equal to the TangoColors.SEQUENCE length ("+ TangoColors.SEQUENCE_1.length+ ").");
+  }
+}

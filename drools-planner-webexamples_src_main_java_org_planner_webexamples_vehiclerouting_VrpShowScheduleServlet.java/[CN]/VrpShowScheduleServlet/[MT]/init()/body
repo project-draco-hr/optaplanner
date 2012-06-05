@@ -1,0 +1,3 @@
+{
+  schedulePainter=new VehicleRoutingSchedulePainter();
+}
