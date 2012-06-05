@@ -20,7 +20,7 @@
     Solution newBestSolution=stepScope.createOrGetClonedSolution();
     updateBestSolution(solverScope,newBestSolution);
   }
- else   if (assertBestSolutionIsUnmodified) {
+ else   if (assertBestScoreIsUnmodified) {
     solverScope.assertScore(solverScope.getBestSolution());
   }
 }
