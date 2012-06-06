@@ -1,0 +1,11 @@
+{
+  if (randomSelection) {
+    return true;
+  }
+ else {
+    if (!childMoveSelectorList.isEmpty() && childMoveSelectorList.get(childMoveSelectorList.size() - 1).isNeverEnding()) {
+      return true;
+    }
+    return false;
+  }
+}

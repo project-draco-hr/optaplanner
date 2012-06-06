@@ -1,0 +1,8 @@
+{
+  if (!randomSelection) {
+    throw new UnsupportedOperationException("Not yet implemented");
+  }
+ else {
+    return new RandomCartesianProductMoveIterator();
+  }
+}
