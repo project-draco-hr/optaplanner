@@ -1,6 +1,6 @@
 {
-  long randomProbability=RandomUtils.nextLong(workingRandom,randomProbabilityWeightTotal);
-  Map.Entry<Long,Iterator<Move>> entry=moveIteratorMap.floorEntry(randomProbability);
+  long randomOffset=RandomUtils.nextLong(workingRandom,probabilityWeightTotal);
+  Map.Entry<Long,Iterator<Move>> entry=moveIteratorMap.floorEntry(randomOffset);
   Iterator<Move> moveIterator=entry.getValue();
   Move next=moveIterator.next();
   if (!moveIterator.hasNext()) {

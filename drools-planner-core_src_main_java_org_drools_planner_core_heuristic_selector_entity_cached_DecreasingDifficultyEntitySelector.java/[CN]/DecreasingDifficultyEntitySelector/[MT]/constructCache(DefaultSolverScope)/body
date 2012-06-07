@@ -1,0 +1,6 @@
+{
+  long childSize=childEntitySelector.getSize();
+  cachedEntityList=new ArrayList<Object>((int)childSize);
+  CollectionUtils.addAll(cachedEntityList,childEntitySelector.iterator());
+  planningEntitySorter.sortDifficultyDescending(solverScope.getWorkingSolution(),cachedEntityList);
+}

@@ -2,7 +2,7 @@
   excludeUninitializedPlanningEntity=valueRangeAnnotation.excludeUninitializedPlanningEntity();
   if (excludeUninitializedPlanningEntity) {
     Class<?> variablePropertyType=variableDescriptor.getVariablePropertyType();
-    Set<Class<?>> entityClassSet=variableDescriptor.getPlanningEntityDescriptor().getSolutionDescriptor().getPlanningEntityImplementationClassSet();
+    Set<Class<?>> entityClassSet=variableDescriptor.getPlanningEntityDescriptor().getSolutionDescriptor().getPlanningEntityClassSet();
     boolean assignableFrom=false;
     for (    Class<?> entityClass : entityClassSet) {
       if (variablePropertyType.isAssignableFrom(entityClass)) {

@@ -1,0 +1,40 @@
+{
+  PlanningEntityDescriptor entityDescriptor;
+  if (planningEntityClass != null) {
+    entityDescriptor=solutionDescriptor.getPlanningEntityDescriptorStrict(planningEntityClass);
+    if (entityDescriptor == null) {
+      throw new IllegalArgumentException("The entitySelector with planningEntityClass (" + planningEntityClass + ") and because there are multiple in the planningEntityClassSet ("+ solutionDescriptor.getPlanningEntityClassSet()+ "), it can not be deducted automatically.");
+    }
+  }
+ else {
+    Collection<PlanningEntityDescriptor> planningEntityDescriptors=solutionDescriptor.getPlanningEntityDescriptors();
+    if (planningEntityDescriptors.size() != 1) {
+      throw new IllegalArgumentException("The entitySelector has no configured planningEntityClass (" + planningEntityClass + ") and because there are multiple in the planningEntityClassSet ("+ solutionDescriptor.getPlanningEntityClassSet()+ "), it can not be deducted automatically.");
+    }
+    entityDescriptor=planningEntityDescriptors.iterator().next();
+  }
+  EntitySelector entitySelector;
+  SelectionOrder resolvedSelectionOrder=SelectionOrder.resolveSelectionOrder(selectionOrder,inheritedResolvedSelectionOrder);
+  boolean randomSelection=resolvedSelectionOrder == SelectionOrder.RANDOM && selectionProbabilityWeightFactoryClass == null;
+  SelectionCacheType resolvedCacheType=cacheType == null ? SelectionCacheType.STEP : cacheType;
+  entitySelector=new FromSolutionEntitySelector(entityDescriptor,randomSelection,resolvedCacheType);
+  if (selectionProbabilityWeightFactoryClass != null) {
+    if (resolvedSelectionOrder != SelectionOrder.RANDOM) {
+      throw new IllegalArgumentException("The entitySelector with selectionProbabilityWeightFactoryClass (" + selectionProbabilityWeightFactoryClass + ") has a non-random resolvedSelectionOrder ("+ resolvedSelectionOrder+ ").");
+    }
+    PlanningEntitySelectionProbabilityWeightFactory selectionProbabilityWeightFactory;
+    try {
+      selectionProbabilityWeightFactory=selectionProbabilityWeightFactoryClass.newInstance();
+    }
+ catch (    InstantiationException e) {
+      throw new IllegalArgumentException("selectionProbabilityWeightFactoryClass (" + selectionProbabilityWeightFactoryClass.getName() + ") does not have a public no-arg constructor",e);
+    }
+catch (    IllegalAccessException e) {
+      throw new IllegalArgumentException("selectionProbabilityWeightFactoryClass (" + selectionProbabilityWeightFactoryClass.getName() + ") does not have a public no-arg constructor",e);
+    }
+    ProbabilityEntitySelector probabilityEntitySelector=new ProbabilityEntitySelector(resolvedCacheType,selectionProbabilityWeightFactory);
+    probabilityEntitySelector.setChildEntitySelector(entitySelector);
+    entitySelector=probabilityEntitySelector;
+  }
+  return entitySelector;
+}

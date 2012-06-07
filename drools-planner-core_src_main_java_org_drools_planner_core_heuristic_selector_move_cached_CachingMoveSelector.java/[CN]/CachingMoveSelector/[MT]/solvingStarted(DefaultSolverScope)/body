@@ -1,6 +1,6 @@
 {
   super.solvingStarted(solverScope);
-  if (cacheType == SelectorCacheType.SOLVER) {
+  if (cacheType == SelectionCacheType.SOLVER) {
     constructCache(solverScope);
   }
 }

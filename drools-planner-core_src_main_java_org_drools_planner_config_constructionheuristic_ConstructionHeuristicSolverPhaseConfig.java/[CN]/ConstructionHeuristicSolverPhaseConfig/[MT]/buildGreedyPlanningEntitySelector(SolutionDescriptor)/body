@@ -1,12 +1,12 @@
 {
   GreedyPlanningEntitySelector greedyPlanningEntitySelector=new GreedyPlanningEntitySelector();
-  Set<Class<?>> planningEntityImplementationClassSet=solutionDescriptor.getPlanningEntityImplementationClassSet();
-  if (planningEntityImplementationClassSet.size() != 1) {
-    throw new UnsupportedOperationException("Currently the greedyFit implementation only supports " + "1 planningEntityImplementationClass.");
+  Set<Class<?>> planningEntityClassSet=solutionDescriptor.getPlanningEntityClassSet();
+  if (planningEntityClassSet.size() != 1) {
+    throw new UnsupportedOperationException("Currently the greedyFit implementation only supports " + "1 planningEntityClass.");
   }
-  Class<?> planningEntityImplementationClass=planningEntityImplementationClassSet.iterator().next();
+  Class<?> planningEntityClass=planningEntityClassSet.iterator().next();
   List<PlanningEntitySelector> planningEntitySelectorList=new ArrayList<PlanningEntitySelector>(1);
-  PlanningEntitySelector planningEntitySelector=new PlanningEntitySelector(solutionDescriptor.getPlanningEntityDescriptor(planningEntityImplementationClass));
+  PlanningEntitySelector planningEntitySelector=new PlanningEntitySelector(solutionDescriptor.getPlanningEntityDescriptor(planningEntityClass));
   planningEntitySelector.setSelectionOrder(determinePlanningEntitySelectionOrder());
   planningEntitySelector.setResetInitializedPlanningEntities(false);
   planningEntitySelectorList.add(planningEntitySelector);

@@ -1,3 +1,0 @@
-{
-  runCacheType(SelectorCacheType.SOLVER,1);
-}

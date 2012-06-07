@@ -1,8 +1,20 @@
 {
   if (!randomSelection) {
-    return entityList.iterator();
+    return cachedEntityList.iterator();
   }
  else {
-    return new RandomIterator<Object>(entityList,workingRandom);
+    return new Iterator<Object>(){
+      public boolean hasNext(){
+        return true;
+      }
+      public Object next(){
+        int index=workingRandom.nextInt(cachedEntityList.size());
+        return cachedEntityList.get(index);
+      }
+      public void remove(){
+        throw new UnsupportedOperationException("Remove is not supported.");
+      }
+    }
+;
   }
 }

@@ -11,5 +11,4 @@
   assertEquals(false,moveSelector.isContinuous());
   assertEquals(false,moveSelector.isNeverEnding());
   assertEquals(3L,moveSelector.getSize());
-  assertEquals(7L,moveSelector.getRandomProbabilityWeight());
 }

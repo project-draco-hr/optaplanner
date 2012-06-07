@@ -1,0 +1,6 @@
+{
+  if (n <= 0.0) {
+    throw new IllegalArgumentException("n must be positive");
+  }
+  return random.nextDouble() * n;
+}

@@ -1,6 +1,0 @@
-{
-  this.cacheType=cacheType;
-  if (cacheType != SelectorCacheType.SOLVER && cacheType != SelectorCacheType.PHASE && cacheType != SelectorCacheType.STEP) {
-    throw new IllegalArgumentException("The cacheType (" + cacheType + ") is not supported on the class ("+ getClass().getName()+ ").");
-  }
-}
