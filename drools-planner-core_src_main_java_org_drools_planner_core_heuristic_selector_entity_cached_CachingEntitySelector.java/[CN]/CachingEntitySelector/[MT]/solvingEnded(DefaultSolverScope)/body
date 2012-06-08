@@ -1,5 +1,6 @@
 {
   super.solvingEnded(solverScope);
+  childEntitySelector.solvingEnded(solverScope);
   if (cacheType == SelectionCacheType.SOLVER) {
     disposeCache(solverScope);
   }

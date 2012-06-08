@@ -1,5 +1,6 @@
 {
   super.stepEnded(stepScope);
+  childEntitySelector.stepEnded(stepScope);
   if (cacheType == SelectionCacheType.STEP) {
     disposeCache(stepScope.getSolverPhaseScope().getSolverScope());
   }
