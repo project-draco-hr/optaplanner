@@ -15,7 +15,7 @@
   }
   SelectionOrder resolvedSelectionOrder=SelectionOrder.resolveSelectionOrder(selectionOrder,inheritedResolvedSelectionOrder);
   boolean randomSelection=resolvedSelectionOrder == SelectionOrder.RANDOM && selectionProbabilityWeightFactoryClass == null;
-  SelectionCacheType resolvedCacheType=cacheType == null ? SelectionCacheType.JUST_IN_TIME : cacheType;
+  SelectionCacheType resolvedCacheType=cacheType == null ? SelectionCacheType.PHASE : cacheType;
   ValueSelector valueSelector=new FromSolutionPropertyValueSelector(variableDescriptor,randomSelection,resolvedCacheType);
   if (selectionProbabilityWeightFactoryClass != null) {
     if (resolvedSelectionOrder != SelectionOrder.RANDOM) {
