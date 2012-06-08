@@ -1,0 +1,3 @@
+{
+  cachedValueList=new ArrayList<Object>(variableDescriptor.extractAllPlanningValues(solverScope.getWorkingSolution()));
+}

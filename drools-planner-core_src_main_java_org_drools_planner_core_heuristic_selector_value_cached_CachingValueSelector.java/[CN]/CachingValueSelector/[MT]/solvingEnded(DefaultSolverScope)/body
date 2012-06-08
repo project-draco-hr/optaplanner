@@ -1,0 +1,7 @@
+{
+  super.solvingEnded(solverScope);
+  childValueSelector.solvingEnded(solverScope);
+  if (cacheType == SelectionCacheType.SOLVER) {
+    disposeCache(solverScope);
+  }
+}

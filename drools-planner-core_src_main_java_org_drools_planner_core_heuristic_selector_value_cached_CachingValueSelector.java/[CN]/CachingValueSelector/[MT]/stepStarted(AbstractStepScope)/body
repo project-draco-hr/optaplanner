@@ -1,0 +1,7 @@
+{
+  super.stepStarted(stepScope);
+  childValueSelector.stepStarted(stepScope);
+  if (cacheType == SelectionCacheType.STEP) {
+    constructCache(stepScope.getSolverPhaseScope().getSolverScope());
+  }
+}

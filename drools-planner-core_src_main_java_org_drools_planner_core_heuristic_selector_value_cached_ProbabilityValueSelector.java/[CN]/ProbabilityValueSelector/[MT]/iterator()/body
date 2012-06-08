@@ -1,0 +1,13 @@
+{
+  return new EntityIgnoringValueIterator(){
+    public boolean hasNext(){
+      return true;
+    }
+    public Object next(){
+      double randomOffset=RandomUtils.nextDouble(workingRandom,probabilityWeightTotal);
+      Map.Entry<Double,Object> entry=cachedEntityMap.floorEntry(randomOffset);
+      return entry.getValue();
+    }
+  }
+;
+}

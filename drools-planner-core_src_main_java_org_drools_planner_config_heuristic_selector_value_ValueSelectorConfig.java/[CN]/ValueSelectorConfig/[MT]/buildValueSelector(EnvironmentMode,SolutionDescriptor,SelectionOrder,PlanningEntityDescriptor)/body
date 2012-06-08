@@ -1,0 +1,40 @@
+{
+  PlanningVariableDescriptor variableDescriptor;
+  if (planningVariableName != null) {
+    variableDescriptor=entityDescriptor.getPlanningVariableDescriptor(planningVariableName);
+    if (variableDescriptor == null) {
+      throw new IllegalArgumentException("The variableSelector has a planningVariableName (" + planningVariableName + ") for planningEntityClass ("+ entityDescriptor.getPlanningEntityClass()+ ") that is not annotated as a planningVariable.\n"+ "Check your planningEntity implementation's annotated methods.");
+    }
+  }
+ else {
+    Collection<PlanningVariableDescriptor> planningVariableDescriptors=entityDescriptor.getPlanningVariableDescriptors();
+    if (planningVariableDescriptors.size() != 1) {
+      throw new IllegalArgumentException("The variableSelector has no configured planningVariableName (" + planningVariableName + ") for planningEntityClass ("+ entityDescriptor.getPlanningEntityClass()+ ") and because there are multiple in the planningVariableNameSet ("+ entityDescriptor.getPlanningVariableNameSet()+ "), it can not be deducted automatically.");
+    }
+    variableDescriptor=planningVariableDescriptors.iterator().next();
+  }
+  ValueSelector valueSelector;
+  SelectionOrder resolvedSelectionOrder=SelectionOrder.resolveSelectionOrder(selectionOrder,inheritedResolvedSelectionOrder);
+  boolean randomSelection=resolvedSelectionOrder == SelectionOrder.RANDOM && selectionProbabilityWeightFactoryClass == null;
+  SelectionCacheType resolvedCacheType=cacheType == null ? SelectionCacheType.STEP : cacheType;
+  valueSelector=new FromSolutionPropertyValueSelector(variableDescriptor,randomSelection,resolvedCacheType);
+  if (selectionProbabilityWeightFactoryClass != null) {
+    if (resolvedSelectionOrder != SelectionOrder.RANDOM) {
+      throw new IllegalArgumentException("The valueSelector with selectionProbabilityWeightFactoryClass (" + selectionProbabilityWeightFactoryClass + ") has a non-random resolvedSelectionOrder ("+ resolvedSelectionOrder+ ").");
+    }
+    PlanningValueSelectionProbabilityWeightFactory selectionProbabilityWeightFactory;
+    try {
+      selectionProbabilityWeightFactory=selectionProbabilityWeightFactoryClass.newInstance();
+    }
+ catch (    InstantiationException e) {
+      throw new IllegalArgumentException("selectionProbabilityWeightFactoryClass (" + selectionProbabilityWeightFactoryClass.getName() + ") does not have a public no-arg constructor",e);
+    }
+catch (    IllegalAccessException e) {
+      throw new IllegalArgumentException("selectionProbabilityWeightFactoryClass (" + selectionProbabilityWeightFactoryClass.getName() + ") does not have a public no-arg constructor",e);
+    }
+    ProbabilityValueSelector probabilityValueSelector=new ProbabilityValueSelector(resolvedCacheType,selectionProbabilityWeightFactory);
+    probabilityValueSelector.setChildValueSelector(valueSelector);
+    valueSelector=probabilityValueSelector;
+  }
+  return valueSelector;
+}
