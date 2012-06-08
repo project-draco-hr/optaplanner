@@ -13,11 +13,10 @@
     }
     variableDescriptor=planningVariableDescriptors.iterator().next();
   }
-  ValueSelector valueSelector;
   SelectionOrder resolvedSelectionOrder=SelectionOrder.resolveSelectionOrder(selectionOrder,inheritedResolvedSelectionOrder);
   boolean randomSelection=resolvedSelectionOrder == SelectionOrder.RANDOM && selectionProbabilityWeightFactoryClass == null;
-  SelectionCacheType resolvedCacheType=cacheType == null ? SelectionCacheType.STEP : cacheType;
-  valueSelector=new FromSolutionPropertyValueSelector(variableDescriptor,randomSelection,resolvedCacheType);
+  SelectionCacheType resolvedCacheType=cacheType == null ? SelectionCacheType.JUST_IN_TIME : cacheType;
+  ValueSelector valueSelector=new FromSolutionPropertyValueSelector(variableDescriptor,randomSelection,resolvedCacheType);
   if (selectionProbabilityWeightFactoryClass != null) {
     if (resolvedSelectionOrder != SelectionOrder.RANDOM) {
       throw new IllegalArgumentException("The valueSelector with selectionProbabilityWeightFactoryClass (" + selectionProbabilityWeightFactoryClass + ") has a non-random resolvedSelectionOrder ("+ resolvedSelectionOrder+ ").");

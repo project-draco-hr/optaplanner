@@ -1,0 +1,3 @@
+{
+  return randomSelection || entitySelector.isNeverEnding() || valueSelector.isNeverEnding();
+}

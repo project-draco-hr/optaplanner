@@ -1,0 +1,23 @@
+{
+  if (!entityIterator.hasNext()) {
+    entityIterator=entitySelector.iterator();
+  }
+  Object entity=entityIterator.next();
+  int entityIteratorCreationCount=0;
+  while (!valueIterator.hasNext(entity)) {
+    valueIterator=valueSelector.iterator();
+    if (!valueIterator.hasNext(entity)) {
+      if (!entityIterator.hasNext()) {
+        entityIterator=entitySelector.iterator();
+        entityIteratorCreationCount++;
+        if (entityIteratorCreationCount >= 2) {
+          upcomingMove=null;
+          return;
+        }
+      }
+      entity=entityIterator.next();
+    }
+  }
+  Object toValue=valueIterator.next(entity);
+  upcomingMove=new GenericChangeMove(entity,valueSelector.getVariableDescriptor(),toValue);
+}

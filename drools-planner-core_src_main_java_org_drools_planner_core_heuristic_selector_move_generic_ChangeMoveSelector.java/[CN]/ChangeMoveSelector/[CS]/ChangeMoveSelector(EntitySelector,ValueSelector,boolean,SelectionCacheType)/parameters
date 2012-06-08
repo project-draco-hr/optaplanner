@@ -1,0 +1,4 @@
+EntitySelector entitySelector
+ValueSelector valueSelector
+boolean randomSelection
+SelectionCacheType cacheType

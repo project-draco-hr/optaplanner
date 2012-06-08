@@ -13,11 +13,10 @@
     }
     entityDescriptor=planningEntityDescriptors.iterator().next();
   }
-  EntitySelector entitySelector;
   SelectionOrder resolvedSelectionOrder=SelectionOrder.resolveSelectionOrder(selectionOrder,inheritedResolvedSelectionOrder);
   boolean randomSelection=resolvedSelectionOrder == SelectionOrder.RANDOM && selectionProbabilityWeightFactoryClass == null;
   SelectionCacheType resolvedCacheType=cacheType == null ? SelectionCacheType.STEP : cacheType;
-  entitySelector=new FromSolutionEntitySelector(entityDescriptor,randomSelection,resolvedCacheType);
+  EntitySelector entitySelector=new FromSolutionEntitySelector(entityDescriptor,randomSelection,resolvedCacheType);
   if (selectionProbabilityWeightFactoryClass != null) {
     if (resolvedSelectionOrder != SelectionOrder.RANDOM) {
       throw new IllegalArgumentException("The entitySelector with selectionProbabilityWeightFactoryClass (" + selectionProbabilityWeightFactoryClass + ") has a non-random resolvedSelectionOrder ("+ resolvedSelectionOrder+ ").");

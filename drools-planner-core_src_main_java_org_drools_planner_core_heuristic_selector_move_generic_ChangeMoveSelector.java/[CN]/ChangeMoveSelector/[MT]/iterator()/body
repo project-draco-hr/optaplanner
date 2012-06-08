@@ -1,0 +1,8 @@
+{
+  if (!randomSelection) {
+    return new OriginalChangeMoveIterator();
+  }
+ else {
+    return new RandomChangeMoveIterator();
+  }
+}

@@ -1,0 +1,12 @@
+{
+  while (!valueIterator.hasNext(entity)) {
+    if (!entityIterator.hasNext()) {
+      upcomingMove=null;
+      return;
+    }
+    entity=entityIterator.next();
+    valueIterator=valueSelector.iterator();
+  }
+  Object toValue=valueIterator.next(entity);
+  upcomingMove=new GenericChangeMove(entity,valueSelector.getVariableDescriptor(),toValue);
+}
