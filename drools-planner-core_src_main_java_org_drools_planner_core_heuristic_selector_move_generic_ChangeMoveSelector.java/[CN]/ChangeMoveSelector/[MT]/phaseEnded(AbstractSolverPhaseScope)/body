@@ -1,0 +1,5 @@
+{
+  super.phaseEnded(solverPhaseScope);
+  entitySelector.phaseEnded(solverPhaseScope);
+  valueSelector.phaseEnded(solverPhaseScope);
+}

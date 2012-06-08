@@ -1,0 +1,5 @@
+{
+  super.stepEnded(stepScope);
+  entitySelector.stepEnded(stepScope);
+  valueSelector.stepEnded(stepScope);
+}
