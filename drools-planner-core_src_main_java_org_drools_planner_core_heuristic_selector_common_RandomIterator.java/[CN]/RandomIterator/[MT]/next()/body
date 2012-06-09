@@ -1,4 +1,0 @@
-{
-  lastReturnedIndex=workingRandom.nextInt(list.size());
-  return list.get(lastReturnedIndex);
-}
