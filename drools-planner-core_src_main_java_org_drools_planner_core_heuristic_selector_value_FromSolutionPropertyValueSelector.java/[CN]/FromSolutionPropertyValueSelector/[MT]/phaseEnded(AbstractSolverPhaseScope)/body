@@ -1,7 +1,4 @@
 {
   super.phaseEnded(solverPhaseScope);
-  if (cacheType == SelectionCacheType.PHASE) {
-    disposeCache(solverPhaseScope.getSolverScope());
-  }
   workingRandom=null;
 }
