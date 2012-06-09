@@ -1,6 +1,5 @@
 {
   super.solvingStarted(solverScope);
-  childValueSelector.solvingStarted(solverScope);
   if (cacheType == SelectionCacheType.SOLVER) {
     constructCache(solverScope);
   }

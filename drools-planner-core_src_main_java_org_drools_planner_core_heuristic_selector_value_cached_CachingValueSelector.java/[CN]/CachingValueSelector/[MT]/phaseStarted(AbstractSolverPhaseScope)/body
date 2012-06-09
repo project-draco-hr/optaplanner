@@ -1,6 +1,5 @@
 {
   super.phaseStarted(solverPhaseScope);
-  childValueSelector.phaseStarted(solverPhaseScope);
   if (cacheType == SelectionCacheType.PHASE) {
     constructCache(solverPhaseScope.getSolverScope());
   }

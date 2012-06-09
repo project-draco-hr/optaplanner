@@ -1,6 +1,5 @@
 {
   super.phaseStarted(solverPhaseScope);
-  childEntitySelector.phaseStarted(solverPhaseScope);
   if (cacheType == SelectionCacheType.PHASE) {
     constructCache(solverPhaseScope.getSolverScope());
   }
