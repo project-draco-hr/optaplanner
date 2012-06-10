@@ -1,4 +1,9 @@
 {
+  this.childMoveSelectorList=childMoveSelectorList;
+  this.randomSelection=randomSelection;
+  for (  MoveSelector childMoveSelector : childMoveSelectorList) {
+    solverPhaseLifecycleSupport.addEventListener(childMoveSelector);
+  }
   if (!randomSelection && !childMoveSelectorList.isEmpty()) {
     for (    MoveSelector childMoveSelector : childMoveSelectorList.subList(0,childMoveSelectorList.size() - 1)) {
       if (childMoveSelector.isNeverEnding()) {

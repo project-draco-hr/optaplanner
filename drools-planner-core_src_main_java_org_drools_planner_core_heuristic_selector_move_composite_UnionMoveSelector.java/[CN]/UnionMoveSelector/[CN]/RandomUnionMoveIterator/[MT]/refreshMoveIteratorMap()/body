@@ -5,7 +5,7 @@
     Iterator<Move> moveIterator=moveSelectorEntry.getKey();
     MoveSelector moveSelector=moveSelectorEntry.getValue();
     moveIteratorMap.put(probabilityWeightOffset,moveIterator);
-    throw new UnsupportedOperationException();
+    probabilityWeightOffset+=1L;
   }
   probabilityWeightTotal=probabilityWeightOffset;
 }
