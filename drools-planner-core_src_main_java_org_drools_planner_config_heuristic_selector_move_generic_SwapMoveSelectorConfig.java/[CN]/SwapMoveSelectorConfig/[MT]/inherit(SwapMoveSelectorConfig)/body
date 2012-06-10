@@ -1,0 +1,20 @@
+{
+  if (leftEntitySelectorConfig == null) {
+    leftEntitySelectorConfig=inheritedConfig.getLeftEntitySelectorConfig();
+  }
+ else   if (inheritedConfig.getLeftEntitySelectorConfig() != null) {
+    leftEntitySelectorConfig.inherit(inheritedConfig.getLeftEntitySelectorConfig());
+  }
+  if (rightEntitySelectorConfig == null) {
+    rightEntitySelectorConfig=inheritedConfig.getRightEntitySelectorConfig();
+  }
+ else   if (inheritedConfig.getRightEntitySelectorConfig() != null) {
+    rightEntitySelectorConfig.inherit(inheritedConfig.getRightEntitySelectorConfig());
+  }
+  if (selectionOrder == null) {
+    selectionOrder=inheritedConfig.getSelectionOrder();
+  }
+  if (cacheType == null) {
+    cacheType=inheritedConfig.getCacheType();
+  }
+}

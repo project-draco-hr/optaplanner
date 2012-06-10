@@ -6,5 +6,7 @@
   xStream.processAnnotations(BruteForceSolverPhaseConfig.class);
   xStream.processAnnotations(ConstructionHeuristicSolverPhaseConfig.class);
   xStream.processAnnotations(LocalSearchSolverPhaseConfig.class);
+  xStream.processAnnotations(ChangeMoveSelectorConfig.class);
+  xStream.processAnnotations(SwapMoveSelectorConfig.class);
   return xStream;
 }

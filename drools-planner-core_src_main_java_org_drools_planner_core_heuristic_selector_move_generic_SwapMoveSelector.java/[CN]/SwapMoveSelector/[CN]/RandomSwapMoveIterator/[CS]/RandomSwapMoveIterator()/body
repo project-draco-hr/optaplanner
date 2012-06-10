@@ -1,0 +1,10 @@
+{
+  leftEntityIterator=leftEntitySelector.iterator();
+  rightEntityIterator=rightEntitySelector.iterator();
+  if (!leftEntityIterator.hasNext() || !rightEntityIterator.hasNext()) {
+    upcomingMove=null;
+  }
+ else {
+    createUpcomingMove();
+  }
+}

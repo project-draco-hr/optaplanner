@@ -1,0 +1,8 @@
+{
+  if (!randomSelection) {
+    return new OriginalSwapMoveIterator();
+  }
+ else {
+    return new RandomSwapMoveIterator();
+  }
+}

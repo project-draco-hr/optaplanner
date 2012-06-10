@@ -1,0 +1,11 @@
+{
+  if (!leftEntityIterator.hasNext()) {
+    leftEntityIterator=leftEntitySelector.iterator();
+  }
+  Object leftEntity=leftEntityIterator.next();
+  if (!rightEntityIterator.hasNext()) {
+    rightEntityIterator=rightEntitySelector.iterator();
+  }
+  Object rightEntity=rightEntityIterator.next();
+  upcomingMove=new GenericSwapMove(variableDescriptors,leftEntity,rightEntity);
+}
