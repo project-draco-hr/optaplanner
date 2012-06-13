@@ -1,4 +1,0 @@
-{
-  super.phaseStarted(solverPhaseScope);
-  workingRandom=solverPhaseScope.getWorkingRandom();
-}

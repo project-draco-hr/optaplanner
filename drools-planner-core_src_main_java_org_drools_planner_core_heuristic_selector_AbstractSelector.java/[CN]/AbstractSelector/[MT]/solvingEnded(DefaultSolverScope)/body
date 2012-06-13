@@ -1,3 +1,4 @@
 {
   solverPhaseLifecycleSupport.fireSolvingStarted(solverScope);
+  workingRandom=null;
 }
