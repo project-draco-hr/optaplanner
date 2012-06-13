@@ -1,0 +1,3 @@
+{
+  this.moveSelector=moveSelector;
+}

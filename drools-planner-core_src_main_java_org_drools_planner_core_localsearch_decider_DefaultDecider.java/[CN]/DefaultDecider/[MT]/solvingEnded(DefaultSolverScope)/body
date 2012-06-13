@@ -1,5 +1,5 @@
 {
-  selector.solvingEnded(solverScope);
+  moveSelector.solvingEnded(solverScope);
   acceptor.solvingEnded(solverScope);
   forager.solvingEnded(solverScope);
 }

@@ -1,5 +1,5 @@
 {
-  selector.phaseEnded(localSearchSolverPhaseScope);
+  moveSelector.phaseEnded(localSearchSolverPhaseScope);
   acceptor.phaseEnded(localSearchSolverPhaseScope);
   forager.phaseEnded(localSearchSolverPhaseScope);
 }

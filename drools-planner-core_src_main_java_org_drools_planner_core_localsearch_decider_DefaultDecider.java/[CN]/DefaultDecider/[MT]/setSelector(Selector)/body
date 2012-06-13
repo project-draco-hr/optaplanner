@@ -1,4 +1,0 @@
-{
-  this.selector=selector;
-  selector.setDecider(this);
-}

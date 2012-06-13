@@ -1,5 +1,5 @@
 {
-  selector.stepEnded(localSearchStepScope);
+  moveSelector.stepEnded(localSearchStepScope);
   acceptor.stepEnded(localSearchStepScope);
   forager.stepEnded(localSearchStepScope);
 }
