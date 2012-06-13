@@ -1,0 +1,3 @@
+{
+  runNonrandomAndCacheType(SelectionCacheType.SOLVER,1);
+}

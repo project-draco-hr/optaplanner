@@ -1,0 +1,3 @@
+{
+  runRandomAndCacheType(SelectionCacheType.STEP,5);
+}
