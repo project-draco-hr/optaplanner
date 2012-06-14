@@ -1,0 +1,4 @@
+{
+  workingSolution=stepScope.getWorkingSolution();
+  super.stepStarted(stepScope);
+}

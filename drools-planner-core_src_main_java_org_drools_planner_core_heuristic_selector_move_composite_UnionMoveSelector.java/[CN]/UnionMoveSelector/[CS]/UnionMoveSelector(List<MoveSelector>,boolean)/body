@@ -1,3 +1,3 @@
 {
-  super(childMoveSelectorList,randomSelection);
+  this(childMoveSelectorList,randomSelection,null);
 }

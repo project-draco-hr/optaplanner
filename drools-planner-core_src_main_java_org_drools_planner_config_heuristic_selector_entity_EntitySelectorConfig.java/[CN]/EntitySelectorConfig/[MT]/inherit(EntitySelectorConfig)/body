@@ -1,4 +1,5 @@
 {
+  super.inherit(inheritedConfig);
   if (planningEntityClass == null) {
     planningEntityClass=inheritedConfig.getPlanningEntityClass();
   }

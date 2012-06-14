@@ -1,10 +1,14 @@
 {
-  moveIteratorMap=new TreeMap<Long,Iterator<Move>>();
-  moveSelectorMap=new LinkedHashMap<Iterator<Move>,MoveSelector>(childMoveSelectorList.size());
+  moveIteratorMap=new TreeMap<Double,Iterator<Move>>();
+  probabilityItemMap=new LinkedHashMap<Iterator<Move>,ProbabilityItem>(childMoveSelectorList.size());
   for (  MoveSelector moveSelector : childMoveSelectorList) {
     Iterator<Move> moveIterator=moveSelector.iterator();
     if (moveIterator.hasNext()) {
-      moveSelectorMap.put(moveIterator,moveSelector);
+      ProbabilityItem probabilityItem=new ProbabilityItem();
+      probabilityItem.moveSelector=moveSelector;
+      probabilityItem.moveIterator=moveIterator;
+      probabilityItem.probabilityWeight=selectionProbabilityWeightFactory.createSelectionProbabilityWeight(workingSolution,moveSelector);
+      probabilityItemMap.put(moveIterator,probabilityItem);
     }
   }
   refreshMoveIteratorMap();

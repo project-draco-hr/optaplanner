@@ -1,0 +1,14 @@
+{
+  super(childMoveSelectorList,randomSelection);
+  this.selectionProbabilityWeightFactory=selectionProbabilityWeightFactory;
+  if (!randomSelection) {
+    if (selectionProbabilityWeightFactory != null) {
+      throw new IllegalArgumentException("The compositeMoveSelector (" + this + ") with randomSelection ("+ randomSelection+ ") cannot have a selectionProbabilityWeightFactory ("+ selectionProbabilityWeightFactory+ ")");
+    }
+  }
+ else {
+    if (selectionProbabilityWeightFactory == null) {
+      throw new IllegalArgumentException("The compositeMoveSelector (" + this + ") with randomSelection ("+ randomSelection+ ") needs a selectionProbabilityWeightFactory ("+ selectionProbabilityWeightFactory+ ")");
+    }
+  }
+}

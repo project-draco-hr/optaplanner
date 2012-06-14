@@ -1,11 +1,9 @@
 {
   moveIteratorMap.clear();
-  long probabilityWeightOffset=0L;
-  for (  Map.Entry<Iterator<Move>,MoveSelector> moveSelectorEntry : moveSelectorMap.entrySet()) {
-    Iterator<Move> moveIterator=moveSelectorEntry.getKey();
-    MoveSelector moveSelector=moveSelectorEntry.getValue();
-    moveIteratorMap.put(probabilityWeightOffset,moveIterator);
-    probabilityWeightOffset+=1L;
+  double probabilityWeightOffset=0.0;
+  for (  ProbabilityItem probabilityItem : probabilityItemMap.values()) {
+    moveIteratorMap.put(probabilityWeightOffset,probabilityItem.moveIterator);
+    probabilityWeightOffset+=probabilityItem.probabilityWeight;
   }
   probabilityWeightTotal=probabilityWeightOffset;
 }

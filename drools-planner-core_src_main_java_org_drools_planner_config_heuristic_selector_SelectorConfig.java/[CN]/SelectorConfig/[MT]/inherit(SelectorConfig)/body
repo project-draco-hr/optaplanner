@@ -1,0 +1,5 @@
+{
+  if (fixedProbabilityWeight == null) {
+    fixedProbabilityWeight=inheritedConfig.getFixedProbabilityWeight();
+  }
+}

@@ -1,4 +1,5 @@
 {
+  super.inherit(inheritedConfig);
   if (leftEntitySelectorConfig == null) {
     leftEntitySelectorConfig=inheritedConfig.getLeftEntitySelectorConfig();
   }

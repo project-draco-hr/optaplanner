@@ -1,0 +1,4 @@
+{
+  super.stepEnded(stepScope);
+  workingSolution=null;
+}
