@@ -1,0 +1,10 @@
+{
+  super.inherit(inheritedConfig);
+  moveSelectorConfigList=ConfigUtils.inheritMergeableListProperty(moveSelectorConfigList,inheritedConfig.getMoveSelectorConfigList());
+  if (selectionOrder == null) {
+    selectionOrder=inheritedConfig.getSelectionOrder();
+  }
+  if (cacheType == null) {
+    cacheType=inheritedConfig.getCacheType();
+  }
+}

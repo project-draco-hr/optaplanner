@@ -1,2 +1,2 @@
 SelectionCacheType cacheType
-SelectionProbabilityWeightFactory selectionProbabilityWeightFactory
+SelectionProbabilityWeightFactory entityProbabilityWeightFactory

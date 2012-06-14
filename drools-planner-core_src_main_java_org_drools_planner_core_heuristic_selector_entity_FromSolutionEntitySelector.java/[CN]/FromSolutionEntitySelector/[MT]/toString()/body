@@ -1,0 +1,3 @@
+{
+  return "FromSolutionEntitySelector(" + entityDescriptor.getPlanningEntityClass().getSimpleName() + ")";
+}

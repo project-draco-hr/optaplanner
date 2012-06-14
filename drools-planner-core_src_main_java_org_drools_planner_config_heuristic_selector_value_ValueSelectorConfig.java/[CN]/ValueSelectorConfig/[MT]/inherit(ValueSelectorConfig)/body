@@ -9,7 +9,7 @@
   if (cacheType == null) {
     cacheType=inheritedConfig.getCacheType();
   }
-  if (selectionProbabilityWeightFactoryClass == null) {
-    selectionProbabilityWeightFactoryClass=inheritedConfig.getSelectionProbabilityWeightFactoryClass();
+  if (valueProbabilityWeightFactoryClass == null) {
+    valueProbabilityWeightFactoryClass=inheritedConfig.getValueProbabilityWeightFactoryClass();
   }
 }

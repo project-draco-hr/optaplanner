@@ -3,7 +3,7 @@
   Solution solution=solverScope.getWorkingSolution();
   double probabilityWeightOffset=0L;
   for (  Object value : childValueSelector) {
-    double probabilityWeight=selectionProbabilityWeightFactory.createSelectionProbabilityWeight(solution,value);
+    double probabilityWeight=valueProbabilityWeightFactory.createProbabilityWeight(solution,value);
     cachedEntityMap.put(probabilityWeightOffset,value);
     probabilityWeightOffset+=probabilityWeight;
   }

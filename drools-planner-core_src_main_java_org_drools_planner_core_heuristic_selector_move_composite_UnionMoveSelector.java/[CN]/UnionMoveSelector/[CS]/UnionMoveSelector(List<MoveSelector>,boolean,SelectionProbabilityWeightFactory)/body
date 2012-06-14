@@ -1,14 +1,14 @@
 {
   super(childMoveSelectorList,randomSelection);
-  this.selectionProbabilityWeightFactory=selectionProbabilityWeightFactory;
+  this.selectorProbabilityWeightFactory=selectorProbabilityWeightFactory;
   if (!randomSelection) {
-    if (selectionProbabilityWeightFactory != null) {
-      throw new IllegalArgumentException("The compositeMoveSelector (" + this + ") with randomSelection ("+ randomSelection+ ") cannot have a selectionProbabilityWeightFactory ("+ selectionProbabilityWeightFactory+ ")");
+    if (selectorProbabilityWeightFactory != null) {
+      throw new IllegalArgumentException("The compositeMoveSelector (" + this + ") with randomSelection ("+ randomSelection+ ") cannot have a selectorProbabilityWeightFactory ("+ selectorProbabilityWeightFactory+ ")");
     }
   }
  else {
-    if (selectionProbabilityWeightFactory == null) {
-      throw new IllegalArgumentException("The compositeMoveSelector (" + this + ") with randomSelection ("+ randomSelection+ ") needs a selectionProbabilityWeightFactory ("+ selectionProbabilityWeightFactory+ ")");
+    if (selectorProbabilityWeightFactory == null) {
+      throw new IllegalArgumentException("The compositeMoveSelector (" + this + ") with randomSelection ("+ randomSelection+ ") requires a electorProbabilityWeightFactory ("+ selectorProbabilityWeightFactory+ ")");
     }
   }
 }

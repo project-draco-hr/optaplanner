@@ -7,7 +7,7 @@
       ProbabilityItem probabilityItem=new ProbabilityItem();
       probabilityItem.moveSelector=moveSelector;
       probabilityItem.moveIterator=moveIterator;
-      probabilityItem.probabilityWeight=selectionProbabilityWeightFactory.createSelectionProbabilityWeight(workingSolution,moveSelector);
+      probabilityItem.probabilityWeight=selectorProbabilityWeightFactory.createProbabilityWeight(workingSolution,moveSelector);
       probabilityItemMap.put(moveIterator,probabilityItem);
     }
   }

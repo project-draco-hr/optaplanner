@@ -1,0 +1,42 @@
+{
+  SelectionOrder resolvedSelectionOrder=SelectionOrder.resolveSelectionOrder(selectionOrder,inheritedResolvedSelectionOrder);
+  List<MoveSelector> moveSelectorList=new ArrayList<MoveSelector>(moveSelectorConfigList.size());
+  for (  MoveSelectorConfig moveSelectorConfig : moveSelectorConfigList) {
+    moveSelectorList.add(moveSelectorConfig.buildMoveSelector(environmentMode,solutionDescriptor,resolvedSelectionOrder));
+  }
+  boolean randomSelection=resolvedSelectionOrder == SelectionOrder.RANDOM;
+  SelectionCacheType resolvedCacheType=cacheType == null ? SelectionCacheType.JUST_IN_TIME : cacheType;
+  SelectionProbabilityWeightFactory selectorProbabilityWeightFactory;
+  if (selectorProbabilityWeightFactoryClass != null) {
+    if (resolvedSelectionOrder != SelectionOrder.RANDOM) {
+      throw new IllegalArgumentException("The moveSelectorConfig (" + this + ") with selectorProbabilityWeightFactoryClass ("+ selectorProbabilityWeightFactoryClass+ ") has a non-random resolvedSelectionOrder ("+ resolvedSelectionOrder+ ").");
+    }
+    try {
+      selectorProbabilityWeightFactory=selectorProbabilityWeightFactoryClass.newInstance();
+    }
+ catch (    InstantiationException e) {
+      throw new IllegalArgumentException("selectorProbabilityWeightFactoryClass (" + selectorProbabilityWeightFactoryClass.getName() + ") does not have a public no-arg constructor",e);
+    }
+catch (    IllegalAccessException e) {
+      throw new IllegalArgumentException("selectorProbabilityWeightFactoryClass (" + selectorProbabilityWeightFactoryClass.getName() + ") does not have a public no-arg constructor",e);
+    }
+  }
+ else   if (randomSelection) {
+    Map<Selector,Double> fixedProbabilityWeightMap=new HashMap<Selector,Double>(moveSelectorConfigList.size());
+    for (int i=0; i < moveSelectorConfigList.size(); i++) {
+      MoveSelectorConfig moveSelectorConfig=moveSelectorConfigList.get(i);
+      MoveSelector moveSelector=moveSelectorList.get(i);
+      Double fixedProbabilityWeight=moveSelectorConfig.getFixedProbabilityWeight();
+      if (fixedProbabilityWeight == null) {
+        fixedProbabilityWeight=1.0;
+      }
+      fixedProbabilityWeightMap.put(moveSelector,fixedProbabilityWeight);
+    }
+    selectorProbabilityWeightFactory=new FixedSelectorProbabilityWeightFactory(fixedProbabilityWeightMap);
+  }
+ else {
+    selectorProbabilityWeightFactory=null;
+  }
+  MoveSelector moveSelector=new UnionMoveSelector(moveSelectorList,randomSelection,selectorProbabilityWeightFactory);
+  return moveSelector;
+}
