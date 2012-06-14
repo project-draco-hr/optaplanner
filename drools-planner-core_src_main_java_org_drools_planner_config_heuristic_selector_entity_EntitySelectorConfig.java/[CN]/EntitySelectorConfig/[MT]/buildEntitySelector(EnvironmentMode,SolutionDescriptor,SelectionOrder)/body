@@ -21,7 +21,7 @@
     if (resolvedSelectionOrder != SelectionOrder.RANDOM) {
       throw new IllegalArgumentException("The entitySelector with selectionProbabilityWeightFactoryClass (" + selectionProbabilityWeightFactoryClass + ") has a non-random resolvedSelectionOrder ("+ resolvedSelectionOrder+ ").");
     }
-    PlanningEntitySelectionProbabilityWeightFactory selectionProbabilityWeightFactory;
+    SelectionProbabilityWeightFactory selectionProbabilityWeightFactory;
     try {
       selectionProbabilityWeightFactory=selectionProbabilityWeightFactoryClass.newInstance();
     }
