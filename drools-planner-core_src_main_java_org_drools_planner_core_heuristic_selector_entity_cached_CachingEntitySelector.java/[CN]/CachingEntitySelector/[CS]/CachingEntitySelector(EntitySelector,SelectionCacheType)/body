@@ -1,5 +1,10 @@
 {
+  this.childEntitySelector=childEntitySelector;
   this.cacheType=cacheType;
+  if (childEntitySelector.isNeverEnding()) {
+    throw new IllegalStateException("The childEntitySelector (" + childEntitySelector + ") has neverEnding ("+ childEntitySelector.isNeverEnding()+ ") on a class ("+ getClass().getName()+ ") instance.");
+  }
+  solverPhaseLifecycleSupport.addEventListener(childEntitySelector);
   if (cacheType != SelectionCacheType.SOLVER && cacheType != SelectionCacheType.PHASE && cacheType != SelectionCacheType.STEP) {
     throw new IllegalArgumentException("The cacheType (" + cacheType + ") is not supported on the class ("+ getClass().getName()+ ").");
   }

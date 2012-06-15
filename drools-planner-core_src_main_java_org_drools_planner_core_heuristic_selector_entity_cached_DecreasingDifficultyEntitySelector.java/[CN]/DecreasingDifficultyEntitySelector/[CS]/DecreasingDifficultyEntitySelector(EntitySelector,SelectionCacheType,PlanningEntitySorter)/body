@@ -1,5 +1,5 @@
 {
-  super(cacheType);
+  super(childEntitySelector,cacheType);
   this.planningEntitySorter=planningEntitySorter;
   if (!planningEntitySorter.isSortDifficultySupported()) {
     throw new IllegalStateException("Decreasing difficulty entity selection" + " can not be used on a childEntitySelector (" + childEntitySelector + ") which entity has no support for difficulty sorting. Check the @PlanningEntity annotation.");

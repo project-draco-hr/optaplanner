@@ -1,7 +1,0 @@
-{
-  this.childEntitySelector=childEntitySelector;
-  if (childEntitySelector.isNeverEnding()) {
-    throw new IllegalStateException("The childEntitySelector (" + childEntitySelector + ") has neverEnding ("+ childEntitySelector.isNeverEnding()+ ") on a class ("+ getClass().getName()+ ") instance.");
-  }
-  solverPhaseLifecycleSupport.addEventListener(childEntitySelector);
-}
