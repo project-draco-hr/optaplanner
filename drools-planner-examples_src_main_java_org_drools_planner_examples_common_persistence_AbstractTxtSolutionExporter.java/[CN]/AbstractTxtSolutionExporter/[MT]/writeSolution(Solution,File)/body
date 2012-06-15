@@ -13,4 +13,5 @@
  finally {
     IOUtils.closeQuietly(bufferedWriter);
   }
+  logger.info("Exported: {}",outputFile);
 }

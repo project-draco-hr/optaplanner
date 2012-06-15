@@ -1,4 +1,5 @@
 {
+  Solution solution;
   InputStream in=null;
   try {
     in=new FileInputStream(inputFile);
@@ -8,7 +9,7 @@
     txtInputBuilder.setInputFile(inputFile);
     txtInputBuilder.setDocument(document);
     try {
-      return txtInputBuilder.readSolution();
+      solution=txtInputBuilder.readSolution();
     }
  catch (    IllegalArgumentException e) {
       throw new IllegalArgumentException("Exception in inputFile (" + inputFile + ")",e);
@@ -26,4 +27,6 @@ catch (  JDOMException e) {
  finally {
     IOUtils.closeQuietly(in);
   }
+  logger.info("Imported: {}",inputFile);
+  return solution;
 }

@@ -19,4 +19,5 @@ catch (  JDOMException e) {
  finally {
     IOUtils.closeQuietly(out);
   }
+  logger.info("Exported: {}",outputFile);
 }

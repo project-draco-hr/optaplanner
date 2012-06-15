@@ -1,4 +1,5 @@
 {
+  Solution solution;
   BufferedReader bufferedReader=null;
   try {
     bufferedReader=new BufferedReader(new InputStreamReader(new FileInputStream(inputFile),"UTF-8"));
@@ -6,7 +7,7 @@
     txtInputBuilder.setInputFile(inputFile);
     txtInputBuilder.setBufferedReader(bufferedReader);
     try {
-      return txtInputBuilder.readSolution();
+      solution=txtInputBuilder.readSolution();
     }
  catch (    IllegalArgumentException e) {
       throw new IllegalArgumentException("Exception in inputFile (" + inputFile + ")",e);
@@ -21,4 +22,6 @@ catch (    IllegalStateException e) {
  finally {
     IOUtils.closeQuietly(bufferedReader);
   }
+  logger.info("Imported: {}",inputFile);
+  return solution;
 }
