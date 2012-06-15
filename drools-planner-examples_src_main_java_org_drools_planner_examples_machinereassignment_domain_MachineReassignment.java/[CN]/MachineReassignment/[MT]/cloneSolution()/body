@@ -9,7 +9,6 @@
   clone.machineCapacityList=machineCapacityList;
   clone.machineMoveCostList=machineMoveCostList;
   clone.serviceList=serviceList;
-  clone.serviceDependencyList=serviceDependencyList;
   clone.processList=processList;
   clone.balancePenaltyList=balancePenaltyList;
   List<MrProcessAssignment> clonedProcessAssignmentList=new ArrayList<MrProcessAssignment>(processAssignmentList.size());

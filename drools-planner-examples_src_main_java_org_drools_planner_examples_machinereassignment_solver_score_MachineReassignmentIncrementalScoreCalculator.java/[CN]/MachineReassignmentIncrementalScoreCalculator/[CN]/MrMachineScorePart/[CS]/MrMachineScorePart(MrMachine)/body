@@ -5,10 +5,6 @@
   for (  MrMachineCapacity machineCapacity : machineCapacityList) {
     machineCapacityScorePartList.add(new MrMachineCapacityScorePart(machineCapacity));
   }
-  List<MrService> serviceList=machineReassignment.getServiceList();
-  serviceBag=new HashMap<MrService,Integer>(serviceList.size());
-  for (  MrService service : serviceList) {
-    serviceBag.put(service,0);
-  }
+  serviceBag=new HashMap<MrService,Integer>(10);
   doBalancePenaltyCosts();
 }

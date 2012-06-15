@@ -1,0 +1,12 @@
+{
+  List<MrServiceDependency> serviceDependencyList=new ArrayList<MrServiceDependency>(serviceList.size() * 5);
+  for (  MrService service : serviceList) {
+    for (    MrService toService : service.getToDependencyServiceList()) {
+      MrServiceDependency serviceDependency=new MrServiceDependency();
+      serviceDependency.setFromService(service);
+      serviceDependency.setToService(toService);
+      serviceDependencyList.add(serviceDependency);
+    }
+  }
+  return serviceDependencyList;
+}

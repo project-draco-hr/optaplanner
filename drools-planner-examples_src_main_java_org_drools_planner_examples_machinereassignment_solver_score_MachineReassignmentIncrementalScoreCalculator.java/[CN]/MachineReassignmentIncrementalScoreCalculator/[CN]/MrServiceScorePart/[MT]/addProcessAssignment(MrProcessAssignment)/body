@@ -16,14 +16,14 @@
   MrNeighborhood neighborhood=processAssignment.getNeighborhood();
   int neighborhoodProcessCount=neighborhoodBag.get(neighborhood) + 1;
   neighborhoodBag.put(neighborhood,neighborhoodProcessCount);
-  for (  MrService toDependencyService : toDependencyServiceList) {
+  for (  MrService toDependencyService : service.getToDependencyServiceList()) {
     int toDependencyNeighborhoodProcessCount=serviceScorePartMap.get(toDependencyService).neighborhoodBag.get(neighborhood);
     if (toDependencyNeighborhoodProcessCount == 0) {
       hardScore--;
     }
   }
   if (neighborhoodProcessCount == 1) {
-    for (    MrService fromDependencyService : fromDependencyServiceList) {
+    for (    MrService fromDependencyService : service.getFromDependencyServiceList()) {
       int fromDependencyNeighborhoodProcessCount=serviceScorePartMap.get(fromDependencyService).neighborhoodBag.get(neighborhood);
       hardScore+=fromDependencyNeighborhoodProcessCount;
     }

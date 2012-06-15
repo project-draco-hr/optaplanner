@@ -8,10 +8,6 @@
   for (  MrService service : serviceList) {
     serviceScorePartMap.put(service,new MrServiceScorePart(service));
   }
-  for (  MrServiceDependency serviceDependency : machineReassignment.getServiceDependencyList()) {
-    serviceScorePartMap.get(serviceDependency.getFromService()).initToDependencyService(serviceDependency.getToService());
-    serviceScorePartMap.get(serviceDependency.getToService()).initFromDependencyService(serviceDependency.getFromService());
-  }
   movedProcessCountToServiceCount=new HashMap<Integer,Integer>(serviceList.size());
   movedProcessCountToServiceCount.put(0,serviceList.size());
   serviceMoveCost=0;

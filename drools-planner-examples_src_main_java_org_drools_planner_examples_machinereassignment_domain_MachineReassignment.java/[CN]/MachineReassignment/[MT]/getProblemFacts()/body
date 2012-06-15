@@ -8,7 +8,7 @@
   facts.addAll(machineCapacityList);
   facts.addAll(machineMoveCostList);
   facts.addAll(serviceList);
-  facts.addAll(serviceDependencyList);
+  facts.addAll(createServiceDependencyList());
   facts.addAll(processList);
   facts.addAll(balancePenaltyList);
   return facts;

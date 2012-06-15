@@ -3,15 +3,18 @@
   for (  MrMachineCapacityScorePart machineCapacityScorePart : machineCapacityScorePartList) {
     machineCapacityScorePart.removeProcessAssignment(processAssignment);
   }
-  int serviceCount=serviceBag.get(processAssignment.getService());
-  if (serviceCount > 1) {
-    hardScore+=(serviceCount - 1);
+  MrService service=processAssignment.getService();
+  Integer serviceProcessCountInteger=serviceBag.get(service);
+  int serviceProcessCount=serviceProcessCountInteger == null ? 0 : serviceProcessCountInteger;
+  if (serviceProcessCount > 1) {
+    hardScore+=(serviceProcessCount - 1);
   }
-  serviceCount--;
-  if (serviceCount > 1) {
-    hardScore-=(serviceCount - 1);
+  serviceProcessCount--;
+  if (serviceProcessCount > 1) {
+    hardScore-=(serviceProcessCount - 1);
   }
-  serviceBag.put(processAssignment.getService(),serviceCount);
+  serviceProcessCountInteger=serviceProcessCount == 0 ? null : serviceProcessCount;
+  serviceBag.put(service,serviceProcessCountInteger);
   doBalancePenaltyCosts();
   if (processAssignment.isMoved()) {
     softScore+=processAssignment.getProcessMoveCost() * globalPenaltyInfo.getProcessMoveCostWeight();
