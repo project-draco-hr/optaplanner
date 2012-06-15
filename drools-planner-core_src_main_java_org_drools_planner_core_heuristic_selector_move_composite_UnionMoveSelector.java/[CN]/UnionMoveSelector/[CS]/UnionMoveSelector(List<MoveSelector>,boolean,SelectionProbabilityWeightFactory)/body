@@ -8,7 +8,7 @@
   }
  else {
     if (selectorProbabilityWeightFactory == null) {
-      throw new IllegalArgumentException("The compositeMoveSelector (" + this + ") with randomSelection ("+ randomSelection+ ") requires a electorProbabilityWeightFactory ("+ selectorProbabilityWeightFactory+ ")");
+      throw new IllegalArgumentException("The compositeMoveSelector (" + this + ") with randomSelection ("+ randomSelection+ ") requires a selectorProbabilityWeightFactory ("+ selectorProbabilityWeightFactory+ ")");
     }
   }
 }
