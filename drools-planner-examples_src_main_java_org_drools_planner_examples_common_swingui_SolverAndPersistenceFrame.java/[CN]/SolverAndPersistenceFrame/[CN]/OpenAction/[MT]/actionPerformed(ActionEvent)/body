@@ -11,7 +11,13 @@
 );
   int approved=fileChooser.showOpenDialog(SolverAndPersistenceFrame.this);
   if (approved == JFileChooser.APPROVE_OPTION) {
-    solutionBusiness.openSolution(fileChooser.getSelectedFile());
-    setSolutionLoaded();
+    setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+    try {
+      solutionBusiness.openSolution(fileChooser.getSelectedFile());
+      setSolutionLoaded();
+    }
+  finally {
+      setCursor(Cursor.getDefaultCursor());
+    }
   }
 }

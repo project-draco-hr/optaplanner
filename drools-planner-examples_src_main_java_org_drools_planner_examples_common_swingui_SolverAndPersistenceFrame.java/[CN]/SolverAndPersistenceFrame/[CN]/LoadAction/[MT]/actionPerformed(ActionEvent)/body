@@ -1,4 +1,10 @@
 {
-  solutionBusiness.openSolution(file);
-  setSolutionLoaded();
+  setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+  try {
+    solutionBusiness.openSolution(file);
+    setSolutionLoaded();
+  }
+  finally {
+    setCursor(Cursor.getDefaultCursor());
+  }
 }

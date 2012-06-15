@@ -2,6 +2,12 @@
   JFileChooser fileChooser=new JFileChooser(solutionBusiness.getExportDataDir());
   int approved=fileChooser.showSaveDialog(SolverAndPersistenceFrame.this);
   if (approved == JFileChooser.APPROVE_OPTION) {
-    solutionBusiness.exportSolution(fileChooser.getSelectedFile());
+    setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+    try {
+      solutionBusiness.exportSolution(fileChooser.getSelectedFile());
+    }
+  finally {
+      setCursor(Cursor.getDefaultCursor());
+    }
   }
 }
