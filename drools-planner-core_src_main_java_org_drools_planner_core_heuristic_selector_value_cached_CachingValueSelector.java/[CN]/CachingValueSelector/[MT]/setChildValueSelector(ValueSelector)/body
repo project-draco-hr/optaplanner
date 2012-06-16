@@ -1,7 +1,0 @@
-{
-  this.childValueSelector=childValueSelector;
-  if (childValueSelector.isNeverEnding()) {
-    throw new IllegalStateException("The childValueSelector (" + childValueSelector + ") has neverEnding ("+ childValueSelector.isNeverEnding()+ ") on a class ("+ getClass().getName()+ ") instance.");
-  }
-  solverPhaseLifecycleSupport.addEventListener(childValueSelector);
-}

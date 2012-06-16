@@ -1,2 +1,3 @@
+ValueSelector childValueSelector
 SelectionCacheType cacheType
 SelectionProbabilityWeightFactory valueProbabilityWeightFactory
