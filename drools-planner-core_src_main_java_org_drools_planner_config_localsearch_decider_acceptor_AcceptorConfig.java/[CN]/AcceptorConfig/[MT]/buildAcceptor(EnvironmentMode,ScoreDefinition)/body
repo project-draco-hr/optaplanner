@@ -104,11 +104,11 @@ catch (      IllegalAccessException e) {
     return compositeAcceptor;
   }
  else {
-    SolutionTabuAcceptor solutionTabuAcceptor=new SolutionTabuAcceptor();
-    solutionTabuAcceptor.setTabuSize(1500);
+    PlanningEntityTabuAcceptor planningEntityTabuAcceptor=new PlanningEntityTabuAcceptor();
+    planningEntityTabuAcceptor.setTabuSize(5);
     if (environmentMode == EnvironmentMode.TRACE) {
-      solutionTabuAcceptor.setAssertTabuHashCodeCorrectness(true);
+      planningEntityTabuAcceptor.setAssertTabuHashCodeCorrectness(true);
     }
-    return solutionTabuAcceptor;
+    return planningEntityTabuAcceptor;
   }
 }
