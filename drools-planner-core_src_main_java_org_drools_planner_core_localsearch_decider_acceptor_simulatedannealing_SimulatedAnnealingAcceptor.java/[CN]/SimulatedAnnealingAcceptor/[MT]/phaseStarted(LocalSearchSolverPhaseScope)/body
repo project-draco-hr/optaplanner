@@ -1,4 +1,5 @@
 {
+  super.phaseStarted(localSearchSolverPhaseScope);
   for (  double startingTemperaturePart : startingTemperature.toDoubleArray()) {
     if (startingTemperaturePart < 0.0) {
       throw new IllegalArgumentException("The startingTemperature (" + startingTemperature + ") cannot have negative part ("+ startingTemperaturePart+ ").");

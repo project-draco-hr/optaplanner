@@ -1,4 +1,5 @@
 {
+  super.phaseEnded(localSearchSolverPhaseScope);
   startingTemperatureParts=null;
   temperatureParts=null;
   partsLength=-1;
