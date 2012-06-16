@@ -1,0 +1,5 @@
+{
+  super.phaseEnded(localSearchSolverPhaseScope);
+  previousScores=null;
+  lateScoreIndex=-1;
+}

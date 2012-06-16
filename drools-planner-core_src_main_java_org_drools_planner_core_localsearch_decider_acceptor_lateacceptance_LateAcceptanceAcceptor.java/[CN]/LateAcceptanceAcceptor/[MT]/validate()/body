@@ -1,0 +1,5 @@
+{
+  if (lateAcceptanceSize <= 0) {
+    throw new IllegalArgumentException("The lateAcceptanceSize (" + lateAcceptanceSize + ") cannot be negative or zero.");
+  }
+}

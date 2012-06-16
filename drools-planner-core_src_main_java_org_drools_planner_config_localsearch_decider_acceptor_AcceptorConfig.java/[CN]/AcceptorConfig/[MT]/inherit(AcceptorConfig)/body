@@ -46,4 +46,7 @@
   if (greatDelugeWaterRisingRate == null) {
     greatDelugeWaterRisingRate=inheritedConfig.getGreatDelugeWaterRisingRate();
   }
+  if (lateAcceptanceSize == null) {
+    lateAcceptanceSize=inheritedConfig.getLateAcceptanceSize();
+  }
 }

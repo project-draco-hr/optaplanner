@@ -1,0 +1,10 @@
+{
+  super.phaseStarted(localSearchSolverPhaseScope);
+  validate();
+  previousScores=new Score[lateAcceptanceSize];
+  Score initialScore=localSearchSolverPhaseScope.getBestScore();
+  for (int i=0; i < previousScores.length; i++) {
+    previousScores[i]=initialScore;
+  }
+  lateScoreIndex=0;
+}

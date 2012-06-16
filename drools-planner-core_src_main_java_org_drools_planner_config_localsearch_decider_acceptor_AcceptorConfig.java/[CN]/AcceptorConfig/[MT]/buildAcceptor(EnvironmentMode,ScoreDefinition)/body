@@ -90,8 +90,10 @@ catch (      IllegalAccessException e) {
     double waterRisingRate=(Double)ObjectUtils.defaultIfNull(greatDelugeWaterRisingRate,0.0000001);
     acceptorList.add(new GreatDelugeAcceptor(waterLevelUpperBoundRate,waterRisingRate));
   }
-  if ((acceptorTypeList != null && acceptorTypeList.contains(AcceptorType.LATE_ACCEPTANCE))) {
-    throw new UnsupportedOperationException("LATE_ACCEPTANCE not yet supported.");
+  if ((acceptorTypeList != null && acceptorTypeList.contains(AcceptorType.LATE_ACCEPTANCE)) || lateAcceptanceSize != null) {
+    LateAcceptanceAcceptor lateAcceptanceAcceptor=new LateAcceptanceAcceptor();
+    lateAcceptanceAcceptor.setLateAcceptanceSize((lateAcceptanceSize == null) ? 1000 : lateAcceptanceSize);
+    acceptorList.add(lateAcceptanceAcceptor);
   }
   if (acceptorList.size() == 1) {
     return acceptorList.get(0);

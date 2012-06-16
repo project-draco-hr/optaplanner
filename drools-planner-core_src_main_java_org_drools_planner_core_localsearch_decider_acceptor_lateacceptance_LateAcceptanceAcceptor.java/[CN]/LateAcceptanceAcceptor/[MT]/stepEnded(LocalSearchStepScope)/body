@@ -1,0 +1,5 @@
+{
+  super.stepEnded(localSearchStepScope);
+  previousScores[lateScoreIndex]=localSearchStepScope.getLocalSearchSolverPhaseScope().getBestScore();
+  lateScoreIndex=(lateScoreIndex + 1) % lateAcceptanceSize;
+}

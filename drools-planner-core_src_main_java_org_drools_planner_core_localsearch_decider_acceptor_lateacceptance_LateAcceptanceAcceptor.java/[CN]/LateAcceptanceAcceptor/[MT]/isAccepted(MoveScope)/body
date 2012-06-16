@@ -1,0 +1,6 @@
+{
+  moveScope.getLocalSearchStepScope().getStepIndex();
+  Score score=moveScope.getScore();
+  Score lateScore=previousScores[lateScoreIndex];
+  return score.compareTo(lateScore) >= 0;
+}
