@@ -5,7 +5,7 @@
     if (service.getLocationSpread() > locationBag.size()) {
       hardScore+=(service.getLocationSpread() - locationBag.size());
     }
-    locationBag.put(location,null);
+    locationBag.remove(location);
     if (service.getLocationSpread() > locationBag.size()) {
       hardScore-=(service.getLocationSpread() - locationBag.size());
     }

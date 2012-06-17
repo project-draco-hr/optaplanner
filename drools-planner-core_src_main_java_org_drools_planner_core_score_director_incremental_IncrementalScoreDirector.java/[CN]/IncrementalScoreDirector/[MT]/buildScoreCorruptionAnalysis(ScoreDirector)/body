@@ -1,0 +1,4 @@
+{
+  IncrementalScoreDirector uncorruptedIncrementalScoreDirector=(IncrementalScoreDirector)uncorruptedScoreDirector;
+  return incrementalScoreCalculator.buildScoreCorruptionAnalysis(uncorruptedIncrementalScoreDirector.incrementalScoreCalculator);
+}
