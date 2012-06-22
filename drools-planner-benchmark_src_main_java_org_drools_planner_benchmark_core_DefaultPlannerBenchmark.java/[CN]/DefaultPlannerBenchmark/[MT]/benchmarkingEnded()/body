@@ -14,6 +14,6 @@
   }
  else {
     logger.info("Benchmarking failed: failureCount ({}), statistic html overview ({}).",failureCount,plannerStatistic.getHtmlOverviewFile().getAbsolutePath());
-    throw new IllegalStateException("Benchmarking failed: failureCount (" + failureCount + ")."+ " The first exception is chained.",firstFailureThrowable);
+    throw new IllegalStateException("Benchmarking failed: failureCount (" + failureCount + ")."+ " The exception of the firstFailureSingleBenchmark ("+ firstFailureSingleBenchmark.getName()+ ") is chained.",firstFailureSingleBenchmark.getFailureThrowable());
   }
 }

@@ -36,8 +36,8 @@ catch (    IllegalStateException e) {
       singleBenchmark.setSucceeded(false);
       singleBenchmark.setFailureThrowable(failureThrowable);
       failureCount++;
-      if (firstFailureThrowable == null) {
-        firstFailureThrowable=failureThrowable;
+      if (firstFailureSingleBenchmark == null) {
+        firstFailureSingleBenchmark=singleBenchmark;
       }
     }
   }
