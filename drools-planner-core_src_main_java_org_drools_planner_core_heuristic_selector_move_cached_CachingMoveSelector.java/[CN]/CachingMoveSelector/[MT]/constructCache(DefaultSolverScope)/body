@@ -5,5 +5,4 @@
   }
   cachedMoveList=new ArrayList<Move>((int)cachedSize);
   CollectionUtils.addAll(cachedMoveList,childMoveSelector.iterator());
-  orderCache(solverScope);
 }

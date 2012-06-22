@@ -1,3 +1,0 @@
-{
-  Collections.shuffle(cachedMoveList,solverScope.getWorkingRandom());
-}
