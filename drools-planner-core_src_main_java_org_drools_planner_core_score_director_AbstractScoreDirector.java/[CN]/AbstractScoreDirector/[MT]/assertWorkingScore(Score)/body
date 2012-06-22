@@ -1,5 +1,9 @@
 {
-  ScoreDirector uncorruptedScoreDirector=scoreDirectorFactory.buildScoreDirector();
+  ScoreDirectorFactory assertionScoreDirectorFactory=scoreDirectorFactory.getAssertionScoreDirectorFactory();
+  if (assertionScoreDirectorFactory == null) {
+    assertionScoreDirectorFactory=scoreDirectorFactory;
+  }
+  ScoreDirector uncorruptedScoreDirector=assertionScoreDirectorFactory.buildScoreDirector();
   uncorruptedScoreDirector.setWorkingSolution(workingSolution);
   Score uncorruptedScore=uncorruptedScoreDirector.calculateScore();
   if (!workingScore.equals(uncorruptedScore)) {

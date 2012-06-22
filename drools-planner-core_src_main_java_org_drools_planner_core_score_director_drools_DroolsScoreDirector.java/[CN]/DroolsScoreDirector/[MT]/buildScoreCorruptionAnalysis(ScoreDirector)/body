@@ -1,4 +1,7 @@
 {
+  if (!(uncorruptedScoreDirector instanceof DroolsScoreDirector)) {
+    return "Unable to analyze: the uncorruptedScoreDirector class (" + uncorruptedScoreDirector.getClass() + ") is not an instance of the scoreDirector class ("+ DroolsScoreDirector.class+ ").";
+  }
   DroolsScoreDirector uncorruptedDroolsScoreDirector=(DroolsScoreDirector)uncorruptedScoreDirector;
   Set<ConstraintOccurrence> workingConstraintOccurrenceSet=new LinkedHashSet<ConstraintOccurrence>();
   Iterator<ConstraintOccurrence> workingIt=(Iterator<ConstraintOccurrence>)workingMemory.iterateObjects(new ClassObjectFilter(ConstraintOccurrence.class));

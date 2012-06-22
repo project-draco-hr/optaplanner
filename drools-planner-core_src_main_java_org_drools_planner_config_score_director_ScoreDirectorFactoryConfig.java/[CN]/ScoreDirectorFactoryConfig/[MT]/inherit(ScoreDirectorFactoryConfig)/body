@@ -17,4 +17,7 @@
     ruleBase=inheritedConfig.getRuleBase();
   }
   scoreDrlList=ConfigUtils.inheritMergeableListProperty(scoreDrlList,inheritedConfig.getScoreDrlList());
+  if (assertionScoreDirectorFactory == null) {
+    assertionScoreDirectorFactory=inheritedConfig.getAssertionScoreDirectorFactory();
+  }
 }

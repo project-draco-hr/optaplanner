@@ -2,6 +2,7 @@
   DefaultSolver solver=new DefaultSolver();
   BasicPlumbingTermination basicPlumbingTermination=new BasicPlumbingTermination();
   solver.setBasicPlumbingTermination(basicPlumbingTermination);
+  EnvironmentMode environmentMode=this.environmentMode == null ? EnvironmentMode.REPRODUCIBLE : this.environmentMode;
   if (environmentMode != EnvironmentMode.PRODUCTION) {
     if (randomSeed != null) {
       solver.setRandomSeed(randomSeed);
@@ -11,12 +12,12 @@
     }
   }
   SolutionDescriptor solutionDescriptor=buildSolutionDescriptor();
-  ScoreDirectorFactory scoreDirectorFactory=scoreDirectorFactoryConfig.buildScoreDirectorFactory(solutionDescriptor);
+  ScoreDirectorFactory scoreDirectorFactory=scoreDirectorFactoryConfig.buildScoreDirectorFactory(environmentMode,solutionDescriptor);
   solver.setScoreDirectorFactory(scoreDirectorFactory);
   ScoreDefinition scoreDefinition=scoreDirectorFactory.getScoreDefinition();
   Termination termination=terminationConfig.buildTermination(scoreDefinition,basicPlumbingTermination);
   solver.setTermination(termination);
-  BestSolutionRecaller bestSolutionRecaller=buildBestSolutionRecaller();
+  BestSolutionRecaller bestSolutionRecaller=buildBestSolutionRecaller(environmentMode);
   solver.setBestSolutionRecaller(bestSolutionRecaller);
   if (solverPhaseConfigList == null || solverPhaseConfigList.isEmpty()) {
     throw new IllegalArgumentException("Configure at least 1 phase (for example <localSearch>) in the solver configuration.");
