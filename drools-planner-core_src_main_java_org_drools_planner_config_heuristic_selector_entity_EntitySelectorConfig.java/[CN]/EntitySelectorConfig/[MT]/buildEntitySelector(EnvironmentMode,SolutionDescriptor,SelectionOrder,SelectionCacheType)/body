@@ -13,9 +13,12 @@
     }
     entityDescriptor=planningEntityDescriptors.iterator().next();
   }
-  SelectionOrder resolvedSelectionOrder=SelectionOrder.resolveSelectionOrder(selectionOrder,inheritedResolvedSelectionOrder);
+  SelectionOrder resolvedSelectionOrder=SelectionOrder.resolve(selectionOrder,inheritedSelectionOrder);
+  SelectionCacheType resolvedCacheType=SelectionCacheType.resolve(cacheType,inheritedCacheType);
   boolean randomSelection=resolvedSelectionOrder == SelectionOrder.RANDOM && entityProbabilityWeightFactoryClass == null;
-  SelectionCacheType resolvedCacheType=cacheType == null ? SelectionCacheType.STEP : cacheType;
+  if (resolvedCacheType.compareTo(SelectionCacheType.STEP) < 0) {
+    resolvedCacheType=SelectionCacheType.STEP;
+  }
   EntitySelector entitySelector=new FromSolutionEntitySelector(entityDescriptor,randomSelection,resolvedCacheType);
   if (entityProbabilityWeightFactoryClass != null) {
     if (resolvedSelectionOrder != SelectionOrder.RANDOM) {

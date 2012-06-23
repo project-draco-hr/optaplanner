@@ -1,0 +1,9 @@
+{
+  SelectionOrder resolvedSelectionOrder=SelectionOrder.resolve(selectionOrder,inheritedSelectionOrder);
+  SelectionCacheType resolvedCacheType=SelectionCacheType.resolve(cacheType,inheritedCacheType);
+  EntitySelector leftEntitySelector=leftEntitySelectorConfig.buildEntitySelector(environmentMode,solutionDescriptor,resolvedSelectionOrder,resolvedCacheType);
+  EntitySelector rightEntitySelector=rightEntitySelectorConfig.buildEntitySelector(environmentMode,solutionDescriptor,resolvedSelectionOrder,resolvedCacheType);
+  boolean randomSelection=resolvedSelectionOrder == SelectionOrder.RANDOM;
+  MoveSelector moveSelector=new SwapMoveSelector(leftEntitySelector,rightEntitySelector,randomSelection,resolvedCacheType);
+  return moveSelector;
+}

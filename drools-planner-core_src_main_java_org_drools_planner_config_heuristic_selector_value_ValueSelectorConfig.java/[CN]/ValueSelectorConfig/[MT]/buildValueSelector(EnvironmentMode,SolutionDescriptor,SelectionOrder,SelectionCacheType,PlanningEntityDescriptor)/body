@@ -13,9 +13,12 @@
     }
     variableDescriptor=planningVariableDescriptors.iterator().next();
   }
-  SelectionOrder resolvedSelectionOrder=SelectionOrder.resolveSelectionOrder(selectionOrder,inheritedResolvedSelectionOrder);
+  SelectionOrder resolvedSelectionOrder=SelectionOrder.resolve(selectionOrder,inheritedSelectionOrder);
+  SelectionCacheType resolvedCacheType=SelectionCacheType.resolve(cacheType,inheritedCacheType);
   boolean randomSelection=resolvedSelectionOrder == SelectionOrder.RANDOM && valueProbabilityWeightFactoryClass == null;
-  SelectionCacheType resolvedCacheType=cacheType == null ? SelectionCacheType.PHASE : cacheType;
+  if (resolvedCacheType.compareTo(SelectionCacheType.PHASE) < 0) {
+    resolvedCacheType=SelectionCacheType.PHASE;
+  }
   ValueSelector valueSelector=new FromSolutionPropertyValueSelector(variableDescriptor,randomSelection,resolvedCacheType);
   if (valueProbabilityWeightFactoryClass != null) {
     if (resolvedSelectionOrder != SelectionOrder.RANDOM) {

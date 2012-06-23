@@ -1,0 +1,25 @@
+{
+  SelectionOrder resolvedSelectionOrder=SelectionOrder.resolve(selectionOrder,inheritedSelectionOrder);
+  SelectionCacheType resolvedCacheType=SelectionCacheType.resolve(cacheType,inheritedCacheType);
+  boolean randomSelection;
+  boolean shuffled;
+  if (resolvedSelectionOrder != SelectionOrder.RANDOM) {
+    randomSelection=false;
+    shuffled=false;
+  }
+ else {
+    if (resolvedCacheType.compareTo(SelectionCacheType.STEP) >= 0) {
+      randomSelection=false;
+      shuffled=true;
+      resolvedSelectionOrder=SelectionOrder.ORIGINAL;
+    }
+ else {
+      randomSelection=true;
+      shuffled=false;
+    }
+  }
+  EntitySelector entitySelector=entitySelectorConfig.buildEntitySelector(environmentMode,solutionDescriptor,resolvedSelectionOrder,resolvedCacheType);
+  ValueSelector valueSelector=valueSelectorConfig.buildValueSelector(environmentMode,solutionDescriptor,resolvedSelectionOrder,resolvedCacheType,entitySelector.getEntityDescriptor());
+  MoveSelector moveSelector=new ChangeMoveSelector(entitySelector,valueSelector,randomSelection);
+  return moveSelector;
+}

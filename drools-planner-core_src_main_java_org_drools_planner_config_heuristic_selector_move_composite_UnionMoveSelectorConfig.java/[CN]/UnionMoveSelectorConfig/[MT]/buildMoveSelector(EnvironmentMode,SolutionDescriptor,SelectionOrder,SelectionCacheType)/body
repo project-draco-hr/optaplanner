@@ -1,11 +1,11 @@
 {
-  SelectionOrder resolvedSelectionOrder=SelectionOrder.resolveSelectionOrder(selectionOrder,inheritedResolvedSelectionOrder);
+  SelectionOrder resolvedSelectionOrder=SelectionOrder.resolve(selectionOrder,inheritedSelectionOrder);
+  SelectionCacheType resolvedCacheType=SelectionCacheType.resolve(cacheType,inheritedCacheType);
   List<MoveSelector> moveSelectorList=new ArrayList<MoveSelector>(moveSelectorConfigList.size());
   for (  MoveSelectorConfig moveSelectorConfig : moveSelectorConfigList) {
-    moveSelectorList.add(moveSelectorConfig.buildMoveSelector(environmentMode,solutionDescriptor,resolvedSelectionOrder));
+    moveSelectorList.add(moveSelectorConfig.buildMoveSelector(environmentMode,solutionDescriptor,resolvedSelectionOrder,resolvedCacheType));
   }
   boolean randomSelection=resolvedSelectionOrder == SelectionOrder.RANDOM;
-  SelectionCacheType resolvedCacheType=cacheType == null ? SelectionCacheType.JUST_IN_TIME : cacheType;
   SelectionProbabilityWeightFactory selectorProbabilityWeightFactory;
   if (selectorProbabilityWeightFactoryClass != null) {
     if (resolvedSelectionOrder != SelectionOrder.RANDOM) {
