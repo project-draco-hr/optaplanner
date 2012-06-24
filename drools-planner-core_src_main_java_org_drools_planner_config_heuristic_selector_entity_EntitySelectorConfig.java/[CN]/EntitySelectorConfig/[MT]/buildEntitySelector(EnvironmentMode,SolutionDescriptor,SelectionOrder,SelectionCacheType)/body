@@ -19,6 +19,9 @@
   if (resolvedCacheType.compareTo(SelectionCacheType.STEP) < 0) {
     resolvedCacheType=SelectionCacheType.STEP;
   }
+  if (resolvedCacheType == SelectionCacheType.SOLVER) {
+    throw new IllegalArgumentException("The cacheType (" + resolvedCacheType + ") is not yet supported. Please use PHASE instead.");
+  }
   EntitySelector entitySelector=new FromSolutionEntitySelector(entityDescriptor,randomSelection,resolvedCacheType);
   if (entityProbabilityWeightFactoryClass != null) {
     if (resolvedSelectionOrder != SelectionOrder.RANDOM) {
