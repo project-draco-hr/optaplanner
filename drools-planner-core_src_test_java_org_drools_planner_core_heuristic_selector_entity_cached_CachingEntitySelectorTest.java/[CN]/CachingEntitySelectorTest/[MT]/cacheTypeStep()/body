@@ -1,0 +1,3 @@
+{
+  runCacheType(SelectionCacheType.STEP,5);
+}
