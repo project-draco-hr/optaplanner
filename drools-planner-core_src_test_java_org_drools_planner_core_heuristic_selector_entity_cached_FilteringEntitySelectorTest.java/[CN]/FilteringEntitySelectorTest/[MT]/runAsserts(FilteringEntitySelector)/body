@@ -6,7 +6,7 @@
   assertTrue(iterator.hasNext());
   assertCode("e2",iterator.next());
   assertTrue(iterator.hasNext());
-  assertCode("e3",iterator.next());
+  assertCode("e4",iterator.next());
   assertFalse(iterator.hasNext());
   assertEquals(false,entitySelector.isContinuous());
   assertEquals(false,entitySelector.isNeverEnding());

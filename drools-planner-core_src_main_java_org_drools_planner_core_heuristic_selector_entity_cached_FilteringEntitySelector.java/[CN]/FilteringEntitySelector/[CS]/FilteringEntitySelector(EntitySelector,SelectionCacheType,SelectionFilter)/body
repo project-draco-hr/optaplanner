@@ -1,3 +1,4 @@
 {
   super(childEntitySelector,cacheType);
+  this.entityFilter=entityFilter;
 }

@@ -1,8 +1,8 @@
 {
-  cachedSize=childMoveSelector.getSize();
-  if (cachedSize > (long)Integer.MAX_VALUE) {
-    throw new IllegalStateException("The moveSelector (" + this + ") has a childMoveSelector ("+ childMoveSelector+ ") with cachedSize ("+ cachedSize+ ") which is higher then Integer.MAX_VALUE.");
+  long childSize=childMoveSelector.getSize();
+  if (childSize > (long)Integer.MAX_VALUE) {
+    throw new IllegalStateException("The moveSelector (" + this + ") has a childMoveSelector ("+ childMoveSelector+ ") with childSize ("+ childSize+ ") which is higher then Integer.MAX_VALUE.");
   }
-  cachedMoveList=new ArrayList<Move>((int)cachedSize);
+  cachedMoveList=new ArrayList<Move>((int)childSize);
   CollectionUtils.addAll(cachedMoveList,childMoveSelector.iterator());
 }

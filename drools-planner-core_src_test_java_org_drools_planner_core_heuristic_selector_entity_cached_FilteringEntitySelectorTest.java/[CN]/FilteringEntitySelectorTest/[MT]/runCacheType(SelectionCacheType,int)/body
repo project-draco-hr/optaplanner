@@ -1,6 +1,6 @@
 {
   EntitySelector childEntitySelector=mock(EntitySelector.class);
-  final List<Object> entityList=Arrays.<Object>asList(new TestdataEntity("e1"),new TestdataEntity("e2"),new TestdataEntity("e3"));
+  final List<Object> entityList=Arrays.<Object>asList(new TestdataEntity("e1"),new TestdataEntity("e2"),new TestdataEntity("e3"),new TestdataEntity("e4"));
   when(childEntitySelector.iterator()).thenAnswer(new Answer<Object>(){
     public Object answer(    InvocationOnMock invocation) throws Throwable {
       return entityList.iterator();
@@ -10,7 +10,13 @@
   when(childEntitySelector.isContinuous()).thenReturn(false);
   when(childEntitySelector.isNeverEnding()).thenReturn(false);
   when(childEntitySelector.getSize()).thenReturn((long)entityList.size());
-  FilteringEntitySelector entitySelector=new FilteringEntitySelector(childEntitySelector,cacheType);
+  SelectionFilter<TestdataSolution,TestdataEntity> entityFilter=new SelectionFilter<TestdataSolution,TestdataEntity>(){
+    public boolean accept(    TestdataSolution solution,    TestdataEntity entity){
+      return !entity.getCode().equals("e3");
+    }
+  }
+;
+  FilteringEntitySelector entitySelector=new FilteringEntitySelector(childEntitySelector,cacheType,entityFilter);
   verify(childEntitySelector,times(1)).isNeverEnding();
   DefaultSolverScope solverScope=mock(DefaultSolverScope.class);
   entitySelector.solvingStarted(solverScope);

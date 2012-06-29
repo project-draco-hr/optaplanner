@@ -1,0 +1,10 @@
+{
+  Solution workingSolution=solverScope.getWorkingSolution();
+  long childSize=childMoveSelector.getSize();
+  cachedEntityList=new ArrayList<Object>((int)childSize);
+  for (  Object move : childMoveSelector) {
+    if (moveFilter.accept(workingSolution,move)) {
+      cachedEntityList.add(move);
+    }
+  }
+}
