@@ -1,4 +1,7 @@
 {
   super.inherit(inheritedConfig);
+  selectionOrder=ConfigUtils.inheritOverwritableProperty(selectionOrder,inheritedConfig.getSelectionOrder());
+  cacheType=ConfigUtils.inheritOverwritableProperty(cacheType,inheritedConfig.getCacheType());
+  moveFilterClass=ConfigUtils.inheritOverwritableProperty(moveFilterClass,inheritedConfig.getMoveFilterClass());
   fixedProbabilityWeight=ConfigUtils.inheritOverwritableProperty(fixedProbabilityWeight,inheritedConfig.getFixedProbabilityWeight());
 }

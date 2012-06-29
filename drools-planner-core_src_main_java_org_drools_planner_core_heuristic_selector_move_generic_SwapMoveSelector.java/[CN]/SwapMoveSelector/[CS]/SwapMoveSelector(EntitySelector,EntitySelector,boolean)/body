@@ -2,7 +2,6 @@
   this.leftEntitySelector=leftEntitySelector;
   this.rightEntitySelector=rightEntitySelector;
   this.randomSelection=randomSelection;
-  this.cacheType=cacheType;
   PlanningEntityDescriptor leftEntityDescriptor=leftEntitySelector.getEntityDescriptor();
   PlanningEntityDescriptor rightEntityDescriptor=rightEntitySelector.getEntityDescriptor();
   if (!leftEntityDescriptor.getPlanningEntityClass().equals(rightEntityDescriptor.getPlanningEntityClass())) {
@@ -13,9 +12,6 @@
     if (variableDescriptor.isChained()) {
       throw new IllegalStateException("The planningEntityClass (" + variableDescriptor.getPlanningEntityDescriptor().getPlanningEntityClass() + ")'s planningVariableDescriptor ("+ variableDescriptor.getVariableName()+ ") is chained and can therefor not use the moveSelector ("+ this.getClass()+ ").");
     }
-  }
-  if (cacheType != SelectionCacheType.JUST_IN_TIME) {
-    throw new UnsupportedOperationException();
   }
   solverPhaseLifecycleSupport.addEventListener(leftEntitySelector);
   solverPhaseLifecycleSupport.addEventListener(rightEntitySelector);

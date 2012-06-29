@@ -1,6 +1,4 @@
 {
-  SelectionOrder resolvedSelectionOrder=SelectionOrder.resolve(selectionOrder,inheritedSelectionOrder);
-  SelectionCacheType resolvedCacheType=SelectionCacheType.resolve(cacheType,inheritedCacheType);
   List<MoveSelector> moveSelectorList=new ArrayList<MoveSelector>(moveSelectorConfigList.size());
   for (  MoveSelectorConfig moveSelectorConfig : moveSelectorConfigList) {
     moveSelectorList.add(moveSelectorConfig.buildMoveSelector(environmentMode,solutionDescriptor,resolvedSelectionOrder,resolvedCacheType));
@@ -37,6 +35,5 @@ catch (    IllegalAccessException e) {
  else {
     selectorProbabilityWeightFactory=null;
   }
-  MoveSelector moveSelector=new UnionMoveSelector(moveSelectorList,randomSelection,selectorProbabilityWeightFactory);
-  return moveSelector;
+  return new UnionMoveSelector(moveSelectorList,randomSelection,selectorProbabilityWeightFactory);
 }

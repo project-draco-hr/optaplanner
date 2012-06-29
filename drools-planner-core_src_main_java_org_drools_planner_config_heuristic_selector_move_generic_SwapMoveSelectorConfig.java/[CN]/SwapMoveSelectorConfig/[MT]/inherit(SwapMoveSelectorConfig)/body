@@ -12,6 +12,4 @@
  else   if (inheritedConfig.getRightEntitySelectorConfig() != null) {
     rightEntitySelectorConfig.inherit(inheritedConfig.getRightEntitySelectorConfig());
   }
-  selectionOrder=ConfigUtils.inheritOverwritableProperty(selectionOrder,inheritedConfig.getSelectionOrder());
-  cacheType=ConfigUtils.inheritOverwritableProperty(cacheType,inheritedConfig.getCacheType());
 }

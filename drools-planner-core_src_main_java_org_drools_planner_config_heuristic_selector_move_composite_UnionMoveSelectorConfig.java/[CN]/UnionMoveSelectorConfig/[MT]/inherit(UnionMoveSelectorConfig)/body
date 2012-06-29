@@ -1,6 +1,5 @@
 {
   super.inherit(inheritedConfig);
   moveSelectorConfigList=ConfigUtils.inheritMergeableListProperty(moveSelectorConfigList,inheritedConfig.getMoveSelectorConfigList());
-  selectionOrder=ConfigUtils.inheritOverwritableProperty(selectionOrder,inheritedConfig.getSelectionOrder());
-  cacheType=ConfigUtils.inheritOverwritableProperty(cacheType,inheritedConfig.getCacheType());
+  selectorProbabilityWeightFactoryClass=ConfigUtils.inheritOverwritableProperty(selectorProbabilityWeightFactoryClass,inheritedConfig.getSelectorProbabilityWeightFactoryClass());
 }

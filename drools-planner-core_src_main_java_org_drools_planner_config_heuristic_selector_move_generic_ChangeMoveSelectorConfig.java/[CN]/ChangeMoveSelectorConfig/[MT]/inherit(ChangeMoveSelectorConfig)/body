@@ -12,7 +12,4 @@
  else   if (inheritedConfig.getValueSelectorConfig() != null) {
     valueSelectorConfig.inherit(inheritedConfig.getValueSelectorConfig());
   }
-  selectionOrder=ConfigUtils.inheritOverwritableProperty(selectionOrder,inheritedConfig.getSelectionOrder());
-  cacheType=ConfigUtils.inheritOverwritableProperty(cacheType,inheritedConfig.getCacheType());
-  moveFilterClass=ConfigUtils.inheritOverwritableProperty(moveFilterClass,inheritedConfig.getMoveFilterClass());
 }
