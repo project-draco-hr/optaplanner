@@ -5,7 +5,6 @@
   int result=JOptionPane.showConfirmDialog(Manners2009Panel.this.getRootPane(),seatDesignationListField,"Select seat designation to switch with",JOptionPane.OK_CANCEL_OPTION);
   if (result == JOptionPane.OK_OPTION) {
     SeatDesignation switchSeatDesignation=(SeatDesignation)seatDesignationListField.getSelectedItem();
-    solutionBusiness.doMove(new SeatDesignationSwapMove(seatDesignation,switchSeatDesignation));
-    solverAndPersistenceFrame.resetScreen();
+    throw new UnsupportedOperationException();
   }
 }

@@ -1,0 +1,5 @@
+{
+  SeatDesignation leftSeatDesignation=(SeatDesignation)move.getLeftPlanningEntity();
+  SeatDesignation rightSeatDesignation=(SeatDesignation)move.getRightPlanningEntity();
+  return leftSeatDesignation.getGuest().getGender() == rightSeatDesignation.getGuest().getGender();
+}
