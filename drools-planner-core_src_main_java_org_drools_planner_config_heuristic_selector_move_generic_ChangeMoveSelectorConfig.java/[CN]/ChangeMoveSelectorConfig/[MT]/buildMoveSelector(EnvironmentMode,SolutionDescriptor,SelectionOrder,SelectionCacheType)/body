@@ -21,5 +21,8 @@
   EntitySelector entitySelector=entitySelectorConfig.buildEntitySelector(environmentMode,solutionDescriptor,resolvedSelectionOrder,resolvedCacheType);
   ValueSelector valueSelector=valueSelectorConfig.buildValueSelector(environmentMode,solutionDescriptor,resolvedSelectionOrder,resolvedCacheType,entitySelector.getEntityDescriptor());
   MoveSelector moveSelector=new ChangeMoveSelector(entitySelector,valueSelector,randomSelection);
+  if (shuffled) {
+    moveSelector=new ShufflingMoveSelector(moveSelector,resolvedCacheType);
+  }
   return moveSelector;
 }
