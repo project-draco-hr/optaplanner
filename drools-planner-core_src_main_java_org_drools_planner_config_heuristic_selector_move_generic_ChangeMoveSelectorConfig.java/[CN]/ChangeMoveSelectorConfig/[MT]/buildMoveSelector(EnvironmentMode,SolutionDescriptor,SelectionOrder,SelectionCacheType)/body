@@ -21,6 +21,20 @@
   EntitySelector entitySelector=entitySelectorConfig.buildEntitySelector(environmentMode,solutionDescriptor,resolvedSelectionOrder,resolvedCacheType);
   ValueSelector valueSelector=valueSelectorConfig.buildValueSelector(environmentMode,solutionDescriptor,resolvedSelectionOrder,resolvedCacheType,entitySelector.getEntityDescriptor());
   MoveSelector moveSelector=new ChangeMoveSelector(entitySelector,valueSelector,randomSelection);
+  if (moveFilterClass != null) {
+    SelectionFilter moveFilter;
+    try {
+      moveFilter=moveFilterClass.newInstance();
+    }
+ catch (    InstantiationException e) {
+      throw new IllegalArgumentException("moveFilterClass (" + moveFilterClass.getName() + ") does not have a public no-arg constructor",e);
+    }
+catch (    IllegalAccessException e) {
+      throw new IllegalArgumentException("moveFilterClass (" + moveFilterClass.getName() + ") does not have a public no-arg constructor",e);
+    }
+    FilteringMoveSelector filteringMoveSelector=new FilteringMoveSelector(moveSelector,resolvedCacheType,moveFilter);
+    moveSelector=filteringMoveSelector;
+  }
   if (shuffled) {
     moveSelector=new ShufflingMoveSelector(moveSelector,resolvedCacheType);
   }

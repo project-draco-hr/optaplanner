@@ -23,6 +23,20 @@
     throw new IllegalArgumentException("The cacheType (" + resolvedCacheType + ") is not yet supported. Please use PHASE instead.");
   }
   EntitySelector entitySelector=new FromSolutionEntitySelector(entityDescriptor,randomSelection,resolvedCacheType);
+  if (entityFilterClass != null) {
+    SelectionFilter entityFilter;
+    try {
+      entityFilter=entityFilterClass.newInstance();
+    }
+ catch (    InstantiationException e) {
+      throw new IllegalArgumentException("entityFilterClass (" + entityFilterClass.getName() + ") does not have a public no-arg constructor",e);
+    }
+catch (    IllegalAccessException e) {
+      throw new IllegalArgumentException("entityFilterClass (" + entityFilterClass.getName() + ") does not have a public no-arg constructor",e);
+    }
+    FilteringEntitySelector filteringEntitySelector=new FilteringEntitySelector(entitySelector,resolvedCacheType,entityFilter);
+    entitySelector=filteringEntitySelector;
+  }
   if (entityProbabilityWeightFactoryClass != null) {
     if (resolvedSelectionOrder != SelectionOrder.RANDOM) {
       throw new IllegalArgumentException("The entitySelectorConfig (" + this + ") with entityProbabilityWeightFactoryClass ("+ entityProbabilityWeightFactoryClass+ ") has a non-random resolvedSelectionOrder ("+ resolvedSelectionOrder+ ").");

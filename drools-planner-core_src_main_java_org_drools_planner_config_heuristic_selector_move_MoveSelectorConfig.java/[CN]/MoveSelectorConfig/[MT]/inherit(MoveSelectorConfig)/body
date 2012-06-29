@@ -1,6 +1,4 @@
 {
   super.inherit(inheritedConfig);
-  if (fixedProbabilityWeight == null) {
-    fixedProbabilityWeight=inheritedConfig.getFixedProbabilityWeight();
-  }
+  fixedProbabilityWeight=ConfigUtils.inheritOverwritableProperty(fixedProbabilityWeight,inheritedConfig.getFixedProbabilityWeight());
 }

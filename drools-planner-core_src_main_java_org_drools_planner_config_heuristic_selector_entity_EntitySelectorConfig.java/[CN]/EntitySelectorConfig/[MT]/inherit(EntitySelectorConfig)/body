@@ -3,13 +3,8 @@
   if (planningEntityClass == null) {
     planningEntityClass=inheritedConfig.getPlanningEntityClass();
   }
-  if (selectionOrder == null) {
-    selectionOrder=inheritedConfig.getSelectionOrder();
-  }
-  if (cacheType == null) {
-    cacheType=inheritedConfig.getCacheType();
-  }
-  if (entityProbabilityWeightFactoryClass == null) {
-    entityProbabilityWeightFactoryClass=inheritedConfig.getEntityProbabilityWeightFactoryClass();
-  }
+  selectionOrder=ConfigUtils.inheritOverwritableProperty(selectionOrder,inheritedConfig.getSelectionOrder());
+  cacheType=ConfigUtils.inheritOverwritableProperty(cacheType,inheritedConfig.getCacheType());
+  entityFilterClass=ConfigUtils.inheritOverwritableProperty(entityFilterClass,inheritedConfig.getEntityFilterClass());
+  entityProbabilityWeightFactoryClass=ConfigUtils.inheritOverwritableProperty(entityProbabilityWeightFactoryClass,inheritedConfig.getEntityProbabilityWeightFactoryClass());
 }
