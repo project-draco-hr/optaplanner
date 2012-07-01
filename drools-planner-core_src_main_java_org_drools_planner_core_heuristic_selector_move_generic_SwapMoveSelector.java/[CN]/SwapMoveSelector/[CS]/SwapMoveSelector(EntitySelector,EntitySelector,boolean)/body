@@ -8,11 +8,13 @@
     throw new IllegalStateException("The moveSelector (" + this.getClass() + ") has a leftEntitySelector's planningEntityClass ("+ leftEntityDescriptor.getPlanningEntityClass()+ ") which is not equal to the rightEntitySelector's planningEntityClass ("+ rightEntityDescriptor.getPlanningEntityClass()+ ").");
   }
   variableDescriptors=leftEntityDescriptor.getPlanningVariableDescriptors();
+  boolean anyChained=false;
   for (  PlanningVariableDescriptor variableDescriptor : variableDescriptors) {
     if (variableDescriptor.isChained()) {
-      throw new IllegalStateException("The planningEntityClass (" + variableDescriptor.getPlanningEntityDescriptor().getPlanningEntityClass() + ")'s planningVariableDescriptor ("+ variableDescriptor.getVariableName()+ ") is chained and can therefor not use the moveSelector ("+ this.getClass()+ ").");
+      anyChained=true;
     }
   }
+  this.anyChained=anyChained;
   solverPhaseLifecycleSupport.addEventListener(leftEntitySelector);
   solverPhaseLifecycleSupport.addEventListener(rightEntitySelector);
 }

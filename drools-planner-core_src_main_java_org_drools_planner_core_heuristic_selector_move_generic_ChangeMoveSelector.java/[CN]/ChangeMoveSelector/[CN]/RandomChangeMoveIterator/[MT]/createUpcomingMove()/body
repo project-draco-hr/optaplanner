@@ -19,5 +19,5 @@
     }
   }
   Object toValue=valueIterator.next(entity);
-  upcomingMove=new GenericChangeMove(entity,valueSelector.getVariableDescriptor(),toValue);
+  upcomingMove=chained ? new GenericChainedChangeMove(entity,valueSelector.getVariableDescriptor(),toValue) : new GenericChangeMove(entity,valueSelector.getVariableDescriptor(),toValue);
 }

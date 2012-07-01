@@ -3,9 +3,7 @@
   this.valueSelector=valueSelector;
   this.randomSelection=randomSelection;
   PlanningVariableDescriptor variableDescriptor=valueSelector.getVariableDescriptor();
-  if (variableDescriptor.isChained()) {
-    throw new UnsupportedOperationException("The planningEntityClass (" + variableDescriptor.getPlanningEntityDescriptor().getPlanningEntityClass() + ")'s planningVariableDescriptor ("+ variableDescriptor.getVariableName()+ ") is chained and can therefor not use the moveSelector ("+ getClass()+ ").");
-  }
+  chained=variableDescriptor.isChained();
   solverPhaseLifecycleSupport.addEventListener(entitySelector);
   solverPhaseLifecycleSupport.addEventListener(valueSelector);
 }

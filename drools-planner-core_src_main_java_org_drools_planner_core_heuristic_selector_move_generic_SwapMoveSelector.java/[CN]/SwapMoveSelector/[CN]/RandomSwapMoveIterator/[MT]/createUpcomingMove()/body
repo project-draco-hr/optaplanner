@@ -7,5 +7,5 @@
     rightEntityIterator=rightEntitySelector.iterator();
   }
   Object rightEntity=rightEntityIterator.next();
-  upcomingMove=new GenericSwapMove(variableDescriptors,leftEntity,rightEntity);
+  upcomingMove=anyChained ? new GenericChainedSwapMove(variableDescriptors,leftEntity,rightEntity) : new GenericSwapMove(variableDescriptors,leftEntity,rightEntity);
 }
