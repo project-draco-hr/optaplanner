@@ -7,7 +7,6 @@
   clone.locationList=locationList;
   clone.machineList=machineList;
   clone.machineCapacityList=machineCapacityList;
-  clone.machineMoveCostList=machineMoveCostList;
   clone.serviceList=serviceList;
   clone.processList=processList;
   clone.balancePenaltyList=balancePenaltyList;
