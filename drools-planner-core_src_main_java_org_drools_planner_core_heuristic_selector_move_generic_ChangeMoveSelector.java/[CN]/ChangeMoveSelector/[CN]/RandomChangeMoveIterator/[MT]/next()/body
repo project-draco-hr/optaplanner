@@ -1,8 +1,0 @@
-{
-  if (upcomingMove == null) {
-    throw new NoSuchElementException();
-  }
-  Move move=upcomingMove;
-  createUpcomingMove();
-  return move;
-}

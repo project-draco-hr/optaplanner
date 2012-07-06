@@ -10,14 +10,13 @@
   when(childEntitySelector.isContinuous()).thenReturn(false);
   when(childEntitySelector.isNeverEnding()).thenReturn(false);
   when(childEntitySelector.getSize()).thenReturn((long)entityList.size());
-  SelectionFilter<TestdataSolution,TestdataEntity> entityFilter=new SelectionFilter<TestdataSolution,TestdataEntity>(){
-    public boolean accept(    TestdataSolution solution,    TestdataEntity entity){
+  SelectionFilter<TestdataEntity> entityFilter=new SelectionFilter<TestdataEntity>(){
+    public boolean accept(    ScoreDirector scoreDirector,    TestdataEntity entity){
       return !entity.getCode().equals("e3");
     }
   }
 ;
-  FilteringEntitySelector entitySelector=new FilteringEntitySelector(childEntitySelector,cacheType,entityFilter);
-  verify(childEntitySelector,times(1)).isNeverEnding();
+  EntitySelector entitySelector=cacheType == SelectionCacheType.JUST_IN_TIME ? new JustInTimeFilteringEntitySelector(childEntitySelector,cacheType,entityFilter) : new CachingFilteringEntitySelector(childEntitySelector,cacheType,entityFilter);
   DefaultSolverScope solverScope=mock(DefaultSolverScope.class);
   entitySelector.solvingStarted(solverScope);
   AbstractSolverPhaseScope phaseScopeA=mock(AbstractSolverPhaseScope.class);
@@ -26,12 +25,12 @@
   AbstractStepScope stepScopeA1=mock(AbstractStepScope.class);
   when(stepScopeA1.getSolverPhaseScope()).thenReturn(phaseScopeA);
   entitySelector.stepStarted(stepScopeA1);
-  runAsserts(entitySelector);
+  runAsserts(entitySelector,cacheType);
   entitySelector.stepEnded(stepScopeA1);
   AbstractStepScope stepScopeA2=mock(AbstractStepScope.class);
   when(stepScopeA2.getSolverPhaseScope()).thenReturn(phaseScopeA);
   entitySelector.stepStarted(stepScopeA2);
-  runAsserts(entitySelector);
+  runAsserts(entitySelector,cacheType);
   entitySelector.stepEnded(stepScopeA2);
   entitySelector.phaseEnded(phaseScopeA);
   AbstractSolverPhaseScope phaseScopeB=mock(AbstractSolverPhaseScope.class);
@@ -40,17 +39,17 @@
   AbstractStepScope stepScopeB1=mock(AbstractStepScope.class);
   when(stepScopeB1.getSolverPhaseScope()).thenReturn(phaseScopeB);
   entitySelector.stepStarted(stepScopeB1);
-  runAsserts(entitySelector);
+  runAsserts(entitySelector,cacheType);
   entitySelector.stepEnded(stepScopeB1);
   AbstractStepScope stepScopeB2=mock(AbstractStepScope.class);
   when(stepScopeB2.getSolverPhaseScope()).thenReturn(phaseScopeB);
   entitySelector.stepStarted(stepScopeB2);
-  runAsserts(entitySelector);
+  runAsserts(entitySelector,cacheType);
   entitySelector.stepEnded(stepScopeB2);
   AbstractStepScope stepScopeB3=mock(AbstractStepScope.class);
   when(stepScopeB3.getSolverPhaseScope()).thenReturn(phaseScopeB);
   entitySelector.stepStarted(stepScopeB3);
-  runAsserts(entitySelector);
+  runAsserts(entitySelector,cacheType);
   entitySelector.stepEnded(stepScopeB3);
   entitySelector.phaseEnded(phaseScopeB);
   entitySelector.solvingEnded(solverScope);

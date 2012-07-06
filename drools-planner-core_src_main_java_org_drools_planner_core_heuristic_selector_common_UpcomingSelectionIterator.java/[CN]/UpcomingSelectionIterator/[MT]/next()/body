@@ -1,0 +1,8 @@
+{
+  if (upcomingSelection == null) {
+    throw new NoSuchElementException();
+  }
+  S selection=upcomingSelection;
+  createUpcomingSelection();
+  return selection;
+}

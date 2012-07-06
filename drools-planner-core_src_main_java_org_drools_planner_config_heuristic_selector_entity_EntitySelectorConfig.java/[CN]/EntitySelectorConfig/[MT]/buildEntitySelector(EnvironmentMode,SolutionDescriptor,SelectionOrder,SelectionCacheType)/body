@@ -34,7 +34,13 @@
 catch (    IllegalAccessException e) {
       throw new IllegalArgumentException("entityFilterClass (" + entityFilterClass.getName() + ") does not have a public no-arg constructor",e);
     }
-    FilteringEntitySelector filteringEntitySelector=new FilteringEntitySelector(entitySelector,resolvedCacheType,entityFilter);
+    EntitySelector filteringEntitySelector;
+    if (resolvedCacheType == SelectionCacheType.JUST_IN_TIME) {
+      filteringEntitySelector=new JustInTimeFilteringEntitySelector(entitySelector,resolvedCacheType,entityFilter);
+    }
+ else {
+      filteringEntitySelector=new CachingFilteringEntitySelector(entitySelector,resolvedCacheType,entityFilter);
+    }
     entitySelector=filteringEntitySelector;
   }
   if (entityProbabilityWeightFactoryClass != null) {

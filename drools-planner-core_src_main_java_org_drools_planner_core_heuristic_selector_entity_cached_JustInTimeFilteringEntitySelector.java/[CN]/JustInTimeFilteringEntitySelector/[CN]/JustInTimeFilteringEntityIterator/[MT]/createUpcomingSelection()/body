@@ -1,0 +1,12 @@
+{
+  Object next;
+  do {
+    if (!childEntityIterator.hasNext()) {
+      upcomingSelection=null;
+      return;
+    }
+    next=childEntityIterator.next();
+  }
+ while (!entityFilter.accept(scoreDirector,next));
+  upcomingSelection=next;
+}

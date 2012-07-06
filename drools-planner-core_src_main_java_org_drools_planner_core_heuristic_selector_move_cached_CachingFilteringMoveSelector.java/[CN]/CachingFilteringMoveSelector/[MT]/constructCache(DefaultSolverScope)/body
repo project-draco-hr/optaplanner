@@ -1,0 +1,10 @@
+{
+  ScoreDirector scoreDirector=solverScope.getScoreDirector();
+  long childSize=childMoveSelector.getSize();
+  cachedMoveList=new ArrayList<Move>((int)childSize);
+  for (  Move move : childMoveSelector) {
+    if (moveFilter.accept(scoreDirector,move)) {
+      cachedMoveList.add(move);
+    }
+  }
+}

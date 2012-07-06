@@ -26,7 +26,13 @@
 catch (    IllegalAccessException e) {
       throw new IllegalArgumentException("moveFilterClass (" + moveFilterClass.getName() + ") does not have a public no-arg constructor",e);
     }
-    FilteringMoveSelector filteringMoveSelector=new FilteringMoveSelector(moveSelector,resolvedCacheType,moveFilter);
+    MoveSelector filteringMoveSelector;
+    if (resolvedCacheType == SelectionCacheType.JUST_IN_TIME) {
+      filteringMoveSelector=new JustInTimeFilteringMoveSelector(moveSelector,resolvedCacheType,moveFilter);
+    }
+ else {
+      filteringMoveSelector=new CachingFilteringMoveSelector(moveSelector,resolvedCacheType,moveFilter);
+    }
     moveSelector=filteringMoveSelector;
   }
   if (shuffled) {

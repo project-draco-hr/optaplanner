@@ -1,0 +1,7 @@
+{
+  this.childEntitySelector=childEntitySelector;
+  this.entityFilter=entityFilter;
+  if (cacheType != SelectionCacheType.JUST_IN_TIME) {
+    throw new IllegalArgumentException("The cacheType (" + cacheType + ") is not supported on the class ("+ getClass().getName()+ ").");
+  }
+}

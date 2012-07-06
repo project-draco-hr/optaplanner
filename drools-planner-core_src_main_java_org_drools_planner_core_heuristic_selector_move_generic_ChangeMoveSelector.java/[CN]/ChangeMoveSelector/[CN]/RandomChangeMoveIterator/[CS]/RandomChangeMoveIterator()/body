@@ -5,6 +5,6 @@
     upcomingMove=null;
   }
  else {
-    createUpcomingMove();
+    createUpcomingSelection();
   }
 }

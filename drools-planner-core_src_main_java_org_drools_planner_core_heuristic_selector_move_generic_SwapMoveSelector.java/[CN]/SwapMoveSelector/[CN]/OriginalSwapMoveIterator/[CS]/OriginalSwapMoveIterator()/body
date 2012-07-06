@@ -6,6 +6,6 @@
   }
  else {
     leftEntity=leftEntityIterator.next();
-    createUpcomingMove();
+    createUpcomingSelection();
   }
 }

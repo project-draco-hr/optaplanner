@@ -1,0 +1,58 @@
+{
+  MoveSelector childMoveSelector=mock(MoveSelector.class);
+  final List<Move> moveList=Arrays.<Move>asList(new DummyMove("e1"),new DummyMove("e2"),new DummyMove("e3"),new DummyMove("e4"));
+  when(childMoveSelector.iterator()).thenAnswer(new Answer<Object>(){
+    public Object answer(    InvocationOnMock invocation) throws Throwable {
+      return moveList.iterator();
+    }
+  }
+);
+  when(childMoveSelector.isContinuous()).thenReturn(false);
+  when(childMoveSelector.isNeverEnding()).thenReturn(false);
+  when(childMoveSelector.getSize()).thenReturn((long)moveList.size());
+  SelectionFilter<DummyMove> entityFilter=new SelectionFilter<DummyMove>(){
+    public boolean accept(    ScoreDirector scoreDirector,    DummyMove move){
+      return !move.getCode().equals("e3");
+    }
+  }
+;
+  MoveSelector moveSelector=cacheType == SelectionCacheType.JUST_IN_TIME ? new JustInTimeFilteringMoveSelector(childMoveSelector,cacheType,entityFilter) : new CachingFilteringMoveSelector(childMoveSelector,cacheType,entityFilter);
+  DefaultSolverScope solverScope=mock(DefaultSolverScope.class);
+  moveSelector.solvingStarted(solverScope);
+  AbstractSolverPhaseScope phaseScopeA=mock(AbstractSolverPhaseScope.class);
+  when(phaseScopeA.getSolverScope()).thenReturn(solverScope);
+  moveSelector.phaseStarted(phaseScopeA);
+  AbstractStepScope stepScopeA1=mock(AbstractStepScope.class);
+  when(stepScopeA1.getSolverPhaseScope()).thenReturn(phaseScopeA);
+  moveSelector.stepStarted(stepScopeA1);
+  runAsserts(moveSelector,cacheType);
+  moveSelector.stepEnded(stepScopeA1);
+  AbstractStepScope stepScopeA2=mock(AbstractStepScope.class);
+  when(stepScopeA2.getSolverPhaseScope()).thenReturn(phaseScopeA);
+  moveSelector.stepStarted(stepScopeA2);
+  runAsserts(moveSelector,cacheType);
+  moveSelector.stepEnded(stepScopeA2);
+  moveSelector.phaseEnded(phaseScopeA);
+  AbstractSolverPhaseScope phaseScopeB=mock(AbstractSolverPhaseScope.class);
+  when(phaseScopeB.getSolverScope()).thenReturn(solverScope);
+  moveSelector.phaseStarted(phaseScopeB);
+  AbstractStepScope stepScopeB1=mock(AbstractStepScope.class);
+  when(stepScopeB1.getSolverPhaseScope()).thenReturn(phaseScopeB);
+  moveSelector.stepStarted(stepScopeB1);
+  runAsserts(moveSelector,cacheType);
+  moveSelector.stepEnded(stepScopeB1);
+  AbstractStepScope stepScopeB2=mock(AbstractStepScope.class);
+  when(stepScopeB2.getSolverPhaseScope()).thenReturn(phaseScopeB);
+  moveSelector.stepStarted(stepScopeB2);
+  runAsserts(moveSelector,cacheType);
+  moveSelector.stepEnded(stepScopeB2);
+  AbstractStepScope stepScopeB3=mock(AbstractStepScope.class);
+  when(stepScopeB3.getSolverPhaseScope()).thenReturn(phaseScopeB);
+  moveSelector.stepStarted(stepScopeB3);
+  runAsserts(moveSelector,cacheType);
+  moveSelector.stepEnded(stepScopeB3);
+  moveSelector.phaseEnded(phaseScopeB);
+  moveSelector.solvingEnded(solverScope);
+  verify(childMoveSelector,times(timesCalled)).iterator();
+  verify(childMoveSelector,times(timesCalled)).getSize();
+}

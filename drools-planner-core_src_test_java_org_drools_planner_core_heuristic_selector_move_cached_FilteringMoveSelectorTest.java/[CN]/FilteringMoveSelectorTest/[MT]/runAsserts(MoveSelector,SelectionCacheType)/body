@@ -1,0 +1,14 @@
+{
+  Iterator<Move> iterator=moveSelector.iterator();
+  assertNotNull(iterator);
+  assertTrue(iterator.hasNext());
+  assertCode("e1",iterator.next());
+  assertTrue(iterator.hasNext());
+  assertCode("e2",iterator.next());
+  assertTrue(iterator.hasNext());
+  assertCode("e4",iterator.next());
+  assertFalse(iterator.hasNext());
+  assertEquals(false,moveSelector.isContinuous());
+  assertEquals(false,moveSelector.isNeverEnding());
+  assertEquals((cacheType == SelectionCacheType.JUST_IN_TIME ? 4L : 3L),moveSelector.getSize());
+}
