@@ -1,9 +1,9 @@
 {
   cachedEntityMap=new TreeMap<Double,Object>();
-  Solution solution=solverScope.getWorkingSolution();
+  ScoreDirector scoreDirector=solverScope.getScoreDirector();
   double probabilityWeightOffset=0L;
   for (  Object value : childValueSelector) {
-    double probabilityWeight=valueProbabilityWeightFactory.createProbabilityWeight(solution,value);
+    double probabilityWeight=valueProbabilityWeightFactory.createProbabilityWeight(scoreDirector,value);
     cachedEntityMap.put(probabilityWeightOffset,value);
     probabilityWeightOffset+=probabilityWeight;
   }

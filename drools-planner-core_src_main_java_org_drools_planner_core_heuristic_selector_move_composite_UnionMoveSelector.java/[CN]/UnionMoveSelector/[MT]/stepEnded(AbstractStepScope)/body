@@ -1,4 +1,4 @@
 {
   super.stepEnded(stepScope);
-  workingSolution=null;
+  scoreDirector=null;
 }

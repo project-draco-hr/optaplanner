@@ -1,4 +1,5 @@
 {
+  MachineReassignment machineReassignment=(MachineReassignment)scoreDirector.getWorkingSolution();
   MrMachine machine=processAssignment.getMachine();
   long[] usage=new long[machineReassignment.getResourceList().size()];
   for (  MrProcessAssignment someProcessAssignment : machineReassignment.getProcessAssignmentList()) {
