@@ -2,7 +2,7 @@
   leftEntityIterator=leftEntitySelector.iterator();
   rightEntityIterator=rightEntitySelector.iterator();
   if (!leftEntityIterator.hasNext() || !rightEntityIterator.hasNext()) {
-    upcomingMove=null;
+    upcomingSelection=null;
   }
  else {
     leftEntity=leftEntityIterator.next();

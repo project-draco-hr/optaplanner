@@ -1,12 +1,12 @@
 {
   if (!rightEntityIterator.hasNext()) {
     if (!leftEntityIterator.hasNext()) {
-      upcomingMove=null;
+      upcomingSelection=null;
       return;
     }
     leftEntity=leftEntityIterator.next();
     rightEntityIterator=rightEntitySelector.iterator();
   }
   Object rightEntity=rightEntityIterator.next();
-  upcomingMove=anyChained ? new GenericChainedSwapMove(variableDescriptors,leftEntity,rightEntity) : new GenericSwapMove(variableDescriptors,leftEntity,rightEntity);
+  upcomingSelection=anyChained ? new GenericChainedSwapMove(variableDescriptors,leftEntity,rightEntity) : new GenericSwapMove(variableDescriptors,leftEntity,rightEntity);
 }

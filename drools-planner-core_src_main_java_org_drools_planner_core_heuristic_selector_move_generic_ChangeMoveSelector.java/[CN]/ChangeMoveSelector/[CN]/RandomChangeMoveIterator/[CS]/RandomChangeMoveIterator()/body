@@ -2,7 +2,7 @@
   entityIterator=entitySelector.iterator();
   valueIterator=valueSelector.iterator();
   if (!entityIterator.hasNext() || !valueIterator.hasNext()) {
-    upcomingMove=null;
+    upcomingSelection=null;
   }
  else {
     createUpcomingSelection();

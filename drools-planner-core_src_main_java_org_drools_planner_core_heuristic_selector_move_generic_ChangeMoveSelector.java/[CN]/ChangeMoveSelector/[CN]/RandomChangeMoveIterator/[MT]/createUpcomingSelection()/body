@@ -11,7 +11,7 @@
         entityIterator=entitySelector.iterator();
         entityIteratorCreationCount++;
         if (entityIteratorCreationCount >= 2) {
-          upcomingMove=null;
+          upcomingSelection=null;
           return;
         }
       }
@@ -19,5 +19,5 @@
     }
   }
   Object toValue=valueIterator.next(entity);
-  upcomingMove=chained ? new GenericChainedChangeMove(entity,valueSelector.getVariableDescriptor(),toValue) : new GenericChangeMove(entity,valueSelector.getVariableDescriptor(),toValue);
+  upcomingSelection=chained ? new GenericChainedChangeMove(entity,valueSelector.getVariableDescriptor(),toValue) : new GenericChangeMove(entity,valueSelector.getVariableDescriptor(),toValue);
 }

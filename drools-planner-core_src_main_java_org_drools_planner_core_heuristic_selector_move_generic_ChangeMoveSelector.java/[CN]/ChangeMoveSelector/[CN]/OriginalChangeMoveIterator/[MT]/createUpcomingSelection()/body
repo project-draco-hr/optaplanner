@@ -1,12 +1,12 @@
 {
-  while (!valueIterator.hasNext(entity)) {
+  while (!valueIterator.hasNext(upcomingEntity)) {
     if (!entityIterator.hasNext()) {
-      upcomingMove=null;
+      upcomingSelection=null;
       return;
     }
-    entity=entityIterator.next();
+    upcomingEntity=entityIterator.next();
     valueIterator=valueSelector.iterator();
   }
-  Object toValue=valueIterator.next(entity);
-  upcomingMove=chained ? new GenericChainedChangeMove(entity,valueSelector.getVariableDescriptor(),toValue) : new GenericChangeMove(entity,valueSelector.getVariableDescriptor(),toValue);
+  Object toValue=valueIterator.next(upcomingEntity);
+  upcomingSelection=chained ? new GenericChainedChangeMove(upcomingEntity,valueSelector.getVariableDescriptor(),toValue) : new GenericChangeMove(upcomingEntity,valueSelector.getVariableDescriptor(),toValue);
 }
