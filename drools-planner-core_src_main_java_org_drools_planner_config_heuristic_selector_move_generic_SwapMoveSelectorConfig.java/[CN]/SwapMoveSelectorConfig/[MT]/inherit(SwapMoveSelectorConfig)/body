@@ -1,15 +1,15 @@
 {
   super.inherit(inheritedConfig);
-  if (leftEntitySelectorConfig == null) {
-    leftEntitySelectorConfig=inheritedConfig.getLeftEntitySelectorConfig();
+  if (entitySelectorConfig == null) {
+    entitySelectorConfig=inheritedConfig.getEntitySelectorConfig();
   }
- else   if (inheritedConfig.getLeftEntitySelectorConfig() != null) {
-    leftEntitySelectorConfig.inherit(inheritedConfig.getLeftEntitySelectorConfig());
+ else   if (inheritedConfig.getEntitySelectorConfig() != null) {
+    entitySelectorConfig.inherit(inheritedConfig.getEntitySelectorConfig());
   }
-  if (rightEntitySelectorConfig == null) {
-    rightEntitySelectorConfig=inheritedConfig.getRightEntitySelectorConfig();
+  if (secondaryEntitySelectorConfig == null) {
+    secondaryEntitySelectorConfig=inheritedConfig.getSecondaryEntitySelectorConfig();
   }
- else   if (inheritedConfig.getRightEntitySelectorConfig() != null) {
-    rightEntitySelectorConfig.inherit(inheritedConfig.getRightEntitySelectorConfig());
+ else   if (inheritedConfig.getSecondaryEntitySelectorConfig() != null) {
+    secondaryEntitySelectorConfig.inherit(inheritedConfig.getSecondaryEntitySelectorConfig());
   }
 }

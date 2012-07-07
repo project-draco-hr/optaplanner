@@ -1,3 +1,9 @@
 {
-  return leftEntitySelector.getSize() * rightEntitySelector.getSize();
+  if (!leftEqualsRight) {
+    return (long)leftEntitySelector.getSize() * (long)rightEntitySelector.getSize();
+  }
+ else {
+    long leftSize=(long)leftEntitySelector.getSize();
+    return leftSize * (leftSize - 1L) / 2L;
+  }
 }

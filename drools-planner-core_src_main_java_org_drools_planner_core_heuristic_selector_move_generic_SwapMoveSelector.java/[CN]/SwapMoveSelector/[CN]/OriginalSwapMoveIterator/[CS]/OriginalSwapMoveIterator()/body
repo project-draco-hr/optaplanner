@@ -1,11 +1,5 @@
 {
-  leftEntityIterator=leftEntitySelector.iterator();
-  rightEntityIterator=rightEntitySelector.iterator();
-  if (!leftEntityIterator.hasNext() || !rightEntityIterator.hasNext()) {
-    upcomingSelection=null;
-  }
- else {
-    leftEntity=leftEntityIterator.next();
-    createUpcomingSelection();
-  }
+  leftEntityIterator=leftEntitySelector.listIterator();
+  rightEntityIterator=IteratorUtils.emptyListIterator();
+  createUpcomingSelection();
 }

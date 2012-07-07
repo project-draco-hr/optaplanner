@@ -1,0 +1,8 @@
+{
+  if (!randomSelection) {
+    return cachedEntityList.listIterator();
+  }
+ else {
+    throw new IllegalStateException("ListIterator is not supported with randomSelection (" + randomSelection + ").");
+  }
+}

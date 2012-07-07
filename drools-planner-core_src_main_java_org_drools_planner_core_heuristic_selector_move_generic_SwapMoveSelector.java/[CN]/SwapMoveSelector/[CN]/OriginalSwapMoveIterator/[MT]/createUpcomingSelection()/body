@@ -5,7 +5,20 @@
       return;
     }
     leftEntity=leftEntityIterator.next();
-    rightEntityIterator=rightEntitySelector.iterator();
+    if (!leftEqualsRight) {
+      rightEntityIterator=rightEntitySelector.listIterator();
+      if (!rightEntityIterator.hasNext()) {
+        upcomingSelection=null;
+        return;
+      }
+    }
+ else {
+      if (!leftEntityIterator.hasNext()) {
+        upcomingSelection=null;
+        return;
+      }
+      rightEntityIterator=rightEntitySelector.listIterator(leftEntityIterator.nextIndex());
+    }
   }
   Object rightEntity=rightEntityIterator.next();
   upcomingSelection=anyChained ? new GenericChainedSwapMove(variableDescriptors,leftEntity,rightEntity) : new GenericSwapMove(variableDescriptors,leftEntity,rightEntity);

@@ -1,5 +1,6 @@
 {
-  EntitySelector leftEntitySelector=leftEntitySelectorConfig.buildEntitySelector(environmentMode,solutionDescriptor,resolvedSelectionOrder,resolvedCacheType);
+  EntitySelector leftEntitySelector=entitySelectorConfig.buildEntitySelector(environmentMode,solutionDescriptor,resolvedSelectionOrder,resolvedCacheType);
+  EntitySelectorConfig rightEntitySelectorConfig=secondaryEntitySelectorConfig == null ? entitySelectorConfig : secondaryEntitySelectorConfig;
   EntitySelector rightEntitySelector=rightEntitySelectorConfig.buildEntitySelector(environmentMode,solutionDescriptor,resolvedSelectionOrder,resolvedCacheType);
   return new SwapMoveSelector(leftEntitySelector,rightEntitySelector,resolvedSelectionOrder == SelectionOrder.RANDOM);
 }
