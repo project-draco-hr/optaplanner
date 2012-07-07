@@ -1,0 +1,70 @@
+{
+  EntitySelector entitySelector=mock(EntitySelector.class);
+  final List<Object> entityList=Arrays.<Object>asList(new TestdataEntity("e1"),new TestdataEntity("e2"),new TestdataEntity("e3"),new TestdataEntity("e4"));
+  PlanningEntityDescriptor entityDescriptor=mock(PlanningEntityDescriptor.class);
+  when(entityDescriptor.getPlanningEntityClass()).thenReturn((Class)TestdataEntity.class);
+  when(entitySelector.getEntityDescriptor()).thenReturn(entityDescriptor);
+  when(entitySelector.iterator()).thenAnswer(new Answer<Object>(){
+    public Object answer(    InvocationOnMock invocation) throws Throwable {
+      return entityList.iterator();
+    }
+  }
+);
+  when(entitySelector.listIterator()).thenAnswer(new Answer<Object>(){
+    public Object answer(    InvocationOnMock invocation) throws Throwable {
+      return entityList.listIterator();
+    }
+  }
+);
+  for (int i=0; i < entityList.size(); i++) {
+    final int index=i;
+    when(entitySelector.listIterator(index)).thenAnswer(new Answer<Object>(){
+      public Object answer(      InvocationOnMock invocation) throws Throwable {
+        return entityList.listIterator(index);
+      }
+    }
+);
+  }
+  when(entitySelector.isContinuous()).thenReturn(false);
+  when(entitySelector.isNeverEnding()).thenReturn(false);
+  when(entitySelector.getSize()).thenReturn((long)entityList.size());
+  SwapMoveSelector moveSelector=new SwapMoveSelector(entitySelector,entitySelector,false);
+  DefaultSolverScope solverScope=mock(DefaultSolverScope.class);
+  moveSelector.solvingStarted(solverScope);
+  AbstractSolverPhaseScope phaseScopeA=mock(AbstractSolverPhaseScope.class);
+  when(phaseScopeA.getSolverScope()).thenReturn(solverScope);
+  moveSelector.phaseStarted(phaseScopeA);
+  AbstractStepScope stepScopeA1=mock(AbstractStepScope.class);
+  when(stepScopeA1.getSolverPhaseScope()).thenReturn(phaseScopeA);
+  moveSelector.stepStarted(stepScopeA1);
+  runAsserts(moveSelector);
+  moveSelector.stepEnded(stepScopeA1);
+  AbstractStepScope stepScopeA2=mock(AbstractStepScope.class);
+  when(stepScopeA2.getSolverPhaseScope()).thenReturn(phaseScopeA);
+  moveSelector.stepStarted(stepScopeA2);
+  runAsserts(moveSelector);
+  moveSelector.stepEnded(stepScopeA2);
+  moveSelector.phaseEnded(phaseScopeA);
+  AbstractSolverPhaseScope phaseScopeB=mock(AbstractSolverPhaseScope.class);
+  when(phaseScopeB.getSolverScope()).thenReturn(solverScope);
+  moveSelector.phaseStarted(phaseScopeB);
+  AbstractStepScope stepScopeB1=mock(AbstractStepScope.class);
+  when(stepScopeB1.getSolverPhaseScope()).thenReturn(phaseScopeB);
+  moveSelector.stepStarted(stepScopeB1);
+  runAsserts(moveSelector);
+  moveSelector.stepEnded(stepScopeB1);
+  AbstractStepScope stepScopeB2=mock(AbstractStepScope.class);
+  when(stepScopeB2.getSolverPhaseScope()).thenReturn(phaseScopeB);
+  moveSelector.stepStarted(stepScopeB2);
+  runAsserts(moveSelector);
+  moveSelector.stepEnded(stepScopeB2);
+  AbstractStepScope stepScopeB3=mock(AbstractStepScope.class);
+  when(stepScopeB3.getSolverPhaseScope()).thenReturn(phaseScopeB);
+  moveSelector.stepStarted(stepScopeB3);
+  runAsserts(moveSelector);
+  moveSelector.stepEnded(stepScopeB3);
+  moveSelector.phaseEnded(phaseScopeB);
+  moveSelector.solvingEnded(solverScope);
+  verify(entitySelector,times(1)).solvingStarted(solverScope);
+  verify(entitySelector,times(1)).solvingEnded(solverScope);
+}

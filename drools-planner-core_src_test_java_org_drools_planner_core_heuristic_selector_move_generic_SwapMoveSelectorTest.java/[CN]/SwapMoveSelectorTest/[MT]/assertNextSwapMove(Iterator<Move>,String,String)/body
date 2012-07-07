@@ -1,0 +1,6 @@
+{
+  assertTrue(iterator.hasNext());
+  GenericSwapMove move=(GenericSwapMove)iterator.next();
+  assertCode(leftEntityCode,move.getLeftPlanningEntity());
+  assertCode(rightEntityCode,move.getRightPlanningEntity());
+}
