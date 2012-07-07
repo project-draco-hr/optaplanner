@@ -1,12 +1,12 @@
 {
   Iterator<Move> iterator=moveSelector.iterator();
   assertNotNull(iterator);
-  assertNextSwapMove(iterator,"e1","e2");
-  assertNextSwapMove(iterator,"e1","e3");
-  assertNextSwapMove(iterator,"e1","e4");
-  assertNextSwapMove(iterator,"e2","e3");
-  assertNextSwapMove(iterator,"e2","e4");
-  assertNextSwapMove(iterator,"e3","e4");
+  assertNextSwapMove(iterator,"a","b");
+  assertNextSwapMove(iterator,"a","c");
+  assertNextSwapMove(iterator,"a","d");
+  assertNextSwapMove(iterator,"b","c");
+  assertNextSwapMove(iterator,"b","d");
+  assertNextSwapMove(iterator,"c","d");
   assertFalse(iterator.hasNext());
   assertEquals(false,moveSelector.isContinuous());
   assertEquals(false,moveSelector.isNeverEnding());

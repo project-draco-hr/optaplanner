@@ -1,8 +1,8 @@
 {
-  EntitySelector entitySelector=mock(EntitySelector.class);
-  final List<Object> entityList=Arrays.<Object>asList(new TestdataEntity("e1"),new TestdataEntity("e2"),new TestdataEntity("e3"),new TestdataEntity("e4"));
   PlanningEntityDescriptor entityDescriptor=mock(PlanningEntityDescriptor.class);
   when(entityDescriptor.getPlanningEntityClass()).thenReturn((Class)TestdataEntity.class);
+  EntitySelector entitySelector=mock(EntitySelector.class);
+  final List<Object> entityList=Arrays.<Object>asList(new TestdataEntity("a"),new TestdataEntity("b"),new TestdataEntity("c"),new TestdataEntity("d"));
   when(entitySelector.getEntityDescriptor()).thenReturn(entityDescriptor);
   when(entitySelector.iterator()).thenAnswer(new Answer<Object>(){
     public Object answer(    InvocationOnMock invocation) throws Throwable {
