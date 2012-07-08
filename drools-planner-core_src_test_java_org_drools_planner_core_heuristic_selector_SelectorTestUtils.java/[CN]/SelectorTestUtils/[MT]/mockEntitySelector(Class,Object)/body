@@ -1,0 +1,4 @@
+{
+  PlanningEntityDescriptor entityDescriptor=mockEntityDescriptor(entityClass);
+  return mockEntitySelector(entityDescriptor,entities);
+}

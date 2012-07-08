@@ -1,60 +1,8 @@
 {
   PlanningEntityDescriptor entityDescriptor=mock(PlanningEntityDescriptor.class);
   when(entityDescriptor.getPlanningEntityClass()).thenReturn((Class)TestdataEntity.class);
-  EntitySelector leftEntitySelector=mock(EntitySelector.class);
-  final List<Object> leftEntityList=Arrays.<Object>asList(new TestdataEntity("a"),new TestdataEntity("b"),new TestdataEntity("c"),new TestdataEntity("d"));
-  when(leftEntitySelector.getEntityDescriptor()).thenReturn(entityDescriptor);
-  when(leftEntitySelector.iterator()).thenAnswer(new Answer<Object>(){
-    public Object answer(    InvocationOnMock invocation) throws Throwable {
-      return leftEntityList.iterator();
-    }
-  }
-);
-  when(leftEntitySelector.listIterator()).thenAnswer(new Answer<Object>(){
-    public Object answer(    InvocationOnMock invocation) throws Throwable {
-      return leftEntityList.listIterator();
-    }
-  }
-);
-  for (int i=0; i < leftEntityList.size(); i++) {
-    final int index=i;
-    when(leftEntitySelector.listIterator(index)).thenAnswer(new Answer<Object>(){
-      public Object answer(      InvocationOnMock invocation) throws Throwable {
-        return leftEntityList.listIterator(index);
-      }
-    }
-);
-  }
-  when(leftEntitySelector.isContinuous()).thenReturn(false);
-  when(leftEntitySelector.isNeverEnding()).thenReturn(false);
-  when(leftEntitySelector.getSize()).thenReturn((long)leftEntityList.size());
-  EntitySelector rightEntitySelector=mock(EntitySelector.class);
-  final List<Object> rightEntityList=Arrays.<Object>asList(new TestdataEntity("x"),new TestdataEntity("y"),new TestdataEntity("z"));
-  when(rightEntitySelector.getEntityDescriptor()).thenReturn(entityDescriptor);
-  when(rightEntitySelector.iterator()).thenAnswer(new Answer<Object>(){
-    public Object answer(    InvocationOnMock invocation) throws Throwable {
-      return rightEntityList.iterator();
-    }
-  }
-);
-  when(rightEntitySelector.listIterator()).thenAnswer(new Answer<Object>(){
-    public Object answer(    InvocationOnMock invocation) throws Throwable {
-      return rightEntityList.listIterator();
-    }
-  }
-);
-  for (int i=0; i < rightEntityList.size(); i++) {
-    final int index=i;
-    when(rightEntitySelector.listIterator(index)).thenAnswer(new Answer<Object>(){
-      public Object answer(      InvocationOnMock invocation) throws Throwable {
-        return rightEntityList.listIterator(index);
-      }
-    }
-);
-  }
-  when(rightEntitySelector.isContinuous()).thenReturn(false);
-  when(rightEntitySelector.isNeverEnding()).thenReturn(false);
-  when(rightEntitySelector.getSize()).thenReturn((long)rightEntityList.size());
+  EntitySelector leftEntitySelector=SelectorTestUtils.mockEntitySelector(entityDescriptor,new TestdataEntity("a"),new TestdataEntity("b"),new TestdataEntity("c"),new TestdataEntity("d"));
+  EntitySelector rightEntitySelector=SelectorTestUtils.mockEntitySelector(entityDescriptor,new TestdataEntity("x"),new TestdataEntity("y"),new TestdataEntity("z"));
   SwapMoveSelector moveSelector=new SwapMoveSelector(leftEntitySelector,rightEntitySelector,false);
   DefaultSolverScope solverScope=mock(DefaultSolverScope.class);
   moveSelector.solvingStarted(solverScope);

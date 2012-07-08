@@ -1,0 +1,5 @@
+{
+  PlanningEntityDescriptor entityDescriptor=mock(PlanningEntityDescriptor.class);
+  when(entityDescriptor.getPlanningEntityClass()).thenReturn(entityClass);
+  return entityDescriptor;
+}

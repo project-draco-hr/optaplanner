@@ -1,0 +1,3 @@
+Iterator<Move> iterator
+String entityCode
+String toValueCode

@@ -1,0 +1,6 @@
+{
+  assertTrue(iterator.hasNext());
+  GenericChangeMove move=(GenericChangeMove)iterator.next();
+  assertCode(entityCode,move.getPlanningEntity());
+  assertCode(toValueCode,move.getToPlanningValue());
+}

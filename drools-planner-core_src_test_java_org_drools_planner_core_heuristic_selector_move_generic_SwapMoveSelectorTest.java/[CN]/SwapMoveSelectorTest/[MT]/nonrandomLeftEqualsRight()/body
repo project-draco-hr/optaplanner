@@ -1,33 +1,5 @@
 {
-  PlanningEntityDescriptor entityDescriptor=mock(PlanningEntityDescriptor.class);
-  when(entityDescriptor.getPlanningEntityClass()).thenReturn((Class)TestdataEntity.class);
-  EntitySelector entitySelector=mock(EntitySelector.class);
-  final List<Object> entityList=Arrays.<Object>asList(new TestdataEntity("a"),new TestdataEntity("b"),new TestdataEntity("c"),new TestdataEntity("d"));
-  when(entitySelector.getEntityDescriptor()).thenReturn(entityDescriptor);
-  when(entitySelector.iterator()).thenAnswer(new Answer<Object>(){
-    public Object answer(    InvocationOnMock invocation) throws Throwable {
-      return entityList.iterator();
-    }
-  }
-);
-  when(entitySelector.listIterator()).thenAnswer(new Answer<Object>(){
-    public Object answer(    InvocationOnMock invocation) throws Throwable {
-      return entityList.listIterator();
-    }
-  }
-);
-  for (int i=0; i < entityList.size(); i++) {
-    final int index=i;
-    when(entitySelector.listIterator(index)).thenAnswer(new Answer<Object>(){
-      public Object answer(      InvocationOnMock invocation) throws Throwable {
-        return entityList.listIterator(index);
-      }
-    }
-);
-  }
-  when(entitySelector.isContinuous()).thenReturn(false);
-  when(entitySelector.isNeverEnding()).thenReturn(false);
-  when(entitySelector.getSize()).thenReturn((long)entityList.size());
+  EntitySelector entitySelector=SelectorTestUtils.mockEntitySelector(TestdataEntity.class,new TestdataEntity("a"),new TestdataEntity("b"),new TestdataEntity("c"),new TestdataEntity("d"));
   SwapMoveSelector moveSelector=new SwapMoveSelector(entitySelector,entitySelector,false);
   DefaultSolverScope solverScope=mock(DefaultSolverScope.class);
   moveSelector.solvingStarted(solverScope);
