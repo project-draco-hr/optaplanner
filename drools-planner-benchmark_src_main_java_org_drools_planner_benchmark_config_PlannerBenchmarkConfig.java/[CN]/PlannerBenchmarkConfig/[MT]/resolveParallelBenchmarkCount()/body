@@ -32,7 +32,7 @@
     resolvedParallelBenchmarkCount=((Number)scriptResult).intValue();
   }
   if (resolvedParallelBenchmarkCount < 1) {
-    throw new IllegalArgumentException("The parallelBenchmarkCount (" + parallelBenchmarkCount + ") resulted in a resolvedParallelBenchmarkCount ("+ resolvedParallelBenchmarkCount+ ") that is lower then 1.");
+    throw new IllegalArgumentException("The parallelBenchmarkCount (" + parallelBenchmarkCount + ") resulted in a resolvedParallelBenchmarkCount ("+ resolvedParallelBenchmarkCount+ ") that is lower than 1.");
   }
   if (resolvedParallelBenchmarkCount > availableProcessorCount) {
     logger.warn("Because the resolvedParallelBenchmarkCount (" + resolvedParallelBenchmarkCount + ") is higher than the availableProcessorCount ("+ availableProcessorCount+ "), it is reduced to availableProcessorCount.");
