@@ -1,0 +1,18 @@
+{
+  toIndex++;
+  if (toIndex >= anchorChainSize) {
+    fromIndex++;
+    toIndex=fromIndex + minimumSubChainSize;
+    while (toIndex >= anchorChainSize) {
+      if (!anchorChainIterator.hasNext()) {
+        upcomingSelection=null;
+        return;
+      }
+      anchorChain=anchorChainIterator.next().getValueList();
+      anchorChainSize=anchorChain.size();
+      fromIndex=0;
+      toIndex=fromIndex + minimumSubChainSize;
+    }
+  }
+  upcomingSelection=new SubChain(anchorChain.subList(fromIndex,toIndex));
+}

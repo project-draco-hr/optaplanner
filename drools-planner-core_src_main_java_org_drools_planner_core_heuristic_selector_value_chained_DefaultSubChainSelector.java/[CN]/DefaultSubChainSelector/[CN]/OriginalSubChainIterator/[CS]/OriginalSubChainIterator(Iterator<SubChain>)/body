@@ -1,0 +1,7 @@
+{
+  this.anchorChainIterator=anchorChainIterator;
+  anchorChainSize=0;
+  fromIndex=-1;
+  toIndex=-1;
+  createUpcomingSelection();
+}

@@ -1,0 +1,12 @@
+{
+  this.valueSelector=valueSelector;
+  this.randomSelection=randomSelection;
+  if (!valueSelector.getVariableDescriptor().isChained()) {
+    throw new IllegalArgumentException("The valueSelector (" + valueSelector + ") must have a chained variableDescriptor chained ("+ valueSelector.getVariableDescriptor().isChained()+ ") on the class ("+ getClass().getName()+ ").");
+  }
+  if (valueSelector.isNeverEnding()) {
+    throw new IllegalStateException("The valueSelector (" + valueSelector + ") has neverEnding ("+ valueSelector.isNeverEnding()+ ") on a class ("+ getClass().getName()+ ") instance.");
+  }
+  solverPhaseLifecycleSupport.addEventListener(valueSelector);
+  solverPhaseLifecycleSupport.addEventListener(new SelectionCacheLifecycleBridge(SelectionCacheType.STEP,this));
+}

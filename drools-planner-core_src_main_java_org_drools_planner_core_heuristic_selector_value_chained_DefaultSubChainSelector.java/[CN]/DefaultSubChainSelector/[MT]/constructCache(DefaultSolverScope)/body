@@ -1,0 +1,26 @@
+{
+  ScoreDirector scoreDirector=solverScope.getScoreDirector();
+  PlanningVariableDescriptor variableDescriptor=valueSelector.getVariableDescriptor();
+  Class<?> entityClass=variableDescriptor.getPlanningEntityDescriptor().getPlanningEntityClass();
+  long valueSize=valueSelector.getSize();
+  if (valueSize > (long)Integer.MAX_VALUE) {
+    throw new IllegalStateException("The subChainSelector (" + this + ") has a valueSelector ("+ valueSelector+ ") with valueSize ("+ valueSize+ ") which is higher than Integer.MAX_VALUE.");
+  }
+  List<Object> anchorList=new LinkedList<Object>();
+  for (  Object value : valueSelector) {
+    if (!entityClass.isAssignableFrom(value.getClass())) {
+      anchorList.add(value);
+    }
+  }
+  anchorChainList=new ArrayList<SubChain>(anchorList.size());
+  int anchorChainInitialCapacity=((int)valueSize / anchorList.size()) + 1;
+  for (  Object anchor : anchorList) {
+    List<Object> anchorChain=new ArrayList<Object>(anchorChainInitialCapacity);
+    Object trailingEntity=scoreDirector.getTrailingEntity(variableDescriptor,anchor);
+    while (trailingEntity != null) {
+      anchorChain.add(trailingEntity);
+      trailingEntity=scoreDirector.getTrailingEntity(variableDescriptor,trailingEntity);
+    }
+    anchorChainList.add(new SubChain(anchorChain));
+  }
+}

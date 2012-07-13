@@ -1,0 +1,8 @@
+{
+  if (!randomSelection) {
+    return new OriginalSubChainIterator(anchorChainList.iterator());
+  }
+ else {
+    throw new UnsupportedOperationException("");
+  }
+}

@@ -1,0 +1,10 @@
+{
+  assertTrue(iterator.hasNext());
+  SubChain subChain=iterator.next();
+  List<Object> valueList=subChain.getValueList();
+  String message="Expected valueCodes (" + Arrays.toString(valueCodes) + ") but received valueList ("+ valueList+ ").";
+  assertEquals(message,valueCodes.length,valueList.size());
+  for (int i=0; i < valueCodes.length; i++) {
+    assertCode(message,valueCodes[i],valueList.get(i));
+  }
+}

@@ -1,0 +1,8 @@
+{
+  long size=0L;
+  for (  SubChain anchorChain : anchorChainList) {
+    long anchorChainSize=anchorChain.getValueList().size();
+    size+=anchorChainSize * (anchorChainSize - 1L) / 2L;
+  }
+  return size;
+}
