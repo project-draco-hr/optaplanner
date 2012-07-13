@@ -1,6 +1,6 @@
 {
   if (!randomSelection) {
-    return new OriginalSubChainIterator(anchorChainList.iterator());
+    return new OriginalSubChainIterator(anchorTrailingChainList.iterator());
   }
  else {
     throw new UnsupportedOperationException("");

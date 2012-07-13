@@ -1,1 +1,1 @@
-Iterator<SubChain> anchorChainIterator
+Iterator<SubChain> anchorTrailingChainIterator

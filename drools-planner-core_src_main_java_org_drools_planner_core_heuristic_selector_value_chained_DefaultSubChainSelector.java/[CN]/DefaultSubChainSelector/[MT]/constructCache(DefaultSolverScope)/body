@@ -12,7 +12,7 @@
       anchorList.add(value);
     }
   }
-  anchorChainList=new ArrayList<SubChain>(anchorList.size());
+  anchorTrailingChainList=new ArrayList<SubChain>(anchorList.size());
   int anchorChainInitialCapacity=((int)valueSize / anchorList.size()) + 1;
   for (  Object anchor : anchorList) {
     List<Object> anchorChain=new ArrayList<Object>(anchorChainInitialCapacity);
@@ -21,6 +21,6 @@
       anchorChain.add(trailingEntity);
       trailingEntity=scoreDirector.getTrailingEntity(variableDescriptor,trailingEntity);
     }
-    anchorChainList.add(new SubChain(anchorChain));
+    anchorTrailingChainList.add(new SubChain(anchorChain));
   }
 }

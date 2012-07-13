@@ -9,4 +9,7 @@
   }
   solverPhaseLifecycleSupport.addEventListener(valueSelector);
   solverPhaseLifecycleSupport.addEventListener(new SelectionCacheLifecycleBridge(SelectionCacheType.STEP,this));
+  if (minimumSubChainSize < 1) {
+    throw new IllegalStateException("The minimumSubChainSize (" + minimumSubChainSize + ") must be at least 1.");
+  }
 }
