@@ -1,0 +1,20 @@
+{
+  Iterator<SubChain> iterator=subChainSelector.iterator();
+  assertNotNull(iterator);
+  assertNextSubChain(iterator,"a1");
+  assertNextSubChain(iterator,"a1","a2");
+  assertNextSubChain(iterator,"a1","a2","a4");
+  assertNextSubChain(iterator,"a2");
+  assertNextSubChain(iterator,"a2","a4");
+  assertNextSubChain(iterator,"a4");
+  assertNextSubChain(iterator,"b1");
+  assertNextSubChain(iterator,"b1","a3");
+  assertNextSubChain(iterator,"b1","a3","b2");
+  assertNextSubChain(iterator,"a3");
+  assertNextSubChain(iterator,"a3","b2");
+  assertNextSubChain(iterator,"b2");
+  assertFalse(iterator.hasNext());
+  assertEquals(false,subChainSelector.isContinuous());
+  assertEquals(false,subChainSelector.isNeverEnding());
+  assertEquals(12L,subChainSelector.getSize());
+}
