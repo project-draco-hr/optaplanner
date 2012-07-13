@@ -1,3 +1,0 @@
-{
-  runNonrandomAndCacheType(SelectionCacheType.PHASE,2);
-}

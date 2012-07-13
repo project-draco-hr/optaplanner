@@ -1,0 +1,3 @@
+{
+  runOriginalAndCacheType(SelectionCacheType.PHASE,2);
+}

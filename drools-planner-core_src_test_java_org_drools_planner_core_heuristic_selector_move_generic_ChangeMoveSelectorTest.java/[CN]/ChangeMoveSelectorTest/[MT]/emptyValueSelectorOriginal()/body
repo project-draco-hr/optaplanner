@@ -1,6 +1,6 @@
 {
   EntitySelector entitySelector=SelectorTestUtils.mockEntitySelector(TestdataEntity.class,new TestdataEntity("a"),new TestdataEntity("b"),new TestdataEntity("c"),new TestdataEntity("d"));
-  ValueSelector valueSelector=SelectorTestUtils.mockValueSelector(TestdataEntity.class,"value",new TestdataValue("1"),new TestdataValue("2"),new TestdataValue("3"));
+  ValueSelector valueSelector=SelectorTestUtils.mockValueSelector(TestdataEntity.class,"value");
   ChangeMoveSelector moveSelector=new ChangeMoveSelector(entitySelector,valueSelector,false);
   DefaultSolverScope solverScope=mock(DefaultSolverScope.class);
   moveSelector.solvingStarted(solverScope);
@@ -10,12 +10,12 @@
   AbstractStepScope stepScopeA1=mock(AbstractStepScope.class);
   when(stepScopeA1.getSolverPhaseScope()).thenReturn(phaseScopeA);
   moveSelector.stepStarted(stepScopeA1);
-  runAssertsNonrandom(moveSelector);
+  runAssertsEmptyOriginal(moveSelector);
   moveSelector.stepEnded(stepScopeA1);
   AbstractStepScope stepScopeA2=mock(AbstractStepScope.class);
   when(stepScopeA2.getSolverPhaseScope()).thenReturn(phaseScopeA);
   moveSelector.stepStarted(stepScopeA2);
-  runAssertsNonrandom(moveSelector);
+  runAssertsEmptyOriginal(moveSelector);
   moveSelector.stepEnded(stepScopeA2);
   moveSelector.phaseEnded(phaseScopeA);
   AbstractSolverPhaseScope phaseScopeB=mock(AbstractSolverPhaseScope.class);
@@ -24,17 +24,17 @@
   AbstractStepScope stepScopeB1=mock(AbstractStepScope.class);
   when(stepScopeB1.getSolverPhaseScope()).thenReturn(phaseScopeB);
   moveSelector.stepStarted(stepScopeB1);
-  runAssertsNonrandom(moveSelector);
+  runAssertsEmptyOriginal(moveSelector);
   moveSelector.stepEnded(stepScopeB1);
   AbstractStepScope stepScopeB2=mock(AbstractStepScope.class);
   when(stepScopeB2.getSolverPhaseScope()).thenReturn(phaseScopeB);
   moveSelector.stepStarted(stepScopeB2);
-  runAssertsNonrandom(moveSelector);
+  runAssertsEmptyOriginal(moveSelector);
   moveSelector.stepEnded(stepScopeB2);
   AbstractStepScope stepScopeB3=mock(AbstractStepScope.class);
   when(stepScopeB3.getSolverPhaseScope()).thenReturn(phaseScopeB);
   moveSelector.stepStarted(stepScopeB3);
-  runAssertsNonrandom(moveSelector);
+  runAssertsEmptyOriginal(moveSelector);
   moveSelector.stepEnded(stepScopeB3);
   moveSelector.phaseEnded(phaseScopeB);
   moveSelector.solvingEnded(solverScope);
