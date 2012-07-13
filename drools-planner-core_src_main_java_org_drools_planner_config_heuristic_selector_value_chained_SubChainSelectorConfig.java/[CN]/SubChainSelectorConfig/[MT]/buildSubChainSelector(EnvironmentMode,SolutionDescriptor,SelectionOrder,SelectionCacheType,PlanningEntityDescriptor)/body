@@ -1,4 +1,4 @@
 {
-  ValueSelector valueSelector=valueSelectorConfig.buildValueSelector(environmentMode,solutionDescriptor,resolvedSelectionOrder,resolvedCacheType,entityDescriptor);
+  ValueSelector valueSelector=valueSelectorConfig.buildValueSelector(environmentMode,solutionDescriptor,SelectionOrder.ORIGINAL,resolvedCacheType,entityDescriptor);
   return new DefaultSubChainSelector(valueSelector,resolvedSelectionOrder == SelectionOrder.RANDOM);
 }
