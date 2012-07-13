@@ -1,0 +1,16 @@
+{
+  int anchorTrailingChainListIndex=workingRandom.nextInt(anchorTrailingChainList.size());
+  List<Object> anchorTrailingChain=anchorTrailingChainList.get(anchorTrailingChainListIndex).getValueList();
+  int anchorTrailingChainSize=anchorTrailingChain.size();
+  int n=anchorTrailingChainSize - minimumSubChainSize + 1;
+  int size=n * (n + 1) / 2;
+  int sizeIndex=workingRandom.nextInt(size);
+  int fromIndex=sizeIndex;
+  int toIndex=n;
+  while (fromIndex > toIndex) {
+    fromIndex-=toIndex;
+    toIndex--;
+  }
+  toIndex+=minimumSubChainSize - 1;
+  upcomingSelection=new SubChain(anchorTrailingChain.subList(fromIndex,toIndex));
+}

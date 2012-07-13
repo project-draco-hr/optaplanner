@@ -3,6 +3,6 @@
     return new OriginalSubChainIterator(anchorTrailingChainList.iterator());
   }
  else {
-    throw new UnsupportedOperationException("");
+    return new RandomSubChainIterator();
   }
 }

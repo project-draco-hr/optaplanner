@@ -21,6 +21,8 @@
       anchorChain.add(trailingEntity);
       trailingEntity=scoreDirector.getTrailingEntity(variableDescriptor,trailingEntity);
     }
-    anchorTrailingChainList.add(new SubChain(anchorChain));
+    if (anchorChain.size() >= minimumSubChainSize) {
+      anchorTrailingChainList.add(new SubChain(anchorChain));
+    }
   }
 }
