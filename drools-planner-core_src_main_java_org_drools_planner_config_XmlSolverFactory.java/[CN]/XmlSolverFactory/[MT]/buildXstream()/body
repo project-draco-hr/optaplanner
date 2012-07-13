@@ -9,5 +9,6 @@
   xStream.processAnnotations(UnionMoveSelectorConfig.class);
   xStream.processAnnotations(ChangeMoveSelectorConfig.class);
   xStream.processAnnotations(SwapMoveSelectorConfig.class);
+  xStream.processAnnotations(SubChainChangeMoveSelectorConfig.class);
   return xStream;
 }

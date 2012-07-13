@@ -1,0 +1,11 @@
+{
+  subChainIterator=subChainSelector.iterator();
+  valueIterator=valueSelector.iterator();
+  if (!subChainIterator.hasNext() || !valueIterator.hasNext()) {
+    upcomingSelection=null;
+  }
+ else {
+    upcomingSubchain=subChainIterator.next();
+    createUpcomingSelection();
+  }
+}

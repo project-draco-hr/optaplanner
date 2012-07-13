@@ -1,0 +1,3 @@
+{
+  return (long)subChainSelector.getSize() * (long)valueSelector.getSize();
+}

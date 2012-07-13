@@ -1,0 +1,6 @@
+{
+  PlanningEntityDescriptor entityDescriptor=fetchEntityDescriptor(solutionDescriptor);
+  SubChainSelector subChainSelector=subChainSelectorConfig.buildSubChainSelector(environmentMode,solutionDescriptor,resolvedSelectionOrder,resolvedCacheType,entityDescriptor);
+  ValueSelector valueSelector=valueSelectorConfig.buildValueSelector(environmentMode,solutionDescriptor,resolvedSelectionOrder,resolvedCacheType,entityDescriptor);
+  return new SubChainChangeMoveSelector(subChainSelector,valueSelector,resolvedSelectionOrder == SelectionOrder.RANDOM);
+}

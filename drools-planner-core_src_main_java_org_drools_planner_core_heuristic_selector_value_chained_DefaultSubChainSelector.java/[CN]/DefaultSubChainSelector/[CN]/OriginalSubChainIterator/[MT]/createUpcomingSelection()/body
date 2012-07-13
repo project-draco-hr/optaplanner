@@ -8,7 +8,7 @@
         upcomingSelection=null;
         return;
       }
-      anchorTrailingChain=anchorTrailingChainIterator.next().getValueList();
+      anchorTrailingChain=anchorTrailingChainIterator.next().getEntityList();
       anchorTrailingChainSize=anchorTrailingChain.size();
       fromIndex=0;
       toIndex=fromIndex + minimumSubChainSize;

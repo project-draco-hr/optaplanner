@@ -1,0 +1,3 @@
+{
+  return subChainSelector.isContinuous() || valueSelector.isContinuous();
+}

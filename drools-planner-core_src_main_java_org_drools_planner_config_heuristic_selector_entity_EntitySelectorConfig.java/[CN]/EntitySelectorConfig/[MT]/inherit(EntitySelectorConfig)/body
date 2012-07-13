@@ -1,8 +1,6 @@
 {
   super.inherit(inheritedConfig);
-  if (planningEntityClass == null) {
-    planningEntityClass=inheritedConfig.getPlanningEntityClass();
-  }
+  planningEntityClass=ConfigUtils.inheritOverwritableProperty(planningEntityClass,inheritedConfig.getPlanningEntityClass());
   selectionOrder=ConfigUtils.inheritOverwritableProperty(selectionOrder,inheritedConfig.getSelectionOrder());
   cacheType=ConfigUtils.inheritOverwritableProperty(cacheType,inheritedConfig.getCacheType());
   entityFilterClass=ConfigUtils.inheritOverwritableProperty(entityFilterClass,inheritedConfig.getEntityFilterClass());

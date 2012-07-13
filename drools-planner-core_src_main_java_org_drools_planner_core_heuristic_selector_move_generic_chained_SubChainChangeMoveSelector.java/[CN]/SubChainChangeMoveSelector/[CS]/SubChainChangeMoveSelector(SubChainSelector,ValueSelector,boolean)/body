@@ -1,0 +1,18 @@
+{
+  this.subChainSelector=subChainSelector;
+  this.valueSelector=valueSelector;
+  this.randomSelection=randomSelection;
+  if (subChainSelector.getVariableDescriptor() != valueSelector.getVariableDescriptor()) {
+    throw new IllegalStateException("The subChainSelector (" + subChainSelector + ")'s variableDescriptor ("+ subChainSelector.getVariableDescriptor()+ ") is not the same as the valueSelector ("+ valueSelector+ ")'s variableDescriptor("+ valueSelector.getVariableDescriptor()+ ").");
+  }
+  if (!randomSelection) {
+    if (subChainSelector.isNeverEnding()) {
+      throw new IllegalStateException("The subChainSelector (" + subChainSelector + ") has neverEnding ("+ subChainSelector.isNeverEnding()+ ") on a class ("+ getClass().getName()+ ") instance.");
+    }
+    if (valueSelector.isNeverEnding()) {
+      throw new IllegalStateException("The valueSelector (" + valueSelector + ") has neverEnding ("+ valueSelector.isNeverEnding()+ ") on a class ("+ getClass().getName()+ ") instance.");
+    }
+  }
+  solverPhaseLifecycleSupport.addEventListener(subChainSelector);
+  solverPhaseLifecycleSupport.addEventListener(valueSelector);
+}

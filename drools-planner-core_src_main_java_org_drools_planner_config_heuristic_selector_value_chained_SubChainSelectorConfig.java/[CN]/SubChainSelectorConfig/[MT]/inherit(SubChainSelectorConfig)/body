@@ -1,0 +1,9 @@
+{
+  super.inherit(inheritedConfig);
+  if (valueSelectorConfig == null) {
+    valueSelectorConfig=inheritedConfig.getValueSelectorConfig();
+  }
+ else   if (inheritedConfig.getValueSelectorConfig() != null) {
+    valueSelectorConfig.inherit(inheritedConfig.getValueSelectorConfig());
+  }
+}

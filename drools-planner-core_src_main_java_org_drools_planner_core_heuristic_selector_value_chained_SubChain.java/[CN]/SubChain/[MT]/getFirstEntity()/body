@@ -1,0 +1,6 @@
+{
+  if (entityList.isEmpty()) {
+    return null;
+  }
+  return entityList.get(0);
+}

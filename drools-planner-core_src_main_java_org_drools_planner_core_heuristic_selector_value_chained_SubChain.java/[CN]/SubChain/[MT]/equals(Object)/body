@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof SubChain) {
+    SubChain other=(SubChain)o;
+    return entityList.equals(other.entityList);
+  }
+ else {
+    return false;
+  }
+}

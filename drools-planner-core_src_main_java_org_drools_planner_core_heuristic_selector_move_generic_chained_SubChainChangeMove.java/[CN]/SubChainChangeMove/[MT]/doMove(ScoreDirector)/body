@@ -1,0 +1,22 @@
+{
+  Object oldFirstPlanningValue=variableDescriptor.getValue(firstEntity);
+  Object oldTrailingEntity=scoreDirector.getTrailingEntity(variableDescriptor,lastEntity);
+  Object newTrailingEntity=scoreDirector.getTrailingEntity(variableDescriptor,toPlanningValue);
+  if (oldTrailingEntity != null) {
+    scoreDirector.beforeVariableChanged(oldTrailingEntity,variableDescriptor.getVariableName());
+    variableDescriptor.setValue(oldTrailingEntity,oldFirstPlanningValue);
+    scoreDirector.afterVariableChanged(oldTrailingEntity,variableDescriptor.getVariableName());
+  }
+  for (  Object entity : subChain.getEntityList()) {
+    scoreDirector.beforeVariableChanged(entity,variableDescriptor.getVariableName());
+  }
+  variableDescriptor.setValue(firstEntity,toPlanningValue);
+  for (  Object entity : subChain.getEntityList()) {
+    scoreDirector.afterVariableChanged(entity,variableDescriptor.getVariableName());
+  }
+  if (newTrailingEntity != null) {
+    scoreDirector.beforeVariableChanged(newTrailingEntity,variableDescriptor.getVariableName());
+    variableDescriptor.setValue(newTrailingEntity,lastEntity);
+    scoreDirector.afterVariableChanged(newTrailingEntity,variableDescriptor.getVariableName());
+  }
+}

@@ -1,2 +1,2 @@
 Iterator<SubChain> iterator
-String valueCodes
+String entityCodes
