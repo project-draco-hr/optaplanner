@@ -1,0 +1,23 @@
+{
+  if (!subChainIterator.hasNext()) {
+    subChainIterator=subChainSelector.iterator();
+  }
+  SubChain subChain=subChainIterator.next();
+  int subChainIteratorCreationCount=0;
+  while (!valueIterator.hasNext(subChain)) {
+    valueIterator=valueSelector.iterator();
+    if (!valueIterator.hasNext(subChain)) {
+      if (!subChainIterator.hasNext()) {
+        subChainIterator=subChainSelector.iterator();
+        subChainIteratorCreationCount++;
+        if (subChainIteratorCreationCount >= 2) {
+          upcomingSelection=null;
+          return;
+        }
+      }
+      subChain=subChainIterator.next();
+    }
+  }
+  Object toValue=valueIterator.next(subChain);
+  upcomingSelection=new SubChainChangeMove(subChain,valueSelector.getVariableDescriptor(),toValue);
+}

@@ -1,4 +1,7 @@
 {
+  if (subChain.getEntityList().contains(toPlanningValue)) {
+    return false;
+  }
   Object oldFirstPlanningValue=variableDescriptor.getValue(firstEntity);
-  return !subChain.getEntityList().contains(toPlanningValue) && oldFirstPlanningValue != toPlanningValue;
+  return !ObjectUtils.equals(oldFirstPlanningValue,toPlanningValue);
 }

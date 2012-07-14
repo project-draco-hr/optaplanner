@@ -1,12 +1,12 @@
 {
-  while (!valueIterator.hasNext(upcomingSubchain.getFirstEntity())) {
+  while (!valueIterator.hasNext(upcomingSubChain.getFirstEntity())) {
     if (!subChainIterator.hasNext()) {
       upcomingSelection=null;
       return;
     }
-    upcomingSubchain=subChainIterator.next();
+    upcomingSubChain=subChainIterator.next();
     valueIterator=valueSelector.iterator();
   }
-  Object toValue=valueIterator.next(upcomingSubchain);
-  upcomingSelection=new SubChainChangeMove(upcomingSubchain,valueSelector.getVariableDescriptor(),toValue);
+  Object toValue=valueIterator.next(upcomingSubChain);
+  upcomingSelection=new SubChainChangeMove(upcomingSubChain,valueSelector.getVariableDescriptor(),toValue);
 }

@@ -3,6 +3,6 @@
     return new OriginalSubChainChangeMoveIterator();
   }
  else {
-    throw new UnsupportedOperationException();
+    return new RandomSubChainChangeMoveIterator();
   }
 }
