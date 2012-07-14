@@ -3,14 +3,16 @@
   List<Object> anchorTrailingChain=anchorTrailingChainList.get(anchorTrailingChainListIndex).getEntityList();
   int anchorTrailingChainSize=anchorTrailingChain.size();
   int n=anchorTrailingChainSize - minimumSubChainSize + 1;
-  int size=n * (n + 1) / 2;
-  int sizeIndex=workingRandom.nextInt(size);
-  int fromIndex=sizeIndex;
-  int toIndex=n;
-  while (fromIndex > toIndex) {
-    fromIndex-=toIndex;
-    toIndex--;
+  long size=((long)n) * (((long)n) + 1L) / 2L;
+  long sizeIndex=RandomUtils.nextLong(workingRandom,size);
+  int fromIndex=0;
+  long subChainSize=sizeIndex;
+  long maxSize=(long)n;
+  while (subChainSize >= maxSize) {
+    subChainSize-=maxSize;
+    fromIndex++;
+    maxSize--;
   }
-  toIndex+=minimumSubChainSize - 1;
+  int toIndex=fromIndex + ((int)subChainSize) + minimumSubChainSize;
   upcomingSelection=new SubChain(anchorTrailingChain.subList(fromIndex,toIndex));
 }
