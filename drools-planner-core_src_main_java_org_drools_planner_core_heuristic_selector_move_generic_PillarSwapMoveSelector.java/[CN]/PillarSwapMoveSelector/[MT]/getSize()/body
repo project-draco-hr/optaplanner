@@ -1,0 +1,9 @@
+{
+  if (!leftEqualsRight) {
+    return (long)leftPillarSelector.getSize() * (long)rightPillarSelector.getSize();
+  }
+ else {
+    long leftSize=(long)leftPillarSelector.getSize();
+    return leftSize * (leftSize - 1L) / 2L;
+  }
+}

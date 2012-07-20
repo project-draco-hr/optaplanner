@@ -1,0 +1,3 @@
+{
+  return leftPillarSelector.isContinuous() || rightPillarSelector.isContinuous();
+}

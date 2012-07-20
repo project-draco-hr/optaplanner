@@ -1,0 +1,8 @@
+{
+  if (resolvedCacheType.compareTo(SelectionCacheType.STEP) > 0) {
+    throw new IllegalArgumentException("The subChainChangeMoveSelector's cacheType (" + resolvedCacheType + ") must not be higher than "+ SelectionCacheType.STEP+ " because the chains change every step.");
+  }
+  EntitySelector entitySelector=entitySelectorConfig.buildEntitySelector(environmentMode,solutionDescriptor,SelectionOrder.ORIGINAL,resolvedCacheType);
+  Collection<PlanningVariableDescriptor> variableDescriptors=entitySelector.getEntityDescriptor().getPlanningVariableDescriptors();
+  return new SameValuePillarSelector(entitySelector,variableDescriptors,resolvedSelectionOrder == SelectionOrder.RANDOM);
+}

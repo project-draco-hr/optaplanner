@@ -1,4 +1,7 @@
 {
+  if (resolvedCacheType.compareTo(SelectionCacheType.STEP) > 0) {
+    throw new IllegalArgumentException("The subChainChangeMoveSelector's cacheType (" + resolvedCacheType + ") must not be higher than "+ SelectionCacheType.STEP+ " because the chains change every step.");
+  }
   ValueSelector valueSelector=valueSelectorConfig.buildValueSelector(environmentMode,solutionDescriptor,SelectionOrder.ORIGINAL,resolvedCacheType,entityDescriptor);
   return new DefaultSubChainSelector(valueSelector,resolvedSelectionOrder == SelectionOrder.RANDOM);
 }

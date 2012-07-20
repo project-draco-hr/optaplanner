@@ -4,7 +4,7 @@
   }
  else   if (o instanceof GenericSwapPillarMove) {
     GenericSwapPillarMove other=(GenericSwapPillarMove)o;
-    return new EqualsBuilder().append(leftPlanningEntityList,other.leftPlanningEntityList).append(rightPlanningEntityList,other.rightPlanningEntityList).isEquals();
+    return new EqualsBuilder().append(planningVariableDescriptors,other.planningVariableDescriptors).append(leftPlanningEntityList,other.leftPlanningEntityList).append(rightPlanningEntityList,other.rightPlanningEntityList).isEquals();
   }
  else {
     return false;

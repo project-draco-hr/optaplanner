@@ -1,0 +1,8 @@
+{
+  if (!randomSelection) {
+    return cachedPillarList.listIterator();
+  }
+ else {
+    throw new IllegalStateException("ListIterator is not supported with randomSelection (" + randomSelection + ").");
+  }
+}

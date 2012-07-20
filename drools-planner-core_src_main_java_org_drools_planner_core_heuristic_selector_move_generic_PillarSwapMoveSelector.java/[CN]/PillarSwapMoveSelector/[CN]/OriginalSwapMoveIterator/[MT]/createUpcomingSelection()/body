@@ -1,0 +1,25 @@
+{
+  if (!rightEntityIterator.hasNext()) {
+    if (!leftEntityIterator.hasNext()) {
+      upcomingSelection=null;
+      return;
+    }
+    leftEntity=leftEntityIterator.next();
+    if (!leftEqualsRight) {
+      rightEntityIterator=rightPillarSelector.listIterator();
+      if (!rightEntityIterator.hasNext()) {
+        upcomingSelection=null;
+        return;
+      }
+    }
+ else {
+      if (!leftEntityIterator.hasNext()) {
+        upcomingSelection=null;
+        return;
+      }
+      rightEntityIterator=rightPillarSelector.listIterator(leftEntityIterator.nextIndex());
+    }
+  }
+  List<Object> rightEntity=rightEntityIterator.next();
+  upcomingSelection=new GenericSwapPillarMove(variableDescriptors,leftEntity,rightEntity);
+}

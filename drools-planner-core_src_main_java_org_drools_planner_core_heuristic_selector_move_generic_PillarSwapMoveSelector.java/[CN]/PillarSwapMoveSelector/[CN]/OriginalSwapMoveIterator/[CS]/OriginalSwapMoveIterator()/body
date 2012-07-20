@@ -1,0 +1,5 @@
+{
+  leftEntityIterator=leftPillarSelector.listIterator();
+  rightEntityIterator=IteratorUtils.emptyListIterator();
+  createUpcomingSelection();
+}

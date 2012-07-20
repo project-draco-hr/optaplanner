@@ -1,0 +1,21 @@
+{
+  long entitySize=entitySelector.getSize();
+  if (entitySize > (long)Integer.MAX_VALUE) {
+    throw new IllegalStateException("The subChainSelector (" + this + ") has an entitySelector ("+ entitySelector+ ") with entitySize ("+ entitySize+ ") which is higher than Integer.MAX_VALUE.");
+  }
+  Map<List<Object>,List<Object>> valueStateToPillarMap=new LinkedHashMap<List<Object>,List<Object>>((int)entitySize);
+  for (  Object entity : entitySelector) {
+    List<Object> valueState=new ArrayList<Object>(variableDescriptors.size());
+    for (    PlanningVariableDescriptor variableDescriptor : variableDescriptors) {
+      Object value=variableDescriptor.getValue(entity);
+      valueState.add(value);
+    }
+    List<Object> pillar=valueStateToPillarMap.get(valueState);
+    if (pillar == null) {
+      pillar=new ArrayList<Object>();
+      valueStateToPillarMap.put(valueState,pillar);
+    }
+    pillar.add(entity);
+  }
+  cachedPillarList=new ArrayList<List<Object>>(valueStateToPillarMap.values());
+}

@@ -1,0 +1,4 @@
+PillarSelector leftPillarSelector
+PillarSelector rightPillarSelector
+Collection<PlanningVariableDescriptor> variableDescriptors
+boolean randomSelection
