@@ -1,0 +1,8 @@
+{
+  Iterator<List<Object>> iterator=pillarSelector.iterator();
+  assertNotNull(iterator);
+  assertFalse(iterator.hasNext());
+  assertEquals(false,pillarSelector.isContinuous());
+  assertEquals(false,pillarSelector.isNeverEnding());
+  assertEquals(0L,pillarSelector.getSize());
+}

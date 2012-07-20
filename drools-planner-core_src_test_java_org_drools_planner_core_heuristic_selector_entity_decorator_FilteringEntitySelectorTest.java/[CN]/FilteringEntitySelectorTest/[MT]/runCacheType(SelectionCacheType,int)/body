@@ -1,15 +1,5 @@
 {
-  EntitySelector childEntitySelector=mock(EntitySelector.class);
-  final List<Object> entityList=Arrays.<Object>asList(new TestdataEntity("e1"),new TestdataEntity("e2"),new TestdataEntity("e3"),new TestdataEntity("e4"));
-  when(childEntitySelector.iterator()).thenAnswer(new Answer<Object>(){
-    public Object answer(    InvocationOnMock invocation) throws Throwable {
-      return entityList.iterator();
-    }
-  }
-);
-  when(childEntitySelector.isContinuous()).thenReturn(false);
-  when(childEntitySelector.isNeverEnding()).thenReturn(false);
-  when(childEntitySelector.getSize()).thenReturn((long)entityList.size());
+  EntitySelector childEntitySelector=SelectorTestUtils.mockEntitySelector(TestdataEntity.class,new TestdataEntity("e1"),new TestdataEntity("e2"),new TestdataEntity("e3"),new TestdataEntity("e4"));
   SelectionFilter<TestdataEntity> entityFilter=new SelectionFilter<TestdataEntity>(){
     public boolean accept(    ScoreDirector scoreDirector,    TestdataEntity entity){
       return !entity.getCode().equals("e3");

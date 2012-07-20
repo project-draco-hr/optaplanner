@@ -1,7 +1,4 @@
 {
-  PlanningVariableDescriptor variableDescriptor=mock(PlanningVariableDescriptor.class);
   PlanningEntityDescriptor entityDescriptor=mockEntityDescriptor(entityClass);
-  when(variableDescriptor.getPlanningEntityDescriptor()).thenReturn(entityDescriptor);
-  when(variableDescriptor.getVariableName()).thenReturn(variableName);
-  return variableDescriptor;
+  return mockVariableDescriptor(entityDescriptor,variableName);
 }
