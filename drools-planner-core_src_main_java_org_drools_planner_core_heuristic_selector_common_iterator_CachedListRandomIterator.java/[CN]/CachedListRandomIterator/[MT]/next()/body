@@ -1,0 +1,4 @@
+{
+  int index=workingRandom.nextInt(cachedList.size());
+  return cachedList.get(index);
+}

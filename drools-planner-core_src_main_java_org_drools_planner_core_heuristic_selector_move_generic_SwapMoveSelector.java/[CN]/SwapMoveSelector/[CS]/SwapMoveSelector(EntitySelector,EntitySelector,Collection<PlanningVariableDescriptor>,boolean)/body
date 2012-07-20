@@ -1,6 +1,7 @@
 {
   this.leftEntitySelector=leftEntitySelector;
   this.rightEntitySelector=rightEntitySelector;
+  this.variableDescriptors=variableDescriptors;
   this.randomSelection=randomSelection;
   leftEqualsRight=(leftEntitySelector == rightEntitySelector);
   PlanningEntityDescriptor leftEntityDescriptor=leftEntitySelector.getEntityDescriptor();
@@ -8,9 +9,11 @@
   if (!leftEntityDescriptor.getPlanningEntityClass().equals(rightEntityDescriptor.getPlanningEntityClass())) {
     throw new IllegalStateException("The moveSelector (" + this.getClass() + ") has a leftEntitySelector's planningEntityClass ("+ leftEntityDescriptor.getPlanningEntityClass()+ ") which is not equal to the rightEntitySelector's planningEntityClass ("+ rightEntityDescriptor.getPlanningEntityClass()+ ").");
   }
-  variableDescriptors=leftEntityDescriptor.getPlanningVariableDescriptors();
   boolean anyChained=false;
   for (  PlanningVariableDescriptor variableDescriptor : variableDescriptors) {
+    if (!leftEntityDescriptor.getPlanningEntityClass().equals(variableDescriptor.getPlanningEntityDescriptor().getPlanningEntityClass())) {
+      throw new IllegalStateException("The moveSelector (" + this.getClass() + ") has a variableDescriptor with a planningEntityClass ("+ variableDescriptor.getPlanningEntityDescriptor().getPlanningEntityClass()+ ") which is not equal to the leftEntitySelector's planningEntityClass ("+ leftEntityDescriptor.getPlanningEntityClass()+ ").");
+    }
     if (variableDescriptor.isChained()) {
       anyChained=true;
     }

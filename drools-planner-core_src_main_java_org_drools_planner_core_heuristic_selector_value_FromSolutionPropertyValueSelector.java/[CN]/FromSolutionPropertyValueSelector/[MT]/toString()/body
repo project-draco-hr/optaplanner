@@ -1,3 +1,3 @@
 {
-  return "FromSolutionPropertyValueSelector(" + variableDescriptor.getVariableName() + ")";
+  return getClass().getSimpleName() + "(" + variableDescriptor.getVariableName()+ ")";
 }

@@ -1,0 +1,4 @@
+{
+  this.cachedList=cachedList;
+  this.workingRandom=workingRandom;
+}

@@ -2,5 +2,6 @@
   EntitySelector leftEntitySelector=entitySelectorConfig.buildEntitySelector(environmentMode,solutionDescriptor,resolvedSelectionOrder,resolvedCacheType);
   EntitySelectorConfig rightEntitySelectorConfig=secondaryEntitySelectorConfig == null ? entitySelectorConfig : secondaryEntitySelectorConfig;
   EntitySelector rightEntitySelector=rightEntitySelectorConfig.buildEntitySelector(environmentMode,solutionDescriptor,resolvedSelectionOrder,resolvedCacheType);
-  return new SwapMoveSelector(leftEntitySelector,rightEntitySelector,resolvedSelectionOrder == SelectionOrder.RANDOM);
+  Collection<PlanningVariableDescriptor> variableDescriptors=leftEntitySelector.getEntityDescriptor().getPlanningVariableDescriptors();
+  return new SwapMoveSelector(leftEntitySelector,rightEntitySelector,variableDescriptors,resolvedSelectionOrder == SelectionOrder.RANDOM);
 }

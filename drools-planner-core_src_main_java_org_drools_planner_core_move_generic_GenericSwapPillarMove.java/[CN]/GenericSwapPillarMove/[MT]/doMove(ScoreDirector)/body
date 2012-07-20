@@ -1,17 +1,17 @@
 {
-  for (  PlanningVariableDescriptor planningVariableDescriptor : planningVariableDescriptors) {
-    Object oldLeftValue=planningVariableDescriptor.getValue(leftPlanningEntityList.get(0));
-    Object oldRightValue=planningVariableDescriptor.getValue(rightPlanningEntityList.get(0));
+  for (  PlanningVariableDescriptor variableDescriptor : planningVariableDescriptors) {
+    Object oldLeftValue=variableDescriptor.getValue(leftPlanningEntityList.get(0));
+    Object oldRightValue=variableDescriptor.getValue(rightPlanningEntityList.get(0));
     if (!ObjectUtils.equals(oldLeftValue,oldRightValue)) {
       for (      Object leftPlanningEntity : leftPlanningEntityList) {
-        scoreDirector.beforeVariableChanged(leftPlanningEntity,planningVariableDescriptor.getVariableName());
-        planningVariableDescriptor.setValue(leftPlanningEntity,oldRightValue);
-        scoreDirector.afterVariableChanged(leftPlanningEntity,planningVariableDescriptor.getVariableName());
+        scoreDirector.beforeVariableChanged(leftPlanningEntity,variableDescriptor.getVariableName());
+        variableDescriptor.setValue(leftPlanningEntity,oldRightValue);
+        scoreDirector.afterVariableChanged(leftPlanningEntity,variableDescriptor.getVariableName());
       }
       for (      Object rightPlanningEntity : rightPlanningEntityList) {
-        scoreDirector.beforeVariableChanged(rightPlanningEntity,planningVariableDescriptor.getVariableName());
-        planningVariableDescriptor.setValue(rightPlanningEntity,oldLeftValue);
-        scoreDirector.afterVariableChanged(rightPlanningEntity,planningVariableDescriptor.getVariableName());
+        scoreDirector.beforeVariableChanged(rightPlanningEntity,variableDescriptor.getVariableName());
+        variableDescriptor.setValue(rightPlanningEntity,oldLeftValue);
+        scoreDirector.afterVariableChanged(rightPlanningEntity,variableDescriptor.getVariableName());
       }
     }
   }
