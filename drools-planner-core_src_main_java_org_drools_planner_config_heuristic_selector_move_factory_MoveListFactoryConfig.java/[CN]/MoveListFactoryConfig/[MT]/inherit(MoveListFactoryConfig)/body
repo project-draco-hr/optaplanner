@@ -1,0 +1,4 @@
+{
+  super.inherit(inheritedConfig);
+  moveListFactoryClass=ConfigUtils.inheritOverwritableProperty(moveListFactoryClass,inheritedConfig.getMoveListFactoryClass());
+}

@@ -1,0 +1,4 @@
+{
+  super.phaseStarted(solverPhaseScope);
+  scoreDirector=solverPhaseScope.getScoreDirector();
+}

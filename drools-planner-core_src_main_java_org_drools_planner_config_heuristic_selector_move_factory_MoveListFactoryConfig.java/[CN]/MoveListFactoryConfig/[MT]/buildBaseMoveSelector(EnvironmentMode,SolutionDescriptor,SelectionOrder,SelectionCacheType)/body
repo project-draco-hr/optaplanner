@@ -1,0 +1,16 @@
+{
+  MoveListFactory moveListFactory;
+  try {
+    moveListFactory=moveListFactoryClass.newInstance();
+  }
+ catch (  InstantiationException e) {
+    throw new IllegalArgumentException("moveListFactoryClass (" + moveListFactoryClass.getName() + ") does not have a public no-arg constructor",e);
+  }
+catch (  IllegalAccessException e) {
+    throw new IllegalArgumentException("moveListFactoryClass (" + moveListFactoryClass.getName() + ") does not have a public no-arg constructor",e);
+  }
+  if (resolvedCacheType.compareTo(SelectionCacheType.STEP) < 0) {
+    resolvedCacheType=SelectionCacheType.STEP;
+  }
+  return new MoveListFactoryToMoveSelectorBridge(moveListFactory,resolvedCacheType);
+}

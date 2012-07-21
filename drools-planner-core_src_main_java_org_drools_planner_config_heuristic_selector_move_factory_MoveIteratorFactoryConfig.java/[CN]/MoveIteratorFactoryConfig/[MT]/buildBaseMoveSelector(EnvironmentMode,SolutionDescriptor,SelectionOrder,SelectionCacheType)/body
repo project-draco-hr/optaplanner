@@ -1,0 +1,13 @@
+{
+  MoveIteratorFactory moveIteratorFactory;
+  try {
+    moveIteratorFactory=moveIteratorFactoryClass.newInstance();
+  }
+ catch (  InstantiationException e) {
+    throw new IllegalArgumentException("moveIteratorFactoryClass (" + moveIteratorFactoryClass.getName() + ") does not have a public no-arg constructor",e);
+  }
+catch (  IllegalAccessException e) {
+    throw new IllegalArgumentException("moveIteratorFactoryClass (" + moveIteratorFactoryClass.getName() + ") does not have a public no-arg constructor",e);
+  }
+  return new MoveIteratorFactoryToMoveSelectorBridge(moveIteratorFactory);
+}

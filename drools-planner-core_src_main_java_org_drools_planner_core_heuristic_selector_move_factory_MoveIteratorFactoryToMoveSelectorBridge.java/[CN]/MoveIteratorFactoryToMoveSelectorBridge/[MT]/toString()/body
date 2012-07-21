@@ -1,0 +1,3 @@
+{
+  return "MoveIteratorFactory(" + moveIteratorFactory.getClass() + ")";
+}

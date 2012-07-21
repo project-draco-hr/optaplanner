@@ -1,0 +1,5 @@
+{
+  this.moveListFactory=moveListFactory;
+  this.cacheType=cacheType;
+  solverPhaseLifecycleSupport.addEventListener(new SelectionCacheLifecycleBridge(cacheType,this));
+}
