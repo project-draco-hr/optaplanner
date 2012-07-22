@@ -1,5 +1,0 @@
-{
-  int innerDistance=Math.abs(a - b);
-  int outerDistance=size - innerDistance;
-  return Math.min(innerDistance,outerDistance);
-}

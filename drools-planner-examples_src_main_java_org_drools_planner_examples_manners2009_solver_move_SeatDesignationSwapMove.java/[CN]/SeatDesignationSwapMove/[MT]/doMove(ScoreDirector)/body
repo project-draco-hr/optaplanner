@@ -1,6 +1,0 @@
-{
-  Seat oldLeftSeat=leftSeatDesignation.getSeat();
-  Seat oldRightSeat=rightSeatDesignation.getSeat();
-  moveSeat(scoreDirector,leftSeatDesignation,oldRightSeat);
-  moveSeat(scoreDirector,rightSeatDesignation,oldLeftSeat);
-}

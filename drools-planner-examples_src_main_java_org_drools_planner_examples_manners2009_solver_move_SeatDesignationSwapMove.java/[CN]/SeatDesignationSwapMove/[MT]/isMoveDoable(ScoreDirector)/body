@@ -1,3 +1,0 @@
-{
-  return !ObjectUtils.equals(leftSeatDesignation.getSeat(),rightSeatDesignation.getSeat());
-}

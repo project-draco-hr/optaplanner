@@ -1,5 +1,0 @@
-{
-  scoreDirector.beforeVariableChanged(seatDesignation,"seat");
-  seatDesignation.setSeat(toSeat);
-  scoreDirector.afterVariableChanged(seatDesignation,"seat");
-}

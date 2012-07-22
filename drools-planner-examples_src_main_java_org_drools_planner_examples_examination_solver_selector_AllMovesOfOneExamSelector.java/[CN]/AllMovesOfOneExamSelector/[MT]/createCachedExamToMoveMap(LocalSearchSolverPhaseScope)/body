@@ -1,9 +1,9 @@
 {
   Examination examination=(Examination)localSearchSolverPhaseScope.getWorkingSolution();
   int examListSize=examination.getExamList().size();
-  List<Move> cachedPeriodChangeMoveList=periodChangeMoveFactory.getCachedMoveList();
-  List<Move> cachedRoomChangeMoveList=roomChangeMoveFactory.getCachedMoveList();
-  List<Move> cachedExamSwapMoveList=examSwapMoveFactory.getCachedMoveList();
+  List<Move> cachedPeriodChangeMoveList=periodChangeMoveFactory.createMoveList(examination);
+  List<Move> cachedRoomChangeMoveList=roomChangeMoveFactory.createMoveList(examination);
+  List<Move> cachedExamSwapMoveList=examSwapMoveFactory.createMoveList(examination);
   cachedExamToMoveMap=new HashMap<Exam,List<Move>>(cachedPeriodChangeMoveList.size() + cachedRoomChangeMoveList.size() + cachedExamSwapMoveList.size());
   addToCachedExamToMoveMap(examListSize,cachedPeriodChangeMoveList);
   addToCachedExamToMoveMap(examListSize,cachedRoomChangeMoveList);
