@@ -12,9 +12,7 @@
     moveSelector=moveSelectorConfigList.get(0).buildMoveSelector(environmentMode,solutionDescriptor,defaultSelectionOrder,defaultCacheType);
   }
  else {
-    UnionMoveSelectorConfig unionMoveSelectorConfig=new UnionMoveSelectorConfig();
-    unionMoveSelectorConfig.setMoveSelectorConfigList(moveSelectorConfigList);
-    moveSelector=unionMoveSelectorConfig.buildMoveSelector(environmentMode,solutionDescriptor,defaultSelectionOrder,defaultCacheType);
+    throw new IllegalArgumentException("The moveSelectorConfigList (" + moveSelectorConfigList + ") must a singleton or empty. Use a single "+ UnionMoveSelectorConfig.class+ " element to nest multiple MoveSelectors.");
   }
   decider.setMoveSelector(moveSelector);
   decider.setAcceptor(acceptorConfig.buildAcceptor(environmentMode,scoreDefinition));
