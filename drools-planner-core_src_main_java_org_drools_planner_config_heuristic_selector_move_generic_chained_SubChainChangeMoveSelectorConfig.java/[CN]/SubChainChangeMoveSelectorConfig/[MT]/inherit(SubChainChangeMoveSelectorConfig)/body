@@ -13,4 +13,5 @@
  else   if (inheritedConfig.getValueSelectorConfig() != null) {
     valueSelectorConfig.inherit(inheritedConfig.getValueSelectorConfig());
   }
+  selectReversingMoveToo=ConfigUtils.inheritOverwritableProperty(selectReversingMoveToo,inheritedConfig.getSelectReversingMoveToo());
 }

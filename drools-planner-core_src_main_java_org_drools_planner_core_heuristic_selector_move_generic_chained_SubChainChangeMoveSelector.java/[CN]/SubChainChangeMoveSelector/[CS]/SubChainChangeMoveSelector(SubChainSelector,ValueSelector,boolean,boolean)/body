@@ -2,6 +2,7 @@
   this.subChainSelector=subChainSelector;
   this.valueSelector=valueSelector;
   this.randomSelection=randomSelection;
+  this.selectReversingMoveToo=selectReversingMoveToo;
   if (subChainSelector.getVariableDescriptor() != valueSelector.getVariableDescriptor()) {
     throw new IllegalStateException("The subChainSelector (" + subChainSelector + ")'s variableDescriptor ("+ subChainSelector.getVariableDescriptor()+ ") is not the same as the valueSelector ("+ valueSelector+ ")'s variableDescriptor("+ valueSelector.getVariableDescriptor()+ ").");
   }

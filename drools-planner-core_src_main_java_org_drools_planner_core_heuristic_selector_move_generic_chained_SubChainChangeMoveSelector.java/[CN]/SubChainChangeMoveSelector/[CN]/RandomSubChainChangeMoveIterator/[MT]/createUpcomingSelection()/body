@@ -19,5 +19,6 @@
     }
   }
   Object toValue=valueIterator.next(subChain);
-  upcomingSelection=new SubChainChangeMove(subChain,valueSelector.getVariableDescriptor(),toValue);
+  boolean reversing=selectReversingMoveToo ? workingRandom.nextBoolean() : false;
+  upcomingSelection=reversing ? new SubChainReversingChangeMove(subChain,valueSelector.getVariableDescriptor(),toValue) : new SubChainChangeMove(subChain,valueSelector.getVariableDescriptor(),toValue);
 }
