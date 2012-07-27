@@ -1,2 +1,3 @@
 ValueSelector valueSelector
 boolean randomSelection
+int minimumSubChainSize

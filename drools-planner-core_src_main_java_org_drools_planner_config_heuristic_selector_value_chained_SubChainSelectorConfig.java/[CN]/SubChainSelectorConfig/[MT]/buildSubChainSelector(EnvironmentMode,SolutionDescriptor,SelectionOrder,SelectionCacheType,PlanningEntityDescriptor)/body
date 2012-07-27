@@ -3,5 +3,5 @@
     throw new IllegalArgumentException("The subChainChangeMoveSelector's cacheType (" + resolvedCacheType + ") must not be higher than "+ SelectionCacheType.STEP+ " because the chains change every step.");
   }
   ValueSelector valueSelector=valueSelectorConfig.buildValueSelector(environmentMode,solutionDescriptor,SelectionOrder.ORIGINAL,resolvedCacheType,entityDescriptor);
-  return new DefaultSubChainSelector(valueSelector,resolvedSelectionOrder == SelectionOrder.RANDOM);
+  return new DefaultSubChainSelector(valueSelector,resolvedSelectionOrder == SelectionOrder.RANDOM,minimumSubChainSize == null ? DEFAULT_MINIMUM_SUB_CHAIN_SIZE : minimumSubChainSize);
 }

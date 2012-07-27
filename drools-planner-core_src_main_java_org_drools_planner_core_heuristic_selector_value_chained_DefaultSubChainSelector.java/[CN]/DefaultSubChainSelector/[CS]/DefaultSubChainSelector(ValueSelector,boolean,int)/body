@@ -1,6 +1,7 @@
 {
   this.valueSelector=valueSelector;
   this.randomSelection=randomSelection;
+  this.minimumSubChainSize=minimumSubChainSize;
   if (!valueSelector.getVariableDescriptor().isChained()) {
     throw new IllegalArgumentException("The valueSelector (" + valueSelector + ") must have a chained variableDescriptor chained ("+ valueSelector.getVariableDescriptor().isChained()+ ") on the class ("+ getClass().getName()+ ").");
   }

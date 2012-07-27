@@ -4,7 +4,7 @@
   PlanningVariableDescriptor variableDescriptor=SelectorTestUtils.mockVariableDescriptor(TestdataChainedEntity.class,"chainedObject");
   when(variableDescriptor.isChained()).thenReturn(true);
   ValueSelector valueSelector=SelectorTestUtils.mockValueSelector(variableDescriptor,a0,b0);
-  DefaultSubChainSelector subChainSelector=new DefaultSubChainSelector(valueSelector,false);
+  DefaultSubChainSelector subChainSelector=new DefaultSubChainSelector(valueSelector,false,1);
   ScoreDirector scoreDirector=mock(ScoreDirector.class);
   when(scoreDirector.getTrailingEntity(variableDescriptor,a0)).thenReturn(null);
   when(scoreDirector.getTrailingEntity(variableDescriptor,b0)).thenReturn(null);
