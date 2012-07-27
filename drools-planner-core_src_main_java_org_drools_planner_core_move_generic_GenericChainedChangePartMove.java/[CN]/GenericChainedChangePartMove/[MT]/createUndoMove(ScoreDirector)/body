@@ -1,4 +1,0 @@
-{
-  Object oldFirstPlanningValue=planningVariableDescriptor.getValue(firstEntity);
-  return new GenericChainedChangePartMove(entitiesSubChain,planningVariableDescriptor,oldFirstPlanningValue,newTrailingEntity,oldTrailingEntity);
-}

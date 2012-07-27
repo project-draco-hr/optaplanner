@@ -1,5 +1,0 @@
-List<Object> entitiesSubChain
-PlanningVariableDescriptor planningVariableDescriptor
-Object toPlanningValue
-Object oldTrailingEntity
-Object newTrailingEntity
