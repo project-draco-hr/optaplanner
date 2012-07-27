@@ -5,16 +5,19 @@
     MoveScope moveScope=new MoveScope(stepScope);
     moveScope.setMoveIndex(moveIndex);
     moveScope.setMove(move);
-    if (move.isMoveDoable(scoreDirector)) {
+    if (!move.isMoveDoable(scoreDirector)) {
+      logger.trace("        Ignoring not doable move ({}).",move);
+    }
+ else {
       doMove(moveScope);
       if (forager.isQuitEarly()) {
         break;
       }
     }
- else {
-      logger.trace("        Ignoring not doable move ({}).",move);
-    }
     moveIndex++;
+    if (termination.isPhaseTerminated(stepScope.getLocalSearchSolverPhaseScope())) {
+      break;
+    }
   }
   MoveScope pickedMoveScope=forager.pickMove(stepScope);
   if (pickedMoveScope != null) {

@@ -14,6 +14,7 @@
  else {
     throw new IllegalArgumentException("The moveSelectorConfigList (" + moveSelectorConfigList + ") must a singleton or empty. Use a single "+ UnionMoveSelectorConfig.class+ " element to nest multiple MoveSelectors.");
   }
+  decider.setTermination(termination);
   decider.setMoveSelector(moveSelector);
   decider.setAcceptor(acceptorConfig.buildAcceptor(environmentMode,scoreDefinition));
   decider.setForager(foragerConfig.buildForager(scoreDefinition));
