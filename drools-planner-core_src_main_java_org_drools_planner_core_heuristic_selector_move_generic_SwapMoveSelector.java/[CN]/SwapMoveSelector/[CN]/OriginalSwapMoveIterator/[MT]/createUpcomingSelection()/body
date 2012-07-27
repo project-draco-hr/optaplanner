@@ -21,5 +21,5 @@
     }
   }
   Object rightEntity=rightEntityIterator.next();
-  upcomingSelection=anyChained ? new GenericChainedSwapMove(variableDescriptors,leftEntity,rightEntity) : new GenericSwapMove(variableDescriptors,leftEntity,rightEntity);
+  upcomingSelection=anyChained ? new ChainedSwapMove(variableDescriptors,leftEntity,rightEntity) : new SwapMove(variableDescriptors,leftEntity,rightEntity);
 }

@@ -7,5 +7,5 @@
     rightEntityIterator=rightPillarSelector.iterator();
   }
   List<Object> rightEntity=rightEntityIterator.next();
-  upcomingSelection=new GenericSwapPillarMove(variableDescriptors,leftEntity,rightEntity);
+  upcomingSelection=new PillarSwapMove(variableDescriptors,leftEntity,rightEntity);
 }

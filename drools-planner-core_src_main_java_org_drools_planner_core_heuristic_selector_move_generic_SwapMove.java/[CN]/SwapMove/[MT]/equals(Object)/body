@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof SwapMove) {
+    SwapMove other=(SwapMove)o;
+    return new EqualsBuilder().append(leftPlanningEntity,other.leftPlanningEntity).append(rightPlanningEntity,other.rightPlanningEntity).isEquals();
+  }
+ else {
+    return false;
+  }
+}

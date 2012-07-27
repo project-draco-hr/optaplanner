@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof PillarSwapMove) {
+    PillarSwapMove other=(PillarSwapMove)o;
+    return new EqualsBuilder().append(planningVariableDescriptors,other.planningVariableDescriptors).append(leftPlanningEntityList,other.leftPlanningEntityList).append(rightPlanningEntityList,other.rightPlanningEntityList).isEquals();
+  }
+ else {
+    return false;
+  }
+}

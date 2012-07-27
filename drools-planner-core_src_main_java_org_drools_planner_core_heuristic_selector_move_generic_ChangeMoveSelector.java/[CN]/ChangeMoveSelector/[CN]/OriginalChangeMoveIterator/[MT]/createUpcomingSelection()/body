@@ -8,5 +8,5 @@
     valueIterator=valueSelector.iterator();
   }
   Object toValue=valueIterator.next(upcomingEntity);
-  upcomingSelection=chained ? new GenericChainedChangeMove(upcomingEntity,valueSelector.getVariableDescriptor(),toValue) : new GenericChangeMove(upcomingEntity,valueSelector.getVariableDescriptor(),toValue);
+  upcomingSelection=chained ? new ChainedChangeMove(upcomingEntity,valueSelector.getVariableDescriptor(),toValue) : new ChangeMove(upcomingEntity,valueSelector.getVariableDescriptor(),toValue);
 }

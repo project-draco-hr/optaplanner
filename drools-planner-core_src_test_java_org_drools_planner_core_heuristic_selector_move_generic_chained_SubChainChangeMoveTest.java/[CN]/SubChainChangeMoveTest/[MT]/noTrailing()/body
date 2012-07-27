@@ -1,0 +1,33 @@
+{
+  PlanningEntityDescriptor entityDescriptor=TestdataChainedEntity.buildEntityDescriptor();
+  PlanningVariableDescriptor variableDescriptor=entityDescriptor.getPlanningVariableDescriptor("chainedObject");
+  ScoreDirector scoreDirector=mock(ScoreDirector.class);
+  TestdataChainedAnchor a0=new TestdataChainedAnchor("a0");
+  TestdataChainedEntity a1=new TestdataChainedEntity("a1",a0);
+  when(scoreDirector.getTrailingEntity(variableDescriptor,a0)).thenReturn(a1);
+  TestdataChainedEntity a2=new TestdataChainedEntity("a2",a1);
+  when(scoreDirector.getTrailingEntity(variableDescriptor,a1)).thenReturn(a2);
+  TestdataChainedEntity a3=new TestdataChainedEntity("a3",a2);
+  when(scoreDirector.getTrailingEntity(variableDescriptor,a2)).thenReturn(a3);
+  TestdataChainedEntity a4=new TestdataChainedEntity("a4",a3);
+  when(scoreDirector.getTrailingEntity(variableDescriptor,a3)).thenReturn(a4);
+  TestdataChainedEntity a5=new TestdataChainedEntity("a5",a4);
+  when(scoreDirector.getTrailingEntity(variableDescriptor,a4)).thenReturn(a5);
+  TestdataChainedAnchor b0=new TestdataChainedAnchor("b0");
+  TestdataChainedEntity b1=new TestdataChainedEntity("b1",b0);
+  when(scoreDirector.getTrailingEntity(variableDescriptor,b0)).thenReturn(b1);
+  SubChainChangeMove move=new SubChainChangeMove(new SubChain(Arrays.<Object>asList(a3,a4,a5)),variableDescriptor,b1);
+  move.doMove(scoreDirector);
+  assertEquals(a0,a1.getChainedObject());
+  assertEquals(a1,a2.getChainedObject());
+  assertEquals(b0,b1.getChainedObject());
+  assertEquals(b1,a3.getChainedObject());
+  assertEquals(a3,a4.getChainedObject());
+  assertEquals(a4,a5.getChainedObject());
+  verify(scoreDirector).beforeVariableChanged(a3,"chainedObject");
+  verify(scoreDirector).afterVariableChanged(a3,"chainedObject");
+  verify(scoreDirector).beforeVariableChanged(a4,"chainedObject");
+  verify(scoreDirector).afterVariableChanged(a4,"chainedObject");
+  verify(scoreDirector).beforeVariableChanged(a5,"chainedObject");
+  verify(scoreDirector).afterVariableChanged(a5,"chainedObject");
+}

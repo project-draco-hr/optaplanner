@@ -1,0 +1,29 @@
+{
+  PlanningEntityDescriptor entityDescriptor=TestdataChainedEntity.buildEntityDescriptor();
+  PlanningVariableDescriptor variableDescriptor=entityDescriptor.getPlanningVariableDescriptor("chainedObject");
+  ScoreDirector scoreDirector=mock(ScoreDirector.class);
+  TestdataChainedAnchor a0=new TestdataChainedAnchor("a0");
+  TestdataChainedEntity a1=new TestdataChainedEntity("a1",a0);
+  when(scoreDirector.getTrailingEntity(variableDescriptor,a0)).thenReturn(a1);
+  TestdataChainedEntity a2=new TestdataChainedEntity("a2",a1);
+  when(scoreDirector.getTrailingEntity(variableDescriptor,a1)).thenReturn(a2);
+  TestdataChainedEntity a3=new TestdataChainedEntity("a3",a2);
+  when(scoreDirector.getTrailingEntity(variableDescriptor,a2)).thenReturn(a3);
+  TestdataChainedEntity a4=new TestdataChainedEntity("a4",a3);
+  when(scoreDirector.getTrailingEntity(variableDescriptor,a3)).thenReturn(a4);
+  TestdataChainedEntity a5=new TestdataChainedEntity("a5",a4);
+  when(scoreDirector.getTrailingEntity(variableDescriptor,a4)).thenReturn(a5);
+  SubChainReversingChangeMove move=new SubChainReversingChangeMove(new SubChain(Arrays.<Object>asList(a3,a4,a5)),variableDescriptor,a2);
+  move.doMove(scoreDirector);
+  assertEquals(a0,a1.getChainedObject());
+  assertEquals(a1,a2.getChainedObject());
+  assertEquals(a2,a5.getChainedObject());
+  assertEquals(a5,a4.getChainedObject());
+  assertEquals(a4,a3.getChainedObject());
+  verify(scoreDirector).beforeVariableChanged(a5,"chainedObject");
+  verify(scoreDirector).afterVariableChanged(a5,"chainedObject");
+  verify(scoreDirector).beforeVariableChanged(a4,"chainedObject");
+  verify(scoreDirector).afterVariableChanged(a4,"chainedObject");
+  verify(scoreDirector).beforeVariableChanged(a3,"chainedObject");
+  verify(scoreDirector).afterVariableChanged(a3,"chainedObject");
+}
