@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof SubChainReversingChangeMove) {
+    SubChainReversingChangeMove other=(SubChainReversingChangeMove)o;
+    return new EqualsBuilder().append(subChain,other.subChain).append(variableDescriptor.getVariableName(),other.variableDescriptor.getVariableName()).append(toPlanningValue,other.toPlanningValue).isEquals();
+  }
+ else {
+    return false;
+  }
+}
