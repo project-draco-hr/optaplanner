@@ -10,11 +10,9 @@
     moveSelector=moveSelectorConfigList.get(0).buildMoveSelector(environmentMode,solutionDescriptor,defaultSelectionOrder,defaultCacheType);
   }
  else {
-    List<MoveSelector> childMoveSelectorList=new ArrayList<MoveSelector>(moveSelectorConfigList.size());
-    for (    MoveSelectorConfig moveSelectorConfig : moveSelectorConfigList) {
-      childMoveSelectorList.add(moveSelectorConfig.buildMoveSelector(environmentMode,solutionDescriptor,defaultSelectionOrder,defaultCacheType));
-    }
-    moveSelector=new UnionMoveSelector(childMoveSelectorList,true);
+    UnionMoveSelectorConfig unionMoveSelectorConfig=new UnionMoveSelectorConfig();
+    unionMoveSelectorConfig.setMoveSelectorConfigList(moveSelectorConfigList);
+    moveSelector=unionMoveSelectorConfig.buildMoveSelector(environmentMode,solutionDescriptor,defaultSelectionOrder,defaultCacheType);
   }
   decider.setMoveSelector(moveSelector);
   decider.setAcceptor(acceptorConfig.buildAcceptor(environmentMode,scoreDefinition));
