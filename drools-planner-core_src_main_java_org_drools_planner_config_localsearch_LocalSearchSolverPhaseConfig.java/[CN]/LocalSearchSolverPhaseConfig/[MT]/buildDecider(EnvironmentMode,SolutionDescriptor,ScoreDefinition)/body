@@ -4,7 +4,9 @@
   SelectionOrder defaultSelectionOrder=SelectionOrder.RANDOM;
   SelectionCacheType defaultCacheType=SelectionCacheType.JUST_IN_TIME;
   if (moveSelectorConfigList.isEmpty()) {
-    moveSelector=new ChangeMoveSelectorConfig().buildMoveSelector(environmentMode,solutionDescriptor,defaultSelectionOrder,defaultCacheType);
+    UnionMoveSelectorConfig unionMoveSelectorConfig=new UnionMoveSelectorConfig();
+    unionMoveSelectorConfig.setMoveSelectorConfigList(Arrays.asList(new ChangeMoveSelectorConfig(),new SwapMoveSelectorConfig()));
+    moveSelector=unionMoveSelectorConfig.buildMoveSelector(environmentMode,solutionDescriptor,defaultSelectionOrder,defaultCacheType);
   }
  else   if (moveSelectorConfigList.size() == 1) {
     moveSelector=moveSelectorConfigList.get(0).buildMoveSelector(environmentMode,solutionDescriptor,defaultSelectionOrder,defaultCacheType);
