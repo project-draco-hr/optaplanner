@@ -1,0 +1,9 @@
+{
+  if (leftSubSelector != rightSubSelector) {
+    return leftSubSelector.getSize() * rightSubSelector.getSize();
+  }
+ else {
+    long leftSize=leftSubSelector.getSize();
+    return leftSize * (leftSize - 1L) / 2L;
+  }
+}

@@ -1,3 +1,0 @@
-{
-  return anyChained ? new ChainedSwapMove(variableDescriptors,leftSubSelection,rightSubSelection) : new SwapMove(variableDescriptors,leftSubSelection,rightSubSelection);
-}
