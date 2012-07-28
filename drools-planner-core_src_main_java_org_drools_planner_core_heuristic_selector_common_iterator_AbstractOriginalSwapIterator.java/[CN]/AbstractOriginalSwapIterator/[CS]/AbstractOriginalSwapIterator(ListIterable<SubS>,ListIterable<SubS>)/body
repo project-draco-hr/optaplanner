@@ -1,0 +1,8 @@
+{
+  this.leftSubSelector=leftSubSelector;
+  this.rightSubSelector=rightSubSelector;
+  leftEqualsRight=(leftSubSelector == rightSubSelector);
+  leftSubSelectionIterator=leftSubSelector.listIterator();
+  rightSubSelectionIterator=IteratorUtils.emptyListIterator();
+  createUpcomingSelection();
+}

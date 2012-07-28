@@ -1,1 +1,1 @@
-UpcomingSelectionIterator<Move>
+AbstractOriginalSwapIterator<Move,List<Object>>
