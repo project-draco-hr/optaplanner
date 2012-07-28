@@ -1,0 +1,11 @@
+{
+  if (!leftSubSelectionIterator.hasNext()) {
+    leftSubSelectionIterator=leftSubSelector.iterator();
+  }
+  SubSelection leftSubSelection=leftSubSelectionIterator.next();
+  if (!rightSubSelectionIterator.hasNext()) {
+    rightSubSelectionIterator=rightSubSelector.iterator();
+  }
+  SubSelection rightSubSelection=rightSubSelectionIterator.next();
+  upcomingSelection=newSwappingMove(leftSubSelection,rightSubSelection);
+}

@@ -1,10 +1,3 @@
 {
-  leftEntityIterator=leftPillarSelector.iterator();
-  rightEntityIterator=rightPillarSelector.iterator();
-  if (!leftEntityIterator.hasNext() || !rightEntityIterator.hasNext()) {
-    upcomingSelection=null;
-  }
- else {
-    createUpcomingSelection();
-  }
+  super(leftPillarSelector,rightPillarSelector);
 }

@@ -1,1 +1,1 @@
-UpcomingSelectionIterator<Move>
+AbstractRandomSwappingMoveIterator<Object>

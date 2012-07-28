@@ -1,0 +1,12 @@
+{
+  this.leftSubSelector=leftSubSelector;
+  this.rightSubSelector=rightSubSelector;
+  leftSubSelectionIterator=this.leftSubSelector.iterator();
+  rightSubSelectionIterator=this.rightSubSelector.iterator();
+  if (!leftSubSelectionIterator.hasNext() || !rightSubSelectionIterator.hasNext()) {
+    upcomingSelection=null;
+  }
+ else {
+    createUpcomingSelection();
+  }
+}
