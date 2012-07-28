@@ -1,8 +1,8 @@
 {
   if (!randomSelection) {
-    return new OriginalSwapMoveIterator();
+    return new OriginalPillarSwapMoveIterator();
   }
  else {
-    return new RandomSwapMoveIterator();
+    return new RandomPillarSwapMoveIterator();
   }
 }
