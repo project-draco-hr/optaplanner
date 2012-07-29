@@ -1,0 +1,5 @@
+{
+  this.variableDescriptor=variableDescriptor;
+  this.leftSubChain=leftSubChain;
+  this.rightSubChain=rightSubChain;
+}
