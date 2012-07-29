@@ -3,7 +3,6 @@
   this.rightEntitySelector=rightEntitySelector;
   this.variableDescriptors=variableDescriptors;
   this.randomSelection=randomSelection;
-  leftEqualsRight=(leftEntitySelector == rightEntitySelector);
   PlanningEntityDescriptor leftEntityDescriptor=leftEntitySelector.getEntityDescriptor();
   PlanningEntityDescriptor rightEntityDescriptor=rightEntitySelector.getEntityDescriptor();
   if (!leftEntityDescriptor.getPlanningEntityClass().equals(rightEntityDescriptor.getPlanningEntityClass())) {
@@ -20,5 +19,7 @@
   }
   this.anyChained=anyChained;
   solverPhaseLifecycleSupport.addEventListener(leftEntitySelector);
-  solverPhaseLifecycleSupport.addEventListener(rightEntitySelector);
+  if (leftEntitySelector != rightEntitySelector) {
+    solverPhaseLifecycleSupport.addEventListener(rightEntitySelector);
+  }
 }

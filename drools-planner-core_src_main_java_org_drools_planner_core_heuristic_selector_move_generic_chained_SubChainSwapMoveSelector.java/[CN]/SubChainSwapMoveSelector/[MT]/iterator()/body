@@ -1,0 +1,18 @@
+{
+  if (!randomSelection) {
+    return new AbstractOriginalSwapIterator<Move,SubChain>(leftSubChainSelector,rightSubChainSelector){
+      @Override protected Move newSwapSelection(      SubChain leftSubSelection,      SubChain rightSubSelection){
+        return new SubChainSwapMove(variableDescriptor,leftSubSelection,rightSubSelection);
+      }
+    }
+;
+  }
+ else {
+    return new AbstractRandomSwapIterator<Move,SubChain>(leftSubChainSelector,rightSubChainSelector){
+      @Override protected Move newSwapSelection(      SubChain leftSubSelection,      SubChain rightSubSelection){
+        return new SubChainSwapMove(variableDescriptor,leftSubSelection,rightSubSelection);
+      }
+    }
+;
+  }
+}

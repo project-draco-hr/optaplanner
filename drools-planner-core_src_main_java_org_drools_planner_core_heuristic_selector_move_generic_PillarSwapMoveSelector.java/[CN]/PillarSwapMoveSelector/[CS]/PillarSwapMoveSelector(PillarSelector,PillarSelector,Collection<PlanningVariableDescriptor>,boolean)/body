@@ -3,7 +3,6 @@
   this.rightPillarSelector=rightPillarSelector;
   this.variableDescriptors=variableDescriptors;
   this.randomSelection=randomSelection;
-  leftEqualsRight=(leftPillarSelector == rightPillarSelector);
   Class<?> leftEntityClass=leftPillarSelector.getEntityDescriptor().getPlanningEntityClass();
   if (!leftEntityClass.equals(rightPillarSelector.getEntityDescriptor().getPlanningEntityClass())) {
     throw new IllegalStateException("The moveSelector (" + this.getClass() + ") has a leftPillarSelector's planningEntityClass ("+ leftEntityClass+ ") which is not equal to the rightPillarSelector's planningEntityClass ("+ rightPillarSelector.getEntityDescriptor().getPlanningEntityClass()+ ").");
@@ -17,5 +16,7 @@
     }
   }
   solverPhaseLifecycleSupport.addEventListener(leftPillarSelector);
-  solverPhaseLifecycleSupport.addEventListener(rightPillarSelector);
+  if (leftPillarSelector != rightPillarSelector) {
+    solverPhaseLifecycleSupport.addEventListener(rightPillarSelector);
+  }
 }

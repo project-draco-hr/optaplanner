@@ -1,0 +1,3 @@
+{
+  return randomSelection || leftSubChainSelector.isNeverEnding() || rightSubChainSelector.isNeverEnding();
+}

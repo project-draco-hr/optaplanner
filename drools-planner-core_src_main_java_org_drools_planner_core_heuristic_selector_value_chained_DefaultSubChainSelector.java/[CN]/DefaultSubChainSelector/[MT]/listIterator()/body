@@ -1,0 +1,8 @@
+{
+  if (!randomSelection) {
+    throw new UnsupportedOperationException("This class (" + getClass() + ") does not support the listIterator() methods yet. "+ "As a result you can only use SubChain based swap moves with randomSelection true. "+ " https://issues.jboss.org/browse/JBRULES-3586");
+  }
+ else {
+    throw new IllegalStateException("ListIterator is not supported with randomSelection (" + randomSelection + ").");
+  }
+}
