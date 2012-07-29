@@ -1,4 +1,4 @@
 SubChainSelector leftSubChainSelector
 SubChainSelector rightSubChainSelector
-PlanningVariableDescriptor variableDescriptor
 boolean randomSelection
+boolean selectReversingMoveToo

@@ -1,0 +1,3 @@
+{
+  return getClass().getSimpleName() + "(" + subChainSelectorConfig+ (secondarySubChainSelectorConfig == null ? "" : ", " + secondarySubChainSelectorConfig)+ ")";
+}
