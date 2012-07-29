@@ -1,7 +1,7 @@
 {
   long size=1L;
   for (  MoveSelector moveSelector : childMoveSelectorList) {
-    size*=(long)moveSelector.getSize();
+    size*=moveSelector.getSize();
   }
   return size;
 }
