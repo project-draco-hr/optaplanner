@@ -11,7 +11,4 @@
   if (leftSubChainSelector != rightSubChainSelector) {
     solverPhaseLifecycleSupport.addEventListener(rightSubChainSelector);
   }
-  if (selectReversingMoveToo) {
-    throw new UnsupportedOperationException();
-  }
 }

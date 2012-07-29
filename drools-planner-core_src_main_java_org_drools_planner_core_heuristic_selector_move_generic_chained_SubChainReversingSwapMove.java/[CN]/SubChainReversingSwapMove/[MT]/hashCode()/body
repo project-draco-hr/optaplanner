@@ -1,0 +1,3 @@
+{
+  return new HashCodeBuilder().append(variableDescriptor).append(leftSubChain).append(rightSubChain).toHashCode();
+}

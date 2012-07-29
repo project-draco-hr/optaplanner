@@ -1,5 +1,4 @@
 {
-  Object oldFirstPlanningValue=variableDescriptor.getValue(firstEntity);
-  SubChain reversedSubChain=subChain.reverse();
-  return new SubChainReversingChangeMove(reversedSubChain,variableDescriptor,oldFirstPlanningValue);
+  Object oldFirstPlanningValue=variableDescriptor.getValue(subChain.getFirstEntity());
+  return new SubChainReversingChangeMove(subChain.reverse(),variableDescriptor,oldFirstPlanningValue);
 }

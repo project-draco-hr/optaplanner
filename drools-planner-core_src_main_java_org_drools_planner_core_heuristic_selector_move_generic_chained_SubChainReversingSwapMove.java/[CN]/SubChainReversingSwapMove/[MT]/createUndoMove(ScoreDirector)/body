@@ -1,0 +1,3 @@
+{
+  return new SubChainReversingSwapMove(variableDescriptor,rightSubChain.reverse(),leftSubChain.reverse());
+}

@@ -1,7 +1,6 @@
 {
   subChainIterator=subChainSelector.iterator();
   valueIterator=valueSelector.iterator();
-  nextReversingSelection=null;
   if (!subChainIterator.hasNext() || !valueIterator.hasNext()) {
     upcomingSelection=null;
   }

@@ -1,0 +1,8 @@
+{
+  for (  Object leftEntity : leftSubChain.getEntityList()) {
+    if (rightSubChain.getEntityList().contains(leftEntity)) {
+      return false;
+    }
+  }
+  return true;
+}

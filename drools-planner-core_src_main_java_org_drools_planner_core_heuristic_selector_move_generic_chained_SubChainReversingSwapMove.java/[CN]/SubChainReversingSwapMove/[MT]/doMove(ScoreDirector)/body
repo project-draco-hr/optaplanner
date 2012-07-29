@@ -1,0 +1,10 @@
+{
+  Object oldLeftValue=variableDescriptor.getValue(leftSubChain.getFirstEntity());
+  Object oldRightValue=variableDescriptor.getValue(rightSubChain.getFirstEntity());
+  if (oldRightValue != leftSubChain.getLastEntity()) {
+    ChainedMoveUtils.doReverseSubChainChange(scoreDirector,leftSubChain,variableDescriptor,oldRightValue);
+  }
+  if (oldLeftValue != rightSubChain.getLastEntity()) {
+    ChainedMoveUtils.doReverseSubChainChange(scoreDirector,rightSubChain,variableDescriptor,oldLeftValue);
+  }
+}
