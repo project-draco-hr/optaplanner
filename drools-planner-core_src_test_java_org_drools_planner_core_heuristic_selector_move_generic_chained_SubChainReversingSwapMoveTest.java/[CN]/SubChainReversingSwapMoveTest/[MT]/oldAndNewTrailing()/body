@@ -14,6 +14,7 @@
   TestdataChainedEntity b3=new TestdataChainedEntity("b3",b2);
   SelectorTestUtils.mockMethodGetTrailingEntity(scoreDirector,variableDescriptor,new TestdataChainedEntity[]{a1,a2,a3,a4,a5,b1,b2,b3});
   SubChainReversingSwapMove move=new SubChainReversingSwapMove(variableDescriptor,new SubChain(Arrays.<Object>asList(a2,a3,a4)),new SubChain(Arrays.<Object>asList(b1,b2)));
+  Move undoMove=move.createUndoMove(scoreDirector);
   move.doMove(scoreDirector);
   SelectorTestUtils.assertChain(a0,a1,b2,b1,a5);
   SelectorTestUtils.assertChain(b0,a4,a3,a2,b3);
@@ -31,4 +32,7 @@
   verify(scoreDirector).afterVariableChanged(b2,"chainedObject");
   verify(scoreDirector).beforeVariableChanged(b3,"chainedObject");
   verify(scoreDirector).afterVariableChanged(b3,"chainedObject");
+  undoMove.doMove(scoreDirector);
+  SelectorTestUtils.assertChain(a0,a1,a2,a3,a4,a5);
+  SelectorTestUtils.assertChain(b0,b1,b2,b3);
 }
