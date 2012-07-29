@@ -1,18 +1,18 @@
 {
-  Object oldPlanningValue=planningVariableDescriptor.getValue(planningEntity);
-  Object oldTrailingEntity=scoreDirector.getTrailingEntity(planningVariableDescriptor,planningEntity);
-  Object newTrailingEntity=toPlanningValue == null ? null : scoreDirector.getTrailingEntity(planningVariableDescriptor,toPlanningValue);
+  Object oldPlanningValue=variableDescriptor.getValue(entity);
+  Object oldTrailingEntity=scoreDirector.getTrailingEntity(variableDescriptor,entity);
+  Object newTrailingEntity=toPlanningValue == null ? null : scoreDirector.getTrailingEntity(variableDescriptor,toPlanningValue);
   if (oldTrailingEntity != null) {
-    scoreDirector.beforeVariableChanged(oldTrailingEntity,planningVariableDescriptor.getVariableName());
-    planningVariableDescriptor.setValue(oldTrailingEntity,oldPlanningValue);
-    scoreDirector.afterVariableChanged(oldTrailingEntity,planningVariableDescriptor.getVariableName());
+    scoreDirector.beforeVariableChanged(oldTrailingEntity,variableDescriptor.getVariableName());
+    variableDescriptor.setValue(oldTrailingEntity,oldPlanningValue);
+    scoreDirector.afterVariableChanged(oldTrailingEntity,variableDescriptor.getVariableName());
   }
-  scoreDirector.beforeVariableChanged(planningEntity,planningVariableDescriptor.getVariableName());
-  planningVariableDescriptor.setValue(planningEntity,toPlanningValue);
-  scoreDirector.afterVariableChanged(planningEntity,planningVariableDescriptor.getVariableName());
+  scoreDirector.beforeVariableChanged(entity,variableDescriptor.getVariableName());
+  variableDescriptor.setValue(entity,toPlanningValue);
+  scoreDirector.afterVariableChanged(entity,variableDescriptor.getVariableName());
   if (newTrailingEntity != null) {
-    scoreDirector.beforeVariableChanged(newTrailingEntity,planningVariableDescriptor.getVariableName());
-    planningVariableDescriptor.setValue(newTrailingEntity,planningEntity);
-    scoreDirector.afterVariableChanged(newTrailingEntity,planningVariableDescriptor.getVariableName());
+    scoreDirector.beforeVariableChanged(newTrailingEntity,variableDescriptor.getVariableName());
+    variableDescriptor.setValue(newTrailingEntity,entity);
+    scoreDirector.afterVariableChanged(newTrailingEntity,variableDescriptor.getVariableName());
   }
 }

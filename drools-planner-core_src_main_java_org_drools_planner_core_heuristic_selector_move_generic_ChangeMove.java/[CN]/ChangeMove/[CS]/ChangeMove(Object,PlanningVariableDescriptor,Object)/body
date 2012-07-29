@@ -1,5 +1,5 @@
 {
-  this.planningEntity=planningEntity;
-  this.planningVariableDescriptor=planningVariableDescriptor;
+  this.entity=entity;
+  this.variableDescriptor=variableDescriptor;
   this.toPlanningValue=toPlanningValue;
 }

@@ -4,7 +4,7 @@
   }
  else   if (o instanceof ChangeMove) {
     ChangeMove other=(ChangeMove)o;
-    return new EqualsBuilder().append(planningEntity,other.planningEntity).append(planningVariableDescriptor.getVariableName(),other.planningVariableDescriptor.getVariableName()).append(toPlanningValue,other.toPlanningValue).isEquals();
+    return new EqualsBuilder().append(entity,other.entity).append(variableDescriptor.getVariableName(),other.variableDescriptor.getVariableName()).append(toPlanningValue,other.toPlanningValue).isEquals();
   }
  else {
     return false;

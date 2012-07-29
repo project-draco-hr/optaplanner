@@ -1,5 +1,5 @@
 {
-  Lecture leftLecture=(Lecture)move.getLeftPlanningEntity();
-  Lecture rightLecture=(Lecture)move.getRightPlanningEntity();
+  Lecture leftLecture=(Lecture)move.getLeftEntity();
+  Lecture rightLecture=(Lecture)move.getRightEntity();
   return !leftLecture.getCourse().equals(rightLecture.getCourse());
 }
