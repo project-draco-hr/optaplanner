@@ -2,6 +2,4 @@
   this.subChain=subChain;
   this.variableDescriptor=variableDescriptor;
   this.toPlanningValue=toPlanningValue;
-  firstEntity=this.subChain.getFirstEntity();
-  lastEntity=this.subChain.getLastEntity();
 }
