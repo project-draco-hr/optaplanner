@@ -11,10 +11,8 @@
   SelectorTestUtils.mockMethodGetTrailingEntity(scoreDirector,variableDescriptor,new TestdataChainedEntity[]{a1,a2,a3,b1});
   ChainedChangeMove move=new ChainedChangeMove(a3,variableDescriptor,b1);
   move.doMove(scoreDirector);
-  assertEquals(a0,a1.getChainedObject());
-  assertEquals(a1,a2.getChainedObject());
-  assertEquals(b0,b1.getChainedObject());
-  assertEquals(b1,a3.getChainedObject());
+  SelectorTestUtils.assertChain(a0,a1,a2);
+  SelectorTestUtils.assertChain(b0,b1,a3);
   verify(scoreDirector).beforeVariableChanged(a3,"chainedObject");
   verify(scoreDirector).afterVariableChanged(a3,"chainedObject");
 }
