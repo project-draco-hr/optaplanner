@@ -13,10 +13,10 @@
       }
  else {
         if (oldRightValue != leftEntity) {
-          doChainedMove(scoreDirector,variableDescriptor,leftEntity,oldRightValue);
+          ChainedMoveUtils.doChainedMove(scoreDirector,variableDescriptor,leftEntity,oldRightValue);
         }
         if (oldLeftValue != rightEntity) {
-          doChainedMove(scoreDirector,variableDescriptor,rightEntity,oldLeftValue);
+          ChainedMoveUtils.doChainedMove(scoreDirector,variableDescriptor,rightEntity,oldLeftValue);
         }
       }
     }
