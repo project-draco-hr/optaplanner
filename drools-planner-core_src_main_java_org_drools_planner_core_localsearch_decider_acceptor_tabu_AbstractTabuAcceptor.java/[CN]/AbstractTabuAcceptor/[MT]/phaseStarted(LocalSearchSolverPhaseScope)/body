@@ -1,6 +1,6 @@
 {
   super.phaseStarted(localSearchSolverPhaseScope);
   validate();
-  tabuToStepIndexMap=new HashMap<Object,Integer>(tabuSize + partialTabuSize);
+  tabuToStepIndexMap=new HashMap<Object,Integer>(tabuSize + fadingTabuSize);
   tabuSequenceList=new LinkedList<Object>();
 }

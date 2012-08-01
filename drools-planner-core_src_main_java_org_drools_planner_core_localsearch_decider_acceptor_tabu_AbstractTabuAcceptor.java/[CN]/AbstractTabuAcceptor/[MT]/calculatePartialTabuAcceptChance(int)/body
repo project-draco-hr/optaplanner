@@ -1,3 +1,0 @@
-{
-  return ((double)(partialTabuSize - partialTabuStepCount)) / ((double)(partialTabuSize + 1));
-}

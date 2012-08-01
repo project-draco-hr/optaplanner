@@ -33,13 +33,13 @@
     logger.trace("        Proposed move ({}) is tabu and is therefore not accepted.",moveScope.getMove());
     return false;
   }
-  double acceptChance=calculatePartialTabuAcceptChance(tabuStepCount - tabuSize);
+  double acceptChance=calculateFadingTabuAcceptChance(tabuStepCount - tabuSize);
   boolean accepted=moveScope.getWorkingRandom().nextDouble() < acceptChance;
   if (accepted) {
-    logger.trace("        Proposed move ({}) is partially tabu with acceptChance ({}) and is accepted.",moveScope.getMove(),acceptChance);
+    logger.trace("        Proposed move ({}) is fading tabu with acceptChance ({}) and is accepted.",moveScope.getMove(),acceptChance);
   }
  else {
-    logger.trace("        Proposed move ({}) is partially tabu with acceptChance ({}) and is not accepted.",moveScope.getMove(),acceptChance);
+    logger.trace("        Proposed move ({}) is fading tabu with acceptChance ({}) and is not accepted.",moveScope.getMove(),acceptChance);
   }
   return accepted;
 }

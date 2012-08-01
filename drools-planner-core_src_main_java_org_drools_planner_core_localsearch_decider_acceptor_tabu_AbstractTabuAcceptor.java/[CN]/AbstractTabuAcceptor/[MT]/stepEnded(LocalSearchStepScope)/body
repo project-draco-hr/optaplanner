@@ -1,5 +1,5 @@
 {
-  int maximumTabuListSize=tabuSize + partialTabuSize;
+  int maximumTabuListSize=tabuSize + fadingTabuSize;
   int tabuStepIndex=localSearchStepScope.getStepIndex();
   for (Iterator<Object> it=tabuSequenceList.iterator(); it.hasNext(); ) {
     Object oldTabu=it.next();

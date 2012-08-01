@@ -16,26 +16,26 @@
   if (moveTabuSize == null) {
     moveTabuSize=inheritedConfig.getMoveTabuSize();
   }
-  if (partialMoveTabuSize == null) {
-    partialMoveTabuSize=inheritedConfig.getPartialMoveTabuSize();
+  if (fadingMoveTabuSize == null) {
+    fadingMoveTabuSize=inheritedConfig.getFadingMoveTabuSize();
   }
   if (undoMoveTabuSize == null) {
     undoMoveTabuSize=inheritedConfig.getUndoMoveTabuSize();
   }
-  if (partialUndoMoveTabuSize == null) {
-    partialUndoMoveTabuSize=inheritedConfig.getPartialUndoMoveTabuSize();
+  if (fadingUndoMoveTabuSize == null) {
+    fadingUndoMoveTabuSize=inheritedConfig.getFadingUndoMoveTabuSize();
   }
   if (planningEntityTabuSize == null) {
     planningEntityTabuSize=inheritedConfig.getPlanningEntityTabuSize();
   }
-  if (partialPlanningEntityTabuSize == null) {
-    partialPlanningEntityTabuSize=inheritedConfig.getPartialPlanningEntityTabuSize();
+  if (fadingPlanningEntityTabuSize == null) {
+    fadingPlanningEntityTabuSize=inheritedConfig.getFadingPlanningEntityTabuSize();
   }
   if (solutionTabuSize == null) {
     solutionTabuSize=inheritedConfig.getSolutionTabuSize();
   }
-  if (partialSolutionTabuSize == null) {
-    partialSolutionTabuSize=inheritedConfig.getPartialSolutionTabuSize();
+  if (fadingSolutionTabuSize == null) {
+    fadingSolutionTabuSize=inheritedConfig.getFadingSolutionTabuSize();
   }
   if (simulatedAnnealingStartingTemperature == null) {
     simulatedAnnealingStartingTemperature=inheritedConfig.getSimulatedAnnealingStartingTemperature();
