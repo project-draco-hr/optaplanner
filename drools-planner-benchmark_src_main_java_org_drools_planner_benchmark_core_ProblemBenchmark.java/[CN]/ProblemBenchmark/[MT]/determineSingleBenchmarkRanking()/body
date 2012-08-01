@@ -15,4 +15,5 @@
     singleBenchmarkRanking++;
   }
   winningSingleBenchmark=rankedSingleBenchmarkList.isEmpty() ? null : rankedSingleBenchmarkList.get(0);
+  worstSingleBenchmark=rankedSingleBenchmarkList.isEmpty() ? null : rankedSingleBenchmarkList.get(rankedSingleBenchmarkList.size() - 1);
 }
