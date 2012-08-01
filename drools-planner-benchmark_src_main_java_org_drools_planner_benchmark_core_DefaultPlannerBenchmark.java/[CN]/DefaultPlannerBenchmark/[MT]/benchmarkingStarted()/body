@@ -1,4 +1,5 @@
 {
+  startingSystemTimeMillis=System.currentTimeMillis();
   startingTimestamp=new Date();
   if (solverBenchmarkList == null || solverBenchmarkList.isEmpty()) {
     throw new IllegalArgumentException("The solverBenchmarkList (" + solverBenchmarkList + ") cannot be empty.");
@@ -15,5 +16,6 @@
   failureCount=0;
   firstFailureSingleBenchmark=null;
   winningSolverBenchmark=null;
+  benchmarkTimeMillisSpend=-1L;
   logger.info("Benchmarking started: solverBenchmarkList size ({}), parallelBenchmarkCount ({}).",solverBenchmarkList.size(),parallelBenchmarkCount);
 }
