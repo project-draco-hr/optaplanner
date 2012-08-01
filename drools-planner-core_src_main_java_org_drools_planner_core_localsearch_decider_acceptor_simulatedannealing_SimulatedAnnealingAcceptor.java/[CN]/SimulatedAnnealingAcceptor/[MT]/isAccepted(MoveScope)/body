@@ -7,18 +7,18 @@
   }
   Score scoreDifference=lastStepScore.subtract(moveScore);
   double acceptChance=1.0;
-  double[] scoreDifferenceParts=scoreDifference.toDoubleLevels();
-  for (int i=0; i < partsLength; i++) {
-    double scoreDifferencePart=scoreDifferenceParts[i];
-    double temperaturePart=temperatureParts[i];
-    double acceptChancePart;
-    if (scoreDifferencePart <= 0.0) {
-      acceptChancePart=1.0;
+  double[] scoreDifferenceLevels=scoreDifference.toDoubleLevels();
+  for (int i=0; i < levelsLength; i++) {
+    double scoreDifferenceLevel=scoreDifferenceLevels[i];
+    double temperatureLevel=temperatureLevels[i];
+    double acceptChanceLevel;
+    if (scoreDifferenceLevel <= 0.0) {
+      acceptChanceLevel=1.0;
     }
  else {
-      acceptChancePart=Math.exp(-scoreDifferencePart / temperaturePart);
+      acceptChanceLevel=Math.exp(-scoreDifferenceLevel / temperatureLevel);
     }
-    acceptChance*=acceptChancePart;
+    acceptChance*=acceptChanceLevel;
   }
   if (moveScope.getWorkingRandom().nextDouble() < acceptChance) {
     return true;

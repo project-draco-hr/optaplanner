@@ -1,11 +1,11 @@
 {
   super.phaseStarted(localSearchSolverPhaseScope);
-  for (  double startingTemperaturePart : startingTemperature.toDoubleLevels()) {
-    if (startingTemperaturePart < 0.0) {
-      throw new IllegalArgumentException("The startingTemperature (" + startingTemperature + ") cannot have negative part ("+ startingTemperaturePart+ ").");
+  for (  double startingTemperatureLevel : startingTemperature.toDoubleLevels()) {
+    if (startingTemperatureLevel < 0.0) {
+      throw new IllegalArgumentException("The startingTemperature (" + startingTemperature + ") cannot have negative level ("+ startingTemperatureLevel+ ").");
     }
   }
-  startingTemperatureParts=startingTemperature.toDoubleLevels();
-  temperatureParts=startingTemperatureParts;
-  partsLength=startingTemperatureParts.length;
+  startingTemperatureLevels=startingTemperature.toDoubleLevels();
+  temperatureLevels=startingTemperatureLevels;
+  levelsLength=startingTemperatureLevels.length;
 }
