@@ -1,16 +1,21 @@
 {
   ProblemStatisticCsv csv=new ProblemStatisticCsv();
   for (  SingleBenchmark singleBenchmark : problemBenchmark.getSingleBenchmarkList()) {
-    BestScoreSingleStatistic singleStatistic=(BestScoreSingleStatistic)singleBenchmark.getSingleStatistic(problemStatisticType);
-    for (    BestScoreSingleStatisticPoint point : singleStatistic.getPointList()) {
-      long timeMillisSpend=point.getTimeMillisSpend();
-      Score score=point.getScore();
-      if (score != null) {
-        Double scoreGraphValue=scoreDefinition.translateScoreToGraphValue(score);
-        if (scoreGraphValue != null) {
-          csv.addPoint(singleBenchmark,timeMillisSpend,scoreGraphValue);
+    if (singleBenchmark.isSuccess()) {
+      BestScoreSingleStatistic singleStatistic=(BestScoreSingleStatistic)singleBenchmark.getSingleStatistic(problemStatisticType);
+      for (      BestScoreSingleStatisticPoint point : singleStatistic.getPointList()) {
+        long timeMillisSpend=point.getTimeMillisSpend();
+        Score score=point.getScore();
+        if (score != null) {
+          Double scoreGraphValue=scoreDefinition.translateScoreToGraphValue(score);
+          if (scoreGraphValue != null) {
+            csv.addPoint(singleBenchmark,timeMillisSpend,scoreGraphValue);
+          }
         }
       }
+    }
+ else {
+      csv.addPoint(singleBenchmark,0L,"Failed");
     }
   }
   csvStatisticFile=new File(problemBenchmark.getProblemReportDirectory(),problemBenchmark.getName() + "BestScoreStatistic.csv");

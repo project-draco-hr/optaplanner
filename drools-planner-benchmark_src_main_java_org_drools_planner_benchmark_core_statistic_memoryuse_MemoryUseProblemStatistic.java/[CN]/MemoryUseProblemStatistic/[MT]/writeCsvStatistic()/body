@@ -1,12 +1,17 @@
 {
   ProblemStatisticCsv csv=new ProblemStatisticCsv();
   for (  SingleBenchmark singleBenchmark : problemBenchmark.getSingleBenchmarkList()) {
-    MemoryUseSingleStatistic singleStatistic=(MemoryUseSingleStatistic)singleBenchmark.getSingleStatistic(problemStatisticType);
-    for (    MemoryUseSingleStatisticPoint point : singleStatistic.getPointList()) {
-      long timeMillisSpend=point.getTimeMillisSpend();
-      MemoryUseMeasurement memoryUseMeasurement=point.getMemoryUseMeasurement();
-      String value="\"" + Long.toString(memoryUseMeasurement.getUsedMemory()) + "/"+ Long.toString(memoryUseMeasurement.getMaxMemory())+ "\"";
-      csv.addPoint(singleBenchmark,timeMillisSpend,value);
+    if (singleBenchmark.isSuccess()) {
+      MemoryUseSingleStatistic singleStatistic=(MemoryUseSingleStatistic)singleBenchmark.getSingleStatistic(problemStatisticType);
+      for (      MemoryUseSingleStatisticPoint point : singleStatistic.getPointList()) {
+        long timeMillisSpend=point.getTimeMillisSpend();
+        MemoryUseMeasurement memoryUseMeasurement=point.getMemoryUseMeasurement();
+        String value="\"" + Long.toString(memoryUseMeasurement.getUsedMemory()) + "/"+ Long.toString(memoryUseMeasurement.getMaxMemory())+ "\"";
+        csv.addPoint(singleBenchmark,timeMillisSpend,value);
+      }
+    }
+ else {
+      csv.addPoint(singleBenchmark,0L,"Failed");
     }
   }
   csvStatisticFile=new File(problemBenchmark.getProblemReportDirectory(),problemBenchmark.getName() + "MemoryUseStatistic.csv");
