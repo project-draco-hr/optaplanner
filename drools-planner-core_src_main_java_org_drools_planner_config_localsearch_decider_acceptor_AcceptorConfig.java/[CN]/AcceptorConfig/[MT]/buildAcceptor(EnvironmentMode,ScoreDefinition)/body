@@ -13,6 +13,32 @@ catch (      IllegalAccessException e) {
       }
     }
   }
+  if ((acceptorTypeList != null && acceptorTypeList.contains(AcceptorType.PLANNING_ENTITY_TABU)) || planningEntityTabuSize != null || fadingPlanningEntityTabuSize != null) {
+    PlanningEntityTabuAcceptor planningEntityTabuAcceptor=new PlanningEntityTabuAcceptor();
+    if (planningEntityTabuSize != null) {
+      planningEntityTabuAcceptor.setTabuSize(planningEntityTabuSize);
+    }
+    if (fadingPlanningEntityTabuSize != null) {
+      planningEntityTabuAcceptor.setFadingTabuSize(fadingPlanningEntityTabuSize);
+    }
+    if (environmentMode == EnvironmentMode.TRACE) {
+      planningEntityTabuAcceptor.setAssertTabuHashCodeCorrectness(true);
+    }
+    acceptorList.add(planningEntityTabuAcceptor);
+  }
+  if ((acceptorTypeList != null && acceptorTypeList.contains(AcceptorType.PLANNING_VALUE_TABU)) || planningValueTabuSize != null || fadingPlanningValueTabuSize != null) {
+    PlanningValueTabuAcceptor planningValueTabuAcceptor=new PlanningValueTabuAcceptor();
+    if (planningValueTabuSize != null) {
+      planningValueTabuAcceptor.setTabuSize(planningValueTabuSize);
+    }
+    if (fadingPlanningValueTabuSize != null) {
+      planningValueTabuAcceptor.setFadingTabuSize(fadingPlanningValueTabuSize);
+    }
+    if (environmentMode == EnvironmentMode.TRACE) {
+      planningValueTabuAcceptor.setAssertTabuHashCodeCorrectness(true);
+    }
+    acceptorList.add(planningValueTabuAcceptor);
+  }
   if ((acceptorTypeList != null && acceptorTypeList.contains(AcceptorType.MOVE_TABU)) || moveTabuSize != null || fadingMoveTabuSize != null) {
     MoveTabuAcceptor moveTabuAcceptor=new MoveTabuAcceptor();
     moveTabuAcceptor.setUseUndoMoveAsTabuMove(false);
@@ -40,32 +66,6 @@ catch (      IllegalAccessException e) {
       undoMoveTabuAcceptor.setAssertTabuHashCodeCorrectness(true);
     }
     acceptorList.add(undoMoveTabuAcceptor);
-  }
-  if ((acceptorTypeList != null && acceptorTypeList.contains(AcceptorType.PLANNING_ENTITY_TABU)) || planningEntityTabuSize != null || fadingPlanningEntityTabuSize != null) {
-    PlanningEntityTabuAcceptor planningEntityTabuAcceptor=new PlanningEntityTabuAcceptor();
-    if (planningEntityTabuSize != null) {
-      planningEntityTabuAcceptor.setTabuSize(planningEntityTabuSize);
-    }
-    if (fadingPlanningEntityTabuSize != null) {
-      planningEntityTabuAcceptor.setFadingTabuSize(fadingPlanningEntityTabuSize);
-    }
-    if (environmentMode == EnvironmentMode.TRACE) {
-      planningEntityTabuAcceptor.setAssertTabuHashCodeCorrectness(true);
-    }
-    acceptorList.add(planningEntityTabuAcceptor);
-  }
-  if ((acceptorTypeList != null && acceptorTypeList.contains(AcceptorType.PLANNING_VALUE_TABU)) || planningValueTabuSize != null || fadingPlanningValueTabuSize != null) {
-    PlanningValueTabuAcceptor planningValueTabuAcceptor=new PlanningValueTabuAcceptor();
-    if (planningValueTabuSize != null) {
-      planningValueTabuAcceptor.setTabuSize(planningValueTabuSize);
-    }
-    if (fadingPlanningValueTabuSize != null) {
-      planningValueTabuAcceptor.setFadingTabuSize(fadingPlanningValueTabuSize);
-    }
-    if (environmentMode == EnvironmentMode.TRACE) {
-      planningValueTabuAcceptor.setAssertTabuHashCodeCorrectness(true);
-    }
-    acceptorList.add(planningValueTabuAcceptor);
   }
   if ((acceptorTypeList != null && acceptorTypeList.contains(AcceptorType.SOLUTION_TABU)) || solutionTabuSize != null || fadingSolutionTabuSize != null) {
     SolutionTabuAcceptor solutionTabuAcceptor=new SolutionTabuAcceptor();

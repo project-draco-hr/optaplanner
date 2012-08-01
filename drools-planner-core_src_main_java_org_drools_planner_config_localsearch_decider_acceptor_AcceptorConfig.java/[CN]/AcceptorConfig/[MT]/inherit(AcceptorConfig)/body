@@ -13,6 +13,12 @@
       }
     }
   }
+  if (planningEntityTabuSize == null) {
+    planningEntityTabuSize=inheritedConfig.getPlanningEntityTabuSize();
+  }
+  if (fadingPlanningEntityTabuSize == null) {
+    fadingPlanningEntityTabuSize=inheritedConfig.getFadingPlanningEntityTabuSize();
+  }
   if (moveTabuSize == null) {
     moveTabuSize=inheritedConfig.getMoveTabuSize();
   }
@@ -24,12 +30,6 @@
   }
   if (fadingUndoMoveTabuSize == null) {
     fadingUndoMoveTabuSize=inheritedConfig.getFadingUndoMoveTabuSize();
-  }
-  if (planningEntityTabuSize == null) {
-    planningEntityTabuSize=inheritedConfig.getPlanningEntityTabuSize();
-  }
-  if (fadingPlanningEntityTabuSize == null) {
-    fadingPlanningEntityTabuSize=inheritedConfig.getFadingPlanningEntityTabuSize();
   }
   if (solutionTabuSize == null) {
     solutionTabuSize=inheritedConfig.getSolutionTabuSize();
