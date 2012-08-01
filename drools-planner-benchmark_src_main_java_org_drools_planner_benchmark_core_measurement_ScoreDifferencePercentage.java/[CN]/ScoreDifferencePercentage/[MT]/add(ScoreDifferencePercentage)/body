@@ -1,0 +1,7 @@
+{
+  double[] newPercentageLevels=new double[percentageLevels.length];
+  for (int i=0; i < percentageLevels.length; i++) {
+    newPercentageLevels[i]=percentageLevels[i] + augment.percentageLevels[i];
+  }
+  return new ScoreDifferencePercentage(newPercentageLevels);
+}

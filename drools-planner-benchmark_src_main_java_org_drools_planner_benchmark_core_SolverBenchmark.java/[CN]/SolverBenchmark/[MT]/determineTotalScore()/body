@@ -1,17 +1,26 @@
 {
   failureCount=0;
-  totalScore=null;
+  boolean firstNonFailure=true;
+  ScoreDifferencePercentage totalWorstScoreDifferencePercentage=null;
   for (  SingleBenchmark singleBenchmark : singleBenchmarkList) {
     if (singleBenchmark.isFailure()) {
       failureCount++;
     }
  else {
-      if (totalScore == null) {
+      if (firstNonFailure) {
         totalScore=singleBenchmark.getScore();
+        totalWinningScoreDifference=singleBenchmark.getWinningScoreDifference();
+        totalWorstScoreDifferencePercentage=singleBenchmark.getWorstScoreDifferencePercentage();
+        firstNonFailure=false;
       }
  else {
         totalScore=totalScore.add(singleBenchmark.getScore());
+        totalWinningScoreDifference=totalWinningScoreDifference.add(singleBenchmark.getWinningScoreDifference());
+        totalWorstScoreDifferencePercentage=totalWorstScoreDifferencePercentage.add(singleBenchmark.getWorstScoreDifferencePercentage());
       }
     }
+  }
+  if (totalWorstScoreDifferencePercentage != null) {
+    averageWorstScoreDifferencePercentage=totalWorstScoreDifferencePercentage.divide(getSuccessCount());
   }
 }

@@ -2,5 +2,5 @@
   if (totalScore == null) {
     return null;
   }
-  return getTotalScore().divide(singleBenchmarkList.size() - failureCount);
+  return totalScore.divide(getSuccessCount());
 }

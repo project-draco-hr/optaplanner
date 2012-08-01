@@ -1,0 +1,6 @@
+{
+  if (totalWinningScoreDifference == null) {
+    return null;
+  }
+  return totalWinningScoreDifference.divide(getSuccessCount());
+}
