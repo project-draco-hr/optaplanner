@@ -4,5 +4,6 @@
       continue;
     }
     singleBenchmark.setWinningScoreDifference(singleBenchmark.getScore().subtract(winningSingleBenchmark.getScore()));
+    singleBenchmark.setWinningScoreDifferencePercentage(ScoreDifferencePercentage.calculateScoreDifferencePercentage(singleBenchmark.getScore(),winningSingleBenchmark.getScore()));
   }
 }

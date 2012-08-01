@@ -1,0 +1,17 @@
+{
+  double differenceLevel=valueLevel - baseLevel;
+  if (baseLevel < 0.0) {
+    return differenceLevel / -baseLevel;
+  }
+ else   if (baseLevel == 0.0) {
+    if (differenceLevel == 0.0) {
+      return 0.0;
+    }
+ else {
+      return differenceLevel / baseLevel;
+    }
+  }
+ else {
+    return differenceLevel / baseLevel;
+  }
+}
