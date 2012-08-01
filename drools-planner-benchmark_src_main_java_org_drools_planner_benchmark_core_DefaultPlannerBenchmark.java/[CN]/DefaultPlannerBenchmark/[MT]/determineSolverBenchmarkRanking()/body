@@ -29,5 +29,5 @@
     solverBenchmark.setRanking(ranking);
     ranking++;
   }
-  winningSolverBenchmark=rankedSolverBenchmarkList.isEmpty() ? null : rankedSolverBenchmarkList.get(0);
+  favoriteSolverBenchmark=rankedSolverBenchmarkList.isEmpty() ? null : rankedSolverBenchmarkList.get(0);
 }

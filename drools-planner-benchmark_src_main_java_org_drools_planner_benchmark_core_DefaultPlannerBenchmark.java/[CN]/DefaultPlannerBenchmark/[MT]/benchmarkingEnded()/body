@@ -11,7 +11,7 @@
   PlannerStatistic plannerStatistic=new PlannerStatistic(this);
   plannerStatistic.writeStatistics();
   if (failureCount == 0) {
-    logger.info("Benchmarking ended: winning solverBenchmark ({}), statistic html overview ({}).",winningSolverBenchmark.getName(),plannerStatistic.getHtmlOverviewFile().getAbsolutePath());
+    logger.info("Benchmarking ended: favoriteSolverBenchmark ({}), statistic html overview ({}).",favoriteSolverBenchmark.getName(),plannerStatistic.getHtmlOverviewFile().getAbsolutePath());
   }
  else {
     logger.info("Benchmarking failed: failureCount ({}), statistic html overview ({}).",failureCount,plannerStatistic.getHtmlOverviewFile().getAbsolutePath());

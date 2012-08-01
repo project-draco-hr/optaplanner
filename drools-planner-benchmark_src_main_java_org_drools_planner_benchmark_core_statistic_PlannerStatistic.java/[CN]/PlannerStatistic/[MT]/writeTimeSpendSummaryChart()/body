@@ -5,8 +5,8 @@
       if (singleBenchmark.isSuccess()) {
         long timeMillisSpend=singleBenchmark.getTimeMillisSpend();
         String solverLabel=solverBenchmark.getName();
-        if (solverBenchmark.isRankingBest()) {
-          solverLabel+=" (winner)";
+        if (solverBenchmark.isFavorite()) {
+          solverLabel+=" (favorite)";
         }
         String planningProblemLabel=singleBenchmark.getProblemBenchmark().getName();
         dataset.addValue(timeMillisSpend,solverLabel,planningProblemLabel);

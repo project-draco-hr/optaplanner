@@ -5,8 +5,8 @@
   int seriesIndex=0;
   for (  SolverBenchmark solverBenchmark : plannerBenchmark.getSolverBenchmarkList()) {
     String solverLabel=solverBenchmark.getName();
-    if (solverBenchmark.isRankingBest()) {
-      solverLabel+=" (winner)";
+    if (solverBenchmark.isFavorite()) {
+      solverLabel+=" (favorite)";
     }
     XYSeries series=new XYSeries(solverLabel);
     for (    SingleBenchmark singleBenchmark : solverBenchmark.getSingleBenchmarkList()) {

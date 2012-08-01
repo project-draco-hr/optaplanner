@@ -7,8 +7,8 @@
         Score score=singleBenchmark.getWinningScoreDifference();
         Double scoreGraphValue=scoreDefinition.translateScoreToGraphValue(score);
         String solverLabel=solverBenchmark.getName();
-        if (solverBenchmark.isRankingBest()) {
-          solverLabel+=" (winner)";
+        if (solverBenchmark.isFavorite()) {
+          solverLabel+=" (favorite)";
         }
         String planningProblemLabel=singleBenchmark.getProblemBenchmark().getName();
         dataset.addValue(scoreGraphValue,solverLabel,planningProblemLabel);
