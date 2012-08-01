@@ -1,0 +1,3 @@
+{
+  return ranking != null && ranking.intValue() == 0;
+}

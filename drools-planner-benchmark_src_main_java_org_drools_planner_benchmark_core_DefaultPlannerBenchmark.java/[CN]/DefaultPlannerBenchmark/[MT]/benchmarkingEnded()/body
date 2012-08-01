@@ -6,7 +6,7 @@
   for (  SolverBenchmark solverBenchmark : solverBenchmarkList) {
     solverBenchmark.benchmarkingEnded();
   }
-  determineRanking();
+  determineSolverBenchmarkRanking();
   benchmarkTimeMillisSpend=calculateTimeMillisSpend();
   PlannerStatistic plannerStatistic=new PlannerStatistic(this);
   plannerStatistic.writeStatistics();

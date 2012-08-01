@@ -1,0 +1,18 @@
+{
+  failureCount=0;
+  List<SingleBenchmark> rankedSingleBenchmarkList=new ArrayList<SingleBenchmark>(singleBenchmarkList);
+  for (Iterator<SingleBenchmark> it=rankedSingleBenchmarkList.iterator(); it.hasNext(); ) {
+    SingleBenchmark singleBenchmark=it.next();
+    if (singleBenchmark.isFailure()) {
+      failureCount++;
+      it.remove();
+    }
+  }
+  Collections.sort(rankedSingleBenchmarkList,Collections.reverseOrder(new SingleBenchmarkRankingComparator()));
+  int singleBenchmarkRanking=0;
+  for (  SingleBenchmark singleBenchmark : rankedSingleBenchmarkList) {
+    singleBenchmark.setRanking(singleBenchmarkRanking);
+    singleBenchmarkRanking++;
+  }
+  winningSingleBenchmark=rankedSingleBenchmarkList.isEmpty() ? null : rankedSingleBenchmarkList.get(0);
+}
