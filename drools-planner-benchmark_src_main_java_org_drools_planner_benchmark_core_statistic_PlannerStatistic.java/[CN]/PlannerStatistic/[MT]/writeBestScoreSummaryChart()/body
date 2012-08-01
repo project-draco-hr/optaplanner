@@ -6,10 +6,7 @@
       if (singleBenchmark.isSuccess()) {
         Score score=singleBenchmark.getScore();
         Double scoreGraphValue=scoreDefinition.translateScoreToGraphValue(score);
-        String solverLabel=solverBenchmark.getName();
-        if (solverBenchmark.isFavorite()) {
-          solverLabel+=" (favorite)";
-        }
+        String solverLabel=solverBenchmark.getNameWithFavoriteSuffix();
         String planningProblemLabel=singleBenchmark.getProblemBenchmark().getName();
         dataset.addValue(scoreGraphValue,solverLabel,planningProblemLabel);
       }

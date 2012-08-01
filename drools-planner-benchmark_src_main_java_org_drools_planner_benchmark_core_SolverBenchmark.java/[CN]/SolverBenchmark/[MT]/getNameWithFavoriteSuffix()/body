@@ -1,0 +1,6 @@
+{
+  if (isFavorite()) {
+    return name + " (favorite)";
+  }
+  return name;
+}

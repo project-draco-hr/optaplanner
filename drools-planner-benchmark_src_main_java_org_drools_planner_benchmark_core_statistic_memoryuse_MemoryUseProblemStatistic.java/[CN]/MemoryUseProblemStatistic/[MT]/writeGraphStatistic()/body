@@ -1,8 +1,8 @@
 {
   XYSeriesCollection seriesCollection=new XYSeriesCollection();
   for (  SingleBenchmark singleBenchmark : problemBenchmark.getSingleBenchmarkList()) {
-    XYSeries usedSeries=new XYSeries(singleBenchmark.getSolverBenchmark().getName() + " used");
-    XYSeries maxSeries=new XYSeries(singleBenchmark.getSolverBenchmark().getName() + " max");
+    XYSeries usedSeries=new XYSeries(singleBenchmark.getSolverBenchmark().getNameWithFavoriteSuffix() + " used");
+    XYSeries maxSeries=new XYSeries(singleBenchmark.getSolverBenchmark().getNameWithFavoriteSuffix() + " max");
     if (singleBenchmark.isSuccess()) {
       MemoryUseSingleStatistic singleStatistic=(MemoryUseSingleStatistic)singleBenchmark.getSingleStatistic(problemStatisticType);
       for (      MemoryUseSingleStatisticPoint point : singleStatistic.getPointList()) {

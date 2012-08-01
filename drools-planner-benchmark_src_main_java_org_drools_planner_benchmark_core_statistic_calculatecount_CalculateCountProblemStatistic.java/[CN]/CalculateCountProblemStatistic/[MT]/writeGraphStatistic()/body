@@ -1,7 +1,7 @@
 {
   XYSeriesCollection seriesCollection=new XYSeriesCollection();
   for (  SingleBenchmark singleBenchmark : problemBenchmark.getSingleBenchmarkList()) {
-    XYSeries series=new XYSeries(singleBenchmark.getSolverBenchmark().getName());
+    XYSeries series=new XYSeries(singleBenchmark.getSolverBenchmark().getNameWithFavoriteSuffix());
     if (singleBenchmark.isSuccess()) {
       CalculateCountSingleStatistic singleStatistic=(CalculateCountSingleStatistic)singleBenchmark.getSingleStatistic(problemStatisticType);
       for (      CalculateCountSingleStatisticPoint point : singleStatistic.getPointList()) {
