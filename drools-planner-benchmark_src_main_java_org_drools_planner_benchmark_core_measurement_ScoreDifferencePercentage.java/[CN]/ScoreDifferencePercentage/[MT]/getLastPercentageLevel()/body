@@ -1,0 +1,3 @@
+{
+  return percentageLevels[percentageLevels.length - 1];
+}

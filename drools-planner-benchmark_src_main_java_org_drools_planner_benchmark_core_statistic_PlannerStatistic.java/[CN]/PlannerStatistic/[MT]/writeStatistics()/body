@@ -1,6 +1,7 @@
 {
   writeBestScoreSummaryChart();
   writeWinningScoreDifferenceSummaryChart();
+  writeWorstScoreDifferencePercentageSummaryChart();
   writeTimeSpendSummaryChart();
   writeScalabilitySummaryChart();
   writeAverageCalculateCountPerSecondSummaryChart();
