@@ -1,0 +1,12 @@
+{
+  long totalProblemScale=0L;
+  int problemScaleCount=0;
+  for (  ProblemBenchmark problemBenchmark : unifiedProblemBenchmarkList) {
+    Long problemScale=problemBenchmark.getProblemScale();
+    if (problemScale != null && problemScale >= 0L) {
+      totalProblemScale+=problemScale;
+      problemScaleCount++;
+    }
+  }
+  averageProblemScale=problemScaleCount == 0 ? null : totalProblemScale / (long)problemScaleCount;
+}

@@ -15,6 +15,7 @@
   executorService=Executors.newFixedThreadPool(parallelBenchmarkCount);
   failureCount=0;
   firstFailureSingleBenchmark=null;
+  averageProblemScale=null;
   favoriteSolverBenchmark=null;
   benchmarkTimeMillisSpend=-1L;
   logger.info("Benchmarking started: solverBenchmarkList size ({}), parallelBenchmarkCount ({}).",solverBenchmarkList.size(),parallelBenchmarkCount);

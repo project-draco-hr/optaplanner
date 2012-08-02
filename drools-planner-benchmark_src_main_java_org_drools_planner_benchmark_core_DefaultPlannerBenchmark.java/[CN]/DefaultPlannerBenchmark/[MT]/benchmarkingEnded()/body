@@ -6,15 +6,16 @@
   for (  SolverBenchmark solverBenchmark : solverBenchmarkList) {
     solverBenchmark.benchmarkingEnded();
   }
+  determineTotalsAndAverages();
   determineSolverBenchmarkRanking();
   benchmarkTimeMillisSpend=calculateTimeMillisSpend();
   PlannerStatistic plannerStatistic=new PlannerStatistic(this);
   plannerStatistic.writeStatistics();
   if (failureCount == 0) {
-    logger.info("Benchmarking ended: favoriteSolverBenchmark ({}), statistic html overview ({}).",favoriteSolverBenchmark.getName(),plannerStatistic.getHtmlOverviewFile().getAbsolutePath());
+    logger.info("Benchmarking ended: time spend ({}), favoriteSolverBenchmark ({}), statistic html overview ({}).",new Object[]{benchmarkTimeMillisSpend,favoriteSolverBenchmark.getName(),plannerStatistic.getHtmlOverviewFile().getAbsolutePath()});
   }
  else {
-    logger.info("Benchmarking failed: failureCount ({}), statistic html overview ({}).",failureCount,plannerStatistic.getHtmlOverviewFile().getAbsolutePath());
+    logger.info("Benchmarking failed: time spend ({}), failureCount ({}), statistic html overview ({}).",new Object[]{benchmarkTimeMillisSpend,failureCount,plannerStatistic.getHtmlOverviewFile().getAbsolutePath()});
     throw new IllegalStateException("Benchmarking failed: failureCount (" + failureCount + ")."+ " The exception of the firstFailureSingleBenchmark ("+ firstFailureSingleBenchmark.getName()+ ") is chained.",firstFailureSingleBenchmark.getFailureThrowable());
   }
 }
