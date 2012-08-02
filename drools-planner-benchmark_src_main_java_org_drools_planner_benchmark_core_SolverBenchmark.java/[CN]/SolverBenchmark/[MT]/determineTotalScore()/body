@@ -1,7 +1,10 @@
 {
   failureCount=0;
   boolean firstNonFailure=true;
+  totalScore=null;
+  totalWinningScoreDifference=null;
   ScoreDifferencePercentage totalWorstScoreDifferencePercentage=null;
+  long totalAverageCalculateCountPerSecond=0L;
   for (  SingleBenchmark singleBenchmark : singleBenchmarkList) {
     if (singleBenchmark.isFailure()) {
       failureCount++;
@@ -11,16 +14,20 @@
         totalScore=singleBenchmark.getScore();
         totalWinningScoreDifference=singleBenchmark.getWinningScoreDifference();
         totalWorstScoreDifferencePercentage=singleBenchmark.getWorstScoreDifferencePercentage();
+        totalAverageCalculateCountPerSecond=singleBenchmark.getAverageCalculateCountPerSecond();
         firstNonFailure=false;
       }
  else {
         totalScore=totalScore.add(singleBenchmark.getScore());
         totalWinningScoreDifference=totalWinningScoreDifference.add(singleBenchmark.getWinningScoreDifference());
         totalWorstScoreDifferencePercentage=totalWorstScoreDifferencePercentage.add(singleBenchmark.getWorstScoreDifferencePercentage());
+        totalAverageCalculateCountPerSecond+=singleBenchmark.getAverageCalculateCountPerSecond();
       }
     }
   }
-  if (totalWorstScoreDifferencePercentage != null) {
-    averageWorstScoreDifferencePercentage=totalWorstScoreDifferencePercentage.divide(getSuccessCount());
+  if (!firstNonFailure) {
+    int successCount=getSuccessCount();
+    averageWorstScoreDifferencePercentage=totalWorstScoreDifferencePercentage.divide((double)successCount);
+    averageAverageCalculateCountPerSecond=totalAverageCalculateCountPerSecond / (long)successCount;
   }
 }
