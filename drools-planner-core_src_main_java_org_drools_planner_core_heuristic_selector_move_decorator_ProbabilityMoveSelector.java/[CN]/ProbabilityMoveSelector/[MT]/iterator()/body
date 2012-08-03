@@ -1,0 +1,16 @@
+{
+  return new Iterator<Move>(){
+    public boolean hasNext(){
+      return true;
+    }
+    public Move next(){
+      double randomOffset=RandomUtils.nextDouble(workingRandom,probabilityWeightTotal);
+      Map.Entry<Double,Move> entry=cachedMoveMap.floorEntry(randomOffset);
+      return entry.getValue();
+    }
+    public void remove(){
+      throw new UnsupportedOperationException("Remove is not supported.");
+    }
+  }
+;
+}

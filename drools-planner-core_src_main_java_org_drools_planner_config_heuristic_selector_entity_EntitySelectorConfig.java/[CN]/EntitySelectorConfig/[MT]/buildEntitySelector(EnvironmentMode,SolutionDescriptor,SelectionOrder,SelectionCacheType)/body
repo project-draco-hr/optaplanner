@@ -45,8 +45,7 @@ catch (    IllegalAccessException e) {
 catch (    IllegalAccessException e) {
       throw new IllegalArgumentException("entityProbabilityWeightFactoryClass (" + entityProbabilityWeightFactoryClass.getName() + ") does not have a public no-arg constructor",e);
     }
-    ProbabilityEntitySelector probabilityEntitySelector=new ProbabilityEntitySelector(entitySelector,resolvedCacheType,entityProbabilityWeightFactory);
-    entitySelector=probabilityEntitySelector;
+    entitySelector=new ProbabilityEntitySelector(entitySelector,resolvedCacheType,entityProbabilityWeightFactory);
   }
   return entitySelector;
 }

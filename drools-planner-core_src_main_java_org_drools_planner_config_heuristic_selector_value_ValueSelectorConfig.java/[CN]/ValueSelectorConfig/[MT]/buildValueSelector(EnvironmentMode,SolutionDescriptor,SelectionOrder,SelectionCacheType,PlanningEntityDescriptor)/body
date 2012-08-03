@@ -34,8 +34,7 @@
 catch (    IllegalAccessException e) {
       throw new IllegalArgumentException("valueProbabilityWeightFactoryClass (" + valueProbabilityWeightFactoryClass.getName() + ") does not have a public no-arg constructor",e);
     }
-    ProbabilityValueSelector probabilityValueSelector=new ProbabilityValueSelector(valueSelector,resolvedCacheType,valueProbabilityWeightFactory);
-    valueSelector=probabilityValueSelector;
+    valueSelector=new ProbabilityValueSelector(valueSelector,resolvedCacheType,valueProbabilityWeightFactory);
   }
   return valueSelector;
 }

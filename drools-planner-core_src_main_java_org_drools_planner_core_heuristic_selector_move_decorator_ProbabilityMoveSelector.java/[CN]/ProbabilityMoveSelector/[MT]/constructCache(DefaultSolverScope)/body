@@ -1,0 +1,11 @@
+{
+  cachedMoveMap=new TreeMap<Double,Move>();
+  ScoreDirector scoreDirector=solverScope.getScoreDirector();
+  double probabilityWeightOffset=0L;
+  for (  Move entity : childMoveSelector) {
+    double probabilityWeight=moveProbabilityWeightFactory.createProbabilityWeight(scoreDirector,entity);
+    cachedMoveMap.put(probabilityWeightOffset,entity);
+    probabilityWeightOffset+=probabilityWeight;
+  }
+  probabilityWeightTotal=probabilityWeightOffset;
+}

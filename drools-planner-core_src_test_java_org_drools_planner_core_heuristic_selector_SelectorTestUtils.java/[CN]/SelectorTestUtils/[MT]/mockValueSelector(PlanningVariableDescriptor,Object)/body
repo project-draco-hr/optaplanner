@@ -2,7 +2,7 @@
   ValueSelector valueSelector=mock(ValueSelector.class);
   when(valueSelector.getVariableDescriptor()).thenReturn(variableDescriptor);
   final List<Object> valueList=Arrays.<Object>asList(values);
-  when(valueSelector.iterator()).thenAnswer(new Answer<Object>(){
+  when(valueSelector.iterator()).thenAnswer(new Answer<Iterator<Object>>(){
     public ValueIterator answer(    InvocationOnMock invocation) throws Throwable {
       return new IteratorToValueIteratorBridge(valueList.iterator());
     }

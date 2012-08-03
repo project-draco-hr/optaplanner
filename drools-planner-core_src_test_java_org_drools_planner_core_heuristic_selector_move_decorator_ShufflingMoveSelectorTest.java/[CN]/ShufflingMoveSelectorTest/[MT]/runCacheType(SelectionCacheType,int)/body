@@ -1,15 +1,5 @@
 {
-  MoveSelector childMoveSelector=mock(MoveSelector.class);
-  final List<Move> moveList=Arrays.<Move>asList(new DummyMove("a1"),new DummyMove("a2"),new DummyMove("a3"));
-  when(childMoveSelector.iterator()).thenAnswer(new Answer<Object>(){
-    public Object answer(    InvocationOnMock invocation) throws Throwable {
-      return moveList.iterator();
-    }
-  }
-);
-  when(childMoveSelector.isContinuous()).thenReturn(false);
-  when(childMoveSelector.isNeverEnding()).thenReturn(false);
-  when(childMoveSelector.getSize()).thenReturn((long)moveList.size());
+  MoveSelector childMoveSelector=SelectorTestUtils.mockMoveSelector(DummyMove.class,new DummyMove("a1"),new DummyMove("a2"),new DummyMove("a3"));
   ShufflingMoveSelector moveSelector=new ShufflingMoveSelector(childMoveSelector,cacheType);
   verify(childMoveSelector,times(1)).isNeverEnding();
   Random workingRandom=mock(Random.class);
