@@ -1,17 +1,17 @@
 {
   SelectionOrder resolvedSelectionOrder=SelectionOrder.resolve(selectionOrder,inheritedSelectionOrder);
   SelectionCacheType resolvedCacheType=SelectionCacheType.resolve(cacheType,inheritedCacheType);
-  boolean shuffled;
+  boolean shuffledOrProbability;
   if (resolvedSelectionOrder != SelectionOrder.RANDOM) {
-    shuffled=false;
+    shuffledOrProbability=false;
   }
  else {
-    if (resolvedCacheType.compareTo(SelectionCacheType.STEP) >= 0) {
-      shuffled=true;
+    if (resolvedCacheType.isCached()) {
+      shuffledOrProbability=true;
       resolvedSelectionOrder=SelectionOrder.ORIGINAL;
     }
  else {
-      shuffled=false;
+      shuffledOrProbability=false;
     }
   }
   MoveSelector moveSelector=buildBaseMoveSelector(environmentMode,solutionDescriptor,resolvedSelectionOrder,resolvedCacheType);
@@ -35,7 +35,23 @@ catch (    IllegalAccessException e) {
     }
     moveSelector=filteringMoveSelector;
   }
-  if (shuffled) {
+  if (moveProbabilityWeightFactoryClass != null) {
+    if (resolvedSelectionOrder != SelectionOrder.RANDOM) {
+      throw new IllegalArgumentException("The entitySelectorConfig (" + this + ") with moveProbabilityWeightFactoryClass ("+ moveProbabilityWeightFactoryClass+ ") has a non-random resolvedSelectionOrder ("+ resolvedSelectionOrder+ ").");
+    }
+    SelectionProbabilityWeightFactory entityProbabilityWeightFactory;
+    try {
+      entityProbabilityWeightFactory=moveProbabilityWeightFactoryClass.newInstance();
+    }
+ catch (    InstantiationException e) {
+      throw new IllegalArgumentException("moveProbabilityWeightFactoryClass (" + moveProbabilityWeightFactoryClass.getName() + ") does not have a public no-arg constructor",e);
+    }
+catch (    IllegalAccessException e) {
+      throw new IllegalArgumentException("moveProbabilityWeightFactoryClass (" + moveProbabilityWeightFactoryClass.getName() + ") does not have a public no-arg constructor",e);
+    }
+    moveSelector=new ProbabilityMoveSelector(moveSelector,resolvedCacheType,entityProbabilityWeightFactory);
+  }
+ else   if (shuffledOrProbability) {
     moveSelector=new ShufflingMoveSelector(moveSelector,resolvedCacheType);
   }
   return moveSelector;

@@ -1,0 +1,4 @@
+{
+  SolutionDescriptor solutionDescriptor=mock(SolutionDescriptor.class);
+  return solutionDescriptor;
+}
