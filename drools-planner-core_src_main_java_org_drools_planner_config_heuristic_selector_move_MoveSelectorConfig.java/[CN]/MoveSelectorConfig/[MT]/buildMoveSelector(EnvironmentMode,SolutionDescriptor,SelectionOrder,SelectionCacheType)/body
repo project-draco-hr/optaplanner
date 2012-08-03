@@ -2,25 +2,14 @@
   SelectionOrder resolvedSelectionOrder=SelectionOrder.resolve(selectionOrder,inheritedSelectionOrder);
   SelectionCacheType resolvedCacheType=SelectionCacheType.resolve(cacheType,minimumCacheType);
   minimumCacheType=SelectionCacheType.max(minimumCacheType,resolvedCacheType);
-  boolean shuffledOrProbability;
-  if (resolvedSelectionOrder != SelectionOrder.RANDOM) {
-    shuffledOrProbability=false;
-  }
- else {
-    if (resolvedCacheType.isCached()) {
-      shuffledOrProbability=true;
-      resolvedSelectionOrder=SelectionOrder.ORIGINAL;
-    }
- else {
-      shuffledOrProbability=false;
-    }
-  }
-  MoveSelector moveSelector=buildBaseMoveSelector(environmentMode,solutionDescriptor,resolvedSelectionOrder,minimumCacheType);
+  MoveSelector moveSelector=buildBaseMoveSelector(environmentMode,solutionDescriptor,resolvedCacheType.isCached() ? SelectionOrder.ORIGINAL : resolvedSelectionOrder,minimumCacheType);
+  boolean alreadyCached=false;
   if (moveFilterClass != null) {
     SelectionFilter moveFilter=ConfigUtils.newInstance(this,"moveFilterClass",moveFilterClass);
     MoveSelector filteringMoveSelector;
     if (resolvedCacheType == SelectionCacheType.JUST_IN_TIME) {
       filteringMoveSelector=new JustInTimeFilteringMoveSelector(moveSelector,resolvedCacheType,moveFilter);
+      alreadyCached=true;
     }
  else {
       filteringMoveSelector=new CachingFilteringMoveSelector(moveSelector,resolvedCacheType,moveFilter);
@@ -33,9 +22,15 @@
     }
     SelectionProbabilityWeightFactory entityProbabilityWeightFactory=ConfigUtils.newInstance(this,"moveProbabilityWeightFactoryClass",moveProbabilityWeightFactoryClass);
     moveSelector=new ProbabilityMoveSelector(moveSelector,resolvedCacheType,entityProbabilityWeightFactory);
+    alreadyCached=true;
   }
- else   if (shuffledOrProbability) {
-    moveSelector=new ShufflingMoveSelector(moveSelector,resolvedCacheType);
+  if (resolvedCacheType.isCached() && !alreadyCached) {
+    if (resolvedSelectionOrder != SelectionOrder.RANDOM) {
+      moveSelector=new CachingMoveSelector(moveSelector,resolvedCacheType);
+    }
+ else {
+      moveSelector=new ShufflingMoveSelector(moveSelector,resolvedCacheType);
+    }
   }
   return moveSelector;
 }
