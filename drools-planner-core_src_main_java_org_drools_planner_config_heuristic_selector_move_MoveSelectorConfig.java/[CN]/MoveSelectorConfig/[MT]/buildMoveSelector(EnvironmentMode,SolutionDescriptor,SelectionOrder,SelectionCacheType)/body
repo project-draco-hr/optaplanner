@@ -1,6 +1,7 @@
 {
   SelectionOrder resolvedSelectionOrder=SelectionOrder.resolve(selectionOrder,inheritedSelectionOrder);
-  SelectionCacheType resolvedCacheType=SelectionCacheType.resolve(cacheType,inheritedCacheType);
+  SelectionCacheType resolvedCacheType=SelectionCacheType.resolve(cacheType,minimumCacheType);
+  minimumCacheType=SelectionCacheType.max(minimumCacheType,resolvedCacheType);
   boolean shuffledOrProbability;
   if (resolvedSelectionOrder != SelectionOrder.RANDOM) {
     shuffledOrProbability=false;
@@ -14,7 +15,7 @@
       shuffledOrProbability=false;
     }
   }
-  MoveSelector moveSelector=buildBaseMoveSelector(environmentMode,solutionDescriptor,resolvedSelectionOrder,resolvedCacheType);
+  MoveSelector moveSelector=buildBaseMoveSelector(environmentMode,solutionDescriptor,resolvedSelectionOrder,minimumCacheType);
   if (moveFilterClass != null) {
     SelectionFilter moveFilter;
     try {

@@ -14,12 +14,13 @@
     variableDescriptor=planningVariableDescriptors.iterator().next();
   }
   SelectionOrder resolvedSelectionOrder=SelectionOrder.resolve(selectionOrder,inheritedSelectionOrder);
-  SelectionCacheType resolvedCacheType=SelectionCacheType.resolve(cacheType,inheritedCacheType);
+  SelectionCacheType resolvedCacheType=SelectionCacheType.resolve(cacheType,minimumCacheType);
+  minimumCacheType=SelectionCacheType.max(minimumCacheType,resolvedCacheType);
   boolean randomSelection=resolvedSelectionOrder == SelectionOrder.RANDOM && valueProbabilityWeightFactoryClass == null;
-  if (resolvedCacheType.compareTo(SelectionCacheType.PHASE) < 0) {
-    resolvedCacheType=SelectionCacheType.PHASE;
+  if (minimumCacheType.compareTo(SelectionCacheType.PHASE) < 0) {
+    minimumCacheType=SelectionCacheType.PHASE;
   }
-  ValueSelector valueSelector=new FromSolutionPropertyValueSelector(variableDescriptor,randomSelection,resolvedCacheType);
+  ValueSelector valueSelector=new FromSolutionPropertyValueSelector(variableDescriptor,randomSelection,minimumCacheType);
   if (valueProbabilityWeightFactoryClass != null) {
     if (resolvedSelectionOrder != SelectionOrder.RANDOM) {
       throw new IllegalArgumentException("The variableSelectorConfig (" + this + ") with valueProbabilityWeightFactoryClass ("+ valueProbabilityWeightFactoryClass+ ") has a non-random resolvedSelectionOrder ("+ resolvedSelectionOrder+ ").");

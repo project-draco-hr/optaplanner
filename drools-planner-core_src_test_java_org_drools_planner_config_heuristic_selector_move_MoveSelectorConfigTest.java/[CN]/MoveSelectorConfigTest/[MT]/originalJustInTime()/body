@@ -1,9 +1,9 @@
 {
   final MoveSelector baseMoveSelector=SelectorTestUtils.mockMoveSelector(DummyMove.class);
   MoveSelectorConfig moveSelectorConfig=new MoveSelectorConfig(){
-    @Override protected MoveSelector buildBaseMoveSelector(    EnvironmentMode environmentMode,    SolutionDescriptor solutionDescriptor,    SelectionOrder resolvedSelectionOrder,    SelectionCacheType resolvedCacheType){
+    @Override protected MoveSelector buildBaseMoveSelector(    EnvironmentMode environmentMode,    SolutionDescriptor solutionDescriptor,    SelectionOrder resolvedSelectionOrder,    SelectionCacheType minimumCacheType){
       assertEquals(SelectionOrder.ORIGINAL,resolvedSelectionOrder);
-      assertEquals(SelectionCacheType.JUST_IN_TIME,resolvedCacheType);
+      assertEquals(SelectionCacheType.JUST_IN_TIME,minimumCacheType);
       return baseMoveSelector;
     }
   }

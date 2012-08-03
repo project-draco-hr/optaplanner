@@ -1,7 +1,7 @@
 {
-  if (resolvedCacheType.compareTo(SelectionCacheType.STEP) > 0) {
-    throw new IllegalArgumentException("The subChainChangeMoveSelector's cacheType (" + resolvedCacheType + ") must not be higher than "+ SelectionCacheType.STEP+ " because the chains change every step.");
+  if (minimumCacheType.compareTo(SelectionCacheType.STEP) > 0) {
+    throw new IllegalArgumentException("The subChainChangeMoveSelector's minimumCacheType (" + minimumCacheType + ") must not be higher than "+ SelectionCacheType.STEP+ " because the chains change every step.");
   }
-  ValueSelector valueSelector=valueSelectorConfig.buildValueSelector(environmentMode,solutionDescriptor,SelectionOrder.ORIGINAL,resolvedCacheType,entityDescriptor);
-  return new DefaultSubChainSelector(valueSelector,resolvedSelectionOrder == SelectionOrder.RANDOM,minimumSubChainSize == null ? DEFAULT_MINIMUM_SUB_CHAIN_SIZE : minimumSubChainSize);
+  ValueSelector valueSelector=valueSelectorConfig.buildValueSelector(environmentMode,solutionDescriptor,SelectionOrder.ORIGINAL,minimumCacheType,entityDescriptor);
+  return new DefaultSubChainSelector(valueSelector,inheritedSelectionOrder == SelectionOrder.RANDOM,minimumSubChainSize == null ? DEFAULT_MINIMUM_SUB_CHAIN_SIZE : minimumSubChainSize);
 }

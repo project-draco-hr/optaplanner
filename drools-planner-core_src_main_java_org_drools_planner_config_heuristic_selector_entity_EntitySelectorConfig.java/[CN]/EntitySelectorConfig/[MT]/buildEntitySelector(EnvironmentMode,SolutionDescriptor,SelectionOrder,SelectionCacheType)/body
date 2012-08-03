@@ -1,15 +1,16 @@
 {
   PlanningEntityDescriptor entityDescriptor=fetchEntityDescriptor(solutionDescriptor);
   SelectionOrder resolvedSelectionOrder=SelectionOrder.resolve(selectionOrder,inheritedSelectionOrder);
-  SelectionCacheType resolvedCacheType=SelectionCacheType.resolve(cacheType,inheritedCacheType);
+  SelectionCacheType resolvedCacheType=SelectionCacheType.resolve(cacheType,minimumCacheType);
+  minimumCacheType=SelectionCacheType.max(minimumCacheType,resolvedCacheType);
   boolean randomSelection=resolvedSelectionOrder == SelectionOrder.RANDOM && entityProbabilityWeightFactoryClass == null;
-  if (resolvedCacheType.compareTo(SelectionCacheType.STEP) < 0) {
-    resolvedCacheType=SelectionCacheType.STEP;
+  if (minimumCacheType.compareTo(SelectionCacheType.STEP) < 0) {
+    minimumCacheType=SelectionCacheType.STEP;
   }
-  if (resolvedCacheType == SelectionCacheType.SOLVER) {
-    throw new IllegalArgumentException("The cacheType (" + resolvedCacheType + ") is not yet supported. Please use "+ SelectionCacheType.PHASE+ " instead.");
+  if (minimumCacheType == SelectionCacheType.SOLVER) {
+    throw new IllegalArgumentException("The minimumCacheType (" + minimumCacheType + ") is not yet supported. Please use "+ SelectionCacheType.PHASE+ " instead.");
   }
-  EntitySelector entitySelector=new FromSolutionEntitySelector(entityDescriptor,randomSelection,resolvedCacheType);
+  EntitySelector entitySelector=new FromSolutionEntitySelector(entityDescriptor,randomSelection,minimumCacheType);
   if (entityFilterClass != null) {
     SelectionFilter entityFilter;
     try {
@@ -24,7 +25,6 @@ catch (    IllegalAccessException e) {
     EntitySelector filteringEntitySelector;
     if (resolvedCacheType == SelectionCacheType.JUST_IN_TIME) {
       filteringEntitySelector=new JustInTimeFilteringEntitySelector(entitySelector,resolvedCacheType,entityFilter);
-      throw new IllegalStateException("Impossible situation: the resolvedCacheType (" + resolvedCacheType + ") should have already been upgraded to "+ SelectionCacheType.STEP+ ".");
     }
  else {
       filteringEntitySelector=new CachingFilteringEntitySelector(entitySelector,resolvedCacheType,entityFilter);

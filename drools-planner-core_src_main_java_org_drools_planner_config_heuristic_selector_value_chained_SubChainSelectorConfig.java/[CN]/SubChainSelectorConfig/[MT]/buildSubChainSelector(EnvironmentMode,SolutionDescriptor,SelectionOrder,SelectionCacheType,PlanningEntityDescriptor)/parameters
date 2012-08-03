@@ -1,5 +1,5 @@
 EnvironmentMode environmentMode
 SolutionDescriptor solutionDescriptor
-SelectionOrder resolvedSelectionOrder
-SelectionCacheType resolvedCacheType
+SelectionOrder inheritedSelectionOrder
+SelectionCacheType minimumCacheType
 PlanningEntityDescriptor entityDescriptor
