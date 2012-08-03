@@ -8,8 +8,9 @@
     }
   }
 ;
+  moveSelectorConfig.setCacheType(SelectionCacheType.STEP);
   SolutionDescriptor solutionDescriptor=SelectorTestUtils.mockSolutionDescriptor();
-  MoveSelector moveSelector=moveSelectorConfig.buildMoveSelector(EnvironmentMode.REPRODUCIBLE,solutionDescriptor,SelectionOrder.ORIGINAL,SelectionCacheType.STEP);
+  MoveSelector moveSelector=moveSelectorConfig.buildMoveSelector(EnvironmentMode.REPRODUCIBLE,solutionDescriptor,SelectionOrder.ORIGINAL,SelectionCacheType.JUST_IN_TIME);
   assertTrue(moveSelector instanceof CachingMoveSelector);
   moveSelector=((CachingMoveSelector)moveSelector).getChildMoveSelector();
   assertSame(baseMoveSelector,moveSelector);
