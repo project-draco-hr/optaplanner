@@ -1,13 +1,4 @@
 {
-  IncrementalScoreCalculator incrementalScoreCalculator;
-  try {
-    incrementalScoreCalculator=incrementalScoreCalculatorClass.newInstance();
-  }
- catch (  InstantiationException e) {
-    throw new IllegalArgumentException("incrementalScoreCalculatorClass (" + incrementalScoreCalculatorClass.getName() + ") does not have a public no-arg constructor",e);
-  }
-catch (  IllegalAccessException e) {
-    throw new IllegalArgumentException("incrementalScoreCalculatorClass (" + incrementalScoreCalculatorClass.getName() + ") does not have a public no-arg constructor",e);
-  }
+  IncrementalScoreCalculator incrementalScoreCalculator=ConfigUtils.newInstance(this,"incrementalScoreCalculatorClass",incrementalScoreCalculatorClass);
   return new IncrementalScoreDirector(this,incrementalScoreCalculator);
 }

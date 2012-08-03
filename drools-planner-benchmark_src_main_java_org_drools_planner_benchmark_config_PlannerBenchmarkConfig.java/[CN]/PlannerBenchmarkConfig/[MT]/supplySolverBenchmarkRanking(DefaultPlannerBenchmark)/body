@@ -26,15 +26,7 @@ throw new IllegalStateException("The solverBenchmarkRankingType (" + solverBench
 }
 }
 if (solverBenchmarkRankingComparatorClass != null) {
-try {
-solverBenchmarkRankingComparator=solverBenchmarkRankingComparatorClass.newInstance();
-}
- catch (InstantiationException e) {
-throw new IllegalArgumentException("solverBenchmarkRankingComparatorClass (" + solverBenchmarkRankingComparatorClass.getName() + ") does not have a public no-arg constructor",e);
-}
-catch (IllegalAccessException e) {
-throw new IllegalArgumentException("solverBenchmarkRankingComparatorClass (" + solverBenchmarkRankingComparatorClass.getName() + ") does not have a public no-arg constructor",e);
-}
+solverBenchmarkRankingComparator=ConfigUtils.newInstance(this,"solverBenchmarkRankingComparatorClass",solverBenchmarkRankingComparatorClass);
 }
 if (solverBenchmarkRankingWeightFactoryClass != null) {
 try {
