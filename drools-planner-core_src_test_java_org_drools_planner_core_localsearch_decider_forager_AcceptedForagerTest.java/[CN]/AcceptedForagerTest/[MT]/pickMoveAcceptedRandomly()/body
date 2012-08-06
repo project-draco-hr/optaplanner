@@ -1,5 +1,5 @@
 {
-  Forager forager=new AcceptedForager(PickEarlyType.NEVER,1);
+  Forager forager=new AcceptedForager(PickEarlyType.NEVER,3);
   ((AcceptedForager)forager).setDeciderScoreComparatorFactory(new NaturalDeciderScoreComparatorFactory());
   LocalSearchSolverPhaseScope localSearchSolverPhaseScope=createLocalSearchSolverPhaseScope();
   forager.phaseStarted(localSearchSolverPhaseScope);
@@ -7,7 +7,7 @@
   forager.stepStarted(localSearchStepScope);
   MoveScope a=createMoveScope(localSearchStepScope,DefaultSimpleScore.valueOf(-20),false);
   MoveScope b=createMoveScope(localSearchStepScope,DefaultSimpleScore.valueOf(-1),true);
-  MoveScope c=createMoveScope(localSearchStepScope,DefaultSimpleScore.valueOf(-1),false);
+  MoveScope c=createMoveScope(localSearchStepScope,DefaultSimpleScore.valueOf(-1),true);
   MoveScope d=createMoveScope(localSearchStepScope,DefaultSimpleScore.valueOf(-20),true);
   forager.addMove(a);
   assertFalse(forager.isQuitEarly());
@@ -18,6 +18,6 @@
   forager.addMove(d);
   assertTrue(forager.isQuitEarly());
   MoveScope pickedScope=forager.pickMove(localSearchStepScope);
-  assertSame(d,pickedScope);
+  assertSame(b,pickedScope);
   forager.phaseEnded(localSearchSolverPhaseScope);
 }
