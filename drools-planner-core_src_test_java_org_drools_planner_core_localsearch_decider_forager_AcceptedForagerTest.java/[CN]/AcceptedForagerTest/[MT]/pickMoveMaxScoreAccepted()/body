@@ -6,10 +6,10 @@
   LocalSearchStepScope localSearchStepScope=createStepScope(localSearchSolverPhaseScope);
   forager.stepStarted(localSearchStepScope);
   MoveScope a=createMoveScope(localSearchStepScope,DefaultSimpleScore.valueOf(-20),true);
-  MoveScope b=createMoveScope(localSearchStepScope,DefaultSimpleScore.valueOf(-1),true);
+  MoveScope b=createMoveScope(localSearchStepScope,DefaultSimpleScore.valueOf(-1),false);
   MoveScope c=createMoveScope(localSearchStepScope,DefaultSimpleScore.valueOf(-20),false);
-  MoveScope d=createMoveScope(localSearchStepScope,DefaultSimpleScore.valueOf(-300),true);
-  MoveScope e=createMoveScope(localSearchStepScope,DefaultSimpleScore.valueOf(-2),true);
+  MoveScope d=createMoveScope(localSearchStepScope,DefaultSimpleScore.valueOf(-2),true);
+  MoveScope e=createMoveScope(localSearchStepScope,DefaultSimpleScore.valueOf(-300),true);
   forager.addMove(a);
   assertFalse(forager.isQuitEarly());
   forager.addMove(b);
@@ -21,6 +21,6 @@
   forager.addMove(e);
   assertFalse(forager.isQuitEarly());
   MoveScope pickedScope=forager.pickMove(localSearchStepScope);
-  assertSame(b,pickedScope);
+  assertSame(d,pickedScope);
   forager.phaseEnded(localSearchSolverPhaseScope);
 }
