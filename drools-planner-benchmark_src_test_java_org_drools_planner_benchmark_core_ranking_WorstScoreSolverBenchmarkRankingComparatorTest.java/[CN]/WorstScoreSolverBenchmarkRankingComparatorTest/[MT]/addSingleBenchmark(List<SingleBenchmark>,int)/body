@@ -1,5 +1,0 @@
-{
-  SingleBenchmark result=new SingleBenchmark(null,null);
-  result.setScore(DefaultSimpleScore.valueOf(score));
-  singleBenchmarkList.add(result);
-}
