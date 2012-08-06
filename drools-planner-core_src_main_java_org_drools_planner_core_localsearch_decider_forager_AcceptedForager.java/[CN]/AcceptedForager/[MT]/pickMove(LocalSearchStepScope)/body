@@ -1,4 +1,6 @@
 {
+  localSearchStepScope.setSelectedMoveCount(selectedMoveCount);
+  localSearchStepScope.setAcceptedMoveCount((long)acceptedList.size());
   if (earlyPickedMoveScope != null) {
     return earlyPickedMoveScope;
   }

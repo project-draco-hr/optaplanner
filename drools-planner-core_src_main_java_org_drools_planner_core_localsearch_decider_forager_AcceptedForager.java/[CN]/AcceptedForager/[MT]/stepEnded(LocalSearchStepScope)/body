@@ -1,4 +1,3 @@
 {
   deciderScoreComparatorFactory.stepEnded(localSearchStepScope);
-  localSearchStepScope.setAcceptedMovesSize((long)acceptedList.size());
 }
