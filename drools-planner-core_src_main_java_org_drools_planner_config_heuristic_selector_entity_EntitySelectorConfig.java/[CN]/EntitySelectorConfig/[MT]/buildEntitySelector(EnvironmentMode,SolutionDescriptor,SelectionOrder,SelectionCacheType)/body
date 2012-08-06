@@ -3,14 +3,14 @@
   SelectionOrder resolvedSelectionOrder=SelectionOrder.resolve(selectionOrder,inheritedSelectionOrder);
   SelectionCacheType resolvedCacheType=SelectionCacheType.resolve(cacheType,minimumCacheType);
   minimumCacheType=SelectionCacheType.max(minimumCacheType,resolvedCacheType);
-  boolean randomSelection=resolvedSelectionOrder == SelectionOrder.RANDOM && entityProbabilityWeightFactoryClass == null;
   if (minimumCacheType.compareTo(SelectionCacheType.STEP) < 0) {
     minimumCacheType=SelectionCacheType.STEP;
   }
   if (minimumCacheType == SelectionCacheType.SOLVER) {
     throw new IllegalArgumentException("The minimumCacheType (" + minimumCacheType + ") is not yet supported. Please use "+ SelectionCacheType.PHASE+ " instead.");
   }
-  EntitySelector entitySelector=new FromSolutionEntitySelector(entityDescriptor,randomSelection,minimumCacheType);
+  EntitySelector entitySelector=new FromSolutionEntitySelector(entityDescriptor,(resolvedCacheType.isCached() ? SelectionOrder.ORIGINAL : resolvedSelectionOrder) == SelectionOrder.RANDOM,minimumCacheType);
+  boolean alreadyCached=false;
   if (entityFilterClass != null) {
     SelectionFilter entityFilter=ConfigUtils.newInstance(this,"entityFilterClass",entityFilterClass);
     EntitySelector filteringEntitySelector;
@@ -19,6 +19,7 @@
     }
  else {
       filteringEntitySelector=new CachingFilteringEntitySelector(entitySelector,resolvedCacheType,entityFilter);
+      alreadyCached=true;
     }
     entitySelector=filteringEntitySelector;
   }
@@ -28,6 +29,15 @@
     }
     SelectionProbabilityWeightFactory entityProbabilityWeightFactory=ConfigUtils.newInstance(this,"entityProbabilityWeightFactoryClass",entityProbabilityWeightFactoryClass);
     entitySelector=new ProbabilityEntitySelector(entitySelector,resolvedCacheType,entityProbabilityWeightFactory);
+    alreadyCached=true;
+  }
+  if (resolvedCacheType.isCached() && !alreadyCached) {
+    if (resolvedSelectionOrder != SelectionOrder.RANDOM) {
+      entitySelector=new CachingEntitySelector(entitySelector,resolvedCacheType);
+    }
+ else {
+      entitySelector=new ShufflingEntitySelector(entitySelector,resolvedCacheType);
+    }
   }
   return entitySelector;
 }
