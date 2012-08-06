@@ -1,10 +1,10 @@
 {
   localSearchStepScope.setSelectedMoveCount(selectedMoveCount);
-  localSearchStepScope.setAcceptedMoveCount((long)acceptedList.size());
+  localSearchStepScope.setAcceptedMoveCount(acceptedMoveCount);
   if (earlyPickedMoveScope != null) {
     return earlyPickedMoveScope;
   }
  else {
-    return pickMaxScoreMoveScopeFromAcceptedList(localSearchStepScope);
+    return pickMaxScoreMoveScope(localSearchStepScope);
   }
 }

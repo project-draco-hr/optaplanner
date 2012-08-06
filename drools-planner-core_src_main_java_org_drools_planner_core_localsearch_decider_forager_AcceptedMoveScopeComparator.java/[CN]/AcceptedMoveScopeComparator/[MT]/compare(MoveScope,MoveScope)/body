@@ -1,5 +1,0 @@
-{
-  CompareToBuilder compareToBuilder=new CompareToBuilder();
-  compareToBuilder.append(a.getScore(),b.getScore(),deciderScoreComparator);
-  return compareToBuilder.toComparison();
-}

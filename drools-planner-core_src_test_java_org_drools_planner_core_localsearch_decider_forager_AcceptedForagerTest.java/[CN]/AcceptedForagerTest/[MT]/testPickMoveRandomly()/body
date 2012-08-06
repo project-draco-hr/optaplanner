@@ -19,8 +19,5 @@
   assertTrue(forager.isQuitEarly());
   MoveScope pickedScope=forager.pickMove(localSearchStepScope);
   assertSame(d,pickedScope);
-  List<Move> topList=forager.getTopList(2);
-  assertTrue(topList.contains(b.getMove()));
-  assertTrue(topList.contains(d.getMove()));
   forager.phaseEnded(localSearchSolverPhaseScope);
 }

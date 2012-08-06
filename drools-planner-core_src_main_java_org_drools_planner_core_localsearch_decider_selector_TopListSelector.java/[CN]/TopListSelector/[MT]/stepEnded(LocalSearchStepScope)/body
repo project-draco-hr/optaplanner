@@ -1,3 +1,0 @@
-{
-  topList=decider.getForager().getTopList(topSize);
-}

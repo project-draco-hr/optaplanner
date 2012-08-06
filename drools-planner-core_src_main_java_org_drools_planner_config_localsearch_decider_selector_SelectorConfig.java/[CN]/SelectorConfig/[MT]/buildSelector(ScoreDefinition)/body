@@ -22,11 +22,6 @@
     selector.setShuffle(shuffleValue);
     return selector;
   }
- else   if (topSize != null) {
-    TopListSelector selector=new TopListSelector();
-    selector.setTopSize(topSize);
-    return selector;
-  }
  else {
     throw new IllegalArgumentException("A selector requires configuration, for example a moveFactoryClass.");
   }

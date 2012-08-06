@@ -1,10 +1,11 @@
 {
   deciderScoreComparatorFactory.stepStarted(localSearchStepScope);
   scoreComparator=deciderScoreComparatorFactory.createDeciderScoreComparator();
-  acceptedMoveScopeComparator=new AcceptedMoveScopeComparator(scoreComparator);
   selectedMoveCount=0L;
-  acceptedList=new ArrayList<MoveScope>(1024);
+  acceptedMoveCount=0L;
   maxScoreAcceptedList=new ArrayList<MoveScope>(1024);
-  maxScore=localSearchStepScope.getSolverPhaseScope().getScoreDefinition().getPerfectMinimumScore();
+  maxAcceptedScore=localSearchStepScope.getSolverPhaseScope().getScoreDefinition().getPerfectMinimumScore();
+  maxScoreUnacceptedList=new ArrayList<MoveScope>(1024);
+  maxUnacceptedScore=localSearchStepScope.getSolverPhaseScope().getScoreDefinition().getPerfectMinimumScore();
   earlyPickedMoveScope=null;
 }

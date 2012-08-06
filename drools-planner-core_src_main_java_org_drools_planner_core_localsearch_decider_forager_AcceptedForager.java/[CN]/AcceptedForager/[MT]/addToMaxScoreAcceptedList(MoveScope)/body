@@ -1,0 +1,10 @@
+{
+  if (scoreComparator.compare(moveScope.getScore(),maxAcceptedScore) > 0) {
+    maxAcceptedScore=moveScope.getScore();
+    maxScoreAcceptedList.clear();
+    maxScoreAcceptedList.add(moveScope);
+  }
+ else   if (moveScope.getScore().equals(maxAcceptedScore)) {
+    maxScoreAcceptedList.add(moveScope);
+  }
+}

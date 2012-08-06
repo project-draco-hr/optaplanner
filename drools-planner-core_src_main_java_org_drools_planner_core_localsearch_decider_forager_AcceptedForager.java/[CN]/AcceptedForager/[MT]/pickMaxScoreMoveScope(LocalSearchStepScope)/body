@@ -1,0 +1,19 @@
+{
+  List<MoveScope> maxScoreList;
+  if (maxScoreAcceptedList.isEmpty()) {
+    if (maxScoreUnacceptedList.isEmpty()) {
+      return null;
+    }
+ else {
+      maxScoreList=maxScoreUnacceptedList;
+    }
+  }
+ else {
+    maxScoreList=maxScoreAcceptedList;
+  }
+  if (maxScoreList.size() == 1) {
+    return maxScoreList.get(0);
+  }
+  int randomIndex=localSearchStepScope.getWorkingRandom().nextInt(maxScoreList.size());
+  return maxScoreList.get(randomIndex);
+}
