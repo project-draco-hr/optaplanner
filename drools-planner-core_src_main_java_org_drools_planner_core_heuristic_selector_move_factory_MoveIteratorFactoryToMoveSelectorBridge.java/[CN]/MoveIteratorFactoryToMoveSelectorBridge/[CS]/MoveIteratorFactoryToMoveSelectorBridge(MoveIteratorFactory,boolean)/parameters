@@ -1,1 +1,2 @@
 MoveIteratorFactory moveIteratorFactory
+boolean randomSelection

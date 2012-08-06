@@ -1,3 +1,4 @@
 {
   this.moveIteratorFactory=moveIteratorFactory;
+  this.randomSelection=randomSelection;
 }
