@@ -3,6 +3,6 @@
   planningEntityClass=ConfigUtils.inheritOverwritableProperty(planningEntityClass,inheritedConfig.getPlanningEntityClass());
   selectionOrder=ConfigUtils.inheritOverwritableProperty(selectionOrder,inheritedConfig.getSelectionOrder());
   cacheType=ConfigUtils.inheritOverwritableProperty(cacheType,inheritedConfig.getCacheType());
-  entityFilterClass=ConfigUtils.inheritOverwritableProperty(entityFilterClass,inheritedConfig.getEntityFilterClass());
+  entityFilterClassList=ConfigUtils.inheritOverwritableProperty(entityFilterClassList,inheritedConfig.getEntityFilterClassList());
   entityProbabilityWeightFactoryClass=ConfigUtils.inheritOverwritableProperty(entityProbabilityWeightFactoryClass,inheritedConfig.getEntityProbabilityWeightFactoryClass());
 }

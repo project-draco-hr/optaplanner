@@ -1,0 +1,8 @@
+{
+  for (  SelectionFilter entityFilter : entityFilterList) {
+    if (!entityFilter.accept(scoreDirector,entity)) {
+      return false;
+    }
+  }
+  return true;
+}

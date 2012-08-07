@@ -25,7 +25,7 @@
     termination.setMaximumUnimprovedStepCount(maximumUnimprovedStepCount);
     terminationList.add(termination);
   }
-  if (terminationConfigList != null && !terminationConfigList.isEmpty()) {
+  if (!CollectionUtils.isEmpty(terminationConfigList)) {
     for (    TerminationConfig terminationConfig : terminationConfigList) {
       Termination termination=terminationConfig.buildTermination(scoreDefinition);
       if (termination != null) {

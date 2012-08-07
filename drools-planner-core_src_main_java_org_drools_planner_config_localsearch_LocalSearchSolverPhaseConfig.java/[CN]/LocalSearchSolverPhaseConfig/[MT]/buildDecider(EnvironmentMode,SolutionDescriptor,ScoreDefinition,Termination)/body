@@ -3,7 +3,7 @@
   MoveSelector moveSelector;
   SelectionOrder defaultSelectionOrder=SelectionOrder.RANDOM;
   SelectionCacheType defaultCacheType=SelectionCacheType.JUST_IN_TIME;
-  if (moveSelectorConfigList.isEmpty()) {
+  if (CollectionUtils.isEmpty(moveSelectorConfigList)) {
     UnionMoveSelectorConfig unionMoveSelectorConfig=new UnionMoveSelectorConfig();
     unionMoveSelectorConfig.setMoveSelectorConfigList(Arrays.asList(new ChangeMoveSelectorConfig(),new SwapMoveSelectorConfig()));
     moveSelector=unionMoveSelectorConfig.buildMoveSelector(environmentMode,solutionDescriptor,defaultSelectionOrder,defaultCacheType);

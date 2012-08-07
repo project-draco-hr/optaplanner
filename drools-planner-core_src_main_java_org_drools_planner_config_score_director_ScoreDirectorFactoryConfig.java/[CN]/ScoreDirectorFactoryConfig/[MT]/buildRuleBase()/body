@@ -1,6 +1,6 @@
 {
   if (ruleBase != null) {
-    if (scoreDrlList != null && !scoreDrlList.isEmpty()) {
+    if (!CollectionUtils.isEmpty(scoreDrlList)) {
       throw new IllegalArgumentException("If ruleBase is not null, the scoreDrlList (" + scoreDrlList + ") must be empty.");
     }
     return ruleBase;

@@ -6,7 +6,7 @@
   }
   cachedEntityList=new ArrayList<Object>((int)childSize);
   for (  Object entity : childEntitySelector) {
-    if (entityFilter.accept(scoreDirector,entity)) {
+    if (accept(scoreDirector,entity)) {
       cachedEntityList.add(entity);
     }
   }

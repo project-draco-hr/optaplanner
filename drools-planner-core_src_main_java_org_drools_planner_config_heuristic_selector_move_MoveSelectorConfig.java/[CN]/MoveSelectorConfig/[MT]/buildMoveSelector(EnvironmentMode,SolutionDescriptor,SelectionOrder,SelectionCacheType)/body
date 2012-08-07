@@ -4,14 +4,17 @@
   minimumCacheType=SelectionCacheType.max(minimumCacheType,resolvedCacheType);
   MoveSelector moveSelector=buildBaseMoveSelector(environmentMode,solutionDescriptor,resolvedCacheType.isCached() ? SelectionOrder.ORIGINAL : resolvedSelectionOrder,minimumCacheType);
   boolean alreadyCached=false;
-  if (moveFilterClass != null) {
-    SelectionFilter moveFilter=ConfigUtils.newInstance(this,"moveFilterClass",moveFilterClass);
+  if (!CollectionUtils.isEmpty(moveFilterClassList)) {
+    List<SelectionFilter> moveFilterList=new ArrayList<SelectionFilter>(moveFilterClassList.size());
+    for (    Class<? extends SelectionFilter> moveFilterClass : moveFilterClassList) {
+      moveFilterList.add(ConfigUtils.newInstance(this,"moveFilterClass",moveFilterClass));
+    }
     MoveSelector filteringMoveSelector;
     if (resolvedCacheType == SelectionCacheType.JUST_IN_TIME) {
-      filteringMoveSelector=new JustInTimeFilteringMoveSelector(moveSelector,resolvedCacheType,moveFilter);
+      filteringMoveSelector=new JustInTimeFilteringMoveSelector(moveSelector,resolvedCacheType,moveFilterList);
     }
  else {
-      filteringMoveSelector=new CachingFilteringMoveSelector(moveSelector,resolvedCacheType,moveFilter);
+      filteringMoveSelector=new CachingFilteringMoveSelector(moveSelector,resolvedCacheType,moveFilterList);
       alreadyCached=true;
     }
     moveSelector=filteringMoveSelector;

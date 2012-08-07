@@ -11,14 +11,17 @@
   }
   EntitySelector entitySelector=new FromSolutionEntitySelector(entityDescriptor,(resolvedCacheType.isCached() ? SelectionOrder.ORIGINAL : resolvedSelectionOrder) == SelectionOrder.RANDOM,minimumCacheType);
   boolean alreadyCached=false;
-  if (entityFilterClass != null) {
-    SelectionFilter entityFilter=ConfigUtils.newInstance(this,"entityFilterClass",entityFilterClass);
+  if (!CollectionUtils.isEmpty(entityFilterClassList)) {
+    List<SelectionFilter> entityFilterList=new ArrayList<SelectionFilter>(entityFilterClassList.size());
+    for (    Class<? extends SelectionFilter> entityFilterClass : entityFilterClassList) {
+      entityFilterList.add(ConfigUtils.newInstance(this,"entityFilterClass",entityFilterClass));
+    }
     EntitySelector filteringEntitySelector;
     if (resolvedCacheType == SelectionCacheType.JUST_IN_TIME) {
-      filteringEntitySelector=new JustInTimeFilteringEntitySelector(entitySelector,resolvedCacheType,entityFilter);
+      filteringEntitySelector=new JustInTimeFilteringEntitySelector(entitySelector,resolvedCacheType,entityFilterList);
     }
  else {
-      filteringEntitySelector=new CachingFilteringEntitySelector(entitySelector,resolvedCacheType,entityFilter);
+      filteringEntitySelector=new CachingFilteringEntitySelector(entitySelector,resolvedCacheType,entityFilterList);
       alreadyCached=true;
     }
     entitySelector=filteringEntitySelector;

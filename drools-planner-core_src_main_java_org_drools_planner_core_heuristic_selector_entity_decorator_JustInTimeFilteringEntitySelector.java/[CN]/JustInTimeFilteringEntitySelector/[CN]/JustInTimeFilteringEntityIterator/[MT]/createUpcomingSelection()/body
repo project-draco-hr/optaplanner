@@ -7,6 +7,6 @@
     }
     next=childEntityIterator.next();
   }
- while (!entityFilter.accept(scoreDirector,next));
+ while (!accept(scoreDirector,next));
   upcomingSelection=next;
 }

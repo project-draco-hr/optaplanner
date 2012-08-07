@@ -7,6 +7,6 @@
     }
     next=childMoveIterator.next();
   }
- while (!moveFilter.accept(scoreDirector,next));
+ while (!accept(scoreDirector,next));
   upcomingSelection=next;
 }
