@@ -1,0 +1,9 @@
+{
+  Class<? extends SelectionFilter> movableEntitySelectionFilterClass=planningEntityAnnotation.movableEntitySelectionFilter();
+  if (movableEntitySelectionFilterClass == PlanningEntity.NullMovableEntitySelectionFilter.class) {
+    movableEntitySelectionFilterClass=null;
+  }
+  if (movableEntitySelectionFilterClass != null) {
+    movableEntitySelectionFilter=ConfigUtils.newInstance(this,"movableEntitySelectionFilterClass",movableEntitySelectionFilterClass);
+  }
+}

@@ -5,4 +5,5 @@
   }
   planningEntitySorter=new PlanningEntitySorter();
   processDifficulty(planningEntityAnnotation);
+  processMovable(planningEntityAnnotation);
 }
