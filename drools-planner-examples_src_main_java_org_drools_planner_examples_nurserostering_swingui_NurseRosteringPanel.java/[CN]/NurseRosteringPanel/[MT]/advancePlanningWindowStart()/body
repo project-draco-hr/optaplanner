@@ -1,0 +1,24 @@
+{
+  logger.info("Advancing planningWindowStart.");
+  solutionBusiness.doProblemFactChange(new ProblemFactChange(){
+    public void doChange(    ScoreDirector scoreDirector){
+      NurseRoster nurseRoster=(NurseRoster)scoreDirector.getWorkingSolution();
+      NurseRosterInfo nurseRosterInfo=nurseRoster.getNurseRosterInfo();
+      List<ShiftDate> shiftDateList=nurseRoster.getShiftDateList();
+      int index=shiftDateList.indexOf(nurseRosterInfo.getPlanningWindowStart());
+      if (index < 0) {
+        throw new IllegalStateException("The planningWindowStart (" + nurseRosterInfo.getPlanningWindowStart() + ") must be in the shiftDateList ("+ shiftDateList+ ").");
+      }
+      index++;
+      if (index >= shiftDateList.size()) {
+        logger.warn("Cannot advance planningWindowStart any further.");
+        return;
+      }
+      nurseRosterInfo.setPlanningWindowStart(shiftDateList.get(index));
+      scoreDirector.afterProblemFactChanged(nurseRosterInfo);
+    }
+  }
+);
+  resetPanel(solutionBusiness.getSolution());
+  validate();
+}

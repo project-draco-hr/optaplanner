@@ -2,6 +2,7 @@
   NurseRoster clone=new NurseRoster();
   clone.id=id;
   clone.code=code;
+  clone.nurseRosterInfo=nurseRosterInfo;
   clone.skillList=skillList;
   clone.shiftTypeList=shiftTypeList;
   clone.shiftTypeSkillRequirementList=shiftTypeSkillRequirementList;

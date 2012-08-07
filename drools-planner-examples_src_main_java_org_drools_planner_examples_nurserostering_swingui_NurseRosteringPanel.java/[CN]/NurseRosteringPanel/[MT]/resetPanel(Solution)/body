@@ -1,4 +1,5 @@
 {
+  NurseRoster nurseRoster=(NurseRoster)solution;
   for (  EmployeePanel employeePanel : employeeToPanelMap.values()) {
     if (employeePanel.getEmployee() != null) {
       employeeListPanel.remove(employeePanel);
@@ -8,5 +9,7 @@
   employeeToPanelMap.put(null,unassignedPanel);
   shiftAssignmentToPanelMap.clear();
   unassignedPanel.clearShiftAssignments();
-  updatePanel(solution);
+  updatePanel(nurseRoster);
+  advancePlanningWindowStartButton.setEnabled(true);
+  planningWindowStartField.setText(nurseRoster.getNurseRosterInfo().getPlanningWindowStart().getLabel());
 }

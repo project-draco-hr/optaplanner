@@ -5,6 +5,7 @@
   nurseRoster.setId(0L);
   nurseRoster.setCode(schedulingPeriodElement.getAttribute("ID").getValue());
   generateShiftDateList(nurseRoster,schedulingPeriodElement.getChild("StartDate"),schedulingPeriodElement.getChild("EndDate"));
+  generateNurseRosterInfo(nurseRoster);
   readSkillList(nurseRoster,schedulingPeriodElement.getChild("Skills"));
   readShiftTypeList(nurseRoster,schedulingPeriodElement.getChild("ShiftTypes"));
   generateShiftList(nurseRoster);
