@@ -27,7 +27,7 @@
     colorIndex=(colorIndex + 1) % TangoColors.SEQUENCE_1.length;
   }
   if (this.computerValue > 0) {
-    g.setColor(isEnabled() ? Color.BLACK : Color.DARK_GRAY);
+    g.setColor(isEnabled() ? Color.BLACK : TangoColors.ALUMINIUM_5);
     g.drawRect(0,0,computerWidth,rectHeight - 1);
   }
 }
