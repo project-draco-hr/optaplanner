@@ -1,6 +1,12 @@
 {
   NurseRoster nurseRoster=(NurseRoster)solution;
-  List<ShiftAssignment> shiftAssignmentList=nurseRoster.getShiftAssignmentList();
+  List<ShiftAssignment> shiftAssignmentList=new ArrayList<ShiftAssignment>(nurseRoster.getShiftAssignmentList());
+  for (Iterator<ShiftAssignment> it=shiftAssignmentList.iterator(); it.hasNext(); ) {
+    ShiftAssignment shiftAssignment=it.next();
+    if (!filter.accept(nurseRoster,shiftAssignment)) {
+      it.remove();
+    }
+  }
   List<Move> moveList=new ArrayList<Move>();
   for (ListIterator<ShiftAssignment> leftIt=shiftAssignmentList.listIterator(); leftIt.hasNext(); ) {
     ShiftAssignment leftShiftAssignment=leftIt.next();

@@ -1,7 +1,13 @@
 {
   NurseRoster nurseRoster=(NurseRoster)solution;
   List<Employee> employeeList=nurseRoster.getEmployeeList();
-  List<ShiftAssignment> shiftAssignmentList=nurseRoster.getShiftAssignmentList();
+  List<ShiftAssignment> shiftAssignmentList=new ArrayList<ShiftAssignment>(nurseRoster.getShiftAssignmentList());
+  for (Iterator<ShiftAssignment> it=shiftAssignmentList.iterator(); it.hasNext(); ) {
+    ShiftAssignment shiftAssignment=it.next();
+    if (!filter.accept(nurseRoster,shiftAssignment)) {
+      it.remove();
+    }
+  }
   Map<Employee,List<AssignmentSequence>> employeeToAssignmentSequenceListMap=new HashMap<Employee,List<AssignmentSequence>>(employeeList.size());
   int assignmentSequenceCapacity=nurseRoster.getShiftDateList().size() + 1 / 2;
   for (  Employee employee : employeeList) {

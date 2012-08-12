@@ -1,0 +1,4 @@
+{
+  ShiftDate shiftDate=shiftAssignment.getShift().getShiftDate();
+  return nurseRoster.getNurseRosterInfo().isInPlanningWindow(shiftDate);
+}
