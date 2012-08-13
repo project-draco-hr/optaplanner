@@ -1,5 +1,14 @@
 {
   JFileChooser fileChooser=new JFileChooser(solutionBusiness.getImportDataDir());
+  fileChooser.setFileFilter(new FileFilter(){
+    public boolean accept(    File file){
+      return solutionBusiness.acceptImportFile(file);
+    }
+    public String getDescription(){
+      return "Import files";
+    }
+  }
+);
   int approved=fileChooser.showOpenDialog(SolverAndPersistenceFrame.this);
   if (approved == JFileChooser.APPROVE_OPTION) {
     setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
