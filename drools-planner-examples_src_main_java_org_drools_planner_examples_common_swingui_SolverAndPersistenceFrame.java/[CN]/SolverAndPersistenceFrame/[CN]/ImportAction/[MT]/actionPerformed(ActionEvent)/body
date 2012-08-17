@@ -5,7 +5,7 @@
       return file.isDirectory() || solutionBusiness.acceptImportFile(file);
     }
     public String getDescription(){
-      return "Import files";
+      return "Import files (*" + solutionBusiness.getImportFileSuffix() + ")";
     }
   }
 );
