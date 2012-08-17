@@ -4,6 +4,11 @@
   JButton shiftAssignmentButton=new JButton(new ShiftAssignmentAction(shiftAssignment));
   shiftAssignmentButton.setEnabled(shiftPanel.isEnabled());
   shiftAssignmentButton.setMargin(new Insets(0,0,0,0));
+  if (employee != null) {
+    if (employee.getDayOffRequestMap().containsKey(shift.getShiftDate()) || employee.getShiftOffRequestMap().containsKey(shift)) {
+      shiftAssignmentButton.setForeground(TangoColors.SCARLET_1);
+    }
+  }
   int colorIndex=shift.getShiftType().getIndex() % TangoColors.SEQUENCE_1.length;
   shiftAssignmentButton.setBackground(TangoColors.SEQUENCE_1[colorIndex]);
   shiftAssignmentButton.setToolTipText((employee == null ? "Unassigned" : employee.getLabel()) + " on " + shift.getLabel());
