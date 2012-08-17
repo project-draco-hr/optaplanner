@@ -10,12 +10,14 @@
     if (weekendDefinition.isWeekend(shiftDate.getDayOfWeek())) {
       shiftDatePanel.setBackground(TangoColors.ALUMINIUM_2);
     }
-    Color borderColor=nurseRosteringPanel.getNurseRoster().getNurseRosterInfo().isInPlanningWindow(shiftDate) ? TangoColors.ALUMINIUM_6 : TangoColors.ORANGE_1;
-    shiftDatePanel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(borderColor),BorderFactory.createEmptyBorder(2,2,2,2)));
+    boolean inPlanningWindow=nurseRosteringPanel.getNurseRoster().getNurseRosterInfo().isInPlanningWindow(shiftDate);
+    shiftDatePanel.setEnabled(inPlanningWindow);
+    shiftDatePanel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(inPlanningWindow ? TangoColors.ALUMINIUM_6 : TangoColors.ALUMINIUM_3),BorderFactory.createEmptyBorder(2,2,2,2)));
     shiftDatePanelMap.put(shiftDate,shiftDatePanel);
     if (employee == null) {
       JPanel wrappingShiftDatePanel=new JPanel(new BorderLayout());
       JLabel shiftDateLabel=new JLabel(shiftDate.getLabel(),JLabel.CENTER);
+      shiftDateLabel.setEnabled(shiftDatePanel.isEnabled());
       wrappingShiftDatePanel.add(shiftDateLabel,BorderLayout.NORTH);
       wrappingShiftDatePanel.add(shiftDatePanel,BorderLayout.CENTER);
       shiftDateListPanel.add(wrappingShiftDatePanel);
@@ -28,6 +30,7 @@
   for (  Shift shift : shiftList) {
     JPanel shiftDatePanel=shiftDatePanelMap.get(shift.getShiftDate());
     JPanel shiftPanel=new JPanel();
+    shiftPanel.setEnabled(shiftDatePanel.isEnabled());
     shiftPanel.setLayout(new BoxLayout(shiftPanel,BoxLayout.Y_AXIS));
     shiftPanel.setBackground(shiftDatePanel.getBackground());
     shiftPanel.setToolTipText((employee == null ? "Unassigned" : employee.getLabel()) + " on " + shift.getLabel());

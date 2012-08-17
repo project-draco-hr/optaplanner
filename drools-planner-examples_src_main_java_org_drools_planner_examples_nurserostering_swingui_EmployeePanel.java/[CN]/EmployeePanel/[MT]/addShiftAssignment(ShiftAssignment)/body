@@ -2,6 +2,7 @@
   Shift shift=shiftAssignment.getShift();
   JPanel shiftPanel=shiftPanelMap.get(shift);
   JButton shiftAssignmentButton=new JButton(new ShiftAssignmentAction(shiftAssignment));
+  shiftAssignmentButton.setEnabled(shiftPanel.isEnabled());
   shiftAssignmentButton.setMargin(new Insets(0,0,0,0));
   int colorIndex=shift.getShiftType().getIndex() % TangoColors.SEQUENCE_1.length;
   shiftAssignmentButton.setBackground(TangoColors.SEQUENCE_1[colorIndex]);
