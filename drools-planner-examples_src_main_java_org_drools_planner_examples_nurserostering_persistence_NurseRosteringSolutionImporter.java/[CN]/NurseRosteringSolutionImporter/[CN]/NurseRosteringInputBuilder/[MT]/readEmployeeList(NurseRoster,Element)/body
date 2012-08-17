@@ -17,6 +17,11 @@
       throw new IllegalArgumentException("The contract (" + contractElement.getText() + ") of employee ("+ employee.getCode()+ ") does not exist.");
     }
     employee.setContract(contract);
+    int estimatedRequestSize=(shiftDateMap.size() / employeeElementList.size()) + 1;
+    employee.setDayOffRequestMap(new HashMap<ShiftDate,DayOffRequest>(estimatedRequestSize));
+    employee.setDayOnRequestMap(new HashMap<ShiftDate,DayOnRequest>(estimatedRequestSize));
+    employee.setShiftOffRequestMap(new HashMap<Shift,ShiftOffRequest>(estimatedRequestSize));
+    employee.setShiftOnRequestMap(new HashMap<Shift,ShiftOnRequest>(estimatedRequestSize));
     Element skillsElement=element.getChild("Skills");
     if (skillsElement != null) {
       List<Element> skillElementList=(List<Element>)skillsElement.getChildren();

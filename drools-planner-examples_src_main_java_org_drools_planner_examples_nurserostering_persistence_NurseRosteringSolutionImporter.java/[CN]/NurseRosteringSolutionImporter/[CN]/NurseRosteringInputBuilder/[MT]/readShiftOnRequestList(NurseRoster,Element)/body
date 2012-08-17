@@ -26,6 +26,7 @@
       shiftOnRequest.setShift(shift);
       shiftOnRequest.setWeight(element.getAttribute("weight").getIntValue());
       shiftOnRequestList.add(shiftOnRequest);
+      employee.getShiftOnRequestMap().put(shift,shiftOnRequest);
       id++;
     }
   }

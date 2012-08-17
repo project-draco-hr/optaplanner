@@ -25,6 +25,7 @@
       dayOnRequest.setShiftDate(shiftDate);
       dayOnRequest.setWeight(element.getAttribute("weight").getIntValue());
       dayOnRequestList.add(dayOnRequest);
+      employee.getDayOnRequestMap().put(shiftDate,dayOnRequest);
       id++;
     }
   }
