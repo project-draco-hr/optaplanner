@@ -1,4 +1,5 @@
 {
   this.cachedList=cachedList;
   this.workingRandom=workingRandom;
+  notEmpty=!cachedList.isEmpty();
 }
