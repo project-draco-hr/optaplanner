@@ -1,6 +1,0 @@
-{
-  PlanningEntityDescriptor entityDescriptor=fetchEntityDescriptor(solutionDescriptor);
-  SubChainSelector subChainSelector=subChainSelectorConfig.buildSubChainSelector(environmentMode,solutionDescriptor,resolvedSelectionOrder,minimumCacheType,entityDescriptor);
-  ValueSelector valueSelector=valueSelectorConfig.buildValueSelector(environmentMode,solutionDescriptor,resolvedSelectionOrder,minimumCacheType,entityDescriptor);
-  return new SubChainChangeMoveSelector(subChainSelector,valueSelector,resolvedSelectionOrder == SelectionOrder.RANDOM,selectReversingMoveToo == null ? true : selectReversingMoveToo);
-}

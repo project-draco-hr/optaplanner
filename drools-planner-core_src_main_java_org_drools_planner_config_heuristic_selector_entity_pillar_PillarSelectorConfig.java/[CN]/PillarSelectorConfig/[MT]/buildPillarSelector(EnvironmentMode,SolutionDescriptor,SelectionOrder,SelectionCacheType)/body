@@ -1,8 +1,0 @@
-{
-  if (minimumCacheType.compareTo(SelectionCacheType.STEP) > 0) {
-    throw new IllegalArgumentException("The subChainChangeMoveSelector's minimumCacheType (" + minimumCacheType + ") must not be higher than "+ SelectionCacheType.STEP+ " because the pillars change every step.");
-  }
-  EntitySelector entitySelector=entitySelectorConfig.buildEntitySelector(environmentMode,solutionDescriptor,SelectionOrder.ORIGINAL,minimumCacheType);
-  Collection<PlanningVariableDescriptor> variableDescriptors=entitySelector.getEntityDescriptor().getPlanningVariableDescriptors();
-  return new SameValuePillarSelector(entitySelector,variableDescriptors,inheritedSelectionOrder == SelectionOrder.RANDOM);
-}

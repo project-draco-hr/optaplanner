@@ -3,7 +3,7 @@
   if (planningVariableName == null) {
     planningVariableName=inheritedConfig.getPlanningVariableName();
   }
-  selectionOrder=ConfigUtils.inheritOverwritableProperty(selectionOrder,inheritedConfig.getSelectionOrder());
   cacheType=ConfigUtils.inheritOverwritableProperty(cacheType,inheritedConfig.getCacheType());
+  selectionOrder=ConfigUtils.inheritOverwritableProperty(selectionOrder,inheritedConfig.getSelectionOrder());
   valueProbabilityWeightFactoryClass=ConfigUtils.inheritOverwritableProperty(valueProbabilityWeightFactoryClass,inheritedConfig.getValueProbabilityWeightFactoryClass());
 }

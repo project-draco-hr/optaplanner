@@ -1,0 +1,3 @@
+MoveListFactory moveListFactory
+SelectionCacheType cacheType
+boolean randomSelection

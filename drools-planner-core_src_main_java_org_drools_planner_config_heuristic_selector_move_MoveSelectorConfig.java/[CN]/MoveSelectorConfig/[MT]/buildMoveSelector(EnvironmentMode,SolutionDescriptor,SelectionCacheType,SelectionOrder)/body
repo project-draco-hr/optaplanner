@@ -1,0 +1,39 @@
+{
+  SelectionCacheType resolvedCacheType=SelectionCacheType.resolve(cacheType,minimumCacheType);
+  minimumCacheType=SelectionCacheType.max(minimumCacheType,resolvedCacheType);
+  SelectionOrder resolvedSelectionOrder=SelectionOrder.resolve(selectionOrder,inheritedSelectionOrder);
+  MoveSelector moveSelector=buildBaseMoveSelector(environmentMode,solutionDescriptor,minimumCacheType,resolvedCacheType.isCached() ? SelectionOrder.ORIGINAL : resolvedSelectionOrder);
+  boolean alreadyCached=false;
+  if (!CollectionUtils.isEmpty(moveFilterClassList)) {
+    List<SelectionFilter> moveFilterList=new ArrayList<SelectionFilter>(moveFilterClassList.size());
+    for (    Class<? extends SelectionFilter> moveFilterClass : moveFilterClassList) {
+      moveFilterList.add(ConfigUtils.newInstance(this,"moveFilterClass",moveFilterClass));
+    }
+    MoveSelector filteringMoveSelector;
+    if (resolvedCacheType == SelectionCacheType.JUST_IN_TIME) {
+      filteringMoveSelector=new JustInTimeFilteringMoveSelector(moveSelector,resolvedCacheType,moveFilterList);
+    }
+ else {
+      filteringMoveSelector=new CachingFilteringMoveSelector(moveSelector,resolvedCacheType,moveFilterList);
+      alreadyCached=true;
+    }
+    moveSelector=filteringMoveSelector;
+  }
+  if (moveProbabilityWeightFactoryClass != null) {
+    if (resolvedSelectionOrder != SelectionOrder.RANDOM) {
+      throw new IllegalArgumentException("The entitySelectorConfig (" + this + ") with moveProbabilityWeightFactoryClass ("+ moveProbabilityWeightFactoryClass+ ") has a non-random resolvedSelectionOrder ("+ resolvedSelectionOrder+ ").");
+    }
+    SelectionProbabilityWeightFactory entityProbabilityWeightFactory=ConfigUtils.newInstance(this,"moveProbabilityWeightFactoryClass",moveProbabilityWeightFactoryClass);
+    moveSelector=new ProbabilityMoveSelector(moveSelector,resolvedCacheType,entityProbabilityWeightFactory);
+    alreadyCached=true;
+  }
+  if (resolvedCacheType.isCached() && !alreadyCached) {
+    if (resolvedSelectionOrder != SelectionOrder.RANDOM) {
+      moveSelector=new CachingMoveSelector(moveSelector,resolvedCacheType);
+    }
+ else {
+      moveSelector=new ShufflingMoveSelector(moveSelector,resolvedCacheType);
+    }
+  }
+  return moveSelector;
+}

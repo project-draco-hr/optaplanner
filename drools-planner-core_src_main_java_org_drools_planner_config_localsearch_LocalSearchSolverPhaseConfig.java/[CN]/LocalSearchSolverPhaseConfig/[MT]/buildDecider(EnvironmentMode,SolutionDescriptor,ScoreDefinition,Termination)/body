@@ -1,15 +1,15 @@
 {
   DefaultDecider decider=new DefaultDecider();
   MoveSelector moveSelector;
-  SelectionOrder defaultSelectionOrder=SelectionOrder.RANDOM;
   SelectionCacheType defaultCacheType=SelectionCacheType.JUST_IN_TIME;
+  SelectionOrder defaultSelectionOrder=SelectionOrder.RANDOM;
   if (CollectionUtils.isEmpty(moveSelectorConfigList)) {
     UnionMoveSelectorConfig unionMoveSelectorConfig=new UnionMoveSelectorConfig();
     unionMoveSelectorConfig.setMoveSelectorConfigList(Arrays.asList(new ChangeMoveSelectorConfig(),new SwapMoveSelectorConfig()));
-    moveSelector=unionMoveSelectorConfig.buildMoveSelector(environmentMode,solutionDescriptor,defaultSelectionOrder,defaultCacheType);
+    moveSelector=unionMoveSelectorConfig.buildMoveSelector(environmentMode,solutionDescriptor,defaultCacheType,defaultSelectionOrder);
   }
  else   if (moveSelectorConfigList.size() == 1) {
-    moveSelector=moveSelectorConfigList.get(0).buildMoveSelector(environmentMode,solutionDescriptor,defaultSelectionOrder,defaultCacheType);
+    moveSelector=moveSelectorConfigList.get(0).buildMoveSelector(environmentMode,solutionDescriptor,defaultCacheType,defaultSelectionOrder);
   }
  else {
     throw new IllegalArgumentException("The moveSelectorConfigList (" + moveSelectorConfigList + ") must a singleton or empty. Use a single "+ UnionMoveSelectorConfig.class+ " element to nest multiple MoveSelectors.");

@@ -1,8 +1,8 @@
 {
   super.inherit(inheritedConfig);
   planningEntityClass=ConfigUtils.inheritOverwritableProperty(planningEntityClass,inheritedConfig.getPlanningEntityClass());
-  selectionOrder=ConfigUtils.inheritOverwritableProperty(selectionOrder,inheritedConfig.getSelectionOrder());
   cacheType=ConfigUtils.inheritOverwritableProperty(cacheType,inheritedConfig.getCacheType());
+  selectionOrder=ConfigUtils.inheritOverwritableProperty(selectionOrder,inheritedConfig.getSelectionOrder());
   entityFilterClassList=ConfigUtils.inheritOverwritableProperty(entityFilterClassList,inheritedConfig.getEntityFilterClassList());
   entityProbabilityWeightFactoryClass=ConfigUtils.inheritOverwritableProperty(entityProbabilityWeightFactoryClass,inheritedConfig.getEntityProbabilityWeightFactoryClass());
 }
