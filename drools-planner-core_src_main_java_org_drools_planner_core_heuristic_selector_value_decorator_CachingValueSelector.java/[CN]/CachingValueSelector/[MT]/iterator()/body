@@ -1,3 +1,8 @@
 {
-  return new IteratorToValueIteratorBridge(cachedValueList.iterator());
+  if (!randomSelection) {
+    return new IteratorToValueIteratorBridge(cachedValueList.iterator());
+  }
+ else {
+    return new IteratorToValueIteratorBridge(new CachedListRandomIterator<Object>(cachedValueList,workingRandom));
+  }
 }

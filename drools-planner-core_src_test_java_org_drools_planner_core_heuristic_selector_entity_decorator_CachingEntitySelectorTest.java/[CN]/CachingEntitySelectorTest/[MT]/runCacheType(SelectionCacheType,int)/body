@@ -1,6 +1,6 @@
 {
   EntitySelector childEntitySelector=SelectorTestUtils.mockEntitySelector(TestdataEntity.class,new TestdataEntity("e1"),new TestdataEntity("e2"),new TestdataEntity("e3"));
-  CachingEntitySelector entitySelector=new CachingEntitySelector(childEntitySelector,cacheType);
+  CachingEntitySelector entitySelector=new CachingEntitySelector(childEntitySelector,cacheType,false);
   verify(childEntitySelector,times(1)).isNeverEnding();
   DefaultSolverScope solverScope=mock(DefaultSolverScope.class);
   entitySelector.solvingStarted(solverScope);

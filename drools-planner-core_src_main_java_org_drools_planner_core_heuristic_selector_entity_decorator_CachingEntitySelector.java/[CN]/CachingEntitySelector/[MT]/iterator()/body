@@ -1,3 +1,8 @@
 {
-  return cachedEntityList.iterator();
+  if (!randomSelection) {
+    return cachedEntityList.iterator();
+  }
+ else {
+    return new CachedListRandomIterator<Object>(cachedEntityList,workingRandom);
+  }
 }

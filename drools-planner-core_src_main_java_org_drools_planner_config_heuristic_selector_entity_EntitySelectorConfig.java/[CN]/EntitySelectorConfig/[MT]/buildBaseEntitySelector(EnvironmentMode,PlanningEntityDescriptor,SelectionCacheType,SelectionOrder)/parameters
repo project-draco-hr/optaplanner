@@ -1,0 +1,4 @@
+EnvironmentMode environmentMode
+PlanningEntityDescriptor entityDescriptor
+SelectionCacheType minimumCacheType
+SelectionOrder resolvedSelectionOrder

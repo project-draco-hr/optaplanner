@@ -1,0 +1,3 @@
+PlanningVariableDescriptor variableDescriptor
+SelectionCacheType cacheType
+boolean randomSelection

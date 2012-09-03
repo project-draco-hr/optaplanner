@@ -1,0 +1,3 @@
+ValueSelector childValueSelector
+SelectionCacheType cacheType
+boolean randomSelection

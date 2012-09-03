@@ -1,0 +1,3 @@
+PlanningEntityDescriptor entityDescriptor
+SelectionCacheType cacheType
+boolean randomSelection

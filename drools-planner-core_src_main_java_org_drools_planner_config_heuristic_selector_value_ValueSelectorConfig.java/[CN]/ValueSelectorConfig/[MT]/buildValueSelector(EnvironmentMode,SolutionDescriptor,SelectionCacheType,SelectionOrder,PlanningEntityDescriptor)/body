@@ -1,32 +1,24 @@
 {
-  PlanningVariableDescriptor variableDescriptor;
-  if (planningVariableName != null) {
-    variableDescriptor=entityDescriptor.getPlanningVariableDescriptor(planningVariableName);
-    if (variableDescriptor == null) {
-      throw new IllegalArgumentException("The variableSelectorConfig (" + this + ") has a planningVariableName ("+ planningVariableName+ ") for planningEntityClass ("+ entityDescriptor.getPlanningEntityClass()+ ") that is not annotated as a planningVariable.\n"+ "Check your planningEntity implementation's annotated methods.");
-    }
-  }
- else {
-    Collection<PlanningVariableDescriptor> planningVariableDescriptors=entityDescriptor.getPlanningVariableDescriptors();
-    if (planningVariableDescriptors.size() != 1) {
-      throw new IllegalArgumentException("The variableSelectorConfig (" + this + ") has no configured planningVariableName ("+ planningVariableName+ ") for planningEntityClass ("+ entityDescriptor.getPlanningEntityClass()+ ") and because there are multiple in the planningVariableNameSet ("+ entityDescriptor.getPlanningVariableNameSet()+ "), it can not be deducted automatically.");
-    }
-    variableDescriptor=planningVariableDescriptors.iterator().next();
-  }
+  PlanningVariableDescriptor variableDescriptor=fetchVariableDescriptor(entityDescriptor);
   SelectionCacheType resolvedCacheType=SelectionCacheType.resolve(cacheType,minimumCacheType);
   minimumCacheType=SelectionCacheType.max(minimumCacheType,resolvedCacheType);
-  if (minimumCacheType.compareTo(SelectionCacheType.PHASE) < 0) {
-    minimumCacheType=SelectionCacheType.PHASE;
-  }
   SelectionOrder resolvedSelectionOrder=SelectionOrder.resolve(selectionOrder,inheritedSelectionOrder);
-  boolean randomSelection=resolvedSelectionOrder == SelectionOrder.RANDOM && valueProbabilityWeightFactoryClass == null;
-  ValueSelector valueSelector=new FromSolutionPropertyValueSelector(variableDescriptor,randomSelection,minimumCacheType);
+  ValueSelector valueSelector=buildBaseValueSelector(environmentMode,variableDescriptor,minimumCacheType,resolvedCacheType.isCached() ? SelectionOrder.ORIGINAL : resolvedSelectionOrder);
+  boolean alreadyCached=false;
   if (valueProbabilityWeightFactoryClass != null) {
     if (resolvedSelectionOrder != SelectionOrder.RANDOM) {
       throw new IllegalArgumentException("The variableSelectorConfig (" + this + ") with valueProbabilityWeightFactoryClass ("+ valueProbabilityWeightFactoryClass+ ") has a non-random resolvedSelectionOrder ("+ resolvedSelectionOrder+ ").");
     }
     SelectionProbabilityWeightFactory valueProbabilityWeightFactory=ConfigUtils.newInstance(this,"valueProbabilityWeightFactoryClass",valueProbabilityWeightFactoryClass);
     valueSelector=new ProbabilityValueSelector(valueSelector,resolvedCacheType,valueProbabilityWeightFactory);
+    alreadyCached=true;
+  }
+  if (resolvedSelectionOrder == SelectionOrder.SHUFFLED) {
+    valueSelector=new ShufflingValueSelector(valueSelector,resolvedCacheType);
+    alreadyCached=true;
+  }
+  if (resolvedCacheType.isCached() && !alreadyCached) {
+    valueSelector=new CachingValueSelector(valueSelector,resolvedCacheType,resolvedSelectionOrder == SelectionOrder.RANDOM);
   }
   return valueSelector;
 }

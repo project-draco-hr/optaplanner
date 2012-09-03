@@ -1,0 +1,6 @@
+{
+  if (minimumCacheType.compareTo(SelectionCacheType.PHASE) < 0) {
+    minimumCacheType=SelectionCacheType.PHASE;
+  }
+  return new FromSolutionPropertyValueSelector(variableDescriptor,minimumCacheType,resolvedSelectionOrder == SelectionOrder.RANDOM);
+}
