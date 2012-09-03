@@ -1,0 +1,5 @@
+{
+  this.childMoveSelector=childMoveSelector;
+  this.moveFilterList=moveFilterList;
+  solverPhaseLifecycleSupport.addEventListener(childMoveSelector);
+}

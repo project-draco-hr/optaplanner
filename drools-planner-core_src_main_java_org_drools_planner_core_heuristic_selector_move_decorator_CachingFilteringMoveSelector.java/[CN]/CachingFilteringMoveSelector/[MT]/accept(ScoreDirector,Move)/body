@@ -1,8 +1,0 @@
-{
-  for (  SelectionFilter moveFilter : moveFilterList) {
-    if (!moveFilter.accept(scoreDirector,move)) {
-      return false;
-    }
-  }
-  return true;
-}

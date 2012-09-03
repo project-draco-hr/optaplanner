@@ -7,7 +7,10 @@
   }
 ;
   List<SelectionFilter> entityFilterList=Arrays.<SelectionFilter>asList(entityFilter);
-  EntitySelector entitySelector=cacheType.isNotCached() ? new JustInTimeFilteringEntitySelector(childEntitySelector,cacheType,entityFilterList) : new CachingFilteringEntitySelector(childEntitySelector,cacheType,entityFilterList);
+  EntitySelector entitySelector=new JustInTimeFilteringEntitySelector(childEntitySelector,entityFilterList);
+  if (cacheType.isCached()) {
+    entitySelector=new CachingEntitySelector(entitySelector,cacheType);
+  }
   DefaultSolverScope solverScope=mock(DefaultSolverScope.class);
   entitySelector.solvingStarted(solverScope);
   AbstractSolverPhaseScope phaseScopeA=mock(AbstractSolverPhaseScope.class);

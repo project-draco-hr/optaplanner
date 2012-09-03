@@ -1,3 +1,2 @@
 MoveSelector childMoveSelector
-SelectionCacheType cacheType
 List<SelectionFilter> moveFilterList

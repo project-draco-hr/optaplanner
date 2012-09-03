@@ -9,15 +9,7 @@
     for (    Class<? extends SelectionFilter> moveFilterClass : moveFilterClassList) {
       moveFilterList.add(ConfigUtils.newInstance(this,"moveFilterClass",moveFilterClass));
     }
-    MoveSelector filteringMoveSelector;
-    if (resolvedCacheType.isNotCached()) {
-      filteringMoveSelector=new JustInTimeFilteringMoveSelector(moveSelector,resolvedCacheType,moveFilterList);
-    }
- else {
-      filteringMoveSelector=new CachingFilteringMoveSelector(moveSelector,resolvedCacheType,moveFilterList);
-      alreadyCached=true;
-    }
-    moveSelector=filteringMoveSelector;
+    moveSelector=new JustInTimeFilteringMoveSelector(moveSelector,moveFilterList);
   }
   if (moveProbabilityWeightFactoryClass != null) {
     if (resolvedSelectionOrder != SelectionOrder.RANDOM) {

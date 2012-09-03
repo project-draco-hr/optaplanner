@@ -21,15 +21,7 @@
     if (entityDescriptor.hasMovableEntitySelectionFilter()) {
       entityFilterList.add(entityDescriptor.getMovableEntitySelectionFilter());
     }
-    EntitySelector filteringEntitySelector;
-    if (resolvedCacheType.isNotCached()) {
-      filteringEntitySelector=new JustInTimeFilteringEntitySelector(entitySelector,resolvedCacheType,entityFilterList);
-    }
- else {
-      filteringEntitySelector=new CachingFilteringEntitySelector(entitySelector,resolvedCacheType,entityFilterList);
-      alreadyCached=true;
-    }
-    entitySelector=filteringEntitySelector;
+    entitySelector=new JustInTimeFilteringEntitySelector(entitySelector,entityFilterList);
   }
   if (entityProbabilityWeightFactoryClass != null) {
     if (resolvedSelectionOrder != SelectionOrder.RANDOM) {

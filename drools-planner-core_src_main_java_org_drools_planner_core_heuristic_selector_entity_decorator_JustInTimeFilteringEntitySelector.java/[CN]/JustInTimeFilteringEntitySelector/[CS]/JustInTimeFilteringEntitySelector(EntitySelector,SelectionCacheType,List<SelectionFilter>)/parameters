@@ -1,3 +1,0 @@
-EntitySelector childEntitySelector
-SelectionCacheType cacheType
-List<SelectionFilter> entityFilterList
