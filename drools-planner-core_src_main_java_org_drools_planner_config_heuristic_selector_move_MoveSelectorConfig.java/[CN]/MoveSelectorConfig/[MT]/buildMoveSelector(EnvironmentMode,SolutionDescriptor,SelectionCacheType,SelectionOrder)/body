@@ -9,7 +9,7 @@
     for (    Class<? extends SelectionFilter> moveFilterClass : moveFilterClassList) {
       moveFilterList.add(ConfigUtils.newInstance(this,"moveFilterClass",moveFilterClass));
     }
-    moveSelector=new JustInTimeFilteringMoveSelector(moveSelector,moveFilterList);
+    moveSelector=new FilteringMoveSelector(moveSelector,moveFilterList);
   }
   if (moveProbabilityWeightFactoryClass != null) {
     if (resolvedSelectionOrder != SelectionOrder.RANDOM) {

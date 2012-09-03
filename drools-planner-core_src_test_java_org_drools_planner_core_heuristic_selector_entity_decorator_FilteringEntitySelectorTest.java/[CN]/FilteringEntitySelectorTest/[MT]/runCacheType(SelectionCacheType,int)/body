@@ -7,7 +7,7 @@
   }
 ;
   List<SelectionFilter> entityFilterList=Arrays.<SelectionFilter>asList(entityFilter);
-  EntitySelector entitySelector=new JustInTimeFilteringEntitySelector(childEntitySelector,entityFilterList);
+  EntitySelector entitySelector=new FilteringEntitySelector(childEntitySelector,entityFilterList);
   if (cacheType.isCached()) {
     entitySelector=new CachingEntitySelector(entitySelector,cacheType);
   }

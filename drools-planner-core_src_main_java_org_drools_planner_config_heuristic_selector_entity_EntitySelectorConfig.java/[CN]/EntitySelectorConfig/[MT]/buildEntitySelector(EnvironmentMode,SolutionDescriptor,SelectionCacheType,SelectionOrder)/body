@@ -21,7 +21,7 @@
     if (entityDescriptor.hasMovableEntitySelectionFilter()) {
       entityFilterList.add(entityDescriptor.getMovableEntitySelectionFilter());
     }
-    entitySelector=new JustInTimeFilteringEntitySelector(entitySelector,entityFilterList);
+    entitySelector=new FilteringEntitySelector(entitySelector,entityFilterList);
   }
   if (entityProbabilityWeightFactoryClass != null) {
     if (resolvedSelectionOrder != SelectionOrder.RANDOM) {

@@ -7,7 +7,7 @@
   }
 ;
   List<SelectionFilter> moveFilterList=Arrays.<SelectionFilter>asList(moveFilter);
-  MoveSelector moveSelector=new JustInTimeFilteringMoveSelector(childMoveSelector,moveFilterList);
+  MoveSelector moveSelector=new FilteringMoveSelector(childMoveSelector,moveFilterList);
   if (cacheType.isCached()) {
     moveSelector=new CachingMoveSelector(moveSelector,cacheType);
   }
