@@ -1,3 +1,3 @@
 {
-  runSpeedTest(unsolvedDataFile,scoreAttainedString,EnvironmentMode.PRODUCTION);
+  runSpeedTest(unsolvedDataFile,scoreAttainedString,EnvironmentMode.REPRODUCIBLE);
 }
