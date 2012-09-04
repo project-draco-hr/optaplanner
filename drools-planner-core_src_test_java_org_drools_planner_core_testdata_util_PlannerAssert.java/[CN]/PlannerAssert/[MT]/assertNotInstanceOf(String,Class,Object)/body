@@ -1,0 +1,6 @@
+{
+  if (expectedClass.isInstance(actualInstance)) {
+    String cleanMessage=message == null ? "" : message;
+    throw new ComparisonFailure(cleanMessage,"not " + expectedClass.getName(),actualInstance == null ? "null" : actualInstance.getClass().getName());
+  }
+}

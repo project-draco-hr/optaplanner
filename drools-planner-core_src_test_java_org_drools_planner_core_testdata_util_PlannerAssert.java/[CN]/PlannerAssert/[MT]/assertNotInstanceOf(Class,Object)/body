@@ -1,0 +1,3 @@
+{
+  assertNotInstanceOf(null,expectedClass,actualInstance);
+}

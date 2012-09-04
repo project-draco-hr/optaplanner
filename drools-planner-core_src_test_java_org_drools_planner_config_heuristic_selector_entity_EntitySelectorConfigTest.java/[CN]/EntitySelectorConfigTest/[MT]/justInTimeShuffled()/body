@@ -1,0 +1,7 @@
+{
+  SolutionDescriptor solutionDescriptor=TestdataSolution.buildSolutionDescriptor();
+  EntitySelectorConfig entitySelectorConfig=new EntitySelectorConfig();
+  entitySelectorConfig.setCacheType(SelectionCacheType.JUST_IN_TIME);
+  entitySelectorConfig.setSelectionOrder(SelectionOrder.SHUFFLED);
+  EntitySelector entitySelector=entitySelectorConfig.buildEntitySelector(EnvironmentMode.REPRODUCIBLE,solutionDescriptor,SelectionCacheType.JUST_IN_TIME,SelectionOrder.RANDOM);
+}

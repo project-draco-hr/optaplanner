@@ -1,0 +1,9 @@
+{
+  SolutionDescriptor solutionDescriptor=TestdataSolution.buildSolutionDescriptor();
+  PlanningEntityDescriptor entityDescriptor=solutionDescriptor.getPlanningEntityDescriptor(TestdataEntity.class);
+  ValueSelectorConfig valueSelectorConfig=new ValueSelectorConfig();
+  valueSelectorConfig.setCacheType(SelectionCacheType.JUST_IN_TIME);
+  valueSelectorConfig.setSelectionOrder(SelectionOrder.ORIGINAL);
+  ValueSelector valueSelector=valueSelectorConfig.buildValueSelector(EnvironmentMode.REPRODUCIBLE,solutionDescriptor,entityDescriptor,SelectionCacheType.JUST_IN_TIME,SelectionOrder.RANDOM);
+  assertInstanceOf(FromSolutionPropertyValueSelector.class,valueSelector);
+}

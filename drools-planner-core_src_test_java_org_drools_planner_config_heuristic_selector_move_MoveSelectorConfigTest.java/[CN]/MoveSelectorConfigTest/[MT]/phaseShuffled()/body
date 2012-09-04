@@ -12,6 +12,6 @@
   moveSelectorConfig.setCacheType(SelectionCacheType.PHASE);
   moveSelectorConfig.setSelectionOrder(SelectionOrder.SHUFFLED);
   MoveSelector moveSelector=moveSelectorConfig.buildMoveSelector(EnvironmentMode.REPRODUCIBLE,solutionDescriptor,SelectionCacheType.JUST_IN_TIME,SelectionOrder.RANDOM);
-  assertTrue(moveSelector instanceof ShufflingMoveSelector);
+  assertInstanceOf(ShufflingMoveSelector.class,moveSelector);
   assertSame(baseMoveSelector,((ShufflingMoveSelector)moveSelector).getChildMoveSelector());
 }
