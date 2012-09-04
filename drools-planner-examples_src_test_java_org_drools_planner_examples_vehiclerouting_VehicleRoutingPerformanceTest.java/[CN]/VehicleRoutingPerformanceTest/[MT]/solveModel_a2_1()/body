@@ -1,4 +1,4 @@
 {
   File unsolvedDataFile=new File("data/vehiclerouting/unsolved/A-n33-k6.xml");
-  runSpeedTest(unsolvedDataFile,"0hard/-950soft");
+  runSpeedTest(unsolvedDataFile,"0hard/-750soft");
 }
