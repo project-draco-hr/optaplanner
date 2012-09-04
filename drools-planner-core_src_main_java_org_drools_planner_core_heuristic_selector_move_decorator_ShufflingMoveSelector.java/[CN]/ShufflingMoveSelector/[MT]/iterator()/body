@@ -1,3 +1,4 @@
 {
+  Collections.shuffle(cachedMoveList,workingRandom);
   return cachedMoveList.iterator();
 }

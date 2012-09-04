@@ -1,4 +1,0 @@
-{
-  super.stepStarted(stepScope);
-  Collections.shuffle(cachedValueList,stepScope.getWorkingRandom());
-}

@@ -1,3 +1,4 @@
 {
+  Collections.shuffle(cachedValueList,workingRandom);
   return new IteratorToValueIteratorBridge(cachedValueList.iterator());
 }

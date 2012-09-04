@@ -1,3 +1,4 @@
 {
+  Collections.shuffle(cachedEntityList,workingRandom);
   return cachedEntityList.iterator();
 }
