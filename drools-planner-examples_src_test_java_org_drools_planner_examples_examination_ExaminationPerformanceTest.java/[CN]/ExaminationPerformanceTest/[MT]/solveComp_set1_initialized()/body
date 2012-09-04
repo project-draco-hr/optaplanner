@@ -1,4 +1,0 @@
-{
-  File unsolvedDataFile=new File("data/examination/unsolved/exam_comp_set1_initialized.xml");
-  runSpeedTest(unsolvedDataFile,"0hard/-7925soft");
-}
