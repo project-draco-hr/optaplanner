@@ -1,6 +1,7 @@
 {
   problemIOClass=ConfigUtils.inheritOverwritableProperty(problemIOClass,inheritedConfig.getProblemIOClass());
   xstreamAnnotatedClassList=ConfigUtils.inheritMergeableListProperty(xstreamAnnotatedClassList,inheritedConfig.getXstreamAnnotatedClassList());
+  writeOutputSolutionEnabled=ConfigUtils.inheritOverwritableProperty(writeOutputSolutionEnabled,inheritedConfig.getWriteOutputSolutionEnabled());
   inputSolutionFileList=ConfigUtils.inheritMergeableListProperty(inputSolutionFileList,inheritedConfig.getInputSolutionFileList());
   problemStatisticTypeList=ConfigUtils.inheritMergeableListProperty(problemStatisticTypeList,inheritedConfig.getProblemStatisticTypeList());
 }
