@@ -5,4 +5,5 @@
   }
   cachedValueList=new ArrayList<Object>((int)childSize);
   CollectionUtils.addAll(cachedValueList,childValueSelector.iterator());
+  logger.trace("    Created cachedValueList with size ({}) in valueSelector({}).",cachedValueList.size(),this);
 }

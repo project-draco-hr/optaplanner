@@ -1,3 +1,4 @@
 {
   cachedMoveList=moveListFactory.createMoveList(solverScope.getScoreDirector().getWorkingSolution());
+  logger.trace("    Created cachedMoveList with size ({}) in moveSelector({}).",cachedMoveList.size(),this);
 }
