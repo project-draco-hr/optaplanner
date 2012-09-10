@@ -1,6 +1,0 @@
-{
-  super.inherit(inheritedConfig);
-  if (inheritedConfig instanceof AllMovesOfOneExamSelectorConfig) {
-    AllMovesOfOneExamSelectorConfig allMovesOfOneExamSelectorConfig=(AllMovesOfOneExamSelectorConfig)inheritedConfig;
-  }
-}
