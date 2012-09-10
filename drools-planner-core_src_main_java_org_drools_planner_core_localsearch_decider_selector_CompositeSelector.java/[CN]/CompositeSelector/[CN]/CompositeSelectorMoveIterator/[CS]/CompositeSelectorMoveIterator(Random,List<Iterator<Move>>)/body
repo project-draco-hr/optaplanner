@@ -1,4 +1,0 @@
-{
-  this.moveIteratorList=moveIteratorList;
-  this.workingRandom=workingRandom;
-}

@@ -1,9 +1,0 @@
-{
-  int moveIteratorIndex=workingRandom.nextInt(moveIteratorList.size());
-  Iterator<Move> moveIterator=moveIteratorList.get(moveIteratorIndex);
-  Move next=moveIterator.next();
-  if (!moveIterator.hasNext()) {
-    moveIteratorList.remove(moveIteratorIndex);
-  }
-  return next;
-}

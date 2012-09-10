@@ -1,3 +1,0 @@
-{
-  moveFactory.phaseStarted(localSearchSolverPhaseScope);
-}

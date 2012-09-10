@@ -1,4 +1,0 @@
-{
-  super.setDecider(decider);
-  moveFactory.setDecider(decider);
-}
