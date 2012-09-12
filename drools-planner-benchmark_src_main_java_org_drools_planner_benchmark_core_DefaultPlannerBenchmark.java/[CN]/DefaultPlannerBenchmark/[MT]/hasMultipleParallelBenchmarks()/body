@@ -1,0 +1,3 @@
+{
+  return parallelBenchmarkCount > 1;
+}
