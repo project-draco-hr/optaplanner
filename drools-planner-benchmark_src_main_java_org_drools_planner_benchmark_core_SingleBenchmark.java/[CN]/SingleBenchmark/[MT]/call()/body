@@ -1,7 +1,8 @@
 {
   Solver solver=solverBenchmark.getSolverConfig().buildSolver();
   for (  ProblemStatistic problemStatistic : problemBenchmark.getProblemStatisticList()) {
-    SingleStatistic singleStatistic=problemStatistic.createSingleStatistic(solver);
+    SingleStatistic singleStatistic=problemStatistic.createSingleStatistic();
+    singleStatistic.open(solver);
     singleStatisticMap.put(problemStatistic.getProblemStatisticType(),singleStatistic);
   }
   solver.setPlanningProblem(problemBenchmark.readPlanningProblem());
@@ -15,7 +16,7 @@
   planningEntityCount=solutionDescriptor.getPlanningEntityCount(outputSolution);
   problemBenchmark.registerProblemScale(solutionDescriptor.getProblemScale(outputSolution));
   for (  SingleStatistic singleStatistic : singleStatisticMap.values()) {
-    singleStatistic.close();
+    singleStatistic.close(solver);
   }
   problemBenchmark.writeOutputSolution(this,outputSolution);
   return this;
