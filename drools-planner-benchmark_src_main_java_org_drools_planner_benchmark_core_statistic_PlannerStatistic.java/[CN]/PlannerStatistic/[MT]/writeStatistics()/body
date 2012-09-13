@@ -1,5 +1,5 @@
 {
-  writeBestScoreSummaryChart();
+  writeBestScoreSummaryCharts();
   writeWinningScoreDifferenceSummaryChart();
   writeWorstScoreDifferencePercentageSummaryChart();
   writeTimeSpendSummaryChart();
@@ -12,5 +12,6 @@
       }
     }
   }
+  determineDefaultShownScoreLevelIndex();
   writeStatisticsWebsite();
 }

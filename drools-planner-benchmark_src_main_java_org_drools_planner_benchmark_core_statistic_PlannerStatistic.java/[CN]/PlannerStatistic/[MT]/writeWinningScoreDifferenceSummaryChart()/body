@@ -1,29 +1,18 @@
 {
   DefaultCategoryDataset dataset=new DefaultCategoryDataset();
   for (  SolverBenchmark solverBenchmark : plannerBenchmark.getSolverBenchmarkList()) {
-    ScoreDefinition scoreDefinition=solverBenchmark.getSolverConfig().getScoreDirectorFactoryConfig().buildScoreDefinition();
+    String solverLabel=solverBenchmark.getNameWithFavoriteSuffix();
     for (    SingleBenchmark singleBenchmark : solverBenchmark.getSingleBenchmarkList()) {
       if (singleBenchmark.isSuccess()) {
         Score score=singleBenchmark.getWinningScoreDifference();
-        Double scoreGraphValue=scoreDefinition.translateScoreToGraphValue(score);
-        String solverLabel=solverBenchmark.getNameWithFavoriteSuffix();
+        double[] scoreLevels=score.toDoubleLevels();
+        Double scoreGraphValue=scoreLevels[scoreLevels.length - 1];
         String planningProblemLabel=singleBenchmark.getProblemBenchmark().getName();
         dataset.addValue(scoreGraphValue,solverLabel,planningProblemLabel);
       }
     }
   }
-  CategoryAxis xAxis=new CategoryAxis("Data");
-  xAxis.setCategoryMargin(0.40);
-  NumberAxis yAxis=new NumberAxis("Winning score difference");
-  BarRenderer renderer=new BarRenderer();
-  ItemLabelPosition positiveItemLabelPosition=new ItemLabelPosition(ItemLabelAnchor.OUTSIDE12,TextAnchor.BOTTOM_CENTER);
-  renderer.setBasePositiveItemLabelPosition(positiveItemLabelPosition);
-  ItemLabelPosition negativeItemLabelPosition=new ItemLabelPosition(ItemLabelAnchor.OUTSIDE6,TextAnchor.TOP_CENTER);
-  renderer.setBaseNegativeItemLabelPosition(negativeItemLabelPosition);
-  renderer.setBaseItemLabelGenerator(new StandardCategoryItemLabelGenerator());
-  renderer.setBaseItemLabelsVisible(true);
-  CategoryPlot plot=new CategoryPlot(dataset,xAxis,yAxis,renderer);
-  plot.setOrientation(PlotOrientation.VERTICAL);
+  CategoryPlot plot=createBarChartPlot(dataset,"Winning score difference",NumberFormat.getInstance());
   JFreeChart chart=new JFreeChart("Winning score difference summary (higher is better)",JFreeChart.DEFAULT_TITLE_FONT,plot,true);
   BufferedImage chartImage=chart.createBufferedImage(1024,768);
   winningScoreDifferenceSummaryFile=new File(plannerBenchmark.getBenchmarkReportDirectory(),"winningScoreDifferenceSummary.png");

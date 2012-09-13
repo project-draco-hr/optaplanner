@@ -1,0 +1,3 @@
+DefaultCategoryDataset dataset
+String yAxisLabel
+NumberFormat numberFormat

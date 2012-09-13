@@ -1,28 +1,16 @@
 {
   DefaultCategoryDataset dataset=new DefaultCategoryDataset();
   for (  SolverBenchmark solverBenchmark : plannerBenchmark.getSolverBenchmarkList()) {
+    String solverLabel=solverBenchmark.getNameWithFavoriteSuffix();
     for (    SingleBenchmark singleBenchmark : solverBenchmark.getSingleBenchmarkList()) {
       if (singleBenchmark.isSuccess()) {
         double graphValue=singleBenchmark.getWorstScoreDifferencePercentage().getLastPercentageLevel();
-        String solverLabel=solverBenchmark.getNameWithFavoriteSuffix();
         String planningProblemLabel=singleBenchmark.getProblemBenchmark().getName();
         dataset.addValue(graphValue,solverLabel,planningProblemLabel);
       }
     }
   }
-  CategoryAxis xAxis=new CategoryAxis("Data");
-  xAxis.setCategoryMargin(0.40);
-  NumberAxis yAxis=new NumberAxis("Worst score difference percentage");
-  yAxis.setNumberFormatOverride(new DecimalFormat("0.00%"));
-  BarRenderer renderer=new BarRenderer();
-  ItemLabelPosition positiveItemLabelPosition=new ItemLabelPosition(ItemLabelAnchor.OUTSIDE12,TextAnchor.BOTTOM_CENTER);
-  renderer.setBasePositiveItemLabelPosition(positiveItemLabelPosition);
-  ItemLabelPosition negativeItemLabelPosition=new ItemLabelPosition(ItemLabelAnchor.OUTSIDE6,TextAnchor.TOP_CENTER);
-  renderer.setBaseNegativeItemLabelPosition(negativeItemLabelPosition);
-  renderer.setBaseItemLabelGenerator(new StandardCategoryItemLabelGenerator(StandardCategoryItemLabelGenerator.DEFAULT_LABEL_FORMAT_STRING,new DecimalFormat("0.00%")));
-  renderer.setBaseItemLabelsVisible(true);
-  CategoryPlot plot=new CategoryPlot(dataset,xAxis,yAxis,renderer);
-  plot.setOrientation(PlotOrientation.VERTICAL);
+  CategoryPlot plot=createBarChartPlot(dataset,"Worst score difference percentage",new DecimalFormat("0.00%"));
   JFreeChart chart=new JFreeChart("Worst score difference percentage summary (higher is better)",JFreeChart.DEFAULT_TITLE_FONT,plot,true);
   BufferedImage chartImage=chart.createBufferedImage(1024,768);
   worstScoreDifferencePercentageSummaryFile=new File(plannerBenchmark.getBenchmarkReportDirectory(),"worstScoreDifferencePercentageSummary.png");

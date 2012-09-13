@@ -1,27 +1,16 @@
 {
   DefaultCategoryDataset dataset=new DefaultCategoryDataset();
   for (  SolverBenchmark solverBenchmark : plannerBenchmark.getSolverBenchmarkList()) {
+    String solverLabel=solverBenchmark.getNameWithFavoriteSuffix();
     for (    SingleBenchmark singleBenchmark : solverBenchmark.getSingleBenchmarkList()) {
       if (singleBenchmark.isSuccess()) {
         long timeMillisSpend=singleBenchmark.getTimeMillisSpend();
-        String solverLabel=solverBenchmark.getNameWithFavoriteSuffix();
         String planningProblemLabel=singleBenchmark.getProblemBenchmark().getName();
         dataset.addValue(timeMillisSpend,solverLabel,planningProblemLabel);
       }
     }
   }
-  CategoryAxis xAxis=new CategoryAxis("Data");
-  NumberAxis yAxis=new NumberAxis("Time spend");
-  yAxis.setNumberFormatOverride(new MillisecondsSpendNumberFormat());
-  BarRenderer renderer=new BarRenderer();
-  ItemLabelPosition positiveItemLabelPosition=new ItemLabelPosition(ItemLabelAnchor.OUTSIDE12,TextAnchor.BOTTOM_CENTER);
-  renderer.setBasePositiveItemLabelPosition(positiveItemLabelPosition);
-  ItemLabelPosition negativeItemLabelPosition=new ItemLabelPosition(ItemLabelAnchor.OUTSIDE6,TextAnchor.TOP_CENTER);
-  renderer.setBaseNegativeItemLabelPosition(negativeItemLabelPosition);
-  renderer.setBaseItemLabelGenerator(new StandardCategoryItemLabelGenerator(StandardCategoryItemLabelGenerator.DEFAULT_LABEL_FORMAT_STRING,new MillisecondsSpendNumberFormat()));
-  renderer.setBaseItemLabelsVisible(true);
-  CategoryPlot plot=new CategoryPlot(dataset,xAxis,yAxis,renderer);
-  plot.setOrientation(PlotOrientation.VERTICAL);
+  CategoryPlot plot=createBarChartPlot(dataset,"Time spend",new MillisecondsSpendNumberFormat());
   JFreeChart chart=new JFreeChart("Time spend summary (lower time is better)",JFreeChart.DEFAULT_TITLE_FONT,plot,true);
   BufferedImage chartImage=chart.createBufferedImage(1024,768);
   timeSpendSummaryFile=new File(plannerBenchmark.getBenchmarkReportDirectory(),"timeSpendSummary.png");

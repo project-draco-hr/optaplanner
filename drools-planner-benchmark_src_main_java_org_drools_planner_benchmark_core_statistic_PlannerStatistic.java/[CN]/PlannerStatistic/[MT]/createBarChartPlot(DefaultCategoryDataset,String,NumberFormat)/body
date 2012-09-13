@@ -1,0 +1,10 @@
+{
+  CategoryAxis xAxis=new CategoryAxis("Data");
+  xAxis.setCategoryMargin(0.40);
+  NumberAxis yAxis=new NumberAxis(yAxisLabel);
+  yAxis.setNumberFormatOverride(numberFormat);
+  BarRenderer renderer=createBarChartRenderer(numberFormat);
+  CategoryPlot plot=new CategoryPlot(dataset,xAxis,yAxis,renderer);
+  plot.setOrientation(PlotOrientation.VERTICAL);
+  return plot;
+}

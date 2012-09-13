@@ -1,3 +1,3 @@
 {
-  addPoint(singleBenchmark,timeMillisSpend,Long.toString(value));
+  addRawPoint(singleBenchmark,timeMillisSpend,Long.toString(value));
 }

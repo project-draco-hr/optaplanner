@@ -1,4 +1,3 @@
 {
-  ProblemStatisticCsvLine line=findOrCreateLine(timeMillisSpend);
-  line.getValueMap().put(singleBenchmark,value);
+  addRawPoint(singleBenchmark,timeMillisSpend,"\"" + value.replaceAll("\"","\"\"") + "\"");
 }

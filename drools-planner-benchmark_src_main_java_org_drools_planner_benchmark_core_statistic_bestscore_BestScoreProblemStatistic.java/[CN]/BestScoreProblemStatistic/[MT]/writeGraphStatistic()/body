@@ -14,7 +14,8 @@
       for (      BestScoreSingleStatisticPoint point : singleStatistic.getPointList()) {
         long timeMillisSpend=point.getTimeMillisSpend();
         Score score=point.getScore();
-        Double scoreGraphValue=scoreDefinition.translateScoreToGraphValue(score);
+        double[] scoreLevels=score.toDoubleLevels();
+        Double scoreGraphValue=scoreLevels[scoreLevels.length - 1];
         if (scoreGraphValue != null) {
           series.add(timeMillisSpend,scoreGraphValue);
         }

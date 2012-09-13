@@ -1,0 +1,10 @@
+{
+  BarRenderer renderer=new BarRenderer();
+  ItemLabelPosition positiveItemLabelPosition=new ItemLabelPosition(ItemLabelAnchor.OUTSIDE12,TextAnchor.BOTTOM_CENTER);
+  renderer.setBasePositiveItemLabelPosition(positiveItemLabelPosition);
+  ItemLabelPosition negativeItemLabelPosition=new ItemLabelPosition(ItemLabelAnchor.OUTSIDE6,TextAnchor.TOP_CENTER);
+  renderer.setBaseNegativeItemLabelPosition(negativeItemLabelPosition);
+  renderer.setBaseItemLabelGenerator(new StandardCategoryItemLabelGenerator(StandardCategoryItemLabelGenerator.DEFAULT_LABEL_FORMAT_STRING,numberFormat));
+  renderer.setBaseItemLabelsVisible(true);
+  return renderer;
+}
