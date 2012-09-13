@@ -1,0 +1,16 @@
+{
+  BufferedImage chartImage=chart.createBufferedImage(1024,768);
+  File summaryChartFile=new File(plannerBenchmark.getBenchmarkReportDirectory(),fileNameBase + ".png");
+  OutputStream out=null;
+  try {
+    out=new FileOutputStream(summaryChartFile);
+    ImageIO.write(chartImage,"png",out);
+  }
+ catch (  IOException e) {
+    throw new IllegalArgumentException("Problem writing summaryChartFile: " + summaryChartFile,e);
+  }
+ finally {
+    IOUtils.closeQuietly(out);
+  }
+  return summaryChartFile;
+}

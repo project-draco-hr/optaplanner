@@ -12,17 +12,5 @@
   }
   CategoryPlot plot=createBarChartPlot(dataset,"Time spend",new MillisecondsSpendNumberFormat());
   JFreeChart chart=new JFreeChart("Time spend summary (lower time is better)",JFreeChart.DEFAULT_TITLE_FONT,plot,true);
-  BufferedImage chartImage=chart.createBufferedImage(1024,768);
-  timeSpendSummaryChartFile=new File(plannerBenchmark.getBenchmarkReportDirectory(),"timeSpendSummary.png");
-  OutputStream out=null;
-  try {
-    out=new FileOutputStream(timeSpendSummaryChartFile);
-    ImageIO.write(chartImage,"png",out);
-  }
- catch (  IOException e) {
-    throw new IllegalArgumentException("Problem writing timeSpendSummaryChartFile: " + timeSpendSummaryChartFile,e);
-  }
- finally {
-    IOUtils.closeQuietly(out);
-  }
+  timeSpendSummaryChartFile=writeChartToImageFile(chart,"timeSpendSummary");
 }

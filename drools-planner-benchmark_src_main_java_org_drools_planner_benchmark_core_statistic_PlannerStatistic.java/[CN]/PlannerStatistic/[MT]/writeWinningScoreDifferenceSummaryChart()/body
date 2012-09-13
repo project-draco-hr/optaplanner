@@ -1,30 +1,26 @@
 {
-  DefaultCategoryDataset dataset=new DefaultCategoryDataset();
+  List<DefaultCategoryDataset> datasetList=new ArrayList<DefaultCategoryDataset>(CHARTED_SCORE_LEVEL_SIZE);
   for (  SolverBenchmark solverBenchmark : plannerBenchmark.getSolverBenchmarkList()) {
     String solverLabel=solverBenchmark.getNameWithFavoriteSuffix();
     for (    SingleBenchmark singleBenchmark : solverBenchmark.getSingleBenchmarkList()) {
       if (singleBenchmark.isSuccess()) {
-        Score score=singleBenchmark.getWinningScoreDifference();
-        double[] scoreLevels=score.toDoubleLevels();
-        Double scoreGraphValue=scoreLevels[scoreLevels.length - 1];
-        String planningProblemLabel=singleBenchmark.getProblemBenchmark().getName();
-        dataset.addValue(scoreGraphValue,solverLabel,planningProblemLabel);
+        double[] levelValues=singleBenchmark.getWinningScoreDifference().toDoubleLevels();
+        for (int i=0; i < levelValues.length && i < CHARTED_SCORE_LEVEL_SIZE; i++) {
+          if (i >= datasetList.size()) {
+            datasetList.add(new DefaultCategoryDataset());
+          }
+          String planningProblemLabel=singleBenchmark.getProblemBenchmark().getName();
+          datasetList.get(i).addValue(levelValues[i],solverLabel,planningProblemLabel);
+        }
       }
     }
   }
-  CategoryPlot plot=createBarChartPlot(dataset,"Winning score difference",NumberFormat.getInstance());
-  JFreeChart chart=new JFreeChart("Winning score difference summary (higher is better)",JFreeChart.DEFAULT_TITLE_FONT,plot,true);
-  BufferedImage chartImage=chart.createBufferedImage(1024,768);
-  winningScoreDifferenceSummaryFile=new File(plannerBenchmark.getBenchmarkReportDirectory(),"winningScoreDifferenceSummary.png");
-  OutputStream out=null;
-  try {
-    out=new FileOutputStream(winningScoreDifferenceSummaryFile);
-    ImageIO.write(chartImage,"png",out);
-  }
- catch (  IOException e) {
-    throw new IllegalArgumentException("Problem writing winningScoreDifferenceSummaryFile: " + winningScoreDifferenceSummaryFile,e);
-  }
- finally {
-    IOUtils.closeQuietly(out);
+  winningScoreDifferenceSummaryChartFileList=new ArrayList<File>(datasetList.size());
+  int scoreLevelIndex=0;
+  for (  DefaultCategoryDataset dataset : datasetList) {
+    CategoryPlot plot=createBarChartPlot(dataset,"Winning score difference level " + scoreLevelIndex,NumberFormat.getInstance());
+    JFreeChart chart=new JFreeChart("Winning score difference level " + scoreLevelIndex + " summary (higher is better)",JFreeChart.DEFAULT_TITLE_FONT,plot,true);
+    winningScoreDifferenceSummaryChartFileList.add(writeChartToImageFile(chart,"winningScoreDifferenceSummaryLevel" + scoreLevelIndex));
+    scoreLevelIndex++;
   }
 }

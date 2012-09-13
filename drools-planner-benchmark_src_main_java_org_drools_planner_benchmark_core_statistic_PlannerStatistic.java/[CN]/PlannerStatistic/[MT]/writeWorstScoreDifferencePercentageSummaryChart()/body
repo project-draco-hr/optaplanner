@@ -1,28 +1,26 @@
 {
-  DefaultCategoryDataset dataset=new DefaultCategoryDataset();
+  List<DefaultCategoryDataset> datasetList=new ArrayList<DefaultCategoryDataset>(CHARTED_SCORE_LEVEL_SIZE);
   for (  SolverBenchmark solverBenchmark : plannerBenchmark.getSolverBenchmarkList()) {
     String solverLabel=solverBenchmark.getNameWithFavoriteSuffix();
     for (    SingleBenchmark singleBenchmark : solverBenchmark.getSingleBenchmarkList()) {
       if (singleBenchmark.isSuccess()) {
-        double graphValue=singleBenchmark.getWorstScoreDifferencePercentage().getLastPercentageLevel();
-        String planningProblemLabel=singleBenchmark.getProblemBenchmark().getName();
-        dataset.addValue(graphValue,solverLabel,planningProblemLabel);
+        double[] levelValues=singleBenchmark.getWorstScoreDifferencePercentage().getPercentageLevels();
+        for (int i=0; i < levelValues.length && i < CHARTED_SCORE_LEVEL_SIZE; i++) {
+          if (i >= datasetList.size()) {
+            datasetList.add(new DefaultCategoryDataset());
+          }
+          String planningProblemLabel=singleBenchmark.getProblemBenchmark().getName();
+          datasetList.get(i).addValue(levelValues[i],solverLabel,planningProblemLabel);
+        }
       }
     }
   }
-  CategoryPlot plot=createBarChartPlot(dataset,"Worst score difference percentage",new DecimalFormat("0.00%"));
-  JFreeChart chart=new JFreeChart("Worst score difference percentage summary (higher is better)",JFreeChart.DEFAULT_TITLE_FONT,plot,true);
-  BufferedImage chartImage=chart.createBufferedImage(1024,768);
-  worstScoreDifferencePercentageSummaryFile=new File(plannerBenchmark.getBenchmarkReportDirectory(),"worstScoreDifferencePercentageSummary.png");
-  OutputStream out=null;
-  try {
-    out=new FileOutputStream(worstScoreDifferencePercentageSummaryFile);
-    ImageIO.write(chartImage,"png",out);
-  }
- catch (  IOException e) {
-    throw new IllegalArgumentException("Problem writing worstScoreDifferencePercentageSummaryFile: " + worstScoreDifferencePercentageSummaryFile,e);
-  }
- finally {
-    IOUtils.closeQuietly(out);
+  worstScoreDifferencePercentageSummaryChartFileList=new ArrayList<File>(datasetList.size());
+  int scoreLevelIndex=0;
+  for (  DefaultCategoryDataset dataset : datasetList) {
+    CategoryPlot plot=createBarChartPlot(dataset,"Worst score difference percentage level " + scoreLevelIndex,new DecimalFormat("0.00%"));
+    JFreeChart chart=new JFreeChart("Worst score difference percentage level " + scoreLevelIndex + " summary (higher is better)",JFreeChart.DEFAULT_TITLE_FONT,plot,true);
+    worstScoreDifferencePercentageSummaryChartFileList.add(writeChartToImageFile(chart,"worstScoreDifferencePercentageSummaryLevel" + scoreLevelIndex));
+    scoreLevelIndex++;
   }
 }
