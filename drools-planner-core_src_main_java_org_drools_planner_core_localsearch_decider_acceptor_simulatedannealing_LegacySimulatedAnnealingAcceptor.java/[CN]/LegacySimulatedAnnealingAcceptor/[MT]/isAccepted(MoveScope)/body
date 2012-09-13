@@ -6,10 +6,13 @@
     return true;
   }
   Score scoreDifference=lastStepScore.subtract(moveScore);
-  Double diff=localSearchSolverPhaseScope.getScoreDefinition().translateScoreToGraphValue(scoreDifference);
-  if (diff == null) {
-    return false;
+  double[] scoreDifferenceLevels=scoreDifference.toDoubleLevels();
+  for (int i=0; i < scoreDifferenceLevels.length - 1; i++) {
+    if (scoreDifferenceLevels[i] != 0) {
+      return false;
+    }
   }
+  double diff=scoreDifferenceLevels[scoreDifferenceLevels.length - 1];
   double acceptChance=Math.exp(-diff / temperature);
   if (moveScope.getWorkingRandom().nextDouble() < acceptChance) {
     return true;
