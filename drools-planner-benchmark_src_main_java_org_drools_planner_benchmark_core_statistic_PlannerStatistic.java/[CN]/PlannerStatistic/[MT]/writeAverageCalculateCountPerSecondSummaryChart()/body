@@ -24,14 +24,14 @@
   plot.setOrientation(PlotOrientation.VERTICAL);
   JFreeChart chart=new JFreeChart("Average calculate count summary (higher is better)",JFreeChart.DEFAULT_TITLE_FONT,plot,true);
   BufferedImage chartImage=chart.createBufferedImage(1024,768);
-  averageCalculateCountSummaryFile=new File(plannerBenchmark.getBenchmarkReportDirectory(),"averageCalculateCountSummary.png");
+  averageCalculateCountSummaryChartFile=new File(plannerBenchmark.getBenchmarkReportDirectory(),"averageCalculateCountSummary.png");
   OutputStream out=null;
   try {
-    out=new FileOutputStream(averageCalculateCountSummaryFile);
+    out=new FileOutputStream(averageCalculateCountSummaryChartFile);
     ImageIO.write(chartImage,"png",out);
   }
  catch (  IOException e) {
-    throw new IllegalArgumentException("Problem writing averageCalculateCountSummaryFile: " + averageCalculateCountSummaryFile,e);
+    throw new IllegalArgumentException("Problem writing averageCalculateCountSummaryChartFile: " + averageCalculateCountSummaryChartFile,e);
   }
  finally {
     IOUtils.closeQuietly(out);
