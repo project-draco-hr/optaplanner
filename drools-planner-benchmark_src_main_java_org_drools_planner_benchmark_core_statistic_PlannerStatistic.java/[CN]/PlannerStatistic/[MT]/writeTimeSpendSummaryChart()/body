@@ -3,9 +3,9 @@
   for (  SolverBenchmark solverBenchmark : plannerBenchmark.getSolverBenchmarkList()) {
     String solverLabel=solverBenchmark.getNameWithFavoriteSuffix();
     for (    SingleBenchmark singleBenchmark : solverBenchmark.getSingleBenchmarkList()) {
+      String planningProblemLabel=singleBenchmark.getProblemBenchmark().getName();
       if (singleBenchmark.isSuccess()) {
         long timeMillisSpend=singleBenchmark.getTimeMillisSpend();
-        String planningProblemLabel=singleBenchmark.getProblemBenchmark().getName();
         dataset.addValue(timeMillisSpend,solverLabel,planningProblemLabel);
       }
     }
