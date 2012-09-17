@@ -7,7 +7,7 @@
   boolean alreadyCached=false;
   if (valueProbabilityWeightFactoryClass != null) {
     if (resolvedSelectionOrder != SelectionOrder.RANDOM) {
-      throw new IllegalArgumentException("The variableSelectorConfig (" + this + ") with valueProbabilityWeightFactoryClass ("+ valueProbabilityWeightFactoryClass+ ") has a non-random resolvedSelectionOrder ("+ resolvedSelectionOrder+ ").");
+      throw new IllegalArgumentException("The valueSelectorConfig (" + this + ") with valueProbabilityWeightFactoryClass ("+ valueProbabilityWeightFactoryClass+ ") has a non-random resolvedSelectionOrder ("+ resolvedSelectionOrder+ ").");
     }
     SelectionProbabilityWeightFactory valueProbabilityWeightFactory=ConfigUtils.newInstance(this,"valueProbabilityWeightFactoryClass",valueProbabilityWeightFactoryClass);
     valueSelector=new ProbabilityValueSelector(valueSelector,resolvedCacheType,valueProbabilityWeightFactory);
