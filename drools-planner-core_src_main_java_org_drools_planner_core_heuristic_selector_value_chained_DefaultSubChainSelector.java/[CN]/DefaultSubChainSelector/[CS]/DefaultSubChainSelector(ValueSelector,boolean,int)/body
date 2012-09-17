@@ -3,14 +3,14 @@
   this.randomSelection=randomSelection;
   this.minimumSubChainSize=minimumSubChainSize;
   if (!valueSelector.getVariableDescriptor().isChained()) {
-    throw new IllegalArgumentException("The valueSelector (" + valueSelector + ") must have a chained variableDescriptor chained ("+ valueSelector.getVariableDescriptor().isChained()+ ") on the class ("+ getClass().getName()+ ").");
+    throw new IllegalArgumentException("The selector (" + this + ")'s valueSelector ("+ valueSelector+ ") must have a chained variableDescriptor chained ("+ valueSelector.getVariableDescriptor().isChained()+ ").");
   }
   if (valueSelector.isNeverEnding()) {
-    throw new IllegalStateException("The valueSelector (" + valueSelector + ") has neverEnding ("+ valueSelector.isNeverEnding()+ ") on a class ("+ getClass().getName()+ ") instance.");
+    throw new IllegalStateException("The selector (" + this + ") has a valueSelector ("+ valueSelector+ ") with neverEnding ("+ valueSelector.isNeverEnding()+ ").");
   }
   solverPhaseLifecycleSupport.addEventListener(valueSelector);
   solverPhaseLifecycleSupport.addEventListener(new SelectionCacheLifecycleBridge(SelectionCacheType.STEP,this));
   if (minimumSubChainSize < 1) {
-    throw new IllegalStateException("The minimumSubChainSize (" + minimumSubChainSize + ") must be at least 1.");
+    throw new IllegalStateException("The selector (" + this + ")'s minimumSubChainSize ("+ minimumSubChainSize+ ") must be at least 1.");
   }
 }

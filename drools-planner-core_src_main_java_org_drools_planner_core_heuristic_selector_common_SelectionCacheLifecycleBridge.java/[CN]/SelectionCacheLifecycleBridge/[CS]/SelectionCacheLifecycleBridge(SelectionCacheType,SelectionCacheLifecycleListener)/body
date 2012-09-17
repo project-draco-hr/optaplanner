@@ -2,6 +2,6 @@
   this.cacheType=cacheType;
   this.selectionCacheLifecycleListener=selectionCacheLifecycleListener;
   if (cacheType == null) {
-    throw new IllegalArgumentException("The cacheType (" + cacheType + ") should have already been resolved.");
+    throw new IllegalArgumentException("The cacheType (" + cacheType + ") for selectionCacheLifecycleListener ("+ selectionCacheLifecycleListener+ ") should have already been resolved.");
   }
 }
