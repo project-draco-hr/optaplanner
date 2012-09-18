@@ -1,5 +1,6 @@
 {
   this.childMoveSelector=childMoveSelector;
   this.moveFilterList=moveFilterList;
+  bailOutEnabled=childMoveSelector.isNeverEnding();
   solverPhaseLifecycleSupport.addEventListener(childMoveSelector);
 }

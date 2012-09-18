@@ -1,9 +1,18 @@
 {
   Move next;
+  long attemptsBeforeBailOut=bailOutEnabled ? determineBailOutSize() : 0L;
   do {
     if (!childMoveIterator.hasNext()) {
-      upcomingSelection=null;
-      return;
+      next=null;
+      break;
+    }
+    if (bailOutEnabled) {
+      if (attemptsBeforeBailOut <= 0L) {
+        logger.warn("Bailing out of neverEnding selector ({}) to avoid infinite loop.",FilteringMoveSelector.this);
+        next=null;
+        break;
+      }
+      attemptsBeforeBailOut--;
     }
     next=childMoveIterator.next();
   }
