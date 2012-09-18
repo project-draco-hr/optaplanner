@@ -1,23 +1,14 @@
 {
   DefaultDecider decider=new DefaultDecider();
-  MoveSelector moveSelector;
-  SelectionCacheType defaultCacheType=SelectionCacheType.JUST_IN_TIME;
-  SelectionOrder defaultSelectionOrder=SelectionOrder.RANDOM;
-  if (CollectionUtils.isEmpty(moveSelectorConfigList)) {
-    UnionMoveSelectorConfig unionMoveSelectorConfig=new UnionMoveSelectorConfig();
-    unionMoveSelectorConfig.setMoveSelectorConfigList(Arrays.asList(new ChangeMoveSelectorConfig(),new SwapMoveSelectorConfig()));
-    moveSelector=unionMoveSelectorConfig.buildMoveSelector(environmentMode,solutionDescriptor,defaultCacheType,defaultSelectionOrder);
-  }
- else   if (moveSelectorConfigList.size() == 1) {
-    moveSelector=moveSelectorConfigList.get(0).buildMoveSelector(environmentMode,solutionDescriptor,defaultCacheType,defaultSelectionOrder);
-  }
- else {
-    throw new IllegalArgumentException("The moveSelectorConfigList (" + moveSelectorConfigList + ") must a singleton or empty. Use a single "+ UnionMoveSelectorConfig.class+ " element to nest multiple MoveSelectors.");
-  }
   decider.setTermination(termination);
+  MoveSelector moveSelector=buildMoveSelector(environmentMode,solutionDescriptor);
   decider.setMoveSelector(moveSelector);
   decider.setAcceptor(acceptorConfig.buildAcceptor(environmentMode,scoreDefinition));
-  decider.setForager(foragerConfig.buildForager(scoreDefinition));
+  Forager forager=foragerConfig.buildForager(scoreDefinition);
+  decider.setForager(forager);
+  if (moveSelector.isNeverEnding() && !forager.supportsNeverEndingMoveSelector()) {
+    throw new IllegalStateException("The moveSelector (" + moveSelector + ") has neverEnding ("+ moveSelector.isNeverEnding()+ "), but the forager ("+ forager+ ") does not support it."+ " Configure the <forager> with <minimalAcceptedSelection>.");
+  }
   if (environmentMode == EnvironmentMode.TRACE) {
     decider.setAssertMoveScoreIsUncorrupted(true);
   }
