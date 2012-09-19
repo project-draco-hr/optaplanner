@@ -18,7 +18,7 @@
   winningScoreDifferenceSummaryChartFileList=new ArrayList<File>(datasetList.size());
   int scoreLevelIndex=0;
   for (  DefaultCategoryDataset dataset : datasetList) {
-    CategoryPlot plot=createBarChartPlot(dataset,"Winning score difference level " + scoreLevelIndex,NumberFormat.getInstance());
+    CategoryPlot plot=createBarChartPlot(dataset,"Winning score difference level " + scoreLevelIndex,NumberFormat.getInstance(locale));
     JFreeChart chart=new JFreeChart("Winning score difference level " + scoreLevelIndex + " summary (higher is better)",JFreeChart.DEFAULT_TITLE_FONT,plot,true);
     winningScoreDifferenceSummaryChartFileList.add(writeChartToImageFile(chart,"winningScoreDifferenceSummaryLevel" + scoreLevelIndex));
     scoreLevelIndex++;

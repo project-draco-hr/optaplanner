@@ -9,7 +9,7 @@
   determineTotalsAndAverages();
   determineSolverBenchmarkRanking();
   benchmarkTimeMillisSpend=calculateTimeMillisSpend();
-  PlannerStatistic plannerStatistic=new PlannerStatistic(this);
+  plannerStatistic=new PlannerStatistic(this);
   plannerStatistic.writeStatistics();
   if (failureCount == 0) {
     logger.info("Benchmarking ended: time spend ({}), favoriteSolverBenchmark ({}), statistic html overview ({}).",new Object[]{benchmarkTimeMillisSpend,favoriteSolverBenchmark.getName(),plannerStatistic.getHtmlOverviewFile().getAbsolutePath()});

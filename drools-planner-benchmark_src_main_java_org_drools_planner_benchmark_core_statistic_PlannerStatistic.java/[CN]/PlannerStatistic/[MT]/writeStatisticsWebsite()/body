@@ -2,6 +2,7 @@
   WebsiteResourceUtils.copyResourcesTo(plannerBenchmark.getBenchmarkReportDirectory());
   Configuration freemarkerCfg=new Configuration();
   freemarkerCfg.setDefaultEncoding("UTF-8");
+  freemarkerCfg.setLocale(locale);
   freemarkerCfg.setClassForTemplateLoading(PlannerStatistic.class,"");
   String templateFilename="index.html.ftl";
   Map<String,Object> model=new HashMap<String,Object>();

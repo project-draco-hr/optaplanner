@@ -10,7 +10,7 @@
       }
     }
   }
-  CategoryPlot plot=createBarChartPlot(dataset,"Time spend",new MillisecondsSpendNumberFormat());
+  CategoryPlot plot=createBarChartPlot(dataset,"Time spend",new MillisecondsSpendNumberFormat(locale));
   JFreeChart chart=new JFreeChart("Time spend summary (lower time is better)",JFreeChart.DEFAULT_TITLE_FONT,plot,true);
   timeSpendSummaryChartFile=writeChartToImageFile(chart,"timeSpendSummary");
 }
