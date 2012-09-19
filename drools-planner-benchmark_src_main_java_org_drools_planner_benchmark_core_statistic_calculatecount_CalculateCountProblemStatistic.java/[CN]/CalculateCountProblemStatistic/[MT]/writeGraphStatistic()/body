@@ -1,5 +1,5 @@
 {
-  Locale locale=problemBenchmark.getPlannerBenchmark().getPlannerStatistic().getLocale();
+  Locale locale=problemBenchmark.getPlannerBenchmark().getBenchmarkReport().getLocale();
   NumberAxis xAxis=new NumberAxis("Time spend");
   xAxis.setNumberFormatOverride(new MillisecondsSpendNumberFormat(locale));
   NumberAxis yAxis=new NumberAxis("Calculate count per second");

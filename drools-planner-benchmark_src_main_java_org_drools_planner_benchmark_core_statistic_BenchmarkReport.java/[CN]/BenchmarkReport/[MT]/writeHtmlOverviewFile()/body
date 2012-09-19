@@ -1,12 +1,13 @@
 {
   WebsiteResourceUtils.copyResourcesTo(plannerBenchmark.getBenchmarkReportDirectory());
+  htmlOverviewFile=new File(plannerBenchmark.getBenchmarkReportDirectory(),"index.html");
   Configuration freemarkerCfg=new Configuration();
   freemarkerCfg.setDefaultEncoding("UTF-8");
   freemarkerCfg.setLocale(locale);
-  freemarkerCfg.setClassForTemplateLoading(PlannerStatistic.class,"");
+  freemarkerCfg.setClassForTemplateLoading(BenchmarkReport.class,"");
   String templateFilename="index.html.ftl";
   Map<String,Object> model=new HashMap<String,Object>();
-  model.put("plannerStatistic",this);
+  model.put("benchmarkReport",this);
   Writer writer=null;
   try {
     Template template=freemarkerCfg.getTemplate(templateFilename);

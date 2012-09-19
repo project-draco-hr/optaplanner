@@ -1,4 +1,0 @@
-{
-  this.plannerBenchmark=plannerBenchmark;
-  htmlOverviewFile=new File(plannerBenchmark.getBenchmarkReportDirectory(),"index.html");
-}

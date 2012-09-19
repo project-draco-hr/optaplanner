@@ -1,15 +1,15 @@
 {
-  List<XYPlot> plotList=new ArrayList<XYPlot>(PlannerStatistic.CHARTED_SCORE_LEVEL_SIZE);
+  List<XYPlot> plotList=new ArrayList<XYPlot>(BenchmarkReport.CHARTED_SCORE_LEVEL_SIZE);
   int seriesIndex=0;
   for (  SingleBenchmark singleBenchmark : problemBenchmark.getSingleBenchmarkList()) {
-    List<XYSeries> seriesList=new ArrayList<XYSeries>(PlannerStatistic.CHARTED_SCORE_LEVEL_SIZE);
+    List<XYSeries> seriesList=new ArrayList<XYSeries>(BenchmarkReport.CHARTED_SCORE_LEVEL_SIZE);
     XYItemRenderer renderer=new XYStepRenderer();
     if (singleBenchmark.isSuccess()) {
       BestScoreSingleStatistic singleStatistic=(BestScoreSingleStatistic)singleBenchmark.getSingleStatistic(problemStatisticType);
       for (      BestScoreSingleStatisticPoint point : singleStatistic.getPointList()) {
         long timeMillisSpend=point.getTimeMillisSpend();
         double[] levelValues=point.getScore().toDoubleLevels();
-        for (int i=0; i < levelValues.length && i < PlannerStatistic.CHARTED_SCORE_LEVEL_SIZE; i++) {
+        for (int i=0; i < levelValues.length && i < BenchmarkReport.CHARTED_SCORE_LEVEL_SIZE; i++) {
           if (i >= seriesList.size()) {
             seriesList.add(new XYSeries(singleBenchmark.getSolverBenchmark().getNameWithFavoriteSuffix()));
           }
@@ -18,7 +18,7 @@
       }
       long timeMillisSpend=singleBenchmark.getTimeMillisSpend();
       double[] bestScoreLevels=singleBenchmark.getScore().toDoubleLevels();
-      for (int i=0; i < bestScoreLevels.length && i < PlannerStatistic.CHARTED_SCORE_LEVEL_SIZE; i++) {
+      for (int i=0; i < bestScoreLevels.length && i < BenchmarkReport.CHARTED_SCORE_LEVEL_SIZE; i++) {
         seriesList.get(i).add(timeMillisSpend,bestScoreLevels[i]);
       }
       if (singleStatistic.getPointList().size() <= 1) {

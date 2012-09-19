@@ -13,5 +13,5 @@
     }
   }
   determineDefaultShownScoreLevelIndex();
-  writeStatisticsWebsite();
+  writeHtmlOverviewFile();
 }
