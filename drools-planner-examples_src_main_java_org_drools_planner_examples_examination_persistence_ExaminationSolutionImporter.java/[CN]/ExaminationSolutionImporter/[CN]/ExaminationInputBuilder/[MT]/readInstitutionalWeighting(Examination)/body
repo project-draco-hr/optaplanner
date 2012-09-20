@@ -1,19 +1,19 @@
 {
-  InstitutionalWeighting institutionalWeighting=new InstitutionalWeighting();
-  institutionalWeighting.setId(0L);
+  InstitutionParametrization institutionParametrization=new InstitutionParametrization();
+  institutionParametrization.setId(0L);
   String[] lineTokens;
   lineTokens=readInstitutionalWeightingProperty("TWOINAROW",2);
-  institutionalWeighting.setTwoInARowPenalty(Integer.parseInt(lineTokens[1]));
+  institutionParametrization.setTwoInARowPenalty(Integer.parseInt(lineTokens[1]));
   lineTokens=readInstitutionalWeightingProperty("TWOINADAY",2);
-  institutionalWeighting.setTwoInADayPenalty(Integer.parseInt(lineTokens[1]));
+  institutionParametrization.setTwoInADayPenalty(Integer.parseInt(lineTokens[1]));
   lineTokens=readInstitutionalWeightingProperty("PERIODSPREAD",2);
-  institutionalWeighting.setPeriodSpreadLength(Integer.parseInt(lineTokens[1]));
-  institutionalWeighting.setPeriodSpreadPenalty(1);
+  institutionParametrization.setPeriodSpreadLength(Integer.parseInt(lineTokens[1]));
+  institutionParametrization.setPeriodSpreadPenalty(1);
   lineTokens=readInstitutionalWeightingProperty("NONMIXEDDURATIONS",2);
-  institutionalWeighting.setMixedDurationPenalty(Integer.parseInt(lineTokens[1]));
+  institutionParametrization.setMixedDurationPenalty(Integer.parseInt(lineTokens[1]));
   lineTokens=readInstitutionalWeightingProperty("FRONTLOAD",4);
-  institutionalWeighting.setFrontLoadLargeTopicSize(Integer.parseInt(lineTokens[1]));
-  institutionalWeighting.setFrontLoadLastPeriodSize(Integer.parseInt(lineTokens[2]));
-  institutionalWeighting.setFrontLoadPenalty(Integer.parseInt(lineTokens[3]));
-  examination.setInstitutionalWeighting(institutionalWeighting);
+  institutionParametrization.setFrontLoadLargeTopicSize(Integer.parseInt(lineTokens[1]));
+  institutionParametrization.setFrontLoadLastPeriodSize(Integer.parseInt(lineTokens[2]));
+  institutionParametrization.setFrontLoadPenalty(Integer.parseInt(lineTokens[3]));
+  examination.setInstitutionParametrization(institutionParametrization);
 }

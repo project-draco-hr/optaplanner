@@ -1,6 +1,6 @@
 {
   List<Period> periodList=examination.getPeriodList();
-  int frontLoadLastPeriodSize=examination.getInstitutionalWeighting().getFrontLoadLastPeriodSize();
+  int frontLoadLastPeriodSize=examination.getInstitutionParametrization().getFrontLoadLastPeriodSize();
   if (frontLoadLastPeriodSize == 0) {
     return;
   }

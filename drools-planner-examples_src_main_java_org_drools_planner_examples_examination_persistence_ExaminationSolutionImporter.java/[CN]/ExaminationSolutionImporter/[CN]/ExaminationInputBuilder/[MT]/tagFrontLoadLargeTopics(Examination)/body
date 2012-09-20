@@ -6,7 +6,7 @@
     }
   }
 );
-  int frontLoadLargeTopicSize=examination.getInstitutionalWeighting().getFrontLoadLargeTopicSize();
+  int frontLoadLargeTopicSize=examination.getInstitutionParametrization().getFrontLoadLargeTopicSize();
   if (frontLoadLargeTopicSize == 0) {
     return;
   }

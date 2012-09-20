@@ -1,7 +1,7 @@
 {
   Examination clone=new Examination();
   clone.id=id;
-  clone.institutionalWeighting=institutionalWeighting;
+  clone.institutionParametrization=institutionParametrization;
   clone.studentList=studentList;
   clone.topicList=topicList;
   clone.periodList=periodList;
