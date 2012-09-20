@@ -1,12 +1,10 @@
 {
   ArrayList<MoveSelector> childMoveSelectorList=new ArrayList<MoveSelector>();
   Map<Selector,Double> fixedProbabilityWeightMap=new HashMap<Selector,Double>();
-  DummyMoveSelector moveSelector1=new DummyMoveSelector(Arrays.<Move>asList(new DummyMove("a1"),new DummyMove("a2"),new DummyMove("a3")));
-  childMoveSelectorList.add(moveSelector1);
-  fixedProbabilityWeightMap.put(moveSelector1,1000.0);
-  DummyMoveSelector moveSelector2=new DummyMoveSelector(Arrays.<Move>asList(new DummyMove("b1"),new DummyMove("b2")));
-  childMoveSelectorList.add(moveSelector2);
-  fixedProbabilityWeightMap.put(moveSelector2,20.0);
+  childMoveSelectorList.add(SelectorTestUtils.mockMoveSelector(DummyMove.class,new DummyMove("a1"),new DummyMove("a2"),new DummyMove("a3")));
+  fixedProbabilityWeightMap.put(childMoveSelectorList.get(0),1000.0);
+  childMoveSelectorList.add(SelectorTestUtils.mockMoveSelector(DummyMove.class,new DummyMove("b1"),new DummyMove("b2")));
+  fixedProbabilityWeightMap.put(childMoveSelectorList.get(1),20.0);
   UnionMoveSelector moveSelector=new UnionMoveSelector(childMoveSelectorList,true,new FixedSelectorProbabilityWeightFactory(fixedProbabilityWeightMap));
   Random workingRandom=mock(Random.class);
   when(workingRandom.nextDouble()).thenReturn(1.0 / 1020.0,1019.0 / 1020.0,1000.0 / 1020.0,0.0,999.0 / 1020.0);
@@ -25,4 +23,6 @@
   moveSelector.stepEnded(stepScopeA1);
   moveSelector.phaseEnded(phaseScopeA);
   moveSelector.solvingEnded(solverScope);
+  verifySolverPhaseLifecycle(childMoveSelectorList.get(0),1,1,1);
+  verifySolverPhaseLifecycle(childMoveSelectorList.get(1),1,1,1);
 }

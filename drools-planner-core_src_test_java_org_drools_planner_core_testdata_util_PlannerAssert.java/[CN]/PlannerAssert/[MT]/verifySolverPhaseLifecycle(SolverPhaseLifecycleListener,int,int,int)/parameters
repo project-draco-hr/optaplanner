@@ -1,0 +1,4 @@
+SolverPhaseLifecycleListener lifecycleListener
+int solvingCount
+int phaseCount
+int stepCount

@@ -1,7 +1,7 @@
 {
   ArrayList<MoveSelector> childMoveSelectorList=new ArrayList<MoveSelector>();
-  childMoveSelectorList.add(new DummyMoveSelector(Arrays.<Move>asList(new DummyMove("a1"),new DummyMove("a2"),new DummyMove("a3"))));
-  childMoveSelectorList.add(new DummyMoveSelector(Arrays.<Move>asList(new DummyMove("b1"),new DummyMove("b2"))));
+  childMoveSelectorList.add(SelectorTestUtils.mockMoveSelector(DummyMove.class,new DummyMove("a1"),new DummyMove("a2"),new DummyMove("a3")));
+  childMoveSelectorList.add(SelectorTestUtils.mockMoveSelector(DummyMove.class,new DummyMove("b1"),new DummyMove("b2")));
   UnionMoveSelector moveSelector=new UnionMoveSelector(childMoveSelectorList,false);
   DefaultSolverScope solverScope=mock(DefaultSolverScope.class);
   moveSelector.solvingStarted(solverScope);
@@ -15,4 +15,6 @@
   moveSelector.stepEnded(stepScopeA1);
   moveSelector.phaseEnded(phaseScopeA);
   moveSelector.solvingEnded(solverScope);
+  verifySolverPhaseLifecycle(childMoveSelectorList.get(0),1,1,1);
+  verifySolverPhaseLifecycle(childMoveSelectorList.get(1),1,1,1);
 }
