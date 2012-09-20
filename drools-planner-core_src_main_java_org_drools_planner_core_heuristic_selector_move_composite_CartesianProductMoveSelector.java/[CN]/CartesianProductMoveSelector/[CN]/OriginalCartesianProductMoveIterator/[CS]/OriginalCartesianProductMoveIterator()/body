@@ -1,0 +1,14 @@
+{
+  moveIteratorList=new ArrayList<Iterator<Move>>(childMoveSelectorList.size());
+  subSelections=new ArrayList<Move>(childMoveSelectorList.size());
+  for (int i=0; i < childMoveSelectorList.size(); i++) {
+    if (i == 0) {
+      moveIteratorList.add(childMoveSelectorList.get(i).iterator());
+    }
+ else {
+      moveIteratorList.add(IteratorUtils.emptyListIterator());
+    }
+    subSelections.add(null);
+  }
+  createUpcomingSelection();
+}

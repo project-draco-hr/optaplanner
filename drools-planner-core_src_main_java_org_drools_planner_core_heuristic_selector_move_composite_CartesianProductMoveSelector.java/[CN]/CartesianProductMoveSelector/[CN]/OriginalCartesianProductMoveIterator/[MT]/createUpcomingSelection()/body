@@ -1,0 +1,23 @@
+{
+  List<Move> moveList=new ArrayList<Move>(subSelections);
+  for (int i=moveIteratorList.size() - 1; i >= 0; i--) {
+    Iterator<Move> moveIterator=moveIteratorList.get(i);
+    if (moveIterator.hasNext()) {
+      moveList.set(i,moveIterator.next());
+      break;
+    }
+    if (i == 0) {
+      upcomingSelection=null;
+      return;
+    }
+    moveIterator=childMoveSelectorList.get(i).iterator();
+    moveIteratorList.set(i,moveIterator);
+    if (!moveIterator.hasNext()) {
+      upcomingSelection=null;
+      return;
+    }
+    moveList.set(i,moveIterator.next());
+  }
+  subSelections=moveList;
+  upcomingSelection=new CompositeMove(moveList);
+}

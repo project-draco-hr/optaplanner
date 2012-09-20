@@ -1,8 +1,9 @@
 {
   ArrayList<MoveSelector> childMoveSelectorList=new ArrayList<MoveSelector>();
-  childMoveSelectorList.add(SelectorTestUtils.mockMoveSelector(DummyMove.class,new DummyMove("a1"),new DummyMove("a2"),new DummyMove("a3")));
+  childMoveSelectorList.add(SelectorTestUtils.mockMoveSelector(DummyMove.class,new DummyMove("a1"),new DummyMove("a2")));
   childMoveSelectorList.add(SelectorTestUtils.mockMoveSelector(DummyMove.class,new DummyMove("b1"),new DummyMove("b2")));
-  CartesianProductMoveSelector moveSelector=new CartesianProductMoveSelector(childMoveSelectorList,true);
+  childMoveSelectorList.add(SelectorTestUtils.mockMoveSelector(DummyMove.class,new DummyMove("c1"),new DummyMove("c2")));
+  CartesianProductMoveSelector moveSelector=new CartesianProductMoveSelector(childMoveSelectorList,false);
   DefaultSolverScope solverScope=mock(DefaultSolverScope.class);
   moveSelector.solvingStarted(solverScope);
   AbstractSolverPhaseScope phaseScopeA=mock(AbstractSolverPhaseScope.class);
@@ -11,7 +12,7 @@
   AbstractStepScope stepScopeA1=mock(AbstractStepScope.class);
   when(stepScopeA1.getSolverPhaseScope()).thenReturn(phaseScopeA);
   moveSelector.stepStarted(stepScopeA1);
-  assertCodesOfNeverEndingMoveSelector(moveSelector,6,"a1+b1","a2+b2","a3+b1","a1+b2","a2+b1","a3+b2");
+  assertAllCodesOfEndingMoveSelector(moveSelector,"a1+b1+c1","a1+b1+c2","a1+b2+c1","a1+b2+c2","a2+b1+c1","a2+b1+c2","a2+b2+c1","a2+b2+c2");
   moveSelector.stepEnded(stepScopeA1);
   moveSelector.phaseEnded(phaseScopeA);
   moveSelector.solvingEnded(solverScope);
