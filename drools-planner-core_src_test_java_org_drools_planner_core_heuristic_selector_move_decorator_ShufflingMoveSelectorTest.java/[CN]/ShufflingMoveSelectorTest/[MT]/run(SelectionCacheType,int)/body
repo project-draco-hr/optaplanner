@@ -16,7 +16,7 @@
   when(workingRandom.nextInt(3)).thenReturn(2);
   when(workingRandom.nextInt(2)).thenReturn(0);
   moveSelector.stepStarted(stepScopeA1);
-  runAsserts(moveSelector,"a2","a1","a3");
+  assertAllCodesOfEndingMoveSelector(moveSelector,"a2","a1","a3");
   moveSelector.stepEnded(stepScopeA1);
   AbstractStepScope stepScopeA2=mock(AbstractStepScope.class);
   when(stepScopeA2.getSolverPhaseScope()).thenReturn(phaseScopeA);
@@ -25,10 +25,10 @@
   when(workingRandom.nextInt(2)).thenReturn(1);
   moveSelector.stepStarted(stepScopeA2);
   if (cacheType.compareTo(SelectionCacheType.STEP) > 0) {
-    runAsserts(moveSelector,"a3","a1","a2");
+    assertAllCodesOfEndingMoveSelector(moveSelector,"a3","a1","a2");
   }
  else {
-    runAsserts(moveSelector,"a3","a2","a1");
+    assertAllCodesOfEndingMoveSelector(moveSelector,"a3","a2","a1");
   }
   moveSelector.stepEnded(stepScopeA2);
   moveSelector.phaseEnded(phaseScopeA);
@@ -43,10 +43,10 @@
   when(workingRandom.nextInt(2)).thenReturn(0);
   moveSelector.stepStarted(stepScopeB1);
   if (cacheType.compareTo(SelectionCacheType.PHASE) > 0) {
-    runAsserts(moveSelector,"a2","a3","a1");
+    assertAllCodesOfEndingMoveSelector(moveSelector,"a2","a3","a1");
   }
  else {
-    runAsserts(moveSelector,"a3","a1","a2");
+    assertAllCodesOfEndingMoveSelector(moveSelector,"a3","a1","a2");
   }
   moveSelector.stepEnded(stepScopeB1);
   moveSelector.phaseEnded(phaseScopeB);

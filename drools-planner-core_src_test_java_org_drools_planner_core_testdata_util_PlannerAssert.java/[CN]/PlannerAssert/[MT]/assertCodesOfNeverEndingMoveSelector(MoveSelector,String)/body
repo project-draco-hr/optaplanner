@@ -1,0 +1,3 @@
+{
+  assertCodesOfNeverEndingMoveSelector(moveSelector,(long)codes.length,codes);
+}

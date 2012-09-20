@@ -1,0 +1,7 @@
+{
+  assertNotNull(iterator);
+  for (  String code : codes) {
+    assertTrue(iterator.hasNext());
+    assertCode(code,iterator.next());
+  }
+}
