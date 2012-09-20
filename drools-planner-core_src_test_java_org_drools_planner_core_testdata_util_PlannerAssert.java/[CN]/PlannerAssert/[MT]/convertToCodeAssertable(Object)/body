@@ -1,0 +1,20 @@
+{
+  if (o instanceof CodeAssertable) {
+    return (CodeAssertable)o;
+  }
+ else   if (o instanceof CompositeMove) {
+    CompositeMove compositeMove=(CompositeMove)o;
+    StringBuilder codeBuilder=new StringBuilder(compositeMove.getMoveList().size() * 80);
+    for (    Move move : compositeMove.getMoveList()) {
+      codeBuilder.append("+").append(convertToCodeAssertable(move).getCode());
+    }
+    final String code=codeBuilder.substring(1);
+    return new CodeAssertable(){
+      public String getCode(){
+        return code;
+      }
+    }
+;
+  }
+  throw new AssertionError(("o's class (" + o.getClass() + ") cannot be converted to CodeAssertable."));
+}

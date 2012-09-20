@@ -1,4 +1,4 @@
 {
-  assertTrue(o instanceof CodeAssertable);
-  assertCode(message,expectedCode,(CodeAssertable)o);
+  CodeAssertable codeAssertable=convertToCodeAssertable(o);
+  assertCode(message,expectedCode,codeAssertable);
 }
