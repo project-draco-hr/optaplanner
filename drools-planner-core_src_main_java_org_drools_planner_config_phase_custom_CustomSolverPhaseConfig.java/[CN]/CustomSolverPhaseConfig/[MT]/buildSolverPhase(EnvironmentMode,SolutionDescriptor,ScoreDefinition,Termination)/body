@@ -10,5 +10,6 @@
     customSolverPhaseCommandList.add(customSolverPhaseCommand);
   }
   customSolverPhase.setCustomSolverPhaseCommandList(customSolverPhaseCommandList);
+  customSolverPhase.setForceUpdateBestSolution(forceUpdateBestSolution == null ? false : forceUpdateBestSolution);
   return customSolverPhase;
 }
