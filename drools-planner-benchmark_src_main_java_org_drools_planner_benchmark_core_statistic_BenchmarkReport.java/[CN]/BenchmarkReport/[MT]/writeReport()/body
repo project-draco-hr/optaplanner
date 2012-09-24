@@ -1,4 +1,6 @@
 {
+  warningList=new ArrayList<String>();
+  fillWarningList();
   writeBestScoreSummaryCharts();
   writeWinningScoreDifferenceSummaryChart();
   writeWorstScoreDifferencePercentageSummaryChart();
