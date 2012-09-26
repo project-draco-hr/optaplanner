@@ -1,6 +1,6 @@
 {
-  writeCsvStatistic();
-  writeGraphStatistic();
   warningList=new ArrayList<String>();
   fillWarningList();
+  writeCsvStatistic();
+  writeGraphStatistic();
 }

@@ -1,0 +1,4 @@
+{
+  this.computerValue=computerValue;
+  this.maximumComputerValue=maximumComputerValue;
+}

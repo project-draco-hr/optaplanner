@@ -1,0 +1,26 @@
+{
+  PlanningValueTabuAcceptor acceptor=new PlanningValueTabuAcceptor();
+  acceptor.setTabuSize(2);
+  acceptor.setAspirationEnabled(true);
+  TestdataValue v0=new TestdataValue("v0");
+  TestdataValue v1=new TestdataValue("v1");
+  DefaultSolverScope solverScope=new DefaultSolverScope();
+  solverScope.setBestScore(new DefaultSimpleScore(-100));
+  LocalSearchSolverPhaseScope solverPhaseScope=new LocalSearchSolverPhaseScope(solverScope);
+  acceptor.phaseStarted(solverPhaseScope);
+  LocalSearchStepScope stepScope0=new LocalSearchStepScope(solverPhaseScope);
+  stepScope0.setStepIndex(0);
+  stepScope0.setStep(buildMoveScope(stepScope0,v1).getMove());
+  acceptor.stepEnded(stepScope0);
+  LocalSearchStepScope stepScope2=new LocalSearchStepScope(solverPhaseScope);
+  stepScope2.setStepIndex(1);
+  assertEquals(true,acceptor.isAccepted(buildMoveScope(stepScope2,-120,v0)));
+  assertEquals(true,acceptor.isAccepted(buildMoveScope(stepScope2,-20,v0)));
+  assertEquals(false,acceptor.isAccepted(buildMoveScope(stepScope2,-120,v1)));
+  assertEquals(true,acceptor.isAccepted(buildMoveScope(stepScope2,-20,v1)));
+  assertEquals(false,acceptor.isAccepted(buildMoveScope(stepScope2,-120,v0,v1)));
+  assertEquals(true,acceptor.isAccepted(buildMoveScope(stepScope2,-20,v0,v1)));
+  stepScope2.setStep(buildMoveScope(stepScope2,-20,v1).getMove());
+  acceptor.stepEnded(stepScope2);
+  acceptor.phaseEnded(solverPhaseScope);
+}
