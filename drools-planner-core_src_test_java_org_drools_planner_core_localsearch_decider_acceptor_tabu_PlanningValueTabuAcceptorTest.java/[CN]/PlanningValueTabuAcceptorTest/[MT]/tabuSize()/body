@@ -27,9 +27,6 @@
   MoveScope moveScope2=buildMoveScope(stepScope1,v2);
   assertEquals(true,acceptor.isAccepted(buildMoveScope(stepScope1,v0)));
   assertEquals(false,acceptor.isAccepted(buildMoveScope(stepScope1,v1)));
-  assertEquals(false,acceptor.isAccepted(buildMoveScope(stepScope1,v1)));
-  assertEquals(false,acceptor.isAccepted(buildMoveScope(stepScope1,v1)));
-  assertEquals(false,acceptor.isAccepted(buildMoveScope(stepScope1,v1)));
   assertEquals(true,acceptor.isAccepted(moveScope2));
   assertEquals(true,acceptor.isAccepted(buildMoveScope(stepScope1,v3)));
   assertEquals(true,acceptor.isAccepted(buildMoveScope(stepScope1,v4)));
