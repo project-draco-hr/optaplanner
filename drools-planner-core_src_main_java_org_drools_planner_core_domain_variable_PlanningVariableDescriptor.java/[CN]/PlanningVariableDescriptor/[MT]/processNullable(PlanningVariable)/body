@@ -1,0 +1,16 @@
+{
+  nullable=planningVariableAnnotation.nullable();
+  if (nullable && variablePropertyDescriptor.getPropertyType().isPrimitive()) {
+    throw new IllegalArgumentException("The planningEntityClass (" + planningEntityDescriptor.getPlanningEntityClass() + ") has a PlanningVariable annotated property ("+ variablePropertyDescriptor.getName()+ ") with nullable ("+ nullable+ "), which is not compatible with the primitive propertyType ("+ variablePropertyDescriptor.getPropertyType()+ ").");
+  }
+  Class<? extends SelectionFilter> uninitializedEntityFilterClass=planningVariableAnnotation.uninitializedEntityFilter();
+  if (uninitializedEntityFilterClass == PlanningVariable.NullUninitializedEntityFilter.class) {
+    uninitializedEntityFilterClass=null;
+  }
+  if (uninitializedEntityFilterClass != null) {
+    uninitializedEntityFilter=ConfigUtils.newInstance(this,"uninitializedEntityFilterClass",uninitializedEntityFilterClass);
+  }
+ else {
+    uninitializedEntityFilter=new NullValueUninitializedEntityFilter(this);
+  }
+}

@@ -3,7 +3,7 @@
   if (planningEntityAnnotation == null) {
     throw new IllegalStateException("The planningEntityClass (" + planningEntityClass + ") has been specified as a planning entity in the configuration,"+ " but does not have a PlanningEntity annotation.");
   }
+  processMovable(planningEntityAnnotation);
   planningEntitySorter=new PlanningEntitySorter();
   processDifficulty(planningEntityAnnotation);
-  processMovable(planningEntityAnnotation);
 }

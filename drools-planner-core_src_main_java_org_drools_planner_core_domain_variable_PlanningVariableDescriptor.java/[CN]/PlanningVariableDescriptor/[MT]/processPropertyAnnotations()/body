@@ -1,6 +1,7 @@
 {
   PlanningVariable planningVariableAnnotation=variablePropertyDescriptor.getReadMethod().getAnnotation(PlanningVariable.class);
   valueSorter=new PlanningValueSorter();
+  processNullable(planningVariableAnnotation);
   processStrength(planningVariableAnnotation);
   processChained(planningVariableAnnotation);
   processValueRangeAnnotation();
