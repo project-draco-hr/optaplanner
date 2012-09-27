@@ -1,4 +1,7 @@
 {
+  if (nullable) {
+    return true;
+  }
   Object variable=DescriptorUtils.executeGetter(variablePropertyDescriptor,planningEntity);
   return variable != null;
 }
