@@ -1,3 +1,8 @@
 {
-  cachedValueList=new ArrayList<Object>(variableDescriptor.extractAllPlanningValues(solverScope.getWorkingSolution()));
+  Collection<?> planningValues=variableDescriptor.extractAllPlanningValues(solverScope.getWorkingSolution());
+  cachedValueList=new ArrayList<Object>(planningValues.size() + 1);
+  cachedValueList.addAll(planningValues);
+  if (variableDescriptor.isNullable()) {
+    cachedValueList.add(null);
+  }
 }
