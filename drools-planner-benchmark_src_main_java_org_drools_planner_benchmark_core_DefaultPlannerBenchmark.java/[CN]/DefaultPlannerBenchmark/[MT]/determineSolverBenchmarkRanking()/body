@@ -25,9 +25,13 @@
     throw new IllegalStateException("Ranking is impossible" + " because solverBenchmarkRankingComparator and solverBenchmarkRankingWeightFactory are null.");
   }
   int ranking=0;
+  SolverBenchmark previousSolverBenchmark=null;
   for (  SolverBenchmark solverBenchmark : rankedSolverBenchmarkList) {
+    if (previousSolverBenchmark != null && !equalSolverRanking(rankedSolverBenchmarkList,solverBenchmark,previousSolverBenchmark)) {
+      ranking++;
+    }
     solverBenchmark.setRanking(ranking);
-    ranking++;
+    previousSolverBenchmark=solverBenchmark;
   }
   favoriteSolverBenchmark=rankedSolverBenchmarkList.isEmpty() ? null : rankedSolverBenchmarkList.get(0);
 }
