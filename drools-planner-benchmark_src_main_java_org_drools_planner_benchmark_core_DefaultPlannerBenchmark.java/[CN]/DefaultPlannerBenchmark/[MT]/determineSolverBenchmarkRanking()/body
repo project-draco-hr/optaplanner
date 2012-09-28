@@ -33,7 +33,9 @@
  else {
     throw new IllegalStateException("Ranking is impossible" + " because solverBenchmarkRankingComparator and solverBenchmarkRankingWeightFactory are null.");
   }
-  int ranking=0, sameRankCount=0, benchmarkNumber=0;
+  int ranking=0;
+  int sameRankCount=0;
+  int benchmarkNumber=0;
   SolverBenchmark previousSolverBenchmark=null;
   for (  SolverBenchmark solverBenchmark : rankedSolverBenchmarkList) {
     if (previousSolverBenchmark != null && !equalSolverRanking(solverBenchmark,previousSolverBenchmark,rankedSolverBenchmarkComparableList,benchmarkNumber,reverseComparator)) {

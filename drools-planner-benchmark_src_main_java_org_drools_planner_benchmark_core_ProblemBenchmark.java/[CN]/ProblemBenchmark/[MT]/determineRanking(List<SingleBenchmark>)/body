@@ -1,7 +1,8 @@
 {
   Comparator singleBenchmarkRankingComparator=new SingleBenchmarkRankingComparator();
   Collections.sort(rankedSingleBenchmarkList,Collections.reverseOrder(singleBenchmarkRankingComparator));
-  int singleBenchmarkRanking=0, sameRankCount=0;
+  int singleBenchmarkRanking=0;
+  int sameRankCount=0;
   SingleBenchmark previousSingleBenchmark=null;
   for (  SingleBenchmark singleBenchmark : rankedSingleBenchmarkList) {
     if (previousSingleBenchmark != null && singleBenchmarkRankingComparator.compare(previousSingleBenchmark,singleBenchmark) != 0) {
