@@ -1,5 +1,0 @@
-SolverBenchmark leftSolverBenchmark
-SolverBenchmark rightSolverBenchmark
-List<Comparable> rankedSolverBenchmarkComparableList
-int benchmarkNumber
-Comparator comparator
