@@ -10,7 +10,7 @@
   when(phaseScopeA.getSolverScope()).thenReturn(solverScope);
   moveSelector.phaseStarted(phaseScopeA);
   AbstractStepScope stepScopeA1=mock(AbstractStepScope.class);
-  when(stepScopeA1.getSolverPhaseScope()).thenReturn(phaseScopeA);
+  when(stepScopeA1.getPhaseScope()).thenReturn(phaseScopeA);
   moveSelector.stepStarted(stepScopeA1);
   assertCodesOfNeverEndingMoveSelector(moveSelector,8,"a1+b1+c1","a2+b2+c2","a1+b1+c1");
   moveSelector.stepEnded(stepScopeA1);

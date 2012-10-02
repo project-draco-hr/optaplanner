@@ -11,14 +11,14 @@
   when(phaseScopeA.getWorkingRandom()).thenReturn(workingRandom);
   moveSelector.phaseStarted(phaseScopeA);
   AbstractStepScope stepScopeA1=mock(AbstractStepScope.class);
-  when(stepScopeA1.getSolverPhaseScope()).thenReturn(phaseScopeA);
+  when(stepScopeA1.getPhaseScope()).thenReturn(phaseScopeA);
   when(stepScopeA1.getWorkingRandom()).thenReturn(workingRandom);
   moveSelector.stepStarted(stepScopeA1);
   when(workingRandom.nextInt(3)).thenReturn(1,0,2);
   assertCodesOfNeverEndingMoveSelector(moveSelector,"a2","a1","a3");
   moveSelector.stepEnded(stepScopeA1);
   AbstractStepScope stepScopeA2=mock(AbstractStepScope.class);
-  when(stepScopeA2.getSolverPhaseScope()).thenReturn(phaseScopeA);
+  when(stepScopeA2.getPhaseScope()).thenReturn(phaseScopeA);
   when(stepScopeA2.getWorkingRandom()).thenReturn(workingRandom);
   moveSelector.stepStarted(stepScopeA2);
   when(workingRandom.nextInt(3)).thenReturn(2,0,1);
@@ -30,7 +30,7 @@
   when(phaseScopeB.getWorkingRandom()).thenReturn(workingRandom);
   moveSelector.phaseStarted(phaseScopeB);
   AbstractStepScope stepScopeB1=mock(AbstractStepScope.class);
-  when(stepScopeB1.getSolverPhaseScope()).thenReturn(phaseScopeB);
+  when(stepScopeB1.getPhaseScope()).thenReturn(phaseScopeB);
   when(stepScopeB1.getWorkingRandom()).thenReturn(workingRandom);
   moveSelector.stepStarted(stepScopeB1);
   when(workingRandom.nextInt(3)).thenReturn(1,2,0);

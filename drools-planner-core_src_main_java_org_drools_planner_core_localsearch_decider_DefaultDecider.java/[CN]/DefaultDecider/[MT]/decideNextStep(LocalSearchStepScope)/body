@@ -15,7 +15,7 @@
       }
     }
     moveIndex++;
-    if (termination.isPhaseTerminated(stepScope.getLocalSearchSolverPhaseScope())) {
+    if (termination.isPhaseTerminated(stepScope.getPhaseScope())) {
       break;
     }
   }

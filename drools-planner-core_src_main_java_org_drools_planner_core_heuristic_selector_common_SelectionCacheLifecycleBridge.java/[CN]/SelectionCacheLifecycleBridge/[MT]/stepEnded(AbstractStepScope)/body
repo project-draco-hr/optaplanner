@@ -1,5 +1,5 @@
 {
   if (cacheType == SelectionCacheType.STEP) {
-    selectionCacheLifecycleListener.disposeCache(stepScope.getSolverPhaseScope().getSolverScope());
+    selectionCacheLifecycleListener.disposeCache(stepScope.getPhaseScope().getSolverScope());
   }
 }

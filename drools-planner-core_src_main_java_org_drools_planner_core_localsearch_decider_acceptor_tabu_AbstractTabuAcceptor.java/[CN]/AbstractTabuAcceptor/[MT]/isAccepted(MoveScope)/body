@@ -23,7 +23,7 @@
     return true;
   }
   if (aspirationEnabled) {
-    if (moveScope.getScore().compareTo(moveScope.getLocalSearchStepScope().getLocalSearchSolverPhaseScope().getBestScore()) > 0) {
+    if (moveScope.getScore().compareTo(moveScope.getLocalSearchStepScope().getPhaseScope().getBestScore()) > 0) {
       logger.trace("        Proposed move ({}) is tabu, but is accepted anyway due to aspiration.",moveScope.getMove());
       return true;
     }

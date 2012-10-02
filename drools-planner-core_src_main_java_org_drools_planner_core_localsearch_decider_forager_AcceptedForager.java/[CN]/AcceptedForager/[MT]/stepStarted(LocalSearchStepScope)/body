@@ -4,8 +4,8 @@
   selectedMoveCount=0L;
   acceptedMoveCount=0L;
   maxScoreAcceptedList=new ArrayList<MoveScope>(1024);
-  maxAcceptedScore=localSearchStepScope.getSolverPhaseScope().getScoreDefinition().getPerfectMinimumScore();
+  maxAcceptedScore=localSearchStepScope.getPhaseScope().getScoreDefinition().getPerfectMinimumScore();
   maxScoreUnacceptedList=new ArrayList<MoveScope>(1024);
-  maxUnacceptedScore=localSearchStepScope.getSolverPhaseScope().getScoreDefinition().getPerfectMinimumScore();
+  maxUnacceptedScore=localSearchStepScope.getPhaseScope().getScoreDefinition().getPerfectMinimumScore();
   earlyPickedMoveScope=null;
 }

@@ -7,7 +7,7 @@
   processMove(moveScope);
   undoMove.doMove(scoreDirector);
   if (assertUndoMoveIsUncorrupted) {
-    GreedyFitSolverPhaseScope greedyFitSolverPhaseScope=moveScope.getGreedyFitStepScope().getGreedyFitSolverPhaseScope();
+    GreedyFitSolverPhaseScope greedyFitSolverPhaseScope=moveScope.getGreedyFitStepScope().getPhaseScope();
     Score undoScore=greedyFitSolverPhaseScope.calculateScore();
     Score lastCompletedStepScore=greedyFitSolverPhaseScope.getLastCompletedStepScope().getScore();
     if (!undoScore.equals(lastCompletedStepScore)) {

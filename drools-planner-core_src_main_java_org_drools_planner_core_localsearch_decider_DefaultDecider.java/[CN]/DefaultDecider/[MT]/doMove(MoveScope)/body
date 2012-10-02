@@ -7,7 +7,7 @@
   processMove(moveScope);
   undoMove.doMove(scoreDirector);
   if (assertUndoMoveIsUncorrupted) {
-    LocalSearchSolverPhaseScope phaseScope=moveScope.getLocalSearchStepScope().getLocalSearchSolverPhaseScope();
+    LocalSearchSolverPhaseScope phaseScope=moveScope.getLocalSearchStepScope().getPhaseScope();
     phaseScope.assertUndoMoveIsUncorrupted(move,undoMove);
   }
   logger.trace("        Move index ({}), score ({}), accepted ({}) for move ({}).",new Object[]{moveScope.getMoveIndex(),moveScope.getScore(),moveScope.getAccepted(),moveScope.getMove()});
