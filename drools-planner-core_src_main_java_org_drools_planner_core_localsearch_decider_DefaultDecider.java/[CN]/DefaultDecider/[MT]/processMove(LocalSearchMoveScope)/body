@@ -1,7 +1,7 @@
 {
-  Score score=moveScope.getLocalSearchStepScope().getPhaseScope().calculateScore();
+  Score score=moveScope.getStepScope().getPhaseScope().calculateScore();
   if (assertMoveScoreIsUncorrupted) {
-    moveScope.getLocalSearchStepScope().getPhaseScope().assertWorkingScore(score);
+    moveScope.getStepScope().getPhaseScope().assertWorkingScore(score);
   }
   moveScope.setScore(score);
   boolean accepted=acceptor.isAccepted(moveScope);
