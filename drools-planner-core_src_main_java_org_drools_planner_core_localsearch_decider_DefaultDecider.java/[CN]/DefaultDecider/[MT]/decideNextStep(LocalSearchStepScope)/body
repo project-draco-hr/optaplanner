@@ -2,7 +2,7 @@
   ScoreDirector scoreDirector=stepScope.getScoreDirector();
   int moveIndex=0;
   for (  Move move : moveSelector) {
-    LocalSolverMoveScope moveScope=new LocalSolverMoveScope(stepScope);
+    LocalSearchMoveScope moveScope=new LocalSearchMoveScope(stepScope);
     moveScope.setMoveIndex(moveIndex);
     moveScope.setMove(move);
     if (!move.isMoveDoable(scoreDirector)) {
@@ -19,7 +19,7 @@
       break;
     }
   }
-  LocalSolverMoveScope pickedMoveScope=forager.pickMove(stepScope);
+  LocalSearchMoveScope pickedMoveScope=forager.pickMove(stepScope);
   if (pickedMoveScope != null) {
     Move step=pickedMoveScope.getMove();
     stepScope.setStep(step);

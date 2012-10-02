@@ -1,5 +1,5 @@
 {
-  LocalSolverMoveScope moveScope=new LocalSolverMoveScope(localSearchStepScope);
+  LocalSearchMoveScope moveScope=new LocalSearchMoveScope(localSearchStepScope);
   moveScope.setMove(new DummyMove());
   moveScope.setScore(score);
   return moveScope;

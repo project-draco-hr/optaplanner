@@ -1,5 +1,5 @@
 {
-  LocalSolverMoveScope moveScope=new LocalSolverMoveScope(stepScope);
+  LocalSearchMoveScope moveScope=new LocalSearchMoveScope(stepScope);
   Move move=mock(Move.class);
   moveScope.setMove(move);
   moveScope.setScore(new DefaultSimpleScore(score));

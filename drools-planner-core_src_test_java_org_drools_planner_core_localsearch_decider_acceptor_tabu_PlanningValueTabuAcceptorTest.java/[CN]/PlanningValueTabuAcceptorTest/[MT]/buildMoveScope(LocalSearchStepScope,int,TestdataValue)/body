@@ -1,5 +1,5 @@
 {
-  LocalSolverMoveScope moveScope=new LocalSolverMoveScope(stepScope);
+  LocalSearchMoveScope moveScope=new LocalSearchMoveScope(stepScope);
   Move move=mock(Move.class);
   when(move.getPlanningValues()).thenReturn((Collection)Arrays.asList(values));
   moveScope.setMove(move);
