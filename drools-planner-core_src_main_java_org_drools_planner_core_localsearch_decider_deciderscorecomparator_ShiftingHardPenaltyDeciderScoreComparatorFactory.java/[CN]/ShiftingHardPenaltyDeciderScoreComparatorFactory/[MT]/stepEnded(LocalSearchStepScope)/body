@@ -4,7 +4,7 @@
     shiftingPenaltyActive=false;
   }
  else {
-    HardAndSoftScore lastStepScore=(HardAndSoftScore)localSearchStepScope.getLocalSearchSolverPhaseScope().getLastCompletedLocalSearchStepScope().getScore();
+    HardAndSoftScore lastStepScore=(HardAndSoftScore)localSearchStepScope.getLocalSearchSolverPhaseScope().getLastCompletedStepScope().getScore();
     HardAndSoftScore stepScore=(HardAndSoftScore)localSearchStepScope.getScore();
     if (stepScore.getHardScore() >= hardScoreActivationThreshold && lastStepScore.getHardScore() == stepScore.getHardScore()) {
       successiveNoHardScoreChange++;

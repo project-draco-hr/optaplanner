@@ -11,6 +11,6 @@
   solverScope.setBestScore(DefaultSimpleScore.valueOf(-10));
   LocalSearchStepScope lastLocalSearchStepScope=new LocalSearchStepScope(localSearchSolverPhaseScope);
   lastLocalSearchStepScope.setScore(DefaultSimpleScore.valueOf(-100));
-  localSearchSolverPhaseScope.setLastCompletedLocalSearchStepScope(lastLocalSearchStepScope);
+  localSearchSolverPhaseScope.setLastCompletedStepScope(lastLocalSearchStepScope);
   return localSearchSolverPhaseScope;
 }

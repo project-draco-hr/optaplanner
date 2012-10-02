@@ -7,7 +7,7 @@
   deciderScoreComparatorFactory.setHardWeightSurvivalRatio(0.9);
   LocalSearchSolverPhaseScope localSearchSolverPhaseScope=createLocalSearchSolverPhaseScope();
   deciderScoreComparatorFactory.phaseStarted(localSearchSolverPhaseScope);
-  LocalSearchStepScope localSearchStepScope=localSearchSolverPhaseScope.getLastCompletedLocalSearchStepScope();
+  LocalSearchStepScope localSearchStepScope=localSearchSolverPhaseScope.getLastCompletedStepScope();
   localSearchStepScope=nextStepScope(localSearchStepScope);
   deciderScoreComparatorFactory.stepStarted(localSearchStepScope);
   assertTrue(deciderScoreComparatorFactory.createDeciderScoreComparator() instanceof NaturalScoreComparator);

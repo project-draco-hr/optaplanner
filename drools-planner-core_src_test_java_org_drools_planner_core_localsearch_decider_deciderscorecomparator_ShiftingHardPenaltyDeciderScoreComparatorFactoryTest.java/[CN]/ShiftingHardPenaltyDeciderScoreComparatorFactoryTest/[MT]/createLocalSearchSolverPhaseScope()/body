@@ -6,6 +6,6 @@
   LocalSearchStepScope lastLocalSearchStepScope=new LocalSearchStepScope(localSearchSolverPhaseScope);
   lastLocalSearchStepScope.setStepIndex(1000);
   lastLocalSearchStepScope.setScore(DefaultHardAndSoftScore.valueOf(-11,-200));
-  localSearchSolverPhaseScope.setLastCompletedLocalSearchStepScope(lastLocalSearchStepScope);
+  localSearchSolverPhaseScope.setLastCompletedStepScope(lastLocalSearchStepScope);
   return localSearchSolverPhaseScope;
 }
