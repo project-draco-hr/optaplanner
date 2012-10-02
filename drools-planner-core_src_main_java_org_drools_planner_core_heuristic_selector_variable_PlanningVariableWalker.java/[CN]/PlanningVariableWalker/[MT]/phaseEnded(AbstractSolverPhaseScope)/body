@@ -1,6 +1,6 @@
 {
   for (  PlanningValueWalker planningValueWalker : planningValueWalkerList) {
-    planningValueWalker.phaseEnded(solverPhaseScope);
+    planningValueWalker.phaseEnded(phaseScope);
   }
   scoreDirector=null;
   planningEntity=null;

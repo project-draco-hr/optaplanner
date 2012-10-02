@@ -1,4 +1,4 @@
 {
   validate();
-  initSelectedPlanningEntityList(solverPhaseScope);
+  initSelectedPlanningEntityList(phaseScope);
 }

@@ -1,6 +1,6 @@
 {
   final Iterator<SolverPhaseLifecycleListener> iter=getEventListenersIterator();
   while (iter.hasNext()) {
-    iter.next().phaseEnded(solverPhaseScope);
+    iter.next().phaseEnded(phaseScope);
   }
 }

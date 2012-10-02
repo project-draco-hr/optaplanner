@@ -1,5 +1,5 @@
 {
-  planningValueSelector.phaseEnded(solverPhaseScope);
+  planningValueSelector.phaseEnded(phaseScope);
   scoreDirector=null;
   planningEntity=null;
   isFirstValue=false;

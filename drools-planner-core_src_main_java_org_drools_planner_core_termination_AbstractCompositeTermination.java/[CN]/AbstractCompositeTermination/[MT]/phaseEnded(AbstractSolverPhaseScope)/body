@@ -1,5 +1,5 @@
 {
   for (  Termination termination : terminationList) {
-    termination.phaseEnded(solverPhaseScope);
+    termination.phaseEnded(phaseScope);
   }
 }

@@ -1,6 +1,6 @@
 {
   for (  Termination termination : terminationList) {
-    if (!termination.isPhaseTerminated(solverPhaseScope)) {
+    if (!termination.isPhaseTerminated(phaseScope)) {
       return false;
     }
   }

@@ -1,6 +1,6 @@
 {
   for (  PlanningValueWalker planningValueWalker : planningValueWalkerList) {
-    planningValueWalker.phaseStarted(solverPhaseScope);
+    planningValueWalker.phaseStarted(phaseScope);
   }
-  scoreDirector=solverPhaseScope.getScoreDirector();
+  scoreDirector=phaseScope.getScoreDirector();
 }

@@ -1,5 +1,5 @@
 {
   if (cacheType == SelectionCacheType.PHASE) {
-    selectionCacheLifecycleListener.constructCache(solverPhaseScope.getSolverScope());
+    selectionCacheLifecycleListener.constructCache(phaseScope.getSolverScope());
   }
 }

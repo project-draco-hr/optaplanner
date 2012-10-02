@@ -1,5 +1,5 @@
 {
-  int nextStepIndex=solverPhaseScope.getLastCompletedStepScope().getStepIndex() + 1;
+  int nextStepIndex=phaseScope.getLastCompletedStepScope().getStepIndex() + 1;
   double timeGradient=((double)nextStepIndex) / ((double)maximumStepCount);
   return Math.min(timeGradient,1.0);
 }

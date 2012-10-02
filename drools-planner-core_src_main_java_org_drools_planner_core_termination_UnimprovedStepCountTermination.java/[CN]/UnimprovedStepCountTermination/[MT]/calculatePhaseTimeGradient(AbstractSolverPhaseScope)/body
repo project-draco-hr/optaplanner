@@ -1,5 +1,5 @@
 {
-  int unimprovedStepCount=calculateUnimprovedStepCount(solverPhaseScope);
+  int unimprovedStepCount=calculateUnimprovedStepCount(phaseScope);
   double timeGradient=((double)unimprovedStepCount) / ((double)maximumUnimprovedStepCount);
   return Math.min(timeGradient,1.0);
 }

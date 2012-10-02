@@ -1,4 +1,4 @@
 {
-  int unimprovedStepCount=calculateUnimprovedStepCount(solverPhaseScope);
+  int unimprovedStepCount=calculateUnimprovedStepCount(phaseScope);
   return unimprovedStepCount >= maximumUnimprovedStepCount;
 }

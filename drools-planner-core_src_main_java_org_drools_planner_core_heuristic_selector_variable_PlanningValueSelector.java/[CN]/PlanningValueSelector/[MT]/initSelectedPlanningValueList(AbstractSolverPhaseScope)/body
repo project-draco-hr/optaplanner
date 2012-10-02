@@ -1,6 +1,6 @@
 {
   if (planningVariableDescriptor.isPlanningValuesCacheable()) {
-    Collection<?> planningValues=planningVariableDescriptor.extractPlanningValues(solverPhaseScope.getWorkingSolution(),null);
+    Collection<?> planningValues=planningVariableDescriptor.extractPlanningValues(phaseScope.getWorkingSolution(),null);
     cachedPlanningValues=applySelectionOrder(planningValues);
   }
  else {

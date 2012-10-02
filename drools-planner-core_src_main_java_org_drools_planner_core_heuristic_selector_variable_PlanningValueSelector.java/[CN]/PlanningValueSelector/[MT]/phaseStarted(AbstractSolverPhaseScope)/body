@@ -1,6 +1,6 @@
 {
   validate();
-  scoreDirector=solverPhaseScope.getScoreDirector();
-  workingRandom=solverPhaseScope.getWorkingRandom();
-  initSelectedPlanningValueList(solverPhaseScope);
+  scoreDirector=phaseScope.getScoreDirector();
+  workingRandom=phaseScope.getWorkingRandom();
+  initSelectedPlanningValueList(phaseScope);
 }

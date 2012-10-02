@@ -1,5 +1,5 @@
 {
-  List<Object> workingPlanningEntityList=solverPhaseScope.getWorkingPlanningEntityList();
+  List<Object> workingPlanningEntityList=phaseScope.getWorkingPlanningEntityList();
   for (Iterator<Object> it=workingPlanningEntityList.iterator(); it.hasNext(); ) {
     Object planningEntity=it.next();
     if (!planningEntityDescriptor.getPlanningEntityClass().isInstance(planningEntity)) {
@@ -7,7 +7,7 @@
     }
  else     if (planningEntityDescriptor.isInitialized(planningEntity)) {
       if (resetInitializedPlanningEntities) {
-        ScoreDirector scoreDirector=solverPhaseScope.getScoreDirector();
+        ScoreDirector scoreDirector=phaseScope.getScoreDirector();
         scoreDirector.beforeEntityRemoved(planningEntity);
         planningEntityDescriptor.uninitialize(planningEntity);
         scoreDirector.afterEntityRemoved(planningEntity);
@@ -21,11 +21,11 @@ switch (selectionOrder) {
 case ORIGINAL:
     break;
 case RANDOM:
-  Collections.shuffle(workingPlanningEntityList,solverPhaseScope.getWorkingRandom());
+  Collections.shuffle(workingPlanningEntityList,phaseScope.getWorkingRandom());
 break;
 case DECREASING_DIFFICULTY:
 PlanningEntitySorter planningEntitySorter=planningEntityDescriptor.getPlanningEntitySorter();
-planningEntitySorter.sortDifficultyDescending(solverPhaseScope.getWorkingSolution(),workingPlanningEntityList);
+planningEntitySorter.sortDifficultyDescending(phaseScope.getWorkingSolution(),workingPlanningEntityList);
 break;
 default :
 throw new IllegalStateException("The selectionOrder (" + selectionOrder + ") is not implemented");

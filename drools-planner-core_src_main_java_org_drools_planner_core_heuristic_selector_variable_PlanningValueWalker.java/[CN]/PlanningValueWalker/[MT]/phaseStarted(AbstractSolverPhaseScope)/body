@@ -1,4 +1,4 @@
 {
-  planningValueSelector.phaseStarted(solverPhaseScope);
-  scoreDirector=solverPhaseScope.getScoreDirector();
+  planningValueSelector.phaseStarted(phaseScope);
+  scoreDirector=phaseScope.getScoreDirector();
 }

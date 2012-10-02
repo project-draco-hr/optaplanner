@@ -1,4 +1,4 @@
 {
-  Score bestScore=solverPhaseScope.getBestScore();
+  Score bestScore=phaseScope.getBestScore();
   return isTerminated(bestScore);
 }

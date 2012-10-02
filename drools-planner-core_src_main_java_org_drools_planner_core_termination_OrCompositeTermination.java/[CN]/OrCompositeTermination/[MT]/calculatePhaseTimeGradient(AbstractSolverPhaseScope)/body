@@ -1,7 +1,7 @@
 {
   double timeGradient=0.0;
   for (  Termination termination : terminationList) {
-    double nextTimeGradient=termination.calculatePhaseTimeGradient(solverPhaseScope);
+    double nextTimeGradient=termination.calculatePhaseTimeGradient(phaseScope);
     if (nextTimeGradient >= 0.0) {
       timeGradient=Math.max(timeGradient,nextTimeGradient);
     }

@@ -1,6 +1,6 @@
 {
-  solverPhaseScope.reset();
-  bestSolutionRecaller.phaseStarted(solverPhaseScope);
-  termination.phaseStarted(solverPhaseScope);
-  solverPhaseLifecycleSupport.firePhaseStarted(solverPhaseScope);
+  phaseScope.reset();
+  bestSolutionRecaller.phaseStarted(phaseScope);
+  termination.phaseStarted(phaseScope);
+  solverPhaseLifecycleSupport.firePhaseStarted(phaseScope);
 }
