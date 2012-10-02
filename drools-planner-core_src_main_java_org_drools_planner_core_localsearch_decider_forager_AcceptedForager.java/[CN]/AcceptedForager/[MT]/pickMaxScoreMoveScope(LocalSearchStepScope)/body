@@ -1,5 +1,5 @@
 {
-  List<MoveScope> maxScoreList;
+  List<LocalSolverMoveScope> maxScoreList;
   if (maxScoreAcceptedList.isEmpty()) {
     if (maxScoreUnacceptedList.isEmpty()) {
       return null;
