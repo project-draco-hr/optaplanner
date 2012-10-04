@@ -19,6 +19,9 @@
       long timeMillisSpend=singleBenchmark.getTimeMillisSpend();
       double[] bestScoreLevels=singleBenchmark.getScore().toDoubleLevels();
       for (int i=0; i < bestScoreLevels.length && i < BenchmarkReport.CHARTED_SCORE_LEVEL_SIZE; i++) {
+        if (i >= seriesList.size()) {
+          seriesList.add(new XYSeries(singleBenchmark.getSolverBenchmark().getNameWithFavoriteSuffix()));
+        }
         seriesList.get(i).add(timeMillisSpend,bestScoreLevels[i]);
       }
       if (singleStatistic.getPointList().size() <= 1) {
