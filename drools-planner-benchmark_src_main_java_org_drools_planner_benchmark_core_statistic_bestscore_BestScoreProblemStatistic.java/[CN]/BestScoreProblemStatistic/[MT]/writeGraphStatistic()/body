@@ -25,7 +25,7 @@
         seriesList.get(i).add(timeMillisSpend,bestScoreLevels[i]);
       }
       if (singleStatistic.getPointList().size() <= 1) {
-        renderer=new StandardXYItemRenderer(StandardXYItemRenderer.SHAPES);
+        renderer=new StandardXYItemRenderer(StandardXYItemRenderer.SHAPES_AND_LINES);
       }
     }
     if (singleBenchmark.getSolverBenchmark().isFavorite()) {
