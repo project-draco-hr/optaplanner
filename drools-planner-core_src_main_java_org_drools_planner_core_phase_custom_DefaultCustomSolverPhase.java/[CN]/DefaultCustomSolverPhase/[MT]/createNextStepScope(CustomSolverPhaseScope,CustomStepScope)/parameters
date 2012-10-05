@@ -1,2 +1,2 @@
-CustomSolverPhaseScope customSolverPhaseScope
-CustomStepScope completedCustomStepScope
+CustomSolverPhaseScope phaseScope
+CustomStepScope completedStepScope

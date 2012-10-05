@@ -1,13 +1,13 @@
 {
-  if (completedLocalSearchStepScope == null) {
-    completedLocalSearchStepScope=new LocalSearchStepScope(localSearchSolverPhaseScope);
-    completedLocalSearchStepScope.setScore(localSearchSolverPhaseScope.getStartingScore());
-    completedLocalSearchStepScope.setStepIndex(-1);
-    completedLocalSearchStepScope.setTimeGradient(0.0);
+  if (completedStepScope == null) {
+    completedStepScope=new LocalSearchStepScope(phaseScope);
+    completedStepScope.setScore(phaseScope.getStartingScore());
+    completedStepScope.setStepIndex(-1);
+    completedStepScope.setTimeGradient(0.0);
   }
-  localSearchSolverPhaseScope.setLastCompletedStepScope(completedLocalSearchStepScope);
-  LocalSearchStepScope localSearchStepScope=new LocalSearchStepScope(localSearchSolverPhaseScope);
-  localSearchStepScope.setStepIndex(completedLocalSearchStepScope.getStepIndex() + 1);
-  localSearchStepScope.setSolutionInitialized(true);
-  return localSearchStepScope;
+  phaseScope.setLastCompletedStepScope(completedStepScope);
+  LocalSearchStepScope stepScope=new LocalSearchStepScope(phaseScope);
+  stepScope.setStepIndex(completedStepScope.getStepIndex() + 1);
+  stepScope.setSolutionInitialized(true);
+  return stepScope;
 }

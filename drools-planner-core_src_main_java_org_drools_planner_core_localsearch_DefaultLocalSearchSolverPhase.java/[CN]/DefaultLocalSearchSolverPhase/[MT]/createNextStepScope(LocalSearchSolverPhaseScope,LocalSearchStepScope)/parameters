@@ -1,2 +1,2 @@
-LocalSearchSolverPhaseScope localSearchSolverPhaseScope
-LocalSearchStepScope completedLocalSearchStepScope
+LocalSearchSolverPhaseScope phaseScope
+LocalSearchStepScope completedStepScope

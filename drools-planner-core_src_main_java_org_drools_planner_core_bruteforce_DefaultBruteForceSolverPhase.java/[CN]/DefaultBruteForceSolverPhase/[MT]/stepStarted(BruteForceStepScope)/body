@@ -1,4 +1,3 @@
 {
   super.stepStarted(stepScope);
-  decider.stepStarted(stepScope);
 }

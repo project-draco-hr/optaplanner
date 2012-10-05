@@ -1,12 +1,12 @@
 {
-  if (completedBruteForceStepScope == null) {
-    completedBruteForceStepScope=new BruteForceStepScope(bruteForceSolverPhaseScope);
-    completedBruteForceStepScope.setScore(bruteForceSolverPhaseScope.getStartingScore());
-    completedBruteForceStepScope.setStepIndex(-1);
+  if (completedStepScope == null) {
+    completedStepScope=new BruteForceStepScope(phaseScope);
+    completedStepScope.setScore(phaseScope.getStartingScore());
+    completedStepScope.setStepIndex(-1);
   }
-  bruteForceSolverPhaseScope.setLastCompletedStepScope(completedBruteForceStepScope);
-  BruteForceStepScope bruteForceStepScope=new BruteForceStepScope(bruteForceSolverPhaseScope);
-  bruteForceStepScope.setStepIndex(completedBruteForceStepScope.getStepIndex() + 1);
-  bruteForceStepScope.setSolutionInitialized(true);
-  return bruteForceStepScope;
+  phaseScope.setLastCompletedStepScope(completedStepScope);
+  BruteForceStepScope stepScope=new BruteForceStepScope(phaseScope);
+  stepScope.setStepIndex(completedStepScope.getStepIndex() + 1);
+  stepScope.setSolutionInitialized(true);
+  return stepScope;
 }

@@ -1,13 +1,14 @@
 {
   BruteForceSolverPhaseScope bruteForceSolverPhaseScope=new BruteForceSolverPhaseScope(solverScope);
   phaseStarted(bruteForceSolverPhaseScope);
-  BruteForceStepScope bruteForceStepScope=createNextStepScope(bruteForceSolverPhaseScope,null);
+  BruteForceStepScope stepScope=createNextStepScope(bruteForceSolverPhaseScope,null);
   while (!termination.isPhaseTerminated(bruteForceSolverPhaseScope) && bruteForceEntityWalker.hasWalk()) {
+    stepStarted(stepScope);
     bruteForceEntityWalker.walk();
     Score score=bruteForceSolverPhaseScope.calculateScore();
-    bruteForceStepScope.setScore(score);
-    stepEnded(bruteForceStepScope);
-    bruteForceStepScope=createNextStepScope(bruteForceSolverPhaseScope,bruteForceStepScope);
+    stepScope.setScore(score);
+    stepEnded(stepScope);
+    stepScope=createNextStepScope(bruteForceSolverPhaseScope,stepScope);
   }
   phaseEnded(bruteForceSolverPhaseScope);
 }

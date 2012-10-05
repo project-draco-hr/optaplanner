@@ -1,2 +1,2 @@
-BruteForceSolverPhaseScope bruteForceSolverPhaseScope
-BruteForceStepScope completedBruteForceStepScope
+BruteForceSolverPhaseScope phaseScope
+BruteForceStepScope completedStepScope
