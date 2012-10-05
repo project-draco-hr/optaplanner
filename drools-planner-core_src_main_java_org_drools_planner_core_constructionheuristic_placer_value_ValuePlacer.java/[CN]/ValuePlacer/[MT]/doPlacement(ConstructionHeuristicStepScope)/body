@@ -2,7 +2,6 @@
   Score maxScore=stepScope.getPhaseScope().getScoreDefinition().getPerfectMinimumScore();
   ConstructionHeuristicMoveScope maxMoveScope=null;
   Object entity=stepScope.getEntity();
-  int selectedCount=0;
   int moveIndex=0;
   for (  Object value : valueSelector) {
     ConstructionHeuristicMoveScope moveScope=new ConstructionHeuristicMoveScope(stepScope);
@@ -18,7 +17,7 @@
         maxScore=moveScope.getScore();
         maxMoveScope=moveScope;
       }
-      if (selectedCount >= selectedCountLimit) {
+      if (moveIndex >= selectedCountLimit) {
         break;
       }
     }
