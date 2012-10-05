@@ -4,4 +4,7 @@
   variableDescriptor=valueSelector.getVariableDescriptor();
   this.selectedCountLimit=selectedCountLimit;
   solverPhaseLifecycleSupport.addEventListener(valueSelector);
+  if (valueSelector.isNeverEnding() && selectedCountLimit == Integer.MAX_VALUE) {
+    throw new IllegalStateException("The placer (" + this + ") with selectedCountLimit ("+ selectedCountLimit+ ") has valueSelector ("+ valueSelector+ ") with neverEnding ("+ valueSelector.isNeverEnding()+ ").");
+  }
 }
