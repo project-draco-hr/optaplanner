@@ -14,6 +14,6 @@
   if (maxScoreList.size() == 1) {
     return maxScoreList.get(0);
   }
-  int randomIndex=localSearchStepScope.getWorkingRandom().nextInt(maxScoreList.size());
+  int randomIndex=stepScope.getWorkingRandom().nextInt(maxScoreList.size());
   return maxScoreList.get(randomIndex);
 }
