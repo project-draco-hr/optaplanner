@@ -1,0 +1,6 @@
+{
+  super.stepStarted(stepScope);
+  for (  EntityPlacer entityPlacer : entityPlacerList) {
+    entityPlacer.stepStarted(stepScope);
+  }
+}

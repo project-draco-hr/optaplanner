@@ -1,0 +1,15 @@
+{
+  super.inherit(inheritedConfig);
+  if (entitySelectorConfig == null) {
+    entitySelectorConfig=inheritedConfig.getEntitySelectorConfig();
+  }
+ else   if (inheritedConfig.getEntitySelectorConfig() != null) {
+    entitySelectorConfig.inherit(inheritedConfig.getEntitySelectorConfig());
+  }
+  if (valuePlacerConfig == null) {
+    valuePlacerConfig=inheritedConfig.getValuePlacerConfig();
+  }
+ else   if (inheritedConfig.getValuePlacerConfig() != null) {
+    valuePlacerConfig.inherit(inheritedConfig.getValuePlacerConfig());
+  }
+}

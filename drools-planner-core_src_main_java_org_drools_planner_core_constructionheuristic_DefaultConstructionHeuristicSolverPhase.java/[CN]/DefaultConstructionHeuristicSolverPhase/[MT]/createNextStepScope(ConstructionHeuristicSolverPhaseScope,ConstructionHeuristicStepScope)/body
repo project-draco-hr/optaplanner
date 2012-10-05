@@ -1,0 +1,12 @@
+{
+  if (completedStepScope == null) {
+    completedStepScope=new ConstructionHeuristicStepScope(phaseScope);
+    completedStepScope.setScore(phaseScope.getStartingScore());
+    completedStepScope.setStepIndex(-1);
+  }
+  phaseScope.setLastCompletedStepScope(completedStepScope);
+  ConstructionHeuristicStepScope stepScope=new ConstructionHeuristicStepScope(phaseScope);
+  stepScope.setStepIndex(completedStepScope.getStepIndex() + 1);
+  stepScope.setSolutionInitialized(false);
+  return stepScope;
+}

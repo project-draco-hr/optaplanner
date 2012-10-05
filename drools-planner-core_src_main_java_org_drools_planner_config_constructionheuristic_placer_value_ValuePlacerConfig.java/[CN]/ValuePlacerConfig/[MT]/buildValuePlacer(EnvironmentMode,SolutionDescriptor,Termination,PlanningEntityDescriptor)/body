@@ -1,0 +1,11 @@
+{
+  ValueSelector valueSelector=valueSelectorConfig.buildValueSelector(environmentMode,solutionDescriptor,entityDescriptor,SelectionCacheType.JUST_IN_TIME,SelectionOrder.RANDOM);
+  ValuePlacer valuePlacer=new ValuePlacer(phaseTermination,valueSelector,selectedCountLimit == null ? Integer.MAX_VALUE : selectedCountLimit);
+  if (environmentMode == EnvironmentMode.TRACE) {
+    valuePlacer.setAssertMoveScoreIsUncorrupted(true);
+  }
+  if (environmentMode == EnvironmentMode.DEBUG || environmentMode == EnvironmentMode.TRACE) {
+    valuePlacer.setAssertUndoMoveIsUncorrupted(true);
+  }
+  return valuePlacer;
+}

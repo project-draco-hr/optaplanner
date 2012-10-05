@@ -1,0 +1,8 @@
+{
+  Object entity=entityIterator.next();
+  stepScope.setEntity(entity);
+  ScoreDirector scoreDirector=stepScope.getScoreDirector();
+  scoreDirector.beforeEntityAdded(entity);
+  scoreDirector.afterEntityAdded(entity);
+  valuePlacer.doPlacement(stepScope);
+}

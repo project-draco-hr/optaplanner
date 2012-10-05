@@ -1,0 +1,7 @@
+{
+  this.termination=termination;
+  this.valueSelector=valueSelector;
+  variableDescriptor=valueSelector.getVariableDescriptor();
+  this.selectedCountLimit=selectedCountLimit;
+  solverPhaseLifecycleSupport.addEventListener(valueSelector);
+}

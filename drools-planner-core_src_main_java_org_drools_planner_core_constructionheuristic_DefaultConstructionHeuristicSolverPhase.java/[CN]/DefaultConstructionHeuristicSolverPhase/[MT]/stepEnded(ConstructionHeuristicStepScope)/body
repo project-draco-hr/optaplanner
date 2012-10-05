@@ -1,0 +1,10 @@
+{
+  super.stepEnded(stepScope);
+  for (  EntityPlacer entityPlacer : entityPlacerList) {
+    entityPlacer.stepEnded(stepScope);
+  }
+  if (logger.isDebugEnabled()) {
+    long timeMillisSpend=stepScope.getPhaseScope().calculateSolverTimeMillisSpend();
+    logger.debug("    Step index ({}), time spend ({}), score ({}) for constructing step ({}).",new Object[]{stepScope.getStepIndex(),timeMillisSpend,stepScope.getScore(),stepScope.getStep()});
+  }
+}

@@ -1,0 +1,6 @@
+{
+  super.phaseStarted(phaseScope);
+  for (  EntityPlacer entityPlacer : entityPlacerList) {
+    entityPlacer.phaseStarted(phaseScope);
+  }
+}

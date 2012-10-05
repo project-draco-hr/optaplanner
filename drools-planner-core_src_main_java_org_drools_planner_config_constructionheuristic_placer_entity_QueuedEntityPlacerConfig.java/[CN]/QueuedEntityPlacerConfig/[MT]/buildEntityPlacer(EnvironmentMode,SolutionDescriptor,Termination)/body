@@ -1,0 +1,5 @@
+{
+  EntitySelector entitySelector=entitySelectorConfig.buildEntitySelector(environmentMode,solutionDescriptor,SelectionCacheType.JUST_IN_TIME,SelectionOrder.ORIGINAL);
+  ValuePlacer valuePlacer=valuePlacerConfig.buildValuePlacer(environmentMode,solutionDescriptor,phaseTermination,entitySelector.getEntityDescriptor());
+  return new QueuedEntityPlacer(entitySelector,valuePlacer);
+}

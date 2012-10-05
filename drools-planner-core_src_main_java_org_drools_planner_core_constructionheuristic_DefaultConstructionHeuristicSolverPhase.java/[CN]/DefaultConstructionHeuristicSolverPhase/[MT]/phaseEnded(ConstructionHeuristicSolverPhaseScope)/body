@@ -1,0 +1,7 @@
+{
+  super.phaseEnded(phaseScope);
+  for (  EntityPlacer entityPlacer : entityPlacerList) {
+    entityPlacer.phaseEnded(phaseScope);
+  }
+  logger.info("Phase constructionHeuristic ended: step total ({}), time spend ({}), best score ({}).",new Object[]{phaseScope.getLastCompletedStepScope().getStepIndex() + 1,phaseScope.calculateSolverTimeMillisSpend(),phaseScope.getBestScore()});
+}

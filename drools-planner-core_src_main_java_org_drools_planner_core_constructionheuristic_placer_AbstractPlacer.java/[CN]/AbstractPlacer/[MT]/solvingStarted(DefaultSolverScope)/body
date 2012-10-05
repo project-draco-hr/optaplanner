@@ -1,0 +1,4 @@
+{
+  workingRandom=solverScope.getWorkingRandom();
+  solverPhaseLifecycleSupport.fireSolvingStarted(solverScope);
+}

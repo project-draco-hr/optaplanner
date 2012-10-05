@@ -1,0 +1,29 @@
+{
+  ConstructionHeuristicSolverPhaseScope phaseScope=new ConstructionHeuristicSolverPhaseScope(solverScope);
+  phaseStarted(phaseScope);
+  if (entityPlacerList.size() != 1) {
+    throw new UnsupportedOperationException();
+  }
+  EntityPlacer hackEntityPlacer=entityPlacerList.get(0);
+  ConstructionHeuristicStepScope stepScope=createNextStepScope(phaseScope,null);
+  while (!termination.isPhaseTerminated(phaseScope) && hackEntityPlacer.hasPlacement()) {
+    stepStarted(stepScope);
+    hackEntityPlacer.doPlacement(stepScope);
+    Move nextStep=stepScope.getStep();
+    if (nextStep == null) {
+      logger.warn("    Cancelled step index ({}), time spend ({}): there is no doable move. Terminating phase early.",stepScope.getStepIndex(),phaseScope.calculateSolverTimeMillisSpend());
+      break;
+    }
+    nextStep.doMove(stepScope.getScoreDirector());
+    phaseScope.getWorkingSolution().setScore(stepScope.getScore());
+    if (assertStepScoreIsUncorrupted) {
+      phaseScope.assertWorkingScore(stepScope.getScore());
+    }
+    if (!hackEntityPlacer.hasPlacement()) {
+      stepScope.setSolutionInitialized(true);
+    }
+    stepEnded(stepScope);
+    stepScope=createNextStepScope(phaseScope,stepScope);
+  }
+  phaseEnded(phaseScope);
+}

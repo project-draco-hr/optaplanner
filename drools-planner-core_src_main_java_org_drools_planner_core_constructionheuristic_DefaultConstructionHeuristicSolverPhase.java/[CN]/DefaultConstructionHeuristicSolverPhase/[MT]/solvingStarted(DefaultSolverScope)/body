@@ -1,0 +1,6 @@
+{
+  super.solvingStarted(solverScope);
+  for (  EntityPlacer entityPlacer : entityPlacerList) {
+    entityPlacer.solvingStarted(solverScope);
+  }
+}

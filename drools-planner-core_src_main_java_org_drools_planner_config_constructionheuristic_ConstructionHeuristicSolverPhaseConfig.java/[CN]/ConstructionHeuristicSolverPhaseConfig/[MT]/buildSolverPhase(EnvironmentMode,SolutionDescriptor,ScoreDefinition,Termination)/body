@@ -9,10 +9,22 @@
     }
     return greedySolverPhase;
   }
- else   if (false) {
+ else   if (!CollectionUtils.isEmpty(entityPlacerConfigList)) {
     if (constructionHeuristicPickEarlyType != null) {
+      throw new UnsupportedOperationException();
     }
-    throw new UnsupportedOperationException("Detailed configuration is not yet implemented.");
+    DefaultConstructionHeuristicSolverPhase phase=new DefaultConstructionHeuristicSolverPhase();
+    configureSolverPhase(phase,environmentMode,scoreDefinition,solverTermination);
+    List<EntityPlacer> entityPlacerList=new ArrayList<EntityPlacer>(entityPlacerConfigList.size());
+    for (    EntityPlacerConfig entityPlacerConfig : entityPlacerConfigList) {
+      EntityPlacer entityPlacer=entityPlacerConfig.buildEntityPlacer(environmentMode,solutionDescriptor,phase.getTermination());
+      entityPlacerList.add(entityPlacer);
+    }
+    phase.setEntityPlacerList(entityPlacerList);
+    if (environmentMode == EnvironmentMode.DEBUG || environmentMode == EnvironmentMode.TRACE) {
+      phase.setAssertStepScoreIsUncorrupted(true);
+    }
+    return phase;
   }
  else {
     throw new IllegalArgumentException("A constructionHeuristic requires configuration, " + "for example a constructionHeuristicType.");
