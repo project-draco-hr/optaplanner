@@ -1,5 +1,5 @@
 {
   for (  Acceptor acceptor : acceptorList) {
-    acceptor.phaseStarted(localSearchSolverPhaseScope);
+    acceptor.phaseStarted(phaseScope);
   }
 }

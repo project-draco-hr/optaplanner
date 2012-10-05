@@ -1,6 +1,6 @@
 {
-  super.phaseStarted(localSearchSolverPhaseScope);
-  Object tabu=localSearchSolverPhaseScope.getWorkingSolution().cloneSolution();
+  super.phaseStarted(phaseScope);
+  Object tabu=phaseScope.getWorkingSolution().cloneSolution();
   tabuToStepIndexMap.put(tabu,0);
   tabuSequenceList.add(tabu);
 }

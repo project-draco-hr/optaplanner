@@ -1,5 +1,5 @@
 {
-  super.phaseStarted(localSearchSolverPhaseScope);
+  super.phaseStarted(phaseScope);
   for (  double startingTemperatureLevel : startingTemperature.toDoubleLevels()) {
     if (startingTemperatureLevel < 0.0) {
       throw new IllegalArgumentException("The startingTemperature (" + startingTemperature + ") cannot have negative level ("+ startingTemperatureLevel+ ").");

@@ -1,6 +1,6 @@
 {
   int maximumTabuListSize=tabuSize + fadingTabuSize;
-  int tabuStepIndex=localSearchStepScope.getStepIndex();
+  int tabuStepIndex=stepScope.getStepIndex();
   for (Iterator<Object> it=tabuSequenceList.iterator(); it.hasNext(); ) {
     Object oldTabu=it.next();
     Integer oldTabuStepIndexInteger=tabuToStepIndexMap.get(oldTabu);
@@ -14,7 +14,7 @@
     it.remove();
     tabuToStepIndexMap.remove(oldTabu);
   }
-  Collection<? extends Object> tabus=findNewTabu(localSearchStepScope);
+  Collection<? extends Object> tabus=findNewTabu(stepScope);
   for (  Object tabu : tabus) {
     if (tabuToStepIndexMap.containsKey(tabu)) {
       tabuToStepIndexMap.remove(tabu);

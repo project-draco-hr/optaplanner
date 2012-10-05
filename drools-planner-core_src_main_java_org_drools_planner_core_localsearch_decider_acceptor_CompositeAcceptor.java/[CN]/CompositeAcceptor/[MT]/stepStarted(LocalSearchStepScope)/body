@@ -1,5 +1,5 @@
 {
   for (  Acceptor acceptor : acceptorList) {
-    acceptor.stepStarted(localSearchStepScope);
+    acceptor.stepStarted(stepScope);
   }
 }

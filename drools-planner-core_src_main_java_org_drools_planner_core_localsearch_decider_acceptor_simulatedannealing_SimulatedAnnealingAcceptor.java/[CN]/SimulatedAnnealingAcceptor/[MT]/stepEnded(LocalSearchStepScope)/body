@@ -1,6 +1,6 @@
 {
-  super.stepEnded(localSearchStepScope);
-  double timeGradient=localSearchStepScope.getTimeGradient();
+  super.stepEnded(stepScope);
+  double timeGradient=stepScope.getTimeGradient();
   double reverseTimeGradient=1.0 - timeGradient;
   temperatureLevels=new double[levelsLength];
   for (int i=0; i < levelsLength; i++) {

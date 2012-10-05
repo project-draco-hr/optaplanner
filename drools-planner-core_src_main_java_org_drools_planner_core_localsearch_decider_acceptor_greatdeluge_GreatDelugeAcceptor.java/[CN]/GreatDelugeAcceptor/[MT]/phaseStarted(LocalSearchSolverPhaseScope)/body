@@ -5,8 +5,8 @@
   if (waterRisingRate <= 0.0 || waterRisingRate >= 1.0) {
     throw new IllegalArgumentException("The greatDelugeWaterRisingRate (" + waterRisingRate + ") should be between 0.0 and 1.0 (preferably very close to 0.0).");
   }
-  waterLevelScore=localSearchSolverPhaseScope.getBestScore().multiply(waterLevelUpperBoundRate);
-  Score perfectMaximumScore=localSearchSolverPhaseScope.getScoreDefinition().getPerfectMaximumScore();
+  waterLevelScore=phaseScope.getBestScore().multiply(waterLevelUpperBoundRate);
+  Score perfectMaximumScore=phaseScope.getScoreDefinition().getPerfectMaximumScore();
   if (waterLevelScore.compareTo(perfectMaximumScore) > 0) {
     throw new IllegalArgumentException("The waterLevelScore (" + waterLevelScore + ") should not be higher than the perfectMaximumScore("+ perfectMaximumScore+ ").");
   }

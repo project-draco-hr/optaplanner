@@ -1,5 +1,5 @@
 {
-  super.phaseEnded(localSearchSolverPhaseScope);
+  super.phaseEnded(phaseScope);
   tabuToStepIndexMap=null;
   tabuSequenceList=null;
 }
