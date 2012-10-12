@@ -3,7 +3,7 @@
   String name=FilenameUtils.getBaseName(inputSolutionFile.getName());
   problemBenchmark.setName(name);
   problemBenchmark.setProblemIO(problemIO);
-  problemBenchmark.setWriteOutputSolutionEnabled(writeOutputSolutionEnabled == null ? true : writeOutputSolutionEnabled);
+  problemBenchmark.setWriteOutputSolutionEnabled(writeOutputSolutionEnabled == null ? false : writeOutputSolutionEnabled);
   problemBenchmark.setInputSolutionFile(inputSolutionFile);
   List<ProblemStatistic> problemStatisticList=new ArrayList<ProblemStatistic>(problemStatisticTypeList == null ? 0 : problemStatisticTypeList.size());
   if (problemStatisticTypeList != null) {
