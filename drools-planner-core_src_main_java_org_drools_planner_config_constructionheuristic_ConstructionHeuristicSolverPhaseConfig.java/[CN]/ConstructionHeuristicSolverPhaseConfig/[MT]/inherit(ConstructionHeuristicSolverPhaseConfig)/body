@@ -6,4 +6,5 @@
   if (constructionHeuristicPickEarlyType == null) {
     constructionHeuristicPickEarlyType=inheritedConfig.getConstructionHeuristicPickEarlyType();
   }
+  entityPlacerConfigList=ConfigUtils.inheritMergeableListProperty(entityPlacerConfigList,inheritedConfig.getEntityPlacerConfigList());
 }
