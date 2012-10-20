@@ -22,7 +22,7 @@
     nextStep.doMove(stepScope.getScoreDirector());
     phaseScope.getWorkingSolution().setScore(stepScope.getScore());
     if (assertStepScoreIsUncorrupted) {
-      phaseScope.assertWorkingScore(stepScope.getScore());
+      phaseScope.assertWorkingScoreFromScratch(stepScope.getScore());
     }
     stepEnded(stepScope);
     stepScope=createNextStepScope(phaseScope,stepScope);

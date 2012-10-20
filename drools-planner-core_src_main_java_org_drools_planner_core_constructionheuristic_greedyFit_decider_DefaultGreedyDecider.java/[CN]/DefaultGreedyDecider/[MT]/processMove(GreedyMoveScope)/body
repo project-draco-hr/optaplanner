@@ -1,7 +1,7 @@
 {
   Score score=moveScope.getGreedyFitStepScope().getPhaseScope().calculateScore();
   if (assertMoveScoreIsUncorrupted) {
-    moveScope.getGreedyFitStepScope().getPhaseScope().assertWorkingScore(score);
+    moveScope.getGreedyFitStepScope().getPhaseScope().assertWorkingScoreFromScratch(score);
   }
   moveScope.setScore(score);
   forager.addMove(moveScope);
