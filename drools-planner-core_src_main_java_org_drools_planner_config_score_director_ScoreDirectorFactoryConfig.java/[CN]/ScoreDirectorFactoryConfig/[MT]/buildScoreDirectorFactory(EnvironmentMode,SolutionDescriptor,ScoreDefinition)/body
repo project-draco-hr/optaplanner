@@ -1,0 +1,25 @@
+{
+  AbstractScoreDirectorFactory scoreDirectorFactory;
+  scoreDirectorFactory=buildSimpleScoreDirectorFactory();
+  if (scoreDirectorFactory == null) {
+    scoreDirectorFactory=buildIncrementalScoreDirectorFactory();
+  }
+  if (scoreDirectorFactory == null) {
+    scoreDirectorFactory=buildDroolsScoreDirectorFactory();
+  }
+  scoreDirectorFactory.setSolutionDescriptor(solutionDescriptor);
+  scoreDirectorFactory.setScoreDefinition(scoreDefinition);
+  if (assertionScoreDirectorFactory != null) {
+    if (assertionScoreDirectorFactory.getAssertionScoreDirectorFactory() != null) {
+      throw new IllegalArgumentException("A assertionScoreDirectorFactory (" + assertionScoreDirectorFactory + ") cannot have a non-null assertionScoreDirectorFactory ("+ assertionScoreDirectorFactory.getAssertionScoreDirectorFactory()+ ").");
+    }
+    if (assertionScoreDirectorFactory.getScoreDefinition() != null || assertionScoreDirectorFactory.getScoreDefinitionClass() != null || assertionScoreDirectorFactory.getScoreDefinitionType() != null) {
+      throw new IllegalArgumentException("A assertionScoreDirectorFactory (" + assertionScoreDirectorFactory + ") must reuse the scoreDefinition of its parent."+ " It cannot have a non-null scoreDefinition* property.");
+    }
+    if (environmentMode.compareTo(EnvironmentMode.DEBUG) > 0) {
+      throw new IllegalArgumentException("A non-null assertionScoreDirectorFactory (" + assertionScoreDirectorFactory + ") requires an environmentMode ("+ environmentMode+ ") of "+ EnvironmentMode.DEBUG+ " or lower.");
+    }
+    scoreDirectorFactory.setAssertionScoreDirectorFactory(assertionScoreDirectorFactory.buildScoreDirectorFactory(EnvironmentMode.PRODUCTION,solutionDescriptor,scoreDefinition));
+  }
+  return scoreDirectorFactory;
+}
