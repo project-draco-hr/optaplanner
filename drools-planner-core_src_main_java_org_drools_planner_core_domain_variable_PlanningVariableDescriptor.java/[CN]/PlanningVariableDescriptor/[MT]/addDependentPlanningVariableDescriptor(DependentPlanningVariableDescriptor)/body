@@ -1,3 +1,0 @@
-{
-  dependentPlanningVariableDescriptorMap.put(dependentPlanningVariableDescriptor.getVariablePropertyName(),dependentPlanningVariableDescriptor);
-}

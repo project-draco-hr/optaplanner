@@ -6,9 +6,6 @@
   for (  PropertyDescriptor propertyDescriptor : propertyDescriptors) {
     Method propertyGetter=propertyDescriptor.getReadMethod();
     if (propertyGetter != null && propertyGetter.isAnnotationPresent(PlanningVariable.class)) {
-      if (propertyGetter.isAnnotationPresent(DependentPlanningVariable.class)) {
-        throw new IllegalStateException("The planningEntityClass (" + planningEntityClass + ") has a PlanningVariable annotated property ("+ propertyDescriptor.getName()+ ") that is also annotated with DependentPlanningVariable.");
-      }
       noPlanningVariableAnnotation=false;
       if (propertyDescriptor.getWriteMethod() == null) {
         throw new IllegalStateException("The planningEntityClass (" + planningEntityClass + ") has a PlanningVariable annotated property ("+ propertyDescriptor.getName()+ ") that should have a setter.");
@@ -16,18 +13,6 @@
       PlanningVariableDescriptor planningVariableDescriptor=new PlanningVariableDescriptor(this,propertyDescriptor);
       planningVariableDescriptorMap.put(propertyDescriptor.getName(),planningVariableDescriptor);
       planningVariableDescriptor.processAnnotations();
-    }
-  }
-  dependentPlanningVariableDescriptorMap=new LinkedHashMap<String,DependentPlanningVariableDescriptor>(mapSize);
-  for (  PropertyDescriptor propertyDescriptor : propertyDescriptors) {
-    Method propertyGetter=propertyDescriptor.getReadMethod();
-    if (propertyGetter != null && propertyGetter.isAnnotationPresent(DependentPlanningVariable.class)) {
-      if (propertyDescriptor.getWriteMethod() == null) {
-        throw new IllegalStateException("The planningEntityClass (" + planningEntityClass + ") has a DependentPlanningVariable annotated property ("+ propertyDescriptor.getName()+ ") that should have a setter.");
-      }
-      DependentPlanningVariableDescriptor dependentPlanningVariableDescriptor=new DependentPlanningVariableDescriptor(this,propertyDescriptor);
-      dependentPlanningVariableDescriptorMap.put(propertyDescriptor.getName(),dependentPlanningVariableDescriptor);
-      dependentPlanningVariableDescriptor.processAnnotations();
     }
   }
   if (noPlanningVariableAnnotation) {
