@@ -1,5 +1,5 @@
 {
-  AbstractScoreDirector clone=(AbstractScoreDirector)scoreDirectorFactory.buildScoreDirector();
-  setWorkingSolution(workingSolution.cloneSolution());
+  ScoreDirector clone=scoreDirectorFactory.buildScoreDirector();
+  clone.setWorkingSolution(workingSolution.cloneSolution());
   return clone;
 }
