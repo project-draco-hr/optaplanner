@@ -1,3 +1,0 @@
-{
-  return new DayChangeMove(match,match.getDay());
-}
