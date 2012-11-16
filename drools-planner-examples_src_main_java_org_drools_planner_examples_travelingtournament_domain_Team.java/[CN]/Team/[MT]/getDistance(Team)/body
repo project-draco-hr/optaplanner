@@ -1,0 +1,3 @@
+{
+  return distanceToTeamMap.get(other);
+}

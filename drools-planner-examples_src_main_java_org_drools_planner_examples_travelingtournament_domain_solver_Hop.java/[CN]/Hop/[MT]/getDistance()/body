@@ -1,4 +1,0 @@
-{
-  Map<Team,Integer> distanceToTeamMap=fromTeam.getDistanceToTeamMap();
-  return distanceToTeamMap.get(toTeam);
-}

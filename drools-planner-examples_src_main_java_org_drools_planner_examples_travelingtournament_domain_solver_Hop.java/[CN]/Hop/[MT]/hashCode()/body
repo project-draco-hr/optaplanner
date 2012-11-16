@@ -1,3 +1,0 @@
-{
-  return new HashCodeBuilder().append(team).append(fromTeam).append(toTeam).toHashCode();
-}
