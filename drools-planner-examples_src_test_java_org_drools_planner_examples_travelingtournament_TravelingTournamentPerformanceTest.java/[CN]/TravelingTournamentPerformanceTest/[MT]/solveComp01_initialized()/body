@@ -1,4 +1,4 @@
 {
-  File unsolvedDataFile=new File("data/travelingtournament/smart/unsolved/1-nl10.xml");
+  File unsolvedDataFile=new File("data/travelingtournament/unsolved/1-nl10.xml");
   runSpeedTest(unsolvedDataFile,"0hard/-75968soft");
 }

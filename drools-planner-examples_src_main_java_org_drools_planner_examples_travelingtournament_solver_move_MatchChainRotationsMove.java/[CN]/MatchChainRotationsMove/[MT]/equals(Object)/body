@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof MatchChainRotationsMove) {
+    MatchChainRotationsMove other=(MatchChainRotationsMove)o;
+    return new EqualsBuilder().append(firstMatchList,other.firstMatchList).append(secondMatchList,other.secondMatchList).isEquals();
+  }
+ else {
+    return false;
+  }
+}

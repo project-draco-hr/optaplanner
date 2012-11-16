@@ -1,4 +1,0 @@
-{
-  this.leftMatch=leftMatch;
-  this.rightMatch=rightMatch;
-}

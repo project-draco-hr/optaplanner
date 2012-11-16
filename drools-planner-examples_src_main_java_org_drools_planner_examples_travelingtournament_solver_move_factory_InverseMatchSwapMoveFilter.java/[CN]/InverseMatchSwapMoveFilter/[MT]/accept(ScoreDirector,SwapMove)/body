@@ -1,0 +1,5 @@
+{
+  Match leftMatch=(Match)move.getLeftEntity();
+  Match rightMatch=(Match)move.getRightEntity();
+  return leftMatch.getHomeTeam().equals(rightMatch.getAwayTeam()) && leftMatch.getAwayTeam().equals(rightMatch.getHomeTeam());
+}

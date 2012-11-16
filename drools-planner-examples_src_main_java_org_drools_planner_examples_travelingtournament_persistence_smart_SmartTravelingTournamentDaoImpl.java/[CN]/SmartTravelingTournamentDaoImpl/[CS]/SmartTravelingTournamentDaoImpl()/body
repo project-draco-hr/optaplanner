@@ -1,3 +1,0 @@
-{
-  super("travelingtournament/smart",TravelingTournament.class);
-}

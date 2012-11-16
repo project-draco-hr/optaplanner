@@ -17,7 +17,7 @@
 ));
   panel.add(createExampleButton("Sport scheduling","Official competition name: TTP - Traveling tournament problem\n" + "Assign matches to days.",null,new Runnable(){
     public void run(){
-      new SmartTravelingTournamentApp().init(DroolsPlannerExamplesApp.this,false);
+      new TravelingTournamentApp().init(DroolsPlannerExamplesApp.this,false);
     }
   }
 ));
