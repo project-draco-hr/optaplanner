@@ -1,4 +1,0 @@
-{
-  homeAwayShortestPath=home.getShortestPathTo(away);
-  awayHomeShortestPath=away.getShortestPathTo(home);
-}

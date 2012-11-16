@@ -1,4 +1,0 @@
-{
-  TrainDesign trainDesign=(TrainDesign)solution;
-  trainDesign.initializeTransientProperties();
-}

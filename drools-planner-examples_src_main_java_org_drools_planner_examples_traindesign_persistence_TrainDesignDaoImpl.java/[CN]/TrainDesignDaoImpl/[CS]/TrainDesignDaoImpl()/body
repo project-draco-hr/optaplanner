@@ -1,3 +1,0 @@
-{
-  super("traindesign",TrainDesign.class);
-}

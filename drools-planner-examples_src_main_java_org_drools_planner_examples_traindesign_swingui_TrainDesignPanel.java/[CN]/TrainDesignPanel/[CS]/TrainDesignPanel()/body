@@ -1,4 +1,0 @@
-{
-  gridLayout=new GridLayout(0,1);
-  setLayout(gridLayout);
-}

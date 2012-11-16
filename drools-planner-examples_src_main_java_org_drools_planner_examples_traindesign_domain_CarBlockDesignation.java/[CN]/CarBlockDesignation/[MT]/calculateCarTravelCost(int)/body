@@ -1,7 +1,0 @@
-{
-  int carTravelCost=carBlock.getNumberOfCars() * railPath.getDistance() * carTravelCostPerDistance;
-  if (carTravelCost % 1000000 != 0) {
-    throw new IllegalStateException("The carTravelCost (" + carTravelCost + ") / 1000000 is not an integer.");
-  }
-  return carTravelCost / 1000000;
-}
