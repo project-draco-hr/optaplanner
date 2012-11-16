@@ -1,5 +1,5 @@
 {
   solverAndPersistenceFrame.setDefaultCloseOperation(exitOnClose ? JFrame.EXIT_ON_CLOSE : JFrame.DISPOSE_ON_CLOSE);
-  solverAndPersistenceFrame.init();
+  solverAndPersistenceFrame.init(centerForComponent);
   solverAndPersistenceFrame.setVisible(true);
 }

@@ -1,5 +1,5 @@
 {
   setContentPane(createContentPane());
   pack();
-  setLocationRelativeTo(null);
+  setLocationRelativeTo(centerForComponent);
 }
