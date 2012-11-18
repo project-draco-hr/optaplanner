@@ -1,4 +1,5 @@
 {
+  CommonApp.fixateLookAndFeel();
   DroolsPlannerExamplesApp droolsPlannerExamplesApp=new DroolsPlannerExamplesApp();
   droolsPlannerExamplesApp.pack();
   droolsPlannerExamplesApp.setLocationRelativeTo(null);

@@ -1,3 +1,4 @@
 {
+  fixateLookAndFeel();
   new VehicleRoutingApp().init();
 }
