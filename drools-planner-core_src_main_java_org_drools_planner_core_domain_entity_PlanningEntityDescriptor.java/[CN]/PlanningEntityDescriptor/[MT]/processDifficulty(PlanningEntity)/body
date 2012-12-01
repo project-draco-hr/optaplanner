@@ -1,9 +1,9 @@
 {
-  Class<? extends Comparator> difficultyComparatorClass=planningEntityAnnotation.difficultyComparatorClass();
+  Class<? extends Comparator> difficultyComparatorClass=entityAnnotation.difficultyComparatorClass();
   if (difficultyComparatorClass == PlanningEntity.NullDifficultyComparator.class) {
     difficultyComparatorClass=null;
   }
-  Class<? extends PlanningEntityDifficultyWeightFactory> difficultyWeightFactoryClass=planningEntityAnnotation.difficultyWeightFactoryClass();
+  Class<? extends PlanningEntityDifficultyWeightFactory> difficultyWeightFactoryClass=entityAnnotation.difficultyWeightFactoryClass();
   if (difficultyWeightFactoryClass == PlanningEntity.NullDifficultyWeightFactory.class) {
     difficultyWeightFactoryClass=null;
   }

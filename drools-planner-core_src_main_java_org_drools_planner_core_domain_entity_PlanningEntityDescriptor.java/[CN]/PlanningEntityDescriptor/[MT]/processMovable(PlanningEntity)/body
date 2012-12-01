@@ -1,5 +1,5 @@
 {
-  Class<? extends SelectionFilter> movableEntitySelectionFilterClass=planningEntityAnnotation.movableEntitySelectionFilter();
+  Class<? extends SelectionFilter> movableEntitySelectionFilterClass=entityAnnotation.movableEntitySelectionFilter();
   if (movableEntitySelectionFilterClass == PlanningEntity.NullMovableEntitySelectionFilter.class) {
     movableEntitySelectionFilterClass=null;
   }

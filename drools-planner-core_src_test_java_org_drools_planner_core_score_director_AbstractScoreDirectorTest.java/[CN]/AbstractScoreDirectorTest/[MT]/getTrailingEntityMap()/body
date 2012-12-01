@@ -19,7 +19,7 @@
     }
   }
 ;
-  TestdataChainedSolution clonedStartingSolution=solution.cloneSolution();
+  TestdataChainedSolution clonedStartingSolution=new DefaultSolutionCloner().cloneSolution(solution);
   scoreDirector.setWorkingSolution(solution);
   assertEquals(a1,scoreDirector.getTrailingEntity(variableDescriptor,a0));
   assertEquals(a2,scoreDirector.getTrailingEntity(variableDescriptor,a1));

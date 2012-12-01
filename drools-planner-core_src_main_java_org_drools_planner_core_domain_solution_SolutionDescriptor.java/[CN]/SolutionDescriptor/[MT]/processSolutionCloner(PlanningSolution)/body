@@ -1,0 +1,12 @@
+{
+  Class<? extends SolutionCloner> solutionClonerClass=solutionAnnotation.solutionCloner();
+  if (solutionClonerClass == PlanningSolution.NullSolutionCloner.class) {
+    solutionClonerClass=null;
+  }
+  if (solutionClonerClass != null) {
+    solutionCloner=ConfigUtils.newInstance(this,"solutionClonerClass",solutionClonerClass);
+  }
+ else {
+    solutionCloner=new DefaultSolutionCloner();
+  }
+}

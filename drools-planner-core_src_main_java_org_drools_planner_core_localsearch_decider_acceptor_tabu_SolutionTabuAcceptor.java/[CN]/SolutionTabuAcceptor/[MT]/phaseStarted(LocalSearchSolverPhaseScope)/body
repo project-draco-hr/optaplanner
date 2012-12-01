@@ -1,6 +1,6 @@
 {
   super.phaseStarted(phaseScope);
-  Object tabu=phaseScope.getWorkingSolution().cloneSolution();
+  Object tabu=phaseScope.getScoreDirector().cloneWorkingSolution();
   tabuToStepIndexMap.put(tabu,0);
   tabuSequenceList.add(tabu);
 }
