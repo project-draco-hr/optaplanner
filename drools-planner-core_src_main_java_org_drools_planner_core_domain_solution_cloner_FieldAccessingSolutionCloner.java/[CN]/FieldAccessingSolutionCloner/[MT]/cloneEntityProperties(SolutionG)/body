@@ -1,0 +1,17 @@
+{
+  for (  PropertyDescriptor descriptor : solutionDescriptor.getEntityPropertyDescriptorMap().values()) {
+    Object originalEntity=DescriptorUtils.executeGetter(descriptor,clone);
+    Object cloneEntity=shallowClone(originalEntity);
+    DescriptorUtils.executeSetter(descriptor,clone,cloneEntity);
+  }
+  for (  PropertyDescriptor descriptor : solutionDescriptor.getEntityCollectionPropertyDescriptorMap().values()) {
+    Collection originalEntityCollection=(Collection)DescriptorUtils.executeGetter(descriptor,clone);
+    Collection cloneEntityCollection=shallowCloneEntityCollection(originalEntityCollection);
+    cloneEntityCollection.clear();
+    for (    Object originalEntity : originalEntityCollection) {
+      Object cloneEntity=shallowClone(originalEntity);
+      cloneEntityCollection.add(cloneEntity);
+    }
+    DescriptorUtils.executeSetter(descriptor,clone,cloneEntityCollection);
+  }
+}

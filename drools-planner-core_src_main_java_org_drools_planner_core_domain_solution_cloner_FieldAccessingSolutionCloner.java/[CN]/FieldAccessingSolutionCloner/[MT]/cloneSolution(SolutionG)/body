@@ -1,0 +1,5 @@
+{
+  SolutionG clone=shallowClone(original);
+  cloneEntityProperties(clone);
+  return clone;
+}

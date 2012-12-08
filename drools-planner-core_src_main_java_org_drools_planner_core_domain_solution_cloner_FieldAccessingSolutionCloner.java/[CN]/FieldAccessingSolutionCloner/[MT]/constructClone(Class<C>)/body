@@ -1,0 +1,10 @@
+{
+  try {
+    Constructor<C> constructor=clazz.getConstructor();
+    constructor.setAccessible(true);
+    return constructor.newInstance();
+  }
+ catch (  ReflectiveOperationException e) {
+    throw new IllegalStateException("The class (" + clazz + ") should have a no-arg constructor to create a clone.",e);
+  }
+}

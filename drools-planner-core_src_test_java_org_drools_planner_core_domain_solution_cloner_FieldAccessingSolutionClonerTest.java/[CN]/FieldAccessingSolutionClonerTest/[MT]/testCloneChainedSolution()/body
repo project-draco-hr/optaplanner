@@ -1,0 +1,33 @@
+{
+  SolutionDescriptor solutionDescriptor=TestdataSolution.buildSolutionDescriptor();
+  FieldAccessingSolutionCloner<TestdataChainedSolution> cloner=new FieldAccessingSolutionCloner<TestdataChainedSolution>(solutionDescriptor);
+  TestdataChainedAnchor a0=new TestdataChainedAnchor("a0");
+  TestdataChainedEntity a1=new TestdataChainedEntity("a1",a0);
+  TestdataChainedEntity a2=new TestdataChainedEntity("a2",a1);
+  TestdataChainedEntity a3=new TestdataChainedEntity("a3",a2);
+  TestdataChainedAnchor b0=new TestdataChainedAnchor("b0");
+  TestdataChainedEntity b1=new TestdataChainedEntity("b1",b0);
+  TestdataChainedSolution original=new TestdataChainedSolution("solution");
+  List<TestdataChainedAnchor> anchorList=Arrays.asList(a0,b0);
+  original.setChainedAnchorList(anchorList);
+  List<TestdataChainedEntity> originalEntityList=Arrays.asList(a1,a2,a3,b1);
+  original.setChainedEntityList(originalEntityList);
+  TestdataChainedSolution clone=cloner.cloneSolution(original);
+  assertNotSame(original,clone);
+  assertCode("solution",clone);
+  assertSame(anchorList,clone.getChainedAnchorList());
+  List<TestdataChainedEntity> cloneEntityList=clone.getChainedEntityList();
+  assertNotSame(originalEntityList,cloneEntityList);
+  assertEquals(4,cloneEntityList.size());
+  TestdataChainedEntity cloneA1=cloneEntityList.get(0);
+  TestdataChainedEntity cloneA2=cloneEntityList.get(1);
+  TestdataChainedEntity cloneA3=cloneEntityList.get(2);
+  TestdataChainedEntity cloneB1=cloneEntityList.get(3);
+  assertChainedEntityClone(a1,cloneA1,"a1",a0);
+  assertChainedEntityClone(a2,cloneA2,"a2",cloneA1);
+  assertChainedEntityClone(a3,cloneA3,"a3",cloneA2);
+  assertChainedEntityClone(b1,cloneB1,"b1",b0);
+  a3.setChainedObject(b1);
+  assertCode("b1",a3.getChainedObject());
+  assertCode("a2",cloneA3.getChainedObject());
+}

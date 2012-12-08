@@ -7,6 +7,6 @@
     solutionCloner=ConfigUtils.newInstance(this,"solutionClonerClass",solutionClonerClass);
   }
  else {
-    solutionCloner=new DefaultSolutionCloner();
+    solutionCloner=new FieldAccessingSolutionCloner(this);
   }
 }

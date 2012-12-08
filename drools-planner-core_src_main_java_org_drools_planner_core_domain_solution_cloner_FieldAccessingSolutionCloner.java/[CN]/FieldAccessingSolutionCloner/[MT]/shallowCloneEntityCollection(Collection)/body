@@ -1,0 +1,13 @@
+{
+  if (!(originalEntityCollection instanceof Cloneable)) {
+    throw new IllegalStateException("The entityCollection (" + originalEntityCollection + ") is an instance of a class ("+ originalEntityCollection.getClass()+ ") that does not implement Cloneable.");
+  }
+  Method cloneMethod=null;
+  try {
+    cloneMethod=originalEntityCollection.getClass().getMethod("clone");
+    return (Collection)cloneMethod.invoke(originalEntityCollection);
+  }
+ catch (  ReflectiveOperationException e) {
+    throw new IllegalStateException("Could not call clone() on entityCollection (" + originalEntityCollection + ") which is an instance of a class ("+ originalEntityCollection.getClass()+ ") and implements Cloneable.");
+  }
+}

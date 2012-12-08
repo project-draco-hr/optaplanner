@@ -1,0 +1,4 @@
+TestdataChainedEntity originalEntity
+TestdataChainedEntity cloneEntity
+String entityCode
+TestdataChainedObject value
