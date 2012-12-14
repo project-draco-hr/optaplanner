@@ -1,0 +1,16 @@
+{
+  for (  Field field : clazz.getDeclaredFields()) {
+    field.setAccessible(true);
+    Object originalValue=getField(original,field);
+    if (isDeepCloneField(field,originalValue)) {
+      unprocessedQueue.add(new UnprocessedCloneField(clone,field,originalValue));
+    }
+ else {
+      setField(clone,field,originalValue);
+    }
+  }
+  Class<? super C> superclass=clazz.getSuperclass();
+  if (superclass != null) {
+    copyFields(superclass,original,clone);
+  }
+}

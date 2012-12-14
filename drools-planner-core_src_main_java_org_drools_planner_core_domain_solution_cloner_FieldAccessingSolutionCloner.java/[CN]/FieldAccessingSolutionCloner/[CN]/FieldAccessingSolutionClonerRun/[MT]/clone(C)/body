@@ -1,0 +1,14 @@
+{
+  if (original == null) {
+    return null;
+  }
+  C existingClone=(C)originalToCloneMap.get(original);
+  if (existingClone != null) {
+    return existingClone;
+  }
+  Class<C> clazz=(Class<C>)original.getClass();
+  C clone=constructClone(clazz);
+  originalToCloneMap.put(original,clone);
+  copyFields(clazz,original,clone);
+  return clone;
+}

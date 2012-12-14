@@ -1,0 +1,20 @@
+{
+  if (originalValue == null) {
+    return false;
+  }
+  Class<?> declaringClass=field.getDeclaringClass();
+  if (declaringClass == ((Class)solutionDescriptor.getSolutionClass())) {
+    String fieldName=field.getName();
+    if (solutionDescriptor.getEntityPropertyDescriptorMap().get(fieldName) != null) {
+      return true;
+    }
+    if (solutionDescriptor.getEntityCollectionPropertyDescriptorMap().get(fieldName) != null) {
+      return true;
+    }
+  }
+  Class valueClass=originalValue.getClass();
+  if (solutionDescriptor.getPlanningEntityClassSet().contains(valueClass) || valueClass == ((Class)solutionDescriptor.getSolutionClass())) {
+    return true;
+  }
+  return false;
+}

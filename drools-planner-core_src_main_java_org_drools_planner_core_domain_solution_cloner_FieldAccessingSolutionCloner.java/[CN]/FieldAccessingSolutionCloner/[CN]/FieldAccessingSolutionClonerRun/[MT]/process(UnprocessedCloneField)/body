@@ -1,0 +1,13 @@
+{
+  Object cloneValue;
+  if (unprocessed.originalValue instanceof Collection) {
+    cloneValue=cloneCollection((Collection)unprocessed.originalValue);
+  }
+ else   if (unprocessed.originalValue instanceof Map) {
+    cloneValue=cloneMap((Map)unprocessed.originalValue);
+  }
+ else {
+    cloneValue=clone(unprocessed.originalValue);
+  }
+  setField(unprocessed.bean,unprocessed.field,cloneValue);
+}

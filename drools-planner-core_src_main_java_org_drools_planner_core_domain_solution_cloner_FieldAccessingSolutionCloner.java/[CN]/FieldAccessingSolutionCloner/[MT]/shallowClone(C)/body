@@ -1,6 +1,0 @@
-{
-  Class<C> clazz=(Class<C>)original.getClass();
-  C clone=constructClone(clazz);
-  shallowCopyFields(clazz,original,clone);
-  return clone;
-}

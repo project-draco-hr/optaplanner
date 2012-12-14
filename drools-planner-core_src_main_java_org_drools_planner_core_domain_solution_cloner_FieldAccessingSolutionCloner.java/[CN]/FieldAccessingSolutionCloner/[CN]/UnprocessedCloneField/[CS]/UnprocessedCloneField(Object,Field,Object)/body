@@ -1,0 +1,5 @@
+{
+  this.bean=bean;
+  this.field=field;
+  this.originalValue=originalValue;
+}

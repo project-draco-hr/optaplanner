@@ -1,5 +1,3 @@
 {
-  SolutionG clone=shallowClone(original);
-  cloneEntityProperties(clone);
-  return clone;
+  return new FieldAccessingSolutionClonerRun().cloneSolution(originalSolution);
 }

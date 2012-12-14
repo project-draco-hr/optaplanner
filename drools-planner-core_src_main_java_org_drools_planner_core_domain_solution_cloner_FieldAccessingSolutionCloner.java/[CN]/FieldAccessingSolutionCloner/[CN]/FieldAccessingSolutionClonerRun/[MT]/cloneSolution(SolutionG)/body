@@ -1,0 +1,7 @@
+{
+  unprocessedQueue=new LinkedList<UnprocessedCloneField>();
+  originalToCloneMap=new IdentityHashMap<Object,Object>(solutionDescriptor.getPlanningEntityCount(originalSolution) + 1);
+  SolutionG cloneSolution=clone(originalSolution);
+  processQueue();
+  return cloneSolution;
+}
