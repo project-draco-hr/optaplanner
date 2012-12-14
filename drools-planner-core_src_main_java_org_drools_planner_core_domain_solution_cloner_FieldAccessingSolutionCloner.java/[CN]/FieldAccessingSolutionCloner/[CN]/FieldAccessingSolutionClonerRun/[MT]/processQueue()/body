@@ -1,6 +1,6 @@
 {
   while (!unprocessedQueue.isEmpty()) {
-    UnprocessedCloneField unprocessedCloneField=unprocessedQueue.remove();
-    process(unprocessedCloneField);
+    Unprocessed unprocessed=unprocessedQueue.remove();
+    process(unprocessed);
   }
 }

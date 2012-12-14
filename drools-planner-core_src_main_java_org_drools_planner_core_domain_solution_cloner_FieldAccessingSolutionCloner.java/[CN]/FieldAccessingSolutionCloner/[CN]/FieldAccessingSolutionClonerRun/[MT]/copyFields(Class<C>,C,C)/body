@@ -3,7 +3,7 @@
     field.setAccessible(true);
     Object originalValue=getField(original,field);
     if (isDeepCloneField(field,originalValue)) {
-      unprocessedQueue.add(new UnprocessedCloneField(clone,field,originalValue));
+      unprocessedQueue.add(new Unprocessed(clone,field,originalValue));
     }
  else {
       setField(clone,field,originalValue);
