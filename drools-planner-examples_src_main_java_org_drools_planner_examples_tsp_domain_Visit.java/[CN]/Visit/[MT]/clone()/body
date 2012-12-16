@@ -1,7 +1,0 @@
-{
-  Visit clone=new Visit();
-  clone.id=id;
-  clone.city=city;
-  clone.previousAppearance=previousAppearance;
-  return clone;
-}

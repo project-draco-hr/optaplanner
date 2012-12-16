@@ -7,6 +7,11 @@
     solutionCloner=ConfigUtils.newInstance(this,"solutionClonerClass",solutionClonerClass);
   }
  else {
-    solutionCloner=new FieldAccessingSolutionCloner(this);
+    if (PlanningCloneable.class.isAssignableFrom(solutionClass)) {
+      solutionCloner=new PlanningCloneableSolutionCloner();
+    }
+ else {
+      solutionCloner=new FieldAccessingSolutionCloner(this);
+    }
   }
 }

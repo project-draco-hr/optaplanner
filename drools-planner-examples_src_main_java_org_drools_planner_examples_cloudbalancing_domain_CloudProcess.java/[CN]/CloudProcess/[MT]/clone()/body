@@ -1,9 +1,0 @@
-{
-  CloudProcess clone=new CloudProcess();
-  clone.id=id;
-  clone.requiredCpuPower=requiredCpuPower;
-  clone.requiredMemory=requiredMemory;
-  clone.requiredNetworkBandwidth=requiredNetworkBandwidth;
-  clone.computer=computer;
-  return clone;
-}

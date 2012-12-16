@@ -1,7 +1,0 @@
-{
-  BedDesignation clone=new BedDesignation();
-  clone.id=id;
-  clone.admissionPart=admissionPart;
-  clone.bed=bed;
-  return clone;
-}

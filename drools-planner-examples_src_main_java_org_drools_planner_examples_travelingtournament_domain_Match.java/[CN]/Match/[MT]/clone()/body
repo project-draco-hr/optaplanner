@@ -1,8 +1,0 @@
-{
-  Match clone=new Match();
-  clone.id=id;
-  clone.homeTeam=homeTeam;
-  clone.awayTeam=awayTeam;
-  clone.day=day;
-  return clone;
-}

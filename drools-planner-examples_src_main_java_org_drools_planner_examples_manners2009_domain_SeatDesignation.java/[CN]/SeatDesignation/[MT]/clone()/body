@@ -1,7 +1,0 @@
-{
-  SeatDesignation clone=new SeatDesignation();
-  clone.id=id;
-  clone.guest=guest;
-  clone.seat=seat;
-  return clone;
-}
