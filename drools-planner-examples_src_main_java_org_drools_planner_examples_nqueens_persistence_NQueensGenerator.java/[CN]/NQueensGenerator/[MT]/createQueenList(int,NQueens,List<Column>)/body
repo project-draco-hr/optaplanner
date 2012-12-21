@@ -1,0 +1,12 @@
+{
+  List<Queen> queenList=new ArrayList<Queen>(n);
+  long id=0;
+  for (  Column column : columnList) {
+    Queen queen=new Queen();
+    queen.setId(id);
+    id++;
+    queen.setColumn(column);
+    queenList.add(queen);
+  }
+  nQueens.setQueenList(queenList);
+}

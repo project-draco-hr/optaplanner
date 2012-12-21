@@ -1,0 +1,10 @@
+{
+  List<Row> rowList=new ArrayList<Row>(n);
+  for (int i=0; i < n; i++) {
+    Row row=new Row();
+    row.setId((long)i);
+    row.setIndex(i);
+    rowList.add(row);
+  }
+  nQueens.setRowList(rowList);
+}
