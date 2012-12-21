@@ -1,4 +1,5 @@
 {
+  int n=nQueens.getN();
   List<Column> columnList=new ArrayList<Column>(n);
   for (int i=0; i < n; i++) {
     Column column=new Column();
@@ -6,6 +7,5 @@
     column.setIndex(i);
     columnList.add(column);
   }
-  nQueens.setColumnList(columnList);
   return columnList;
 }

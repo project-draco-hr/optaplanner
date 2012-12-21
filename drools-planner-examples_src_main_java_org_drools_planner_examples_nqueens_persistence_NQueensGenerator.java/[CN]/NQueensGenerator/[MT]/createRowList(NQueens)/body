@@ -1,4 +1,5 @@
 {
+  int n=nQueens.getN();
   List<Row> rowList=new ArrayList<Row>(n);
   for (int i=0; i < n; i++) {
     Row row=new Row();
@@ -6,5 +7,5 @@
     row.setIndex(i);
     rowList.add(row);
   }
-  nQueens.setRowList(rowList);
+  return rowList;
 }
