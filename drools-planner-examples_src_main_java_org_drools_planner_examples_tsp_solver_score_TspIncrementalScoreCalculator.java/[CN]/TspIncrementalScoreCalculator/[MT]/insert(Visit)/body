@@ -1,0 +1,8 @@
+{
+  Appearance previousAppearance=visit.getPreviousAppearance();
+  if (previousAppearance != null) {
+    score-=visit.getDistanceToPreviousAppearance();
+    score+=domicile.getCity().getDistance(previousAppearance.getCity());
+    score-=domicile.getCity().getDistance(visit.getCity());
+  }
+}
