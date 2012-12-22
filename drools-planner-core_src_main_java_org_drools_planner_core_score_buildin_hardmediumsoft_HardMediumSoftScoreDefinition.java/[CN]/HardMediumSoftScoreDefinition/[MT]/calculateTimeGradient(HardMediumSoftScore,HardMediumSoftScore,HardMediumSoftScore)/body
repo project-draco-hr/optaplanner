@@ -5,7 +5,7 @@
  else   if (score.compareTo(startScore) < 0) {
     return 0.0;
   }
-  double softScoreTimeGradientWeight=1.0 - hardScoreTimeGradientWeight;
+  double softScoreTimeGradientWeight=1.0 - this.hardScoreTimeGradientWeight - this.mediumScoreTimeGradientWeight;
   double timeGradient=0.0;
   if (startScore.getHardScore() == endScore.getHardScore()) {
     timeGradient+=hardScoreTimeGradientWeight;
@@ -15,6 +15,17 @@
     int hardScoreDelta=score.getHardScore() - startScore.getHardScore();
     double hardTimeGradient=(double)hardScoreDelta / (double)hardScoreTotal;
     timeGradient+=hardTimeGradient * hardScoreTimeGradientWeight;
+  }
+  if (score.getMediumScore() >= endScore.getMediumScore()) {
+    timeGradient+=mediumScoreTimeGradientWeight;
+  }
+ else   if (score.getMediumScore() <= startScore.getMediumScore()) {
+  }
+ else {
+    int mediumScoreTotal=endScore.getMediumScore() - startScore.getMediumScore();
+    int mediumScoreDelta=score.getMediumScore() - startScore.getMediumScore();
+    double mediumTimeGradient=(double)mediumScoreDelta / (double)mediumScoreTotal;
+    timeGradient+=mediumTimeGradient * mediumScoreTimeGradientWeight;
   }
   if (score.getSoftScore() >= endScore.getSoftScore()) {
     timeGradient+=softScoreTimeGradientWeight;

@@ -1,0 +1,3 @@
+{
+  return new DefaultHardMediumSoftScore(hardScore + augment.getHardScore(),mediumScore + augment.getMediumScore(),softScore + augment.getSoftScore());
+}

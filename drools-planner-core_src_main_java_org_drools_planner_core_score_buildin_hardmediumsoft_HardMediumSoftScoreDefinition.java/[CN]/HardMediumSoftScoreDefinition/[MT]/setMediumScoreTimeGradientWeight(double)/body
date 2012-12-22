@@ -1,0 +1,6 @@
+{
+  this.mediumScoreTimeGradientWeight=mediumScoreTimeGradientWeight;
+  if (mediumScoreTimeGradientWeight < 0.0 || mediumScoreTimeGradientWeight > 1.0) {
+    throw new IllegalArgumentException("Property mediumScoreTimeGradientWeight (" + mediumScoreTimeGradientWeight + ") must be greater or equal to 0.0 and smaller or equal to 1.0.");
+  }
+}
