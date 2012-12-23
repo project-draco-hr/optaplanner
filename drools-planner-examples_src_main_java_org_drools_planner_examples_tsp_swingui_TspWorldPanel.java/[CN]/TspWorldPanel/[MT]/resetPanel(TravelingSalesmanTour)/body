@@ -33,6 +33,12 @@
       g.drawString(city.getName(),x + 3,y - 3);
     }
   }
+  Set<Visit> needsBackToDomicileLineSet=new HashSet<Visit>(travelingSalesmanTour.getVisitList());
+  for (  Visit trailingVisit : travelingSalesmanTour.getVisitList()) {
+    if (trailingVisit.getPreviousAppearance() instanceof Visit) {
+      needsBackToDomicileLineSet.remove(trailingVisit.getPreviousAppearance());
+    }
+  }
   g.setColor(TangoColors.CHOCOLATE_1);
   for (  Visit visit : travelingSalesmanTour.getVisitList()) {
     if (visit.getPreviousAppearance() != null) {
@@ -43,14 +49,7 @@
       int x=translator.translateLongitudeToX(city.getLongitude());
       int y=translator.translateLatitudeToY(city.getLatitude());
       g.drawLine(previousX,previousY,x,y);
-      boolean needsBackToDomicileLineDraw=true;
-      for (      Visit trailingVisit : travelingSalesmanTour.getVisitList()) {
-        if (trailingVisit.getPreviousAppearance() == visit) {
-          needsBackToDomicileLineDraw=false;
-          break;
-        }
-      }
-      if (needsBackToDomicileLineDraw) {
+      if (needsBackToDomicileLineSet.contains(visit)) {
         Domicile domicile=travelingSalesmanTour.getDomicileList().get(0);
         City domicileCity=domicile.getCity();
         int domicileX=translator.translateLongitudeToX(domicileCity.getLongitude());
