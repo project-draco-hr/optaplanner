@@ -1,5 +1,6 @@
 {
   JFileChooser fileChooser=new JFileChooser(solutionBusiness.getExportDataDir());
+  fileChooser.setDialogTitle(NAME);
   int approved=fileChooser.showSaveDialog(SolverAndPersistenceFrame.this);
   if (approved == JFileChooser.APPROVE_OPTION) {
     setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
