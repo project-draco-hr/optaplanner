@@ -4,7 +4,16 @@
     constructor.setAccessible(true);
     return constructor.newInstance();
   }
- catch (  ReflectiveOperationException e) {
+ catch (  InvocationTargetException e) {
+    throw new IllegalStateException("The class (" + clazz + ") should have a no-arg constructor to create a clone.",e);
+  }
+catch (  NoSuchMethodException e) {
+    throw new IllegalStateException("The class (" + clazz + ") should have a no-arg constructor to create a clone.",e);
+  }
+catch (  InstantiationException e) {
+    throw new IllegalStateException("The class (" + clazz + ") should have a no-arg constructor to create a clone.",e);
+  }
+catch (  IllegalAccessException e) {
     throw new IllegalStateException("The class (" + clazz + ") should have a no-arg constructor to create a clone.",e);
   }
 }

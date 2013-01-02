@@ -7,7 +7,13 @@
     Method cloneMethod=originalCollection.getClass().getMethod("clone");
     cloneCollection=(Collection)cloneMethod.invoke(originalCollection);
   }
- catch (  ReflectiveOperationException e) {
+ catch (  InvocationTargetException e) {
+    throw new IllegalStateException("Could not call clone() on collection (" + originalCollection + ") which is an instance of a class ("+ originalCollection.getClass()+ ") and implements Cloneable.");
+  }
+catch (  NoSuchMethodException e) {
+    throw new IllegalStateException("Could not call clone() on collection (" + originalCollection + ") which is an instance of a class ("+ originalCollection.getClass()+ ") and implements Cloneable.");
+  }
+catch (  IllegalAccessException e) {
     throw new IllegalStateException("Could not call clone() on collection (" + originalCollection + ") which is an instance of a class ("+ originalCollection.getClass()+ ") and implements Cloneable.");
   }
   cloneCollection.clear();
