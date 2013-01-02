@@ -4,6 +4,6 @@
   BruteForceSolverPhaseScope bruteForceSolverPhaseScope=stepScope.getPhaseScope();
   if (logger.isDebugEnabled()) {
     long timeMillisSpend=bruteForceSolverPhaseScope.calculateSolverTimeMillisSpend();
-    logger.debug("    Step index ({}), time spend ({}), score ({}), {} best score ({}).",new Object[]{stepScope.getStepIndex(),timeMillisSpend,stepScope.getScore(),(stepScope.getBestScoreImproved() ? "new" : "   "),bruteForceSolverPhaseScope.getBestScore()});
+    logger.debug("    Step index ({}), time spend ({}), score ({}), {} best score ({}).",stepScope.getStepIndex(),timeMillisSpend,stepScope.getScore(),(stepScope.getBestScoreImproved() ? "new" : "   "),bruteForceSolverPhaseScope.getBestScore());
   }
 }
