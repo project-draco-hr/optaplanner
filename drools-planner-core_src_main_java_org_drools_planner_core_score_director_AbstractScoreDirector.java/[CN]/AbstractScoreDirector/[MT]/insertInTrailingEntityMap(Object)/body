@@ -1,22 +1,19 @@
 {
   if (hasChainedVariables) {
-    for (    Map.Entry<PlanningVariableDescriptor,Map<Object,List<Object>>> entry : chainedVariableToTrailingEntitiesMap.entrySet()) {
+    for (    Map.Entry<PlanningVariableDescriptor,Map<Object,Set<Object>>> entry : chainedVariableToTrailingEntitiesMap.entrySet()) {
       PlanningVariableDescriptor variableDescriptor=entry.getKey();
       if (variableDescriptor.getPlanningEntityDescriptor().appliesToPlanningEntity(entity)) {
         Object value=variableDescriptor.getValue(entity);
-        Map<Object,List<Object>> valueToTrailingEntityMap=entry.getValue();
-        List<Object> trailingEntities=valueToTrailingEntityMap.get(value);
+        Map<Object,Set<Object>> valueToTrailingEntityMap=entry.getValue();
+        Set<Object> trailingEntities=valueToTrailingEntityMap.get(value);
         if (trailingEntities == null) {
-          trailingEntities=new ArrayList<Object>();
+          trailingEntities=Collections.newSetFromMap(new IdentityHashMap<Object,Boolean>());
           valueToTrailingEntityMap.put(value,trailingEntities);
         }
- else {
-          if (trailingEntities.contains(entity)) {
-            Object containedEntity=trailingEntities.get(trailingEntities.indexOf(entity));
-            throw new IllegalStateException("The entity (" + entity + ") for chained planningVariable ("+ variableDescriptor.getVariableName()+ ") was already inserted as containedEntity ("+ containedEntity+ ").");
-          }
+        boolean addSucceeded=trailingEntities.add(entity);
+        if (!addSucceeded) {
+          throw new IllegalStateException("The ScoreDirector (" + getClass() + ") is corrupted,"+ " because the entity ("+ entity+ ") for chained planningVariable ("+ variableDescriptor.getVariableName()+ ") cannot be inserted: it was already inserted.");
         }
-        trailingEntities.add(entity);
       }
     }
   }

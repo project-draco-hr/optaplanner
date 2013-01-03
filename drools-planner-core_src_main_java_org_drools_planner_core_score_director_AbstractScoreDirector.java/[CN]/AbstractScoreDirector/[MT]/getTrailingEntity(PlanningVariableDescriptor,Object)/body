@@ -1,10 +1,10 @@
 {
-  List<Object> trailingEntities=chainedVariableToTrailingEntitiesMap.get(chainedVariableDescriptor).get(planningValue);
+  Set<Object> trailingEntities=chainedVariableToTrailingEntitiesMap.get(chainedVariableDescriptor).get(planningValue);
   if (trailingEntities == null) {
     return null;
   }
   if (trailingEntities.size() > 1) {
     throw new IllegalStateException("The planningValue (" + planningValue + ") has multiple trailing entities ("+ trailingEntities+ ") pointing to it for chained planningVariable ("+ chainedVariableDescriptor.getVariableName()+ ").");
   }
-  return trailingEntities.get(0);
+  return trailingEntities.iterator().next();
 }
