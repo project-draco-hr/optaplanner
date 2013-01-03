@@ -1,7 +1,0 @@
-{
-  Collection<?> entityCollection=(Collection<?>)DescriptorUtils.executeGetter(entityCollectionPropertyDescriptor,solution);
-  if (entityCollection == null) {
-    throw new IllegalArgumentException("The solutionClass (" + solutionClass + ")'s entityCollectionProperty ("+ entityCollectionPropertyDescriptor.getName()+ ") should never return null.");
-  }
-  return entityCollection;
-}

@@ -1,0 +1,8 @@
+{
+  for (  PropertyDescriptor propertyDescriptor : planningEntityBeanInfo.getPropertyDescriptors()) {
+    if (propertyDescriptor.getName().equals(propertyName)) {
+      return new PropertyAccessor(propertyDescriptor);
+    }
+  }
+  return null;
+}

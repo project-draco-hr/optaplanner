@@ -1,17 +1,15 @@
 {
   Collection<Object> facts=new ArrayList<Object>();
   facts.addAll(solution.getProblemFacts());
-  for (  PropertyDescriptor entityPropertyDescriptor : entityPropertyDescriptorMap.values()) {
-    Object entity=extractPlanningEntity(entityPropertyDescriptor,solution);
+  for (  PropertyAccessor entityPropertyAccessor : entityPropertyAccessorMap.values()) {
+    Object entity=extractPlanningEntity(entityPropertyAccessor,solution);
     if (entity != null) {
-      PlanningEntityDescriptor planningEntityDescriptor=getPlanningEntityDescriptor(entity.getClass());
       facts.add(entity);
     }
   }
-  for (  PropertyDescriptor entityCollectionPropertyDescriptor : entityCollectionPropertyDescriptorMap.values()) {
-    Collection<?> entityCollection=extractPlanningEntityCollection(entityCollectionPropertyDescriptor,solution);
+  for (  PropertyAccessor entityCollectionPropertyAccessor : entityCollectionPropertyAccessorMap.values()) {
+    Collection<?> entityCollection=extractPlanningEntityCollection(entityCollectionPropertyAccessor,solution);
     for (    Object entity : entityCollection) {
-      PlanningEntityDescriptor planningEntityDescriptor=getPlanningEntityDescriptor(entity.getClass());
       facts.add(entity);
     }
   }

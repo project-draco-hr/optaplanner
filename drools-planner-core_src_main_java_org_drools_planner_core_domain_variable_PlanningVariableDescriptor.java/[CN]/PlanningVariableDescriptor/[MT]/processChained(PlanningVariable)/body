@@ -1,9 +1,9 @@
 {
   chained=planningVariableAnnotation.chained();
-  if (chained && !variablePropertyDescriptor.getPropertyType().isAssignableFrom(planningEntityDescriptor.getPlanningEntityClass())) {
-    throw new IllegalArgumentException("The planningEntityClass (" + planningEntityDescriptor.getPlanningEntityClass() + ") has a PlanningVariable annotated property ("+ variablePropertyDescriptor.getName()+ ") with chained ("+ chained+ ") and propertyType ("+ variablePropertyDescriptor.getPropertyType()+ ") which is not a superclass/interface of or the same as the planningEntityClass ("+ planningEntityDescriptor.getPlanningEntityClass()+ ").");
+  if (chained && !variablePropertyAccessor.getPropertyType().isAssignableFrom(planningEntityDescriptor.getPlanningEntityClass())) {
+    throw new IllegalArgumentException("The planningEntityClass (" + planningEntityDescriptor.getPlanningEntityClass() + ") has a PlanningVariable annotated property ("+ variablePropertyAccessor.getName()+ ") with chained ("+ chained+ ") and propertyType ("+ variablePropertyAccessor.getPropertyType()+ ") which is not a superclass/interface of or the same as the planningEntityClass ("+ planningEntityDescriptor.getPlanningEntityClass()+ ").");
   }
   if (chained && nullable) {
-    throw new IllegalArgumentException("The planningEntityClass (" + planningEntityDescriptor.getPlanningEntityClass() + ") has a PlanningVariable annotated property ("+ variablePropertyDescriptor.getName()+ ") with chained ("+ chained+ "), which is not compatible with nullable ("+ nullable+ ").");
+    throw new IllegalArgumentException("The planningEntityClass (" + planningEntityDescriptor.getPlanningEntityClass() + ") has a PlanningVariable annotated property ("+ variablePropertyAccessor.getName()+ ") with chained ("+ chained+ "), which is not compatible with nullable ("+ nullable+ ").");
   }
 }

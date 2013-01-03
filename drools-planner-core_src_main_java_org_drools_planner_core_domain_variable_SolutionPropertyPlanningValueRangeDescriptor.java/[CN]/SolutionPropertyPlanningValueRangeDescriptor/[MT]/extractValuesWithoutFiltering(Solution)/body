@@ -1,3 +1,3 @@
 {
-  return (Collection<?>)DescriptorUtils.executeGetter(rangePropertyDescriptor,solution);
+  return (Collection<?>)rangePropertyAccessor.executeGetter(solution);
 }

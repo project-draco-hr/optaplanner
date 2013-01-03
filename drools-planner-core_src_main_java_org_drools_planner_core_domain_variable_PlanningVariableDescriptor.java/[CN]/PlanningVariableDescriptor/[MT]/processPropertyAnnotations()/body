@@ -1,5 +1,5 @@
 {
-  PlanningVariable planningVariableAnnotation=variablePropertyDescriptor.getReadMethod().getAnnotation(PlanningVariable.class);
+  PlanningVariable planningVariableAnnotation=variablePropertyAccessor.getReadMethod().getAnnotation(PlanningVariable.class);
   valueSorter=new PlanningValueSorter();
   processNullable(planningVariableAnnotation);
   processStrength(planningVariableAnnotation);

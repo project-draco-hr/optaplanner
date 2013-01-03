@@ -1,3 +1,0 @@
-{
-  return DescriptorUtils.executeGetter(entityPropertyDescriptor,solution);
-}

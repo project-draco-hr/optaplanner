@@ -1,8 +1,8 @@
 {
   String planningEntityProperty=valueRangeAnnotation.planningEntityProperty();
   PlanningEntityDescriptor planningEntityDescriptor=variableDescriptor.getPlanningEntityDescriptor();
-  rangePropertyDescriptor=planningEntityDescriptor.getPropertyDescriptor(planningEntityProperty);
-  if (rangePropertyDescriptor == null) {
+  rangePropertyAccessor=planningEntityDescriptor.getPropertyAccessor(planningEntityProperty);
+  if (rangePropertyAccessor == null) {
     String exceptionMessage="The planningEntityClass (" + planningEntityDescriptor.getPlanningEntityClass() + ") has a PlanningVariable annotated property ("+ variableDescriptor.getVariableName()+ ") that refers to a planningEntityProperty ("+ planningEntityProperty+ ") that does not exist.";
     if (planningEntityProperty.length() >= 2 && Character.isUpperCase(planningEntityProperty.charAt(1))) {
       String correctedPlanningEntityProperty=planningEntityProperty.substring(0,1).toUpperCase() + planningEntityProperty.substring(1);
@@ -10,7 +10,7 @@
     }
     throw new IllegalArgumentException(exceptionMessage);
   }
-  if (!Collection.class.isAssignableFrom(rangePropertyDescriptor.getPropertyType())) {
+  if (!Collection.class.isAssignableFrom(rangePropertyAccessor.getPropertyType())) {
     throw new IllegalArgumentException("The planningEntityClass (" + planningEntityDescriptor.getPlanningEntityClass() + ") has a PlanningVariable annotated property ("+ variableDescriptor.getVariableName()+ ") that refers to a planningEntityProperty ("+ planningEntityProperty+ ") that does not return a Collection.");
   }
 }

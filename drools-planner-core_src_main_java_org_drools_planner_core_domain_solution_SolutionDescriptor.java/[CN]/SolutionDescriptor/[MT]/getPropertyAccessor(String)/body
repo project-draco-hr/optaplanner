@@ -1,0 +1,3 @@
+{
+  return propertyAccessorMap.get(propertyName);
+}
