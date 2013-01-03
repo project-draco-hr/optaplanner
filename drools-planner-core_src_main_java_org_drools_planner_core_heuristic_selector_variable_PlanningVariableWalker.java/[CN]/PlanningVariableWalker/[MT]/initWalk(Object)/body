@@ -1,8 +1,6 @@
 {
   this.planningEntity=planningEntity;
-  scoreDirector.beforeEntityAdded(planningEntity);
   for (  PlanningValueWalker planningValueWalker : planningValueWalkerList) {
     planningValueWalker.initWalk(planningEntity);
   }
-  scoreDirector.afterEntityAdded(planningEntity);
 }

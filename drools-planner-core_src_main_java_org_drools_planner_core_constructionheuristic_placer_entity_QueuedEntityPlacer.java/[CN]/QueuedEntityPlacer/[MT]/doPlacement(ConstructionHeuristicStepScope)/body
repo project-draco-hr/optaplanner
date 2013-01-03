@@ -1,8 +1,11 @@
 {
   Object entity=entityIterator.next();
+  while (entitySelector.getEntityDescriptor().isInitialized(entity)) {
+    if (!entityIterator.hasNext()) {
+      return;
+    }
+    entity=entityIterator.next();
+  }
   stepScope.setEntity(entity);
-  ScoreDirector scoreDirector=stepScope.getScoreDirector();
-  scoreDirector.beforeEntityAdded(entity);
-  scoreDirector.afterEntityAdded(entity);
   valuePlacer.doPlacement(stepScope);
 }

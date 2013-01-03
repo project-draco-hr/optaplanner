@@ -6,7 +6,7 @@
         Object value=variableDescriptor.getValue(entity);
         Map<Object,List<Object>> valueToTrailingEntityMap=entry.getValue();
         List<Object> trailingEntities=valueToTrailingEntityMap.get(value);
-        boolean removeSucceeded=trailingEntities.remove(entity);
+        boolean removeSucceeded=trailingEntities != null && trailingEntities.remove(entity);
         if (!removeSucceeded) {
           throw new IllegalStateException("The ScoreDirector (" + getClass() + ") is corrupted,"+ " because the entity ("+ entity+ ") for chained planningVariable ("+ variableDescriptor.getVariableName()+ ") was never inserted.");
         }
