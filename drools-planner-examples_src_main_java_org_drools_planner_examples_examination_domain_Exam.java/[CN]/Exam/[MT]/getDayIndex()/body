@@ -1,0 +1,6 @@
+{
+  if (period == null) {
+    return Integer.MIN_VALUE;
+  }
+  return period.getDayIndex();
+}
