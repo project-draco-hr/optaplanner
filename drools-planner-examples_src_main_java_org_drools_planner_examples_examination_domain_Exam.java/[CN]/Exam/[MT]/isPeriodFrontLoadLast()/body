@@ -1,0 +1,6 @@
+{
+  if (period == null) {
+    return false;
+  }
+  return period.isFrontLoadLast();
+}
