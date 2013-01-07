@@ -1,3 +1,0 @@
-{
-  this(hardScore,Long.MIN_VALUE);
-}

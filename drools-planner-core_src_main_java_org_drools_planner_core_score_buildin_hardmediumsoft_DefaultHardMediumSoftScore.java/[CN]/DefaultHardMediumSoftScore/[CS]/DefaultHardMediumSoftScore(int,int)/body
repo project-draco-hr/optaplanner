@@ -1,3 +1,0 @@
-{
-  this(hardScore,mediumScore,Integer.MIN_VALUE);
-}

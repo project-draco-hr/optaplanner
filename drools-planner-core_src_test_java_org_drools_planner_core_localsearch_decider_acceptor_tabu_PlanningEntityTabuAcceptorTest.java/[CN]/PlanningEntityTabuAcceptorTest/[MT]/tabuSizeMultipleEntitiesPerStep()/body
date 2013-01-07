@@ -8,7 +8,7 @@
   TestdataEntity e3=new TestdataEntity("e3");
   TestdataEntity e4=new TestdataEntity("e4");
   DefaultSolverScope solverScope=new DefaultSolverScope();
-  solverScope.setBestScore(new DefaultSimpleScore(0));
+  solverScope.setBestScore(DefaultSimpleScore.valueOf(0));
   LocalSearchSolverPhaseScope phaseScope=new LocalSearchSolverPhaseScope(solverScope);
   acceptor.phaseStarted(phaseScope);
   LocalSearchStepScope stepScope0=new LocalSearchStepScope(phaseScope);

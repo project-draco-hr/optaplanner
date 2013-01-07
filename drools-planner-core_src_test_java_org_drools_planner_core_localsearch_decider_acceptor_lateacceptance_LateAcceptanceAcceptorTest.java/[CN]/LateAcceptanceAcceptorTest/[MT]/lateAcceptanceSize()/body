@@ -2,7 +2,7 @@
   LateAcceptanceAcceptor acceptor=new LateAcceptanceAcceptor();
   acceptor.setLateAcceptanceSize(3);
   DefaultSolverScope solverScope=new DefaultSolverScope();
-  solverScope.setBestScore(new DefaultSimpleScore(-1000));
+  solverScope.setBestScore(DefaultSimpleScore.valueOf(-1000));
   LocalSearchSolverPhaseScope phaseScope=new LocalSearchSolverPhaseScope(solverScope);
   acceptor.phaseStarted(phaseScope);
   LocalSearchStepScope stepScope0=new LocalSearchStepScope(phaseScope);
