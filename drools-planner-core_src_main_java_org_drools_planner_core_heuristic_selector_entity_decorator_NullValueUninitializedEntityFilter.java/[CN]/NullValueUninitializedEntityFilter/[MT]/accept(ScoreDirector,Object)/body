@@ -1,4 +1,0 @@
-{
-  Object value=planningVariableDescriptor.getValue(selection);
-  return value == null;
-}
