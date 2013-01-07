@@ -17,6 +17,5 @@
   planningEntityDescriptor=solutionDescriptor.getPlanningEntityDescriptor(planningEntityClass);
   PlanningEntitySelector planningEntitySelector=new PlanningEntitySelector(planningEntityDescriptor);
   planningEntitySelector.setSelectionOrder(selectionOrder != null ? selectionOrder : PlanningEntitySelectionOrder.ORIGINAL);
-  planningEntitySelector.setResetInitializedPlanningEntities(resetInitializedPlanningEntities != null ? resetInitializedPlanningEntities.booleanValue() : false);
   return planningEntitySelector;
 }

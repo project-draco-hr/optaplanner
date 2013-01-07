@@ -2,7 +2,4 @@
   if (selectionOrder == null) {
     selectionOrder=inheritedConfig.getSelectionOrder();
   }
-  if (resetInitializedPlanningEntities == null) {
-    resetInitializedPlanningEntities=inheritedConfig.getResetInitializedPlanningEntities();
-  }
 }

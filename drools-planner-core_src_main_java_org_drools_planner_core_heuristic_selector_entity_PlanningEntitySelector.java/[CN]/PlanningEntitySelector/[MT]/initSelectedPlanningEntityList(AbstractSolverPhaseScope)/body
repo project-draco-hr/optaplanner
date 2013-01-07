@@ -6,15 +6,7 @@
       it.remove();
     }
  else     if (planningEntityDescriptor.isInitialized(planningEntity)) {
-      if (resetInitializedPlanningEntities) {
-        ScoreDirector scoreDirector=phaseScope.getScoreDirector();
-        scoreDirector.beforeEntityRemoved(planningEntity);
-        planningEntityDescriptor.uninitialize(planningEntity);
-        scoreDirector.afterEntityRemoved(planningEntity);
-      }
- else {
-        it.remove();
-      }
+      it.remove();
     }
   }
 switch (selectionOrder) {

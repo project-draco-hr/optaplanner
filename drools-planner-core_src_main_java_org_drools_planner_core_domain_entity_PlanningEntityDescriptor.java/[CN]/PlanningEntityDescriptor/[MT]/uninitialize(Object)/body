@@ -1,5 +1,0 @@
-{
-  for (  PlanningVariableDescriptor planningVariableDescriptor : planningVariableDescriptorMap.values()) {
-    planningVariableDescriptor.uninitialize(planningEntity);
-  }
-}
