@@ -1,6 +1,6 @@
 {
   Object entity=entityIterator.next();
-  while (entitySelector.getEntityDescriptor().isInitialized(entity)) {
+  while (valuePlacer.getVariableDescriptor().isInitialized(entity)) {
     if (!entityIterator.hasNext()) {
       return;
     }
