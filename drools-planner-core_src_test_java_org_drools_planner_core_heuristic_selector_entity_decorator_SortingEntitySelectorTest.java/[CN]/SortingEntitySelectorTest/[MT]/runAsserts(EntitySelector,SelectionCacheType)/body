@@ -1,0 +1,20 @@
+{
+  Iterator<Object> iterator=entitySelector.iterator();
+  assertNotNull(iterator);
+  assertTrue(iterator.hasNext());
+  assertCode("apr",iterator.next());
+  assertTrue(iterator.hasNext());
+  assertCode("feb",iterator.next());
+  assertTrue(iterator.hasNext());
+  assertCode("jan",iterator.next());
+  assertTrue(iterator.hasNext());
+  assertCode("jun",iterator.next());
+  assertTrue(iterator.hasNext());
+  assertCode("mar",iterator.next());
+  assertTrue(iterator.hasNext());
+  assertCode("may",iterator.next());
+  assertFalse(iterator.hasNext());
+  assertEquals(false,entitySelector.isContinuous());
+  assertEquals(false,entitySelector.isNeverEnding());
+  assertEquals(6L,entitySelector.getSize());
+}

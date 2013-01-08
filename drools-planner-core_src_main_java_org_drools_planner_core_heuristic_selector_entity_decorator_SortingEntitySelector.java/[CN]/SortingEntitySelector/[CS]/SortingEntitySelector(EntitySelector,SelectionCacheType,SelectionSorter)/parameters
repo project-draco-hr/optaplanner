@@ -1,3 +1,3 @@
 EntitySelector childEntitySelector
 SelectionCacheType cacheType
-PlanningEntitySorter planningEntitySorter
+SelectionSorter entitySelectionSorter
