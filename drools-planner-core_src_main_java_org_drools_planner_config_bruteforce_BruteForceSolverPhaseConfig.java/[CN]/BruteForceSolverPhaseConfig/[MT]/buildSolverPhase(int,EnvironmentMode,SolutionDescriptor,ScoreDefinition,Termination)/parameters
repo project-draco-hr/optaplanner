@@ -1,4 +1,5 @@
-AbstractSolverPhase solverPhase
+int phaseIndex
 EnvironmentMode environmentMode
+SolutionDescriptor solutionDescriptor
 ScoreDefinition scoreDefinition
 Termination solverTermination

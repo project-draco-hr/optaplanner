@@ -1,7 +1,7 @@
 {
   if (constructionHeuristicType != null) {
     DefaultGreedyFitSolverPhase greedySolverPhase=new DefaultGreedyFitSolverPhase();
-    configureSolverPhase(greedySolverPhase,environmentMode,scoreDefinition,solverTermination);
+    configureSolverPhase(greedySolverPhase,phaseIndex,environmentMode,scoreDefinition,solverTermination);
     greedySolverPhase.setGreedyPlanningEntitySelector(buildGreedyPlanningEntitySelector(solutionDescriptor));
     greedySolverPhase.setGreedyDecider(buildGreedyDecider(solutionDescriptor,environmentMode));
     if (environmentMode == EnvironmentMode.DEBUG || environmentMode == EnvironmentMode.TRACE) {
@@ -14,7 +14,7 @@
       throw new UnsupportedOperationException();
     }
     DefaultConstructionHeuristicSolverPhase phase=new DefaultConstructionHeuristicSolverPhase();
-    configureSolverPhase(phase,environmentMode,scoreDefinition,solverTermination);
+    configureSolverPhase(phase,phaseIndex,environmentMode,scoreDefinition,solverTermination);
     List<EntityPlacer> entityPlacerList=new ArrayList<EntityPlacer>(entityPlacerConfigList.size());
     for (    EntityPlacerConfig entityPlacerConfig : entityPlacerConfigList) {
       EntityPlacer entityPlacer=entityPlacerConfig.buildEntityPlacer(environmentMode,solutionDescriptor,phase.getTermination());

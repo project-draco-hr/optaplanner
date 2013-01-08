@@ -1,6 +1,6 @@
 {
   DefaultCustomSolverPhase customSolverPhase=new DefaultCustomSolverPhase();
-  configureSolverPhase(customSolverPhase,environmentMode,scoreDefinition,solverTermination);
+  configureSolverPhase(customSolverPhase,phaseIndex,environmentMode,scoreDefinition,solverTermination);
   if (CollectionUtils.isEmpty(customSolverPhaseCommandClassList)) {
     throw new IllegalArgumentException("Configure at least 1 <customSolverPhaseCommandClass> in the <customSolverPhase> configuration.");
   }
