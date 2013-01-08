@@ -1,9 +1,9 @@
 {
-  super.stepEnded(greedyFitStepScope);
-  greedyPlanningEntitySelector.stepEnded(greedyFitStepScope);
-  greedyDecider.stepEnded(greedyFitStepScope);
+  super.stepEnded(stepScope);
+  greedyPlanningEntitySelector.stepEnded(stepScope);
+  greedyDecider.stepEnded(stepScope);
   if (logger.isDebugEnabled()) {
-    long timeMillisSpend=greedyFitStepScope.getPhaseScope().calculateSolverTimeMillisSpend();
-    logger.debug("    Step index ({}), time spend ({}), score ({}), initialized planning entity ({}).",greedyFitStepScope.getStepIndex(),timeMillisSpend,greedyFitStepScope.getScore(),greedyFitStepScope.getPlanningEntity());
+    long timeMillisSpend=stepScope.getPhaseScope().calculateSolverTimeMillisSpend();
+    logger.debug("    Step index ({}), time spend ({}), score ({}), initialized planning entity ({}).",stepScope.getStepIndex(),timeMillisSpend,stepScope.getScore(),stepScope.getPlanningEntity());
   }
 }

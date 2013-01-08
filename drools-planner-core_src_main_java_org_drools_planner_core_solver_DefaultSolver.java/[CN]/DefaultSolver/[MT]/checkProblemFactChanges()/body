@@ -11,7 +11,9 @@
       count++;
       problemFactChange=problemFactChangeQueue.poll();
     }
-    bestSolutionRecaller.updateBestSolution(solverScope,solverScope.getScoreDirector().cloneWorkingSolution());
+    Solution newBestSolution=solverScope.getScoreDirector().cloneWorkingSolution();
+    boolean newBestSolutionInitialized=solverScope.isWorkingSolutionInitialized();
+    bestSolutionRecaller.updateBestSolution(solverScope,newBestSolution,newBestSolutionInitialized);
     logger.info("Done {} ProblemFactChange(s): new score ({}) possibly uninitialized. Restarting solver.",count,score);
   }
 }

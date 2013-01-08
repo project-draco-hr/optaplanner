@@ -1,13 +1,10 @@
 {
-  boolean workingSolutionInitialized=solverScope.isWorkingSolutionInitialized();
-  Score startingInitializedScore;
-  if (workingSolutionInitialized) {
-    startingInitializedScore=solverScope.calculateScore();
+  boolean solutionInitialized=solverScope.isWorkingSolutionInitialized();
+  solverScope.setBestSolutionInitialized(solutionInitialized);
+  Score score=solverScope.calculateScore();
+  solverScope.setBestScore(score);
+  solverScope.getBestSolution().setScore(score);
+  if (solutionInitialized) {
+    solverScope.setStartingInitializedScore(score);
   }
- else {
-    startingInitializedScore=null;
-  }
-  solverScope.setStartingInitializedScore(startingInitializedScore);
-  solverScope.setBestScore(startingInitializedScore);
-  solverScope.getBestSolution().setScore(startingInitializedScore);
 }

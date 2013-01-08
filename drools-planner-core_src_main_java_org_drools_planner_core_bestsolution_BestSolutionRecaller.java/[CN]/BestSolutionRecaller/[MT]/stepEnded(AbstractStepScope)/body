@@ -1,24 +1,19 @@
 {
-  if (!stepScope.isSolutionInitialized()) {
+  if (stepScope.isBestSolutionCloningDelayed()) {
     return;
   }
   AbstractSolverPhaseScope phaseScope=stepScope.getPhaseScope();
   DefaultSolverScope solverScope=phaseScope.getSolverScope();
   Score newScore=stepScope.getScore();
   Score bestScore=solverScope.getBestScore();
-  boolean bestScoreImproved;
-  if (bestScore == null) {
-    bestScoreImproved=true;
-    solverScope.setStartingInitializedScore(newScore);
-  }
- else {
-    bestScoreImproved=newScore.compareTo(bestScore) > 0;
-  }
+  boolean bestScoreImproved=newScore.compareTo(bestScore) > 0;
   stepScope.setBestScoreImproved(bestScoreImproved);
   if (bestScoreImproved) {
     phaseScope.setBestSolutionStepIndex(stepScope.getStepIndex());
     Solution newBestSolution=stepScope.createOrGetClonedSolution();
-    updateBestSolution(solverScope,newBestSolution);
+    solverScope.setBestSolution(newBestSolution);
+    solverScope.setBestScore(newBestSolution.getScore());
+    solverEventSupport.fireBestSolutionChanged(newBestSolution);
   }
  else   if (assertBestScoreIsUnmodified) {
     solverScope.assertScore(solverScope.getBestSolution());

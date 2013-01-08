@@ -1,3 +1,0 @@
-{
-  return bestScore != null && bestScore.compareTo(scoreAttained) >= 0;
-}

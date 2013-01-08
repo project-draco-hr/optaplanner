@@ -1,0 +1,14 @@
+{
+  if (newBestSolutionInitialized) {
+    if (!solverScope.isBestSolutionInitialized()) {
+      solverScope.setStartingInitializedScore(newBestSolution.getScore());
+    }
+  }
+ else {
+    solverScope.setStartingInitializedScore(null);
+  }
+  solverScope.setBestSolutionInitialized(newBestSolutionInitialized);
+  solverScope.setBestSolution(newBestSolution);
+  solverScope.setBestScore(newBestSolution.getScore());
+  solverEventSupport.fireBestSolutionChanged(newBestSolution);
+}

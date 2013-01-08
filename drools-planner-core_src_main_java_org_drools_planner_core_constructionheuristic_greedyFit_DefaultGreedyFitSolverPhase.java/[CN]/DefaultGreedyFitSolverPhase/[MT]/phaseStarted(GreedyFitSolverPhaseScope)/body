@@ -1,5 +1,5 @@
 {
-  super.phaseStarted(greedyFitSolverPhaseScope);
-  greedyPlanningEntitySelector.phaseStarted(greedyFitSolverPhaseScope);
-  greedyDecider.phaseStarted(greedyFitSolverPhaseScope);
+  super.phaseStarted(phaseScope);
+  greedyPlanningEntitySelector.phaseStarted(phaseScope);
+  greedyDecider.phaseStarted(phaseScope);
 }

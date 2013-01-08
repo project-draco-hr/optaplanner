@@ -7,6 +7,5 @@
   greedyFitSolverPhaseScope.setLastCompletedStepScope(completedGreedyFitStepScope);
   GreedyFitStepScope greedyFitStepScope=new GreedyFitStepScope(greedyFitSolverPhaseScope);
   greedyFitStepScope.setStepIndex(completedGreedyFitStepScope.getStepIndex() + 1);
-  greedyFitStepScope.setSolutionInitialized(false);
   return greedyFitStepScope;
 }

@@ -20,9 +20,6 @@
       phaseScope.assertWorkingScoreFromScratch(stepScope.getScore());
       phaseScope.assertExpectedWorkingScore(stepScope.getScore());
     }
-    if (!hackEntityPlacer.hasPlacement()) {
-      stepScope.setSolutionInitialized(true);
-    }
     stepEnded(stepScope);
     stepScope=createNextStepScope(phaseScope,stepScope);
   }

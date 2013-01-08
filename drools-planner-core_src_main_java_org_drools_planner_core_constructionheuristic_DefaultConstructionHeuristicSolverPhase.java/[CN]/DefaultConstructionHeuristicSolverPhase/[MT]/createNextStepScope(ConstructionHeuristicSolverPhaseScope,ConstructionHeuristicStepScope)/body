@@ -7,6 +7,5 @@
   phaseScope.setLastCompletedStepScope(completedStepScope);
   ConstructionHeuristicStepScope stepScope=new ConstructionHeuristicStepScope(phaseScope);
   stepScope.setStepIndex(completedStepScope.getStepIndex() + 1);
-  stepScope.setSolutionInitialized(false);
   return stepScope;
 }

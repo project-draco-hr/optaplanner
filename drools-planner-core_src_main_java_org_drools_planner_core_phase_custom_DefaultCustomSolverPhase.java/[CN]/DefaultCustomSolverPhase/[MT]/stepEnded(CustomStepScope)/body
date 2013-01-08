@@ -2,7 +2,10 @@
   super.stepEnded(stepScope);
   boolean bestScoreImproved=stepScope.getBestScoreImproved();
   if (forceUpdateBestSolution && !bestScoreImproved) {
-    bestSolutionRecaller.updateBestSolution(stepScope.getPhaseScope().getSolverScope(),stepScope.createOrGetClonedSolution());
+    DefaultSolverScope solverScope=stepScope.getPhaseScope().getSolverScope();
+    Solution newBestSolution=solverScope.getScoreDirector().cloneWorkingSolution();
+    boolean newBestSolutionInitialized=solverScope.isWorkingSolutionInitialized();
+    bestSolutionRecaller.updateBestSolution(solverScope,newBestSolution,newBestSolutionInitialized);
   }
   CustomSolverPhaseScope customSolverPhaseScope=stepScope.getPhaseScope();
   if (logger.isDebugEnabled()) {

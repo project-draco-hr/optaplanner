@@ -19,9 +19,6 @@
       phaseScope.assertWorkingScoreFromScratch(stepScope.getScore());
       phaseScope.assertExpectedWorkingScore(stepScope.getScore());
     }
-    if (!it.hasNext()) {
-      stepScope.setSolutionInitialized(true);
-    }
     stepEnded(stepScope);
     stepScope=createNextStepScope(phaseScope,stepScope);
   }

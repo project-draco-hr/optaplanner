@@ -1,5 +1,0 @@
-{
-  solverScope.setBestSolution(newBestSolution);
-  solverScope.setBestScore(newBestSolution.getScore());
-  solverEventSupport.fireBestSolutionChanged(newBestSolution);
-}
