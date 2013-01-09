@@ -4,7 +4,8 @@
   cacheType=ConfigUtils.inheritOverwritableProperty(cacheType,inheritedConfig.getCacheType());
   selectionOrder=ConfigUtils.inheritOverwritableProperty(selectionOrder,inheritedConfig.getSelectionOrder());
   entityFilterClassList=ConfigUtils.inheritOverwritableProperty(entityFilterClassList,inheritedConfig.getEntityFilterClassList());
-  entitySorterClass=ConfigUtils.inheritOverwritableProperty(entitySorterClass,inheritedConfig.getEntitySorterClass());
   entityComparatorClass=ConfigUtils.inheritOverwritableProperty(entityComparatorClass,inheritedConfig.getEntityComparatorClass());
+  entitySorterWeightFactoryClass=ConfigUtils.inheritOverwritableProperty(entitySorterWeightFactoryClass,inheritedConfig.getEntitySorterWeightFactoryClass());
+  entitySorterClass=ConfigUtils.inheritOverwritableProperty(entitySorterClass,inheritedConfig.getEntitySorterClass());
   entityProbabilityWeightFactoryClass=ConfigUtils.inheritOverwritableProperty(entityProbabilityWeightFactoryClass,inheritedConfig.getEntityProbabilityWeightFactoryClass());
 }

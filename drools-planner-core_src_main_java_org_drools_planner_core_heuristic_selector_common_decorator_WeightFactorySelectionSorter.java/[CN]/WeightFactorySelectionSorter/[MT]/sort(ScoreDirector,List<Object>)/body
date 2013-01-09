@@ -1,0 +1,13 @@
+{
+  Solution solution=scoreDirector.getWorkingSolution();
+  SortedMap<Comparable,Object> selectionMap=new TreeMap<Comparable,Object>();
+  for (  Object selection : selectionList) {
+    Comparable difficultyWeight=selectionSorterWeightFactory.createSorterWeight(solution,selection);
+    Object previous=selectionMap.put(difficultyWeight,selection);
+    if (previous != null) {
+      throw new IllegalStateException("The selectionList contains 2 times the same selection (" + previous + ") and ("+ selection+ ").");
+    }
+  }
+  selectionList.clear();
+  selectionList.addAll(selectionMap.values());
+}
