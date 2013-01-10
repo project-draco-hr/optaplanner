@@ -5,7 +5,7 @@
  else   if (difficultyWeightFactory != null) {
     SortedMap<Comparable,Object> planningEntityMap=new TreeMap<Comparable,Object>();
     for (    Object planningEntity : planningEntityList) {
-      Comparable difficultyWeight=difficultyWeightFactory.createDifficultyWeight(solution,planningEntity);
+      Comparable difficultyWeight=difficultyWeightFactory.createSorterWeight(solution,planningEntity);
       Object previous=planningEntityMap.put(difficultyWeight,planningEntity);
       if (previous != null) {
         throw new IllegalStateException("The planningEntityList contains 2 times the same planningEntity (" + previous + ") and ("+ planningEntity+ ").");

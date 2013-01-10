@@ -1,6 +1,4 @@
 {
-  NQueens nQueens=(NQueens)solution;
-  Queen queen=(Queen)planningEntity;
   int distanceFromMiddle=calculateDistanceFromMiddle(nQueens.getN(),queen.getColumnIndex());
   return new QueenDifficultyWeight(queen,distanceFromMiddle);
 }

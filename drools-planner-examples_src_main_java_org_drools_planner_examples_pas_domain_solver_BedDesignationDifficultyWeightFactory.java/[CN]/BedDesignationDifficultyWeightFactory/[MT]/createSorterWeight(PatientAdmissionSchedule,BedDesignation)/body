@@ -1,6 +1,4 @@
 {
-  PatientAdmissionSchedule schedule=(PatientAdmissionSchedule)solution;
-  BedDesignation bedDesignation=(BedDesignation)planningEntity;
   int disallowedCount=0;
   for (  Room room : schedule.getRoomList()) {
     disallowedCount+=(room.countDisallowedAdmissionPart(bedDesignation.getAdmissionPart()) * room.getCapacity());

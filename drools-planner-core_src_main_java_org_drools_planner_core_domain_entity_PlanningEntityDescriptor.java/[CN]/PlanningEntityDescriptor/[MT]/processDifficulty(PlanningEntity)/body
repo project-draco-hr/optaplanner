@@ -3,7 +3,7 @@
   if (difficultyComparatorClass == PlanningEntity.NullDifficultyComparator.class) {
     difficultyComparatorClass=null;
   }
-  Class<? extends PlanningEntityDifficultyWeightFactory> difficultyWeightFactoryClass=entityAnnotation.difficultyWeightFactoryClass();
+  Class<? extends SelectionSorterWeightFactory> difficultyWeightFactoryClass=entityAnnotation.difficultyWeightFactoryClass();
   if (difficultyWeightFactoryClass == PlanningEntity.NullDifficultyWeightFactory.class) {
     difficultyWeightFactoryClass=null;
   }
@@ -15,7 +15,7 @@
     planningEntitySorter.setDifficultyComparator(difficultyComparator);
   }
   if (difficultyWeightFactoryClass != null) {
-    PlanningEntityDifficultyWeightFactory difficultyWeightFactory=ConfigUtils.newInstance(this,"difficultyWeightFactoryClass",difficultyWeightFactoryClass);
+    SelectionSorterWeightFactory difficultyWeightFactory=ConfigUtils.newInstance(this,"difficultyWeightFactoryClass",difficultyWeightFactoryClass);
     planningEntitySorter.setDifficultyWeightFactory(difficultyWeightFactory);
   }
 }

@@ -1,6 +1,4 @@
 {
-  CurriculumCourseSchedule schedule=(CurriculumCourseSchedule)solution;
-  Lecture lecture=(Lecture)planningEntity;
   Course course=lecture.getCourse();
   int unavailablePeriodPenaltyCount=0;
   for (  UnavailablePeriodPenalty penalty : schedule.getUnavailablePeriodPenaltyList()) {
