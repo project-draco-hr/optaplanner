@@ -1,0 +1,13 @@
+{
+  this.selectionSorterWeightFactory=selectionSorterWeightFactory;
+switch (selectionSorterOrder) {
+case ASCENDING:
+    this.appliedWeightComparator=new ComparableComparator();
+  break;
+case DESCENDING:
+this.appliedWeightComparator=Collections.reverseOrder();
+break;
+default :
+throw new IllegalStateException("The selectionSorterOrder (" + selectionSorterOrder + ") is not implemented");
+}
+}

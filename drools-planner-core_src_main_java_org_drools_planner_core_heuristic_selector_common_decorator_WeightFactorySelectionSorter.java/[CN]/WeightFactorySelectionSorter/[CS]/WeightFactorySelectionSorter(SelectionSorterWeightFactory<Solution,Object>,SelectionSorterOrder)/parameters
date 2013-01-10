@@ -1,1 +1,2 @@
 SelectionSorterWeightFactory<Solution,Object> selectionSorterWeightFactory
+SelectionSorterOrder selectionSorterOrder

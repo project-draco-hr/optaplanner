@@ -1,6 +1,6 @@
 {
   Solution solution=scoreDirector.getWorkingSolution();
-  SortedMap<Comparable,Object> selectionMap=new TreeMap<Comparable,Object>();
+  SortedMap<Comparable,Object> selectionMap=new TreeMap<Comparable,Object>(appliedWeightComparator);
   for (  Object selection : selectionList) {
     Comparable difficultyWeight=selectionSorterWeightFactory.createSorterWeight(solution,selection);
     Object previous=selectionMap.put(difficultyWeight,selection);
