@@ -1,0 +1,6 @@
+{
+  if (resolvedSelectionOrder == SelectionOrder.SHUFFLED) {
+    valueSelector=new ShufflingValueSelector(valueSelector,resolvedCacheType);
+  }
+  return valueSelector;
+}

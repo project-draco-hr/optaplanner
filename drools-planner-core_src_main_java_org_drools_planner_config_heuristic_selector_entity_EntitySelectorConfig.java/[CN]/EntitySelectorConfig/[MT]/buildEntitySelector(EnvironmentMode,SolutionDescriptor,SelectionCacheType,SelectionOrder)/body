@@ -4,65 +4,9 @@
   minimumCacheType=SelectionCacheType.max(minimumCacheType,resolvedCacheType);
   SelectionOrder resolvedSelectionOrder=SelectionOrder.resolve(selectionOrder,inheritedSelectionOrder);
   EntitySelector entitySelector=buildBaseEntitySelector(environmentMode,entityDescriptor,minimumCacheType,resolvedCacheType.isCached() ? SelectionOrder.ORIGINAL : resolvedSelectionOrder);
-  if (!CollectionUtils.isEmpty(entityFilterClassList) || entityDescriptor.hasMovableEntitySelectionFilter()) {
-    List<SelectionFilter> entityFilterList=new ArrayList<SelectionFilter>(entityFilterClassList == null ? 1 : entityFilterClassList.size() + 1);
-    if (entityFilterClassList != null) {
-      for (      Class<? extends SelectionFilter> entityFilterClass : entityFilterClassList) {
-        entityFilterList.add(ConfigUtils.newInstance(this,"entityFilterClass",entityFilterClass));
-      }
-    }
-    if (entityDescriptor.hasMovableEntitySelectionFilter()) {
-      entityFilterList.add(entityDescriptor.getMovableEntitySelectionFilter());
-    }
-    entitySelector=new FilteringEntitySelector(entitySelector,entityFilterList);
-  }
-  if (entityComparatorClass != null) {
-    if (resolvedSelectionOrder != SelectionOrder.ORIGINAL) {
-      throw new IllegalArgumentException("The entitySelectorConfig (" + this + ") with entityComparatorClass ("+ entityComparatorClass+ ") has a resolvedSelectionOrder ("+ resolvedSelectionOrder+ ") that is not "+ SelectionOrder.ORIGINAL+ ".");
-    }
-    Comparator<Object> entityComparator=ConfigUtils.newInstance(this,"entityComparatorClass",entityComparatorClass);
-    SelectionSorter entitySorter=new ComparatorSelectionSorter(entityComparator,SelectionSorterOrder.resolve(entitySorterOrder));
-    entitySelector=new SortingEntitySelector(entitySelector,resolvedCacheType,entitySorter);
-  }
-  if (entitySorterWeightFactoryClass != null) {
-    if (entityComparatorClass != null) {
-      throw new IllegalArgumentException("The entitySelectorConfig (" + this + ") has both an entityComparatorClass ("+ entityComparatorClass+ ") and a entitySorterWeightFactoryClass ("+ entitySorterWeightFactoryClass+ ").");
-    }
-    if (resolvedSelectionOrder != SelectionOrder.ORIGINAL) {
-      throw new IllegalArgumentException("The entitySelectorConfig (" + this + ") with entitySorterWeightFactoryClass ("+ entitySorterWeightFactoryClass+ ") has a resolvedSelectionOrder ("+ resolvedSelectionOrder+ ") that is not "+ SelectionOrder.ORIGINAL+ ".");
-    }
-    SelectionSorterWeightFactory entitySorterWeightFactory=ConfigUtils.newInstance(this,"entitySorterWeightFactoryClass",entitySorterWeightFactoryClass);
-    SelectionSorter entitySorter=new WeightFactorySelectionSorter(entitySorterWeightFactory,SelectionSorterOrder.resolve(entitySorterOrder));
-    entitySelector=new SortingEntitySelector(entitySelector,resolvedCacheType,entitySorter);
-  }
-  if (entitySorterClass != null) {
-    if (entityComparatorClass != null) {
-      throw new IllegalArgumentException("The entitySelectorConfig (" + this + ") has both an entityComparatorClass ("+ entityComparatorClass+ ") and a entitySorterClass ("+ entitySorterClass+ ").");
-    }
-    if (entitySorterWeightFactoryClass != null) {
-      throw new IllegalArgumentException("The entitySelectorConfig (" + this + ") has both an entitySorterWeightFactoryClass ("+ entitySorterWeightFactoryClass+ ") and a entitySorterClass ("+ entitySorterClass+ ").");
-    }
-    if (entitySorterOrder != null) {
-      throw new IllegalArgumentException("The entitySelectorConfig (" + this + ") has both an entitySorterClass ("+ entitySorterClass+ ") but the entitySorterOrder ("+ entitySorterOrder+ ") should be null.");
-    }
-    if (resolvedSelectionOrder != SelectionOrder.ORIGINAL) {
-      throw new IllegalArgumentException("The entitySelectorConfig (" + this + ") with entitySorterClass ("+ entitySorterClass+ ") has a resolvedSelectionOrder ("+ resolvedSelectionOrder+ ") that is not "+ SelectionOrder.ORIGINAL+ ".");
-    }
-    SelectionSorter entitySorter=ConfigUtils.newInstance(this,"entitySorterClass",entitySorterClass);
-    entitySelector=new SortingEntitySelector(entitySelector,resolvedCacheType,entitySorter);
-  }
-  if (entityProbabilityWeightFactoryClass != null) {
-    if (resolvedSelectionOrder != SelectionOrder.RANDOM) {
-      throw new IllegalArgumentException("The entitySelectorConfig (" + this + ") with entityProbabilityWeightFactoryClass ("+ entityProbabilityWeightFactoryClass+ ") has a resolvedSelectionOrder ("+ resolvedSelectionOrder+ ") that is not "+ SelectionOrder.RANDOM+ ".");
-    }
-    SelectionProbabilityWeightFactory entityProbabilityWeightFactory=ConfigUtils.newInstance(this,"entityProbabilityWeightFactoryClass",entityProbabilityWeightFactoryClass);
-    entitySelector=new ProbabilityEntitySelector(entitySelector,resolvedCacheType,entityProbabilityWeightFactory);
-  }
-  if (resolvedSelectionOrder == SelectionOrder.SHUFFLED) {
-    entitySelector=new ShufflingEntitySelector(entitySelector,resolvedCacheType);
-  }
-  if (resolvedCacheType.isCached() && resolvedCacheType.compareTo(entitySelector.getCacheType()) > 0) {
-    entitySelector=new CachingEntitySelector(entitySelector,resolvedCacheType,resolvedSelectionOrder == SelectionOrder.RANDOM);
-  }
+  entitySelector=applyFiltering(entityDescriptor,resolvedCacheType,resolvedSelectionOrder,entitySelector);
+  entitySelector=applySorting(resolvedCacheType,resolvedSelectionOrder,entitySelector);
+  entitySelector=applyShuffling(resolvedCacheType,resolvedSelectionOrder,entitySelector);
+  entitySelector=applyCaching(resolvedCacheType,resolvedSelectionOrder,entitySelector);
   return entitySelector;
 }

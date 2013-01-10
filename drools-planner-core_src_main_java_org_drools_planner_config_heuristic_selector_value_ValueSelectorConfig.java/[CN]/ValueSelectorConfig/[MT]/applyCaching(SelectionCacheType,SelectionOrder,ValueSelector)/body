@@ -1,0 +1,6 @@
+{
+  if (resolvedCacheType.isCached() && resolvedCacheType.compareTo(valueSelector.getCacheType()) > 0) {
+    valueSelector=new CachingValueSelector(valueSelector,resolvedCacheType,resolvedSelectionOrder == SelectionOrder.RANDOM);
+  }
+  return valueSelector;
+}

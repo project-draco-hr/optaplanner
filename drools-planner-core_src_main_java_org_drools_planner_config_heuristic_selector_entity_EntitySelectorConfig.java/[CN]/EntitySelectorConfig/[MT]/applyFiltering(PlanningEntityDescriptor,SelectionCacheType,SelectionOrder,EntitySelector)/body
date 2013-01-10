@@ -1,0 +1,23 @@
+{
+  if (!CollectionUtils.isEmpty(entityFilterClassList) || entityDescriptor.hasMovableEntitySelectionFilter()) {
+    List<SelectionFilter> entityFilterList=new ArrayList<SelectionFilter>(entityFilterClassList == null ? 1 : entityFilterClassList.size() + 1);
+    if (entityFilterClassList != null) {
+      for (      Class<? extends SelectionFilter> entityFilterClass : entityFilterClassList) {
+        entityFilterList.add(ConfigUtils.newInstance(this,"entityFilterClass",entityFilterClass));
+      }
+    }
+    if (entityDescriptor.hasMovableEntitySelectionFilter()) {
+      entityFilterList.add(entityDescriptor.getMovableEntitySelectionFilter());
+    }
+    entitySelector=new FilteringEntitySelector(entitySelector,entityFilterList);
+  }
+  if (entityComparatorClass != null) {
+    if (resolvedSelectionOrder != SelectionOrder.ORIGINAL) {
+      throw new IllegalArgumentException("The entitySelectorConfig (" + this + ") with entityComparatorClass ("+ entityComparatorClass+ ") has a resolvedSelectionOrder ("+ resolvedSelectionOrder+ ") that is not "+ SelectionOrder.ORIGINAL+ ".");
+    }
+    Comparator<Object> entityComparator=ConfigUtils.newInstance(this,"entityComparatorClass",entityComparatorClass);
+    SelectionSorter entitySorter=new ComparatorSelectionSorter(entityComparator,SelectionSorterOrder.resolve(entitySorterOrder));
+    entitySelector=new SortingEntitySelector(entitySelector,resolvedCacheType,entitySorter);
+  }
+  return entitySelector;
+}

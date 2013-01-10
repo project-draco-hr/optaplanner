@@ -1,0 +1,6 @@
+{
+  if (resolvedSelectionOrder == SelectionOrder.SHUFFLED) {
+    entitySelector=new ShufflingEntitySelector(entitySelector,resolvedCacheType);
+  }
+  return entitySelector;
+}

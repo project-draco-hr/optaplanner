@@ -4,18 +4,8 @@
   minimumCacheType=SelectionCacheType.max(minimumCacheType,resolvedCacheType);
   SelectionOrder resolvedSelectionOrder=SelectionOrder.resolve(selectionOrder,inheritedSelectionOrder);
   ValueSelector valueSelector=buildBaseValueSelector(environmentMode,variableDescriptor,minimumCacheType,resolvedCacheType.isCached() ? SelectionOrder.ORIGINAL : resolvedSelectionOrder);
-  if (valueProbabilityWeightFactoryClass != null) {
-    if (resolvedSelectionOrder != SelectionOrder.RANDOM) {
-      throw new IllegalArgumentException("The valueSelectorConfig (" + this + ") with valueProbabilityWeightFactoryClass ("+ valueProbabilityWeightFactoryClass+ ") has a non-random resolvedSelectionOrder ("+ resolvedSelectionOrder+ ").");
-    }
-    SelectionProbabilityWeightFactory valueProbabilityWeightFactory=ConfigUtils.newInstance(this,"valueProbabilityWeightFactoryClass",valueProbabilityWeightFactoryClass);
-    valueSelector=new ProbabilityValueSelector(valueSelector,resolvedCacheType,valueProbabilityWeightFactory);
-  }
-  if (resolvedSelectionOrder == SelectionOrder.SHUFFLED) {
-    valueSelector=new ShufflingValueSelector(valueSelector,resolvedCacheType);
-  }
-  if (resolvedCacheType.isCached() && resolvedCacheType.compareTo(valueSelector.getCacheType()) > 0) {
-    valueSelector=new CachingValueSelector(valueSelector,resolvedCacheType,resolvedSelectionOrder == SelectionOrder.RANDOM);
-  }
+  valueSelector=applyProbability(resolvedCacheType,resolvedSelectionOrder,valueSelector);
+  valueSelector=applyShuffling(resolvedCacheType,resolvedSelectionOrder,valueSelector);
+  valueSelector=applyCaching(resolvedCacheType,resolvedSelectionOrder,valueSelector);
   return valueSelector;
 }

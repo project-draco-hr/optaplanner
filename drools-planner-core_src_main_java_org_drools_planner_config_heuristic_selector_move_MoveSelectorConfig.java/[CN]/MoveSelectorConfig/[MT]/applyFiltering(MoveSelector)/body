@@ -1,0 +1,10 @@
+{
+  if (!CollectionUtils.isEmpty(moveFilterClassList)) {
+    List<SelectionFilter> moveFilterList=new ArrayList<SelectionFilter>(moveFilterClassList.size());
+    for (    Class<? extends SelectionFilter> moveFilterClass : moveFilterClassList) {
+      moveFilterList.add(ConfigUtils.newInstance(this,"moveFilterClass",moveFilterClass));
+    }
+    moveSelector=new FilteringMoveSelector(moveSelector,moveFilterList);
+  }
+  return moveSelector;
+}
