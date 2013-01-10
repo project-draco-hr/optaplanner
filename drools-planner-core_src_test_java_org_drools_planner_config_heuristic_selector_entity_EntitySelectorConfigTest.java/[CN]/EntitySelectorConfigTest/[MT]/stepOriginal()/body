@@ -4,7 +4,7 @@
   entitySelectorConfig.setCacheType(SelectionCacheType.STEP);
   entitySelectorConfig.setSelectionOrder(SelectionOrder.ORIGINAL);
   EntitySelector entitySelector=entitySelectorConfig.buildEntitySelector(EnvironmentMode.REPRODUCIBLE,solutionDescriptor,SelectionCacheType.JUST_IN_TIME,SelectionOrder.RANDOM);
-  assertInstanceOf(CachingEntitySelector.class,entitySelector);
+  assertInstanceOf(FromSolutionEntitySelector.class,entitySelector);
   assertNotInstanceOf(ShufflingEntitySelector.class,entitySelector);
-  assertInstanceOf(FromSolutionEntitySelector.class,((CachingEntitySelector)entitySelector).getChildEntitySelector());
+  assertEquals(SelectionCacheType.STEP,entitySelector.getCacheType());
 }

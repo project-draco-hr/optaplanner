@@ -9,7 +9,7 @@
     throw new IllegalStateException("The selector (" + this + ") has a valueSelector ("+ valueSelector+ ") with neverEnding ("+ valueSelector.isNeverEnding()+ ").");
   }
   solverPhaseLifecycleSupport.addEventListener(valueSelector);
-  solverPhaseLifecycleSupport.addEventListener(new SelectionCacheLifecycleBridge(SelectionCacheType.STEP,this));
+  solverPhaseLifecycleSupport.addEventListener(new SelectionCacheLifecycleBridge(CACHE_TYPE,this));
   if (minimumSubChainSize < 1) {
     throw new IllegalStateException("The selector (" + this + ")'s minimumSubChainSize ("+ minimumSubChainSize+ ") must be at least 1.");
   }

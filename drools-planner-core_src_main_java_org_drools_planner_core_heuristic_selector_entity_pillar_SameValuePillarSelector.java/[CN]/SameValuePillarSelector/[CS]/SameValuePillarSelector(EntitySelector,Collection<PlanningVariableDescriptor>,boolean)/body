@@ -20,5 +20,5 @@
     throw new IllegalStateException("The selector (" + this + ") has an entitySelector ("+ entitySelector+ ") with neverEnding ("+ entitySelector.isNeverEnding()+ ").");
   }
   solverPhaseLifecycleSupport.addEventListener(entitySelector);
-  solverPhaseLifecycleSupport.addEventListener(new SelectionCacheLifecycleBridge(SelectionCacheType.STEP,this));
+  solverPhaseLifecycleSupport.addEventListener(new SelectionCacheLifecycleBridge(CACHE_TYPE,this));
 }

@@ -6,4 +6,5 @@
   EntitySelector entitySelector=entitySelectorConfig.buildEntitySelector(EnvironmentMode.REPRODUCIBLE,solutionDescriptor,SelectionCacheType.JUST_IN_TIME,SelectionOrder.RANDOM);
   assertInstanceOf(ShufflingEntitySelector.class,entitySelector);
   assertInstanceOf(FromSolutionEntitySelector.class,((ShufflingEntitySelector)entitySelector).getChildEntitySelector());
+  assertEquals(SelectionCacheType.PHASE,entitySelector.getCacheType());
 }

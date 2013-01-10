@@ -7,4 +7,5 @@
   ValueSelector valueSelector=valueSelectorConfig.buildValueSelector(EnvironmentMode.REPRODUCIBLE,solutionDescriptor,entityDescriptor,SelectionCacheType.JUST_IN_TIME,SelectionOrder.RANDOM);
   assertInstanceOf(ShufflingValueSelector.class,valueSelector);
   assertInstanceOf(FromSolutionPropertyValueSelector.class,((ShufflingValueSelector)valueSelector).getChildValueSelector());
+  assertEquals(SelectionCacheType.PHASE,valueSelector.getCacheType());
 }

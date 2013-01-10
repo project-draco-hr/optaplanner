@@ -4,7 +4,6 @@
   minimumCacheType=SelectionCacheType.max(minimumCacheType,resolvedCacheType);
   SelectionOrder resolvedSelectionOrder=SelectionOrder.resolve(selectionOrder,inheritedSelectionOrder);
   EntitySelector entitySelector=buildBaseEntitySelector(environmentMode,entityDescriptor,minimumCacheType,resolvedCacheType.isCached() ? SelectionOrder.ORIGINAL : resolvedSelectionOrder);
-  boolean alreadyCached=false;
   if (!CollectionUtils.isEmpty(entityFilterClassList) || entityDescriptor.hasMovableEntitySelectionFilter()) {
     List<SelectionFilter> entityFilterList=new ArrayList<SelectionFilter>(entityFilterClassList == null ? 1 : entityFilterClassList.size() + 1);
     if (entityFilterClassList != null) {
@@ -16,7 +15,6 @@
       entityFilterList.add(entityDescriptor.getMovableEntitySelectionFilter());
     }
     entitySelector=new FilteringEntitySelector(entitySelector,entityFilterList);
-    alreadyCached=false;
   }
   if (entityComparatorClass != null) {
     if (resolvedSelectionOrder != SelectionOrder.ORIGINAL) {
@@ -25,7 +23,6 @@
     Comparator<Object> entityComparator=ConfigUtils.newInstance(this,"entityComparatorClass",entityComparatorClass);
     SelectionSorter entitySorter=new ComparatorSelectionSorter(entityComparator,SelectionSorterOrder.resolve(entitySorterOrder));
     entitySelector=new SortingEntitySelector(entitySelector,resolvedCacheType,entitySorter);
-    alreadyCached=true;
   }
   if (entitySorterWeightFactoryClass != null) {
     if (entityComparatorClass != null) {
@@ -37,7 +34,6 @@
     SelectionSorterWeightFactory entitySorterWeightFactory=ConfigUtils.newInstance(this,"entitySorterWeightFactoryClass",entitySorterWeightFactoryClass);
     SelectionSorter entitySorter=new WeightFactorySelectionSorter(entitySorterWeightFactory,SelectionSorterOrder.resolve(entitySorterOrder));
     entitySelector=new SortingEntitySelector(entitySelector,resolvedCacheType,entitySorter);
-    alreadyCached=true;
   }
   if (entitySorterClass != null) {
     if (entityComparatorClass != null) {
@@ -54,7 +50,6 @@
     }
     SelectionSorter entitySorter=ConfigUtils.newInstance(this,"entitySorterClass",entitySorterClass);
     entitySelector=new SortingEntitySelector(entitySelector,resolvedCacheType,entitySorter);
-    alreadyCached=true;
   }
   if (entityProbabilityWeightFactoryClass != null) {
     if (resolvedSelectionOrder != SelectionOrder.RANDOM) {
@@ -62,13 +57,11 @@
     }
     SelectionProbabilityWeightFactory entityProbabilityWeightFactory=ConfigUtils.newInstance(this,"entityProbabilityWeightFactoryClass",entityProbabilityWeightFactoryClass);
     entitySelector=new ProbabilityEntitySelector(entitySelector,resolvedCacheType,entityProbabilityWeightFactory);
-    alreadyCached=true;
   }
   if (resolvedSelectionOrder == SelectionOrder.SHUFFLED) {
     entitySelector=new ShufflingEntitySelector(entitySelector,resolvedCacheType);
-    alreadyCached=true;
   }
-  if (resolvedCacheType.isCached() && !alreadyCached) {
+  if (resolvedCacheType.isCached() && resolvedCacheType.compareTo(entitySelector.getCacheType()) > 0) {
     entitySelector=new CachingEntitySelector(entitySelector,resolvedCacheType,resolvedSelectionOrder == SelectionOrder.RANDOM);
   }
   return entitySelector;

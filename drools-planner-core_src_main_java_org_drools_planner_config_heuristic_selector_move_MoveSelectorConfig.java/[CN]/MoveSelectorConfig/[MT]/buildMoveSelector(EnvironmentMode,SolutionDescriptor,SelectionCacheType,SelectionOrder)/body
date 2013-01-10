@@ -3,14 +3,12 @@
   minimumCacheType=SelectionCacheType.max(minimumCacheType,resolvedCacheType);
   SelectionOrder resolvedSelectionOrder=SelectionOrder.resolve(selectionOrder,inheritedSelectionOrder);
   MoveSelector moveSelector=buildBaseMoveSelector(environmentMode,solutionDescriptor,minimumCacheType,resolvedCacheType.isCached() ? SelectionOrder.ORIGINAL : resolvedSelectionOrder);
-  boolean alreadyCached=false;
   if (!CollectionUtils.isEmpty(moveFilterClassList)) {
     List<SelectionFilter> moveFilterList=new ArrayList<SelectionFilter>(moveFilterClassList.size());
     for (    Class<? extends SelectionFilter> moveFilterClass : moveFilterClassList) {
       moveFilterList.add(ConfigUtils.newInstance(this,"moveFilterClass",moveFilterClass));
     }
     moveSelector=new FilteringMoveSelector(moveSelector,moveFilterList);
-    alreadyCached=false;
   }
   if (moveProbabilityWeightFactoryClass != null) {
     if (resolvedSelectionOrder != SelectionOrder.RANDOM) {
@@ -18,16 +16,14 @@
     }
     SelectionProbabilityWeightFactory entityProbabilityWeightFactory=ConfigUtils.newInstance(this,"moveProbabilityWeightFactoryClass",moveProbabilityWeightFactoryClass);
     moveSelector=new ProbabilityMoveSelector(moveSelector,resolvedCacheType,entityProbabilityWeightFactory);
-    alreadyCached=true;
   }
   if (resolvedSelectionOrder == SelectionOrder.SHUFFLED) {
     if (resolvedCacheType.isNotCached()) {
       throw new IllegalArgumentException("The moveSelectorConfig (" + this + ") with resolvedSelectionOrder ("+ resolvedSelectionOrder+ ") has a resolvedCacheType ("+ resolvedCacheType+ ") that is not cached.");
     }
     moveSelector=new ShufflingMoveSelector(moveSelector,resolvedCacheType);
-    alreadyCached=true;
   }
-  if (resolvedCacheType.isCached() && !alreadyCached) {
+  if (resolvedCacheType.isCached() && resolvedCacheType.compareTo(moveSelector.getCacheType()) > 0) {
     moveSelector=new CachingMoveSelector(moveSelector,resolvedCacheType,resolvedSelectionOrder == SelectionOrder.RANDOM);
   }
   return moveSelector;

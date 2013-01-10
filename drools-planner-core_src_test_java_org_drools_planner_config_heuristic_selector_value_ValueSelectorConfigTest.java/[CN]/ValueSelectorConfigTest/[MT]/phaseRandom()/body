@@ -5,7 +5,7 @@
   valueSelectorConfig.setCacheType(SelectionCacheType.PHASE);
   valueSelectorConfig.setSelectionOrder(SelectionOrder.RANDOM);
   ValueSelector valueSelector=valueSelectorConfig.buildValueSelector(EnvironmentMode.REPRODUCIBLE,solutionDescriptor,entityDescriptor,SelectionCacheType.JUST_IN_TIME,SelectionOrder.RANDOM);
-  assertInstanceOf(CachingValueSelector.class,valueSelector);
+  assertInstanceOf(FromSolutionPropertyValueSelector.class,valueSelector);
   assertNotInstanceOf(ShufflingValueSelector.class,valueSelector);
-  assertInstanceOf(FromSolutionPropertyValueSelector.class,((CachingValueSelector)valueSelector).getChildValueSelector());
+  assertEquals(SelectionCacheType.PHASE,valueSelector.getCacheType());
 }
