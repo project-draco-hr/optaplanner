@@ -16,7 +16,7 @@
   }
   planningVariableWalker.setPlanningValueWalkerList(planningValueWalkerList);
   greedyDecider.setPlanningVariableWalker(planningVariableWalker);
-  if (environmentMode == EnvironmentMode.TRACE) {
+  if (environmentMode == EnvironmentMode.FULL_ASSERT) {
     greedyDecider.setAssertMoveScoreIsUncorrupted(true);
   }
   return greedyDecider;

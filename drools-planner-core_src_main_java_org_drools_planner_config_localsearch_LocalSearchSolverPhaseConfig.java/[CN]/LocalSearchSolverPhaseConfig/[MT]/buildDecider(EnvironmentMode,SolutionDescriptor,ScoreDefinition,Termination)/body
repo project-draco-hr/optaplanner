@@ -9,10 +9,10 @@
   if (moveSelector.isNeverEnding() && !forager.supportsNeverEndingMoveSelector()) {
     throw new IllegalStateException("The moveSelector (" + moveSelector + ") has neverEnding ("+ moveSelector.isNeverEnding()+ "), but the forager ("+ forager+ ") does not support it."+ " Configure the <forager> with <minimalAcceptedSelection>.");
   }
-  if (environmentMode == EnvironmentMode.TRACE) {
+  if (environmentMode == EnvironmentMode.FULL_ASSERT) {
     decider.setAssertMoveScoreIsUncorrupted(true);
   }
-  if (environmentMode == EnvironmentMode.DEBUG || environmentMode == EnvironmentMode.TRACE) {
+  if (environmentMode == EnvironmentMode.FAST_ASSERT || environmentMode == EnvironmentMode.FULL_ASSERT) {
     decider.setAssertUndoMoveIsUncorrupted(true);
   }
   return decider;

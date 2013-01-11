@@ -14,7 +14,7 @@
     if (fadingPlanningEntityTabuSize != null) {
       planningEntityTabuAcceptor.setFadingTabuSize(fadingPlanningEntityTabuSize);
     }
-    if (environmentMode == EnvironmentMode.TRACE) {
+    if (environmentMode == EnvironmentMode.FULL_ASSERT) {
       planningEntityTabuAcceptor.setAssertTabuHashCodeCorrectness(true);
     }
     acceptorList.add(planningEntityTabuAcceptor);
@@ -27,7 +27,7 @@
     if (fadingPlanningValueTabuSize != null) {
       planningValueTabuAcceptor.setFadingTabuSize(fadingPlanningValueTabuSize);
     }
-    if (environmentMode == EnvironmentMode.TRACE) {
+    if (environmentMode == EnvironmentMode.FULL_ASSERT) {
       planningValueTabuAcceptor.setAssertTabuHashCodeCorrectness(true);
     }
     acceptorList.add(planningValueTabuAcceptor);
@@ -41,7 +41,7 @@
     if (fadingMoveTabuSize != null) {
       moveTabuAcceptor.setFadingTabuSize(fadingMoveTabuSize);
     }
-    if (environmentMode == EnvironmentMode.TRACE) {
+    if (environmentMode == EnvironmentMode.FULL_ASSERT) {
       moveTabuAcceptor.setAssertTabuHashCodeCorrectness(true);
     }
     acceptorList.add(moveTabuAcceptor);
@@ -55,7 +55,7 @@
     if (fadingUndoMoveTabuSize != null) {
       undoMoveTabuAcceptor.setFadingTabuSize(fadingUndoMoveTabuSize);
     }
-    if (environmentMode == EnvironmentMode.TRACE) {
+    if (environmentMode == EnvironmentMode.FULL_ASSERT) {
       undoMoveTabuAcceptor.setAssertTabuHashCodeCorrectness(true);
     }
     acceptorList.add(undoMoveTabuAcceptor);
@@ -68,7 +68,7 @@
     if (fadingSolutionTabuSize != null) {
       solutionTabuAcceptor.setFadingTabuSize(fadingSolutionTabuSize);
     }
-    if (environmentMode == EnvironmentMode.TRACE) {
+    if (environmentMode == EnvironmentMode.FULL_ASSERT) {
       solutionTabuAcceptor.setAssertTabuHashCodeCorrectness(true);
     }
     acceptorList.add(solutionTabuAcceptor);
@@ -99,7 +99,7 @@
  else {
     PlanningEntityTabuAcceptor planningEntityTabuAcceptor=new PlanningEntityTabuAcceptor();
     planningEntityTabuAcceptor.setTabuSize(5);
-    if (environmentMode == EnvironmentMode.TRACE) {
+    if (environmentMode == EnvironmentMode.FULL_ASSERT) {
       planningEntityTabuAcceptor.setAssertTabuHashCodeCorrectness(true);
     }
     return planningEntityTabuAcceptor;

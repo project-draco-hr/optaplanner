@@ -1,4 +1,4 @@
 {
   File unsolvedDataFile=new File("data/cloudbalancing/unsolved/cb-0200comp-0600proc.xml");
-  runSpeedTest(unsolvedDataFile,"0hard/-223260soft",EnvironmentMode.DEBUG);
+  runSpeedTest(unsolvedDataFile,"0hard/-223260soft",EnvironmentMode.FAST_ASSERT);
 }

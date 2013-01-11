@@ -17,10 +17,10 @@
   planningVariableWalker.setPlanningValueWalkerList(planningValueWalkerList);
   greedyDecider.setPlanningVariableWalker(planningVariableWalker);
   greedyDecider.setForager(buildGreedyForager());
-  if (environmentMode == EnvironmentMode.TRACE) {
+  if (environmentMode == EnvironmentMode.FULL_ASSERT) {
     greedyDecider.setAssertMoveScoreIsUncorrupted(true);
   }
-  if (environmentMode == EnvironmentMode.DEBUG || environmentMode == EnvironmentMode.TRACE) {
+  if (environmentMode == EnvironmentMode.FAST_ASSERT || environmentMode == EnvironmentMode.FULL_ASSERT) {
     greedyDecider.setAssertUndoMoveIsUncorrupted(true);
   }
   return greedyDecider;

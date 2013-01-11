@@ -3,6 +3,6 @@
   Score lastCompletedStepScore=getLastCompletedStepScope().getScore();
   if (!undoScore.equals(lastCompletedStepScore)) {
     getScoreDirector().assertWorkingScoreFromScratch(undoScore);
-    throw new IllegalStateException("The moveClass (" + move.getClass() + ")'s move ("+ move+ ") probably has a corrupted undoMove ("+ undoMove+ ")."+ " Or maybe there are corrupted score rules.\n"+ "Check the Move.createUndoMove(...) method of that Move class"+ " and enable EnvironmentMode "+ EnvironmentMode.TRACE+ " to fail-faster on corrupted score rules.\n"+ "Score corruption: the lastCompletedStepScore ("+ lastCompletedStepScore+ ") is not the undoScore ("+ undoScore+ ").");
+    throw new IllegalStateException("The moveClass (" + move.getClass() + ")'s move ("+ move+ ") probably has a corrupted undoMove ("+ undoMove+ ")."+ " Or maybe there are corrupted score rules.\n"+ "Check the Move.createUndoMove(...) method of that Move class"+ " and enable EnvironmentMode "+ EnvironmentMode.FULL_ASSERT+ " to fail-faster on corrupted score rules.\n"+ "Score corruption: the lastCompletedStepScore ("+ lastCompletedStepScore+ ") is not the undoScore ("+ undoScore+ ").");
   }
 }

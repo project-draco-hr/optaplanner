@@ -1,4 +1,4 @@
 {
   File unsolvedDataFile=new File("data/curriculumcourse/unsolved/comp01_initialized.xml");
-  runSpeedTest(unsolvedDataFile,"0hard/-140soft",EnvironmentMode.DEBUG);
+  runSpeedTest(unsolvedDataFile,"0hard/-140soft",EnvironmentMode.FAST_ASSERT);
 }
