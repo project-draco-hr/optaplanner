@@ -1,0 +1,15 @@
+{
+  StringBuilder scorePattern=new StringBuilder(levelSuffixes.length * 10);
+  boolean first=true;
+  for (  String levelSuffix : levelSuffixes) {
+    if (first) {
+      first=false;
+    }
+ else {
+      scorePattern.append("/");
+    }
+    scorePattern.append("999");
+    scorePattern.append(levelSuffix);
+  }
+  return scorePattern.toString();
+}
