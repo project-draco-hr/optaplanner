@@ -1,22 +1,24 @@
 {
-  if (!(originalCollection instanceof Cloneable)) {
-    throw new IllegalStateException("The collection (" + originalCollection + ") is an instance of a class ("+ originalCollection.getClass()+ ") that does not implement Cloneable.");
-  }
   Collection cloneCollection;
-  try {
-    Method cloneMethod=originalCollection.getClass().getMethod("clone");
-    cloneCollection=(Collection)cloneMethod.invoke(originalCollection);
+  if (!(originalCollection instanceof Cloneable)) {
+    cloneCollection=new ArrayList(originalCollection.size());
   }
- catch (  InvocationTargetException e) {
-    throw new IllegalStateException("Could not call clone() on collection (" + originalCollection + ") which is an instance of a class ("+ originalCollection.getClass()+ ") and implements Cloneable.");
+ else {
+    try {
+      Method cloneMethod=originalCollection.getClass().getMethod("clone");
+      cloneCollection=(Collection)cloneMethod.invoke(originalCollection);
+    }
+ catch (    InvocationTargetException e) {
+      throw new IllegalStateException("Could not call clone() on collection (" + originalCollection + ") which is an instance of a class ("+ originalCollection.getClass()+ ") and implements Cloneable.");
+    }
+catch (    NoSuchMethodException e) {
+      throw new IllegalStateException("Could not call clone() on collection (" + originalCollection + ") which is an instance of a class ("+ originalCollection.getClass()+ ") and implements Cloneable.");
+    }
+catch (    IllegalAccessException e) {
+      throw new IllegalStateException("Could not call clone() on collection (" + originalCollection + ") which is an instance of a class ("+ originalCollection.getClass()+ ") and implements Cloneable.");
+    }
+    cloneCollection.clear();
   }
-catch (  NoSuchMethodException e) {
-    throw new IllegalStateException("Could not call clone() on collection (" + originalCollection + ") which is an instance of a class ("+ originalCollection.getClass()+ ") and implements Cloneable.");
-  }
-catch (  IllegalAccessException e) {
-    throw new IllegalStateException("Could not call clone() on collection (" + originalCollection + ") which is an instance of a class ("+ originalCollection.getClass()+ ") and implements Cloneable.");
-  }
-  cloneCollection.clear();
   for (  Object originalEntity : originalCollection) {
     Object cloneElement=clone(originalEntity);
     cloneCollection.add(cloneElement);
