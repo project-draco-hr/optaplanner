@@ -1,6 +1,6 @@
 {
-  for (  SelectionFilter entityFilter : entityFilterList) {
-    if (!entityFilter.accept(scoreDirector,entity)) {
+  for (  SelectionFilter filter : filterList) {
+    if (!filter.accept(scoreDirector,entity)) {
       return false;
     }
   }

@@ -1,15 +1,15 @@
 {
-  if (!CollectionUtils.isEmpty(entityFilterClassList) || entityDescriptor.hasMovableEntitySelectionFilter()) {
-    List<SelectionFilter> entityFilterList=new ArrayList<SelectionFilter>(entityFilterClassList == null ? 1 : entityFilterClassList.size() + 1);
-    if (entityFilterClassList != null) {
-      for (      Class<? extends SelectionFilter> entityFilterClass : entityFilterClassList) {
-        entityFilterList.add(ConfigUtils.newInstance(this,"entityFilterClass",entityFilterClass));
+  if (!CollectionUtils.isEmpty(filterClassList) || entityDescriptor.hasMovableEntitySelectionFilter()) {
+    List<SelectionFilter> filterList=new ArrayList<SelectionFilter>(filterClassList == null ? 1 : filterClassList.size() + 1);
+    if (filterClassList != null) {
+      for (      Class<? extends SelectionFilter> filterClass : filterClassList) {
+        filterList.add(ConfigUtils.newInstance(this,"filterClass",filterClass));
       }
     }
     if (entityDescriptor.hasMovableEntitySelectionFilter()) {
-      entityFilterList.add(entityDescriptor.getMovableEntitySelectionFilter());
+      filterList.add(entityDescriptor.getMovableEntitySelectionFilter());
     }
-    entitySelector=new FilteringEntitySelector(entitySelector,entityFilterList);
+    entitySelector=new FilteringEntitySelector(entitySelector,filterList);
   }
   if (entityComparatorClass != null) {
     if (resolvedSelectionOrder != SelectionOrder.ORIGINAL) {

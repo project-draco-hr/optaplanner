@@ -1,2 +1,2 @@
 EntitySelector childEntitySelector
-List<SelectionFilter> entityFilterList
+List<SelectionFilter> filterList

@@ -1,6 +1,6 @@
 {
   this.childEntitySelector=childEntitySelector;
-  this.entityFilterList=entityFilterList;
+  this.filterList=filterList;
   bailOutEnabled=childEntitySelector.isNeverEnding();
   solverPhaseLifecycleSupport.addEventListener(childEntitySelector);
 }
