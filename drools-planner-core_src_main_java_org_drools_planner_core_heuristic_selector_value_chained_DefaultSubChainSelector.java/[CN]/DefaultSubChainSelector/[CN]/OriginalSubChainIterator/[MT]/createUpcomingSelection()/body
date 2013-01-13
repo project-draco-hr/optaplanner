@@ -9,7 +9,7 @@
         return;
       }
       anchorTrailingChain=anchorTrailingChainIterator.next().getEntityList();
-      anchorTrailingChainSize=anchorTrailingChain.size();
+      anchorTrailingChainSize=Math.min(maximumSubChainSize,anchorTrailingChain.size());
       fromIndex=0;
       toIndex=fromIndex + minimumSubChainSize;
     }

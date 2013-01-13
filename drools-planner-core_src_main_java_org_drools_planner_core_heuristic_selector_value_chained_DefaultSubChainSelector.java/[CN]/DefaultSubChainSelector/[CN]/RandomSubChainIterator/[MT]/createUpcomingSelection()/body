@@ -1,8 +1,7 @@
 {
   int anchorTrailingChainListIndex=workingRandom.nextInt(anchorTrailingChainList.size());
   List<Object> anchorTrailingChain=anchorTrailingChainList.get(anchorTrailingChainListIndex).getEntityList();
-  int anchorTrailingChainSize=anchorTrailingChain.size();
-  int n=anchorTrailingChainSize - minimumSubChainSize + 1;
+  int n=Math.min(maximumSubChainSize,anchorTrailingChain.size()) - minimumSubChainSize + 1;
   long size=((long)n) * (((long)n) + 1L) / 2L;
   long sizeIndex=RandomUtils.nextLong(workingRandom,size);
   int fromIndex=0;

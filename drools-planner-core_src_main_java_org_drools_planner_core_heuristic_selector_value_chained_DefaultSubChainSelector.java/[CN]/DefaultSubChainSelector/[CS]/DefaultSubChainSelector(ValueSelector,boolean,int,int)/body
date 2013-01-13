@@ -2,6 +2,7 @@
   this.valueSelector=valueSelector;
   this.randomSelection=randomSelection;
   this.minimumSubChainSize=minimumSubChainSize;
+  this.maximumSubChainSize=maximumSubChainSize;
   if (!valueSelector.getVariableDescriptor().isChained()) {
     throw new IllegalArgumentException("The selector (" + this + ")'s valueSelector ("+ valueSelector+ ") must have a chained variableDescriptor chained ("+ valueSelector.getVariableDescriptor().isChained()+ ").");
   }
@@ -12,5 +13,8 @@
   solverPhaseLifecycleSupport.addEventListener(new SelectionCacheLifecycleBridge(CACHE_TYPE,this));
   if (minimumSubChainSize < 1) {
     throw new IllegalStateException("The selector (" + this + ")'s minimumSubChainSize ("+ minimumSubChainSize+ ") must be at least 1.");
+  }
+  if (minimumSubChainSize > maximumSubChainSize) {
+    throw new IllegalStateException("The minimumSubChainSize (" + minimumSubChainSize + ") must be at least maximumSubChainSize ("+ maximumSubChainSize+ ").");
   }
 }

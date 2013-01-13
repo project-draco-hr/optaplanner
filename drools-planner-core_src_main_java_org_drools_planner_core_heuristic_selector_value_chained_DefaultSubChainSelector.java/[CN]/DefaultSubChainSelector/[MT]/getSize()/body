@@ -1,7 +1,7 @@
 {
   long size=0L;
   for (  SubChain anchorTrailingChain : anchorTrailingChainList) {
-    long n=anchorTrailingChain.getEntityList().size() - (long)minimumSubChainSize + 1L;
+    long n=(long)Math.min(maximumSubChainSize,anchorTrailingChain.getEntityList().size()) - (long)minimumSubChainSize + 1L;
     size+=n * (n + 1L) / 2L;
   }
   return size;

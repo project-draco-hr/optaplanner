@@ -7,4 +7,5 @@
     valueSelectorConfig.inherit(inheritedConfig.getValueSelectorConfig());
   }
   minimumSubChainSize=ConfigUtils.inheritOverwritableProperty(minimumSubChainSize,inheritedConfig.getMinimumSubChainSize());
+  maximumSubChainSize=ConfigUtils.inheritOverwritableProperty(maximumSubChainSize,inheritedConfig.getMaximumSubChainSize());
 }
