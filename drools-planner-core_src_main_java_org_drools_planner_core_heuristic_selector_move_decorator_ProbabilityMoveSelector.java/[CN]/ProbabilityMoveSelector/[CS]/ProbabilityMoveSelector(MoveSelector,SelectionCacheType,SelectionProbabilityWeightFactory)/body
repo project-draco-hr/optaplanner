@@ -1,7 +1,7 @@
 {
   this.childMoveSelector=childMoveSelector;
   this.cacheType=cacheType;
-  this.moveProbabilityWeightFactory=moveProbabilityWeightFactory;
+  this.probabilityWeightFactory=probabilityWeightFactory;
   if (childMoveSelector.isNeverEnding()) {
     throw new IllegalStateException("The selector (" + this + ") has a childMoveSelector ("+ childMoveSelector+ ") with neverEnding ("+ childMoveSelector.isNeverEnding()+ ").");
   }

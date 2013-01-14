@@ -1,9 +1,9 @@
 {
-  if (moveProbabilityWeightFactoryClass != null) {
+  if (probabilityWeightFactoryClass != null) {
     if (resolvedSelectionOrder != SelectionOrder.RANDOM) {
-      throw new IllegalArgumentException("The moveSelectorConfig (" + this + ") with moveProbabilityWeightFactoryClass ("+ moveProbabilityWeightFactoryClass+ ") has a resolvedSelectionOrder ("+ resolvedSelectionOrder+ ") that is not "+ SelectionOrder.RANDOM+ ".");
+      throw new IllegalArgumentException("The moveSelectorConfig (" + this + ") with probabilityWeightFactoryClass ("+ probabilityWeightFactoryClass+ ") has a resolvedSelectionOrder ("+ resolvedSelectionOrder+ ") that is not "+ SelectionOrder.RANDOM+ ".");
     }
-    SelectionProbabilityWeightFactory probabilityWeightFactory=ConfigUtils.newInstance(this,"moveProbabilityWeightFactoryClass",moveProbabilityWeightFactoryClass);
+    SelectionProbabilityWeightFactory probabilityWeightFactory=ConfigUtils.newInstance(this,"probabilityWeightFactoryClass",probabilityWeightFactoryClass);
     moveSelector=new ProbabilityMoveSelector(moveSelector,resolvedCacheType,probabilityWeightFactory);
   }
   return moveSelector;

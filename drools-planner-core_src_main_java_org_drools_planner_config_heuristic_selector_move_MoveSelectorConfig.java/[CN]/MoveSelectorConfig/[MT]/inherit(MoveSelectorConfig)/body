@@ -3,6 +3,6 @@
   cacheType=ConfigUtils.inheritOverwritableProperty(cacheType,inheritedConfig.getCacheType());
   selectionOrder=ConfigUtils.inheritOverwritableProperty(selectionOrder,inheritedConfig.getSelectionOrder());
   moveFilterClassList=ConfigUtils.inheritOverwritableProperty(moveFilterClassList,inheritedConfig.getMoveFilterClassList());
-  moveProbabilityWeightFactoryClass=ConfigUtils.inheritOverwritableProperty(moveProbabilityWeightFactoryClass,inheritedConfig.getMoveProbabilityWeightFactoryClass());
+  probabilityWeightFactoryClass=ConfigUtils.inheritOverwritableProperty(probabilityWeightFactoryClass,inheritedConfig.getProbabilityWeightFactoryClass());
   fixedProbabilityWeight=ConfigUtils.inheritOverwritableProperty(fixedProbabilityWeight,inheritedConfig.getFixedProbabilityWeight());
 }
