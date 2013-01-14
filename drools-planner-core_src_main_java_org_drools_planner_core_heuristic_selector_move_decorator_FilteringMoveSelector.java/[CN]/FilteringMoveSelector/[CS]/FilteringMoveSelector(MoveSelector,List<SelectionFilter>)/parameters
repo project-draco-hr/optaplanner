@@ -1,2 +1,2 @@
 MoveSelector childMoveSelector
-List<SelectionFilter> moveFilterList
+List<SelectionFilter> filterList

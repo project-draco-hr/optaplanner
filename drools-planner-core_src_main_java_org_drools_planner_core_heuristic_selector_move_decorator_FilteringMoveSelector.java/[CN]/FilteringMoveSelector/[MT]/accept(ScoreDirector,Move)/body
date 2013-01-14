@@ -1,6 +1,6 @@
 {
-  for (  SelectionFilter moveFilter : moveFilterList) {
-    if (!moveFilter.accept(scoreDirector,move)) {
+  for (  SelectionFilter filter : filterList) {
+    if (!filter.accept(scoreDirector,move)) {
       return false;
     }
   }
