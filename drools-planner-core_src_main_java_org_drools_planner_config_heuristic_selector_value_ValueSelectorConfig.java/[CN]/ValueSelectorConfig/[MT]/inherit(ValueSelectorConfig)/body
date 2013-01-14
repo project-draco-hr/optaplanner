@@ -5,5 +5,5 @@
   }
   cacheType=ConfigUtils.inheritOverwritableProperty(cacheType,inheritedConfig.getCacheType());
   selectionOrder=ConfigUtils.inheritOverwritableProperty(selectionOrder,inheritedConfig.getSelectionOrder());
-  valueProbabilityWeightFactoryClass=ConfigUtils.inheritOverwritableProperty(valueProbabilityWeightFactoryClass,inheritedConfig.getValueProbabilityWeightFactoryClass());
+  probabilityWeightFactoryClass=ConfigUtils.inheritOverwritableProperty(probabilityWeightFactoryClass,inheritedConfig.getProbabilityWeightFactoryClass());
 }

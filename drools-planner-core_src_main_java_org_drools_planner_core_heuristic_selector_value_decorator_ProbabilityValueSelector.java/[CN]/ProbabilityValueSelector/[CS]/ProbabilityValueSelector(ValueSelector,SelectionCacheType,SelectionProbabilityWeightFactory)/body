@@ -1,7 +1,7 @@
 {
   this.childValueSelector=childValueSelector;
   this.cacheType=cacheType;
-  this.valueProbabilityWeightFactory=valueProbabilityWeightFactory;
+  this.probabilityWeightFactory=probabilityWeightFactory;
   if (childValueSelector.isNeverEnding()) {
     throw new IllegalStateException("The selector (" + this + ") has a childValueSelector ("+ childValueSelector+ ") with neverEnding ("+ childValueSelector.isNeverEnding()+ ").");
   }

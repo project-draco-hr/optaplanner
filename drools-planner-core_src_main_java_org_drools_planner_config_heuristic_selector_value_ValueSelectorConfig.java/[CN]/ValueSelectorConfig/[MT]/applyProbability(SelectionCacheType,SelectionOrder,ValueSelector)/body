@@ -1,10 +1,10 @@
 {
-  if (valueProbabilityWeightFactoryClass != null) {
+  if (probabilityWeightFactoryClass != null) {
     if (resolvedSelectionOrder != SelectionOrder.RANDOM) {
-      throw new IllegalArgumentException("The valueSelectorConfig (" + this + ") with valueProbabilityWeightFactoryClass ("+ valueProbabilityWeightFactoryClass+ ") has a non-random resolvedSelectionOrder ("+ resolvedSelectionOrder+ ").");
+      throw new IllegalArgumentException("The valueSelectorConfig (" + this + ") with probabilityWeightFactoryClass ("+ probabilityWeightFactoryClass+ ") has a non-random resolvedSelectionOrder ("+ resolvedSelectionOrder+ ").");
     }
-    SelectionProbabilityWeightFactory valueProbabilityWeightFactory=ConfigUtils.newInstance(this,"valueProbabilityWeightFactoryClass",valueProbabilityWeightFactoryClass);
-    valueSelector=new ProbabilityValueSelector(valueSelector,resolvedCacheType,valueProbabilityWeightFactory);
+    SelectionProbabilityWeightFactory probabilityWeightFactory=ConfigUtils.newInstance(this,"probabilityWeightFactoryClass",probabilityWeightFactoryClass);
+    valueSelector=new ProbabilityValueSelector(valueSelector,resolvedCacheType,probabilityWeightFactory);
   }
   return valueSelector;
 }
