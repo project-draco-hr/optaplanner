@@ -1,4 +1,4 @@
 {
   super(childEntitySelector,cacheType);
-  this.entitySorter=entitySorter;
+  this.sorter=sorter;
 }

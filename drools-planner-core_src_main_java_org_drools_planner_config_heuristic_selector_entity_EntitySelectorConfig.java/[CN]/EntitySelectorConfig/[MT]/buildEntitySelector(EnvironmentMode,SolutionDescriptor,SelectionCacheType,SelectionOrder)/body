@@ -6,6 +6,7 @@
   EntitySelector entitySelector=buildBaseEntitySelector(environmentMode,entityDescriptor,minimumCacheType,resolvedCacheType.isCached() ? SelectionOrder.ORIGINAL : resolvedSelectionOrder);
   entitySelector=applyFiltering(entityDescriptor,resolvedCacheType,resolvedSelectionOrder,entitySelector);
   entitySelector=applySorting(resolvedCacheType,resolvedSelectionOrder,entitySelector);
+  entitySelector=applyProbability(resolvedCacheType,resolvedSelectionOrder,entitySelector);
   entitySelector=applyShuffling(resolvedCacheType,resolvedSelectionOrder,entitySelector);
   entitySelector=applyCaching(resolvedCacheType,resolvedSelectionOrder,entitySelector);
   return entitySelector;

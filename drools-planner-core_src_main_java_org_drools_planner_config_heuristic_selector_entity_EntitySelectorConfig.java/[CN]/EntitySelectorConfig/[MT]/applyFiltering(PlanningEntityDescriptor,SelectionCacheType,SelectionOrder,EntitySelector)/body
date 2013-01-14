@@ -11,13 +11,5 @@
     }
     entitySelector=new FilteringEntitySelector(entitySelector,filterList);
   }
-  if (entityComparatorClass != null) {
-    if (resolvedSelectionOrder != SelectionOrder.ORIGINAL) {
-      throw new IllegalArgumentException("The entitySelectorConfig (" + this + ") with entityComparatorClass ("+ entityComparatorClass+ ") has a resolvedSelectionOrder ("+ resolvedSelectionOrder+ ") that is not "+ SelectionOrder.ORIGINAL+ ".");
-    }
-    Comparator<Object> entityComparator=ConfigUtils.newInstance(this,"entityComparatorClass",entityComparatorClass);
-    SelectionSorter entitySorter=new ComparatorSelectionSorter(entityComparator,SelectionSorterOrder.resolve(entitySorterOrder));
-    entitySelector=new SortingEntitySelector(entitySelector,resolvedCacheType,entitySorter);
-  }
   return entitySelector;
 }
