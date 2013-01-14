@@ -1,3 +1,3 @@
 EntitySelector childEntitySelector
 SelectionCacheType cacheType
-SelectionProbabilityWeightFactory entityProbabilityWeightFactory
+SelectionProbabilityWeightFactory probabilityWeightFactory

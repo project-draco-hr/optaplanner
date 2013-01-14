@@ -8,5 +8,5 @@
   entitySorterWeightFactoryClass=ConfigUtils.inheritOverwritableProperty(entitySorterWeightFactoryClass,inheritedConfig.getEntitySorterWeightFactoryClass());
   entitySorterOrder=ConfigUtils.inheritOverwritableProperty(entitySorterOrder,inheritedConfig.getEntitySorterOrder());
   entitySorterClass=ConfigUtils.inheritOverwritableProperty(entitySorterClass,inheritedConfig.getEntitySorterClass());
-  entityProbabilityWeightFactoryClass=ConfigUtils.inheritOverwritableProperty(entityProbabilityWeightFactoryClass,inheritedConfig.getEntityProbabilityWeightFactoryClass());
+  probabilityWeightFactoryClass=ConfigUtils.inheritOverwritableProperty(probabilityWeightFactoryClass,inheritedConfig.getProbabilityWeightFactoryClass());
 }

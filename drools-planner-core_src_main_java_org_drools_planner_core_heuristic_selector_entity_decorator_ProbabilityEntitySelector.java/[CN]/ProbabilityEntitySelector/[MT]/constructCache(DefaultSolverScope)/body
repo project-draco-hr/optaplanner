@@ -3,7 +3,7 @@
   ScoreDirector scoreDirector=solverScope.getScoreDirector();
   double probabilityWeightOffset=0L;
   for (  Object entity : childEntitySelector) {
-    double probabilityWeight=entityProbabilityWeightFactory.createProbabilityWeight(scoreDirector,entity);
+    double probabilityWeight=probabilityWeightFactory.createProbabilityWeight(scoreDirector,entity);
     cachedEntityMap.put(probabilityWeightOffset,entity);
     probabilityWeightOffset+=probabilityWeight;
   }

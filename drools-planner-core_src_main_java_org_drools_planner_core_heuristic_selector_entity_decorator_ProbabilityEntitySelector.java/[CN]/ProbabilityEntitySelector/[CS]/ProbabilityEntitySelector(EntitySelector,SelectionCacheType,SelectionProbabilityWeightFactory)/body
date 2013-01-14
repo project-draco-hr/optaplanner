@@ -1,7 +1,7 @@
 {
   this.childEntitySelector=childEntitySelector;
   this.cacheType=cacheType;
-  this.entityProbabilityWeightFactory=entityProbabilityWeightFactory;
+  this.probabilityWeightFactory=probabilityWeightFactory;
   if (childEntitySelector.isNeverEnding()) {
     throw new IllegalStateException("The selector (" + this + ") has a childEntitySelector ("+ childEntitySelector+ ") with neverEnding ("+ childEntitySelector.isNeverEnding()+ ").");
   }

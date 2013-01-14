@@ -26,12 +26,12 @@
     SelectionSorter entitySorter=ConfigUtils.newInstance(this,"entitySorterClass",entitySorterClass);
     entitySelector=new SortingEntitySelector(entitySelector,resolvedCacheType,entitySorter);
   }
-  if (entityProbabilityWeightFactoryClass != null) {
+  if (probabilityWeightFactoryClass != null) {
     if (resolvedSelectionOrder != SelectionOrder.RANDOM) {
-      throw new IllegalArgumentException("The entitySelectorConfig (" + this + ") with entityProbabilityWeightFactoryClass ("+ entityProbabilityWeightFactoryClass+ ") has a resolvedSelectionOrder ("+ resolvedSelectionOrder+ ") that is not "+ SelectionOrder.RANDOM+ ".");
+      throw new IllegalArgumentException("The entitySelectorConfig (" + this + ") with probabilityWeightFactoryClass ("+ probabilityWeightFactoryClass+ ") has a resolvedSelectionOrder ("+ resolvedSelectionOrder+ ") that is not "+ SelectionOrder.RANDOM+ ".");
     }
-    SelectionProbabilityWeightFactory entityProbabilityWeightFactory=ConfigUtils.newInstance(this,"entityProbabilityWeightFactoryClass",entityProbabilityWeightFactoryClass);
-    entitySelector=new ProbabilityEntitySelector(entitySelector,resolvedCacheType,entityProbabilityWeightFactory);
+    SelectionProbabilityWeightFactory probabilityWeightFactory=ConfigUtils.newInstance(this,"probabilityWeightFactoryClass",probabilityWeightFactoryClass);
+    entitySelector=new ProbabilityEntitySelector(entitySelector,resolvedCacheType,probabilityWeightFactory);
   }
   return entitySelector;
 }
