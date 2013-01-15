@@ -1,6 +1,0 @@
-{
-  this.entitySelector=entitySelector;
-  this.valuePlacer=valuePlacer;
-  solverPhaseLifecycleSupport.addEventListener(entitySelector);
-  solverPhaseLifecycleSupport.addEventListener(valuePlacer);
-}

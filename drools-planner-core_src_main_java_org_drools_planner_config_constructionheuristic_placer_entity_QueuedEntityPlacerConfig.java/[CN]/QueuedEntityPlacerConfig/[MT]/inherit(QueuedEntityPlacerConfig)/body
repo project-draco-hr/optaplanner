@@ -6,10 +6,5 @@
  else   if (inheritedConfig.getEntitySelectorConfig() != null) {
     entitySelectorConfig.inherit(inheritedConfig.getEntitySelectorConfig());
   }
-  if (valuePlacerConfig == null) {
-    valuePlacerConfig=inheritedConfig.getValuePlacerConfig();
-  }
- else   if (inheritedConfig.getValuePlacerConfig() != null) {
-    valuePlacerConfig.inherit(inheritedConfig.getValuePlacerConfig());
-  }
+  valuePlacerConfigList=ConfigUtils.inheritMergeableListProperty(valuePlacerConfigList,inheritedConfig.getValuePlacerConfigList());
 }

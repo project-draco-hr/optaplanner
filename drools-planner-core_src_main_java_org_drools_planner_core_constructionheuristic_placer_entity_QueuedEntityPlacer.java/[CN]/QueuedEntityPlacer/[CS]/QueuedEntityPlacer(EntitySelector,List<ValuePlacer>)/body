@@ -1,0 +1,11 @@
+{
+  this.entitySelector=entitySelector;
+  this.valuePlacerList=valuePlacerList;
+  if (valuePlacerList.isEmpty()) {
+    throw new IllegalArgumentException("The placer (" + this + ") with valuePlacerList ("+ valuePlacerList+ ") must have at least 1 valuePlacer.");
+  }
+  solverPhaseLifecycleSupport.addEventListener(entitySelector);
+  for (  ValuePlacer valuePlacer : valuePlacerList) {
+    solverPhaseLifecycleSupport.addEventListener(valuePlacer);
+  }
+}
