@@ -1,0 +1,9 @@
+{
+  ConstructionHeuristicSolverPhaseScope phaseScope=stepScope.getPhaseScope();
+  stepScope.getStep().doMove(stepScope.getScoreDirector());
+  phaseScope.getWorkingSolution().setScore(stepScope.getScore());
+  if (assertStepScoreIsUncorrupted) {
+    phaseScope.assertWorkingScoreFromScratch(stepScope.getScore());
+    phaseScope.assertExpectedWorkingScore(stepScope.getScore());
+  }
+}

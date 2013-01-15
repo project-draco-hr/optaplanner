@@ -1,7 +1,10 @@
 {
-  Score maxScore=stepScope.getPhaseScope().getScoreDefinition().getPerfectMinimumScore();
-  ConstructionHeuristicMoveScope maxMoveScope=null;
   Object entity=stepScope.getEntity();
+  if (variableDescriptor.isInitialized(entity)) {
+    return null;
+  }
+  Score maxScore=stepScope.getPhaseScope().getScoreDefinition().getPerfectMinimumScore();
+  ConstructionHeuristicMoveScope nominatedMoveScope=null;
   int moveIndex=0;
   for (  Object value : valueSelector) {
     ConstructionHeuristicMoveScope moveScope=new ConstructionHeuristicMoveScope(stepScope);
@@ -21,7 +24,7 @@
       doMove(moveScope);
       if (moveScope.getScore().compareTo(maxScore) > 0) {
         maxScore=moveScope.getScore();
-        maxMoveScope=moveScope;
+        nominatedMoveScope=moveScope;
       }
       if (moveIndex >= selectedCountLimit) {
         break;
@@ -32,13 +35,5 @@
       break;
     }
   }
-  if (maxMoveScope != null) {
-    Move step=maxMoveScope.getMove();
-    stepScope.setStep(step);
-    if (logger.isDebugEnabled()) {
-      stepScope.setStepString(step.toString());
-    }
-    stepScope.setUndoStep(maxMoveScope.getUndoMove());
-    stepScope.setScore(maxMoveScope.getScore());
-  }
+  return nominatedMoveScope;
 }

@@ -4,22 +4,24 @@
   if (entityPlacerList.size() != 1) {
     throw new UnsupportedOperationException();
   }
-  EntityPlacer hackEntityPlacer=entityPlacerList.get(0);
+  EntityPlacer entityPlacer=entityPlacerList.get(0);
   ConstructionHeuristicStepScope stepScope=createNextStepScope(phaseScope,null);
-  while (!termination.isPhaseTerminated(phaseScope) && hackEntityPlacer.hasPlacement()) {
+  while (!termination.isPhaseTerminated(phaseScope)) {
     stepStarted(stepScope);
-    hackEntityPlacer.doPlacement(stepScope);
-    Move nextStep=stepScope.getStep();
-    if (nextStep == null) {
-      logger.warn("    Cancelled step index ({}), time spend ({}): there is no doable move. Terminating phase early.",stepScope.getStepIndex(),phaseScope.calculateSolverTimeMillisSpend());
+    ConstructionHeuristicMoveScope moveScope=entityPlacer.nominateMove(stepScope);
+    if (moveScope == null) {
       break;
     }
-    nextStep.doMove(stepScope.getScoreDirector());
-    phaseScope.getWorkingSolution().setScore(stepScope.getScore());
-    if (assertStepScoreIsUncorrupted) {
-      phaseScope.assertWorkingScoreFromScratch(stepScope.getScore());
-      phaseScope.assertExpectedWorkingScore(stepScope.getScore());
+ else {
+      Move step=moveScope.getMove();
+      stepScope.setStep(step);
+      if (logger.isDebugEnabled()) {
+        stepScope.setStepString(step.toString());
+      }
+      stepScope.setUndoStep(moveScope.getUndoMove());
+      stepScope.setScore(moveScope.getScore());
     }
+    doStep(stepScope);
     stepEnded(stepScope);
     stepScope=createNextStepScope(phaseScope,stepScope);
   }

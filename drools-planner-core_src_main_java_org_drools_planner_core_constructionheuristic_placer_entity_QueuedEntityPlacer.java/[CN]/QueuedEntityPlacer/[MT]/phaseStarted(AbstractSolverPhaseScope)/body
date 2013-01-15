@@ -1,4 +1,6 @@
 {
   super.phaseStarted(solverPhaseScope);
   entityIterator=entitySelector.iterator();
+  nominatedEntity=null;
+  valuePlacerIterator=null;
 }
