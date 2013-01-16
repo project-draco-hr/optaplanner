@@ -1,6 +1,4 @@
 {
-  CurriculumCourseSchedule schedule=(CurriculumCourseSchedule)solution;
-  Period period=(Period)planningValue;
   int unavailablePeriodPenaltyCount=0;
   for (  UnavailablePeriodPenalty penalty : schedule.getUnavailablePeriodPenaltyList()) {
     if (penalty.getPeriod().equals(period)) {

@@ -1,6 +1,4 @@
 {
-  NQueens nQueens=(NQueens)solution;
-  Row row=(Row)planningValue;
   int distanceFromMiddle=calculateDistanceFromMiddle(nQueens.getN(),row.getIndex());
   return new RowStrengthWeight(row,distanceFromMiddle);
 }

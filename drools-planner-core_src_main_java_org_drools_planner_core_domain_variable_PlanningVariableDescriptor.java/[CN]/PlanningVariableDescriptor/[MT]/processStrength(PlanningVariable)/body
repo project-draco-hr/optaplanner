@@ -3,7 +3,7 @@
   if (strengthComparatorClass == PlanningVariable.NullStrengthComparator.class) {
     strengthComparatorClass=null;
   }
-  Class<? extends PlanningValueStrengthWeightFactory> strengthWeightFactoryClass=planningVariableAnnotation.strengthWeightFactoryClass();
+  Class<? extends SelectionSorterWeightFactory> strengthWeightFactoryClass=planningVariableAnnotation.strengthWeightFactoryClass();
   if (strengthWeightFactoryClass == PlanningVariable.NullStrengthWeightFactory.class) {
     strengthWeightFactoryClass=null;
   }
@@ -15,7 +15,7 @@
     valueSorter.setStrengthComparator(strengthComparator);
   }
   if (strengthWeightFactoryClass != null) {
-    PlanningValueStrengthWeightFactory strengthWeightFactory=ConfigUtils.newInstance(this,"strengthWeightFactoryClass",strengthWeightFactoryClass);
+    SelectionSorterWeightFactory strengthWeightFactory=ConfigUtils.newInstance(this,"strengthWeightFactoryClass",strengthWeightFactoryClass);
     valueSorter.setStrengthWeightFactory(strengthWeightFactory);
   }
 }
