@@ -1,10 +1,10 @@
 {
-  boolean solutionInitialized=solverScope.isWorkingSolutionInitialized();
-  solverScope.setBestSolutionInitialized(solutionInitialized);
+  int uninitializedVariableCount=solverScope.getScoreDirector().countWorkingSolutionUninitializedVariables();
+  solverScope.setBestUninitializedVariableCount(uninitializedVariableCount);
   Score score=solverScope.calculateScore();
   solverScope.setBestScore(score);
   solverScope.getBestSolution().setScore(score);
-  if (solutionInitialized) {
+  if (uninitializedVariableCount == 0) {
     solverScope.setStartingInitializedScore(score);
   }
 }

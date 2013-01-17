@@ -2,8 +2,8 @@
   for (  PropertyAccessor entityPropertyAccessor : entityPropertyAccessorMap.values()) {
     Object entity=extractPlanningEntity(entityPropertyAccessor,solution);
     if (entity != null) {
-      PlanningEntityDescriptor planningEntityDescriptor=getPlanningEntityDescriptor(entity.getClass());
-      if (!planningEntityDescriptor.isInitialized(entity)) {
+      PlanningEntityDescriptor entityDescriptor=getPlanningEntityDescriptor(entity.getClass());
+      if (!entityDescriptor.isInitialized(entity)) {
         return false;
       }
     }
@@ -11,8 +11,8 @@
   for (  PropertyAccessor entityCollectionPropertyAccessor : entityCollectionPropertyAccessorMap.values()) {
     Collection<?> entityCollection=extractPlanningEntityCollection(entityCollectionPropertyAccessor,solution);
     for (    Object entity : entityCollection) {
-      PlanningEntityDescriptor planningEntityDescriptor=getPlanningEntityDescriptor(entity.getClass());
-      if (!planningEntityDescriptor.isInitialized(entity)) {
+      PlanningEntityDescriptor entityDescriptor=getPlanningEntityDescriptor(entity.getClass());
+      if (!entityDescriptor.isInitialized(entity)) {
         return false;
       }
     }

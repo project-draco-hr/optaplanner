@@ -1,8 +1,8 @@
 {
   super.phaseEnded(phaseScope);
   Solution newBestSolution=phaseScope.getScoreDirector().cloneWorkingSolution();
-  boolean newBestSolutionInitialized=phaseScope.isWorkingSolutionInitialized();
-  bestSolutionRecaller.updateBestSolution(phaseScope.getSolverScope(),newBestSolution,newBestSolutionInitialized);
+  int newBestUninitializedVariableCount=phaseScope.getSolutionDescriptor().countUninitializedVariables(newBestSolution);
+  bestSolutionRecaller.updateBestSolution(phaseScope.getSolverScope(),newBestSolution,newBestUninitializedVariableCount);
   for (  EntityPlacer entityPlacer : entityPlacerList) {
     entityPlacer.phaseEnded(phaseScope);
   }

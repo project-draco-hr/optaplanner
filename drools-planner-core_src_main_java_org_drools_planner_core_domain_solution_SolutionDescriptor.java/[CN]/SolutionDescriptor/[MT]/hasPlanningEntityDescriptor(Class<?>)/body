@@ -1,9 +1,9 @@
 {
-  PlanningEntityDescriptor planningEntityDescriptor=null;
+  PlanningEntityDescriptor entityDescriptor=null;
   Class<?> planningEntityClass=planningEntitySubclass;
   while (planningEntityClass != null) {
-    planningEntityDescriptor=planningEntityDescriptorMap.get(planningEntityClass);
-    if (planningEntityDescriptor != null) {
+    entityDescriptor=planningEntityDescriptorMap.get(planningEntityClass);
+    if (entityDescriptor != null) {
       return true;
     }
     planningEntityClass=planningEntityClass.getSuperclass();

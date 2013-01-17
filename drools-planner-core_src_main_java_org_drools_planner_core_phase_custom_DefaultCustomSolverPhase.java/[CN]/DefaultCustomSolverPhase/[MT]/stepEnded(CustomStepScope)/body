@@ -4,8 +4,7 @@
   if (forceUpdateBestSolution && !bestScoreImproved) {
     DefaultSolverScope solverScope=stepScope.getPhaseScope().getSolverScope();
     Solution newBestSolution=solverScope.getScoreDirector().cloneWorkingSolution();
-    boolean newBestSolutionInitialized=solverScope.isWorkingSolutionInitialized();
-    bestSolutionRecaller.updateBestSolution(solverScope,newBestSolution,newBestSolutionInitialized);
+    bestSolutionRecaller.updateBestSolution(solverScope,newBestSolution,stepScope.getUninitializedVariableCount());
   }
   CustomSolverPhaseScope customSolverPhaseScope=stepScope.getPhaseScope();
   if (logger.isDebugEnabled()) {

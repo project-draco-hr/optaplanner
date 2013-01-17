@@ -7,6 +7,8 @@
     CustomSolverPhaseCommand customSolverPhaseCommand=commandIterator.next();
     stepStarted(stepScope);
     customSolverPhaseCommand.changeWorkingSolution(solverScope.getScoreDirector());
+    int uninitializedVariableCount=solverScope.getSolutionDescriptor().countUninitializedVariables(stepScope.getWorkingSolution());
+    stepScope.setUninitializedVariableCount(uninitializedVariableCount);
     Score score=customSolverPhaseScope.calculateScore();
     stepScope.setScore(score);
     stepEnded(stepScope);

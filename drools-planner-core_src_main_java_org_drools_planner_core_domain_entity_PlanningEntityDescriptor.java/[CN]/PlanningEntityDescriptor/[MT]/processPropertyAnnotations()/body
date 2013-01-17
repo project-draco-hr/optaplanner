@@ -10,9 +10,9 @@
       if (propertyAccessor.getWriteMethod() == null) {
         throw new IllegalStateException("The planningEntityClass (" + planningEntityClass + ") has a PlanningVariable annotated property ("+ propertyAccessor.getName()+ ") that should have a setter.");
       }
-      PlanningVariableDescriptor planningVariableDescriptor=new PlanningVariableDescriptor(this,propertyAccessor);
-      planningVariableDescriptorMap.put(propertyAccessor.getName(),planningVariableDescriptor);
-      planningVariableDescriptor.processAnnotations();
+      PlanningVariableDescriptor variableDescriptor=new PlanningVariableDescriptor(this,propertyAccessor);
+      planningVariableDescriptorMap.put(propertyAccessor.getName(),variableDescriptor);
+      variableDescriptor.processAnnotations();
     }
   }
   if (noPlanningVariableAnnotation) {

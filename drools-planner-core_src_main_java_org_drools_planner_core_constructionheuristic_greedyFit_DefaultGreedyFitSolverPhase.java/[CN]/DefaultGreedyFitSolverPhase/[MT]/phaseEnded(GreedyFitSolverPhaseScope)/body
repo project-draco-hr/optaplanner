@@ -1,8 +1,8 @@
 {
   super.phaseEnded(phaseScope);
   Solution newBestSolution=phaseScope.getScoreDirector().cloneWorkingSolution();
-  boolean newBestSolutionInitialized=phaseScope.isWorkingSolutionInitialized();
-  bestSolutionRecaller.updateBestSolution(phaseScope.getSolverScope(),newBestSolution,newBestSolutionInitialized);
+  int newBestUninitializedVariableCount=phaseScope.getSolutionDescriptor().countUninitializedVariables(newBestSolution);
+  bestSolutionRecaller.updateBestSolution(phaseScope.getSolverScope(),newBestSolution,newBestUninitializedVariableCount);
   greedyPlanningEntitySelector.phaseEnded(phaseScope);
   greedyDecider.phaseEnded(phaseScope);
   logger.info("Phase ({}) constructionHeuristic ended: step total ({}), time spend ({}), best score ({}).",phaseIndex,phaseScope.getLastCompletedStepScope().getStepIndex() + 1,phaseScope.calculateSolverTimeMillisSpend(),phaseScope.getBestScore());
