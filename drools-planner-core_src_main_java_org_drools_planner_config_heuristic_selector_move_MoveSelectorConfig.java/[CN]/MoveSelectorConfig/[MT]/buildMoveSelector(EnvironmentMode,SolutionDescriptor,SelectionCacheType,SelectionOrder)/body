@@ -3,7 +3,8 @@
   minimumCacheType=SelectionCacheType.max(minimumCacheType,resolvedCacheType);
   SelectionOrder resolvedSelectionOrder=SelectionOrder.resolve(selectionOrder,inheritedSelectionOrder);
   MoveSelector moveSelector=buildBaseMoveSelector(environmentMode,solutionDescriptor,minimumCacheType,resolvedCacheType.isCached() ? SelectionOrder.ORIGINAL : resolvedSelectionOrder);
-  moveSelector=applyFiltering(moveSelector);
+  moveSelector=applyFiltering(resolvedCacheType,resolvedSelectionOrder,moveSelector);
+  moveSelector=applySorting(resolvedCacheType,resolvedSelectionOrder,moveSelector);
   moveSelector=applyProbability(resolvedCacheType,resolvedSelectionOrder,moveSelector);
   moveSelector=applyShuffling(resolvedCacheType,resolvedSelectionOrder,moveSelector);
   moveSelector=applyCaching(resolvedCacheType,resolvedSelectionOrder,moveSelector);

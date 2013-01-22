@@ -1,0 +1,20 @@
+{
+  Iterator<Move> iterator=moveSelector.iterator();
+  assertNotNull(iterator);
+  assertTrue(iterator.hasNext());
+  assertCode("apr",iterator.next());
+  assertTrue(iterator.hasNext());
+  assertCode("feb",iterator.next());
+  assertTrue(iterator.hasNext());
+  assertCode("jan",iterator.next());
+  assertTrue(iterator.hasNext());
+  assertCode("jun",iterator.next());
+  assertTrue(iterator.hasNext());
+  assertCode("mar",iterator.next());
+  assertTrue(iterator.hasNext());
+  assertCode("may",iterator.next());
+  assertFalse(iterator.hasNext());
+  assertEquals(false,moveSelector.isContinuous());
+  assertEquals(false,moveSelector.isNeverEnding());
+  assertEquals(6L,moveSelector.getSize());
+}

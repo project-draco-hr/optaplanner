@@ -1,0 +1,4 @@
+{
+  super(childMoveSelector,cacheType);
+  this.sorter=sorter;
+}
