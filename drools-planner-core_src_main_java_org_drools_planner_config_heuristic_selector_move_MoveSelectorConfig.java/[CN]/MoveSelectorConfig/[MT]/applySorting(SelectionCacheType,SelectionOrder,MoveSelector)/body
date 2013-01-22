@@ -1,4 +1,13 @@
 {
+  if (sorterComparatorClass != null && sorterWeightFactoryClass != null) {
+    throw new IllegalArgumentException("The moveSelectorConfig (" + this + ") has both an sorterComparatorClass ("+ sorterComparatorClass+ ") and a sorterWeightFactoryClass ("+ sorterWeightFactoryClass+ ").");
+  }
+  if (sorterComparatorClass != null && sorterClass != null) {
+    throw new IllegalArgumentException("The moveSelectorConfig (" + this + ") has both an sorterComparatorClass ("+ sorterComparatorClass+ ") and a sorterClass ("+ sorterClass+ ").");
+  }
+  if (sorterWeightFactoryClass != null && sorterClass != null) {
+    throw new IllegalArgumentException("The moveSelectorConfig (" + this + ") has both an sorterWeightFactoryClass ("+ sorterWeightFactoryClass+ ") and a sorterClass ("+ sorterClass+ ").");
+  }
   if (sorterComparatorClass != null || sorterWeightFactoryClass != null || sorterClass != null) {
     SelectionSorter sorter=null;
     if (sorterComparatorClass != null) {
@@ -9,9 +18,6 @@
       sorter=new ComparatorSelectionSorter(sorterComparator,SelectionSorterOrder.resolve(sorterOrder));
     }
     if (sorterWeightFactoryClass != null) {
-      if (sorterComparatorClass != null) {
-        throw new IllegalArgumentException("The moveSelectorConfig (" + this + ") has both an sorterComparatorClass ("+ sorterComparatorClass+ ") and a sorterWeightFactoryClass ("+ sorterWeightFactoryClass+ ").");
-      }
       if (resolvedSelectionOrder != SelectionOrder.ORIGINAL) {
         throw new IllegalArgumentException("The moveSelectorConfig (" + this + ") with sorterWeightFactoryClass ("+ sorterWeightFactoryClass+ ") has a resolvedSelectionOrder ("+ resolvedSelectionOrder+ ") that is not "+ SelectionOrder.ORIGINAL+ ".");
       }
@@ -19,12 +25,6 @@
       sorter=new WeightFactorySelectionSorter(sorterWeightFactory,SelectionSorterOrder.resolve(sorterOrder));
     }
     if (sorterClass != null) {
-      if (sorterComparatorClass != null) {
-        throw new IllegalArgumentException("The moveSelectorConfig (" + this + ") has both an sorterComparatorClass ("+ sorterComparatorClass+ ") and a sorterClass ("+ sorterClass+ ").");
-      }
-      if (sorterWeightFactoryClass != null) {
-        throw new IllegalArgumentException("The moveSelectorConfig (" + this + ") has both an sorterWeightFactoryClass ("+ sorterWeightFactoryClass+ ") and a sorterClass ("+ sorterClass+ ").");
-      }
       if (sorterOrder != null) {
         throw new IllegalArgumentException("The moveSelectorConfig (" + this + ") has both an sorterClass ("+ sorterClass+ ") but the sorterOrder ("+ sorterOrder+ ") should be null.");
       }
