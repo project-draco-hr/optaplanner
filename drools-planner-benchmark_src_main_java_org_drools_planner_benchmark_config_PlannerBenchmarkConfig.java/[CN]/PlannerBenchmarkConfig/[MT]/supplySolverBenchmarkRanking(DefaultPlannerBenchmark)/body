@@ -22,7 +22,7 @@ case TOTAL_RANKING:
 solverBenchmarkRankingWeightFactory=new TotalRankSolverBenchmarkRankingWeightFactory();
 break;
 default :
-throw new IllegalStateException("The solverBenchmarkRankingType (" + solverBenchmarkRankingType + ") is not implemented");
+throw new IllegalStateException("The solverBenchmarkRankingType (" + solverBenchmarkRankingType + ") is not implemented.");
 }
 }
 if (solverBenchmarkRankingComparatorClass != null) {
