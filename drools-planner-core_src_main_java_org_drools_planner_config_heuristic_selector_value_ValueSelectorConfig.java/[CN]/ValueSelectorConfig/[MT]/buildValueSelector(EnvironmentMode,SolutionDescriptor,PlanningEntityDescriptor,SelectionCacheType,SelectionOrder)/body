@@ -1,9 +1,10 @@
 {
   PlanningVariableDescriptor variableDescriptor=fetchVariableDescriptor(entityDescriptor);
   SelectionCacheType resolvedCacheType=SelectionCacheType.resolve(cacheType,minimumCacheType);
-  minimumCacheType=SelectionCacheType.max(minimumCacheType,resolvedCacheType);
   SelectionOrder resolvedSelectionOrder=SelectionOrder.resolve(selectionOrder,inheritedSelectionOrder);
-  ValueSelector valueSelector=buildBaseValueSelector(environmentMode,variableDescriptor,minimumCacheType,resolvedCacheType.isCached() ? SelectionOrder.ORIGINAL : resolvedSelectionOrder);
+  validateCacheTypeVersusSelectionOrder(resolvedCacheType,resolvedSelectionOrder);
+  validateProbability(resolvedSelectionOrder);
+  ValueSelector valueSelector=buildBaseValueSelector(environmentMode,variableDescriptor,SelectionCacheType.max(minimumCacheType,resolvedCacheType),resolvedCacheType.isCached() ? SelectionOrder.ORIGINAL : resolvedSelectionOrder);
   valueSelector=applyProbability(resolvedCacheType,resolvedSelectionOrder,valueSelector);
   valueSelector=applyShuffling(resolvedCacheType,resolvedSelectionOrder,valueSelector);
   valueSelector=applyCaching(resolvedCacheType,resolvedSelectionOrder,valueSelector);

@@ -1,5 +1,5 @@
 {
-  if (!CollectionUtils.isEmpty(filterClassList) || entityDescriptor.hasMovableEntitySelectionFilter()) {
+  if (hasFiltering(entityDescriptor)) {
     List<SelectionFilter> filterList=new ArrayList<SelectionFilter>(filterClassList == null ? 1 : filterClassList.size() + 1);
     if (filterClassList != null) {
       for (      Class<? extends SelectionFilter> filterClass : filterClassList) {

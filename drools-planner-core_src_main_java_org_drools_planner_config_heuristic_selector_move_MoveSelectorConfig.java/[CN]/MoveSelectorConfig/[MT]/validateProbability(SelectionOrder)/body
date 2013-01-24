@@ -1,0 +1,5 @@
+{
+  if (probabilityWeightFactoryClass != null && resolvedSelectionOrder != SelectionOrder.PROBABILISTIC) {
+    throw new IllegalArgumentException("The moveSelectorConfig (" + this + ") with probabilityWeightFactoryClass ("+ probabilityWeightFactoryClass+ ") has a resolvedSelectionOrder ("+ resolvedSelectionOrder+ ") that is not "+ SelectionOrder.PROBABILISTIC+ ".");
+  }
+}
