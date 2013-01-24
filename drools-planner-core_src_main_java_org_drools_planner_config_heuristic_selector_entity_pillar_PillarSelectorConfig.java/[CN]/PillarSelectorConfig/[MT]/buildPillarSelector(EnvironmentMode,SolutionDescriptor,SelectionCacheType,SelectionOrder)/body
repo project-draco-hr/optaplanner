@@ -4,5 +4,5 @@
   }
   EntitySelector entitySelector=entitySelectorConfig.buildEntitySelector(environmentMode,solutionDescriptor,minimumCacheType,SelectionOrder.ORIGINAL);
   Collection<PlanningVariableDescriptor> variableDescriptors=entitySelector.getEntityDescriptor().getPlanningVariableDescriptors();
-  return new SameValuePillarSelector(entitySelector,variableDescriptors,inheritedSelectionOrder == SelectionOrder.RANDOM);
+  return new SameValuePillarSelector(entitySelector,variableDescriptors,inheritedSelectionOrder.toRandomSelectionBoolean());
 }

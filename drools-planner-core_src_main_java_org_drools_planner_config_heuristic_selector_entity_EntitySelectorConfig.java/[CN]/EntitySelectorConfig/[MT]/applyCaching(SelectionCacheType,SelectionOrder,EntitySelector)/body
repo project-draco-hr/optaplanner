@@ -1,6 +1,6 @@
 {
   if (resolvedCacheType.isCached() && resolvedCacheType.compareTo(entitySelector.getCacheType()) > 0) {
-    entitySelector=new CachingEntitySelector(entitySelector,resolvedCacheType,resolvedSelectionOrder == SelectionOrder.RANDOM);
+    entitySelector=new CachingEntitySelector(entitySelector,resolvedCacheType,resolvedSelectionOrder.toRandomSelectionBoolean());
   }
   return entitySelector;
 }

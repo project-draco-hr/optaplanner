@@ -1,3 +1,0 @@
-{
-  return resolvedCacheType.isCached() ? false : resolvedSelectionOrder.toRandomSelectionBoolean();
-}

@@ -1,6 +1,6 @@
 {
   if (resolvedCacheType.isCached() && resolvedCacheType.compareTo(moveSelector.getCacheType()) > 0) {
-    moveSelector=new CachingMoveSelector(moveSelector,resolvedCacheType,resolvedSelectionOrder == SelectionOrder.RANDOM);
+    moveSelector=new CachingMoveSelector(moveSelector,resolvedCacheType,resolvedSelectionOrder.toRandomSelectionBoolean());
   }
   return moveSelector;
 }
