@@ -8,6 +8,6 @@ case DESCENDING:
 this.appliedWeightComparator=Collections.reverseOrder();
 break;
 default :
-throw new IllegalStateException("The selectionSorterOrder (" + selectionSorterOrder + ") is not implemented");
+throw new IllegalStateException("The selectionSorterOrder (" + selectionSorterOrder + ") is not implemented.");
 }
 }

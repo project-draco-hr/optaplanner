@@ -18,7 +18,7 @@ return new HardAndSoftLongScoreDefinition();
 case HARD_MEDIUM_SOFT:
 return new HardMediumSoftScoreDefinition();
 default :
-throw new IllegalStateException("The scoreDefinitionType (" + scoreDefinitionType + ") is not implemented");
+throw new IllegalStateException("The scoreDefinitionType (" + scoreDefinitionType + ") is not implemented.");
 }
 }
  else {

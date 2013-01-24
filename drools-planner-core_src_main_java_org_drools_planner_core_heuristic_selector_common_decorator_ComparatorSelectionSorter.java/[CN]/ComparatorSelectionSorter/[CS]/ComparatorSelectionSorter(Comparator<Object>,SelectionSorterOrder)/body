@@ -7,6 +7,6 @@ case DESCENDING:
 this.appliedComparator=Collections.reverseOrder(comparator);
 break;
 default :
-throw new IllegalStateException("The selectionSorterOrder (" + selectionSorterOrder + ") is not implemented");
+throw new IllegalStateException("The selectionSorterOrder (" + selectionSorterOrder + ") is not implemented.");
 }
 }

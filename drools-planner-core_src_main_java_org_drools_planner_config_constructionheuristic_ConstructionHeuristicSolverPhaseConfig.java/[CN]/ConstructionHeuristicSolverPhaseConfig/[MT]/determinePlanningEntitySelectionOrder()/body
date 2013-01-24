@@ -7,6 +7,6 @@ case FIRST_FIT_DECREASING:
 case BEST_FIT_DECREASING:
   return PlanningEntitySelectionOrder.DECREASING_DIFFICULTY;
 default :
-throw new IllegalStateException("The constructionHeuristicType (" + constructionHeuristicType + ") is not implemented");
+throw new IllegalStateException("The constructionHeuristicType (" + constructionHeuristicType + ") is not implemented.");
 }
 }

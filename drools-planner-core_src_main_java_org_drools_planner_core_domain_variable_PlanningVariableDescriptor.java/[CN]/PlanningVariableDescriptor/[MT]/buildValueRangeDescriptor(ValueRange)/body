@@ -7,6 +7,6 @@ case FROM_PLANNING_ENTITY_PROPERTY:
 case UNDEFINED:
 return new UndefinedPlanningValueRangeDescriptor(this,valueRangeAnnotation);
 default :
-throw new IllegalStateException("The valueRangeType (" + valueRangeAnnotation.type() + ") is not implemented");
+throw new IllegalStateException("The valueRangeType (" + valueRangeAnnotation.type() + ") is not implemented.");
 }
 }

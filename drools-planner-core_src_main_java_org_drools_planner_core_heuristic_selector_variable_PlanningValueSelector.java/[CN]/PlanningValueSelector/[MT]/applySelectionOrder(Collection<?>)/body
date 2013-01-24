@@ -12,6 +12,6 @@ PlanningValueSorter valueSorter=planningVariableDescriptor.getValueSorter();
 valueSorter.sortStrengthAscending(scoreDirector.getWorkingSolution(),increasingStrengthPlanningValueList);
 return increasingStrengthPlanningValueList;
 default :
-throw new IllegalStateException("The selectionOrder (" + selectionOrder + ") is not implemented");
+throw new IllegalStateException("The selectionOrder (" + selectionOrder + ") is not implemented.");
 }
 }
