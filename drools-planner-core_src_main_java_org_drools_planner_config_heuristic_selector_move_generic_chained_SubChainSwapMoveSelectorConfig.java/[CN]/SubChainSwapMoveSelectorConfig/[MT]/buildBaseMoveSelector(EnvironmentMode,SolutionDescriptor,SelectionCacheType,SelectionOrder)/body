@@ -1,7 +1,0 @@
-{
-  PlanningEntityDescriptor entityDescriptor=fetchEntityDescriptor(solutionDescriptor);
-  SubChainSelector leftSubChainSelector=subChainSelectorConfig.buildSubChainSelector(environmentMode,solutionDescriptor,entityDescriptor,minimumCacheType,resolvedSelectionOrder);
-  SubChainSelectorConfig rightSubChainSelectorConfig=secondarySubChainSelectorConfig == null ? subChainSelectorConfig : secondarySubChainSelectorConfig;
-  SubChainSelector rightSubChainSelector=rightSubChainSelectorConfig.buildSubChainSelector(environmentMode,solutionDescriptor,entityDescriptor,minimumCacheType,resolvedSelectionOrder);
-  return new SubChainSwapMoveSelector(leftSubChainSelector,rightSubChainSelector,resolvedSelectionOrder == SelectionOrder.RANDOM,selectReversingMoveToo == null ? true : selectReversingMoveToo);
-}

@@ -2,7 +2,7 @@
   SolutionDescriptor solutionDescriptor=SelectorTestUtils.mockSolutionDescriptor();
   final MoveSelector baseMoveSelector=SelectorTestUtils.mockMoveSelector(DummyMove.class);
   MoveSelectorConfig moveSelectorConfig=new MoveSelectorConfig(){
-    @Override protected MoveSelector buildBaseMoveSelector(    EnvironmentMode environmentMode,    SolutionDescriptor solutionDescriptor,    SelectionCacheType minimumCacheType,    SelectionOrder resolvedSelectionOrder){
+    @Override protected MoveSelector buildBaseMoveSelector(    EnvironmentMode environmentMode,    SolutionDescriptor solutionDescriptor,    SelectionCacheType minimumCacheType,    boolean randomSelection){
       return baseMoveSelector;
     }
   }

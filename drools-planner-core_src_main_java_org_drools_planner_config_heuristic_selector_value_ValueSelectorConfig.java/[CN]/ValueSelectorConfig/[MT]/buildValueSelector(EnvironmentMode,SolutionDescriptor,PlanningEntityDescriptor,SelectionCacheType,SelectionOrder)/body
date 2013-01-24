@@ -4,7 +4,7 @@
   SelectionOrder resolvedSelectionOrder=SelectionOrder.resolve(selectionOrder,inheritedSelectionOrder);
   validateCacheTypeVersusSelectionOrder(resolvedCacheType,resolvedSelectionOrder);
   validateProbability(resolvedSelectionOrder);
-  ValueSelector valueSelector=buildBaseValueSelector(environmentMode,variableDescriptor,SelectionCacheType.max(minimumCacheType,resolvedCacheType),resolvedCacheType.isCached() ? SelectionOrder.ORIGINAL : resolvedSelectionOrder);
+  ValueSelector valueSelector=buildBaseValueSelector(environmentMode,variableDescriptor,SelectionCacheType.max(minimumCacheType,resolvedCacheType),resolvedCacheType.isCached() ? false : resolvedSelectionOrder.toRandomSelectionBoolean());
   valueSelector=applyProbability(resolvedCacheType,resolvedSelectionOrder,valueSelector);
   valueSelector=applyShuffling(resolvedCacheType,resolvedSelectionOrder,valueSelector);
   valueSelector=applyCaching(resolvedCacheType,resolvedSelectionOrder,valueSelector);

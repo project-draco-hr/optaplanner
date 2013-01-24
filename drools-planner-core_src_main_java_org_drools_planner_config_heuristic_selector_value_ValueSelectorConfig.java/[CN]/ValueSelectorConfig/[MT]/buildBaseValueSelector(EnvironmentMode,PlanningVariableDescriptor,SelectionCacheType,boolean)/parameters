@@ -1,0 +1,4 @@
+EnvironmentMode environmentMode
+PlanningVariableDescriptor variableDescriptor
+SelectionCacheType minimumCacheType
+boolean randomSelection

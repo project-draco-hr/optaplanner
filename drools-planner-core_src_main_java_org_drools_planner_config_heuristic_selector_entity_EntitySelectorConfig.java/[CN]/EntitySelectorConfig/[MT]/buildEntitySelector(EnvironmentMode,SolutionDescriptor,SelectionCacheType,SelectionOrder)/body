@@ -5,7 +5,7 @@
   validateCacheTypeVersusSelectionOrder(resolvedCacheType,resolvedSelectionOrder);
   validateSorting(resolvedSelectionOrder);
   validateProbability(resolvedSelectionOrder);
-  EntitySelector entitySelector=buildBaseEntitySelector(environmentMode,entityDescriptor,SelectionCacheType.max(minimumCacheType,resolvedCacheType),resolvedCacheType.isCached() ? SelectionOrder.ORIGINAL : resolvedSelectionOrder);
+  EntitySelector entitySelector=buildBaseEntitySelector(environmentMode,entityDescriptor,SelectionCacheType.max(minimumCacheType,resolvedCacheType),resolvedCacheType.isCached() ? false : resolvedSelectionOrder.toRandomSelectionBoolean());
   entitySelector=applyFiltering(entityDescriptor,resolvedCacheType,resolvedSelectionOrder,entitySelector);
   entitySelector=applySorting(resolvedCacheType,resolvedSelectionOrder,entitySelector);
   entitySelector=applyProbability(resolvedCacheType,resolvedSelectionOrder,entitySelector);

@@ -1,0 +1,9 @@
+{
+  if (minimumCacheType.compareTo(SelectionCacheType.STEP) < 0) {
+    minimumCacheType=SelectionCacheType.STEP;
+  }
+  if (minimumCacheType == SelectionCacheType.SOLVER) {
+    throw new IllegalArgumentException("The minimumCacheType (" + minimumCacheType + ") is not yet supported. Please use "+ SelectionCacheType.PHASE+ " instead.");
+  }
+  return new FromSolutionEntitySelector(entityDescriptor,minimumCacheType,randomSelection);
+}
