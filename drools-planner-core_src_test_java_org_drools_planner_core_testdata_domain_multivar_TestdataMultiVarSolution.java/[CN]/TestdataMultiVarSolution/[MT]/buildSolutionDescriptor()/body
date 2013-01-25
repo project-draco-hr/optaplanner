@@ -1,0 +1,6 @@
+{
+  SolutionDescriptor solutionDescriptor=new SolutionDescriptor(TestdataMultiVarSolution.class);
+  solutionDescriptor.processAnnotations();
+  solutionDescriptor.addPlanningEntityDescriptor(TestdataMultiVarEntity.buildEntityDescriptor(solutionDescriptor));
+  return solutionDescriptor;
+}

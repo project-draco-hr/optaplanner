@@ -1,0 +1,6 @@
+{
+  super(code);
+  this.primaryValue=primaryValue;
+  this.secondaryValue=secondaryValue;
+  this.nullableOtherValue=nullableOtherValue;
+}

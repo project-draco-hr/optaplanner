@@ -1,0 +1,5 @@
+{
+  PlanningEntityDescriptor entityDescriptor=new PlanningEntityDescriptor(solutionDescriptor,TestdataMultiVarEntity.class);
+  entityDescriptor.processAnnotations();
+  return entityDescriptor;
+}
