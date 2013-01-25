@@ -9,7 +9,7 @@
  else {
     Collection<PlanningVariableDescriptor> planningVariableDescriptors=entityDescriptor.getPlanningVariableDescriptors();
     if (planningVariableDescriptors.size() != 1) {
-      throw new IllegalArgumentException("The selectorConfig (" + this + ") has no configured variableName ("+ variableName+ ") for planningEntityClass ("+ entityDescriptor.getPlanningEntityClass()+ ") and because there are multiple in the planningVariableNameSet ("+ entityDescriptor.getPlanningVariableNameSet()+ "), it can not be deducted automatically.");
+      throw new IllegalArgumentException("The selectorConfig (" + this + ") has no configured variableName ("+ variableName+ ") for planningEntityClass ("+ entityDescriptor.getPlanningEntityClass()+ ") and because there are multiple in the variableNameSet ("+ entityDescriptor.getPlanningVariableNameSet()+ "), it can not be deducted automatically.");
     }
     variableDescriptor=planningVariableDescriptors.iterator().next();
   }

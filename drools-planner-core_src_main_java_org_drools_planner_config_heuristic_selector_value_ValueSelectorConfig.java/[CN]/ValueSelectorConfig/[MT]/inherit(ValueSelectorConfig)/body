@@ -1,7 +1,7 @@
 {
   super.inherit(inheritedConfig);
-  if (planningVariableName == null) {
-    planningVariableName=inheritedConfig.getPlanningVariableName();
+  if (variableName == null) {
+    variableName=inheritedConfig.getVariableName();
   }
   cacheType=ConfigUtils.inheritOverwritableProperty(cacheType,inheritedConfig.getCacheType());
   selectionOrder=ConfigUtils.inheritOverwritableProperty(selectionOrder,inheritedConfig.getSelectionOrder());
