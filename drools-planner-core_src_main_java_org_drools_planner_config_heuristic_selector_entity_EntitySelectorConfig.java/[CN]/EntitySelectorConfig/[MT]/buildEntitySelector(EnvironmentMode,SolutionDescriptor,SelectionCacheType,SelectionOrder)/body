@@ -1,5 +1,5 @@
 {
-  PlanningEntityDescriptor entityDescriptor=fetchEntityDescriptor(solutionDescriptor);
+  PlanningEntityDescriptor entityDescriptor=fetchEntityDescriptor(solutionDescriptor,planningEntityClass);
   SelectionCacheType resolvedCacheType=SelectionCacheType.resolve(cacheType,minimumCacheType);
   SelectionOrder resolvedSelectionOrder=SelectionOrder.resolve(selectionOrder,inheritedSelectionOrder);
   validateCacheTypeVersusSelectionOrder(resolvedCacheType,resolvedSelectionOrder);
