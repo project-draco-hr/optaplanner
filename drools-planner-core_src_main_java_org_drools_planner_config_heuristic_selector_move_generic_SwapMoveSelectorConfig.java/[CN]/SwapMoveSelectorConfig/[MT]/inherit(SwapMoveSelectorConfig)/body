@@ -12,4 +12,5 @@
  else   if (inheritedConfig.getSecondaryEntitySelectorConfig() != null) {
     secondaryEntitySelectorConfig.inherit(inheritedConfig.getSecondaryEntitySelectorConfig());
   }
+  variableNameIncludeList=ConfigUtils.inheritMergeableListProperty(variableNameIncludeList,inheritedConfig.getVariableNameIncludeList());
 }

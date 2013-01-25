@@ -12,4 +12,5 @@
  else   if (inheritedConfig.getSecondaryPillarSelectorConfig() != null) {
     secondaryPillarSelectorConfig.inherit(inheritedConfig.getSecondaryPillarSelectorConfig());
   }
+  variableNameIncludeList=ConfigUtils.inheritMergeableListProperty(variableNameIncludeList,inheritedConfig.getVariableNameIncludeList());
 }
