@@ -1,0 +1,3 @@
+{
+  return buildEntityDescriptor(mock(SolutionDescriptor.class));
+}
