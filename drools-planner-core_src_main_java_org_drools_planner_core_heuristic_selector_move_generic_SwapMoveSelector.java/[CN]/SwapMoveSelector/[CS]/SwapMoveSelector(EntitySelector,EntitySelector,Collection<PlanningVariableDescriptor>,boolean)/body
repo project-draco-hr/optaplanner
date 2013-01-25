@@ -9,6 +9,9 @@
     throw new IllegalStateException("The selector (" + this + ") has a leftEntitySelector's planningEntityClass ("+ leftEntityDescriptor.getPlanningEntityClass()+ ") which is not equal to the rightEntitySelector's planningEntityClass ("+ rightEntityDescriptor.getPlanningEntityClass()+ ").");
   }
   boolean anyChained=false;
+  if (variableDescriptors.isEmpty()) {
+    throw new IllegalStateException("The selector (" + this + ")'s variableDescriptors ("+ variableDescriptors+ ") is empty.");
+  }
   for (  PlanningVariableDescriptor variableDescriptor : variableDescriptors) {
     if (!leftEntityDescriptor.getPlanningEntityClass().equals(variableDescriptor.getPlanningEntityDescriptor().getPlanningEntityClass())) {
       throw new IllegalStateException("The selector (" + this + ") has a variableDescriptor with a planningEntityClass ("+ variableDescriptor.getPlanningEntityDescriptor().getPlanningEntityClass()+ ") which is not equal to the leftEntitySelector's planningEntityClass ("+ leftEntityDescriptor.getPlanningEntityClass()+ ").");
