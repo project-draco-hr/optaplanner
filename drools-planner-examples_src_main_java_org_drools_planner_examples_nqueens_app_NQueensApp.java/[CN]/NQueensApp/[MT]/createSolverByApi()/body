@@ -1,9 +1,7 @@
 {
   SolverConfig solverConfig=new SolverConfig();
   solverConfig.setSolutionClass(NQueens.class);
-  Set<Class<?>> planningEntityClassSet=new HashSet<Class<?>>();
-  planningEntityClassSet.add(Queen.class);
-  solverConfig.setPlanningEntityClassSet(planningEntityClassSet);
+  solverConfig.setPlanningEntityClassSet(Collections.<Class<?>>singleton(Queen.class));
   ScoreDirectorFactoryConfig scoreDirectorFactoryConfig=solverConfig.getScoreDirectorFactoryConfig();
   scoreDirectorFactoryConfig.setScoreDefinitionType(ScoreDirectorFactoryConfig.ScoreDefinitionType.SIMPLE);
   scoreDirectorFactoryConfig.setScoreDrlList(Arrays.asList("/org/drools/planner/examples/nqueens/solver/nQueensScoreRules.drl"));
