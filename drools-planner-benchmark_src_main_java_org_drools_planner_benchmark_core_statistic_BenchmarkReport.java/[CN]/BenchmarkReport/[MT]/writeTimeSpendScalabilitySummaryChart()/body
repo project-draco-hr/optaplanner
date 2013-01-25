@@ -24,6 +24,6 @@
     seriesIndex++;
   }
   plot.setOrientation(PlotOrientation.VERTICAL);
-  JFreeChart chart=new JFreeChart("Scalability summary (lower is better)",JFreeChart.DEFAULT_TITLE_FONT,plot,true);
-  scalabilitySummaryChartFile=writeChartToImageFile(chart,"scalabilitySummary");
+  JFreeChart chart=new JFreeChart("Time spend scalability summary (lower is better)",JFreeChart.DEFAULT_TITLE_FONT,plot,true);
+  timeSpendScalabilitySummaryChartFile=writeChartToImageFile(chart,"timeSpendScalabilitySummary");
 }

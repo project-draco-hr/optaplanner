@@ -5,7 +5,7 @@
   writeWinningScoreDifferenceSummaryChart();
   writeWorstScoreDifferencePercentageSummaryChart();
   writeTimeSpendSummaryChart();
-  writeScalabilitySummaryChart();
+  writeTimeSpendScalabilitySummaryChart();
   writeAverageCalculateCountPerSecondSummaryChart();
   for (  ProblemBenchmark problemBenchmark : plannerBenchmark.getUnifiedProblemBenchmarkList()) {
     if (problemBenchmark.hasAnySuccess()) {
