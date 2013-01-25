@@ -1,5 +1,5 @@
 {
-  PlanningEntityDescriptor entityDescriptor=fetchEntityDescriptor(solutionDescriptor,planningEntityClass);
+  PlanningEntityDescriptor entityDescriptor=deduceEntityDescriptor(solutionDescriptor,planningEntityClass);
   SubChainSelector leftSubChainSelector=subChainSelectorConfig.buildSubChainSelector(environmentMode,solutionDescriptor,entityDescriptor,minimumCacheType,SelectionOrder.fromRandomSelectionBoolean(randomSelection));
   SubChainSelectorConfig rightSubChainSelectorConfig=secondarySubChainSelectorConfig == null ? subChainSelectorConfig : secondarySubChainSelectorConfig;
   SubChainSelector rightSubChainSelector=rightSubChainSelectorConfig.buildSubChainSelector(environmentMode,solutionDescriptor,entityDescriptor,minimumCacheType,SelectionOrder.fromRandomSelectionBoolean(randomSelection));
