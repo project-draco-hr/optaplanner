@@ -2,6 +2,7 @@
   warningList=new ArrayList<String>();
   fillWarningList();
   writeBestScoreSummaryCharts();
+  writeBestScoreScalabilitySummaryChart();
   writeWinningScoreDifferenceSummaryChart();
   writeWorstScoreDifferencePercentageSummaryChart();
   writeTimeSpendSummaryChart();
