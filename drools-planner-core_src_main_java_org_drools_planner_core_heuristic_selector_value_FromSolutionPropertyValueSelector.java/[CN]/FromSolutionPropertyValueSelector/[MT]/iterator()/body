@@ -1,17 +1,8 @@
 {
   if (!randomSelection) {
-    return new IteratorToValueIteratorBridge(cachedValueList.iterator());
+    return cachedValueList.iterator();
   }
  else {
-    return new EntityIgnoringValueIterator(){
-      public boolean hasNext(){
-        return true;
-      }
-      public Object next(){
-        int index=workingRandom.nextInt(cachedValueList.size());
-        return cachedValueList.get(index);
-      }
-    }
-;
+    return new CachedListRandomIterator<Object>(cachedValueList,workingRandom);
   }
 }

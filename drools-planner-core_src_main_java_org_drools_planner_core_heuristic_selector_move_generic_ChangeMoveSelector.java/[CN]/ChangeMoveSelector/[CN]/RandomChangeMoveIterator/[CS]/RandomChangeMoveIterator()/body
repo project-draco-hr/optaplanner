@@ -1,7 +1,6 @@
 {
   entityIterator=entitySelector.iterator();
-  valueIterator=valueSelector.iterator();
-  if (!entityIterator.hasNext() || !valueIterator.hasNext()) {
+  if (!entityIterator.hasNext()) {
     upcomingSelection=null;
   }
  else {

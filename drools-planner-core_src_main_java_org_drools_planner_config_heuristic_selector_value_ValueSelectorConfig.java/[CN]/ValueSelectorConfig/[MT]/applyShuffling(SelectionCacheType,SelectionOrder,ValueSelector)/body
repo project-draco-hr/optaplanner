@@ -1,6 +1,9 @@
 {
   if (resolvedSelectionOrder == SelectionOrder.SHUFFLED) {
-    valueSelector=new ShufflingValueSelector(valueSelector,resolvedCacheType);
+    if (!(valueSelector instanceof EntityIndependentValueSelector)) {
+      throw new IllegalArgumentException("The valueSelectorConfig (" + this + ") with resolvedSelectionOrder ("+ resolvedSelectionOrder+ ") needs to be based on a EntityIndependentValueSelector."+ " Check your @"+ ValueRange.class.getSimpleName()+ " annotations.");
+    }
+    valueSelector=new ShufflingValueSelector((EntityIndependentValueSelector)valueSelector,resolvedCacheType);
   }
   return valueSelector;
 }

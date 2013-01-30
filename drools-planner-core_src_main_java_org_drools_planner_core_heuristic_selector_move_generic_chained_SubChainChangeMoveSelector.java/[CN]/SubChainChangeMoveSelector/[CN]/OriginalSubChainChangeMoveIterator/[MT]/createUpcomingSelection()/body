@@ -4,7 +4,7 @@
     nextReversingSelection=null;
     return;
   }
-  while (!valueIterator.hasNext(upcomingSubChain.getFirstEntity())) {
+  while (!valueIterator.hasNext()) {
     if (!subChainIterator.hasNext()) {
       upcomingSelection=null;
       return;
@@ -12,7 +12,7 @@
     upcomingSubChain=subChainIterator.next();
     valueIterator=valueSelector.iterator();
   }
-  Object toValue=valueIterator.next(upcomingSubChain);
+  Object toValue=valueIterator.next();
   upcomingSelection=new SubChainChangeMove(upcomingSubChain,valueSelector.getVariableDescriptor(),toValue);
   if (selectReversingMoveToo) {
     nextReversingSelection=new SubChainReversingChangeMove(upcomingSubChain,valueSelector.getVariableDescriptor(),toValue);

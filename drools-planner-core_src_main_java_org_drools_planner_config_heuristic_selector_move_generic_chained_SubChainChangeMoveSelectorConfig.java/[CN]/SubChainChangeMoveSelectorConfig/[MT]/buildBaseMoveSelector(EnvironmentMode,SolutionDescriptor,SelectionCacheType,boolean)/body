@@ -2,5 +2,8 @@
   PlanningEntityDescriptor entityDescriptor=deduceEntityDescriptor(solutionDescriptor,planningEntityClass);
   SubChainSelector subChainSelector=subChainSelectorConfig.buildSubChainSelector(environmentMode,solutionDescriptor,entityDescriptor,minimumCacheType,SelectionOrder.fromRandomSelectionBoolean(randomSelection));
   ValueSelector valueSelector=valueSelectorConfig.buildValueSelector(environmentMode,solutionDescriptor,entityDescriptor,minimumCacheType,SelectionOrder.fromRandomSelectionBoolean(randomSelection));
-  return new SubChainChangeMoveSelector(subChainSelector,valueSelector,randomSelection,selectReversingMoveToo == null ? true : selectReversingMoveToo);
+  if (!(valueSelector instanceof EntityIndependentValueSelector)) {
+    throw new IllegalArgumentException("The moveSelectorConfig (" + this + ") needs to be based on a EntityIndependentValueSelector."+ " Check your @"+ ValueRange.class.getSimpleName()+ " annotations.");
+  }
+  return new SubChainChangeMoveSelector(subChainSelector,(EntityIndependentValueSelector)valueSelector,randomSelection,selectReversingMoveToo == null ? true : selectReversingMoveToo);
 }

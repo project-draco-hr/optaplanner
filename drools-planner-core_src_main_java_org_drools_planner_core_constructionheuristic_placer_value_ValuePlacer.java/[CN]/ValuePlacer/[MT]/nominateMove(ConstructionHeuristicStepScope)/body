@@ -6,7 +6,8 @@
   Score maxScore=stepScope.getPhaseScope().getScoreDefinition().getPerfectMinimumScore();
   ConstructionHeuristicMoveScope nominatedMoveScope=null;
   int moveIndex=0;
-  for (  Object value : valueSelector) {
+  for (Iterator it=valueSelector.iterator(entity); it.hasNext(); ) {
+    Object value=it.next();
     ConstructionHeuristicMoveScope moveScope=new ConstructionHeuristicMoveScope(stepScope);
     moveScope.setMoveIndex(moveIndex);
     Move move;

@@ -4,9 +4,9 @@
   }
   SubChain subChain=subChainIterator.next();
   int subChainIteratorCreationCount=0;
-  while (!valueIterator.hasNext(subChain)) {
+  while (!valueIterator.hasNext()) {
     valueIterator=valueSelector.iterator();
-    if (!valueIterator.hasNext(subChain)) {
+    if (!valueIterator.hasNext()) {
       if (!subChainIterator.hasNext()) {
         subChainIterator=subChainSelector.iterator();
         subChainIteratorCreationCount++;
@@ -18,7 +18,7 @@
       subChain=subChainIterator.next();
     }
   }
-  Object toValue=valueIterator.next(subChain);
+  Object toValue=valueIterator.next();
   boolean reversing=selectReversingMoveToo ? workingRandom.nextBoolean() : false;
   upcomingSelection=reversing ? new SubChainReversingChangeMove(subChain,valueSelector.getVariableDescriptor(),toValue) : new SubChainChangeMove(subChain,valueSelector.getVariableDescriptor(),toValue);
 }

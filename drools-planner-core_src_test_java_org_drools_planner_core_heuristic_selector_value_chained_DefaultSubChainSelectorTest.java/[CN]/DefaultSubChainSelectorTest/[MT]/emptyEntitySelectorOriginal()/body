@@ -5,7 +5,7 @@
   TestdataChainedAnchor a0=new TestdataChainedAnchor("a0");
   TestdataChainedAnchor b0=new TestdataChainedAnchor("b0");
   SelectorTestUtils.mockMethodGetTrailingEntity(scoreDirector,variableDescriptor,new TestdataChainedEntity[]{});
-  ValueSelector valueSelector=SelectorTestUtils.mockValueSelector(variableDescriptor,a0,b0);
+  EntityIndependentValueSelector valueSelector=SelectorTestUtils.mockEntityIndependentValueSelector(variableDescriptor,a0,b0);
   DefaultSubChainSelector subChainSelector=new DefaultSubChainSelector(valueSelector,false,1,Integer.MAX_VALUE);
   DefaultSolverScope solverScope=mock(DefaultSolverScope.class);
   when(solverScope.getScoreDirector()).thenReturn(scoreDirector);

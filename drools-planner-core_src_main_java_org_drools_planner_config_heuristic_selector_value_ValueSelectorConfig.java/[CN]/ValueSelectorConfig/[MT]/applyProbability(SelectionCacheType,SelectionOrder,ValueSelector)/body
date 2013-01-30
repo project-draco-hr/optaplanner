@@ -4,7 +4,10 @@
       throw new IllegalArgumentException("The valueSelectorConfig (" + this + ") with resolvedSelectionOrder ("+ resolvedSelectionOrder+ ") needs a probabilityWeightFactoryClass ("+ probabilityWeightFactoryClass+ ").");
     }
     SelectionProbabilityWeightFactory probabilityWeightFactory=ConfigUtils.newInstance(this,"probabilityWeightFactoryClass",probabilityWeightFactoryClass);
-    valueSelector=new ProbabilityValueSelector(valueSelector,resolvedCacheType,probabilityWeightFactory);
+    if (!(valueSelector instanceof EntityIndependentValueSelector)) {
+      throw new IllegalArgumentException("The valueSelectorConfig (" + this + ") with resolvedSelectionOrder ("+ resolvedSelectionOrder+ ") needs to be based on a EntityIndependentValueSelector."+ " Check your @"+ ValueRange.class.getSimpleName()+ " annotations.");
+    }
+    valueSelector=new ProbabilityValueSelector((EntityIndependentValueSelector)valueSelector,resolvedCacheType,probabilityWeightFactory);
   }
   return valueSelector;
 }

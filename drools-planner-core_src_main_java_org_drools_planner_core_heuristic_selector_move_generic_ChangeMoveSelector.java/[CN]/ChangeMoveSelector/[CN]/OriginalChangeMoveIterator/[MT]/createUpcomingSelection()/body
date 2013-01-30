@@ -1,12 +1,12 @@
 {
-  while (!valueIterator.hasNext(upcomingEntity)) {
+  while (!valueIterator.hasNext()) {
     if (!entityIterator.hasNext()) {
       upcomingSelection=null;
       return;
     }
     upcomingEntity=entityIterator.next();
-    valueIterator=valueSelector.iterator();
+    valueIterator=valueSelector.iterator(upcomingEntity);
   }
-  Object toValue=valueIterator.next(upcomingEntity);
+  Object toValue=valueIterator.next();
   upcomingSelection=chained ? new ChainedChangeMove(upcomingEntity,valueSelector.getVariableDescriptor(),toValue) : new ChangeMove(upcomingEntity,valueSelector.getVariableDescriptor(),toValue);
 }

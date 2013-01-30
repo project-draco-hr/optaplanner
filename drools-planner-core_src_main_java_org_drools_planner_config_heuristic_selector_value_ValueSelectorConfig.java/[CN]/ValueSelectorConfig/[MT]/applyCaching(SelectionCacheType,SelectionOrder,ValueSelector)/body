@@ -1,6 +1,9 @@
 {
   if (resolvedCacheType.isCached() && resolvedCacheType.compareTo(valueSelector.getCacheType()) > 0) {
-    valueSelector=new CachingValueSelector(valueSelector,resolvedCacheType,resolvedSelectionOrder.toRandomSelectionBoolean());
+    if (!(valueSelector instanceof EntityIndependentValueSelector)) {
+      throw new IllegalArgumentException("The valueSelectorConfig (" + this + ") with resolvedSelectionOrder ("+ resolvedSelectionOrder+ ") needs to be based on a EntityIndependentValueSelector."+ " Check your @"+ ValueRange.class.getSimpleName()+ " annotations.");
+    }
+    valueSelector=new CachingValueSelector((EntityIndependentValueSelector)valueSelector,resolvedCacheType,resolvedSelectionOrder.toRandomSelectionBoolean());
   }
   return valueSelector;
 }

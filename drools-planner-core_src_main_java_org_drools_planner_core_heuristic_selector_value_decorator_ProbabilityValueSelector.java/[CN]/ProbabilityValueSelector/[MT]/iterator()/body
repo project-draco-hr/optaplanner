@@ -1,5 +1,5 @@
 {
-  return new EntityIgnoringValueIterator(){
+  return new Iterator<Object>(){
     public boolean hasNext(){
       return true;
     }
@@ -7,6 +7,9 @@
       double randomOffset=RandomUtils.nextDouble(workingRandom,probabilityWeightTotal);
       Map.Entry<Double,Object> entry=cachedEntityMap.floorEntry(randomOffset);
       return entry.getValue();
+    }
+    public void remove(){
+      throw new UnsupportedOperationException("Remove is not supported.");
     }
   }
 ;

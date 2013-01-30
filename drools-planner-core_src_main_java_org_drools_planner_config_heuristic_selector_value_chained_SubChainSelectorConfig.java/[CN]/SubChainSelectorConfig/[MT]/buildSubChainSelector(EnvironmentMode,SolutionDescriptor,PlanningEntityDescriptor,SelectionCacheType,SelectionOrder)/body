@@ -3,5 +3,8 @@
     throw new IllegalArgumentException("The subChainSelectorConfig (" + this + ")'s minimumCacheType ("+ minimumCacheType+ ") must not be higher than "+ SelectionCacheType.STEP+ " because the chains change every step.");
   }
   ValueSelector valueSelector=valueSelectorConfig.buildValueSelector(environmentMode,solutionDescriptor,entityDescriptor,minimumCacheType,SelectionOrder.ORIGINAL);
-  return new DefaultSubChainSelector(valueSelector,inheritedSelectionOrder.toRandomSelectionBoolean(),minimumSubChainSize == null ? DEFAULT_MINIMUM_SUB_CHAIN_SIZE : minimumSubChainSize,maximumSubChainSize == null ? DEFAULT_MAXIMUM_SUB_CHAIN_SIZE : maximumSubChainSize);
+  if (!(valueSelector instanceof EntityIndependentValueSelector)) {
+    throw new IllegalArgumentException("The minimumCacheType (" + this + ") needs to be based on a EntityIndependentValueSelector."+ " Check your @"+ ValueRange.class.getSimpleName()+ " annotations.");
+  }
+  return new DefaultSubChainSelector((EntityIndependentValueSelector)valueSelector,inheritedSelectionOrder.toRandomSelectionBoolean(),minimumSubChainSize == null ? DEFAULT_MINIMUM_SUB_CHAIN_SIZE : minimumSubChainSize,maximumSubChainSize == null ? DEFAULT_MAXIMUM_SUB_CHAIN_SIZE : maximumSubChainSize);
 }
