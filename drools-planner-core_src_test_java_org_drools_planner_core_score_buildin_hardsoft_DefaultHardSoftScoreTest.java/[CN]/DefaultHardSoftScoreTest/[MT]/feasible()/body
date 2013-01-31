@@ -1,0 +1,5 @@
+{
+  assertEquals(true,DefaultHardSoftScore.valueOf(0,-300).isFeasible());
+  assertEquals(false,DefaultHardSoftScore.valueOf(-5,-300).isFeasible());
+  assertEquals(true,DefaultHardSoftScore.valueOf(2,-300).isFeasible());
+}

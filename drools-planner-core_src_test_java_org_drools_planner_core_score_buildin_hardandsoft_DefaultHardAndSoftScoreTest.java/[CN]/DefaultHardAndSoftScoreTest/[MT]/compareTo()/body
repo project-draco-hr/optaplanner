@@ -1,9 +1,0 @@
-{
-  Score a=DefaultHardAndSoftScore.valueOf(-1,-300);
-  Score b=DefaultHardAndSoftScore.valueOf(-20,-20);
-  Score c=DefaultHardAndSoftScore.valueOf(-20,Integer.MIN_VALUE);
-  assertTrue(a.compareTo(b) > 0);
-  assertTrue(b.compareTo(a) < 0);
-  assertTrue(b.compareTo(c) > 0);
-  assertTrue(c.compareTo(b) < 0);
-}

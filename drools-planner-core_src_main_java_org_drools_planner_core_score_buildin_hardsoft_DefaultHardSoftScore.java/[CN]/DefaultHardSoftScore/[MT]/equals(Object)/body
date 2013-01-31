@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof HardSoftScore) {
+    HardSoftScore other=(HardSoftScore)o;
+    return hardScore == other.getHardScore() && softScore == other.getSoftScore();
+  }
+ else {
+    return false;
+  }
+}

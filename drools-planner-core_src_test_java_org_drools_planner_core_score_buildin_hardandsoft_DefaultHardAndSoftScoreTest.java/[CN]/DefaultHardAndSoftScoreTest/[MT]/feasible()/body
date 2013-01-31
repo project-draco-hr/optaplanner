@@ -1,5 +1,0 @@
-{
-  assertEquals(true,DefaultHardAndSoftScore.valueOf(0,-300).isFeasible());
-  assertEquals(false,DefaultHardAndSoftScore.valueOf(-5,-300).isFeasible());
-  assertEquals(true,DefaultHardAndSoftScore.valueOf(2,-300).isFeasible());
-}

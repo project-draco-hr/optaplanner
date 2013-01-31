@@ -1,6 +1,6 @@
 {
   if (shiftingPenaltyActive) {
-    return new FlatteningHardAndSoftScoreComparator(hardWeight);
+    return new FlatteningHardSoftScoreComparator(hardWeight);
   }
  else {
     return naturalDeciderScoreComparator;

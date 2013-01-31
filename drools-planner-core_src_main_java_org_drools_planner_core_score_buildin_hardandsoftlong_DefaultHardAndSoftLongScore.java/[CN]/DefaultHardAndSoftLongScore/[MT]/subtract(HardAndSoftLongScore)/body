@@ -1,3 +1,0 @@
-{
-  return new DefaultHardAndSoftLongScore(hardScore - subtrahend.getHardScore(),this.softScore - subtrahend.getSoftScore());
-}

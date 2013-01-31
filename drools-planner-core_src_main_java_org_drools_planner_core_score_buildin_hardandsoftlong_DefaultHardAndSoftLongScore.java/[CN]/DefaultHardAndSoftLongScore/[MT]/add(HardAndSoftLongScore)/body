@@ -1,3 +1,0 @@
-{
-  return new DefaultHardAndSoftLongScore(hardScore + augment.getHardScore(),this.softScore + augment.getSoftScore());
-}

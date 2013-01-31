@@ -1,3 +1,0 @@
-{
-  return new DefaultHardAndSoftLongScore((long)Math.floor(hardScore * multiplicand),(long)Math.floor(this.softScore * multiplicand));
-}

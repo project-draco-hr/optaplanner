@@ -89,7 +89,7 @@
   g.fillRect(6,(int)height - 6 - (TEXT_SIZE / 2),3,3);
   g.drawString("Customer demand",15,(int)height - 5);
   g.setColor(TangoColors.SCARLET_2);
-  HardAndSoftScore score=schedule.getScore();
+  HardSoftScore score=schedule.getScore();
   if (score != null) {
     String totalDistanceString;
     if (!score.isFeasible()) {

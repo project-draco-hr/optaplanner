@@ -4,7 +4,7 @@
   }
   Score unscheduledScore=scoreDirector.calculateScore();
   boolean perfectMatch=false;
-  Score bestScore=DefaultHardAndSoftScore.valueOf(Integer.MIN_VALUE,Integer.MIN_VALUE);
+  Score bestScore=DefaultHardSoftScore.valueOf(Integer.MIN_VALUE,Integer.MIN_VALUE);
   Room bestRoom=null;
   for (  Room room : roomList) {
     scoreDirector.beforeVariableChanged(exam,"room");

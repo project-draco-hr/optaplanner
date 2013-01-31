@@ -30,5 +30,5 @@
       softScore-=computer.getCost();
     }
   }
-  return DefaultHardAndSoftScore.valueOf(hardScore,softScore);
+  return DefaultHardSoftScore.valueOf(hardScore,softScore);
 }

@@ -1,11 +1,11 @@
 {
   DefaultSolverScope solverScope=new DefaultSolverScope();
   LocalSearchSolverPhaseScope localSearchSolverPhaseScope=new LocalSearchSolverPhaseScope(solverScope);
-  solverScope.setBestScore(DefaultHardAndSoftScore.valueOf(-11,-200));
+  solverScope.setBestScore(DefaultHardSoftScore.valueOf(-11,-200));
   localSearchSolverPhaseScope.setBestSolutionStepIndex(1000);
   LocalSearchStepScope lastLocalSearchStepScope=new LocalSearchStepScope(localSearchSolverPhaseScope);
   lastLocalSearchStepScope.setStepIndex(1000);
-  lastLocalSearchStepScope.setScore(DefaultHardAndSoftScore.valueOf(-11,-200));
+  lastLocalSearchStepScope.setScore(DefaultHardSoftScore.valueOf(-11,-200));
   localSearchSolverPhaseScope.setLastCompletedStepScope(lastLocalSearchStepScope);
   return localSearchSolverPhaseScope;
 }
