@@ -1,9 +1,9 @@
 {
 switch (valueRangeAnnotation.type()) {
 case FROM_SOLUTION_PROPERTY:
-    return new SolutionPropertyPlanningValueRangeDescriptor(this,valueRangeAnnotation);
+    return new FromSolutionPropertyPlanningValueRangeDescriptor(this,valueRangeAnnotation);
 case FROM_PLANNING_ENTITY_PROPERTY:
-  return new PlanningEntityPropertyPlanningValueRangeDescriptor(this,valueRangeAnnotation);
+  return new FromEntityPropertyPlanningValueRangeDescriptor(this,valueRangeAnnotation);
 case UNDEFINED:
 return new UndefinedPlanningValueRangeDescriptor(this,valueRangeAnnotation);
 default :
