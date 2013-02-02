@@ -1,0 +1,8 @@
+{
+  Color color=colorMap.get(o);
+  if (color == null) {
+    color=nextColor();
+    colorMap.put(o,color);
+  }
+  return color;
+}

@@ -1,0 +1,4 @@
+{
+  colorMap=new HashMap<Object,Color>();
+  nextColorCount=0;
+}
