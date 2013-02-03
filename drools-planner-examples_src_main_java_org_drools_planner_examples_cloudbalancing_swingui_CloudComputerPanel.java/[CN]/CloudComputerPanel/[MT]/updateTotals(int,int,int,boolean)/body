@@ -1,13 +1,13 @@
 {
   computerLabel.setEnabled(used);
   cpuPowerField.setText(usedCpuPower + " GHz / " + getComputerCpuPower()+ " GHz");
-  cpuPowerField.setForeground(usedCpuPower > getComputerCpuPower() ? TangoColors.SCARLET_3 : Color.BLACK);
+  cpuPowerField.setForeground(usedCpuPower > getComputerCpuPower() ? TangoColorFactory.SCARLET_3 : Color.BLACK);
   cpuPowerField.setEnabled(used);
   memoryField.setText(usedMemory + " GB / " + getComputerMemory()+ " GB");
-  memoryField.setForeground(usedMemory > getComputerMemory() ? TangoColors.SCARLET_3 : Color.BLACK);
+  memoryField.setForeground(usedMemory > getComputerMemory() ? TangoColorFactory.SCARLET_3 : Color.BLACK);
   memoryField.setEnabled(used);
   networkBandwidthField.setText(usedNetworkBandwidth + " GB / " + getComputerNetworkBandwidth()+ " GB");
-  networkBandwidthField.setForeground(usedNetworkBandwidth > getComputerNetworkBandwidth() ? TangoColors.SCARLET_3 : Color.BLACK);
+  networkBandwidthField.setForeground(usedNetworkBandwidth > getComputerNetworkBandwidth() ? TangoColorFactory.SCARLET_3 : Color.BLACK);
   networkBandwidthField.setEnabled(used);
   costField.setEnabled(used);
 }

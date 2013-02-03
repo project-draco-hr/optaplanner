@@ -4,7 +4,7 @@
   g.fillRect(0,0,size.width,size.height);
   int maximumComputerWidth=size.width - 10;
   if (maximumComputerWidth <= 10) {
-    g.setColor(TangoColors.ALUMINIUM_6);
+    g.setColor(TangoColorFactory.ALUMINIUM_6);
     g.drawString("?",2,2);
     return;
   }
@@ -20,13 +20,13 @@
     int offset=(int)((double)offsetValue * pixelsPerValue);
     int processWidth=(int)((double)processValue * pixelsPerValue) + 1;
     processWidth=Math.max(processWidth,1);
-    g.setColor(TangoColors.SEQUENCE_1[colorIndex]);
+    g.setColor(TangoColorFactory.SEQUENCE_1[colorIndex]);
     g.fillRect(offset,0,processWidth,size.height);
     offsetValue+=processValue;
-    colorIndex=(colorIndex + 1) % TangoColors.SEQUENCE_1.length;
+    colorIndex=(colorIndex + 1) % TangoColorFactory.SEQUENCE_1.length;
   }
   if (this.computerValue > 0) {
-    g.setColor(isEnabled() ? Color.BLACK : TangoColors.ALUMINIUM_5);
+    g.setColor(isEnabled() ? Color.BLACK : TangoColorFactory.ALUMINIUM_5);
     g.drawRect(0,0,computerWidth,size.height - 1);
   }
 }

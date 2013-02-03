@@ -3,7 +3,7 @@
   int colorIndex=0;
   for (  CloudProcess process : processList) {
     JLabel processLabel=new JLabel(process.getLabel());
-    processLabel.setForeground(TangoColors.SEQUENCE_1[colorIndex]);
+    processLabel.setForeground(TangoColorFactory.SEQUENCE_1[colorIndex]);
     assignmentsPanel.add(processLabel);
     JTextField cpuPowerField=new JTextField(process.getRequiredCpuPower() + " GHz");
     cpuPowerField.setEditable(false);
@@ -15,7 +15,7 @@
     networkBandwidthField.setEditable(false);
     assignmentsPanel.add(networkBandwidthField);
     assignmentsPanel.add(new JLabel(""));
-    colorIndex=(colorIndex + 1) % TangoColors.SEQUENCE_1.length;
+    colorIndex=(colorIndex + 1) % TangoColorFactory.SEQUENCE_1.length;
   }
   return assignmentsPanel;
 }

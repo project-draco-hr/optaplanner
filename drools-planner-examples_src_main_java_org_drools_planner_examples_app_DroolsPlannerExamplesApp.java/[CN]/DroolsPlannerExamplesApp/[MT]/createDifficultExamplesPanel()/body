@@ -1,7 +1,7 @@
 {
   JPanel panel=new JPanel(new GridLayout(0,1,5,5));
   TitledBorder titledBorder=BorderFactory.createTitledBorder("Difficult examples");
-  titledBorder.setTitleColor(TangoColors.SCARLET_3);
+  titledBorder.setTitleColor(TangoColorFactory.SCARLET_3);
   panel.setBorder(BorderFactory.createCompoundBorder(titledBorder,BorderFactory.createEmptyBorder(5,5,5,5)));
   panel.add(createExampleButton("Exam timetabling","Official competition name: ITC 2007 track1 - Examination timetabling\n" + "Assign exams to timeslots and rooms.",null,new Runnable(){
     public void run(){
