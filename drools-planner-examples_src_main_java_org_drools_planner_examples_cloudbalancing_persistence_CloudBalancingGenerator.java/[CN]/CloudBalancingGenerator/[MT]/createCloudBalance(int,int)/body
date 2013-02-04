@@ -1,12 +1,3 @@
 {
-  random=new Random(47);
-  CloudBalance cloudBalance=new CloudBalance();
-  cloudBalance.setId(0L);
-  createCloudComputerList(cloudBalance,cloudComputerListSize);
-  createCloudProcessList(cloudBalance,cloudProcessListSize);
-  logger.info("CloudBalance {} with {} computers and {} processes.",cloudBalance.getComputerList().size(),cloudBalance.getProcessList().size());
-  BigInteger possibleSolutionSize=BigInteger.valueOf(cloudBalance.getComputerList().size()).pow(cloudBalance.getProcessList().size());
-  String flooredPossibleSolutionSize="10^" + (possibleSolutionSize.toString().length() - 1);
-  logger.info("CloudBalance with flooredPossibleSolutionSize ({}) and possibleSolutionSize ({}).",flooredPossibleSolutionSize,possibleSolutionSize);
-  return cloudBalance;
+  return createCloudBalance(determineInputId(cloudComputerListSize,cloudProcessListSize),cloudComputerListSize,cloudProcessListSize);
 }

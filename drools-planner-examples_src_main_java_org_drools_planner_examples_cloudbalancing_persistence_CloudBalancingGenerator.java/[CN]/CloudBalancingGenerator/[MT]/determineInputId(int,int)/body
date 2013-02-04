@@ -7,6 +7,5 @@
   if (cloudProcessListSizeString.length() < 4) {
     cloudProcessListSizeString="0000".substring(0,4 - cloudProcessListSizeString.length()) + cloudProcessListSizeString;
   }
-  String outputFileName="cb-" + cloudComputerListSizeString + "comp-"+ cloudProcessListSizeString+ "proc.xml";
-  return new File(outputDir,outputFileName);
+  return "cb-" + cloudComputerListSizeString + "comp-"+ cloudProcessListSizeString+ "proc";
 }
