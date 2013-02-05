@@ -11,7 +11,7 @@
     selectorProbabilityWeightFactory=ConfigUtils.newInstance(this,"selectorProbabilityWeightFactoryClass",selectorProbabilityWeightFactoryClass);
   }
  else   if (randomSelection) {
-    Map<Selector,Double> fixedProbabilityWeightMap=new HashMap<Selector,Double>(moveSelectorConfigList.size());
+    Map<MoveSelector,Double> fixedProbabilityWeightMap=new HashMap<MoveSelector,Double>(moveSelectorConfigList.size());
     for (int i=0; i < moveSelectorConfigList.size(); i++) {
       MoveSelectorConfig moveSelectorConfig=moveSelectorConfigList.get(i);
       MoveSelector moveSelector=moveSelectorList.get(i);
