@@ -1,0 +1,3 @@
+{
+  assertScoreOrder(DefaultSimpleDoubleScore.valueOf(-300.0),DefaultSimpleDoubleScore.valueOf(-20.0),DefaultSimpleDoubleScore.valueOf(-1.0),DefaultSimpleDoubleScore.valueOf(0.0),DefaultSimpleDoubleScore.valueOf(1.0));
+}
