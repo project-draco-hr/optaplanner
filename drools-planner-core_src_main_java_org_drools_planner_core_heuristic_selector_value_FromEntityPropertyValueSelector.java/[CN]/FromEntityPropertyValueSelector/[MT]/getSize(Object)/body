@@ -1,0 +1,8 @@
+{
+  Collection<?> values=valueRangeDescriptor.extractValues(entity);
+  long size=(long)values.size();
+  if (variableDescriptor.isNullable()) {
+    size++;
+  }
+  return size;
+}

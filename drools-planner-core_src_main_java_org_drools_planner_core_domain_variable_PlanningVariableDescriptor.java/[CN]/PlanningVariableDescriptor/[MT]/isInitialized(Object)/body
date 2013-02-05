@@ -2,6 +2,6 @@
   if (nullable) {
     return true;
   }
-  Object variable=getValue(planningEntity);
+  Object variable=getValue(entity);
   return variable != null;
 }

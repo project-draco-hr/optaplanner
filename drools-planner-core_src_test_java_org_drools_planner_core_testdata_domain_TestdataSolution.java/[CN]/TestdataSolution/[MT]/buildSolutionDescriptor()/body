@@ -1,6 +1,3 @@
 {
-  SolutionDescriptor solutionDescriptor=new SolutionDescriptor(TestdataSolution.class);
-  solutionDescriptor.processAnnotations();
-  solutionDescriptor.addPlanningEntityDescriptor(TestdataEntity.buildEntityDescriptor(solutionDescriptor));
-  return solutionDescriptor;
+  return TestdataUtil.buildSolutionDescriptor(TestdataSolution.class,TestdataEntity.class);
 }

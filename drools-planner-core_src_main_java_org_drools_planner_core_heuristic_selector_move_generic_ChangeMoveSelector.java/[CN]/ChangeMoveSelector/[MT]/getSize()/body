@@ -1,3 +1,12 @@
 {
-  return entitySelector.getSize() * valueSelector.getSize();
+  if (valueSelector instanceof IterableSelector) {
+    return entitySelector.getSize() * ((IterableSelector)valueSelector).getSize();
+  }
+ else {
+    long size=0;
+    for (    Object entity : entitySelector) {
+      size+=valueSelector.getSize(entity);
+    }
+    return size;
+  }
 }

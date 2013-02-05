@@ -1,3 +1,3 @@
 {
-  return variablePropertyAccessor.executeGetter(planningEntity);
+  return variablePropertyAccessor.executeGetter(entity);
 }

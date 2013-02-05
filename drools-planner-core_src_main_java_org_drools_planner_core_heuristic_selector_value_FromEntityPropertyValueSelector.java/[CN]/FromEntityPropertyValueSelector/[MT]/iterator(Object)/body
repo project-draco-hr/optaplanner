@@ -1,0 +1,14 @@
+{
+  Collection<Object> values=valueRangeDescriptor.extractValues(entity);
+  List<Object> valueList=new ArrayList<Object>(values.size() + 1);
+  valueList.addAll(values);
+  if (variableDescriptor.isNullable()) {
+    valueList.add(null);
+  }
+  if (!randomSelection) {
+    return valueList.iterator();
+  }
+ else {
+    return new CachedListRandomIterator<Object>(valueList,workingRandom);
+  }
+}

@@ -1,3 +1,4 @@
 {
-  return buildEntityDescriptor(mock(SolutionDescriptor.class));
+  SolutionDescriptor solutionDescriptor=TestdataMultiVarSolution.buildSolutionDescriptor();
+  return solutionDescriptor.getPlanningEntityDescriptor(TestdataMultiVarEntity.class);
 }

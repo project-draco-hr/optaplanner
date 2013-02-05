@@ -1,5 +1,0 @@
-{
-  PlanningEntityDescriptor entityDescriptor=new PlanningEntityDescriptor(solutionDescriptor,TestdataEntity.class);
-  entityDescriptor.processAnnotations();
-  return entityDescriptor;
-}

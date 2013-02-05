@@ -1,0 +1,10 @@
+{
+  SolutionDescriptor solutionDescriptor=new SolutionDescriptor(solutionClass);
+  solutionDescriptor.processAnnotations();
+  for (  Class<?> entityClass : entityClasses) {
+    PlanningEntityDescriptor entityDescriptor=new PlanningEntityDescriptor(solutionDescriptor,entityClass);
+    solutionDescriptor.addPlanningEntityDescriptor(entityDescriptor);
+    entityDescriptor.processAnnotations();
+  }
+  return solutionDescriptor;
+}

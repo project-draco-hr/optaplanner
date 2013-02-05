@@ -1,7 +1,0 @@
-{
-  Set<Object> valueSet=new LinkedHashSet<Object>();
-  for (  Object entity : variableDescriptor.getPlanningEntityDescriptor().extractEntities(solution)) {
-    valueSet.addAll(extractValues(solution,entity));
-  }
-  return valueSet;
-}

@@ -1,3 +1,4 @@
 {
-  return buildEntityDescriptor(mock(SolutionDescriptor.class));
+  SolutionDescriptor solutionDescriptor=TestdataChainedSolution.buildSolutionDescriptor();
+  return solutionDescriptor.getPlanningEntityDescriptor(TestdataChainedEntity.class);
 }

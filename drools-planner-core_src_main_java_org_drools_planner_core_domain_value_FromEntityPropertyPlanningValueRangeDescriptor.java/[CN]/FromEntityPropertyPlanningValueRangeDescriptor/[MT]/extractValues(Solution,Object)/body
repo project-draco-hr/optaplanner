@@ -1,4 +1,0 @@
-{
-  Collection<?> values=extractValuesWithoutFiltering(planningEntity);
-  return applyFiltering(values);
-}
