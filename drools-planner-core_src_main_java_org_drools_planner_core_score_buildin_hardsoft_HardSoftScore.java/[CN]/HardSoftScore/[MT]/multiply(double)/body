@@ -1,0 +1,3 @@
+{
+  return new HardSoftScore((int)Math.floor(hardScore * multiplicand),(int)Math.floor(this.softScore * multiplicand));
+}

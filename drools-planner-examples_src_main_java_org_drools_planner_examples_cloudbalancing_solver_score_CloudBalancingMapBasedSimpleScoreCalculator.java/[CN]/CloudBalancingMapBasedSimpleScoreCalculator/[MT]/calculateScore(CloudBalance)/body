@@ -12,5 +12,5 @@
   visitProcessList(cpuPowerUsageMap,memoryUsageMap,networkBandwidthUsageMap,usedComputerSet,cloudBalance.getProcessList());
   int hardScore=sumHardScore(cpuPowerUsageMap,memoryUsageMap,networkBandwidthUsageMap);
   int softScore=sumSoftScore(usedComputerSet);
-  return DefaultHardSoftScore.valueOf(hardScore,softScore);
+  return HardSoftScore.valueOf(hardScore,softScore);
 }

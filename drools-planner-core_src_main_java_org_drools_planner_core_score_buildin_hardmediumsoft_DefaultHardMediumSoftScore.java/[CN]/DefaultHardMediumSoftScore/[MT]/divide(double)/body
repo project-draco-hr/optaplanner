@@ -1,3 +1,0 @@
-{
-  return new DefaultHardMediumSoftScore((int)Math.floor(hardScore / divisor),(int)Math.floor(mediumScore / divisor),(int)Math.floor(softScore / divisor));
-}

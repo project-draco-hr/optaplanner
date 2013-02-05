@@ -1,0 +1,3 @@
+{
+  return new SimpleScore((int)Math.floor(score * multiplicand));
+}

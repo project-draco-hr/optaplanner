@@ -15,7 +15,7 @@
   when(scoreDirectorFactory.getSolutionDescriptor()).thenReturn(solutionDescriptor);
   AbstractScoreDirector scoreDirector=new AbstractScoreDirector<AbstractScoreDirectorFactory>(scoreDirectorFactory){
     public Score calculateScore(){
-      return DefaultSimpleScore.valueOf(-100);
+      return SimpleScore.valueOf(-100);
     }
   }
 ;

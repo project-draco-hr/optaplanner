@@ -1,3 +1,0 @@
-{
-  return new DefaultHardSoftScore((int)Math.floor(hardScore / divisor),(int)Math.floor(this.softScore / divisor));
-}

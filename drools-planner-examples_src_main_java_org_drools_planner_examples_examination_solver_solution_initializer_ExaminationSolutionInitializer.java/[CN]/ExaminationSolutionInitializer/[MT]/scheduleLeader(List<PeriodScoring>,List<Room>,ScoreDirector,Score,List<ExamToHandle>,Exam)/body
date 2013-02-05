@@ -1,6 +1,6 @@
 {
   boolean perfectMatch=false;
-  Score bestScore=DefaultHardSoftScore.valueOf(Integer.MIN_VALUE,Integer.MIN_VALUE);
+  Score bestScore=HardSoftScore.valueOf(Integer.MIN_VALUE,Integer.MIN_VALUE);
   Period bestPeriod=null;
   Room bestRoom=null;
   for (  PeriodScoring periodScoring : periodScoringList) {

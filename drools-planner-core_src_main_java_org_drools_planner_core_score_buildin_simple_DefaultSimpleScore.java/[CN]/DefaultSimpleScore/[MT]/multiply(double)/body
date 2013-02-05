@@ -1,3 +1,0 @@
-{
-  return new DefaultSimpleScore((int)Math.floor(score * multiplicand));
-}

@@ -19,5 +19,5 @@
       }
     }
   }
-  return DefaultSimpleScore.valueOf(score);
+  return SimpleScore.valueOf(score);
 }

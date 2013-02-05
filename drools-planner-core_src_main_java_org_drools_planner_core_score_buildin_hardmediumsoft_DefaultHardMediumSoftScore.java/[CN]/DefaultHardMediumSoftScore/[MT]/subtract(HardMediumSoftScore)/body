@@ -1,3 +1,0 @@
-{
-  return new DefaultHardMediumSoftScore(hardScore - subtrahend.getHardScore(),mediumScore - subtrahend.getMediumScore(),softScore - subtrahend.getSoftScore());
-}

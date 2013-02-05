@@ -8,9 +8,9 @@
   Random workingRandom=mock(Random.class);
   when(workingRandom.nextInt(2)).thenReturn(0);
   solverScope.setWorkingRandom(workingRandom);
-  solverScope.setBestScore(DefaultSimpleScore.valueOf(-10));
+  solverScope.setBestScore(SimpleScore.valueOf(-10));
   LocalSearchStepScope lastLocalSearchStepScope=new LocalSearchStepScope(localSearchSolverPhaseScope);
-  lastLocalSearchStepScope.setScore(DefaultSimpleScore.valueOf(-100));
+  lastLocalSearchStepScope.setScore(SimpleScore.valueOf(-100));
   localSearchSolverPhaseScope.setLastCompletedStepScope(lastLocalSearchStepScope);
   return localSearchSolverPhaseScope;
 }

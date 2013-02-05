@@ -1,5 +1,5 @@
 {
-  assertEquals(true,DefaultHardSoftLongScore.valueOf(0L,-300L).isFeasible());
-  assertEquals(false,DefaultHardSoftLongScore.valueOf(-5L,-300L).isFeasible());
-  assertEquals(true,DefaultHardSoftLongScore.valueOf(2L,-300L).isFeasible());
+  assertEquals(true,HardSoftLongScore.valueOf(0L,-300L).isFeasible());
+  assertEquals(false,HardSoftLongScore.valueOf(-5L,-300L).isFeasible());
+  assertEquals(true,HardSoftLongScore.valueOf(2L,-300L).isFeasible());
 }

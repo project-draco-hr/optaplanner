@@ -2,7 +2,7 @@
   List<SeatDesignation> seatDesignationList=createSeatDesignationList(manners2009);
   List<Seat> undesignatedSeatList=manners2009.getSeatList();
   for (  SeatDesignation seatDesignation : seatDesignationList) {
-    Score bestScore=DefaultSimpleScore.valueOf(Integer.MIN_VALUE);
+    Score bestScore=SimpleScore.valueOf(Integer.MIN_VALUE);
     Seat bestSeat=null;
     boolean added=false;
     for (    Seat seat : undesignatedSeatList) {

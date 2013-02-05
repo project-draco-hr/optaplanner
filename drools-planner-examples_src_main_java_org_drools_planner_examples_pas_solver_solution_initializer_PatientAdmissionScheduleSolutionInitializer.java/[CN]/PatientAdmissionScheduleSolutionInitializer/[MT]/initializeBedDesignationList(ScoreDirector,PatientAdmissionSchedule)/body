@@ -10,7 +10,7 @@
     int firstNightIndex=bedDesignation.getAdmissionPart().getFirstNight().getIndex();
     int lastNightIndex=bedDesignation.getAdmissionPart().getLastNight().getIndex();
     boolean perfectMatch=false;
-    Score bestScore=DefaultHardSoftScore.valueOf(Integer.MIN_VALUE,Integer.MIN_VALUE);
+    Score bestScore=HardSoftScore.valueOf(Integer.MIN_VALUE,Integer.MIN_VALUE);
     Bed bestBed=null;
     boolean added=false;
     for (    Bed bed : bedListInPriority) {
