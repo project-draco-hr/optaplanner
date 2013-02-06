@@ -7,7 +7,7 @@
   }
   Arrays.sort(inputFiles);
   for (  File inputFile : inputFiles) {
-    if (acceptInputFile(inputFile)) {
+    if (acceptInputFile(inputFile) && acceptInputFileDuringBulkConvert(inputFile)) {
       Solution solution=readSolution(inputFile);
       String inputFileName=inputFile.getName();
       String outputFileName=inputFileName.substring(0,inputFileName.length() - getInputFileSuffix().length()) + getOutputFileSuffix();

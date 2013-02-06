@@ -1,0 +1,3 @@
+{
+  return !Arrays.asList("model_b_1.txt","model_b_2.txt","model_b_3.txt","model_b_4.txt","model_b_5.txt","model_b_6.txt","model_b_7.txt","model_b_8.txt","model_b_9.txt","model_b_10.txt").contains(inputFile.getName());
+}
