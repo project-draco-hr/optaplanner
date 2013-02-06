@@ -1,0 +1,4 @@
+{
+  String scoreString=scoreDefinition.formatScore((Score)scoreObject);
+  writer.setValue(scoreString);
+}
