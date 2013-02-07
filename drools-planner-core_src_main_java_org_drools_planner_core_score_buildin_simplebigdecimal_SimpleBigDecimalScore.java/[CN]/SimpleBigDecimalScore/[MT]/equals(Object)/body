@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof SimpleBigDecimalScore) {
+    SimpleBigDecimalScore other=(SimpleBigDecimalScore)o;
+    return score.equals(other.getScore());
+  }
+ else {
+    return false;
+  }
+}

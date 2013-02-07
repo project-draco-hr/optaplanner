@@ -1,0 +1,3 @@
+{
+  assertScoreOrder(SimpleLongScore.valueOf(((long)Integer.MIN_VALUE) - 4000L),SimpleLongScore.valueOf(-300L),SimpleLongScore.valueOf(-20L),SimpleLongScore.valueOf(-1L),SimpleLongScore.valueOf(0L),SimpleLongScore.valueOf(1L),SimpleLongScore.valueOf(((long)Integer.MAX_VALUE) + 4000L));
+}
