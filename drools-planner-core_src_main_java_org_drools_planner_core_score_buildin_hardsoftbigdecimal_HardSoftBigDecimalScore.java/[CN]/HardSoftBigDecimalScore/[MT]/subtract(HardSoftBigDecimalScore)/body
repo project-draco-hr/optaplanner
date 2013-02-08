@@ -1,0 +1,3 @@
+{
+  return new HardSoftBigDecimalScore(hardScore.subtract(subtrahend.getHardScore()),softScore.subtract(subtrahend.getSoftScore()));
+}

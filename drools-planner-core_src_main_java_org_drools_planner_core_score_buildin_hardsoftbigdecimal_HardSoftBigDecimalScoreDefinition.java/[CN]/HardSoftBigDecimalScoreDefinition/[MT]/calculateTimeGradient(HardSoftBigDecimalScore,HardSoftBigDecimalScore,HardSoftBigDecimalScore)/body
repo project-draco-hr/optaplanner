@@ -1,0 +1,31 @@
+{
+  if (score.compareTo(endScore) > 0) {
+    return 1.0;
+  }
+ else   if (score.compareTo(startScore) < 0) {
+    return 0.0;
+  }
+  double softScoreTimeGradientWeight=1.0 - hardScoreTimeGradientWeight;
+  double timeGradient=0.0;
+  if (startScore.getHardScore().compareTo(endScore.getHardScore()) == 0) {
+    timeGradient+=hardScoreTimeGradientWeight;
+  }
+ else {
+    BigDecimal hardScoreTotal=endScore.getHardScore().subtract(startScore.getHardScore());
+    BigDecimal hardScoreDelta=score.getHardScore().subtract(startScore.getHardScore());
+    double hardTimeGradient=hardScoreDelta.divide(hardScoreTotal).doubleValue();
+    timeGradient+=hardTimeGradient * hardScoreTimeGradientWeight;
+  }
+  if (score.getSoftScore().compareTo(endScore.getSoftScore()) >= 0) {
+    timeGradient+=softScoreTimeGradientWeight;
+  }
+ else   if (score.getSoftScore().compareTo(startScore.getSoftScore()) <= 0) {
+  }
+ else {
+    BigDecimal softScoreTotal=endScore.getSoftScore().subtract(startScore.getSoftScore());
+    BigDecimal softScoreDelta=score.getSoftScore().subtract(startScore.getSoftScore());
+    double softTimeGradient=softScoreDelta.divide(softScoreTotal).doubleValue();
+    timeGradient+=softTimeGradient * softScoreTimeGradientWeight;
+  }
+  return timeGradient;
+}
