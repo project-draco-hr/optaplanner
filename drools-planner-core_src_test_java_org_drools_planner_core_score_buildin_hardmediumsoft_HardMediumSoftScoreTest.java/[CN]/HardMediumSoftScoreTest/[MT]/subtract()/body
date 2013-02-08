@@ -1,0 +1,3 @@
+{
+  assertEquals(HardMediumSoftScore.valueOf(21,280,-8000),HardMediumSoftScore.valueOf(20,-20,-4000).subtract(HardMediumSoftScore.valueOf(-1,-300,4000)));
+}

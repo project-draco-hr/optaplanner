@@ -1,0 +1,21 @@
+{
+  if (hardScore.compareTo(other.getHardScore()) != 0) {
+    if (hardScore.compareTo(other.getHardScore()) < 0) {
+      return -1;
+    }
+ else {
+      return 1;
+    }
+  }
+ else {
+    if (softScore.compareTo(other.getSoftScore()) < 0) {
+      return -1;
+    }
+ else     if (softScore.compareTo(other.getSoftScore()) > 0) {
+      return 1;
+    }
+ else {
+      return 0;
+    }
+  }
+}

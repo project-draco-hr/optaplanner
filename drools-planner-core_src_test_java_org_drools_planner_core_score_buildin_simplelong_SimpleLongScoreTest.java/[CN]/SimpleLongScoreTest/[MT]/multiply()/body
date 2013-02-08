@@ -1,0 +1,5 @@
+{
+  assertEquals(SimpleLongScore.valueOf(6L),SimpleLongScore.valueOf(5L).multiply(1.2));
+  assertEquals(SimpleLongScore.valueOf(1L),SimpleLongScore.valueOf(1L).multiply(1.2));
+  assertEquals(SimpleLongScore.valueOf(4L),SimpleLongScore.valueOf(4L).multiply(1.2));
+}

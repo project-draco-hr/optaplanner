@@ -1,0 +1,3 @@
+{
+  assertEquals(HardSoftLongScore.valueOf(19L,-320L),HardSoftLongScore.valueOf(20L,-20L).add(HardSoftLongScore.valueOf(-1L,-300L)));
+}

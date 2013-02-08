@@ -1,0 +1,5 @@
+{
+  assertEquals(SimpleDoubleScore.valueOf(5.0),SimpleDoubleScore.valueOf(25.0).divide(5.0));
+  assertEquals(SimpleDoubleScore.valueOf(4.2),SimpleDoubleScore.valueOf(21.0).divide(5.0));
+  assertEquals(SimpleDoubleScore.valueOf(4.8),SimpleDoubleScore.valueOf(24.0).divide(5.0));
+}

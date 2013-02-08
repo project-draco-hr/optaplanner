@@ -1,0 +1,3 @@
+{
+  assertEquals(HardSoftScore.valueOf(21,280),HardSoftScore.valueOf(20,-20).subtract(HardSoftScore.valueOf(-1,-300)));
+}

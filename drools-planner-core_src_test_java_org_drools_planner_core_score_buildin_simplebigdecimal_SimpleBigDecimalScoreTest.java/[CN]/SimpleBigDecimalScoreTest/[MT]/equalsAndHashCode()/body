@@ -1,0 +1,3 @@
+{
+  assertScoresEqualsAndHashCode(SimpleBigDecimalScore.valueOf(new BigDecimal("-10")),SimpleBigDecimalScore.valueOf(new BigDecimal("-10")));
+}

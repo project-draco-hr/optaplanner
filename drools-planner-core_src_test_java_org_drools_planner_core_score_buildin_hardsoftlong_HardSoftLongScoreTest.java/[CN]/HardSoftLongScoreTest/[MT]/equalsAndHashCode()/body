@@ -1,0 +1,3 @@
+{
+  assertScoresEqualsAndHashCode(HardSoftLongScore.valueOf(-10L,-20L),HardSoftLongScore.valueOf(-10L,-20L));
+}

@@ -1,0 +1,6 @@
+{
+  String[] levelStrings=parseLevelStrings(scoreString,HARD_LABEL,SOFT_LABEL);
+  BigDecimal hardScore=new BigDecimal(levelStrings[0]);
+  BigDecimal softScore=new BigDecimal(levelStrings[1]);
+  return valueOf(hardScore,softScore);
+}

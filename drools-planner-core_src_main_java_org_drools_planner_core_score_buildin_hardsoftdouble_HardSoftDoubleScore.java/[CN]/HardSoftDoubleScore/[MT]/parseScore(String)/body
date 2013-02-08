@@ -1,0 +1,6 @@
+{
+  String[] levelStrings=parseLevelStrings(scoreString,HARD_LABEL,SOFT_LABEL);
+  double hardScore=Double.parseDouble(levelStrings[0]);
+  double softScore=Double.parseDouble(levelStrings[1]);
+  return valueOf(hardScore,softScore);
+}

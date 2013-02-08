@@ -1,0 +1,5 @@
+{
+  assertEquals(SimpleBigDecimalScore.valueOf(new BigDecimal("5.0")),SimpleBigDecimalScore.valueOf(new BigDecimal("25.0")).divide(5.0));
+  assertEquals(SimpleBigDecimalScore.valueOf(new BigDecimal("4.2")),SimpleBigDecimalScore.valueOf(new BigDecimal("21.0")).divide(5.0));
+  assertEquals(SimpleBigDecimalScore.valueOf(new BigDecimal("4.8")),SimpleBigDecimalScore.valueOf(new BigDecimal("24.0")).divide(5.0));
+}

@@ -1,0 +1,31 @@
+{
+  if (score.compareTo(endScore) > 0) {
+    return 1.0;
+  }
+ else   if (score.compareTo(startScore) < 0) {
+    return 0.0;
+  }
+  double softScoreTimeGradientWeight=1.0 - hardScoreTimeGradientWeight;
+  double timeGradient=0.0;
+  if (startScore.getHardScore() == endScore.getHardScore()) {
+    timeGradient+=hardScoreTimeGradientWeight;
+  }
+ else {
+    double hardScoreTotal=endScore.getHardScore() - startScore.getHardScore();
+    double hardScoreDelta=score.getHardScore() - startScore.getHardScore();
+    double hardTimeGradient=hardScoreDelta / hardScoreTotal;
+    timeGradient+=hardTimeGradient * hardScoreTimeGradientWeight;
+  }
+  if (score.getSoftScore() >= endScore.getSoftScore()) {
+    timeGradient+=softScoreTimeGradientWeight;
+  }
+ else   if (score.getSoftScore() <= startScore.getSoftScore()) {
+  }
+ else {
+    double softScoreTotal=endScore.getSoftScore() - startScore.getSoftScore();
+    double softScoreDelta=score.getSoftScore() - startScore.getSoftScore();
+    double softTimeGradient=softScoreDelta / softScoreTotal;
+    timeGradient+=softTimeGradient * softScoreTimeGradientWeight;
+  }
+  return timeGradient;
+}

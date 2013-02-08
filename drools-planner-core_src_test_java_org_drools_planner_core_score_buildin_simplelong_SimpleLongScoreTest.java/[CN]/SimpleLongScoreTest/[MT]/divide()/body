@@ -1,0 +1,5 @@
+{
+  assertEquals(SimpleLongScore.valueOf(5L),SimpleLongScore.valueOf(25L).divide(5.0));
+  assertEquals(SimpleLongScore.valueOf(4L),SimpleLongScore.valueOf(21L).divide(5.0));
+  assertEquals(SimpleLongScore.valueOf(4L),SimpleLongScore.valueOf(24L).divide(5.0));
+}

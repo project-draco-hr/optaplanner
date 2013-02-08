@@ -1,0 +1,5 @@
+{
+  assertEquals(SimpleScore.valueOf(6),SimpleScore.valueOf(5).multiply(1.2));
+  assertEquals(SimpleScore.valueOf(1),SimpleScore.valueOf(1).multiply(1.2));
+  assertEquals(SimpleScore.valueOf(4),SimpleScore.valueOf(4).multiply(1.2));
+}

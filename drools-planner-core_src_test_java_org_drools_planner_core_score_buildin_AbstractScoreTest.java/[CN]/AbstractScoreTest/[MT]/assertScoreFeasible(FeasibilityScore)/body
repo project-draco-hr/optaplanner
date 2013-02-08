@@ -1,0 +1,5 @@
+{
+  for (  FeasibilityScore score : scores) {
+    assertEquals(true,score.isFeasible());
+  }
+}

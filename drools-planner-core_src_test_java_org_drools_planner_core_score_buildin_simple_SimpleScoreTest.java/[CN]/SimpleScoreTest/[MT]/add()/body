@@ -1,0 +1,3 @@
+{
+  assertEquals(SimpleScore.valueOf(19),SimpleScore.valueOf(20).add(SimpleScore.valueOf(-1)));
+}

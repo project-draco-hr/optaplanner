@@ -1,0 +1,4 @@
+{
+  assertScoreNotFeasible(HardSoftDoubleScore.valueOf(-5.0,-300.0),HardSoftDoubleScore.valueOf(-5.0,4000.0),HardSoftDoubleScore.valueOf(-0.007,4000.0));
+  assertScoreFeasible(HardSoftDoubleScore.valueOf(0.0,-300.007),HardSoftDoubleScore.valueOf(0.0,-300.0),HardSoftDoubleScore.valueOf(2.0,-300.0));
+}

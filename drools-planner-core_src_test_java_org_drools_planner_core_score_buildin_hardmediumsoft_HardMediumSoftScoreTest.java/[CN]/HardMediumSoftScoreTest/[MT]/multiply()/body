@@ -1,0 +1,5 @@
+{
+  assertEquals(HardMediumSoftScore.valueOf(6,-6,6),HardMediumSoftScore.valueOf(5,-5,5).multiply(1.2));
+  assertEquals(HardMediumSoftScore.valueOf(1,-2,1),HardMediumSoftScore.valueOf(1,-1,1).multiply(1.2));
+  assertEquals(HardMediumSoftScore.valueOf(4,-5,4),HardMediumSoftScore.valueOf(4,-4,4).multiply(1.2));
+}

@@ -1,0 +1,5 @@
+{
+  assertEquals(HardSoftScore.valueOf(5,-5),HardSoftScore.valueOf(25,-25).divide(5.0));
+  assertEquals(HardSoftScore.valueOf(4,-5),HardSoftScore.valueOf(21,-21).divide(5.0));
+  assertEquals(HardSoftScore.valueOf(4,-5),HardSoftScore.valueOf(24,-24).divide(5.0));
+}

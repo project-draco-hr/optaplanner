@@ -1,0 +1,3 @@
+{
+  return getHardScore().compareTo(BigDecimal.ZERO) >= 0;
+}
