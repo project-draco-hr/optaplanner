@@ -19,6 +19,10 @@ case HARD_SOFT:
 return new HardSoftScoreDefinition();
 case HARD_SOFT_LONG:
 return new HardSoftLongScoreDefinition();
+case HARD_SOFT_DOUBLE:
+return new HardSoftDoubleScoreDefinition();
+case HARD_SOFT_BIG_DECIMAL:
+return new HardSoftBigDecimalScoreDefinition();
 case HARD_MEDIUM_SOFT:
 return new HardMediumSoftScoreDefinition();
 default :
