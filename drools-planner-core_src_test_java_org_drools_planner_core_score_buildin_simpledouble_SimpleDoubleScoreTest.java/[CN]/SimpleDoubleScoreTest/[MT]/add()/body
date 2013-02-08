@@ -1,0 +1,3 @@
+{
+  assertEquals(SimpleDoubleScore.valueOf(19.0),SimpleDoubleScore.valueOf(20.0).add(SimpleDoubleScore.valueOf(-1.0)));
+}

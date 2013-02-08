@@ -1,3 +1,4 @@
 {
-  return new SimpleBigDecimalScore(score.divide(BigDecimal.valueOf(divisor)));
+  BigDecimal divisorBigDecimal=BigDecimal.valueOf(divisor);
+  return new SimpleBigDecimalScore(score.divide(divisorBigDecimal,score.scale(),RoundingMode.FLOOR));
 }

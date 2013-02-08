@@ -1,0 +1,3 @@
+{
+  assertEquals(SimpleScore.valueOf(21),SimpleScore.valueOf(20).subtract(SimpleScore.valueOf(-1)));
+}

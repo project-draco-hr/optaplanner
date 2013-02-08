@@ -1,0 +1,3 @@
+{
+  assertEquals(SimpleBigDecimalScore.valueOf(new BigDecimal("21")),SimpleBigDecimalScore.valueOf(new BigDecimal("20")).subtract(SimpleBigDecimalScore.valueOf(new BigDecimal("-1"))));
+}
