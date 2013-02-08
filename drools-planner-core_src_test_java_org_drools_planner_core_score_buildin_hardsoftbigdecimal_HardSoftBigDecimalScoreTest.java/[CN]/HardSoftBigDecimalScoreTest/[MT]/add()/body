@@ -1,0 +1,3 @@
+{
+  assertEquals(HardSoftBigDecimalScore.valueOf(new BigDecimal("19"),new BigDecimal("-320")),HardSoftBigDecimalScore.valueOf(new BigDecimal("20"),new BigDecimal("-20")).add(HardSoftBigDecimalScore.valueOf(new BigDecimal("-1"),new BigDecimal("-300"))));
+}

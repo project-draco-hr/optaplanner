@@ -1,0 +1,3 @@
+{
+  assertEquals(HardMediumSoftScore.valueOf(19,-320,0),HardMediumSoftScore.valueOf(20,-20,-4000).add(HardMediumSoftScore.valueOf(-1,-300,4000)));
+}
