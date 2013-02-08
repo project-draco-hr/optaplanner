@@ -1,0 +1,3 @@
+{
+  assertScoresEqualsAndHashCode(HardMediumSoftScore.valueOf(-10,-20,-30),HardMediumSoftScore.valueOf(-10,-20,-30));
+}

@@ -1,0 +1,3 @@
+{
+  assertScoresEqualsAndHashCode(SimpleLongScore.valueOf(-10L),SimpleLongScore.valueOf(-10L));
+}

@@ -1,3 +1,3 @@
 {
-  assertScoreOrder(SimpleBigDecimalScore.valueOf(new BigDecimal("-300.5")),SimpleBigDecimalScore.valueOf(new BigDecimal("-300")),SimpleBigDecimalScore.valueOf(new BigDecimal("-20.067")),SimpleBigDecimalScore.valueOf(new BigDecimal("-20.007")),SimpleBigDecimalScore.valueOf(new BigDecimal("-20")),SimpleBigDecimalScore.valueOf(new BigDecimal("-1")),SimpleBigDecimalScore.valueOf(new BigDecimal("0")),SimpleBigDecimalScore.valueOf(new BigDecimal("1")));
+  assertScoreCompareToOrder(SimpleBigDecimalScore.valueOf(new BigDecimal("-300.5")),SimpleBigDecimalScore.valueOf(new BigDecimal("-300")),SimpleBigDecimalScore.valueOf(new BigDecimal("-20.067")),SimpleBigDecimalScore.valueOf(new BigDecimal("-20.007")),SimpleBigDecimalScore.valueOf(new BigDecimal("-20")),SimpleBigDecimalScore.valueOf(new BigDecimal("-1")),SimpleBigDecimalScore.valueOf(new BigDecimal("0")),SimpleBigDecimalScore.valueOf(new BigDecimal("1")));
 }
