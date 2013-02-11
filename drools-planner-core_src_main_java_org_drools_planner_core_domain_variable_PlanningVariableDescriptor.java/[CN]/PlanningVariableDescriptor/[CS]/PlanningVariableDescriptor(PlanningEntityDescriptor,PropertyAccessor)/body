@@ -1,4 +1,0 @@
-{
-  this.planningEntityDescriptor=planningEntityDescriptor;
-  this.variablePropertyAccessor=variablePropertyAccessor;
-}
