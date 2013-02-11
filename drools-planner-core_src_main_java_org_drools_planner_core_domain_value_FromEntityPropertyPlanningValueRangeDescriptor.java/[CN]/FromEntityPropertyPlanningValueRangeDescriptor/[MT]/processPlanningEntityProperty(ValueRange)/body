@@ -1,7 +1,7 @@
 {
   String planningEntityProperty=valueRangeAnnotation.planningEntityProperty();
   PlanningEntityDescriptor planningEntityDescriptor=variableDescriptor.getPlanningEntityDescriptor();
-  rangePropertyAccessor=planningEntityDescriptor.getPropertyAccessor(planningEntityProperty);
+  rangePropertyAccessor=new ReflectionPropertyAccessor(planningEntityDescriptor.getPropertyDescriptor(planningEntityProperty));
   if (rangePropertyAccessor == null) {
     String exceptionMessage="The planningEntityClass (" + planningEntityDescriptor.getPlanningEntityClass() + ") has a PlanningVariable annotated property ("+ variableDescriptor.getVariableName()+ ") that refers to a planningEntityProperty ("+ planningEntityProperty+ ") that does not exist.";
     if (planningEntityProperty.length() >= 2 && Character.isUpperCase(planningEntityProperty.charAt(1))) {
