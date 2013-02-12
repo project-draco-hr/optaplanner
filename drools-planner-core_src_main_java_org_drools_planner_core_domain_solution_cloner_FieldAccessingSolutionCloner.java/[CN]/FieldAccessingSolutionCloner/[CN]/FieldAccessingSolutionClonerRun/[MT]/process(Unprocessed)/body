@@ -9,5 +9,5 @@
  else {
     cloneValue=clone(unprocessed.originalValue);
   }
-  setField(unprocessed.bean,unprocessed.field,cloneValue);
+  setFieldValue(unprocessed.bean,unprocessed.field,cloneValue);
 }

@@ -1,7 +1,6 @@
 {
   try {
-    Constructor<C> constructor=clazz.getConstructor();
-    constructor.setAccessible(true);
+    Constructor<C> constructor=retrieveCachedConstructor(clazz);
     return constructor.newInstance();
   }
  catch (  InvocationTargetException e) {

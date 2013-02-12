@@ -1,0 +1,11 @@
+{
+  Field[] fields=fieldsCache.get(clazz);
+  if (fields == null) {
+    fields=clazz.getDeclaredFields();
+    for (    Field field : fields) {
+      field.setAccessible(true);
+    }
+    fieldsCache.put(clazz,fields);
+  }
+  return fields;
+}
