@@ -1,0 +1,4 @@
+{
+  SolutionDescriptor solutionDescriptor=TestdataSetBasedSolution.buildSolutionDescriptor();
+  return solutionDescriptor.getPlanningEntityDescriptor(TestdataSetBasedEntity.class);
+}
