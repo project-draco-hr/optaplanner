@@ -1,6 +1,6 @@
 {
   SolutionDescriptor solutionDescriptor=TestdataSetBasedSolution.buildSolutionDescriptor();
-  FieldAccessingSolutionCloner<TestdataSetBasedSolution> cloner=new FieldAccessingSolutionCloner<TestdataSetBasedSolution>(solutionDescriptor);
+  SolutionCloner<TestdataSetBasedSolution> cloner=createSolutionCloner(solutionDescriptor);
   TestdataValue val1=new TestdataValue("1");
   TestdataValue val2=new TestdataValue("2");
   TestdataValue val3=new TestdataValue("3");

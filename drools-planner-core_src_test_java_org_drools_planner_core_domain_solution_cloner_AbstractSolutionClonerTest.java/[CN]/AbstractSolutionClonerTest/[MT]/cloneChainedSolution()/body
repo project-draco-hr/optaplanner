@@ -1,6 +1,6 @@
 {
   SolutionDescriptor solutionDescriptor=TestdataChainedSolution.buildSolutionDescriptor();
-  FieldAccessingSolutionCloner<TestdataChainedSolution> cloner=new FieldAccessingSolutionCloner<TestdataChainedSolution>(solutionDescriptor);
+  SolutionCloner<TestdataChainedSolution> cloner=createSolutionCloner(solutionDescriptor);
   TestdataChainedAnchor a0=new TestdataChainedAnchor("a0");
   TestdataChainedEntity a1=new TestdataChainedEntity("a1",a0);
   TestdataChainedEntity a2=new TestdataChainedEntity("a2",a1);
