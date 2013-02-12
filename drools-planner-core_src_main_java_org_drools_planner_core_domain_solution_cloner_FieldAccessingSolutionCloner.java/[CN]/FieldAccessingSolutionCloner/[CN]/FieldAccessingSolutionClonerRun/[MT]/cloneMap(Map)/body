@@ -1,3 +1,15 @@
 {
-  throw new UnsupportedOperationException();
+  if (originalMap instanceof SortedMap) {
+    Comparator setComparator=((SortedMap)originalMap).comparator();
+    return new TreeMap(setComparator);
+  }
+ else   if (originalMap instanceof LinkedHashMap) {
+    return new LinkedHashMap(originalMap.size());
+  }
+ else   if (originalMap instanceof HashMap) {
+    return new HashMap(originalMap.size());
+  }
+ else {
+    return new LinkedHashMap(originalMap.size());
+  }
 }

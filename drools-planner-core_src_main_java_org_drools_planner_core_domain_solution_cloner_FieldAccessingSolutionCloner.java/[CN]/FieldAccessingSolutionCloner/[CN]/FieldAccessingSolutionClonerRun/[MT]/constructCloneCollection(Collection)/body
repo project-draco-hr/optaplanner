@@ -1,0 +1,31 @@
+{
+  if (originalCollection instanceof List) {
+    if (originalCollection instanceof ArrayList) {
+      return new ArrayList(originalCollection.size());
+    }
+ else     if (originalCollection instanceof LinkedList) {
+      return new LinkedList();
+    }
+ else {
+      return new ArrayList(originalCollection.size());
+    }
+  }
+  if (originalCollection instanceof Set) {
+    if (originalCollection instanceof SortedSet) {
+      Comparator setComparator=((SortedSet)originalCollection).comparator();
+      return new TreeSet(setComparator);
+    }
+ else     if (originalCollection instanceof LinkedHashSet) {
+      return new LinkedHashSet(originalCollection.size());
+    }
+ else     if (originalCollection instanceof HashSet) {
+      return new HashSet(originalCollection.size());
+    }
+ else {
+      return new LinkedHashSet(originalCollection.size());
+    }
+  }
+ else {
+    return new ArrayList(originalCollection.size());
+  }
+}

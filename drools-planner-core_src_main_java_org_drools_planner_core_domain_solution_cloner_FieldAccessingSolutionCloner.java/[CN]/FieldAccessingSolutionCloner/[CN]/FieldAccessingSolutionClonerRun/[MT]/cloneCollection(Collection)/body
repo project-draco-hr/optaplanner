@@ -1,24 +1,5 @@
 {
-  Collection cloneCollection;
-  if (!(originalCollection instanceof Cloneable)) {
-    cloneCollection=new ArrayList(originalCollection.size());
-  }
- else {
-    try {
-      Method cloneMethod=originalCollection.getClass().getMethod("clone");
-      cloneCollection=(Collection)cloneMethod.invoke(originalCollection);
-    }
- catch (    InvocationTargetException e) {
-      throw new IllegalStateException("Could not call clone() on collection (" + originalCollection + ") which is an instance of a class ("+ originalCollection.getClass()+ ") and implements Cloneable.");
-    }
-catch (    NoSuchMethodException e) {
-      throw new IllegalStateException("Could not call clone() on collection (" + originalCollection + ") which is an instance of a class ("+ originalCollection.getClass()+ ") and implements Cloneable.");
-    }
-catch (    IllegalAccessException e) {
-      throw new IllegalStateException("Could not call clone() on collection (" + originalCollection + ") which is an instance of a class ("+ originalCollection.getClass()+ ") and implements Cloneable.");
-    }
-    cloneCollection.clear();
-  }
+  Collection cloneCollection=constructCloneCollection(originalCollection);
   for (  Object originalEntity : originalCollection) {
     Object cloneElement=clone(originalEntity);
     cloneCollection.add(cloneElement);

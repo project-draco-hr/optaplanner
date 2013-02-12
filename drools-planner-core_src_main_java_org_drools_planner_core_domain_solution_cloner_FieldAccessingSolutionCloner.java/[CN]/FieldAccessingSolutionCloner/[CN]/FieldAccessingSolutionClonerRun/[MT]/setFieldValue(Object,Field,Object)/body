@@ -3,6 +3,6 @@
     field.set(bean,value);
   }
  catch (  IllegalAccessException e) {
-    throw new IllegalStateException("The class (" + bean.getClass() + ") has a field ("+ field+ ") which can not be written to create a clone.",e);
+    throw new IllegalStateException("The class (" + bean.getClass() + ") has a field ("+ field+ ") which can not be written with the value ("+ value+ ") to create a clone.",e);
   }
 }
