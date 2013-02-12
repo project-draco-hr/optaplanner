@@ -1,0 +1,4 @@
+{
+  SolutionDescriptor solutionDescriptor=TestdataMultiEntitySolution.buildSolutionDescriptor();
+  return solutionDescriptor.getPlanningEntityDescriptor(TestdataHerdEntity.class);
+}

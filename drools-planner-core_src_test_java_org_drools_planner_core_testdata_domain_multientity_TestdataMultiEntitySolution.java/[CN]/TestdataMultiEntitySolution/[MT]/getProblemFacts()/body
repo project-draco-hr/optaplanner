@@ -1,0 +1,5 @@
+{
+  List<Object> problemFacts=new ArrayList<Object>(valueList.size());
+  problemFacts.addAll(valueList);
+  return problemFacts;
+}

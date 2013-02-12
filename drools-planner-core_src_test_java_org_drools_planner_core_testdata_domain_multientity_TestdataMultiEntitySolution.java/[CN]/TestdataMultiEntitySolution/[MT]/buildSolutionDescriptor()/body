@@ -1,0 +1,3 @@
+{
+  return TestdataUtil.buildSolutionDescriptor(TestdataMultiEntitySolution.class,TestdataLeadEntity.class,TestdataHerdEntity.class);
+}

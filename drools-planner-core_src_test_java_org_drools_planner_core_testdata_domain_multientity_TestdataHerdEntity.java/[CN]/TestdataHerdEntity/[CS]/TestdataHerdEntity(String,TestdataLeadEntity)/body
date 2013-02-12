@@ -1,0 +1,4 @@
+{
+  super(code);
+  this.leadEntity=leadEntity;
+}
