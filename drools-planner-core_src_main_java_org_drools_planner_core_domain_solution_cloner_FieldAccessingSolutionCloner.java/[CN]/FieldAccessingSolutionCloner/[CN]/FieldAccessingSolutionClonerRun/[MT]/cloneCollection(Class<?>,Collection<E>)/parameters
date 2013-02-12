@@ -1,0 +1,2 @@
+Class<?> expectedType
+Collection<E> originalCollection

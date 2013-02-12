@@ -1,0 +1,11 @@
+{
+  Collection<E> cloneCollection=constructCloneCollection(originalCollection);
+  if (!expectedType.isInstance(cloneCollection)) {
+    throw new IllegalStateException("The cloneCollectionClass (" + cloneCollection.getClass() + ") created for originalCollectionClass ("+ originalCollection.getClass()+ ") is not assignable to the field's type ("+ expectedType+ ")."+ " Consider replacing the default "+ SolutionCloner.class.getSimpleName()+ ".");
+  }
+  for (  E originalElement : originalCollection) {
+    E cloneElement=clone(originalElement);
+    cloneCollection.add(cloneElement);
+  }
+  return cloneCollection;
+}

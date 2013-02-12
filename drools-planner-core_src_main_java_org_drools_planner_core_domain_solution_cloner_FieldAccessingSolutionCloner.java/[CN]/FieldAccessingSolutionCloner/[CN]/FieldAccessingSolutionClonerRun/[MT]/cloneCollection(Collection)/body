@@ -1,8 +1,0 @@
-{
-  Collection cloneCollection=constructCloneCollection(originalCollection);
-  for (  Object originalEntity : originalCollection) {
-    Object cloneElement=clone(originalEntity);
-    cloneCollection.add(cloneElement);
-  }
-  return cloneCollection;
-}

@@ -1,11 +1,11 @@
 {
-  Collection cloneCollection;
+  Collection<E> cloneCollection;
   if (!(originalCollection instanceof Cloneable)) {
     throw new IllegalStateException("The collection (" + originalCollection + ") is an instance of a class ("+ originalCollection.getClass()+ ") that does not implement Cloneable.");
   }
   try {
     Method cloneMethod=originalCollection.getClass().getMethod("clone");
-    cloneCollection=(Collection)cloneMethod.invoke(originalCollection);
+    cloneCollection=(Collection<E>)cloneMethod.invoke(originalCollection);
   }
  catch (  InvocationTargetException e) {
     throw new IllegalStateException("Could not call clone() on collection (" + originalCollection + ") which is an instance of a class ("+ originalCollection.getClass()+ ") and implements Cloneable.");

@@ -1,10 +1,10 @@
 {
   Object cloneValue;
   if (unprocessed.originalValue instanceof Collection) {
-    cloneValue=cloneCollection((Collection)unprocessed.originalValue);
+    cloneValue=cloneCollection(unprocessed.field.getType(),(Collection<?>)unprocessed.originalValue);
   }
  else   if (unprocessed.originalValue instanceof Map) {
-    cloneValue=cloneMap((Map)unprocessed.originalValue);
+    cloneValue=cloneMap(unprocessed.field.getType(),(Map<?,?>)unprocessed.originalValue);
   }
  else {
     cloneValue=clone(unprocessed.originalValue);
