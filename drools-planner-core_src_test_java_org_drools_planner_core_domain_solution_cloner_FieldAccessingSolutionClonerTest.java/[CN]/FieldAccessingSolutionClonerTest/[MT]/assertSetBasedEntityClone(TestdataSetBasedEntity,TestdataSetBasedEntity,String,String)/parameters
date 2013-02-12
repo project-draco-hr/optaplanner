@@ -1,0 +1,4 @@
+TestdataSetBasedEntity originalEntity
+TestdataSetBasedEntity cloneEntity
+String entityCode
+String valueCode

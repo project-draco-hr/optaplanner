@@ -1,0 +1,6 @@
+{
+  assertNotSame(originalEntity,cloneEntity);
+  assertCode(entityCode,originalEntity);
+  assertCode(entityCode,cloneEntity);
+  assertCode(valueCode,cloneEntity.getValue());
+}
