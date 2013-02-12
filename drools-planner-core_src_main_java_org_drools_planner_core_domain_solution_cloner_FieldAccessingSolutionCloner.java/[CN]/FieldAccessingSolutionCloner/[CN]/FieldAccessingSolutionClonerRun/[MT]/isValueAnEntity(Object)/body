@@ -1,0 +1,7 @@
+{
+  Class valueClass=originalValue.getClass();
+  if (solutionDescriptor.getPlanningEntityClassSet().contains(valueClass) || valueClass == ((Class)solutionDescriptor.getSolutionClass())) {
+    return true;
+  }
+  return false;
+}

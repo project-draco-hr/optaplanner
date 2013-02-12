@@ -1,0 +1,13 @@
+{
+  Class<?> declaringClass=field.getDeclaringClass();
+  if (declaringClass == ((Class)solutionDescriptor.getSolutionClass())) {
+    String fieldName=field.getName();
+    if (solutionDescriptor.getEntityPropertyAccessorMap().get(fieldName) != null) {
+      return true;
+    }
+    if (solutionDescriptor.getEntityCollectionPropertyAccessorMap().get(fieldName) != null) {
+      return true;
+    }
+  }
+  return false;
+}

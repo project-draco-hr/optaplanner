@@ -2,18 +2,10 @@
   if (originalValue == null) {
     return false;
   }
-  Class<?> declaringClass=field.getDeclaringClass();
-  if (declaringClass == ((Class)solutionDescriptor.getSolutionClass())) {
-    String fieldName=field.getName();
-    if (solutionDescriptor.getEntityPropertyAccessorMap().get(fieldName) != null) {
-      return true;
-    }
-    if (solutionDescriptor.getEntityCollectionPropertyAccessorMap().get(fieldName) != null) {
-      return true;
-    }
+  if (isFieldAnEntityPropertyOnSolution(field)) {
+    return true;
   }
-  Class valueClass=originalValue.getClass();
-  if (solutionDescriptor.getPlanningEntityClassSet().contains(valueClass) || valueClass == ((Class)solutionDescriptor.getSolutionClass())) {
+  if (isValueAnEntity(originalValue)) {
     return true;
   }
   return false;
