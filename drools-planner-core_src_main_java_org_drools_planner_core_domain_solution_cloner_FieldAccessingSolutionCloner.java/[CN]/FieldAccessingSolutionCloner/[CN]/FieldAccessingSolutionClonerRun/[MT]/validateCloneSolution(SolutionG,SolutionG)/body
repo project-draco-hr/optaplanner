@@ -1,0 +1,20 @@
+{
+  for (  PropertyAccessor propertyAccessor : solutionDescriptor.getEntityPropertyAccessorMap().values()) {
+    Object originalProperty=propertyAccessor.executeGetter(originalSolution);
+    if (originalProperty != null) {
+      Object cloneProperty=propertyAccessor.executeGetter(cloneSolution);
+      if (originalProperty == cloneProperty) {
+        throw new IllegalStateException("The solutionProperty (" + propertyAccessor.getName() + ") was not cloned as expected."+ " The "+ FieldAccessingSolutionCloner.class.getSimpleName()+ " failed to recognize"+ " that property's field, probably because its field name is different.");
+      }
+    }
+  }
+  for (  PropertyAccessor propertyAccessor : solutionDescriptor.getEntityCollectionPropertyAccessorMap().values()) {
+    Object originalProperty=propertyAccessor.executeGetter(originalSolution);
+    if (originalProperty != null) {
+      Object cloneProperty=propertyAccessor.executeGetter(cloneSolution);
+      if (originalProperty == cloneProperty) {
+        throw new IllegalStateException("The solutionProperty (" + propertyAccessor.getName() + ") was not cloned as expected."+ " The "+ FieldAccessingSolutionCloner.class.getSimpleName()+ " failed to recognize"+ " that property's field, probably because its field name is different.");
+      }
+    }
+  }
+}

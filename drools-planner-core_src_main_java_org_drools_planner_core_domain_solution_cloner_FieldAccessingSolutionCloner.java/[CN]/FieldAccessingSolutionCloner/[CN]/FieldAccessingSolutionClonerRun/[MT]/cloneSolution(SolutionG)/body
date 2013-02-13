@@ -3,5 +3,6 @@
   originalToCloneMap=new IdentityHashMap<Object,Object>(solutionDescriptor.getPlanningEntityCount(originalSolution) + 1);
   SolutionG cloneSolution=clone(originalSolution);
   processQueue();
+  validateCloneSolution(originalSolution,cloneSolution);
   return cloneSolution;
 }
