@@ -1,5 +1,5 @@
 {
-  CurriculumCourseSchedule schedule=(CurriculumCourseSchedule)solution;
+  CourseSchedule schedule=(CourseSchedule)solution;
   List<Room> roomList=schedule.getRoomList();
   List<Move> moveList=new ArrayList<Move>();
   for (  Lecture lecture : schedule.getLectureList()) {

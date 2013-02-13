@@ -1,5 +1,5 @@
 {
-  CurriculumCourseSchedule schedule=new CurriculumCourseSchedule();
+  CourseSchedule schedule=new CourseSchedule();
   schedule.setId(0L);
   schedule.setName(readStringValue("Name:"));
   int courseListSize=readIntegerValue("Courses:");
@@ -19,6 +19,6 @@
   int possibleForOneLectureSize=schedule.getPeriodList().size() * schedule.getRoomList().size();
   BigInteger possibleSolutionSize=BigInteger.valueOf(possibleForOneLectureSize).pow(schedule.getLectureList().size());
   String flooredPossibleSolutionSize="10^" + (possibleSolutionSize.toString().length() - 1);
-  logger.info("CurriculumCourseSchedule {} has {} teachers, {} curricula, {} courses, {} lectures," + " {} periods, {} rooms and {} unavailable period constraints with a search space of {}.",getInputId(),schedule.getTeacherList().size(),schedule.getCurriculumList().size(),schedule.getCourseList().size(),schedule.getLectureList().size(),schedule.getPeriodList().size(),schedule.getRoomList().size(),schedule.getUnavailablePeriodPenaltyList().size(),flooredPossibleSolutionSize);
+  logger.info("CourseSchedule {} has {} teachers, {} curricula, {} courses, {} lectures," + " {} periods, {} rooms and {} unavailable period constraints with a search space of {}.",getInputId(),schedule.getTeacherList().size(),schedule.getCurriculumList().size(),schedule.getCourseList().size(),schedule.getLectureList().size(),schedule.getPeriodList().size(),schedule.getRoomList().size(),schedule.getUnavailablePeriodPenaltyList().size(),flooredPossibleSolutionSize);
   return schedule;
 }

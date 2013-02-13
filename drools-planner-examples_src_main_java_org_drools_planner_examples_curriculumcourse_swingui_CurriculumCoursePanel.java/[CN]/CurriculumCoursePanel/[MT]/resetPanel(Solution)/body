@@ -1,7 +1,7 @@
 {
   removeAll();
   tangoColorFactory=new TangoColorFactory();
-  CurriculumCourseSchedule schedule=(CurriculumCourseSchedule)solution;
+  CourseSchedule schedule=(CourseSchedule)solution;
   gridLayout.setColumns(schedule.getRoomList().size() + 1);
   JLabel headerCornerLabel=new JLabel("Period         \\         Room");
   headerCornerLabel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.DARK_GRAY),BorderFactory.createEmptyBorder(2,2,2,2)));

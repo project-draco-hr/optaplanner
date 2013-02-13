@@ -1,5 +1,5 @@
 {
-  CurriculumCourseSchedule schedule=(CurriculumCourseSchedule)solution;
+  CourseSchedule schedule=(CourseSchedule)solution;
   List<Lecture> lectureList=schedule.getLectureList();
   List<Move> moveList=new ArrayList<Move>();
   for (ListIterator<Lecture> leftIt=lectureList.listIterator(); leftIt.hasNext(); ) {

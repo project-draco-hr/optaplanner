@@ -1,4 +1,4 @@
-CurriculumCourseSchedule schedule
+CourseSchedule schedule
 Map<String,Course> courseMap
 Map<List<Integer>,Period> periodMap
 int unavailablePeriodPenaltyListSize

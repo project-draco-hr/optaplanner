@@ -2,11 +2,11 @@
   if (this == o) {
     return true;
   }
-  if (id == null || !(o instanceof CurriculumCourseSchedule)) {
+  if (id == null || !(o instanceof CourseSchedule)) {
     return false;
   }
  else {
-    CurriculumCourseSchedule other=(CurriculumCourseSchedule)o;
+    CourseSchedule other=(CourseSchedule)o;
     if (lectureList.size() != other.lectureList.size()) {
       return false;
     }
