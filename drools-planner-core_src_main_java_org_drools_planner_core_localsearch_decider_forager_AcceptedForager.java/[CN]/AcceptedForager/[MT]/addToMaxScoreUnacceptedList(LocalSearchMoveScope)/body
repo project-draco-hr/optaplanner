@@ -1,5 +1,5 @@
 {
-  if (scoreComparator.compare(moveScope.getScore(),maxUnacceptedScore) > 0) {
+  if (maxUnacceptedScore == null || scoreComparator.compare(moveScope.getScore(),maxUnacceptedScore) > 0) {
     maxUnacceptedScore=moveScope.getScore();
     maxScoreUnacceptedList.clear();
     maxScoreUnacceptedList.add(moveScope);

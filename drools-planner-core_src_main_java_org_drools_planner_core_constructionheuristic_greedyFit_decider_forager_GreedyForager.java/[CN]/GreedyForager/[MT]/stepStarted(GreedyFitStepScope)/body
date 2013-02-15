@@ -1,6 +1,6 @@
 {
   selectedCount=0;
   maxScoreAcceptedList=new ArrayList<GreedyMoveScope>(1024);
-  maxScore=greedyStepScope.getPhaseScope().getScoreDefinition().getPerfectMinimumScore();
+  maxScore=null;
   earlyPickedMoveScope=null;
 }
