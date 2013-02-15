@@ -1,4 +1,7 @@
 {
+  if ((bendableHardScoresSize != null || bendableSoftScoresSize != null) && scoreDefinitionType != ScoreDefinitionType.BENDABLE) {
+    throw new IllegalArgumentException("With scoreDefinitionType (" + scoreDefinitionType + ") there must be no bendableHardScoresSize ("+ bendableHardScoresSize+ ") or bendableSoftScoresSize ("+ bendableSoftScoresSize+ ").");
+  }
   if (scoreDefinition != null) {
     return scoreDefinition;
   }
@@ -25,6 +28,11 @@ case HARD_SOFT_BIG_DECIMAL:
 return new HardSoftBigDecimalScoreDefinition();
 case HARD_MEDIUM_SOFT:
 return new HardMediumSoftScoreDefinition();
+case BENDABLE:
+if (bendableHardScoresSize == null || bendableSoftScoresSize == null) {
+throw new IllegalArgumentException("With scoreDefinitionType (" + scoreDefinitionType + ") there must be a bendableHardScoresSize ("+ bendableHardScoresSize+ ") and a bendableSoftScoresSize ("+ bendableSoftScoresSize+ ").");
+}
+return new BendableScoreDefinition(bendableHardScoresSize,bendableSoftScoresSize);
 default :
 throw new IllegalStateException("The scoreDefinitionType (" + scoreDefinitionType + ") is not implemented.");
 }
