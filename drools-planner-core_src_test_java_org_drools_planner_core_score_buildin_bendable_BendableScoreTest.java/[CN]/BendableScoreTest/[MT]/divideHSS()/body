@@ -1,0 +1,5 @@
+{
+  assertEquals(scoreDefinitionHSS.scoreValueOf(5,-5,5),scoreDefinitionHSS.scoreValueOf(25,-25,25).divide(5.0));
+  assertEquals(scoreDefinitionHSS.scoreValueOf(4,-5,4),scoreDefinitionHSS.scoreValueOf(21,-21,21).divide(5.0));
+  assertEquals(scoreDefinitionHSS.scoreValueOf(4,-5,4),scoreDefinitionHSS.scoreValueOf(24,-24,24).divide(5.0));
+}

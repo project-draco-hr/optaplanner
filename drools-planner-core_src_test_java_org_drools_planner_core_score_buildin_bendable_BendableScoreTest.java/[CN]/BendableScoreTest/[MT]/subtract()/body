@@ -1,3 +1,0 @@
-{
-  assertEquals(scoreDefinition.scoreValueOf(21,280,-8000),scoreDefinition.scoreValueOf(20,-20,-4000).subtract(scoreDefinition.scoreValueOf(-1,-300,4000)));
-}

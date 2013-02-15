@@ -1,3 +1,0 @@
-{
-  assertScoresEqualsAndHashCode(scoreDefinition.scoreValueOf(-10,-20,-30),scoreDefinition.scoreValueOf(-10,-20,-30));
-}
