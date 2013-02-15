@@ -1,0 +1,6 @@
+{
+  if (scores.length != (hardScoresSize + softScoresSize)) {
+    throw new IllegalArgumentException("The scores (" + Arrays.toString(scores) + ")'s length ("+ scores.length+ ") is not scoresSize ("+ (hardScoresSize + softScoresSize)+ ").");
+  }
+  return scoreValueOf(Arrays.copyOfRange(scores,0,hardScoresSize),Arrays.copyOfRange(scores,hardScoresSize,hardScoresSize + softScoresSize));
+}

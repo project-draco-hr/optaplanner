@@ -1,0 +1,3 @@
+{
+  assertEquals(scoreDefinition.scoreValueOf(19,-320,0),scoreDefinition.scoreValueOf(20,-20,-4000).add(scoreDefinition.scoreValueOf(-1,-300,4000)));
+}

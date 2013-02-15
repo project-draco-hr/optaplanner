@@ -1,0 +1,4 @@
+{
+  assertScoreNotFeasible(scoreDefinition.scoreValueOf(-5,-300,-4000));
+  assertScoreFeasible(scoreDefinition.scoreValueOf(0,-300,-4000),scoreDefinition.scoreValueOf(2,-300,-4000));
+}
