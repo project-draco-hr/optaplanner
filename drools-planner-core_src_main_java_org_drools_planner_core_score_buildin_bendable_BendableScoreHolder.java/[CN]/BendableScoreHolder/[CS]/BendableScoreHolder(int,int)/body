@@ -1,4 +1,4 @@
 {
-  hardScores=new int[hardScoresSize];
-  softScores=new int[softScoresSize];
+  hardScores=new int[hardLevelCount];
+  softScores=new int[softLevelCount];
 }

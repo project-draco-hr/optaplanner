@@ -1,3 +1,3 @@
 {
-  return new BendableScoreHolder(hardScoresSize,softScoresSize);
+  return new BendableScoreHolder(hardLevelCount,softLevelCount);
 }

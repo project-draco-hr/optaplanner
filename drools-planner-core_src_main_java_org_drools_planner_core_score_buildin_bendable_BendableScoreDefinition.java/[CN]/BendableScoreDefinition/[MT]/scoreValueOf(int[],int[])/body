@@ -1,9 +1,9 @@
 {
-  if (hardScores.length != hardScoresSize) {
-    throw new IllegalArgumentException("The hardScores (" + Arrays.toString(hardScores) + ")'s length ("+ hardScores.length+ ") is not hardScoresSize ("+ hardScoresSize+ ").");
+  if (hardScores.length != hardLevelCount) {
+    throw new IllegalArgumentException("The hardScores (" + Arrays.toString(hardScores) + ")'s length ("+ hardScores.length+ ") is not hardLevelCount ("+ hardLevelCount+ ").");
   }
-  if (softScores.length != softScoresSize) {
-    throw new IllegalArgumentException("The softScores (" + Arrays.toString(softScores) + ")'s length ("+ softScores.length+ ") is not softScoresSize ("+ softScoresSize+ ").");
+  if (softScores.length != softLevelCount) {
+    throw new IllegalArgumentException("The softScores (" + Arrays.toString(softScores) + ")'s length ("+ softScores.length+ ") is not softLevelCount ("+ softLevelCount+ ").");
   }
   return new BendableScore(hardScores,softScores);
 }

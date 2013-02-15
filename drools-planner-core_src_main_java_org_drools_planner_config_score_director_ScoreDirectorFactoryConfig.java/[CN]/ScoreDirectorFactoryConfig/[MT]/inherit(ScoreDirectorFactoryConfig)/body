@@ -1,10 +1,10 @@
 {
-  if (scoreDefinition == null && scoreDefinitionClass == null && scoreDefinitionType == null && bendableHardScoresSize == null && bendableSoftScoresSize == null) {
+  if (scoreDefinition == null && scoreDefinitionClass == null && scoreDefinitionType == null && bendableHardLevelCount == null && bendableSoftLevelCount == null) {
     scoreDefinition=inheritedConfig.getScoreDefinition();
     scoreDefinitionClass=inheritedConfig.getScoreDefinitionClass();
     scoreDefinitionType=inheritedConfig.getScoreDefinitionType();
-    bendableHardScoresSize=inheritedConfig.getBendableHardScoresSize();
-    bendableSoftScoresSize=inheritedConfig.getBendableSoftScoresSize();
+    bendableHardLevelCount=inheritedConfig.getBendableHardLevelCount();
+    bendableSoftLevelCount=inheritedConfig.getBendableSoftLevelCount();
   }
   if (simpleScoreCalculator == null) {
     simpleScoreCalculator=inheritedConfig.getSimpleScoreCalculator();

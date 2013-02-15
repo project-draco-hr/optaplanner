@@ -1,6 +1,6 @@
 {
-  if ((bendableHardScoresSize != null || bendableSoftScoresSize != null) && scoreDefinitionType != ScoreDefinitionType.BENDABLE) {
-    throw new IllegalArgumentException("With scoreDefinitionType (" + scoreDefinitionType + ") there must be no bendableHardScoresSize ("+ bendableHardScoresSize+ ") or bendableSoftScoresSize ("+ bendableSoftScoresSize+ ").");
+  if ((bendableHardLevelCount != null || bendableSoftLevelCount != null) && scoreDefinitionType != ScoreDefinitionType.BENDABLE) {
+    throw new IllegalArgumentException("With scoreDefinitionType (" + scoreDefinitionType + ") there must be no bendableHardLevelCount ("+ bendableHardLevelCount+ ") or bendableSoftLevelCount ("+ bendableSoftLevelCount+ ").");
   }
   if (scoreDefinition != null) {
     return scoreDefinition;
@@ -29,10 +29,10 @@ return new HardSoftBigDecimalScoreDefinition();
 case HARD_MEDIUM_SOFT:
 return new HardMediumSoftScoreDefinition();
 case BENDABLE:
-if (bendableHardScoresSize == null || bendableSoftScoresSize == null) {
-throw new IllegalArgumentException("With scoreDefinitionType (" + scoreDefinitionType + ") there must be a bendableHardScoresSize ("+ bendableHardScoresSize+ ") and a bendableSoftScoresSize ("+ bendableSoftScoresSize+ ").");
+if (bendableHardLevelCount == null || bendableSoftLevelCount == null) {
+throw new IllegalArgumentException("With scoreDefinitionType (" + scoreDefinitionType + ") there must be a bendableHardLevelCount ("+ bendableHardLevelCount+ ") and a bendableSoftLevelCount ("+ bendableSoftLevelCount+ ").");
 }
-return new BendableScoreDefinition(bendableHardScoresSize,bendableSoftScoresSize);
+return new BendableScoreDefinition(bendableHardLevelCount,bendableSoftLevelCount);
 default :
 throw new IllegalStateException("The scoreDefinitionType (" + scoreDefinitionType + ") is not implemented.");
 }

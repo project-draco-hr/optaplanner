@@ -1,4 +1,4 @@
 {
-  this.hardScoresSize=hardScoresSize;
-  this.softScoresSize=softScoresSize;
+  this.hardLevelCount=hardLevelCount;
+  this.softLevelCount=softLevelCount;
 }

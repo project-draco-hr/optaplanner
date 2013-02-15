@@ -1,8 +1,8 @@
 {
-  int scoresSize=hardScoresSize + softScoresSize;
-  String[] levelStrings=AbstractScore.parseLevelStrings(scoreString,scoresSize);
-  int[] hardScores=new int[hardScoresSize];
-  int[] softScores=new int[softScoresSize];
+  int levelCount=hardLevelCount + softLevelCount;
+  String[] levelStrings=AbstractScore.parseLevelStrings(scoreString,levelCount);
+  int[] hardScores=new int[hardLevelCount];
+  int[] softScores=new int[softLevelCount];
   for (int i=0; i < hardScores.length; i++) {
     hardScores[i]=Integer.parseInt(levelStrings[i]);
   }

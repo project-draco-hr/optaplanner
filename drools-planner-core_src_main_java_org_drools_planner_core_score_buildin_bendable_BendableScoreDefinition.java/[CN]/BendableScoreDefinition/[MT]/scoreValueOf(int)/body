@@ -1,6 +1,7 @@
 {
-  if (scores.length != (hardScoresSize + softScoresSize)) {
-    throw new IllegalArgumentException("The scores (" + Arrays.toString(scores) + ")'s length ("+ scores.length+ ") is not scoresSize ("+ (hardScoresSize + softScoresSize)+ ").");
+  int levelCount=hardLevelCount + softLevelCount;
+  if (scores.length != levelCount) {
+    throw new IllegalArgumentException("The scores (" + Arrays.toString(scores) + ")'s length ("+ scores.length+ ") is not levelCount ("+ levelCount+ ").");
   }
-  return scoreValueOf(Arrays.copyOfRange(scores,0,hardScoresSize),Arrays.copyOfRange(scores,hardScoresSize,hardScoresSize + softScoresSize));
+  return scoreValueOf(Arrays.copyOfRange(scores,0,hardLevelCount),Arrays.copyOfRange(scores,hardLevelCount,levelCount));
 }

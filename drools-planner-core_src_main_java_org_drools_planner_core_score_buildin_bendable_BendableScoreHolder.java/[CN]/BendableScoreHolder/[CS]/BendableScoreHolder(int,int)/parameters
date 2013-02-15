@@ -1,2 +1,2 @@
-int hardScoresSize
-int softScoresSize
+int hardLevelCount
+int softLevelCount

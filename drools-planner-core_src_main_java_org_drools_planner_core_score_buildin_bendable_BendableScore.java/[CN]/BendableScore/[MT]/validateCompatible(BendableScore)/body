@@ -1,8 +1,8 @@
 {
-  if (getHardScoresSize() != other.getHardScoresSize()) {
-    throw new IllegalArgumentException("The score (" + this + ") with hardScoreSize ("+ getHardScoresSize()+ ") is not compatible with the other score ("+ other+ ") with hardScoreSize ("+ other.getHardScoresSize()+ ").");
+  if (getHardLevelCount() != other.getHardLevelCount()) {
+    throw new IllegalArgumentException("The score (" + this + ") with hardScoreSize ("+ getHardLevelCount()+ ") is not compatible with the other score ("+ other+ ") with hardScoreSize ("+ other.getHardLevelCount()+ ").");
   }
-  if (getSoftScoresSize() != other.getSoftScoresSize()) {
-    throw new IllegalArgumentException("The score (" + this + ") with softScoreSize ("+ getSoftScoresSize()+ ") is not compatible with the other score ("+ other+ ") with softScoreSize ("+ other.getSoftScoresSize()+ ").");
+  if (getSoftLevelCount() != other.getSoftLevelCount()) {
+    throw new IllegalArgumentException("The score (" + this + ") with softScoreSize ("+ getSoftLevelCount()+ ") is not compatible with the other score ("+ other+ ") with softScoreSize ("+ other.getSoftLevelCount()+ ").");
   }
 }

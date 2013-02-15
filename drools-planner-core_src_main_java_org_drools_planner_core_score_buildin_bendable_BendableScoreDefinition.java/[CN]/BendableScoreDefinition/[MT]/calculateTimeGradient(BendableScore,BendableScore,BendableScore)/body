@@ -7,14 +7,14 @@
   }
   double timeGradient=0.0;
   double levelTimeGradientWeight=1.0;
-  int scoresSize=hardScoresSize + softScoresSize;
-  for (int i=0; i < scoresSize; i++) {
-    if (i != (scoresSize - 1)) {
+  int levelCount=hardLevelCount + softLevelCount;
+  for (int i=0; i < levelCount; i++) {
+    if (i != (levelCount - 1)) {
       levelTimeGradientWeight*=recursiveTimeGradientWeight;
     }
-    int startScoreLevel=(i < hardScoresSize) ? startScore.getHardScore(i) : startScore.getSoftScore(i);
-    int endScoreLevel=(i < hardScoresSize) ? endScore.getHardScore(i) : endScore.getSoftScore(i);
-    int scoreLevel=(i < hardScoresSize) ? score.getHardScore(i) : score.getSoftScore(i);
+    int startScoreLevel=(i < hardLevelCount) ? startScore.getHardScore(i) : startScore.getSoftScore(i);
+    int endScoreLevel=(i < hardLevelCount) ? endScore.getHardScore(i) : endScore.getSoftScore(i);
+    int scoreLevel=(i < hardLevelCount) ? score.getHardScore(i) : score.getSoftScore(i);
     if (scoreLevel >= endScoreLevel) {
       timeGradient+=levelTimeGradientWeight;
     }
