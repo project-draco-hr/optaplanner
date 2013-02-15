@@ -1,0 +1,7 @@
+{
+  String[] scoreTokens=scoreString.split("\\/");
+  if (scoreTokens.length != levelsSize) {
+    throw new IllegalArgumentException("The scoreString (" + scoreString + ") doesn't follow the correct pattern ("+ buildScorePattern(levelsSize)+ "):"+ " the scoreTokens length ("+ scoreTokens.length+ ") differs from the levelsSize ("+ levelsSize+ ").");
+  }
+  return scoreTokens;
+}

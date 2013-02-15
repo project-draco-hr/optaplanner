@@ -1,0 +1,11 @@
+{
+  for (  int hardScore : hardScores) {
+    if (hardScore > 0) {
+      return true;
+    }
+ else     if (hardScore < 0) {
+      return false;
+    }
+  }
+  return true;
+}

@@ -5,8 +5,8 @@
  else   if (score.compareTo(startScore) < 0) {
     return 0.0;
   }
-  double softScoreTimeGradientWeight=1.0 - hardScoreTimeGradientWeight;
   double timeGradient=0.0;
+  double softScoreTimeGradientWeight=1.0 - hardScoreTimeGradientWeight;
   if (startScore.getHardScore() == endScore.getHardScore()) {
     timeGradient+=hardScoreTimeGradientWeight;
   }

@@ -1,0 +1,4 @@
+{
+  this.hardScoresSize=hardScoresSize;
+  this.softScoresSize=softScoresSize;
+}
