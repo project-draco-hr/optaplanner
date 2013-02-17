@@ -5,6 +5,7 @@
   PickEarlyType pickEarlyType=(this.pickEarlyType == null) ? PickEarlyType.NEVER : this.pickEarlyType;
   int minimalAcceptedSelection=(this.minimalAcceptedSelection == null) ? Integer.MAX_VALUE : this.minimalAcceptedSelection;
   AcceptedForager forager=new AcceptedForager(pickEarlyType,minimalAcceptedSelection);
-  forager.setDeciderScoreComparatorFactory(deciderScoreComparatorFactoryConfig.buildDeciderScoreComparatorFactory());
+  DeciderScoreComparatorFactoryConfig deciderScoreComparatorFactoryConfig_=deciderScoreComparatorFactoryConfig == null ? new DeciderScoreComparatorFactoryConfig() : deciderScoreComparatorFactoryConfig;
+  forager.setDeciderScoreComparatorFactory(deciderScoreComparatorFactoryConfig_.buildDeciderScoreComparatorFactory());
   return forager;
 }
