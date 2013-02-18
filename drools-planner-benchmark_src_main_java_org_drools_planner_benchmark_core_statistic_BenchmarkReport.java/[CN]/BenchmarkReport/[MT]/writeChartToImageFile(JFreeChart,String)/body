@@ -1,6 +1,6 @@
 {
   BufferedImage chartImage=chart.createBufferedImage(1024,768);
-  File summaryChartFile=new File(plannerBenchmark.getBenchmarkReportDirectory(),fileNameBase + ".png");
+  File summaryChartFile=new File(summaryDirectory,fileNameBase + ".png");
   OutputStream out=null;
   try {
     out=new FileOutputStream(summaryChartFile);

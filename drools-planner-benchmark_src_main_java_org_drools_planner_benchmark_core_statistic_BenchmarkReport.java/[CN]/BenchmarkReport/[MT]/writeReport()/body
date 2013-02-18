@@ -1,5 +1,6 @@
 {
-  warningList=new ArrayList<String>();
+  summaryDirectory=new File(plannerBenchmark.getBenchmarkReportDirectory(),"summary");
+  summaryDirectory.mkdir();
   fillWarningList();
   writeBestScoreSummaryCharts();
   writeBestScoreScalabilitySummaryChart();
