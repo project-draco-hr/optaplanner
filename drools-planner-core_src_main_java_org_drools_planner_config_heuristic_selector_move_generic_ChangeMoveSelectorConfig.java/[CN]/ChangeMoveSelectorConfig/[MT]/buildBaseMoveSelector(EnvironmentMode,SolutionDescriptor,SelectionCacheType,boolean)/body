@@ -1,5 +1,7 @@
 {
-  EntitySelector entitySelector=entitySelectorConfig.buildEntitySelector(environmentMode,solutionDescriptor,minimumCacheType,SelectionOrder.fromRandomSelectionBoolean(randomSelection));
-  ValueSelector valueSelector=valueSelectorConfig.buildValueSelector(environmentMode,solutionDescriptor,entitySelector.getEntityDescriptor(),minimumCacheType,SelectionOrder.fromRandomSelectionBoolean(randomSelection));
+  EntitySelectorConfig entitySelectorConfig_=entitySelectorConfig == null ? new EntitySelectorConfig() : entitySelectorConfig;
+  EntitySelector entitySelector=entitySelectorConfig_.buildEntitySelector(environmentMode,solutionDescriptor,minimumCacheType,SelectionOrder.fromRandomSelectionBoolean(randomSelection));
+  ValueSelectorConfig valueSelectorConfig_=valueSelectorConfig == null ? new ValueSelectorConfig() : valueSelectorConfig;
+  ValueSelector valueSelector=valueSelectorConfig_.buildValueSelector(environmentMode,solutionDescriptor,entitySelector.getEntityDescriptor(),minimumCacheType,SelectionOrder.fromRandomSelectionBoolean(randomSelection));
   return new ChangeMoveSelector(entitySelector,valueSelector,randomSelection);
 }

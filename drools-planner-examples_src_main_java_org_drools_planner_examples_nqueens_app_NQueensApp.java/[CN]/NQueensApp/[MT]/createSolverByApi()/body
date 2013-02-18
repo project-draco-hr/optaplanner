@@ -2,9 +2,10 @@
   SolverConfig solverConfig=new SolverConfig();
   solverConfig.setSolutionClass(NQueens.class);
   solverConfig.setPlanningEntityClassSet(Collections.<Class<?>>singleton(Queen.class));
-  ScoreDirectorFactoryConfig scoreDirectorFactoryConfig=solverConfig.getScoreDirectorFactoryConfig();
+  ScoreDirectorFactoryConfig scoreDirectorFactoryConfig=new ScoreDirectorFactoryConfig();
   scoreDirectorFactoryConfig.setScoreDefinitionType(ScoreDirectorFactoryConfig.ScoreDefinitionType.SIMPLE);
   scoreDirectorFactoryConfig.setScoreDrlList(Arrays.asList("/org/drools/planner/examples/nqueens/solver/nQueensScoreRules.drl"));
+  solverConfig.setScoreDirectorFactoryConfig(scoreDirectorFactoryConfig);
   TerminationConfig terminationConfig=new TerminationConfig();
   terminationConfig.setScoreAttained("0");
   solverConfig.setTerminationConfig(terminationConfig);
@@ -17,7 +18,9 @@
   ChangeMoveSelectorConfig changeMoveSelectorConfig=new ChangeMoveSelectorConfig();
   changeMoveSelectorConfig.setSelectionOrder(SelectionOrder.ORIGINAL);
   localSearchSolverPhaseConfig.setMoveSelectorConfigList(Arrays.<MoveSelectorConfig>asList(changeMoveSelectorConfig));
-  localSearchSolverPhaseConfig.getAcceptorConfig().setSolutionTabuSize(1000);
+  AcceptorConfig acceptorConfig=new AcceptorConfig();
+  acceptorConfig.setPlanningEntityTabuSize(5);
+  localSearchSolverPhaseConfig.setAcceptorConfig(acceptorConfig);
   solverPhaseConfigList.add(localSearchSolverPhaseConfig);
   solverConfig.setSolverPhaseConfigList(solverPhaseConfigList);
   return solverConfig.buildSolver();

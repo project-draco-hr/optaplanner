@@ -1,0 +1,5 @@
+{
+  NQueensApp nQueensApp=new NQueensApp();
+  Solver solver=nQueensApp.createSolverByApi();
+  assertNotNull(solver);
+}

@@ -12,7 +12,8 @@
     }
   }
   SolutionDescriptor solutionDescriptor=buildSolutionDescriptor();
-  ScoreDirectorFactory scoreDirectorFactory=scoreDirectorFactoryConfig.buildScoreDirectorFactory(environmentMode,solutionDescriptor);
+  ScoreDirectorFactoryConfig scoreDirectorFactoryConfig_=scoreDirectorFactoryConfig == null ? new ScoreDirectorFactoryConfig() : scoreDirectorFactoryConfig;
+  ScoreDirectorFactory scoreDirectorFactory=scoreDirectorFactoryConfig_.buildScoreDirectorFactory(environmentMode,solutionDescriptor);
   solver.setScoreDirectorFactory(scoreDirectorFactory);
   ScoreDefinition scoreDefinition=scoreDirectorFactory.getScoreDefinition();
   TerminationConfig terminationConfig_=terminationConfig == null ? new TerminationConfig() : terminationConfig;

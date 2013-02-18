@@ -2,7 +2,8 @@
   if (minimumCacheType.compareTo(SelectionCacheType.STEP) > 0) {
     throw new IllegalArgumentException("The subChainSelectorConfig (" + this + ")'s minimumCacheType ("+ minimumCacheType+ ") must not be higher than "+ SelectionCacheType.STEP+ " because the chains change every step.");
   }
-  ValueSelector valueSelector=valueSelectorConfig.buildValueSelector(environmentMode,solutionDescriptor,entityDescriptor,minimumCacheType,SelectionOrder.ORIGINAL);
+  ValueSelectorConfig valueSelectorConfig_=valueSelectorConfig == null ? new ValueSelectorConfig() : valueSelectorConfig;
+  ValueSelector valueSelector=valueSelectorConfig_.buildValueSelector(environmentMode,solutionDescriptor,entityDescriptor,minimumCacheType,SelectionOrder.ORIGINAL);
   if (!(valueSelector instanceof EntityIndependentValueSelector)) {
     throw new IllegalArgumentException("The minimumCacheType (" + this + ") needs to be based on a EntityIndependentValueSelector."+ " Check your @"+ ValueRange.class.getSimpleName()+ " annotations.");
   }
