@@ -3,6 +3,7 @@
   generateSolverBenchmarkConfigNames();
   inherit();
   DefaultPlannerBenchmark plannerBenchmark=new DefaultPlannerBenchmark();
+  plannerBenchmark.setName(name);
   plannerBenchmark.setBenchmarkDirectory(benchmarkDirectory);
   plannerBenchmark.setParallelBenchmarkCount(resolveParallelBenchmarkCount());
   plannerBenchmark.setWarmUpTimeMillisSpend(calculateWarmUpTimeMillisSpendTotal());
