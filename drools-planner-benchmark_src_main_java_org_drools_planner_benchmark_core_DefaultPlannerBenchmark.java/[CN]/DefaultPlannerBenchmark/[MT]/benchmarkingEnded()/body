@@ -10,6 +10,9 @@
   determineSolverBenchmarkRanking();
   benchmarkTimeMillisSpend=calculateTimeMillisSpend();
   benchmarkReport.writeReport();
+  if (benchmarkHistoryReportEnabled) {
+    benchmarkHistoryReport.writeHistory();
+  }
   if (failureCount == 0) {
     logger.info("Benchmarking ended: time spend ({}), favoriteSolverBenchmark ({}), statistic html overview ({}).",benchmarkTimeMillisSpend,favoriteSolverBenchmark.getName(),benchmarkReport.getHtmlOverviewFile().getAbsolutePath());
   }

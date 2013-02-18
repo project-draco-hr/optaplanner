@@ -1,0 +1,15 @@
+{
+  benchmarkHistoryDirectory=new File(plannerBenchmark.getBenchmarkDirectory(),"history");
+  if (benchmarkHistoryDirectory.exists()) {
+    try {
+      FileUtils.deleteDirectory(benchmarkHistoryDirectory);
+    }
+ catch (    IOException e) {
+      throw new IllegalStateException("Can not delete old benchmarkHistoryDirectory (" + benchmarkHistoryDirectory + ").",e);
+    }
+  }
+  benchmarkHistoryDirectory.mkdir();
+  summaryDirectory=new File(benchmarkHistoryDirectory,"summary");
+  summaryDirectory.mkdir();
+  writeHistoryHtmlFile();
+}
