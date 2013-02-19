@@ -2,10 +2,7 @@
   if ((bendableHardLevelCount != null || bendableSoftLevelCount != null) && scoreDefinitionType != ScoreDefinitionType.BENDABLE) {
     throw new IllegalArgumentException("With scoreDefinitionType (" + scoreDefinitionType + ") there must be no bendableHardLevelCount ("+ bendableHardLevelCount+ ") or bendableSoftLevelCount ("+ bendableSoftLevelCount+ ").");
   }
-  if (scoreDefinition != null) {
-    return scoreDefinition;
-  }
- else   if (scoreDefinitionClass != null) {
+  if (scoreDefinitionClass != null) {
     return ConfigUtils.newInstance(this,"scoreDefinitionClass",scoreDefinitionClass);
   }
  else   if (scoreDefinitionType != null) {

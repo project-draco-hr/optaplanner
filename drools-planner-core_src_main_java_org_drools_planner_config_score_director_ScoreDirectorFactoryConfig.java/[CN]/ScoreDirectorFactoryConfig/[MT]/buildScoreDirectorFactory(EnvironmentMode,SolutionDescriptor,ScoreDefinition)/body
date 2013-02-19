@@ -13,7 +13,7 @@
     if (assertionScoreDirectorFactory.getAssertionScoreDirectorFactory() != null) {
       throw new IllegalArgumentException("A assertionScoreDirectorFactory (" + assertionScoreDirectorFactory + ") cannot have a non-null assertionScoreDirectorFactory ("+ assertionScoreDirectorFactory.getAssertionScoreDirectorFactory()+ ").");
     }
-    if (assertionScoreDirectorFactory.getScoreDefinition() != null || assertionScoreDirectorFactory.getScoreDefinitionClass() != null || assertionScoreDirectorFactory.getScoreDefinitionType() != null) {
+    if (assertionScoreDirectorFactory.getScoreDefinitionClass() != null || assertionScoreDirectorFactory.getScoreDefinitionType() != null) {
       throw new IllegalArgumentException("A assertionScoreDirectorFactory (" + assertionScoreDirectorFactory + ") must reuse the scoreDefinition of its parent."+ " It cannot have a non-null scoreDefinition* property.");
     }
     if (environmentMode.compareTo(EnvironmentMode.FAST_ASSERT) > 0) {
