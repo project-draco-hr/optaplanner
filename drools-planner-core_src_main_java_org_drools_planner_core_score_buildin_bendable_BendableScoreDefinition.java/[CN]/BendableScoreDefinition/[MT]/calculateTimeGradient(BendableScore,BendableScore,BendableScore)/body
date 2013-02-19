@@ -1,4 +1,6 @@
 {
+  startScore.validateCompatible(score);
+  score.validateCompatible(endScore);
   if (score.compareTo(endScore) > 0) {
     return 1.0;
   }

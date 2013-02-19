@@ -1,0 +1,3 @@
+int hardLevelCount
+int softLevelCount
+String scoreString

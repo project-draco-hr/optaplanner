@@ -1,13 +1,3 @@
 {
-  int levelCount=hardLevelCount + softLevelCount;
-  String[] levelStrings=AbstractScore.parseLevelStrings(scoreString,levelCount);
-  int[] hardScores=new int[hardLevelCount];
-  int[] softScores=new int[softLevelCount];
-  for (int i=0; i < hardScores.length; i++) {
-    hardScores[i]=Integer.parseInt(levelStrings[i]);
-  }
-  for (int i=0; i < softScores.length; i++) {
-    softScores[i]=Integer.parseInt(levelStrings[hardScores.length + i]);
-  }
-  return new BendableScore(hardScores,softScores);
+  return BendableScore.parseScore(hardLevelCount,softLevelCount,scoreString);
 }

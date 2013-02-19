@@ -3,5 +3,5 @@
   if (scores.length != levelCount) {
     throw new IllegalArgumentException("The scores (" + Arrays.toString(scores) + ")'s length ("+ scores.length+ ") is not levelCount ("+ levelCount+ ").");
   }
-  return createScore(Arrays.copyOfRange(scores,0,hardLevelCount),Arrays.copyOfRange(scores,hardLevelCount,levelCount));
+  return BendableScore.valueOf(Arrays.copyOfRange(scores,0,hardLevelCount),Arrays.copyOfRange(scores,hardLevelCount,levelCount));
 }
