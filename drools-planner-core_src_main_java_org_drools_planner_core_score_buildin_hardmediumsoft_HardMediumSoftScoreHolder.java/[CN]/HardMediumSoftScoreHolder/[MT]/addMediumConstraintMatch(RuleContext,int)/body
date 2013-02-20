@@ -1,0 +1,9 @@
+{
+  mediumScore+=weight;
+  registerUndoListener(kcontext,new ActivationUnMatchListener(){
+    public void unMatch(    Session workingMemory,    Match activation){
+      mediumScore-=weight;
+    }
+  }
+);
+}

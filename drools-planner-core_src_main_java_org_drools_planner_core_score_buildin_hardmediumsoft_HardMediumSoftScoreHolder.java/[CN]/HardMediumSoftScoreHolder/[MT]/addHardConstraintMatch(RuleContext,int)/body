@@ -1,0 +1,9 @@
+{
+  hardScore+=weight;
+  registerUndoListener(kcontext,new ActivationUnMatchListener(){
+    public void unMatch(    Session workingMemory,    Match activation){
+      hardScore-=weight;
+    }
+  }
+);
+}
