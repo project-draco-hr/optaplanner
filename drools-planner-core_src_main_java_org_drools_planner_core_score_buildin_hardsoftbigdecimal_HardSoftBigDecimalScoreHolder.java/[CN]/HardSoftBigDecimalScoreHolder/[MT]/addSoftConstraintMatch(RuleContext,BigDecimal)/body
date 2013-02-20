@@ -1,7 +1,6 @@
 {
-  softScore=softScore.subtract(weight);
-  AgendaItem agendaItem=(AgendaItem)kcontext.getMatch();
-  agendaItem.setActivationUnMatchListener(new ActivationUnMatchListener(){
+  softScore=softScore.add(weight);
+  registerUndoListener(kcontext,new ActivationUnMatchListener(){
     public void unMatch(    Session workingMemory,    Match activation){
       softScore=softScore.subtract(weight);
     }
