@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof CourseConflict) {
+    CourseConflict other=(CourseConflict)o;
+    return new EqualsBuilder().append(leftCourse,other.leftCourse).append(rightCourse,other.rightCourse).isEquals();
+  }
+ else {
+    return false;
+  }
+}

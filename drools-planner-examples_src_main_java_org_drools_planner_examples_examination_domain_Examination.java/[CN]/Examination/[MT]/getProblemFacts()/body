@@ -6,6 +6,6 @@
   facts.addAll(roomList);
   facts.addAll(periodPenaltyList);
   facts.addAll(roomPenaltyList);
-  facts.addAll(calculateTopicConflictList());
+  facts.addAll(precalculateTopicConflictList());
   return facts;
 }

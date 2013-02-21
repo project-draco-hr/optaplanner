@@ -8,5 +8,6 @@
   facts.addAll(periodList);
   facts.addAll(roomList);
   facts.addAll(unavailablePeriodPenaltyList);
+  facts.addAll(precalculateCourseConflictList());
   return facts;
 }

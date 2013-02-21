@@ -13,6 +13,6 @@
   facts.addAll(admissionPartList);
   facts.addAll(requiredPatientEquipmentList);
   facts.addAll(preferredPatientEquipmentList);
-  facts.addAll(calculateAdmissionPartConflictList());
+  facts.addAll(precalculateAdmissionPartConflictList());
   return facts;
 }

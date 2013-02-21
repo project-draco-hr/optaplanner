@@ -1,0 +1,25 @@
+{
+  List<CourseConflict> courseConflictList=new ArrayList<CourseConflict>();
+  for (  Course leftCourse : courseList) {
+    for (    Course rightCourse : courseList) {
+      if (leftCourse.getId() < rightCourse.getId()) {
+        boolean conflicted=false;
+        if (leftCourse.getTeacher().equals(rightCourse.getTeacher())) {
+          conflicted=true;
+        }
+ else {
+          for (          Curriculum curriculum : leftCourse.getCurriculumList()) {
+            if (rightCourse.getCurriculumList().contains(curriculum)) {
+              conflicted=true;
+              break;
+            }
+          }
+        }
+        if (conflicted) {
+          courseConflictList.add(new CourseConflict(leftCourse,rightCourse));
+        }
+      }
+    }
+  }
+  return courseConflictList;
+}

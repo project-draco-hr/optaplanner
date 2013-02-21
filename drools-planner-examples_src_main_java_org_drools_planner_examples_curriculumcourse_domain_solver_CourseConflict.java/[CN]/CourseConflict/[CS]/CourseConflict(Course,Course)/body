@@ -1,0 +1,4 @@
+{
+  this.leftCourse=leftCourse;
+  this.rightCourse=rightCourse;
+}
