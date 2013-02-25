@@ -38,4 +38,5 @@
   for (  CloudComputerPanel computerPanel : computerToPanelMap.values()) {
     computerPanel.update();
   }
+  computersPanel.validate();
 }
