@@ -1,5 +1,5 @@
 {
-  numberOfProcessesLabel.setText("    " + processList.size() + " processes");
+  numberOfProcessesLabel.setText(processList.size() + " processes");
   numberOfProcessesLabel.setEnabled(used);
   cpuPowerBar.setEnabled(used);
   cpuPowerBar.repaint();

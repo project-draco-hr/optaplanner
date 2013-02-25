@@ -1,6 +1,7 @@
 {
   numberOfProcessesLabel=new JLabel("    0 processes");
   numberOfProcessesLabel.setEnabled(false);
+  numberOfProcessesLabel.setBorder(BorderFactory.createEmptyBorder(0,37,0,0));
   add(numberOfProcessesLabel);
   cpuPowerBar=new CloudBar(getComputerCpuPower(),cloudBalancingPanel.getMaximumComputerCpuPower());
   cpuPowerBar.setEnabled(false);
