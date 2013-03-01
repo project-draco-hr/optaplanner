@@ -8,5 +8,5 @@
   copyResource(benchmarkReportDirectory,"twitterbootstrap/js/jquery.js");
   copyResource(benchmarkReportDirectory,"twitterbootstrap/js/prettify.js");
   copyResource(benchmarkReportDirectory,"website/css/benchmarkReport.css");
-  copyResource(benchmarkReportDirectory,"website/img/droolsPlannerLogo.png");
+  copyResource(benchmarkReportDirectory,"website/img/optaPlannerLogo.png");
 }
