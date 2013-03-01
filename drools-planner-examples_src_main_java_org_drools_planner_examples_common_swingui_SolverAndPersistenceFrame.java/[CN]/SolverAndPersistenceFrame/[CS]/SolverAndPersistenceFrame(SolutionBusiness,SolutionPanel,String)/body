@@ -1,5 +1,5 @@
 {
-  super(exampleName + " Drools Planner example");
+  super(exampleName + " OptaPlanner example");
   this.solutionBusiness=solutionBusiness;
   this.solutionPanel=solutionPanel;
   solutionPanel.setSolutionBusiness(solutionBusiness);

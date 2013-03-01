@@ -5,7 +5,7 @@
   schedulingPeriodIDElement.setText(nurseRoster.getCode());
   solutionElement.addContent(schedulingPeriodIDElement);
   Element competitorElement=new Element("Competitor");
-  competitorElement.setText("Geoffrey De Smet with Drools Planner");
+  competitorElement.setText("Geoffrey De Smet with OptaPlanner");
   solutionElement.addContent(competitorElement);
   Element softConstraintsPenaltyElement=new Element("SoftConstraintsPenalty");
   softConstraintsPenaltyElement.setText(Integer.toString(nurseRoster.getScore().getSoftScore()));

@@ -1,5 +1,5 @@
 {
-  super("Drools Planner examples");
+  super("OptaPlanner examples");
   setContentPane(createContentPane());
   setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 }
