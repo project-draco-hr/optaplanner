@@ -5,25 +5,25 @@
   panel.setBorder(BorderFactory.createCompoundBorder(titledBorder,BorderFactory.createEmptyBorder(5,5,5,5)));
   panel.add(createExampleButton("Course timetabling","Official competition name: ITC 2007 track3 - Curriculum course scheduling\n" + "Assign lectures to periods and rooms.",null,new Runnable(){
     public void run(){
-      new CurriculumCourseApp().init(DroolsPlannerExamplesApp.this,false);
+      new CurriculumCourseApp().init(OptaPlannerExamplesApp.this,false);
     }
   }
 ));
   panel.add(createExampleButton("Machine reassignment","Official competition name: Google ROADEF 2012 - Machine reassignment.\n" + "Reassign processes to machines.",MachineReassignmentPanel.LOGO_PATH,new Runnable(){
     public void run(){
-      new MachineReassignmentApp().init(DroolsPlannerExamplesApp.this,false);
+      new MachineReassignmentApp().init(OptaPlannerExamplesApp.this,false);
     }
   }
 ));
   panel.add(createExampleButton("Vehicle routing","Official competition name: Capacitated vehicle routing problem (CRVP)\n" + "Pick up all items of all customers with a few vehicles in the shortest route possible.",VehicleRoutingPanel.LOGO_PATH,new Runnable(){
     public void run(){
-      new VehicleRoutingApp().init(DroolsPlannerExamplesApp.this,false);
+      new VehicleRoutingApp().init(OptaPlannerExamplesApp.this,false);
     }
   }
 ));
   panel.add(createExampleButton("Hospital bed planning","Official competition name: PAS - Patient admission scheduling\n" + "Assign patients to beds.",null,new Runnable(){
     public void run(){
-      new PatientAdmissionScheduleApp().init(DroolsPlannerExamplesApp.this,false);
+      new PatientAdmissionScheduleApp().init(OptaPlannerExamplesApp.this,false);
     }
   }
 ));

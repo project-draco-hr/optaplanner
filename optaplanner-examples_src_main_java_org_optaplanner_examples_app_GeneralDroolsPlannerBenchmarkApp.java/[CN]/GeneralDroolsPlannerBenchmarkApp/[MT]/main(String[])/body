@@ -1,4 +1,0 @@
-{
-  String benchmarkConfig=DEFAULT_BENCHMARK_CONFIG;
-  new GeneralDroolsPlannerBenchmarkApp().buildAndBenchmark(benchmarkConfig);
-}

@@ -1,0 +1,7 @@
+{
+  CommonApp.fixateLookAndFeel();
+  OptaPlannerExamplesApp optaPlannerExamplesApp=new OptaPlannerExamplesApp();
+  optaPlannerExamplesApp.pack();
+  optaPlannerExamplesApp.setLocationRelativeTo(null);
+  optaPlannerExamplesApp.setVisible(true);
+}

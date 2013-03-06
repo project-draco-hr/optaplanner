@@ -5,25 +5,25 @@
   panel.setBorder(BorderFactory.createCompoundBorder(titledBorder,BorderFactory.createEmptyBorder(5,5,5,5)));
   panel.add(createExampleButton("N queens","Place queens on a chessboard.\n\n" + "No 2 queens must be able to attack each other.",NQueensPanel.LOGO_PATH,new Runnable(){
     public void run(){
-      new NQueensApp().init(DroolsPlannerExamplesApp.this,false);
+      new NQueensApp().init(OptaPlannerExamplesApp.this,false);
     }
   }
 ));
   panel.add(createExampleButton("Cloud balancing","Assign processes to computers.\n\n" + "Each computer must have enough hardware to run all of it's processes.\n" + "Each computer used inflicts a maintenance cost.",CloudBalancingPanel.LOGO_PATH,new Runnable(){
     public void run(){
-      new CloudBalancingApp().init(DroolsPlannerExamplesApp.this,false);
+      new CloudBalancingApp().init(OptaPlannerExamplesApp.this,false);
     }
   }
 ));
   panel.add(createExampleButton("Traveling salesman","Official competition name: TSP - Traveling salesman problem\n" + "Determine the order in which to visit all cities.\n\n" + "Find the shortest route to visit all cities.",TspPanel.LOGO_PATH,new Runnable(){
     public void run(){
-      new TspApp().init(DroolsPlannerExamplesApp.this,false);
+      new TspApp().init(OptaPlannerExamplesApp.this,false);
     }
   }
 ));
   panel.add(createExampleButton("Manners 2009","A much larger variant of the classic Miss Manners problem.\n" + "Assign guests to seats at tables.",null,new Runnable(){
     public void run(){
-      new Manners2009App().init(DroolsPlannerExamplesApp.this,false);
+      new Manners2009App().init(OptaPlannerExamplesApp.this,false);
     }
   }
 ));

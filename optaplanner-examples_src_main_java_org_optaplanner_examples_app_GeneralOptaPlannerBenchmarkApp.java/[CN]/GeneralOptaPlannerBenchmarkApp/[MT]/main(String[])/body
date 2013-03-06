@@ -1,0 +1,4 @@
+{
+  String benchmarkConfig=DEFAULT_BENCHMARK_CONFIG;
+  new GeneralOptaPlannerBenchmarkApp().buildAndBenchmark(benchmarkConfig);
+}
