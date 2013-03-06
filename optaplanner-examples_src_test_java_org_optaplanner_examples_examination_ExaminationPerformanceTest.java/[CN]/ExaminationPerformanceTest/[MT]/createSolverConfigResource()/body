@@ -1,0 +1,3 @@
+{
+  return "/org/optaplanner/examples/examination/solver/examinationSolverConfig.xml";
+}

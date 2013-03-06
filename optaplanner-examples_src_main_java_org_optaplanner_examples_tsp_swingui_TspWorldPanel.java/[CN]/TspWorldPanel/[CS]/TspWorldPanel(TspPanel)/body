@@ -1,0 +1,23 @@
+{
+  this.tspPanel=tspPanel;
+  addComponentListener(new ComponentAdapter(){
+    @Override public void componentResized(    ComponentEvent e){
+      TravelingSalesmanTour travelingSalesmanTour=TspWorldPanel.this.tspPanel.getTravelingSalesmanTour();
+      if (travelingSalesmanTour != null) {
+        resetPanel(travelingSalesmanTour);
+      }
+    }
+  }
+);
+  addMouseListener(new MouseAdapter(){
+    @Override public void mousePressed(    MouseEvent e){
+      if (translator != null) {
+        double longitude=translator.translateXToLongitude(e.getX());
+        double latitude=translator.translateYToLatitude(e.getY());
+        TspWorldPanel.this.tspPanel.insertCityAndVisit(longitude,latitude);
+      }
+    }
+  }
+);
+  europaBackground=new ImageIcon(getClass().getResource("/org/optaplanner/examples/tsp/swingui/europaBackground.png"));
+}

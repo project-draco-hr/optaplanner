@@ -1,3 +1,0 @@
-{
-  return "/org/drools/planner/examples/vehiclerouting/solver/vehicleRoutingSolverConfig.xml";
-}

@@ -1,0 +1,3 @@
+{
+  return "/org/optaplanner/examples/nurserostering/solver/nurseRosteringSolverConfig.xml";
+}
