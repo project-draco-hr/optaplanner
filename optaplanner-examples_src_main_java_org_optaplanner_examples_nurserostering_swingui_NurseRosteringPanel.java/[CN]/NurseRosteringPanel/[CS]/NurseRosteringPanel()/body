@@ -1,4 +1,6 @@
 {
+  employeeIcon=new ImageIcon(getClass().getResource("employee.png"));
+  deleteEmployeeIcon=new ImageIcon(getClass().getResource("deleteEmployee.png"));
   GroupLayout layout=new GroupLayout(this);
   setLayout(layout);
   createEmployeeListPanel();
