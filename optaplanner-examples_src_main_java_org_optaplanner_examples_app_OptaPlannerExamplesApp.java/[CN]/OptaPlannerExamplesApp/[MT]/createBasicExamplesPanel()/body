@@ -1,6 +1,6 @@
 {
   JPanel panel=new JPanel(new GridLayout(0,1,5,5));
-  TitledBorder titledBorder=BorderFactory.createTitledBorder("Toy examples");
+  TitledBorder titledBorder=BorderFactory.createTitledBorder("Basic examples");
   titledBorder.setTitleColor(TangoColorFactory.CHAMELEON_3);
   panel.setBorder(BorderFactory.createCompoundBorder(titledBorder,BorderFactory.createEmptyBorder(5,5,5,5)));
   panel.add(createExampleButton("N queens","Place queens on a chessboard.\n\n" + "No 2 queens must be able to attack each other.",NQueensPanel.LOGO_PATH,new Runnable(){

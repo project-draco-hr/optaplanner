@@ -3,10 +3,10 @@
   examplesPanel.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
   GroupLayout layout=new GroupLayout(examplesPanel);
   examplesPanel.setLayout(layout);
-  JPanel toyExamplesPanel=createToyExamplesPanel();
+  JPanel basicExamplesPanel=createBasicExamplesPanel();
   JPanel realExamplesPanel=createRealExamplesPanel();
   JPanel difficultExamplesPanel=createDifficultExamplesPanel();
-  layout.setHorizontalGroup(layout.createSequentialGroup().addComponent(toyExamplesPanel).addGap(10).addComponent(realExamplesPanel).addGap(10).addComponent(difficultExamplesPanel));
-  layout.setVerticalGroup(layout.createParallelGroup().addComponent(toyExamplesPanel).addComponent(realExamplesPanel).addComponent(difficultExamplesPanel));
+  layout.setHorizontalGroup(layout.createSequentialGroup().addComponent(basicExamplesPanel).addGap(10).addComponent(realExamplesPanel).addGap(10).addComponent(difficultExamplesPanel));
+  layout.setVerticalGroup(layout.createParallelGroup().addComponent(basicExamplesPanel).addComponent(realExamplesPanel).addComponent(difficultExamplesPanel));
   return examplesPanel;
 }
