@@ -1,5 +1,5 @@
 {
-  XmlPlannerBenchmarkFactory plannerBenchmarkFactory=new XmlPlannerBenchmarkFactory().configureFromTemplate(benchmarkConfigTemplate);
+  PlannerBenchmarkFactory plannerBenchmarkFactory=new XmlPlannerBenchmarkFactory().configureFromTemplate(benchmarkConfigTemplate);
   PlannerBenchmark plannerBenchmark=plannerBenchmarkFactory.buildPlannerBenchmark();
   plannerBenchmark.benchmark();
 }

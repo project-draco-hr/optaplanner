@@ -1,7 +1,6 @@
 {
-  XmlPlannerBenchmarkFactory benchmarkFactory=new XmlPlannerBenchmarkFactory();
   String benchmarkConfigResource=createBenchmarkConfigResource();
-  benchmarkFactory.configure(benchmarkConfigResource);
+  PlannerBenchmarkFactory benchmarkFactory=new XmlPlannerBenchmarkFactory(benchmarkConfigResource);
   PlannerBenchmarkConfig plannerBenchmarkConfig=benchmarkFactory.getPlannerBenchmarkConfig();
   plannerBenchmarkConfig.setBenchmarkDirectory(new File("target/test/data/nqueens"));
   plannerBenchmarkConfig.setWarmUpHoursSpend(0L);
