@@ -11,8 +11,8 @@
   if (incrementalScoreCalculatorClass == null) {
     incrementalScoreCalculatorClass=inheritedConfig.getIncrementalScoreCalculatorClass();
   }
-  if (ruleBase == null) {
-    ruleBase=inheritedConfig.getRuleBase();
+  if (kieBase == null) {
+    kieBase=inheritedConfig.getKieBase();
   }
   scoreDrlList=ConfigUtils.inheritMergeableListProperty(scoreDrlList,inheritedConfig.getScoreDrlList());
   if (assertionScoreDirectorFactory == null) {

@@ -1,0 +1,33 @@
+{
+  if (kieBase != null) {
+    if (!CollectionUtils.isEmpty(scoreDrlList)) {
+      throw new IllegalArgumentException("If kieBase is not null, the scoreDrlList (" + scoreDrlList + ") must be empty.");
+    }
+    return kieBase;
+  }
+ else {
+    KieServices kieServices=KieServices.Factory.get();
+    KieResources kieResources=kieServices.getResources();
+    KieFileSystem kieFileSystem=kieServices.newKieFileSystem();
+    for (    String scoreDrl : scoreDrlList) {
+      InputStream scoreDrlIn=getClass().getResourceAsStream(scoreDrl);
+      if (scoreDrlIn == null) {
+        throw new IllegalArgumentException("The scoreDrl (" + scoreDrl + ") does not exist as a classpath resource.");
+      }
+      String path="src/main/resources/optaplanner-kie-namespace/" + scoreDrl;
+      kieFileSystem.write(path,kieResources.newInputStreamResource(scoreDrlIn,"UTF-8"));
+    }
+    KieBuilder kieBuilder=kieServices.newKieBuilder(kieFileSystem);
+    kieBuilder.buildAll();
+    Results results=kieBuilder.getResults();
+    if (results.hasMessages(Message.Level.ERROR)) {
+      throw new IllegalStateException("There are errors in the scoreDrl's:\n" + results.toString());
+    }
+ else     if (results.hasMessages(Message.Level.WARNING)) {
+      logger.warn("There are warning in the scoreDrl's:\n" + results.toString());
+    }
+    KieContainer kieContainer=kieServices.newKieContainer(kieBuilder.getKieModule().getReleaseId());
+    KieBase kieBase=kieContainer.getKieBase();
+    return kieBase;
+  }
+}

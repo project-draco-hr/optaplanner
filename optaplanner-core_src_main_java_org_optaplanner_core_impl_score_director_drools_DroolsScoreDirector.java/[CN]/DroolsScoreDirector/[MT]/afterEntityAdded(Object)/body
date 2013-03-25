@@ -6,5 +6,5 @@
   if (!getSolutionDescriptor().hasPlanningEntityDescriptor(entity.getClass())) {
     throw new IllegalArgumentException("The entity (" + entity + ") of class ("+ entity.getClass()+ ") is not a configured @PlanningEntity.");
   }
-  workingMemory.insert(entity);
+  kieSession.insert(entity);
 }

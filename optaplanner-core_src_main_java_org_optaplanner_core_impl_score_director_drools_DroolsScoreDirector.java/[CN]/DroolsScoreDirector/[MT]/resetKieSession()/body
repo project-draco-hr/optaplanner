@@ -1,0 +1,12 @@
+{
+  if (kieSession != null) {
+    kieSession.dispose();
+  }
+  kieSession=getKieBase().newKieSession();
+  workingScoreHolder=getScoreDefinition().buildScoreHolder();
+  kieSession.setGlobal(GLOBAL_SCORE_HOLDER_KEY,workingScoreHolder);
+  Collection<Object> workingFacts=getWorkingFacts();
+  for (  Object fact : workingFacts) {
+    kieSession.insert(fact);
+  }
+}

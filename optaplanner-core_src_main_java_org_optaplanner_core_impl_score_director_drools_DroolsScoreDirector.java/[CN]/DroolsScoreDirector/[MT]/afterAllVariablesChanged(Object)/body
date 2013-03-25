@@ -1,8 +1,8 @@
 {
   super.afterAllVariablesChanged(entity);
-  FactHandle factHandle=workingMemory.getFactHandle(entity);
+  FactHandle factHandle=kieSession.getFactHandle(entity);
   if (factHandle == null) {
     throw new IllegalArgumentException("The entity (" + entity + ") was never added to this ScoreDirector.");
   }
-  workingMemory.update(factHandle,entity);
+  kieSession.update(factHandle,entity);
 }

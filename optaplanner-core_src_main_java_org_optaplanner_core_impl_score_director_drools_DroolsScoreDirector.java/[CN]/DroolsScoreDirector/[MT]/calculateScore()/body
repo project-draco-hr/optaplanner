@@ -1,5 +1,5 @@
 {
-  workingMemory.fireAllRules();
+  kieSession.fireAllRules();
   Score score=workingScoreHolder.extractScore();
   setCalculatedScore(score);
   return score;

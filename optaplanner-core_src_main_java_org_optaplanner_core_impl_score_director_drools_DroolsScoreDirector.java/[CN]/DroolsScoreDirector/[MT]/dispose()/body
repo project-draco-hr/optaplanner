@@ -1,6 +1,6 @@
 {
-  if (workingMemory != null) {
-    workingMemory.dispose();
-    workingMemory=null;
+  if (kieSession != null) {
+    kieSession.dispose();
+    kieSession=null;
   }
 }

@@ -1,4 +1,4 @@
 {
   super.afterProblemFactAdded(problemFact);
-  workingMemory.insert(problemFact);
+  kieSession.insert(problemFact);
 }

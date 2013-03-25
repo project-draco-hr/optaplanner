@@ -1,8 +1,8 @@
 {
   super.afterProblemFactRemoved(problemFact);
-  FactHandle factHandle=workingMemory.getFactHandle(problemFact);
+  FactHandle factHandle=kieSession.getFactHandle(problemFact);
   if (factHandle == null) {
     throw new IllegalArgumentException("The problemFact (" + problemFact + ") was never added to this ScoreDirector.");
   }
-  workingMemory.retract(factHandle);
+  kieSession.retract(factHandle);
 }
