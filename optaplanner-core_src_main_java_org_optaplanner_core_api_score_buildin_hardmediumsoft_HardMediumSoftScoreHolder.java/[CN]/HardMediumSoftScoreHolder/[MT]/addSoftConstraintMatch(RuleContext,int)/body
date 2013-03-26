@@ -1,6 +1,6 @@
 {
   softScore+=weight;
-  registerUndoListener(kcontext,new ActivationUnMatchListener(){
+  registerUndoListener(kcontext,2,new ActivationUnMatchListener(){
     public void unMatch(    Session session,    Match activation){
       softScore-=weight;
     }
