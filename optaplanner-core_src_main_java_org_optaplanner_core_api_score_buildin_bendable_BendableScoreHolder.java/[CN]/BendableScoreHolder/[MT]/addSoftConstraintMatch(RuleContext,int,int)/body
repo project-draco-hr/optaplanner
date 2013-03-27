@@ -1,6 +1,6 @@
 {
   softScores[softLevel]+=weight;
-  registerUndoListener(kcontext,getHardLevelCount() + softLevel,new ActivationUnMatchListener(){
+  registerUndoListener(kcontext,new ActivationUnMatchListener(){
     public void unMatch(    Session session,    Match activation){
       softScores[softLevel]-=weight;
     }

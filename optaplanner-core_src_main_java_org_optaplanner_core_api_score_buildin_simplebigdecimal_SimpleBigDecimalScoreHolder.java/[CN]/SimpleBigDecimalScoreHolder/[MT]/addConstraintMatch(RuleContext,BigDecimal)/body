@@ -1,6 +1,6 @@
 {
   score=score.add(weight);
-  registerUndoListener(kcontext,0,new ActivationUnMatchListener(){
+  registerUndoListener(kcontext,new ActivationUnMatchListener(){
     public void unMatch(    Session session,    Match activation){
       score=score.subtract(weight);
     }
