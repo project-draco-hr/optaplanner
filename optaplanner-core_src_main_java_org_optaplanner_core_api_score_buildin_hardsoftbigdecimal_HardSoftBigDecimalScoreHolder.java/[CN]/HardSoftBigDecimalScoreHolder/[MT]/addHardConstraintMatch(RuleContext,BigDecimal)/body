@@ -1,7 +1,7 @@
 {
   hardScore=hardScore.add(weight);
-  registerUndoListener(kcontext,new ActivationUnMatchListener(){
-    public void unMatch(    Session session,    Match activation){
+  registerUndoListener(kcontext,new Runnable(){
+    public void run(){
       hardScore=hardScore.subtract(weight);
     }
   }

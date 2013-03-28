@@ -1,8 +1,0 @@
-{
-  AgendaItem agendaItem=(AgendaItem)kcontext.getMatch();
-  if (agendaItem.getActivationUnMatchListener() != null) {
-    Session session=null;
-    agendaItem.getActivationUnMatchListener().unMatch(session,agendaItem);
-  }
-  agendaItem.setActivationUnMatchListener(undoListener);
-}
