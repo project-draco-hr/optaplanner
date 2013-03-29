@@ -1,0 +1,4 @@
+{
+  this.constraintMatchEnabled=constraintMatchEnabled;
+  constraintMatchTotalMap=constraintMatchEnabled ? new LinkedHashMap<List<Object>,ScoreConstraintMatchTotal>() : null;
+}

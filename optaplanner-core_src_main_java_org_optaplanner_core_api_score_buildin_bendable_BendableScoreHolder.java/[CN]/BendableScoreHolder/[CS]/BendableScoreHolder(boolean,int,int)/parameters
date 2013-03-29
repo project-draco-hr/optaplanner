@@ -1,0 +1,3 @@
+boolean constraintMatchEnabled
+int hardLevelCount
+int softLevelCount

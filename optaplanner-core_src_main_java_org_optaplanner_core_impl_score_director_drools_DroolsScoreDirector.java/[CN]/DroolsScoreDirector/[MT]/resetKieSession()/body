@@ -3,7 +3,7 @@
     kieSession.dispose();
   }
   kieSession=getKieBase().newKieSession();
-  workingScoreHolder=getScoreDefinition().buildScoreHolder();
+  workingScoreHolder=getScoreDefinition().buildScoreHolder(constraintMatchEnabledPreference);
   kieSession.setGlobal(GLOBAL_SCORE_HOLDER_KEY,workingScoreHolder);
   Collection<Object> workingFacts=getWorkingFacts();
   for (  Object fact : workingFacts) {
