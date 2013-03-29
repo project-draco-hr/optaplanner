@@ -1,7 +1,7 @@
 {
   weightTotal+=weight;
-  List<Object> ruleMatchObjects=kcontext.getMatch().getObjects();
-  List<Object> justificationList=new ArrayList<Object>(ruleMatchObjects);
+  List<Object> droolsMatchObjects=kcontext.getMatch().getObjects();
+  List<Object> justificationList=new ArrayList<Object>(droolsMatchObjects);
   Collections.reverse(justificationList);
   IntScoreConstraintMatch constraintMatch=new IntScoreConstraintMatch(this,justificationList,weight);
   boolean added=constraintMatchSet.add(constraintMatch);
