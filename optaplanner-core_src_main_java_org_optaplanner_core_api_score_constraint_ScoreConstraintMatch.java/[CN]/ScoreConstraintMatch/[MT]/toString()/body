@@ -1,4 +1,3 @@
 {
-  ScoreConstraintMatchTotal constraintMatchTotal=getScoreConstraintMatchTotal();
-  return justificationList.toString();
+  return getIdentificationString();
 }
