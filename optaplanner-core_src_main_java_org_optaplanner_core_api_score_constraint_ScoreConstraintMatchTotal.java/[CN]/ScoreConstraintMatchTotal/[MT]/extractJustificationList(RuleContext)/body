@@ -1,0 +1,6 @@
+{
+  List<Object> droolsMatchObjects=kcontext.getMatch().getObjects();
+  List<Object> justificationList=new ArrayList<Object>(droolsMatchObjects);
+  Collections.reverse(justificationList);
+  return justificationList;
+}
