@@ -1,6 +1,6 @@
 {
   hardScore+=weight;
-  if (!matchesEnabled) {
+  if (!constraintMatchEnabled) {
     registerUndoListener(kcontext,new Runnable(){
       public void run(){
         hardScore-=weight;

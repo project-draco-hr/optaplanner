@@ -3,10 +3,10 @@
   String constraintPackage=rule.getPackageName();
   String constraintName=rule.getName();
   List<Object> key=Arrays.<Object>asList(constraintPackage,constraintName,scoreLevel);
-  IntScoreConstraintMatchTotal matchTotal=(IntScoreConstraintMatchTotal)matchTotalMap.get(key);
+  IntScoreConstraintMatchTotal matchTotal=(IntScoreConstraintMatchTotal)constraintMatchTotalMap.get(key);
   if (matchTotal == null) {
     matchTotal=new IntScoreConstraintMatchTotal(constraintPackage,constraintName,scoreLevel);
-    matchTotalMap.put(key,matchTotal);
+    constraintMatchTotalMap.put(key,matchTotal);
   }
   return matchTotal;
 }
