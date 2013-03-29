@@ -1,0 +1,3 @@
+IntScoreConstraintMatchTotal scoreConstraintMatchTotal
+List<Object> justificationList
+int weight

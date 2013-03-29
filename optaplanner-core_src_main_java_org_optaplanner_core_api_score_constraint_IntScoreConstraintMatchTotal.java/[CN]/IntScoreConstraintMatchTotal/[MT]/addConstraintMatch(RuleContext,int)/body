@@ -1,0 +1,12 @@
+{
+  weightTotal+=weight;
+  List<Object> ruleMatchObjects=kcontext.getMatch().getObjects();
+  List<Object> justificationList=new ArrayList<Object>(ruleMatchObjects);
+  Collections.reverse(justificationList);
+  IntScoreConstraintMatch constraintMatch=new IntScoreConstraintMatch(this,justificationList,weight);
+  boolean added=constraintMatchSet.add(constraintMatch);
+  if (!added) {
+    throw new IllegalStateException("The scoreConstraintMatchTotal (" + this + ") could not add constraintMatch ("+ constraintMatch+ ") to its constraintMatchSet ("+ constraintMatchSet+ ").");
+  }
+  return constraintMatch;
+}

@@ -1,0 +1,4 @@
+{
+  matchesEnabled=true;
+  matchTotalMap=matchesEnabled ? new LinkedHashMap<List<Object>,ScoreConstraintMatchTotal>() : null;
+}

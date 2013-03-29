@@ -1,9 +1,22 @@
 {
   hardScore+=weight;
-  registerUndoListener(kcontext,new Runnable(){
-    public void run(){
-      hardScore-=weight;
+  if (!matchesEnabled) {
+    registerUndoListener(kcontext,new Runnable(){
+      public void run(){
+        hardScore-=weight;
+      }
     }
-  }
 );
+  }
+ else {
+    final IntScoreConstraintMatchTotal constraintMatchTotal=findIntScoreConstraintMatchTotal(kcontext,0);
+    final IntScoreConstraintMatch constraintMatch=constraintMatchTotal.addConstraintMatch(kcontext,weight);
+    registerUndoListener(kcontext,new Runnable(){
+      public void run(){
+        hardScore-=weight;
+        constraintMatchTotal.removeConstraintMatch(constraintMatch);
+      }
+    }
+);
+  }
 }

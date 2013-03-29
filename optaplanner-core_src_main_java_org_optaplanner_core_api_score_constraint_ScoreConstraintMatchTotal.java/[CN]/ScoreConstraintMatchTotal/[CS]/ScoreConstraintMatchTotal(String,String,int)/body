@@ -1,0 +1,5 @@
+{
+  this.constraintPackage=constraintPackage;
+  this.constraintName=constraintName;
+  this.scoreLevel=scoreLevel;
+}
