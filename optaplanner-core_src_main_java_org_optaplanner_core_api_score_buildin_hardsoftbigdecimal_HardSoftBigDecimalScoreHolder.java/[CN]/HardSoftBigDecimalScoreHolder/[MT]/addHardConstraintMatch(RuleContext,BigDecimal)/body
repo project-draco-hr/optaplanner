@@ -1,6 +1,6 @@
 {
   hardScore=hardScore.add(weight);
-  registerUndoListener(kcontext,new Runnable(){
+  registerBigDecimalConstraintMatch(kcontext,0,weight,new Runnable(){
     public void run(){
       hardScore=hardScore.subtract(weight);
     }

@@ -1,6 +1,6 @@
 {
   hardScores[hardLevel]+=weight;
-  registerUndoListener(kcontext,new Runnable(){
+  registerIntConstraintMatch(kcontext,hardLevel,weight,new Runnable(){
     public void run(){
       hardScores[hardLevel]-=weight;
     }

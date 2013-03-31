@@ -1,6 +1,6 @@
 {
   score+=weight;
-  registerUndoListener(kcontext,new Runnable(){
+  registerLongConstraintMatch(kcontext,0,weight,new Runnable(){
     public void run(){
       score-=weight;
     }

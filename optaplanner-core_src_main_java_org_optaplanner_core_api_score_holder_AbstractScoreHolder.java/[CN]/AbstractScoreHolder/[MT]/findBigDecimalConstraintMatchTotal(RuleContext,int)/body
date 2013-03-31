@@ -1,0 +1,12 @@
+{
+  Rule rule=kcontext.getRule();
+  String constraintPackage=rule.getPackageName();
+  String constraintName=rule.getName();
+  List<Object> key=Arrays.<Object>asList(constraintPackage,constraintName,scoreLevel);
+  BigDecimalScoreConstraintMatchTotal matchTotal=(BigDecimalScoreConstraintMatchTotal)constraintMatchTotalMap.get(key);
+  if (matchTotal == null) {
+    matchTotal=new BigDecimalScoreConstraintMatchTotal(constraintPackage,constraintName,scoreLevel);
+    constraintMatchTotalMap.put(key,matchTotal);
+  }
+  return matchTotal;
+}

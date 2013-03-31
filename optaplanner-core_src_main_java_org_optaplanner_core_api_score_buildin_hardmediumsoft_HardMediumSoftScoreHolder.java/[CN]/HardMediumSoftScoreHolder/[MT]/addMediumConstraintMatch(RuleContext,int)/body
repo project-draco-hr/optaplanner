@@ -1,6 +1,6 @@
 {
   mediumScore+=weight;
-  registerUndoListener(kcontext,new Runnable(){
+  registerIntConstraintMatch(kcontext,1,weight,new Runnable(){
     public void run(){
       mediumScore-=weight;
     }

@@ -1,0 +1,12 @@
+{
+  Rule rule=kcontext.getRule();
+  String constraintPackage=rule.getPackageName();
+  String constraintName=rule.getName();
+  List<Object> key=Arrays.<Object>asList(constraintPackage,constraintName,scoreLevel);
+  DoubleScoreConstraintMatchTotal matchTotal=(DoubleScoreConstraintMatchTotal)constraintMatchTotalMap.get(key);
+  if (matchTotal == null) {
+    matchTotal=new DoubleScoreConstraintMatchTotal(constraintPackage,constraintName,scoreLevel);
+    constraintMatchTotalMap.put(key,matchTotal);
+  }
+  return matchTotal;
+}
