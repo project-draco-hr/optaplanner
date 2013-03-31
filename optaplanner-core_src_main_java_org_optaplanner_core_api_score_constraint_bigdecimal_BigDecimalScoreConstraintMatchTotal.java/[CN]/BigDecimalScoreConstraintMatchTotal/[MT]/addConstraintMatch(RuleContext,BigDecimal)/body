@@ -1,0 +1,10 @@
+{
+  weightTotal=weightTotal.add(weight);
+  List<Object> justificationList=extractJustificationList(kcontext);
+  BigDecimalScoreConstraintMatch constraintMatch=new BigDecimalScoreConstraintMatch(this,justificationList,weight);
+  boolean added=constraintMatchSet.add(constraintMatch);
+  if (!added) {
+    throw new IllegalStateException("The scoreConstraintMatchTotal (" + this + ") could not add constraintMatch ("+ constraintMatch+ ") to its constraintMatchSet ("+ constraintMatchSet+ ").");
+  }
+  return constraintMatch;
+}
