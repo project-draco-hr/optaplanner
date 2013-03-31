@@ -1,0 +1,4 @@
+RuleContext kcontext
+int scoreLevel
+int weight
+Runnable undoListener

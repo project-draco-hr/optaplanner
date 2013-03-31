@@ -1,0 +1,7 @@
+{
+  AgendaItem agendaItem=(AgendaItem)kcontext.getMatch();
+  if (agendaItem.getActivationUnMatchListener() != null) {
+    agendaItem.getActivationUnMatchListener().unMatch(null,null);
+  }
+  return agendaItem;
+}
