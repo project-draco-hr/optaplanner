@@ -2,5 +2,6 @@
   solveAction.setEnabled(true);
   saveAction.setEnabled(true);
   exportAction.setEnabled(solutionBusiness.hasExporter());
+  showConstraintMatchesDialogAction.setEnabled(true);
   resetScreen();
 }
