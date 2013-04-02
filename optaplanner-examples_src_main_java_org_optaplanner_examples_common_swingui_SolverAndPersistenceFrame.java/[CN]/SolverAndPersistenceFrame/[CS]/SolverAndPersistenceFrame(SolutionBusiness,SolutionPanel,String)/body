@@ -5,6 +5,6 @@
   solutionPanel.setSolutionBusiness(solutionBusiness);
   solutionPanel.setSolverAndPersistenceFrame(this);
   registerListeners();
-  constraintScoreMapDialog=new ConstraintScoreMapDialog(this);
-  constraintScoreMapDialog.setSolutionBusiness(solutionBusiness);
+  constraintMatchesDialog=new ConstraintMatchesDialog(this);
+  constraintMatchesDialog.setSolutionBusiness(solutionBusiness);
 }

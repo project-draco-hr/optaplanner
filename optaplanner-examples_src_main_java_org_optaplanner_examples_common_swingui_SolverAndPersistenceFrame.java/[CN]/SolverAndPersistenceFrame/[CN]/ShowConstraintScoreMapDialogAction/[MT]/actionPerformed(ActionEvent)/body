@@ -1,4 +1,0 @@
-{
-  constraintScoreMapDialog.resetContentPanel();
-  constraintScoreMapDialog.setVisible(true);
-}

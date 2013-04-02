@@ -1,0 +1,16 @@
+{
+switch (columnIndex) {
+case 0:
+    return "Constraint package";
+case 1:
+  return "Constraint name";
+case 2:
+return "score level";
+case 3:
+return "Match count";
+case 4:
+return "Weight total";
+default :
+throw new IllegalStateException("The columnIndex (" + columnIndex + ") is invalid.");
+}
+}

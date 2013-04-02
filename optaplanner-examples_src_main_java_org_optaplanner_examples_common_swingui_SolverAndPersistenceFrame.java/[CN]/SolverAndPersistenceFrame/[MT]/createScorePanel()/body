@@ -5,8 +5,8 @@
   resultLabel=new JLabel("No solution loaded yet");
   resultLabel.setBorder(BorderFactory.createLoweredBevelBorder());
   panel.add(resultLabel,BorderLayout.CENTER);
-  showConstraintScoreMapDialogAction=new ShowConstraintScoreMapDialogAction();
-  JButton constraintScoreMapButton=new JButton(showConstraintScoreMapDialogAction);
+  showConstraintMatchesDialogAction=new ShowConstraintMatchesDialogAction();
+  JButton constraintScoreMapButton=new JButton(showConstraintMatchesDialogAction);
   panel.add(constraintScoreMapButton,BorderLayout.EAST);
   return panel;
 }

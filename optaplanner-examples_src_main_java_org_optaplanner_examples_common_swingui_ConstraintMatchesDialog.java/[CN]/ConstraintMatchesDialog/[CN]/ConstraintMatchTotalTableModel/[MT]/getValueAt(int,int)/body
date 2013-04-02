@@ -1,0 +1,17 @@
+{
+  ScoreConstraintMatchTotal constraintMatchTotal=constraintMatchTotalList.get(rowIndex);
+switch (columnIndex) {
+case 0:
+    return constraintMatchTotal.getConstraintPackage();
+case 1:
+  return constraintMatchTotal.getConstraintName();
+case 2:
+return constraintMatchTotal.getScoreLevel();
+case 3:
+return constraintMatchTotal.getConstraintMatchSet().size();
+case 4:
+return constraintMatchTotal.getWeightTotalAsNumber();
+default :
+throw new IllegalStateException("The columnIndex (" + columnIndex + ") is invalid.");
+}
+}

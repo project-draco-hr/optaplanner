@@ -1,0 +1,4 @@
+{
+  constraintMatchesDialog.resetContentPanel();
+  constraintMatchesDialog.setVisible(true);
+}

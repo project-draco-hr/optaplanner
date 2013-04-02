@@ -1,0 +1,5 @@
+{
+  List<ScoreConstraintMatchTotal> constraintMatchTotalList=new ArrayList<ScoreConstraintMatchTotal>(guiScoreDirector.getConstraintMatchTotals());
+  Collections.sort(constraintMatchTotalList);
+  return constraintMatchTotalList;
+}

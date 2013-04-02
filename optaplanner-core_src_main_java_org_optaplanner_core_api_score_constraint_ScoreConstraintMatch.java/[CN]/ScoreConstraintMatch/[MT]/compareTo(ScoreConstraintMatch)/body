@@ -1,0 +1,3 @@
+{
+  return new CompareToBuilder().append(getScoreConstraintMatchTotal(),other.getScoreConstraintMatchTotal()).append(getJustificationList(),other.getJustificationList()).append(getWeightAsNumber(),other.getWeightAsNumber()).toComparison();
+}
