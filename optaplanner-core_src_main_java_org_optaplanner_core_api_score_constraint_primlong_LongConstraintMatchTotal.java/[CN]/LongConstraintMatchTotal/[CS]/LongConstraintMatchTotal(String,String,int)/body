@@ -1,0 +1,5 @@
+{
+  super(constraintPackage,constraintName,scoreLevel);
+  constraintMatchSet=new HashSet<LongConstraintMatch>();
+  weightTotal=0;
+}

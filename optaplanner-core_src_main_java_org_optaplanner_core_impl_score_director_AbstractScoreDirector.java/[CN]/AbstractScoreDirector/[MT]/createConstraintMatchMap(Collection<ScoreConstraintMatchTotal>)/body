@@ -1,9 +1,0 @@
-{
-  Map<List<Object>,ScoreConstraintMatch> constraintMatchMap=new LinkedHashMap<List<Object>,ScoreConstraintMatch>(constraintMatchTotals.size() * 16);
-  for (  ScoreConstraintMatchTotal constraintMatchTotal : constraintMatchTotals) {
-    for (    ScoreConstraintMatch scoreConstraintMatch : constraintMatchTotal.getConstraintMatchSet()) {
-      constraintMatchMap.put(Arrays.<Object>asList(constraintMatchTotal.getConstraintPackage(),constraintMatchTotal.getConstraintName(),constraintMatchTotal.getScoreLevel(),scoreConstraintMatch.getJustificationList(),scoreConstraintMatch.getWeightAsNumber()),scoreConstraintMatch);
-    }
-  }
-  return constraintMatchMap;
-}

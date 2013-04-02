@@ -1,8 +1,0 @@
-{
-  Set<? extends ScoreConstraintMatch> constraintMatchSet=constraintMatchTotal.getConstraintMatchSet();
-  StringBuilder text=new StringBuilder(constraintMatchSet.size() * 80);
-  for (  ScoreConstraintMatch constraintMatch : constraintMatchSet) {
-    text.append(constraintMatch.toString()).append("\n");
-  }
-  return text.toString();
-}

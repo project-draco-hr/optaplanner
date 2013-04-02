@@ -9,8 +9,8 @@
 );
   }
  else {
-    final DoubleScoreConstraintMatchTotal constraintMatchTotal=findDoubleConstraintMatchTotal(kcontext,scoreLevel);
-    final DoubleScoreConstraintMatch constraintMatch=constraintMatchTotal.addConstraintMatch(kcontext,weight);
+    final DoubleConstraintMatchTotal constraintMatchTotal=findDoubleConstraintMatchTotal(kcontext,scoreLevel);
+    final DoubleConstraintMatch constraintMatch=constraintMatchTotal.addConstraintMatch(kcontext,weight);
     agendaItem.setActivationUnMatchListener(new ActivationUnMatchListener(){
       public void unMatch(      Session wm,      Match activation){
         undoListener.run();

@@ -1,7 +1,0 @@
-{
-  weightTotal-=constraintMatch.getWeight();
-  boolean removed=constraintMatchSet.remove(constraintMatch);
-  if (!removed) {
-    throw new IllegalStateException("The scoreConstraintMatchTotal (" + this + ") could not remove constraintMatch ("+ constraintMatch+ ") from its constraintMatchSet ("+ constraintMatchSet+ ").");
-  }
-}

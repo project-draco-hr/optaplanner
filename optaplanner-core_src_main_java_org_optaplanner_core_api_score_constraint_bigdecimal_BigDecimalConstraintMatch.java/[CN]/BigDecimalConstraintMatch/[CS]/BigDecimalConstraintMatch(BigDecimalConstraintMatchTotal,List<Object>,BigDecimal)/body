@@ -1,0 +1,5 @@
+{
+  super(justificationList);
+  this.constraintMatchTotal=constraintMatchTotal;
+  this.weight=weight;
+}

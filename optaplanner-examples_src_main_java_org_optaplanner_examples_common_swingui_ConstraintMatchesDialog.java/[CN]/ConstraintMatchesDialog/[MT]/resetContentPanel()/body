@@ -3,7 +3,7 @@
     setContentPane(new JLabel("Constraint matches are not supported with this ScoreDirector."));
   }
  else {
-    final List<ScoreConstraintMatchTotal> constraintMatchTotalList=solutionBusiness.getConstraintMatchTotalList();
+    final List<ConstraintMatchTotal> constraintMatchTotalList=solutionBusiness.getConstraintMatchTotalList();
     JSplitPane splitPane=new JSplitPane(JSplitPane.VERTICAL_SPLIT);
     final JTable table=new JTable(new ConstraintMatchTotalTableModel(constraintMatchTotalList));
     JScrollPane tableScrollPane=new JScrollPane(table);
@@ -19,7 +19,7 @@
           detailTextArea.setText("");
         }
  else {
-          ScoreConstraintMatchTotal constraintMatchTotal=constraintMatchTotalList.get(selectedRow);
+          ConstraintMatchTotal constraintMatchTotal=constraintMatchTotalList.get(selectedRow);
           detailTextArea.setText(buildConstraintMatchSetText(constraintMatchTotal));
         }
       }

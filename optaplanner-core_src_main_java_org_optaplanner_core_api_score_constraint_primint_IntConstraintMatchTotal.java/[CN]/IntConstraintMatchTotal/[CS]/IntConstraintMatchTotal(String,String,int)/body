@@ -1,0 +1,5 @@
+{
+  super(constraintPackage,constraintName,scoreLevel);
+  constraintMatchSet=new HashSet<IntConstraintMatch>();
+  weightTotal=0;
+}

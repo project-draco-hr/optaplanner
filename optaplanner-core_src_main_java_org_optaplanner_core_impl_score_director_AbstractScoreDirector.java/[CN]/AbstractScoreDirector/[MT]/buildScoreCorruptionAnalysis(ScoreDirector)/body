@@ -2,22 +2,22 @@
   if (!isConstraintMatchEnabled() || !uncorruptedScoreDirector.isConstraintMatchEnabled()) {
     return "  Score corruption analysis could not be generated because" + " either corrupted constraintMatchEnabled (" + isConstraintMatchEnabled() + " or uncorrupted constraintMatchEnabled ("+ uncorruptedScoreDirector.isConstraintMatchEnabled()+ ") is disabled.\n"+ "  Check your score constraints manually.";
   }
-  Collection<ScoreConstraintMatchTotal> corruptedConstraintMatchTotals=getConstraintMatchTotals();
-  Collection<ScoreConstraintMatchTotal> uncorruptedConstraintMatchTotals=uncorruptedScoreDirector.getConstraintMatchTotals();
-  Map<List<Object>,ScoreConstraintMatch> corruptedMap=createConstraintMatchMap(corruptedConstraintMatchTotals);
-  Map<List<Object>,ScoreConstraintMatch> excessMap=new LinkedHashMap<List<Object>,ScoreConstraintMatch>(corruptedMap);
-  Map<List<Object>,ScoreConstraintMatch> missingMap=createConstraintMatchMap(uncorruptedConstraintMatchTotals);
+  Collection<ConstraintMatchTotal> corruptedConstraintMatchTotals=getConstraintMatchTotals();
+  Collection<ConstraintMatchTotal> uncorruptedConstraintMatchTotals=uncorruptedScoreDirector.getConstraintMatchTotals();
+  Map<List<Object>,ConstraintMatch> corruptedMap=createConstraintMatchMap(corruptedConstraintMatchTotals);
+  Map<List<Object>,ConstraintMatch> excessMap=new LinkedHashMap<List<Object>,ConstraintMatch>(corruptedMap);
+  Map<List<Object>,ConstraintMatch> missingMap=createConstraintMatchMap(uncorruptedConstraintMatchTotals);
   excessMap.keySet().removeAll(missingMap.keySet());
   missingMap.keySet().removeAll(corruptedMap.keySet());
   final int CONSTRAINT_MATCH_DISPLAY_LIMIT=8;
   StringBuilder analysis=new StringBuilder();
   if (excessMap.isEmpty()) {
-    analysis.append("  The corrupted scoreDirector has no ScoreConstraintMatch(s) which are in excess.\n");
+    analysis.append("  The corrupted scoreDirector has no ConstraintMatch(s) which are in excess.\n");
   }
  else {
-    analysis.append("  The corrupted scoreDirector has ").append(excessMap.size()).append(" ScoreConstraintMatch(s) which are in excess (and should not be there):\n");
+    analysis.append("  The corrupted scoreDirector has ").append(excessMap.size()).append(" ConstraintMatch(s) which are in excess (and should not be there):\n");
     int count=0;
-    for (    ScoreConstraintMatch constraintMatch : excessMap.values()) {
+    for (    ConstraintMatch constraintMatch : excessMap.values()) {
       if (count >= CONSTRAINT_MATCH_DISPLAY_LIMIT) {
         analysis.append("    ... ").append(excessMap.size() - CONSTRAINT_MATCH_DISPLAY_LIMIT).append(" more\n");
         break;
@@ -27,12 +27,12 @@
     }
   }
   if (missingMap.isEmpty()) {
-    analysis.append("  The corrupted scoreDirector has no ScoreConstraintMatch(s) which are missing.\n");
+    analysis.append("  The corrupted scoreDirector has no ConstraintMatch(s) which are missing.\n");
   }
  else {
-    analysis.append("  The corrupted scoreDirector has ").append(missingMap.size()).append(" ScoreConstraintMatch(s) which are missing:\n");
+    analysis.append("  The corrupted scoreDirector has ").append(missingMap.size()).append(" ConstraintMatch(s) which are missing:\n");
     int count=0;
-    for (    ScoreConstraintMatch constraintMatch : missingMap.values()) {
+    for (    ConstraintMatch constraintMatch : missingMap.values()) {
       if (count >= CONSTRAINT_MATCH_DISPLAY_LIMIT) {
         analysis.append("    ... ").append(missingMap.size() - CONSTRAINT_MATCH_DISPLAY_LIMIT).append(" more\n");
         break;
@@ -42,7 +42,7 @@
     }
   }
   if (excessMap.isEmpty() && missingMap.isEmpty()) {
-    analysis.append("  The corrupted scoreDirector has no ScoreConstraintMatch(s) in excess or missing." + " That could be a bug in this class (").append(getClass()).append(").\n");
+    analysis.append("  The corrupted scoreDirector has no ConstraintMatch(s) in excess or missing." + " That could be a bug in this class (").append(getClass()).append(").\n");
   }
   appendLegacyConstraintOccurrences(analysis,this,uncorruptedScoreDirector);
   analysis.append("  Check your score constraints.");

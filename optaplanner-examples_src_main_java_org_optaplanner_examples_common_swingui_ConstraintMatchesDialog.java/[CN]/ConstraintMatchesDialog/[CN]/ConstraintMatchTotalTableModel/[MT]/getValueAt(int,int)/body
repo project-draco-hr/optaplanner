@@ -1,5 +1,5 @@
 {
-  ScoreConstraintMatchTotal constraintMatchTotal=constraintMatchTotalList.get(rowIndex);
+  ConstraintMatchTotal constraintMatchTotal=constraintMatchTotalList.get(rowIndex);
 switch (columnIndex) {
 case 0:
     return constraintMatchTotal.getConstraintPackage();

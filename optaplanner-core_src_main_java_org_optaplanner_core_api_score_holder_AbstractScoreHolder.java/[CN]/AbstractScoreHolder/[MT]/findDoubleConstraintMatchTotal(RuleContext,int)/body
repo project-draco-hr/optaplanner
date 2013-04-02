@@ -3,9 +3,9 @@
   String constraintPackage=rule.getPackageName();
   String constraintName=rule.getName();
   List<Object> key=Arrays.<Object>asList(constraintPackage,constraintName,scoreLevel);
-  DoubleScoreConstraintMatchTotal matchTotal=(DoubleScoreConstraintMatchTotal)constraintMatchTotalMap.get(key);
+  DoubleConstraintMatchTotal matchTotal=(DoubleConstraintMatchTotal)constraintMatchTotalMap.get(key);
   if (matchTotal == null) {
-    matchTotal=new DoubleScoreConstraintMatchTotal(constraintPackage,constraintName,scoreLevel);
+    matchTotal=new DoubleConstraintMatchTotal(constraintPackage,constraintName,scoreLevel);
     constraintMatchTotalMap.put(key,matchTotal);
   }
   return matchTotal;

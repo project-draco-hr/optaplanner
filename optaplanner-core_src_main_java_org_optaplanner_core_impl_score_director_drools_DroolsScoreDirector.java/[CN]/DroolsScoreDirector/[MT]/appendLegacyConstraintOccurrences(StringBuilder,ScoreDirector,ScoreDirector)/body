@@ -7,7 +7,7 @@
     Set<ConstraintOccurrence> corruptedConstraintOccurrenceSet=new LinkedHashSet<ConstraintOccurrence>((Collection<ConstraintOccurrence>)((DroolsScoreDirector)corruptedScoreDirector).kieSession.getObjects(new ClassObjectFilter(ConstraintOccurrence.class)));
     if (corruptedConstraintOccurrenceSet.isEmpty()) {
       analysis.append("  Migration analysis: Corrupted ConstraintMatchTotals:\n");
-      for (      ScoreConstraintMatchTotal constraintMatchTotal : corruptedScoreDirector.getConstraintMatchTotals()) {
+      for (      ConstraintMatchTotal constraintMatchTotal : corruptedScoreDirector.getConstraintMatchTotals()) {
         analysis.append("    ").append(constraintMatchTotal).append("\n");
       }
     }
