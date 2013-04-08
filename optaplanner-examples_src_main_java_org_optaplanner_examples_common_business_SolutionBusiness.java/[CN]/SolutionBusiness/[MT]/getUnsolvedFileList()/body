@@ -1,5 +1,5 @@
 {
-  List<File> unsolvedFileList=Arrays.asList(unsolvedDataDir.listFiles(new SolverExampleFileFilter()));
+  List<File> unsolvedFileList=Arrays.asList(unsolvedDataDir.listFiles(new SolutionFileFilter(solutionDao)));
   Collections.sort(unsolvedFileList);
   return unsolvedFileList;
 }

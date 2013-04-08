@@ -2,5 +2,5 @@
   if (file.isDirectory() || file.isHidden()) {
     return false;
   }
-  return file.getName().endsWith(".xml");
+  return file.getName().endsWith(solutionDao.getFileSuffix());
 }
