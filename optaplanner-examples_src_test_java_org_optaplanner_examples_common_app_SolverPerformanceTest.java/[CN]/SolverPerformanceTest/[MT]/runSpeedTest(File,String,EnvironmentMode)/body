@@ -1,5 +1,5 @@
 {
-  XmlSolverFactory solverFactory=buildSolverFactory(scoreAttainedString,environmentMode);
+  SolverFactory solverFactory=buildSolverFactory(scoreAttainedString,environmentMode);
   Solver solver=solve(solverFactory,unsolvedDataFile);
   assertBestSolution(solver,scoreAttainedString);
 }

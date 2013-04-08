@@ -1,0 +1,7 @@
+{
+  solverFactory.getSolverConfig().setEnvironmentMode(environmentMode);
+  Solver solver=solverFactory.buildSolver();
+  solver.setPlanningProblem(solution);
+  solver.solve();
+  return solver.getBestSolution();
+}

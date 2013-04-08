@@ -1,0 +1,10 @@
+{
+  checkRunTurtleTests();
+  SolverFactory solverFactory=buildSolverFactory();
+  Solution planningProblem=solutionDao.readSolution(unsolvedDataFile);
+  Solution bestSolution=buildAndSolve(solverFactory,EnvironmentMode.FAST_ASSERT,planningProblem);
+  if (bestSolution == null) {
+    bestSolution=planningProblem;
+  }
+  bestSolution=buildAndSolve(solverFactory,EnvironmentMode.FULL_ASSERT,bestSolution);
+}
