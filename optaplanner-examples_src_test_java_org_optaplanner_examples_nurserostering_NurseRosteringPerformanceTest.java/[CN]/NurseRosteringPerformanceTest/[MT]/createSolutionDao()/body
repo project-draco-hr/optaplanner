@@ -1,3 +1,3 @@
 {
-  return new NurseRosteringDaoImpl();
+  return new NurseRosteringDao();
 }
