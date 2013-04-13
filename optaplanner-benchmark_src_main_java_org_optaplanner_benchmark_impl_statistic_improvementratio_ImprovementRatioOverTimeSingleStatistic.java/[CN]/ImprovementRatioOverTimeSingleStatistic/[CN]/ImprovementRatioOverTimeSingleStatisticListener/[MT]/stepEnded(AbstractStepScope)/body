@@ -1,0 +1,5 @@
+{
+  if (stepScope instanceof LocalSearchStepScope) {
+    this.localSearchStepEnded((LocalSearchStepScope)stepScope);
+  }
+}

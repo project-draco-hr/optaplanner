@@ -1,0 +1,6 @@
+{
+  if (!pointLists.containsKey(where)) {
+    pointLists.put(where,new ArrayList<ImprovementRatioOverTimeSingleStatisticPoint>());
+  }
+  pointLists.get(where).add(what);
+}

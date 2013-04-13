@@ -1,0 +1,23 @@
+{
+  final Move moveBeingDone=stepScope.getStep();
+  final Class<? extends Move> moveType=moveBeingDone.getClass();
+  this.increaseByOne(this.totalCounts,moveType);
+  if (stepScope.getBestScoreImproved()) {
+    this.increaseByOne(this.improvementCounts,moveType);
+  }
+  final long timeMillisSpend=stepScope.getPhaseScope().calculateSolverTimeMillisSpend();
+  if (timeMillisSpend < ImprovementRatioOverTimeSingleStatistic.this.nextTimeMillisThreshold) {
+    return;
+  }
+  for (  final Map.Entry<Class<? extends Move>,Integer> entry : this.totalCounts.entrySet()) {
+    final Class<? extends Move> type=entry.getKey();
+    final int total=entry.getValue();
+    final int improved=this.improvementCounts.containsKey(type) ? this.improvementCounts.get(type) : 0;
+    final long ratio=improved * 100 / total;
+    this.addPoint(type,new ImprovementRatioOverTimeSingleStatisticPoint(timeMillisSpend,ratio));
+  }
+  nextTimeMillisThreshold+=timeMillisThresholdInterval;
+  if (nextTimeMillisThreshold < timeMillisSpend) {
+    nextTimeMillisThreshold=timeMillisSpend;
+  }
+}

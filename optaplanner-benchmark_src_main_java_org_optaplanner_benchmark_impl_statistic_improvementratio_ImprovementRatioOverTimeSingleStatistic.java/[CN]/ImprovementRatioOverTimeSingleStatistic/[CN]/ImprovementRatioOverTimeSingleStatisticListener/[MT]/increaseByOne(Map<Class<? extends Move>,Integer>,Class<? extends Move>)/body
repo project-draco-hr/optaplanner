@@ -1,0 +1,8 @@
+{
+  if (!where.containsKey(what)) {
+    where.put(what,1);
+  }
+ else {
+    where.put(what,where.get(what) + 1);
+  }
+}
