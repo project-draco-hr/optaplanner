@@ -1,0 +1,42 @@
+{
+  final Map<Class<? extends Move>,XYPlot> plots=new HashMap<Class<? extends Move>,XYPlot>();
+  int seriesIndex=0;
+  for (  final SingleBenchmark singleBenchmark : this.problemBenchmark.getSingleBenchmarkList()) {
+    final Map<Class<? extends Move>,XYSeries> seriesMap=new HashMap<Class<? extends Move>,XYSeries>();
+    final XYItemRenderer renderer=new XYStepRenderer();
+    if (singleBenchmark.isSuccess()) {
+      final ImprovementRatioOverTimeSingleStatistic singleStatistic=(ImprovementRatioOverTimeSingleStatistic)singleBenchmark.getSingleStatistic(this.problemStatisticType);
+      for (      final Map.Entry<Class<? extends Move>,List<ImprovementRatioOverTimeSingleStatisticPoint>> entry : singleStatistic.getPointLists().entrySet()) {
+        final Class<? extends Move> type=entry.getKey();
+        if (!seriesMap.containsKey(type)) {
+          seriesMap.put(type,new XYSeries(singleBenchmark.getSolverBenchmark().getNameWithFavoriteSuffix()));
+        }
+        final XYSeries series=seriesMap.get(type);
+        for (        final ImprovementRatioOverTimeSingleStatisticPoint point : entry.getValue()) {
+          final long timeMillisSpend=point.getTimeMillisSpend();
+          final long ratio=point.getRatio();
+          series.add(timeMillisSpend,ratio);
+        }
+      }
+    }
+    if (singleBenchmark.getSolverBenchmark().isFavorite()) {
+      renderer.setSeriesStroke(0,new BasicStroke(2.0f));
+    }
+    for (    final Map.Entry<Class<? extends Move>,XYSeries> entry : seriesMap.entrySet()) {
+      if (!plots.containsKey(entry.getKey())) {
+        plots.put(entry.getKey(),this.createPlot(entry.getKey()));
+      }
+      plots.get(entry.getKey()).setDataset(seriesIndex,new XYSeriesCollection(entry.getValue()));
+      plots.get(entry.getKey()).setRenderer(seriesIndex,renderer);
+    }
+    for (int i=0; i < seriesMap.size(); i++) {
+    }
+    seriesIndex++;
+  }
+  this.graphStatisticFiles=new HashMap<String,File>(plots.size());
+  for (  final Map.Entry<Class<? extends Move>,XYPlot> entry : plots.entrySet()) {
+    final Class<? extends Move> type=entry.getKey();
+    final JFreeChart chart=new JFreeChart(this.problemBenchmark.getName() + " improvement ratio over time (" + type+ ") statistic",JFreeChart.DEFAULT_TITLE_FONT,entry.getValue(),true);
+    this.graphStatisticFiles.put(type.toString(),this.writeChartToImageFile(chart,this.problemBenchmark.getName() + "ImprovementRatioOverTimeStatistic" + type));
+  }
+}
