@@ -1,7 +1,0 @@
-{
-  Map<String,String> graphFilePaths=new HashMap<String,String>(graphStatisticFiles.size());
-  for (  Map.Entry<String,File> entry : graphStatisticFiles.entrySet()) {
-    graphFilePaths.put(entry.getKey(),toFilePath(entry.getValue()));
-  }
-  return graphFilePaths;
-}
