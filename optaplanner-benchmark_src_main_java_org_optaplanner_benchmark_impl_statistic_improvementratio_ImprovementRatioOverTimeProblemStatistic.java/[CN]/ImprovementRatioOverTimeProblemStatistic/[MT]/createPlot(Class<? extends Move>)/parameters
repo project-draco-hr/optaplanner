@@ -1,1 +1,1 @@
-Class<? extends Move> type
+Class<? extends Move> moveClass
