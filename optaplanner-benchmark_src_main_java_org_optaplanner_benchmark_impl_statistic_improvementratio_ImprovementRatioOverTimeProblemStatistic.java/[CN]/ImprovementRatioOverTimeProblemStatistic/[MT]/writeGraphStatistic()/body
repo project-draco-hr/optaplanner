@@ -14,7 +14,7 @@
         XYSeries series=seriesMap.get(type);
         for (        ImprovementRatioOverTimeSingleStatisticPoint point : entry.getValue()) {
           long timeMillisSpend=point.getTimeMillisSpend();
-          long ratio=point.getRatio();
+          double ratio=point.getRatio();
           series.add(timeMillisSpend,ratio);
         }
       }

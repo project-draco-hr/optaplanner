@@ -1,2 +1,2 @@
 long timeMillisSpend
-long ratio
+double ratio
