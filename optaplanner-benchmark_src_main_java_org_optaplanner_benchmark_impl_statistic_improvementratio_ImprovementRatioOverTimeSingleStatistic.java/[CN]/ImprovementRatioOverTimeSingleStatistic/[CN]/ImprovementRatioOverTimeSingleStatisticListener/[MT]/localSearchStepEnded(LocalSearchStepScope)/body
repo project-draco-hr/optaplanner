@@ -1,19 +1,19 @@
 {
-  final Move moveBeingDone=stepScope.getStep();
-  final Class<? extends Move> moveType=moveBeingDone.getClass();
+  Move moveBeingDone=stepScope.getStep();
+  Class<? extends Move> moveType=moveBeingDone.getClass();
   increaseByOne(totalCounts,moveType);
   if (stepScope.getBestScoreImproved()) {
     increaseByOne(improvementCounts,moveType);
   }
-  final long timeMillisSpend=stepScope.getPhaseScope().calculateSolverTimeMillisSpend();
+  long timeMillisSpend=stepScope.getPhaseScope().calculateSolverTimeMillisSpend();
   if (timeMillisSpend < ImprovementRatioOverTimeSingleStatistic.this.nextTimeMillisThreshold) {
     return;
   }
-  for (  final Map.Entry<Class<? extends Move>,Integer> entry : totalCounts.entrySet()) {
-    final Class<? extends Move> type=entry.getKey();
-    final int total=entry.getValue();
-    final int improved=improvementCounts.containsKey(type) ? improvementCounts.get(type) : 0;
-    final long ratio=improved * 100 / total;
+  for (  Map.Entry<Class<? extends Move>,Integer> entry : totalCounts.entrySet()) {
+    Class<? extends Move> type=entry.getKey();
+    int total=entry.getValue();
+    int improved=improvementCounts.containsKey(type) ? improvementCounts.get(type) : 0;
+    long ratio=improved * 100 / total;
     addPoint(type,new ImprovementRatioOverTimeSingleStatisticPoint(timeMillisSpend,ratio));
   }
   nextTimeMillisThreshold+=timeMillisThresholdInterval;

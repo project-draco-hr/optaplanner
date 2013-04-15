@@ -1,20 +1,20 @@
 {
-  final Map<Class<? extends Move>,XYPlot> plots=new HashMap<Class<? extends Move>,XYPlot>();
+  Map<Class<? extends Move>,XYPlot> plots=new HashMap<Class<? extends Move>,XYPlot>();
   int seriesIndex=0;
-  for (  final SingleBenchmark singleBenchmark : problemBenchmark.getSingleBenchmarkList()) {
-    final Map<Class<? extends Move>,XYSeries> seriesMap=new HashMap<Class<? extends Move>,XYSeries>();
-    final XYItemRenderer renderer=new XYStepRenderer();
+  for (  SingleBenchmark singleBenchmark : problemBenchmark.getSingleBenchmarkList()) {
+    Map<Class<? extends Move>,XYSeries> seriesMap=new HashMap<Class<? extends Move>,XYSeries>();
+    XYItemRenderer renderer=new XYStepRenderer();
     if (singleBenchmark.isSuccess()) {
-      final ImprovementRatioOverTimeSingleStatistic singleStatistic=(ImprovementRatioOverTimeSingleStatistic)singleBenchmark.getSingleStatistic(problemStatisticType);
-      for (      final Map.Entry<Class<? extends Move>,List<ImprovementRatioOverTimeSingleStatisticPoint>> entry : singleStatistic.getPointLists().entrySet()) {
-        final Class<? extends Move> type=entry.getKey();
+      ImprovementRatioOverTimeSingleStatistic singleStatistic=(ImprovementRatioOverTimeSingleStatistic)singleBenchmark.getSingleStatistic(problemStatisticType);
+      for (      Map.Entry<Class<? extends Move>,List<ImprovementRatioOverTimeSingleStatisticPoint>> entry : singleStatistic.getPointLists().entrySet()) {
+        Class<? extends Move> type=entry.getKey();
         if (!seriesMap.containsKey(type)) {
           seriesMap.put(type,new XYSeries(singleBenchmark.getSolverBenchmark().getNameWithFavoriteSuffix()));
         }
-        final XYSeries series=seriesMap.get(type);
-        for (        final ImprovementRatioOverTimeSingleStatisticPoint point : entry.getValue()) {
-          final long timeMillisSpend=point.getTimeMillisSpend();
-          final long ratio=point.getRatio();
+        XYSeries series=seriesMap.get(type);
+        for (        ImprovementRatioOverTimeSingleStatisticPoint point : entry.getValue()) {
+          long timeMillisSpend=point.getTimeMillisSpend();
+          long ratio=point.getRatio();
           series.add(timeMillisSpend,ratio);
         }
       }
@@ -22,7 +22,7 @@
     if (singleBenchmark.getSolverBenchmark().isFavorite()) {
       renderer.setSeriesStroke(0,new BasicStroke(2.0f));
     }
-    for (    final Map.Entry<Class<? extends Move>,XYSeries> entry : seriesMap.entrySet()) {
+    for (    Map.Entry<Class<? extends Move>,XYSeries> entry : seriesMap.entrySet()) {
       if (!plots.containsKey(entry.getKey())) {
         plots.put(entry.getKey(),createPlot(entry.getKey()));
       }
@@ -34,11 +34,11 @@
     seriesIndex++;
   }
   graphStatisticFiles=new HashMap<String,File>(plots.size());
-  for (  final Map.Entry<Class<? extends Move>,XYPlot> entry : plots.entrySet()) {
-    final Class<? extends Move> type=entry.getKey();
+  for (  Map.Entry<Class<? extends Move>,XYPlot> entry : plots.entrySet()) {
+    Class<? extends Move> type=entry.getKey();
     String id=type.getCanonicalName();
     String htmlSafeId=id.replace('.','_');
-    final JFreeChart chart=new JFreeChart(problemBenchmark.getName() + " improvement ratio over time statistic, move type " + id,JFreeChart.DEFAULT_TITLE_FONT,entry.getValue(),true);
+    JFreeChart chart=new JFreeChart(problemBenchmark.getName() + " improvement ratio over time statistic, move type " + id,JFreeChart.DEFAULT_TITLE_FONT,entry.getValue(),true);
     graphStatisticFiles.put(htmlSafeId,writeChartToImageFile(chart,problemBenchmark.getName() + "ImprovementRatioOverTimeStatistic-" + id));
   }
 }
