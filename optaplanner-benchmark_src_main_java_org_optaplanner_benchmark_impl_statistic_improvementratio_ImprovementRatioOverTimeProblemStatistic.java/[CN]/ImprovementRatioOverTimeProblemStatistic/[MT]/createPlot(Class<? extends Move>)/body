@@ -1,5 +1,5 @@
 {
-  final Locale locale=this.problemBenchmark.getPlannerBenchmark().getBenchmarkReport().getLocale();
+  final Locale locale=problemBenchmark.getPlannerBenchmark().getBenchmarkReport().getLocale();
   final NumberAxis xAxis=new NumberAxis("Time spend");
   xAxis.setNumberFormatOverride(new MillisecondsSpendNumberFormat(locale));
   final NumberAxis yAxis=new NumberAxis("% score-improving");

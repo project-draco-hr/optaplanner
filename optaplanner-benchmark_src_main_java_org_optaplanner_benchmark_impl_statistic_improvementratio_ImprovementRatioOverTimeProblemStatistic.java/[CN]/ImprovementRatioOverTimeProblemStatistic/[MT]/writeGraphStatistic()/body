@@ -1,11 +1,11 @@
 {
   final Map<Class<? extends Move>,XYPlot> plots=new HashMap<Class<? extends Move>,XYPlot>();
   int seriesIndex=0;
-  for (  final SingleBenchmark singleBenchmark : this.problemBenchmark.getSingleBenchmarkList()) {
+  for (  final SingleBenchmark singleBenchmark : problemBenchmark.getSingleBenchmarkList()) {
     final Map<Class<? extends Move>,XYSeries> seriesMap=new HashMap<Class<? extends Move>,XYSeries>();
     final XYItemRenderer renderer=new XYStepRenderer();
     if (singleBenchmark.isSuccess()) {
-      final ImprovementRatioOverTimeSingleStatistic singleStatistic=(ImprovementRatioOverTimeSingleStatistic)singleBenchmark.getSingleStatistic(this.problemStatisticType);
+      final ImprovementRatioOverTimeSingleStatistic singleStatistic=(ImprovementRatioOverTimeSingleStatistic)singleBenchmark.getSingleStatistic(problemStatisticType);
       for (      final Map.Entry<Class<? extends Move>,List<ImprovementRatioOverTimeSingleStatisticPoint>> entry : singleStatistic.getPointLists().entrySet()) {
         final Class<? extends Move> type=entry.getKey();
         if (!seriesMap.containsKey(type)) {
@@ -24,7 +24,7 @@
     }
     for (    final Map.Entry<Class<? extends Move>,XYSeries> entry : seriesMap.entrySet()) {
       if (!plots.containsKey(entry.getKey())) {
-        plots.put(entry.getKey(),this.createPlot(entry.getKey()));
+        plots.put(entry.getKey(),createPlot(entry.getKey()));
       }
       plots.get(entry.getKey()).setDataset(seriesIndex,new XYSeriesCollection(entry.getValue()));
       plots.get(entry.getKey()).setRenderer(seriesIndex,renderer);
@@ -33,12 +33,12 @@
     }
     seriesIndex++;
   }
-  this.graphStatisticFiles=new HashMap<String,File>(plots.size());
+  graphStatisticFiles=new HashMap<String,File>(plots.size());
   for (  final Map.Entry<Class<? extends Move>,XYPlot> entry : plots.entrySet()) {
     final Class<? extends Move> type=entry.getKey();
     String id=type.getCanonicalName();
     String htmlSafeId=id.replace('.','_');
-    final JFreeChart chart=new JFreeChart(this.problemBenchmark.getName() + " improvement ratio over time statistic, move type " + id,JFreeChart.DEFAULT_TITLE_FONT,entry.getValue(),true);
-    this.graphStatisticFiles.put(htmlSafeId,this.writeChartToImageFile(chart,this.problemBenchmark.getName() + "ImprovementRatioOverTimeStatistic-" + id));
+    final JFreeChart chart=new JFreeChart(problemBenchmark.getName() + " improvement ratio over time statistic, move type " + id,JFreeChart.DEFAULT_TITLE_FONT,entry.getValue(),true);
+    graphStatisticFiles.put(htmlSafeId,writeChartToImageFile(chart,problemBenchmark.getName() + "ImprovementRatioOverTimeStatistic-" + id));
   }
 }
