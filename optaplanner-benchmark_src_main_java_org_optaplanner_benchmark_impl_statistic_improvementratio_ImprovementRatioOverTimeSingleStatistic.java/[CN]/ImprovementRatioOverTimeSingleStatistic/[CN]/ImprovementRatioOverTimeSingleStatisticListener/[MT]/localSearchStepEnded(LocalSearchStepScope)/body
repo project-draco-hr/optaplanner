@@ -1,12 +1,12 @@
 {
-  Move moveBeingDone=stepScope.getStep();
-  Class<? extends Move> moveType=moveBeingDone.getClass();
+  Move step=stepScope.getStep();
+  Class<? extends Move> moveType=step.getClass();
   increaseByOne(totalCounts,moveType);
   if (stepScope.getBestScoreImproved()) {
     increaseByOne(improvementCounts,moveType);
   }
   long timeMillisSpend=stepScope.getPhaseScope().calculateSolverTimeMillisSpend();
-  if (timeMillisSpend < ImprovementRatioOverTimeSingleStatistic.this.nextTimeMillisThreshold) {
+  if (timeMillisSpend < nextTimeMillisThreshold) {
     return;
   }
   for (  Map.Entry<Class<? extends Move>,Integer> entry : totalCounts.entrySet()) {
