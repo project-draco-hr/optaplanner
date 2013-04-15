@@ -1,3 +1,0 @@
-{
-  super(problemBenchmark,ProblemStatisticType.IMPROVEMENT_RATIO_OVER_TIME);
-}

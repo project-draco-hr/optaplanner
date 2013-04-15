@@ -1,0 +1,43 @@
+{
+  Map<Class<? extends Move>,XYPlot> plots=new HashMap<Class<? extends Move>,XYPlot>();
+  int seriesIndex=0;
+  for (  SingleBenchmark singleBenchmark : problemBenchmark.getSingleBenchmarkList()) {
+    Map<Class<? extends Move>,XYSeries> seriesMap=new HashMap<Class<? extends Move>,XYSeries>();
+    XYItemRenderer renderer=new XYStepRenderer();
+    if (singleBenchmark.isSuccess()) {
+      ImprovingStepPercentageSingleStatistic singleStatistic=(ImprovingStepPercentageSingleStatistic)singleBenchmark.getSingleStatistic(problemStatisticType);
+      for (      Map.Entry<Class<? extends Move>,List<ImprovingStepPercentageSingleStatisticPoint>> entry : singleStatistic.getPointLists().entrySet()) {
+        Class<? extends Move> moveClass=entry.getKey();
+        if (!seriesMap.containsKey(moveClass)) {
+          seriesMap.put(moveClass,new XYSeries(singleBenchmark.getSolverBenchmark().getNameWithFavoriteSuffix()));
+        }
+        XYSeries series=seriesMap.get(moveClass);
+        for (        ImprovingStepPercentageSingleStatisticPoint point : entry.getValue()) {
+          long timeMillisSpend=point.getTimeMillisSpend();
+          double ratio=point.getRatio();
+          series.add(timeMillisSpend,ratio);
+        }
+      }
+    }
+    if (singleBenchmark.getSolverBenchmark().isFavorite()) {
+      renderer.setSeriesStroke(0,new BasicStroke(2.0f));
+    }
+    for (    Map.Entry<Class<? extends Move>,XYSeries> entry : seriesMap.entrySet()) {
+      Class<? extends Move> moveClass=entry.getKey();
+      if (!plots.containsKey(moveClass)) {
+        plots.put(moveClass,createPlot(moveClass));
+      }
+      plots.get(moveClass).setDataset(seriesIndex,new XYSeriesCollection(entry.getValue()));
+      plots.get(moveClass).setRenderer(seriesIndex,renderer);
+    }
+    for (int i=0; i < seriesMap.size(); i++) {
+    }
+    seriesIndex++;
+  }
+  graphStatisticFileMap=new LinkedHashMap<Class<? extends Move>,File>(plots.size());
+  for (  Map.Entry<Class<? extends Move>,XYPlot> entry : plots.entrySet()) {
+    Class<? extends Move> moveClass=entry.getKey();
+    JFreeChart chart=new JFreeChart(problemBenchmark.getName() + " improving step percentage " + moveClass.getSimpleName()+ " statistic",JFreeChart.DEFAULT_TITLE_FONT,entry.getValue(),true);
+    graphStatisticFileMap.put(moveClass,writeChartToImageFile(chart,problemBenchmark.getName() + "ImprovingStepPercentageStatistic-" + moveClass.getCanonicalName()));
+  }
+}
