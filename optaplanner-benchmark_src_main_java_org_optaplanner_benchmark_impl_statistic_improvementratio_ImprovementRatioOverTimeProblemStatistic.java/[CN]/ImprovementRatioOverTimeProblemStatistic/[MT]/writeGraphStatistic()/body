@@ -38,6 +38,6 @@
   for (  Map.Entry<Class<? extends Move>,XYPlot> entry : plots.entrySet()) {
     Class<? extends Move> moveClass=entry.getKey();
     JFreeChart chart=new JFreeChart(problemBenchmark.getName() + " improvement ratio " + moveClass.getSimpleName()+ " statistic",JFreeChart.DEFAULT_TITLE_FONT,entry.getValue(),true);
-    graphStatisticFileMap.put(moveClass,writeChartToImageFile(chart,problemBenchmark.getName() + "ImprovementRatioOverTimeStatistic-" + moveClass.getCanonicalName().replaceAll("\\.","_")));
+    graphStatisticFileMap.put(moveClass,writeChartToImageFile(chart,problemBenchmark.getName() + "ImprovementRatioOverTimeStatistic-" + moveClass.getCanonicalName()));
   }
 }
