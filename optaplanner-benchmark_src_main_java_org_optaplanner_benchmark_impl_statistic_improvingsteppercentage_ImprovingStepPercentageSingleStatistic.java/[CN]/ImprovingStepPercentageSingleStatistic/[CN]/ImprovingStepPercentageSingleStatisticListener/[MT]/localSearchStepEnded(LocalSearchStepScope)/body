@@ -16,6 +16,8 @@
     double ratio=improved / total;
     addPoint(moveClass,new ImprovingStepPercentageSingleStatisticPoint(timeMillisSpend,ratio));
   }
+  improvementCounts.clear();
+  totalCounts.clear();
   nextTimeMillisThreshold+=timeMillisThresholdInterval;
   if (nextTimeMillisThreshold < timeMillisSpend) {
     nextTimeMillisThreshold=timeMillisSpend;
