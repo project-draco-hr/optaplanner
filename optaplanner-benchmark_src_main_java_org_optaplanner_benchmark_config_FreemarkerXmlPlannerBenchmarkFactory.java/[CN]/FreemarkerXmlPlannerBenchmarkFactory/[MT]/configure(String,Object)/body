@@ -3,5 +3,5 @@
   if (templateIn == null) {
     throw new IllegalArgumentException("Could not find templateResource (" + templateResource + ").");
   }
-  return this.configureFromTemplate(templateIn,model);
+  return this.configure(templateIn,model);
 }

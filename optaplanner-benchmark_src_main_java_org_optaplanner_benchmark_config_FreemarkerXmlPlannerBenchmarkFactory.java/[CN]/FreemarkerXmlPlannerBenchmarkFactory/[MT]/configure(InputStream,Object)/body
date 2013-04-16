@@ -2,7 +2,7 @@
   Reader reader=null;
   try {
     reader=new InputStreamReader(templateIn,"UTF-8");
-    return configureFromTemplate(reader,model);
+    return configure(reader,model);
   }
  catch (  UnsupportedEncodingException e) {
     throw new IllegalStateException("This vm does not support UTF-8 encoding.",e);

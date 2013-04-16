@@ -13,5 +13,6 @@ catch (  TemplateException e) {
     IOUtils.closeQuietly(configWriter);
   }
   StringReader configReader=new StringReader(configWriter.toString());
-  return this.configure(configReader);
+  xmlPlannerBenchmarkFactory.configure(configReader);
+  return this;
 }

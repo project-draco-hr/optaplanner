@@ -1,3 +1,0 @@
-{
-  return this.configureFromTemplate(templateIn,null);
-}

@@ -13,5 +13,5 @@
  catch (  IOException e) {
     throw new IllegalStateException("Can not read template (" + templateFilename + ") from templateReader.",e);
   }
-  return this.configureFromTemplate(template,model);
+  return this.configure(template,model);
 }
