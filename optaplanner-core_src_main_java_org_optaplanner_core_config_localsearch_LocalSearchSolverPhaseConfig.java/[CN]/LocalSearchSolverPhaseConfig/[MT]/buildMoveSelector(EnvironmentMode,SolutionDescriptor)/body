@@ -11,7 +11,7 @@
     moveSelector=moveSelectorConfigList.get(0).buildMoveSelector(environmentMode,solutionDescriptor,defaultCacheType,defaultSelectionOrder);
   }
  else {
-    throw new IllegalArgumentException("The moveSelectorConfigList (" + moveSelectorConfigList + ") must be a singleton or empty. Use a single "+ UnionMoveSelectorConfig.class+ " element to nest multiple MoveSelectors.");
+    throw new IllegalArgumentException("The moveSelectorConfigList (" + moveSelectorConfigList + ") must be a singleton or empty. Use a single "+ UnionMoveSelectorConfig.class+ " or "+ CartesianProductMoveSelectorConfig.class+ " element to nest multiple MoveSelectors.");
   }
   return moveSelector;
 }
