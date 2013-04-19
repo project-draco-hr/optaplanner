@@ -15,12 +15,14 @@
     }
     DefaultConstructionHeuristicSolverPhase phase=new DefaultConstructionHeuristicSolverPhase();
     configureSolverPhase(phase,phaseIndex,environmentMode,scoreDefinition,solverTermination);
-    List<EntityPlacer> entityPlacerList=new ArrayList<EntityPlacer>(entityPlacerConfigList.size());
-    for (    EntityPlacerConfig entityPlacerConfig : entityPlacerConfigList) {
-      EntityPlacer entityPlacer=entityPlacerConfig.buildEntityPlacer(environmentMode,solutionDescriptor,phase.getTermination());
-      entityPlacerList.add(entityPlacer);
+    EntityPlacer entityPlacer;
+    if (entityPlacerConfigList.size() == 1) {
+      entityPlacer=entityPlacerConfigList.get(0).buildEntityPlacer(environmentMode,solutionDescriptor,phase.getTermination());
     }
-    phase.setEntityPlacerList(entityPlacerList);
+ else {
+      throw new IllegalArgumentException("The entityPlacerConfigList (" + entityPlacerConfigList + ") must be a singleton or empty. Use multiple "+ ConstructionHeuristicSolverPhaseConfig.class+ " elements to initialize multiple entity classes.");
+    }
+    phase.setEntityPlacer(entityPlacer);
     if (environmentMode == EnvironmentMode.FAST_ASSERT || environmentMode == EnvironmentMode.FULL_ASSERT) {
       phase.setAssertStepScoreIsUncorrupted(true);
     }

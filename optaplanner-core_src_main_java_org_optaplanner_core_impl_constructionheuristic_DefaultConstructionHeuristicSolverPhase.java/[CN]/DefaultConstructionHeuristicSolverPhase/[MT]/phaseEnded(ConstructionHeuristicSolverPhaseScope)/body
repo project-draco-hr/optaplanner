@@ -3,8 +3,6 @@
   Solution newBestSolution=phaseScope.getScoreDirector().cloneWorkingSolution();
   int newBestUninitializedVariableCount=phaseScope.getSolutionDescriptor().countUninitializedVariables(newBestSolution);
   bestSolutionRecaller.updateBestSolution(phaseScope.getSolverScope(),newBestSolution,newBestUninitializedVariableCount);
-  for (  EntityPlacer entityPlacer : entityPlacerList) {
-    entityPlacer.phaseEnded(phaseScope);
-  }
+  entityPlacer.phaseEnded(phaseScope);
   logger.info("Phase ({}) constructionHeuristic ended: step total ({}), time spend ({}), best score ({}).",phaseIndex,phaseScope.getLastCompletedStepScope().getStepIndex() + 1,phaseScope.calculateSolverTimeMillisSpend(),phaseScope.getBestScore());
 }

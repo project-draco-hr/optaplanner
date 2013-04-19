@@ -1,10 +1,6 @@
 {
   ConstructionHeuristicSolverPhaseScope phaseScope=new ConstructionHeuristicSolverPhaseScope(solverScope);
   phaseStarted(phaseScope);
-  if (entityPlacerList.size() != 1) {
-    throw new UnsupportedOperationException();
-  }
-  EntityPlacer entityPlacer=entityPlacerList.get(0);
   ConstructionHeuristicStepScope stepScope=createNextStepScope(phaseScope,null);
   while (!termination.isPhaseTerminated(phaseScope)) {
     stepStarted(stepScope);
