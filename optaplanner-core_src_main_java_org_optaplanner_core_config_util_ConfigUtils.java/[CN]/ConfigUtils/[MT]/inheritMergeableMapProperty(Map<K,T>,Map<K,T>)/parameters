@@ -1,0 +1,2 @@
+Map<K,T> originalMap
+Map<K,T> inheritedMap

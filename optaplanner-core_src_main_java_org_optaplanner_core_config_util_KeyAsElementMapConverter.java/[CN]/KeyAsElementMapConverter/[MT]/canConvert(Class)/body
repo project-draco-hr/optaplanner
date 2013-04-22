@@ -1,0 +1,3 @@
+{
+  return AbstractMap.class.isAssignableFrom(type);
+}

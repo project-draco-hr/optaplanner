@@ -3,6 +3,9 @@
     if (!CollectionUtils.isEmpty(scoreDrlList)) {
       throw new IllegalArgumentException("If kieBase is not null, the scoreDrlList (" + scoreDrlList + ") must be empty.");
     }
+    if (droolsConfigurationProperties != null) {
+      throw new IllegalArgumentException("If kieBase is not null, the droolsConfigurationProperties (" + droolsConfigurationProperties + ") must be null.");
+    }
     return kieBase;
   }
  else {
@@ -30,8 +33,13 @@
       logger.warn("There are warning in the scoreDrl's:\n" + results.toString());
     }
     KieContainer kieContainer=kieServices.newKieContainer(kieBuilder.getKieModule().getReleaseId());
-    KieBaseConfiguration kieBaseConf=KnowledgeBaseFactory.newKnowledgeBaseConfiguration();
-    KieBase kieBase=kieContainer.newKieBase(kieBaseConf);
+    KieBaseConfiguration kieBaseConfiguration=KnowledgeBaseFactory.newKnowledgeBaseConfiguration();
+    if (droolsConfigurationProperties != null) {
+      for (      Map.Entry<String,String> entry : droolsConfigurationProperties.entrySet()) {
+        kieBaseConfiguration.setProperty(entry.getKey(),entry.getValue());
+      }
+    }
+    KieBase kieBase=kieContainer.newKieBase(kieBaseConfiguration);
     return kieBase;
   }
 }

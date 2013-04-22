@@ -1,0 +1,13 @@
+{
+  if (inheritedMap == null) {
+    return originalMap;
+  }
+ else   if (originalMap == null) {
+    return inheritedMap;
+  }
+ else {
+    Map<K,T> mergedMap=new LinkedHashMap<K,T>(inheritedMap);
+    mergedMap.putAll(originalMap);
+    return mergedMap;
+  }
+}

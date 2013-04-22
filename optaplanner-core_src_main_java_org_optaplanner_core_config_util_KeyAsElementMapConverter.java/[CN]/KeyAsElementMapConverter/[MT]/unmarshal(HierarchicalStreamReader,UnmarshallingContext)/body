@@ -1,0 +1,9 @@
+{
+  Map<String,String> map=new LinkedHashMap<String,String>();
+  while (reader.hasMoreChildren()) {
+    reader.moveDown();
+    map.put(reader.getNodeName(),reader.getValue());
+    reader.moveUp();
+  }
+  return map;
+}

@@ -15,6 +15,7 @@
     kieBase=inheritedConfig.getKieBase();
   }
   scoreDrlList=ConfigUtils.inheritMergeableListProperty(scoreDrlList,inheritedConfig.getScoreDrlList());
+  droolsConfigurationProperties=ConfigUtils.inheritMergeableMapProperty(droolsConfigurationProperties,inheritedConfig.getDroolsConfigurationProperties());
   if (assertionScoreDirectorFactory == null) {
     assertionScoreDirectorFactory=inheritedConfig.getAssertionScoreDirectorFactory();
   }
