@@ -1,0 +1,4 @@
+{
+  this.hardLevelCount=-1;
+  this.softLevelCount=-1;
+}
