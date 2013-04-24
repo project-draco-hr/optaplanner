@@ -1,2 +1,2 @@
 PickEarlyType pickEarlyType
-int minimalAcceptedSelection
+int acceptedCountLimit

@@ -1,8 +1,8 @@
 {
-  if (foragerClass == null && pickEarlyType == null && minimalAcceptedSelection == null) {
+  if (foragerClass == null && pickEarlyType == null && acceptedCountLimit == null) {
     foragerClass=inheritedConfig.getForagerClass();
     pickEarlyType=inheritedConfig.getPickEarlyType();
-    minimalAcceptedSelection=inheritedConfig.getMinimalAcceptedSelection();
+    acceptedCountLimit=inheritedConfig.getAcceptedCountLimit();
   }
   if (deciderScoreComparatorFactoryConfig == null) {
     deciderScoreComparatorFactoryConfig=inheritedConfig.getDeciderScoreComparatorFactoryConfig();

@@ -1,7 +1,7 @@
 {
   this.pickEarlyType=pickEarlyType;
-  this.minimalAcceptedSelection=minimalAcceptedSelection;
-  if (minimalAcceptedSelection < 1) {
-    throw new IllegalArgumentException("The minimalAcceptedSelection (" + minimalAcceptedSelection + ") cannot be negative or zero.");
+  this.acceptedCountLimit=acceptedCountLimit;
+  if (acceptedCountLimit < 1) {
+    throw new IllegalArgumentException("The acceptedCountLimit (" + acceptedCountLimit + ") cannot be negative or zero.");
   }
 }
