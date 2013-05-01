@@ -1,0 +1,3 @@
+{
+  return this.calculateFadingTabuSize(scope) + this.calculateRegularTabuSize(scope);
+}
