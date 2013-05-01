@@ -1,0 +1,3 @@
+{
+  return moveScope.getMove().getPlanningEntities();
+}

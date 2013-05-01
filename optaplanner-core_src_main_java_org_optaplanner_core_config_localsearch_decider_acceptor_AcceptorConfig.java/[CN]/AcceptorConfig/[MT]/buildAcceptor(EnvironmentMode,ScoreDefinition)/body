@@ -19,6 +19,19 @@
     }
     acceptorList.add(planningEntityTabuAcceptor);
   }
+  if ((acceptorTypeList != null && acceptorTypeList.contains(AcceptorType.PLANNING_ENTITY_TABU_RELATIVE)) || planningEntityTabuRatio != null || fadingPlanningEntityTabuRatio != null) {
+    PlanningEntityRatioBasedTabuAcceptor planningEntityTabuAcceptor=new PlanningEntityRatioBasedTabuAcceptor();
+    if (planningEntityTabuRatio != null) {
+      planningEntityTabuAcceptor.setTabuSizeToEntityCountRatio(planningEntityTabuRatio);
+    }
+    if (fadingPlanningEntityTabuRatio != null) {
+      planningEntityTabuAcceptor.setFadingTabuSizeToEntityCountRatio(fadingPlanningEntityTabuRatio);
+    }
+    if (environmentMode == EnvironmentMode.FULL_ASSERT) {
+      planningEntityTabuAcceptor.setAssertTabuHashCodeCorrectness(true);
+    }
+    acceptorList.add(planningEntityTabuAcceptor);
+  }
   if ((acceptorTypeList != null && acceptorTypeList.contains(AcceptorType.PLANNING_VALUE_TABU)) || planningValueTabuSize != null || fadingPlanningValueTabuSize != null) {
     PlanningValueTabuAcceptor planningValueTabuAcceptor=new PlanningValueTabuAcceptor();
     if (planningValueTabuSize != null) {

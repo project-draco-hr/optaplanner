@@ -1,0 +1,11 @@
+{
+  if (tabuRatio < 0 || tabuRatio > 1) {
+    throw new IllegalArgumentException("The tabuRatio (" + tabuRatio + ") must fall into <0, 1> range.");
+  }
+  if (fadingTabuRatio < 0 || fadingTabuRatio > 1) {
+    throw new IllegalArgumentException("The fadingTabuRatio (" + fadingTabuRatio + ") must fall into <0, 1> range.");
+  }
+  if (tabuRatio + fadingTabuRatio == 0) {
+    throw new IllegalArgumentException("The sum of tabuSize and fadingTabuSize should be at least 1.");
+  }
+}
