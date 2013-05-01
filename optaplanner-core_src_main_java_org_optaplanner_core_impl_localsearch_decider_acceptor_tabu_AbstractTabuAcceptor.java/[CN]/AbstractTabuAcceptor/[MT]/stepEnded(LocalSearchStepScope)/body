@@ -1,5 +1,5 @@
 {
-  int maximumTabuListSize=this.calculateActualMaximumSize(stepScope);
+  int maximumTabuListSize=this.calculateActualMaximumSize(stepScope.getPhaseScope());
   int tabuStepIndex=stepScope.getStepIndex();
   for (Iterator<Object> it=tabuSequenceList.iterator(); it.hasNext(); ) {
     Object oldTabu=it.next();

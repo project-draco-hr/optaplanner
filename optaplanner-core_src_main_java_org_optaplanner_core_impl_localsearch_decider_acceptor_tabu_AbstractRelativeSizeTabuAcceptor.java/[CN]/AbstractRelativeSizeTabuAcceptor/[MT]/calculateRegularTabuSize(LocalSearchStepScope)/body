@@ -1,3 +1,0 @@
-{
-  return (int)Math.round(scope.getScoreDirector().getWorkingPlanningEntityList().size() * this.tabuRatio);
-}

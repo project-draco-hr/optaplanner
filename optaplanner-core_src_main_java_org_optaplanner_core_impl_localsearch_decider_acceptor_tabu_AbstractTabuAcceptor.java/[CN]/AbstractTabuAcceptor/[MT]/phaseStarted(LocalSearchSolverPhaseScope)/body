@@ -1,6 +1,6 @@
 {
   super.phaseStarted(phaseScope);
   validate();
-  tabuToStepIndexMap=new HashMap<Object,Integer>(this.calculateActualMaximumSize(phaseScope.getLastCompletedStepScope()));
+  tabuToStepIndexMap=new HashMap<Object,Integer>(this.calculateActualMaximumSize(phaseScope));
   tabuSequenceList=new LinkedList<Object>();
 }
