@@ -1,0 +1,18 @@
+{
+  BendableScoreDefinition scoreDefinition=new BendableScoreDefinition(1,1);
+  scoreDefinition.setRecursiveTimeGradientWeight(0.75);
+  assertEquals(0.6,scoreDefinition.calculateTimeGradient(BendableScore.valueOf(new int[]{-20},new int[]{-400}),BendableScore.valueOf(new int[]{-10},new int[]{-300}),BendableScore.valueOf(new int[]{-14},new int[]{-340})),0.0);
+  assertEquals(0.75,scoreDefinition.calculateTimeGradient(BendableScore.valueOf(new int[]{-20},new int[]{-400}),BendableScore.valueOf(new int[]{-10},new int[]{-300}),BendableScore.valueOf(new int[]{-10},new int[]{-400})),0.0);
+  assertEquals(0.25,scoreDefinition.calculateTimeGradient(BendableScore.valueOf(new int[]{-20},new int[]{-400}),BendableScore.valueOf(new int[]{-10},new int[]{-300}),BendableScore.valueOf(new int[]{-20},new int[]{-300})),0.0);
+  assertEquals(0.75,scoreDefinition.calculateTimeGradient(BendableScore.valueOf(new int[]{-20},new int[]{-400}),BendableScore.valueOf(new int[]{-10},new int[]{-300}),BendableScore.valueOf(new int[]{-10},new int[]{-900})),0.0);
+  assertEquals(0.0,scoreDefinition.calculateTimeGradient(BendableScore.valueOf(new int[]{-20},new int[]{-400}),BendableScore.valueOf(new int[]{-10},new int[]{-300}),BendableScore.valueOf(new int[]{-90},new int[]{-300})),0.0);
+  assertEquals(1.0,scoreDefinition.calculateTimeGradient(BendableScore.valueOf(new int[]{-10},new int[]{-300}),BendableScore.valueOf(new int[]{-10},new int[]{-300}),BendableScore.valueOf(new int[]{-10},new int[]{-300})),0.0);
+  assertEquals(0.0,scoreDefinition.calculateTimeGradient(BendableScore.valueOf(new int[]{-20},new int[]{-400}),BendableScore.valueOf(new int[]{-10},new int[]{-300}),BendableScore.valueOf(new int[]{-20},new int[]{-400})),0.0);
+  assertEquals(1.0,scoreDefinition.calculateTimeGradient(BendableScore.valueOf(new int[]{-20},new int[]{-400}),BendableScore.valueOf(new int[]{-10},new int[]{-300}),BendableScore.valueOf(new int[]{-10},new int[]{-300})),0.0);
+  assertEquals(0.75 + (0.6 * 0.25),scoreDefinition.calculateTimeGradient(BendableScore.valueOf(new int[]{-10},new int[]{-400}),BendableScore.valueOf(new int[]{-10},new int[]{-300}),BendableScore.valueOf(new int[]{-10},new int[]{-340})),0.0);
+  assertEquals(0.0,scoreDefinition.calculateTimeGradient(BendableScore.valueOf(new int[]{-10},new int[]{-400}),BendableScore.valueOf(new int[]{-10},new int[]{-300}),BendableScore.valueOf(new int[]{-20},new int[]{-340})),0.0);
+  assertEquals(1.0,scoreDefinition.calculateTimeGradient(BendableScore.valueOf(new int[]{-10},new int[]{-400}),BendableScore.valueOf(new int[]{-10},new int[]{-300}),BendableScore.valueOf(new int[]{-0},new int[]{-340})),0.0);
+  assertEquals((0.6 * 0.75) + 0.25,scoreDefinition.calculateTimeGradient(BendableScore.valueOf(new int[]{-20},new int[]{-300}),BendableScore.valueOf(new int[]{-10},new int[]{-300}),BendableScore.valueOf(new int[]{-14},new int[]{-300})),0.0);
+  assertEquals(0.6 * 0.75,scoreDefinition.calculateTimeGradient(BendableScore.valueOf(new int[]{-20},new int[]{-300}),BendableScore.valueOf(new int[]{-10},new int[]{-300}),BendableScore.valueOf(new int[]{-14},new int[]{-400})),0.0);
+  assertEquals((0.6 * 0.75) + 0.25,scoreDefinition.calculateTimeGradient(BendableScore.valueOf(new int[]{-20},new int[]{-300}),BendableScore.valueOf(new int[]{-10},new int[]{-300}),BendableScore.valueOf(new int[]{-14},new int[]{-0})),0.0);
+}
