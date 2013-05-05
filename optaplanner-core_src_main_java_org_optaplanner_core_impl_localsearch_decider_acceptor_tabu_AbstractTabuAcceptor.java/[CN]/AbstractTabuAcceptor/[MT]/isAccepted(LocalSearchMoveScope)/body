@@ -29,13 +29,13 @@
     }
   }
   LocalSearchSolverPhaseScope phaseScope=moveScope.getStepScope().getPhaseScope();
-  int tabuSize=this.calculateRegularTabuSize(phaseScope);
+  int tabuSize=calculateRegularTabuSize(phaseScope);
   int tabuStepCount=moveScope.getStepScope().getStepIndex() - maximumTabuStepIndex;
   if (tabuStepCount <= tabuSize) {
     logger.trace("        Proposed move ({}) is tabu and is therefore not accepted.",moveScope.getMove());
     return false;
   }
-  double acceptChance=calculateFadingTabuAcceptChance(tabuStepCount - tabuSize,this.calculateFadingTabuSize(phaseScope));
+  double acceptChance=calculateFadingTabuAcceptChance(tabuStepCount - tabuSize,calculateFadingTabuSize(phaseScope));
   boolean accepted=moveScope.getWorkingRandom().nextDouble() < acceptChance;
   if (accepted) {
     logger.trace("        Proposed move ({}) is fading tabu with acceptChance ({}) and is accepted.",moveScope.getMove(),acceptChance);
