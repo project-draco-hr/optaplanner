@@ -1,0 +1,3 @@
+{
+  return new HardSoftDoubleScore(Math.pow(hardScore,exponent),Math.pow(softScore,exponent));
+}

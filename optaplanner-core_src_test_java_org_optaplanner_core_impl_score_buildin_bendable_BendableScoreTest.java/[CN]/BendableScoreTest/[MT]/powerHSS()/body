@@ -1,0 +1,4 @@
+{
+  assertEquals(scoreDefinitionHSS.createScore(9,16,25),scoreDefinitionHSS.createScore(3,-4,5).power(2.0));
+  assertEquals(scoreDefinitionHSS.createScore(3,4,5),scoreDefinitionHSS.createScore(9,16,25).power(0.5));
+}

@@ -1,0 +1,4 @@
+{
+  assertEquals(SimpleScore.valueOf(25),SimpleScore.valueOf(5).power(2.0));
+  assertEquals(SimpleScore.valueOf(5),SimpleScore.valueOf(25).power(0.5));
+}

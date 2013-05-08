@@ -1,0 +1,3 @@
+{
+  assertEquals(SimpleBigDecimalScore.valueOf(new BigDecimal("25.0")),SimpleBigDecimalScore.valueOf(new BigDecimal("5.0")).power(2.0));
+}
