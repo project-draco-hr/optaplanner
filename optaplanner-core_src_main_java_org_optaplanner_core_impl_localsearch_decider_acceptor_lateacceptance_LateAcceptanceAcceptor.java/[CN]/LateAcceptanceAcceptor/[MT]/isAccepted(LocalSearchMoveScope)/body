@@ -2,5 +2,12 @@
   moveScope.getStepScope().getStepIndex();
   Score score=moveScope.getScore();
   Score lateScore=previousScores[lateScoreIndex];
-  return score.compareTo(lateScore) >= 0;
+  if (score.compareTo(lateScore) >= 0) {
+    return true;
+  }
+  if (aspirationType.isAspired(moveScope)) {
+    logger.trace("        Proposed move ({}) is not late accepted, but is accepted anyway due to aspiration.",moveScope.getMove());
+    return true;
+  }
+  return false;
 }

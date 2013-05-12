@@ -22,11 +22,9 @@
   if (maximumTabuStepIndex < 0) {
     return true;
   }
-  if (aspirationEnabled) {
-    if (moveScope.getScore().compareTo(moveScope.getStepScope().getPhaseScope().getBestScore()) > 0) {
-      logger.trace("        Proposed move ({}) is tabu, but is accepted anyway due to aspiration.",moveScope.getMove());
-      return true;
-    }
+  if (aspirationType.isAspired(moveScope)) {
+    logger.trace("        Proposed move ({}) is tabu, but is accepted anyway due to aspiration.",moveScope.getMove());
+    return true;
   }
   int tabuStepCount=moveScope.getStepScope().getStepIndex() - maximumTabuStepIndex;
   if (tabuStepCount <= tabuSize) {
