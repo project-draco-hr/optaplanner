@@ -1,11 +1,11 @@
 {
   super.phaseStarted(phaseScope);
-  for (  double startingTemperatureLevel : startingTemperature.toDoubleLevels()) {
+  for (  double startingTemperatureLevel : ScoreUtils.extractLevelDoubles(startingTemperature)) {
     if (startingTemperatureLevel < 0.0) {
       throw new IllegalArgumentException("The startingTemperature (" + startingTemperature + ") cannot have negative level ("+ startingTemperatureLevel+ ").");
     }
   }
-  startingTemperatureLevels=startingTemperature.toDoubleLevels();
+  startingTemperatureLevels=ScoreUtils.extractLevelDoubles(startingTemperature);
   temperatureLevels=startingTemperatureLevels;
   levelsLength=startingTemperatureLevels.length;
 }

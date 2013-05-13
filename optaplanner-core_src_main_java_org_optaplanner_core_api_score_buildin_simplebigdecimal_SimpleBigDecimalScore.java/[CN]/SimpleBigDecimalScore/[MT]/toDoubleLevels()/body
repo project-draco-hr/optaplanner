@@ -1,3 +1,0 @@
-{
-  return new double[]{score.doubleValue()};
-}

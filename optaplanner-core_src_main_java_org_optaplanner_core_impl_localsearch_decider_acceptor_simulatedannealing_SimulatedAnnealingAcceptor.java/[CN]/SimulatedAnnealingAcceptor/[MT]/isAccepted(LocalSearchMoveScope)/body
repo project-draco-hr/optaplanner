@@ -7,7 +7,7 @@
   }
   Score scoreDifference=lastStepScore.subtract(moveScore);
   double acceptChance=1.0;
-  double[] scoreDifferenceLevels=scoreDifference.toDoubleLevels();
+  double[] scoreDifferenceLevels=ScoreUtils.extractLevelDoubles(scoreDifference);
   for (int i=0; i < levelsLength; i++) {
     double scoreDifferenceLevel=scoreDifferenceLevels[i];
     double temperatureLevel=temperatureLevels[i];

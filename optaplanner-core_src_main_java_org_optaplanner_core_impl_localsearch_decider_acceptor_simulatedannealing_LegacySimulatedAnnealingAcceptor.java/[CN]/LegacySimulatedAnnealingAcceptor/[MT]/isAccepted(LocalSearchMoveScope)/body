@@ -6,7 +6,7 @@
     return true;
   }
   Score scoreDifference=lastStepScore.subtract(moveScore);
-  double[] scoreDifferenceLevels=scoreDifference.toDoubleLevels();
+  double[] scoreDifferenceLevels=ScoreUtils.extractLevelDoubles(scoreDifference);
   for (int i=0; i < scoreDifferenceLevels.length - 1; i++) {
     if (scoreDifferenceLevels[i] != 0) {
       return false;

@@ -1,6 +1,6 @@
 {
-  double[] baseLevels=baseScore.toDoubleLevels();
-  double[] valueLevels=valueScore.toDoubleLevels();
+  double[] baseLevels=ScoreUtils.extractLevelDoubles(baseScore);
+  double[] valueLevels=ScoreUtils.extractLevelDoubles(valueScore);
   if (baseLevels.length != valueLevels.length) {
     throw new IllegalStateException("The baseScore (" + baseScore + ")'s levelsLength ("+ baseLevels.length+ ") is different from the valueScore ("+ valueScore+ ")'s levelsLength ("+ valueLevels.length+ ").");
   }

@@ -1,0 +1,8 @@
+{
+  Number[] levelNumbers=score.toLevelNumbers();
+  double[] levelDoubles=new double[levelNumbers.length];
+  for (int i=0; i < levelNumbers.length; i++) {
+    levelDoubles[i]=levelNumbers[i].doubleValue();
+  }
+  return levelDoubles;
+}
