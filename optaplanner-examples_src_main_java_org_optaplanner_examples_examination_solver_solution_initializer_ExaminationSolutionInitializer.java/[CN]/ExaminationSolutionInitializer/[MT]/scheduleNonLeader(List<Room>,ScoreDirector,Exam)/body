@@ -33,5 +33,5 @@
     exam.setRoom(bestRoom);
     scoreDirector.afterVariableChanged(exam,"room");
   }
-  logger.trace("    Exam ({}) initialized.",exam);
+  logger.debug("    Exam ({}) initialized.",exam);
 }
