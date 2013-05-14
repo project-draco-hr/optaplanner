@@ -1,7 +1,7 @@
 {
   PlanningEntityTabuAcceptor acceptor=new PlanningEntityTabuAcceptor();
   acceptor.setTabuSize(2);
-  acceptor.setAspirationType(AspirationType.BETTER_THAN_BEST_SCORE);
+  acceptor.setAspirationEnabled(true);
   TestdataEntity e0=new TestdataEntity("e0");
   TestdataEntity e1=new TestdataEntity("e1");
   DefaultSolverScope solverScope=new DefaultSolverScope();
