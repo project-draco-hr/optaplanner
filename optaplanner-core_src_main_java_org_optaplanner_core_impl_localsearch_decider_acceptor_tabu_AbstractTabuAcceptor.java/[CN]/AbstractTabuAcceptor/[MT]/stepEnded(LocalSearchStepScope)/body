@@ -1,6 +1,6 @@
 {
   super.stepEnded(stepScope);
-  workingTabuSize=tabuSizer == null ? 0 : tabuSizer.determineTabuSize(stepScope);
-  workingFadingTabuSize=fadingTabuSizer == null ? 0 : fadingTabuSizer.determineTabuSize(stepScope);
+  workingTabuSize=tabuSizeStrategy == null ? 0 : tabuSizeStrategy.determineTabuSize(stepScope);
+  workingFadingTabuSize=fadingTabuSizeStrategy == null ? 0 : fadingTabuSizeStrategy.determineTabuSize(stepScope);
   adjustTabuList(stepScope.getStepIndex(),findNewTabu(stepScope));
 }

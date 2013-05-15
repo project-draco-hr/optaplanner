@@ -12,19 +12,19 @@
       if (planningEntityTabuRatio != null) {
         throw new IllegalArgumentException("The acceptor cannot have both planningEntityTabuSize (" + planningEntityTabuSize + ") and planningEntityTabuRatio ("+ planningEntityTabuRatio+ ").");
       }
-      entityTabuAcceptor.setTabuSizer(new FixedTabuSizer(planningEntityTabuSize));
+      entityTabuAcceptor.setTabuSizeStrategy(new FixedTabuSizeStrategy(planningEntityTabuSize));
     }
  else     if (planningEntityTabuRatio != null) {
-      entityTabuAcceptor.setTabuSizer(new RatioTabuSizer(planningEntityTabuRatio));
+      entityTabuAcceptor.setTabuSizeStrategy(new RatioTabuSizeStrategy(planningEntityTabuRatio));
     }
     if (fadingPlanningEntityTabuSize != null) {
       if (fadingPlanningEntityTabuRatio != null) {
         throw new IllegalArgumentException("The acceptor cannot have both fadingPlanningEntityTabuSize (" + fadingPlanningEntityTabuSize + ") and fadingPlanningEntityTabuRatio ("+ fadingPlanningEntityTabuRatio+ ").");
       }
-      entityTabuAcceptor.setFadingTabuSizer(new FixedTabuSizer(fadingPlanningEntityTabuSize));
+      entityTabuAcceptor.setFadingTabuSizeStrategy(new FixedTabuSizeStrategy(fadingPlanningEntityTabuSize));
     }
  else     if (fadingPlanningEntityTabuRatio != null) {
-      entityTabuAcceptor.setFadingTabuSizer(new RatioTabuSizer(fadingPlanningEntityTabuRatio));
+      entityTabuAcceptor.setFadingTabuSizeStrategy(new RatioTabuSizeStrategy(fadingPlanningEntityTabuRatio));
     }
     if (environmentMode == EnvironmentMode.FULL_ASSERT) {
       entityTabuAcceptor.setAssertTabuHashCodeCorrectness(true);
@@ -34,10 +34,10 @@
   if ((acceptorTypeList != null && acceptorTypeList.contains(AcceptorType.PLANNING_VALUE_TABU)) || planningValueTabuSize != null || fadingPlanningValueTabuSize != null) {
     PlanningValueTabuAcceptor valueTabuAcceptor=new PlanningValueTabuAcceptor();
     if (planningValueTabuSize != null) {
-      valueTabuAcceptor.setTabuSizer(new FixedTabuSizer(planningValueTabuSize));
+      valueTabuAcceptor.setTabuSizeStrategy(new FixedTabuSizeStrategy(planningValueTabuSize));
     }
     if (fadingPlanningValueTabuSize != null) {
-      valueTabuAcceptor.setFadingTabuSizer(new FixedTabuSizer(fadingPlanningValueTabuSize));
+      valueTabuAcceptor.setFadingTabuSizeStrategy(new FixedTabuSizeStrategy(fadingPlanningValueTabuSize));
     }
     if (environmentMode == EnvironmentMode.FULL_ASSERT) {
       valueTabuAcceptor.setAssertTabuHashCodeCorrectness(true);
@@ -48,10 +48,10 @@
     MoveTabuAcceptor moveTabuAcceptor=new MoveTabuAcceptor();
     moveTabuAcceptor.setUseUndoMoveAsTabuMove(false);
     if (moveTabuSize != null) {
-      moveTabuAcceptor.setTabuSizer(new FixedTabuSizer(moveTabuSize));
+      moveTabuAcceptor.setTabuSizeStrategy(new FixedTabuSizeStrategy(moveTabuSize));
     }
     if (fadingMoveTabuSize != null) {
-      moveTabuAcceptor.setFadingTabuSizer(new FixedTabuSizer(fadingMoveTabuSize));
+      moveTabuAcceptor.setFadingTabuSizeStrategy(new FixedTabuSizeStrategy(fadingMoveTabuSize));
     }
     if (environmentMode == EnvironmentMode.FULL_ASSERT) {
       moveTabuAcceptor.setAssertTabuHashCodeCorrectness(true);
@@ -62,10 +62,10 @@
     MoveTabuAcceptor undoMoveTabuAcceptor=new MoveTabuAcceptor();
     undoMoveTabuAcceptor.setUseUndoMoveAsTabuMove(true);
     if (undoMoveTabuSize != null) {
-      undoMoveTabuAcceptor.setTabuSizer(new FixedTabuSizer(undoMoveTabuSize));
+      undoMoveTabuAcceptor.setTabuSizeStrategy(new FixedTabuSizeStrategy(undoMoveTabuSize));
     }
     if (fadingUndoMoveTabuSize != null) {
-      undoMoveTabuAcceptor.setFadingTabuSizer(new FixedTabuSizer(fadingUndoMoveTabuSize));
+      undoMoveTabuAcceptor.setFadingTabuSizeStrategy(new FixedTabuSizeStrategy(fadingUndoMoveTabuSize));
     }
     if (environmentMode == EnvironmentMode.FULL_ASSERT) {
       undoMoveTabuAcceptor.setAssertTabuHashCodeCorrectness(true);
@@ -75,10 +75,10 @@
   if ((acceptorTypeList != null && acceptorTypeList.contains(AcceptorType.SOLUTION_TABU)) || solutionTabuSize != null || fadingSolutionTabuSize != null) {
     SolutionTabuAcceptor solutionTabuAcceptor=new SolutionTabuAcceptor();
     if (solutionTabuSize != null) {
-      solutionTabuAcceptor.setTabuSizer(new FixedTabuSizer(solutionTabuSize));
+      solutionTabuAcceptor.setTabuSizeStrategy(new FixedTabuSizeStrategy(solutionTabuSize));
     }
     if (fadingSolutionTabuSize != null) {
-      solutionTabuAcceptor.setFadingTabuSizer(new FixedTabuSizer(fadingSolutionTabuSize));
+      solutionTabuAcceptor.setFadingTabuSizeStrategy(new FixedTabuSizeStrategy(fadingSolutionTabuSize));
     }
     if (environmentMode == EnvironmentMode.FULL_ASSERT) {
       solutionTabuAcceptor.setAssertTabuHashCodeCorrectness(true);
@@ -110,7 +110,7 @@
   }
  else {
     PlanningEntityTabuAcceptor entityTabuAcceptor=new PlanningEntityTabuAcceptor();
-    entityTabuAcceptor.setTabuSizer(new FixedTabuSizer(5));
+    entityTabuAcceptor.setTabuSizeStrategy(new FixedTabuSizeStrategy(5));
     if (environmentMode == EnvironmentMode.FULL_ASSERT) {
       entityTabuAcceptor.setAssertTabuHashCodeCorrectness(true);
     }

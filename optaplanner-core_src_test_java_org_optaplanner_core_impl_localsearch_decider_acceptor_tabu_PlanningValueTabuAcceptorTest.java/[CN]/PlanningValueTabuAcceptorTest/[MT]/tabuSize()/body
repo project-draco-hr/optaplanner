@@ -1,6 +1,6 @@
 {
   PlanningValueTabuAcceptor acceptor=new PlanningValueTabuAcceptor();
-  acceptor.setTabuSizer(new FixedTabuSizer(2));
+  acceptor.setTabuSizeStrategy(new FixedTabuSizeStrategy(2));
   acceptor.setAspirationEnabled(true);
   TestdataValue v0=new TestdataValue("v0");
   TestdataValue v1=new TestdataValue("v1");
