@@ -1,3 +1,0 @@
-{
-  return ((double)(fadingTabuSize - fadingTabuStepCount)) / ((double)(fadingTabuSize + 1));
-}

@@ -1,0 +1,24 @@
+{
+  int totalTabuListSize=workingTabuSize + workingFadingTabuSize;
+  for (Iterator<Object> it=tabuSequenceList.iterator(); it.hasNext(); ) {
+    Object oldTabu=it.next();
+    Integer oldTabuStepIndexInteger=tabuToStepIndexMap.get(oldTabu);
+    if (oldTabuStepIndexInteger == null) {
+      throw new IllegalStateException("HashCode violation: the hashCode of tabu (" + oldTabu + ") probably changed since it was inserted in the tabu Map or Set.");
+    }
+    int oldTabuStepCount=tabuStepIndex - oldTabuStepIndexInteger;
+    if (oldTabuStepCount < totalTabuListSize) {
+      break;
+    }
+    it.remove();
+    tabuToStepIndexMap.remove(oldTabu);
+  }
+  for (  Object tabu : tabus) {
+    if (tabuToStepIndexMap.containsKey(tabu)) {
+      tabuToStepIndexMap.remove(tabu);
+      tabuSequenceList.remove(tabu);
+    }
+    tabuToStepIndexMap.put(tabu,tabuStepIndex);
+    tabuSequenceList.add(tabu);
+  }
+}

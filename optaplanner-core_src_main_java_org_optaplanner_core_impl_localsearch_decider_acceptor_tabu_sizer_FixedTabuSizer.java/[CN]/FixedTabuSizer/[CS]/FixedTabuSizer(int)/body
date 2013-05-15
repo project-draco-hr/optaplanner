@@ -1,0 +1,6 @@
+{
+  this.tabuSize=tabuSize;
+  if (tabuSize < 0) {
+    throw new IllegalArgumentException("The tabuSize (" + tabuSize + ") cannot be negative.");
+  }
+}

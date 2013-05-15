@@ -1,6 +1,6 @@
 {
   PlanningEntityTabuAcceptor acceptor=new PlanningEntityTabuAcceptor();
-  acceptor.setTabuSize(2);
+  acceptor.setTabuSizer(new FixedTabuSizer(2));
   acceptor.setAspirationEnabled(true);
   TestdataEntity e0=new TestdataEntity("e0");
   TestdataEntity e1=new TestdataEntity("e1");

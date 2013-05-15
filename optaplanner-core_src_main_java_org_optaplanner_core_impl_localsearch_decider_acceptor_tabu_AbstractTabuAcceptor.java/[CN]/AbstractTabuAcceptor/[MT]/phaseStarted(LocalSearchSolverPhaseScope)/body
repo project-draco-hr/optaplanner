@@ -1,6 +1,9 @@
 {
   super.phaseStarted(phaseScope);
-  validate();
-  tabuToStepIndexMap=new HashMap<Object,Integer>(calculateActualMaximumSize(phaseScope));
+  LocalSearchStepScope lastCompletedStepScope=phaseScope.getLastCompletedStepScope();
+  workingTabuSize=tabuSizer == null ? 0 : tabuSizer.determineTabuSize(lastCompletedStepScope);
+  workingFadingTabuSize=fadingTabuSizer == null ? 0 : fadingTabuSizer.determineTabuSize(lastCompletedStepScope);
+  int totalTabuListSize=workingTabuSize + workingFadingTabuSize;
+  tabuToStepIndexMap=new HashMap<Object,Integer>(totalTabuListSize);
   tabuSequenceList=new LinkedList<Object>();
 }
