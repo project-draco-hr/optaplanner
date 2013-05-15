@@ -1,0 +1,14 @@
+{
+  List<Object> entityList=new ArrayList<Object>();
+  for (  PropertyAccessor entityPropertyAccessor : entityPropertyAccessorMap.values()) {
+    Object entity=extractPlanningEntity(entityPropertyAccessor,solution);
+    if (entity != null) {
+      entityList.add(entity);
+    }
+  }
+  for (  PropertyAccessor entityCollectionPropertyAccessor : entityCollectionPropertyAccessorMap.values()) {
+    Collection<?> entityCollection=extractPlanningEntityCollection(entityCollectionPropertyAccessor,solution);
+    entityList.addAll(entityCollection);
+  }
+  return entityList;
+}

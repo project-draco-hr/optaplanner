@@ -1,10 +1,10 @@
 {
-  List<Object> planningEntityList=new ArrayList<Object>();
+  List<Object> entityList=new ArrayList<Object>();
   for (  PropertyAccessor entityPropertyAccessor : entityPropertyAccessorMap.values()) {
     if (entityPropertyAccessor.getPropertyType().isAssignableFrom(planningEntityClass)) {
       Object entity=extractPlanningEntity(entityPropertyAccessor,solution);
       if (entity != null && planningEntityClass.isInstance(entity)) {
-        planningEntityList.add(entity);
+        entityList.add(entity);
       }
     }
   }
@@ -12,9 +12,9 @@
     Collection<?> entityCollection=extractPlanningEntityCollection(entityCollectionPropertyAccessor,solution);
     for (    Object entity : entityCollection) {
       if (planningEntityClass.isInstance(entity)) {
-        planningEntityList.add(entity);
+        entityList.add(entity);
       }
     }
   }
-  return planningEntityList;
+  return entityList;
 }

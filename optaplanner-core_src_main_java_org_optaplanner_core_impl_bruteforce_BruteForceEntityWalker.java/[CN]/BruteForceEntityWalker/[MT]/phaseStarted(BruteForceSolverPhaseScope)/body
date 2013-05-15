@@ -1,5 +1,5 @@
 {
-  List<Object> workingPlanningEntityList=bruteForceSolverPhaseScope.getWorkingPlanningEntityList();
+  List<Object> workingPlanningEntityList=bruteForceSolverPhaseScope.getWorkingEntityList();
   planningVariableWalkerList=new ArrayList<PlanningVariableWalker>(workingPlanningEntityList.size());
   for (  Object planningEntity : workingPlanningEntityList) {
     PlanningEntityDescriptor planningEntityDescriptor=solutionDescriptor.getPlanningEntityDescriptor(planningEntity.getClass());
