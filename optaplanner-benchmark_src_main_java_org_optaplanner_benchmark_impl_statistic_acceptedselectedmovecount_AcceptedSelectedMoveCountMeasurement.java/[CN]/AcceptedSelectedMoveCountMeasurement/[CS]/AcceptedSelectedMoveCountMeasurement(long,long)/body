@@ -1,0 +1,4 @@
+{
+  this.acceptedMoveCount=acceptedMoveCount;
+  this.selectedMoveCount=selectedMoveCount;
+}

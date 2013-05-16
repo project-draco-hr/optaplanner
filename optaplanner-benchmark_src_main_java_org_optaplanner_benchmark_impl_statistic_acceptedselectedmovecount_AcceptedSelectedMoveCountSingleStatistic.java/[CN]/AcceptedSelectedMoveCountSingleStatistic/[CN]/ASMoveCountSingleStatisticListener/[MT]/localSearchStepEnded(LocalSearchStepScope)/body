@@ -1,0 +1,10 @@
+{
+  long timeMillisSpend=stepScope.getPhaseScope().calculateSolverTimeMillisSpend();
+  if (timeMillisSpend >= nextTimeMillisThreshold) {
+    pointList.add(new AcceptedSelectedMoveCountSingleStatisticPoint(timeMillisSpend,new AcceptedSelectedMoveCountMeasurement(stepScope.getAcceptedMoveCount(),stepScope.getSelectedMoveCount())));
+    nextTimeMillisThreshold+=timeMillisThresholdInterval;
+    if (nextTimeMillisThreshold < timeMillisSpend) {
+      nextTimeMillisThreshold=timeMillisSpend;
+    }
+  }
+}
