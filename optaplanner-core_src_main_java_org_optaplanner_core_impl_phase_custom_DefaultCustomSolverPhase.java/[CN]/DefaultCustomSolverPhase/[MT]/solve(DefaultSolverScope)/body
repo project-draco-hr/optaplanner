@@ -1,18 +1,19 @@
 {
-  CustomSolverPhaseScope customSolverPhaseScope=new CustomSolverPhaseScope(solverScope);
-  phaseStarted(customSolverPhaseScope);
-  CustomStepScope stepScope=createNextStepScope(customSolverPhaseScope,null);
+  CustomSolverPhaseScope phaseScope=new CustomSolverPhaseScope(solverScope);
+  phaseStarted(phaseScope);
+  CustomStepScope stepScope=new CustomStepScope(phaseScope);
   Iterator<CustomSolverPhaseCommand> commandIterator=customSolverPhaseCommandList.iterator();
-  while (!termination.isPhaseTerminated(customSolverPhaseScope) && commandIterator.hasNext()) {
+  while (!termination.isPhaseTerminated(phaseScope) && commandIterator.hasNext()) {
     CustomSolverPhaseCommand customSolverPhaseCommand=commandIterator.next();
     stepStarted(stepScope);
     customSolverPhaseCommand.changeWorkingSolution(solverScope.getScoreDirector());
     int uninitializedVariableCount=solverScope.getSolutionDescriptor().countUninitializedVariables(stepScope.getWorkingSolution());
     stepScope.setUninitializedVariableCount(uninitializedVariableCount);
-    Score score=customSolverPhaseScope.calculateScore();
+    Score score=phaseScope.calculateScore();
     stepScope.setScore(score);
     stepEnded(stepScope);
-    stepScope=createNextStepScope(customSolverPhaseScope,stepScope);
+    phaseScope.setLastCompletedStepScope(stepScope);
+    stepScope=new CustomStepScope(phaseScope);
   }
-  phaseEnded(customSolverPhaseScope);
+  phaseEnded(phaseScope);
 }

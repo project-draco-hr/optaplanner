@@ -12,8 +12,8 @@
   }
 );
   solverScope.setBestScore(SimpleScore.valueOf(-1000));
-  LocalSearchStepScope lastLocalSearchStepScope=new LocalSearchStepScope(phaseScope);
-  lastLocalSearchStepScope.setScore(SimpleScore.valueOf(-1000));
-  phaseScope.setLastCompletedStepScope(lastLocalSearchStepScope);
+  LocalSearchStepScope lastCompletedStepScope=new LocalSearchStepScope(phaseScope,-1);
+  lastCompletedStepScope.setScore(SimpleScore.valueOf(-1000));
+  phaseScope.setLastCompletedStepScope(lastCompletedStepScope);
   return phaseScope;
 }

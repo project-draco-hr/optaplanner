@@ -2,4 +2,7 @@
   startingSystemTimeMillis=System.currentTimeMillis();
   bestSolutionStepIndex=-1;
   startingScore=solverScope.calculateScore();
+  if (getLastCompletedStepScope().getStepIndex() < 0) {
+    getLastCompletedStepScope().setScore(startingScore);
+  }
 }

@@ -1,7 +1,7 @@
 {
   ConstructionHeuristicSolverPhaseScope phaseScope=new ConstructionHeuristicSolverPhaseScope(solverScope);
   phaseStarted(phaseScope);
-  ConstructionHeuristicStepScope stepScope=createNextStepScope(phaseScope,null);
+  ConstructionHeuristicStepScope stepScope=new ConstructionHeuristicStepScope(phaseScope);
   while (!termination.isPhaseTerminated(phaseScope)) {
     stepStarted(stepScope);
     ConstructionHeuristicMoveScope moveScope=entityPlacer.nominateMove(stepScope);
@@ -19,7 +19,8 @@
     }
     doStep(stepScope);
     stepEnded(stepScope);
-    stepScope=createNextStepScope(phaseScope,stepScope);
+    phaseScope.setLastCompletedStepScope(stepScope);
+    stepScope=new ConstructionHeuristicStepScope(phaseScope);
   }
   phaseEnded(phaseScope);
 }

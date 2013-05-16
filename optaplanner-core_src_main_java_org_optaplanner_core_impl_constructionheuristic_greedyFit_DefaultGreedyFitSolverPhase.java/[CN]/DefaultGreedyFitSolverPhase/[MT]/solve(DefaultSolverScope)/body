@@ -1,7 +1,7 @@
 {
   GreedyFitSolverPhaseScope phaseScope=new GreedyFitSolverPhaseScope(solverScope);
   phaseStarted(phaseScope);
-  GreedyFitStepScope stepScope=createNextStepScope(phaseScope,null);
+  GreedyFitStepScope stepScope=new GreedyFitStepScope(phaseScope);
   Iterator it=greedyPlanningEntitySelector.iterator();
   while (!termination.isPhaseTerminated(phaseScope) && it.hasNext()) {
     Object planningEntity=it.next();
@@ -20,7 +20,8 @@
       phaseScope.assertExpectedWorkingScore(stepScope.getScore());
     }
     stepEnded(stepScope);
-    stepScope=createNextStepScope(phaseScope,stepScope);
+    phaseScope.setLastCompletedStepScope(stepScope);
+    stepScope=new GreedyFitStepScope(phaseScope);
   }
   phaseEnded(phaseScope);
 }

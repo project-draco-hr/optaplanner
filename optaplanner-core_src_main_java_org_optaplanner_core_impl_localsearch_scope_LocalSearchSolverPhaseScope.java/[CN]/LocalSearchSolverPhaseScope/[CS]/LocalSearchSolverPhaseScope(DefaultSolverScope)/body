@@ -1,3 +1,5 @@
 {
   super(solverScope);
+  lastCompletedStepScope=new LocalSearchStepScope(this,-1);
+  lastCompletedStepScope.setTimeGradient(0.0);
 }

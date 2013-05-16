@@ -1,7 +1,7 @@
 {
   LocalSearchSolverPhaseScope phaseScope=new LocalSearchSolverPhaseScope(solverScope);
   phaseStarted(phaseScope);
-  LocalSearchStepScope stepScope=createNextStepScope(phaseScope,null);
+  LocalSearchStepScope stepScope=new LocalSearchStepScope(phaseScope);
   while (!termination.isPhaseTerminated(phaseScope)) {
     stepScope.setTimeGradient(termination.calculatePhaseTimeGradient(phaseScope));
     stepStarted(stepScope);
@@ -26,7 +26,8 @@
       phaseScope.assertExpectedWorkingScore(stepScope.getScore());
     }
     stepEnded(stepScope);
-    stepScope=createNextStepScope(phaseScope,stepScope);
+    phaseScope.setLastCompletedStepScope(stepScope);
+    stepScope=new LocalSearchStepScope(phaseScope);
   }
   phaseEnded(phaseScope);
 }

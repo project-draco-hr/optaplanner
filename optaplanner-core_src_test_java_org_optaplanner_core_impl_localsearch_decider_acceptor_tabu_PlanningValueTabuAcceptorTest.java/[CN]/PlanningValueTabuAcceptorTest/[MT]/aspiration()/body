@@ -9,11 +9,10 @@
   LocalSearchSolverPhaseScope phaseScope=new LocalSearchSolverPhaseScope(solverScope);
   acceptor.phaseStarted(phaseScope);
   LocalSearchStepScope stepScope0=new LocalSearchStepScope(phaseScope);
-  stepScope0.setStepIndex(0);
   stepScope0.setStep(buildMoveScope(stepScope0,v1).getMove());
   acceptor.stepEnded(stepScope0);
+  phaseScope.setLastCompletedStepScope(stepScope0);
   LocalSearchStepScope stepScope1=new LocalSearchStepScope(phaseScope);
-  stepScope1.setStepIndex(1);
   assertEquals(true,acceptor.isAccepted(buildMoveScope(stepScope1,-120,v0)));
   assertEquals(true,acceptor.isAccepted(buildMoveScope(stepScope1,-20,v0)));
   assertEquals(false,acceptor.isAccepted(buildMoveScope(stepScope1,-120,v1)));
@@ -22,5 +21,6 @@
   assertEquals(true,acceptor.isAccepted(buildMoveScope(stepScope1,-20,v0,v1)));
   stepScope1.setStep(buildMoveScope(stepScope1,-20,v1).getMove());
   acceptor.stepEnded(stepScope1);
+  phaseScope.setLastCompletedStepScope(stepScope1);
   acceptor.phaseEnded(phaseScope);
 }

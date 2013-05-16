@@ -12,7 +12,6 @@
   LocalSearchSolverPhaseScope phaseScope=new LocalSearchSolverPhaseScope(solverScope);
   acceptor.phaseStarted(phaseScope);
   LocalSearchStepScope stepScope0=new LocalSearchStepScope(phaseScope);
-  stepScope0.setStepIndex(0);
   LocalSearchMoveScope moveScope1=buildMoveScope(stepScope0,v1);
   assertEquals(true,acceptor.isAccepted(buildMoveScope(stepScope0,v0)));
   assertEquals(true,acceptor.isAccepted(moveScope1));
@@ -22,8 +21,8 @@
   assertEquals(true,acceptor.isAccepted(buildMoveScope(stepScope0,v2)));
   stepScope0.setStep(moveScope1.getMove());
   acceptor.stepEnded(stepScope0);
+  phaseScope.setLastCompletedStepScope(stepScope0);
   LocalSearchStepScope stepScope1=new LocalSearchStepScope(phaseScope);
-  stepScope1.setStepIndex(1);
   LocalSearchMoveScope moveScope2=buildMoveScope(stepScope1,v2);
   assertEquals(true,acceptor.isAccepted(buildMoveScope(stepScope1,v0)));
   assertEquals(false,acceptor.isAccepted(buildMoveScope(stepScope1,v1)));
@@ -33,8 +32,8 @@
   assertEquals(true,acceptor.isAccepted(buildMoveScope(stepScope1,v2)));
   stepScope1.setStep(moveScope2.getMove());
   acceptor.stepEnded(stepScope1);
+  phaseScope.setLastCompletedStepScope(stepScope1);
   LocalSearchStepScope stepScope2=new LocalSearchStepScope(phaseScope);
-  stepScope2.setStepIndex(2);
   LocalSearchMoveScope moveScope4=buildMoveScope(stepScope2,v4);
   assertEquals(true,acceptor.isAccepted(buildMoveScope(stepScope2,v0)));
   assertEquals(false,acceptor.isAccepted(buildMoveScope(stepScope2,v1)));
@@ -44,8 +43,8 @@
   assertEquals(false,acceptor.isAccepted(buildMoveScope(stepScope2,v2)));
   stepScope2.setStep(moveScope4.getMove());
   acceptor.stepEnded(stepScope2);
+  phaseScope.setLastCompletedStepScope(stepScope2);
   LocalSearchStepScope stepScope3=new LocalSearchStepScope(phaseScope);
-  stepScope3.setStepIndex(3);
   LocalSearchMoveScope moveScope3=buildMoveScope(stepScope3,v3);
   assertEquals(true,acceptor.isAccepted(buildMoveScope(stepScope3,v0)));
   assertEquals(true,acceptor.isAccepted(buildMoveScope(stepScope3,v1)));
@@ -55,8 +54,8 @@
   assertEquals(false,acceptor.isAccepted(buildMoveScope(stepScope3,v2)));
   stepScope3.setStep(moveScope3.getMove());
   acceptor.stepEnded(stepScope3);
+  phaseScope.setLastCompletedStepScope(stepScope3);
   LocalSearchStepScope stepScope4=new LocalSearchStepScope(phaseScope);
-  stepScope4.setStepIndex(4);
   LocalSearchMoveScope moveScope1Again=buildMoveScope(stepScope4,v1);
   assertEquals(true,acceptor.isAccepted(buildMoveScope(stepScope4,v0)));
   assertEquals(true,acceptor.isAccepted(moveScope1Again));
@@ -66,5 +65,6 @@
   assertEquals(true,acceptor.isAccepted(buildMoveScope(stepScope4,v2)));
   stepScope4.setStep(moveScope1Again.getMove());
   acceptor.stepEnded(stepScope4);
+  phaseScope.setLastCompletedStepScope(stepScope4);
   acceptor.phaseEnded(phaseScope);
 }
