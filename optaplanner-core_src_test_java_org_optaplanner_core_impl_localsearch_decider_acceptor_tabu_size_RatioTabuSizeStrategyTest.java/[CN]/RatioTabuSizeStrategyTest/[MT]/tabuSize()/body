@@ -1,7 +1,0 @@
-{
-  LocalSearchSolverPhaseScope phaseScope=new LocalSearchSolverPhaseScope(mock(DefaultSolverScope.class));
-  when(phaseScope.getWorkingEntityListSize()).thenReturn(20);
-  LocalSearchStepScope stepScope=new LocalSearchStepScope(phaseScope);
-  assertEquals(2,new RatioTabuSizeStrategy(0.1).determineTabuSize(stepScope));
-  assertEquals(10,new RatioTabuSizeStrategy(0.5).determineTabuSize(stepScope));
-}

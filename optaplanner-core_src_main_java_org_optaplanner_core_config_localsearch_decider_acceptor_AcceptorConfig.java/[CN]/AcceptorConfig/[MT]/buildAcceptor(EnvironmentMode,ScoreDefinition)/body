@@ -15,7 +15,7 @@
       entityTabuAcceptor.setTabuSizeStrategy(new FixedTabuSizeStrategy(entityTabuSize));
     }
  else     if (entityTabuRatio != null) {
-      entityTabuAcceptor.setTabuSizeStrategy(new RatioTabuSizeStrategy(entityTabuRatio));
+      entityTabuAcceptor.setTabuSizeStrategy(new EntityRatioTabuSizeStrategy(entityTabuRatio));
     }
     if (fadingEntityTabuSize != null) {
       if (fadingEntityTabuRatio != null) {
@@ -24,7 +24,7 @@
       entityTabuAcceptor.setFadingTabuSizeStrategy(new FixedTabuSizeStrategy(fadingEntityTabuSize));
     }
  else     if (fadingEntityTabuRatio != null) {
-      entityTabuAcceptor.setFadingTabuSizeStrategy(new RatioTabuSizeStrategy(fadingEntityTabuRatio));
+      entityTabuAcceptor.setFadingTabuSizeStrategy(new EntityRatioTabuSizeStrategy(fadingEntityTabuRatio));
     }
     if (environmentMode == EnvironmentMode.FULL_ASSERT) {
       entityTabuAcceptor.setAssertTabuHashCodeCorrectness(true);
