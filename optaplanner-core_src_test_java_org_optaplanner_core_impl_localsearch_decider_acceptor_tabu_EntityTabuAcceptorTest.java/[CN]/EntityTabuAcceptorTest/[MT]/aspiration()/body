@@ -1,0 +1,26 @@
+{
+  EntityTabuAcceptor acceptor=new EntityTabuAcceptor();
+  acceptor.setTabuSizeStrategy(new FixedTabuSizeStrategy(2));
+  acceptor.setAspirationEnabled(true);
+  TestdataEntity e0=new TestdataEntity("e0");
+  TestdataEntity e1=new TestdataEntity("e1");
+  DefaultSolverScope solverScope=new DefaultSolverScope();
+  solverScope.setBestScore(SimpleScore.valueOf(-100));
+  LocalSearchSolverPhaseScope phaseScope=new LocalSearchSolverPhaseScope(solverScope);
+  acceptor.phaseStarted(phaseScope);
+  LocalSearchStepScope stepScope0=new LocalSearchStepScope(phaseScope);
+  stepScope0.setStep(buildMoveScope(stepScope0,e1).getMove());
+  acceptor.stepEnded(stepScope0);
+  phaseScope.setLastCompletedStepScope(stepScope0);
+  LocalSearchStepScope stepScope1=new LocalSearchStepScope(phaseScope);
+  assertEquals(true,acceptor.isAccepted(buildMoveScope(stepScope1,-120,e0)));
+  assertEquals(true,acceptor.isAccepted(buildMoveScope(stepScope1,-20,e0)));
+  assertEquals(false,acceptor.isAccepted(buildMoveScope(stepScope1,-120,e1)));
+  assertEquals(true,acceptor.isAccepted(buildMoveScope(stepScope1,-20,e1)));
+  assertEquals(false,acceptor.isAccepted(buildMoveScope(stepScope1,-120,e0,e1)));
+  assertEquals(true,acceptor.isAccepted(buildMoveScope(stepScope1,-20,e0,e1)));
+  stepScope1.setStep(buildMoveScope(stepScope1,-20,e1).getMove());
+  acceptor.stepEnded(stepScope1);
+  phaseScope.setLastCompletedStepScope(stepScope1);
+  acceptor.phaseEnded(phaseScope);
+}
