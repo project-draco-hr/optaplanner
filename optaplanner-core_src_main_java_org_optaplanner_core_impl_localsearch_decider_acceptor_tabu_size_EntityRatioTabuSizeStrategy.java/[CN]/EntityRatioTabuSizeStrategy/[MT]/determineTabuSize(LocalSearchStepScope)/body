@@ -1,4 +1,4 @@
 {
-  int planningEntityListSize=stepScope.getPhaseScope().getWorkingEntityCount();
-  return (int)Math.round(planningEntityListSize * tabuRatio);
+  int entityCount=stepScope.getPhaseScope().getWorkingEntityCount();
+  return (int)Math.round(entityCount * tabuRatio);
 }

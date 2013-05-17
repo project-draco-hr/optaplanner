@@ -1,14 +1,14 @@
 {
-  int size=0;
+  int entityCount=0;
   for (  PropertyAccessor entityPropertyAccessor : entityPropertyAccessorMap.values()) {
     Object entity=extractPlanningEntity(entityPropertyAccessor,solution);
     if (entity != null) {
-      size++;
+      entityCount++;
     }
   }
   for (  PropertyAccessor entityCollectionPropertyAccessor : entityCollectionPropertyAccessorMap.values()) {
     Collection<?> entityCollection=extractPlanningEntityCollection(entityCollectionPropertyAccessor,solution);
-    size+=entityCollection.size();
+    entityCount+=entityCollection.size();
   }
-  return size;
+  return entityCount;
 }

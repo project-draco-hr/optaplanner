@@ -1,0 +1,4 @@
+{
+  int valueCount=stepScope.getPhaseScope().getWorkingValueCount();
+  return (int)Math.round(valueCount * tabuRatio);
+}
