@@ -1,5 +1,10 @@
 {
-  solverFactory.getSolverConfig().setEnvironmentMode(environmentMode);
+  SolverConfig solverConfig=solverFactory.getSolverConfig();
+  solverConfig.setEnvironmentMode(environmentMode);
+  ScoreDirectorFactoryConfig assertionScoreDirectorFactory=createOverwritingAssertionScoreDirectorFactory();
+  if (assertionScoreDirectorFactory != null && (environmentMode == EnvironmentMode.FULL_ASSERT || environmentMode == EnvironmentMode.FAST_ASSERT)) {
+    solverConfig.getScoreDirectorFactoryConfig().setAssertionScoreDirectorFactory(assertionScoreDirectorFactory);
+  }
   Solver solver=solverFactory.buildSolver();
   solver.setPlanningProblem(solution);
   solver.solve();

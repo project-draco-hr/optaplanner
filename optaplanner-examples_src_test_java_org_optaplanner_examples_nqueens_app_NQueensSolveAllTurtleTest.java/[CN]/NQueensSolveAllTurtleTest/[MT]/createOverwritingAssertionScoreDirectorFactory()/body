@@ -1,0 +1,5 @@
+{
+  ScoreDirectorFactoryConfig assertionScoreDirectorFactoryConfig=new ScoreDirectorFactoryConfig();
+  assertionScoreDirectorFactoryConfig.setSimpleScoreCalculatorClass(NQueensSimpleScoreCalculator.class);
+  return assertionScoreDirectorFactoryConfig;
+}
