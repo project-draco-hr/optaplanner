@@ -1,0 +1,24 @@
+{
+  List<Visit> visitList=tour.getVisitList();
+  Set<Visit> tailVisitSet=new HashSet<Visit>(visitList);
+  int score=0;
+  for (  Visit visit : visitList) {
+    Appearance previousAppearance=visit.getPreviousAppearance();
+    if (previousAppearance != null) {
+      score-=visit.getDistanceToPreviousAppearance();
+      if (previousAppearance instanceof Visit) {
+        tailVisitSet.remove(previousAppearance);
+      }
+    }
+  }
+  if (tour.getDomicileList().size() != 1) {
+    throw new UnsupportedOperationException("The domicileList (" + tour.getDomicileList() + ") should be a singleton.");
+  }
+  Domicile domicile=tour.getDomicileList().get(0);
+  for (  Visit tailVisit : tailVisitSet) {
+    if (tailVisit.getPreviousAppearance() != null) {
+      score-=domicile.getCity().getDistance(tailVisit.getCity());
+    }
+  }
+  return SimpleScore.valueOf(score);
+}
