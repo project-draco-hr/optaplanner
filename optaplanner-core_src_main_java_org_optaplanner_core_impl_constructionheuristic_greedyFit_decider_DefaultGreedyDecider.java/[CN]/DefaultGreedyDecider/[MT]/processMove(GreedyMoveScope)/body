@@ -1,6 +1,6 @@
 {
   Score score=moveScope.getGreedyFitStepScope().getPhaseScope().calculateScore();
-  if (assertMoveScoreIsUncorrupted) {
+  if (assertMoveScoreFromScratch) {
     moveScope.getGreedyFitStepScope().getPhaseScope().assertWorkingScoreFromScratch(score);
   }
   moveScope.setScore(score);

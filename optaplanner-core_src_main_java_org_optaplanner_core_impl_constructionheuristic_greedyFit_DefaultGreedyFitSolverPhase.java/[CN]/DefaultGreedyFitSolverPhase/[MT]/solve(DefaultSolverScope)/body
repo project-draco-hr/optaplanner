@@ -15,8 +15,10 @@
     }
     nextStep.doMove(stepScope.getScoreDirector());
     phaseScope.getWorkingSolution().setScore(stepScope.getScore());
-    if (assertStepScoreIsUncorrupted) {
+    if (assertStepScoreFromScratch) {
       phaseScope.assertWorkingScoreFromScratch(stepScope.getScore());
+    }
+    if (assertExpectedStepScore) {
       phaseScope.assertExpectedWorkingScore(stepScope.getScore());
     }
     stepEnded(stepScope);

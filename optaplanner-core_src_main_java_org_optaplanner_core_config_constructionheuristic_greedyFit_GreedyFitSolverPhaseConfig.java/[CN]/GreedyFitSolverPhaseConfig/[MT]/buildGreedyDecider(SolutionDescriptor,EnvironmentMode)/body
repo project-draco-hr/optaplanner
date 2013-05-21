@@ -17,7 +17,7 @@
   planningVariableWalker.setPlanningValueWalkerList(planningValueWalkerList);
   greedyDecider.setPlanningVariableWalker(planningVariableWalker);
   if (environmentMode == EnvironmentMode.FULL_ASSERT) {
-    greedyDecider.setAssertMoveScoreIsUncorrupted(true);
+    greedyDecider.setAssertMoveScoreFromScratch(true);
   }
   return greedyDecider;
 }

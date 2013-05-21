@@ -1,6 +1,6 @@
 {
   Score score=moveScope.getStepScope().getPhaseScope().calculateScore();
-  if (assertMoveScoreIsUncorrupted) {
+  if (assertMoveScoreFromScratch) {
     moveScope.getStepScope().getPhaseScope().assertWorkingScoreFromScratch(score);
   }
   moveScope.setScore(score);

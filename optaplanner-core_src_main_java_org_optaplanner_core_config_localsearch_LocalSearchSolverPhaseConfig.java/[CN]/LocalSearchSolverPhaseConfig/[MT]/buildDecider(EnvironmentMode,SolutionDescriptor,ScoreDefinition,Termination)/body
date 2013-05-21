@@ -12,10 +12,10 @@
     throw new IllegalStateException("The moveSelector (" + moveSelector + ") has neverEnding ("+ moveSelector.isNeverEnding()+ "), but the forager ("+ forager+ ") does not support it."+ " Configure the <forager> with <acceptedCountLimit>.");
   }
   if (environmentMode == EnvironmentMode.FULL_ASSERT) {
-    decider.setAssertMoveScoreIsUncorrupted(true);
+    decider.setAssertMoveScoreFromScratch(true);
   }
-  if (environmentMode == EnvironmentMode.FAST_ASSERT || environmentMode == EnvironmentMode.FULL_ASSERT) {
-    decider.setAssertUndoMoveIsUncorrupted(true);
+  if (environmentMode == EnvironmentMode.FAST_ASSERT) {
+    decider.setAssertExpectedUndoMoveScore(true);
   }
   return decider;
 }

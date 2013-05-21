@@ -1,0 +1,3 @@
+{
+  this.assertExpectedStepScore=assertExpectedStepScore;
+}

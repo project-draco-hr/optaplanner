@@ -4,8 +4,11 @@
     configureSolverPhase(greedySolverPhase,phaseIndex,environmentMode,scoreDefinition,solverTermination);
     greedySolverPhase.setGreedyPlanningEntitySelector(buildGreedyPlanningEntitySelector(solutionDescriptor));
     greedySolverPhase.setGreedyDecider(buildGreedyDecider(solutionDescriptor,environmentMode));
+    if (environmentMode == EnvironmentMode.FULL_ASSERT) {
+      greedySolverPhase.setAssertStepScoreFromScratch(true);
+    }
     if (environmentMode == EnvironmentMode.FAST_ASSERT || environmentMode == EnvironmentMode.FULL_ASSERT) {
-      greedySolverPhase.setAssertStepScoreIsUncorrupted(true);
+      greedySolverPhase.setAssertExpectedStepScore(true);
     }
     return greedySolverPhase;
   }
@@ -23,8 +26,11 @@
       throw new IllegalArgumentException("The entityPlacerConfigList (" + entityPlacerConfigList + ") must be a singleton or empty. Use multiple "+ ConstructionHeuristicSolverPhaseConfig.class+ " elements to initialize multiple entity classes.");
     }
     phase.setEntityPlacer(entityPlacer);
+    if (environmentMode == EnvironmentMode.FULL_ASSERT) {
+      phase.setAssertStepScoreFromScratch(true);
+    }
     if (environmentMode == EnvironmentMode.FAST_ASSERT || environmentMode == EnvironmentMode.FULL_ASSERT) {
-      phase.setAssertStepScoreIsUncorrupted(true);
+      phase.setAssertExpectedStepScore(true);
     }
     return phase;
   }

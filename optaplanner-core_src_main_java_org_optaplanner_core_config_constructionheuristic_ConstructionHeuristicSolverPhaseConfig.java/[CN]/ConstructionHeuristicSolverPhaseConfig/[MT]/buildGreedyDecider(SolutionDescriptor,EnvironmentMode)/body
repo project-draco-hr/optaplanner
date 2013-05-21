@@ -18,10 +18,10 @@
   greedyDecider.setPlanningVariableWalker(planningVariableWalker);
   greedyDecider.setForager(buildGreedyForager());
   if (environmentMode == EnvironmentMode.FULL_ASSERT) {
-    greedyDecider.setAssertMoveScoreIsUncorrupted(true);
+    greedyDecider.setAssertMoveScoreFromScratch(true);
   }
   if (environmentMode == EnvironmentMode.FAST_ASSERT || environmentMode == EnvironmentMode.FULL_ASSERT) {
-    greedyDecider.setAssertUndoMoveIsUncorrupted(true);
+    greedyDecider.setAssertExpectedUndoMoveScore(true);
   }
   return greedyDecider;
 }
