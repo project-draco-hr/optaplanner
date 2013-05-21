@@ -2,7 +2,7 @@
   SolverConfig solverConfig=solverFactory.getSolverConfig();
   solverConfig.setEnvironmentMode(environmentMode);
   ScoreDirectorFactoryConfig assertionScoreDirectorFactory=createOverwritingAssertionScoreDirectorFactory();
-  if (assertionScoreDirectorFactory != null && (environmentMode == EnvironmentMode.FULL_ASSERT || environmentMode == EnvironmentMode.FAST_ASSERT)) {
+  if (assertionScoreDirectorFactory != null && environmentMode.isAsserted()) {
     solverConfig.getScoreDirectorFactoryConfig().setAssertionScoreDirectorFactory(assertionScoreDirectorFactory);
   }
   Solver solver=solverFactory.buildSolver();

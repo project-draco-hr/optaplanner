@@ -6,5 +6,5 @@
   if (bestSolution == null) {
     bestSolution=planningProblem;
   }
-  bestSolution=buildAndSolve(solverFactory,EnvironmentMode.FULL_ASSERT,bestSolution);
+  bestSolution=buildAndSolve(solverFactory,EnvironmentMode.NON_INTRUSIVE_FULL_ASSERT,bestSolution);
 }
