@@ -1,0 +1,3 @@
+{
+  solverScope.assertExpectedWorkingScore(expectedWorkingScore,cause);
+}

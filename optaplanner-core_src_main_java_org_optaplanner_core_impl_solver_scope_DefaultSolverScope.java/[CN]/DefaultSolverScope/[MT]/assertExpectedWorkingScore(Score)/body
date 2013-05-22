@@ -1,3 +1,0 @@
-{
-  scoreDirector.assertExpectedWorkingScore(expectedWorkingScore);
-}
