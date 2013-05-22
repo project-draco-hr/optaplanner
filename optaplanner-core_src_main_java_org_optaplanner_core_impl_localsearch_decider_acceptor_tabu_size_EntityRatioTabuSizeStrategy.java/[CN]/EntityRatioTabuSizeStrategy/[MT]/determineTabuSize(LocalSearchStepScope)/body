@@ -1,4 +1,5 @@
 {
   int entityCount=stepScope.getPhaseScope().getWorkingEntityCount();
-  return (int)Math.round(entityCount * tabuRatio);
+  int tabuSize=(int)Math.round(entityCount * tabuRatio);
+  return protectTabuSizeCornerCases(entityCount,tabuSize);
 }

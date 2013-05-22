@@ -1,6 +1,6 @@
 {
   this.tabuRatio=tabuRatio;
-  if (tabuRatio < 0.0 || tabuRatio > 1.0) {
+  if (tabuRatio <= 0.0 || tabuRatio >= 1.0) {
     throw new IllegalArgumentException("The tabuRatio (" + tabuRatio + ") must be between 0.0 and 1.0.");
   }
 }

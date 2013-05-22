@@ -1,0 +1,9 @@
+{
+  if (tabuSize < 1) {
+    tabuSize=1;
+  }
+  if (tabuSize > totalSize - 1) {
+    tabuSize=totalSize - 1;
+  }
+  return tabuSize;
+}
