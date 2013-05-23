@@ -1,6 +1,6 @@
 {
   Score workingScore=calculateScore();
   if (!expectedWorkingScore.equals(workingScore)) {
-    throw new IllegalStateException("Score corruption: the expectedWorkingScore (" + expectedWorkingScore + ") is not the workingScore  ("+ workingScore+ ") due to cause("+ cause+ ").");
+    throw new IllegalStateException("Score corruption: the expectedWorkingScore (" + expectedWorkingScore + ") is not the workingScore  ("+ workingScore+ ") after completedAction ("+ completedAction+ ").");
   }
 }
