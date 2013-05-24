@@ -21,15 +21,22 @@
       if (demand != 0) {
         throw new IllegalArgumentException("The depot with id (" + id + ") has a demand ("+ demand+ ").");
       }
+      int serviceTime=Integer.parseInt(lineTokens[6]);
+      if (serviceTime != 0) {
+        throw new IllegalArgumentException("The depot with id (" + id + ") has a serviceTime ("+ serviceTime+ ").");
+      }
       depotList.add(depot);
       first=false;
     }
  else {
-      VrpCustomer customer=new VrpCustomer();
+      VrpTimeWindowedCustomer customer=new VrpTimeWindowedCustomer();
       customer.setId(id);
       customer.setLocation(location);
       int demand=Integer.parseInt(lineTokens[3]);
       customer.setDemand(demand);
+      customer.setReadyTime(Integer.parseInt(lineTokens[4]));
+      customer.setDueTime(Integer.parseInt(lineTokens[5]));
+      customer.setServiceTime(Integer.parseInt(lineTokens[6]));
       if (demand != 0) {
         customerList.add(customer);
       }
