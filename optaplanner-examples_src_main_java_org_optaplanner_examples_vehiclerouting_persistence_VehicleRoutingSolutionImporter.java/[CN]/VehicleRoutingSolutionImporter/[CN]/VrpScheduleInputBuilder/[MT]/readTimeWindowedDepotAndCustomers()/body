@@ -1,0 +1,42 @@
+{
+  String line=bufferedReader.readLine();
+  int locationListSizeEstimation=25;
+  List<VrpLocation> locationList=new ArrayList<VrpLocation>(locationListSizeEstimation);
+  depotList=new ArrayList<VrpDepot>(1);
+  List<VrpCustomer> customerList=new ArrayList<VrpCustomer>(locationListSizeEstimation);
+  boolean first=true;
+  while (line != null && !line.trim().isEmpty()) {
+    String[] lineTokens=splitBySpacesOrTabs(line.trim(),7);
+    long id=Long.parseLong(lineTokens[0]);
+    VrpLocation location=new VrpLocation();
+    location.setId(id);
+    location.setLatitude(Double.parseDouble(lineTokens[1]));
+    location.setLongitude(Double.parseDouble(lineTokens[2]));
+    locationList.add(location);
+    if (first) {
+      VrpDepot depot=new VrpDepot();
+      depot.setId(id);
+      depot.setLocation(location);
+      int demand=Integer.parseInt(lineTokens[3]);
+      if (demand != 0) {
+        throw new IllegalArgumentException("The depot with id (" + id + ") has a demand ("+ demand+ ").");
+      }
+      depotList.add(depot);
+      first=false;
+    }
+ else {
+      VrpCustomer customer=new VrpCustomer();
+      customer.setId(id);
+      customer.setLocation(location);
+      int demand=Integer.parseInt(lineTokens[3]);
+      customer.setDemand(demand);
+      if (demand != 0) {
+        customerList.add(customer);
+      }
+    }
+    line=bufferedReader.readLine();
+  }
+  schedule.setLocationList(locationList);
+  schedule.setDepotList(depotList);
+  schedule.setCustomerList(customerList);
+}
