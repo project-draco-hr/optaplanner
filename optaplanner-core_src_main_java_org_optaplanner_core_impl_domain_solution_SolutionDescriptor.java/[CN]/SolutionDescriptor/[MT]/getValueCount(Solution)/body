@@ -1,4 +1,4 @@
 {
   int valueCount=0;
-  throw new UnsupportedOperationException("getValueCount not yet supported");
+  throw new UnsupportedOperationException("getValueCount is not yet supported - this blocks ValueRatioTabuSizeStrategy");
 }
