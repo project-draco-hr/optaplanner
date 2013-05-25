@@ -5,7 +5,7 @@
   if (isFieldAnEntityPropertyOnSolution(field)) {
     return true;
   }
-  if (isValueAnEntity(originalValue)) {
+  if (isValueAnEntityOrSolution(originalValue)) {
     return true;
   }
   return false;
