@@ -14,13 +14,15 @@
     location.setLongitude(Double.parseDouble(lineTokens[2]));
     locationList.add(location);
     if (first) {
-      VrpDepot depot=new VrpDepot();
+      VrpTimeWindowedDepot depot=new VrpTimeWindowedDepot();
       depot.setId(id);
       depot.setLocation(location);
       int demand=Integer.parseInt(lineTokens[3]);
       if (demand != 0) {
         throw new IllegalArgumentException("The depot with id (" + id + ") has a demand ("+ demand+ ").");
       }
+      depot.setReadyTime(Integer.parseInt(lineTokens[4]));
+      depot.setDueTime(Integer.parseInt(lineTokens[5]));
       int serviceTime=Integer.parseInt(lineTokens[6]);
       if (serviceTime != 0) {
         throw new IllegalArgumentException("The depot with id (" + id + ") has a serviceTime ("+ serviceTime+ ").");
