@@ -1,0 +1,9 @@
+{
+  XStreamScoreConverterTestObject input=new XStreamScoreConverterTestObject(SimpleScore.valueOf(123));
+  SerializationTestUtils.serializeAndDeserializeWithAll(input,new SerializationTestUtils.OutputAsserter<XStreamScoreConverterTestObject>(){
+    public void assertOutput(    XStreamScoreConverterTestObject output){
+      assertEquals(123,output.getScore().getScore());
+    }
+  }
+);
+}

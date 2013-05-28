@@ -1,0 +1,9 @@
+{
+  XStreamBendableScoreConverterTestObject input=new XStreamBendableScoreConverterTestObject(null);
+  SerializationTestUtils.serializeAndDeserializeWithAll(input,new SerializationTestUtils.OutputAsserter<XStreamBendableScoreConverterTestObject>(){
+    public void assertOutput(    XStreamBendableScoreConverterTestObject output){
+      assertEquals(null,output.getScore());
+    }
+  }
+);
+}
