@@ -1,0 +1,3 @@
+{
+  super(new BendableScoreDefinition(hardLevelCount,softLevelCount));
+}
