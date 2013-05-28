@@ -1,7 +1,6 @@
 {
   SolverFactory solverFactory=new XmlSolverFactory(createSolverConfigResource());
   TerminationConfig terminationConfig=new TerminationConfig();
-  terminationConfig.setMaximumMinutesSpend(5L);
   solverFactory.getSolverConfig().setTerminationConfig(terminationConfig);
   return solverFactory;
 }

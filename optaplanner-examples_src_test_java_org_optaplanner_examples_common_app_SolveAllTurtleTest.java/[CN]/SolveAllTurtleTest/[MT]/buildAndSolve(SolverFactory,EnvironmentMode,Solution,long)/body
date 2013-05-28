@@ -1,4 +1,5 @@
 {
+  solverFactory.getSolverConfig().getTerminationConfig().setMaximumMinutesSpend(maximumMinutesSpend);
   SolverConfig solverConfig=solverFactory.getSolverConfig();
   solverConfig.setEnvironmentMode(environmentMode);
   ScoreDirectorFactoryConfig assertionScoreDirectorFactory=createOverwritingAssertionScoreDirectorFactory();
@@ -6,7 +7,11 @@
     solverConfig.getScoreDirectorFactoryConfig().setAssertionScoreDirectorFactory(assertionScoreDirectorFactory);
   }
   Solver solver=solverFactory.buildSolver();
-  solver.setPlanningProblem(solution);
+  solver.setPlanningProblem(planningProblem);
   solver.solve();
-  return solver.getBestSolution();
+  Solution bestSolution=solver.getBestSolution();
+  if (bestSolution == null) {
+    bestSolution=planningProblem;
+  }
+  return bestSolution;
 }
