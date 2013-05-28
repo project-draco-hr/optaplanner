@@ -1,0 +1,10 @@
+{
+  HardSoftLongScore input=HardSoftLongScore.valueOf(-12L,3400L);
+  SerializationTestUtils.serializeAndDeserializeWithAll(input,new SerializationTestUtils.OutputAsserter<HardSoftLongScore>(){
+    public void assertOutput(    HardSoftLongScore output){
+      assertEquals(-12L,output.getHardScore());
+      assertEquals(3400L,output.getSoftScore());
+    }
+  }
+);
+}

@@ -1,0 +1,10 @@
+{
+  HardSoftScore input=HardSoftScore.valueOf(-12,3400);
+  SerializationTestUtils.serializeAndDeserializeWithAll(input,new SerializationTestUtils.OutputAsserter<HardSoftScore>(){
+    public void assertOutput(    HardSoftScore output){
+      assertEquals(-12,output.getHardScore());
+      assertEquals(3400,output.getSoftScore());
+    }
+  }
+);
+}

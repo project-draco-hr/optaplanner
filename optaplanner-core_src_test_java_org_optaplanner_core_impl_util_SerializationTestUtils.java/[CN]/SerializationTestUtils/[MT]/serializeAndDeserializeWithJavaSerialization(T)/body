@@ -1,0 +1,4 @@
+{
+  byte[] bytes=SerializationUtils.serialize((Serializable)input);
+  return (T)SerializationUtils.deserialize(bytes);
+}

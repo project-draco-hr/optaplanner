@@ -1,0 +1,10 @@
+{
+  HardSoftBigDecimalScore input=HardSoftBigDecimalScore.valueOf(new BigDecimal("-12.3"),new BigDecimal("3400.5"));
+  SerializationTestUtils.serializeAndDeserializeWithAll(input,new SerializationTestUtils.OutputAsserter<HardSoftBigDecimalScore>(){
+    public void assertOutput(    HardSoftBigDecimalScore output){
+      assertEquals(new BigDecimal("-12.3"),output.getHardScore());
+      assertEquals(new BigDecimal("3400.5"),output.getSoftScore());
+    }
+  }
+);
+}

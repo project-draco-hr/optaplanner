@@ -1,0 +1,9 @@
+{
+  SimpleDoubleScore input=SimpleDoubleScore.valueOf(123.4);
+  SerializationTestUtils.serializeAndDeserializeWithAll(input,new SerializationTestUtils.OutputAsserter<SimpleDoubleScore>(){
+    public void assertOutput(    SimpleDoubleScore output){
+      assertEquals(123.4,output.getScore(),0.0);
+    }
+  }
+);
+}
