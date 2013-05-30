@@ -1,0 +1,4 @@
+{
+  nextListIteratorIndex++;
+  return super.next();
+}

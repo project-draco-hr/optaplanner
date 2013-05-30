@@ -3,5 +3,6 @@
   anchorTrailingChainSize=-1;
   fromIndex=-1;
   toIndex=-1;
+  nextListIteratorIndex=0;
   createUpcomingSelection();
 }
