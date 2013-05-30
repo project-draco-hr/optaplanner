@@ -3,7 +3,7 @@
   if (toIndex - fromIndex > maximumSubChainSize || toIndex > anchorTrailingChain.size()) {
     fromIndex++;
     toIndex=fromIndex + minimumSubChainSize;
-    while (toIndex - fromIndex > maximumSubChainSize || toIndex > anchorTrailingChain.size()) {
+    while (toIndex > anchorTrailingChain.size()) {
       if (!anchorTrailingChainIterator.hasNext()) {
         upcomingSelection=null;
         return;
