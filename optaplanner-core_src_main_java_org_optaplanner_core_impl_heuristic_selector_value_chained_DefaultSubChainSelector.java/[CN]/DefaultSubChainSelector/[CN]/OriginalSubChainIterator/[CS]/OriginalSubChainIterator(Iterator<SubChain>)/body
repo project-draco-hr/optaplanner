@@ -1,8 +1,8 @@
 {
   this.anchorTrailingChainIterator=anchorTrailingChainIterator;
-  anchorTrailingChainSize=-1;
-  fromIndex=-1;
-  toIndex=-1;
+  fromIndex=0;
+  toIndex=1;
+  anchorTrailingChain=Collections.emptyList();
   nextListIteratorIndex=0;
   createUpcomingSelection();
 }

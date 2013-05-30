@@ -1,15 +1,14 @@
 {
   toIndex++;
-  if (toIndex > anchorTrailingChainSize) {
+  if (toIndex - fromIndex > maximumSubChainSize || toIndex > anchorTrailingChain.size()) {
     fromIndex++;
     toIndex=fromIndex + minimumSubChainSize;
-    while (toIndex > anchorTrailingChainSize) {
+    while (toIndex - fromIndex > maximumSubChainSize || toIndex > anchorTrailingChain.size()) {
       if (!anchorTrailingChainIterator.hasNext()) {
         upcomingSelection=null;
         return;
       }
       anchorTrailingChain=anchorTrailingChainIterator.next().getEntityList();
-      anchorTrailingChainSize=Math.min(maximumSubChainSize,anchorTrailingChain.size());
       fromIndex=0;
       toIndex=fromIndex + minimumSubChainSize;
     }
