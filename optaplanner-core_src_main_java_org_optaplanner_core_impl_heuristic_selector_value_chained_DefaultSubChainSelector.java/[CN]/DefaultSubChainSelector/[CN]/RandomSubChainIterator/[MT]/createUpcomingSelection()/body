@@ -1,17 +1,17 @@
 {
-  int anchorTrailingChainListIndex=workingRandom.nextInt(anchorTrailingChainList.size());
-  List<Object> anchorTrailingChain=anchorTrailingChainList.get(anchorTrailingChainListIndex).getEntityList();
-  int n=Math.min(maximumSubChainSize,anchorTrailingChain.size()) - minimumSubChainSize + 1;
-  long size=((long)n) * (((long)n) + 1L) / 2L;
-  long sizeIndex=RandomUtils.nextLong(workingRandom,size);
-  int fromIndex=0;
-  long subChainSize=sizeIndex;
-  long maxSize=(long)n;
-  while (subChainSize >= maxSize) {
-    subChainSize-=maxSize;
-    fromIndex++;
-    maxSize--;
+  SubChain anchorTrailingChain=selectAnchorTrailingChain();
+  long selectionSize=calculateSubChainSelectionSize(anchorTrailingChain);
+  long selectionIndex=RandomUtils.nextLong(workingRandom,selectionSize);
+  long fromIndex=selectionIndex;
+  long subChainSize=minimumSubChainSize;
+  long countInThatSize=anchorTrailingChain.getSize() - subChainSize + 1;
+  while (fromIndex >= countInThatSize) {
+    fromIndex-=countInThatSize;
+    subChainSize++;
+    countInThatSize--;
+    if (countInThatSize <= 0) {
+      throw new IllegalStateException("Impossible if calculateSubChainSelectionSize() works correctly.");
+    }
   }
-  int toIndex=fromIndex + ((int)subChainSize) + minimumSubChainSize;
-  upcomingSelection=new SubChain(anchorTrailingChain.subList(fromIndex,toIndex));
+  upcomingSelection=anchorTrailingChain.subChain((int)fromIndex,(int)(fromIndex + subChainSize));
 }

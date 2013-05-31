@@ -1,0 +1,4 @@
+{
+  int anchorTrailingChainListIndex=workingRandom.nextInt(anchorTrailingChainList.size());
+  return anchorTrailingChainList.get(anchorTrailingChainListIndex);
+}

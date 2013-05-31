@@ -1,0 +1,11 @@
+{
+  assertTrue(iterator.hasNext());
+  SubChain subChain=iterator.next();
+  Integer count=subChainCountMap.get(subChain);
+  if (count == null) {
+    subChainCountMap.put(subChain,1);
+  }
+ else {
+    subChainCountMap.put(subChain,count + 1);
+  }
+}

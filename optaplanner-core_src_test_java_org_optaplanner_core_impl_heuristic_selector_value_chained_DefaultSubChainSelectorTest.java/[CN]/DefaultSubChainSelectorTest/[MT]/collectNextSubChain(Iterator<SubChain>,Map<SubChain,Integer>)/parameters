@@ -1,0 +1,2 @@
+Iterator<SubChain> iterator
+Map<SubChain,Integer> subChainCountMap

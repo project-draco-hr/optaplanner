@@ -1,0 +1,18 @@
+{
+  Iterator<SubChain> iterator=subChainSelector.iterator();
+  assertNotNull(iterator);
+  int selectionSize=subChains.length;
+  Map<SubChain,Integer> subChainCountMap=new HashMap<SubChain,Integer>(selectionSize);
+  for (int i=0; i < selectionSize * 10; i++) {
+    collectNextSubChain(iterator,subChainCountMap);
+  }
+  for (  SubChain subChain : subChains) {
+    Integer count=subChainCountMap.remove(subChain);
+    assertNotNull("The subChain (" + subChain + ") was not collected.",count);
+  }
+  assertTrue(subChainCountMap.isEmpty());
+  assertTrue(iterator.hasNext());
+  assertEquals(false,subChainSelector.isContinuous());
+  assertEquals(true,subChainSelector.isNeverEnding());
+  assertEquals((long)selectionSize,subChainSelector.getSize());
+}
