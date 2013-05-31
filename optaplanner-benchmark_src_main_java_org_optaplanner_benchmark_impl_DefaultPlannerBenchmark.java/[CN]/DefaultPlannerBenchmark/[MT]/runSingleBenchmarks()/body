@@ -13,7 +13,7 @@
     try {
       singleBenchmark=future.get();
       if (singleBenchmark.getScore() == null) {
-        throw new IllegalStateException("Score is null. TODO fix JBRULES-3462.");
+        throw new IllegalStateException("Score is null. TODO fix PLANNER-46.");
       }
     }
  catch (    InterruptedException e) {
