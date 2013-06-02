@@ -118,6 +118,11 @@
     lateAcceptanceAcceptor.setLateAcceptanceSize((lateAcceptanceSize == null) ? 1000 : lateAcceptanceSize);
     acceptorList.add(lateAcceptanceAcceptor);
   }
+  if ((acceptorTypeList != null && acceptorTypeList.contains(AcceptorType.LATE_ANNEALING)) || lateAnnealingSize != null) {
+    LateAnnealingAcceptor lateAnnealingAcceptor=new LateAnnealingAcceptor();
+    lateAnnealingAcceptor.setLateAnnealingSize((lateAnnealingSize == null) ? 1000 : lateAnnealingSize);
+    acceptorList.add(lateAnnealingAcceptor);
+  }
   if (acceptorList.size() == 1) {
     return acceptorList.get(0);
   }

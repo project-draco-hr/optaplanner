@@ -31,4 +31,5 @@
   greatDelugeWaterLevelUpperBoundRate=ConfigUtils.inheritOverwritableProperty(greatDelugeWaterLevelUpperBoundRate,inheritedConfig.getGreatDelugeWaterLevelUpperBoundRate());
   greatDelugeWaterRisingRate=ConfigUtils.inheritOverwritableProperty(greatDelugeWaterRisingRate,inheritedConfig.getGreatDelugeWaterRisingRate());
   lateAcceptanceSize=ConfigUtils.inheritOverwritableProperty(lateAcceptanceSize,inheritedConfig.getLateAcceptanceSize());
+  lateAnnealingSize=ConfigUtils.inheritOverwritableProperty(lateAnnealingSize,inheritedConfig.getLateAnnealingSize());
 }
