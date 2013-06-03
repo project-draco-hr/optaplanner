@@ -5,9 +5,10 @@
     return true;
   }
   Score lateScore=previousScores[lateScoreIndex];
-  Score scoreDifference=lastStepScore.subtract(score);
+  Score bestScore=moveScope.getStepScope().getPhaseScope().getBestScore();
+  Score scoreDifference=bestScore.subtract(score);
   double[] scoreDifferenceLevels=ScoreUtils.extractLevelDoubles(scoreDifference);
-  Score lateScoreDifference=lastStepScore.subtract(lateScore);
+  Score lateScoreDifference=bestScore.subtract(lateScore);
   double[] lateScoreDifferenceLevels=ScoreUtils.extractLevelDoubles(lateScoreDifference);
   double acceptChance=1.0;
   for (int i=0; i < scoreDifferenceLevels.length; i++) {
