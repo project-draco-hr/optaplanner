@@ -1,5 +1,0 @@
-{
-  if (lateAnnealingSize <= 0) {
-    throw new IllegalArgumentException("The lateAcceptanceSize (" + lateAnnealingSize + ") cannot be negative or zero.");
-  }
-}
