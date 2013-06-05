@@ -1,6 +1,3 @@
 {
-  if (totalScore == null) {
-    return null;
-  }
-  return totalScore.divide(getSuccessCount());
+  return averageScore;
 }

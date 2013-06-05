@@ -27,6 +27,7 @@
   }
   if (!firstNonFailure) {
     int successCount=getSuccessCount();
+    averageScore=totalScore.divide(successCount);
     averageWorstScoreDifferencePercentage=totalWorstScoreDifferencePercentage.divide((double)successCount);
     averageAverageCalculateCountPerSecond=totalAverageCalculateCountPerSecond / (long)successCount;
   }
