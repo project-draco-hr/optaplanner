@@ -1,4 +1,4 @@
 {
   determineTotalsAndAverages();
-  determineDifferencesFromAverage();
+  determineStandardDeviation();
 }
