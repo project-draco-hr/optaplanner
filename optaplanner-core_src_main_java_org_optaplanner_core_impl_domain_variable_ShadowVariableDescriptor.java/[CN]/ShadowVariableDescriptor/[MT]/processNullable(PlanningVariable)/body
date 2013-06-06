@@ -1,10 +1,10 @@
 {
   boolean nullable=planningVariableAnnotation.nullable();
   if (nullable) {
-    throw new IllegalArgumentException("The planningEntityClass (" + planningEntityDescriptor.getPlanningEntityClass() + ") has shadow PlanningVariable annotated property ("+ variablePropertyAccessor.getName()+ ") with mappedBy ("+ planningVariableAnnotation.mappedBy()+ ") which also has nullable ("+ nullable+ ").");
+    throw new IllegalArgumentException("The planningEntityClass (" + entityDescriptor.getPlanningEntityClass() + ") has shadow PlanningVariable annotated property ("+ variablePropertyAccessor.getName()+ ") with mappedBy ("+ planningVariableAnnotation.mappedBy()+ ") which also has nullable ("+ nullable+ ").");
   }
   Class<? extends SelectionFilter> reinitializeVariableEntityFilterClass=planningVariableAnnotation.reinitializeVariableEntityFilter();
   if (reinitializeVariableEntityFilterClass != PlanningVariable.NullReinitializeVariableEntityFilter.class) {
-    throw new IllegalArgumentException("The planningEntityClass (" + planningEntityDescriptor.getPlanningEntityClass() + ") has shadow PlanningVariable annotated property ("+ variablePropertyAccessor.getName()+ ") with mappedBy ("+ planningVariableAnnotation.mappedBy()+ ") which also has reinitializeVariableEntityFilterClass ("+ reinitializeVariableEntityFilterClass+ ").");
+    throw new IllegalArgumentException("The planningEntityClass (" + entityDescriptor.getPlanningEntityClass() + ") has shadow PlanningVariable annotated property ("+ variablePropertyAccessor.getName()+ ") with mappedBy ("+ planningVariableAnnotation.mappedBy()+ ") which also has reinitializeVariableEntityFilterClass ("+ reinitializeVariableEntityFilterClass+ ").");
   }
 }

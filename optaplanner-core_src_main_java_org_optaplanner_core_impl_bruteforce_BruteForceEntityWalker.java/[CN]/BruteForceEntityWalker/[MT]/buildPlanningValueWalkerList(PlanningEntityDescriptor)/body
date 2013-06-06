@@ -1,5 +1,5 @@
 {
-  Collection<PlanningVariableDescriptor> planningVariableDescriptors=planningEntityDescriptor.getPlanningVariableDescriptors();
+  Collection<PlanningVariableDescriptor> planningVariableDescriptors=entityDescriptor.getPlanningVariableDescriptors();
   List<PlanningValueWalker> planningValueWalkerList=new ArrayList<PlanningValueWalker>(planningVariableDescriptors.size());
   for (  PlanningVariableDescriptor planningVariableDescriptor : planningVariableDescriptors) {
     PlanningValueSelector planningValueSelector=new PlanningValueSelector(planningVariableDescriptor);

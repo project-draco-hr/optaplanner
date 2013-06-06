@@ -2,7 +2,7 @@
   PlanningEntityDescriptor entityDescriptor=null;
   Class<?> planningEntityClass=planningEntitySubclass;
   while (planningEntityClass != null) {
-    entityDescriptor=planningEntityDescriptorMap.get(planningEntityClass);
+    entityDescriptor=entityDescriptorMap.get(planningEntityClass);
     if (entityDescriptor != null) {
       return entityDescriptor;
     }

@@ -1,8 +1,8 @@
 {
   if (selectionOrder == PlanningEntitySelectionOrder.DECREASING_DIFFICULTY) {
-    PlanningEntitySorter planningEntitySorter=planningEntityDescriptor.getPlanningEntitySorter();
+    PlanningEntitySorter planningEntitySorter=entityDescriptor.getPlanningEntitySorter();
     if (!planningEntitySorter.isSortDifficultySupported()) {
-      throw new IllegalStateException("The selectionOrder (" + selectionOrder + ") can not be used on a PlanningEntity ("+ planningEntityDescriptor.getPlanningEntityClass().getName()+ ") that has no support for difficulty sorting. Check the @PlanningEntity annotation.");
+      throw new IllegalStateException("The selectionOrder (" + selectionOrder + ") can not be used on a PlanningEntity ("+ entityDescriptor.getPlanningEntityClass().getName()+ ") that has no support for difficulty sorting. Check the @PlanningEntity annotation.");
     }
   }
 }

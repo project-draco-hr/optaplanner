@@ -10,5 +10,5 @@
   propertyAccessorMap=new LinkedHashMap<String,PropertyAccessor>(mapSize);
   entityPropertyAccessorMap=new LinkedHashMap<String,PropertyAccessor>(mapSize);
   entityCollectionPropertyAccessorMap=new LinkedHashMap<String,PropertyAccessor>(mapSize);
-  planningEntityDescriptorMap=new LinkedHashMap<Class<?>,PlanningEntityDescriptor>(mapSize);
+  entityDescriptorMap=new LinkedHashMap<Class<?>,PlanningEntityDescriptor>(mapSize);
 }

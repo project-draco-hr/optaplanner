@@ -8,7 +8,7 @@
     strengthWeightFactoryClass=null;
   }
   if (strengthComparatorClass != null && strengthWeightFactoryClass != null) {
-    throw new IllegalStateException("The planningEntityClass (" + planningEntityDescriptor.getPlanningEntityClass() + ") property ("+ variablePropertyAccessor.getName()+ ") cannot have a strengthComparatorClass ("+ strengthComparatorClass.getName()+ ") and a strengthWeightFactoryClass ("+ strengthWeightFactoryClass.getName()+ ") at the same time.");
+    throw new IllegalStateException("The planningEntityClass (" + entityDescriptor.getPlanningEntityClass() + ") property ("+ variablePropertyAccessor.getName()+ ") cannot have a strengthComparatorClass ("+ strengthComparatorClass.getName()+ ") and a strengthWeightFactoryClass ("+ strengthWeightFactoryClass.getName()+ ") at the same time.");
   }
   if (strengthComparatorClass != null) {
     Comparator<Object> strengthComparator=ConfigUtils.newInstance(this,"strengthComparatorClass",strengthComparatorClass);

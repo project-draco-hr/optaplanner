@@ -1,4 +1,4 @@
 {
-  this.planningEntityDescriptor=planningEntityDescriptor;
+  this.entityDescriptor=entityDescriptor;
   variablePropertyAccessor=new ReflectionPropertyAccessor(propertyDescriptor);
 }

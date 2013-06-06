@@ -13,8 +13,8 @@
     throw new IllegalStateException("The selector (" + this + ")'s variableDescriptors ("+ variableDescriptors+ ") is empty.");
   }
   for (  PlanningVariableDescriptor variableDescriptor : variableDescriptors) {
-    if (!leftEntityDescriptor.getPlanningEntityClass().equals(variableDescriptor.getPlanningEntityDescriptor().getPlanningEntityClass())) {
-      throw new IllegalStateException("The selector (" + this + ") has a variableDescriptor with a entityClass ("+ variableDescriptor.getPlanningEntityDescriptor().getPlanningEntityClass()+ ") which is not equal to the leftEntitySelector's entityClass ("+ leftEntityDescriptor.getPlanningEntityClass()+ ").");
+    if (!leftEntityDescriptor.getPlanningEntityClass().equals(variableDescriptor.getEntityDescriptor().getPlanningEntityClass())) {
+      throw new IllegalStateException("The selector (" + this + ") has a variableDescriptor with a entityClass ("+ variableDescriptor.getEntityDescriptor().getPlanningEntityClass()+ ") which is not equal to the leftEntitySelector's entityClass ("+ leftEntityDescriptor.getPlanningEntityClass()+ ").");
     }
     if (variableDescriptor.isChained()) {
       anyChained=true;

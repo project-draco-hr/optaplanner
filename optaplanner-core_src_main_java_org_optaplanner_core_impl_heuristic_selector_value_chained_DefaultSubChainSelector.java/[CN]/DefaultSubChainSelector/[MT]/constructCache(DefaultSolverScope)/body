@@ -1,7 +1,7 @@
 {
   ScoreDirector scoreDirector=solverScope.getScoreDirector();
   PlanningVariableDescriptor variableDescriptor=valueSelector.getVariableDescriptor();
-  Class<?> entityClass=variableDescriptor.getPlanningEntityDescriptor().getPlanningEntityClass();
+  Class<?> entityClass=variableDescriptor.getEntityDescriptor().getPlanningEntityClass();
   long valueSize=valueSelector.getSize();
   if (valueSize > (long)Integer.MAX_VALUE) {
     throw new IllegalStateException("The selector (" + this + ") has a valueSelector ("+ valueSelector+ ") with valueSize ("+ valueSize+ ") which is higher than Integer.MAX_VALUE.");

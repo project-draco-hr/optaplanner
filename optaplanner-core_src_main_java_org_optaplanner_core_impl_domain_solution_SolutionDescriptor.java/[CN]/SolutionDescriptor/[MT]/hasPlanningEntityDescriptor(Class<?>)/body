@@ -1,7 +1,7 @@
 {
   Class<?> entityClass=entitySubclass;
   while (entityClass != null) {
-    if (planningEntityDescriptorMap.containsKey(entityClass)) {
+    if (entityDescriptorMap.containsKey(entityClass)) {
       return true;
     }
     entityClass=entityClass.getSuperclass();
