@@ -1,4 +1,4 @@
 {
-  planningVariableWalker.stepStarted(greedyFitStepScope);
-  forager.stepStarted(greedyFitStepScope);
+  planningVariableWalker.stepStarted(stepScope);
+  forager.stepStarted(stepScope);
 }

@@ -1,4 +1,4 @@
 {
-  planningVariableWalker.phaseEnded(greedyFitSolverPhaseScope);
-  forager.phaseEnded(greedyFitSolverPhaseScope);
+  planningVariableWalker.phaseEnded(phaseScope);
+  forager.phaseEnded(phaseScope);
 }

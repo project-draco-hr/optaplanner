@@ -7,7 +7,7 @@
   processMove(moveScope);
   undoMove.doMove(scoreDirector);
   if (assertExpectedUndoMoveScore) {
-    GreedyFitSolverPhaseScope phaseScope=moveScope.getGreedyFitStepScope().getPhaseScope();
+    GreedyFitSolverPhaseScope phaseScope=moveScope.getStepScope().getPhaseScope();
     phaseScope.assertExpectedUndoMoveScore(move,undoMove);
   }
   logger.trace("        Move index ({}), score ({}) for move ({}).",moveScope.getMoveIndex(),moveScope.getScore(),moveScope.getMove());

@@ -1,3 +1,3 @@
 {
-  return greedyFitStepScope.getWorkingRandom();
+  return stepScope.getWorkingRandom();
 }

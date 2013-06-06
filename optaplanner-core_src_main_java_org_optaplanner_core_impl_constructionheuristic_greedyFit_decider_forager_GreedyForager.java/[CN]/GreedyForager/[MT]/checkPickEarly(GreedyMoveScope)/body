@@ -3,7 +3,7 @@ switch (pickEarlyType) {
 case NEVER:
     break;
 case FIRST_LAST_STEP_SCORE_EQUAL_OR_IMPROVING:
-  Score lastStepScore=moveScope.getGreedyFitStepScope().getPhaseScope().getLastCompletedStepScope().getScore();
+  Score lastStepScore=moveScope.getStepScope().getPhaseScope().getLastCompletedStepScope().getScore();
 if (lastStepScore != null && moveScope.getScore().compareTo(lastStepScore) >= 0) {
   earlyPickedMoveScope=moveScope;
 }
