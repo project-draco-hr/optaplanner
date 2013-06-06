@@ -1,5 +1,5 @@
 {
-  Collection<PlanningVariableDescriptor> variableDescriptors=entityDescriptor.getPlanningVariableDescriptors();
+  Collection<PlanningVariableDescriptor> variableDescriptors=entityDescriptor.getVariableDescriptors();
   if (variableNameIncludeList == null) {
     return variableDescriptors;
   }

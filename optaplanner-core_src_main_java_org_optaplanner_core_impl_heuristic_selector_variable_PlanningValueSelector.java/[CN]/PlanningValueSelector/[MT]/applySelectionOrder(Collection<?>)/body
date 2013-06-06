@@ -8,7 +8,7 @@ Collections.shuffle(randomPlanningValueList,workingRandom);
 return randomPlanningValueList;
 case INCREASING_STRENGTH:
 List<Object> increasingStrengthPlanningValueList=new ArrayList<Object>(workingPlanningValues);
-PlanningValueSorter valueSorter=planningVariableDescriptor.getValueSorter();
+PlanningValueSorter valueSorter=variableDescriptor.getValueSorter();
 valueSorter.sortStrengthAscending(scoreDirector.getWorkingSolution(),increasingStrengthPlanningValueList);
 return increasingStrengthPlanningValueList;
 default :

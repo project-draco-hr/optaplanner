@@ -1,3 +1,0 @@
-{
-  return planningVariableDescriptorMap.get(propertyName);
-}

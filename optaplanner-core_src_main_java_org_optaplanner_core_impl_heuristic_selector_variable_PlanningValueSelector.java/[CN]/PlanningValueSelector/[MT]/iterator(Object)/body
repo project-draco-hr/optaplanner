@@ -3,7 +3,7 @@
     return cachedPlanningValues.iterator();
   }
  else {
-    Collection<?> planningValues=planningVariableDescriptor.extractPlanningValues(scoreDirector.getWorkingSolution(),planningEntity);
+    Collection<?> planningValues=variableDescriptor.extractPlanningValues(scoreDirector.getWorkingSolution(),planningEntity);
     planningValues=applySelectionOrder(planningValues);
     return planningValues.iterator();
   }

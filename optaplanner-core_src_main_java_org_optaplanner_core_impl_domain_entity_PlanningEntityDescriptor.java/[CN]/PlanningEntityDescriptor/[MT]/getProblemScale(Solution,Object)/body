@@ -1,6 +1,6 @@
 {
   long problemScale=1L;
-  for (  PlanningVariableDescriptor variableDescriptor : planningVariableDescriptorMap.values()) {
+  for (  PlanningVariableDescriptor variableDescriptor : variableDescriptorMap.values()) {
     problemScale*=variableDescriptor.getValueCount(solution,planningEntity);
   }
   return problemScale;

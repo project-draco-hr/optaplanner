@@ -2,12 +2,12 @@
   this.planningEntity=planningEntity;
   planningValueIterator=planningValueSelector.iterator(planningEntity);
   if (!planningValueIterator.hasNext()) {
-    throw new IllegalStateException("The planningEntity (" + planningEntity + ") has a planning variable ("+ planningVariableDescriptor.getVariableName()+ ") which has no planning values.");
+    throw new IllegalStateException("The planningEntity (" + planningEntity + ") has a planning variable ("+ variableDescriptor.getVariableName()+ ") which has no planning values.");
   }
   Object value=planningValueIterator.next();
-  scoreDirector.beforeVariableChanged(planningEntity,planningVariableDescriptor.getVariableName());
-  planningVariableDescriptor.setValue(planningEntity,value);
-  scoreDirector.afterVariableChanged(planningEntity,planningVariableDescriptor.getVariableName());
+  scoreDirector.beforeVariableChanged(planningEntity,variableDescriptor.getVariableName());
+  variableDescriptor.setValue(planningEntity,value);
+  scoreDirector.afterVariableChanged(planningEntity,variableDescriptor.getVariableName());
   isFirstValue=true;
   workingValue=value;
 }

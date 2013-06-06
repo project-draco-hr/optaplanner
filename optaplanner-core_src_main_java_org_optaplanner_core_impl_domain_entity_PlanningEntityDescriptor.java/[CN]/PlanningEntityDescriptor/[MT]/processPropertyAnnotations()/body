@@ -1,6 +1,6 @@
 {
   PropertyDescriptor[] propertyDescriptors=planningEntityBeanInfo.getPropertyDescriptors();
-  planningVariableDescriptorMap=new LinkedHashMap<String,PlanningVariableDescriptor>(propertyDescriptors.length);
+  variableDescriptorMap=new LinkedHashMap<String,PlanningVariableDescriptor>(propertyDescriptors.length);
   shadowVariableDescriptorMap=new LinkedHashMap<String,ShadowVariableDescriptor>(propertyDescriptors.length);
   boolean noPlanningVariableAnnotation=true;
   for (  PropertyDescriptor propertyDescriptor : propertyDescriptors) {
@@ -13,7 +13,7 @@
       }
       if (planningVariableAnnotation.mappedBy().equals("")) {
         PlanningVariableDescriptor variableDescriptor=new PlanningVariableDescriptor(this,propertyDescriptor);
-        planningVariableDescriptorMap.put(propertyDescriptor.getName(),variableDescriptor);
+        variableDescriptorMap.put(propertyDescriptor.getName(),variableDescriptor);
         variableDescriptor.processAnnotations();
       }
  else {

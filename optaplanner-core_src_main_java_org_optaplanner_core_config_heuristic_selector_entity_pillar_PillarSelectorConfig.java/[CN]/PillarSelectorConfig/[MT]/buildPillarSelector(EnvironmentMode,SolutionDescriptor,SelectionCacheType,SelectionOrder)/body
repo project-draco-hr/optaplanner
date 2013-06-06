@@ -4,6 +4,6 @@
   }
   EntitySelectorConfig entitySelectorConfig_=entitySelectorConfig == null ? new EntitySelectorConfig() : entitySelectorConfig;
   EntitySelector entitySelector=entitySelectorConfig_.buildEntitySelector(environmentMode,solutionDescriptor,minimumCacheType,SelectionOrder.ORIGINAL);
-  Collection<PlanningVariableDescriptor> variableDescriptors=entitySelector.getEntityDescriptor().getPlanningVariableDescriptors();
+  Collection<PlanningVariableDescriptor> variableDescriptors=entitySelector.getEntityDescriptor().getVariableDescriptors();
   return new SameValuePillarSelector(entitySelector,variableDescriptors,inheritedSelectionOrder.toRandomSelectionBoolean());
 }

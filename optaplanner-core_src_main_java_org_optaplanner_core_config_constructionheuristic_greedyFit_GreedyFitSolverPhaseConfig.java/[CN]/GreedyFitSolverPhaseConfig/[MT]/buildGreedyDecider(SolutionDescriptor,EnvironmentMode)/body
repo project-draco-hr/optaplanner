@@ -9,9 +9,9 @@
   PlanningEntityDescriptor entityDescriptor=solutionDescriptor.getEntityDescriptor(planningEntityClass);
   PlanningVariableWalker planningVariableWalker=new PlanningVariableWalker(entityDescriptor);
   List<PlanningValueWalker> planningValueWalkerList=new ArrayList<PlanningValueWalker>();
-  for (  PlanningVariableDescriptor planningVariableDescriptor : entityDescriptor.getPlanningVariableDescriptors()) {
-    PlanningValueSelector planningValueSelector=new PlanningValueSelector(planningVariableDescriptor);
-    PlanningValueWalker planningValueWalker=new PlanningValueWalker(planningVariableDescriptor,planningValueSelector);
+  for (  PlanningVariableDescriptor variableDescriptor : entityDescriptor.getVariableDescriptors()) {
+    PlanningValueSelector planningValueSelector=new PlanningValueSelector(variableDescriptor);
+    PlanningValueWalker planningValueWalker=new PlanningValueWalker(variableDescriptor,planningValueSelector);
     planningValueWalkerList.add(planningValueWalker);
   }
   planningVariableWalker.setPlanningValueWalkerList(planningValueWalkerList);

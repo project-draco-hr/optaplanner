@@ -1,6 +1,6 @@
 {
-  scoreDirector.beforeVariableChanged(planningEntity,planningVariableDescriptor.getVariableName());
-  planningVariableDescriptor.setValue(planningEntity,value);
-  scoreDirector.afterVariableChanged(planningEntity,planningVariableDescriptor.getVariableName());
+  scoreDirector.beforeVariableChanged(planningEntity,variableDescriptor.getVariableName());
+  variableDescriptor.setValue(planningEntity,value);
+  scoreDirector.afterVariableChanged(planningEntity,variableDescriptor.getVariableName());
   workingValue=value;
 }

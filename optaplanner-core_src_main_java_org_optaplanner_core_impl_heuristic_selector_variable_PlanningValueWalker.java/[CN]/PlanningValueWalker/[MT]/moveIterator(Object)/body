@@ -1,6 +1,6 @@
 {
   final Iterator<?> planningValueIterator=planningValueSelector.iterator(planningEntity);
-  if (!planningVariableDescriptor.isChained()) {
+  if (!variableDescriptor.isChained()) {
     return new ChangeMoveIterator(planningValueIterator,planningEntity);
   }
  else {
