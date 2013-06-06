@@ -1,4 +1,7 @@
 {
+  if (BendableScore.class.equals(scoreClass)) {
+    throw new IllegalArgumentException(XStreamScoreConverter.class + " is not compatible with scoreClass (" + scoreClass+ "), use "+ XStreamBendableScoreConverter.class+ " instead.");
+  }
   try {
     scoreDefinition=scoreDefinitionClass.newInstance();
   }
