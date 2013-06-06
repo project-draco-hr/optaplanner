@@ -1,11 +1,11 @@
 {
-  if (localSearchStepScope.getStepIndex() == localSearchStepScope.getPhaseScope().getBestSolutionStepIndex()) {
+  if (stepScope.getStepIndex() == stepScope.getPhaseScope().getBestSolutionStepIndex()) {
     successiveNoHardScoreChange=0;
     shiftingPenaltyActive=false;
   }
  else {
-    HardSoftScore lastStepScore=(HardSoftScore)localSearchStepScope.getPhaseScope().getLastCompletedStepScope().getScore();
-    HardSoftScore stepScore=(HardSoftScore)localSearchStepScope.getScore();
+    HardSoftScore lastStepScore=(HardSoftScore)stepScope.getPhaseScope().getLastCompletedStepScope().getScore();
+    HardSoftScore stepScore=(HardSoftScore)stepScope.getScore();
     if (stepScore.getHardScore() >= hardScoreActivationThreshold && lastStepScore.getHardScore() == stepScore.getHardScore()) {
       successiveNoHardScoreChange++;
     }

@@ -1,4 +1,4 @@
 {
-  LocalSearchStepScope localSearchStepScope=new LocalSearchStepScope(phaseScope);
-  return localSearchStepScope;
+  LocalSearchStepScope stepScope=new LocalSearchStepScope(phaseScope);
+  return stepScope;
 }

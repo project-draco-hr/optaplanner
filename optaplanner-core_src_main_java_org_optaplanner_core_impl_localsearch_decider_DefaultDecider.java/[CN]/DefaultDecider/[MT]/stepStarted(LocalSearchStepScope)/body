@@ -1,5 +1,5 @@
 {
-  moveSelector.stepStarted(localSearchStepScope);
-  acceptor.stepStarted(localSearchStepScope);
-  forager.stepStarted(localSearchStepScope);
+  moveSelector.stepStarted(stepScope);
+  acceptor.stepStarted(stepScope);
+  forager.stepStarted(stepScope);
 }
