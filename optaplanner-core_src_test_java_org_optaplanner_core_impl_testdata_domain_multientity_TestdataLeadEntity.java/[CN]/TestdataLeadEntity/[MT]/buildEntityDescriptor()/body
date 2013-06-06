@@ -1,4 +1,4 @@
 {
   SolutionDescriptor solutionDescriptor=TestdataMultiEntitySolution.buildSolutionDescriptor();
-  return solutionDescriptor.getPlanningEntityDescriptor(TestdataLeadEntity.class);
+  return solutionDescriptor.getEntityDescriptor(TestdataLeadEntity.class);
 }

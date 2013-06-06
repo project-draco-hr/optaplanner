@@ -1,6 +1,6 @@
 {
   Class<?> masterClass=getVariablePropertyType();
-  PlanningEntityDescriptor mappedByEntityDescriptor=getEntityDescriptor().getSolutionDescriptor().getPlanningEntityDescriptor(masterClass);
+  PlanningEntityDescriptor mappedByEntityDescriptor=getEntityDescriptor().getSolutionDescriptor().getEntityDescriptor(masterClass);
   if (mappedByEntityDescriptor == null) {
     throw new IllegalArgumentException("The planningEntityClass (" + entityDescriptor.getPlanningEntityClass() + ") has shadow PlanningVariable annotated property ("+ variablePropertyAccessor.getName()+ ") with a masterClass ("+ masterClass+ ") which is not a valid planning entity.");
   }

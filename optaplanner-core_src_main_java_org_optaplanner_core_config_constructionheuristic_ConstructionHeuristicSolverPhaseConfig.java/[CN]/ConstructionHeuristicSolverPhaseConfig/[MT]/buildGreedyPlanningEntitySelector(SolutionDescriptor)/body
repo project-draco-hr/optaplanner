@@ -6,7 +6,7 @@
   }
   Class<?> planningEntityClass=planningEntityClassSet.iterator().next();
   List<PlanningEntitySelector> planningEntitySelectorList=new ArrayList<PlanningEntitySelector>(1);
-  PlanningEntitySelector planningEntitySelector=new PlanningEntitySelector(solutionDescriptor.getPlanningEntityDescriptor(planningEntityClass));
+  PlanningEntitySelector planningEntitySelector=new PlanningEntitySelector(solutionDescriptor.getEntityDescriptor(planningEntityClass));
   planningEntitySelector.setSelectionOrder(determinePlanningEntitySelectionOrder());
   planningEntitySelectorList.add(planningEntitySelector);
   greedyPlanningEntitySelector.setPlanningEntitySelectorList(planningEntitySelectorList);
