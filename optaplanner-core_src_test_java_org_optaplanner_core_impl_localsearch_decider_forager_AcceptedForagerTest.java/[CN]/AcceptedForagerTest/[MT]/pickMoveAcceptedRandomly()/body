@@ -1,7 +1,7 @@
 {
   Forager forager=new AcceptedForager(PickEarlyType.NEVER,3);
   ((AcceptedForager)forager).setDeciderScoreComparatorFactory(new NaturalDeciderScoreComparatorFactory());
-  LocalSearchSolverPhaseScope phaseScope=createLocalSearchSolverPhaseScope();
+  LocalSearchSolverPhaseScope phaseScope=createPhaseScope();
   forager.phaseStarted(phaseScope);
   LocalSearchStepScope stepScope=createStepScope(phaseScope);
   forager.stepStarted(stepScope);
