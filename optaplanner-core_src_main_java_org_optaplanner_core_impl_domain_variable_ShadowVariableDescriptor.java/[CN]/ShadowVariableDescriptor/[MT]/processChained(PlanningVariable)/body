@@ -1,0 +1,6 @@
+{
+  boolean chained=planningVariableAnnotation.chained();
+  if (chained) {
+    throw new IllegalArgumentException("The planningEntityClass (" + planningEntityDescriptor.getPlanningEntityClass() + ") has shadow PlanningVariable annotated property ("+ variablePropertyAccessor.getName()+ ") with mappedBy ("+ planningVariableAnnotation.mappedBy()+ ") which also has chained ("+ chained+ ").");
+  }
+}

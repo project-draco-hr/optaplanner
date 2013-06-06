@@ -1,6 +1,5 @@
 {
   PlanningVariable planningVariableAnnotation=variablePropertyAccessor.getReadMethod().getAnnotation(PlanningVariable.class);
-  valueSorter=new PlanningValueSorter();
   processMappedBy(planningVariableAnnotation);
   processNullable(planningVariableAnnotation);
   processStrength(planningVariableAnnotation);

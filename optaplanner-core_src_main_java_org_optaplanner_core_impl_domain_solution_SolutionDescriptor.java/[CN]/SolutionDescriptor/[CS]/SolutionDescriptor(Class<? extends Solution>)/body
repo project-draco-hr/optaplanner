@@ -7,8 +7,8 @@
     throw new IllegalStateException("The solutionClass (" + solutionClass + ") is not a valid java bean.",e);
   }
   int mapSize=solutionBeanInfo.getPropertyDescriptors().length;
-  propertyAccessorMap=new HashMap<String,PropertyAccessor>(mapSize);
-  entityPropertyAccessorMap=new HashMap<String,PropertyAccessor>(mapSize);
-  entityCollectionPropertyAccessorMap=new HashMap<String,PropertyAccessor>(mapSize);
-  planningEntityDescriptorMap=new HashMap<Class<?>,PlanningEntityDescriptor>(mapSize);
+  propertyAccessorMap=new LinkedHashMap<String,PropertyAccessor>(mapSize);
+  entityPropertyAccessorMap=new LinkedHashMap<String,PropertyAccessor>(mapSize);
+  entityCollectionPropertyAccessorMap=new LinkedHashMap<String,PropertyAccessor>(mapSize);
+  planningEntityDescriptorMap=new LinkedHashMap<Class<?>,PlanningEntityDescriptor>(mapSize);
 }

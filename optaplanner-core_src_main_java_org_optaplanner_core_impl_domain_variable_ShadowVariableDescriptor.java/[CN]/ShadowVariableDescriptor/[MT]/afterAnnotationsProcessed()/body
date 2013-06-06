@@ -1,0 +1,14 @@
+{
+  Class<?> masterClass=getVariablePropertyType();
+  PlanningEntityDescriptor mappedByEntityDescriptor=getPlanningEntityDescriptor().getSolutionDescriptor().getPlanningEntityDescriptor(masterClass);
+  if (mappedByEntityDescriptor == null) {
+    throw new IllegalArgumentException("The planningEntityClass (" + planningEntityDescriptor.getPlanningEntityClass() + ") has shadow PlanningVariable annotated property ("+ variablePropertyAccessor.getName()+ ") with a masterClass ("+ masterClass+ ") which is not a valid planning entity.");
+  }
+  mappedByVariableDescriptor=mappedByEntityDescriptor.getPlanningVariableDescriptor(mappedBy);
+  if (mappedByVariableDescriptor == null) {
+    throw new IllegalArgumentException("The planningEntityClass (" + planningEntityDescriptor.getPlanningEntityClass() + ") has shadow PlanningVariable annotated property ("+ variablePropertyAccessor.getName()+ ") with mappedBy ("+ mappedBy+ ") which is not a valid planning variable on ("+ mappedByEntityDescriptor.getPlanningEntityClass()+ ").");
+  }
+  if (!mappedByVariableDescriptor.isChained()) {
+    throw new IllegalArgumentException("The planningEntityClass (" + planningEntityDescriptor.getPlanningEntityClass() + ") has shadow PlanningVariable annotated property ("+ variablePropertyAccessor.getName()+ ") with mappedBy ("+ mappedBy+ ") which is not a valid planning variable on ("+ mappedByEntityDescriptor.getPlanningEntityClass()+ ").");
+  }
+}
