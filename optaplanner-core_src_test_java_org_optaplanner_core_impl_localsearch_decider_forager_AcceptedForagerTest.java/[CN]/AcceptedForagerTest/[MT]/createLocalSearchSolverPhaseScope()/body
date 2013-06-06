@@ -1,6 +1,6 @@
 {
   DefaultSolverScope solverScope=new DefaultSolverScope();
-  LocalSearchSolverPhaseScope localSearchSolverPhaseScope=new LocalSearchSolverPhaseScope(solverScope);
+  LocalSearchSolverPhaseScope phaseScope=new LocalSearchSolverPhaseScope(solverScope);
   DroolsScoreDirectorFactory scoreDirectorFactory=new DroolsScoreDirectorFactory();
   scoreDirectorFactory.setSolutionDescriptor(TestdataSolution.buildSolutionDescriptor());
   scoreDirectorFactory.setScoreDefinition(new SimpleScoreDefinition());
@@ -9,8 +9,8 @@
   when(workingRandom.nextInt(2)).thenReturn(0);
   solverScope.setWorkingRandom(workingRandom);
   solverScope.setBestScore(SimpleScore.valueOf(-10));
-  LocalSearchStepScope lastLocalSearchStepScope=new LocalSearchStepScope(localSearchSolverPhaseScope);
+  LocalSearchStepScope lastLocalSearchStepScope=new LocalSearchStepScope(phaseScope);
   lastLocalSearchStepScope.setScore(SimpleScore.valueOf(-100));
-  localSearchSolverPhaseScope.setLastCompletedStepScope(lastLocalSearchStepScope);
-  return localSearchSolverPhaseScope;
+  phaseScope.setLastCompletedStepScope(lastLocalSearchStepScope);
+  return phaseScope;
 }
