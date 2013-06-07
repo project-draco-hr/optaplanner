@@ -4,7 +4,7 @@
   }
  else   if (o instanceof Visit) {
     Visit other=(Visit)o;
-    return new EqualsBuilder().append(id,other.id).append(city,other.city).append(previousAppearance,other.previousAppearance).isEquals();
+    return new EqualsBuilder().append(id,other.id).append(city,other.city).append(previousStandstill,other.previousStandstill).isEquals();
   }
  else {
     return false;

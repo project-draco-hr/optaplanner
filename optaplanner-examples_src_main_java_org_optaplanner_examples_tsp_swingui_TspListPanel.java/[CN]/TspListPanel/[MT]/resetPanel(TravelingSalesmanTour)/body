@@ -19,11 +19,11 @@
     JButton button=new JButton(new VisitAction(visit));
     visitPanel.add(button);
     String distanceLabelString;
-    if (visit.getPreviousAppearance() == null) {
+    if (visit.getPreviousStandstill() == null) {
       distanceLabelString="Unassigned";
     }
  else {
-      distanceLabelString="After " + visit.getPreviousAppearance().getCity().getSafeName() + " with distance "+ visit.getDistanceToPreviousAppearance();
+      distanceLabelString="After " + visit.getPreviousStandstill().getCity().getSafeName() + " with distance "+ visit.getDistanceToPreviousStandstill();
     }
     visitPanel.add(new JLabel(distanceLabelString));
     add(visitPanel);

@@ -1,6 +1,0 @@
-{
-  if (previousAppearance == null) {
-    return 0;
-  }
-  return getDistanceTo(previousAppearance);
-}

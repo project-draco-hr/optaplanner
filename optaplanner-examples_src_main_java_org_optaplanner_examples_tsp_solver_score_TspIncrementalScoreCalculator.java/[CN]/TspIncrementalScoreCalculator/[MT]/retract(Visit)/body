@@ -1,8 +1,8 @@
 {
-  Appearance previousAppearance=visit.getPreviousAppearance();
-  if (previousAppearance != null) {
-    score+=visit.getDistanceToPreviousAppearance();
-    score-=domicile.getCity().getDistance(previousAppearance.getCity());
+  TspStandstill previousStandstill=visit.getPreviousStandstill();
+  if (previousStandstill != null) {
+    score+=visit.getDistanceToPreviousStandstill();
+    score-=domicile.getCity().getDistance(previousStandstill.getCity());
     score+=domicile.getCity().getDistance(visit.getCity());
   }
 }

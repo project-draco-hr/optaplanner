@@ -1,16 +1,16 @@
 {
   TravelingSalesmanTour travelingSalesmanTour=tspPanel.getTravelingSalesmanTour();
-  JComboBox previousAppearanceListField=new JComboBox();
-  for (  Appearance previousAppearance : travelingSalesmanTour.getVisitList()) {
-    previousAppearanceListField.addItem(previousAppearance);
+  JComboBox previousStandstillListField=new JComboBox();
+  for (  TspStandstill previousStandstill : travelingSalesmanTour.getVisitList()) {
+    previousStandstillListField.addItem(previousStandstill);
   }
-  for (  Appearance previousAppearance : travelingSalesmanTour.getDomicileList()) {
-    previousAppearanceListField.addItem(previousAppearance);
+  for (  TspStandstill previousStandstill : travelingSalesmanTour.getDomicileList()) {
+    previousStandstillListField.addItem(previousStandstill);
   }
-  previousAppearanceListField.setSelectedItem(visit.getPreviousAppearance());
-  int result=JOptionPane.showConfirmDialog(TspListPanel.this.getRootPane(),previousAppearanceListField,"Visit " + visit.getCity().getSafeName() + " after",JOptionPane.OK_CANCEL_OPTION);
+  previousStandstillListField.setSelectedItem(visit.getPreviousStandstill());
+  int result=JOptionPane.showConfirmDialog(TspListPanel.this.getRootPane(),previousStandstillListField,"Visit " + visit.getCity().getSafeName() + " after",JOptionPane.OK_CANCEL_OPTION);
   if (result == JOptionPane.OK_OPTION) {
-    Appearance toAppearance=(Appearance)previousAppearanceListField.getSelectedItem();
+    TspStandstill toStandstill=(TspStandstill)previousStandstillListField.getSelectedItem();
     JOptionPane.showMessageDialog(TspListPanel.this,"Unsupported operation.");
     tspPanel.getWorkflowFrame().resetScreen();
   }

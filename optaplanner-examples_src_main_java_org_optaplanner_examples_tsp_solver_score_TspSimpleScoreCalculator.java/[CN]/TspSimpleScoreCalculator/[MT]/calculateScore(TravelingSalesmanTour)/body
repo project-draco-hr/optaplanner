@@ -3,11 +3,11 @@
   Set<Visit> tailVisitSet=new HashSet<Visit>(visitList);
   int score=0;
   for (  Visit visit : visitList) {
-    Appearance previousAppearance=visit.getPreviousAppearance();
-    if (previousAppearance != null) {
-      score-=visit.getDistanceToPreviousAppearance();
-      if (previousAppearance instanceof Visit) {
-        tailVisitSet.remove(previousAppearance);
+    TspStandstill previousStandstill=visit.getPreviousStandstill();
+    if (previousStandstill != null) {
+      score-=visit.getDistanceToPreviousStandstill();
+      if (previousStandstill instanceof Visit) {
+        tailVisitSet.remove(previousStandstill);
       }
     }
   }
@@ -16,7 +16,7 @@
   }
   Domicile domicile=tour.getDomicileList().get(0);
   for (  Visit tailVisit : tailVisitSet) {
-    if (tailVisit.getPreviousAppearance() != null) {
+    if (tailVisit.getPreviousStandstill() != null) {
       score-=domicile.getCity().getDistance(tailVisit.getCity());
     }
   }
