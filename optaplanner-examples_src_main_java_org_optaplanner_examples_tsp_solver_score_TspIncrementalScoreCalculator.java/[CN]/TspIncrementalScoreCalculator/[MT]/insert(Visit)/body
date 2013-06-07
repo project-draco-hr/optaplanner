@@ -1,5 +1,5 @@
 {
-  TspStandstill previousStandstill=visit.getPreviousStandstill();
+  Standstill previousStandstill=visit.getPreviousStandstill();
   if (previousStandstill != null) {
     score-=visit.getDistanceToPreviousStandstill();
     score+=domicile.getCity().getDistance(previousStandstill.getCity());
