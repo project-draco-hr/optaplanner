@@ -1,0 +1,4 @@
+{
+  long timeMillisSpend=stepScope.getPhaseScope().calculateSolverTimeMillisSpend();
+  pointList.add(new StepScoreSingleStatisticPoint(timeMillisSpend,stepScope.getScore()));
+}

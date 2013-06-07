@@ -1,4 +1,0 @@
-{
-  timeMillisSpend=event.getTimeMillisSpend();
-  score=event.getNewBestSolution().getScore();
-}

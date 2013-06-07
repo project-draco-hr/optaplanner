@@ -1,0 +1,20 @@
+{
+  ProblemStatisticCsv csv=new ProblemStatisticCsv();
+  for (  SingleBenchmark singleBenchmark : problemBenchmark.getSingleBenchmarkList()) {
+    if (singleBenchmark.isSuccess()) {
+      StepScoreSingleStatistic singleStatistic=(StepScoreSingleStatistic)singleBenchmark.getSingleStatistic(problemStatisticType);
+      for (      StepScoreSingleStatisticPoint point : singleStatistic.getPointList()) {
+        long timeMillisSpend=point.getTimeMillisSpend();
+        Score score=point.getScore();
+        if (score != null) {
+          csv.addPoint(singleBenchmark,timeMillisSpend,score.toString());
+        }
+      }
+    }
+ else {
+      csv.addPoint(singleBenchmark,0L,"Failed");
+    }
+  }
+  csvStatisticFile=new File(problemBenchmark.getProblemReportDirectory(),problemBenchmark.getName() + "StepScoreStatistic.csv");
+  csv.writeCsvStatisticFile();
+}

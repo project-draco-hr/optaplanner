@@ -1,0 +1,48 @@
+{
+  List<XYPlot> plotList=new ArrayList<XYPlot>(BenchmarkReport.CHARTED_SCORE_LEVEL_SIZE);
+  int seriesIndex=0;
+  for (  SingleBenchmark singleBenchmark : problemBenchmark.getSingleBenchmarkList()) {
+    List<XYSeries> seriesList=new ArrayList<XYSeries>(BenchmarkReport.CHARTED_SCORE_LEVEL_SIZE);
+    XYItemRenderer renderer=new XYStepRenderer();
+    if (singleBenchmark.isSuccess()) {
+      StepScoreSingleStatistic singleStatistic=(StepScoreSingleStatistic)singleBenchmark.getSingleStatistic(problemStatisticType);
+      for (      StepScoreSingleStatisticPoint point : singleStatistic.getPointList()) {
+        long timeMillisSpend=point.getTimeMillisSpend();
+        double[] levelValues=ScoreUtils.extractLevelDoubles(point.getScore());
+        for (int i=0; i < levelValues.length && i < BenchmarkReport.CHARTED_SCORE_LEVEL_SIZE; i++) {
+          if (i >= seriesList.size()) {
+            seriesList.add(new XYSeries(singleBenchmark.getSolverBenchmark().getNameWithFavoriteSuffix()));
+          }
+          seriesList.get(i).add(timeMillisSpend,levelValues[i]);
+        }
+      }
+      long timeMillisSpend=singleBenchmark.getTimeMillisSpend();
+      double[] stepScoreLevels=ScoreUtils.extractLevelDoubles(singleBenchmark.getScore());
+      for (int i=0; i < stepScoreLevels.length && i < BenchmarkReport.CHARTED_SCORE_LEVEL_SIZE; i++) {
+        if (i >= seriesList.size()) {
+          seriesList.add(new XYSeries(singleBenchmark.getSolverBenchmark().getNameWithFavoriteSuffix()));
+        }
+        seriesList.get(i).add(timeMillisSpend,stepScoreLevels[i]);
+      }
+      if (singleStatistic.getPointList().size() <= 1) {
+        renderer=new StandardXYItemRenderer(StandardXYItemRenderer.SHAPES_AND_LINES);
+      }
+    }
+    if (singleBenchmark.getSolverBenchmark().isFavorite()) {
+      renderer.setSeriesStroke(0,new BasicStroke(2.0f));
+    }
+    for (int i=0; i < seriesList.size(); i++) {
+      if (i >= plotList.size()) {
+        plotList.add(createPlot(i));
+      }
+      plotList.get(i).setDataset(seriesIndex,new XYSeriesCollection(seriesList.get(i)));
+      plotList.get(i).setRenderer(seriesIndex,renderer);
+    }
+    seriesIndex++;
+  }
+  graphStatisticFileList=new ArrayList<File>(plotList.size());
+  for (int scoreLevelIndex=0; scoreLevelIndex < plotList.size(); scoreLevelIndex++) {
+    JFreeChart chart=new JFreeChart(problemBenchmark.getName() + " step score level " + scoreLevelIndex+ " statistic",JFreeChart.DEFAULT_TITLE_FONT,plotList.get(scoreLevelIndex),true);
+    graphStatisticFileList.add(writeChartToImageFile(chart,problemBenchmark.getName() + "StepScoreStatisticLevel" + scoreLevelIndex));
+  }
+}
