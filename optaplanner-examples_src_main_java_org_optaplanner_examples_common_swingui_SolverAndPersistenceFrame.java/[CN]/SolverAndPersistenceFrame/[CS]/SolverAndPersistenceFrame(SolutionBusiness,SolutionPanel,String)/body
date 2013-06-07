@@ -1,5 +1,6 @@
 {
   super(exampleName + " OptaPlanner example");
+  setIconImage(OPTA_PLANNER_ICON.getImage());
   this.solutionBusiness=solutionBusiness;
   this.solutionPanel=solutionPanel;
   solutionPanel.setSolutionBusiness(solutionBusiness);
