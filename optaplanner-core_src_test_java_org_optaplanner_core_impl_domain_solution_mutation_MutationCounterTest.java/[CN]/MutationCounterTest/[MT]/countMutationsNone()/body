@@ -1,0 +1,25 @@
+{
+  SolutionDescriptor solutionDescriptor=TestdataSolution.buildSolutionDescriptor();
+  MutationCounter mutationCounter=new MutationCounter(solutionDescriptor);
+  TestdataValue val1=new TestdataValue("1");
+  TestdataValue val2=new TestdataValue("2");
+  TestdataValue val3=new TestdataValue("3");
+  List<TestdataValue> valueList=Arrays.asList(val1,val2,val3);
+  TestdataEntity a_a=new TestdataEntity("a",val1);
+  TestdataEntity a_b=new TestdataEntity("b",val1);
+  TestdataEntity a_c=new TestdataEntity("c",val3);
+  TestdataEntity a_d=new TestdataEntity("d",val3);
+  List<TestdataEntity> aEntityList=Arrays.asList(a_a,a_b,a_c,a_d);
+  TestdataSolution a=new TestdataSolution("solution");
+  a.setValueList(valueList);
+  a.setEntityList(aEntityList);
+  TestdataEntity b_a=new TestdataEntity("a",val1);
+  TestdataEntity b_b=new TestdataEntity("b",val1);
+  TestdataEntity b_c=new TestdataEntity("c",val3);
+  TestdataEntity b_d=new TestdataEntity("d",val3);
+  List<TestdataEntity> bEntityList=Arrays.asList(b_a,b_b,b_c,b_d);
+  TestdataSolution b=new TestdataSolution("solution");
+  b.setValueList(valueList);
+  b.setEntityList(bEntityList);
+  assertEquals(0,mutationCounter.countMutations(a,b));
+}
