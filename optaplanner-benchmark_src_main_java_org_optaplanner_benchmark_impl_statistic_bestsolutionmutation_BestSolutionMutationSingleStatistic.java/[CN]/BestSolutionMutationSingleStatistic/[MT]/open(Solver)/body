@@ -1,0 +1,5 @@
+{
+  SolutionDescriptor solutionDescriptor=solver.getScoreDirectorFactory().getSolutionDescriptor();
+  listener.setMutationCounter(new MutationCounter(solutionDescriptor));
+  solver.addEventListener(listener);
+}

@@ -1,0 +1,3 @@
+{
+  super(problemBenchmark,ProblemStatisticType.BEST_SOLUTION_MUTATION);
+}
