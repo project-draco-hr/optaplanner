@@ -1,0 +1,4 @@
+{
+  this.shadowVariableDescriptor=shadowVariableDescriptor;
+  mappedByVariableDescriptor=shadowVariableDescriptor.getMappedByVariableDescriptor();
+}
