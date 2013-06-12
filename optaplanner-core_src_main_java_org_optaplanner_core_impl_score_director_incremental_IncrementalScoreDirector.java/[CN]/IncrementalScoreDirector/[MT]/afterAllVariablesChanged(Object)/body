@@ -1,4 +1,0 @@
-{
-  super.afterAllVariablesChanged(entity);
-  incrementalScoreCalculator.afterAllVariablesChanged(entity);
-}
