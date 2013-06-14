@@ -1,0 +1,7 @@
+{
+  Class<? extends PlanningVariableListener>[] variableListenerClasses=planningVariableAnnotation.variableListenerClasses();
+  nonMappedByVariableListeners=new ArrayList<PlanningVariableListener>(variableListenerClasses.length);
+  for (  Class<? extends PlanningVariableListener> variableListenerClass : variableListenerClasses) {
+    nonMappedByVariableListeners.add(ConfigUtils.newInstance(this,"variableListenerClass",variableListenerClass));
+  }
+}

@@ -2,4 +2,7 @@
   for (  ShadowVariableDescriptor shadowVariableDescriptor : shadowVariableDescriptorList) {
     variableListenerMap.put(this,shadowVariableDescriptor.buildPlanningVariableListener());
   }
+  for (  PlanningVariableListener variableListener : nonMappedByVariableListeners) {
+    variableListenerMap.put(this,variableListener);
+  }
 }

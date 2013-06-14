@@ -1,0 +1,9 @@
+{
+  VrpStandstill previousStandstill=customer.getPreviousStandstill();
+  VrpVehicle vehicle=previousStandstill == null ? null : previousStandstill.getVehicle();
+  VrpCustomer staleCustomer=customer;
+  while (staleCustomer != null && staleCustomer.getVehicle() != vehicle) {
+    staleCustomer.setVehicle(vehicle);
+    staleCustomer=customer.getNextCustomer();
+  }
+}

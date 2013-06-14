@@ -1,10 +1,3 @@
 {
-  VrpStandstill firstStandstill=getPreviousStandstill();
-  while (firstStandstill instanceof VrpCustomer) {
-    if (firstStandstill == this) {
-      throw new IllegalStateException("Impossible state");
-    }
-    firstStandstill=((VrpCustomer)firstStandstill).getPreviousStandstill();
-  }
-  return (VrpVehicle)firstStandstill;
+  return vehicle;
 }

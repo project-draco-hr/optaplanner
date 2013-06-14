@@ -4,5 +4,6 @@
   processNullable(planningVariableAnnotation);
   processStrength(planningVariableAnnotation);
   processChained(planningVariableAnnotation);
+  processVariableListeners(planningVariableAnnotation);
   processValueRangeAnnotation(planningVariableAnnotation);
 }
