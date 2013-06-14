@@ -4,7 +4,7 @@
   Object oldFirstPlanningValue=variableDescriptor.getValue(firstEntity);
   Object oldTrailingEntity=scoreDirector.getTrailingEntity(variableDescriptor,lastEntity);
   Object newTrailingEntity=scoreDirector.getTrailingEntity(variableDescriptor,toPlanningValue);
-  boolean unmovedReverse=firstEntity.equals(newTrailingEntity);
+  boolean unmovedReverse=firstEntity == newTrailingEntity;
   List<Object> entityList=subChain.getEntityList();
   if (oldTrailingEntity != null) {
     scoreDirector.beforeVariableChanged(oldTrailingEntity,variableDescriptor.getVariableName());
