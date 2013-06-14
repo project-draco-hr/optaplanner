@@ -4,40 +4,48 @@
   Object oldFirstPlanningValue=variableDescriptor.getValue(firstEntity);
   Object oldTrailingEntity=scoreDirector.getTrailingEntity(variableDescriptor,lastEntity);
   Object newTrailingEntity=scoreDirector.getTrailingEntity(variableDescriptor,toPlanningValue);
-  if (firstEntity.equals(newTrailingEntity)) {
-    if (oldTrailingEntity != null) {
-      scoreDirector.beforeVariableChanged(oldTrailingEntity,variableDescriptor.getVariableName());
-      variableDescriptor.setValue(oldTrailingEntity,oldFirstPlanningValue);
-      scoreDirector.afterVariableChanged(oldTrailingEntity,variableDescriptor.getVariableName());
-    }
-  }
- else {
-    if (oldTrailingEntity != null) {
-      scoreDirector.beforeVariableChanged(oldTrailingEntity,variableDescriptor.getVariableName());
-      variableDescriptor.setValue(oldTrailingEntity,oldFirstPlanningValue);
-      scoreDirector.afterVariableChanged(oldTrailingEntity,variableDescriptor.getVariableName());
-    }
-  }
-  Object nextEntity=toPlanningValue;
+  boolean unmovedReverse=firstEntity.equals(newTrailingEntity);
   List<Object> entityList=subChain.getEntityList();
+  if (oldTrailingEntity != null) {
+    scoreDirector.beforeVariableChanged(oldTrailingEntity,variableDescriptor.getVariableName());
+  }
   for (ListIterator<Object> it=entityList.listIterator(entityList.size()); it.hasPrevious(); ) {
     Object entity=it.previous();
     scoreDirector.beforeVariableChanged(entity,variableDescriptor.getVariableName());
+  }
+  if (!unmovedReverse) {
+    if (newTrailingEntity != null) {
+      scoreDirector.beforeVariableChanged(newTrailingEntity,variableDescriptor.getVariableName());
+    }
+  }
+  if (oldTrailingEntity != null) {
+    variableDescriptor.setValue(oldTrailingEntity,oldFirstPlanningValue);
+  }
+  Object nextEntity=toPlanningValue;
+  for (ListIterator<Object> it=entityList.listIterator(entityList.size()); it.hasPrevious(); ) {
+    Object entity=it.previous();
     variableDescriptor.setValue(entity,nextEntity);
-    scoreDirector.afterVariableChanged(entity,variableDescriptor.getVariableName());
     nextEntity=entity;
   }
-  if (firstEntity.equals(newTrailingEntity)) {
+  if (unmovedReverse) {
     if (oldTrailingEntity != null) {
-      scoreDirector.beforeVariableChanged(oldTrailingEntity,variableDescriptor.getVariableName());
       variableDescriptor.setValue(oldTrailingEntity,firstEntity);
-      scoreDirector.afterVariableChanged(oldTrailingEntity,variableDescriptor.getVariableName());
     }
   }
  else {
     if (newTrailingEntity != null) {
-      scoreDirector.beforeVariableChanged(newTrailingEntity,variableDescriptor.getVariableName());
       variableDescriptor.setValue(newTrailingEntity,firstEntity);
+    }
+  }
+  if (oldTrailingEntity != null) {
+    scoreDirector.afterVariableChanged(oldTrailingEntity,variableDescriptor.getVariableName());
+  }
+  for (ListIterator<Object> it=entityList.listIterator(entityList.size()); it.hasPrevious(); ) {
+    Object entity=it.previous();
+    scoreDirector.afterVariableChanged(entity,variableDescriptor.getVariableName());
+  }
+  if (!unmovedReverse) {
+    if (newTrailingEntity != null) {
       scoreDirector.afterVariableChanged(newTrailingEntity,variableDescriptor.getVariableName());
     }
   }

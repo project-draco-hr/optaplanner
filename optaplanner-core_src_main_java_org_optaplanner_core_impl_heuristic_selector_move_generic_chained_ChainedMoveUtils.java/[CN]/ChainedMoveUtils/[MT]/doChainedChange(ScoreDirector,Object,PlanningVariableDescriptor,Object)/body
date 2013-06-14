@@ -4,15 +4,23 @@
   Object newTrailingEntity=toPlanningValue == null ? null : scoreDirector.getTrailingEntity(variableDescriptor,toPlanningValue);
   if (oldTrailingEntity != null) {
     scoreDirector.beforeVariableChanged(oldTrailingEntity,variableDescriptor.getVariableName());
-    variableDescriptor.setValue(oldTrailingEntity,oldPlanningValue);
-    scoreDirector.afterVariableChanged(oldTrailingEntity,variableDescriptor.getVariableName());
   }
   scoreDirector.beforeVariableChanged(entity,variableDescriptor.getVariableName());
-  variableDescriptor.setValue(entity,toPlanningValue);
-  scoreDirector.afterVariableChanged(entity,variableDescriptor.getVariableName());
   if (newTrailingEntity != null) {
     scoreDirector.beforeVariableChanged(newTrailingEntity,variableDescriptor.getVariableName());
+  }
+  if (oldTrailingEntity != null) {
+    variableDescriptor.setValue(oldTrailingEntity,oldPlanningValue);
+  }
+  variableDescriptor.setValue(entity,toPlanningValue);
+  if (newTrailingEntity != null) {
     variableDescriptor.setValue(newTrailingEntity,entity);
+  }
+  if (oldTrailingEntity != null) {
+    scoreDirector.afterVariableChanged(oldTrailingEntity,variableDescriptor.getVariableName());
+  }
+  scoreDirector.afterVariableChanged(entity,variableDescriptor.getVariableName());
+  if (newTrailingEntity != null) {
     scoreDirector.afterVariableChanged(newTrailingEntity,variableDescriptor.getVariableName());
   }
 }

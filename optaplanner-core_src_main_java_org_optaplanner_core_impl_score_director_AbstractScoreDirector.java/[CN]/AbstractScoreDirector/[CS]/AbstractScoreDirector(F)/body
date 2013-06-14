@@ -1,6 +1,8 @@
 {
   this.scoreDirectorFactory=scoreDirectorFactory;
-  Collection<PlanningVariableDescriptor> chainedVariableDescriptors=getSolutionDescriptor().getChainedVariableDescriptors();
+  SolutionDescriptor solutionDescriptor=getSolutionDescriptor();
+  variableListenerSupport=solutionDescriptor.buildVariableListenerSupport();
+  Collection<PlanningVariableDescriptor> chainedVariableDescriptors=solutionDescriptor.getChainedVariableDescriptors();
   hasChainedVariables=!chainedVariableDescriptors.isEmpty();
   chainedVariableToTrailingEntitiesMap=new LinkedHashMap<PlanningVariableDescriptor,Map<Object,Set<Object>>>(chainedVariableDescriptors.size());
   for (  PlanningVariableDescriptor chainedVariableDescriptor : chainedVariableDescriptors) {

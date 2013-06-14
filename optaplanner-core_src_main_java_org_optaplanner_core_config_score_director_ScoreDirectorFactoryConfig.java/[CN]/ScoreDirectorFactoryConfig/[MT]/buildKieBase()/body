@@ -39,6 +39,7 @@
         kieBaseConfiguration.setProperty(entry.getKey(),entry.getValue());
       }
     }
+    kieBaseConfiguration.setOption(PhreakOption.ENABLED);
     KieBase kieBase=kieContainer.newKieBase(kieBaseConfiguration);
     return kieBase;
   }

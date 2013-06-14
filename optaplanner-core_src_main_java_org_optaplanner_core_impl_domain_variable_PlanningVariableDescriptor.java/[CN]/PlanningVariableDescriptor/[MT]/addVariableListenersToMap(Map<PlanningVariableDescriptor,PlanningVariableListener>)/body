@@ -1,0 +1,5 @@
+{
+  for (  ShadowVariableDescriptor shadowVariableDescriptor : shadowVariableDescriptorList) {
+    variableListenerMap.put(this,shadowVariableDescriptor.buildPlanningVariableListener());
+  }
+}

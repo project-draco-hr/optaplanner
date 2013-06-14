@@ -11,4 +11,5 @@
   if (!mappedByVariableDescriptor.isChained()) {
     throw new IllegalArgumentException("The planningEntityClass (" + entityDescriptor.getPlanningEntityClass() + ") has shadow PlanningVariable annotated property ("+ variablePropertyAccessor.getName()+ ") with mappedBy ("+ mappedBy+ ") which is not a valid planning variable on ("+ mappedByEntityDescriptor.getPlanningEntityClass()+ ").");
   }
+  mappedByVariableDescriptor.registerShadowVariableDescriptor(this);
 }
