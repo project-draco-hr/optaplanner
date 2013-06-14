@@ -23,9 +23,9 @@
       }
       depot.setReadyTime(Integer.parseInt(lineTokens[4]));
       depot.setDueTime(Integer.parseInt(lineTokens[5]));
-      int serviceTime=Integer.parseInt(lineTokens[6]);
-      if (serviceTime != 0) {
-        throw new IllegalArgumentException("The depot with id (" + id + ") has a serviceTime ("+ serviceTime+ ").");
+      int serviceDuration=Integer.parseInt(lineTokens[6]);
+      if (serviceDuration != 0) {
+        throw new IllegalArgumentException("The depot with id (" + id + ") has a serviceDuration ("+ serviceDuration+ ").");
       }
       depotList.add(depot);
       first=false;
@@ -38,7 +38,7 @@
       customer.setDemand(demand);
       customer.setReadyTime(Integer.parseInt(lineTokens[4]));
       customer.setDueTime(Integer.parseInt(lineTokens[5]));
-      customer.setServiceTime(Integer.parseInt(lineTokens[6]));
+      customer.setServiceDuration(Integer.parseInt(lineTokens[6]));
       if (demand != 0) {
         customerList.add(customer);
       }
