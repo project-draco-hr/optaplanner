@@ -1,4 +1,4 @@
 {
   insertInTrailingEntityMap(entity);
-  variableListenerSupport.afterVariableChanged(entity,variableName);
+  variableListenerSupport.afterVariableChanged(this,entity,variableName);
 }

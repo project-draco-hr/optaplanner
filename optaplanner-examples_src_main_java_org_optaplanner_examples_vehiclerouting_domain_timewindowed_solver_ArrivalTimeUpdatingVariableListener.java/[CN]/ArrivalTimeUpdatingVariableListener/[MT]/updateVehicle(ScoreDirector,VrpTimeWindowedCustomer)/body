@@ -1,0 +1,14 @@
+{
+  VrpStandstill previousStandstill=sourceCustomer.getPreviousStandstill();
+  int departureTime=(previousStandstill instanceof VrpTimeWindowedCustomer) ? ((VrpTimeWindowedCustomer)previousStandstill).getDepartureTime() : 0;
+  VrpTimeWindowedCustomer shadowCustomer=sourceCustomer;
+  int arrivalTime=calculateArrivalTime(shadowCustomer,departureTime);
+  while (shadowCustomer != null && shadowCustomer.getArrivalTime() != arrivalTime) {
+    scoreDirector.beforeVariableChanged(shadowCustomer,"arrivalTime");
+    shadowCustomer.setArrivalTime(arrivalTime);
+    scoreDirector.afterVariableChanged(shadowCustomer,"arrivalTime");
+    departureTime=shadowCustomer.getDepartureTime();
+    shadowCustomer=shadowCustomer.getNextCustomer();
+    arrivalTime=calculateArrivalTime(shadowCustomer,departureTime);
+  }
+}

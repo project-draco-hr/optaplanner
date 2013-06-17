@@ -1,0 +1,7 @@
+{
+  for (  Map.Entry<PlanningVariableDescriptor,PlanningVariableListener> entry : variableListenerMap.entrySet()) {
+    if (entry.getKey().matchesEntityVariable(entity,variableName)) {
+      entry.getValue().afterVariableChanged(scoreDirector,entity);
+    }
+  }
+}

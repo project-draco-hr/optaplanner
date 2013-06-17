@@ -1,0 +1,6 @@
+{
+  if (arrivalTime == null) {
+    return null;
+  }
+  return arrivalTime + serviceDuration;
+}

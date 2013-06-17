@@ -1,8 +1,8 @@
 {
-  super.afterProblemFactRemoved(problemFact);
   FactHandle factHandle=kieSession.getFactHandle(problemFact);
   if (factHandle == null) {
     throw new IllegalArgumentException("The problemFact instance (" + problemFact + ") was never added to this ScoreDirector."+ " Usually the cause is that that specific instance was not in your Solution's getProblemFacts().");
   }
   kieSession.delete(factHandle);
+  super.afterProblemFactRemoved(problemFact);
 }
