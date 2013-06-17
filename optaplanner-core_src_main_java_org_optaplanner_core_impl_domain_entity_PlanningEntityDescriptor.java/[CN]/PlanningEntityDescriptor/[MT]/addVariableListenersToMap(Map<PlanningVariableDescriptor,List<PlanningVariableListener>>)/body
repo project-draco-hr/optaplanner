@@ -1,0 +1,8 @@
+{
+  for (  PlanningVariableDescriptor variableDescriptor : variableDescriptorMap.values()) {
+    List<PlanningVariableListener> variableListenerList=variableDescriptor.buildVariableListenerList();
+    if (!variableListenerList.isEmpty()) {
+      variableListenerMap.put(variableDescriptor,variableListenerList);
+    }
+  }
+}

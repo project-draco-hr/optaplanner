@@ -1,5 +1,0 @@
-{
-  for (  PlanningVariableDescriptor variableDescriptor : variableDescriptorMap.values()) {
-    variableDescriptor.addVariableListenersToMap(variableListenerMap);
-  }
-}
