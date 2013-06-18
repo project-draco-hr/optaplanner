@@ -2,5 +2,5 @@
   if (arrivalTime == null) {
     return null;
   }
-  return arrivalTime + serviceDuration;
+  return Math.max(arrivalTime,readyTime) + serviceDuration;
 }
