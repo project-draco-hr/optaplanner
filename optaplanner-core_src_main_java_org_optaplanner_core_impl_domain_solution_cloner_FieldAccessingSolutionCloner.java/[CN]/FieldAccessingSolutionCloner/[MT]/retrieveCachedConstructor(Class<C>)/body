@@ -1,7 +1,7 @@
 {
   Constructor<C> constructor=constructorCache.get(clazz);
   if (constructor == null) {
-    constructor=clazz.getConstructor();
+    constructor=clazz.getDeclaredConstructor();
     constructor.setAccessible(true);
     constructorCache.put(clazz,constructor);
   }
