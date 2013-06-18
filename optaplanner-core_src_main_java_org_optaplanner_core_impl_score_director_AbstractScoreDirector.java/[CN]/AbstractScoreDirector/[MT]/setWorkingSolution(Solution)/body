@@ -1,4 +1,4 @@
 {
   this.workingSolution=workingSolution;
-  resetTrailingEntityMap();
+  trailingEntityMapSupport.resetTrailingEntityMap(workingSolution);
 }

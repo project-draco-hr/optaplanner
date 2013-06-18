@@ -1,4 +1,4 @@
 {
-  insertInTrailingEntityMap(entity);
+  trailingEntityMapSupport.insertInTrailingEntityMap(entity);
   variableListenerSupport.afterVariableChanged(this,variableDescriptor,entity);
 }
