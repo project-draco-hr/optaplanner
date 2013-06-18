@@ -1,4 +1,4 @@
 {
-  trailingEntityMapSupport.retractFromTrailingEntityMap(entity);
+  trailingEntityMapSupport.retractFromTrailingEntityMap(variableDescriptor,entity);
   variableListenerSupport.beforeVariableChanged(this,variableDescriptor,entity);
 }

@@ -1,0 +1,9 @@
+{
+  if (hasChainedVariables) {
+    for (    PlanningVariableDescriptor variableDescriptor : entityDescriptor.getVariableDescriptors()) {
+      if (variableDescriptor.isChained()) {
+        insertInTrailingEntityMap(variableDescriptor,entity);
+      }
+    }
+  }
+}

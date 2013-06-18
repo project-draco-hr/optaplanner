@@ -1,0 +1,18 @@
+{
+  if (hasChainedVariables && variableDescriptor.isChained()) {
+    Map<Object,Set<Object>> valueToTrailingEntityMap=trailingEntitiesMap.get(variableDescriptor);
+    if (valueToTrailingEntityMap == null) {
+      throw new IllegalStateException("The ScoreDirector (" + getClass() + ") is bugged,"+ " because the chained planningVariable ("+ variableDescriptor.getVariableName()+ ") was not found in the trailingEntitiesMap.");
+    }
+    Object value=variableDescriptor.getValue(entity);
+    Set<Object> trailingEntities=valueToTrailingEntityMap.get(value);
+    if (trailingEntities == null) {
+      trailingEntities=Collections.newSetFromMap(new IdentityHashMap<Object,Boolean>());
+      valueToTrailingEntityMap.put(value,trailingEntities);
+    }
+    boolean addSucceeded=trailingEntities.add(entity);
+    if (!addSucceeded) {
+      throw new IllegalStateException("The ScoreDirector (" + getClass() + ") is corrupted,"+ " because the entity ("+ entity+ ") for chained planningVariable ("+ variableDescriptor.getVariableName()+ ") cannot be inserted: it was already inserted.");
+    }
+  }
+}

@@ -1,3 +1,9 @@
 {
-  afterVariableChanged(getSolutionDescriptor().getEntityDescriptor(entity.getClass()).getVariableDescriptor(variableName),entity);
+  PlanningEntityDescriptor entityDescriptor=getSolutionDescriptor().getEntityDescriptor(entity.getClass());
+  PlanningVariableDescriptor variableDescriptor=entityDescriptor.getVariableDescriptor(variableName);
+  if (variableDescriptor != null) {
+    afterVariableChanged(variableDescriptor,entity);
+  }
+ else {
+  }
 }

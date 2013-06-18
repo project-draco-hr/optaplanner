@@ -1,0 +1,3 @@
+{
+  return variableDescriptorMap.containsKey(propertyName);
+}

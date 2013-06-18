@@ -1,5 +1,5 @@
 {
-  Set<Object> trailingEntities=chainedVariableToTrailingEntitiesMap.get(chainedVariableDescriptor).get(planningValue);
+  Set<Object> trailingEntities=trailingEntitiesMap.get(chainedVariableDescriptor).get(planningValue);
   if (trailingEntities == null) {
     return null;
   }
