@@ -1,0 +1,11 @@
+{
+  for (  Field field : clazz.getDeclaredFields()) {
+    if (!Modifier.isStatic(field.getModifiers()) && !Modifier.isFinal(field.getModifiers())) {
+      field.setAccessible(true);
+      fields.add(field);
+    }
+  }
+  if (clazz.getSuperclass() != null && clazz.getSuperclass() != Object.class) {
+    getAllFields(clazz.getSuperclass(),fields);
+  }
+}

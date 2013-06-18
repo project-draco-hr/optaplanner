@@ -1,10 +1,9 @@
 {
   Field[] fields=fieldsCache.get(clazz);
   if (fields == null) {
-    fields=clazz.getDeclaredFields();
-    for (    Field field : fields) {
-      field.setAccessible(true);
-    }
+    List<Field> fieldList=new LinkedList<Field>();
+    getAllFields(clazz,fieldList);
+    fields=fieldList.toArray(new Field[fieldList.size()]);
     fieldsCache.put(clazz,fields);
   }
   return fields;
