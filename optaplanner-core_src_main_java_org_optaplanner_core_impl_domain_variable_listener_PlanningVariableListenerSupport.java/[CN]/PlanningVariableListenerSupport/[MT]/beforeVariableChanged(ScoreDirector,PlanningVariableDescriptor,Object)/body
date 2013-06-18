@@ -1,0 +1,5 @@
+{
+  for (  PlanningVariableListener variableListener : variableListenerMap.get(variableDescriptor)) {
+    variableListener.beforeVariableChanged(scoreDirector,entity);
+  }
+}

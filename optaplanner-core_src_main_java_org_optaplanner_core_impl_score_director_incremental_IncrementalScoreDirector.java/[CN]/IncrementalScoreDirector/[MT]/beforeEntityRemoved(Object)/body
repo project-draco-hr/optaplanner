@@ -1,4 +1,0 @@
-{
-  incrementalScoreCalculator.beforeEntityRemoved(entity);
-  super.beforeEntityRemoved(entity);
-}

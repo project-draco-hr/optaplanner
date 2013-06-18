@@ -1,4 +1,3 @@
 {
-  insertInTrailingEntityMap(entity);
-  variableListenerSupport.afterVariableChanged(this,entity,variableName);
+  afterVariableChanged(getSolutionDescriptor().getEntityDescriptor(entity.getClass()).getVariableDescriptor(variableName),entity);
 }

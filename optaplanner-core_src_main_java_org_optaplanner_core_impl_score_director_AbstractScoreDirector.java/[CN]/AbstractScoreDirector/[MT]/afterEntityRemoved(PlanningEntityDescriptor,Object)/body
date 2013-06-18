@@ -1,0 +1,3 @@
+{
+  variableListenerSupport.afterEntityRemoved(this,entityDescriptor,entity);
+}

@@ -1,9 +1,0 @@
-{
-  for (  Map.Entry<PlanningVariableDescriptor,List<PlanningVariableListener>> entry : variableListenerMap.entrySet()) {
-    if (entry.getKey().getEntityDescriptor().matchesEntity(entity)) {
-      for (      PlanningVariableListener variableListener : entry.getValue()) {
-        variableListener.beforeEntityRemoved(scoreDirector,entity);
-      }
-    }
-  }
-}

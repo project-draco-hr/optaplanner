@@ -1,0 +1,4 @@
+{
+  incrementalScoreCalculator.beforeVariableChanged(entity,variableDescriptor.getVariableName());
+  super.beforeVariableChanged(variableDescriptor,entity);
+}

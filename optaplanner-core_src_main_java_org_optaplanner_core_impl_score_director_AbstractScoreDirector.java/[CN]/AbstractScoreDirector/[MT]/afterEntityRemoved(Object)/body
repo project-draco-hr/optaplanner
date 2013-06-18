@@ -1,3 +1,3 @@
 {
-  variableListenerSupport.afterEntityRemoved(this,entity);
+  afterEntityRemoved(getSolutionDescriptor().getEntityDescriptor(entity.getClass()),entity);
 }

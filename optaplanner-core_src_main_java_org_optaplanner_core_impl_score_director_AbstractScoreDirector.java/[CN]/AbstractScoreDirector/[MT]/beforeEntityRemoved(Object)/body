@@ -1,4 +1,3 @@
 {
-  retractFromTrailingEntityMap(entity);
-  variableListenerSupport.beforeEntityRemoved(this,entity);
+  beforeEntityRemoved(getSolutionDescriptor().getEntityDescriptor(entity.getClass()),entity);
 }

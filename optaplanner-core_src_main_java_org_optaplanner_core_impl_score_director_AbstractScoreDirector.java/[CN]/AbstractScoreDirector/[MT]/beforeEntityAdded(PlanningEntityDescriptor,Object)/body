@@ -1,0 +1,3 @@
+{
+  variableListenerSupport.beforeEntityAdded(this,entityDescriptor,entity);
+}

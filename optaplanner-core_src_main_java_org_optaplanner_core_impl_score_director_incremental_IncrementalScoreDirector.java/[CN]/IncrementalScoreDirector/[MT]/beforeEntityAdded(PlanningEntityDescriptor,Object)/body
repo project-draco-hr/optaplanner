@@ -1,0 +1,4 @@
+{
+  incrementalScoreCalculator.beforeEntityAdded(entity);
+  super.beforeEntityAdded(entityDescriptor,entity);
+}

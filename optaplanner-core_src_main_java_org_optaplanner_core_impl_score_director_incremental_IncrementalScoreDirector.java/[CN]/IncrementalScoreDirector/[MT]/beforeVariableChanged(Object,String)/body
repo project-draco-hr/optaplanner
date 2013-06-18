@@ -1,4 +1,0 @@
-{
-  incrementalScoreCalculator.beforeVariableChanged(entity,variableName);
-  super.beforeVariableChanged(entity,variableName);
-}

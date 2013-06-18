@@ -1,0 +1,8 @@
+{
+  FactHandle factHandle=kieSession.getFactHandle(entity);
+  if (factHandle == null) {
+    throw new IllegalArgumentException("The entity instance (" + entity + ") was never added to this ScoreDirector."+ " Usually the cause is that that specific instance was not in your Solution's entities.");
+  }
+  kieSession.update(factHandle,entity);
+  super.afterVariableChanged(variableDescriptor,entity);
+}
