@@ -1,5 +1,5 @@
 {
-  for (  PlanningVariableDescriptor variableDescriptor : variableDescriptorMap.values()) {
+  for (  PlanningVariableDescriptor variableDescriptor : genuineVariableDescriptorMap.values()) {
     if (!variableDescriptor.isInitialized(planningEntity)) {
       return false;
     }

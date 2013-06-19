@@ -1,20 +1,18 @@
 {
   PlanningEntityDescriptor entityDescriptor;
-  Class<?> resolvedEntityClass;
   if (planningEntityClass != null) {
-    resolvedEntityClass=planningEntityClass;
+    if (!solutionDescriptor.hasEntityDescriptor(planningEntityClass)) {
+      throw new IllegalArgumentException("The greedyFitPlanningEntity has a planningEntityClass (" + planningEntityClass + ") that has not been configured as a planningEntity.");
+    }
+    entityDescriptor=solutionDescriptor.getEntityDescriptor(planningEntityClass);
   }
  else {
-    Set<Class<?>> planningEntityClassSet=solutionDescriptor.getPlanningEntityClassSet();
-    if (planningEntityClassSet.size() != 1) {
-      throw new IllegalArgumentException("The greedyFitPlanningEntity has no planningEntityClass but there are multiple (" + planningEntityClassSet.size() + ") planningEntityClasses.");
+    Collection<PlanningEntityDescriptor> entityDescriptors=solutionDescriptor.getGenuineEntityDescriptors();
+    if (entityDescriptors.size() != 1) {
+      throw new IllegalArgumentException("The greedyFitPlanningEntity has no planningEntityClass but there are multiple" + " planningEntityClasses (" + solutionDescriptor.getPlanningEntityClassSet() + ").");
     }
-    resolvedEntityClass=planningEntityClassSet.iterator().next();
+    entityDescriptor=entityDescriptors.iterator().next();
   }
-  if (!solutionDescriptor.hasEntityDescriptor(planningEntityClass)) {
-    throw new IllegalArgumentException("The greedyFitPlanningEntity has a planningEntityClass (" + planningEntityClass + ") that has not been configured as a planningEntity.");
-  }
-  entityDescriptor=solutionDescriptor.getEntityDescriptor(planningEntityClass);
   PlanningEntitySelector planningEntitySelector=new PlanningEntitySelector(entityDescriptor);
   planningEntitySelector.setSelectionOrder(selectionOrder != null ? selectionOrder : PlanningEntitySelectionOrder.ORIGINAL);
   return planningEntitySelector;
