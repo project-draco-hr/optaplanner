@@ -8,12 +8,7 @@
   if (solutionClass == null) {
     solutionClass=inheritedConfig.getSolutionClass();
   }
-  if (planningEntityClassSet == null) {
-    planningEntityClassSet=inheritedConfig.getPlanningEntityClassSet();
-  }
- else   if (inheritedConfig.getPlanningEntityClassSet() != null) {
-    planningEntityClassSet.addAll(inheritedConfig.getPlanningEntityClassSet());
-  }
+  planningEntityClassList=ConfigUtils.inheritMergeableListProperty(planningEntityClassList,inheritedConfig.getPlanningEntityClassList());
   if (scoreDirectorFactoryConfig == null) {
     scoreDirectorFactoryConfig=inheritedConfig.getScoreDirectorFactoryConfig();
   }

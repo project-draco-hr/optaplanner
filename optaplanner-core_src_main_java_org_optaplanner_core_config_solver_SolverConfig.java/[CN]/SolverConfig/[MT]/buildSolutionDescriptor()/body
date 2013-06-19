@@ -4,10 +4,10 @@
   }
   SolutionDescriptor solutionDescriptor=new SolutionDescriptor(solutionClass);
   solutionDescriptor.processAnnotations();
-  if (CollectionUtils.isEmpty(planningEntityClassSet)) {
+  if (CollectionUtils.isEmpty(planningEntityClassList)) {
     throw new IllegalArgumentException("Configure at least 1 <planningEntityClass> in the solver configuration.");
   }
-  for (  Class<?> planningEntityClass : planningEntityClassSet) {
+  for (  Class<?> planningEntityClass : planningEntityClassList) {
     PlanningEntityDescriptor entityDescriptor=new PlanningEntityDescriptor(solutionDescriptor,planningEntityClass);
     solutionDescriptor.addPlanningEntityDescriptor(entityDescriptor);
     entityDescriptor.processAnnotations();
