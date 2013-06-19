@@ -18,10 +18,10 @@
   SelectorTestUtils.assertChain(b0,b1,a3,a4,a5);
   verify(scoreDirector).beforeVariableChanged(a3,"chainedObject");
   verify(scoreDirector).afterVariableChanged(a3,"chainedObject");
-  verify(scoreDirector).beforeVariableChanged(a4,"chainedObject");
-  verify(scoreDirector).afterVariableChanged(a4,"chainedObject");
-  verify(scoreDirector).beforeVariableChanged(a5,"chainedObject");
-  verify(scoreDirector).afterVariableChanged(a5,"chainedObject");
+  verify(scoreDirector,never()).beforeVariableChanged(a4,"chainedObject");
+  verify(scoreDirector,never()).afterVariableChanged(a4,"chainedObject");
+  verify(scoreDirector,never()).beforeVariableChanged(a5,"chainedObject");
+  verify(scoreDirector,never()).afterVariableChanged(a5,"chainedObject");
   undoMove.doMove(scoreDirector);
   SelectorTestUtils.assertChain(a0,a1,a2,a3,a4,a5);
   SelectorTestUtils.assertChain(b0,b1);

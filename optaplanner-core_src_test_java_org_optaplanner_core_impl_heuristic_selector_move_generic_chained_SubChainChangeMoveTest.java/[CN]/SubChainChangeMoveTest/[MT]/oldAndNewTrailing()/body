@@ -20,10 +20,10 @@
   verify(scoreDirector).afterVariableChanged(a5,"chainedObject");
   verify(scoreDirector).beforeVariableChanged(a2,"chainedObject");
   verify(scoreDirector).afterVariableChanged(a2,"chainedObject");
-  verify(scoreDirector).beforeVariableChanged(a3,"chainedObject");
-  verify(scoreDirector).afterVariableChanged(a3,"chainedObject");
-  verify(scoreDirector).beforeVariableChanged(a4,"chainedObject");
-  verify(scoreDirector).afterVariableChanged(a4,"chainedObject");
+  verify(scoreDirector,never()).beforeVariableChanged(a3,"chainedObject");
+  verify(scoreDirector,never()).afterVariableChanged(a3,"chainedObject");
+  verify(scoreDirector,never()).beforeVariableChanged(a4,"chainedObject");
+  verify(scoreDirector,never()).afterVariableChanged(a4,"chainedObject");
   verify(scoreDirector).beforeVariableChanged(b1,"chainedObject");
   verify(scoreDirector).afterVariableChanged(b1,"chainedObject");
   undoMove.doMove(scoreDirector);
