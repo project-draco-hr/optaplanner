@@ -33,7 +33,7 @@
       logger.warn("There are warning in the scoreDrl's:\n" + results.toString());
     }
     KieContainer kieContainer=kieServices.newKieContainer(kieBuilder.getKieModule().getReleaseId());
-    KieBaseConfiguration kieBaseConfiguration=KnowledgeBaseFactory.newKnowledgeBaseConfiguration();
+    KieBaseConfiguration kieBaseConfiguration=kieServices.newKieBaseConfiguration();
     if (kieBaseConfigurationProperties != null) {
       for (      Map.Entry<String,String> entry : kieBaseConfigurationProperties.entrySet()) {
         kieBaseConfiguration.setProperty(entry.getKey(),entry.getValue());
