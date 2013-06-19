@@ -1,0 +1,4 @@
+{
+  incrementalScoreCalculator.beforeVariableChanged(entity,variableName);
+  super.beforeShadowVariableChanged(entity,variableName);
+}

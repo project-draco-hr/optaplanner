@@ -1,0 +1,4 @@
+{
+  update(entity);
+  super.afterShadowVariableChanged(entity,variableName);
+}

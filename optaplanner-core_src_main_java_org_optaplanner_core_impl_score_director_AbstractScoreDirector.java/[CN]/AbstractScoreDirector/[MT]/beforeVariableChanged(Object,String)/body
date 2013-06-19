@@ -5,5 +5,6 @@
     beforeVariableChanged(variableDescriptor,entity);
   }
  else {
+    beforeShadowVariableChanged(entity,variableName);
   }
 }
