@@ -1,4 +1,0 @@
-{
-  Integer departureTime=getDepartureTime();
-  return departureTime != null && departureTime <= dueTime;
-}
