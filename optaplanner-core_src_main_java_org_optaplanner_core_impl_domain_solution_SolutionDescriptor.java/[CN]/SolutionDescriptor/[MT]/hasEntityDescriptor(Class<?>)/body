@@ -1,10 +1,8 @@
 {
-  Class<?> entityClass=entitySubclass;
-  while (entityClass != null) {
-    if (entityDescriptorMap.containsKey(entityClass)) {
+  for (  Map.Entry<Class<?>,PlanningEntityDescriptor> entry : entityDescriptorMap.entrySet()) {
+    if (entry.getKey().isAssignableFrom(entitySubclass)) {
       return true;
     }
-    entityClass=entityClass.getSuperclass();
   }
   return false;
 }

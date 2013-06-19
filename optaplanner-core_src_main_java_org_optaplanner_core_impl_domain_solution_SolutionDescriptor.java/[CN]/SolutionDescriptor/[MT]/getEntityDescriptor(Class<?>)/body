@@ -1,12 +1,8 @@
 {
-  PlanningEntityDescriptor entityDescriptor=null;
-  Class<?> entityClass=entitySubclass;
-  while (entityClass != null) {
-    entityDescriptor=entityDescriptorMap.get(entityClass);
-    if (entityDescriptor != null) {
-      return entityDescriptor;
+  for (  Map.Entry<Class<?>,PlanningEntityDescriptor> entry : entityDescriptorMap.entrySet()) {
+    if (entry.getKey().isAssignableFrom(entitySubclass)) {
+      return entry.getValue();
     }
-    entityClass=entityClass.getSuperclass();
   }
   throw new IllegalArgumentException("A planning entity is an instance of a entitySubclass (" + entitySubclass + ") that is not configured as a planning entity.\n"+ "If that class ("+ entitySubclass.getSimpleName()+ ") (or superclass thereof) is not a entityClass ("+ getPlanningEntityClassSet()+ "), check your Solution implementation's annotated methods.\n"+ "If it is, check your solver configuration.");
 }
