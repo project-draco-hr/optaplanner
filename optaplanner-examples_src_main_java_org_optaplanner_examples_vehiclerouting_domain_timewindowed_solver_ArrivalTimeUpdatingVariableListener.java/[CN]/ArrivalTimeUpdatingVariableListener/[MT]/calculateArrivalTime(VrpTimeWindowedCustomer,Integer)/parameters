@@ -1,2 +1,2 @@
 VrpTimeWindowedCustomer customer
-int previousDepartureTime
+Integer previousDepartureTime

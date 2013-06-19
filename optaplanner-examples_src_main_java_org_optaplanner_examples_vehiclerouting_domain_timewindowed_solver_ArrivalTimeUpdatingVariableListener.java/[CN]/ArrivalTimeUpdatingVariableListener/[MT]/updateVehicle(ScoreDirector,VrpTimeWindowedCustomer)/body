@@ -1,6 +1,6 @@
 {
   VrpStandstill previousStandstill=sourceCustomer.getPreviousStandstill();
-  Integer departureTime=(previousStandstill instanceof VrpTimeWindowedCustomer) ? ((VrpTimeWindowedCustomer)previousStandstill).getDepartureTime() : 0;
+  Integer departureTime=(previousStandstill instanceof VrpTimeWindowedCustomer) ? ((VrpTimeWindowedCustomer)previousStandstill).getDepartureTime() : null;
   VrpTimeWindowedCustomer shadowCustomer=sourceCustomer;
   Integer arrivalTime=calculateArrivalTime(shadowCustomer,departureTime);
   while (shadowCustomer != null && ObjectUtils.notEqual(shadowCustomer.getArrivalTime(),arrivalTime)) {

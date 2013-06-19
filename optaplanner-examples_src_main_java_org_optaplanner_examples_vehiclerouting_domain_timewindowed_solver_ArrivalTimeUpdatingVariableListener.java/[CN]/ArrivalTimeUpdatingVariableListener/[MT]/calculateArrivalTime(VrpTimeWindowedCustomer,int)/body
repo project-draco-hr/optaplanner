@@ -1,6 +1,0 @@
-{
-  if (customer == null) {
-    return -1;
-  }
-  return previousDepartureTime + customer.getDistanceToPreviousStandstill();
-}
