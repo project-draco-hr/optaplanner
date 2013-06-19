@@ -7,9 +7,7 @@
   if (oldTrailingEntity != null) {
     scoreDirector.beforeVariableChanged(oldTrailingEntity,variableDescriptor.getVariableName());
   }
-  for (  Object entity : subChain.getEntityList()) {
-    scoreDirector.beforeVariableChanged(entity,variableDescriptor.getVariableName());
-  }
+  scoreDirector.beforeVariableChanged(firstEntity,variableDescriptor.getVariableName());
   if (newTrailingEntity != null) {
     scoreDirector.beforeVariableChanged(newTrailingEntity,variableDescriptor.getVariableName());
   }
@@ -23,9 +21,7 @@
   if (oldTrailingEntity != null) {
     scoreDirector.afterVariableChanged(oldTrailingEntity,variableDescriptor.getVariableName());
   }
-  for (  Object entity : subChain.getEntityList()) {
-    scoreDirector.afterVariableChanged(entity,variableDescriptor.getVariableName());
-  }
+  scoreDirector.afterVariableChanged(firstEntity,variableDescriptor.getVariableName());
   if (newTrailingEntity != null) {
     scoreDirector.afterVariableChanged(newTrailingEntity,variableDescriptor.getVariableName());
   }
