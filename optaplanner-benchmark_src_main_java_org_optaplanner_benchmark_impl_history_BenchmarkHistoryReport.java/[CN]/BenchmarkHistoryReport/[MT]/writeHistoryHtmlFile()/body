@@ -8,6 +8,7 @@
   String templateFilename="benchmarkHistory.html.ftl";
   Map<String,Object> model=new HashMap<String,Object>();
   model.put("benchmarkHistoryReport",this);
+  model.put("reportHelper",new ReportHelper());
   Writer writer=null;
   try {
     Template template=freemarkerCfg.getTemplate(templateFilename);
