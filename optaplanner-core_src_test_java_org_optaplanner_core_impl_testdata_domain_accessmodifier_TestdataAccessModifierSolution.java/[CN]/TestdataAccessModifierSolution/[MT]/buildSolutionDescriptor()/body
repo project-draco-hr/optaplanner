@@ -1,0 +1,3 @@
+{
+  return TestdataUtils.buildSolutionDescriptor(TestdataAccessModifierSolution.class,TestdataEntity.class);
+}

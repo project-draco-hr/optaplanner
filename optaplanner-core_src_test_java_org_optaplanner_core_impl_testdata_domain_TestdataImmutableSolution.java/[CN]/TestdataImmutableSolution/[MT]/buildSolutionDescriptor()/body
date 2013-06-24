@@ -1,3 +1,0 @@
-{
-  return TestdataUtils.buildSolutionDescriptor(TestdataImmutableSolution.class,TestdataEntity.class);
-}

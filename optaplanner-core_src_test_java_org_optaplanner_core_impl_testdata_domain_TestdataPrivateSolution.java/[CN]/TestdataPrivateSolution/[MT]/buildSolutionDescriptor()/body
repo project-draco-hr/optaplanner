@@ -1,3 +1,0 @@
-{
-  return TestdataUtils.buildSolutionDescriptor(TestdataPrivateSolution.class,TestdataEntity.class);
-}

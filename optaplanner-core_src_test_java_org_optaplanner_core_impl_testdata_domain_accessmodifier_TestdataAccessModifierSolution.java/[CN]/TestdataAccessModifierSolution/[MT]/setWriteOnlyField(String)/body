@@ -1,0 +1,6 @@
+{
+  if (!writeOnlyField.startsWith("write")) {
+    throw new IllegalArgumentException("The writeOnlyField (" + writeOnlyField + ") should start with write.");
+  }
+  readWriteOnlyField=writeOnlyField.substring("write".length());
+}

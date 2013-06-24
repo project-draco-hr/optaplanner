@@ -1,0 +1,4 @@
+{
+  super(code);
+  finalField="Constructor with argument code (" + code + ")";
+}
