@@ -5,8 +5,8 @@
       MoveCountPerStepSingleStatistic singleStatistic=(MoveCountPerStepSingleStatistic)singleBenchmark.getSingleStatistic(problemStatisticType);
       for (      MoveCountPerStepSingleStatisticPoint point : singleStatistic.getPointList()) {
         long timeMillisSpend=point.getTimeMillisSpend();
-        MoveCountPerStepMeasurement asMovecountMeasurement=point.getASMoveCountMeasurement();
-        csv.addPoint(singleBenchmark,timeMillisSpend,Long.toString(asMovecountMeasurement.getAcceptedMoveCount()) + "/" + Long.toString(asMovecountMeasurement.getSelectedMoveCount()));
+        MoveCountPerStepMeasurement moveCountPerStepMeasurement=point.getMoveCountPerStepMeasurement();
+        csv.addPoint(singleBenchmark,timeMillisSpend,Long.toString(moveCountPerStepMeasurement.getAcceptedMoveCount()) + "/" + Long.toString(moveCountPerStepMeasurement.getSelectedMoveCount()));
       }
     }
  else {

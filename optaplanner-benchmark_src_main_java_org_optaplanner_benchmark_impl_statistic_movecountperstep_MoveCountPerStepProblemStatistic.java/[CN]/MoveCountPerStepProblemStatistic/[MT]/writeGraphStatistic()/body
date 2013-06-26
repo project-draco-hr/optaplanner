@@ -16,8 +16,8 @@
       MoveCountPerStepSingleStatistic singleStatistic=(MoveCountPerStepSingleStatistic)singleBenchmark.getSingleStatistic(problemStatisticType);
       for (      MoveCountPerStepSingleStatisticPoint point : singleStatistic.getPointList()) {
         long timeMillisSpend=point.getTimeMillisSpend();
-        long acceptedMoveCount=point.getASMoveCountMeasurement().getAcceptedMoveCount();
-        long selectedMoveCount=point.getASMoveCountMeasurement().getSelectedMoveCount();
+        long acceptedMoveCount=point.getMoveCountPerStepMeasurement().getAcceptedMoveCount();
+        long selectedMoveCount=point.getMoveCountPerStepMeasurement().getSelectedMoveCount();
         accSeries.add(timeMillisSpend,acceptedMoveCount);
         selSeries.add(timeMillisSpend,selectedMoveCount);
       }
