@@ -1,4 +1,0 @@
-{
-  this.timeMillisSpend=timeMillisSpend;
-  this.aSMoveCountMeasurement=aSMoveCountMeasurement;
-}

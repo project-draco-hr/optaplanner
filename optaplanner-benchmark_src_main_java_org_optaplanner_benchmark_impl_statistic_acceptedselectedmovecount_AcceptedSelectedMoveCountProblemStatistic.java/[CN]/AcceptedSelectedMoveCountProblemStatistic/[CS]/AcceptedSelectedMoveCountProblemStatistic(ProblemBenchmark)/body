@@ -1,3 +1,0 @@
-{
-  super(problemBenchmark,ProblemStatisticType.ACCEPTED_SELECTED_MOVE_COUNT);
-}
