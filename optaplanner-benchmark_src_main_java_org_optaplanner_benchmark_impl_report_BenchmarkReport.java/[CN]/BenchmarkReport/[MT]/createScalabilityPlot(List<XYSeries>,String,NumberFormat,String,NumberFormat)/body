@@ -1,15 +1,15 @@
 {
-  NumberAxis xAxis=new NumberAxis("Problem scale");
-  xAxis.setNumberFormatOverride(NumberFormat.getInstance(locale));
+  NumberAxis xAxis=new NumberAxis(xAxisLabel);
+  xAxis.setNumberFormatOverride(xAxisNumberFormat);
   NumberAxis yAxis=new NumberAxis(yAxisLabel);
-  yAxis.setNumberFormatOverride(numberFormat);
+  yAxis.setNumberFormatOverride(yAxisNumberFormat);
   XYPlot plot=new XYPlot(null,xAxis,yAxis,null);
   int seriesIndex=0;
   for (  XYSeries series : seriesList) {
     XYSeriesCollection seriesCollection=new XYSeriesCollection();
     seriesCollection.addSeries(series);
     plot.setDataset(seriesIndex,seriesCollection);
-    XYItemRenderer renderer=createScalabilityPlotRenderer(numberFormat);
+    XYItemRenderer renderer=createScalabilityPlotRenderer(yAxisNumberFormat);
     plot.setRenderer(seriesIndex,renderer);
     seriesIndex++;
   }

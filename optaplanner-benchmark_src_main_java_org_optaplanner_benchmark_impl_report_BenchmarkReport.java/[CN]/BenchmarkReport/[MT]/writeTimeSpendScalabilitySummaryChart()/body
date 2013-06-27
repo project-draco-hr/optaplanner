@@ -12,7 +12,7 @@
     }
     seriesList.add(series);
   }
-  XYPlot plot=createScalabilityPlot(seriesList,"Time spend",new MillisecondsSpendNumberFormat(locale));
+  XYPlot plot=createScalabilityPlot(seriesList,"Problem scale",NumberFormat.getInstance(locale),"Time spend",new MillisecondsSpendNumberFormat(locale));
   JFreeChart chart=new JFreeChart("Time spend scalability summary (lower is better)",JFreeChart.DEFAULT_TITLE_FONT,plot,true);
   timeSpendScalabilitySummaryChartFile=writeChartToImageFile(chart,"timeSpendScalabilitySummary");
 }

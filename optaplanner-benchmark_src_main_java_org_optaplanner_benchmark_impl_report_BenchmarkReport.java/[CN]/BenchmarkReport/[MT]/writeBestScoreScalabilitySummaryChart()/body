@@ -24,7 +24,7 @@
   bestScoreScalabilitySummaryChartFileList=new ArrayList<File>(seriesListList.size());
   int scoreLevelIndex=0;
   for (  List<XYSeries> seriesList : seriesListList) {
-    XYPlot plot=createScalabilityPlot(seriesList,"Score level " + scoreLevelIndex,NumberFormat.getInstance(locale));
+    XYPlot plot=createScalabilityPlot(seriesList,"Problem scale",NumberFormat.getInstance(locale),"Score level " + scoreLevelIndex,NumberFormat.getInstance(locale));
     JFreeChart chart=new JFreeChart("Best score scalability level " + scoreLevelIndex + " summary (higher is better)",JFreeChart.DEFAULT_TITLE_FONT,plot,true);
     bestScoreScalabilitySummaryChartFileList.add(writeChartToImageFile(chart,"bestScoreScalabilitySummaryLevel" + scoreLevelIndex));
     scoreLevelIndex++;

@@ -1,36 +1,32 @@
 {
-  List<XYSeriesCollection> datasetList=new ArrayList<XYSeriesCollection>(CHARTED_SCORE_LEVEL_SIZE);
+  List<List<XYSeries>> seriesListList=new ArrayList<List<XYSeries>>(CHARTED_SCORE_LEVEL_SIZE);
+  int solverBenchmarkIndex=0;
   for (  SolverBenchmark solverBenchmark : plannerBenchmark.getSolverBenchmarkList()) {
     String solverLabel=solverBenchmark.getNameWithFavoriteSuffix();
     for (    SingleBenchmark singleBenchmark : solverBenchmark.getSingleBenchmarkList()) {
-      String planningProblemLabel=singleBenchmark.getProblemBenchmark().getName();
       if (singleBenchmark.isSuccess()) {
-        double[] levelDoubles=ScoreUtils.extractLevelDoubles(singleBenchmark.getScore());
-        double[] averageDoubles=ScoreUtils.extractLevelDoubles(plannerBenchmark.getAverageScore());
-        for (int i=0; i < levelDoubles.length && i < CHARTED_SCORE_LEVEL_SIZE; i++) {
-          if (i >= datasetList.size()) {
-            datasetList.add(new XYSeriesCollection());
+        long timeMillisSpend=singleBenchmark.getTimeMillisSpend();
+        double[] levelValues=ScoreUtils.extractLevelDoubles(singleBenchmark.getScore());
+        for (int i=0; i < levelValues.length && i < CHARTED_SCORE_LEVEL_SIZE; i++) {
+          if (i >= seriesListList.size()) {
+            seriesListList.add(new ArrayList<XYSeries>(plannerBenchmark.getSolverBenchmarkList().size()));
           }
-          double relativeScore=(levelDoubles[i] == 0d) ? 0 : levelDoubles[i] / Math.abs(averageDoubles[i]);
-          if (datasetList.get(i).getSeriesIndex(solverLabel) == -1) {
-            XYSeries series=new XYSeries(solverLabel,false);
-            series.add(singleBenchmark.getTimeMillisSpend(),relativeScore);
-            datasetList.get(i).addSeries(series);
+          List<XYSeries> seriesList=seriesListList.get(i);
+          if (solverBenchmarkIndex >= seriesList.size()) {
+            seriesList.add(new XYSeries(solverLabel));
           }
- else {
-            datasetList.get(i).getSeries(solverLabel).add(singleBenchmark.getTimeMillisSpend(),relativeScore);
-          }
+          seriesList.get(solverBenchmarkIndex).add((Long)timeMillisSpend,(Double)levelValues[i]);
         }
       }
     }
+    solverBenchmarkIndex++;
   }
-  bestScorePerTimeSpendChartFileList=new ArrayList<File>(datasetList.size());
+  bestScorePerTimeSpendSummaryChartFileList=new ArrayList<File>(seriesListList.size());
   int scoreLevelIndex=0;
-  for (  XYSeriesCollection dataset : datasetList) {
-    XYPlot plot=createBestScorePerTimePlot(dataset,"Time spent","Best score (relative to average)",NumberFormat.getInstance(locale));
-    JFreeChart chart=new JFreeChart("Best score per time level " + scoreLevelIndex + " (lower is better)",plot);
-    addBestScorePerTimeLegend(chart);
-    bestScorePerTimeSpendChartFileList.add(writeChartToImageFile(chart,"bestScorePerTimeLevel" + scoreLevelIndex));
+  for (  List<XYSeries> seriesList : seriesListList) {
+    XYPlot plot=createScalabilityPlot(seriesList,"Time spend",new MillisecondsSpendNumberFormat(locale),"Score level " + scoreLevelIndex,NumberFormat.getInstance(locale));
+    JFreeChart chart=new JFreeChart("Best score per time spend level " + scoreLevelIndex + " summary (higher is better)",JFreeChart.DEFAULT_TITLE_FONT,plot,true);
+    bestScorePerTimeSpendSummaryChartFileList.add(writeChartToImageFile(chart,"bestScorePerTimeSpendSummaryLevel" + scoreLevelIndex));
     scoreLevelIndex++;
   }
 }

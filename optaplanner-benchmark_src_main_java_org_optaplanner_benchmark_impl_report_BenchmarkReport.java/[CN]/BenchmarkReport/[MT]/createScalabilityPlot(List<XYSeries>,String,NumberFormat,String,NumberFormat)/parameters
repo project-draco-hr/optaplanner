@@ -1,0 +1,5 @@
+List<XYSeries> seriesList
+String xAxisLabel
+NumberFormat xAxisNumberFormat
+String yAxisLabel
+NumberFormat yAxisNumberFormat
