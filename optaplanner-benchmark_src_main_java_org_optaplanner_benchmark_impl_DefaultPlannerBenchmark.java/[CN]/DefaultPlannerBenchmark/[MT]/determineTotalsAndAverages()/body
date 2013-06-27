@@ -9,4 +9,14 @@
     }
   }
   averageProblemScale=problemScaleCount == 0 ? null : totalProblemScale / (long)problemScaleCount;
+  Score totalScore=null;
+  int solverBenchmarkCount=0;
+  for (  SolverBenchmark solverBenchmark : solverBenchmarkList) {
+    Score score=solverBenchmark.getAverageScore();
+    if (score != null) {
+      totalScore=(totalScore == null) ? score : totalScore.add(score);
+      solverBenchmarkCount++;
+    }
+  }
+  averageScore=totalScore.divide(solverBenchmarkCount);
 }
