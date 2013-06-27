@@ -1,0 +1,14 @@
+{
+  NumberAxis xAxis=new NumberAxis(xAxisLabel);
+  xAxis.setNumberFormatOverride(numberFormat);
+  NumberAxis yAxis=new NumberAxis(yAxisLabel);
+  yAxis.setNumberFormatOverride(numberFormat);
+  double minimum=DatasetUtilities.findMinimumRangeValue(dataset).doubleValue();
+  if (minimum != 0d) {
+    yAxis.setUpperBound(0.02);
+    yAxis.setLowerBound(minimum - 0.2);
+  }
+  XYPlot plot=new XYPlot(dataset,xAxis,yAxis,createBestScorePerTimeRenderer());
+  plot.setOrientation(PlotOrientation.VERTICAL);
+  return plot;
+}

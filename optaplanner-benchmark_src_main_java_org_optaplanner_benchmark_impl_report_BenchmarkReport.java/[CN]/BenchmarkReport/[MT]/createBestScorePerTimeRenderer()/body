@@ -1,0 +1,16 @@
+{
+  XYLineAndShapeRenderer renderer=new XYLineAndShapeRenderer(false,true);
+  renderer.setAutoPopulateSeriesShape(false);
+  renderer.setBaseSeriesVisible(true);
+  renderer.setBaseItemLabelGenerator(new XYItemLabelGenerator(){
+    @Override public String generateLabel(    XYDataset xyd,    int i,    int i1){
+      return String.valueOf(i1 + 1);
+    }
+  }
+);
+  renderer.setBaseItemLabelsVisible(true);
+  ItemLabelPosition position=new ItemLabelPosition(ItemLabelAnchor.CENTER,TextAnchor.CENTER);
+  renderer.setBaseNegativeItemLabelPosition(position);
+  renderer.setBasePositiveItemLabelPosition(position);
+  return renderer;
+}
