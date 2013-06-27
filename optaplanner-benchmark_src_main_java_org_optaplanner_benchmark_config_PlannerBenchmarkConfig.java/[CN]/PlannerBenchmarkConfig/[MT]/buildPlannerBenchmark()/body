@@ -18,7 +18,7 @@
     solverBenchmarkList.add(solverBenchmark);
   }
   plannerBenchmark.setSolverBenchmarkList(solverBenchmarkList);
-  boolean benchmarkHistoryReportEnabled_=benchmarkHistoryReportEnabled == null ? true : benchmarkHistoryReportEnabled;
+  boolean benchmarkHistoryReportEnabled_=benchmarkHistoryReportEnabled == null ? false : benchmarkHistoryReportEnabled;
   plannerBenchmark.setBenchmarkHistoryReportEnabled(benchmarkHistoryReportEnabled_);
   return plannerBenchmark;
 }
