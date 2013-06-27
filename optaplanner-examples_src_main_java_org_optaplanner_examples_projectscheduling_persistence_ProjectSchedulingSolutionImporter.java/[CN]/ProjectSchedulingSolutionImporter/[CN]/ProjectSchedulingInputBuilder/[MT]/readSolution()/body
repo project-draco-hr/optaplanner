@@ -1,0 +1,10 @@
+{
+  projectsSchedule=new ProjectsSchedule();
+  projectsSchedule.setId(0L);
+  readProjectList();
+  readResourceList();
+  for (  Map.Entry<Project,File> entry : projectFileMap.entrySet()) {
+    readProjectFile(entry.getKey(),entry.getValue());
+  }
+  return projectsSchedule;
+}

@@ -1,0 +1,42 @@
+{
+  readRegexConstantLine("\\*+");
+  readStringValue("file with basedata            :");
+  readStringValue("initial value random generator:");
+  readRegexConstantLine("\\*+");
+  int projects=readIntegerValue("projects                      :");
+  if (projects != 1) {
+    throw new IllegalArgumentException("The projects value (" + projects + ") should always be 1.");
+  }
+  jobListSize=readIntegerValue("jobs (incl. supersource/sink ):");
+  int horizon=readIntegerValue("horizon                       :");
+  project.setHorizon(horizon);
+  readConstantLine("RESOURCES");
+  int globalResourceListSize=globalResourceList.size();
+  int renewableResourceSize=readIntegerValue("- renewable                 :","R");
+  if (renewableResourceSize < globalResourceListSize) {
+    throw new IllegalArgumentException("The renewableResourceSize (" + renewableResourceSize + ") can not be less than globalResourceListSize ("+ globalResourceListSize+ ").");
+  }
+  int nonrenewableResourceSize=readIntegerValue("- nonrenewable              :","N");
+  int doublyConstrainedResourceSize=readIntegerValue("- doubly constrained        :","D");
+  if (doublyConstrainedResourceSize != 0) {
+    throw new IllegalArgumentException("The doublyConstrainedResourceSize (" + doublyConstrainedResourceSize + ") should always be 0.");
+  }
+  List<LocalResource> localResourceList=new ArrayList<LocalResource>(renewableResourceSize - globalResourceListSize + nonrenewableResourceSize);
+  long localResourceId=0L;
+  for (int i=globalResourceListSize; i < renewableResourceSize; i++) {
+    LocalResource localResource=new LocalResource();
+    localResource.setId(localResourceId);
+    localResource.setProject(project);
+    localResource.setRenewable(true);
+    localResourceId++;
+    localResourceList.add(localResource);
+  }
+  for (int i=0; i < nonrenewableResourceSize; i++) {
+  }
+  project.setLocalResourceList(localResourceList);
+  projectsSchedule.getLocalResourceList().addAll(localResourceList);
+  readRegexConstantLine("\\*+");
+  List<Job> jobList=new ArrayList<Job>(jobListSize);
+  project.setJobList(jobList);
+  projectsSchedule.getJobList().addAll(jobList);
+}

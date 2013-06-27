@@ -1,0 +1,24 @@
+{
+  BufferedReader bufferedReader=null;
+  try {
+    bufferedReader=new BufferedReader(new InputStreamReader(new FileInputStream(projectFile),"UTF-8"));
+    ProjectFileInputBuilder projectFileInputBuilder=new ProjectFileInputBuilder(projectsSchedule,project);
+    projectFileInputBuilder.setInputFile(projectFile);
+    projectFileInputBuilder.setBufferedReader(bufferedReader);
+    try {
+      projectFileInputBuilder.readSolution();
+    }
+ catch (    IllegalArgumentException e) {
+      throw new IllegalArgumentException("Exception in projectFile (" + projectFile + ")",e);
+    }
+catch (    IllegalStateException e) {
+      throw new IllegalStateException("Exception in projectFile (" + projectFile + ")",e);
+    }
+  }
+ catch (  IOException e) {
+    throw new IllegalArgumentException("Could not read the projectFile (" + projectFile + ").",e);
+  }
+ finally {
+    IOUtils.closeQuietly(bufferedReader);
+  }
+}
