@@ -24,13 +24,13 @@
       }
     }
   }
-  bestScorePerTimeChartFileList=new ArrayList<File>(datasetList.size());
+  bestScorePerTimeSpendChartFileList=new ArrayList<File>(datasetList.size());
   int scoreLevelIndex=0;
   for (  XYSeriesCollection dataset : datasetList) {
     XYPlot plot=createBestScorePerTimePlot(dataset,"Time spent","Best score (relative to average)",NumberFormat.getInstance(locale));
     JFreeChart chart=new JFreeChart("Best score per time level " + scoreLevelIndex + " (lower is better)",plot);
     addBestScorePerTimeLegend(chart);
-    bestScorePerTimeChartFileList.add(writeChartToImageFile(chart,"bestScorePerTimeLevel" + scoreLevelIndex));
+    bestScorePerTimeSpendChartFileList.add(writeChartToImageFile(chart,"bestScorePerTimeLevel" + scoreLevelIndex));
     scoreLevelIndex++;
   }
 }
