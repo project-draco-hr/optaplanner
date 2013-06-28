@@ -1,0 +1,27 @@
+{
+  Integer startDate=Integer.MIN_VALUE;
+  for (  Allocation predecessorAllocation : allocation.getPredecessorAllocationList()) {
+    Integer endDate=predecessorAllocation.getEndDate();
+    if (endDate == null) {
+      startDate=null;
+      break;
+    }
+    startDate=Math.max(startDate,endDate);
+  }
+  if (startDate != null) {
+    Integer delay=allocation.getDelay();
+    if (delay == null) {
+      startDate=null;
+    }
+ else {
+      startDate+=delay;
+    }
+  }
+  if (ObjectUtils.equals(startDate,allocation.getStartDate())) {
+    return false;
+  }
+  scoreDirector.beforeVariableChanged(allocation,"startDate");
+  allocation.setStartDate(startDate);
+  scoreDirector.afterVariableChanged(allocation,"startDate");
+  return true;
+}

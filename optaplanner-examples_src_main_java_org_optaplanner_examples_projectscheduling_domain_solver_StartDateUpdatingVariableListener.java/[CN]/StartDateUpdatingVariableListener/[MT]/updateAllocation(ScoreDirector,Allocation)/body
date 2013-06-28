@@ -1,0 +1,11 @@
+{
+  Queue<Allocation> uncheckedSuccessorQueue=new ArrayDeque<Allocation>();
+  uncheckedSuccessorQueue.add(sourceAllocation);
+  while (!uncheckedSuccessorQueue.isEmpty()) {
+    Allocation allocation=uncheckedSuccessorQueue.remove();
+    boolean updated=updateStartDate(scoreDirector,allocation);
+    if (updated) {
+      uncheckedSuccessorQueue.addAll(allocation.getSuccessorAllocationList());
+    }
+  }
+}

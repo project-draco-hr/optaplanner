@@ -1,0 +1,6 @@
+{
+  if (executionMode == null || startDate == null) {
+    return null;
+  }
+  return startDate + executionMode.getDuration();
+}

@@ -6,5 +6,6 @@
   for (  Map.Entry<Project,File> entry : projectFileMap.entrySet()) {
     readProjectFile(entry.getKey(),entry.getValue());
   }
+  createAllocationList();
   return projectsSchedule;
 }

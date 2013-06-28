@@ -1,0 +1,23 @@
+{
+  List<Job> jobList=projectsSchedule.getJobList();
+  List<Allocation> allocationList=new ArrayList<Allocation>(jobList.size());
+  Map<Job,Allocation> jobToAllocationMap=new HashMap<Job,Allocation>(jobList.size());
+  for (  Job job : jobList) {
+    Allocation allocation=new Allocation();
+    allocation.setId(job.getId());
+    allocation.setJob(job);
+    allocation.setPredecessorAllocationList(new ArrayList<Allocation>(job.getSuccessorJobList().size()));
+    allocation.setSuccessorAllocationList(new ArrayList<Allocation>(job.getSuccessorJobList().size()));
+    allocationList.add(allocation);
+    jobToAllocationMap.put(job,allocation);
+  }
+  for (  Allocation allocation : allocationList) {
+    Job job=allocation.getJob();
+    for (    Job successorJob : job.getSuccessorJobList()) {
+      Allocation successorAllocation=jobToAllocationMap.get(successorJob);
+      allocation.getSuccessorAllocationList().add(successorAllocation);
+      successorAllocation.getPredecessorAllocationList().add(allocation);
+    }
+  }
+  projectsSchedule.setAllocationList(allocationList);
+}
