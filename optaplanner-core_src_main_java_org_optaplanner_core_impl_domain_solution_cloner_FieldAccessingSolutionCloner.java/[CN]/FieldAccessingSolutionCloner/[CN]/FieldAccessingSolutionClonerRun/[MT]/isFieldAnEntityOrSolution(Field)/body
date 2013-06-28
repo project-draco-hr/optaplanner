@@ -1,0 +1,18 @@
+{
+  Class<?> type=field.getType();
+  if (isClassEntityOrSolution(type)) {
+    return true;
+  }
+  if (Collection.class.isAssignableFrom(type) || Map.class.isAssignableFrom(type)) {
+    Type genericType=field.getGenericType();
+    if (genericType instanceof ParameterizedType) {
+      ParameterizedType parameterizedType=(ParameterizedType)genericType;
+      for (      Type actualTypeArgument : parameterizedType.getActualTypeArguments()) {
+        if (actualTypeArgument instanceof Class && isClassEntityOrSolution((Class)actualTypeArgument)) {
+          return true;
+        }
+      }
+    }
+  }
+  return false;
+}

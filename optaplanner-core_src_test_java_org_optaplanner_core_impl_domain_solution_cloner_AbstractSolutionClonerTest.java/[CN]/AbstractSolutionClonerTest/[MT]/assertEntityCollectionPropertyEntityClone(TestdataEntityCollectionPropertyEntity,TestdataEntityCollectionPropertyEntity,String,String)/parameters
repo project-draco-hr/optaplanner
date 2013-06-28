@@ -1,0 +1,4 @@
+TestdataEntityCollectionPropertyEntity originalEntity
+TestdataEntityCollectionPropertyEntity cloneEntity
+String entityCode
+String valueCode

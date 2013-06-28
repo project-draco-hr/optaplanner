@@ -1,6 +1,6 @@
 {
   Class valueClass=originalValue.getClass();
-  if (solutionDescriptor.hasEntityDescriptor(valueClass) || valueClass == ((Class)solutionDescriptor.getSolutionClass())) {
+  if (isClassEntityOrSolution(valueClass)) {
     return true;
   }
   return false;

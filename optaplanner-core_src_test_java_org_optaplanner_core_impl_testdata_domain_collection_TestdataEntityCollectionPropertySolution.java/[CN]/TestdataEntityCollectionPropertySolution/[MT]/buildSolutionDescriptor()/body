@@ -1,0 +1,3 @@
+{
+  return TestdataUtils.buildSolutionDescriptor(TestdataEntityCollectionPropertySolution.class,TestdataEntityCollectionPropertyEntity.class);
+}
