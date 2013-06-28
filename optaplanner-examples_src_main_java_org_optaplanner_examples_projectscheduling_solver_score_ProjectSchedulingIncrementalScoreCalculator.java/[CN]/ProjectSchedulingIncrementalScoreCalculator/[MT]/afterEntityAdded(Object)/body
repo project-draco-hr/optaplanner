@@ -1,0 +1,3 @@
+{
+  insert((Allocation)entity);
+}

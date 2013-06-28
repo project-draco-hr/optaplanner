@@ -1,0 +1,4 @@
+{
+  ProjectsSchedule projectsSchedule=(ProjectsSchedule)solution;
+  updatePanel(solution);
+}
