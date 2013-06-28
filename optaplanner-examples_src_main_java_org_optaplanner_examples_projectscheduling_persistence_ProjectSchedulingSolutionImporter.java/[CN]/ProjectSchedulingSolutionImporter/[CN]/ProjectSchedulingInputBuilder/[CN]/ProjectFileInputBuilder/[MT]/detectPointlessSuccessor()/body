@@ -1,0 +1,20 @@
+{
+  for (  Job baseJob : project.getJobList()) {
+    Set<Job> baseSuccessorJobSet=new HashSet<Job>(baseJob.getSuccessorJobList());
+    Set<Job> checkedSuccessorSet=new HashSet<Job>(project.getJobList().size());
+    Queue<Job> uncheckedSuccessorQueue=new ArrayDeque<Job>(project.getJobList().size());
+    for (    Job baseSuccessorJob : baseJob.getSuccessorJobList()) {
+      uncheckedSuccessorQueue.addAll(baseSuccessorJob.getSuccessorJobList());
+    }
+    while (!uncheckedSuccessorQueue.isEmpty()) {
+      Job uncheckedJob=uncheckedSuccessorQueue.remove();
+      if (checkedSuccessorSet.contains(uncheckedJob)) {
+        continue;
+      }
+      if (baseSuccessorJobSet.contains(uncheckedJob)) {
+        throw new IllegalStateException("The baseJob (" + baseJob + ") has a direct successor ("+ uncheckedJob+ ") that is also an indirect successor. That's pointless.");
+      }
+      uncheckedSuccessorQueue.addAll(uncheckedJob.getSuccessorJobList());
+    }
+  }
+}
