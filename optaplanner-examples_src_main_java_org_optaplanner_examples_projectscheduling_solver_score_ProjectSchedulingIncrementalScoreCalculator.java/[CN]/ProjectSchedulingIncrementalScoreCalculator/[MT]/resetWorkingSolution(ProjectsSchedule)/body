@@ -1,4 +1,16 @@
 {
+  List<GlobalResource> globalResourceList=projectsSchedule.getGlobalResourceList();
+  List<LocalResource> localResourceList=projectsSchedule.getLocalResourceList();
+  resourceCapacityTrackerMap=new HashMap<Resource,ResourceCapacityTracker>(globalResourceList.size() + localResourceList.size());
+  for (  Resource resource : globalResourceList) {
+    resourceCapacityTrackerMap.put(resource,resource.isRenewable() ? new RenewableResourceCapacityTracker(resource) : new NonrenewableResourceCapacityTracker(resource));
+  }
+  for (  Resource resource : localResourceList) {
+    resourceCapacityTrackerMap.put(resource,resource.isRenewable() ? new RenewableResourceCapacityTracker(resource) : new NonrenewableResourceCapacityTracker(resource));
+  }
+  hardScore=0;
+  mediumScore=0;
+  softScore=0;
   for (  Allocation allocation : projectsSchedule.getAllocationList()) {
     insert(allocation);
   }

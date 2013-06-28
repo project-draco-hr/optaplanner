@@ -1,0 +1,6 @@
+{
+  if (capacity >= used) {
+    return 0;
+  }
+  return capacity - used;
+}

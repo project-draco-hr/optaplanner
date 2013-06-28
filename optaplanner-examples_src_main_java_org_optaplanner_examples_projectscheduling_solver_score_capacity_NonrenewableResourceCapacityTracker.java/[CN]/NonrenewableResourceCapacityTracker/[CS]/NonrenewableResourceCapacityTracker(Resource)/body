@@ -1,0 +1,5 @@
+{
+  super(resource);
+  capacity=resource.getCapacity();
+  used=0;
+}

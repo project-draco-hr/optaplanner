@@ -1,2 +1,11 @@
 {
+  ExecutionMode executionMode=allocation.getExecutionMode();
+  if (executionMode != null) {
+    for (    ResourceRequirement resourceRequirement : executionMode.getResourceRequirementList()) {
+      ResourceCapacityTracker tracker=resourceCapacityTrackerMap.get(resourceRequirement.getResource());
+      hardScore-=tracker.getHardScore();
+      tracker.retract(resourceRequirement,allocation);
+      hardScore+=tracker.getHardScore();
+    }
+  }
 }
