@@ -1,4 +1,0 @@
-{
-  readHeader();
-  return null;
-}

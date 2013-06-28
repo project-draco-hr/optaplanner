@@ -1,0 +1,9 @@
+{
+  readHeader();
+  readResourceList();
+  readProjectInformation();
+  readPrecedenceRelations();
+  readRequestDurations();
+  readResourceAvailabilities();
+  return null;
+}

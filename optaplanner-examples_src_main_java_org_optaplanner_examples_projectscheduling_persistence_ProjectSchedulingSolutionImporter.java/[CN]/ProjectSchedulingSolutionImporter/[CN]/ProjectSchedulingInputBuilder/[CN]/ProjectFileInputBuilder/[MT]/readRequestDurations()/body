@@ -1,0 +1,46 @@
+{
+  readConstantLine("REQUESTS/DURATIONS:");
+  splitBySpacesOrTabs(readStringValue());
+  readRegexConstantLine("\\-+");
+  int resourceSize=globalResourceListSize + renewableLocalResourceSize + nonrenewableLocalResourceSize;
+  for (int i=0; i < jobListSize; i++) {
+    Job job=project.getJobList().get(i);
+    int executionModeSize=job.getExecutionModeList().size();
+    for (int j=0; j < executionModeSize; j++) {
+      ExecutionMode executionMode=job.getExecutionModeList().get(j);
+      boolean first=j == 0;
+      String[] tokens=splitBySpacesOrTabs(readStringValue(),(first ? 3 : 2) + resourceSize);
+      if (first && Integer.parseInt(tokens[0]) != i + 1) {
+        throw new IllegalArgumentException("The tokens (" + Arrays.toString(tokens) + ") index 0 should be "+ (i + 1)+ ".");
+      }
+      if (Integer.parseInt(tokens[first ? 1 : 0]) != j + 1) {
+        throw new IllegalArgumentException("The tokens (" + Arrays.toString(tokens) + ") index "+ (first ? 1 : 0)+ " should be "+ (j + 1)+ ".");
+      }
+      int duration=Integer.parseInt(tokens[first ? 2 : 1]);
+      executionMode.setDuration(duration);
+      List<ResourceRequirement> resourceRequirementList=new ArrayList<ResourceRequirement>(resourceSize);
+      for (int k=0; k < resourceSize; k++) {
+        int requirement=Integer.parseInt(tokens[first ? 3 : 0] + k);
+        if (requirement != 0) {
+          ResourceRequirement resourceRequirement=new ResourceRequirement();
+          resourceRequirement.setId(resourceRequirementId);
+          resourceRequirement.setExecutionMode(executionMode);
+          Resource resource;
+          if (k < globalResourceListSize) {
+            resource=projectsSchedule.getGlobalResourceList().get(k);
+          }
+ else {
+            resource=project.getLocalResourceList().get(k - globalResourceListSize);
+          }
+          resourceRequirement.setResource(resource);
+          resourceRequirement.setRequirement(requirement);
+          resourceRequirementList.add(resourceRequirement);
+          resourceRequirementId++;
+        }
+      }
+      executionMode.setResourceRequirementList(resourceRequirementList);
+      projectsSchedule.getResourceRequirementList().addAll(resourceRequirementList);
+    }
+  }
+  readRegexConstantLine("\\*+");
+}

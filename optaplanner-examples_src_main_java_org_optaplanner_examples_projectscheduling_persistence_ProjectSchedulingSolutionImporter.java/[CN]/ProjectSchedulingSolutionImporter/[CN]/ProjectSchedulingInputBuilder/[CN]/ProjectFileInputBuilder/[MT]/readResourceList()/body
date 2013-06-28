@@ -1,0 +1,34 @@
+{
+  readConstantLine("RESOURCES");
+  globalResourceListSize=globalResourceList.size();
+  int renewableResourceSize=readIntegerValue("- renewable                 :","R");
+  if (renewableResourceSize < globalResourceListSize) {
+    throw new IllegalArgumentException("The renewableResourceSize (" + renewableResourceSize + ") can not be less than globalResourceListSize ("+ globalResourceListSize+ ").");
+  }
+  renewableLocalResourceSize=renewableResourceSize - globalResourceListSize;
+  nonrenewableLocalResourceSize=readIntegerValue("- nonrenewable              :","N");
+  int doublyConstrainedResourceSize=readIntegerValue("- doubly constrained        :","D");
+  if (doublyConstrainedResourceSize != 0) {
+    throw new IllegalArgumentException("The doublyConstrainedResourceSize (" + doublyConstrainedResourceSize + ") should always be 0.");
+  }
+  List<LocalResource> localResourceList=new ArrayList<LocalResource>(globalResourceListSize + renewableLocalResourceSize + nonrenewableLocalResourceSize);
+  for (int i=0; i < renewableLocalResourceSize; i++) {
+    LocalResource localResource=new LocalResource();
+    localResource.setId(localResourceId);
+    localResource.setProject(project);
+    localResource.setRenewable(true);
+    localResourceId++;
+    localResourceList.add(localResource);
+  }
+  for (int i=0; i < nonrenewableLocalResourceSize; i++) {
+    LocalResource localResource=new LocalResource();
+    localResource.setId(localResourceId);
+    localResource.setProject(project);
+    localResource.setRenewable(false);
+    localResourceId++;
+    localResourceList.add(localResource);
+  }
+  project.setLocalResourceList(localResourceList);
+  projectsSchedule.getLocalResourceList().addAll(localResourceList);
+  readRegexConstantLine("\\*+");
+}

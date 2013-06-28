@@ -1,0 +1,16 @@
+{
+  readConstantLine("RESOURCEAVAILABILITIES:");
+  splitBySpacesOrTabs(readStringValue());
+  int resourceSize=globalResourceListSize + renewableLocalResourceSize + nonrenewableLocalResourceSize;
+  String[] tokens=splitBySpacesOrTabs(readStringValue(),resourceSize);
+  for (int i=0; i < resourceSize; i++) {
+    int capacity=Integer.parseInt(tokens[i]);
+    if (i < globalResourceListSize) {
+    }
+ else {
+      Resource resource=project.getLocalResourceList().get(i - globalResourceListSize);
+      resource.setCapacity(capacity);
+    }
+  }
+  readRegexConstantLine("\\*+");
+}

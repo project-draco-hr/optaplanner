@@ -1,0 +1,55 @@
+{
+  readConstantLine("PRECEDENCE RELATIONS:");
+  readConstantLine("jobnr.    #modes  #successors   successors");
+  List<Job> jobList=new ArrayList<Job>(jobListSize);
+  for (int i=0; i < jobListSize; i++) {
+    Job job=new Job();
+    job.setId(jobId);
+    if (i == 0) {
+      job.setJobType(JobType.SOURCE);
+    }
+ else     if (i == jobListSize - 1) {
+      job.setJobType(JobType.SINK);
+    }
+ else {
+      job.setJobType(JobType.STANDARD);
+    }
+    jobList.add(job);
+    jobId++;
+  }
+  project.setJobList(jobList);
+  projectsSchedule.getJobList().addAll(jobList);
+  for (int i=0; i < jobListSize; i++) {
+    Job job=jobList.get(i);
+    String[] tokens=splitBySpacesOrTabs(readStringValue());
+    if (tokens.length < 3) {
+      throw new IllegalArgumentException("The tokens (" + Arrays.toString(tokens) + ") should be at least 3 in length.");
+    }
+    if (Integer.parseInt(tokens[0]) != i + 1) {
+      throw new IllegalArgumentException("The tokens (" + Arrays.toString(tokens) + ") index 0 should be "+ (i + 1)+ ".");
+    }
+    int executionModeListSize=Integer.parseInt(tokens[1]);
+    List<ExecutionMode> executionModeList=new ArrayList<ExecutionMode>(executionModeListSize);
+    for (int j=0; j < executionModeListSize; j++) {
+      ExecutionMode executionMode=new ExecutionMode();
+      executionMode.setId(executionModeId);
+      executionMode.setJob(job);
+      executionModeList.add(executionMode);
+      executionModeId++;
+    }
+    job.setExecutionModeList(executionModeList);
+    projectsSchedule.getExecutionModeList().addAll(executionModeList);
+    int successorJobListSize=Integer.parseInt(tokens[2]);
+    if (tokens.length != 3 + successorJobListSize) {
+      throw new IllegalArgumentException("The tokens (" + Arrays.toString(tokens) + ") should be "+ (3 + successorJobListSize)+ " in length.");
+    }
+    List<Job> successorJobList=new ArrayList<Job>(successorJobListSize);
+    for (int j=0; j < successorJobListSize; j++) {
+      int successorIndex=Integer.parseInt(tokens[3 + j]);
+      Job successorJob=project.getJobList().get(successorIndex - 1);
+      successorJobList.add(successorJob);
+    }
+    job.setSuccessorJobList(successorJobList);
+  }
+  readRegexConstantLine("\\*+");
+}
