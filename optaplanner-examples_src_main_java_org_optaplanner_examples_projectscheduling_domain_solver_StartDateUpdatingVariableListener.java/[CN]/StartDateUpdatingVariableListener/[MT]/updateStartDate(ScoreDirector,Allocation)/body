@@ -1,5 +1,5 @@
 {
-  Integer startDate=Integer.MIN_VALUE;
+  Integer startDate=0;
   for (  Allocation predecessorAllocation : allocation.getPredecessorAllocationList()) {
     Integer endDate=predecessorAllocation.getEndDate();
     if (endDate == null) {
