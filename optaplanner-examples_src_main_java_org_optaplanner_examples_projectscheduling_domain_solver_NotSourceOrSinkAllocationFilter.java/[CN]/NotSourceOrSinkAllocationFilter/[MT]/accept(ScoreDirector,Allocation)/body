@@ -1,0 +1,4 @@
+{
+  JobType jobType=allocation.getJob().getJobType();
+  return jobType != JobType.SOURCE && jobType != JobType.SINK;
+}
