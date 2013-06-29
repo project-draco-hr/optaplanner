@@ -5,6 +5,7 @@
   for (int i=0; i < jobListSize; i++) {
     Job job=new Job();
     job.setId(jobId);
+    job.setProject(project);
     if (i == 0) {
       job.setJobType(JobType.SOURCE);
     }
