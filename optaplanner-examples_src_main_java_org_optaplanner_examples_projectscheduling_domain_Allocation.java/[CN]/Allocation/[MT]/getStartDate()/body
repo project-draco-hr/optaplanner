@@ -1,3 +1,6 @@
 {
-  return startDate;
+  if (predecessorsDoneDate == null || delay == null) {
+    return null;
+  }
+  return predecessorsDoneDate + delay;
 }

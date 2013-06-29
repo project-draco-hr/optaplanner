@@ -1,6 +1,6 @@
 {
-  if (executionMode == null || startDate == null) {
+  if (predecessorsDoneDate == null || delay == null || executionMode == null) {
     return null;
   }
-  return startDate + executionMode.getDuration();
+  return predecessorsDoneDate + delay + executionMode.getDuration();
 }

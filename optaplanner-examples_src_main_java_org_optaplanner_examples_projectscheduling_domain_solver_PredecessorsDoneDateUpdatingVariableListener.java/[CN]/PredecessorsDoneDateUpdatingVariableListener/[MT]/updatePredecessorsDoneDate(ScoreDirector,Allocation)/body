@@ -1,0 +1,18 @@
+{
+  Integer doneDate=0;
+  for (  Allocation predecessorAllocation : allocation.getPredecessorAllocationList()) {
+    Integer endDate=predecessorAllocation.getEndDate();
+    if (endDate == null) {
+      doneDate=null;
+      break;
+    }
+    doneDate=Math.max(doneDate,endDate);
+  }
+  if (ObjectUtils.equals(doneDate,allocation.getPredecessorsDoneDate())) {
+    return false;
+  }
+  scoreDirector.beforeVariableChanged(allocation,"predecessorsDoneDate");
+  allocation.setPredecessorsDoneDate(doneDate);
+  scoreDirector.afterVariableChanged(allocation,"predecessorsDoneDate");
+  return true;
+}
