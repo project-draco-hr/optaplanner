@@ -15,6 +15,7 @@
       if (used > capacityEveryDay) {
         hardScore-=(used - capacityEveryDay);
       }
+      usedPerDay.put(i,used);
     }
   }
 }
