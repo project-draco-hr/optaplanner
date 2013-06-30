@@ -8,12 +8,12 @@
       if (used == null) {
         used=0;
       }
-      if (used > capacity) {
-        hardScore+=(used - capacity);
+      if (used > capacityEveryDay) {
+        hardScore+=(used - capacityEveryDay);
       }
       used+=requirement;
-      if (used > capacity) {
-        hardScore-=(used - capacity);
+      if (used > capacityEveryDay) {
+        hardScore-=(used - capacityEveryDay);
       }
     }
   }
