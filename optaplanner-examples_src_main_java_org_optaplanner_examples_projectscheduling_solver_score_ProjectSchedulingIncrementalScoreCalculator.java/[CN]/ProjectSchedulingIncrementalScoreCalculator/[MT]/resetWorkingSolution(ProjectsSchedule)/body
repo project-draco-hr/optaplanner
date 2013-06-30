@@ -11,6 +11,14 @@
   hardScore=0;
   mediumScore=0;
   softScore=0;
+  totalProjectDelay=0;
+  minimalReleaseDate=Integer.MAX_VALUE;
+  maximalEndDate=0;
+  for (  Project p : projectsSchedule.getProjectList()) {
+    minimalReleaseDate=Math.min(p.getReleaseDate(),minimalReleaseDate);
+  }
+  projectDelayMap=new HashMap<Project,Integer>();
+  allocationsPerProjectMap=new HashMap<Project,Set<Allocation>>();
   for (  Allocation allocation : projectsSchedule.getAllocationList()) {
     insert(allocation);
   }

@@ -1,0 +1,7 @@
+{
+  Project p=a.getJob().getProject();
+  if (!allocationsPerProjectMap.containsKey(p)) {
+    allocationsPerProjectMap.put(p,new HashSet<Allocation>());
+  }
+  allocationsPerProjectMap.get(p).add(a);
+}

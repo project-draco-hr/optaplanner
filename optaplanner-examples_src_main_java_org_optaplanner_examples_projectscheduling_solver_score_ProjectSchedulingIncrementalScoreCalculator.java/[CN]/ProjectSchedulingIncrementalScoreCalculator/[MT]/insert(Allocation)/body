@@ -1,6 +1,13 @@
 {
+  trackAllocation(allocation);
+  Integer endDate=allocation.getEndDate();
+  if (endDate != null && endDate > maximalEndDate) {
+    maximalEndDate=endDate;
+    softScore=-(maximalEndDate - minimalReleaseDate);
+  }
+  mediumScore=-getTotalProjectDelay(allocation);
   ExecutionMode executionMode=allocation.getExecutionMode();
-  if (executionMode != null) {
+  if (executionMode != null && allocation.getJob().getJobType() == JobType.STANDARD) {
     for (    ResourceRequirement resourceRequirement : executionMode.getResourceRequirementList()) {
       ResourceCapacityTracker tracker=resourceCapacityTrackerMap.get(resourceRequirement.getResource());
       hardScore-=tracker.getHardScore();
