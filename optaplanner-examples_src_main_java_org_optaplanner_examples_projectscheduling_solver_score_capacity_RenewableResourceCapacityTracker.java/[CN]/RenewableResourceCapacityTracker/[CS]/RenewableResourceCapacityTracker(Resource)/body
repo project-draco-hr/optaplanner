@@ -1,3 +1,9 @@
 {
   super(resource);
+  if (!resource.isRenewable()) {
+    throw new IllegalArgumentException("The resource (" + resource + ") is expected to be renewable.");
+  }
+  capacity=resource.getCapacity();
+  usedPerDay=new HashMap<Integer,Integer>();
+  hardScore=0;
 }

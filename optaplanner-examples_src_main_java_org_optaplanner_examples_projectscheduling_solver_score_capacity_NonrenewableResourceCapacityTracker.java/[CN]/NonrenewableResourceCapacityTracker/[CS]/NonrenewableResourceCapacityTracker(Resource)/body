@@ -1,5 +1,8 @@
 {
   super(resource);
+  if (resource.isRenewable()) {
+    throw new IllegalArgumentException("The resource (" + resource + ") is expected to be nonrenewable.");
+  }
   capacity=resource.getCapacity();
   used=0;
 }
