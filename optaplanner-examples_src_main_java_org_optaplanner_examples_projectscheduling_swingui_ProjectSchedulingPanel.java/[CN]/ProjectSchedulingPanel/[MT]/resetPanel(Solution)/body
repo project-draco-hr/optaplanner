@@ -1,8 +1,6 @@
 {
   removeAll();
-  tangoColorFactory=new TangoColorFactory();
   ProjectsSchedule projectsSchedule=(ProjectsSchedule)solution;
   ChartPanel chartPanel=new ChartPanel(createChart(projectsSchedule));
-  chartPanel.setPreferredSize(new Dimension(1024,768));
-  add(chartPanel);
+  add(chartPanel,BorderLayout.CENTER);
 }

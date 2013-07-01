@@ -1,3 +1,0 @@
-{
-  return SCHEDULE_START_DATE.plusDays(date).toDateMidnight().toDate();
-}
