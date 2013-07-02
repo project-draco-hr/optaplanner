@@ -1,5 +1,5 @@
 {
-  JPanel panel=new JPanel(new GridLayout(0,1,5,5));
+  JPanel panel=new JPanel(new GridLayout(5,1,5,5));
   TitledBorder titledBorder=BorderFactory.createTitledBorder("Real examples");
   titledBorder.setTitleColor(TangoColorFactory.BUTTER_3);
   panel.setBorder(BorderFactory.createCompoundBorder(titledBorder,BorderFactory.createEmptyBorder(5,5,5,5)));
@@ -18,6 +18,12 @@
   panel.add(createExampleButton("Vehicle routing","Official competition name: Capacitated vehicle routing problem (CRVP)\n" + "Pick up all items of all customers with a few vehicles in the shortest route possible.",VehicleRoutingPanel.LOGO_PATH,new Runnable(){
     public void run(){
       new VehicleRoutingApp().init(OptaPlannerExamplesApp.this,false);
+    }
+  }
+));
+  panel.add(createExampleButton("Project job scheduling","Official competition name:" + " multi-mode resource-constrained multi-project scheduling problem (MRCMPSP)\n" + "Schedule all jobs in time and execution mode to minimize project delays.",ProjectJobSchedulingPanel.LOGO_PATH,new Runnable(){
+    public void run(){
+      new ProjectJobSchedulingApp().init(OptaPlannerExamplesApp.this,false);
     }
   }
 ));
