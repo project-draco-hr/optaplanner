@@ -1,0 +1,4 @@
+{
+  fixateLookAndFeel();
+  new ProjectJobSchedulingApp().init();
+}
