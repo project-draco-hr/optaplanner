@@ -1,5 +1,5 @@
 {
-  List<Job> jobList=projectsSchedule.getJobList();
+  List<Job> jobList=schedule.getJobList();
   List<Allocation> allocationList=new ArrayList<Allocation>(jobList.size());
   Map<Job,Allocation> jobToAllocationMap=new HashMap<Job,Allocation>(jobList.size());
   Map<Project,Allocation> projectToSourceAllocationMap=new HashMap<Project,Allocation>(projectListSize);
@@ -45,5 +45,5 @@
       allocation.setPredecessorsDoneDate(sourceAllocation.getEndDate());
     }
   }
-  projectsSchedule.setAllocationList(allocationList);
+  schedule.setAllocationList(allocationList);
 }

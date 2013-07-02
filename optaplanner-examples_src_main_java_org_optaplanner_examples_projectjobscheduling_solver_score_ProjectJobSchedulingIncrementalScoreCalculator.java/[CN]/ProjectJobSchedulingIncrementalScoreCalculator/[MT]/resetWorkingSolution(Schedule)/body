@@ -1,5 +1,5 @@
 {
-  List<Resource> resourceList=projectsSchedule.getResourceList();
+  List<Resource> resourceList=schedule.getResourceList();
   resourceCapacityTrackerMap=new HashMap<Resource,ResourceCapacityTracker>(resourceList.size());
   for (  Resource resource : resourceList) {
     resourceCapacityTrackerMap.put(resource,resource.isRenewable() ? new RenewableResourceCapacityTracker(resource) : new NonrenewableResourceCapacityTracker(resource));
@@ -10,12 +10,12 @@
   totalProjectDelay=0;
   minimalReleaseDate=Integer.MAX_VALUE;
   maximalEndDate=0;
-  for (  Project p : projectsSchedule.getProjectList()) {
+  for (  Project p : schedule.getProjectList()) {
     minimalReleaseDate=Math.min(p.getReleaseDate(),minimalReleaseDate);
   }
   projectDelayMap=new HashMap<Project,Integer>();
   allocationsPerProjectMap=new HashMap<Project,Set<Allocation>>();
-  for (  Allocation allocation : projectsSchedule.getAllocationList()) {
+  for (  Allocation allocation : schedule.getAllocationList()) {
     insert(allocation);
   }
 }

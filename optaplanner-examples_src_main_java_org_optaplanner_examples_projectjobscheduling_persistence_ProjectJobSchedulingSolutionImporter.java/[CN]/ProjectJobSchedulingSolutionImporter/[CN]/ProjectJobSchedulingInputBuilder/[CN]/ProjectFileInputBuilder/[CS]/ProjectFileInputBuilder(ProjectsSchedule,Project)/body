@@ -1,4 +1,0 @@
-{
-  this.projectsSchedule=projectsSchedule;
-  this.project=project;
-}

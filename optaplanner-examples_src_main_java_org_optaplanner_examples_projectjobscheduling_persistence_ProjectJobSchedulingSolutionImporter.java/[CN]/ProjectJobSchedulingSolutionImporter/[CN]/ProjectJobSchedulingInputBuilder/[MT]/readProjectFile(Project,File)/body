@@ -2,7 +2,7 @@
   BufferedReader bufferedReader=null;
   try {
     bufferedReader=new BufferedReader(new InputStreamReader(new FileInputStream(projectFile),"UTF-8"));
-    ProjectFileInputBuilder projectFileInputBuilder=new ProjectFileInputBuilder(projectsSchedule,project);
+    ProjectFileInputBuilder projectFileInputBuilder=new ProjectFileInputBuilder(schedule,project);
     projectFileInputBuilder.setInputFile(projectFile);
     projectFileInputBuilder.setBufferedReader(bufferedReader);
     try {

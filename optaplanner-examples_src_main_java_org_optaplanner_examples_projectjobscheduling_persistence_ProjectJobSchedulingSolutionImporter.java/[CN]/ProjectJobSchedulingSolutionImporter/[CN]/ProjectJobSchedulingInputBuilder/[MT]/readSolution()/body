@@ -1,6 +1,6 @@
 {
-  projectsSchedule=new ProjectsSchedule();
-  projectsSchedule.setId(0L);
+  schedule=new Schedule();
+  schedule.setId(0L);
   readProjectList();
   readResourceList();
   for (  Map.Entry<Project,File> entry : projectFileMap.entrySet()) {
@@ -8,6 +8,6 @@
   }
   removePointlessExecutionModes();
   createAllocationList();
-  logger.info("ProjectsSchedule {} has {} projects, {} jobs, {} execution modes, {} resources" + " and {} resource requirements.",getInputId(),projectsSchedule.getProjectList().size(),projectsSchedule.getJobList().size(),projectsSchedule.getExecutionModeList().size(),projectsSchedule.getResourceList().size(),projectsSchedule.getResourceRequirementList().size());
-  return projectsSchedule;
+  logger.info("Schedule {} has {} projects, {} jobs, {} execution modes, {} resources" + " and {} resource requirements.",getInputId(),schedule.getProjectList().size(),schedule.getJobList().size(),schedule.getExecutionModeList().size(),schedule.getResourceList().size(),schedule.getResourceRequirementList().size());
+  return schedule;
 }

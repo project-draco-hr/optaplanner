@@ -13,6 +13,6 @@
     }
   }
   globalResourceListSize=resourceList.size();
-  projectsSchedule.setResourceList(resourceList);
-  projectsSchedule.setResourceRequirementList(new ArrayList<ResourceRequirement>(projectListSize * 10 * 5* resourceListSize));
+  schedule.setResourceList(resourceList);
+  schedule.setResourceRequirementList(new ArrayList<ResourceRequirement>(projectListSize * 10 * 5* resourceListSize));
 }

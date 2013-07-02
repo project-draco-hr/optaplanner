@@ -28,6 +28,6 @@
     localResourceList.add(localResource);
   }
   project.setLocalResourceList(localResourceList);
-  projectsSchedule.getResourceList().addAll(localResourceList);
+  schedule.getResourceList().addAll(localResourceList);
   readRegexConstantLine("\\*+");
 }

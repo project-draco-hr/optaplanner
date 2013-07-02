@@ -27,7 +27,7 @@
           resourceRequirement.setExecutionMode(executionMode);
           Resource resource;
           if (k < globalResourceListSize) {
-            resource=projectsSchedule.getResourceList().get(k);
+            resource=schedule.getResourceList().get(k);
           }
  else {
             resource=project.getLocalResourceList().get(k - globalResourceListSize);
@@ -39,7 +39,7 @@
         }
       }
       executionMode.setResourceRequirementList(resourceRequirementList);
-      projectsSchedule.getResourceRequirementList().addAll(resourceRequirementList);
+      schedule.getResourceRequirementList().addAll(resourceRequirementList);
     }
   }
   readRegexConstantLine("\\*+");

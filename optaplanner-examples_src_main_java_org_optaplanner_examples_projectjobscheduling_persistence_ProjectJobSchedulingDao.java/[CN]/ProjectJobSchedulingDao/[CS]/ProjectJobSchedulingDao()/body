@@ -1,3 +1,3 @@
 {
-  super("projectjobscheduling",ProjectsSchedule.class);
+  super("projectjobscheduling",Schedule.class);
 }

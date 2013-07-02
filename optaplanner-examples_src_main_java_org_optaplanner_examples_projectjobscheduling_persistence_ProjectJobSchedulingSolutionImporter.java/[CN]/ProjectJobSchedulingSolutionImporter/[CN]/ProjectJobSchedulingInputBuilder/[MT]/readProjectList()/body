@@ -15,7 +15,7 @@
     projectList.add(project);
     projectId++;
   }
-  projectsSchedule.setProjectList(projectList);
-  projectsSchedule.setJobList(new ArrayList<Job>(projectListSize * 10));
-  projectsSchedule.setExecutionModeList(new ArrayList<ExecutionMode>(projectListSize * 10 * 5));
+  schedule.setProjectList(projectList);
+  schedule.setJobList(new ArrayList<Job>(projectListSize * 10));
+  schedule.setExecutionModeList(new ArrayList<ExecutionMode>(projectListSize * 10 * 5));
 }

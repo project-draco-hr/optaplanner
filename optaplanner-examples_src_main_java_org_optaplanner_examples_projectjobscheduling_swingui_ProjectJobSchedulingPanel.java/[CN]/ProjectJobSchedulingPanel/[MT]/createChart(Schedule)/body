@@ -1,10 +1,10 @@
 {
   YIntervalSeriesCollection seriesCollection=new YIntervalSeriesCollection();
-  Map<Project,YIntervalSeries> projectSeriesMap=new LinkedHashMap<Project,YIntervalSeries>(projectsSchedule.getProjectList().size());
+  Map<Project,YIntervalSeries> projectSeriesMap=new LinkedHashMap<Project,YIntervalSeries>(schedule.getProjectList().size());
   YIntervalRenderer renderer=new YIntervalRenderer();
   int maximumEndDate=0;
   int seriesIndex=0;
-  for (  Project project : projectsSchedule.getProjectList()) {
+  for (  Project project : schedule.getProjectList()) {
     YIntervalSeries projectSeries=new YIntervalSeries(project.getLabel());
     seriesCollection.addSeries(projectSeries);
     projectSeriesMap.put(project,projectSeries);
@@ -12,7 +12,7 @@
     renderer.setSeriesStroke(seriesIndex,new BasicStroke(3.0f));
     seriesIndex++;
   }
-  for (  Allocation allocation : projectsSchedule.getAllocationList()) {
+  for (  Allocation allocation : schedule.getAllocationList()) {
     Integer startDate=allocation.getStartDate();
     Integer endDate=allocation.getEndDate();
     if (startDate != null && endDate != null) {
@@ -23,7 +23,7 @@
   }
   NumberAxis domainAxis=new NumberAxis("Job");
   domainAxis.setStandardTickUnits(NumberAxis.createIntegerTickUnits());
-  domainAxis.setRange(-0.5,projectsSchedule.getAllocationList().size() - 0.5);
+  domainAxis.setRange(-0.5,schedule.getAllocationList().size() - 0.5);
   domainAxis.setInverted(true);
   NumberAxis rangeAxis=new NumberAxis("Day (start to end date)");
   rangeAxis.setRange(-0.5,maximumEndDate + 0.5);

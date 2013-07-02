@@ -19,7 +19,7 @@
     jobId++;
   }
   project.setJobList(jobList);
-  projectsSchedule.getJobList().addAll(jobList);
+  schedule.getJobList().addAll(jobList);
   for (int i=0; i < jobListSize; i++) {
     Job job=jobList.get(i);
     String[] tokens=splitBySpacesOrTabs(readStringValue());
@@ -39,7 +39,7 @@
       executionModeId++;
     }
     job.setExecutionModeList(executionModeList);
-    projectsSchedule.getExecutionModeList().addAll(executionModeList);
+    schedule.getExecutionModeList().addAll(executionModeList);
     int successorJobListSize=Integer.parseInt(tokens[2]);
     if (tokens.length != 3 + successorJobListSize) {
       throw new IllegalArgumentException("The tokens (" + Arrays.toString(tokens) + ") should be "+ (3 + successorJobListSize)+ " in length.");
