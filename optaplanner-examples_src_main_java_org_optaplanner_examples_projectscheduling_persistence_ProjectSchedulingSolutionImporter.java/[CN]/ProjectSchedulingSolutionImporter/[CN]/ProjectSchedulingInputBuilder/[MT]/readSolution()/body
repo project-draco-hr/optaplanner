@@ -8,5 +8,6 @@
   }
   removePointlessExecutionModes();
   createAllocationList();
+  logger.info("ProjectsSchedule {} has {} projects, {} jobs, {} execution modes, {} resources" + " and {} resource requirements.",getInputId(),projectsSchedule.getProjectList().size(),projectsSchedule.getJobList().size(),projectsSchedule.getExecutionModeList().size(),projectsSchedule.getResourceList().size(),projectsSchedule.getResourceRequirementList().size());
   return projectsSchedule;
 }

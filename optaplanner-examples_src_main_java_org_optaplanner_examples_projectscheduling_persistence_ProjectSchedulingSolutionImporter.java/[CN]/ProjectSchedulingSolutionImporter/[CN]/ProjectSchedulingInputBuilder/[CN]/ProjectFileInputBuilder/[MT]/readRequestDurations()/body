@@ -27,7 +27,7 @@
           resourceRequirement.setExecutionMode(executionMode);
           Resource resource;
           if (k < globalResourceListSize) {
-            resource=projectsSchedule.getGlobalResourceList().get(k);
+            resource=projectsSchedule.getResourceList().get(k);
           }
  else {
             resource=project.getLocalResourceList().get(k - globalResourceListSize);

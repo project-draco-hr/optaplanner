@@ -1,10 +1,9 @@
 {
   List<Object> facts=new ArrayList<Object>();
-  facts.addAll(globalResourceList);
   facts.addAll(projectList);
-  facts.addAll(localResourceList);
   facts.addAll(jobList);
   facts.addAll(executionModeList);
+  facts.addAll(resourceList);
   facts.addAll(resourceRequirementList);
   return facts;
 }

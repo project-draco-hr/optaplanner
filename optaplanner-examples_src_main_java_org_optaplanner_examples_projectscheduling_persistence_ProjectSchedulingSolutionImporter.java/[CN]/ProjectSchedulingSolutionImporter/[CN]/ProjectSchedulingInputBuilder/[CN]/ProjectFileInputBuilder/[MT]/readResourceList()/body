@@ -1,6 +1,5 @@
 {
   readConstantLine("RESOURCES");
-  globalResourceListSize=globalResourceList.size();
   int renewableResourceSize=readIntegerValue("- renewable                 :","R");
   if (renewableResourceSize < globalResourceListSize) {
     throw new IllegalArgumentException("The renewableResourceSize (" + renewableResourceSize + ") can not be less than globalResourceListSize ("+ globalResourceListSize+ ").");
@@ -14,21 +13,21 @@
   List<LocalResource> localResourceList=new ArrayList<LocalResource>(globalResourceListSize + renewableLocalResourceSize + nonrenewableLocalResourceSize);
   for (int i=0; i < renewableLocalResourceSize; i++) {
     LocalResource localResource=new LocalResource();
-    localResource.setId(localResourceId);
+    localResource.setId(resourceId);
     localResource.setProject(project);
     localResource.setRenewable(true);
-    localResourceId++;
+    resourceId++;
     localResourceList.add(localResource);
   }
   for (int i=0; i < nonrenewableLocalResourceSize; i++) {
     LocalResource localResource=new LocalResource();
-    localResource.setId(localResourceId);
+    localResource.setId(resourceId);
     localResource.setProject(project);
     localResource.setRenewable(false);
-    localResourceId++;
+    resourceId++;
     localResourceList.add(localResource);
   }
   project.setLocalResourceList(localResourceList);
-  projectsSchedule.getLocalResourceList().addAll(localResourceList);
+  projectsSchedule.getResourceList().addAll(localResourceList);
   readRegexConstantLine("\\*+");
 }
