@@ -1,0 +1,6 @@
+{
+  this.variableDescriptor=variableDescriptor;
+  this.childValueSelector=childValueSelector;
+  bailOutEnabled=childValueSelector.isNeverEnding();
+  solverPhaseLifecycleSupport.addEventListener(childValueSelector);
+}

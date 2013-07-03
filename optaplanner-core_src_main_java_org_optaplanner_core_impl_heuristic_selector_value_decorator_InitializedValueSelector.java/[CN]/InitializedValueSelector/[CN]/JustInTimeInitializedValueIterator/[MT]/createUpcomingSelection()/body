@@ -1,0 +1,21 @@
+{
+  Object next;
+  long attemptsBeforeBailOut=bailOutEnabled ? determineBailOutSize(entity) : 0L;
+  do {
+    if (!childValueIterator.hasNext()) {
+      next=null;
+      break;
+    }
+    if (bailOutEnabled) {
+      if (attemptsBeforeBailOut <= 0L) {
+        logger.warn("Bailing out of neverEnding selector ({}) to avoid infinite loop.",InitializedValueSelector.this);
+        next=null;
+        break;
+      }
+      attemptsBeforeBailOut--;
+    }
+    next=childValueIterator.next();
+  }
+ while (!accept(next));
+  upcomingSelection=next;
+}
