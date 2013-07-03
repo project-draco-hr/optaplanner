@@ -3,8 +3,8 @@
   valueSorter=new PlanningValueSorter();
   processMappedBy(planningVariableAnnotation);
   processNullable(planningVariableAnnotation);
-  processStrength(planningVariableAnnotation);
   processChained(planningVariableAnnotation);
+  processStrength(planningVariableAnnotation);
   processVariableListeners(planningVariableAnnotation);
   processValueRangeAnnotation(planningVariableAnnotation);
 }
