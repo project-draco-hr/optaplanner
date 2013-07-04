@@ -1,0 +1,8 @@
+{
+  EntitySelectorConfig entitySelectorConfig_=entitySelectorConfig == null ? new EntitySelectorConfig() : entitySelectorConfig;
+  EntitySelector leftEntitySelector=entitySelectorConfig_.buildEntitySelector(configPolicy,minimumCacheType,SelectionOrder.fromRandomSelectionBoolean(randomSelection));
+  EntitySelectorConfig rightEntitySelectorConfig=secondaryEntitySelectorConfig == null ? entitySelectorConfig_ : secondaryEntitySelectorConfig;
+  EntitySelector rightEntitySelector=rightEntitySelectorConfig.buildEntitySelector(configPolicy,minimumCacheType,SelectionOrder.fromRandomSelectionBoolean(randomSelection));
+  Collection<PlanningVariableDescriptor> variableDescriptors=deduceVariableDescriptors(leftEntitySelector.getEntityDescriptor(),variableNameIncludeList);
+  return new SwapMoveSelector(leftEntitySelector,rightEntitySelector,variableDescriptors,randomSelection);
+}

@@ -1,0 +1,7 @@
+{
+  HeuristicConfigPolicy phaseConfigPolicy=solverConfigPolicy.createPhaseConfigPolicy();
+  DefaultBruteForceSolverPhase bruteForceSolverPhase=new DefaultBruteForceSolverPhase();
+  configureSolverPhase(bruteForceSolverPhase,phaseIndex,phaseConfigPolicy,solverTermination);
+  bruteForceSolverPhase.setBruteForceEntityWalker(new BruteForceEntityWalker(phaseConfigPolicy.getSolutionDescriptor()));
+  return bruteForceSolverPhase;
+}

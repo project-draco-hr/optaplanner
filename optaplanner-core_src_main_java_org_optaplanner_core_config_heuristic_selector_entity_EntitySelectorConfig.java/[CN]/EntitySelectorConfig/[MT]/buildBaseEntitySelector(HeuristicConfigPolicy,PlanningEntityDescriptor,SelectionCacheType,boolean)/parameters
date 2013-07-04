@@ -1,0 +1,4 @@
+HeuristicConfigPolicy configPolicy
+PlanningEntityDescriptor entityDescriptor
+SelectionCacheType minimumCacheType
+boolean randomSelection

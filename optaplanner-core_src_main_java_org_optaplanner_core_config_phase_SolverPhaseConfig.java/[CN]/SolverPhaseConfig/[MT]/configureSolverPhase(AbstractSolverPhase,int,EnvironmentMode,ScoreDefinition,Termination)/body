@@ -1,5 +1,0 @@
-{
-  solverPhase.setPhaseIndex(phaseIndex);
-  TerminationConfig terminationConfig_=terminationConfig == null ? new TerminationConfig() : terminationConfig;
-  solverPhase.setTermination(terminationConfig_.buildTermination(scoreDefinition,new PhaseToSolverTerminationBridge(solverTermination)));
-}

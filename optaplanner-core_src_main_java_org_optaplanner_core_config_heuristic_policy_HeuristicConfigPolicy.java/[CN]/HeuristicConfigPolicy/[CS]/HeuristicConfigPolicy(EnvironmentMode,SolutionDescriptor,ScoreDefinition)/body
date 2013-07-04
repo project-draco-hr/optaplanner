@@ -1,0 +1,5 @@
+{
+  this.environmentMode=environmentMode;
+  this.solutionDescriptor=solutionDescriptor;
+  this.scoreDefinition=scoreDefinition;
+}

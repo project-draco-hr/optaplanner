@@ -1,0 +1,43 @@
+{
+  HeuristicConfigPolicy phaseConfigPolicy=solverConfigPolicy.createPhaseConfigPolicy();
+  if (constructionHeuristicType != null) {
+    DefaultGreedyFitSolverPhase greedySolverPhase=new DefaultGreedyFitSolverPhase();
+    configureSolverPhase(greedySolverPhase,phaseIndex,phaseConfigPolicy,solverTermination);
+    greedySolverPhase.setGreedyPlanningEntitySelector(buildGreedyPlanningEntitySelector(solverConfigPolicy.getSolutionDescriptor()));
+    greedySolverPhase.setGreedyDecider(buildGreedyDecider(solverConfigPolicy.getSolutionDescriptor(),solverConfigPolicy.getEnvironmentMode()));
+    EnvironmentMode environmentMode=phaseConfigPolicy.getEnvironmentMode();
+    if (environmentMode.isNonIntrusiveFullAsserted()) {
+      greedySolverPhase.setAssertStepScoreFromScratch(true);
+    }
+    if (environmentMode.isIntrusiveFastAsserted()) {
+      greedySolverPhase.setAssertExpectedStepScore(true);
+    }
+    return greedySolverPhase;
+  }
+ else   if (!CollectionUtils.isEmpty(entityPlacerConfigList)) {
+    if (constructionHeuristicPickEarlyType != null) {
+      throw new UnsupportedOperationException();
+    }
+    DefaultConstructionHeuristicSolverPhase phase=new DefaultConstructionHeuristicSolverPhase();
+    configureSolverPhase(phase,phaseIndex,phaseConfigPolicy,solverTermination);
+    EntityPlacer entityPlacer;
+    if (entityPlacerConfigList.size() == 1) {
+      entityPlacer=entityPlacerConfigList.get(0).buildEntityPlacer(phaseConfigPolicy,phase.getTermination());
+    }
+ else {
+      throw new IllegalArgumentException("The entityPlacerConfigList (" + entityPlacerConfigList + ") must be a singleton or empty. Use multiple "+ ConstructionHeuristicSolverPhaseConfig.class+ " elements to initialize multiple entity classes.");
+    }
+    phase.setEntityPlacer(entityPlacer);
+    EnvironmentMode environmentMode=phaseConfigPolicy.getEnvironmentMode();
+    if (environmentMode.isNonIntrusiveFullAsserted()) {
+      phase.setAssertStepScoreFromScratch(true);
+    }
+    if (environmentMode.isIntrusiveFastAsserted()) {
+      phase.setAssertExpectedStepScore(true);
+    }
+    return phase;
+  }
+ else {
+    throw new IllegalArgumentException("A constructionHeuristic requires configuration, " + "for example a constructionHeuristicType.");
+  }
+}

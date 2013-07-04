@@ -1,7 +1,0 @@
-{
-  Termination termination=buildTermination(scoreDefinition);
-  if (termination == null) {
-    return chainedTermination;
-  }
-  return new OrCompositeTermination(chainedTermination,termination);
-}

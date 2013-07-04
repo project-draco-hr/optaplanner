@@ -1,8 +1,8 @@
 {
-  SolutionDescriptor solutionDescriptor=TestdataSolution.buildSolutionDescriptor();
-  PlanningEntityDescriptor entityDescriptor=solutionDescriptor.getEntityDescriptor(TestdataEntity.class);
+  HeuristicConfigPolicy configPolicy=buildHeuristicConfigPolicy();
+  PlanningEntityDescriptor entityDescriptor=configPolicy.getSolutionDescriptor().getEntityDescriptor(TestdataEntity.class);
   ValueSelectorConfig valueSelectorConfig=new ValueSelectorConfig();
   valueSelectorConfig.setCacheType(SelectionCacheType.JUST_IN_TIME);
   valueSelectorConfig.setSelectionOrder(SelectionOrder.SHUFFLED);
-  ValueSelector valueSelector=valueSelectorConfig.buildValueSelector(EnvironmentMode.REPRODUCIBLE,solutionDescriptor,entityDescriptor,SelectionCacheType.JUST_IN_TIME,SelectionOrder.RANDOM);
+  ValueSelector valueSelector=valueSelectorConfig.buildValueSelector(configPolicy,entityDescriptor,SelectionCacheType.JUST_IN_TIME,SelectionOrder.RANDOM);
 }

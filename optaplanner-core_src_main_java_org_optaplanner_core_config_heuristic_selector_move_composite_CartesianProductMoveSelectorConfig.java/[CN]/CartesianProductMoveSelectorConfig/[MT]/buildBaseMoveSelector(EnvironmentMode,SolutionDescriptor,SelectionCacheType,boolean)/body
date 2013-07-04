@@ -1,7 +1,0 @@
-{
-  List<MoveSelector> moveSelectorList=new ArrayList<MoveSelector>(moveSelectorConfigList.size());
-  for (  MoveSelectorConfig moveSelectorConfig : moveSelectorConfigList) {
-    moveSelectorList.add(moveSelectorConfig.buildMoveSelector(environmentMode,solutionDescriptor,minimumCacheType,SelectionOrder.fromRandomSelectionBoolean(randomSelection)));
-  }
-  return new CartesianProductMoveSelector(moveSelectorList,randomSelection);
-}

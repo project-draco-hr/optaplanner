@@ -1,6 +1,0 @@
-{
-  DefaultBruteForceSolverPhase bruteForceSolverPhase=new DefaultBruteForceSolverPhase();
-  configureSolverPhase(bruteForceSolverPhase,phaseIndex,environmentMode,scoreDefinition,solverTermination);
-  bruteForceSolverPhase.setBruteForceEntityWalker(new BruteForceEntityWalker(solutionDescriptor));
-  return bruteForceSolverPhase;
-}

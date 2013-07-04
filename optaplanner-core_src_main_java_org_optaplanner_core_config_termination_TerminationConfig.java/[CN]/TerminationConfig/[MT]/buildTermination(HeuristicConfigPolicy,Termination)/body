@@ -1,0 +1,7 @@
+{
+  Termination termination=buildTermination(configPolicy);
+  if (termination == null) {
+    return chainedTermination;
+  }
+  return new OrCompositeTermination(chainedTermination,termination);
+}

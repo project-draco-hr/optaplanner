@@ -1,0 +1,8 @@
+{
+  PillarSelectorConfig pillarSelectorConfig_=pillarSelectorConfig == null ? new PillarSelectorConfig() : pillarSelectorConfig;
+  PillarSelector leftPillarSelector=pillarSelectorConfig_.buildPillarSelector(configPolicy,minimumCacheType,SelectionOrder.fromRandomSelectionBoolean(randomSelection));
+  PillarSelectorConfig rightPillarSelectorConfig=secondaryPillarSelectorConfig == null ? pillarSelectorConfig_ : secondaryPillarSelectorConfig;
+  PillarSelector rightPillarSelector=rightPillarSelectorConfig.buildPillarSelector(configPolicy,minimumCacheType,SelectionOrder.fromRandomSelectionBoolean(randomSelection));
+  Collection<PlanningVariableDescriptor> variableDescriptors=deduceVariableDescriptors(leftPillarSelector.getEntityDescriptor(),variableNameIncludeList);
+  return new PillarSwapMoveSelector(leftPillarSelector,rightPillarSelector,variableDescriptors,randomSelection);
+}

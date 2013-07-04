@@ -1,0 +1,22 @@
+{
+  DefaultDecider decider=new DefaultDecider();
+  decider.setTermination(phaseTermination);
+  MoveSelector moveSelector=buildMoveSelector(configPolicy);
+  decider.setMoveSelector(moveSelector);
+  AcceptorConfig acceptorConfig_=acceptorConfig == null ? new AcceptorConfig() : acceptorConfig;
+  decider.setAcceptor(acceptorConfig_.buildAcceptor(configPolicy));
+  ForagerConfig foragerConfig_=foragerConfig == null ? new ForagerConfig() : foragerConfig;
+  Forager forager=foragerConfig_.buildForager(configPolicy);
+  decider.setForager(forager);
+  if (moveSelector.isNeverEnding() && !forager.supportsNeverEndingMoveSelector()) {
+    throw new IllegalStateException("The moveSelector (" + moveSelector + ") has neverEnding ("+ moveSelector.isNeverEnding()+ "), but the forager ("+ forager+ ") does not support it."+ " Configure the <forager> with <acceptedCountLimit>.");
+  }
+  EnvironmentMode environmentMode=configPolicy.getEnvironmentMode();
+  if (environmentMode.isNonIntrusiveFullAsserted()) {
+    decider.setAssertMoveScoreFromScratch(true);
+  }
+  if (environmentMode.isIntrusiveFastAsserted()) {
+    decider.setAssertExpectedUndoMoveScore(true);
+  }
+  return decider;
+}

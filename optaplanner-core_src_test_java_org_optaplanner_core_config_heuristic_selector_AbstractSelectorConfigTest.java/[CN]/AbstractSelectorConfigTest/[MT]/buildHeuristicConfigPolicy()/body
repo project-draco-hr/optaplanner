@@ -1,0 +1,5 @@
+{
+  SolutionDescriptor solutionDescriptor=TestdataSolution.buildSolutionDescriptor();
+  ScoreDefinition scoreDefinition=new SimpleScoreDefinition();
+  return new HeuristicConfigPolicy(EnvironmentMode.REPRODUCIBLE,solutionDescriptor,scoreDefinition);
+}

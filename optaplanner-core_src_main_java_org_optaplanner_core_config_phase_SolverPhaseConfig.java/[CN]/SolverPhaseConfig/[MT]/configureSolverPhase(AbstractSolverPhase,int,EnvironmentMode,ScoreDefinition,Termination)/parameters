@@ -1,5 +1,0 @@
-AbstractSolverPhase solverPhase
-int phaseIndex
-EnvironmentMode environmentMode
-ScoreDefinition scoreDefinition
-Termination solverTermination

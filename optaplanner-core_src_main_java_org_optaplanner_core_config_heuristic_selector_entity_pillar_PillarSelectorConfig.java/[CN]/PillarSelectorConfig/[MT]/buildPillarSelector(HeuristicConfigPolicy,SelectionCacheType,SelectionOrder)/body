@@ -1,0 +1,9 @@
+{
+  if (minimumCacheType.compareTo(SelectionCacheType.STEP) > 0) {
+    throw new IllegalArgumentException("The pillarSelectorConfig (" + this + ")'s minimumCacheType ("+ minimumCacheType+ ") must not be higher than "+ SelectionCacheType.STEP+ " because the pillars change every step.");
+  }
+  EntitySelectorConfig entitySelectorConfig_=entitySelectorConfig == null ? new EntitySelectorConfig() : entitySelectorConfig;
+  EntitySelector entitySelector=entitySelectorConfig_.buildEntitySelector(configPolicy,minimumCacheType,SelectionOrder.ORIGINAL);
+  Collection<PlanningVariableDescriptor> variableDescriptors=entitySelector.getEntityDescriptor().getVariableDescriptors();
+  return new SameValuePillarSelector(entitySelector,variableDescriptors,inheritedSelectionOrder.toRandomSelectionBoolean());
+}

@@ -1,0 +1,4 @@
+HeuristicConfigPolicy configPolicy
+PlanningVariableDescriptor variableDescriptor
+SelectionCacheType minimumCacheType
+boolean randomSelection

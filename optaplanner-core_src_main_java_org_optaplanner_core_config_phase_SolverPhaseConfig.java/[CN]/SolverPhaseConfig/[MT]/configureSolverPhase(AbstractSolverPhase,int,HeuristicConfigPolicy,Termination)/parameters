@@ -1,0 +1,4 @@
+AbstractSolverPhase solverPhase
+int phaseIndex
+HeuristicConfigPolicy configPolicy
+Termination solverTermination

@@ -16,8 +16,9 @@
   ScoreDirectorFactory scoreDirectorFactory=scoreDirectorFactoryConfig_.buildScoreDirectorFactory(environmentMode,solutionDescriptor);
   solver.setScoreDirectorFactory(scoreDirectorFactory);
   ScoreDefinition scoreDefinition=scoreDirectorFactory.getScoreDefinition();
+  HeuristicConfigPolicy configPolicy=new HeuristicConfigPolicy(environmentMode,solutionDescriptor,scoreDefinition);
   TerminationConfig terminationConfig_=terminationConfig == null ? new TerminationConfig() : terminationConfig;
-  Termination termination=terminationConfig_.buildTermination(scoreDefinition,basicPlumbingTermination);
+  Termination termination=terminationConfig_.buildTermination(configPolicy,basicPlumbingTermination);
   solver.setTermination(termination);
   BestSolutionRecaller bestSolutionRecaller=buildBestSolutionRecaller(environmentMode);
   solver.setBestSolutionRecaller(bestSolutionRecaller);
@@ -27,7 +28,7 @@
   List<SolverPhase> solverPhaseList=new ArrayList<SolverPhase>(solverPhaseConfigList.size());
   int phaseIndex=0;
   for (  SolverPhaseConfig solverPhaseConfig : solverPhaseConfigList) {
-    SolverPhase solverPhase=solverPhaseConfig.buildSolverPhase(phaseIndex,environmentMode,solutionDescriptor,scoreDefinition,termination);
+    SolverPhase solverPhase=solverPhaseConfig.buildSolverPhase(phaseIndex,configPolicy,termination);
     ((AbstractSolverPhase)solverPhase).setBestSolutionRecaller(bestSolutionRecaller);
     solverPhaseList.add(solverPhase);
     phaseIndex++;
