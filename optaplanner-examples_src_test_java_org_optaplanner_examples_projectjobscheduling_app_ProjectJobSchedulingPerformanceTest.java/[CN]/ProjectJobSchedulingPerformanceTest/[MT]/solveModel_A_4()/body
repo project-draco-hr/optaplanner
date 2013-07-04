@@ -1,0 +1,4 @@
+{
+  File unsolvedDataFile=new File("data/projectjobscheduling/unsolved/A-4.xml");
+  runSpeedTest(unsolvedDataFile,"0/-152/-69");
+}
