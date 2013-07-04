@@ -5,6 +5,7 @@
   validateCacheTypeVersusSelectionOrder(resolvedCacheType,resolvedSelectionOrder);
   validateProbability(resolvedSelectionOrder);
   ValueSelector valueSelector=buildBaseValueSelector(configPolicy,variableDescriptor,SelectionCacheType.max(minimumCacheType,resolvedCacheType),determineBaseRandomSelection(variableDescriptor,resolvedCacheType,resolvedSelectionOrder));
+  valueSelector=applyInitializedChainedValueFilter(configPolicy,variableDescriptor,resolvedCacheType,resolvedSelectionOrder,valueSelector);
   valueSelector=applyProbability(resolvedCacheType,resolvedSelectionOrder,valueSelector);
   valueSelector=applyShuffling(resolvedCacheType,resolvedSelectionOrder,valueSelector);
   valueSelector=applyCaching(resolvedCacheType,resolvedSelectionOrder,valueSelector);

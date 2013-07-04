@@ -1,5 +1,6 @@
 {
   HeuristicConfigPolicy phaseConfigPolicy=solverConfigPolicy.createPhaseConfigPolicy();
+  phaseConfigPolicy.setInitializedChainedValueFilterEnabled(true);
   if (constructionHeuristicType != null) {
     DefaultGreedyFitSolverPhase greedySolverPhase=new DefaultGreedyFitSolverPhase();
     configureSolverPhase(greedySolverPhase,phaseIndex,phaseConfigPolicy,solverTermination);

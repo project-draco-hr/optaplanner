@@ -1,0 +1,6 @@
+{
+  if (configPolicy.isInitializedChainedValueFilterEnabled() && variableDescriptor.isChained()) {
+    valueSelector=new InitializedValueSelector(variableDescriptor,valueSelector);
+  }
+  return valueSelector;
+}
