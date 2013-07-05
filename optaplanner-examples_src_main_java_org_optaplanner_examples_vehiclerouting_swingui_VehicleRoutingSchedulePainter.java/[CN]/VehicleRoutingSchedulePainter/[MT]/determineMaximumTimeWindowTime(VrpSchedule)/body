@@ -1,0 +1,20 @@
+{
+  int maximumTimeWindowTime=0;
+  for (  VrpDepot depot : schedule.getDepotList()) {
+    if (depot instanceof VrpTimeWindowedDepot) {
+      int timeWindowTime=((VrpTimeWindowedDepot)depot).getDueTime();
+      if (timeWindowTime > maximumTimeWindowTime) {
+        maximumTimeWindowTime=timeWindowTime;
+      }
+    }
+  }
+  for (  VrpCustomer customer : schedule.getCustomerList()) {
+    if (customer instanceof VrpTimeWindowedCustomer) {
+      int timeWindowTime=((VrpTimeWindowedCustomer)customer).getDueTime();
+      if (timeWindowTime > maximumTimeWindowTime) {
+        maximumTimeWindowTime=timeWindowTime;
+      }
+    }
+  }
+  return maximumTimeWindowTime;
+}
