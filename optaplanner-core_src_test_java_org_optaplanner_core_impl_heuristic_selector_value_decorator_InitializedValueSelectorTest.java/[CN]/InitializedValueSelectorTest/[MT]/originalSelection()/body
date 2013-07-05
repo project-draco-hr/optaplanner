@@ -5,7 +5,7 @@
   TestdataChainedEntity a1=new TestdataChainedEntity("a1");
   TestdataChainedEntity a2=new TestdataChainedEntity("a2");
   ValueSelector childValueSelector=SelectorTestUtils.mockValueSelector(variableDescriptor,a0,a1,a2);
-  InitializedValueSelector valueSelector=new InitializedValueSelector(variableDescriptor,childValueSelector);
+  InitializedValueSelector valueSelector=new InitializedValueSelector(childValueSelector);
   verify(childValueSelector,times(1)).isNeverEnding();
   DefaultSolverScope solverScope=mock(DefaultSolverScope.class);
   valueSelector.solvingStarted(solverScope);

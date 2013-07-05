@@ -1,5 +1,5 @@
 {
-  this.variableDescriptor=variableDescriptor;
+  this.variableDescriptor=childValueSelector.getVariableDescriptor();
   this.childValueSelector=childValueSelector;
   bailOutEnabled=childValueSelector.isNeverEnding();
   solverPhaseLifecycleSupport.addEventListener(childValueSelector);
