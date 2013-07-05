@@ -2,6 +2,7 @@
   this.termination=termination;
   this.valueSelector=valueSelector;
   variableDescriptor=valueSelector.getVariableDescriptor();
+  reinitializeVariableEntityFilter=variableDescriptor.getReinitializeVariableEntityFilter();
   this.selectedCountLimit=selectedCountLimit;
   solverPhaseLifecycleSupport.addEventListener(valueSelector);
   if (valueSelector.isNeverEnding() && selectedCountLimit == Integer.MAX_VALUE) {

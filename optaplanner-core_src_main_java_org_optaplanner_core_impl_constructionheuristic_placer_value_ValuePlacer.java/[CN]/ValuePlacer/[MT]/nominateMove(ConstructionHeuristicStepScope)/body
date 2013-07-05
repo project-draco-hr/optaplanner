@@ -1,6 +1,6 @@
 {
   Object entity=stepScope.getEntity();
-  if (variableDescriptor.isInitialized(entity)) {
+  if (!reinitializeVariableEntityFilter.accept(stepScope.getScoreDirector(),entity)) {
     return null;
   }
   Score maxScore=null;
