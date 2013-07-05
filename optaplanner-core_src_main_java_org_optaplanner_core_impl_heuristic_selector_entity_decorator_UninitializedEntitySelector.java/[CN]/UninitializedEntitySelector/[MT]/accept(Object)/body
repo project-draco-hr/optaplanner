@@ -1,0 +1,3 @@
+{
+  return !variableDescriptor.isInitialized(entity);
+}

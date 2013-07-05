@@ -1,0 +1,9 @@
+{
+  this.childEntitySelector=childEntitySelector;
+  this.variableDescriptor=variableDescriptor;
+  if (!variableDescriptor.getEntityDescriptor().getPlanningEntityClass().isAssignableFrom(childEntitySelector.getEntityDescriptor().getPlanningEntityClass())) {
+    throw new IllegalStateException("The selector (" + this + ")'s variableDescriptor ("+ variableDescriptor+ ")'s class is not assignable from its childEntitySelector ("+ childEntitySelector+ ")'s class.");
+  }
+  bailOutEnabled=childEntitySelector.isNeverEnding();
+  solverPhaseLifecycleSupport.addEventListener(childEntitySelector);
+}

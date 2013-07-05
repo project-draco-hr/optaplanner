@@ -1,0 +1,11 @@
+{
+  Iterator<Object> iterator=entitySelector.iterator();
+  assertNotNull(iterator);
+  for (  String valueCode : valueCodes) {
+    assertTrue(iterator.hasNext());
+    assertCode(valueCode,iterator.next());
+  }
+  assertFalse(iterator.hasNext());
+  assertEquals(false,entitySelector.isContinuous());
+  assertEquals(false,entitySelector.isNeverEnding());
+}
