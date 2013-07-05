@@ -1,3 +1,0 @@
-{
-  return childEntitySelector.getSize() * 10L;
-}

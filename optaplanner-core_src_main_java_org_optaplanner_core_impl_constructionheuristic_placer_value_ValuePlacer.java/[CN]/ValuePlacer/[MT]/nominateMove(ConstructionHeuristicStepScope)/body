@@ -1,5 +1,8 @@
 {
   Object entity=stepScope.getEntity();
+  if (variableDescriptor.isInitialized(entity)) {
+    return null;
+  }
   Score maxScore=null;
   ConstructionHeuristicMoveScope nominatedMoveScope=null;
   int moveIndex=0;
