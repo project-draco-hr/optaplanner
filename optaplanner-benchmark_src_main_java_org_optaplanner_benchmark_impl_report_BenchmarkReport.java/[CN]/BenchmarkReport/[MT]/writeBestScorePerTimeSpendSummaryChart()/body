@@ -25,7 +25,7 @@
   int scoreLevelIndex=0;
   for (  List<XYSeries> seriesList : seriesListList) {
     XYPlot plot=createScalabilityPlot(seriesList,"Time spend",new MillisecondsSpendNumberFormat(locale),"Score level " + scoreLevelIndex,NumberFormat.getInstance(locale));
-    JFreeChart chart=new JFreeChart("Best score per time spend level " + scoreLevelIndex + " summary (higher is better)",JFreeChart.DEFAULT_TITLE_FONT,plot,true);
+    JFreeChart chart=new JFreeChart("Best score per time spend level " + scoreLevelIndex + " summary (higher left is better)",JFreeChart.DEFAULT_TITLE_FONT,plot,true);
     bestScorePerTimeSpendSummaryChartFileList.add(writeChartToImageFile(chart,"bestScorePerTimeSpendSummaryLevel" + scoreLevelIndex));
     scoreLevelIndex++;
   }
