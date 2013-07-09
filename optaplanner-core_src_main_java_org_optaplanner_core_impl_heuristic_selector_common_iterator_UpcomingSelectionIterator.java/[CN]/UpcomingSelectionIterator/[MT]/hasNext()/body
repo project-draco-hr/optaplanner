@@ -1,3 +1,7 @@
 {
+  if (!upcomingSelected) {
+    createUpcomingSelection();
+    upcomingSelected=true;
+  }
   return upcomingSelection != null;
 }

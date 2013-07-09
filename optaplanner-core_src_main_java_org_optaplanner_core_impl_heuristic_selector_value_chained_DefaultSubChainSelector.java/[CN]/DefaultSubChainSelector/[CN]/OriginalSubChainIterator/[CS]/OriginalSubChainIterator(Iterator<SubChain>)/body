@@ -4,5 +4,4 @@
   toIndex=1;
   anchorTrailingChain=Collections.emptyList();
   nextListIteratorIndex=0;
-  createUpcomingSelection();
 }

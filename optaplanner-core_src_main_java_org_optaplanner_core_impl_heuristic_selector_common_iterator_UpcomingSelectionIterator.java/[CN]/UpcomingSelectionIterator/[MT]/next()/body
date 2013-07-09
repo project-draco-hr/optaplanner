@@ -2,7 +2,12 @@
   if (upcomingSelection == null) {
     throw new NoSuchElementException();
   }
-  S selection=upcomingSelection;
-  createUpcomingSelection();
-  return selection;
+  if (upcomingSelected) {
+    upcomingSelected=false;
+  }
+ else {
+    createUpcomingSelection();
+    upcomingSelected=true;
+  }
+  return upcomingSelection;
 }

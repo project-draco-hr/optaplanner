@@ -1,8 +1,6 @@
 {
   if (anchorTrailingChainList.isEmpty()) {
     upcomingSelection=null;
-  }
- else {
-    createUpcomingSelection();
+    upcomingSelected=true;
   }
 }

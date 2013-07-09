@@ -10,5 +10,4 @@
     }
     subSelections.add(null);
   }
-  createUpcomingSelection();
 }

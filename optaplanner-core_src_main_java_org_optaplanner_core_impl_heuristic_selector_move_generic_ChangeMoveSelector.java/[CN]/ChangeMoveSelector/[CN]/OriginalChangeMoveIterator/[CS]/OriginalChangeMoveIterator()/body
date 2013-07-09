@@ -2,10 +2,10 @@
   entityIterator=entitySelector.iterator();
   if (!entityIterator.hasNext()) {
     upcomingSelection=null;
+    upcomingSelected=true;
   }
  else {
     upcomingEntity=entityIterator.next();
     valueIterator=valueSelector.iterator(upcomingEntity);
-    createUpcomingSelection();
   }
 }

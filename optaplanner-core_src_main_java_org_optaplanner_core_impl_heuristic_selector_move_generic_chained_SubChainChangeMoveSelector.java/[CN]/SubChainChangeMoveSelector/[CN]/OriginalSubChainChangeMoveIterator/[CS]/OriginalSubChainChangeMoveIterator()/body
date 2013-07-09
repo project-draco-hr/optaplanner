@@ -3,9 +3,9 @@
   valueIterator=valueSelector.iterator();
   if (!subChainIterator.hasNext() || !valueIterator.hasNext()) {
     upcomingSelection=null;
+    upcomingSelected=true;
   }
  else {
     upcomingSubChain=subChainIterator.next();
-    createUpcomingSelection();
   }
 }
