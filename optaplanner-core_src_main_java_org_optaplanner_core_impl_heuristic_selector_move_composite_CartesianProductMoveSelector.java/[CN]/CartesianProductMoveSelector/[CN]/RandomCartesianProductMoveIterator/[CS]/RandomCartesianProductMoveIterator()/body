@@ -1,11 +1,7 @@
 {
   moveIteratorList=new ArrayList<Iterator<Move>>(childMoveSelectorList.size());
-  empty=false;
+  empty=null;
   for (  MoveSelector moveSelector : childMoveSelectorList) {
-    Iterator<Move> moveIterator=moveSelector.iterator();
-    if (!moveIterator.hasNext()) {
-      empty=true;
-    }
-    moveIteratorList.add(moveIterator);
+    moveIteratorList.add(moveSelector.iterator());
   }
 }
