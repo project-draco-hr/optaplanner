@@ -1,0 +1,4 @@
+{
+  SolutionDescriptor solutionDescriptor=TestdataNullableSolution.buildSolutionDescriptor();
+  return solutionDescriptor.getEntityDescriptor(TestdataNullableEntity.class);
+}

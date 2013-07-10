@@ -3,7 +3,13 @@
   assertNotNull(iterator);
   for (  String valueCode : valueCodes) {
     assertTrue(iterator.hasNext());
-    assertCode(valueCode,iterator.next());
+    Object next=iterator.next();
+    if (valueCode == null) {
+      assertNull(next);
+    }
+ else {
+      assertCode(valueCode,next);
+    }
   }
   assertFalse(iterator.hasNext());
   assertEquals(false,valueSelector.isContinuous());

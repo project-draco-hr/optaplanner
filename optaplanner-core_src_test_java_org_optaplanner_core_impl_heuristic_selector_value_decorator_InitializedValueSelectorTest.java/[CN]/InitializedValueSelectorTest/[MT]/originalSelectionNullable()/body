@@ -1,0 +1,26 @@
+{
+  PlanningEntityDescriptor entityDescriptor=TestdataNullableEntity.buildEntityDescriptor();
+  TestdataNullableEntity e1=new TestdataNullableEntity("e1");
+  PlanningVariableDescriptor variableDescriptor=entityDescriptor.getVariableDescriptor("value");
+  TestdataValue v1=new TestdataValue("v1");
+  TestdataValue v2=null;
+  TestdataValue v3=new TestdataValue("v3");
+  ValueSelector childValueSelector=SelectorTestUtils.mockValueSelector(variableDescriptor,v1,v2,v3);
+  ValueSelector valueSelector=new InitializedValueSelector(childValueSelector);
+  verify(childValueSelector,times(1)).isNeverEnding();
+  DefaultSolverScope solverScope=mock(DefaultSolverScope.class);
+  valueSelector.solvingStarted(solverScope);
+  AbstractSolverPhaseScope phaseScopeA=mock(AbstractSolverPhaseScope.class);
+  when(phaseScopeA.getSolverScope()).thenReturn(solverScope);
+  valueSelector.phaseStarted(phaseScopeA);
+  AbstractStepScope stepScopeA1=mock(AbstractStepScope.class);
+  when(stepScopeA1.getPhaseScope()).thenReturn(phaseScopeA);
+  valueSelector.stepStarted(stepScopeA1);
+  runAsserts(valueSelector,e1,"v1",null,"v3");
+  e1.setValue(v1);
+  valueSelector.stepEnded(stepScopeA1);
+  valueSelector.phaseEnded(phaseScopeA);
+  valueSelector.solvingEnded(solverScope);
+  verifySolverPhaseLifecycle(childValueSelector,1,1,1);
+  verify(childValueSelector,times(1)).iterator(any());
+}

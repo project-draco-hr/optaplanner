@@ -1,3 +1,3 @@
 ValueSelector valueSelector
-TestdataChainedEntity entity
+TestdataObject entity
 String valueCodes

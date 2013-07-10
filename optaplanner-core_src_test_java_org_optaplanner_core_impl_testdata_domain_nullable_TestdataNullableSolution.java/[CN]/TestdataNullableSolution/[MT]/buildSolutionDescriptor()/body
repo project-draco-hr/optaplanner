@@ -1,0 +1,3 @@
+{
+  return TestdataUtils.buildSolutionDescriptor(TestdataNullableSolution.class,TestdataNullableEntity.class);
+}
