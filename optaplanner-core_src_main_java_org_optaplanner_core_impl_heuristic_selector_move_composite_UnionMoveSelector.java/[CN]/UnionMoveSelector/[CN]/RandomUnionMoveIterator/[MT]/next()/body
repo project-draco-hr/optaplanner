@@ -1,11 +1,13 @@
 {
+  if (stale) {
+    refreshMoveIteratorMap();
+  }
   double randomOffset=RandomUtils.nextDouble(workingRandom,probabilityWeightTotal);
   Map.Entry<Double,Iterator<Move>> entry=moveIteratorMap.floorEntry(randomOffset);
   Iterator<Move> moveIterator=entry.getValue();
   Move next=moveIterator.next();
   if (!moveIterator.hasNext()) {
-    probabilityItemMap.remove(moveIterator);
-    refreshMoveIteratorMap();
+    stale=true;
   }
   return next;
 }

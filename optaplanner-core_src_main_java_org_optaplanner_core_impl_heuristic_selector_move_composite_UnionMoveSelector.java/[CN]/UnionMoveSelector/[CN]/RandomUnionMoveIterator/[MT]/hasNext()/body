@@ -1,3 +1,6 @@
 {
+  if (stale) {
+    refreshMoveIteratorMap();
+  }
   return !moveIteratorMap.isEmpty();
 }

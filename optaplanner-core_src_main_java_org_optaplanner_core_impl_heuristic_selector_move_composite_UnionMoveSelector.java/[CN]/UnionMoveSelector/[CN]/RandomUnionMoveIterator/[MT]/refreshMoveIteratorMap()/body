@@ -2,8 +2,10 @@
   moveIteratorMap.clear();
   double probabilityWeightOffset=0.0;
   for (  ProbabilityItem probabilityItem : probabilityItemMap.values()) {
-    moveIteratorMap.put(probabilityWeightOffset,probabilityItem.moveIterator);
-    probabilityWeightOffset+=probabilityItem.probabilityWeight;
+    if (probabilityItem.probabilityWeight != 0.0 && probabilityItem.moveIterator.hasNext()) {
+      moveIteratorMap.put(probabilityWeightOffset,probabilityItem.moveIterator);
+      probabilityWeightOffset+=probabilityItem.probabilityWeight;
+    }
   }
   probabilityWeightTotal=probabilityWeightOffset;
 }

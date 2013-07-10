@@ -1,15 +1,16 @@
 {
-  moveIteratorMap=new TreeMap<Double,Iterator<Move>>();
   probabilityItemMap=new LinkedHashMap<Iterator<Move>,ProbabilityItem>(childMoveSelectorList.size());
   for (  MoveSelector moveSelector : childMoveSelectorList) {
     Iterator<Move> moveIterator=moveSelector.iterator();
-    if (moveIterator.hasNext()) {
-      ProbabilityItem probabilityItem=new ProbabilityItem();
-      probabilityItem.moveSelector=moveSelector;
-      probabilityItem.moveIterator=moveIterator;
-      probabilityItem.probabilityWeight=selectorProbabilityWeightFactory.createProbabilityWeight(scoreDirector,moveSelector);
-      probabilityItemMap.put(moveIterator,probabilityItem);
+    ProbabilityItem probabilityItem=new ProbabilityItem();
+    probabilityItem.moveSelector=moveSelector;
+    probabilityItem.moveIterator=moveIterator;
+    probabilityItem.probabilityWeight=selectorProbabilityWeightFactory.createProbabilityWeight(scoreDirector,moveSelector);
+    if (probabilityItem.probabilityWeight < 0.0) {
+      throw new IllegalStateException("The selectorProbabilityWeightFactory (" + selectorProbabilityWeightFactory + ") returned a negative probabilityWeight ("+ probabilityItem.probabilityWeight+ ").");
     }
+    probabilityItemMap.put(moveIterator,probabilityItem);
   }
-  refreshMoveIteratorMap();
+  moveIteratorMap=new TreeMap<Double,Iterator<Move>>();
+  stale=true;
 }
