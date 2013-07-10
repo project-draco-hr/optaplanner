@@ -7,5 +7,5 @@
     rightSubSelectionIterator=rightSubSelector.iterator();
   }
   SubS rightSubSelection=rightSubSelectionIterator.next();
-  upcomingSelection=newSwapSelection(leftSubSelection,rightSubSelection);
+  return newSwapSelection(leftSubSelection,rightSubSelection);
 }

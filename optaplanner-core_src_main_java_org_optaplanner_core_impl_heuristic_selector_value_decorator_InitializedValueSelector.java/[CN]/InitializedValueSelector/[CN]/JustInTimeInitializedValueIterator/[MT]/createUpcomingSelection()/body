@@ -17,5 +17,5 @@
     next=childValueIterator.next();
   }
  while (!accept(next));
-  upcomingSelection=next;
+  return next;
 }

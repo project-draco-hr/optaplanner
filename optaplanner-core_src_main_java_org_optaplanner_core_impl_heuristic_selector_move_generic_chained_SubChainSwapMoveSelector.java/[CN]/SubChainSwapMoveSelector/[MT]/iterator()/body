@@ -2,13 +2,13 @@
   if (!randomSelection) {
     return new AbstractOriginalSwapIterator<Move,SubChain>(leftSubChainSelector,rightSubChainSelector){
       private Move nextReversingSelection=null;
-      @Override protected void createUpcomingSelection(){
+      @Override protected Move createUpcomingSelection(){
         if (selectReversingMoveToo && nextReversingSelection != null) {
-          upcomingSelection=nextReversingSelection;
+          Move upcomingSelection=nextReversingSelection;
           nextReversingSelection=null;
-          return;
+          return upcomingSelection;
         }
-        super.createUpcomingSelection();
+        return super.createUpcomingSelection();
       }
       @Override protected Move newSwapSelection(      SubChain leftSubSelection,      SubChain rightSubSelection){
         if (selectReversingMoveToo) {

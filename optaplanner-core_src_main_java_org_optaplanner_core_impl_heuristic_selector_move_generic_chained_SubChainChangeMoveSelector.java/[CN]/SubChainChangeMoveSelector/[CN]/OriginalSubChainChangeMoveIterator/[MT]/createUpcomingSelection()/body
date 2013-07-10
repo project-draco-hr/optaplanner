@@ -1,20 +1,20 @@
 {
   if (selectReversingMoveToo && nextReversingSelection != null) {
-    upcomingSelection=nextReversingSelection;
+    Move upcomingSelection=nextReversingSelection;
     nextReversingSelection=null;
-    return;
+    return upcomingSelection;
   }
   while (!valueIterator.hasNext()) {
     if (!subChainIterator.hasNext()) {
-      upcomingSelection=null;
-      return;
+      return null;
     }
     upcomingSubChain=subChainIterator.next();
     valueIterator=valueSelector.iterator();
   }
   Object toValue=valueIterator.next();
-  upcomingSelection=new SubChainChangeMove(upcomingSubChain,valueSelector.getVariableDescriptor(),toValue);
+  Move upcomingSelection=new SubChainChangeMove(upcomingSubChain,valueSelector.getVariableDescriptor(),toValue);
   if (selectReversingMoveToo) {
     nextReversingSelection=new SubChainReversingChangeMove(upcomingSubChain,valueSelector.getVariableDescriptor(),toValue);
   }
+  return upcomingSelection;
 }

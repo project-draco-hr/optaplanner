@@ -6,7 +6,7 @@
     upcomingSelected=false;
   }
  else {
-    createUpcomingSelection();
+    upcomingSelection=createUpcomingSelection();
     upcomingSelected=true;
   }
   return upcomingSelection;

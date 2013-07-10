@@ -7,17 +7,15 @@
       break;
     }
     if (i == 0) {
-      upcomingSelection=null;
-      return;
+      return null;
     }
     moveIterator=childMoveSelectorList.get(i).iterator();
     moveIteratorList.set(i,moveIterator);
     if (!moveIterator.hasNext()) {
-      upcomingSelection=null;
-      return;
+      return null;
     }
     moveList.set(i,moveIterator.next());
   }
   subSelections=moveList;
-  upcomingSelection=new CompositeMove(moveList);
+  return new CompositeMove(moveList);
 }

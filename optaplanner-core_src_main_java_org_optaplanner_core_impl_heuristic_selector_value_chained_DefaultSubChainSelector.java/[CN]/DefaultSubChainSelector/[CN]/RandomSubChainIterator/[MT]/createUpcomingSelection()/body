@@ -13,5 +13,5 @@
       throw new IllegalStateException("Impossible if calculateSubChainSelectionSize() works correctly.");
     }
   }
-  upcomingSelection=anchorTrailingChain.subChain((int)fromIndex,(int)(fromIndex + subChainSize));
+  return anchorTrailingChain.subChain((int)fromIndex,(int)(fromIndex + subChainSize));
 }

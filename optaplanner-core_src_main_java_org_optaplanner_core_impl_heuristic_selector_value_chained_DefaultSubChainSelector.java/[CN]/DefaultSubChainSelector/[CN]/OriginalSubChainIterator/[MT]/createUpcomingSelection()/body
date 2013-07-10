@@ -5,13 +5,12 @@
     toIndex=fromIndex + minimumSubChainSize;
     while (toIndex > anchorTrailingChain.size()) {
       if (!anchorTrailingChainIterator.hasNext()) {
-        upcomingSelection=null;
-        return;
+        return null;
       }
       anchorTrailingChain=anchorTrailingChainIterator.next().getEntityList();
       fromIndex=0;
       toIndex=fromIndex + minimumSubChainSize;
     }
   }
-  upcomingSelection=new SubChain(anchorTrailingChain.subList(fromIndex,toIndex));
+  return new SubChain(anchorTrailingChain.subList(fromIndex,toIndex));
 }

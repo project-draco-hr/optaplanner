@@ -17,5 +17,5 @@
     next=childMoveIterator.next();
   }
  while (!accept(scoreDirector,next));
-  upcomingSelection=next;
+  return next;
 }

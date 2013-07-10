@@ -1,6 +1,6 @@
 {
   if (!upcomingSelected) {
-    createUpcomingSelection();
+    upcomingSelection=createUpcomingSelection();
     upcomingSelected=true;
   }
   return upcomingSelection != null;
