@@ -1,0 +1,3 @@
+{
+  assertEmptyNeverEndingMoveSelector(moveSelector,0L);
+}

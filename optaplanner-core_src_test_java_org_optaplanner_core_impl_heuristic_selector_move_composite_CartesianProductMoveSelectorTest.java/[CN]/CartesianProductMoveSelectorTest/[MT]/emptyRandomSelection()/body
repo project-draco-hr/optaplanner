@@ -1,0 +1,20 @@
+{
+  ArrayList<MoveSelector> childMoveSelectorList=new ArrayList<MoveSelector>();
+  childMoveSelectorList.add(SelectorTestUtils.mockMoveSelector(DummyMove.class));
+  childMoveSelectorList.add(SelectorTestUtils.mockMoveSelector(DummyMove.class,new DummyMove("b1"),new DummyMove("b2")));
+  CartesianProductMoveSelector moveSelector=new CartesianProductMoveSelector(childMoveSelectorList,true);
+  DefaultSolverScope solverScope=mock(DefaultSolverScope.class);
+  moveSelector.solvingStarted(solverScope);
+  AbstractSolverPhaseScope phaseScopeA=mock(AbstractSolverPhaseScope.class);
+  when(phaseScopeA.getSolverScope()).thenReturn(solverScope);
+  moveSelector.phaseStarted(phaseScopeA);
+  AbstractStepScope stepScopeA1=mock(AbstractStepScope.class);
+  when(stepScopeA1.getPhaseScope()).thenReturn(phaseScopeA);
+  moveSelector.stepStarted(stepScopeA1);
+  assertEmptyNeverEndingMoveSelector(moveSelector);
+  moveSelector.stepEnded(stepScopeA1);
+  moveSelector.phaseEnded(phaseScopeA);
+  moveSelector.solvingEnded(solverScope);
+  verifySolverPhaseLifecycle(childMoveSelectorList.get(0),1,1,1);
+  verifySolverPhaseLifecycle(childMoveSelectorList.get(1),1,1,1);
+}
