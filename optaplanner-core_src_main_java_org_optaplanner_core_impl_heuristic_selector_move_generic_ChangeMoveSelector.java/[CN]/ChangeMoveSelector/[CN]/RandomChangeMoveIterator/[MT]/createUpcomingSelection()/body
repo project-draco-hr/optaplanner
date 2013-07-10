@@ -10,7 +10,7 @@
       entityIterator=entitySelector.iterator();
       entityIteratorCreationCount++;
       if (entityIteratorCreationCount >= 2) {
-        return null;
+        return noUpcomingSelection();
       }
     }
     entity=entityIterator.next();

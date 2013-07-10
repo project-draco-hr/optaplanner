@@ -1,6 +1,6 @@
 {
   if (anchorTrailingChainList.isEmpty()) {
-    upcomingSelection=null;
-    upcomingSelected=true;
+    upcomingSelection=noUpcomingSelection();
+    upcomingCreated=true;
   }
 }

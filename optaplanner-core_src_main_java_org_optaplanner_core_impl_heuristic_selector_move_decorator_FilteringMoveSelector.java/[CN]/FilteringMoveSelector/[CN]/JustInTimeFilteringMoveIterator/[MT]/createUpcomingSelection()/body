@@ -3,14 +3,12 @@
   long attemptsBeforeBailOut=bailOutEnabled ? determineBailOutSize() : 0L;
   do {
     if (!childMoveIterator.hasNext()) {
-      next=null;
-      break;
+      return noUpcomingSelection();
     }
     if (bailOutEnabled) {
       if (attemptsBeforeBailOut <= 0L) {
         logger.warn("Bailing out of neverEnding selector ({}) to avoid infinite loop.",FilteringMoveSelector.this);
-        next=null;
-        break;
+        return noUpcomingSelection();
       }
       attemptsBeforeBailOut--;
     }

@@ -6,7 +6,7 @@
   }
   while (!valueIterator.hasNext()) {
     if (!subChainIterator.hasNext()) {
-      return null;
+      return noUpcomingSelection();
     }
     upcomingSubChain=subChainIterator.next();
     valueIterator=valueSelector.iterator();

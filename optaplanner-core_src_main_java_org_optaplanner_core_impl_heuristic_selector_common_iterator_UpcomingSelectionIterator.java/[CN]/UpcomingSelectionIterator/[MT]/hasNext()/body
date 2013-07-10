@@ -1,7 +1,7 @@
 {
-  if (!upcomingSelected) {
+  if (!upcomingCreated) {
     upcomingSelection=createUpcomingSelection();
-    upcomingSelected=true;
+    upcomingCreated=true;
   }
-  return upcomingSelection != null;
+  return hasUpcomingSelection;
 }

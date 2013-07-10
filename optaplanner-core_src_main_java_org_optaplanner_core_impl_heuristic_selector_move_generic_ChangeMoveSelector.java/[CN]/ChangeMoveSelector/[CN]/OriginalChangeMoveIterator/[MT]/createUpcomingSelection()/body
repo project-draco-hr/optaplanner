@@ -1,7 +1,7 @@
 {
   while (!valueIterator.hasNext()) {
     if (!entityIterator.hasNext()) {
-      return null;
+      return noUpcomingSelection();
     }
     upcomingEntity=entityIterator.next();
     valueIterator=valueSelector.iterator(upcomingEntity);

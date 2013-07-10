@@ -1,18 +1,18 @@
 {
   if (!rightSubSelectionIterator.hasNext()) {
     if (!leftSubSelectionIterator.hasNext()) {
-      return null;
+      return noUpcomingSelection();
     }
     leftSubSelection=leftSubSelectionIterator.next();
     if (!leftEqualsRight) {
       rightSubSelectionIterator=rightSubSelector.listIterator();
       if (!rightSubSelectionIterator.hasNext()) {
-        return null;
+        return noUpcomingSelection();
       }
     }
  else {
       if (!leftSubSelectionIterator.hasNext()) {
-        return null;
+        return noUpcomingSelection();
       }
       rightSubSelectionIterator=rightSubSelector.listIterator(leftSubSelectionIterator.nextIndex());
     }

@@ -1,13 +1,10 @@
 {
-  if (upcomingSelection == null) {
+  if (!hasUpcomingSelection) {
     throw new NoSuchElementException();
   }
-  if (upcomingSelected) {
-    upcomingSelected=false;
-  }
- else {
+  if (!upcomingCreated) {
     upcomingSelection=createUpcomingSelection();
-    upcomingSelected=true;
   }
+  upcomingCreated=false;
   return upcomingSelection;
 }

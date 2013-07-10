@@ -5,7 +5,7 @@
     toIndex=fromIndex + minimumSubChainSize;
     while (toIndex > anchorTrailingChain.size()) {
       if (!anchorTrailingChainIterator.hasNext()) {
-        return null;
+        return noUpcomingSelection();
       }
       anchorTrailingChain=anchorTrailingChainIterator.next().getEntityList();
       fromIndex=0;
