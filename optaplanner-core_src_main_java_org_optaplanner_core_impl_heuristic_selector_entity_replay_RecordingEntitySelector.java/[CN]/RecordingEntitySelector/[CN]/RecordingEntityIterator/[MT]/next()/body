@@ -1,0 +1,5 @@
+{
+  recordedSelection=childEntityIterator.next();
+  recordedSelectionCreated=true;
+  return recordedSelection;
+}

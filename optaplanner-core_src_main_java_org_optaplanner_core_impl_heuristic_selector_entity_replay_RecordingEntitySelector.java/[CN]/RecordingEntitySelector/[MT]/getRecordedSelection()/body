@@ -1,0 +1,6 @@
+{
+  if (!recordedSelectionCreated) {
+    throw new IllegalStateException("The method getRecordedSelection() fails on the selector (" + this + ") because it next() hasn't been called yet.");
+  }
+  return recordedSelection;
+}

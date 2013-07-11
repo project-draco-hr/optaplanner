@@ -1,0 +1,5 @@
+{
+  hasRecordedSelection=childEntityIterator.hasNext();
+  hasRecordedSelectionCreated=true;
+  return hasRecordedSelection;
+}

@@ -1,0 +1,7 @@
+{
+  super.stepEnded(stepScope);
+  hasRecordedSelectionCreated=false;
+  hasRecordedSelection=false;
+  recordedSelectionCreated=false;
+  recordedSelection=null;
+}

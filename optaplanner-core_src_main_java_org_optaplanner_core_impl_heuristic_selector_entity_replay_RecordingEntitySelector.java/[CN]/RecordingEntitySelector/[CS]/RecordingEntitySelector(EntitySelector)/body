@@ -1,0 +1,4 @@
+{
+  this.childEntitySelector=childEntitySelector;
+  solverPhaseLifecycleSupport.addEventListener(childEntitySelector);
+}
