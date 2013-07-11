@@ -1,3 +1,0 @@
-{
-  throw new UnsupportedOperationException("The optional operation remove() is not supported.");
-}
