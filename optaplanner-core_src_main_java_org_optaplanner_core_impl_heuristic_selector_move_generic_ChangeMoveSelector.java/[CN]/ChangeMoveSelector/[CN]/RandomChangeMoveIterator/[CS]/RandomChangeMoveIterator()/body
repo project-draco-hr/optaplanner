@@ -1,7 +1,3 @@
 {
   entityIterator=entitySelector.iterator();
-  if (!entityIterator.hasNext()) {
-    upcomingSelection=noUpcomingSelection();
-    upcomingCreated=true;
-  }
 }

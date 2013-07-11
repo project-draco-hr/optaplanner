@@ -1,6 +1,9 @@
 {
   if (!entityIterator.hasNext()) {
     entityIterator=entitySelector.iterator();
+    if (!entityIterator.hasNext()) {
+      return noUpcomingSelection();
+    }
   }
   Object entity=entityIterator.next();
   valueIterator=valueSelector.iterator(entity);
