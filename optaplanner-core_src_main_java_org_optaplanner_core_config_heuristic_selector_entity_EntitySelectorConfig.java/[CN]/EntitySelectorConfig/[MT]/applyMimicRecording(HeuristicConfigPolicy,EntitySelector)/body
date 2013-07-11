@@ -1,0 +1,11 @@
+{
+  if (id != null) {
+    if (id.isEmpty()) {
+      throw new IllegalArgumentException("The entitySelectorConfig (" + this + ") has an empty id ("+ id+ ").");
+    }
+    MimicRecordingEntitySelector mimicRecordingEntitySelector=new MimicRecordingEntitySelector(entitySelector);
+    configPolicy.addMimicRecordingEntitySelector(id,mimicRecordingEntitySelector);
+    entitySelector=mimicRecordingEntitySelector;
+  }
+  return entitySelector;
+}

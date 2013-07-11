@@ -1,0 +1,10 @@
+{
+  if (id != null || entityClass != null || cacheType != null || selectionOrder != null || filterClassList != null || sorterComparatorClass != null || sorterWeightFactoryClass != null || sorterOrder != null || sorterClass != null || probabilityWeightFactoryClass != null) {
+    throw new IllegalArgumentException("The entitySelectorConfig (" + this + ") with mimicSelectorRef ("+ mimicSelectorRef+ ") has another property that is not null.");
+  }
+  MimicRecordingEntitySelector mimicRecordingEntitySelector=configPolicy.getMimicRecordingEntitySelector(mimicSelectorRef);
+  if (mimicRecordingEntitySelector == null) {
+    throw new IllegalArgumentException("The entitySelectorConfig (" + this + ") has a mimicSelectorRef ("+ mimicSelectorRef+ ") for which no entitySelector with that id exists (in its solver phase).");
+  }
+  return new MimicReplayingEntitySelector(mimicRecordingEntitySelector);
+}

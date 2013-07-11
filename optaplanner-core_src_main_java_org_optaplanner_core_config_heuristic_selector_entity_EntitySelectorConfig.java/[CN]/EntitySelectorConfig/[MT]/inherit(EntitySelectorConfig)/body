@@ -1,5 +1,7 @@
 {
   super.inherit(inheritedConfig);
+  id=ConfigUtils.inheritOverwritableProperty(id,inheritedConfig.getId());
+  mimicSelectorRef=ConfigUtils.inheritOverwritableProperty(mimicSelectorRef,inheritedConfig.getMimicSelectorRef());
   entityClass=ConfigUtils.inheritOverwritableProperty(entityClass,inheritedConfig.getEntityClass());
   cacheType=ConfigUtils.inheritOverwritableProperty(cacheType,inheritedConfig.getCacheType());
   selectionOrder=ConfigUtils.inheritOverwritableProperty(selectionOrder,inheritedConfig.getSelectionOrder());

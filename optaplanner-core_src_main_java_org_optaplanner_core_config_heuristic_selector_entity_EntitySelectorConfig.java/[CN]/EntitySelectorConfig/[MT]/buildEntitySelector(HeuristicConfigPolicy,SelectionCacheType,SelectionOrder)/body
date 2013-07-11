@@ -1,4 +1,7 @@
 {
+  if (mimicSelectorRef != null) {
+    return buildMimicReplaying(configPolicy);
+  }
   PlanningEntityDescriptor entityDescriptor=deduceEntityDescriptor(configPolicy.getSolutionDescriptor(),entityClass);
   SelectionCacheType resolvedCacheType=SelectionCacheType.resolve(cacheType,minimumCacheType);
   SelectionOrder resolvedSelectionOrder=SelectionOrder.resolve(selectionOrder,inheritedSelectionOrder);
@@ -11,5 +14,6 @@
   entitySelector=applyProbability(resolvedCacheType,resolvedSelectionOrder,entitySelector);
   entitySelector=applyShuffling(resolvedCacheType,resolvedSelectionOrder,entitySelector);
   entitySelector=applyCaching(resolvedCacheType,resolvedSelectionOrder,entitySelector);
+  entitySelector=applyMimicRecording(configPolicy,entitySelector);
   return entitySelector;
 }
