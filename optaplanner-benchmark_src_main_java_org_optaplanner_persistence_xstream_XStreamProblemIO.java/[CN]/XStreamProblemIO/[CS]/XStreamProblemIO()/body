@@ -1,4 +1,4 @@
 {
-  xStream=new XStream(new PureJavaReflectionProvider(new FieldDictionary(new NativeFieldKeySorter())));
+  xStream=new XStream();
   xStream.setMode(XStream.ID_REFERENCES);
 }
