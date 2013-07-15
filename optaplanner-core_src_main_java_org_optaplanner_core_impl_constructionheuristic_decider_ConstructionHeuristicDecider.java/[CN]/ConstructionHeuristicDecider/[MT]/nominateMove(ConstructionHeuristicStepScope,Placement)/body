@@ -21,5 +21,6 @@
       break;
     }
   }
+  stepScope.setSelectedMoveCount((long)moveIndex);
   return nominatedMoveScope;
 }
