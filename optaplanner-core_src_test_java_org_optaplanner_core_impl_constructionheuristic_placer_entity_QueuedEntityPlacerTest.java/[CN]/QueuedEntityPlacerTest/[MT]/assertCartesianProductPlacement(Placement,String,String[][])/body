@@ -1,0 +1,16 @@
+{
+  Iterator<Move> iterator=placement.iterator();
+  assertNotNull(iterator);
+  for (  String[] valueCodeCombination : valueCodeCombinations) {
+    assertTrue(iterator.hasNext());
+    CompositeMove move=(CompositeMove)iterator.next();
+    List<Move> subMoveList=move.getMoveList();
+    assertEquals(valueCodeCombination.length,subMoveList.size());
+    for (int i=0; i < valueCodeCombination.length; i++) {
+      ChangeMove changeMove=(ChangeMove)subMoveList.get(i);
+      assertCode(entityCode,changeMove.getEntity());
+      assertCode(valueCodeCombination[i],changeMove.getToPlanningValue());
+    }
+  }
+  assertFalse(iterator.hasNext());
+}
