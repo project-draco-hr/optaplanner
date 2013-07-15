@@ -1,4 +1,3 @@
 {
   this.decider=decider;
-  this.decider.setLocalSearchSolverPhase(this);
 }
