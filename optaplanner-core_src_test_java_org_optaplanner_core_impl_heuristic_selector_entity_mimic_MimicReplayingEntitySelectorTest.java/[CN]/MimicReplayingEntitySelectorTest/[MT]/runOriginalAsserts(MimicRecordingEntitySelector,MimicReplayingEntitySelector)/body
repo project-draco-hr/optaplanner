@@ -1,7 +1,7 @@
 {
-  Iterator<Object> recordingIterator=mimicRecordingEntitySelector.iterator();
+  Iterator<Object> recordingIterator=recordingEntitySelector.iterator();
   assertNotNull(recordingIterator);
-  Iterator<Object> replayingIterator=mimicReplayingEntitySelector.iterator();
+  Iterator<Object> replayingIterator=replayingEntitySelector.iterator();
   assertNotNull(replayingIterator);
   assertTrue(recordingIterator.hasNext());
   assertTrue(replayingIterator.hasNext());
@@ -20,10 +20,10 @@
   assertFalse(recordingIterator.hasNext());
   assertFalse(replayingIterator.hasNext());
   assertFalse(replayingIterator.hasNext());
-  assertEquals(false,mimicRecordingEntitySelector.isContinuous());
-  assertEquals(false,mimicReplayingEntitySelector.isContinuous());
-  assertEquals(false,mimicRecordingEntitySelector.isNeverEnding());
-  assertEquals(false,mimicReplayingEntitySelector.isNeverEnding());
-  assertEquals(3L,mimicRecordingEntitySelector.getSize());
-  assertEquals(3L,mimicReplayingEntitySelector.getSize());
+  assertEquals(false,recordingEntitySelector.isContinuous());
+  assertEquals(false,replayingEntitySelector.isContinuous());
+  assertEquals(false,recordingEntitySelector.isNeverEnding());
+  assertEquals(false,replayingEntitySelector.isNeverEnding());
+  assertEquals(3L,recordingEntitySelector.getSize());
+  assertEquals(3L,replayingEntitySelector.getSize());
 }
