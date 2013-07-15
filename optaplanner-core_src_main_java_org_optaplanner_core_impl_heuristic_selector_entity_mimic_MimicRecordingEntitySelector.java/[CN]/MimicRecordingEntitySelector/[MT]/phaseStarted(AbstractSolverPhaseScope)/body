@@ -1,5 +1,5 @@
 {
-  super.stepStarted(stepScope);
+  super.phaseStarted(phaseScope);
   hasRecordedSelectionCreated=false;
   recordedSelectionCreated=false;
 }
