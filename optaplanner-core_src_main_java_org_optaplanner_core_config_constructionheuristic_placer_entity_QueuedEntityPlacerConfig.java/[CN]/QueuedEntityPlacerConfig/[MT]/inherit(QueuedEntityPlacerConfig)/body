@@ -6,5 +6,5 @@
  else   if (inheritedConfig.getEntitySelectorConfig() != null) {
     entitySelectorConfig.inherit(inheritedConfig.getEntitySelectorConfig());
   }
-  valuePlacerConfigList=ConfigUtils.inheritMergeableListProperty(valuePlacerConfigList,inheritedConfig.getValuePlacerConfigList());
+  moveSelectorConfigList=ConfigUtils.inheritMergeableListProperty(moveSelectorConfigList,inheritedConfig.getMoveSelectorConfigList());
 }

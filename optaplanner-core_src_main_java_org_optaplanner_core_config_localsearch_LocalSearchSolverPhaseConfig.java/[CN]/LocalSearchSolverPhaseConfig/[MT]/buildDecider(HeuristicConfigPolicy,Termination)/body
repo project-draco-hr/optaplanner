@@ -1,6 +1,6 @@
 {
   DefaultDecider decider=new DefaultDecider();
-  decider.setTermination(phaseTermination);
+  decider.setTermination(termination);
   MoveSelector moveSelector=buildMoveSelector(configPolicy);
   decider.setMoveSelector(moveSelector);
   AcceptorConfig acceptorConfig_=acceptorConfig == null ? new AcceptorConfig() : acceptorConfig;

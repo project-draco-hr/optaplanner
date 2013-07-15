@@ -1,6 +1,0 @@
-{
-  super.phaseEnded(solverPhaseScope);
-  entityIterator=null;
-  nominatedEntity=null;
-  valuePlacerIterator=null;
-}

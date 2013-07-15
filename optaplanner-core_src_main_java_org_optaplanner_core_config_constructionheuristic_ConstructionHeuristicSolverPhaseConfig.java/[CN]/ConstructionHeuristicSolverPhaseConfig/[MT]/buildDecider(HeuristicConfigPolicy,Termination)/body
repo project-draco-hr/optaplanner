@@ -1,0 +1,11 @@
+{
+  ConstructionHeuristicDecider decider=new ConstructionHeuristicDecider(termination);
+  EnvironmentMode environmentMode=configPolicy.getEnvironmentMode();
+  if (environmentMode.isNonIntrusiveFullAsserted()) {
+    decider.setAssertMoveScoreFromScratch(true);
+  }
+  if (environmentMode.isIntrusiveFastAsserted()) {
+    decider.setAssertExpectedUndoMoveScore(true);
+  }
+  return decider;
+}

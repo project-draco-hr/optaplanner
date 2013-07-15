@@ -21,6 +21,7 @@
     }
     DefaultConstructionHeuristicSolverPhase phase=new DefaultConstructionHeuristicSolverPhase();
     configureSolverPhase(phase,phaseIndex,phaseConfigPolicy,solverTermination);
+    phase.setDecider(buildDecider(phaseConfigPolicy,phase.getTermination()));
     EntityPlacer entityPlacer;
     if (entityPlacerConfigList.size() == 1) {
       entityPlacer=entityPlacerConfigList.get(0).buildEntityPlacer(phaseConfigPolicy,phase.getTermination());

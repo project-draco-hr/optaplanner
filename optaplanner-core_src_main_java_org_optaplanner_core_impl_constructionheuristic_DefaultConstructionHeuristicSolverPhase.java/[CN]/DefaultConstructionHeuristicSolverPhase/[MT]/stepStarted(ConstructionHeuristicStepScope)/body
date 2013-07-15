@@ -1,4 +1,5 @@
 {
   super.stepStarted(stepScope);
   entityPlacer.stepStarted(stepScope);
+  decider.stepStarted(stepScope);
 }

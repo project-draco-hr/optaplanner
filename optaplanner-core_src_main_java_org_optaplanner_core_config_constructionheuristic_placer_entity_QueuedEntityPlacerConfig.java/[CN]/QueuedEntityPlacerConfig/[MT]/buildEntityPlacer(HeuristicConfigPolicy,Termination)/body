@@ -1,10 +1,16 @@
 {
+  SelectionCacheType defaultCacheType=SelectionCacheType.JUST_IN_TIME;
+  SelectionOrder defaultSelectionOrder=SelectionOrder.ORIGINAL;
   EntitySelectorConfig entitySelectorConfig_=entitySelectorConfig == null ? new EntitySelectorConfig() : entitySelectorConfig;
-  EntitySelector entitySelector=entitySelectorConfig_.buildEntitySelector(configPolicy,SelectionCacheType.JUST_IN_TIME,SelectionOrder.ORIGINAL);
-  List<ValuePlacerConfig> valuePlacerConfigList_=valuePlacerConfigList == null ? Arrays.asList(new ValuePlacerConfig()) : valuePlacerConfigList;
-  List<ValuePlacer> valuePlacerList=new ArrayList<ValuePlacer>(valuePlacerConfigList_.size());
-  for (  ValuePlacerConfig valuePlacerConfig : valuePlacerConfigList_) {
-    valuePlacerList.add(valuePlacerConfig.buildValuePlacer(configPolicy,phaseTermination,entitySelector.getEntityDescriptor()));
+  EntitySelector entitySelector=entitySelectorConfig_.buildEntitySelector(configPolicy,defaultCacheType,defaultSelectionOrder);
+  List<MoveSelector> moveSelectorList=new ArrayList<MoveSelector>(moveSelectorConfigList.size());
+  if (CollectionUtils.isEmpty(moveSelectorConfigList)) {
+    throw new UnsupportedOperationException();
   }
-  return new QueuedEntityPlacer(entitySelector,valuePlacerList);
+ else {
+    for (    MoveSelectorConfig moveSelectorConfig : moveSelectorConfigList) {
+      moveSelectorList.add(moveSelectorConfig.buildMoveSelector(configPolicy,defaultCacheType,defaultSelectionOrder));
+    }
+  }
+  return new QueuedEntityPlacer(entitySelector,moveSelectorList);
 }

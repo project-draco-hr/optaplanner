@@ -1,0 +1,8 @@
+{
+  this.entitySelector=entitySelector;
+  this.moveSelectorList=moveSelectorList;
+  solverPhaseLifecycleSupport.addEventListener(entitySelector);
+  for (  MoveSelector moveSelector : moveSelectorList) {
+    solverPhaseLifecycleSupport.addEventListener(moveSelector);
+  }
+}

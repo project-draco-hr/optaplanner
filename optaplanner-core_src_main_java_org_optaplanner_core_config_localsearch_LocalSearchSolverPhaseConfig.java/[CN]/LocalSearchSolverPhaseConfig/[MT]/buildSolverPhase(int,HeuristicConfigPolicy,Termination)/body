@@ -1,14 +1,14 @@
 {
   HeuristicConfigPolicy phaseConfigPolicy=solverConfigPolicy.createPhaseConfigPolicy();
-  DefaultLocalSearchSolverPhase localSearchSolverPhase=new DefaultLocalSearchSolverPhase();
-  configureSolverPhase(localSearchSolverPhase,phaseIndex,phaseConfigPolicy,solverTermination);
-  localSearchSolverPhase.setDecider(buildDecider(phaseConfigPolicy,localSearchSolverPhase.getTermination()));
+  DefaultLocalSearchSolverPhase phase=new DefaultLocalSearchSolverPhase();
+  configureSolverPhase(phase,phaseIndex,phaseConfigPolicy,solverTermination);
+  phase.setDecider(buildDecider(phaseConfigPolicy,phase.getTermination()));
   EnvironmentMode environmentMode=phaseConfigPolicy.getEnvironmentMode();
   if (environmentMode.isNonIntrusiveFullAsserted()) {
-    localSearchSolverPhase.setAssertStepScoreFromScratch(true);
+    phase.setAssertStepScoreFromScratch(true);
   }
   if (environmentMode.isIntrusiveFastAsserted()) {
-    localSearchSolverPhase.setAssertExpectedStepScore(true);
+    phase.setAssertExpectedStepScore(true);
   }
-  return localSearchSolverPhase;
+  return phase;
 }
