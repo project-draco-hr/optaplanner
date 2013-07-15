@@ -1,4 +1,5 @@
 {
   this.childEntitySelector=childEntitySelector;
   solverPhaseLifecycleSupport.addEventListener(childEntitySelector);
+  replayingEntitySelectorList=new ArrayList<MimicReplayingEntitySelector>();
 }

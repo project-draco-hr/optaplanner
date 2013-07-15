@@ -1,5 +1,7 @@
 {
-  hasRecordedSelection=childEntityIterator.hasNext();
-  hasRecordedSelectionCreated=true;
-  return hasRecordedSelection;
+  boolean hasNext=childEntityIterator.hasNext();
+  for (  MimicReplayingEntitySelector replayingEntitySelector : replayingEntitySelectorList) {
+    replayingEntitySelector.recordedHasNext(hasNext);
+  }
+  return hasNext;
 }

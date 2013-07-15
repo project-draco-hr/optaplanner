@@ -1,6 +1,0 @@
-{
-  if (!recordedSelectionCreated) {
-    throw new IllegalStateException("Replay must occur after record." + " The childEntitySelector (" + childEntitySelector + ")'s next() has not been called yet. ");
-  }
-  return recordedSelection;
-}

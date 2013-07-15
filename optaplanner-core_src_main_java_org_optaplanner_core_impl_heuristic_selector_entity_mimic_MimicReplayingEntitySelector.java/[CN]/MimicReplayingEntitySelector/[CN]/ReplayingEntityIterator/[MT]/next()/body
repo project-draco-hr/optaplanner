@@ -1,3 +1,9 @@
 {
-  return mimicRecordingEntitySelector.getRecordedSelection();
+  if (!recordedSelectionCreated) {
+    throw new IllegalStateException("Replay must occur after record." + " The recordingEntitySelector (" + recordingEntitySelector + ")'s next() has not been called yet. ");
+  }
+  Object next=recordedSelection;
+  hasRecordedSelection=false;
+  recordedSelection=null;
+  return next;
 }

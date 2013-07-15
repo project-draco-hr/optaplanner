@@ -1,5 +1,7 @@
 {
-  recordedSelection=childEntityIterator.next();
-  recordedSelectionCreated=true;
-  return recordedSelection;
+  Object next=childEntityIterator.next();
+  for (  MimicReplayingEntitySelector replayingEntitySelector : replayingEntitySelectorList) {
+    replayingEntitySelector.recordedNext(next);
+  }
+  return next;
 }
