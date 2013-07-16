@@ -1,0 +1,8 @@
+{
+  Collection<PlanningEntityDescriptor> entityDescriptors=solutionDescriptor.getGenuineEntityDescriptors();
+  if (entityDescriptors.size() != 1) {
+    throw new IllegalArgumentException("The entityPlacerConfig (" + this + ") has no entitySelector configured"+ " and because there are multiple in the planningEntityClassSet ("+ solutionDescriptor.getPlanningEntityClassSet()+ "), it can not be deducted automatically.");
+  }
+  PlanningEntityDescriptor entityDescriptor=entityDescriptors.iterator().next();
+  return entityDescriptor.getPlanningEntityClass();
+}
