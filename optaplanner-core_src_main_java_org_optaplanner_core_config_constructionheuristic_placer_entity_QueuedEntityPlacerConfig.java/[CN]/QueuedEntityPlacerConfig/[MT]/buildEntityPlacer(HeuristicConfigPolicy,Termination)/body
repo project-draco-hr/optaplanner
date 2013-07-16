@@ -1,19 +1,52 @@
 {
   SelectionOrder defaultSelectionOrder=SelectionOrder.ORIGINAL;
-  EntitySelectorConfig entitySelectorConfig_=entitySelectorConfig == null ? new EntitySelectorConfig() : entitySelectorConfig;
+  EntitySelectorConfig entitySelectorConfig_;
+  if (entitySelectorConfig == null) {
+    entitySelectorConfig_=new EntitySelectorConfig();
+    entitySelectorConfig_.setId("TODO");
+    if (configPolicy.isSortEntitiesByDecreasingDifficultyEnabled()) {
+      entitySelectorConfig_.setCacheType(SelectionCacheType.PHASE);
+      entitySelectorConfig_.setSelectionOrder(SelectionOrder.SORTED);
+    }
+  }
+ else {
+    entitySelectorConfig_=entitySelectorConfig;
+  }
   if (entitySelectorConfig_.getCacheType() != null && entitySelectorConfig_.getCacheType().compareTo(SelectionCacheType.PHASE) < 0) {
     throw new IllegalArgumentException("The queuedEntityPlacer (" + this + ") cannot have an entitySelectorConfig ("+ entitySelectorConfig+ ") with a cacheType ("+ entitySelectorConfig_.getCacheType()+ ") lower than "+ SelectionCacheType.PHASE+ ".");
   }
   EntitySelector entitySelector=entitySelectorConfig_.buildEntitySelector(configPolicy,SelectionCacheType.PHASE,defaultSelectionOrder);
-  List<MoveSelector> moveSelectorList;
+  List<MoveSelectorConfig> moveSelectorConfigList_;
   if (CollectionUtils.isEmpty(moveSelectorConfigList)) {
-    throw new UnsupportedOperationException();
+    PlanningEntityDescriptor entityDescriptor=entitySelector.getEntityDescriptor();
+    Collection<PlanningVariableDescriptor> variableDescriptors=entityDescriptor.getVariableDescriptors();
+    List<MoveSelectorConfig> subMoveSelectorConfigList=new ArrayList<MoveSelectorConfig>(variableDescriptors.size());
+    for (    PlanningVariableDescriptor variableDescriptor : variableDescriptors) {
+      ChangeMoveSelectorConfig changeMoveSelectorConfig=new ChangeMoveSelectorConfig();
+      EntitySelectorConfig changeEntitySelectorConfig=new EntitySelectorConfig();
+      changeEntitySelectorConfig.setMimicSelectorRef("TODO");
+      changeMoveSelectorConfig.setEntitySelectorConfig(changeEntitySelectorConfig);
+      ValueSelectorConfig changeValueSelectorConfig=new ValueSelectorConfig();
+      changeValueSelectorConfig.setVariableName(variableDescriptor.getVariableName());
+      if (configPolicy.isSortValuesByIncreasingStrengthEnabled()) {
+        changeValueSelectorConfig.setSelectionOrder(SelectionOrder.SORTED);
+      }
+      changeMoveSelectorConfig.setValueSelectorConfig(changeValueSelectorConfig);
+      subMoveSelectorConfigList.add(changeMoveSelectorConfig);
+    }
+    if (true) {
+      moveSelectorConfigList_=Collections.<MoveSelectorConfig>singletonList(new CartesianProductMoveSelectorConfig(subMoveSelectorConfigList));
+    }
+ else {
+      moveSelectorConfigList_=subMoveSelectorConfigList;
+    }
   }
  else {
-    moveSelectorList=new ArrayList<MoveSelector>(moveSelectorConfigList.size());
-    for (    MoveSelectorConfig moveSelectorConfig : moveSelectorConfigList) {
-      moveSelectorList.add(moveSelectorConfig.buildMoveSelector(configPolicy,SelectionCacheType.JUST_IN_TIME,defaultSelectionOrder));
-    }
+    moveSelectorConfigList_=moveSelectorConfigList;
+  }
+  List<MoveSelector> moveSelectorList=new ArrayList<MoveSelector>(moveSelectorConfigList_.size());
+  for (  MoveSelectorConfig moveSelectorConfig : moveSelectorConfigList_) {
+    moveSelectorList.add(moveSelectorConfig.buildMoveSelector(configPolicy,SelectionCacheType.JUST_IN_TIME,defaultSelectionOrder));
   }
   return new QueuedEntityPlacer(entitySelector,moveSelectorList);
 }

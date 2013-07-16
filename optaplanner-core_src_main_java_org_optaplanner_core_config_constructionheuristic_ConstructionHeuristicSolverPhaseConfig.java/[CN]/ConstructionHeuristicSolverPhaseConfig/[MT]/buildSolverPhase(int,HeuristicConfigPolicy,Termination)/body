@@ -1,24 +1,13 @@
 {
   HeuristicConfigPolicy phaseConfigPolicy=solverConfigPolicy.createPhaseConfigPolicy();
   phaseConfigPolicy.setInitializedChainedValueFilterEnabled(true);
-  if (constructionHeuristicType != null) {
-    DefaultGreedyFitSolverPhase greedySolverPhase=new DefaultGreedyFitSolverPhase();
-    configureSolverPhase(greedySolverPhase,phaseIndex,phaseConfigPolicy,solverTermination);
-    greedySolverPhase.setGreedyPlanningEntitySelector(buildGreedyPlanningEntitySelector(solverConfigPolicy.getSolutionDescriptor()));
-    greedySolverPhase.setGreedyDecider(buildGreedyDecider(solverConfigPolicy.getSolutionDescriptor(),solverConfigPolicy.getEnvironmentMode()));
-    EnvironmentMode environmentMode=phaseConfigPolicy.getEnvironmentMode();
-    if (environmentMode.isNonIntrusiveFullAsserted()) {
-      greedySolverPhase.setAssertStepScoreFromScratch(true);
-    }
-    if (environmentMode.isIntrusiveFastAsserted()) {
-      greedySolverPhase.setAssertExpectedStepScore(true);
-    }
-    return greedySolverPhase;
-  }
- else   if (!CollectionUtils.isEmpty(entityPlacerConfigList)) {
+  if (!CollectionUtils.isEmpty(entityPlacerConfigList)) {
     if (constructionHeuristicPickEarlyType != null) {
       throw new UnsupportedOperationException();
     }
+    ConstructionHeuristicType constructionHeuristicType_=constructionHeuristicType == null ? ConstructionHeuristicType.FIRST_FIT : constructionHeuristicType;
+    phaseConfigPolicy.setSortEntitiesByDecreasingDifficultyEnabled(constructionHeuristicType_.isSortEntitiesByDecreasingDifficulty());
+    phaseConfigPolicy.setSortValuesByIncreasingStrengthEnabled(constructionHeuristicType_.isSortValuesByIncreasingStrength());
     DefaultConstructionHeuristicSolverPhase phase=new DefaultConstructionHeuristicSolverPhase();
     configureSolverPhase(phase,phaseIndex,phaseConfigPolicy,solverTermination);
     phase.setDecider(buildDecider(phaseConfigPolicy,phase.getTermination()));
@@ -38,6 +27,20 @@
       phase.setAssertExpectedStepScore(true);
     }
     return phase;
+  }
+ else   if (constructionHeuristicType != null) {
+    DefaultGreedyFitSolverPhase greedySolverPhase=new DefaultGreedyFitSolverPhase();
+    configureSolverPhase(greedySolverPhase,phaseIndex,phaseConfigPolicy,solverTermination);
+    greedySolverPhase.setGreedyPlanningEntitySelector(buildGreedyPlanningEntitySelector(solverConfigPolicy.getSolutionDescriptor()));
+    greedySolverPhase.setGreedyDecider(buildGreedyDecider(solverConfigPolicy.getSolutionDescriptor(),solverConfigPolicy.getEnvironmentMode()));
+    EnvironmentMode environmentMode=phaseConfigPolicy.getEnvironmentMode();
+    if (environmentMode.isNonIntrusiveFullAsserted()) {
+      greedySolverPhase.setAssertStepScoreFromScratch(true);
+    }
+    if (environmentMode.isIntrusiveFastAsserted()) {
+      greedySolverPhase.setAssertExpectedStepScore(true);
+    }
+    return greedySolverPhase;
   }
  else {
     throw new IllegalArgumentException("A constructionHeuristic requires configuration, " + "for example a constructionHeuristicType.");
