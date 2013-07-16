@@ -1,8 +1,10 @@
 {
-  SelectionCacheType defaultCacheType=SelectionCacheType.JUST_IN_TIME;
   SelectionOrder defaultSelectionOrder=SelectionOrder.ORIGINAL;
   EntitySelectorConfig entitySelectorConfig_=entitySelectorConfig == null ? new EntitySelectorConfig() : entitySelectorConfig;
-  EntitySelector entitySelector=entitySelectorConfig_.buildEntitySelector(configPolicy,defaultCacheType,defaultSelectionOrder);
+  if (entitySelectorConfig_.getCacheType() != null && entitySelectorConfig_.getCacheType().compareTo(SelectionCacheType.PHASE) < 0) {
+    throw new IllegalArgumentException("The queuedEntityPlacer (" + this + ") cannot have an entitySelectorConfig ("+ entitySelectorConfig+ ") with a cacheType ("+ entitySelectorConfig_.getCacheType()+ ") lower than "+ SelectionCacheType.PHASE+ ".");
+  }
+  EntitySelector entitySelector=entitySelectorConfig_.buildEntitySelector(configPolicy,SelectionCacheType.PHASE,defaultSelectionOrder);
   List<MoveSelector> moveSelectorList;
   if (CollectionUtils.isEmpty(moveSelectorConfigList)) {
     throw new UnsupportedOperationException();
@@ -10,7 +12,7 @@
  else {
     moveSelectorList=new ArrayList<MoveSelector>(moveSelectorConfigList.size());
     for (    MoveSelectorConfig moveSelectorConfig : moveSelectorConfigList) {
-      moveSelectorList.add(moveSelectorConfig.buildMoveSelector(configPolicy,defaultCacheType,defaultSelectionOrder));
+      moveSelectorList.add(moveSelectorConfig.buildMoveSelector(configPolicy,SelectionCacheType.JUST_IN_TIME,defaultSelectionOrder));
     }
   }
   return new QueuedEntityPlacer(entitySelector,moveSelectorList);
