@@ -16,7 +16,7 @@
       sorter=ConfigUtils.newInstance(this,"sorterClass",sorterClass);
     }
  else {
-      throw new IllegalArgumentException("The sorterClass (" + this + ") with resolvedSelectionOrder ("+ resolvedSelectionOrder+ ") needs a sorterManner ("+ sorterManner+ ") or a sorterComparatorClass ("+ sorterComparatorClass+ ") or a sorterWeightFactoryClass ("+ sorterWeightFactoryClass+ ") or a sorterClass ("+ sorterClass+ ").");
+      throw new IllegalArgumentException("The entitySelectorConfig (" + this + ") with resolvedSelectionOrder ("+ resolvedSelectionOrder+ ") needs a sorterManner ("+ sorterManner+ ") or a sorterComparatorClass ("+ sorterComparatorClass+ ") or a sorterWeightFactoryClass ("+ sorterWeightFactoryClass+ ") or a sorterClass ("+ sorterClass+ ").");
     }
     entitySelector=new SortingEntitySelector(entitySelector,resolvedCacheType,sorter);
   }
