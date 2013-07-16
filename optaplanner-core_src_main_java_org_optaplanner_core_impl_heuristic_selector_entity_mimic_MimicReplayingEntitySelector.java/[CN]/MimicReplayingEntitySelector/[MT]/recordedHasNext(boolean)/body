@@ -1,4 +1,7 @@
 {
-  hasRecordedSelection=hasNext;
-  hasRecordedSelectionCreated=true;
+  hasRecordingCreated=true;
+  hasRecording=hasNext;
+  recordingCreated=false;
+  recording=null;
+  recordingAlreadyReturned=false;
 }

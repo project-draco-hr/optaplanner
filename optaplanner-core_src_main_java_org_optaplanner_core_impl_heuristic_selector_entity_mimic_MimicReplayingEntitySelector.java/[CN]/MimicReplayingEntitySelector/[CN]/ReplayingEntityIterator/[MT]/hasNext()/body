@@ -1,6 +1,6 @@
 {
-  if (!hasRecordedSelectionCreated) {
+  if (!hasRecordingCreated) {
     throw new IllegalStateException("Replay must occur after record." + " The recordingEntitySelector (" + recordingEntitySelector + ")'s hasNext() has not been called yet. ");
   }
-  return hasRecordedSelection;
+  return hasRecording && !recordingAlreadyReturned;
 }

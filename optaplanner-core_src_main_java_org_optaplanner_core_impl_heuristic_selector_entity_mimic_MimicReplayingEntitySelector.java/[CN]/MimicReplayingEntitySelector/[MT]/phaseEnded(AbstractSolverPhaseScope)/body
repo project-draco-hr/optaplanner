@@ -1,7 +1,7 @@
 {
   super.phaseEnded(phaseScope);
-  hasRecordedSelectionCreated=false;
-  hasRecordedSelection=false;
-  recordedSelectionCreated=false;
-  recordedSelection=null;
+  hasRecordingCreated=false;
+  hasRecording=false;
+  recordingCreated=false;
+  recording=null;
 }
