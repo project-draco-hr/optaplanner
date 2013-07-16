@@ -1,7 +1,10 @@
 {
   if (resolvedSelectionOrder == SelectionOrder.SORTED) {
     SelectionSorter sorter;
-    if (sorterComparatorClass != null) {
+    if (sorterManner != null) {
+      sorter=sorterManner.determineSorter(entitySelector.getEntityDescriptor());
+    }
+ else     if (sorterComparatorClass != null) {
       Comparator<Object> sorterComparator=ConfigUtils.newInstance(this,"sorterComparatorClass",sorterComparatorClass);
       sorter=new ComparatorSelectionSorter(sorterComparator,SelectionSorterOrder.resolve(sorterOrder));
     }
@@ -13,7 +16,7 @@
       sorter=ConfigUtils.newInstance(this,"sorterClass",sorterClass);
     }
  else {
-      throw new IllegalArgumentException("The sorterClass (" + this + ") with resolvedSelectionOrder ("+ resolvedSelectionOrder+ ") needs a sorterComparatorClass ("+ sorterComparatorClass+ ") or a sorterWeightFactoryClass ("+ sorterWeightFactoryClass+ ") or a sorterClass ("+ sorterClass+ ").");
+      throw new IllegalArgumentException("The sorterClass (" + this + ") with resolvedSelectionOrder ("+ resolvedSelectionOrder+ ") needs a sorterManner ("+ sorterManner+ ") or a sorterComparatorClass ("+ sorterComparatorClass+ ") or a sorterWeightFactoryClass ("+ sorterWeightFactoryClass+ ") or a sorterClass ("+ sorterClass+ ").");
     }
     entitySelector=new SortingEntitySelector(entitySelector,resolvedCacheType,sorter);
   }

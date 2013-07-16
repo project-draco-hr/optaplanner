@@ -1,6 +1,18 @@
 {
-  if ((sorterComparatorClass != null || sorterWeightFactoryClass != null || sorterOrder != null || sorterClass != null) && resolvedSelectionOrder != SelectionOrder.SORTED) {
-    throw new IllegalArgumentException("The entitySelectorConfig (" + this + ") with sorterComparatorClass ("+ sorterComparatorClass+ ") and sorterWeightFactoryClass ("+ sorterWeightFactoryClass+ ") and sorterOrder ("+ sorterOrder+ ") and sorterClass ("+ sorterClass+ ") has a resolvedSelectionOrder ("+ resolvedSelectionOrder+ ") that is not "+ SelectionOrder.SORTED+ ".");
+  if ((sorterManner != null || sorterComparatorClass != null || sorterWeightFactoryClass != null || sorterOrder != null || sorterClass != null) && resolvedSelectionOrder != SelectionOrder.SORTED) {
+    throw new IllegalArgumentException("The entitySelectorConfig (" + this + ") with sorterManner ("+ sorterManner+ ") and sorterComparatorClass ("+ sorterComparatorClass+ ") and sorterWeightFactoryClass ("+ sorterWeightFactoryClass+ ") and sorterOrder ("+ sorterOrder+ ") and sorterClass ("+ sorterClass+ ") has a resolvedSelectionOrder ("+ resolvedSelectionOrder+ ") that is not "+ SelectionOrder.SORTED+ ".");
+  }
+  if (sorterManner != null && sorterComparatorClass != null) {
+    throw new IllegalArgumentException("The entitySelectorConfig (" + this + ") has both a sorterManner ("+ sorterManner+ ") and a sorterComparatorClass ("+ sorterComparatorClass+ ").");
+  }
+  if (sorterManner != null && sorterWeightFactoryClass != null) {
+    throw new IllegalArgumentException("The entitySelectorConfig (" + this + ") has both a sorterManner ("+ sorterManner+ ") and a sorterWeightFactoryClass ("+ sorterWeightFactoryClass+ ").");
+  }
+  if (sorterManner != null && sorterClass != null) {
+    throw new IllegalArgumentException("The entitySelectorConfig (" + this + ") has both a sorterManner ("+ sorterManner+ ") and a sorterClass ("+ sorterClass+ ").");
+  }
+  if (sorterManner != null && sorterOrder != null) {
+    throw new IllegalArgumentException("The entitySelectorConfig (" + this + ") with sorterManner ("+ sorterManner+ ") has a non-null sorterOrder ("+ sorterOrder+ ").");
   }
   if (sorterComparatorClass != null && sorterWeightFactoryClass != null) {
     throw new IllegalArgumentException("The entitySelectorConfig (" + this + ") has both a sorterComparatorClass ("+ sorterComparatorClass+ ") and a sorterWeightFactoryClass ("+ sorterWeightFactoryClass+ ").");
