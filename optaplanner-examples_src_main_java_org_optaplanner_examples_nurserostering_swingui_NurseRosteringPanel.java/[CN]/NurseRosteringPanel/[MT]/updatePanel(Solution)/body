@@ -2,7 +2,6 @@
   NurseRoster nurseRoster=(NurseRoster)solution;
   List<ShiftDate> shiftDateList=nurseRoster.getShiftDateList();
   List<Shift> shiftList=nurseRoster.getShiftList();
-  unassignedPanel.setShiftDateListAndShiftList(shiftDateList,shiftList);
   Set<Employee> deadEmployeeSet=new LinkedHashSet<Employee>(employeeToPanelMap.keySet());
   deadEmployeeSet.remove(null);
   for (  Employee employee : nurseRoster.getEmployeeList()) {
