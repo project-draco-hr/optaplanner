@@ -1,0 +1,6 @@
+{
+  checkPickEarly(moveScope);
+  if (maxScoreMoveScope == null || scoreComparator.compare(moveScope.getScore(),maxScoreMoveScope.getScore()) > 0) {
+    maxScoreMoveScope=moveScope;
+  }
+}

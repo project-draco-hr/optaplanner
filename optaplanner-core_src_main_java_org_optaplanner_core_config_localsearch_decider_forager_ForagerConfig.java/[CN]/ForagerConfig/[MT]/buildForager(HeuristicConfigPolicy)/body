@@ -4,8 +4,8 @@
   }
   PickEarlyType pickEarlyType=(this.pickEarlyType == null) ? PickEarlyType.NEVER : this.pickEarlyType;
   int acceptedCountLimit=(this.acceptedCountLimit == null) ? Integer.MAX_VALUE : this.acceptedCountLimit;
-  AcceptedForager forager=new AcceptedForager(pickEarlyType,acceptedCountLimit);
   DeciderScoreComparatorFactoryConfig deciderScoreComparatorFactoryConfig_=deciderScoreComparatorFactoryConfig == null ? new DeciderScoreComparatorFactoryConfig() : deciderScoreComparatorFactoryConfig;
-  forager.setDeciderScoreComparatorFactory(deciderScoreComparatorFactoryConfig_.buildDeciderScoreComparatorFactory());
+  DeciderScoreComparatorFactory deciderScoreComparatorFactory=deciderScoreComparatorFactoryConfig_.buildDeciderScoreComparatorFactory();
+  AcceptedForager forager=new AcceptedForager(deciderScoreComparatorFactory,pickEarlyType,acceptedCountLimit);
   return forager;
 }

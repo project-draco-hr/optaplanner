@@ -2,9 +2,6 @@
   HeuristicConfigPolicy phaseConfigPolicy=solverConfigPolicy.createPhaseConfigPolicy();
   phaseConfigPolicy.setInitializedChainedValueFilterEnabled(true);
   if (!CollectionUtils.isEmpty(entityPlacerConfigList)) {
-    if (pickEarlyType != null) {
-      throw new UnsupportedOperationException();
-    }
     ConstructionHeuristicType constructionHeuristicType_=constructionHeuristicType == null ? ConstructionHeuristicType.FIRST_FIT : constructionHeuristicType;
     phaseConfigPolicy.setSortEntitiesByDecreasingDifficultyEnabled(constructionHeuristicType_.isSortEntitiesByDecreasingDifficulty());
     phaseConfigPolicy.setSortValuesByIncreasingStrengthEnabled(constructionHeuristicType_.isSortValuesByIncreasingStrength());

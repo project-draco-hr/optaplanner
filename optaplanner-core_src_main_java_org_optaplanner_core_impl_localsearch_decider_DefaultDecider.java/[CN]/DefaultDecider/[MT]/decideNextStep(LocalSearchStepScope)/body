@@ -4,6 +4,7 @@
   for (  Move move : moveSelector) {
     LocalSearchMoveScope moveScope=new LocalSearchMoveScope(stepScope);
     moveScope.setMoveIndex(moveIndex);
+    moveIndex++;
     moveScope.setMove(move);
     if (!move.isMoveDoable(scoreDirector)) {
       logger.trace("        Move index ({}) not doable, ignoring move ({}).",moveScope.getMoveIndex(),move);
@@ -14,7 +15,6 @@
         break;
       }
     }
-    moveIndex++;
     if (termination.isPhaseTerminated(stepScope.getPhaseScope())) {
       break;
     }

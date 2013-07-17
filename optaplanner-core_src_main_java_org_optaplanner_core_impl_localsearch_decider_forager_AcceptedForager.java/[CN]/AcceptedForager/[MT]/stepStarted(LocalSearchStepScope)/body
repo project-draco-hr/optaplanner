@@ -1,4 +1,5 @@
 {
+  super.stepStarted(stepScope);
   deciderScoreComparatorFactory.stepStarted(stepScope);
   scoreComparator=deciderScoreComparatorFactory.createDeciderScoreComparator();
   selectedMoveCount=0L;

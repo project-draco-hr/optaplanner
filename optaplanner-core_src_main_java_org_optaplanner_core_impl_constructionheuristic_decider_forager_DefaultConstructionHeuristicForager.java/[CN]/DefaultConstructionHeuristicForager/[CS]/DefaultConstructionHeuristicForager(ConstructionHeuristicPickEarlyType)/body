@@ -1,0 +1,4 @@
+{
+  this.pickEarlyType=pickEarlyType;
+  scoreComparator=new NaturalScoreComparator();
+}

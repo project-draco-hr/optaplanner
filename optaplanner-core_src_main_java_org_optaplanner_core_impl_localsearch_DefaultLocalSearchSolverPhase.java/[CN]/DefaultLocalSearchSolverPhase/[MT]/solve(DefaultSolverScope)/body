@@ -6,8 +6,7 @@
     stepScope.setTimeGradient(termination.calculatePhaseTimeGradient(phaseScope));
     stepStarted(stepScope);
     decider.decideNextStep(stepScope);
-    Move nextStep=stepScope.getStep();
-    if (nextStep == null) {
+    if (stepScope.getStep() == null) {
       if (termination.isPhaseTerminated(phaseScope)) {
         logger.trace("    Step index ({}), time spend ({}) terminated without picking a nextStep.",stepScope.getStepIndex(),stepScope.getPhaseScope().calculateSolverTimeMillisSpend());
       }
@@ -15,18 +14,11 @@
         logger.warn("    No doable selected move at step index ({}), time spend ({})." + " Terminating phase early.",stepScope.getStepIndex(),stepScope.getPhaseScope().calculateSolverTimeMillisSpend());
       }
  else {
-        throw new IllegalStateException("The step index (" + stepScope.getStepIndex() + ") has accepted/selected move count ("+ stepScope.getAcceptedMoveCount()+ "/"+ stepScope.getSelectedMoveCount()+ ") but failed to pick a nextStep ("+ nextStep+ ").");
+        throw new IllegalStateException("The step index (" + stepScope.getStepIndex() + ") has accepted/selected move count ("+ stepScope.getAcceptedMoveCount()+ "/"+ stepScope.getSelectedMoveCount()+ ") but failed to pick a nextStep ("+ stepScope.getStep()+ ").");
       }
       break;
     }
-    nextStep.doMove(stepScope.getScoreDirector());
-    phaseScope.getWorkingSolution().setScore(stepScope.getScore());
-    if (assertStepScoreFromScratch) {
-      phaseScope.assertWorkingScoreFromScratch(stepScope.getScore(),nextStep);
-    }
-    if (assertExpectedStepScore) {
-      phaseScope.assertExpectedWorkingScore(stepScope.getScore(),nextStep);
-    }
+    doStep(stepScope);
     stepEnded(stepScope);
     phaseScope.setLastCompletedStepScope(stepScope);
     stepScope=new LocalSearchStepScope(phaseScope);

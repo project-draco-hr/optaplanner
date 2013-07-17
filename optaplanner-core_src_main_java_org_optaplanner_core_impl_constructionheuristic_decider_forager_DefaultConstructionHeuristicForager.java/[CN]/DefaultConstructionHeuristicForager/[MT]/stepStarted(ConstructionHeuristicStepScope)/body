@@ -1,0 +1,5 @@
+{
+  super.stepStarted(stepScope);
+  earlyPickedMoveScope=null;
+  maxScoreMoveScope=null;
+}

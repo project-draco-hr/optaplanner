@@ -1,0 +1,3 @@
+DeciderScoreComparatorFactory deciderScoreComparatorFactory
+PickEarlyType pickEarlyType
+int acceptedCountLimit

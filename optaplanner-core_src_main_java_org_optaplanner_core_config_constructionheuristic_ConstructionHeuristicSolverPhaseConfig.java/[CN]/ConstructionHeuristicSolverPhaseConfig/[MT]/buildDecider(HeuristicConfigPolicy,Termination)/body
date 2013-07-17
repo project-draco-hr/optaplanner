@@ -1,5 +1,7 @@
 {
-  ConstructionHeuristicDecider decider=new ConstructionHeuristicDecider(termination);
+  ConstructionHeuristicPickEarlyType pickEarlyType_=(this.pickEarlyType == null) ? ConstructionHeuristicPickEarlyType.NEVER : this.pickEarlyType;
+  ConstructionHeuristicForager forager=new DefaultConstructionHeuristicForager(pickEarlyType_);
+  ConstructionHeuristicDecider decider=new ConstructionHeuristicDecider(termination,forager);
   EnvironmentMode environmentMode=configPolicy.getEnvironmentMode();
   if (environmentMode.isNonIntrusiveFullAsserted()) {
     decider.setAssertMoveScoreFromScratch(true);

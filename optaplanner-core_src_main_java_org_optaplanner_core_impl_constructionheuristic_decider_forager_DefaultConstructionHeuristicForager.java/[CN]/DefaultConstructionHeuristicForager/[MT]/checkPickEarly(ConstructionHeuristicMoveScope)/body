@@ -1,0 +1,14 @@
+{
+switch (pickEarlyType) {
+case NEVER:
+    break;
+case FIRST_NON_DETERIORATING_SCORE:
+  Score lastStepScore=moveScope.getStepScope().getPhaseScope().getLastCompletedStepScope().getScore();
+if (scoreComparator.compare(moveScope.getScore(),lastStepScore) >= 0) {
+  earlyPickedMoveScope=moveScope;
+}
+break;
+default :
+throw new IllegalStateException("The pickEarlyType (" + pickEarlyType + ") is not implemented.");
+}
+}

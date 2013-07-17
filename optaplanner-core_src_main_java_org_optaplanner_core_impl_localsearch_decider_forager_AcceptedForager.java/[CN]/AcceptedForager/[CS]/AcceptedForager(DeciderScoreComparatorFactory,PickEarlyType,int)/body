@@ -1,0 +1,8 @@
+{
+  this.deciderScoreComparatorFactory=deciderScoreComparatorFactory;
+  this.pickEarlyType=pickEarlyType;
+  this.acceptedCountLimit=acceptedCountLimit;
+  if (acceptedCountLimit < 1) {
+    throw new IllegalArgumentException("The acceptedCountLimit (" + acceptedCountLimit + ") cannot be negative or zero.");
+  }
+}

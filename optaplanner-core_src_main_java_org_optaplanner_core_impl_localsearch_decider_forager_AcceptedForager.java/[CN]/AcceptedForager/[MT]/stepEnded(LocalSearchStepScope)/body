@@ -1,3 +1,4 @@
 {
+  super.stepEnded(stepScope);
   deciderScoreComparatorFactory.stepEnded(stepScope);
 }

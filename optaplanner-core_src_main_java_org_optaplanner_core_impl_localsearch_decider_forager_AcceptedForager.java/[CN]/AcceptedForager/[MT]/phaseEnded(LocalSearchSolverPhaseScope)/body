@@ -1,3 +1,4 @@
 {
+  super.phaseEnded(phaseScope);
   deciderScoreComparatorFactory.phaseEnded(phaseScope);
 }
