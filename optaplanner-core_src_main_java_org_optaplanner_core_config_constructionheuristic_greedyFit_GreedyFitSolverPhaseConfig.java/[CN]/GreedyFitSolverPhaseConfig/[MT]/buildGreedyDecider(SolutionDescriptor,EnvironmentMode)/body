@@ -1,6 +1,6 @@
 {
   DefaultGreedyDecider greedyDecider=new DefaultGreedyDecider();
-  ConstructionHeuristicPickEarlyType constructionHeuristicPickEarlyType=(this.constructionHeuristicPickEarlyType == null) ? ConstructionHeuristicPickEarlyType.NEVER : this.constructionHeuristicPickEarlyType;
+  ConstructionHeuristicPickEarlyType pickEarlyType=(this.constructionHeuristicPickEarlyType == null) ? ConstructionHeuristicPickEarlyType.NEVER : this.constructionHeuristicPickEarlyType;
   Collection<PlanningEntityDescriptor> entityDescriptors=solutionDescriptor.getGenuineEntityDescriptors();
   if (entityDescriptors.size() != 1) {
     throw new UnsupportedOperationException("Currently the greedyFit implementation only supports " + "1 planningEntityClass.");
