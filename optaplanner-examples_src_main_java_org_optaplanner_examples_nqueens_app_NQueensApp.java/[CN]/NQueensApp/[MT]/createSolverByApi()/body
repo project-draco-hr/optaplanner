@@ -12,7 +12,6 @@
   List<SolverPhaseConfig> solverPhaseConfigList=new ArrayList<SolverPhaseConfig>();
   ConstructionHeuristicSolverPhaseConfig constructionHeuristicSolverPhaseConfig=new ConstructionHeuristicSolverPhaseConfig();
   constructionHeuristicSolverPhaseConfig.setConstructionHeuristicType(ConstructionHeuristicSolverPhaseConfig.ConstructionHeuristicType.FIRST_FIT_DECREASING);
-  constructionHeuristicSolverPhaseConfig.setPickEarlyType(ConstructionHeuristicPickEarlyType.FIRST_NON_DETERIORATING_SCORE);
   solverPhaseConfigList.add(constructionHeuristicSolverPhaseConfig);
   LocalSearchSolverPhaseConfig localSearchSolverPhaseConfig=new LocalSearchSolverPhaseConfig();
   ChangeMoveSelectorConfig changeMoveSelectorConfig=new ChangeMoveSelectorConfig();

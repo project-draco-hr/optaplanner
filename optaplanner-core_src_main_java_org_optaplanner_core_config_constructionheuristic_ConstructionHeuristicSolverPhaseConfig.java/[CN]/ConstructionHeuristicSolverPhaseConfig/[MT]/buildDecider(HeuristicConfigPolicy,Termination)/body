@@ -1,6 +1,6 @@
 {
-  ConstructionHeuristicPickEarlyType pickEarlyType_=(this.pickEarlyType == null) ? ConstructionHeuristicPickEarlyType.NEVER : this.pickEarlyType;
-  ConstructionHeuristicForager forager=new DefaultConstructionHeuristicForager(pickEarlyType_);
+  ConstructionHeuristicForagerConfig foragerConfig_=foragerConfig == null ? new ConstructionHeuristicForagerConfig() : foragerConfig;
+  ConstructionHeuristicForager forager=foragerConfig_.buildForager(configPolicy);
   ConstructionHeuristicDecider decider=new ConstructionHeuristicDecider(termination,forager);
   EnvironmentMode environmentMode=configPolicy.getEnvironmentMode();
   if (environmentMode.isNonIntrusiveFullAsserted()) {

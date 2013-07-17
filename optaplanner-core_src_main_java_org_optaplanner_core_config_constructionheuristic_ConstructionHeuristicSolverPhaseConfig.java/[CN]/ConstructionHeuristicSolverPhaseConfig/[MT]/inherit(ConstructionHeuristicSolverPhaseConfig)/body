@@ -1,10 +1,11 @@
 {
   super.inherit(inheritedConfig);
-  if (constructionHeuristicType == null) {
-    constructionHeuristicType=inheritedConfig.getConstructionHeuristicType();
-  }
-  if (pickEarlyType == null) {
-    pickEarlyType=inheritedConfig.getPickEarlyType();
-  }
+  constructionHeuristicType=ConfigUtils.inheritOverwritableProperty(constructionHeuristicType,inheritedConfig.getConstructionHeuristicType());
   entityPlacerConfigList=ConfigUtils.inheritMergeableListProperty(entityPlacerConfigList,inheritedConfig.getEntityPlacerConfigList());
+  if (foragerConfig == null) {
+    foragerConfig=inheritedConfig.getForagerConfig();
+  }
+ else   if (inheritedConfig.getForagerConfig() != null) {
+    foragerConfig.inherit(inheritedConfig.getForagerConfig());
+  }
 }

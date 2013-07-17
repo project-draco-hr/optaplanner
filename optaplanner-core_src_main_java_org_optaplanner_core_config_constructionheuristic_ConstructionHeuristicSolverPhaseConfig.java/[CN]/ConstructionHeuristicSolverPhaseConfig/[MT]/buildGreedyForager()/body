@@ -1,6 +1,6 @@
 {
   GreedyForager forager=new GreedyForager();
-  ConstructionHeuristicPickEarlyType pickEarlyType_=(this.pickEarlyType == null) ? ConstructionHeuristicPickEarlyType.NEVER : this.pickEarlyType;
+  ConstructionHeuristicPickEarlyType pickEarlyType_=(foragerConfig == null || foragerConfig.getPickEarlyType() == null) ? ConstructionHeuristicPickEarlyType.NEVER : foragerConfig.getPickEarlyType();
   forager.setPickEarlyType(pickEarlyType_);
   return forager;
 }

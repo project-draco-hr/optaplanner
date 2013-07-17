@@ -1,0 +1,3 @@
+{
+  pickEarlyType=ConfigUtils.inheritOverwritableProperty(pickEarlyType,inheritedConfig.getPickEarlyType());
+}
