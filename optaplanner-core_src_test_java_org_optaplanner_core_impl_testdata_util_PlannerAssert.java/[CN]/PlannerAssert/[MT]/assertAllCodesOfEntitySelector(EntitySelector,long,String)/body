@@ -1,0 +1,6 @@
+{
+  assertAllCodesOfIterator(entitySelector.iterator(),codes);
+  assertEquals(false,entitySelector.isContinuous());
+  assertEquals(false,entitySelector.isNeverEnding());
+  assertEquals(size,entitySelector.getSize());
+}

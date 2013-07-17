@@ -1,7 +1,17 @@
 {
-  EntityIndependentValueSelector childValueSelector=SelectorTestUtils.mockEntityIndependentValueSelector(TestdataEntity.class,"value",new TestdataValue("e1"),new TestdataValue("e2"),new TestdataValue("e3"));
-  EntityIndependentValueSelector valueSelector=new CachingValueSelector(childValueSelector,cacheType,false);
-  verify(childValueSelector,times(1)).isNeverEnding();
+  EntityIndependentValueSelector childValueSelector=SelectorTestUtils.mockEntityIndependentValueSelector(TestdataEntity.class,"value",new TestdataValue("jan"),new TestdataValue("feb"),new TestdataValue("mar"),new TestdataValue("apr"),new TestdataValue("may"),new TestdataValue("jun"));
+  SelectionSorter<TestdataValue> sorter=new SelectionSorter<TestdataValue>(){
+    public void sort(    ScoreDirector scoreDirector,    List<TestdataValue> selectionList){
+      Collections.sort(selectionList,new Comparator<TestdataValue>(){
+        public int compare(        TestdataValue a,        TestdataValue b){
+          return a.getCode().compareTo(b.getCode());
+        }
+      }
+);
+    }
+  }
+;
+  EntityIndependentValueSelector valueSelector=new SortingValueSelector(childValueSelector,cacheType,sorter);
   DefaultSolverScope solverScope=mock(DefaultSolverScope.class);
   valueSelector.solvingStarted(solverScope);
   AbstractSolverPhaseScope phaseScopeA=mock(AbstractSolverPhaseScope.class);
@@ -10,12 +20,12 @@
   AbstractStepScope stepScopeA1=mock(AbstractStepScope.class);
   when(stepScopeA1.getPhaseScope()).thenReturn(phaseScopeA);
   valueSelector.stepStarted(stepScopeA1);
-  runAsserts(valueSelector);
+  assertAllCodesOfValueSelector(valueSelector,"apr","feb","jan","jun","mar","may");
   valueSelector.stepEnded(stepScopeA1);
   AbstractStepScope stepScopeA2=mock(AbstractStepScope.class);
   when(stepScopeA2.getPhaseScope()).thenReturn(phaseScopeA);
   valueSelector.stepStarted(stepScopeA2);
-  runAsserts(valueSelector);
+  assertAllCodesOfValueSelector(valueSelector,"apr","feb","jan","jun","mar","may");
   valueSelector.stepEnded(stepScopeA2);
   valueSelector.phaseEnded(phaseScopeA);
   AbstractSolverPhaseScope phaseScopeB=mock(AbstractSolverPhaseScope.class);
@@ -24,17 +34,17 @@
   AbstractStepScope stepScopeB1=mock(AbstractStepScope.class);
   when(stepScopeB1.getPhaseScope()).thenReturn(phaseScopeB);
   valueSelector.stepStarted(stepScopeB1);
-  runAsserts(valueSelector);
+  assertAllCodesOfValueSelector(valueSelector,"apr","feb","jan","jun","mar","may");
   valueSelector.stepEnded(stepScopeB1);
   AbstractStepScope stepScopeB2=mock(AbstractStepScope.class);
   when(stepScopeB2.getPhaseScope()).thenReturn(phaseScopeB);
   valueSelector.stepStarted(stepScopeB2);
-  runAsserts(valueSelector);
+  assertAllCodesOfValueSelector(valueSelector,"apr","feb","jan","jun","mar","may");
   valueSelector.stepEnded(stepScopeB2);
   AbstractStepScope stepScopeB3=mock(AbstractStepScope.class);
   when(stepScopeB3.getPhaseScope()).thenReturn(phaseScopeB);
   valueSelector.stepStarted(stepScopeB3);
-  runAsserts(valueSelector);
+  assertAllCodesOfValueSelector(valueSelector,"apr","feb","jan","jun","mar","may");
   valueSelector.stepEnded(stepScopeB3);
   valueSelector.phaseEnded(phaseScopeB);
   valueSelector.solvingEnded(solverScope);

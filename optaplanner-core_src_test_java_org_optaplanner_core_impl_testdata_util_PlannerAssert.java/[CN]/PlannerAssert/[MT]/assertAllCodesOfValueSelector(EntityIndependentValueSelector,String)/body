@@ -1,0 +1,3 @@
+{
+  assertAllCodesOfValueSelector(valueSelector,(long)codes.length,codes);
+}

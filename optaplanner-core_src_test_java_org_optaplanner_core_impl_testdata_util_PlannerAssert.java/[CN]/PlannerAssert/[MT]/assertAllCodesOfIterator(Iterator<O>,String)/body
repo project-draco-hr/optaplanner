@@ -1,0 +1,4 @@
+{
+  assertCodesOfIterator(iterator,codes);
+  assertFalse(iterator.hasNext());
+}

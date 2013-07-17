@@ -19,7 +19,7 @@
   when(stepScopeA1.getPhaseScope()).thenReturn(phaseScopeA);
   when(stepScopeA1.getWorkingRandom()).thenReturn(workingRandom);
   moveSelector.stepStarted(stepScopeA1);
-  assertAllCodesOfEndingMoveSelector(moveSelector);
+  assertAllCodesOfMoveSelector(moveSelector);
   moveSelector.stepEnded(stepScopeA1);
   moveSelector.phaseEnded(phaseScopeA);
   moveSelector.solvingEnded(solverScope);

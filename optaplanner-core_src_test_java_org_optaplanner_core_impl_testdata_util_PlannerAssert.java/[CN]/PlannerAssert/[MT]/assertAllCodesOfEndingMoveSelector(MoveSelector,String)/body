@@ -1,3 +1,0 @@
-{
-  assertAllCodesOfEndingMoveSelector(moveSelector,(long)codes.length,codes);
-}

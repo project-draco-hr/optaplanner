@@ -11,7 +11,7 @@
   AbstractStepScope stepScopeA1=mock(AbstractStepScope.class);
   when(stepScopeA1.getPhaseScope()).thenReturn(phaseScopeA);
   moveSelector.stepStarted(stepScopeA1);
-  assertAllCodesOfEndingMoveSelector(moveSelector);
+  assertAllCodesOfMoveSelector(moveSelector);
   moveSelector.stepEnded(stepScopeA1);
   moveSelector.phaseEnded(phaseScopeA);
   moveSelector.solvingEnded(solverScope);
