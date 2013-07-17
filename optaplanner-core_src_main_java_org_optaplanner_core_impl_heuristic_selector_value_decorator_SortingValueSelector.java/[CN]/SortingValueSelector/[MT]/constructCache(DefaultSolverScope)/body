@@ -1,0 +1,5 @@
+{
+  super.constructCache(solverScope);
+  sorter.sort(solverScope.getScoreDirector(),cachedValueList);
+  logger.trace("    Sorted cachedValueList with size ({}) in valueSelector({}).",cachedValueList.size(),this);
+}
