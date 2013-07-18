@@ -3,5 +3,7 @@
   assertFalse(iterator.hasNext());
   assertEquals(false,moveSelector.isContinuous());
   assertEquals(true,moveSelector.isNeverEnding());
-  assertEquals(size,moveSelector.getSize());
+  if (size != DO_NOT_ASSERT_SIZE) {
+    assertEquals(size,moveSelector.getSize());
+  }
 }

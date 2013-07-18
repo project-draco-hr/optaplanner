@@ -2,5 +2,7 @@
   assertAllCodesOfIterator(valueSelector.iterator(),codes);
   assertEquals(false,valueSelector.isContinuous());
   assertEquals(false,valueSelector.isNeverEnding());
-  assertEquals(size,valueSelector.getSize());
+  if (size != DO_NOT_ASSERT_SIZE) {
+    assertEquals(size,valueSelector.getSize());
+  }
 }
