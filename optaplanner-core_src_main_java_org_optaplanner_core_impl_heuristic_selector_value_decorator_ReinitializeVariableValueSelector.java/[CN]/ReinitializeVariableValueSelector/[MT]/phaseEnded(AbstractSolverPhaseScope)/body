@@ -1,0 +1,4 @@
+{
+  super.phaseEnded(phaseScope);
+  scoreDirector=null;
+}

@@ -1,0 +1,6 @@
+{
+  if (!reinitializeVariableEntityFilter.accept(scoreDirector,entity)) {
+    return 0L;
+  }
+  return childValueSelector.getSize(entity);
+}

@@ -1,0 +1,6 @@
+{
+  if (!reinitializeVariableEntityFilter.accept(scoreDirector,entity)) {
+    return EmptyIterator.INSTANCE;
+  }
+  return childValueSelector.iterator(entity);
+}

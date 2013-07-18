@@ -1,0 +1,5 @@
+{
+  this.childValueSelector=childValueSelector;
+  this.reinitializeVariableEntityFilter=reinitializeVariableEntityFilter;
+  solverPhaseLifecycleSupport.addEventListener(childValueSelector);
+}

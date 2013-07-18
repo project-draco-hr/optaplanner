@@ -1,0 +1,3 @@
+{
+  assertAllCodesOfValueSelectorForEntity(valueSelector,entity,(long)codes.length,codes);
+}
