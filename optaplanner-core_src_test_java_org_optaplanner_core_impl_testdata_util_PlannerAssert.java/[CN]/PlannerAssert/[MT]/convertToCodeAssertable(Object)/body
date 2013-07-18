@@ -3,6 +3,16 @@
   if (o instanceof CodeAssertable) {
     return (CodeAssertable)o;
   }
+ else   if (o instanceof ChangeMove) {
+    ChangeMove changeMove=(ChangeMove)o;
+    final String code=convertToCodeAssertable(changeMove.getEntity()).getCode() + "=>" + convertToCodeAssertable(changeMove.getToPlanningValue()).getCode();
+    return new CodeAssertable(){
+      public String getCode(){
+        return code;
+      }
+    }
+;
+  }
  else   if (o instanceof CompositeMove) {
     CompositeMove compositeMove=(CompositeMove)o;
     StringBuilder codeBuilder=new StringBuilder(compositeMove.getMoveList().size() * 80);
