@@ -13,7 +13,7 @@
   when(stepScopeA1.getPhaseScope()).thenReturn(phaseScopeA);
   moveSelector.stepStarted(stepScopeA1);
   if (ignoreEmptyChildIterators) {
-    assertCodesOfNeverEndingMoveSelector(moveSelector,8,"b1+c1","b2+c2","b1+c3");
+    assertCodesOfNeverEndingMoveSelector(moveSelector,6L,"b1+c1","b2+c2","b1+c3");
   }
  else {
     assertEmptyNeverEndingMoveSelector(moveSelector);

@@ -2,15 +2,31 @@
   List<Move> moveList=new ArrayList<Move>(moveIteratorList.size());
   for (int i=0; i < moveIteratorList.size(); i++) {
     Iterator<Move> moveIterator=moveIteratorList.get(i);
+    boolean skip=false;
     if (!moveIterator.hasNext()) {
       MoveSelector moveSelector=childMoveSelectorList.get(i);
       moveIterator=moveSelector.iterator();
       moveIteratorList.set(i,moveIterator);
       if (!moveIterator.hasNext()) {
-        throw new NoSuchElementException("The moveSelector (" + moveSelector + ") is empty.");
+        if (ignoreEmptyChildIterators) {
+          skip=true;
+        }
+ else {
+          throw new NoSuchElementException("The iterator of childMoveSelector (" + moveSelector + ") is empty.");
+        }
       }
     }
-    moveList.add(moveIterator.next());
+    if (!skip) {
+      moveList.add(moveIterator.next());
+    }
+  }
+  if (ignoreEmptyChildIterators) {
+    if (moveList.isEmpty()) {
+      throw new NoSuchElementException("All iterators of childMoveSelectorList (" + childMoveSelectorList + ") are empty.");
+    }
+ else     if (moveList.size() == 1) {
+      return moveList.get(0);
+    }
   }
   return new CompositeMove(moveList);
 }

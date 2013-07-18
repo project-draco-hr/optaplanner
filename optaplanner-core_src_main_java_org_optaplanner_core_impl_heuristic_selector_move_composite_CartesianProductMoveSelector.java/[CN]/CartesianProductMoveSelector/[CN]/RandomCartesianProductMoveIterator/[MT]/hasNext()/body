@@ -1,12 +1,15 @@
 {
   if (empty == null) {
-    empty=false;
+    int emptyCount=0;
     for (    Iterator<Move> moveIterator : moveIteratorList) {
       if (!moveIterator.hasNext()) {
-        empty=true;
-        break;
+        emptyCount++;
+        if (!ignoreEmptyChildIterators) {
+          break;
+        }
       }
     }
+    empty=ignoreEmptyChildIterators ? emptyCount == moveIteratorList.size() : emptyCount > 0;
   }
   return !empty;
 }

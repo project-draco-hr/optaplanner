@@ -11,7 +11,6 @@
   AbstractStepScope stepScopeA1=mock(AbstractStepScope.class);
   when(stepScopeA1.getPhaseScope()).thenReturn(phaseScopeA);
   moveSelector.stepStarted(stepScopeA1);
-  assertEmptyNeverEndingMoveSelector(moveSelector);
   if (ignoreEmptyChildIterators) {
     assertCodesOfNeverEndingMoveSelector(moveSelector,"b1","b2");
   }
