@@ -1,4 +1,5 @@
 {
   super.inherit(inheritedConfig);
   moveSelectorConfigList=ConfigUtils.inheritMergeableListProperty(moveSelectorConfigList,inheritedConfig.getMoveSelectorConfigList());
+  ignoreEmptyChildIterators=ConfigUtils.inheritOverwritableProperty(ignoreEmptyChildIterators,inheritedConfig.getIgnoreEmptyChildIterators());
 }
