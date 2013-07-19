@@ -1,5 +1,6 @@
 {
   HeuristicConfigPolicy phaseConfigPolicy=solverConfigPolicy.createPhaseConfigPolicy();
+  phaseConfigPolicy.setReinitializeVariableFilterEnabled(true);
   phaseConfigPolicy.setInitializedChainedValueFilterEnabled(true);
   if (!CollectionUtils.isEmpty(entityPlacerConfigList)) {
     ConstructionHeuristicType constructionHeuristicType_=constructionHeuristicType == null ? ConstructionHeuristicType.FIRST_FIT : constructionHeuristicType;

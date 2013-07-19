@@ -8,8 +8,7 @@
   TestdataValue s2=new TestdataValue("s2");
   TestdataValue s3=new TestdataValue("s3");
   ValueSelector childValueSelector=SelectorTestUtils.mockValueSelector(variableDescriptor,s1,s2,s3);
-  NullValueReinitializeVariableEntityFilter reinitializeVariableEntityFilter=new NullValueReinitializeVariableEntityFilter(childValueSelector.getVariableDescriptor());
-  ValueSelector valueSelector=new ReinitializeVariableValueSelector(childValueSelector,reinitializeVariableEntityFilter);
+  ValueSelector valueSelector=new ReinitializeVariableValueSelector(childValueSelector);
   DefaultSolverScope solverScope=mock(DefaultSolverScope.class);
   valueSelector.solvingStarted(solverScope);
   AbstractSolverPhaseScope phaseScopeA=mock(AbstractSolverPhaseScope.class);

@@ -1,0 +1,6 @@
+{
+  if (configPolicy.isReinitializeVariableFilterEnabled()) {
+    valueSelector=new ReinitializeVariableValueSelector(valueSelector);
+  }
+  return valueSelector;
+}

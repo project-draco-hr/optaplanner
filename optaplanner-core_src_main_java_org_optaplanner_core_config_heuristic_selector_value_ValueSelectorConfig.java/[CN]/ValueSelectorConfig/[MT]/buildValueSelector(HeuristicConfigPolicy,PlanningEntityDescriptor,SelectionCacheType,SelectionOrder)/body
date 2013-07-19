@@ -11,5 +11,6 @@
   valueSelector=applyProbability(resolvedCacheType,resolvedSelectionOrder,valueSelector);
   valueSelector=applyShuffling(resolvedCacheType,resolvedSelectionOrder,valueSelector);
   valueSelector=applyCaching(resolvedCacheType,resolvedSelectionOrder,valueSelector);
+  valueSelector=applyReinitializeVariableFiltering(configPolicy,valueSelector);
   return valueSelector;
 }
