@@ -1,7 +1,7 @@
 {
   Collection<Object> values=new ArrayList<Object>(0);
   for (  PlanningValueRangeDescriptor valueRangeDescriptor : valueRangeDescriptorList) {
-    values.addAll(valueRangeDescriptor.extractAllValuesWithFiltering(solution));
+    values.addAll(valueRangeDescriptor.extractValues(solution,entity));
   }
   return values;
 }

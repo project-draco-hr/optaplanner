@@ -1,4 +1,0 @@
-{
-  Collection<?> values=extractValuesWithoutFiltering(solution);
-  return applyFiltering(values);
-}
