@@ -1,13 +1,3 @@
 {
-  if (!excludeUninitializedPlanningEntity) {
-    return values;
-  }
-  Collection<Object> filteredValues=new ArrayList<Object>(values.size());
-  for (  Object value : values) {
-    Class<?> entityClass=variableDescriptor.getEntityDescriptor().getPlanningEntityClass();
-    if (!entityClass.isAssignableFrom(value.getClass()) || variableDescriptor.isInitialized(value)) {
-      filteredValues.add(value);
-    }
-  }
-  return filteredValues;
+  return values;
 }

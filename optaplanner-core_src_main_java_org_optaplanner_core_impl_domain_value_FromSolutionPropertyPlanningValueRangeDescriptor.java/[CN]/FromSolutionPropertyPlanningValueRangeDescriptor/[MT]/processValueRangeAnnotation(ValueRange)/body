@@ -1,4 +1,3 @@
 {
   processSolutionProperty(valueRangeAnnotation);
-  processExcludeUninitializedPlanningEntity(valueRangeAnnotation);
 }
