@@ -1,0 +1,8 @@
+{
+  this.readMethod=readMethod;
+  readMethod.setAccessible(true);
+  returnType=readMethod.getReturnType();
+  if (returnType == Void.TYPE) {
+    throw new IllegalArgumentException("The readMethod (" + readMethod + ") must not have the returnType ("+ Void.TYPE+ ")");
+  }
+}

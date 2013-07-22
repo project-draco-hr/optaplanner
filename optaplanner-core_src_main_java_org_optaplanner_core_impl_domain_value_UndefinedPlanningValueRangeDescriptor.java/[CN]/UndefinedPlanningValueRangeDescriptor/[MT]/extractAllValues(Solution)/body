@@ -1,3 +1,0 @@
-{
-  throw new IllegalStateException("The planningEntityClass (" + variableDescriptor.getEntityDescriptor().getPlanningEntityClass() + ") has a PlanningVariable annotated property ("+ variableDescriptor.getVariableName()+ ") which uses a @ValueRangeUndefined.");
-}

@@ -1,10 +1,12 @@
 {
+  DescriptorPolicy descriptorPolicy=new DescriptorPolicy();
   SolutionDescriptor solutionDescriptor=new SolutionDescriptor(solutionClass);
-  solutionDescriptor.processAnnotations();
+  solutionDescriptor.processAnnotations(descriptorPolicy);
   for (  Class<?> entityClass : entityClasses) {
     PlanningEntityDescriptor entityDescriptor=new PlanningEntityDescriptor(solutionDescriptor,entityClass);
     solutionDescriptor.addPlanningEntityDescriptor(entityDescriptor);
-    entityDescriptor.processAnnotations();
+    entityDescriptor.processAnnotations(descriptorPolicy);
   }
+  solutionDescriptor.afterAnnotationsProcessed(descriptorPolicy);
   return solutionDescriptor;
 }

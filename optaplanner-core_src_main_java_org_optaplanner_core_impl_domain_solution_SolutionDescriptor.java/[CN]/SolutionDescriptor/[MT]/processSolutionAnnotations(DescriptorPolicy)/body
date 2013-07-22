@@ -1,0 +1,7 @@
+{
+  PlanningSolution solutionAnnotation=solutionClass.getAnnotation(PlanningSolution.class);
+  if (solutionAnnotation == null) {
+    throw new IllegalStateException("The solutionClass (" + solutionClass + ") has been specified as a solution in the configuration,"+ " but does not have a "+ PlanningSolution.class.getSimpleName()+ " annotation.");
+  }
+  processSolutionCloner(descriptorPolicy,solutionAnnotation);
+}

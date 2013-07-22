@@ -1,0 +1,5 @@
+{
+  processSolutionAnnotations(descriptorPolicy);
+  processMethodAnnotations(descriptorPolicy);
+  processPropertyAnnotations(descriptorPolicy);
+}

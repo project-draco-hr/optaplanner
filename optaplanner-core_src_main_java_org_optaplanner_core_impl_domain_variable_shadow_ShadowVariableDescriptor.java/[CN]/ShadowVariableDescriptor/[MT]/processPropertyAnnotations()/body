@@ -1,9 +1,0 @@
-{
-  PlanningVariable planningVariableAnnotation=variablePropertyAccessor.getReadMethod().getAnnotation(PlanningVariable.class);
-  processMappedBy(planningVariableAnnotation);
-  processNullable(planningVariableAnnotation);
-  processChained(planningVariableAnnotation);
-  processStrength(planningVariableAnnotation);
-  processVariableListeners(planningVariableAnnotation);
-  processValueRangeAnnotation(planningVariableAnnotation);
-}

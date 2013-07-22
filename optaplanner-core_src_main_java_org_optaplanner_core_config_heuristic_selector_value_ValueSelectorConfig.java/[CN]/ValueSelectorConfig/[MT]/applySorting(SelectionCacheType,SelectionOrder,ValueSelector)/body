@@ -19,7 +19,7 @@
       throw new IllegalArgumentException("The valueSelectorConfig (" + this + ") with resolvedSelectionOrder ("+ resolvedSelectionOrder+ ") needs a sorterManner ("+ sorterManner+ ") or a sorterComparatorClass ("+ sorterComparatorClass+ ") or a sorterWeightFactoryClass ("+ sorterWeightFactoryClass+ ") or a sorterClass ("+ sorterClass+ ").");
     }
     if (!(valueSelector instanceof EntityIndependentValueSelector)) {
-      throw new IllegalArgumentException("The valueSelectorConfig (" + this + ") with resolvedSelectionOrder ("+ resolvedSelectionOrder+ ") needs to be based on a EntityIndependentValueSelector."+ " Check your @"+ ValueRange.class.getSimpleName()+ " annotations.");
+      throw new IllegalArgumentException("The valueSelectorConfig (" + this + ") with resolvedSelectionOrder ("+ resolvedSelectionOrder+ ") needs to be based on a EntityIndependentValueSelector ("+ valueSelector+ ")."+ " Check your @"+ ValueRangeProvider.class.getSimpleName()+ " annotations.");
     }
     valueSelector=new SortingValueSelector((EntityIndependentValueSelector)valueSelector,resolvedCacheType,sorter);
   }

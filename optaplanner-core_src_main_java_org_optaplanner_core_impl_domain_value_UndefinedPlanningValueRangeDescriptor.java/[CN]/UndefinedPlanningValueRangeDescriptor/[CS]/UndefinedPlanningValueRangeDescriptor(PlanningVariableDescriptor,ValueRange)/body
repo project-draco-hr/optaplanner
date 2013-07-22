@@ -1,4 +1,0 @@
-{
-  super(variableDescriptor);
-  validate(valueRangeAnnotation);
-}

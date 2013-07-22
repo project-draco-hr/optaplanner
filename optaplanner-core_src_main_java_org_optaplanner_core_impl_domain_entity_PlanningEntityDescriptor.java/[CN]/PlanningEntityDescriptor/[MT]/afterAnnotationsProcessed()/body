@@ -1,8 +1,0 @@
-{
-  for (  PlanningVariableDescriptor variableDescriptor : genuineVariableDescriptorMap.values()) {
-    variableDescriptor.afterAnnotationsProcessed();
-  }
-  for (  ShadowVariableDescriptor shadowVariableDescriptor : shadowVariableDescriptorMap.values()) {
-    shadowVariableDescriptor.afterAnnotationsProcessed();
-  }
-}

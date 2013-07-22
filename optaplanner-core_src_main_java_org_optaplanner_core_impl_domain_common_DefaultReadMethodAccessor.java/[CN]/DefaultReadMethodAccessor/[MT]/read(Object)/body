@@ -1,0 +1,11 @@
+{
+  try {
+    return readMethod.invoke(object);
+  }
+ catch (  IllegalAccessException e) {
+    throw new IllegalStateException("Cannot call readMethod (" + readMethod.getName() + ") on an instance of class ("+ object.getClass()+ ").",e);
+  }
+catch (  InvocationTargetException e) {
+    throw new IllegalStateException("The readMethod (" + readMethod.getName() + ") on an instance of class ("+ object.getClass()+ ") throws an exception.",e.getCause());
+  }
+}

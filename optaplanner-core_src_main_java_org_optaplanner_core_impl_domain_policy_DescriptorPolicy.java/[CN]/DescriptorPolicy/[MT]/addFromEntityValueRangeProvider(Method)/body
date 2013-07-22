@@ -1,0 +1,4 @@
+{
+  String id=extractValueRangeProviderId(method);
+  fromEntityValueRangeProviderMap.put(id,method);
+}

@@ -1,9 +1,0 @@
-{
-  Method propertyGetter=variablePropertyAccessor.getReadMethod();
-  if (propertyGetter.isAnnotationPresent(ValueRange.class)) {
-    throw new IllegalArgumentException("The planningEntityClass (" + entityDescriptor.getPlanningEntityClass() + ") has shadow PlanningVariable annotated property ("+ variablePropertyAccessor.getName()+ ") with mappedBy ("+ planningVariableAnnotation.mappedBy()+ ") which has a "+ ValueRange.class+ " annotation.");
-  }
-  if (propertyGetter.isAnnotationPresent(ValueRanges.class)) {
-    throw new IllegalArgumentException("The planningEntityClass (" + entityDescriptor.getPlanningEntityClass() + ") has shadow PlanningVariable annotated property ("+ variablePropertyAccessor.getName()+ ") with mappedBy ("+ planningVariableAnnotation.mappedBy()+ ") which has a "+ ValueRanges.class+ " annotation.");
-  }
-}

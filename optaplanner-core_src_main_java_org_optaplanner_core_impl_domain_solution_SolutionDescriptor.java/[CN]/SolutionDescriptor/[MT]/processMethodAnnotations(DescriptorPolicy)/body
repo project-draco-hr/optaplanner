@@ -1,0 +1,7 @@
+{
+  for (  Method method : solutionClass.getMethods()) {
+    if (method.isAnnotationPresent(ValueRangeProvider.class)) {
+      descriptorPolicy.addFromSolutionValueRangeProvider(method);
+    }
+  }
+}

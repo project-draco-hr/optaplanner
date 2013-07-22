@@ -1,3 +1,3 @@
 {
-  return (Collection<?>)rangePropertyAccessor.executeGetter(solution);
+  return (Collection<?>)rangeReadMethodAccessor.read(solution);
 }

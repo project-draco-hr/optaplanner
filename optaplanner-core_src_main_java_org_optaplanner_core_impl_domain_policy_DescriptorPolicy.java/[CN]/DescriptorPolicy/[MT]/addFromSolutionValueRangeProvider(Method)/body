@@ -1,0 +1,4 @@
+{
+  String id=extractValueRangeProviderId(method);
+  fromSolutionValueRangeProviderMap.put(id,method);
+}
