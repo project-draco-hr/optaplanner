@@ -18,10 +18,15 @@
  else {
       throw new IllegalArgumentException("The valueSelectorConfig (" + this + ") with resolvedSelectionOrder ("+ resolvedSelectionOrder+ ") needs a sorterManner ("+ sorterManner+ ") or a sorterComparatorClass ("+ sorterComparatorClass+ ") or a sorterWeightFactoryClass ("+ sorterWeightFactoryClass+ ") or a sorterClass ("+ sorterClass+ ").");
     }
-    if (!(valueSelector instanceof EntityIndependentValueSelector)) {
-      throw new IllegalArgumentException("The valueSelectorConfig (" + this + ") with resolvedSelectionOrder ("+ resolvedSelectionOrder+ ") needs to be based on a EntityIndependentValueSelector ("+ valueSelector+ ")."+ " Check your @"+ ValueRangeProvider.class.getSimpleName()+ " annotations.");
+    if (valueSelector.getVariableDescriptor().getValueRangeDescriptor().isEntityDependent() && resolvedCacheType == SelectionCacheType.STEP) {
+      valueSelector=new EntityDependentSortingValueSelector(valueSelector,resolvedCacheType,sorter);
     }
-    valueSelector=new SortingValueSelector((EntityIndependentValueSelector)valueSelector,resolvedCacheType,sorter);
+ else {
+      if (!(valueSelector instanceof EntityIndependentValueSelector)) {
+        throw new IllegalArgumentException("The valueSelectorConfig (" + this + ") with resolvedCacheType ("+ resolvedCacheType+ ") and resolvedSelectionOrder ("+ resolvedSelectionOrder+ ") needs to be based on a EntityIndependentValueSelector ("+ valueSelector+ ")."+ " Check your @"+ ValueRangeProvider.class.getSimpleName()+ " annotations.");
+      }
+      valueSelector=new SortingValueSelector((EntityIndependentValueSelector)valueSelector,resolvedCacheType,sorter);
+    }
   }
   return valueSelector;
 }

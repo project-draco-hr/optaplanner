@@ -1,0 +1,12 @@
+{
+  this.childValueSelector=childValueSelector;
+  this.cacheType=cacheType;
+  this.sorter=sorter;
+  if (childValueSelector.isNeverEnding()) {
+    throw new IllegalStateException("The selector (" + this + ") has a childValueSelector ("+ childValueSelector+ ") with neverEnding ("+ childValueSelector.isNeverEnding()+ ").");
+  }
+  if (cacheType != SelectionCacheType.STEP) {
+    throw new IllegalArgumentException("The selector (" + this + ") does not support the cacheType ("+ cacheType+ ").");
+  }
+  solverPhaseLifecycleSupport.addEventListener(childValueSelector);
+}
