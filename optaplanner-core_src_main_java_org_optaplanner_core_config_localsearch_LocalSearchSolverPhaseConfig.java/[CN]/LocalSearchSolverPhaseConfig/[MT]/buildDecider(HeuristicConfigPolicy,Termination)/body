@@ -1,5 +1,5 @@
 {
-  DefaultDecider decider=new DefaultDecider();
+  LocalSearchDecider decider=new LocalSearchDecider();
   decider.setTermination(termination);
   MoveSelector moveSelector=buildMoveSelector(configPolicy);
   decider.setMoveSelector(moveSelector);
