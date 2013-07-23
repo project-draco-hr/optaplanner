@@ -1,0 +1,4 @@
+{
+  this.executionMode=executionMode;
+  this.requirementDesirability=requirementDesirability;
+}

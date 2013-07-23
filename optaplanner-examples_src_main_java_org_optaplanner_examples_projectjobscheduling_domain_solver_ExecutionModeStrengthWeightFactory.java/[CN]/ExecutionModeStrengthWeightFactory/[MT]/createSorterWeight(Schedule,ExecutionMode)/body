@@ -1,0 +1,23 @@
+{
+  Map<Resource,Integer> requirementTotalMap=new HashMap<Resource,Integer>(executionMode.getResourceRequirementList().size());
+  for (  ResourceRequirement resourceRequirement : executionMode.getResourceRequirementList()) {
+    requirementTotalMap.put(resourceRequirement.getResource(),0);
+  }
+  for (  ResourceRequirement resourceRequirement : schedule.getResourceRequirementList()) {
+    Resource resource=resourceRequirement.getResource();
+    Integer total=requirementTotalMap.get(resource);
+    if (total != null) {
+      total+=resourceRequirement.getRequirement();
+      requirementTotalMap.put(resource,total);
+    }
+  }
+  double requirementDesirability=0.0;
+  for (  ResourceRequirement resourceRequirement : executionMode.getResourceRequirementList()) {
+    Resource resource=resourceRequirement.getResource();
+    int total=requirementTotalMap.get(resource);
+    if (total > resource.getCapacity()) {
+      requirementDesirability+=(double)(total - resource.getCapacity()) * (double)resourceRequirement.getRequirement() * (resource.isRenewable() ? 1.0 : 100.0);
+    }
+  }
+  return new ExecutionModeStrengthWeight(executionMode,requirementDesirability);
+}

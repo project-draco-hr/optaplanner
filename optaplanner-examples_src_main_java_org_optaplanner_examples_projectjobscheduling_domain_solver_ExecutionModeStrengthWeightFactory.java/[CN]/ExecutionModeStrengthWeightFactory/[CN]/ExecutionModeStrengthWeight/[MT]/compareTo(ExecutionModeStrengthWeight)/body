@@ -1,0 +1,3 @@
+{
+  return new CompareToBuilder().append(requirementDesirability,other.requirementDesirability).append(executionMode.getId(),other.executionMode.getId()).toComparison();
+}
