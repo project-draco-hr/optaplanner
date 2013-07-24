@@ -39,7 +39,7 @@
         kieBaseConfiguration.setProperty(entry.getKey(),entry.getValue());
       }
     }
-    kieBaseConfiguration.setOption(PhreakOption.ENABLED);
+    kieBaseConfiguration.setOption(RuleEngineOption.PHREAK);
     KieBase kieBase=kieContainer.newKieBase(kieBaseConfiguration);
     return kieBase;
   }
