@@ -1,4 +1,0 @@
-{
-  sortDifficultyAscending(solution,planningEntityList);
-  Collections.reverse(planningEntityList);
-}

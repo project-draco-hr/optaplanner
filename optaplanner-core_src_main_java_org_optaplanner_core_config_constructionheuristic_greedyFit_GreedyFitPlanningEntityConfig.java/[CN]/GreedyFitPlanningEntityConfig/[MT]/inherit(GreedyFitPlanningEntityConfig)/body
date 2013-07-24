@@ -1,5 +1,0 @@
-{
-  if (selectionOrder == null) {
-    selectionOrder=inheritedConfig.getSelectionOrder();
-  }
-}

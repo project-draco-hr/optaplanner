@@ -1,3 +1,0 @@
-{
-  return strengthComparator != null || strengthWeightFactory != null;
-}

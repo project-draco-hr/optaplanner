@@ -1,8 +1,0 @@
-{
-  Score score=moveScope.getStepScope().getPhaseScope().calculateScore();
-  if (assertMoveScoreFromScratch) {
-    moveScope.getStepScope().getPhaseScope().assertWorkingScoreFromScratch(score,moveScope.getMove());
-  }
-  moveScope.setScore(score);
-  forager.addMove(moveScope);
-}

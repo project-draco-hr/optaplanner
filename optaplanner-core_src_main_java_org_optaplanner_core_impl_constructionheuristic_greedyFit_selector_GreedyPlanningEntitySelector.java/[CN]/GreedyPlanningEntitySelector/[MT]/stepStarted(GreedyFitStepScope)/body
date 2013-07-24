@@ -1,5 +1,0 @@
-{
-  for (  PlanningEntitySelector planningEntitySelector : planningEntitySelectorList) {
-    planningEntitySelector.stepStarted(stepScope);
-  }
-}

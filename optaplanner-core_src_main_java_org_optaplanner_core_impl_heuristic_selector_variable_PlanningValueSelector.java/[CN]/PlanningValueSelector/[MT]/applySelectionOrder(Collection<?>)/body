@@ -2,16 +2,7 @@
 switch (selectionOrder) {
 case ORIGINAL:
     return workingPlanningValues;
-case RANDOM:
-  List<Object> randomPlanningValueList=new ArrayList<Object>(workingPlanningValues);
-Collections.shuffle(randomPlanningValueList,workingRandom);
-return randomPlanningValueList;
-case INCREASING_STRENGTH:
-List<Object> increasingStrengthPlanningValueList=new ArrayList<Object>(workingPlanningValues);
-PlanningValueSorter valueSorter=variableDescriptor.getValueSorter();
-valueSorter.sortStrengthAscending(scoreDirector.getWorkingSolution(),increasingStrengthPlanningValueList);
-return increasingStrengthPlanningValueList;
 default :
-throw new IllegalStateException("The selectionOrder (" + selectionOrder + ") is not implemented.");
+  throw new IllegalStateException("The selectionOrder (" + selectionOrder + ") is not implemented.");
 }
 }

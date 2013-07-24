@@ -1,4 +1,0 @@
-{
-  super(solverScope);
-  lastCompletedStepScope=new GreedyFitStepScope(this,-1);
-}

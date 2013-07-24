@@ -13,11 +13,9 @@
   if (difficultyComparatorClass != null) {
     Comparator<Object> difficultyComparator=ConfigUtils.newInstance(this,"difficultyComparatorClass",difficultyComparatorClass);
     decreasingDifficultySorter=new ComparatorSelectionSorter(difficultyComparator,SelectionSorterOrder.DESCENDING);
-    planningEntitySorter.setDifficultyComparator(difficultyComparator);
   }
   if (difficultyWeightFactoryClass != null) {
     SelectionSorterWeightFactory difficultyWeightFactory=ConfigUtils.newInstance(this,"difficultyWeightFactoryClass",difficultyWeightFactoryClass);
     decreasingDifficultySorter=new WeightFactorySelectionSorter(difficultyWeightFactory,SelectionSorterOrder.DESCENDING);
-    planningEntitySorter.setDifficultyWeightFactory(difficultyWeightFactory);
   }
 }

@@ -1,9 +1,0 @@
-{
-  GreedyPlanningEntitySelector greedyPlanningEntitySelector=new GreedyPlanningEntitySelector();
-  List<PlanningEntitySelector> planningEntitySelectorList=new ArrayList<PlanningEntitySelector>(greedyFitPlanningEntityConfigList.size());
-  for (  GreedyFitPlanningEntityConfig greedyFitPlanningEntityConfig : greedyFitPlanningEntityConfigList) {
-    planningEntitySelectorList.add(greedyFitPlanningEntityConfig.buildPlanningEntitySelector(solutionDescriptor));
-  }
-  greedyPlanningEntitySelector.setPlanningEntitySelectorList(planningEntitySelectorList);
-  return greedyPlanningEntitySelector;
-}

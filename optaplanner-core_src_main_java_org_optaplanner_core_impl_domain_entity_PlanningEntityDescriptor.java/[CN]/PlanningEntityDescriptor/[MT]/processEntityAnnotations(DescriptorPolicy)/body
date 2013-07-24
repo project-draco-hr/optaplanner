@@ -4,6 +4,5 @@
     throw new IllegalStateException("The planningEntityClass (" + planningEntityClass + ") has been specified as a planning entity in the configuration,"+ " but does not have a "+ PlanningEntity.class.getSimpleName()+ " annotation.");
   }
   processMovable(descriptorPolicy,entityAnnotation);
-  planningEntitySorter=new PlanningEntitySorter();
   processDifficulty(descriptorPolicy,entityAnnotation);
 }

@@ -1,4 +1,0 @@
-{
-  sortStrengthAscending(solution,planningEntityList);
-  Collections.reverse(planningEntityList);
-}

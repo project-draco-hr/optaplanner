@@ -1,9 +1,0 @@
-{
-  if (maxScoreAcceptedList.isEmpty()) {
-    return null;
-  }
-  if (maxScoreAcceptedList.size() == 1) {
-    return maxScoreAcceptedList.get(0);
-  }
-  return maxScoreAcceptedList.get(0);
-}

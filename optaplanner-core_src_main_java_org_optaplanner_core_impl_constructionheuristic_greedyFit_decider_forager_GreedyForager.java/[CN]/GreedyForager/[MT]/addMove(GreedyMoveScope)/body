@@ -1,5 +1,0 @@
-{
-  selectedCount++;
-  checkPickEarly(moveScope);
-  addMoveScopeToAcceptedList(moveScope);
-}

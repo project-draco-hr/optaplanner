@@ -1,3 +1,0 @@
-{
-  return earlyPickedMoveScope != null || selectedCount >= acceptedCountLimit;
-}

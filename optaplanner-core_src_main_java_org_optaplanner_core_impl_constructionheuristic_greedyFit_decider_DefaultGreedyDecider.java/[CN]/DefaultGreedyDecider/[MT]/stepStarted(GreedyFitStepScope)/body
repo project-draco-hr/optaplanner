@@ -1,4 +1,0 @@
-{
-  planningVariableWalker.stepStarted(stepScope);
-  forager.stepStarted(stepScope);
-}

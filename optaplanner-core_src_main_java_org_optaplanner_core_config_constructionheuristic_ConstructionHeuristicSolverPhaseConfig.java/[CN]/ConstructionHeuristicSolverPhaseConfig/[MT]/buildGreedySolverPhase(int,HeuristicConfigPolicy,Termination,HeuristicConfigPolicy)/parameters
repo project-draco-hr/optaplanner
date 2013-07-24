@@ -1,4 +1,0 @@
-int phaseIndex
-HeuristicConfigPolicy solverConfigPolicy
-Termination solverTermination
-HeuristicConfigPolicy phaseConfigPolicy

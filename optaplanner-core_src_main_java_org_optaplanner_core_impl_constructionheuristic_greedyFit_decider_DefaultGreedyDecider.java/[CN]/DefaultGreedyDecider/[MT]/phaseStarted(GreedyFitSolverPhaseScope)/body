@@ -1,4 +1,0 @@
-{
-  planningVariableWalker.phaseStarted(phaseScope);
-  forager.phaseStarted(phaseScope);
-}

@@ -1,7 +1,0 @@
-{
-  super.inherit(inheritedConfig);
-  greedyFitPlanningEntityConfigList=ConfigUtils.inheritMergeableListProperty(greedyFitPlanningEntityConfigList,inheritedConfig.getGreedyFitPlanningEntityConfigList());
-  if (constructionHeuristicPickEarlyType == null) {
-    constructionHeuristicPickEarlyType=inheritedConfig.getConstructionHeuristicPickEarlyType();
-  }
-}

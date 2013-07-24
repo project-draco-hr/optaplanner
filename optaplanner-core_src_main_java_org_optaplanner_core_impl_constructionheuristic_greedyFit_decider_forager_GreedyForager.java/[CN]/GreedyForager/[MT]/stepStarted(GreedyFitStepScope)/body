@@ -1,6 +1,0 @@
-{
-  selectedCount=0;
-  maxScoreAcceptedList=new ArrayList<GreedyMoveScope>(1024);
-  maxScore=null;
-  earlyPickedMoveScope=null;
-}
