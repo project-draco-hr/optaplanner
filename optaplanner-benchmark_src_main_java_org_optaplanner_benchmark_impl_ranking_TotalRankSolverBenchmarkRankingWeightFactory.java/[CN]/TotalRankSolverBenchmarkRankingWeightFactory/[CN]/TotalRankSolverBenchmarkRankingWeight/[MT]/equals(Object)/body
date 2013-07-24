@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof TotalRankSolverBenchmarkRankingWeight) {
+    TotalRankSolverBenchmarkRankingWeight other=(TotalRankSolverBenchmarkRankingWeight)o;
+    return new EqualsBuilder().append(betterCount,other.betterCount).append(equalCount,other.equalCount).appendSuper(totalScoreSolverBenchmarkRankingComparator.compare(solverBenchmark,other.solverBenchmark) == 0).isEquals();
+  }
+ else {
+    return false;
+  }
+}
