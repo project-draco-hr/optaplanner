@@ -1,3 +1,0 @@
-{
-  return x - (TIME_WINDOW_WIDTH / 2) + (timeWindowTime * TIME_WINDOW_WIDTH / maximumTimeWindowTime);
-}
