@@ -9,13 +9,13 @@
     }
   }
 ));
-  panel.add(createExampleButton("Cloud balancing","Assign processes to computers.\n\n" + "Each computer must have enough hardware to run all of it's processes.\n" + "Each computer used inflicts a maintenance cost.",CloudBalancingPanel.LOGO_PATH,new Runnable(){
+  panel.add(createExampleButton("Cloud balancing","Assign processes to computers.\n\n" + "Each computer must have enough hardware to run all of it's processes.\n" + "Each used computer inflicts a maintenance cost.",CloudBalancingPanel.LOGO_PATH,new Runnable(){
     public void run(){
       new CloudBalancingApp().init(OptaPlannerExamplesApp.this,false);
     }
   }
 ));
-  panel.add(createExampleButton("Traveling salesman","Official competition name: TSP - Traveling salesman problem\n" + "Determine the order in which to visit all cities.\n\n" + "Find the shortest route to visit all cities.",TspPanel.LOGO_PATH,new Runnable(){
+  panel.add(createExampleButton("Traveling salesman","Official competition name: TSP - Traveling salesman problem\n\n" + "Determine the order in which to visit all cities.\n\n" + "Find the shortest route to visit all cities.",TspPanel.LOGO_PATH,new Runnable(){
     public void run(){
       new TspApp().init(OptaPlannerExamplesApp.this,false);
     }
