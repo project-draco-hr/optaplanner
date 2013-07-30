@@ -1,5 +1,5 @@
 {
-  List<File> solvedFileList=Arrays.asList(solvedDataDir.listFiles(new SolutionFileFilter(solutionDao)));
-  Collections.sort(solvedFileList);
-  return solvedFileList;
+  List<File> fileList=extractFileList(solvedDataDir);
+  Collections.sort(fileList,FILE_COMPARATOR);
+  return fileList;
 }

@@ -1,24 +1,21 @@
 {
-  List<Object[]> filesAsParameters=new ArrayList<Object[]>();
+  List<File> fileList=new ArrayList<File>(0);
   File dataDir=solutionDao.getDataDir();
   File unsolvedDataDir=new File(dataDir,"unsolved");
   if (!unsolvedDataDir.exists()) {
     throw new IllegalStateException("The directory unsolvedDataDir (" + unsolvedDataDir.getAbsolutePath() + ") does not exist.");
   }
  else {
-    List<File> unsolvedFileList=Arrays.asList(unsolvedDataDir.listFiles(new SolutionFileFilter(solutionDao)));
-    Collections.sort(unsolvedFileList);
-    for (    File unsolvedFile : unsolvedFileList) {
-      filesAsParameters.add(new Object[]{unsolvedFile});
-    }
+    addFiles(solutionDao,fileList,unsolvedDataDir);
   }
   File solvedDataDir=new File(dataDir,"solved");
   if (solvedDataDir.exists()) {
-    List<File> solvedFileList=Arrays.asList(solvedDataDir.listFiles(new SolutionFileFilter(solutionDao)));
-    Collections.sort(solvedFileList);
-    for (    File solvedFile : solvedFileList) {
-      filesAsParameters.add(new Object[]{solvedFile});
-    }
+    addFiles(solutionDao,fileList,solvedDataDir);
+  }
+  Collections.sort(fileList,new ProblemFileComparator());
+  List<Object[]> filesAsParameters=new ArrayList<Object[]>();
+  for (  File file : fileList) {
+    filesAsParameters.add(new Object[]{file});
   }
   return filesAsParameters;
 }

@@ -1,0 +1,7 @@
+{
+  List<File> fileList=Arrays.asList(directory.listFiles(new SolutionFileFilter(solutionDao)));
+  for (  File subDirectory : directory.listFiles((FileFilter)DirectoryFileFilter.INSTANCE)) {
+    fileList.addAll(extractFileList(subDirectory));
+  }
+  return fileList;
+}

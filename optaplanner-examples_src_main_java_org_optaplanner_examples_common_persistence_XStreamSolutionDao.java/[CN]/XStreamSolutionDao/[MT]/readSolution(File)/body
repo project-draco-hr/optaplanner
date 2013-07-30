@@ -1,6 +1,5 @@
 {
   Solution solution=xStreamProblemIO.read(inputSolutionFile);
-  postRead(solution);
   logger.info("Loaded: {}",inputSolutionFile);
   return solution;
 }
