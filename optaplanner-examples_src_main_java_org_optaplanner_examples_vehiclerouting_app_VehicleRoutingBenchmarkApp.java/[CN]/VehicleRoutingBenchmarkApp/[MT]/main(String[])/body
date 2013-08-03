@@ -7,6 +7,11 @@
  else     if (args[0].equals("stepLimit")) {
       benchmarkConfig=STEP_LIMIT_BENCHMARK_CONFIG;
     }
+ else     if (args[0].equals("template")) {
+      benchmarkConfig=TEMPLATE_BENCHMARK_CONFIG_TEMPLATE;
+      new VehicleRoutingBenchmarkApp().buildFromTemplateAndBenchmark(benchmarkConfig);
+      return;
+    }
  else {
       throw new IllegalArgumentException("The program argument (" + args[0] + ") is not supported.");
     }
