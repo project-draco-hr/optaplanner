@@ -1,3 +1,3 @@
 {
-  return getLocation() + " vehicle-" + id;
+  return getLocation() + "[vehicle-" + id+ "]";
 }

@@ -1,0 +1,6 @@
+{
+  if (entity instanceof VrpVehicle) {
+    return;
+  }
+  insert((VrpCustomer)entity);
+}

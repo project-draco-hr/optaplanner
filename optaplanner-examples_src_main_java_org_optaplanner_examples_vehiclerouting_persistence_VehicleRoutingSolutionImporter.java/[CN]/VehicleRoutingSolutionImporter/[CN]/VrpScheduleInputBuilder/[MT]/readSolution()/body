@@ -1,14 +1,24 @@
 {
-  String nameLine=readStringValue();
-  boolean basic=nameLine.startsWith("NAME :");
-  schedule=basic ? new VrpSchedule() : new VrpTimeWindowedSchedule();
-  schedule.setId(0L);
-  if (basic) {
-    schedule.setName(removePrefixSuffixFromLine(nameLine,"NAME :",""));
+  String firstLine=readStringValue();
+  if (firstLine.trim().startsWith("NAME :")) {
+    schedule=new VrpSchedule();
+    schedule.setId(0L);
+    schedule.setName(removePrefixSuffixFromLine(firstLine,"NAME :",""));
     readBasicSolution();
   }
+  if (splitBySpace(firstLine).length == 3) {
+    schedule=new VrpSchedule();
+    schedule.setId(0L);
+    String[] tokens=splitBySpace(firstLine,3);
+    locationListSize=Integer.parseInt(tokens[0]);
+    vehicleListSize=Integer.parseInt(tokens[1]);
+    capacity=Integer.parseInt(tokens[2]);
+    readAlternativeBasicSolution();
+  }
  else {
-    schedule.setName(nameLine);
+    schedule=new VrpTimeWindowedSchedule();
+    schedule.setId(0L);
+    schedule.setName(firstLine);
     readTimeWindowedSolution();
   }
   BigInteger possibleSolutionSize=factorial(schedule.getLocationList().size() - 1);

@@ -1,0 +1,42 @@
+{
+  boolean timeWindowed=schedule instanceof VrpTimeWindowedSchedule;
+  List<VrpCustomer> customerList=schedule.getCustomerList();
+  List<VrpVehicle> vehicleList=schedule.getVehicleList();
+  Map<VrpVehicle,Integer> vehicleDemandMap=new HashMap<VrpVehicle,Integer>(vehicleList.size());
+  for (  VrpVehicle vehicle : vehicleList) {
+    vehicleDemandMap.put(vehicle,0);
+  }
+  int hardScore=0;
+  int softScore=0;
+  for (  VrpCustomer customer : customerList) {
+    VrpStandstill previousStandstill=customer.getPreviousStandstill();
+    if (previousStandstill != null) {
+      VrpVehicle vehicle=customer.getVehicle();
+      vehicleDemandMap.put(vehicle,vehicleDemandMap.get(vehicle) + customer.getDemand());
+      softScore-=customer.getDistanceToPreviousStandstill();
+      if (customer.getNextCustomer() == null) {
+        softScore-=vehicle.getLocation().getDistance(customer.getLocation());
+      }
+      if (timeWindowed) {
+        VrpTimeWindowedCustomer timeWindowedCustomer=(VrpTimeWindowedCustomer)customer;
+        int readyTime=timeWindowedCustomer.getReadyTime();
+        int dueTime=timeWindowedCustomer.getDueTime();
+        Integer arrivalTime=timeWindowedCustomer.getArrivalTime();
+        if (dueTime < arrivalTime) {
+          hardScore-=(arrivalTime - dueTime);
+        }
+        if (arrivalTime < readyTime) {
+          softScore-=(readyTime - arrivalTime);
+        }
+      }
+    }
+  }
+  for (  Map.Entry<VrpVehicle,Integer> entry : vehicleDemandMap.entrySet()) {
+    int capacity=entry.getKey().getCapacity();
+    int demand=entry.getValue();
+    if (demand > capacity) {
+      hardScore-=(demand - capacity);
+    }
+  }
+  return HardSoftScore.valueOf(hardScore,softScore);
+}
