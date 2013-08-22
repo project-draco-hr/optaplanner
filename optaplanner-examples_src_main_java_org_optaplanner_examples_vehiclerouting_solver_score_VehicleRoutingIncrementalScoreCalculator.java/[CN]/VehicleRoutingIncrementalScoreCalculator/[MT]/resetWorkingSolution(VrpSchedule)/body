@@ -8,6 +8,10 @@
   hardScore=0;
   softScore=0;
   for (  VrpCustomer customer : schedule.getCustomerList()) {
-    insert(customer);
+    insertPreviousStandstill(customer);
+    insertVehicle(customer);
+    if (timeWindowed) {
+      insertArrivalTime((VrpTimeWindowedCustomer)customer);
+    }
   }
 }

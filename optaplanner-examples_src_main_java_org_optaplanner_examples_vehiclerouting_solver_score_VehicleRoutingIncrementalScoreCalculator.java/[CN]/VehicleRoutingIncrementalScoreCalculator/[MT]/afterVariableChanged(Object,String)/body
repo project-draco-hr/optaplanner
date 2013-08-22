@@ -2,5 +2,19 @@
   if (entity instanceof VrpVehicle) {
     return;
   }
-  insert((VrpCustomer)entity);
+  if (variableName.equals("previousStandstill")) {
+    insertPreviousStandstill((VrpCustomer)entity);
+  }
+ else   if (variableName.equals("vehicle")) {
+    insertVehicle((VrpCustomer)entity);
+  }
+ else   if (variableName.equals("nextCustomer")) {
+    insertNextCustomer((VrpCustomer)entity);
+  }
+ else   if (variableName.equals("arrivalTime")) {
+    insertArrivalTime((VrpTimeWindowedCustomer)entity);
+  }
+ else {
+    throw new IllegalArgumentException("Unsupported variableName (" + variableName + ").");
+  }
 }

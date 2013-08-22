@@ -2,5 +2,9 @@
   if (entity instanceof VrpVehicle) {
     return;
   }
-  insert((VrpCustomer)entity);
+  insertPreviousStandstill((VrpCustomer)entity);
+  insertVehicle((VrpCustomer)entity);
+  if (timeWindowed) {
+    insertArrivalTime((VrpTimeWindowedCustomer)entity);
+  }
 }

@@ -2,5 +2,9 @@
   if (entity instanceof VrpVehicle) {
     return;
   }
-  retract((VrpCustomer)entity);
+  retractPreviousStandstill((VrpCustomer)entity);
+  retractVehicle((VrpCustomer)entity);
+  if (timeWindowed) {
+    retractArrivalTime((VrpTimeWindowedCustomer)entity);
+  }
 }

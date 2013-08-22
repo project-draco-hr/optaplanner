@@ -1,0 +1,8 @@
+{
+  VrpVehicle vehicle=customer.getVehicle();
+  if (vehicle != null) {
+    if (customer.getNextCustomer() == null) {
+      softScore+=vehicle.getLocation().getDistance(customer.getLocation());
+    }
+  }
+}
