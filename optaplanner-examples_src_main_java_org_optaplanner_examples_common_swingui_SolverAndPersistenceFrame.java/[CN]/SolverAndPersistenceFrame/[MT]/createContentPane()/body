@@ -1,13 +1,7 @@
 {
   JPanel panel=new JPanel(new BorderLayout());
   panel.add(createButtonPanel(),BorderLayout.NORTH);
-  if (solutionPanel.isWrapInScrollPane()) {
-    JScrollPane solutionScrollPane=new JScrollPane(solutionPanel);
-    panel.add(solutionScrollPane,BorderLayout.CENTER);
-  }
- else {
-    panel.add(solutionPanel,BorderLayout.CENTER);
-  }
+  panel.add(createMiddlePanel(),BorderLayout.CENTER);
   panel.add(createScorePanel(),BorderLayout.SOUTH);
   return panel;
 }
