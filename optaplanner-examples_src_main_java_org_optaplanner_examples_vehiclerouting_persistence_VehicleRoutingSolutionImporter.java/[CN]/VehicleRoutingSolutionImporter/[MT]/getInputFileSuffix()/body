@@ -1,3 +1,3 @@
 {
-  return INPUT_FILE_SUFFIX;
+  return VehicleRoutingProblemIO.FILE_EXTENSION;
 }

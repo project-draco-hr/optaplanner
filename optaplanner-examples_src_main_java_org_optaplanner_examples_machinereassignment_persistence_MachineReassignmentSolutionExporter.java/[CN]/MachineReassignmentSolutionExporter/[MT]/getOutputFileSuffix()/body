@@ -1,0 +1,3 @@
+{
+  return MachineReassignmentProblemIO.FILE_EXTENSION;
+}

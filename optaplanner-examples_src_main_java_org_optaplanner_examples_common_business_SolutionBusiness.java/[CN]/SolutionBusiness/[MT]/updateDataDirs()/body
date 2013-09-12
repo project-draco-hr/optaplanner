@@ -4,7 +4,7 @@
     throw new IllegalStateException("The directory dataDir (" + dataDir.getAbsolutePath() + ") does not exist."+ " The working directory should be set to the directory that contains the data directory."+ " This is different in a git clone (optaplanner/optaplanner-examples)"+ " and the release zip (examples).");
   }
   if (hasImporter()) {
-    importDataDir=new File(dataDir,"input");
+    importDataDir=new File(dataDir,"import");
     if (!importDataDir.exists()) {
       throw new IllegalStateException("The directory importDataDir (" + importDataDir.getAbsolutePath() + ") does not exist.");
     }
@@ -18,7 +18,7 @@
     throw new IllegalStateException("The directory solvedDataDir (" + solvedDataDir.getAbsolutePath() + ") does not exist and could not be created.");
   }
   if (hasExporter()) {
-    exportDataDir=new File(dataDir,"output");
+    exportDataDir=new File(dataDir,"export");
     if (!exportDataDir.exists() && !exportDataDir.mkdir()) {
       throw new IllegalStateException("The directory exportDataDir (" + exportDataDir.getAbsolutePath() + ") does not exist and could not be created.");
     }
