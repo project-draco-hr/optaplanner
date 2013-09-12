@@ -1,0 +1,3 @@
+{
+  runSpeedTest(new File("data/nqueens/unsolved/4queens.xml"),"0",EnvironmentMode.FULL_ASSERT);
+}

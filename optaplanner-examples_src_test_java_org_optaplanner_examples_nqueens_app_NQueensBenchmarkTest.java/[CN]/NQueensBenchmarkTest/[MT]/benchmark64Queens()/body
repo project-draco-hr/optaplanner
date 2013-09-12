@@ -1,3 +1,0 @@
-{
-  runBenchmarkTest(new File("data/nqueens/unsolved/unsolvedNQueens64.xml"));
-}

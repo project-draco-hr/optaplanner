@@ -1,0 +1,3 @@
+{
+  runSpeedTest(new File("data/nqueens/unsolved/16queens.xml"),"0");
+}

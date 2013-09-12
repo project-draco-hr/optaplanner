@@ -1,0 +1,3 @@
+{
+  return aChar >= '0' && aChar <= '9';
+}

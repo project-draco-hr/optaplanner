@@ -1,0 +1,4 @@
+{
+  File unsolvedDataFile=new File("data/cloudbalancing/unsolved/200computers-600processes.xml");
+  runSpeedTest(unsolvedDataFile,"0hard/-223260soft",EnvironmentMode.FAST_ASSERT);
+}

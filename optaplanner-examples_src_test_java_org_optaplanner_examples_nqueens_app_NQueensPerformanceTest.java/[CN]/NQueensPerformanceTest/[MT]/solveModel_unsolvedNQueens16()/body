@@ -1,3 +1,0 @@
-{
-  runSpeedTest(new File("data/nqueens/unsolved/unsolvedNQueens16.xml"),"0");
-}
