@@ -1,3 +1,3 @@
 {
-  super("Terminate solving early");
+  super("Terminate solving early",new ImageIcon(SolverAndPersistenceFrame.class.getResource("terminateSolvingEarlyAction.png")));
 }

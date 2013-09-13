@@ -1,7 +1,0 @@
-{
-  JPanel buttonPanel=new JPanel(new GridLayout(1,0));
-  buttonPanel.add(createLoadUnsolvedPanel());
-  buttonPanel.add(createLoadSolvedPanel());
-  buttonPanel.add(createProcessingPanel());
-  return buttonPanel;
-}

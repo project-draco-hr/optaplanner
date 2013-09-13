@@ -1,0 +1,5 @@
+{
+  JSplitPane quickOpenSplitPane=new JSplitPane(JSplitPane.VERTICAL_SPLIT,createQuickOpenUnsolvedPanel(),createQuickOpenSolvedPanel());
+  quickOpenSplitPane.setResizeWeight(0.5);
+  return quickOpenSplitPane;
+}

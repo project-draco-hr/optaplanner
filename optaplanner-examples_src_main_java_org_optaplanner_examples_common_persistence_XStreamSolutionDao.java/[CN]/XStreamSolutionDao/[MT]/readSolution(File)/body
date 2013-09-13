@@ -1,5 +1,5 @@
 {
   Solution solution=xStreamProblemIO.read(inputSolutionFile);
-  logger.info("Loaded: {}",inputSolutionFile);
+  logger.info("Opened: {}",inputSolutionFile);
   return solution;
 }

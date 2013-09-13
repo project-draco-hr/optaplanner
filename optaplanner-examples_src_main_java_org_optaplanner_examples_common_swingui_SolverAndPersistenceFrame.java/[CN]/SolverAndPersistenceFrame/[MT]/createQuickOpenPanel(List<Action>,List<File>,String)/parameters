@@ -1,0 +1,3 @@
+List<Action> quickOpenActionList
+List<File> fileList
+String title

@@ -1,7 +1,9 @@
 {
   middlePanel=new JPanel(new CardLayout());
   ImageIcon usageExplanationIcon=new ImageIcon(getClass().getResource(solutionPanel.getUsageExplanationPath()));
-  middlePanel.add(new JLabel(usageExplanationIcon),"usageExplanationPanel");
+  JLabel usageExplanationLabel=new JLabel(usageExplanationIcon);
+  usageExplanationLabel.setMinimumSize(new Dimension(100,100));
+  middlePanel.add(usageExplanationLabel,"usageExplanationPanel");
   JComponent wrappedSolutionPanel;
   if (solutionPanel.isWrapInScrollPane()) {
     wrappedSolutionPanel=new JScrollPane(solutionPanel);

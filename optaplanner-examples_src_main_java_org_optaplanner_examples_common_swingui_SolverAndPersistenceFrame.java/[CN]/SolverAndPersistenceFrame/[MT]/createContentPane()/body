@@ -1,7 +1,11 @@
 {
-  JPanel panel=new JPanel(new BorderLayout());
-  panel.add(createButtonPanel(),BorderLayout.NORTH);
-  panel.add(createMiddlePanel(),BorderLayout.CENTER);
-  panel.add(createScorePanel(),BorderLayout.SOUTH);
-  return panel;
+  JComponent quickOpenPanel=createQuickOpenPanel();
+  JPanel mainPanel=new JPanel(new BorderLayout());
+  mainPanel.add(createProcessingPanel(),BorderLayout.NORTH);
+  mainPanel.add(createMiddlePanel(),BorderLayout.CENTER);
+  mainPanel.add(createScorePanel(),BorderLayout.SOUTH);
+  JSplitPane splitPane=new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,quickOpenPanel,mainPanel);
+  splitPane.setOneTouchExpandable(true);
+  splitPane.setResizeWeight(0.2);
+  return splitPane;
 }

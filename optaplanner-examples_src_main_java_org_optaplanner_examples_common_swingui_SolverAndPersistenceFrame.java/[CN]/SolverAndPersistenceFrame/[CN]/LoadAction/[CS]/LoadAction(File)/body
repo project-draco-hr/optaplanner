@@ -1,4 +1,0 @@
-{
-  super("Load " + file.getName());
-  this.file=file;
-}

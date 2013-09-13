@@ -1,0 +1,4 @@
+{
+  super(file.getName());
+  this.file=file;
+}

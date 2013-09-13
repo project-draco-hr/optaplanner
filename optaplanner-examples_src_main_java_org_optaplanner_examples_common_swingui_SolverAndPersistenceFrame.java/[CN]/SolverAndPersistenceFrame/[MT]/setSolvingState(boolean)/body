@@ -1,8 +1,8 @@
 {
-  for (  Action action : loadUnsolvedActionList) {
+  for (  Action action : quickOpenUnsolvedActionList) {
     action.setEnabled(!solving);
   }
-  for (  Action action : loadSolvedActionList) {
+  for (  Action action : quickOpenSolvedActionList) {
     action.setEnabled(!solving);
   }
   solveAction.setEnabled(!solving);

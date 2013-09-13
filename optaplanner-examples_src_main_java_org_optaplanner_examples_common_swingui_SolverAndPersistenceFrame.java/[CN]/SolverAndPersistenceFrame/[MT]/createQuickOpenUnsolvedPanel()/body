@@ -1,0 +1,5 @@
+{
+  quickOpenUnsolvedActionList=new ArrayList<Action>();
+  List<File> unsolvedFileList=solutionBusiness.getUnsolvedFileList();
+  return createQuickOpenPanel(quickOpenUnsolvedActionList,unsolvedFileList,"Quick open (unsolved)");
+}
