@@ -26,13 +26,13 @@
   refreshScreenDuringSolvingCheckBox=new JCheckBox("Refresh screen during solving",solutionPanel.isRefreshScreenDuringSolving());
   row1Panel.add(refreshScreenDuringSolvingCheckBox);
   processingPanel.add(row1Panel);
-  JPanel row2Panel=new JPanel(new GridLayout(1,2));
+  solveAndTerminateCardPanel=new JPanel(new CardLayout());
   solveAction=new SolveAction();
   solveAction.setEnabled(false);
-  row2Panel.add(new JButton(solveAction));
+  solveAndTerminateCardPanel.add(new JButton(solveAction),"solveAction");
   terminateSolvingEarlyAction=new TerminateSolvingEarlyAction();
   terminateSolvingEarlyAction.setEnabled(false);
-  row2Panel.add(new JButton(terminateSolvingEarlyAction));
-  processingPanel.add(row2Panel);
+  solveAndTerminateCardPanel.add(new JButton(terminateSolvingEarlyAction),"terminateSolvingEarlyAction");
+  processingPanel.add(solveAndTerminateCardPanel);
   return processingPanel;
 }

@@ -5,12 +5,13 @@
   for (  Action action : quickOpenSolvedActionList) {
     action.setEnabled(!solving);
   }
-  solveAction.setEnabled(!solving);
-  terminateSolvingEarlyAction.setEnabled(solving);
+  importAction.setEnabled(!solving && solutionBusiness.hasImporter());
   openAction.setEnabled(!solving);
   saveAction.setEnabled(!solving);
-  importAction.setEnabled(!solving && solutionBusiness.hasImporter());
   exportAction.setEnabled(!solving && solutionBusiness.hasExporter());
+  solveAction.setEnabled(!solving);
+  terminateSolvingEarlyAction.setEnabled(solving);
+  ((CardLayout)solveAndTerminateCardPanel.getLayout()).show(solveAndTerminateCardPanel,solving ? "terminateSolvingEarlyAction" : "solveAction");
   solutionPanel.setEnabled(!solving);
   progressBar.setIndeterminate(solving);
   progressBar.setStringPainted(solving);

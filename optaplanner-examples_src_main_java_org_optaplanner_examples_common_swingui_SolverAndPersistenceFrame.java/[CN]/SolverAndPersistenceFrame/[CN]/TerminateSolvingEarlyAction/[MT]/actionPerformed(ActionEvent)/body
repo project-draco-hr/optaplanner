@@ -1,3 +1,5 @@
 {
+  terminateSolvingEarlyAction.setEnabled(false);
+  progressBar.setString("Terminating...");
   solutionBusiness.terminateSolvingEarly();
 }
