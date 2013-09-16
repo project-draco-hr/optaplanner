@@ -5,7 +5,6 @@
   createCloudComputerList(cloudBalance,cloudComputerListSize);
   createCloudProcessList(cloudBalance,cloudProcessListSize);
   BigInteger possibleSolutionSize=BigInteger.valueOf(cloudBalance.getComputerList().size()).pow(cloudBalance.getProcessList().size());
-  String flooredPossibleSolutionSize="10^" + (possibleSolutionSize.toString().length() - 1);
-  logger.info("CloudBalance {} has {} computers and {} processes with a search space of {}.",inputId,cloudComputerListSize,cloudProcessListSize,possibleSolutionSize.compareTo(BigInteger.valueOf(1000L)) < 0 ? possibleSolutionSize : flooredPossibleSolutionSize);
+  logger.info("CloudBalance {} has {} computers and {} processes with a search space of {}.",inputId,cloudComputerListSize,cloudProcessListSize,AbstractSolutionImporter.getFlooredPossibleSolutionSize(possibleSolutionSize));
   return cloudBalance;
 }

@@ -6,7 +6,6 @@
   nQueens.setRowList(createRowList(nQueens));
   nQueens.setQueenList(createQueenList(nQueens));
   BigInteger possibleSolutionSize=BigInteger.valueOf(nQueens.getN()).pow(nQueens.getN());
-  String flooredPossibleSolutionSize="10^" + (possibleSolutionSize.toString().length() - 1);
-  logger.info("NQueens {} has {} queens with a search space of {}.",n,nQueens.getN(),possibleSolutionSize.compareTo(BigInteger.valueOf(1000L)) < 0 ? possibleSolutionSize : flooredPossibleSolutionSize);
+  logger.info("NQueens {} has {} queens with a search space of {}.",n,nQueens.getN(),AbstractSolutionImporter.getFlooredPossibleSolutionSize(possibleSolutionSize));
   return nQueens;
 }
