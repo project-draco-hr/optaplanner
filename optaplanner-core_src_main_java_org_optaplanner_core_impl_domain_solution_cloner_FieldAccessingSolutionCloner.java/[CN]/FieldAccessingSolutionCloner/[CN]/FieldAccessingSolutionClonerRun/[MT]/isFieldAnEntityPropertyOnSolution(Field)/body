@@ -1,6 +1,6 @@
 {
   Class<?> declaringClass=field.getDeclaringClass();
-  if (declaringClass == ((Class)solutionDescriptor.getSolutionClass())) {
+  if (solutionDescriptor.getSolutionClass().isAssignableFrom(declaringClass)) {
     String fieldName=field.getName();
     if (solutionDescriptor.getEntityPropertyAccessorMap().get(fieldName) != null) {
       return true;
