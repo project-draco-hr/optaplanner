@@ -1,4 +1,5 @@
 {
   Solution solution=importer.readSolution(file);
+  solutionFileName=file.getName();
   guiScoreDirector.setWorkingSolution(solution);
 }

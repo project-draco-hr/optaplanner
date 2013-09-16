@@ -16,14 +16,23 @@
   row0Panel.add(new JButton(exportAction));
   processingPanel.add(row0Panel);
   JPanel row1Panel=new JPanel(new GridLayout(1,2));
+  JPanel solutionFileNamePanel=new JPanel(new BorderLayout(5,0));
+  solutionFileNamePanel.setBorder(BorderFactory.createEmptyBorder(2,2,2,0));
+  solutionFileNamePanel.add(new JLabel("File:"),BorderLayout.WEST);
+  solutionFileNameField=new JTextField(10);
+  solutionFileNameField.setEditable(false);
+  solutionFileNamePanel.add(solutionFileNameField,BorderLayout.CENTER);
+  row1Panel.add(solutionFileNamePanel);
+  refreshScreenDuringSolvingCheckBox=new JCheckBox("Refresh screen during solving",solutionPanel.isRefreshScreenDuringSolving());
+  row1Panel.add(refreshScreenDuringSolvingCheckBox);
+  processingPanel.add(row1Panel);
+  JPanel row2Panel=new JPanel(new GridLayout(1,2));
   solveAction=new SolveAction();
   solveAction.setEnabled(false);
-  row1Panel.add(new JButton(solveAction));
+  row2Panel.add(new JButton(solveAction));
   terminateSolvingEarlyAction=new TerminateSolvingEarlyAction();
   terminateSolvingEarlyAction.setEnabled(false);
-  row1Panel.add(new JButton(terminateSolvingEarlyAction));
-  processingPanel.add(row1Panel);
-  refreshScreenDuringSolvingCheckBox=new JCheckBox("Refresh screen during solving",solutionPanel.isRefreshScreenDuringSolving());
-  processingPanel.add(refreshScreenDuringSolvingCheckBox);
+  row2Panel.add(new JButton(terminateSolvingEarlyAction));
+  processingPanel.add(row2Panel);
   return processingPanel;
 }

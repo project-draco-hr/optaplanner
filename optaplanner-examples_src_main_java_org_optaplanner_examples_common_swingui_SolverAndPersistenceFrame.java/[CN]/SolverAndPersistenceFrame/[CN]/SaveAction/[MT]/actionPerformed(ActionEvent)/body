@@ -10,6 +10,7 @@
   }
 );
   fileChooser.setDialogTitle(NAME);
+  fileChooser.setSelectedFile(new File(solutionBusiness.getSolvedDataDir(),FilenameUtils.getBaseName(solutionBusiness.getSolutionFileName()) + ".xml"));
   int approved=fileChooser.showSaveDialog(SolverAndPersistenceFrame.this);
   if (approved == JFileChooser.APPROVE_OPTION) {
     setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
