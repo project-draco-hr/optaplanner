@@ -1,0 +1,3 @@
+{
+  new TspImporter().convertAll();
+}
