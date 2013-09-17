@@ -1,0 +1,3 @@
+{
+  super("Hospital bed planning","Official competition name: PAS - Patient admission scheduling\n\n" + "Assign patients to beds.",null);
+}

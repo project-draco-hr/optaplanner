@@ -1,4 +1,6 @@
 {
+  solutionBusiness=createSolutionBusiness();
+  solverAndPersistenceFrame=new SolverAndPersistenceFrame(solutionBusiness,createSolutionPanel(),name + " OptaPlanner example");
   solverAndPersistenceFrame.setDefaultCloseOperation(exitOnClose ? JFrame.EXIT_ON_CLOSE : JFrame.DISPOSE_ON_CLOSE);
   solverAndPersistenceFrame.init(centerForComponent);
   solverAndPersistenceFrame.setVisible(true);

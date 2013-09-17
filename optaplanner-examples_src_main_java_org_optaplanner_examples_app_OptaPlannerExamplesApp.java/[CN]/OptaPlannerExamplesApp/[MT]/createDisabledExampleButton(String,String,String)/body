@@ -1,5 +1,0 @@
-{
-  JButton exampleButton=createExampleButton(title,description,iconResource,null);
-  exampleButton.setEnabled(false);
-  return exampleButton;
-}

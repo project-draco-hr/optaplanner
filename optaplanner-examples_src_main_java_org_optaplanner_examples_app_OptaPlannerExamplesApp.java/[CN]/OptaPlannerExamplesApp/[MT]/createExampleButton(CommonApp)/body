@@ -1,8 +1,9 @@
 {
+  String iconResource=commonApp.getIconResource();
   ImageIcon icon=iconResource == null ? null : new ImageIcon(getClass().getResource(iconResource));
-  JButton button=new JButton(new AbstractAction(title,icon){
+  JButton button=new JButton(new AbstractAction(commonApp.getName(),icon){
     public void actionPerformed(    ActionEvent e){
-      runnable.run();
+      commonApp.init(OptaPlannerExamplesApp.this,false);
     }
   }
 );
@@ -10,7 +11,7 @@
   button.setVerticalTextPosition(JButton.BOTTOM);
   button.addMouseListener(new MouseAdapter(){
     public void mouseEntered(    MouseEvent e){
-      descriptionTextArea.setText(description);
+      descriptionTextArea.setText(commonApp.getDescription());
     }
     public void mouseExited(    MouseEvent e){
       descriptionTextArea.setText("");

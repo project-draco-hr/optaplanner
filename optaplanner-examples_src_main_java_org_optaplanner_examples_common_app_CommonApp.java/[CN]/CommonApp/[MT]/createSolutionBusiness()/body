@@ -1,7 +1,6 @@
 {
-  SolutionDao solutionDao=createSolutionDao();
   SolutionBusiness solutionBusiness=new SolutionBusiness();
-  solutionBusiness.setSolutionDao(solutionDao);
+  solutionBusiness.setSolutionDao(createSolutionDao());
   solutionBusiness.setImporter(createSolutionImporter());
   solutionBusiness.setExporter(createSolutionExporter());
   solutionBusiness.updateDataDirs();

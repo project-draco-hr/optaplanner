@@ -3,24 +3,9 @@
   TitledBorder titledBorder=BorderFactory.createTitledBorder("Difficult examples");
   titledBorder.setTitleColor(TangoColorFactory.SCARLET_3);
   panel.setBorder(BorderFactory.createCompoundBorder(titledBorder,BorderFactory.createEmptyBorder(5,5,5,5)));
-  panel.add(createExampleButton("Exam timetabling","Official competition name: ITC 2007 track1 - Examination timetabling\n\n" + "Assign exams to timeslots and rooms.",null,new Runnable(){
-    public void run(){
-      new ExaminationApp().init(OptaPlannerExamplesApp.this,false);
-    }
-  }
-));
-  panel.add(createExampleButton("Employee rostering","Official competition name: INRC2010 - Nurse rostering\n\n" + "Assign shifts to employees.",NurseRosteringPanel.LOGO_PATH,new Runnable(){
-    public void run(){
-      new NurseRosteringApp().init(OptaPlannerExamplesApp.this,false);
-    }
-  }
-));
-  panel.add(createExampleButton("Sport scheduling","Official competition name: TTP - Traveling tournament problem\n\n" + "Assign sport matches to days.",null,new Runnable(){
-    public void run(){
-      new TravelingTournamentApp().init(OptaPlannerExamplesApp.this,false);
-    }
-  }
-));
+  panel.add(createExampleButton(new ExaminationApp()));
+  panel.add(createExampleButton(new NurseRosteringApp()));
+  panel.add(createExampleButton(new TravelingTournamentApp()));
   panel.add(new JPanel());
   return panel;
 }

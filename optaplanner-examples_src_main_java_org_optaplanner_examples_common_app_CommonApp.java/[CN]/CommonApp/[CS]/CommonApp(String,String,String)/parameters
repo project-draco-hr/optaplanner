@@ -1,4 +1,3 @@
-String title
+String name
 String description
 String iconResource
-Runnable runnable

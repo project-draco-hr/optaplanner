@@ -1,0 +1,3 @@
+{
+  super("Sport scheduling","Official competition name: TTP - Traveling tournament problem\n\n" + "Assign sport matches to days.",null);
+}
