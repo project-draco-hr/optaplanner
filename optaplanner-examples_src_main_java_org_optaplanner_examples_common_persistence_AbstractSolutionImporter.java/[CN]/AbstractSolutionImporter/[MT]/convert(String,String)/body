@@ -1,0 +1,9 @@
+{
+  File inputFile=new File(inputDir,inputFileName);
+  if (!inputFile.exists()) {
+    throw new IllegalStateException("The file inputFile (" + inputFile.getAbsolutePath() + ") does not exist.");
+  }
+  File outputFile=new File(outputDir,outputFileName);
+  outputFile.getParentFile().mkdirs();
+  convert(inputFile,outputFile);
+}

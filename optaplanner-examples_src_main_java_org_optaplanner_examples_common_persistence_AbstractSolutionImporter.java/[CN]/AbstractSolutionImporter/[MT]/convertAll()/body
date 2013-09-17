@@ -1,18 +1,12 @@
 {
-  File inputDir=getInputDir();
-  if (!inputDir.exists()) {
-    throw new IllegalStateException("The directory inputDir (" + inputDir.getAbsolutePath() + ") does not exist.");
-  }
-  File outputDir=getOutputDir();
   File[] inputFiles=inputDir.listFiles();
   Arrays.sort(inputFiles,new ProblemFileComparator());
   for (  File inputFile : inputFiles) {
     if (acceptInputFile(inputFile) && acceptInputFileDuringBulkConvert(inputFile)) {
-      Solution solution=readSolution(inputFile);
       String inputFileName=inputFile.getName();
       String outputFileName=inputFileName.substring(0,inputFileName.length() - getInputFileSuffix().length()) + getOutputFileSuffix();
       File outputFile=new File(outputDir,outputFileName);
-      solutionDao.writeSolution(solution,outputFile);
+      convert(inputFile,outputFile);
     }
   }
 }
