@@ -10,8 +10,9 @@
   saveAction.setEnabled(!solving);
   exportAction.setEnabled(!solving && solutionBusiness.hasExporter());
   solveAction.setEnabled(!solving);
+  solveButton.setVisible(!solving);
   terminateSolvingEarlyAction.setEnabled(solving);
-  ((CardLayout)solveAndTerminateCardPanel.getLayout()).show(solveAndTerminateCardPanel,solving ? "terminateSolvingEarlyAction" : "solveAction");
+  terminateSolvingEarlyButton.setVisible(solving);
   solutionPanel.setEnabled(!solving);
   progressBar.setIndeterminate(solving);
   progressBar.setStringPainted(solving);

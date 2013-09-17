@@ -1,4 +1,4 @@
 {
-  super(solverAndPersistenceFrame,"Constraint scores",true);
+  super(solverAndPersistenceFrame,"Constraint matches",true);
   this.solverAndPersistenceFrame=solverAndPersistenceFrame;
 }

@@ -1,13 +1,13 @@
 {
   JPanel scorePanel=new JPanel(new BorderLayout());
-  progressBar=new JProgressBar(0,100);
-  scorePanel.add(progressBar,BorderLayout.WEST);
+  scorePanel.setBorder(BorderFactory.createEtchedBorder());
+  showConstraintMatchesDialogAction=new ShowConstraintMatchesDialogAction();
+  showConstraintMatchesDialogAction.setEnabled(false);
+  scorePanel.add(new JButton(showConstraintMatchesDialogAction),BorderLayout.WEST);
   resultLabel=new JLabel("Score:");
   resultLabel.setBorder(BorderFactory.createLoweredBevelBorder());
   scorePanel.add(resultLabel,BorderLayout.CENTER);
-  showConstraintMatchesDialogAction=new ShowConstraintMatchesDialogAction();
-  showConstraintMatchesDialogAction.setEnabled(false);
-  JButton constraintScoreMapButton=new JButton(showConstraintMatchesDialogAction);
-  scorePanel.add(constraintScoreMapButton,BorderLayout.EAST);
+  refreshScreenDuringSolvingCheckBox=new JCheckBox("Refresh screen during solving",solutionPanel.isRefreshScreenDuringSolving());
+  scorePanel.add(refreshScreenDuringSolvingCheckBox,BorderLayout.EAST);
   return scorePanel;
 }

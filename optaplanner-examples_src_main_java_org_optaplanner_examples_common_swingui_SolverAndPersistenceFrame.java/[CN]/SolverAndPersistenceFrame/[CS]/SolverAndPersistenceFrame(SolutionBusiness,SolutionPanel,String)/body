@@ -1,8 +1,9 @@
 {
-  super(exampleName + " OptaPlanner example");
-  setIconImage(OPTA_PLANNER_ICON.getImage());
+  super(titlePrefix);
+  this.titlePrefix=titlePrefix;
   this.solutionBusiness=solutionBusiness;
   this.solutionPanel=solutionPanel;
+  setIconImage(OPTA_PLANNER_ICON.getImage());
   solutionPanel.setSolutionBusiness(solutionBusiness);
   solutionPanel.setSolverAndPersistenceFrame(this);
   registerListeners();

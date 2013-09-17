@@ -1,7 +1,7 @@
 {
   JComponent quickOpenPanel=createQuickOpenPanel();
   JPanel mainPanel=new JPanel(new BorderLayout());
-  mainPanel.add(createProcessingPanel(),BorderLayout.NORTH);
+  mainPanel.add(createToolBar(),BorderLayout.NORTH);
   mainPanel.add(createMiddlePanel(),BorderLayout.CENTER);
   mainPanel.add(createScorePanel(),BorderLayout.SOUTH);
   JSplitPane splitPane=new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,quickOpenPanel,mainPanel);

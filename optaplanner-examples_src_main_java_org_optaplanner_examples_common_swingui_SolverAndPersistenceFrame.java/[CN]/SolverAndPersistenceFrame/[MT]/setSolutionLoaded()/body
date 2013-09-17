@@ -1,5 +1,5 @@
 {
-  solutionFileNameField.setText(solutionBusiness.getSolutionFileName());
+  setTitle(titlePrefix + " - " + solutionBusiness.getSolutionFileName());
   ((CardLayout)middlePanel.getLayout()).show(middlePanel,"solutionPanel");
   solveAction.setEnabled(true);
   saveAction.setEnabled(true);

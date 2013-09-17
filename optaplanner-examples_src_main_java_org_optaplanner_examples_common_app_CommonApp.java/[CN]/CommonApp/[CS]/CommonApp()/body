@@ -1,4 +1,4 @@
 {
   solutionBusiness=createSolutionBusiness();
-  solverAndPersistenceFrame=new SolverAndPersistenceFrame(solutionBusiness,createSolutionPanel(),solutionBusiness.getDirName());
+  solverAndPersistenceFrame=new SolverAndPersistenceFrame(solutionBusiness,createSolutionPanel(),solutionBusiness.getDirName() + " OptaPlanner example");
 }

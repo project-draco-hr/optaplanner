@@ -1,0 +1,33 @@
+{
+  JToolBar toolBar=new JToolBar("File operations");
+  toolBar.setFloatable(false);
+  importAction=new ImportAction();
+  importAction.setEnabled(solutionBusiness.hasImporter());
+  toolBar.add(new JButton(importAction));
+  openAction=new OpenAction();
+  openAction.setEnabled(true);
+  toolBar.add(new JButton(openAction));
+  saveAction=new SaveAction();
+  saveAction.setEnabled(false);
+  toolBar.add(new JButton(saveAction));
+  exportAction=new ExportAction();
+  exportAction.setEnabled(false);
+  toolBar.add(new JButton(exportAction));
+  toolBar.addSeparator();
+  progressBar=new JProgressBar(0,100);
+  progressBar.setMaximumSize(new Dimension(Integer.MAX_VALUE,Integer.MAX_VALUE));
+  toolBar.add(progressBar);
+  toolBar.addSeparator();
+  solveAction=new SolveAction();
+  solveAction.setEnabled(false);
+  solveButton=new JButton(solveAction);
+  terminateSolvingEarlyAction=new TerminateSolvingEarlyAction();
+  terminateSolvingEarlyAction.setEnabled(false);
+  terminateSolvingEarlyButton=new JButton(terminateSolvingEarlyAction);
+  terminateSolvingEarlyButton.setVisible(false);
+  toolBar.add(solveButton,"solveAction");
+  toolBar.add(terminateSolvingEarlyButton,"terminateSolvingEarlyAction");
+  solveButton.setMinimumSize(terminateSolvingEarlyButton.getMinimumSize());
+  solveButton.setPreferredSize(terminateSolvingEarlyButton.getPreferredSize());
+  return toolBar;
+}
