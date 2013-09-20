@@ -1,0 +1,13 @@
+{
+  Integer milliArrivalTime=customer.getMilliArrivalTime();
+  if (milliArrivalTime != null) {
+    int milliReadyTime=customer.getMilliReadyTime();
+    int milliDueTime=customer.getMilliDueTime();
+    if (milliDueTime < milliArrivalTime) {
+      hardScore-=(milliArrivalTime - milliDueTime);
+    }
+    if (milliArrivalTime < milliReadyTime) {
+      softScore-=(milliReadyTime - milliArrivalTime);
+    }
+  }
+}

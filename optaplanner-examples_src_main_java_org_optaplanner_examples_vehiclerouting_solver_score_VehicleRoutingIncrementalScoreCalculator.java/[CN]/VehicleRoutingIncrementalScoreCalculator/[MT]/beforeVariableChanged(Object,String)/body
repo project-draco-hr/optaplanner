@@ -11,8 +11,8 @@
  else   if (variableName.equals("nextCustomer")) {
     retractNextCustomer((VrpCustomer)entity);
   }
- else   if (variableName.equals("arrivalTime")) {
-    retractArrivalTime((VrpTimeWindowedCustomer)entity);
+ else   if (variableName.equals("milliArrivalTime")) {
+    retractMilliArrivalTime((VrpTimeWindowedCustomer)entity);
   }
  else {
     throw new IllegalArgumentException("Unsupported variableName (" + variableName + ").");

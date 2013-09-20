@@ -11,8 +11,8 @@
  else   if (variableName.equals("nextCustomer")) {
     insertNextCustomer((VrpCustomer)entity);
   }
- else   if (variableName.equals("arrivalTime")) {
-    insertArrivalTime((VrpTimeWindowedCustomer)entity);
+ else   if (variableName.equals("milliArrivalTime")) {
+    insertMilliArrivalTime((VrpTimeWindowedCustomer)entity);
   }
  else {
     throw new IllegalArgumentException("Unsupported variableName (" + variableName + ").");

@@ -1,6 +1,0 @@
-{
-  double latitudeDifference=Math.abs(location.latitude - latitude);
-  double longitudeDifference=Math.abs(location.longitude - longitude);
-  double distance=Math.sqrt((latitudeDifference * latitudeDifference) + (longitudeDifference * longitudeDifference));
-  return (int)(distance + 0.5);
-}

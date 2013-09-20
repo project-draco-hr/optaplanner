@@ -1,14 +1,14 @@
 {
   VrpStandstill previousStandstill=sourceCustomer.getPreviousStandstill();
-  Integer departureTime=(previousStandstill instanceof VrpTimeWindowedCustomer) ? ((VrpTimeWindowedCustomer)previousStandstill).getDepartureTime() : null;
+  Integer milliDepartureTime=(previousStandstill instanceof VrpTimeWindowedCustomer) ? ((VrpTimeWindowedCustomer)previousStandstill).getDepartureTime() : null;
   VrpTimeWindowedCustomer shadowCustomer=sourceCustomer;
-  Integer arrivalTime=calculateArrivalTime(shadowCustomer,departureTime);
-  while (shadowCustomer != null && ObjectUtils.notEqual(shadowCustomer.getArrivalTime(),arrivalTime)) {
-    scoreDirector.beforeVariableChanged(shadowCustomer,"arrivalTime");
-    shadowCustomer.setArrivalTime(arrivalTime);
-    scoreDirector.afterVariableChanged(shadowCustomer,"arrivalTime");
-    departureTime=shadowCustomer.getDepartureTime();
+  Integer milliArrivalTime=calculateMilliArrivalTime(shadowCustomer,milliDepartureTime);
+  while (shadowCustomer != null && ObjectUtils.notEqual(shadowCustomer.getMilliArrivalTime(),milliArrivalTime)) {
+    scoreDirector.beforeVariableChanged(shadowCustomer,"milliArrivalTime");
+    shadowCustomer.setMilliArrivalTime(milliArrivalTime);
+    scoreDirector.afterVariableChanged(shadowCustomer,"milliArrivalTime");
+    milliDepartureTime=shadowCustomer.getDepartureTime();
     shadowCustomer=shadowCustomer.getNextCustomer();
-    arrivalTime=calculateArrivalTime(shadowCustomer,departureTime);
+    milliArrivalTime=calculateMilliArrivalTime(shadowCustomer,milliDepartureTime);
   }
 }

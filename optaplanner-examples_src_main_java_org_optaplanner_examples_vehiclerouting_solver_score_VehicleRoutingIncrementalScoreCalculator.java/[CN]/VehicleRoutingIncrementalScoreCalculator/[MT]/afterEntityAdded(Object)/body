@@ -5,6 +5,6 @@
   insertPreviousStandstill((VrpCustomer)entity);
   insertVehicle((VrpCustomer)entity);
   if (timeWindowed) {
-    insertArrivalTime((VrpTimeWindowedCustomer)entity);
+    insertMilliArrivalTime((VrpTimeWindowedCustomer)entity);
   }
 }
