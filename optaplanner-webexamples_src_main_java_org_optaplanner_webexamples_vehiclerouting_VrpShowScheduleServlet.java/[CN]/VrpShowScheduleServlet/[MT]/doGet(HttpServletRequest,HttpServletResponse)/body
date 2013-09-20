@@ -1,6 +1,6 @@
 {
   HttpSession session=req.getSession();
-  VrpSchedule shownSolution=(VrpSchedule)session.getAttribute(VrpSessionAttributeName.SHOWN_SOLUTION);
+  VehicleRoutingSolution shownSolution=(VehicleRoutingSolution)session.getAttribute(VrpSessionAttributeName.SHOWN_SOLUTION);
   Dimension size=new Dimension(800,600);
   BufferedImage image;
   if (shownSolution == null) {

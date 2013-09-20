@@ -1,12 +1,12 @@
 {
-  List<VrpLocation> locationList=new ArrayList<VrpLocation>(locationListSize);
-  depotList=new ArrayList<VrpDepot>(1);
-  List<VrpCustomer> customerList=new ArrayList<VrpCustomer>(locationListSize);
-  locationMap=new HashMap<Long,VrpLocation>(locationListSize);
+  List<Location> locationList=new ArrayList<Location>(locationListSize);
+  depotList=new ArrayList<Depot>(1);
+  List<Customer> customerList=new ArrayList<Customer>(locationListSize);
+  locationMap=new HashMap<Long,Location>(locationListSize);
   for (int i=0; i < locationListSize; i++) {
     String line=bufferedReader.readLine();
     String[] lineTokens=splitBySpace(line.trim().replaceAll(" +"," "),3);
-    VrpLocation location=new VrpLocation();
+    Location location=new Location();
     location.setId((long)i);
     location.setLatitude(Double.parseDouble(lineTokens[1]));
     location.setLongitude(Double.parseDouble(lineTokens[2]));
@@ -15,13 +15,13 @@
     }
     locationList.add(location);
     if (i == 0) {
-      VrpDepot depot=new VrpDepot();
+      Depot depot=new Depot();
       depot.setId((long)i);
       depot.setLocation(location);
       depotList.add(depot);
     }
  else {
-      VrpCustomer customer=new VrpCustomer();
+      Customer customer=new Customer();
       customer.setId((long)i);
       customer.setLocation(location);
       int demand=Integer.parseInt(lineTokens[0]);

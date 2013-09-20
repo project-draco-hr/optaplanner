@@ -1,0 +1,11 @@
+{
+  Standstill previousStandstill=sourceCustomer.getPreviousStandstill();
+  Vehicle vehicle=previousStandstill == null ? null : previousStandstill.getVehicle();
+  Customer shadowCustomer=sourceCustomer;
+  while (shadowCustomer != null && shadowCustomer.getVehicle() != vehicle) {
+    scoreDirector.beforeVariableChanged(shadowCustomer,"vehicle");
+    shadowCustomer.setVehicle(vehicle);
+    scoreDirector.afterVariableChanged(shadowCustomer,"vehicle");
+    shadowCustomer=shadowCustomer.getNextCustomer();
+  }
+}

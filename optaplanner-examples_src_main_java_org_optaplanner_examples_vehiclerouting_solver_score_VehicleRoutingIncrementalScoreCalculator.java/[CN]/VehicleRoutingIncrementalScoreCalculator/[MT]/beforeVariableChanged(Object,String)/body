@@ -1,18 +1,18 @@
 {
-  if (entity instanceof VrpVehicle) {
+  if (entity instanceof Vehicle) {
     return;
   }
   if (variableName.equals("previousStandstill")) {
-    retractPreviousStandstill((VrpCustomer)entity);
+    retractPreviousStandstill((Customer)entity);
   }
  else   if (variableName.equals("vehicle")) {
-    retractVehicle((VrpCustomer)entity);
+    retractVehicle((Customer)entity);
   }
  else   if (variableName.equals("nextCustomer")) {
-    retractNextCustomer((VrpCustomer)entity);
+    retractNextCustomer((Customer)entity);
   }
  else   if (variableName.equals("milliArrivalTime")) {
-    retractMilliArrivalTime((VrpTimeWindowedCustomer)entity);
+    retractMilliArrivalTime((TimeWindowedCustomer)entity);
   }
  else {
     throw new IllegalArgumentException("Unsupported variableName (" + variableName + ").");

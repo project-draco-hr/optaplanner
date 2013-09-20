@@ -1,8 +1,8 @@
 {
-  List<VrpVehicle> vehicleList=new ArrayList<VrpVehicle>(vehicleListSize);
+  List<Vehicle> vehicleList=new ArrayList<Vehicle>(vehicleListSize);
   long id=0;
   for (int i=0; i < vehicleListSize; i++) {
-    VrpVehicle vehicle=new VrpVehicle();
+    Vehicle vehicle=new Vehicle();
     vehicle.setId(id);
     id++;
     vehicle.setCapacity(capacity);

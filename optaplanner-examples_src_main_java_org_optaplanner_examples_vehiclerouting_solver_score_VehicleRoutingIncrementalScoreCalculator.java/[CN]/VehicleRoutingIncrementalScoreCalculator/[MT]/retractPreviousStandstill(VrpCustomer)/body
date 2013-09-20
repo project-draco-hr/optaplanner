@@ -1,6 +1,0 @@
-{
-  VrpStandstill previousStandstill=customer.getPreviousStandstill();
-  if (previousStandstill != null) {
-    softScore+=customer.getMilliDistanceToPreviousStandstill();
-  }
-}

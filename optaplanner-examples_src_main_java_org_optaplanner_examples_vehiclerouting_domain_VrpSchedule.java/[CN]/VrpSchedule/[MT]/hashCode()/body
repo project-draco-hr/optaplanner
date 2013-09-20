@@ -1,7 +1,0 @@
-{
-  HashCodeBuilder hashCodeBuilder=new HashCodeBuilder();
-  for (  VrpCustomer customer : customerList) {
-    hashCodeBuilder.append(customer.solutionHashCode());
-  }
-  return hashCodeBuilder.toHashCode();
-}

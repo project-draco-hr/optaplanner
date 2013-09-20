@@ -1,10 +1,10 @@
 {
-  if (entity instanceof VrpVehicle) {
+  if (entity instanceof Vehicle) {
     return;
   }
-  insertPreviousStandstill((VrpCustomer)entity);
-  insertVehicle((VrpCustomer)entity);
+  insertPreviousStandstill((Customer)entity);
+  insertVehicle((Customer)entity);
   if (timeWindowed) {
-    insertMilliArrivalTime((VrpTimeWindowedCustomer)entity);
+    insertMilliArrivalTime((TimeWindowedCustomer)entity);
   }
 }

@@ -3,7 +3,7 @@
   schedulePainter=new VehicleRoutingSchedulePainter();
   addComponentListener(new ComponentAdapter(){
     @Override public void componentResized(    ComponentEvent e){
-      VrpSchedule schedule=VehicleRoutingWorldPanel.this.vehicleRoutingPanel.getSchedule();
+      VehicleRoutingSolution schedule=VehicleRoutingWorldPanel.this.vehicleRoutingPanel.getSchedule();
       if (schedule != null) {
         resetPanel(schedule);
       }

@@ -3,6 +3,6 @@
   Solver solver=solverFactory.buildSolver();
   session.setAttribute(VrpSessionAttributeName.SOLVER,solver);
   URL unsolvedSolutionURL=getClass().getResource("/org/optaplanner/webexamples/vehiclerouting/A-n33-k6.vrp");
-  VrpSchedule unsolvedSolution=(VrpSchedule)new VehicleRoutingImporter().readSolution(unsolvedSolutionURL);
+  VehicleRoutingSolution unsolvedSolution=(VehicleRoutingSolution)new VehicleRoutingImporter().readSolution(unsolvedSolutionURL);
   session.setAttribute(VrpSessionAttributeName.SHOWN_SOLUTION,unsolvedSolution);
 }

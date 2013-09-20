@@ -1,14 +1,14 @@
 {
   String line=bufferedReader.readLine();
   int locationListSizeEstimation=25;
-  List<VrpLocation> locationList=new ArrayList<VrpLocation>(locationListSizeEstimation);
-  depotList=new ArrayList<VrpDepot>(1);
-  List<VrpCustomer> customerList=new ArrayList<VrpCustomer>(locationListSizeEstimation);
+  List<Location> locationList=new ArrayList<Location>(locationListSizeEstimation);
+  depotList=new ArrayList<Depot>(1);
+  List<Customer> customerList=new ArrayList<Customer>(locationListSizeEstimation);
   boolean first=true;
   while (line != null && !line.trim().isEmpty()) {
     String[] lineTokens=splitBySpacesOrTabs(line.trim(),7);
     long id=Long.parseLong(lineTokens[0]);
-    VrpLocation location=new VrpLocation();
+    Location location=new Location();
     location.setId(id);
     location.setLatitude(Double.parseDouble(lineTokens[1]));
     location.setLongitude(Double.parseDouble(lineTokens[2]));
@@ -18,7 +18,7 @@
     int milliDueTime=Integer.parseInt(lineTokens[5]) * 1000;
     int milliServiceDuration=Integer.parseInt(lineTokens[6]) * 1000;
     if (first) {
-      VrpTimeWindowedDepot depot=new VrpTimeWindowedDepot();
+      TimeWindowedDepot depot=new TimeWindowedDepot();
       depot.setId(id);
       depot.setLocation(location);
       if (demand != 0) {
@@ -33,7 +33,7 @@
       first=false;
     }
  else {
-      VrpTimeWindowedCustomer customer=new VrpTimeWindowedCustomer();
+      TimeWindowedCustomer customer=new TimeWindowedCustomer();
       customer.setId(id);
       customer.setLocation(location);
       customer.setDemand(demand);

@@ -1,5 +1,0 @@
-{
-  if (customer instanceof VrpTimeWindowedCustomer) {
-    updateVehicle(scoreDirector,(VrpTimeWindowedCustomer)customer);
-  }
-}

@@ -1,0 +1,42 @@
+{
+  boolean timeWindowed=schedule instanceof TimeWindowedVehicleRoutingSolution;
+  List<Customer> customerList=schedule.getCustomerList();
+  List<Vehicle> vehicleList=schedule.getVehicleList();
+  Map<Vehicle,Integer> vehicleDemandMap=new HashMap<Vehicle,Integer>(vehicleList.size());
+  for (  Vehicle vehicle : vehicleList) {
+    vehicleDemandMap.put(vehicle,0);
+  }
+  int hardScore=0;
+  int softScore=0;
+  for (  Customer customer : customerList) {
+    Standstill previousStandstill=customer.getPreviousStandstill();
+    if (previousStandstill != null) {
+      Vehicle vehicle=customer.getVehicle();
+      vehicleDemandMap.put(vehicle,vehicleDemandMap.get(vehicle) + customer.getDemand());
+      softScore-=customer.getMilliDistanceToPreviousStandstill();
+      if (customer.getNextCustomer() == null) {
+        softScore-=vehicle.getLocation().getMilliDistance(customer.getLocation());
+      }
+      if (timeWindowed) {
+        TimeWindowedCustomer timeWindowedCustomer=(TimeWindowedCustomer)customer;
+        int milliReadyTime=timeWindowedCustomer.getMilliReadyTime();
+        int milliDueTime=timeWindowedCustomer.getMilliDueTime();
+        Integer milliArrivalTime=timeWindowedCustomer.getMilliArrivalTime();
+        if (milliDueTime < milliArrivalTime) {
+          hardScore-=(milliArrivalTime - milliDueTime);
+        }
+        if (milliArrivalTime < milliReadyTime) {
+          softScore-=(milliReadyTime - milliArrivalTime);
+        }
+      }
+    }
+  }
+  for (  Map.Entry<Vehicle,Integer> entry : vehicleDemandMap.entrySet()) {
+    int capacity=entry.getKey().getCapacity();
+    int demand=entry.getValue();
+    if (demand > capacity) {
+      hardScore-=(demand - capacity);
+    }
+  }
+  return HardSoftScore.valueOf(hardScore,softScore);
+}

@@ -1,13 +1,13 @@
 {
   readConstantLine("DEMAND_SECTION");
-  List<VrpCustomer> customerList=new ArrayList<VrpCustomer>(locationListSize);
+  List<Customer> customerList=new ArrayList<Customer>(locationListSize);
   for (int i=0; i < locationListSize; i++) {
     String line=bufferedReader.readLine();
     String[] lineTokens=splitBySpace(line.trim().replaceAll(" +"," "),2);
-    VrpCustomer customer=new VrpCustomer();
+    Customer customer=new Customer();
     long id=Long.parseLong(lineTokens[0]);
     customer.setId(id);
-    VrpLocation location=locationMap.get(id);
+    Location location=locationMap.get(id);
     if (location == null) {
       throw new IllegalArgumentException("The customer with id (" + id + ") has no location ("+ location+ ").");
     }

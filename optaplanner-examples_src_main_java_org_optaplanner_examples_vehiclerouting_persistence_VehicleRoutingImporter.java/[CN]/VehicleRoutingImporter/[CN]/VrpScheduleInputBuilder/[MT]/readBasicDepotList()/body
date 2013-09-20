@@ -1,11 +1,11 @@
 {
   readConstantLine("DEPOT_SECTION");
-  depotList=new ArrayList<VrpDepot>(locationListSize);
+  depotList=new ArrayList<Depot>(locationListSize);
   long id=readLongValue();
   while (id != -1) {
-    VrpDepot depot=new VrpDepot();
+    Depot depot=new Depot();
     depot.setId(id);
-    VrpLocation location=locationMap.get(id);
+    Location location=locationMap.get(id);
     if (location == null) {
       throw new IllegalArgumentException("The depot with id (" + id + ") has no location ("+ location+ ").");
     }

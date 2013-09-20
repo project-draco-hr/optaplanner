@@ -1,0 +1,7 @@
+{
+  HashCodeBuilder hashCodeBuilder=new HashCodeBuilder();
+  for (  Customer customer : customerList) {
+    hashCodeBuilder.append(customer.solutionHashCode());
+  }
+  return hashCodeBuilder.toHashCode();
+}
