@@ -1,0 +1,4 @@
+{
+  File unsolvedDataFile=new File("data/vehiclerouting/unsolved/cvrp-32customers.xml");
+  runSpeedTest(unsolvedDataFile,"0hard/-750soft");
+}
