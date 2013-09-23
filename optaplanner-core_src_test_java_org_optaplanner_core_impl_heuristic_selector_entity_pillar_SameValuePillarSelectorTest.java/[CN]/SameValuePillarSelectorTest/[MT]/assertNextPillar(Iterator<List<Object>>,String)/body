@@ -1,9 +1,0 @@
-{
-  assertTrue(iterator.hasNext());
-  List<Object> pillar=iterator.next();
-  String message="Expected entityCodes (" + Arrays.toString(entityCodes) + ") but received pillar ("+ pillar+ ").";
-  assertEquals(message,entityCodes.length,pillar.size());
-  for (int i=0; i < entityCodes.length; i++) {
-    assertCode(message,entityCodes[i],pillar.get(i));
-  }
-}

@@ -16,12 +16,12 @@
   AbstractStepScope stepScopeA1=mock(AbstractStepScope.class);
   when(stepScopeA1.getPhaseScope()).thenReturn(phaseScopeA);
   subChainSelector.stepStarted(stepScopeA1);
-  runAssertsEmptyOriginal(subChainSelector);
+  assertAllCodesOfSubChainSelector(subChainSelector);
   subChainSelector.stepEnded(stepScopeA1);
   AbstractStepScope stepScopeA2=mock(AbstractStepScope.class);
   when(stepScopeA2.getPhaseScope()).thenReturn(phaseScopeA);
   subChainSelector.stepStarted(stepScopeA2);
-  runAssertsEmptyOriginal(subChainSelector);
+  assertAllCodesOfSubChainSelector(subChainSelector);
   subChainSelector.stepEnded(stepScopeA2);
   subChainSelector.phaseEnded(phaseScopeA);
   AbstractSolverPhaseScope phaseScopeB=mock(AbstractSolverPhaseScope.class);
@@ -30,7 +30,7 @@
   AbstractStepScope stepScopeB1=mock(AbstractStepScope.class);
   when(stepScopeB1.getPhaseScope()).thenReturn(phaseScopeB);
   subChainSelector.stepStarted(stepScopeB1);
-  runAssertsEmptyOriginal(subChainSelector);
+  assertAllCodesOfSubChainSelector(subChainSelector);
   subChainSelector.stepEnded(stepScopeB1);
   subChainSelector.phaseEnded(phaseScopeB);
   subChainSelector.solvingEnded(solverScope);

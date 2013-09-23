@@ -28,14 +28,14 @@
   AbstractStepScope stepScopeA1=mock(AbstractStepScope.class);
   when(stepScopeA1.getPhaseScope()).thenReturn(phaseScopeA);
   pillarSelector.stepStarted(stepScopeA1);
-  runAssertsOriginal1(pillarSelector);
+  assertAllCodesOfPillarSelector(pillarSelector,"[a]","[b, d]","[c, e, f]");
   pillarSelector.stepEnded(stepScopeA1);
   b.setValue(val3);
   f.setValue(val4);
   AbstractStepScope stepScopeA2=mock(AbstractStepScope.class);
   when(stepScopeA2.getPhaseScope()).thenReturn(phaseScopeA);
   pillarSelector.stepStarted(stepScopeA2);
-  runAssertsOriginal2(pillarSelector);
+  assertAllCodesOfPillarSelector(pillarSelector,"[a]","[b, c, e]","[d]","[f]");
   pillarSelector.stepEnded(stepScopeA2);
   pillarSelector.phaseEnded(phaseScopeA);
   AbstractSolverPhaseScope phaseScopeB=mock(AbstractSolverPhaseScope.class);
@@ -44,7 +44,7 @@
   AbstractStepScope stepScopeB1=mock(AbstractStepScope.class);
   when(stepScopeB1.getPhaseScope()).thenReturn(phaseScopeB);
   pillarSelector.stepStarted(stepScopeB1);
-  runAssertsOriginal2(pillarSelector);
+  assertAllCodesOfPillarSelector(pillarSelector,"[a]","[b, c, e]","[d]","[f]");
   pillarSelector.stepEnded(stepScopeB1);
   pillarSelector.phaseEnded(phaseScopeB);
   pillarSelector.solvingEnded(solverScope);

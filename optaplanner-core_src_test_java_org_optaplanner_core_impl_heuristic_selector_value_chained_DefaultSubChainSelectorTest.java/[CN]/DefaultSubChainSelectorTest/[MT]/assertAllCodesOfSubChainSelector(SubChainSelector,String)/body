@@ -1,0 +1,6 @@
+{
+  assertAllCodesOfIterator(subChainSelector.iterator(),codes);
+  assertEquals(false,subChainSelector.isContinuous());
+  assertEquals(false,subChainSelector.isNeverEnding());
+  assertEquals(codes.length,subChainSelector.getSize());
+}

@@ -1,4 +1,9 @@
 {
-  CodeAssertable codeAssertable=convertToCodeAssertable(o);
-  assertCode(expectedCode,codeAssertable);
+  if (expectedCode == null) {
+    assertNull(o);
+  }
+ else {
+    CodeAssertable codeAssertable=convertToCodeAssertable(o);
+    assertCode(expectedCode,codeAssertable);
+  }
 }

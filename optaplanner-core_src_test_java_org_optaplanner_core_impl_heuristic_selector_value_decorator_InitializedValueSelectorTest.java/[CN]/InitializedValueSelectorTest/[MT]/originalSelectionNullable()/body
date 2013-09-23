@@ -16,7 +16,7 @@
   AbstractStepScope stepScopeA1=mock(AbstractStepScope.class);
   when(stepScopeA1.getPhaseScope()).thenReturn(phaseScopeA);
   valueSelector.stepStarted(stepScopeA1);
-  runAsserts(valueSelector,e1,"v1",null,"v3");
+  assertAllCodesOfValueSelectorForEntity(valueSelector,e1,PlannerAssert.DO_NOT_ASSERT_SIZE,"v1",null,"v3");
   e1.setValue(v1);
   valueSelector.stepEnded(stepScopeA1);
   valueSelector.phaseEnded(phaseScopeA);

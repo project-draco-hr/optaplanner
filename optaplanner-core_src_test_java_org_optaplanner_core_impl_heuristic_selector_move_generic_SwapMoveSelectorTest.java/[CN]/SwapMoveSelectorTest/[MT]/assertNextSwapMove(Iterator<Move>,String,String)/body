@@ -1,6 +1,0 @@
-{
-  assertTrue(iterator.hasNext());
-  SwapMove move=(SwapMove)iterator.next();
-  assertCode(leftEntityCode,move.getLeftEntity());
-  assertCode(rightEntityCode,move.getRightEntity());
-}

@@ -15,7 +15,7 @@
   AbstractStepScope stepScopeA1=mock(AbstractStepScope.class);
   when(stepScopeA1.getPhaseScope()).thenReturn(phaseScopeA);
   moveSelector.stepStarted(stepScopeA1);
-  assertCodesOfNeverEndingMoveSelector(moveSelector,24L,"a=>1+a=>8","a=>2+a=>9","a=>3+a=>8","b=>1+a=>9","b=>2+b=>8","b=>3+b=>9");
+  assertCodesOfNeverEndingMoveSelector(moveSelector,24L,"a->1+a->8","a->2+a->9","a->3+a->8","b->1+a->9","b->2+b->8","b->3+b->9");
   moveSelector.stepEnded(stepScopeA1);
   moveSelector.phaseEnded(phaseScopeA);
   moveSelector.solvingEnded(solverScope);

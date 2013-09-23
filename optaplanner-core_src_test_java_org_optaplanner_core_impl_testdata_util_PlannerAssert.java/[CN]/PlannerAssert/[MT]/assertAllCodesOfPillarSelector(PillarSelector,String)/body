@@ -1,0 +1,3 @@
+{
+  assertAllCodesOfPillarSelector(pillarSelector,(long)codes.length,codes);
+}

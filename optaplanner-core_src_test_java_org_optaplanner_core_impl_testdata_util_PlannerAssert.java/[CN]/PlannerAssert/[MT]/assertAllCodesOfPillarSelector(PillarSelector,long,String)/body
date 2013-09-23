@@ -1,0 +1,8 @@
+{
+  assertAllCodesOfIterator(pillarSelector.iterator(),codes);
+  assertEquals(false,pillarSelector.isContinuous());
+  assertEquals(false,pillarSelector.isNeverEnding());
+  if (size != DO_NOT_ASSERT_SIZE) {
+    assertEquals(size,pillarSelector.getSize());
+  }
+}

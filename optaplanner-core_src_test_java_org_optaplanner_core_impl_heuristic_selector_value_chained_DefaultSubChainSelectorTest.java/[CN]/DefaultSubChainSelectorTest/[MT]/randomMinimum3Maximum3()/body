@@ -20,7 +20,7 @@
   AbstractStepScope stepScopeA1=mock(AbstractStepScope.class);
   when(stepScopeA1.getPhaseScope()).thenReturn(phaseScopeA);
   subChainSelector.stepStarted(stepScopeA1);
-  iterateAndCollectAndAssert(subChainSelector,new SubChain(Arrays.<Object>asList(a1,a2,a3)),new SubChain(Arrays.<Object>asList(a2,a3,a4)));
+  assertContainsCodesOfNeverEndingSubChainSelector(subChainSelector,new SubChain(Arrays.<Object>asList(a1,a2,a3)),new SubChain(Arrays.<Object>asList(a2,a3,a4)));
   subChainSelector.stepEnded(stepScopeA1);
   subChainSelector.phaseEnded(phaseScopeA);
   subChainSelector.solvingEnded(solverScope);

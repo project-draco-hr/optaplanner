@@ -13,12 +13,12 @@
   AbstractStepScope stepScopeA1=mock(AbstractStepScope.class);
   when(stepScopeA1.getPhaseScope()).thenReturn(phaseScopeA);
   pillarSelector.stepStarted(stepScopeA1);
-  runAssertsEmptyOriginal(pillarSelector);
+  assertAllCodesOfPillarSelector(pillarSelector);
   pillarSelector.stepEnded(stepScopeA1);
   AbstractStepScope stepScopeA2=mock(AbstractStepScope.class);
   when(stepScopeA2.getPhaseScope()).thenReturn(phaseScopeA);
   pillarSelector.stepStarted(stepScopeA2);
-  runAssertsEmptyOriginal(pillarSelector);
+  assertAllCodesOfPillarSelector(pillarSelector);
   pillarSelector.stepEnded(stepScopeA2);
   pillarSelector.phaseEnded(phaseScopeA);
   AbstractSolverPhaseScope phaseScopeB=mock(AbstractSolverPhaseScope.class);
@@ -27,7 +27,7 @@
   AbstractStepScope stepScopeB1=mock(AbstractStepScope.class);
   when(stepScopeB1.getPhaseScope()).thenReturn(phaseScopeB);
   pillarSelector.stepStarted(stepScopeB1);
-  runAssertsEmptyOriginal(pillarSelector);
+  assertAllCodesOfPillarSelector(pillarSelector);
   pillarSelector.stepEnded(stepScopeB1);
   pillarSelector.phaseEnded(phaseScopeB);
   pillarSelector.solvingEnded(solverScope);

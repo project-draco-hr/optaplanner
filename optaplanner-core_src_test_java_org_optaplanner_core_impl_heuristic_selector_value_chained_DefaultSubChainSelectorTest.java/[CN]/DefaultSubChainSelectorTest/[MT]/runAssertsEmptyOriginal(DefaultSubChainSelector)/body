@@ -1,8 +1,0 @@
-{
-  Iterator<SubChain> iterator=subChainSelector.iterator();
-  assertNotNull(iterator);
-  assertFalse(iterator.hasNext());
-  assertEquals(false,subChainSelector.isContinuous());
-  assertEquals(false,subChainSelector.isNeverEnding());
-  assertEquals(0L,subChainSelector.getSize());
-}

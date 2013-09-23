@@ -22,14 +22,7 @@
   AbstractStepScope stepScopeA1=mock(AbstractStepScope.class);
   when(stepScopeA1.getPhaseScope()).thenReturn(phaseScopeA);
   subChainSelector.stepStarted(stepScopeA1);
-  Iterator<SubChain> iterator=subChainSelector.iterator();
-  assertNotNull(iterator);
-  assertNextSubChain(iterator,"a1","a2","a3");
-  assertNextSubChain(iterator,"a2","a3","a4");
-  assertFalse(iterator.hasNext());
-  assertEquals(false,subChainSelector.isContinuous());
-  assertEquals(false,subChainSelector.isNeverEnding());
-  assertEquals(2L,subChainSelector.getSize());
+  assertAllCodesOfSubChainSelector(subChainSelector,"[a1, a2, a3]","[a2, a3, a4]");
   subChainSelector.stepEnded(stepScopeA1);
   subChainSelector.phaseEnded(phaseScopeA);
   subChainSelector.solvingEnded(solverScope);
