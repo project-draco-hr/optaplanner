@@ -19,14 +19,10 @@
       }
       if (timeWindowed) {
         TimeWindowedCustomer timeWindowedCustomer=(TimeWindowedCustomer)customer;
-        int milliReadyTime=timeWindowedCustomer.getMilliReadyTime();
         int milliDueTime=timeWindowedCustomer.getMilliDueTime();
         Integer milliArrivalTime=timeWindowedCustomer.getMilliArrivalTime();
         if (milliDueTime < milliArrivalTime) {
           hardScore-=(milliArrivalTime - milliDueTime);
-        }
-        if (milliArrivalTime < milliReadyTime) {
-          softScore-=(milliReadyTime - milliArrivalTime);
         }
       }
     }
