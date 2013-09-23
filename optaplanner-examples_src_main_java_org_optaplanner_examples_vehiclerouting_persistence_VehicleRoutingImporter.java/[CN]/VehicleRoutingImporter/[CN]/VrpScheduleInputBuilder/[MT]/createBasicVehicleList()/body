@@ -1,6 +1,6 @@
 {
   String inputFileName=inputFile.getName();
-  if (inputFileName.toLowerCase().startsWith("demo")) {
+  if (inputFileName.toLowerCase().startsWith("tutorial")) {
     vehicleListSize=readIntegerValue("VEHICLES :");
   }
  else {
