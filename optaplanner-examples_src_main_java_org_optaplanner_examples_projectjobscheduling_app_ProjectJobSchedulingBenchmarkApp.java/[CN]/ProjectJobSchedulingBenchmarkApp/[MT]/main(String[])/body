@@ -1,0 +1,4 @@
+{
+  String benchmarkConfig=TEMPLATE_BENCHMARK_CONFIG_TEMPLATE;
+  new ProjectJobSchedulingBenchmarkApp().buildFromTemplateAndBenchmark(benchmarkConfig);
+}
