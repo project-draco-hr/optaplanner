@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof RenewableResourceUsedDay) {
+    RenewableResourceUsedDay other=(RenewableResourceUsedDay)o;
+    return new EqualsBuilder().append(resource,other.resource).append(usedDay,other.usedDay).isEquals();
+  }
+ else {
+    return false;
+  }
+}
