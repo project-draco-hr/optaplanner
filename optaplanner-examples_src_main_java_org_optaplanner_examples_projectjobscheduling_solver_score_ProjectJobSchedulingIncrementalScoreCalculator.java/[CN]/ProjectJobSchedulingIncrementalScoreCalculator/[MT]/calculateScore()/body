@@ -1,3 +1,3 @@
 {
-  return BendableScore.valueOf(new int[]{hardScore},new int[]{mediumScore,softScore});
+  return BendableScore.valueOf(new int[]{hardScore},new int[]{soft0Score,soft1Score});
 }

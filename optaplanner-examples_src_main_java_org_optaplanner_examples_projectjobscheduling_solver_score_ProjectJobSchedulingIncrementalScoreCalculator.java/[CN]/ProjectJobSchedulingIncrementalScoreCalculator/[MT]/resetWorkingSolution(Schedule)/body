@@ -4,17 +4,17 @@
   for (  Resource resource : resourceList) {
     resourceCapacityTrackerMap.put(resource,resource.isRenewable() ? new RenewableResourceCapacityTracker(resource) : new NonrenewableResourceCapacityTracker(resource));
   }
+  List<Project> projectList=schedule.getProjectList();
+  projectEndDateMap=new HashMap<Project,Integer>(schedule.getProjectList().size());
+  maximumProjectEndDate=0;
   hardScore=0;
-  mediumScore=0;
-  softScore=0;
-  totalProjectDelay=0;
-  minimalReleaseDate=Integer.MAX_VALUE;
-  maximalEndDate=0;
+  soft0Score=0;
+  soft1Score=0;
+  int minimumReleaseDate=Integer.MAX_VALUE;
   for (  Project p : schedule.getProjectList()) {
-    minimalReleaseDate=Math.min(p.getReleaseDate(),minimalReleaseDate);
+    minimumReleaseDate=Math.min(p.getReleaseDate(),minimumReleaseDate);
   }
-  projectDelayMap=new HashMap<Project,Integer>();
-  allocationsPerProjectMap=new HashMap<Project,Set<Allocation>>();
+  soft1Score+=minimumReleaseDate;
   for (  Allocation allocation : schedule.getAllocationList()) {
     insert(allocation);
   }

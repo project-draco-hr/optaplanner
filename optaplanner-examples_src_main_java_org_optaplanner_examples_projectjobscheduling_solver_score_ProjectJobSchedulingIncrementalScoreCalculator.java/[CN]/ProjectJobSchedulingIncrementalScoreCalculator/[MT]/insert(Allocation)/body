@@ -1,11 +1,4 @@
 {
-  trackAllocation(allocation);
-  Integer endDate=allocation.getEndDate();
-  if (endDate != null && endDate > maximalEndDate) {
-    maximalEndDate=endDate;
-    softScore=-(maximalEndDate - minimalReleaseDate);
-  }
-  mediumScore=-getTotalProjectDelay(allocation);
   ExecutionMode executionMode=allocation.getExecutionMode();
   if (executionMode != null && allocation.getJob().getJobType() == JobType.STANDARD) {
     for (    ResourceRequirement resourceRequirement : executionMode.getResourceRequirementList()) {
@@ -13,6 +6,18 @@
       hardScore-=tracker.getHardScore();
       tracker.insert(resourceRequirement,allocation);
       hardScore+=tracker.getHardScore();
+    }
+  }
+  if (allocation.getJob().getJobType() == JobType.SINK) {
+    Integer endDate=allocation.getEndDate();
+    if (endDate != null) {
+      Project project=allocation.getProject();
+      projectEndDateMap.put(project,endDate);
+      soft0Score-=endDate - project.getCriticalPathEndDate();
+      if (endDate > maximumProjectEndDate) {
+        soft1Score-=endDate - maximumProjectEndDate;
+        maximumProjectEndDate=endDate;
+      }
     }
   }
 }
