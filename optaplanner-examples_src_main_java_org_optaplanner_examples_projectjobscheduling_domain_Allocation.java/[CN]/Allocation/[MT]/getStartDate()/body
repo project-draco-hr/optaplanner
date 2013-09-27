@@ -1,6 +1,6 @@
 {
-  if (predecessorsDoneDate == null || delay == null) {
+  if (predecessorsDoneDate == null) {
     return null;
   }
-  return predecessorsDoneDate + delay;
+  return predecessorsDoneDate + (delay == null ? 0 : delay);
 }
