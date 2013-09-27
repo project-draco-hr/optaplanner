@@ -1,0 +1,9 @@
+{
+  int maximum=0;
+  for (  Integer endDate : projectEndDateMap.values()) {
+    if (endDate > maximum) {
+      maximum=endDate;
+    }
+  }
+  maximumProjectEndDate=maximum;
+}

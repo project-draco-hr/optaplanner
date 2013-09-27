@@ -15,14 +15,8 @@
       projectEndDateMap.remove(project);
       soft0Score+=endDate - project.getCriticalPathEndDate();
       if (endDate == maximumProjectEndDate) {
-        int newMaximumProjectEndDate=0;
-        for (        Integer otherEndDate : projectEndDateMap.values()) {
-          if (otherEndDate > newMaximumProjectEndDate) {
-            newMaximumProjectEndDate=otherEndDate;
-          }
-        }
-        soft1Score+=endDate - newMaximumProjectEndDate;
-        maximumProjectEndDate=newMaximumProjectEndDate;
+        updateMaximumProjectEndDate();
+        soft1Score+=endDate - maximumProjectEndDate;
       }
     }
   }

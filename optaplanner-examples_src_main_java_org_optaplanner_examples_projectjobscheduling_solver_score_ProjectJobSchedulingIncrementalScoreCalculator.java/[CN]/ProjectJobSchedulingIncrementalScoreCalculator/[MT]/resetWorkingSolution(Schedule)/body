@@ -5,13 +5,13 @@
     resourceCapacityTrackerMap.put(resource,resource.isRenewable() ? new RenewableResourceCapacityTracker(resource) : new NonrenewableResourceCapacityTracker(resource));
   }
   List<Project> projectList=schedule.getProjectList();
-  projectEndDateMap=new HashMap<Project,Integer>(schedule.getProjectList().size());
+  projectEndDateMap=new HashMap<Project,Integer>(projectList.size());
   maximumProjectEndDate=0;
   hardScore=0;
   soft0Score=0;
   soft1Score=0;
   int minimumReleaseDate=Integer.MAX_VALUE;
-  for (  Project p : schedule.getProjectList()) {
+  for (  Project p : projectList) {
     minimumReleaseDate=Math.min(p.getReleaseDate(),minimumReleaseDate);
   }
   soft1Score+=minimumReleaseDate;
