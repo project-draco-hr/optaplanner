@@ -1,0 +1,11 @@
+{
+  if (rows.size() > 0) {
+    throw new IllegalStateException("Add all columns before adding rows");
+  }
+  int index=columns.size();
+  Column column=new Column(index,baseWidth);
+  columns.add(column);
+  totalColumnWidth+=baseWidth;
+  cells.add(new ArrayList<Cell>());
+  return index;
+}

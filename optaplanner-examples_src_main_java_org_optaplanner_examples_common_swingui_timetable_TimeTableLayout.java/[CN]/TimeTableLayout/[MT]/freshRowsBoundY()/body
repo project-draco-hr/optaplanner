@@ -1,0 +1,10 @@
+{
+  int nextRowBoundY=0;
+  for (  Row row : rows) {
+    row.boundY=nextRowBoundY;
+    nextRowBoundY+=row.baseHeight * row.collisionCount;
+  }
+  if (nextRowBoundY != totalRowHeight) {
+    throw new IllegalArgumentException("The nextRowBoundY (" + nextRowBoundY + ") is not totalRowHeight ("+ totalRowHeight+ ").");
+  }
+}

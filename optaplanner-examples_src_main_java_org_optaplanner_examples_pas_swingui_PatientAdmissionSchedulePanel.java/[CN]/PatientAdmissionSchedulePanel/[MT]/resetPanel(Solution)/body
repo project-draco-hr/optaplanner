@@ -1,30 +1,7 @@
 {
   removeAll();
   PatientAdmissionSchedule patientAdmissionSchedule=(PatientAdmissionSchedule)solution;
-  gridLayout.setColumns(patientAdmissionSchedule.getNightList().size() + 1);
-  JLabel headerCornerLabel=new JLabel("Department_Room_Bed  \\  Night");
-  headerCornerLabel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.DARK_GRAY),BorderFactory.createEmptyBorder(2,2,2,2)));
-  headerCornerLabel.setBackground(HEADER_COLOR);
-  headerCornerLabel.setOpaque(true);
-  add(headerCornerLabel);
-  for (  Night night : patientAdmissionSchedule.getNightList()) {
-    JLabel nightLabel=new JLabel(night.toString());
-    nightLabel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.DARK_GRAY),BorderFactory.createEmptyBorder(2,2,2,2)));
-    nightLabel.setBackground(HEADER_COLOR);
-    nightLabel.setOpaque(true);
-    add(nightLabel);
-  }
-  Map<Bed,Map<Night,BedNightPanel>> bedNightPanelMap=new HashMap<Bed,Map<Night,BedNightPanel>>();
-  for (  Bed bed : patientAdmissionSchedule.getBedList()) {
-    createBedLine(patientAdmissionSchedule,bedNightPanelMap,bed);
-  }
-  createBedLine(patientAdmissionSchedule,bedNightPanelMap,null);
-  for (  BedDesignation bedDesignation : patientAdmissionSchedule.getBedDesignationList()) {
-    for (    Night night : patientAdmissionSchedule.getNightList()) {
-      if (bedDesignation.getAdmissionPart().getFirstNight().getIndex() <= night.getIndex() && night.getIndex() <= bedDesignation.getAdmissionPart().getLastNight().getIndex()) {
-        BedNightPanel bedNightPanel=bedNightPanelMap.get(bedDesignation.getBed()).get(night);
-        bedNightPanel.addBedDesignation(bedDesignation);
-      }
-    }
-  }
+  defineGrid(patientAdmissionSchedule);
+  fillCells(patientAdmissionSchedule);
+  repaint();
 }

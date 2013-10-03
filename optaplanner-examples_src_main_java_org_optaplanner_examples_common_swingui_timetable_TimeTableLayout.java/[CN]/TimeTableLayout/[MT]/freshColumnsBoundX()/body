@@ -1,0 +1,10 @@
+{
+  int nextColumnBoundX=0;
+  for (  Column column : columns) {
+    column.boundX=nextColumnBoundX;
+    nextColumnBoundX+=column.baseWidth;
+  }
+  if (nextColumnBoundX != totalColumnWidth) {
+    throw new IllegalArgumentException("The nextColumnBoundX (" + nextColumnBoundX + ") is not totalColumnWidth ("+ totalColumnWidth+ ").");
+  }
+}

@@ -1,0 +1,13 @@
+{
+  freshColumnsBoundX();
+  freshRowsBoundY();
+synchronized (parent.getTreeLock()) {
+    for (    ComponentSpan span : spanMap.values()) {
+      int x1=span.topLeftCell.column.boundX;
+      int y1=span.topLeftCell.row.boundY + (span.collisionIndex * span.topLeftCell.row.baseHeight);
+      int x2=span.bottomRightCell.column.boundX + span.bottomRightCell.column.baseWidth;
+      int y2=span.bottomRightCell.row.boundY + ((span.collisionIndex + 1) * span.bottomRightCell.row.baseHeight);
+      span.component.setBounds(x1,y1,x2 - x1,y2 - y1);
+    }
+  }
+}
