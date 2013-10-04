@@ -23,6 +23,12 @@
   while (occupiedCollisionIndexes.contains(collisionIndex)) {
     collisionIndex++;
   }
+  if (c.isFillCollisions()) {
+    if (collisionIndex != 0 || occupiedCollisionIndexes.contains(FILL_COLLISIONS_FLAG)) {
+      throw new IllegalArgumentException("There is a collision with fillCollisions (" + c.isFillCollisions() + ").");
+    }
+    collisionIndex=FILL_COLLISIONS_FLAG;
+  }
   span.collisionIndex=collisionIndex;
   for (  Cell cell : span.cells) {
     cell.occupiedCollisionIndexes.add(collisionIndex);

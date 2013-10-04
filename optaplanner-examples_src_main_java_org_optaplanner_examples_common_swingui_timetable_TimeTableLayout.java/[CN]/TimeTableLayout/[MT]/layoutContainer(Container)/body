@@ -4,9 +4,11 @@
 synchronized (parent.getTreeLock()) {
     for (    ComponentSpan span : spanMap.values()) {
       int x1=span.topLeftCell.column.boundX;
-      int y1=span.topLeftCell.row.boundY + (span.collisionIndex * span.topLeftCell.row.baseHeight);
+      int collisionIndexStart=(span.collisionIndex == FILL_COLLISIONS_FLAG) ? 0 : span.collisionIndex;
+      int y1=span.topLeftCell.row.boundY + (collisionIndexStart * span.topLeftCell.row.baseHeight);
       int x2=span.bottomRightCell.column.boundX + span.bottomRightCell.column.baseWidth;
-      int y2=span.bottomRightCell.row.boundY + ((span.collisionIndex + 1) * span.bottomRightCell.row.baseHeight);
+      int collisionIndexEnd=(span.collisionIndex == FILL_COLLISIONS_FLAG) ? span.bottomRightCell.row.collisionCount : span.collisionIndex + 1;
+      int y2=span.bottomRightCell.row.boundY + (collisionIndexEnd * span.bottomRightCell.row.baseHeight);
       span.component.setBounds(x1,y1,x2 - x1,y2 - y1);
     }
   }

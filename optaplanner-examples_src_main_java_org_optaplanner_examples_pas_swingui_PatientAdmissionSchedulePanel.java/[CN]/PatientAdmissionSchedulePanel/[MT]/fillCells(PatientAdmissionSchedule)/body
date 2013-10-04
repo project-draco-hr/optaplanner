@@ -2,13 +2,13 @@
   TangoColorFactory tangoColorFactory=new TangoColorFactory();
   for (  Night night : patientAdmissionSchedule.getNightList()) {
     JPanel nightLabel=createHeaderPanel(new JLabel(night.getLabel(),SwingConstants.CENTER));
-    add(nightLabel,new TimeTableLayoutConstraints(nightXMap.get(night),0));
+    add(nightLabel,new TimeTableLayoutConstraints(nightXMap.get(night),0,true));
   }
   JPanel unassignedLabel=createHeaderPanel(new JLabel("Unassigned"));
-  add(unassignedLabel,new TimeTableLayoutConstraints(0,bedYMap.get(null)));
+  add(unassignedLabel,new TimeTableLayoutConstraints(0,bedYMap.get(null),true));
   for (  Bed bed : patientAdmissionSchedule.getBedList()) {
     JPanel bedLabel=createHeaderPanel(new JLabel(bed.getLabel()));
-    add(bedLabel,new TimeTableLayoutConstraints(0,bedYMap.get(bed)));
+    add(bedLabel,new TimeTableLayoutConstraints(0,bedYMap.get(bed),true));
   }
   for (  BedDesignation bedDesignation : patientAdmissionSchedule.getBedDesignationList()) {
     JButton button=new JButton(new BedDesignationAction(bedDesignation));
