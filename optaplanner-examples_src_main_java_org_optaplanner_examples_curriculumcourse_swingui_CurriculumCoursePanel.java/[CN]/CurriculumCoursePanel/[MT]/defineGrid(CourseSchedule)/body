@@ -1,0 +1,35 @@
+{
+  roomsTimeTableLayout.reset();
+  teachersTimeTableLayout.reset();
+  JButton footprint=new JButton("1234567");
+  int footprintWidth=footprint.getPreferredSize().width;
+  int footprintHeight=footprint.getPreferredSize().height;
+  roomsTimeTableLayout.addColumn(150);
+  teachersTimeTableLayout.addColumn(150);
+  periodXMap=new HashMap<Period,Integer>(courseSchedule.getPeriodList().size());
+  int unassignedX=roomsTimeTableLayout.addColumn(footprintWidth);
+  teachersTimeTableLayout.addColumn(footprintWidth);
+  periodXMap.put(null,unassignedX);
+  for (  Period period : courseSchedule.getPeriodList()) {
+    int x=roomsTimeTableLayout.addColumn(footprintWidth);
+    int otherX=teachersTimeTableLayout.addColumn(footprintWidth);
+    if (x != otherX) {
+      throw new IllegalStateException("Impossible");
+    }
+    periodXMap.put(period,x);
+  }
+  roomsTimeTableLayout.addRow(footprintHeight);
+  roomYMap=new HashMap<Room,Integer>(courseSchedule.getRoomList().size());
+  roomsTimeTableLayout.addRow(footprintHeight);
+  roomYMap.put(null,1);
+  for (  Room room : courseSchedule.getRoomList()) {
+    int y=roomsTimeTableLayout.addRow(footprintHeight);
+    roomYMap.put(room,y);
+  }
+  teachersTimeTableLayout.addRow(footprintHeight);
+  teacherYMap=new HashMap<Teacher,Integer>(courseSchedule.getTeacherList().size());
+  for (  Teacher teacher : courseSchedule.getTeacherList()) {
+    int y=teachersTimeTableLayout.addRow(footprintHeight);
+    teacherYMap.put(teacher,y);
+  }
+}

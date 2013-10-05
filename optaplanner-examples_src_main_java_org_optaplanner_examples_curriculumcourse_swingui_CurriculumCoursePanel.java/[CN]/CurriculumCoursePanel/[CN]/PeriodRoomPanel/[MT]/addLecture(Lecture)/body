@@ -1,6 +1,0 @@
-{
-  JButton button=new JButton(new ExamAction(lecture));
-  Color courseColor=tangoColorFactory.pickColor(lecture.getCourse());
-  button.setBackground(courseColor);
-  add(button);
-}

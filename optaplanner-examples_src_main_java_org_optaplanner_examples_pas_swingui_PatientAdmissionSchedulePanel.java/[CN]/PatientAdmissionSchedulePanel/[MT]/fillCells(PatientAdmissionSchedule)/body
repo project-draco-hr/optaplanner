@@ -1,5 +1,4 @@
 {
-  TangoColorFactory tangoColorFactory=new TangoColorFactory();
   for (  Night night : patientAdmissionSchedule.getNightList()) {
     JPanel nightLabel=createHeaderPanel(new JLabel(night.getLabel(),SwingConstants.CENTER));
     add(nightLabel,new TimeTableLayoutConstraints(nightXMap.get(night),0,true));
@@ -10,6 +9,7 @@
     JPanel bedLabel=createHeaderPanel(new JLabel(bed.getLabel()));
     add(bedLabel,new TimeTableLayoutConstraints(0,bedYMap.get(bed),true));
   }
+  TangoColorFactory tangoColorFactory=new TangoColorFactory();
   for (  BedDesignation bedDesignation : patientAdmissionSchedule.getBedDesignationList()) {
     JButton button=new JButton(new BedDesignationAction(bedDesignation));
     button.setBackground(tangoColorFactory.pickColor(bedDesignation));

@@ -1,0 +1,33 @@
+{
+  JPanel unassignedPeriodRoomLabel=createHeaderPanel(new JLabel("Unassigned",SwingConstants.CENTER));
+  roomsPanel.add(unassignedPeriodRoomLabel,new TimeTableLayoutConstraints(periodXMap.get(null),0,true));
+  JPanel unassignedPeriodTeacherLabel=createHeaderPanel(new JLabel("Unassigned",SwingConstants.CENTER));
+  teachersPanel.add(unassignedPeriodTeacherLabel,new TimeTableLayoutConstraints(periodXMap.get(null),0,true));
+  for (  Period period : courseSchedule.getPeriodList()) {
+    JPanel periodRoomLabel=createHeaderPanel(new JLabel(period.getLabel(),SwingConstants.CENTER));
+    roomsPanel.add(periodRoomLabel,new TimeTableLayoutConstraints(periodXMap.get(period),0,true));
+    JPanel periodTeacherLabel=createHeaderPanel(new JLabel(period.getLabel(),SwingConstants.CENTER));
+    teachersPanel.add(periodTeacherLabel,new TimeTableLayoutConstraints(periodXMap.get(period),0,true));
+  }
+  JPanel unassignedRoomLabel=createHeaderPanel(new JLabel("Unassigned"));
+  roomsPanel.add(unassignedRoomLabel,new TimeTableLayoutConstraints(0,roomYMap.get(null),true));
+  for (  Room room : courseSchedule.getRoomList()) {
+    JPanel roomLabel=createHeaderPanel(new JLabel(room.getLabel()));
+    roomsPanel.add(roomLabel,new TimeTableLayoutConstraints(0,roomYMap.get(room),true));
+  }
+  for (  Teacher teacher : courseSchedule.getTeacherList()) {
+    JPanel teacherLabel=createHeaderPanel(new JLabel(teacher.getLabel()));
+    teachersPanel.add(teacherLabel,new TimeTableLayoutConstraints(0,teacherYMap.get(teacher),true));
+  }
+  TangoColorFactory tangoColorFactory=new TangoColorFactory();
+  for (  Lecture lecture : courseSchedule.getLectureList()) {
+    Color lectureColor=tangoColorFactory.pickColor(lecture);
+    int x=periodXMap.get(lecture.getPeriod());
+    JButton roomButton=new JButton(new LectureAction(lecture));
+    roomButton.setBackground(lectureColor);
+    roomsPanel.add(roomButton,new TimeTableLayoutConstraints(x,roomYMap.get(lecture.getRoom())));
+    JButton teacherButton=new JButton(new LectureAction(lecture));
+    teacherButton.setBackground(lectureColor);
+    teachersPanel.add(teacherButton,new TimeTableLayoutConstraints(x,teacherYMap.get(lecture.getTeacher())));
+  }
+}

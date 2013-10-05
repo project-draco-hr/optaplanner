@@ -1,0 +1,6 @@
+{
+  JPanel headerPanel=new JPanel(new BorderLayout());
+  headerPanel.add(label,BorderLayout.NORTH);
+  headerPanel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(TangoColorFactory.ALUMINIUM_5),BorderFactory.createEmptyBorder(2,2,2,2)));
+  return headerPanel;
+}

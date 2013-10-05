@@ -1,4 +1,12 @@
 {
-  gridLayout=new GridLayout(0,1);
-  setLayout(gridLayout);
+  setLayout(new BorderLayout());
+  JTabbedPane tabbedPane=new JTabbedPane();
+  roomsTimeTableLayout=new TimeTableLayout();
+  roomsPanel=new JPanel(roomsTimeTableLayout);
+  tabbedPane.add("Rooms",new JScrollPane(roomsPanel));
+  teachersTimeTableLayout=new TimeTableLayout();
+  teachersPanel=new JPanel(teachersTimeTableLayout);
+  tabbedPane.add("Teachers",new JScrollPane(teachersPanel));
+  add(tabbedPane,BorderLayout.CENTER);
+  setPreferredSize(PREFERRED_SCROLLABLE_VIEWPORT_SIZE);
 }
