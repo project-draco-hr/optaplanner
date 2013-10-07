@@ -5,31 +5,34 @@
   int footprintWidth=footprint.getPreferredSize().width;
   int footprintHeight=footprint.getPreferredSize().height;
   roomsTimeTableLayout.addColumn(150);
-  teachersTimeTableLayout.addColumn(150);
-  periodXMap=new HashMap<Period,Integer>(courseSchedule.getPeriodList().size());
-  int unassignedX=roomsTimeTableLayout.addColumn(footprintWidth);
-  teachersTimeTableLayout.addColumn(footprintWidth);
-  periodXMap.put(null,unassignedX);
-  for (  Period period : courseSchedule.getPeriodList()) {
+  roomXMap=new HashMap<Room,Integer>(courseSchedule.getRoomList().size());
+  int unassignedRoomX=roomsTimeTableLayout.addColumn(footprintWidth);
+  roomXMap.put(null,unassignedRoomX);
+  for (  Room room : courseSchedule.getRoomList()) {
     int x=roomsTimeTableLayout.addColumn(footprintWidth);
-    int otherX=teachersTimeTableLayout.addColumn(footprintWidth);
-    if (x != otherX) {
+    roomXMap.put(room,x);
+  }
+  teachersTimeTableLayout.addColumn(150);
+  teacherXMap=new HashMap<Teacher,Integer>(courseSchedule.getTeacherList().size());
+  for (  Teacher teacher : courseSchedule.getTeacherList()) {
+    int x=teachersTimeTableLayout.addColumn(footprintWidth);
+    teacherXMap.put(teacher,x);
+  }
+  roomsTimeTableLayout.addRow(footprintHeight);
+  teachersTimeTableLayout.addRow(footprintHeight);
+  periodYMap=new HashMap<Period,Integer>(courseSchedule.getPeriodList().size());
+  int unassignedPeriodY=roomsTimeTableLayout.addRow(footprintHeight);
+  int otherUnassignedPeriodY=teachersTimeTableLayout.addRow(footprintHeight);
+  if (unassignedPeriodY != otherUnassignedPeriodY) {
+    throw new IllegalStateException("Impossible");
+  }
+  periodYMap.put(null,unassignedPeriodY);
+  for (  Period period : courseSchedule.getPeriodList()) {
+    int y=roomsTimeTableLayout.addRow(footprintHeight);
+    int otherY=teachersTimeTableLayout.addRow(footprintHeight);
+    if (y != otherY) {
       throw new IllegalStateException("Impossible");
     }
-    periodXMap.put(period,x);
-  }
-  roomsTimeTableLayout.addRow(footprintHeight);
-  roomYMap=new HashMap<Room,Integer>(courseSchedule.getRoomList().size());
-  roomsTimeTableLayout.addRow(footprintHeight);
-  roomYMap.put(null,1);
-  for (  Room room : courseSchedule.getRoomList()) {
-    int y=roomsTimeTableLayout.addRow(footprintHeight);
-    roomYMap.put(room,y);
-  }
-  teachersTimeTableLayout.addRow(footprintHeight);
-  teacherYMap=new HashMap<Teacher,Integer>(courseSchedule.getTeacherList().size());
-  for (  Teacher teacher : courseSchedule.getTeacherList()) {
-    int y=teachersTimeTableLayout.addRow(footprintHeight);
-    teacherYMap.put(teacher,y);
+    periodYMap.put(period,y);
   }
 }
