@@ -9,6 +9,7 @@
       id++;
       lecture.setCourse(course);
       lecture.setLectureIndexInCourse(i);
+      lecture.setLocked(false);
       lectureList.add(lecture);
     }
   }

@@ -1,4 +1,5 @@
 {
+  lockedIcon=new ImageIcon(getClass().getResource("locked.png"));
   setLayout(new BorderLayout());
   JTabbedPane tabbedPane=new JTabbedPane();
   roomsTimeTableLayout=new TimeTableLayout();

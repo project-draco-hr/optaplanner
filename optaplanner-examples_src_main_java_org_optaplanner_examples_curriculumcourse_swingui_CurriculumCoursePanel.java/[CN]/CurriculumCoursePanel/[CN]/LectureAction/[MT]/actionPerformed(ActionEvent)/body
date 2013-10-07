@@ -1,19 +1,37 @@
 {
-  JPanel listFieldsPanel=new JPanel(new GridLayout(2,1));
+  JPanel listFieldsPanel=new JPanel(new GridLayout(3,2));
+  listFieldsPanel.add(new JLabel("Period:"));
   List<Period> periodList=getCourseSchedule().getPeriodList();
   JComboBox periodListField=new JComboBox(periodList.toArray());
   periodListField.setSelectedItem(lecture.getPeriod());
   listFieldsPanel.add(periodListField);
+  listFieldsPanel.add(new JLabel("Room:"));
   List<Room> roomList=getCourseSchedule().getRoomList();
   JComboBox roomListField=new JComboBox(roomList.toArray());
   roomListField.setSelectedItem(lecture.getRoom());
   listFieldsPanel.add(roomListField);
+  listFieldsPanel.add(new JLabel("Locked:"));
+  JCheckBox lockedField=new JCheckBox("immovable during planning");
+  lockedField.setSelected(lecture.isLocked());
+  listFieldsPanel.add(lockedField);
   int result=JOptionPane.showConfirmDialog(CurriculumCoursePanel.this.getRootPane(),listFieldsPanel,"Select period and room",JOptionPane.OK_CANCEL_OPTION);
   if (result == JOptionPane.OK_OPTION) {
     Period toPeriod=(Period)periodListField.getSelectedItem();
-    solutionBusiness.doMove(new PeriodChangeMove(lecture,toPeriod));
+    if (lecture.getPeriod() != toPeriod) {
+      solutionBusiness.doMove(new PeriodChangeMove(lecture,toPeriod));
+    }
     Room toRoom=(Room)roomListField.getSelectedItem();
-    solutionBusiness.doMove(new RoomChangeMove(lecture,toRoom));
+    if (lecture.getRoom() != toRoom) {
+      solutionBusiness.doMove(new RoomChangeMove(lecture,toRoom));
+    }
+    boolean toLocked=lockedField.isSelected();
+    if (lecture.isLocked() != toLocked) {
+      if (solutionBusiness.isSolving()) {
+        logger.error("Not doing user change because the solver is solving.");
+        return;
+      }
+      lecture.setLocked(toLocked);
+    }
     solverAndPersistenceFrame.resetScreen();
   }
 }
