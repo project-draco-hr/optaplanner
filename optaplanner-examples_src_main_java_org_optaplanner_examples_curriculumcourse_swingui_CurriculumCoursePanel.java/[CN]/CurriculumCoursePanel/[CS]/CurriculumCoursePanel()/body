@@ -3,10 +3,10 @@
   JTabbedPane tabbedPane=new JTabbedPane();
   roomsTimeTableLayout=new TimeTableLayout();
   roomsPanel=new JPanel(roomsTimeTableLayout);
-  tabbedPane.add("Rooms",new JScrollPane(roomsPanel));
+  tabbedPane.add("Rooms",createScrollPane(roomsPanel));
   teachersTimeTableLayout=new TimeTableLayout();
   teachersPanel=new JPanel(teachersTimeTableLayout);
-  tabbedPane.add("Teachers",new JScrollPane(teachersPanel));
+  tabbedPane.add("Teachers",createScrollPane(teachersPanel));
   add(tabbedPane,BorderLayout.CENTER);
   setPreferredSize(PREFERRED_SCROLLABLE_VIEWPORT_SIZE);
 }

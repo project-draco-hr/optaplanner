@@ -21,7 +21,7 @@
   teachersPanel.add(unassignedPeriodTeacherLabel,new TimeTableLayoutConstraints(0,periodYMap.get(null),true));
   TangoColorFactory tangoColorFactory=new TangoColorFactory();
   for (  Lecture lecture : courseSchedule.getLectureList()) {
-    Color lectureColor=tangoColorFactory.pickColor(lecture);
+    Color lectureColor=tangoColorFactory.pickColor(lecture.getCourse());
     int y=periodYMap.get(lecture.getPeriod());
     JButton roomButton=createButton(lecture,lectureColor);
     roomsPanel.add(roomButton,new TimeTableLayoutConstraints(roomXMap.get(lecture.getRoom()),y));

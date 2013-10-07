@@ -1,0 +1,6 @@
+{
+  JScrollPane scrollPane=new JScrollPane(panel);
+  scrollPane.getHorizontalScrollBar().setUnitIncrement(20);
+  scrollPane.getVerticalScrollBar().setUnitIncrement(20);
+  return scrollPane;
+}
