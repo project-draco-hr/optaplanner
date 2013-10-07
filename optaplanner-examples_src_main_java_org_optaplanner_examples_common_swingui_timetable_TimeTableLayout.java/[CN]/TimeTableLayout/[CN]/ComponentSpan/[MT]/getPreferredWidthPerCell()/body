@@ -1,0 +1,4 @@
+{
+  int width=component.getPreferredSize().width;
+  return (width + (cells.size() - 1)) / cells.size();
+}

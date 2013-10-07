@@ -1,0 +1,17 @@
+{
+  for (  Column column : refreshColumns) {
+    if (column.autoWidth) {
+      int maxBaseWidth=0;
+      for (int i=0; i < rows.size(); i++) {
+        Cell cell=cells.get(column.index).get(i);
+        for (        ComponentSpan span : cell.spans) {
+          int componentWidth=span.getPreferredWidthPerCell();
+          if (componentWidth > maxBaseWidth) {
+            maxBaseWidth=componentWidth;
+          }
+        }
+      }
+      column.baseWidth=maxBaseWidth;
+    }
+  }
+}

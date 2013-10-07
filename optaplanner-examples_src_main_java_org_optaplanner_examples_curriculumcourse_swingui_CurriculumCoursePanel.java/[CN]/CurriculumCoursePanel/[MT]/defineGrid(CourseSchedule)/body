@@ -5,7 +5,8 @@
   footprint.setMargin(new Insets(0,0,0,0));
   int footprintWidth=footprint.getPreferredSize().width;
   int footprintHeight=footprint.getPreferredSize().height;
-  roomsTimeTableLayout.addColumn(150);
+  roomsTimeTableLayout.addColumn();
+  roomsTimeTableLayout.addColumn();
   roomXMap=new HashMap<Room,Integer>(courseSchedule.getRoomList().size());
   for (  Room room : courseSchedule.getRoomList()) {
     int x=roomsTimeTableLayout.addColumn(footprintWidth);
@@ -13,7 +14,8 @@
   }
   int unassignedRoomX=roomsTimeTableLayout.addColumn(footprintWidth);
   roomXMap.put(null,unassignedRoomX);
-  teachersTimeTableLayout.addColumn(150);
+  teachersTimeTableLayout.addColumn();
+  teachersTimeTableLayout.addColumn();
   teacherXMap=new HashMap<Teacher,Integer>(courseSchedule.getTeacherList().size());
   for (  Teacher teacher : courseSchedule.getTeacherList()) {
     int x=teachersTimeTableLayout.addColumn(footprintWidth);

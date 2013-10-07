@@ -1,4 +1,7 @@
 {
+  if (baseHeight < 0) {
+    throw new IllegalArgumentException("Invalid baseHeight (" + baseHeight + ").");
+  }
   int index=rows.size();
   Row row=new Row(index,baseHeight);
   rows.add(row);

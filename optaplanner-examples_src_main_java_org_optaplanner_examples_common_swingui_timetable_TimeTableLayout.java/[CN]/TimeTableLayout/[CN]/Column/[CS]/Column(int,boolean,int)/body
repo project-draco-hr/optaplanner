@@ -1,4 +1,5 @@
 {
   this.index=index;
+  this.autoWidth=autoWidth;
   this.baseWidth=baseWidth;
 }

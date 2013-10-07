@@ -1,11 +1,6 @@
 {
-  if (rows.size() > 0) {
-    throw new IllegalStateException("Add all columns before adding rows");
+  if (baseWidth < 0) {
+    throw new IllegalArgumentException("Invalid baseWidth (" + baseWidth + ").");
   }
-  int index=columns.size();
-  Column column=new Column(index,baseWidth);
-  columns.add(column);
-  totalColumnWidth+=baseWidth;
-  cells.add(new ArrayList<Cell>());
-  return index;
+  return addColumn(false,baseWidth);
 }

@@ -30,9 +30,16 @@
     collisionIndex=FILL_COLLISIONS_FLAG;
   }
   span.collisionIndex=collisionIndex;
+  int componentWidth=span.getPreferredWidthPerCell();
   for (  Cell cell : span.cells) {
     cell.occupiedCollisionIndexes.add(collisionIndex);
     Column column=cell.column;
+    if (column.autoWidth) {
+      if (column.baseWidth < componentWidth) {
+        totalColumnWidth+=componentWidth - column.baseWidth;
+        column.baseWidth=componentWidth;
+      }
+    }
     int collisionCount=cell.occupiedCollisionIndexes.size();
     Row row=cell.row;
     if (row.collisionCount < collisionCount) {
