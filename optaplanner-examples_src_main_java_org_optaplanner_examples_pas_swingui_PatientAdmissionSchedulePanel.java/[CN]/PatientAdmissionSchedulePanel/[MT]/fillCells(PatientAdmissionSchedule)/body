@@ -12,6 +12,7 @@
   TangoColorFactory tangoColorFactory=new TangoColorFactory();
   for (  BedDesignation bedDesignation : patientAdmissionSchedule.getBedDesignationList()) {
     JButton button=new JButton(new BedDesignationAction(bedDesignation));
+    button.setMargin(new Insets(0,0,0,0));
     button.setBackground(tangoColorFactory.pickColor(bedDesignation));
     AdmissionPart admissionPart=bedDesignation.getAdmissionPart();
     int x1=nightXMap.get(admissionPart.getFirstNight());

@@ -1,6 +1,7 @@
 {
   timeTableLayout.reset();
   JButton footprint=new JButton("Patient9999");
+  footprint.setMargin(new Insets(0,0,0,0));
   int footprintWidth=footprint.getPreferredSize().width;
   int footprintHeight=footprint.getPreferredSize().height;
   timeTableLayout.addColumn(150);

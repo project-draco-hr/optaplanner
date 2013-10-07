@@ -1,17 +1,18 @@
 {
   roomsTimeTableLayout.reset();
   teachersTimeTableLayout.reset();
-  JButton footprint=new JButton("1234567");
+  JButton footprint=new JButton("LinLetGre1-0");
+  footprint.setMargin(new Insets(0,0,0,0));
   int footprintWidth=footprint.getPreferredSize().width;
   int footprintHeight=footprint.getPreferredSize().height;
   roomsTimeTableLayout.addColumn(150);
   roomXMap=new HashMap<Room,Integer>(courseSchedule.getRoomList().size());
-  int unassignedRoomX=roomsTimeTableLayout.addColumn(footprintWidth);
-  roomXMap.put(null,unassignedRoomX);
   for (  Room room : courseSchedule.getRoomList()) {
     int x=roomsTimeTableLayout.addColumn(footprintWidth);
     roomXMap.put(room,x);
   }
+  int unassignedRoomX=roomsTimeTableLayout.addColumn(footprintWidth);
+  roomXMap.put(null,unassignedRoomX);
   teachersTimeTableLayout.addColumn(150);
   teacherXMap=new HashMap<Teacher,Integer>(courseSchedule.getTeacherList().size());
   for (  Teacher teacher : courseSchedule.getTeacherList()) {
@@ -21,12 +22,6 @@
   roomsTimeTableLayout.addRow(footprintHeight);
   teachersTimeTableLayout.addRow(footprintHeight);
   periodYMap=new HashMap<Period,Integer>(courseSchedule.getPeriodList().size());
-  int unassignedPeriodY=roomsTimeTableLayout.addRow(footprintHeight);
-  int otherUnassignedPeriodY=teachersTimeTableLayout.addRow(footprintHeight);
-  if (unassignedPeriodY != otherUnassignedPeriodY) {
-    throw new IllegalStateException("Impossible");
-  }
-  periodYMap.put(null,unassignedPeriodY);
   for (  Period period : courseSchedule.getPeriodList()) {
     int y=roomsTimeTableLayout.addRow(footprintHeight);
     int otherY=teachersTimeTableLayout.addRow(footprintHeight);
@@ -35,4 +30,10 @@
     }
     periodYMap.put(period,y);
   }
+  int unassignedPeriodY=roomsTimeTableLayout.addRow(footprintHeight);
+  int otherUnassignedPeriodY=teachersTimeTableLayout.addRow(footprintHeight);
+  if (unassignedPeriodY != otherUnassignedPeriodY) {
+    throw new IllegalStateException("Impossible");
+  }
+  periodYMap.put(null,unassignedPeriodY);
 }
