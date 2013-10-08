@@ -19,6 +19,7 @@
     bed.setIndexInRoom(indexInRoom);
     roomToLastIndexInRoomMap.put(room,indexInRoom);
     bedList.add(bed);
+    room.getBedList().add(bed);
   }
   Collections.sort(bedList,new Comparator<Bed>(){
     public int compare(    Bed a,    Bed b){

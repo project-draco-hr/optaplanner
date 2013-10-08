@@ -14,10 +14,13 @@
     room.setId(Long.parseLong(roomTokens[0]));
     room.setName(roomTokens[1]);
     room.setCapacity(Integer.parseInt(lineTokens[1]));
-    room.setDepartment(idToDepartmentMap.get(Long.parseLong(lineTokens[2])));
+    Department department=idToDepartmentMap.get(Long.parseLong(lineTokens[2]));
+    room.setDepartment(department);
     room.setGenderLimitation(GenderLimitation.valueOfCode(lineTokens[3]));
+    room.setBedList(new ArrayList<Bed>());
     roomList.add(room);
     idToRoomMap.put(room.getId(),room);
+    department.getRoomList().add(room);
     String[] roomSpecialismTokens=splitBySpace(lineTokens[4]);
     if (roomSpecialismTokens.length % 2 != 0) {
       throw new IllegalArgumentException("Read line (" + line + ") is expected to contain even number of tokens ("+ roomSpecialismTokens.length+ ") after 4th pipeline (|) separated by a space ( ).");

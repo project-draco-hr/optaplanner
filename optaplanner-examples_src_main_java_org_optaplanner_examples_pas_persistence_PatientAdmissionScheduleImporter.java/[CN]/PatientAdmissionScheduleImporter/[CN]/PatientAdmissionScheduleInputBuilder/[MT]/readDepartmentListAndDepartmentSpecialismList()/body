@@ -11,6 +11,7 @@
     Department department=new Department();
     department.setId(Long.parseLong(departmentTokens[0]));
     department.setName(departmentTokens[1]);
+    department.setRoomList(new ArrayList<Room>());
     int minimumAge=Integer.parseInt(departmentTokens[2]);
     if (minimumAge != 0) {
       department.setMinimumAge(Integer.valueOf(minimumAge));
