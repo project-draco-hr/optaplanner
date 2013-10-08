@@ -5,6 +5,9 @@
   teachersPanel.addCornerHeader(HEADER_COLUMN_GROUP1,HEADER_ROW,createHeaderPanel(new JLabel("Day")));
   teachersPanel.addCornerHeader(HEADER_COLUMN,HEADER_ROW,createHeaderPanel(new JLabel("Time")));
   fillTeacherCells(courseSchedule);
+  curriculaPanel.addCornerHeader(HEADER_COLUMN_GROUP1,HEADER_ROW,createHeaderPanel(new JLabel("Day")));
+  curriculaPanel.addCornerHeader(HEADER_COLUMN,HEADER_ROW,createHeaderPanel(new JLabel("Time")));
+  fillCurriculumCells(courseSchedule);
   fillDayCells(courseSchedule);
   fillLectureCells(courseSchedule);
 }

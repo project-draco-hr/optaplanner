@@ -1,6 +1,7 @@
 {
   roomsPanel.reset();
   teachersPanel.reset();
+  curriculaPanel.reset();
   CourseSchedule courseSchedule=(CourseSchedule)solution;
   defineGrid(courseSchedule);
   fillCells(courseSchedule);

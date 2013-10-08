@@ -2,19 +2,16 @@
   for (  Day day : courseSchedule.getDayList()) {
     Period dayStartPeriod=day.getPeriodList().get(0);
     Period dayEndPeriod=day.getPeriodList().get(day.getPeriodList().size() - 1);
-    JPanel dayRoomLabel=createHeaderPanel(new JLabel(day.getLabel()));
-    roomsPanel.addRowHeader(HEADER_COLUMN_GROUP1,dayStartPeriod,HEADER_COLUMN_GROUP1,dayEndPeriod,dayRoomLabel);
-    JPanel dayTeacherLabel=createHeaderPanel(new JLabel(day.getLabel()));
-    teachersPanel.addRowHeader(HEADER_COLUMN_GROUP1,dayStartPeriod,HEADER_COLUMN_GROUP1,dayEndPeriod,dayTeacherLabel);
+    roomsPanel.addRowHeader(HEADER_COLUMN_GROUP1,dayStartPeriod,HEADER_COLUMN_GROUP1,dayEndPeriod,createHeaderPanel(new JLabel(day.getLabel())));
+    teachersPanel.addRowHeader(HEADER_COLUMN_GROUP1,dayStartPeriod,HEADER_COLUMN_GROUP1,dayEndPeriod,createHeaderPanel(new JLabel(day.getLabel())));
+    curriculaPanel.addRowHeader(HEADER_COLUMN_GROUP1,dayStartPeriod,HEADER_COLUMN_GROUP1,dayEndPeriod,createHeaderPanel(new JLabel(day.getLabel())));
     for (    Period period : day.getPeriodList()) {
-      JPanel periodRoomLabel=createHeaderPanel(new JLabel(period.getTimeslot().getLabel()));
-      roomsPanel.addRowHeader(HEADER_COLUMN,period,periodRoomLabel);
-      JPanel periodTeacherLabel=createHeaderPanel(new JLabel(period.getTimeslot().getLabel()));
-      teachersPanel.addRowHeader(HEADER_COLUMN,period,periodTeacherLabel);
+      roomsPanel.addRowHeader(HEADER_COLUMN,period,createHeaderPanel(new JLabel(period.getTimeslot().getLabel())));
+      teachersPanel.addRowHeader(HEADER_COLUMN,period,createHeaderPanel(new JLabel(period.getTimeslot().getLabel())));
+      curriculaPanel.addRowHeader(HEADER_COLUMN,period,createHeaderPanel(new JLabel(period.getTimeslot().getLabel())));
     }
   }
-  JPanel unassignedPeriodRoomLabel=createHeaderPanel(new JLabel("Unassigned"));
-  roomsPanel.addRowHeader(HEADER_COLUMN_GROUP1,null,HEADER_COLUMN,null,unassignedPeriodRoomLabel);
-  JPanel unassignedPeriodTeacherLabel=createHeaderPanel(new JLabel("Unassigned"));
-  teachersPanel.addRowHeader(HEADER_COLUMN_GROUP1,null,HEADER_COLUMN,null,unassignedPeriodTeacherLabel);
+  roomsPanel.addRowHeader(HEADER_COLUMN_GROUP1,null,HEADER_COLUMN,null,createHeaderPanel(new JLabel("Unassigned")));
+  teachersPanel.addRowHeader(HEADER_COLUMN_GROUP1,null,HEADER_COLUMN,null,createHeaderPanel(new JLabel("Unassigned")));
+  curriculaPanel.addRowHeader(HEADER_COLUMN_GROUP1,null,HEADER_COLUMN,null,createHeaderPanel(new JLabel("Unassigned")));
 }

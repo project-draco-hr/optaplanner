@@ -6,6 +6,8 @@
   tabbedPane.add("Rooms",new JScrollPane(roomsPanel));
   teachersPanel=new TimeTablePanel<Teacher,Period>();
   tabbedPane.add("Teachers",new JScrollPane(teachersPanel));
+  curriculaPanel=new TimeTablePanel<Curriculum,Period>();
+  tabbedPane.add("Curricula",new JScrollPane(curriculaPanel));
   add(tabbedPane,BorderLayout.CENTER);
   setPreferredSize(PREFERRED_SCROLLABLE_VIEWPORT_SIZE);
 }

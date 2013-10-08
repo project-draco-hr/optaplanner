@@ -13,12 +13,20 @@
   for (  Teacher teacher : courseSchedule.getTeacherList()) {
     teachersPanel.defineColumnHeader(teacher,footprintWidth);
   }
+  curriculaPanel.defineColumnHeaderByKey(HEADER_COLUMN_GROUP1);
+  curriculaPanel.defineColumnHeaderByKey(HEADER_COLUMN);
+  for (  Curriculum curriculum : courseSchedule.getCurriculumList()) {
+    curriculaPanel.defineColumnHeader(curriculum,footprintWidth);
+  }
   roomsPanel.defineRowHeaderByKey(HEADER_ROW);
   teachersPanel.defineRowHeaderByKey(HEADER_ROW);
+  curriculaPanel.defineRowHeaderByKey(HEADER_ROW);
   for (  Period period : courseSchedule.getPeriodList()) {
     roomsPanel.defineRowHeader(period);
     teachersPanel.defineRowHeader(period);
+    curriculaPanel.defineRowHeader(period);
   }
   roomsPanel.defineRowHeader(null);
   teachersPanel.defineRowHeader(null);
+  curriculaPanel.defineRowHeader(null);
 }
