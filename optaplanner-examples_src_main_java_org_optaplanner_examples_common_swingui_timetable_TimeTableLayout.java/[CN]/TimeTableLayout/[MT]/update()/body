@@ -1,0 +1,8 @@
+{
+  if (!stale) {
+    return;
+  }
+  refreshColumns();
+  refreshRows();
+  stale=false;
+}

@@ -1,6 +1,5 @@
 {
-  freshColumnsBoundX();
-  freshRowsBoundY();
+  update();
 synchronized (parent.getTreeLock()) {
     for (    ComponentSpan span : spanMap.values()) {
       int x1=span.topLeftCell.column.boundX;

@@ -2,13 +2,5 @@
   if (baseHeight < 0) {
     throw new IllegalArgumentException("Invalid baseHeight (" + baseHeight + ").");
   }
-  int index=rows.size();
-  Row row=new Row(index,baseHeight);
-  rows.add(row);
-  totalRowHeight+=baseHeight;
-  for (int i=0; i < columns.size(); i++) {
-    Column column=columns.get(i);
-    cells.get(i).add(new Cell(column,row));
-  }
-  return index;
+  return addRow(false,baseHeight);
 }

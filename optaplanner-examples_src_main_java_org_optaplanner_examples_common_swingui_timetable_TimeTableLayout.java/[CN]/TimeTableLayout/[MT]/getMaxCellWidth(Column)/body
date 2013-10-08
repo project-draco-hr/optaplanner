@@ -1,0 +1,13 @@
+{
+  int maxCellWidth=0;
+  for (int i=0; i < rows.size(); i++) {
+    Cell cell=cells.get(column.index).get(i);
+    for (    ComponentSpan span : cell.spans) {
+      int width=span.getPreferredWidthPerCell();
+      if (width > maxCellWidth) {
+        maxCellWidth=width;
+      }
+    }
+  }
+  return maxCellWidth;
+}

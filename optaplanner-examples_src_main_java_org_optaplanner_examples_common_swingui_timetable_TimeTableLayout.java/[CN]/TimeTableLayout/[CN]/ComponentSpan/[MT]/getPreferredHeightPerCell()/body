@@ -1,0 +1,4 @@
+{
+  int height=component.getPreferredSize().height;
+  return (height + (cells.size() - 1)) / cells.size();
+}

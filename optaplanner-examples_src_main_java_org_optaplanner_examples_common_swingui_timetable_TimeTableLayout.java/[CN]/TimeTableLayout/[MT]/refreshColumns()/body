@@ -1,0 +1,11 @@
+{
+  for (  Column column : columns) {
+    if (column.stale) {
+      if (column.autoWidth) {
+        column.baseWidth=getMaxCellWidth(column);
+      }
+      column.stale=false;
+    }
+  }
+  refreshColumnsBoundX();
+}

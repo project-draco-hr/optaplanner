@@ -1,3 +1,4 @@
 {
+  update();
   return new Dimension(totalColumnWidth,totalRowHeight);
 }

@@ -1,0 +1,8 @@
+{
+  int nextColumnBoundX=0;
+  for (  Column column : columns) {
+    column.boundX=nextColumnBoundX;
+    nextColumnBoundX+=column.baseWidth;
+  }
+  totalColumnWidth=nextColumnBoundX;
+}

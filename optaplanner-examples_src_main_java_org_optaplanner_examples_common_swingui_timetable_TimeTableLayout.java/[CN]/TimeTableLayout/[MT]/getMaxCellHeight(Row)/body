@@ -1,0 +1,13 @@
+{
+  int maxCellHeight=0;
+  for (int i=0; i < columns.size(); i++) {
+    Cell cell=cells.get(i).get(row.index);
+    for (    ComponentSpan span : cell.spans) {
+      int height=span.getPreferredHeightPerCell();
+      if (height > maxCellHeight) {
+        maxCellHeight=height;
+      }
+    }
+  }
+  return maxCellHeight;
+}

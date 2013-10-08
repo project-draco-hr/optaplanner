@@ -1,0 +1,12 @@
+{
+  for (  Row row : rows) {
+    if (row.stale) {
+      if (row.autoHeight) {
+        row.baseHeight=getMaxCellHeight(row);
+      }
+      row.collisionCount=getMaxCollisionCount(row);
+    }
+    row.stale=false;
+  }
+  freshRowsBoundY();
+}

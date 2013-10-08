@@ -21,19 +21,19 @@
     int x=teachersTimeTableLayout.addColumn(footprintWidth);
     teacherXMap.put(teacher,x);
   }
-  roomsTimeTableLayout.addRow(footprintHeight);
-  teachersTimeTableLayout.addRow(footprintHeight);
+  roomsTimeTableLayout.addRow();
+  teachersTimeTableLayout.addRow();
   periodYMap=new HashMap<Period,Integer>(courseSchedule.getPeriodList().size());
   for (  Period period : courseSchedule.getPeriodList()) {
-    int y=roomsTimeTableLayout.addRow(footprintHeight);
-    int otherY=teachersTimeTableLayout.addRow(footprintHeight);
+    int y=roomsTimeTableLayout.addRow();
+    int otherY=teachersTimeTableLayout.addRow();
     if (y != otherY) {
       throw new IllegalStateException("Impossible");
     }
     periodYMap.put(period,y);
   }
-  int unassignedPeriodY=roomsTimeTableLayout.addRow(footprintHeight);
-  int otherUnassignedPeriodY=teachersTimeTableLayout.addRow(footprintHeight);
+  int unassignedPeriodY=roomsTimeTableLayout.addRow();
+  int otherUnassignedPeriodY=teachersTimeTableLayout.addRow();
   if (unassignedPeriodY != otherUnassignedPeriodY) {
     throw new IllegalStateException("Impossible");
   }

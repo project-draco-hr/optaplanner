@@ -1,5 +1,6 @@
 {
   this.index=index;
   this.autoWidth=autoWidth;
+  stale=true;
   this.baseWidth=baseWidth;
 }

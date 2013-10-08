@@ -1,20 +1,10 @@
 {
+  stale=true;
   ComponentSpan span=spanMap.remove(component);
-  Set<Column> refreshColumns=new HashSet<Column>(columns.size());
-  Set<Row> refreshRows=new HashSet<Row>(rows.size());
   for (  Cell cell : span.cells) {
     cell.spans.remove(span);
-    int collisionCount=cell.occupiedCollisionIndexes.size();
-    Column column=cell.column;
-    if (column.autoWidth) {
-      refreshColumns.add(column);
-    }
-    Row row=cell.row;
-    if (row.collisionCount == collisionCount) {
-      refreshRows.add(row);
-    }
+    cell.column.stale=true;
+    cell.row.stale=true;
     cell.occupiedCollisionIndexes.remove(span.collisionIndex);
   }
-  refreshColumns(refreshColumns);
-  refreshRows(refreshRows);
 }

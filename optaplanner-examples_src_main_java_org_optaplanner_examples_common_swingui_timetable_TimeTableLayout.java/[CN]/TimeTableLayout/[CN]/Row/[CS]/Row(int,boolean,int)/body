@@ -1,4 +1,6 @@
 {
   this.index=index;
+  this.autoHeight=autoHeight;
+  stale=true;
   this.baseHeight=baseHeight;
 }

@@ -6,6 +6,7 @@
   if (c.getYEnd() > rows.size()) {
     throw new IllegalArgumentException("The yEnd (" + c.getYEnd() + ") is > rowsSize ("+ rows.size()+ ").");
   }
+  stale=true;
   ComponentSpan span=new ComponentSpan(component);
   spanMap.put(component,span);
   span.topLeftCell=cells.get(c.getX()).get(c.getY());
@@ -14,6 +15,8 @@
   for (int i=c.getX(); i < c.getXEnd(); i++) {
     for (int j=c.getY(); j < c.getYEnd(); j++) {
       Cell cell=cells.get(i).get(j);
+      cell.column.stale=true;
+      cell.row.stale=true;
       cell.spans.add(span);
       span.cells.add(cell);
       occupiedCollisionIndexes.addAll(cell.occupiedCollisionIndexes);
@@ -30,21 +33,7 @@
     collisionIndex=FILL_COLLISIONS_FLAG;
   }
   span.collisionIndex=collisionIndex;
-  int componentWidth=span.getPreferredWidthPerCell();
   for (  Cell cell : span.cells) {
     cell.occupiedCollisionIndexes.add(collisionIndex);
-    Column column=cell.column;
-    if (column.autoWidth) {
-      if (column.baseWidth < componentWidth) {
-        totalColumnWidth+=componentWidth - column.baseWidth;
-        column.baseWidth=componentWidth;
-      }
-    }
-    int collisionCount=cell.occupiedCollisionIndexes.size();
-    Row row=cell.row;
-    if (row.collisionCount < collisionCount) {
-      row.collisionCount=collisionCount;
-      totalRowHeight+=row.baseHeight;
-    }
   }
 }

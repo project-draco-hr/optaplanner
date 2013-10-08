@@ -3,6 +3,7 @@
   rows=new ArrayList<Row>();
   cells=new ArrayList<List<Cell>>();
   spanMap=new HashMap<Component,ComponentSpan>();
+  stale=false;
   totalColumnWidth=0;
   totalRowHeight=0;
 }
