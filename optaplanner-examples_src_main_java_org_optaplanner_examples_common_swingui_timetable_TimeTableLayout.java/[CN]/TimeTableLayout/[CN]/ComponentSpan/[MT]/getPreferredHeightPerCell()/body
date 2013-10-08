@@ -1,4 +1,5 @@
 {
   int height=component.getPreferredSize().height;
-  return (height + (cells.size() - 1)) / cells.size();
+  int verticalCellSize=bottomRightCell.row.index - topLeftCell.row.index + 1;
+  return (height + (verticalCellSize - 1)) / verticalCellSize;
 }

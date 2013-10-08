@@ -1,0 +1,4 @@
+{
+  int x=layout.addColumn(width);
+  xMap.put(xObject,x);
+}

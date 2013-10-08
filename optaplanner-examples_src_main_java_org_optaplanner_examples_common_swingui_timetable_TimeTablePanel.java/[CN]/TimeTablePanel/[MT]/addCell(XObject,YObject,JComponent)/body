@@ -1,0 +1,5 @@
+{
+  int x=xMap.get(xObject);
+  int y=yMap.get(yObject);
+  add(component,new TimeTableLayoutConstraints(x,y));
+}

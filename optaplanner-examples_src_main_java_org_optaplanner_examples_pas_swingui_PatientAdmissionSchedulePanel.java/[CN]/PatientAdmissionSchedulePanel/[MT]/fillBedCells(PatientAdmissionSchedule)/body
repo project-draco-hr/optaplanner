@@ -1,0 +1,6 @@
+{
+  timeTablePanel.addRowHeader(HEADER_COLUMN_GROUP2,null,HEADER_COLUMN,null,createHeaderPanel(new JLabel("Unassigned")));
+  for (  Bed bed : patientAdmissionSchedule.getBedList()) {
+    timeTablePanel.addRowHeader(HEADER_COLUMN,bed,createHeaderPanel(new JLabel(bed.getLabel())));
+  }
+}

@@ -1,0 +1,5 @@
+{
+  for (  Teacher teacher : courseSchedule.getTeacherList()) {
+    teachersPanel.addColumnHeader(teacher,HEADER_ROW,createHeaderPanel(new JLabel(teacher.getLabel(),SwingConstants.CENTER)));
+  }
+}

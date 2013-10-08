@@ -1,0 +1,6 @@
+{
+  if (getParent() instanceof JViewport) {
+    return (((JViewport)getParent()).getHeight() > getPreferredSize().height);
+  }
+  return false;
+}

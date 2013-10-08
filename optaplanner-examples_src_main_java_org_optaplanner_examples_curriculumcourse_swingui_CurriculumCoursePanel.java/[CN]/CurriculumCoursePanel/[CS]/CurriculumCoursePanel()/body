@@ -2,12 +2,10 @@
   lockedIcon=new ImageIcon(getClass().getResource("locked.png"));
   setLayout(new BorderLayout());
   JTabbedPane tabbedPane=new JTabbedPane();
-  roomsTimeTableLayout=new TimeTableLayout();
-  roomsPanel=new JPanel(roomsTimeTableLayout);
-  tabbedPane.add("Rooms",createScrollPane(roomsPanel));
-  teachersTimeTableLayout=new TimeTableLayout();
-  teachersPanel=new JPanel(teachersTimeTableLayout);
-  tabbedPane.add("Teachers",createScrollPane(teachersPanel));
+  roomsPanel=new TimeTablePanel<Room,Period>();
+  tabbedPane.add("Rooms",new JScrollPane(roomsPanel));
+  teachersPanel=new TimeTablePanel<Teacher,Period>();
+  tabbedPane.add("Teachers",new JScrollPane(teachersPanel));
   add(tabbedPane,BorderLayout.CENTER);
   setPreferredSize(PREFERRED_SCROLLABLE_VIEWPORT_SIZE);
 }

@@ -1,21 +1,16 @@
 {
-  timeTableLayout.reset();
   JButton footprint=new JButton("Patient9999");
   footprint.setMargin(new Insets(0,0,0,0));
   int footprintWidth=footprint.getPreferredSize().width;
-  int footprintHeight=footprint.getPreferredSize().height;
-  timeTableLayout.addColumn();
-  nightXMap=new HashMap<Night,Integer>(patientAdmissionSchedule.getNightList().size());
+  timeTablePanel.defineColumnHeaderByKey(HEADER_COLUMN_GROUP2);
+  timeTablePanel.defineColumnHeaderByKey(HEADER_COLUMN_GROUP1);
+  timeTablePanel.defineColumnHeaderByKey(HEADER_COLUMN);
   for (  Night night : patientAdmissionSchedule.getNightList()) {
-    int x=timeTableLayout.addColumn(footprintWidth);
-    nightXMap.put(night,x);
+    timeTablePanel.defineColumnHeader(night,footprintWidth);
   }
-  timeTableLayout.addRow();
-  bedYMap=new HashMap<Bed,Integer>(patientAdmissionSchedule.getBedList().size());
-  timeTableLayout.addRow();
-  bedYMap.put(null,1);
+  timeTablePanel.defineRowHeaderByKey(HEADER_ROW);
+  timeTablePanel.defineRowHeader(null);
   for (  Bed bed : patientAdmissionSchedule.getBedList()) {
-    int y=timeTableLayout.addRow();
-    bedYMap.put(bed,y);
+    timeTablePanel.defineRowHeader(bed);
   }
 }

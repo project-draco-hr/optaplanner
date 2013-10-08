@@ -1,0 +1,6 @@
+{
+  removeAll();
+  layout.reset();
+  xMap.clear();
+  yMap.clear();
+}

@@ -1,0 +1,4 @@
+{
+  int y=layout.addRow(height);
+  yMap.put(yObject,y);
+}

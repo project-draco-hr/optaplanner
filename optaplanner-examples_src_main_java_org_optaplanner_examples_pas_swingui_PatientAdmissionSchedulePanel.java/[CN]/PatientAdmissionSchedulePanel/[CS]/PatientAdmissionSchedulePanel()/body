@@ -1,4 +1,5 @@
 {
-  timeTableLayout=new TimeTableLayout();
-  setLayout(timeTableLayout);
+  setLayout(new BorderLayout());
+  timeTablePanel=new TimeTablePanel<Night,Bed>();
+  add(timeTablePanel,BorderLayout.CENTER);
 }

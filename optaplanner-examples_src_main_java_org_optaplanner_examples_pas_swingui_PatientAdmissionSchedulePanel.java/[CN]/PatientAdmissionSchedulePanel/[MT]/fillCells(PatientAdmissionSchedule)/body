@@ -1,23 +1,8 @@
 {
-  for (  Night night : patientAdmissionSchedule.getNightList()) {
-    JPanel nightLabel=createHeaderPanel(new JLabel(night.getLabel(),SwingConstants.CENTER));
-    add(nightLabel,new TimeTableLayoutConstraints(nightXMap.get(night),0,true));
-  }
-  JPanel unassignedLabel=createHeaderPanel(new JLabel("Unassigned"));
-  add(unassignedLabel,new TimeTableLayoutConstraints(0,bedYMap.get(null),true));
-  for (  Bed bed : patientAdmissionSchedule.getBedList()) {
-    JPanel bedLabel=createHeaderPanel(new JLabel(bed.getLabel()));
-    add(bedLabel,new TimeTableLayoutConstraints(0,bedYMap.get(bed),true));
-  }
-  TangoColorFactory tangoColorFactory=new TangoColorFactory();
-  for (  BedDesignation bedDesignation : patientAdmissionSchedule.getBedDesignationList()) {
-    JButton button=new JButton(new BedDesignationAction(bedDesignation));
-    button.setMargin(new Insets(0,0,0,0));
-    button.setBackground(tangoColorFactory.pickColor(bedDesignation));
-    AdmissionPart admissionPart=bedDesignation.getAdmissionPart();
-    int x1=nightXMap.get(admissionPart.getFirstNight());
-    int x2=nightXMap.get(admissionPart.getLastNight());
-    int y=bedYMap.get(bedDesignation.getBed());
-    add(button,new TimeTableLayoutConstraints(x1,y,x2 - x1 + 1,1));
-  }
+  timeTablePanel.addCornerHeader(HEADER_COLUMN_GROUP2,HEADER_ROW,createHeaderPanel(new JLabel("Department")));
+  timeTablePanel.addCornerHeader(HEADER_COLUMN_GROUP1,HEADER_ROW,createHeaderPanel(new JLabel("Room")));
+  timeTablePanel.addCornerHeader(HEADER_COLUMN,HEADER_ROW,createHeaderPanel(new JLabel("Bed")));
+  fillNightCells(patientAdmissionSchedule);
+  fillBedCells(patientAdmissionSchedule);
+  fillBedDesignationCells(patientAdmissionSchedule);
 }

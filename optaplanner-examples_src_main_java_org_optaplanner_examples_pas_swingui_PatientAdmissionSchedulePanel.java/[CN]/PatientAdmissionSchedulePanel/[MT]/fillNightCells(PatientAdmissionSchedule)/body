@@ -1,0 +1,5 @@
+{
+  for (  Night night : patientAdmissionSchedule.getNightList()) {
+    timeTablePanel.addColumnHeader(night,HEADER_ROW,createHeaderPanel(new JLabel(night.getLabel(),SwingConstants.CENTER)));
+  }
+}

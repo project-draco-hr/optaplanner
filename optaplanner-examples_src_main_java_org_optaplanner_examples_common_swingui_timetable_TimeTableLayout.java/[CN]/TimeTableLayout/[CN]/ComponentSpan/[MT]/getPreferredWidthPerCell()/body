@@ -1,4 +1,5 @@
 {
   int width=component.getPreferredSize().width;
-  return (width + (cells.size() - 1)) / cells.size();
+  int horizontalCellSize=bottomRightCell.column.index - topLeftCell.column.index + 1;
+  return (width + (horizontalCellSize - 1)) / horizontalCellSize;
 }

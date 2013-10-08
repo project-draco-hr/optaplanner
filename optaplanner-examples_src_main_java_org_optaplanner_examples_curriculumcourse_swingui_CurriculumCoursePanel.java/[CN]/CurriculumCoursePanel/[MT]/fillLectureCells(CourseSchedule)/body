@@ -1,0 +1,10 @@
+{
+  TangoColorFactory tangoColorFactory=new TangoColorFactory();
+  for (  Lecture lecture : courseSchedule.getLectureList()) {
+    Color lectureColor=tangoColorFactory.pickColor(lecture.getCourse());
+    JButton roomButton=createButton(lecture,lectureColor);
+    roomsPanel.addCell(lecture.getRoom(),lecture.getPeriod(),roomButton);
+    JButton teacherButton=createButton(lecture,lectureColor);
+    teachersPanel.addCell(lecture.getTeacher(),lecture.getPeriod(),teacherButton);
+  }
+}

@@ -1,41 +1,24 @@
 {
-  roomsTimeTableLayout.reset();
-  teachersTimeTableLayout.reset();
   JButton footprint=new JButton("LinLetGre1-0");
   footprint.setMargin(new Insets(0,0,0,0));
   int footprintWidth=footprint.getPreferredSize().width;
-  int footprintHeight=footprint.getPreferredSize().height;
-  roomsTimeTableLayout.addColumn();
-  roomsTimeTableLayout.addColumn();
-  roomXMap=new HashMap<Room,Integer>(courseSchedule.getRoomList().size());
+  roomsPanel.defineColumnHeaderByKey(HEADER_COLUMN_GROUP1);
+  roomsPanel.defineColumnHeaderByKey(HEADER_COLUMN);
   for (  Room room : courseSchedule.getRoomList()) {
-    int x=roomsTimeTableLayout.addColumn(footprintWidth);
-    roomXMap.put(room,x);
+    roomsPanel.defineColumnHeader(room,footprintWidth);
   }
-  int unassignedRoomX=roomsTimeTableLayout.addColumn(footprintWidth);
-  roomXMap.put(null,unassignedRoomX);
-  teachersTimeTableLayout.addColumn();
-  teachersTimeTableLayout.addColumn();
-  teacherXMap=new HashMap<Teacher,Integer>(courseSchedule.getTeacherList().size());
+  roomsPanel.defineColumnHeader(null,footprintWidth);
+  teachersPanel.defineColumnHeaderByKey(HEADER_COLUMN_GROUP1);
+  teachersPanel.defineColumnHeaderByKey(HEADER_COLUMN);
   for (  Teacher teacher : courseSchedule.getTeacherList()) {
-    int x=teachersTimeTableLayout.addColumn(footprintWidth);
-    teacherXMap.put(teacher,x);
+    teachersPanel.defineColumnHeader(teacher,footprintWidth);
   }
-  roomsTimeTableLayout.addRow();
-  teachersTimeTableLayout.addRow();
-  periodYMap=new HashMap<Period,Integer>(courseSchedule.getPeriodList().size());
+  roomsPanel.defineRowHeaderByKey(HEADER_ROW);
+  teachersPanel.defineRowHeaderByKey(HEADER_ROW);
   for (  Period period : courseSchedule.getPeriodList()) {
-    int y=roomsTimeTableLayout.addRow();
-    int otherY=teachersTimeTableLayout.addRow();
-    if (y != otherY) {
-      throw new IllegalStateException("Impossible");
-    }
-    periodYMap.put(period,y);
+    roomsPanel.defineRowHeader(period);
+    teachersPanel.defineRowHeader(period);
   }
-  int unassignedPeriodY=roomsTimeTableLayout.addRow();
-  int otherUnassignedPeriodY=teachersTimeTableLayout.addRow();
-  if (unassignedPeriodY != otherUnassignedPeriodY) {
-    throw new IllegalStateException("Impossible");
-  }
-  periodYMap.put(null,unassignedPeriodY);
+  roomsPanel.defineRowHeader(null);
+  teachersPanel.defineRowHeader(null);
 }
