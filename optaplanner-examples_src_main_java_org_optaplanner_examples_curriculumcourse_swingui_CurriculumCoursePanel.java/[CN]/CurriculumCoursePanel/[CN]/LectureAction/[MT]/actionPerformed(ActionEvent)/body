@@ -18,11 +18,11 @@
   if (result == JOptionPane.OK_OPTION) {
     Period toPeriod=(Period)periodListField.getSelectedItem();
     if (lecture.getPeriod() != toPeriod) {
-      solutionBusiness.doMove(new PeriodChangeMove(lecture,toPeriod));
+      solutionBusiness.doChangeMove(lecture,"period",toPeriod);
     }
     Room toRoom=(Room)roomListField.getSelectedItem();
     if (lecture.getRoom() != toRoom) {
-      solutionBusiness.doMove(new RoomChangeMove(lecture,toRoom));
+      solutionBusiness.doChangeMove(lecture,"room",toRoom);
     }
     boolean toLocked=lockedField.isSelected();
     if (lecture.isLocked() != toLocked) {

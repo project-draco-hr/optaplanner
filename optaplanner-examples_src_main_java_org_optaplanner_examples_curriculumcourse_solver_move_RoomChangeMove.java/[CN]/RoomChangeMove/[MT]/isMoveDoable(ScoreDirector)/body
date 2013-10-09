@@ -1,3 +1,0 @@
-{
-  return !ObjectUtils.equals(lecture.getRoom(),toRoom);
-}

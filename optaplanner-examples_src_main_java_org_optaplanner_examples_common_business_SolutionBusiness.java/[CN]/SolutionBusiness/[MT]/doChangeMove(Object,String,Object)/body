@@ -1,0 +1,4 @@
+{
+  ChangeMove move=createChangeMove(entity,variableName,toPlanningValue);
+  doMove(move);
+}

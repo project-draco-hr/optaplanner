@@ -1,0 +1,4 @@
+{
+  PlanningVariableDescriptor variableDescriptor=guiScoreDirector.getSolutionDescriptor().findVariableDescriptor(entity,variableName);
+  return new ChangeMove(entity,variableDescriptor,toPlanningValue);
+}

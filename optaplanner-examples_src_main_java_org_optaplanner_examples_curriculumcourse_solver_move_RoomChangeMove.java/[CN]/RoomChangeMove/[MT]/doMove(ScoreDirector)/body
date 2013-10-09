@@ -1,3 +1,0 @@
-{
-  CurriculumCourseMoveHelper.moveRoom(scoreDirector,lecture,toRoom);
-}
