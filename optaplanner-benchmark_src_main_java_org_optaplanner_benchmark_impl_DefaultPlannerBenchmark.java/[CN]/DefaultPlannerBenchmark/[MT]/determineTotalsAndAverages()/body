@@ -18,5 +18,7 @@
       solverBenchmarkCount++;
     }
   }
-  averageScore=totalScore.divide(solverBenchmarkCount);
+  if (totalScore != null) {
+    averageScore=totalScore.divide(solverBenchmarkCount);
+  }
 }
