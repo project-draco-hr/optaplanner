@@ -5,7 +5,7 @@
   int result=JOptionPane.showConfirmDialog(CloudBalancingPanel.this.getRootPane(),computerListField,"Select computer",JOptionPane.OK_CANCEL_OPTION);
   if (result == JOptionPane.OK_OPTION) {
     CloudComputer toComputer=(CloudComputer)computerListField.getSelectedItem();
-    solutionBusiness.doMove(new CloudComputerChangeMove(process,toComputer));
+    solutionBusiness.doChangeMove(process,"computer",toComputer);
     solverAndPersistenceFrame.resetScreen();
   }
 }

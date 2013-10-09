@@ -8,8 +8,7 @@
   int result=JOptionPane.showConfirmDialog(NQueensPanel.this.getRootPane(),messagePanel,"Queen in column " + queen.getColumn().getIndex(),JOptionPane.OK_CANCEL_OPTION);
   if (result == JOptionPane.OK_OPTION) {
     Row toRow=(Row)rowListField.getSelectedItem();
-    Move move=new RowChangeMove(queen,toRow);
-    solutionBusiness.doMove(move);
+    solutionBusiness.doChangeMove(queen,"row",toRow);
     solverAndPersistenceFrame.resetScreen();
   }
 }

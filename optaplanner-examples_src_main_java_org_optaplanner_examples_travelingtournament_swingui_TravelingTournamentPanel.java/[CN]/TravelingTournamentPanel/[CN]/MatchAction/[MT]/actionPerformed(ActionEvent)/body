@@ -5,6 +5,7 @@
   int result=JOptionPane.showConfirmDialog(TravelingTournamentPanel.this.getRootPane(),dayListField,"Select day",JOptionPane.OK_CANCEL_OPTION);
   if (result == JOptionPane.OK_OPTION) {
     Day toDay=(Day)dayListField.getSelectedItem();
-    throw new UnsupportedOperationException();
+    solutionBusiness.doChangeMove(match,"day",toDay);
+    solverAndPersistenceFrame.resetScreen();
   }
 }
