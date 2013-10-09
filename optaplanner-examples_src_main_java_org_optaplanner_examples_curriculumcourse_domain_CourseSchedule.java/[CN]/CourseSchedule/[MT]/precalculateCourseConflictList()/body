@@ -3,20 +3,17 @@
   for (  Course leftCourse : courseList) {
     for (    Course rightCourse : courseList) {
       if (leftCourse.getId() < rightCourse.getId()) {
-        boolean conflicted=false;
+        int conflictCount=0;
         if (leftCourse.getTeacher().equals(rightCourse.getTeacher())) {
-          conflicted=true;
+          conflictCount++;
         }
- else {
-          for (          Curriculum curriculum : leftCourse.getCurriculumList()) {
-            if (rightCourse.getCurriculumList().contains(curriculum)) {
-              conflicted=true;
-              break;
-            }
+        for (        Curriculum curriculum : leftCourse.getCurriculumList()) {
+          if (rightCourse.getCurriculumList().contains(curriculum)) {
+            conflictCount++;
           }
         }
-        if (conflicted) {
-          courseConflictList.add(new CourseConflict(leftCourse,rightCourse));
+        if (conflictCount > 0) {
+          courseConflictList.add(new CourseConflict(leftCourse,rightCourse,conflictCount));
         }
       }
     }
