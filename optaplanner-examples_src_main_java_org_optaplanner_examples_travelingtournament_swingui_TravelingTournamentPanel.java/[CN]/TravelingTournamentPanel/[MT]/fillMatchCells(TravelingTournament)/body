@@ -1,0 +1,8 @@
+{
+  for (  Match match : travelingTournament.getMatchList()) {
+    Team homeTeam=match.getHomeTeam();
+    Team awayTeam=match.getAwayTeam();
+    teamsPanel.addCell(homeTeam,match.getDay(),createButton(match,tangoColorFactory.pickColor(awayTeam),awayTeam.getLabel()));
+    teamsPanel.addCell(awayTeam,match.getDay(),createButton(match,tangoColorFactory.pickColor(homeTeam),homeTeam.getLabel()));
+  }
+}

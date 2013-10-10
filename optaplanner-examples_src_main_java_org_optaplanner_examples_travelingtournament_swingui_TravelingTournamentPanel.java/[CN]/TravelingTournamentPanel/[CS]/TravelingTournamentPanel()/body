@@ -1,3 +1,8 @@
 {
-  setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
+  setLayout(new BorderLayout());
+  JTabbedPane tabbedPane=new JTabbedPane();
+  teamsPanel=new TimeTablePanel<Team,Day>();
+  tabbedPane.add("Teams",new JScrollPane(teamsPanel));
+  add(tabbedPane,BorderLayout.CENTER);
+  setPreferredSize(PREFERRED_SCROLLABLE_VIEWPORT_SIZE);
 }

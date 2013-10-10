@@ -1,0 +1,15 @@
+{
+  JButton footprint=new JButton("MMMMM");
+  footprint.setMargin(new Insets(0,0,0,0));
+  int footprintWidth=footprint.getPreferredSize().width;
+  teamsPanel.defineColumnHeaderByKey(HEADER_COLUMN);
+  for (  Team team : travelingTournament.getTeamList()) {
+    teamsPanel.defineColumnHeader(team,footprintWidth);
+  }
+  teamsPanel.defineColumnHeader(null,footprintWidth);
+  teamsPanel.defineRowHeaderByKey(HEADER_ROW);
+  for (  Day day : travelingTournament.getDayList()) {
+    teamsPanel.defineRowHeader(day);
+  }
+  teamsPanel.defineRowHeader(null);
+}

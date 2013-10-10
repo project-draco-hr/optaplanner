@@ -1,4 +1,0 @@
-{
-  super(match.toString());
-  this.match=match;
-}
