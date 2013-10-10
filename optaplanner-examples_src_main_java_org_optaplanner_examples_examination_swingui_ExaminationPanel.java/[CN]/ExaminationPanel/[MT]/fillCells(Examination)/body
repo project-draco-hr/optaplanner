@@ -1,0 +1,6 @@
+{
+  roomsPanel.addCornerHeader(HEADER_COLUMN,HEADER_ROW,createHeaderPanel(new JLabel("Time")));
+  fillRoomCells(examination);
+  fillDayCells(examination);
+  fillLectureCells(examination);
+}

@@ -1,0 +1,6 @@
+{
+  for (  Room room : examination.getRoomList()) {
+    roomsPanel.addColumnHeader(room,HEADER_ROW,createHeaderPanel(new JLabel(room.getLabel(),SwingConstants.CENTER)));
+  }
+  roomsPanel.addColumnHeader(null,HEADER_ROW,createHeaderPanel(new JLabel("Unassigned",SwingConstants.CENTER)));
+}

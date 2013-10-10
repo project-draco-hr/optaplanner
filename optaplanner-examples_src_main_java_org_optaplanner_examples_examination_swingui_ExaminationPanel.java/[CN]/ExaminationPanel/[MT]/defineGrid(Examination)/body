@@ -1,0 +1,15 @@
+{
+  JButton footprint=new JButton("LinLetGre1-0");
+  footprint.setMargin(new Insets(0,0,0,0));
+  int footprintWidth=footprint.getPreferredSize().width;
+  roomsPanel.defineColumnHeaderByKey(HEADER_COLUMN);
+  for (  Room room : examination.getRoomList()) {
+    roomsPanel.defineColumnHeader(room,footprintWidth);
+  }
+  roomsPanel.defineColumnHeader(null,footprintWidth);
+  roomsPanel.defineRowHeaderByKey(HEADER_ROW);
+  for (  Period period : examination.getPeriodList()) {
+    roomsPanel.defineRowHeader(period);
+  }
+  roomsPanel.defineRowHeader(null);
+}
