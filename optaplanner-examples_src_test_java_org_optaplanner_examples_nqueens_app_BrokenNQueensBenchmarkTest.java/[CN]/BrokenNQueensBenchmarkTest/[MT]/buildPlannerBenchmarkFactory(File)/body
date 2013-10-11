@@ -1,0 +1,7 @@
+{
+  PlannerBenchmarkFactory benchmarkFactory=super.buildPlannerBenchmarkFactory(unsolvedDataFile);
+  PlannerBenchmarkConfig benchmarkConfig=benchmarkFactory.getPlannerBenchmarkConfig();
+  benchmarkConfig.setWarmUpSecondsSpend(0L);
+  benchmarkConfig.getInheritedSolverBenchmarkConfig().getSolverConfig().getPlanningEntityClassList().add(Row.class);
+  return benchmarkFactory;
+}

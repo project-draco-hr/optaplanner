@@ -1,0 +1,3 @@
+{
+  runBenchmarkTest(new File("data/nqueens/unsolved/8queens.xml"));
+}

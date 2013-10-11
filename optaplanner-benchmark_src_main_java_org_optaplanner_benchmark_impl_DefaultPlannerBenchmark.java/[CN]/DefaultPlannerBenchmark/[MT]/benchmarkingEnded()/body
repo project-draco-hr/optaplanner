@@ -18,6 +18,6 @@
   }
  else {
     logger.info("Benchmarking failed: time spend ({}), failureCount ({}), statistic html overview ({}).",benchmarkTimeMillisSpend,failureCount,benchmarkReport.getHtmlOverviewFile().getAbsolutePath());
-    throw new IllegalStateException("Benchmarking failed: failureCount (" + failureCount + ")."+ " The exception of the firstFailureSingleBenchmark ("+ firstFailureSingleBenchmark.getName()+ ") is chained.",firstFailureSingleBenchmark.getFailureThrowable());
+    throw new PlannerBenchmarkException("Benchmarking failed: failureCount (" + failureCount + ")."+ " The exception of the firstFailureSingleBenchmark ("+ firstFailureSingleBenchmark.getName()+ ") is chained.",firstFailureSingleBenchmark.getFailureThrowable());
   }
 }
