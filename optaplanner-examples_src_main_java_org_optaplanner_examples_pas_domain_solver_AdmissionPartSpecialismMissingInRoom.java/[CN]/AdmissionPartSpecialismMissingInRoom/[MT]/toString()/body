@@ -1,3 +1,0 @@
-{
-  return admissionPart + " & " + room+ " = "+ weight;
-}
