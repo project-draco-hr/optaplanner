@@ -1,11 +1,11 @@
 {
   final Solver solver=(Solver)session.getAttribute(CloudSessionAttributeName.SOLVER);
-  CloudBalance unsolvedCloudBalance=(CloudBalance)session.getAttribute(CloudSessionAttributeName.SHOWN_SOLUTION);
-  solver.setPlanningProblem(unsolvedCloudBalance);
+  CloudBalance unsolvedSolution=(CloudBalance)session.getAttribute(CloudSessionAttributeName.SHOWN_SOLUTION);
+  solver.setPlanningProblem(unsolvedSolution);
   solver.addEventListener(new SolverEventListener(){
     public void bestSolutionChanged(    BestSolutionChangedEvent event){
-      CloudBalance bestSolutionCloudBalance=(CloudBalance)event.getNewBestSolution();
-      session.setAttribute(CloudSessionAttributeName.SHOWN_SOLUTION,bestSolutionCloudBalance);
+      CloudBalance bestSolution=(CloudBalance)event.getNewBestSolution();
+      session.setAttribute(CloudSessionAttributeName.SHOWN_SOLUTION,bestSolution);
     }
   }
 );

@@ -1,4 +1,3 @@
 {
   checkConfiguration();
-  solutionDao=new CloudBalancingDao();
 }

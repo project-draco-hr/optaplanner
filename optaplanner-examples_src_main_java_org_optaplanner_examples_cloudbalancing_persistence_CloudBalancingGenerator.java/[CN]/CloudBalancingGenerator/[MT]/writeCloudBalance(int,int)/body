@@ -1,4 +1,8 @@
 {
+  if (solutionDao == null) {
+    solutionDao=new CloudBalancingDao();
+  }
+  File outputDir=new File(solutionDao.getDataDir(),"unsolved");
   String inputId=determineInputId(cloudComputerListSize,cloudProcessListSize);
   File outputFile=new File(outputDir,inputId + ".xml");
   CloudBalance cloudBalance=createCloudBalance(inputId,cloudComputerListSize,cloudProcessListSize);
