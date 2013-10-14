@@ -1,0 +1,7 @@
+{
+  final Solver solver=(Solver)session.getAttribute(CloudBalancingSessionAttributeName.SOLVER);
+  if (solver != null) {
+    solver.terminateEarly();
+    session.setAttribute(CloudBalancingSessionAttributeName.SOLVER,null);
+  }
+}

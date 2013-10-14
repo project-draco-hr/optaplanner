@@ -1,3 +1,5 @@
 {
   checkConfiguration();
+  solutionDao=new CloudBalancingDao();
+  outputDir=new File(solutionDao.getDataDir(),"unsolved");
 }

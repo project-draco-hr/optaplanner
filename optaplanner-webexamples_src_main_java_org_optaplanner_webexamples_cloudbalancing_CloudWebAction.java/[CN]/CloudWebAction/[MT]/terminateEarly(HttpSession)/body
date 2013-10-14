@@ -1,4 +1,0 @@
-{
-  final Solver solver=(Solver)session.getAttribute(CloudSessionAttributeName.SOLVER);
-  solver.terminateEarly();
-}
