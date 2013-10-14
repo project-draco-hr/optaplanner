@@ -1,7 +1,7 @@
 {
   CloudBalance bestSolutionCloudBalance=(CloudBalance)session.getAttribute(CloudSessionAttributeName.SHOWN_SOLUTION);
   Hashtable ht=new Hashtable();
-  TreeMap tm2=new TreeMap();
+  Map tm2=new TreeMap();
   for (  CloudProcess process : bestSolutionCloudBalance.getProcessList()) {
     String[] computerArray=new String[9];
     CloudComputer computer=process.getComputer();
