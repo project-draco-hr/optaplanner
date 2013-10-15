@@ -1,5 +1,0 @@
-{
-  ScoreDirectorFactoryConfig assertionScoreDirectorFactoryConfig=new ScoreDirectorFactoryConfig();
-  assertionScoreDirectorFactoryConfig.setSimpleScoreCalculatorClass(CloudBalancingMapBasedSimpleScoreCalculator.class);
-  return assertionScoreDirectorFactoryConfig;
-}
