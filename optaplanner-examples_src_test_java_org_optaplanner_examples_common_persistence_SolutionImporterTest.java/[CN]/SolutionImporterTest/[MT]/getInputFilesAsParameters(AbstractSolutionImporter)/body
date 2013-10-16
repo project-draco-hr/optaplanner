@@ -1,7 +1,6 @@
 {
-  List<File> fileList=new ArrayList<File>(0);
-  File inputDir=solutionImporter.getInputDir();
-  addFiles(solutionImporter,fileList,inputDir);
+  File importDir=solutionImporter.getInputDir();
+  List<File> fileList=new ArrayList<File>(FileUtils.listFiles(importDir,new String[]{solutionImporter.getInputFileSuffix()},true));
   Collections.sort(fileList,new ProblemFileComparator());
   List<Object[]> filesAsParameters=new ArrayList<Object[]>();
   for (  File file : fileList) {

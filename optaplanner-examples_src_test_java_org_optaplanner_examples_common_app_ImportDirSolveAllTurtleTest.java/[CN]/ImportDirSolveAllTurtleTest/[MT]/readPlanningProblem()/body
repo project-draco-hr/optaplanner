@@ -1,0 +1,3 @@
+{
+  return solutionImporter.readSolution(dataFile);
+}

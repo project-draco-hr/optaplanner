@@ -4,7 +4,7 @@
   if (!inputFileName.startsWith(inputFilePrefix)) {
     throw new IllegalArgumentException("The inputFile (" + inputFile + ") is expected to start with \""+ inputFilePrefix+ "\".");
   }
-  File assignmentInputFile=new File(inputFile.getParent(),inputFileName.replaceFirst(inputFilePrefix,"assignment_"));
+  File assignmentInputFile=new File(inputFile.getParent(),inputFileName.replaceFirst(inputFilePrefix,"assignment_").replaceAll("\\.txt$",".sol"));
   BufferedReader assignmentBufferedReader=null;
   try {
     assignmentBufferedReader=new BufferedReader(new InputStreamReader(new FileInputStream(assignmentInputFile),"UTF-8"));

@@ -6,10 +6,10 @@
     throw new IllegalStateException("The directory unsolvedDataDir (" + unsolvedDataDir.getAbsolutePath() + ") does not exist.");
   }
  else {
-    List<File> unsolvedFileList=Arrays.asList(unsolvedDataDir.listFiles(new ExtensionFileFilter(solutionDao.getFileExtension())));
-    Collections.sort(unsolvedFileList);
-    for (    File unsolvedFile : unsolvedFileList) {
-      filesAsParameters.add(new Object[]{unsolvedFile});
+    List<File> fileList=new ArrayList<File>(FileUtils.listFiles(unsolvedDataDir,new String[]{solutionDao.getFileExtension()},true));
+    Collections.sort(fileList,new ProblemFileComparator());
+    for (    File file : fileList) {
+      filesAsParameters.add(new Object[]{file});
     }
   }
   return filesAsParameters;

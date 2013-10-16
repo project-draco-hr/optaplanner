@@ -5,13 +5,9 @@
   if (!unsolvedDataDir.exists()) {
     throw new IllegalStateException("The directory unsolvedDataDir (" + unsolvedDataDir.getAbsolutePath() + ") does not exist.");
   }
- else {
-    addFiles(solutionDao,fileList,unsolvedDataDir);
-  }
+  fileList.addAll(FileUtils.listFiles(unsolvedDataDir,new String[]{solutionDao.getFileExtension()},true));
   File solvedDataDir=new File(dataDir,"solved");
-  if (solvedDataDir.exists()) {
-    addFiles(solutionDao,fileList,solvedDataDir);
-  }
+  fileList.addAll(FileUtils.listFiles(solvedDataDir,new String[]{solutionDao.getFileExtension()},true));
   Collections.sort(fileList,new ProblemFileComparator());
   List<Object[]> filesAsParameters=new ArrayList<Object[]>();
   for (  File file : fileList) {
