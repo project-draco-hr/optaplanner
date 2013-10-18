@@ -1,0 +1,3 @@
+boolean ignoreEmptyChildIterators
+boolean emptyFirst
+boolean emptySecond

@@ -1,11 +1,20 @@
 {
-  long size=1L;
+  long size=0L;
   for (  MoveSelector moveSelector : childMoveSelectorList) {
     long childSize=moveSelector.getSize();
-    if (ignoreEmptyChildIterators && childSize == 0L) {
-      childSize=1L;
+    if (childSize == 0L) {
+      if (!ignoreEmptyChildIterators) {
+        return 0L;
+      }
     }
-    size*=childSize;
+ else {
+      if (size == 0L) {
+        size=childSize;
+      }
+ else {
+        size*=childSize;
+      }
+    }
   }
   return size;
 }
