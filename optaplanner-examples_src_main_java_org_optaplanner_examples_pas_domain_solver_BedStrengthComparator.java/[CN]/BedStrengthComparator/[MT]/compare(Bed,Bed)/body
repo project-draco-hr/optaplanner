@@ -1,4 +1,13 @@
 {
+  if (a == null) {
+    if (b == null) {
+      return 0;
+    }
+    return -1;
+  }
+ else   if (b == null) {
+    return 1;
+  }
   Room aRoom=a.getRoom();
   Room bRoom=b.getRoom();
   return new CompareToBuilder().append(bRoom.getCapacity(),aRoom.getCapacity()).append(aRoom.getRoomEquipmentList().size() + aRoom.getRoomSpecialismList().size(),bRoom.getRoomEquipmentList().size() + bRoom.getRoomSpecialismList().size()).append(a.getId(),b.getId()).toComparison();
