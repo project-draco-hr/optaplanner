@@ -1,3 +1,0 @@
-{
-  return leftAdmissionPart.getPatient().getGender() != rightAdmissionPart.getPatient().getGender();
-}

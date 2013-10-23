@@ -1,0 +1,3 @@
+{
+  return admissionPart.getLastNight().getIndex();
+}
