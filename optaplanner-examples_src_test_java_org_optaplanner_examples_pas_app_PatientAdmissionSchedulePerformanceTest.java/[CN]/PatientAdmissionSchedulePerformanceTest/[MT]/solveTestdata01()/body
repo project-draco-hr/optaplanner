@@ -1,0 +1,4 @@
+{
+  File unsolvedDataFile=new File("data/pas/unsolved/testdata01.xml");
+  runSpeedTest(unsolvedDataFile,"0hard/0medium/-7172soft");
+}
