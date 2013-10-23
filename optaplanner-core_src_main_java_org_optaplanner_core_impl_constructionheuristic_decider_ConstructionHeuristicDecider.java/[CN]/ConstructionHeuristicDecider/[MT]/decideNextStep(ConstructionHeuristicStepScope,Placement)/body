@@ -5,14 +5,9 @@
     moveScope.setMoveIndex(moveIndex);
     moveIndex++;
     moveScope.setMove(move);
-    if (!move.isMoveDoable(stepScope.getScoreDirector())) {
-      logger.trace("        Move index ({}) not doable, ignoring move ({}).",moveScope.getMoveIndex(),move);
-    }
- else {
-      doMove(moveScope);
-      if (forager.isQuitEarly()) {
-        break;
-      }
+    doMove(moveScope);
+    if (forager.isQuitEarly()) {
+      break;
     }
     if (termination.isPhaseTerminated(stepScope.getPhaseScope())) {
       break;
