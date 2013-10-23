@@ -1,0 +1,10 @@
+{
+switch (gender) {
+case MALE:
+    return maleIcon;
+case FEMALE:
+  return femaleIcon;
+default :
+throw new IllegalStateException("The gender (" + gender + ") is not implemented.");
+}
+}

@@ -1,4 +1,8 @@
 {
+  anyGenderIcon=new ImageIcon(getClass().getResource("anyGender.png"));
+  maleIcon=new ImageIcon(getClass().getResource("male.png"));
+  femaleIcon=new ImageIcon(getClass().getResource("female.png"));
+  sameGenderIcon=new ImageIcon(getClass().getResource("sameGender.png"));
   setLayout(new BorderLayout());
   timeTablePanel=new TimeTablePanel<Night,Bed>();
   add(timeTablePanel,BorderLayout.CENTER);

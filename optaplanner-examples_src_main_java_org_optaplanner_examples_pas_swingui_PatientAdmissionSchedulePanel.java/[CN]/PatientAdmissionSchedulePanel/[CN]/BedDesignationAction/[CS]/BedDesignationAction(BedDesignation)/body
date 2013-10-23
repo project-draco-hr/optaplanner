@@ -1,4 +1,4 @@
 {
-  super(bedDesignation.getAdmissionPart().getPatient().getName());
+  super(bedDesignation.getAdmissionPart().getPatient().getName(),determinePatientGenderIcon(bedDesignation.getAdmissionPart().getPatient().getGender()));
   this.bedDesignation=bedDesignation;
 }

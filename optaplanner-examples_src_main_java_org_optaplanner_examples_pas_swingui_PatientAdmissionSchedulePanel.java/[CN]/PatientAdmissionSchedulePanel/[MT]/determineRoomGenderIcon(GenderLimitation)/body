@@ -1,0 +1,14 @@
+{
+switch (genderLimitation) {
+case ANY_GENDER:
+    return anyGenderIcon;
+case MALE_ONLY:
+  return maleIcon;
+case FEMALE_ONLY:
+return femaleIcon;
+case SAME_GENDER:
+return sameGenderIcon;
+default :
+throw new IllegalStateException("The genderLimitation (" + genderLimitation + ") is not implemented.");
+}
+}
