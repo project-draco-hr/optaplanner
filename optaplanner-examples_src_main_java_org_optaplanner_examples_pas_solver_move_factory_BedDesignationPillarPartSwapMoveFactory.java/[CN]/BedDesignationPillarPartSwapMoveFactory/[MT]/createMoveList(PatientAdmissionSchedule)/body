@@ -1,0 +1,68 @@
+{
+  Map<Bed,List<BedDesignation>> bedToBedDesignationList=new HashMap<Bed,List<BedDesignation>>(patientAdmissionSchedule.getBedList().size());
+  for (  BedDesignation bedDesignation : patientAdmissionSchedule.getBedDesignationList()) {
+    List<BedDesignation> bedDesignationListPerBed=bedToBedDesignationList.get(bedDesignation.getBed());
+    if (bedDesignationListPerBed == null) {
+      bedDesignationListPerBed=new ArrayList<BedDesignation>(patientAdmissionSchedule.getNightList().size());
+      bedToBedDesignationList.put(bedDesignation.getBed(),bedDesignationListPerBed);
+    }
+    bedDesignationListPerBed.add(bedDesignation);
+  }
+  for (  List<BedDesignation> bedDesignationListPerBed : bedToBedDesignationList.values()) {
+    Collections.sort(bedDesignationListPerBed,new Comparator<BedDesignation>(){
+      public int compare(      BedDesignation a,      BedDesignation b){
+        return new CompareToBuilder().append(a.getAdmissionPart().getFirstNight(),b.getAdmissionPart().getFirstNight()).append(a.getAdmissionPart().getLastNight(),b.getAdmissionPart().getLastNight()).append(a.getAdmissionPart(),b.getAdmissionPart()).toComparison();
+      }
+    }
+);
+  }
+  List<Bed> bedList=patientAdmissionSchedule.getBedList();
+  List<Move> moveList=new ArrayList<Move>();
+  for (ListIterator<Bed> leftBedIt=bedList.listIterator(); leftBedIt.hasNext(); ) {
+    Bed leftBed=leftBedIt.next();
+    for (ListIterator<Bed> rightBedIt=bedList.listIterator(leftBedIt.nextIndex()); rightBedIt.hasNext(); ) {
+      Bed rightBed=rightBedIt.next();
+      List<BedDesignation> leftBedDesignationList=bedToBedDesignationList.get(leftBed);
+      if (leftBedDesignationList == null) {
+        leftBedDesignationList=Collections.emptyList();
+      }
+      List<BedDesignation> rightBedDesignationList=bedToBedDesignationList.get(rightBed);
+      if (rightBedDesignationList == null) {
+        rightBedDesignationList=Collections.emptyList();
+      }
+      LowestFirstNightBedDesignationIterator lowestIt=new LowestFirstNightBedDesignationIterator(leftBedDesignationList,rightBedDesignationList);
+      while (lowestIt.hasNext()) {
+        BedDesignation pillarPartBedDesignation=lowestIt.next();
+        List<Move> moveListByPillarPartDuo=new ArrayList<Move>(leftBedDesignationList.size() + rightBedDesignationList.size());
+        int lastNightIndex=pillarPartBedDesignation.getAdmissionPart().getLastNight().getIndex();
+        Bed otherBed;
+        int leftMinimumFirstNightIndex=Integer.MIN_VALUE;
+        int rightMinimumFirstNightIndex=Integer.MIN_VALUE;
+        if (lowestIt.isLastNextWasLeft()) {
+          otherBed=rightBed;
+          leftMinimumFirstNightIndex=lastNightIndex;
+        }
+ else {
+          otherBed=leftBed;
+          rightMinimumFirstNightIndex=lastNightIndex;
+        }
+        moveListByPillarPartDuo.add(new BedChangeMove(pillarPartBedDesignation,otherBed));
+        while (lowestIt.hasNextWithMaximumFirstNightIndexes(leftMinimumFirstNightIndex,rightMinimumFirstNightIndex)) {
+          pillarPartBedDesignation=lowestIt.next();
+          lastNightIndex=pillarPartBedDesignation.getAdmissionPart().getLastNight().getIndex();
+          if (lowestIt.isLastNextWasLeft()) {
+            otherBed=rightBed;
+            leftMinimumFirstNightIndex=Math.max(leftMinimumFirstNightIndex,lastNightIndex);
+          }
+ else {
+            otherBed=leftBed;
+            rightMinimumFirstNightIndex=Math.max(rightMinimumFirstNightIndex,lastNightIndex);
+          }
+          moveListByPillarPartDuo.add(new BedChangeMove(pillarPartBedDesignation,otherBed));
+        }
+        moveList.add(new CompositeMove(moveListByPillarPartDuo));
+      }
+    }
+  }
+  return moveList;
+}

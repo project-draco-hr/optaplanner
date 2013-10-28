@@ -1,8 +1,0 @@
-{
-  TravelingTournament travelingTournament=(TravelingTournament)solution;
-  List<Move> moveList=new ArrayList<Move>();
-  RotationMovesFactory rotationMovesFactory=new RotationMovesFactory(travelingTournament);
-  rotationMovesFactory.addDayRotation(moveList);
-  rotationMovesFactory.addTeamRotation(moveList);
-  return moveList;
-}

@@ -1,0 +1,12 @@
+{
+  List<Move> moveList=new ArrayList<Move>();
+  List<Employee> employeeList=nurseRoster.getEmployeeList();
+  for (  ShiftAssignment shiftAssignment : nurseRoster.getShiftAssignmentList()) {
+    if (filter.accept(nurseRoster,shiftAssignment)) {
+      for (      Employee employee : employeeList) {
+        moveList.add(new EmployeeChangeMove(shiftAssignment,employee));
+      }
+    }
+  }
+  return moveList;
+}
