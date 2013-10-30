@@ -1,0 +1,6 @@
+{
+  super.phaseStarted(phaseScope);
+  validate();
+  thresholdScore=phaseScope.getBestScore();
+  stepCount=0;
+}

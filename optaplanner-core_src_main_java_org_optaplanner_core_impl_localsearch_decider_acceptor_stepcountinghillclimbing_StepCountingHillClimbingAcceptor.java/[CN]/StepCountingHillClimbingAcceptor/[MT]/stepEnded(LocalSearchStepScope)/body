@@ -1,0 +1,8 @@
+{
+  super.stepEnded(stepScope);
+  stepCount++;
+  if (stepCount >= stepCountingHillClimbingSize) {
+    thresholdScore=stepScope.getScore();
+    stepCount=0;
+  }
+}

@@ -1,0 +1,5 @@
+{
+  if (stepCountingHillClimbingSize <= 0) {
+    throw new IllegalArgumentException("The stepCountingHillClimbingSize (" + stepCountingHillClimbingSize + ") cannot be negative or zero.");
+  }
+}

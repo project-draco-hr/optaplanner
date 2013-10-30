@@ -1,0 +1,8 @@
+{
+  Score lastStepScore=moveScope.getStepScope().getPhaseScope().getLastCompletedStepScope().getScore();
+  Score moveScore=moveScope.getScore();
+  if (moveScore.compareTo(lastStepScore) >= 0) {
+    return true;
+  }
+  return moveScore.compareTo(thresholdScore) >= 0;
+}

@@ -123,6 +123,11 @@
     acceptor.setLateAcceptanceSize((lateAcceptanceSize == null) ? 1000 : lateAcceptanceSize);
     acceptorList.add(acceptor);
   }
+  if ((acceptorTypeList != null && acceptorTypeList.contains(AcceptorType.STEP_COUNTING_HILL_CLIMBING)) || stepCountingHillClimbingSize != null) {
+    StepCountingHillClimbingAcceptor acceptor=new StepCountingHillClimbingAcceptor();
+    acceptor.setStepCountingHillClimbingSize((stepCountingHillClimbingSize == null) ? 1000 : stepCountingHillClimbingSize);
+    acceptorList.add(acceptor);
+  }
   if ((acceptorTypeList != null && acceptorTypeList.contains(AcceptorType.LATE_SIMULATED_ANNEALING)) || lateSimulatedAnnealingSize != null) {
     LateSimulatedAnnealingAcceptor acceptor=new LateSimulatedAnnealingAcceptor();
     acceptor.setLateSimulatedAnnealingSize((lateSimulatedAnnealingSize == null) ? 1000 : lateSimulatedAnnealingSize);

@@ -31,5 +31,6 @@
   greatDelugeWaterLevelUpperBoundRate=ConfigUtils.inheritOverwritableProperty(greatDelugeWaterLevelUpperBoundRate,inheritedConfig.getGreatDelugeWaterLevelUpperBoundRate());
   greatDelugeWaterRisingRate=ConfigUtils.inheritOverwritableProperty(greatDelugeWaterRisingRate,inheritedConfig.getGreatDelugeWaterRisingRate());
   lateAcceptanceSize=ConfigUtils.inheritOverwritableProperty(lateAcceptanceSize,inheritedConfig.getLateAcceptanceSize());
+  stepCountingHillClimbingSize=ConfigUtils.inheritOverwritableProperty(stepCountingHillClimbingSize,inheritedConfig.getStepCountingHillClimbingSize());
   lateSimulatedAnnealingSize=ConfigUtils.inheritOverwritableProperty(lateSimulatedAnnealingSize,inheritedConfig.getLateSimulatedAnnealingSize());
 }

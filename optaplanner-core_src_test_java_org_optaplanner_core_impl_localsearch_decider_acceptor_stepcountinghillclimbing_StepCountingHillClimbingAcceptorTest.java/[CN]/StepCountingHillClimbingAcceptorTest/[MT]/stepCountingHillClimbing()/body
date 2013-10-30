@@ -1,7 +1,6 @@
 {
-  LateAcceptanceAcceptor acceptor=new LateAcceptanceAcceptor();
-  acceptor.setLateAcceptanceSize(2);
-  acceptor.setHillClimbingEnabled(true);
+  StepCountingHillClimbingAcceptor acceptor=new StepCountingHillClimbingAcceptor();
+  acceptor.setStepCountingHillClimbingSize(2);
   DefaultSolverScope solverScope=new DefaultSolverScope();
   solverScope.setBestScore(SimpleScore.valueOf(-1000));
   LocalSearchSolverPhaseScope phaseScope=new LocalSearchSolverPhaseScope(solverScope);
@@ -48,7 +47,7 @@
   acceptor.stepEnded(stepScope2);
   phaseScope.setLastCompletedStepScope(stepScope2);
   LocalSearchStepScope stepScope3=new LocalSearchStepScope(phaseScope);
-  LocalSearchMoveScope moveScope3=buildMoveScope(stepScope1,-200);
+  LocalSearchMoveScope moveScope3=buildMoveScope(stepScope1,-400);
   assertEquals(false,acceptor.isAccepted(buildMoveScope(stepScope3,-900)));
   assertEquals(true,acceptor.isAccepted(buildMoveScope(stepScope3,-700)));
   assertEquals(false,acceptor.isAccepted(buildMoveScope(stepScope3,-701)));
@@ -74,12 +73,12 @@
   phaseScope.setLastCompletedStepScope(stepScope4);
   LocalSearchStepScope stepScope5=new LocalSearchStepScope(phaseScope);
   LocalSearchMoveScope moveScope2Again=buildMoveScope(stepScope1,-300);
-  assertEquals(false,acceptor.isAccepted(buildMoveScope(stepScope5,-301)));
-  assertEquals(false,acceptor.isAccepted(buildMoveScope(stepScope5,-400)));
+  assertEquals(true,acceptor.isAccepted(buildMoveScope(stepScope5,-301)));
+  assertEquals(true,acceptor.isAccepted(buildMoveScope(stepScope5,-400)));
   assertEquals(true,acceptor.isAccepted(moveScope2Again));
   assertEquals(false,acceptor.isAccepted(buildMoveScope(stepScope5,-2000)));
   assertEquals(false,acceptor.isAccepted(buildMoveScope(stepScope5,-600)));
-  assertEquals(false,acceptor.isAccepted(buildMoveScope(stepScope0,-301)));
+  assertEquals(true,acceptor.isAccepted(buildMoveScope(stepScope0,-301)));
   stepScope5.setStep(moveScope2Again.getMove());
   stepScope5.setScore(moveScope2Again.getScore());
   acceptor.stepEnded(stepScope5);
