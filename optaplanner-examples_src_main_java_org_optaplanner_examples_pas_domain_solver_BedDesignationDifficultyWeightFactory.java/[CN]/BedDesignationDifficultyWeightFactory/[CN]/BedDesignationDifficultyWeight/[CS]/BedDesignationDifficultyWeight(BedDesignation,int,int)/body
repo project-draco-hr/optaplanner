@@ -1,0 +1,7 @@
+{
+  this.bedDesignation=bedDesignation;
+  requiredEquipmentCount=bedDesignation.getPatient().getRequiredPatientEquipmentList().size();
+  this.nightCount=bedDesignation.getAdmissionPart().getNightCount();
+  this.hardDisallowedCount=hardDisallowedCount;
+  this.softDisallowedCount=softDisallowedCount;
+}

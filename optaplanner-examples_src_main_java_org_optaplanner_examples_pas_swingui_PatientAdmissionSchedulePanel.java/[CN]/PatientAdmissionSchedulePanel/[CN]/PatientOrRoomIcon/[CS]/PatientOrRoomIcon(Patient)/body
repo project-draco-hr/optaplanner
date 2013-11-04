@@ -1,0 +1,8 @@
+{
+  this.genderIcon=determinePatientGenderIcon(patient.getGender());
+  List<RequiredPatientEquipment> equipmentList=patient.getRequiredPatientEquipmentList();
+  equipmentColorList=new ArrayList<Color>(equipmentList.size());
+  for (  RequiredPatientEquipment equipment : equipmentList) {
+    equipmentColorList.add(equipmentTangoColorFactory.pickColor(equipment.getEquipment()));
+  }
+}

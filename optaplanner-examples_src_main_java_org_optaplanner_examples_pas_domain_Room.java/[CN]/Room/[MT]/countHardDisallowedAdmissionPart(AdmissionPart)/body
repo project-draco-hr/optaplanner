@@ -1,0 +1,3 @@
+{
+  return countMissingRequiredRoomProperties(admissionPart.getPatient()) + department.countHardDisallowedAdmissionPart(admissionPart) + countDisallowedPatientGender(admissionPart.getPatient());
+}

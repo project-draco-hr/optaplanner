@@ -1,0 +1,3 @@
+{
+  return genderIcon.getIconWidth() + equipmentColorList.size() * EQUIPMENT_ICON_WIDTH;
+}

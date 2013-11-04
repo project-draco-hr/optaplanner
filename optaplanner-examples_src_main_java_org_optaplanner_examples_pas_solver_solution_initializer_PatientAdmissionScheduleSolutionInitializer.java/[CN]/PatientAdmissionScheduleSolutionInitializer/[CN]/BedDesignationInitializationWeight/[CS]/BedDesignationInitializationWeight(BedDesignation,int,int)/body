@@ -1,5 +1,0 @@
-{
-  this.bedDesignation=bedDesignation;
-  this.nightCount=nightCount;
-  this.disallowedCount=disallowedCount;
-}

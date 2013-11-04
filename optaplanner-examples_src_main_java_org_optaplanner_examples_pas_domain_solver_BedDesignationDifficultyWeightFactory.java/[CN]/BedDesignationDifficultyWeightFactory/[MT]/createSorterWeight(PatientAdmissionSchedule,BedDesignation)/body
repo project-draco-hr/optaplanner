@@ -1,7 +1,9 @@
 {
-  int disallowedCount=0;
+  int hardDisallowedCount=0;
+  int softDisallowedCount=0;
   for (  Room room : schedule.getRoomList()) {
-    disallowedCount+=(room.countDisallowedAdmissionPart(bedDesignation.getAdmissionPart()) * room.getCapacity());
+    hardDisallowedCount+=(room.countHardDisallowedAdmissionPart(bedDesignation.getAdmissionPart()) * room.getCapacity());
+    softDisallowedCount+=(room.countSoftDisallowedAdmissionPart(bedDesignation.getAdmissionPart()) * room.getCapacity());
   }
-  return new BedDesignationDifficultyWeight(bedDesignation,disallowedCount);
+  return new BedDesignationDifficultyWeight(bedDesignation,hardDisallowedCount,softDisallowedCount);
 }

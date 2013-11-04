@@ -3,11 +3,11 @@ switch (genderLimitation) {
 case ANY_GENDER:
     return 0;
 case MALE_ONLY:
-  return patient.getGender() == Gender.MALE ? 0 : 50;
+  return patient.getGender() == Gender.MALE ? 0 : 4;
 case FEMALE_ONLY:
-return patient.getGender() == Gender.FEMALE ? 0 : 50;
+return patient.getGender() == Gender.FEMALE ? 0 : 4;
 case SAME_GENDER:
-return 25;
+return 1;
 default :
 throw new IllegalStateException("The genderLimitation (" + genderLimitation + ") is not implemented.");
 }

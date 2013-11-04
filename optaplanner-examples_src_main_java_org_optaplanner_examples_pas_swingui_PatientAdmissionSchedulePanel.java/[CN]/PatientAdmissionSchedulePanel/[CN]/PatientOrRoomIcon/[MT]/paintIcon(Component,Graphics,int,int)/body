@@ -1,0 +1,12 @@
+{
+  genderIcon.paintIcon(c,g,x,y);
+  int innerX=x + genderIcon.getIconWidth();
+  int equipmentIconHeight=genderIcon.getIconHeight();
+  for (int i=0; i < equipmentColorList.size(); i++) {
+    g.setColor(equipmentColorList.get(i));
+    g.fillRect(innerX + 1,y + 1,EQUIPMENT_ICON_WIDTH - 2,equipmentIconHeight - 2);
+    g.setColor(TangoColorFactory.ALUMINIUM_5);
+    g.drawRect(innerX + 1,y + 1,EQUIPMENT_ICON_WIDTH - 2,equipmentIconHeight - 2);
+    innerX+=EQUIPMENT_ICON_WIDTH;
+  }
+}

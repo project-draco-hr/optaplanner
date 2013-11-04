@@ -1,10 +1,10 @@
 {
   int count=0;
   if (minimumAge != null && patient.getAge() < minimumAge) {
-    count+=10;
+    count+=100;
   }
   if (maximumAge != null && patient.getAge() > maximumAge) {
-    count+=10;
+    count+=100;
   }
   return count;
 }

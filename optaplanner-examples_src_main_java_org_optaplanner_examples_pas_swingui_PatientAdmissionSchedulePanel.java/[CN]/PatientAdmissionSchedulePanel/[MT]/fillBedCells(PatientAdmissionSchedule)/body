@@ -7,7 +7,7 @@
     timeTablePanel.addRowHeader(HEADER_COLUMN_GROUP2,firstRoomBedList.get(0),HEADER_COLUMN_GROUP2,lastRoomBedList.get(lastRoomBedList.size() - 1),createHeaderPanel(new JLabel(department.getLabel())));
     for (    Room room : roomList) {
       List<Bed> bedList=room.getBedList();
-      JLabel roomLabel=new JLabel(room.getLabel(),determineRoomGenderIcon(room.getGenderLimitation()),SwingConstants.RIGHT);
+      JLabel roomLabel=new JLabel(room.getLabel(),new PatientOrRoomIcon(room),SwingConstants.RIGHT);
       timeTablePanel.addRowHeader(HEADER_COLUMN_GROUP1,bedList.get(0),HEADER_COLUMN_GROUP1,bedList.get(bedList.size() - 1),createHeaderPanel(roomLabel));
       for (      Bed bed : bedList) {
         timeTablePanel.addRowHeader(HEADER_COLUMN,bed,createHeaderPanel(new JLabel(bed.getLabel(),SwingConstants.RIGHT)));

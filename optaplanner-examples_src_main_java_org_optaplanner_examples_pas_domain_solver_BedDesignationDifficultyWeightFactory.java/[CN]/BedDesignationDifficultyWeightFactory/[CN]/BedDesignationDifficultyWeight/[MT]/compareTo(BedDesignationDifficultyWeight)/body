@@ -1,3 +1,3 @@
 {
-  return new CompareToBuilder().append(nightCount,other.nightCount).append(disallowedCount,other.disallowedCount).append(other.bedDesignation.getAdmissionPart().getFirstNight().getIndex(),bedDesignation.getAdmissionPart().getFirstNight().getIndex()).append(bedDesignation.getId(),other.bedDesignation.getId()).toComparison();
+  return new CompareToBuilder().append(requiredEquipmentCount * nightCount,other.requiredEquipmentCount * other.nightCount).append(hardDisallowedCount * nightCount,other.hardDisallowedCount * other.nightCount).append(nightCount,other.nightCount).append(softDisallowedCount * nightCount,other.softDisallowedCount * nightCount).append(other.bedDesignation.getAdmissionPart().getFirstNight().getIndex(),bedDesignation.getAdmissionPart().getFirstNight().getIndex()).append(bedDesignation.getId(),other.bedDesignation.getId()).toComparison();
 }

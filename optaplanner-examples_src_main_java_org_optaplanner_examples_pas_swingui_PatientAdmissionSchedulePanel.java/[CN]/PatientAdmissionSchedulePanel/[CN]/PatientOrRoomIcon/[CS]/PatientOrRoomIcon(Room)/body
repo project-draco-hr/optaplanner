@@ -1,0 +1,8 @@
+{
+  this.genderIcon=determineRoomGenderIcon(room.getGenderLimitation());
+  List<RoomEquipment> equipmentList=room.getRoomEquipmentList();
+  equipmentColorList=new ArrayList<Color>(equipmentList.size());
+  for (  RoomEquipment equipment : equipmentList) {
+    equipmentColorList.add(equipmentTangoColorFactory.pickColor(equipment.getEquipment()));
+  }
+}
