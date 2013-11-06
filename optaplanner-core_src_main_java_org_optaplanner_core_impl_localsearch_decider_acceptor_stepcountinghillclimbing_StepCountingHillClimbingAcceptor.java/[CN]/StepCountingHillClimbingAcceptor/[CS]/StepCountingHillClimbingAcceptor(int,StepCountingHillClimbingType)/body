@@ -1,0 +1,10 @@
+{
+  this.stepCountingHillClimbingSize=stepCountingHillClimbingSize;
+  this.stepCountingHillClimbingType=stepCountingHillClimbingType;
+  if (stepCountingHillClimbingSize <= 0) {
+    throw new IllegalArgumentException("The stepCountingHillClimbingSize (" + stepCountingHillClimbingSize + ") cannot be negative or zero.");
+  }
+  if (stepCountingHillClimbingType == null) {
+    throw new IllegalArgumentException("The stepCountingHillClimbingType (" + stepCountingHillClimbingType + ") cannot be null.");
+  }
+}

@@ -124,8 +124,9 @@
     acceptorList.add(acceptor);
   }
   if ((acceptorTypeList != null && acceptorTypeList.contains(AcceptorType.STEP_COUNTING_HILL_CLIMBING)) || stepCountingHillClimbingSize != null) {
-    StepCountingHillClimbingAcceptor acceptor=new StepCountingHillClimbingAcceptor();
-    acceptor.setStepCountingHillClimbingSize((stepCountingHillClimbingSize == null) ? 1000 : stepCountingHillClimbingSize);
+    int stepCountingHillClimbingSize_=(stepCountingHillClimbingSize == null) ? 1000 : stepCountingHillClimbingSize;
+    StepCountingHillClimbingType stepCountingHillClimbingType_=(stepCountingHillClimbingType == null) ? StepCountingHillClimbingType.STEP : stepCountingHillClimbingType;
+    StepCountingHillClimbingAcceptor acceptor=new StepCountingHillClimbingAcceptor(stepCountingHillClimbingSize_,stepCountingHillClimbingType_);
     acceptorList.add(acceptor);
   }
   if ((acceptorTypeList != null && acceptorTypeList.contains(AcceptorType.LATE_SIMULATED_ANNEALING)) || lateSimulatedAnnealingSize != null) {

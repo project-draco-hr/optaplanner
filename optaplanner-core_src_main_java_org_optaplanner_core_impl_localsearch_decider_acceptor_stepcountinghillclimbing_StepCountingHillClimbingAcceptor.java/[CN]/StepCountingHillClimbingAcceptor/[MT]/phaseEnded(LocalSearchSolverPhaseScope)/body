@@ -1,5 +1,5 @@
 {
   super.phaseEnded(phaseScope);
   thresholdScore=null;
-  stepCount=-1;
+  count=-1;
 }
