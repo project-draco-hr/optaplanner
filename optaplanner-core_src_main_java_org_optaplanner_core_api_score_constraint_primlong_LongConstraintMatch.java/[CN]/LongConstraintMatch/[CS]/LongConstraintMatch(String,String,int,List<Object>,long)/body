@@ -1,0 +1,4 @@
+{
+  super(constraintPackage,constraintName,scoreLevel,justificationList);
+  this.weight=weight;
+}
