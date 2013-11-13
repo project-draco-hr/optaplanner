@@ -1,0 +1,4 @@
+{
+  XmlSolverFactory solverFactory=new XmlSolverFactory(SOLVER_CONFIG);
+  return solverFactory.buildSolver();
+}

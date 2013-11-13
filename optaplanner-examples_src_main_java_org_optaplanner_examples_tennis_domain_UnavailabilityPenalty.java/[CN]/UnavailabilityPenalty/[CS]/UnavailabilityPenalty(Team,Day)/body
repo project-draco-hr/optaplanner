@@ -1,0 +1,4 @@
+{
+  this.team=team;
+  this.day=day;
+}

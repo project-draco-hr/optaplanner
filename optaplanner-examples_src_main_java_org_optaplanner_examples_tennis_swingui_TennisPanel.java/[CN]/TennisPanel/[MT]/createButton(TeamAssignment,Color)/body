@@ -1,0 +1,6 @@
+{
+  JButton button=new JButton("Play");
+  button.setMargin(new Insets(0,0,0,0));
+  button.setBackground(color);
+  return button;
+}

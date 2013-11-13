@@ -1,0 +1,5 @@
+{
+  super(id);
+  this.day=day;
+  this.indexInDay=indexInDay;
+}

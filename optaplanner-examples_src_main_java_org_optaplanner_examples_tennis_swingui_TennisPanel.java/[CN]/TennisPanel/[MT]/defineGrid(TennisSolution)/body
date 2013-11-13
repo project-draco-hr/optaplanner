@@ -1,0 +1,14 @@
+{
+  JButton footprint=new JButton("999999");
+  footprint.setMargin(new Insets(0,0,0,0));
+  int footprintWidth=footprint.getPreferredSize().width;
+  timeTablePanel.defineColumnHeaderByKey(HEADER_COLUMN);
+  for (  Day day : tennisSolution.getDayList()) {
+    timeTablePanel.defineColumnHeader(day,footprintWidth);
+  }
+  timeTablePanel.defineRowHeaderByKey(HEADER_ROW);
+  for (  Team team : tennisSolution.getTeamList()) {
+    timeTablePanel.defineRowHeader(team);
+  }
+  timeTablePanel.defineRowHeader(null);
+}

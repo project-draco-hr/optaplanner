@@ -1,0 +1,7 @@
+{
+  timeTablePanel.reset();
+  TennisSolution tennisSolution=(TennisSolution)solution;
+  defineGrid(tennisSolution);
+  fillCells(tennisSolution);
+  repaint();
+}

@@ -1,0 +1,4 @@
+{
+  solutionDao=new TennisDao();
+  outputDir=new File(solutionDao.getDataDir(),"unsolved");
+}
