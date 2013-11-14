@@ -1,6 +1,7 @@
 {
   removeAll();
   Manners2009 manners2009=(Manners2009)solution;
+  TangoColorFactory tangoColorFactory=new TangoColorFactory();
   gridLayout.setColumns((int)Math.ceil(Math.sqrt(manners2009.getTableList().size())));
   Map<Seat,SeatPanel> seatPanelMap=new HashMap<Seat,SeatPanel>(manners2009.getSeatList().size());
   SeatPanel unassignedPanel=new SeatPanel(null);
@@ -42,6 +43,7 @@
   }
   for (  SeatDesignation seatDesignation : manners2009.getSeatDesignationList()) {
     SeatPanel seatPanel=seatPanelMap.get(seatDesignation.getSeat());
+    seatPanel.setBackground(tangoColorFactory.pickColor(seatDesignation.getGuestJobType()));
     seatPanel.addSeatDesignation(seatDesignation);
   }
 }
