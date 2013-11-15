@@ -1,43 +1,6 @@
 {
-  TennisSolution tennisSolution=new TennisSolution();
-  tennisSolution.setId(0L);
-  List<Team> teamList=new ArrayList<Team>();
-  teamList.add(new Team(0L,"Micha"));
-  teamList.add(new Team(1L,"Angelika"));
-  teamList.add(new Team(2L,"Katrin"));
-  teamList.add(new Team(3L,"Susi"));
-  teamList.add(new Team(4L,"Irene"));
-  teamList.add(new Team(5L,"Kristina"));
-  teamList.add(new Team(6L,"Tobias"));
-  tennisSolution.setTeamList(teamList);
-  List<Day> dayList=new ArrayList<Day>();
-  for (int i=0; i < 18; i++) {
-    dayList.add(new Day(i,i));
-  }
-  tennisSolution.setDayList(dayList);
-  List<TeamAssignment> teamAssignmentList=new ArrayList<TeamAssignment>();
-  long id=0L;
-  for (  Day day : dayList) {
-    for (int i=0; i < 4; i++) {
-      teamAssignmentList.add(new TeamAssignment(id,day,i));
-      id++;
-    }
-  }
-  tennisSolution.setTeamAssignmentList(teamAssignmentList);
-  List<UnavailabilityPenalty> unavailabilityPenaltyList=new ArrayList<UnavailabilityPenalty>();
-  unavailabilityPenaltyList.add(new UnavailabilityPenalty(teamList.get(4),dayList.get(0)));
-  unavailabilityPenaltyList.add(new UnavailabilityPenalty(teamList.get(6),dayList.get(1)));
-  unavailabilityPenaltyList.add(new UnavailabilityPenalty(teamList.get(2),dayList.get(2)));
-  unavailabilityPenaltyList.add(new UnavailabilityPenalty(teamList.get(4),dayList.get(3)));
-  unavailabilityPenaltyList.add(new UnavailabilityPenalty(teamList.get(4),dayList.get(5)));
-  unavailabilityPenaltyList.add(new UnavailabilityPenalty(teamList.get(2),dayList.get(6)));
-  unavailabilityPenaltyList.add(new UnavailabilityPenalty(teamList.get(1),dayList.get(8)));
-  unavailabilityPenaltyList.add(new UnavailabilityPenalty(teamList.get(2),dayList.get(9)));
-  unavailabilityPenaltyList.add(new UnavailabilityPenalty(teamList.get(4),dayList.get(10)));
-  unavailabilityPenaltyList.add(new UnavailabilityPenalty(teamList.get(4),dayList.get(11)));
-  unavailabilityPenaltyList.add(new UnavailabilityPenalty(teamList.get(6),dayList.get(12)));
-  unavailabilityPenaltyList.add(new UnavailabilityPenalty(teamList.get(5),dayList.get(15)));
-  tennisSolution.setUnavailabilityPenaltyList(unavailabilityPenaltyList);
-  File outputFile=new File(outputDir,"munich-7teams.xml");
+  String inputId="munich-7teams";
+  File outputFile=new File(outputDir,inputId + ".xml");
+  TennisSolution tennisSolution=createTennisSolution(inputId);
   solutionDao.writeSolution(tennisSolution,outputFile);
 }

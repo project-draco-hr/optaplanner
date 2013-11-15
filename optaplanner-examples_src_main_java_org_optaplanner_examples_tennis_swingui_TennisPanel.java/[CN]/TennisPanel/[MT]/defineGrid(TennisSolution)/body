@@ -6,6 +6,7 @@
   for (  Day day : tennisSolution.getDayList()) {
     timeTablePanel.defineColumnHeader(day,footprintWidth);
   }
+  timeTablePanel.defineColumnHeaderByKey(TRAILING_HEADER_COLUMN);
   timeTablePanel.defineRowHeaderByKey(HEADER_ROW);
   for (  Team team : tennisSolution.getTeamList()) {
     timeTablePanel.defineRowHeader(team);

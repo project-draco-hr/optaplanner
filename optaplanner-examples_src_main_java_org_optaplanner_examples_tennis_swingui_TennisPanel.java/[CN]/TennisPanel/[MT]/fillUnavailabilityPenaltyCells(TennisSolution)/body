@@ -1,0 +1,7 @@
+{
+  for (  UnavailabilityPenalty unavailabilityPenalty : tennisSolution.getUnavailabilityPenaltyList()) {
+    JPanel unavailabilityPanel=new JPanel();
+    unavailabilityPanel.setBackground(TangoColorFactory.ALUMINIUM_4);
+    timeTablePanel.addCell(unavailabilityPenalty.getDay(),unavailabilityPenalty.getTeam(),unavailabilityPanel);
+  }
+}

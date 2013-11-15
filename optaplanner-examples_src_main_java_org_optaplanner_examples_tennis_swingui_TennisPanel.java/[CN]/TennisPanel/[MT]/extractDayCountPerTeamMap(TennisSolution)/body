@@ -1,0 +1,15 @@
+{
+  Map<Team,Integer> dayCountPerTeamMap=new HashMap<Team,Integer>(tennisSolution.getTeamList().size());
+  for (  Team team : tennisSolution.getTeamList()) {
+    dayCountPerTeamMap.put(team,0);
+  }
+  for (  TeamAssignment teamAssignment : tennisSolution.getTeamAssignmentList()) {
+    Team team=teamAssignment.getTeam();
+    if (team != null) {
+      int count=dayCountPerTeamMap.get(team);
+      count++;
+      dayCountPerTeamMap.put(team,count);
+    }
+  }
+  return dayCountPerTeamMap;
+}

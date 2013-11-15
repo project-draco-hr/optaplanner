@@ -1,6 +1,7 @@
 {
   timeTablePanel.addCornerHeader(HEADER_COLUMN,HEADER_ROW,createHeaderPanel(new JLabel("Team")));
-  fillRoomCells(tennisSolution);
   fillDayCells(tennisSolution);
+  fillTeamCells(tennisSolution);
+  fillUnavailabilityPenaltyCells(tennisSolution);
   fillLectureCells(tennisSolution);
 }
