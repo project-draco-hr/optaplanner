@@ -2,14 +2,22 @@
   JButton footprint=new JButton("999999");
   footprint.setMargin(new Insets(0,0,0,0));
   int footprintWidth=footprint.getPreferredSize().width;
-  timeTablePanel.defineColumnHeaderByKey(HEADER_COLUMN);
+  datesPanel.defineColumnHeaderByKey(HEADER_COLUMN);
   for (  Day day : tennisSolution.getDayList()) {
-    timeTablePanel.defineColumnHeader(day,footprintWidth);
+    datesPanel.defineColumnHeader(day,footprintWidth);
   }
-  timeTablePanel.defineColumnHeaderByKey(TRAILING_HEADER_COLUMN);
-  timeTablePanel.defineRowHeaderByKey(HEADER_ROW);
+  datesPanel.defineColumnHeaderByKey(TRAILING_HEADER_COLUMN);
+  datesPanel.defineRowHeaderByKey(HEADER_ROW);
   for (  Team team : tennisSolution.getTeamList()) {
-    timeTablePanel.defineRowHeader(team);
+    datesPanel.defineRowHeader(team);
   }
-  timeTablePanel.defineRowHeader(null);
+  datesPanel.defineRowHeader(null);
+  confrontationsPanel.defineColumnHeaderByKey(HEADER_COLUMN);
+  for (  Team team : tennisSolution.getTeamList()) {
+    confrontationsPanel.defineColumnHeader(team);
+  }
+  confrontationsPanel.defineRowHeaderByKey(HEADER_ROW);
+  for (  Team team : tennisSolution.getTeamList()) {
+    confrontationsPanel.defineRowHeader(team);
+  }
 }

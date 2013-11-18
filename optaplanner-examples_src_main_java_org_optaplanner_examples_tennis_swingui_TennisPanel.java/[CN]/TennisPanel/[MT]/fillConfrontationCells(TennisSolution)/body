@@ -1,0 +1,41 @@
+{
+  List<Team> teamList=tennisSolution.getTeamList();
+  List<Day> dayList=tennisSolution.getDayList();
+  Map<Day,List<TeamAssignment>> dayToTeamAssignmentListMap=new HashMap<Day,List<TeamAssignment>>(dayList.size());
+  for (  Day day : dayList) {
+    dayToTeamAssignmentListMap.put(day,new ArrayList<TeamAssignment>());
+  }
+  for (  TeamAssignment teamAssignment : tennisSolution.getTeamAssignmentList()) {
+    dayToTeamAssignmentListMap.get(teamAssignment.getDay()).add(teamAssignment);
+  }
+  Map<List<Team>,Integer> teamPairToConfrontationCountMap=new HashMap<List<Team>,Integer>();
+  for (  Team left : teamList) {
+    for (    Team right : teamList) {
+      if (left != right) {
+        List<Team> teamPair=new ArrayList<Team>(2);
+        teamPair.add(left);
+        teamPair.add(right);
+        teamPairToConfrontationCountMap.put(teamPair,0);
+      }
+    }
+  }
+  for (  List<TeamAssignment> teamAssignmentSubList : dayToTeamAssignmentListMap.values()) {
+    for (    TeamAssignment left : teamAssignmentSubList) {
+      for (      TeamAssignment right : teamAssignmentSubList) {
+        if (left.getTeam() != right.getTeam()) {
+          List<Team> teamPair=new ArrayList<Team>(2);
+          teamPair.add(left.getTeam());
+          teamPair.add(right.getTeam());
+          int confrontationCount=teamPairToConfrontationCountMap.get(teamPair);
+          confrontationCount++;
+          teamPairToConfrontationCountMap.put(teamPair,confrontationCount);
+        }
+      }
+    }
+  }
+  for (  Map.Entry<List<Team>,Integer> teamPairToConfrontationCount : teamPairToConfrontationCountMap.entrySet()) {
+    List<Team> teamPair=teamPairToConfrontationCount.getKey();
+    int confrontationCount=teamPairToConfrontationCount.getValue();
+    confrontationsPanel.addCell(teamPair.get(0),teamPair.get(1),createHeaderPanel(new JLabel(Integer.toString(confrontationCount))));
+  }
+}

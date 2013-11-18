@@ -1,8 +1,10 @@
 {
-  Map<Team,Integer> dayCountPerTeamMap=extractDayCountPerTeamMap(tennisSolution);
+  Map<Team,Integer> teamToDayCountMap=extractTeamToDayCountMap(tennisSolution);
   for (  Team team : tennisSolution.getTeamList()) {
-    timeTablePanel.addRowHeader(HEADER_COLUMN,team,createHeaderPanel(new JLabel(team.getLabel())));
-    timeTablePanel.addRowHeader(TRAILING_HEADER_COLUMN,team,createHeaderPanel(new JLabel(dayCountPerTeamMap.get(team) + " days")));
+    datesPanel.addRowHeader(HEADER_COLUMN,team,createHeaderPanel(new JLabel(team.getLabel())));
+    datesPanel.addRowHeader(TRAILING_HEADER_COLUMN,team,createHeaderPanel(new JLabel(teamToDayCountMap.get(team) + " days")));
+    confrontationsPanel.addColumnHeader(team,HEADER_ROW,createHeaderPanel(new JLabel(team.getLabel())));
+    confrontationsPanel.addRowHeader(HEADER_COLUMN,team,createHeaderPanel(new JLabel(team.getLabel())));
   }
-  timeTablePanel.addRowHeader(HEADER_COLUMN,null,createHeaderPanel(new JLabel("Unassigned")));
+  datesPanel.addRowHeader(HEADER_COLUMN,null,createHeaderPanel(new JLabel("Unassigned")));
 }

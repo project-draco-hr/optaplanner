@@ -2,6 +2,6 @@
   TangoColorFactory tangoColorFactory=new TangoColorFactory();
   for (  TeamAssignment teamAssignment : tennisSolution.getTeamAssignmentList()) {
     Color examColor=tangoColorFactory.pickColor(teamAssignment);
-    timeTablePanel.addCell(teamAssignment.getDay(),teamAssignment.getTeam(),createButton(teamAssignment,examColor));
+    datesPanel.addCell(teamAssignment.getDay(),teamAssignment.getTeam(),createButton(teamAssignment,examColor));
   }
 }

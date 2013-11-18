@@ -1,6 +1,6 @@
 {
   for (  Day day : tennisSolution.getDayList()) {
-    timeTablePanel.addColumnHeader(day,HEADER_ROW,createHeaderPanel(new JLabel(day.getLabel(),SwingConstants.CENTER)));
+    datesPanel.addColumnHeader(day,HEADER_ROW,createHeaderPanel(new JLabel(day.getLabel(),SwingConstants.CENTER)));
   }
-  timeTablePanel.addCornerHeader(TRAILING_HEADER_COLUMN,HEADER_ROW,createHeaderPanel(new JLabel("Day count")));
+  datesPanel.addCornerHeader(TRAILING_HEADER_COLUMN,HEADER_ROW,createHeaderPanel(new JLabel("Day count")));
 }
