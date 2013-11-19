@@ -1,0 +1,3 @@
+{
+  HardSoftBigDecimalScore.parseScore("-147.2");
+}

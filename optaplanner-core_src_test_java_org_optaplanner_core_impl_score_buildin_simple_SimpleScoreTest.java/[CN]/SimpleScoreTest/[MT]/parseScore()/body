@@ -1,0 +1,3 @@
+{
+  assertEquals(SimpleScore.valueOf(-147),SimpleScore.parseScore("-147"));
+}

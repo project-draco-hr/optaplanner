@@ -1,0 +1,3 @@
+{
+  HardSoftLongScore.parseScore("-147");
+}

@@ -1,0 +1,3 @@
+{
+  HardSoftDoubleScore.parseScore("-147.2");
+}

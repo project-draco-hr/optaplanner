@@ -1,0 +1,3 @@
+{
+  HardMediumSoftScore.parseScore("-147");
+}

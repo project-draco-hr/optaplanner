@@ -1,0 +1,3 @@
+{
+  assertEquals(SimpleBigDecimalScore.valueOf(new BigDecimal("-147.2")),SimpleBigDecimalScore.parseScore("-147.2"));
+}

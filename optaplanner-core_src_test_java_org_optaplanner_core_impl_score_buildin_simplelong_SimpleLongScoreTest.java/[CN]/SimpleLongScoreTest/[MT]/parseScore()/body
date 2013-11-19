@@ -1,0 +1,3 @@
+{
+  assertEquals(SimpleLongScore.valueOf(-147L),SimpleLongScore.parseScore("-147"));
+}

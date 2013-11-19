@@ -1,0 +1,3 @@
+{
+  SimpleLongScore.parseScore("-147hard/-258soft");
+}

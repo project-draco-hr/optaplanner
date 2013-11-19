@@ -1,0 +1,3 @@
+{
+  SimpleDoubleScore.parseScore("-147.2hard/-258.3soft");
+}
