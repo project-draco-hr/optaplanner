@@ -1,5 +1,5 @@
 {
-  hardScore=hardScore.add(weight);
+  hardScore=(hardScore == null) ? weight : hardScore.add(weight);
   registerBigDecimalConstraintMatch(kcontext,0,weight,new Runnable(){
     public void run(){
       hardScore=hardScore.subtract(weight);
