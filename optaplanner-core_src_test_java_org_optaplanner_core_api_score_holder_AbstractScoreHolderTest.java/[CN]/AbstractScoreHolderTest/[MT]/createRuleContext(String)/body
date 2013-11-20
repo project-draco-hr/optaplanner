@@ -1,0 +1,15 @@
+{
+  RuleContext kcontext=mock(RuleContext.class);
+  AgendaItem agendaItem=new AgendaItemImpl(){
+    @Override public List<Object> getObjects(){
+      return Collections.emptyList();
+    }
+  }
+;
+  when(kcontext.getMatch()).thenReturn(agendaItem);
+  Rule rule=mock(Rule.class);
+  when(rule.getPackageName()).thenReturn(getClass().getPackage().getName());
+  when(rule.getName()).thenReturn(ruleName);
+  when(kcontext.getRule()).thenReturn(rule);
+  return kcontext;
+}

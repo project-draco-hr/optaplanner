@@ -1,0 +1,4 @@
+{
+  AgendaItem agendaItem=(AgendaItem)ruleContext.getMatch();
+  agendaItem.getActivationUnMatchListener().unMatch(mock(RuleRuntime.class),agendaItem);
+}

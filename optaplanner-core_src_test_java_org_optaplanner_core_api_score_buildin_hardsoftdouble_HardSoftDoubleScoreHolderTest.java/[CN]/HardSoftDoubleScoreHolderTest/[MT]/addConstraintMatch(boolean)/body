@@ -1,0 +1,14 @@
+{
+  HardSoftDoubleScoreHolder scoreHolder=new HardSoftDoubleScoreHolder(constraintMatchEnabled);
+  scoreHolder.addHardConstraintMatch(createRuleContext("scoreRule1"),-10.00);
+  RuleContext ruleContext2=createRuleContext("scoreRule2");
+  scoreHolder.addHardConstraintMatch(ruleContext2,-2.00);
+  callUnMatch(ruleContext2);
+  RuleContext ruleContext3=createRuleContext("scoreRule3");
+  scoreHolder.addSoftConstraintMatch(ruleContext3,-0.30);
+  scoreHolder.addSoftConstraintMatch(ruleContext3,-0.06);
+  assertEquals(HardSoftDoubleScore.valueOf(-10.00,-0.06),scoreHolder.extractScore());
+  if (constraintMatchEnabled) {
+    assertEquals(3,scoreHolder.getConstraintMatchTotals().size());
+  }
+}
