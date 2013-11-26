@@ -1,0 +1,6 @@
+{
+  List<String> valueRangeProviderIds=new ArrayList<String>(fromSolutionValueRangeProviderMap.size() + fromEntityValueRangeProviderMap.size());
+  valueRangeProviderIds.addAll(fromSolutionValueRangeProviderMap.keySet());
+  valueRangeProviderIds.addAll(fromEntityValueRangeProviderMap.keySet());
+  return valueRangeProviderIds;
+}
