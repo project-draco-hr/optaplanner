@@ -1,0 +1,7 @@
+{
+  assertNotNull(iterator);
+  for (  int element : elements) {
+    assertTrue(iterator.hasNext());
+    assertEquals(element,iterator.next().intValue());
+  }
+}

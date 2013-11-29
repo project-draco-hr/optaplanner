@@ -1,0 +1,4 @@
+{
+  assertElementsOfIterator(iterator,elements);
+  assertFalse(iterator.hasNext());
+}
