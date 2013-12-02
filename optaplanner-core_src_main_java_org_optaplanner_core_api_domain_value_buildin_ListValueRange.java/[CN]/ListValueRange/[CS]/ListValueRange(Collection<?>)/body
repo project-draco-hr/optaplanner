@@ -1,0 +1,3 @@
+{
+  this(collection instanceof List ? (List)collection : new ArrayList<Object>(collection));
+}
