@@ -1,0 +1,7 @@
+{
+  assertNotNull(iterator);
+  for (  O element : elements) {
+    assertTrue(iterator.hasNext());
+    assertEquals(element,iterator.next());
+  }
+}

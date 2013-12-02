@@ -1,6 +1,6 @@
 {
   if (index < 0L || index >= getSize()) {
-    throw new IllegalArgumentException("The index (" + index + ") must < from ("+ from+ ") and >= to ("+ to+ ").");
+    throw new IndexOutOfBoundsException("The index (" + index + ") must < from ("+ from+ ") and >= to ("+ to+ ").");
   }
   return (int)(index * incrementUnit + from);
 }

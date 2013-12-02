@@ -1,0 +1,6 @@
+{
+  if (index > Integer.MAX_VALUE) {
+    throw new IndexOutOfBoundsException("The index (" + index + ") must fit in an int.");
+  }
+  return list.get((int)index);
+}
