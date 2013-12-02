@@ -1,4 +1,0 @@
-{
-  long sizeIndex=RandomUtils.nextLong(workingRandom,size);
-  return (int)(sizeIndex * incrementUnit + from);
-}

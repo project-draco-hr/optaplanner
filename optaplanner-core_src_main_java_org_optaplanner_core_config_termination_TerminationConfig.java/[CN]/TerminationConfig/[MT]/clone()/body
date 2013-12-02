@@ -4,7 +4,7 @@
     clone=(TerminationConfig)super.clone();
   }
  catch (  CloneNotSupportedException e) {
-    throw new IllegalStateException("Impossible exception because TerminationConfig implements Cloneable.",e);
+    throw new IllegalStateException("Impossible state because TerminationConfig implements Cloneable.",e);
   }
   if (terminationConfigList != null) {
     List<TerminationConfig> clonedTerminationConfigList=new ArrayList<TerminationConfig>(terminationConfigList.size());

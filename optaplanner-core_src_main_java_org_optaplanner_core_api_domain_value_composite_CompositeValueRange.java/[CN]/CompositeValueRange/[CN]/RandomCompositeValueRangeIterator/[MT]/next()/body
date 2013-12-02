@@ -1,0 +1,12 @@
+{
+  long index=RandomUtils.nextLong(workingRandom,size);
+  long remainingIndex=index;
+  for (  ValueRange<T> childValueRange : childValueRangeList) {
+    long childSize=childValueRange.getSize();
+    if (remainingIndex < childSize) {
+      return childValueRange.get(remainingIndex);
+    }
+    remainingIndex-=childSize;
+  }
+  throw new IllegalStateException("Impossible state because index (" + index + ") is always less than the size ("+ size+ ").");
+}
