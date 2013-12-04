@@ -1,7 +1,7 @@
 {
-  long timeMillisSpend=this.timeMillisSpend;
+  long timeMillisSpend=getTimeMillisSpend();
   if (timeMillisSpend == 0L) {
     timeMillisSpend=1L;
   }
-  return calculateCount * 1000L / timeMillisSpend;
+  return getCalculateCount() * 1000L / timeMillisSpend;
 }

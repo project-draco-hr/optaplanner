@@ -1,0 +1,9 @@
+{
+  SingleStatisticCsv csv=new SingleStatisticCsv();
+  for (  MemoryUseSingleStatisticPoint point : pointList) {
+    long timeMillisSpend=point.getTimeMillisSpend();
+    MemoryUseMeasurement memoryUseMeasurement=point.getMemoryUseMeasurement();
+    csv.addPoint(timeMillisSpend,Long.toString(memoryUseMeasurement.getUsedMemory()) + "/" + Long.toString(memoryUseMeasurement.getMaxMemory()));
+  }
+  csv.writeCsvSingleStatisticFile(outputFile);
+}

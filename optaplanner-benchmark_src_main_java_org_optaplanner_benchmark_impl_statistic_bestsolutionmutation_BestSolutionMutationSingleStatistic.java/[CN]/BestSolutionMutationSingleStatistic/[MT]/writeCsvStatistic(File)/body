@@ -1,0 +1,7 @@
+{
+  SingleStatisticCsv csv=new SingleStatisticCsv();
+  for (  BestSolutionMutationSingleStatisticPoint point : pointList) {
+    csv.addPoint(point.getTimeMillisSpend(),point.getMutationCount());
+  }
+  csv.writeCsvSingleStatisticFile(outputFile);
+}

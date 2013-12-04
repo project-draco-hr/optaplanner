@@ -1,0 +1,18 @@
+{
+  SingleBenchmarkState singleBenchmarkState=null;
+  Reader reader=null;
+  try {
+    reader=new InputStreamReader(new FileInputStream(inputFile),"UTF-8");
+    singleBenchmarkState=(SingleBenchmarkState)xStream.fromXML(reader);
+  }
+ catch (  XStreamException e) {
+    throw new IllegalArgumentException("Problem reading inputFile: " + inputFile,e);
+  }
+catch (  IOException e) {
+    throw new IllegalArgumentException("Problem reading inputFile: " + inputFile,e);
+  }
+ finally {
+    IOUtils.closeQuietly(reader);
+  }
+  return singleBenchmarkState;
+}

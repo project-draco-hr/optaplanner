@@ -5,6 +5,7 @@
   DefaultPlannerBenchmark plannerBenchmark=new DefaultPlannerBenchmark();
   plannerBenchmark.setName(name);
   plannerBenchmark.setBenchmarkDirectory(benchmarkDirectory);
+  plannerBenchmark.setResumeConfig(resumeConfig);
   plannerBenchmark.setParallelBenchmarkCount(resolveParallelBenchmarkCount());
   plannerBenchmark.setWarmUpTimeMillisSpend(calculateWarmUpTimeMillisSpendTotal());
   plannerBenchmark.getBenchmarkReport().setLocale(benchmarkReportLocale == null ? Locale.getDefault() : benchmarkReportLocale);
@@ -14,7 +15,7 @@
   List<ProblemBenchmark> unifiedProblemBenchmarkList=new ArrayList<ProblemBenchmark>();
   plannerBenchmark.setUnifiedProblemBenchmarkList(unifiedProblemBenchmarkList);
   for (  SolverBenchmarkConfig solverBenchmarkConfig : solverBenchmarkConfigList) {
-    SolverBenchmark solverBenchmark=solverBenchmarkConfig.buildSolverBenchmark(plannerBenchmark);
+    SolverBenchmark solverBenchmark=solverBenchmarkConfig.buildSolverBenchmark(plannerBenchmark,resolveResumeDirectory());
     solverBenchmarkList.add(solverBenchmark);
   }
   plannerBenchmark.setSolverBenchmarkList(solverBenchmarkList);

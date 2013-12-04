@@ -1,0 +1,11 @@
+{
+  validate();
+  SolverBenchmark solverBenchmark=new SolverBenchmark(plannerBenchmark);
+  solverBenchmark.setName(name);
+  solverBenchmark.setSolverConfig(solverConfig);
+  solverBenchmark.setSingleBenchmarkList(new ArrayList<SingleBenchmark>());
+  ProblemBenchmarksConfig problemBenchmarksConfig_=problemBenchmarksConfig == null ? new ProblemBenchmarksConfig() : problemBenchmarksConfig;
+  List<ProblemBenchmark> problemBenchmarkList=problemBenchmarksConfig_.buildProblemBenchmarkList(plannerBenchmark,solverBenchmark,latestResumeBenchmarkDir);
+  solverBenchmark.setProblemBenchmarkList(problemBenchmarkList);
+  return solverBenchmark;
+}

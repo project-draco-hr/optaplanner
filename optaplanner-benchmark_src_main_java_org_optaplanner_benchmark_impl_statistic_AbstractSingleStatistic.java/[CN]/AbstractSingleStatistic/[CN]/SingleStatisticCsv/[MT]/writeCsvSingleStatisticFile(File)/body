@@ -1,0 +1,21 @@
+{
+  Writer writer=null;
+  try {
+    writer=new OutputStreamWriter(new FileOutputStream(outputFile),"UTF-8");
+    for (    Long timeSpent : singleStatisticLines.keySet()) {
+      writer.write(timeSpent.toString());
+      writer.append(",");
+      String value=singleStatisticLines.get(timeSpent);
+      if (value != null) {
+        writer.append(value);
+      }
+      writer.append("\n");
+    }
+  }
+ catch (  IOException e) {
+    throw new IllegalArgumentException("Problem writing csvStatisticFile: " + outputFile,e);
+  }
+ finally {
+    IOUtils.closeQuietly(writer);
+  }
+}

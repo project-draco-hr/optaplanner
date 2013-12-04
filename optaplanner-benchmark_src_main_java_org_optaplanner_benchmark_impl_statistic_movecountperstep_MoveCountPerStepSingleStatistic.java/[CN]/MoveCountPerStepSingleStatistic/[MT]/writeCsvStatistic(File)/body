@@ -1,0 +1,9 @@
+{
+  SingleStatisticCsv csv=new SingleStatisticCsv();
+  for (  MoveCountPerStepSingleStatisticPoint point : pointList) {
+    long timeMillisSpend=point.getTimeMillisSpend();
+    MoveCountPerStepMeasurement moveCountPerStepMeasurement=point.getMoveCountPerStepMeasurement();
+    csv.addPoint(timeMillisSpend,Long.toString(moveCountPerStepMeasurement.getAcceptedMoveCount()) + "/" + Long.toString(moveCountPerStepMeasurement.getSelectedMoveCount()));
+  }
+  csv.writeCsvSingleStatisticFile(outputFile);
+}
