@@ -1,6 +1,6 @@
 {
   assertEquals(5,new NullableValueRange<Integer>(new ListValueRange<Integer>(Arrays.asList(0,2,5,10))).get(2L).intValue());
-  assertEquals(null,new NullableValueRange<Integer>(new ListValueRange<Integer>(Arrays.asList(0,2,5,10))).get(4L).intValue());
+  assertEquals(null,new NullableValueRange<Integer>(new ListValueRange<Integer>(Arrays.asList(0,2,5,10))).get(4L));
   assertEquals("c",new NullableValueRange<String>(new ListValueRange<String>(Arrays.asList("b","z","a","c","g","d"))).get(3L));
   assertEquals(null,new NullableValueRange<String>(new ListValueRange<String>(Arrays.asList("b","z","a","c","g","d"))).get(6L));
 }
