@@ -1,0 +1,4 @@
+{
+  this.childValueRange=childValueRange;
+  size=childValueRange.getSize() + 1L;
+}

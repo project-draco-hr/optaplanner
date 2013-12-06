@@ -1,4 +1,7 @@
 {
+  if (upcoming >= to) {
+    throw new NoSuchElementException();
+  }
   int next=upcoming;
   upcoming+=incrementUnit;
   return next;

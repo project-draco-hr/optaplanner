@@ -1,0 +1,4 @@
+{
+  long index=RandomUtils.nextLong(workingRandom,size);
+  return get(index);
+}

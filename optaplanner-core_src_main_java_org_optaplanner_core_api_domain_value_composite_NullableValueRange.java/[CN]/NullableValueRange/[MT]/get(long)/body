@@ -1,0 +1,8 @@
+{
+  if (index == size - 1L) {
+    return null;
+  }
+ else {
+    return childValueRange.get(index);
+  }
+}
