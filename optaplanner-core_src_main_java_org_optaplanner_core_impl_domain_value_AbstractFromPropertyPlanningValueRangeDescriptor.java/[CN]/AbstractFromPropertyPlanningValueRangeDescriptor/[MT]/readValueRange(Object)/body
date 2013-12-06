@@ -1,0 +1,12 @@
+{
+  Object valueRangeObject=readMethodAccessor.read(bean);
+  ValueRange<Object> valueRange;
+  if (collectionWrapping) {
+    List<Object> list=transformToList((Collection<Object>)valueRangeObject);
+    valueRange=new ListValueRange<Object>(list);
+  }
+ else {
+    valueRange=(ValueRange<Object>)valueRangeObject;
+  }
+  return doNullInValueRangeWrapping(valueRange);
+}

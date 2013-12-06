@@ -1,0 +1,9 @@
+{
+  this.valueRangeDescriptor=valueRangeDescriptor;
+  this.cacheType=cacheType;
+  this.randomSelection=randomSelection;
+  if (cacheType.isNotCached()) {
+    throw new IllegalArgumentException("The selector (" + this + ") does not support the cacheType ("+ cacheType+ ").");
+  }
+  solverPhaseLifecycleSupport.addEventListener(new SelectionCacheLifecycleBridge(cacheType,this));
+}

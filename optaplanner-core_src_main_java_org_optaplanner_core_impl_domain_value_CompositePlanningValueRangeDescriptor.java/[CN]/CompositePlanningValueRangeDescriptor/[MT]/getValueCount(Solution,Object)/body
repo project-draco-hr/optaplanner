@@ -1,7 +1,0 @@
-{
-  long problemScale=0L;
-  for (  PlanningValueRangeDescriptor valueRangeDescriptor : valueRangeDescriptorList) {
-    problemScale+=valueRangeDescriptor.getValueCount(solution,entity);
-  }
-  return problemScale;
-}

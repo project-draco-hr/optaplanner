@@ -1,8 +1,8 @@
 {
   if (!randomSelection) {
-    return cachedValueList.iterator();
+    return cachedValueRange.createOriginalIterator();
   }
  else {
-    return new CachedListRandomIterator<Object>(cachedValueList,workingRandom);
+    return cachedValueRange.createRandomIterator(workingRandom);
   }
 }

@@ -1,3 +1,0 @@
-{
-  return extractValues(solution,entity).size();
-}

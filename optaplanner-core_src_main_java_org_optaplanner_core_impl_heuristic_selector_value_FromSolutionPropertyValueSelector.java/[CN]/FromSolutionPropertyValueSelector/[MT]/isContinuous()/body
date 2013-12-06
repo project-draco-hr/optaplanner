@@ -1,3 +1,3 @@
 {
-  return variableDescriptor.isContinuous();
+  return false;
 }

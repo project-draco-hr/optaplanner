@@ -1,0 +1,3 @@
+{
+  return (collection instanceof List ? (List<T>)collection : new ArrayList<T>(collection));
+}

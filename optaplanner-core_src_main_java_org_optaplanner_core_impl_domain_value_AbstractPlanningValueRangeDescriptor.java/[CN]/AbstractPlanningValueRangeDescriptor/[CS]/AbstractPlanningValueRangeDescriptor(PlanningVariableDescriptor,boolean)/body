@@ -1,0 +1,4 @@
+{
+  this.variableDescriptor=variableDescriptor;
+  this.addNullInValueRange=addNullInValueRange;
+}

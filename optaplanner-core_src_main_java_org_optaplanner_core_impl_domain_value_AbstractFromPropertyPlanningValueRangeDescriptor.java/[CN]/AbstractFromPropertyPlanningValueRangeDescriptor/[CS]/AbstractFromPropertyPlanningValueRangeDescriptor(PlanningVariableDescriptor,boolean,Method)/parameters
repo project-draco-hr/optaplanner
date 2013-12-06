@@ -1,0 +1,3 @@
+PlanningVariableDescriptor variableDescriptor
+boolean addNullInValueRange
+Method readMethod

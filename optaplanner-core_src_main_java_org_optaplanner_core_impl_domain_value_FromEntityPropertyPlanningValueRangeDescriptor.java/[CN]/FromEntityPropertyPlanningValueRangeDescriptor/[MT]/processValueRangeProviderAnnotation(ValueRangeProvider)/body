@@ -1,6 +1,0 @@
-{
-  PlanningEntityDescriptor entityDescriptor=variableDescriptor.getEntityDescriptor();
-  if (!Collection.class.isAssignableFrom(rangeReadMethodAccessor.getReturnType())) {
-    throw new IllegalArgumentException("The planningEntityClass (" + entityDescriptor.getPlanningEntityClass() + ") has a "+ PlanningVariable.class.getSimpleName()+ " annotated property ("+ variableDescriptor.getVariableName()+ ") that refers to a "+ ValueRangeProvider.class.getSimpleName()+ " annotated method ("+ rangeReadMethodAccessor.getReadMethod()+ ") that does not return a "+ Collection.class.getSimpleName()+ ".");
-  }
-}

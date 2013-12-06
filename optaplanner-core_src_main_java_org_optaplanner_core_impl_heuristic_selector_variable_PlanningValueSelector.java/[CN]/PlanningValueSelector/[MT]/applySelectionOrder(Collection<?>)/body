@@ -1,8 +1,0 @@
-{
-switch (selectionOrder) {
-case ORIGINAL:
-    return workingPlanningValues;
-default :
-  throw new IllegalStateException("The selectionOrder (" + selectionOrder + ") is not implemented.");
-}
-}

@@ -1,0 +1,11 @@
+{
+  super(variableDescriptor,addNullInValueRange);
+  this.valueRangeDescriptorList=valueRangeDescriptorList;
+  entityIndependent=true;
+  for (  PlanningValueRangeDescriptor valueRangeDescriptor : valueRangeDescriptorList) {
+    if (!valueRangeDescriptor.isEntityIndependent()) {
+      entityIndependent=false;
+      break;
+    }
+  }
+}

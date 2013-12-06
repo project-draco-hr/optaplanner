@@ -1,0 +1,9 @@
+{
+  super(variableDescriptor,addNullInValueRange);
+  readMethodAccessor=new DefaultReadMethodAccessor(readMethod);
+  ValueRangeProvider valueRangeProviderAnnotation=readMethod.getAnnotation(ValueRangeProvider.class);
+  if (valueRangeProviderAnnotation == null) {
+    throw new IllegalStateException("The readMethod (" + readMethod + ") must have a valueRangeProviderAnnotation ("+ valueRangeProviderAnnotation+ ").");
+  }
+  processValueRangeProviderAnnotation(valueRangeProviderAnnotation);
+}

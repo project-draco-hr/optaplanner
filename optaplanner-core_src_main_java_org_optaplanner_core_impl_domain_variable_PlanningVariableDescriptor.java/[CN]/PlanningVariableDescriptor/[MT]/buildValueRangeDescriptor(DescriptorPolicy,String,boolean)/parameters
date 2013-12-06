@@ -1,0 +1,3 @@
+DescriptorPolicy descriptorPolicy
+String valueRangeProviderRef
+boolean addNullInValueRange

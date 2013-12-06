@@ -1,14 +1,9 @@
 {
-  Collection<?> values=valueRangeDescriptor.extractValuesFromEntity(entity);
-  List<Object> valueList=new ArrayList<Object>(values.size() + 1);
-  valueList.addAll(values);
-  if (variableDescriptor.isNullable()) {
-    valueList.add(null);
-  }
+  ValueRange<Object> valueRange=(ValueRange<Object>)valueRangeDescriptor.extractValueRange(workingSolution,entity);
   if (!randomSelection) {
-    return valueList.iterator();
+    return valueRange.createOriginalIterator();
   }
  else {
-    return new CachedListRandomIterator<Object>(valueList,workingRandom);
+    return valueRange.createRandomIterator(workingRandom);
   }
 }

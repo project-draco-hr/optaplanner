@@ -1,0 +1,6 @@
+{
+  if (addNullInValueRange) {
+    valueRange=new NullableValueRange<T>(valueRange);
+  }
+  return valueRange;
+}

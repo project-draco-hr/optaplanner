@@ -1,7 +1,7 @@
 {
-  if (variableDescriptor.isPlanningValuesCacheable()) {
-    Collection<?> planningValues=variableDescriptor.extractPlanningValues(phaseScope.getWorkingSolution(),null);
-    cachedPlanningValues=applySelectionOrder(planningValues);
+  if (valueRangeDescriptor.isEntityIndependent()) {
+    ValueRange<?> valueRange=((EntityIndependentPlanningValueRangeDescriptor)valueRangeDescriptor).extractValueRange(phaseScope.getWorkingSolution());
+    cachedPlanningValues=IteratorUtils.toList(valueRange.createOriginalIterator(),(int)valueRange.getSize());
   }
  else {
     cachedPlanningValues=null;

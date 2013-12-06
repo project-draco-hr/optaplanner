@@ -3,8 +3,8 @@
     return cachedPlanningValues.iterator();
   }
  else {
-    Collection<?> planningValues=variableDescriptor.extractPlanningValues(scoreDirector.getWorkingSolution(),planningEntity);
-    planningValues=applySelectionOrder(planningValues);
-    return planningValues.iterator();
+    ValueRange<?> valueRange=valueRangeDescriptor.extractValueRange(scoreDirector.getWorkingSolution(),planningEntity);
+    List<?> values=IteratorUtils.toList(valueRange.createOriginalIterator(),(int)valueRange.getSize());
+    return values.iterator();
   }
 }
