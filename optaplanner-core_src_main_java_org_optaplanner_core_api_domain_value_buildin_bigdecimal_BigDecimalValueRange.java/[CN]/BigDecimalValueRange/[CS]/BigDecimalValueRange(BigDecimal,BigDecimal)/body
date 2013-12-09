@@ -1,0 +1,3 @@
+{
+  this(from,to,BigDecimal.valueOf(1L,from.scale()));
+}

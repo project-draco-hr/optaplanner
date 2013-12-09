@@ -1,0 +1,21 @@
+{
+  this.from=from;
+  this.to=to;
+  this.incrementUnit=incrementUnit;
+  scale=from.scale();
+  if (scale != to.scale()) {
+    throw new IllegalArgumentException("The " + getClass().getSimpleName() + " cannot have a to ("+ to+ ") scale ("+ to.scale()+ ") which is different than its from ("+ from+ ") scale ("+ scale+ ").");
+  }
+  if (scale != incrementUnit.scale()) {
+    throw new IllegalArgumentException("The " + getClass().getSimpleName() + " cannot have a from ("+ incrementUnit+ ") scale ("+ incrementUnit.scale()+ ") which is different than its from ("+ from+ ") scale ("+ scale+ ").");
+  }
+  if (to.compareTo(from) < 0) {
+    throw new IllegalArgumentException("The " + getClass().getSimpleName() + " cannot have a from ("+ from+ ") which is strictly higher than its to ("+ to+ ").");
+  }
+  if (incrementUnit.compareTo(BigDecimal.ZERO) <= 0) {
+    throw new IllegalArgumentException("The " + getClass().getSimpleName() + " must have strictly positive incrementUnit ("+ incrementUnit+ ").");
+  }
+  if (!to.unscaledValue().subtract(from.unscaledValue()).remainder(incrementUnit.unscaledValue()).equals(BigInteger.ZERO)) {
+    throw new IllegalArgumentException("The " + getClass().getSimpleName() + " 's incrementUnit ("+ incrementUnit+ ") must fit an integer number of times between from ("+ from+ ") and to ("+ to+ ").");
+  }
+}

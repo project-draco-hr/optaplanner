@@ -1,0 +1,3 @@
+{
+  return to.unscaledValue().subtract(from.unscaledValue()).divide(incrementUnit.unscaledValue()).longValue();
+}
