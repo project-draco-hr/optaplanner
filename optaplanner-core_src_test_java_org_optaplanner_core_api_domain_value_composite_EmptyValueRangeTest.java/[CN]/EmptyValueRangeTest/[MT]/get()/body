@@ -1,0 +1,3 @@
+{
+  new EmptyValueRange<Integer>().get(0L);
+}

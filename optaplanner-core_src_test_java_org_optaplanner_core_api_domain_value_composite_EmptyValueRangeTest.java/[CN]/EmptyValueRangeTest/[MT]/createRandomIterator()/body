@@ -1,0 +1,4 @@
+{
+  Random workingRandom=mock(Random.class);
+  assertElementsOfIterator(new EmptyValueRange<Integer>().createRandomIterator(workingRandom));
+}
