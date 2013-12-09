@@ -1,0 +1,7 @@
+{
+  this.from=from;
+  this.to=to;
+  if (to < from) {
+    throw new IllegalArgumentException("The " + getClass().getSimpleName() + " cannot have a from ("+ from+ ") which is strictly higher than its to ("+ to+ ").");
+  }
+}

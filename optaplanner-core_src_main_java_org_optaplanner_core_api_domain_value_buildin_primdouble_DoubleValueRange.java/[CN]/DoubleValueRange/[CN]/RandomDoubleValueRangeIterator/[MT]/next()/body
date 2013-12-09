@@ -1,0 +1,8 @@
+{
+  double diff=to - from;
+  double next=from + diff * workingRandom.nextDouble();
+  if (next >= to) {
+    next=Math.nextAfter(next,Double.NEGATIVE_INFINITY);
+  }
+  return next;
+}
