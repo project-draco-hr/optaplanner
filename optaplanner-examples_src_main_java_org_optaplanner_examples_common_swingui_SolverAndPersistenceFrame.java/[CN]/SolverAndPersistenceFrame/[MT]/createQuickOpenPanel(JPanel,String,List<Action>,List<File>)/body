@@ -1,0 +1,12 @@
+{
+  panel.setLayout(new BoxLayout(panel,BoxLayout.Y_AXIS));
+  refreshQuickOpenPanel(panel,quickOpenActionList,fileList);
+  JScrollPane scrollPane=new JScrollPane(panel);
+  scrollPane.getVerticalScrollBar().setUnitIncrement(25);
+  scrollPane.setMinimumSize(new Dimension(100,80));
+  scrollPane.setPreferredSize(new Dimension(180,200));
+  JPanel titlePanel=new JPanel(new BorderLayout());
+  titlePanel.add(scrollPane,BorderLayout.CENTER);
+  titlePanel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(2,2,2,2),BorderFactory.createTitledBorder(title)));
+  return titlePanel;
+}

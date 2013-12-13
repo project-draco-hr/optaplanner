@@ -1,0 +1,4 @@
+JPanel panel
+String title
+List<Action> quickOpenActionList
+List<File> fileList

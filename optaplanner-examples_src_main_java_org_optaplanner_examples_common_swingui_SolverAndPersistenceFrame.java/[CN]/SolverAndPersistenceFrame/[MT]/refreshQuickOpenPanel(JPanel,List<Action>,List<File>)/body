@@ -1,0 +1,19 @@
+{
+  panel.removeAll();
+  quickOpenActionList.clear();
+  if (fileList.isEmpty()) {
+    JLabel noneLabel=new JLabel("None");
+    noneLabel.setBorder(BorderFactory.createEmptyBorder(2,2,2,2));
+    panel.add(noneLabel);
+  }
+ else {
+    for (    File file : fileList) {
+      Action quickOpenAction=new QuickOpenAction(file);
+      quickOpenActionList.add(quickOpenAction);
+      JButton quickOpenButton=new JButton(quickOpenAction);
+      quickOpenButton.setHorizontalAlignment(SwingConstants.LEFT);
+      quickOpenButton.setMargin(new Insets(0,0,0,0));
+      panel.add(quickOpenButton);
+    }
+  }
+}

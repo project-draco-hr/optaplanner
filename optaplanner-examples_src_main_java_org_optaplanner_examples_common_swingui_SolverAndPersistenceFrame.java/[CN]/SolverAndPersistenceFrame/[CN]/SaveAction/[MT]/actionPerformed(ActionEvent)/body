@@ -20,5 +20,8 @@
   finally {
       setCursor(Cursor.getDefaultCursor());
     }
+    refreshQuickOpenPanel(quickOpenUnsolvedPanel,quickOpenUnsolvedActionList,solutionBusiness.getUnsolvedFileList());
+    refreshQuickOpenPanel(quickOpenSolvedPanel,quickOpenSolvedActionList,solutionBusiness.getSolvedFileList());
+    SolverAndPersistenceFrame.this.validate();
   }
 }
