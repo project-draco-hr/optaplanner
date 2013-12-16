@@ -1,0 +1,9 @@
+{
+  if (value == null || value < from || value >= to) {
+    return false;
+  }
+  if (incrementUnit == 1) {
+    return true;
+  }
+  return ((long)value - (long)from) % incrementUnit == 0;
+}

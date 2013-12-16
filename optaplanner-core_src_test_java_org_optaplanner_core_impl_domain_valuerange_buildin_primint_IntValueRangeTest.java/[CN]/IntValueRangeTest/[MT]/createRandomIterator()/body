@@ -10,5 +10,7 @@
   when(workingRandom.nextInt(anyInt())).thenReturn(3,0);
   assertElementsOfIterator(new IntValueRange(0,10,2).createRandomIterator(workingRandom),6,0);
   when(workingRandom.nextInt(anyInt())).thenReturn(3,0);
+  assertElementsOfIterator(new IntValueRange(-1,9,2).createRandomIterator(workingRandom),5,-1);
+  when(workingRandom.nextInt(anyInt())).thenReturn(3,0);
   assertElementsOfIterator(new IntValueRange(100,120,5).createRandomIterator(workingRandom),115,100);
 }

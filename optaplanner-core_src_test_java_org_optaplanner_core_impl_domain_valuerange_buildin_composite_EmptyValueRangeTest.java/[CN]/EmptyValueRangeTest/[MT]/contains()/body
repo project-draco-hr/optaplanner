@@ -1,0 +1,4 @@
+{
+  assertEquals(false,new EmptyValueRange<Integer>().contains(5));
+  assertEquals(false,new EmptyValueRange<Integer>().contains(null));
+}

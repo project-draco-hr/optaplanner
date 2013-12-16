@@ -5,5 +5,6 @@
   assertEquals(1,new IntValueRange(-5,25).get(6L).intValue());
   assertEquals(4,new IntValueRange(-1000,Integer.MAX_VALUE - 100).get(1004L).intValue());
   assertEquals(6,new IntValueRange(0,10,2).get(3L).intValue());
+  assertEquals(5,new IntValueRange(-1,9,2).get(3L).intValue());
   assertEquals(115,new IntValueRange(100,120,5).get(3L).intValue());
 }

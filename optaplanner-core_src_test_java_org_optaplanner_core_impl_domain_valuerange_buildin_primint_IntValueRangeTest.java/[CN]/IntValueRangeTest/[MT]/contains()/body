@@ -1,0 +1,15 @@
+{
+  assertEquals(true,new IntValueRange(0,10).contains(3));
+  assertEquals(false,new IntValueRange(0,10).contains(10));
+  assertEquals(false,new IntValueRange(0,10).contains(null));
+  assertEquals(true,new IntValueRange(100,120).contains(100));
+  assertEquals(false,new IntValueRange(100,120).contains(99));
+  assertEquals(true,new IntValueRange(-5,25).contains(-4));
+  assertEquals(false,new IntValueRange(-5,25).contains(-20));
+  assertEquals(true,new IntValueRange(0,10,2).contains(2));
+  assertEquals(false,new IntValueRange(0,10,2).contains(3));
+  assertEquals(true,new IntValueRange(-1,9,2).contains(1));
+  assertEquals(false,new IntValueRange(-1,9,2).contains(2));
+  assertEquals(true,new IntValueRange(100,120,5).contains(115));
+  assertEquals(false,new IntValueRange(100,120,5).contains(114));
+}

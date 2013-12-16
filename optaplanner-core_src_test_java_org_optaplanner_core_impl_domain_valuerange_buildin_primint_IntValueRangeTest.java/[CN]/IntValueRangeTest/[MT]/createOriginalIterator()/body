@@ -4,5 +4,6 @@
   assertAllElementsOfIterator(new IntValueRange(-4,3).createOriginalIterator(),-4,-3,-2,-1,0,1,2);
   assertAllElementsOfIterator(new IntValueRange(7,7).createOriginalIterator());
   assertAllElementsOfIterator(new IntValueRange(0,10,2).createOriginalIterator(),0,2,4,6,8);
+  assertAllElementsOfIterator(new IntValueRange(-1,9,2).createOriginalIterator(),-1,1,3,5,7);
   assertAllElementsOfIterator(new IntValueRange(100,120,5).createOriginalIterator(),100,105,110,115);
 }

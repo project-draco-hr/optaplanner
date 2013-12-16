@@ -1,0 +1,6 @@
+{
+  if (value == null || value.compareTo(from) < 0 || value.compareTo(to) >= 0) {
+    return false;
+  }
+  return value.subtract(from).remainder(incrementUnit).compareTo(BigDecimal.ZERO) == 0;
+}
