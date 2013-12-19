@@ -1,3 +1,0 @@
-{
-  return leftEntitySelector.isContinuous() || rightEntitySelector.isContinuous();
-}

@@ -8,7 +8,7 @@
     }
   }
 );
-  when(valueSelector.isContinuous()).thenReturn(false);
+  when(valueSelector.isCountable()).thenReturn(true);
   when(valueSelector.isNeverEnding()).thenReturn(false);
   when(valueSelector.getSize(any())).thenReturn((long)valueList.size());
   return valueSelector;

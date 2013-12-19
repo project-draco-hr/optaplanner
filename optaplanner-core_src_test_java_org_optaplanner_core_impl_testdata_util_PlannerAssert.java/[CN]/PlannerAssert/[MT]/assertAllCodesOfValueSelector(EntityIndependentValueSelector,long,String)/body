@@ -1,6 +1,6 @@
 {
   assertAllCodesOfIterator(valueSelector.iterator(),codes);
-  assertEquals(false,valueSelector.isContinuous());
+  assertEquals(true,valueSelector.isCountable());
   assertEquals(false,valueSelector.isNeverEnding());
   if (size != DO_NOT_ASSERT_SIZE) {
     assertEquals(size,valueSelector.getSize());

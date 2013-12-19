@@ -12,7 +12,7 @@
   }
   assertTrue(subChainCountMap.isEmpty());
   assertTrue(iterator.hasNext());
-  assertEquals(false,subChainSelector.isContinuous());
+  assertEquals(true,subChainSelector.isCountable());
   assertEquals(true,subChainSelector.isNeverEnding());
   assertEquals((long)selectionSize,subChainSelector.getSize());
 }

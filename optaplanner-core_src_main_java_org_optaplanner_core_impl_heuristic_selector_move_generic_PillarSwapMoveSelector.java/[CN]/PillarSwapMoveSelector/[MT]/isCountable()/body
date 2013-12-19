@@ -1,0 +1,3 @@
+{
+  return leftPillarSelector.isCountable() && rightPillarSelector.isCountable();
+}

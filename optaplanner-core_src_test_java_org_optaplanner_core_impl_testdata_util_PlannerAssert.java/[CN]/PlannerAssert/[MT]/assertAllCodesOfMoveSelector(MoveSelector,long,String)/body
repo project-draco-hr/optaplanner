@@ -1,6 +1,6 @@
 {
   assertAllCodesOfIterator(moveSelector.iterator(),codes);
-  assertEquals(false,moveSelector.isContinuous());
+  assertEquals(true,moveSelector.isCountable());
   assertEquals(false,moveSelector.isNeverEnding());
   if (size != DO_NOT_ASSERT_SIZE) {
     assertEquals(size,moveSelector.getSize());

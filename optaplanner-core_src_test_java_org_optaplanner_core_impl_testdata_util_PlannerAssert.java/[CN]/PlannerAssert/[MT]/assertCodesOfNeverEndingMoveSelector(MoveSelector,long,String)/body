@@ -2,7 +2,7 @@
   Iterator<Move> iterator=moveSelector.iterator();
   assertCodesOfIterator(iterator,codes);
   assertTrue(iterator.hasNext());
-  assertEquals(false,moveSelector.isContinuous());
+  assertEquals(true,moveSelector.isCountable());
   assertEquals(true,moveSelector.isNeverEnding());
   if (size != DO_NOT_ASSERT_SIZE) {
     assertEquals(size,moveSelector.getSize());

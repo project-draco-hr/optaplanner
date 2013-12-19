@@ -1,0 +1,3 @@
+{
+  return leftSubChainSelector.isCountable() && rightSubChainSelector.isCountable();
+}

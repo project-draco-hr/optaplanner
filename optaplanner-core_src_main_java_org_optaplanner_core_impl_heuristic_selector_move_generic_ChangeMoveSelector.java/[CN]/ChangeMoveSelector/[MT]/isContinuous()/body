@@ -1,3 +1,0 @@
-{
-  return entitySelector.isContinuous() || valueSelector.isContinuous();
-}

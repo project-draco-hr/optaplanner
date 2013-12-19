@@ -29,7 +29,7 @@
     }
   }
 );
-  when(entitySelector.isContinuous()).thenReturn(false);
+  when(entitySelector.isCountable()).thenReturn(true);
   when(entitySelector.isNeverEnding()).thenReturn(false);
   when(entitySelector.getSize()).thenReturn((long)entityList.size());
   return entitySelector;
