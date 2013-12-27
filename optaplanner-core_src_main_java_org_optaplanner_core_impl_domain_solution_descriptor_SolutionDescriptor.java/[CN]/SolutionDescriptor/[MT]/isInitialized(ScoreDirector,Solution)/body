@@ -4,7 +4,9 @@
     if (entity != null) {
       PlanningEntityDescriptor entityDescriptor=getEntityDescriptor(entity.getClass());
       if (!entityDescriptor.isInitialized(entity)) {
-        return false;
+        if (!entityDescriptor.hasMovableEntitySelectionFilter() || entityDescriptor.getMovableEntitySelectionFilter().accept(scoreDirector,entity)) {
+          return false;
+        }
       }
     }
   }
@@ -13,7 +15,9 @@
     for (    Object entity : entityCollection) {
       PlanningEntityDescriptor entityDescriptor=getEntityDescriptor(entity.getClass());
       if (!entityDescriptor.isInitialized(entity)) {
-        return false;
+        if (!entityDescriptor.hasMovableEntitySelectionFilter() || entityDescriptor.getMovableEntitySelectionFilter().accept(scoreDirector,entity)) {
+          return false;
+        }
       }
     }
   }
