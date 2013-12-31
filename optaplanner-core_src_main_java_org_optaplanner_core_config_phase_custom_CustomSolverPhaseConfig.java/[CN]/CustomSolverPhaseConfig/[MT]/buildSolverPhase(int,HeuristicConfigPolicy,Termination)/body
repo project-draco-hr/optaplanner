@@ -6,7 +6,7 @@
     throw new IllegalArgumentException("Configure at least 1 <customSolverPhaseCommandClass> in the <customSolverPhase> configuration.");
   }
   List<CustomSolverPhaseCommand> customSolverPhaseCommandList=new ArrayList<CustomSolverPhaseCommand>(customSolverPhaseCommandClassList.size());
-  for (  Class<CustomSolverPhaseCommand> customSolverPhaseCommandClass : customSolverPhaseCommandClassList) {
+  for (  Class<? extends CustomSolverPhaseCommand> customSolverPhaseCommandClass : customSolverPhaseCommandClassList) {
     CustomSolverPhaseCommand customSolverPhaseCommand=ConfigUtils.newInstance(this,"customSolverPhaseCommandClass",customSolverPhaseCommandClass);
     customSolverPhaseCommandList.add(customSolverPhaseCommand);
   }
