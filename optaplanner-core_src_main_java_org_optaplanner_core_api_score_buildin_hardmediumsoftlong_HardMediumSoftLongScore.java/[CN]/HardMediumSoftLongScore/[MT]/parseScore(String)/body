@@ -1,0 +1,7 @@
+{
+  String[] levelStrings=parseLevelStrings(scoreString,HARD_LABEL,MEDIUM_LABEL,SOFT_LABEL);
+  long hardScore=Long.parseLong(levelStrings[0]);
+  long mediumScore=Long.parseLong(levelStrings[1]);
+  long softScore=Long.parseLong(levelStrings[2]);
+  return valueOf(hardScore,mediumScore,softScore);
+}

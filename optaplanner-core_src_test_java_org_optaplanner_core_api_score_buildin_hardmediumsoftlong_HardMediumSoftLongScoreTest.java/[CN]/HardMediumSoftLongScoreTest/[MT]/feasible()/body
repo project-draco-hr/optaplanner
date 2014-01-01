@@ -1,0 +1,4 @@
+{
+  assertScoreNotFeasible(HardMediumSoftLongScore.valueOf(-5L,-300L,-4000L));
+  assertScoreFeasible(HardMediumSoftLongScore.valueOf(0L,-300L,-4000L),HardMediumSoftLongScore.valueOf(2L,-300L,-4000L));
+}

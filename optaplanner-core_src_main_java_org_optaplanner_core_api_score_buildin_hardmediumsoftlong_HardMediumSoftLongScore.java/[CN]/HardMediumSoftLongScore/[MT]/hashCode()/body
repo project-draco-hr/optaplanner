@@ -1,0 +1,3 @@
+{
+  return ((((17 * 37) + Long.valueOf(hardScore).hashCode())) * 37 + Long.valueOf(mediumScore).hashCode()) * 37 + Long.valueOf(softScore).hashCode();
+}

@@ -1,0 +1,3 @@
+{
+  assertEquals(HardMediumSoftLongScore.valueOf(21L,280L,-8000L),HardMediumSoftLongScore.valueOf(20L,-20L,-4000L).subtract(HardMediumSoftLongScore.valueOf(-1L,-300L,4000L)));
+}

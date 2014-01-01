@@ -25,6 +25,8 @@ case HARD_SOFT_BIG_DECIMAL:
 return new HardSoftBigDecimalScoreDefinition();
 case HARD_MEDIUM_SOFT:
 return new HardMediumSoftScoreDefinition();
+case HARD_MEDIUM_SOFT_LONG:
+return new HardMediumSoftLongScoreDefinition();
 case BENDABLE:
 if (bendableHardLevelCount == null || bendableSoftLevelCount == null) {
 throw new IllegalArgumentException("With scoreDefinitionType (" + scoreDefinitionType + ") there must be a bendableHardLevelCount ("+ bendableHardLevelCount+ ") and a bendableSoftLevelCount ("+ bendableSoftLevelCount+ ").");

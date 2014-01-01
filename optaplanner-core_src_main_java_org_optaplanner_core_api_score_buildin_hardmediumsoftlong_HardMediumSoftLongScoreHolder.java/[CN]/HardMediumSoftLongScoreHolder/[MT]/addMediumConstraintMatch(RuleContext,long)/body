@@ -1,0 +1,9 @@
+{
+  mediumScore+=weight;
+  registerLongConstraintMatch(kcontext,1,weight,new Runnable(){
+    public void run(){
+      mediumScore-=weight;
+    }
+  }
+);
+}

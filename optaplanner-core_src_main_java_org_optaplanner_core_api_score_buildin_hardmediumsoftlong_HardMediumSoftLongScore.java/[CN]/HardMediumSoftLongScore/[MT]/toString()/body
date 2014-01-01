@@ -1,0 +1,3 @@
+{
+  return hardScore + HARD_LABEL + "/"+ mediumScore+ MEDIUM_LABEL+ "/"+ softScore+ SOFT_LABEL;
+}

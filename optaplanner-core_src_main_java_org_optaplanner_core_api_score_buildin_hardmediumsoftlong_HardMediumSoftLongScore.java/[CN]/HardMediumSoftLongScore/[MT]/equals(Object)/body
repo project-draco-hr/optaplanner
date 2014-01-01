@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof HardMediumSoftLongScore) {
+    HardMediumSoftLongScore other=(HardMediumSoftLongScore)o;
+    return hardScore == other.getHardScore() && mediumScore == other.getMediumScore() && softScore == other.getSoftScore();
+  }
+ else {
+    return false;
+  }
+}

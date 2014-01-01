@@ -1,0 +1,3 @@
+{
+  assertEquals(HardMediumSoftLongScore.valueOf(-147L,-258L,-369L),HardMediumSoftLongScore.parseScore("-147hard/-258medium/-369soft"));
+}
