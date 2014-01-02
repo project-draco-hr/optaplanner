@@ -1,3 +1,6 @@
 {
-  return valueRangeDescriptor.extractValueRange(solution,entity).getSize();
+  if (!valueRangeDescriptor.isCountable()) {
+    return 0L;
+  }
+  return ((CountableValueRange<?>)valueRangeDescriptor.extractValueRange(solution,entity)).getSize();
 }

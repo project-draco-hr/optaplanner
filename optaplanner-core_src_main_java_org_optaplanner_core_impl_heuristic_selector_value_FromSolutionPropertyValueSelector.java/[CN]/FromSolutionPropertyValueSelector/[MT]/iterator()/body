@@ -1,6 +1,6 @@
 {
   if (!randomSelection) {
-    return cachedValueRange.createOriginalIterator();
+    return ((CountableValueRange<Object>)cachedValueRange).createOriginalIterator();
   }
  else {
     return cachedValueRange.createRandomIterator(workingRandom);

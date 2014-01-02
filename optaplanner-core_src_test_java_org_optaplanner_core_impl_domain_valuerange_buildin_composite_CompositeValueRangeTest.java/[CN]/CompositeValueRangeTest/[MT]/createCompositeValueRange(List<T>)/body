@@ -1,7 +1,0 @@
-{
-  List<ListValueRange<T>> childValueRangeList=new ArrayList<ListValueRange<T>>(lists.length);
-  for (  List<T> list : lists) {
-    childValueRangeList.add(new ListValueRange<T>(list));
-  }
-  return new CompositeValueRange<T>(childValueRangeList);
-}

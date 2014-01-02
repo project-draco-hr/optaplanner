@@ -5,4 +5,5 @@
   if (!collectionWrapping && !ValueRange.class.isAssignableFrom(returnType)) {
     throw new IllegalArgumentException("The planningEntityClass (" + entityDescriptor.getPlanningEntityClass() + ") has a "+ PlanningVariable.class.getSimpleName()+ " annotated property ("+ variableDescriptor.getVariableName()+ ") that refers to a "+ ValueRangeProvider.class.getSimpleName()+ " annotated method ("+ readMethodAccessor.getReadMethod()+ ") that does not return a "+ Collection.class.getSimpleName()+ " or a "+ ValueRange.class.getSimpleName()+ ".");
   }
+  countable=collectionWrapping || CountableValueRange.class.isAssignableFrom(returnType);
 }

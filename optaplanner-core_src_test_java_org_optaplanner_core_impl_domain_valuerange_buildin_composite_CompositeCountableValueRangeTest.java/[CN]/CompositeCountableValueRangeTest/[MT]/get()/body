@@ -1,0 +1,6 @@
+{
+  assertEquals(5,createValueRange(Arrays.asList(0,2,5,10),Arrays.asList(-15,25,-1)).get(2L).intValue());
+  assertEquals(-15,createValueRange(Arrays.asList(0,2,5,10),Arrays.asList(-15,25,-1)).get(4L).intValue());
+  assertEquals(-1,createValueRange(Arrays.asList(0,2,5,10),Arrays.asList(-15,25,-1)).get(6L).intValue());
+  assertEquals("c",createValueRange(Arrays.asList("a","b"),Arrays.asList("c"),Arrays.asList("d")).get(2L));
+}

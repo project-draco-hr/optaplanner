@@ -1,6 +1,6 @@
 {
   if (valueRangeDescriptor.isEntityIndependent()) {
-    ValueRange<?> valueRange=((EntityIndependentPlanningValueRangeDescriptor)valueRangeDescriptor).extractValueRange(phaseScope.getWorkingSolution());
+    CountableValueRange<?> valueRange=(CountableValueRange<?>)((EntityIndependentPlanningValueRangeDescriptor)valueRangeDescriptor).extractValueRange(phaseScope.getWorkingSolution());
     cachedPlanningValues=IteratorUtils.toList(valueRange.createOriginalIterator(),(int)valueRange.getSize());
   }
  else {

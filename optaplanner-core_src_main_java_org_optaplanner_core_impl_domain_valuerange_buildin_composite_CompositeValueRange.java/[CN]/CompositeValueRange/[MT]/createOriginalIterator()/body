@@ -1,7 +1,0 @@
-{
-  List<Iterator<T>> iteratorList=new ArrayList<Iterator<T>>(childValueRangeList.size());
-  for (  ValueRange<T> childValueRange : childValueRangeList) {
-    iteratorList.add(childValueRange.createOriginalIterator());
-  }
-  return IteratorUtils.chainedIterator(iteratorList);
-}

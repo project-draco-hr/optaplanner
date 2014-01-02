@@ -1,8 +1,0 @@
-{
-  this.childValueRangeList=childValueRangeList;
-  long size=0L;
-  for (  ValueRange<T> childValueRange : childValueRangeList) {
-    size+=childValueRange.getSize();
-  }
-  this.size=size;
-}

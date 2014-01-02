@@ -1,0 +1,5 @@
+{
+  assertAllElementsOfIterator(createValueRange(Arrays.asList(0,2,5,10),Arrays.asList(-15,25,-1)).createOriginalIterator(),0,2,5,10,-15,25,-1);
+  assertAllElementsOfIterator(createValueRange(Arrays.asList("a","b"),Arrays.asList("c"),Arrays.asList("d")).createOriginalIterator(),"a","b","c","d");
+  assertAllElementsOfIterator(createValueRange(Collections.<String>emptyList(),Collections.<String>emptyList()).createOriginalIterator());
+}

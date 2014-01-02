@@ -1,8 +1,0 @@
-{
-  for (  ValueRange<T> childValueRange : childValueRangeList) {
-    if (!childValueRange.isCountable()) {
-      return false;
-    }
-  }
-  return true;
-}

@@ -1,8 +1,0 @@
-{
-  for (  ValueRange<T> childValueRange : childValueRangeList) {
-    if (childValueRange.contains(value)) {
-      return true;
-    }
-  }
-  return false;
-}

@@ -1,5 +1,0 @@
-{
-  assertAllElementsOfIterator(createCompositeValueRange(Arrays.asList(0,2,5,10),Arrays.asList(-15,25,-1)).createOriginalIterator(),0,2,5,10,-15,25,-1);
-  assertAllElementsOfIterator(createCompositeValueRange(Arrays.asList("a","b"),Arrays.asList("c"),Arrays.asList("d")).createOriginalIterator(),"a","b","c","d");
-  assertAllElementsOfIterator(createCompositeValueRange(Collections.<String>emptyList(),Collections.<String>emptyList()).createOriginalIterator());
-}

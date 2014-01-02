@@ -1,4 +1,4 @@
 {
   ValueRange<?> valueRange=valueRangeDescriptor.extractValueRange(workingSolution,entity);
-  return valueRange.getSize();
+  return ((CountableValueRange<?>)valueRange).getSize();
 }

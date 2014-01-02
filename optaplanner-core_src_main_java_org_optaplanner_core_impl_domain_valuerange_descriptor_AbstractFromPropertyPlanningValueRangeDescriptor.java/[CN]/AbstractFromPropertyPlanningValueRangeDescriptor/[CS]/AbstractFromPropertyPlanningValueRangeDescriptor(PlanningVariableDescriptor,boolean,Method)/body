@@ -6,4 +6,7 @@
     throw new IllegalStateException("The readMethod (" + readMethod + ") must have a valueRangeProviderAnnotation ("+ valueRangeProviderAnnotation+ ").");
   }
   processValueRangeProviderAnnotation(valueRangeProviderAnnotation);
+  if (addNullInValueRange && !countable) {
+    throw new IllegalStateException("The valueRangeDescriptor (" + this + ") is nullable, but not countable ("+ countable+ ").\n"+ "Maybe the readMethod ("+ readMethod+ ") should return "+ CountableValueRange.class.getSimpleName()+ ".");
+  }
 }

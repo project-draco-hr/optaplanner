@@ -1,5 +1,0 @@
-{
-  assertEquals(7L,createCompositeValueRange(Arrays.asList(0,2,5,10),Arrays.asList(-15,25,-1)).getSize());
-  assertEquals(4L,createCompositeValueRange(Arrays.asList("a","b"),Arrays.asList("c"),Arrays.asList("d")).getSize());
-  assertEquals(0L,createCompositeValueRange(Collections.<String>emptyList(),Collections.<String>emptyList()).getSize());
-}

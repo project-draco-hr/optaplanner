@@ -1,8 +1,8 @@
 {
-  List<ValueRange<?>> childValueRangeList=new ArrayList<ValueRange<?>>(valueRangeDescriptorList.size());
-  for (  PlanningValueRangeDescriptor valueRangeDescriptor : valueRangeDescriptorList) {
+  List<CountableValueRange<?>> childValueRangeList=new ArrayList<CountableValueRange<?>>(childValueRangeDescriptorList.size());
+  for (  PlanningValueRangeDescriptor valueRangeDescriptor : childValueRangeDescriptorList) {
     EntityIndependentPlanningValueRangeDescriptor entityIndependentValueRangeDescriptor=(EntityIndependentPlanningValueRangeDescriptor)valueRangeDescriptor;
-    childValueRangeList.add(entityIndependentValueRangeDescriptor.extractValueRange(solution));
+    childValueRangeList.add((CountableValueRange)entityIndependentValueRangeDescriptor.extractValueRange(solution));
   }
-  return doNullInValueRangeWrapping(new CompositeValueRange(childValueRangeList));
+  return doNullInValueRangeWrapping(new CompositeCountableValueRange(childValueRangeList));
 }

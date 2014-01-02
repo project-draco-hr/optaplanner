@@ -1,0 +1,5 @@
+{
+  assertEquals(7L,createValueRange(Arrays.asList(0,2,5,10),Arrays.asList(-15,25,-1)).getSize());
+  assertEquals(4L,createValueRange(Arrays.asList("a","b"),Arrays.asList("c"),Arrays.asList("d")).getSize());
+  assertEquals(0L,createValueRange(Collections.<String>emptyList(),Collections.<String>emptyList()).getSize());
+}
