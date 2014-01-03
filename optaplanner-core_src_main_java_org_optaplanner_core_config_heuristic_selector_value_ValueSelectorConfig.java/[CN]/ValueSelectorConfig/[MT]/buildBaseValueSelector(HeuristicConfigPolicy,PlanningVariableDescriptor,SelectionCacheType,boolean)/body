@@ -1,7 +1,7 @@
 {
   ValueRangeDescriptor valueRangeDescriptor=variableDescriptor.getValueRangeDescriptor();
   if (valueRangeDescriptor.isEntityIndependent()) {
-    if (variableDescriptor.isPlanningValuesCacheable()) {
+    if (variableDescriptor.isValueRangeImmutableDuringPhase()) {
       if (minimumCacheType.compareTo(SelectionCacheType.PHASE) < 0) {
         minimumCacheType=SelectionCacheType.PHASE;
       }

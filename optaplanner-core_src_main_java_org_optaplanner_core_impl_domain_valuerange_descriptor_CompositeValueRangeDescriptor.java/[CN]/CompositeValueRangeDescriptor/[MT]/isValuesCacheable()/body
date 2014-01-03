@@ -1,8 +1,0 @@
-{
-  for (  ValueRangeDescriptor valueRangeDescriptor : childValueRangeDescriptorList) {
-    if (!valueRangeDescriptor.isValuesCacheable()) {
-      return false;
-    }
-  }
-  return true;
-}
