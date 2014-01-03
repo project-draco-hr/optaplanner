@@ -1,5 +1,5 @@
 {
-  PlanningValueRangeDescriptor valueRangeDescriptor=variableDescriptor.getValueRangeDescriptor();
+  ValueRangeDescriptor valueRangeDescriptor=variableDescriptor.getValueRangeDescriptor();
   if (valueRangeDescriptor.isEntityIndependent()) {
     if (variableDescriptor.isPlanningValuesCacheable()) {
       if (minimumCacheType.compareTo(SelectionCacheType.PHASE) < 0) {
@@ -11,7 +11,7 @@
         minimumCacheType=SelectionCacheType.STEP;
       }
     }
-    return new FromSolutionPropertyValueSelector((EntityIndependentPlanningValueRangeDescriptor)valueRangeDescriptor,minimumCacheType,randomSelection);
+    return new FromSolutionPropertyValueSelector((EntityIndependentValueRangeDescriptor)valueRangeDescriptor,minimumCacheType,randomSelection);
   }
  else {
     return new FromEntityPropertyValueSelector(valueRangeDescriptor,minimumCacheType,randomSelection);
