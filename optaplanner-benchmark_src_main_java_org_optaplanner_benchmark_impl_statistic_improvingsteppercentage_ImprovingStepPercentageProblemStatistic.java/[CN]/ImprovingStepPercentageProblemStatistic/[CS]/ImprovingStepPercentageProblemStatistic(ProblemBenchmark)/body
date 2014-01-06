@@ -1,3 +1,0 @@
-{
-  super(problemBenchmark,ProblemStatisticType.IMPROVING_STEP_PERCENTAGE);
-}

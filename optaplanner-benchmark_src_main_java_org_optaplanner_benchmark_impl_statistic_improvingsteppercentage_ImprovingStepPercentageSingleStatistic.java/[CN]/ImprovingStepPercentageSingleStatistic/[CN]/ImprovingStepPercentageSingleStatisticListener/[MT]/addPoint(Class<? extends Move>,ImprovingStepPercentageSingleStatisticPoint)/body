@@ -1,6 +1,0 @@
-{
-  if (!pointLists.containsKey(where)) {
-    pointLists.put(where,new ArrayList<ImprovingStepPercentageSingleStatisticPoint>());
-  }
-  pointLists.get(where).add(what);
-}

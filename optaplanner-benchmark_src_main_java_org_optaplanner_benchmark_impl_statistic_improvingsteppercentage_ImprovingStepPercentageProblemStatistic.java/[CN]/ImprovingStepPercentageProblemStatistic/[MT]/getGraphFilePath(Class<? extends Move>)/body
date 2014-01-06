@@ -1,3 +1,0 @@
-{
-  return toFilePath(graphStatisticFileMap.get(moveClass));
-}

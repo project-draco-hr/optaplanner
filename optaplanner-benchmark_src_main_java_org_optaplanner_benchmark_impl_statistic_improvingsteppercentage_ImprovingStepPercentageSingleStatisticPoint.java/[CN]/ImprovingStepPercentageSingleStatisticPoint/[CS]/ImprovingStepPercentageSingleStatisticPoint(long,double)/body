@@ -1,4 +1,0 @@
-{
-  this.timeMillisSpend=timeMillisSpend;
-  this.ratio=ratio;
-}

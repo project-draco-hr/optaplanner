@@ -1,3 +1,0 @@
-{
-  throw new UnsupportedOperationException("Planner doesn't support multiple CSV statistics per benchmark.");
-}

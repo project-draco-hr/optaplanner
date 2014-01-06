@@ -1,2 +1,0 @@
-Map<Class<? extends Move>,Integer> where
-Class<? extends Move> what
