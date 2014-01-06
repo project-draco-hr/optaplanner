@@ -9,4 +9,12 @@
   }
   benchmarkReportDirectory=new File(benchmarkDirectory,timestamp);
   benchmarkReportDirectory.mkdirs();
+  benchmarkOutputDirectory=new File(benchmarkReportDirectory,"resume");
+  benchmarkOutputDirectory.mkdirs();
+  try {
+    FileUtils.write(new File(getBenchmarkReportDirectory(),"resumeBenchmarkConfig.xml"),resumeConfig);
+  }
+ catch (  IOException ex) {
+    throw new IllegalStateException("Error while writing benchmark configuration file" + " (" + resumeConfig + ").");
+  }
 }

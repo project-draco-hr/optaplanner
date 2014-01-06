@@ -1,0 +1,3 @@
+{
+  this.xStream=new XStream();
+}

@@ -1,0 +1,13 @@
+{
+  Writer writer=null;
+  try {
+    writer=new OutputStreamWriter(new FileOutputStream(outputFile),"UTF-8");
+    xStream.toXML(singleBenchmarkState,writer);
+  }
+ catch (  IOException e) {
+    throw new IllegalArgumentException("Problem writing outputFile: " + outputFile,e);
+  }
+ finally {
+    IOUtils.closeQuietly(writer);
+  }
+}

@@ -1,0 +1,7 @@
+{
+  SingleStatisticCsv csv=new SingleStatisticCsv();
+  for (  CalculateCountSingleStatisticPoint point : pointList) {
+    csv.addPoint(point.getTimeMillisSpend(),point.getCalculateCountPerSecond());
+  }
+  csv.writeCsvSingleStatisticFile(outputFile);
+}

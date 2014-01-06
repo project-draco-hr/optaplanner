@@ -1,0 +1,3 @@
+{
+  addRawPoint(timeMillisSpend,Long.toString(value));
+}

@@ -1,3 +1,3 @@
 {
-  return succeeded != null && succeeded.booleanValue();
+  return singleBenchmarkState.getSucceeded() != null && singleBenchmarkState.getSucceeded().booleanValue();
 }
