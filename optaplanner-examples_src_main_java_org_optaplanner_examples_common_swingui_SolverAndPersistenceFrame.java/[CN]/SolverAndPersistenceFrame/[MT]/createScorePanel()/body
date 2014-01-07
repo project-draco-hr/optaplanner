@@ -4,9 +4,11 @@
   showConstraintMatchesDialogAction=new ShowConstraintMatchesDialogAction();
   showConstraintMatchesDialogAction.setEnabled(false);
   scorePanel.add(new JButton(showConstraintMatchesDialogAction),BorderLayout.WEST);
-  resultLabel=new JLabel("Score:");
-  resultLabel.setBorder(BorderFactory.createLoweredBevelBorder());
-  scorePanel.add(resultLabel,BorderLayout.CENTER);
+  scoreField=new JTextField("Score:");
+  scoreField.setEditable(false);
+  scoreField.setForeground(Color.BLACK);
+  scoreField.setBorder(BorderFactory.createLoweredBevelBorder());
+  scorePanel.add(scoreField,BorderLayout.CENTER);
   refreshScreenDuringSolvingCheckBox=new JCheckBox("Refresh screen during solving",solutionPanel.isRefreshScreenDuringSolving());
   scorePanel.add(refreshScreenDuringSolvingCheckBox,BorderLayout.EAST);
   return scorePanel;
