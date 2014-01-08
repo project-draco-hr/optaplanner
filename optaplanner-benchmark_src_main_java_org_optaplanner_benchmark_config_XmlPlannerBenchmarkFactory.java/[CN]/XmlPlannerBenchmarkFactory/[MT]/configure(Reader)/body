@@ -1,11 +1,4 @@
 {
-  try {
-    String configString=IOUtils.toString(reader);
-    plannerBenchmarkConfig=(PlannerBenchmarkConfig)xStream.fromXML(configString);
-    plannerBenchmarkConfig.setResumeConfig(configString);
-  }
- catch (  IOException e) {
-    throw new IllegalStateException("Error while reading benchmark configuration",e);
-  }
+  plannerBenchmarkConfig=(PlannerBenchmarkConfig)xStream.fromXML(reader);
   return this;
 }

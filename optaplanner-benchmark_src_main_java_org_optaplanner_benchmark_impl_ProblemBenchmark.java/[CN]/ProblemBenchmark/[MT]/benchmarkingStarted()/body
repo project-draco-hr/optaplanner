@@ -1,5 +1,8 @@
 {
-  problemReportDirectory=new File(plannerBenchmark.getBenchmarkReportDirectory(),name);
-  problemReportDirectory.mkdirs();
+  reportDirectory=new File(plannerBenchmark.getBenchmarkReportDirectory(),name);
+  reportDirectory.mkdirs();
   problemScale=null;
+  for (  SingleBenchmark singleBenchmark : singleBenchmarkList) {
+    singleBenchmark.benchmarkingStarted();
+  }
 }

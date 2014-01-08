@@ -1,0 +1,3 @@
+{
+  return CalculateCountSingleStatisticPoint.buildCsvLine("timeMillisSpend","calculateCountPerSecond");
+}

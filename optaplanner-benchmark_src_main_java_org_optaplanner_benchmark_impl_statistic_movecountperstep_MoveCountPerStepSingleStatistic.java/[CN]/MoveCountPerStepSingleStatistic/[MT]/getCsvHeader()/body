@@ -1,0 +1,3 @@
+{
+  return MoveCountPerStepSingleStatisticPoint.buildCsvLine("timeMillisSpend","acceptedMoveCount","selectedMoveCount");
+}

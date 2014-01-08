@@ -40,9 +40,9 @@
     }
     seriesIndex++;
   }
-  graphStatisticFileList=new ArrayList<File>(plotList.size());
+  graphFileList=new ArrayList<File>(plotList.size());
   for (int scoreLevelIndex=0; scoreLevelIndex < plotList.size(); scoreLevelIndex++) {
     JFreeChart chart=new JFreeChart(problemBenchmark.getName() + " best score level " + scoreLevelIndex+ " statistic",JFreeChart.DEFAULT_TITLE_FONT,plotList.get(scoreLevelIndex),true);
-    graphStatisticFileList.add(writeChartToImageFile(chart,problemBenchmark.getName() + "BestScoreStatisticLevel" + scoreLevelIndex));
+    graphFileList.add(writeChartToImageFile(chart,problemBenchmark.getName() + "BestScoreStatisticLevel" + scoreLevelIndex));
   }
 }

@@ -1,3 +1,0 @@
-{
-  addRawPoint(timeMillisSpend,"\"" + value.replaceAll("\"","\"\"") + "\"");
-}

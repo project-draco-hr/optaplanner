@@ -2,57 +2,43 @@
   Map<SingleBenchmark,Future<SingleBenchmark>> futureMap=new HashMap<SingleBenchmark,Future<SingleBenchmark>>();
   for (  ProblemBenchmark problemBenchmark : unifiedProblemBenchmarkList) {
     for (    SingleBenchmark singleBenchmark : problemBenchmark.getSingleBenchmarkList()) {
-      if (!singleBenchmark.getRecovered()) {
-        Future<SingleBenchmark> future=executorService.submit(singleBenchmark);
-        futureMap.put(singleBenchmark,future);
-      }
- else {
-        xStreamResumeIO.write(singleBenchmark.getSingleBenchmarkState(),new File(benchmarkOutputDirectory.getPath(),singleBenchmark.getName() + ".xml"));
-        for (        StatisticType statisticType : singleBenchmark.getSingleStatisticMap().keySet()) {
-          File statisticFile=new File(benchmarkOutputDirectory.getPath(),singleBenchmark.getSingleBenchmarkStatisticFilename(statisticType));
-          singleBenchmark.getSingleStatisticMap().get(statisticType).writeCsvStatistic(statisticFile);
-        }
-      }
+      Future<SingleBenchmark> future=executorService.submit(singleBenchmark);
+      futureMap.put(singleBenchmark,future);
     }
   }
   for (  Map.Entry<SingleBenchmark,Future<SingleBenchmark>> futureEntry : futureMap.entrySet()) {
     SingleBenchmark singleBenchmark=futureEntry.getKey();
     Future<SingleBenchmark> future=futureEntry.getValue();
     Throwable failureThrowable=null;
-    if (!singleBenchmark.getRecovered()) {
-      try {
-        singleBenchmark=future.get();
-        if (singleBenchmark.getScore() == null) {
-          throw new IllegalStateException("Score is null. TODO fix PLANNER-46.");
-        }
-      }
- catch (      InterruptedException e) {
-        logger.error("The singleBenchmark (" + singleBenchmark.getName() + ") was interrupted.",e);
-        failureThrowable=e;
-      }
-catch (      ExecutionException e) {
-        Throwable cause=e.getCause();
-        logger.error("The singleBenchmark (" + singleBenchmark.getName() + ") failed.",cause);
-        failureThrowable=cause;
-      }
-catch (      IllegalStateException e) {
-        logger.error("The singleBenchmark (" + singleBenchmark.getName() + ") failed.",e);
-        failureThrowable=e;
-      }
-      if (failureThrowable != null) {
-        singleBenchmark.setSucceeded(false);
-        singleBenchmark.setFailureThrowable(failureThrowable);
-        xStreamResumeIO.write(singleBenchmark.getSingleBenchmarkState(),new File(benchmarkOutputDirectory.getPath(),singleBenchmark.getName() + ".xml"));
-        failureCount++;
-        if (firstFailureSingleBenchmark == null) {
-          firstFailureSingleBenchmark=singleBenchmark;
-        }
+    try {
+      singleBenchmark=future.get();
+      if (singleBenchmark.getScore() == null) {
+        throw new IllegalStateException("Score is null. TODO fix PLANNER-46.");
       }
     }
-  }
-  for (  ProblemBenchmark problemBenchmark : unifiedProblemBenchmarkList) {
-    for (    SingleBenchmark singleBenchmark : problemBenchmark.getSingleBenchmarkList()) {
-      problemBenchmark.registerProblemScale(singleBenchmark.getSingleBenchmarkState().getProblemScale());
+ catch (    InterruptedException e) {
+      logger.error("The singleBenchmark (" + singleBenchmark.getName() + ") was interrupted.",e);
+      failureThrowable=e;
+    }
+catch (    ExecutionException e) {
+      Throwable cause=e.getCause();
+      logger.error("The singleBenchmark (" + singleBenchmark.getName() + ") failed.",cause);
+      failureThrowable=cause;
+    }
+catch (    IllegalStateException e) {
+      logger.error("The singleBenchmark (" + singleBenchmark.getName() + ") failed.",e);
+      failureThrowable=e;
+    }
+    if (failureThrowable == null) {
+      singleBenchmark.setSucceeded(true);
+    }
+ else {
+      singleBenchmark.setSucceeded(false);
+      singleBenchmark.setFailureThrowable(failureThrowable);
+      failureCount++;
+      if (firstFailureSingleBenchmark == null) {
+        firstFailureSingleBenchmark=singleBenchmark;
+      }
     }
   }
 }

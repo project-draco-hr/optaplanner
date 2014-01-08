@@ -1,7 +1,0 @@
-{
-  List<String> graphFilePathList=new ArrayList<String>(graphStatisticFileList.size());
-  for (  File graphStatisticFile : graphStatisticFileList) {
-    graphFilePathList.add(toFilePath(graphStatisticFile));
-  }
-  return graphFilePathList;
-}

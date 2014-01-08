@@ -40,5 +40,5 @@
     seriesIndex++;
   }
   JFreeChart chart=new JFreeChart(problemBenchmark.getName() + " move count per step statistic",JFreeChart.DEFAULT_TITLE_FONT,plot,true);
-  graphStatisticFile=writeChartToImageFile(chart,problemBenchmark.getName() + "MoveCountPerStepStatistic");
+  graphFile=writeChartToImageFile(chart,problemBenchmark.getName() + "MoveCountPerStepStatistic");
 }

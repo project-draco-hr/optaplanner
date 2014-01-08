@@ -1,0 +1,38 @@
+{
+  ScoreDefinition scoreDefinition=singleBenchmark.getSolverBenchmark().getSolverConfig().getScoreDirectorFactoryConfig().buildScoreDefinition();
+  List<P> pointList=getPointList();
+  if (!pointList.isEmpty()) {
+    throw new IllegalStateException("The pointList with size (" + pointList.size() + ") should be empty.");
+  }
+  BufferedReader reader=null;
+  try {
+    reader=new BufferedReader(new InputStreamReader(new FileInputStream(csvFile),"UTF-8"));
+    for (String line=reader.readLine(); line != null && !line.isEmpty(); line=reader.readLine()) {
+      String[] tokens=line.split(",");
+      List<String> csvLine=new ArrayList<String>(tokens.length);
+      for (int i=0; i < tokens.length; i++) {
+        String token=tokens[i];
+        while (token.trim().startsWith("\"") && !token.trim().endsWith("\"")) {
+          i++;
+          if (i >= tokens.length) {
+            throw new IllegalArgumentException("The CSV line (" + line + ") is not valid in csvFile ("+ csvFile+ ").");
+          }
+          token+=tokens[i];
+        }
+        token=token.trim();
+        if (token.startsWith("\"") && token.endsWith("\"")) {
+          token=token.substring(1,token.length() - 1);
+          token=token.replaceAll("\"\"","\"");
+        }
+        csvLine.add(token);
+      }
+      pointList.add(createPointFromCsvLine(scoreDefinition,csvLine));
+    }
+  }
+ catch (  IOException e) {
+    throw new IllegalArgumentException("Problem reading csvFile: " + csvFile,e);
+  }
+ finally {
+    IOUtils.closeQuietly(reader);
+  }
+}

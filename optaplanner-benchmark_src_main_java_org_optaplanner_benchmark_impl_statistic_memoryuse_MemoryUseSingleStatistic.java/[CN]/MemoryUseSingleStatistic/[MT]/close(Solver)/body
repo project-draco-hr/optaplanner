@@ -1,3 +1,4 @@
 {
   ((DefaultSolver)solver).removeSolverPhaseLifecycleListener(listener);
+  writeCsvStatisticFile();
 }

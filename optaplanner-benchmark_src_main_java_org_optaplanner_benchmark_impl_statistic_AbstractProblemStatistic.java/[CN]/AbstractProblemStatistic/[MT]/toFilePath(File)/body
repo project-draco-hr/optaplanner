@@ -1,3 +1,0 @@
-{
-  return problemBenchmark.getProblemReportDirectory().getName() + "/" + file.getName();
-}

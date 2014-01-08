@@ -1,6 +1,5 @@
 {
   SingleBenchmark singleBenchmark=new SingleBenchmark(null,null);
-  singleBenchmark.setSingleBenchmarkState(new SingleBenchmarkState());
   SimpleScore scoreObject=SimpleScore.valueOf(score);
   SimpleScore bestScoreObject=SimpleScore.valueOf(bestScore);
   SimpleScore worstScoreObject=SimpleScore.valueOf(worstScore);

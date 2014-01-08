@@ -1,0 +1,3 @@
+{
+  return buildCsvLine(timeMillisSpend,memoryUseMeasurement.getUsedMemory(),memoryUseMeasurement.getMaxMemory());
+}

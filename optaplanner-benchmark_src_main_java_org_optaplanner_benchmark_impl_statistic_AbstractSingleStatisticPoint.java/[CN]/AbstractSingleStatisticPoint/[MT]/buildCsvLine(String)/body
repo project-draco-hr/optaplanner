@@ -1,0 +1,7 @@
+{
+  List<String> line=new ArrayList<String>(values.length);
+  for (  String value : values) {
+    line.add("\"" + value.replaceAll("\"","\"\"") + "\"");
+  }
+  return line;
+}

@@ -1,8 +1,0 @@
-{
-  ProblemStatisticCsvLine line=timeToLineMap.get(timeMillisSpend);
-  if (line == null) {
-    line=new ProblemStatisticCsvLine(timeMillisSpend);
-    timeToLineMap.put(timeMillisSpend,line);
-  }
-  return line;
-}

@@ -1,4 +1,7 @@
 {
+  for (  SingleBenchmark singleBenchmark : singleBenchmarkList) {
+    singleBenchmark.benchmarkingEnded();
+  }
   determineTotalsAndAveragesAndRanking();
   determineWinningScoreDifference();
 }

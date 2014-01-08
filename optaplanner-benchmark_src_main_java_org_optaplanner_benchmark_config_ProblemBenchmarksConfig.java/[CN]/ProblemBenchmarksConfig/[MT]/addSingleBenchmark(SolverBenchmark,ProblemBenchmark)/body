@@ -1,0 +1,5 @@
+{
+  SingleBenchmark singleBenchmark=new SingleBenchmark(solverBenchmark,problemBenchmark);
+  solverBenchmark.getSingleBenchmarkList().add(singleBenchmark);
+  problemBenchmark.getSingleBenchmarkList().add(singleBenchmark);
+}

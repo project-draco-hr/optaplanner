@@ -1,4 +1,0 @@
-{
-  ProblemStatisticCsvLine line=findOrCreateLine(timeMillisSpend);
-  line.getValueMap().put(singleBenchmark,value);
-}

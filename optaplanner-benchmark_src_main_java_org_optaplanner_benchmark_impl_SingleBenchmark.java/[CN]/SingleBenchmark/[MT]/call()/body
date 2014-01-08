@@ -1,39 +1,30 @@
 {
-  if (singleBenchmarkState == null) {
-    singleBenchmarkState=new SingleBenchmarkState(getName());
-  }
   Runtime runtime=Runtime.getRuntime();
   Solution inputSolution=problemBenchmark.readPlanningProblem();
   if (!problemBenchmark.getPlannerBenchmark().hasMultipleParallelBenchmarks()) {
     runtime.gc();
-    singleBenchmarkState.setUsedMemoryAfterInputSolution(runtime.totalMemory() - runtime.freeMemory());
+    usedMemoryAfterInputSolution=runtime.totalMemory() - runtime.freeMemory();
   }
   logger.trace("Benchmark inputSolution has been read for singleBenchmark ({}_{}).",problemBenchmark.getName(),solverBenchmark.getName());
   Solver solver=solverBenchmark.getSolverConfig().buildSolver();
   for (  ProblemStatistic problemStatistic : problemBenchmark.getProblemStatisticList()) {
-    SingleStatistic singleStatistic=problemStatistic.createSingleStatistic();
+    SingleStatistic singleStatistic=problemStatistic.createSingleStatistic(this);
     singleStatistic.open(solver);
     singleStatisticMap.put(problemStatistic.getProblemStatisticType(),singleStatistic);
   }
   solver.setPlanningProblem(inputSolution);
   solver.solve();
   Solution outputSolution=solver.getBestSolution();
-  singleBenchmarkState.setTimeMillisSpend(solver.getTimeMillisSpend());
+  timeMillisSpend=solver.getTimeMillisSpend();
   DefaultSolverScope solverScope=((DefaultSolver)solver).getSolverScope();
-  singleBenchmarkState.setCalculateCount(solverScope.getCalculateCount());
-  singleBenchmarkState.setScore(outputSolution.getScore());
+  calculateCount=solverScope.getCalculateCount();
+  score=outputSolution.getScore();
   SolutionDescriptor solutionDescriptor=((DefaultSolver)solver).getSolutionDescriptor();
-  singleBenchmarkState.setPlanningEntityCount(solutionDescriptor.getEntityCount(outputSolution));
-  singleBenchmarkState.setProblemScale(solutionDescriptor.getProblemScale(outputSolution));
+  planningEntityCount=solutionDescriptor.getEntityCount(outputSolution);
+  problemBenchmark.registerProblemScale(solutionDescriptor.getProblemScale(outputSolution));
   for (  SingleStatistic singleStatistic : singleStatisticMap.values()) {
     singleStatistic.close(solver);
   }
-  for (  StatisticType type : singleStatisticMap.keySet()) {
-    File statisticFile=new File(problemBenchmark.getPlannerBenchmark().getBenchmarkOutputDirectory().getPath(),getSingleBenchmarkStatisticFilename(type));
-    singleStatisticMap.get(type).writeCsvStatistic(statisticFile);
-  }
-  setSucceeded(true);
-  xStreamResumeIO.write(getSingleBenchmarkState(),new File(problemBenchmark.getPlannerBenchmark().getBenchmarkOutputDirectory().getPath(),getName() + ".xml"));
   problemBenchmark.writeOutputSolution(this,outputSolution);
   return this;
 }

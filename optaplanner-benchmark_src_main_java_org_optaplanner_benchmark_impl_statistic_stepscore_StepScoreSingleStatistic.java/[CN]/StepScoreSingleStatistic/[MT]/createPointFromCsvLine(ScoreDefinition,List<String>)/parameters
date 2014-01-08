@@ -1,0 +1,2 @@
+ScoreDefinition scoreDefinition
+List<String> csvLine

@@ -1,0 +1,8 @@
+{
+  List<String> line=new ArrayList<String>(values.length + 1);
+  line.add(Long.toString(timeMillisSpend));
+  for (  long value : values) {
+    line.add(Long.toString(value));
+  }
+  return line;
+}

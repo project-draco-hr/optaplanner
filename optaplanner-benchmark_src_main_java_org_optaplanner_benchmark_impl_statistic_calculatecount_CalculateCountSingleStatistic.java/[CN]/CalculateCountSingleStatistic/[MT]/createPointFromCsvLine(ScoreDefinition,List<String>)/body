@@ -1,0 +1,3 @@
+{
+  return new CalculateCountSingleStatisticPoint(Long.valueOf(csvLine.get(0)),Long.valueOf(csvLine.get(1)));
+}
