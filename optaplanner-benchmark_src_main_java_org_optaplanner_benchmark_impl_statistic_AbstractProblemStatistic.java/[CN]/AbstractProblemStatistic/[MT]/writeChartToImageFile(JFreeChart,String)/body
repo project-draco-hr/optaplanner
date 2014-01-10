@@ -1,6 +1,6 @@
 {
   BufferedImage chartImage=chart.createBufferedImage(1024,768);
-  File chartFile=new File(problemBenchmark.getReportDirectory(),fileNameBase + ".png");
+  File chartFile=new File(problemBenchmark.getProblemReportDirectory(),fileNameBase + ".png");
   OutputStream out=null;
   try {
     out=new FileOutputStream(chartFile);

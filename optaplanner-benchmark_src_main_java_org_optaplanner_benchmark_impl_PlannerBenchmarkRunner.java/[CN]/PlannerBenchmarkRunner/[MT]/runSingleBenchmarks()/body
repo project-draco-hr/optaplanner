@@ -1,0 +1,44 @@
+{
+  Map<SingleBenchmarkRunner,Future<SingleBenchmarkRunner>> futureMap=new HashMap<SingleBenchmarkRunner,Future<SingleBenchmarkRunner>>();
+  for (  ProblemBenchmark problemBenchmark : plannerBenchmarkResult.getUnifiedProblemBenchmarkList()) {
+    for (    SingleBenchmark singleBenchmark : problemBenchmark.getSingleBenchmarkList()) {
+      SingleBenchmarkRunner singleBenchmarkRunner=new SingleBenchmarkRunner(singleBenchmark);
+      Future<SingleBenchmarkRunner> future=executorService.submit(singleBenchmarkRunner);
+      futureMap.put(singleBenchmarkRunner,future);
+    }
+  }
+  for (  Map.Entry<SingleBenchmarkRunner,Future<SingleBenchmarkRunner>> futureEntry : futureMap.entrySet()) {
+    SingleBenchmarkRunner singleBenchmarkRunner=futureEntry.getKey();
+    Future<SingleBenchmarkRunner> future=futureEntry.getValue();
+    Throwable failureThrowable=null;
+    try {
+      singleBenchmarkRunner=future.get();
+      if (singleBenchmarkRunner.getSingleBenchmark().getScore() == null) {
+        throw new IllegalStateException("Score is null. TODO fix PLANNER-46.");
+      }
+    }
+ catch (    InterruptedException e) {
+      logger.error("The singleBenchmarkRunner (" + singleBenchmarkRunner.getName() + ") was interrupted.",e);
+      failureThrowable=e;
+    }
+catch (    ExecutionException e) {
+      Throwable cause=e.getCause();
+      logger.error("The singleBenchmarkRunner (" + singleBenchmarkRunner.getName() + ") failed.",cause);
+      failureThrowable=cause;
+    }
+catch (    IllegalStateException e) {
+      logger.error("The singleBenchmarkRunner (" + singleBenchmarkRunner.getName() + ") failed.",e);
+      failureThrowable=e;
+    }
+    if (failureThrowable == null) {
+      singleBenchmarkRunner.getSingleBenchmark().setSucceeded(true);
+    }
+ else {
+      singleBenchmarkRunner.getSingleBenchmark().setSucceeded(false);
+      singleBenchmarkRunner.setFailureThrowable(failureThrowable);
+      if (firstFailureSingleBenchmarkRunner == null) {
+        firstFailureSingleBenchmarkRunner=singleBenchmarkRunner;
+      }
+    }
+  }
+}

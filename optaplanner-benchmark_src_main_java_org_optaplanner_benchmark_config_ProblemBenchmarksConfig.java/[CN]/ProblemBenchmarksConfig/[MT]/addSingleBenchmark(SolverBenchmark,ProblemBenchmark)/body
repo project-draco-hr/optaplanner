@@ -1,5 +1,9 @@
 {
   SingleBenchmark singleBenchmark=new SingleBenchmark(solverBenchmark,problemBenchmark);
+  for (  ProblemStatistic problemStatistic : problemBenchmark.getProblemStatisticList()) {
+    SingleStatistic singleStatistic=problemStatistic.createSingleStatistic(singleBenchmark);
+    singleBenchmark.getSingleStatisticMap().put(problemStatistic.getProblemStatisticType(),singleStatistic);
+  }
   solverBenchmark.getSingleBenchmarkList().add(singleBenchmark);
   problemBenchmark.getSingleBenchmarkList().add(singleBenchmark);
 }

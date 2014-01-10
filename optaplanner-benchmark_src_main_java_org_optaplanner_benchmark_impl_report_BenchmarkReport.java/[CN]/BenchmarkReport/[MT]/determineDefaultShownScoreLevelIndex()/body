@@ -1,6 +1,6 @@
 {
   defaultShownScoreLevelIndex=Integer.MAX_VALUE;
-  for (  ProblemBenchmark problemBenchmark : plannerBenchmark.getUnifiedProblemBenchmarkList()) {
+  for (  ProblemBenchmark problemBenchmark : plannerBenchmarkResult.getUnifiedProblemBenchmarkList()) {
     if (problemBenchmark.hasAnySuccess()) {
       double[] winningScoreLevels=ScoreUtils.extractLevelDoubles(problemBenchmark.getWinningSingleBenchmark().getScore());
       int[] differenceCount=new int[winningScoreLevels.length];

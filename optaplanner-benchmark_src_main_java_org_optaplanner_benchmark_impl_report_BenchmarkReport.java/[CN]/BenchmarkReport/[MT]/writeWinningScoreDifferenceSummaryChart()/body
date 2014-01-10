@@ -1,6 +1,6 @@
 {
   List<DefaultCategoryDataset> datasetList=new ArrayList<DefaultCategoryDataset>(CHARTED_SCORE_LEVEL_SIZE);
-  for (  SolverBenchmark solverBenchmark : plannerBenchmark.getSolverBenchmarkList()) {
+  for (  SolverBenchmark solverBenchmark : plannerBenchmarkResult.getSolverBenchmarkList()) {
     String solverLabel=solverBenchmark.getNameWithFavoriteSuffix();
     for (    SingleBenchmark singleBenchmark : solverBenchmark.getSingleBenchmarkList()) {
       String planningProblemLabel=singleBenchmark.getProblemBenchmark().getName();

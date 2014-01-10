@@ -1,0 +1,10 @@
+{
+  for (  SingleBenchmark singleBenchmark : singleBenchmarkList) {
+    singleBenchmark.accumulateResults(benchmarkReport);
+  }
+  determineTotalsAndAveragesAndRanking();
+  determineWinningScoreDifference();
+  for (  ProblemStatistic problemStatistic : problemStatisticList) {
+    problemStatistic.accumulateResults(benchmarkReport);
+  }
+}

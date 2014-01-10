@@ -1,4 +1,0 @@
-{
-  reportDirectory=new File(problemBenchmark.getReportDirectory(),solverBenchmark.getName());
-  reportDirectory.mkdirs();
-}

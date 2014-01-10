@@ -1,6 +1,7 @@
 {
-  summaryDirectory=new File(plannerBenchmark.getBenchmarkReportDirectory(),"summary");
+  summaryDirectory=new File(benchmarkReportDirectory,"summary");
   summaryDirectory.mkdir();
+  plannerBenchmarkResult.accumulateResults(this);
   fillWarningList();
   writeBestScoreSummaryCharts();
   writeBestScoreScalabilitySummaryChart();
@@ -10,10 +11,10 @@
   writeTimeSpendSummaryChart();
   writeTimeSpendScalabilitySummaryChart();
   writeBestScorePerTimeSpendSummaryChart();
-  for (  ProblemBenchmark problemBenchmark : plannerBenchmark.getUnifiedProblemBenchmarkList()) {
+  for (  ProblemBenchmark problemBenchmark : plannerBenchmarkResult.getUnifiedProblemBenchmarkList()) {
     if (problemBenchmark.hasAnySuccess()) {
       for (      ProblemStatistic problemStatistic : problemBenchmark.getProblemStatisticList()) {
-        problemStatistic.writeStatistic();
+        problemStatistic.writeGraphFiles(this);
       }
     }
   }

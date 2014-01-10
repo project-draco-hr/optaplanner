@@ -1,0 +1,21 @@
+{
+  if (plannerBenchmarkResult.getWarmUpTimeMillisSpend() > 0L) {
+    logger.info("================================================================================");
+    logger.info("Warming up started");
+    logger.info("================================================================================");
+    long startingTimeMillis=System.currentTimeMillis();
+    long timeLeft=plannerBenchmarkResult.getWarmUpTimeMillisSpend();
+    List<ProblemBenchmark> unifiedProblemBenchmarkList=plannerBenchmarkResult.getUnifiedProblemBenchmarkList();
+    Iterator<ProblemBenchmark> it=unifiedProblemBenchmarkList.iterator();
+    while (timeLeft > 0L) {
+      if (!it.hasNext()) {
+        it=unifiedProblemBenchmarkList.iterator();
+      }
+      ProblemBenchmark problemBenchmark=it.next();
+      timeLeft=problemBenchmark.warmUp(startingTimeMillis,plannerBenchmarkResult.getWarmUpTimeMillisSpend(),timeLeft);
+    }
+    logger.info("================================================================================");
+    logger.info("Warming up ended");
+    logger.info("================================================================================");
+  }
+}

@@ -1,4 +1,5 @@
 {
+  BenchmarkReport benchmarkReport=mock(BenchmarkReport.class);
   TotalScoreSolverBenchmarkRankingComparator comparator=new TotalScoreSolverBenchmarkRankingComparator();
   SolverBenchmark a=new SolverBenchmark(null);
   List<SingleBenchmark> aSingleBenchmarkList=new ArrayList<SingleBenchmark>();
@@ -6,14 +7,14 @@
   addSingleBenchmark(aSingleBenchmarkList,-400,-30,-1000);
   addSingleBenchmark(aSingleBenchmarkList,-30,-30,-1000);
   a.setSingleBenchmarkList(aSingleBenchmarkList);
-  a.benchmarkingEnded();
+  a.accumulateResults(benchmarkReport);
   SolverBenchmark b=new SolverBenchmark(null);
   List<SingleBenchmark> bSingleBenchmarkList=new ArrayList<SingleBenchmark>();
   addSingleBenchmark(bSingleBenchmarkList,-1000,-50,-1000);
   addSingleBenchmark(bSingleBenchmarkList,-200,-50,-1000);
   addSingleBenchmark(bSingleBenchmarkList,-50,-50,-1000);
   b.setSingleBenchmarkList(bSingleBenchmarkList);
-  b.benchmarkingEnded();
+  b.accumulateResults(benchmarkReport);
   assertEquals(-1,comparator.compare(a,b));
   assertEquals(1,comparator.compare(b,a));
 }

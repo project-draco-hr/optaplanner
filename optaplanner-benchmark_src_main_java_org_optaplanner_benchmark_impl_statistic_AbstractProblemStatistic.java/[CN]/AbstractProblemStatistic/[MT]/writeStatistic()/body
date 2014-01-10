@@ -1,5 +1,0 @@
-{
-  warningList=new ArrayList<String>();
-  fillWarningList();
-  writeGraphStatistic();
-}

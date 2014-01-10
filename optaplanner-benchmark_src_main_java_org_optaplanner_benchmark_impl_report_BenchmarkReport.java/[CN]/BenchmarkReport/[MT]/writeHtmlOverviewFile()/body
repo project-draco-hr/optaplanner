@@ -1,6 +1,6 @@
 {
-  WebsiteResourceUtils.copyResourcesTo(plannerBenchmark.getBenchmarkReportDirectory());
-  htmlOverviewFile=new File(plannerBenchmark.getBenchmarkReportDirectory(),"index.html");
+  WebsiteResourceUtils.copyResourcesTo(benchmarkReportDirectory);
+  htmlOverviewFile=new File(benchmarkReportDirectory,"index.html");
   Configuration freemarkerCfg=new Configuration();
   freemarkerCfg.setDefaultEncoding("UTF-8");
   freemarkerCfg.setLocale(locale);

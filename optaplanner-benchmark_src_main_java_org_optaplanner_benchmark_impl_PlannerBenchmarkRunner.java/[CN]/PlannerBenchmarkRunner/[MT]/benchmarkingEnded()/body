@@ -1,0 +1,15 @@
+{
+  List<Runnable> notExecutedBenchmarkList=executorService.shutdownNow();
+  if (!notExecutedBenchmarkList.isEmpty()) {
+    throw new IllegalStateException("Impossible state: notExecutedBenchmarkList size (" + notExecutedBenchmarkList + ").");
+  }
+  plannerBenchmarkResult.setBenchmarkTimeMillisSpend(calculateTimeMillisSpend());
+  benchmarkReport.writeReport();
+  if (plannerBenchmarkResult.getFailureCount() == 0) {
+    logger.info("Benchmarking ended: time spend ({}), favoriteSolverBenchmark ({}), statistic html overview ({}).",plannerBenchmarkResult.getBenchmarkTimeMillisSpend(),plannerBenchmarkResult.getFavoriteSolverBenchmark().getName(),benchmarkReport.getHtmlOverviewFile().getAbsolutePath());
+  }
+ else {
+    logger.info("Benchmarking failed: time spend ({}), failureCount ({}), statistic html overview ({}).",plannerBenchmarkResult.getBenchmarkTimeMillisSpend(),plannerBenchmarkResult.getFailureCount(),benchmarkReport.getHtmlOverviewFile().getAbsolutePath());
+    throw new PlannerBenchmarkException("Benchmarking failed: failureCount (" + plannerBenchmarkResult.getFailureCount() + ")."+ " The exception of the firstFailureSingleBenchmarkRunner ("+ firstFailureSingleBenchmarkRunner.getName()+ ") is chained.",firstFailureSingleBenchmarkRunner.getFailureThrowable());
+  }
+}

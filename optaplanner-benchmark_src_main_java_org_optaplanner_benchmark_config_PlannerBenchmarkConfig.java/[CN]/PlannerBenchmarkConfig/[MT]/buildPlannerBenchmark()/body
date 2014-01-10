@@ -2,20 +2,23 @@
   validate();
   generateSolverBenchmarkConfigNames();
   inherit();
-  DefaultPlannerBenchmark plannerBenchmark=new DefaultPlannerBenchmark();
-  plannerBenchmark.setName(name);
-  plannerBenchmark.setBenchmarkDirectory(benchmarkDirectory);
-  plannerBenchmark.setParallelBenchmarkCount(resolveParallelBenchmarkCount());
-  plannerBenchmark.setWarmUpTimeMillisSpend(calculateWarmUpTimeMillisSpendTotal());
-  plannerBenchmark.getBenchmarkReport().setLocale(benchmarkReportLocale == null ? Locale.getDefault() : benchmarkReportLocale);
-  supplySolverBenchmarkRanking(plannerBenchmark);
+  DefaultPlannerBenchmark plannerBenchmarkResult=new DefaultPlannerBenchmark();
+  plannerBenchmarkResult.setName(name);
+  PlannerBenchmarkRunner plannerBenchmarkRunner=new PlannerBenchmarkRunner(plannerBenchmarkResult);
+  plannerBenchmarkRunner.setBenchmarkDirectory(benchmarkDirectory);
+  plannerBenchmarkResult.setParallelBenchmarkCount(resolveParallelBenchmarkCount());
+  plannerBenchmarkResult.setWarmUpTimeMillisSpend(calculateWarmUpTimeMillisSpendTotal());
+  BenchmarkReport benchmarkReport=new BenchmarkReport(plannerBenchmarkResult);
+  plannerBenchmarkRunner.setBenchmarkReport(benchmarkReport);
+  benchmarkReport.setLocale(benchmarkReportLocale == null ? Locale.getDefault() : benchmarkReportLocale);
+  supplySolverBenchmarkRanking(benchmarkReport);
   List<SolverBenchmark> solverBenchmarkList=new ArrayList<SolverBenchmark>(solverBenchmarkConfigList.size());
   List<ProblemBenchmark> unifiedProblemBenchmarkList=new ArrayList<ProblemBenchmark>();
-  plannerBenchmark.setUnifiedProblemBenchmarkList(unifiedProblemBenchmarkList);
+  plannerBenchmarkResult.setUnifiedProblemBenchmarkList(unifiedProblemBenchmarkList);
   for (  SolverBenchmarkConfig solverBenchmarkConfig : solverBenchmarkConfigList) {
-    SolverBenchmark solverBenchmark=solverBenchmarkConfig.buildSolverBenchmark(plannerBenchmark);
+    SolverBenchmark solverBenchmark=solverBenchmarkConfig.buildSolverBenchmark(plannerBenchmarkResult);
     solverBenchmarkList.add(solverBenchmark);
   }
-  plannerBenchmark.setSolverBenchmarkList(solverBenchmarkList);
-  return plannerBenchmark;
+  plannerBenchmarkResult.setSolverBenchmarkList(solverBenchmarkList);
+  return plannerBenchmarkRunner;
 }

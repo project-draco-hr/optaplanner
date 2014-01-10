@@ -1,4 +1,5 @@
 {
+  BenchmarkReport benchmarkReport=mock(BenchmarkReport.class);
   TotalRankSolverBenchmarkRankingWeightFactory factory=new TotalRankSolverBenchmarkRankingWeightFactory();
   List<SolverBenchmark> solverBenchmarkList=new ArrayList<SolverBenchmark>();
   SolverBenchmark a=new SolverBenchmark(null);
@@ -7,7 +8,7 @@
   addSingleBenchmark(aSingleBenchmarkList,-900,-90,-5000);
   addSingleBenchmark(aSingleBenchmarkList,-90,-90,-5000);
   a.setSingleBenchmarkList(aSingleBenchmarkList);
-  a.benchmarkingEnded();
+  a.accumulateResults(benchmarkReport);
   solverBenchmarkList.add(a);
   SolverBenchmark b=new SolverBenchmark(null);
   List<SingleBenchmark> bSingleBenchmarkList=new ArrayList<SingleBenchmark>();
@@ -15,7 +16,7 @@
   addSingleBenchmark(bSingleBenchmarkList,-200,-20,-1000);
   addSingleBenchmark(bSingleBenchmarkList,-20,-20,-1000);
   b.setSingleBenchmarkList(bSingleBenchmarkList);
-  b.benchmarkingEnded();
+  b.accumulateResults(benchmarkReport);
   solverBenchmarkList.add(b);
   SolverBenchmark c=new SolverBenchmark(null);
   List<SingleBenchmark> cSingleBenchmarkList=new ArrayList<SingleBenchmark>();
@@ -23,7 +24,7 @@
   addSingleBenchmark(cSingleBenchmarkList,-100,-10,-5000);
   addSingleBenchmark(cSingleBenchmarkList,-10,-10,-5000);
   c.setSingleBenchmarkList(cSingleBenchmarkList);
-  c.benchmarkingEnded();
+  c.accumulateResults(benchmarkReport);
   solverBenchmarkList.add(c);
   Comparable aWeight=factory.createRankingWeight(solverBenchmarkList,a);
   Comparable bWeight=factory.createRankingWeight(solverBenchmarkList,b);

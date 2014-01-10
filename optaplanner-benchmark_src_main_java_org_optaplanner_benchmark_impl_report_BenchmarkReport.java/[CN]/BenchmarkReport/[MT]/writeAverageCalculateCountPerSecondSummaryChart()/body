@@ -1,6 +1,6 @@
 {
-  List<XYSeries> seriesList=new ArrayList<XYSeries>(plannerBenchmark.getSolverBenchmarkList().size());
-  for (  SolverBenchmark solverBenchmark : plannerBenchmark.getSolverBenchmarkList()) {
+  List<XYSeries> seriesList=new ArrayList<XYSeries>(plannerBenchmarkResult.getSolverBenchmarkList().size());
+  for (  SolverBenchmark solverBenchmark : plannerBenchmarkResult.getSolverBenchmarkList()) {
     String solverLabel=solverBenchmark.getNameWithFavoriteSuffix();
     XYSeries series=new XYSeries(solverLabel);
     for (    SingleBenchmark singleBenchmark : solverBenchmark.getSingleBenchmarkList()) {

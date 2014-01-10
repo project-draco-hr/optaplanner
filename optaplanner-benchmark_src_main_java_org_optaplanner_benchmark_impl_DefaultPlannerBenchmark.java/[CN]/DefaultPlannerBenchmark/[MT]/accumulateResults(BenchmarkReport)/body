@@ -1,0 +1,10 @@
+{
+  for (  ProblemBenchmark problemBenchmark : unifiedProblemBenchmarkList) {
+    problemBenchmark.accumulateResults(benchmarkReport);
+  }
+  for (  SolverBenchmark solverBenchmark : solverBenchmarkList) {
+    solverBenchmark.accumulateResults(benchmarkReport);
+  }
+  determineTotalsAndAverages();
+  determineSolverBenchmarkRanking(benchmarkReport);
+}

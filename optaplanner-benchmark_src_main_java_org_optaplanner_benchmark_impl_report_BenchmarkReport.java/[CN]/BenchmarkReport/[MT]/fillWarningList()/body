@@ -5,7 +5,7 @@
     warningList.add("The Java VM (" + javaVmName + ") is the Client VM."+ " Consider starting the java process with the argument \"-server\" to get better results.");
   }
   int availableProcessors=getAvailableProcessors();
-  if (plannerBenchmark.getParallelBenchmarkCount() > availableProcessors) {
-    warningList.add("The parallelBenchmarkCount (" + plannerBenchmark.getParallelBenchmarkCount() + ") is higher than the number of availableProcessors ("+ availableProcessors+ ").");
+  if (plannerBenchmarkResult.getParallelBenchmarkCount() > availableProcessors) {
+    warningList.add("The parallelBenchmarkCount (" + plannerBenchmarkResult.getParallelBenchmarkCount() + ") is higher than the number of availableProcessors ("+ availableProcessors+ ").");
   }
 }

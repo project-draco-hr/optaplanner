@@ -1,0 +1,14 @@
+{
+  if (startingSystemTimeMillis >= 0L) {
+    throw new IllegalStateException("This benchmark has already ran before.");
+  }
+  startingSystemTimeMillis=System.currentTimeMillis();
+  plannerBenchmarkResult.setStartingTimestamp(new Date());
+  List<SolverBenchmark> solverBenchmarkList=plannerBenchmarkResult.getSolverBenchmarkList();
+  if (solverBenchmarkList == null || solverBenchmarkList.isEmpty()) {
+    throw new IllegalArgumentException("The solverBenchmarkList (" + solverBenchmarkList + ") cannot be empty.");
+  }
+  initBenchmarkDirectoryAndSubdirs();
+  executorService=Executors.newFixedThreadPool(plannerBenchmarkResult.getParallelBenchmarkCount());
+  logger.info("Benchmarking started: solverBenchmarkList size ({}), parallelBenchmarkCount ({}).",solverBenchmarkList.size(),plannerBenchmarkResult.getParallelBenchmarkCount());
+}
