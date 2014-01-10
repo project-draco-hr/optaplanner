@@ -1,2 +1,2 @@
-DefaultPlannerBenchmark plannerBenchmark
+PlannerBenchmarkResult plannerBenchmark
 SolverBenchmarkResult solverBenchmarkResult

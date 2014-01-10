@@ -2,7 +2,7 @@
   validate();
   generateSolverBenchmarkConfigNames();
   inherit();
-  DefaultPlannerBenchmark plannerBenchmarkResult=new DefaultPlannerBenchmark();
+  PlannerBenchmarkResult plannerBenchmarkResult=new PlannerBenchmarkResult();
   plannerBenchmarkResult.setName(name);
   PlannerBenchmarkRunner plannerBenchmarkRunner=new PlannerBenchmarkRunner(plannerBenchmarkResult);
   plannerBenchmarkRunner.setBenchmarkDirectory(benchmarkDirectory);
