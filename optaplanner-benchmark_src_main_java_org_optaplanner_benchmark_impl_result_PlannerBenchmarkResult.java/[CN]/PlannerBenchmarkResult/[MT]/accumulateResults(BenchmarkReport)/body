@@ -6,5 +6,5 @@
     solverBenchmarkResult.accumulateResults(benchmarkReport);
   }
   determineTotalsAndAverages();
-  determineSolverBenchmarkRanking(benchmarkReport);
+  determineSolverRanking(benchmarkReport);
 }

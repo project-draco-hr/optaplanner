@@ -11,7 +11,7 @@
   BenchmarkReport benchmarkReport=new BenchmarkReport(plannerBenchmarkResult);
   plannerBenchmarkRunner.setBenchmarkReport(benchmarkReport);
   benchmarkReport.setLocale(benchmarkReportLocale == null ? Locale.getDefault() : benchmarkReportLocale);
-  supplySolverBenchmarkRanking(benchmarkReport);
+  supplySolverRanking(benchmarkReport);
   List<SolverBenchmarkResult> solverBenchmarkResultList=new ArrayList<SolverBenchmarkResult>(solverBenchmarkConfigList.size());
   List<ProblemBenchmarkResult> unifiedProblemBenchmarkResultList=new ArrayList<ProblemBenchmarkResult>();
   plannerBenchmarkResult.setUnifiedProblemBenchmarkResultList(unifiedProblemBenchmarkResultList);

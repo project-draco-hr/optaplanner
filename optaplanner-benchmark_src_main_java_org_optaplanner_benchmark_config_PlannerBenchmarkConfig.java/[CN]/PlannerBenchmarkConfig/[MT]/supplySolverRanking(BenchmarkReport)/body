@@ -1,0 +1,43 @@
+{
+  if (solverRankingType != null && solverRankingComparatorClass != null) {
+    throw new IllegalStateException("The PlannerBenchmark cannot have" + " a solverRankingType (" + solverRankingType + ") and a solverRankingComparatorClass ("+ solverRankingComparatorClass.getName()+ ") at the same time.");
+  }
+ else   if (solverRankingType != null && solverRankingWeightFactoryClass != null) {
+    throw new IllegalStateException("The PlannerBenchmark cannot have" + " a solverRankingType (" + solverRankingType + ") and a solverRankingWeightFactoryClass ("+ solverRankingWeightFactoryClass.getName()+ ") at the same time.");
+  }
+ else   if (solverRankingComparatorClass != null && solverRankingWeightFactoryClass != null) {
+    throw new IllegalStateException("The PlannerBenchmark cannot have" + " a solverRankingComparatorClass (" + solverRankingComparatorClass.getName() + ") and a solverRankingWeightFactoryClass ("+ solverRankingWeightFactoryClass.getName()+ ") at the same time.");
+  }
+  Comparator<SolverBenchmarkResult> solverRankingComparator=null;
+  SolverRankingWeightFactory solverRankingWeightFactory=null;
+  if (solverRankingType != null) {
+switch (solverRankingType) {
+case TOTAL_SCORE:
+      solverRankingComparator=new TotalScoreSolverRankingComparator();
+    break;
+case WORST_SCORE:
+  solverRankingComparator=new WorstScoreSolverRankingComparator();
+break;
+case TOTAL_RANKING:
+solverRankingWeightFactory=new TotalRankSolverRankingWeightFactory();
+break;
+default :
+throw new IllegalStateException("The solverRankingType (" + solverRankingType + ") is not implemented.");
+}
+}
+if (solverRankingComparatorClass != null) {
+solverRankingComparator=ConfigUtils.newInstance(this,"solverRankingComparatorClass",solverRankingComparatorClass);
+}
+if (solverRankingWeightFactoryClass != null) {
+solverRankingWeightFactory=ConfigUtils.newInstance(this,"solverRankingWeightFactoryClass",solverRankingWeightFactoryClass);
+}
+if (solverRankingComparator != null) {
+benchmarkReport.setSolverRankingComparator(solverRankingComparator);
+}
+ else if (solverRankingWeightFactory != null) {
+benchmarkReport.setSolverRankingWeightFactory(solverRankingWeightFactory);
+}
+ else {
+benchmarkReport.setSolverRankingComparator(new TotalScoreSolverRankingComparator());
+}
+}
