@@ -1,0 +1,3 @@
+{
+  super(problemBenchmarkResult,ProblemStatisticType.STEP_SCORE);
+}

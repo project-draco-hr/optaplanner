@@ -1,18 +1,18 @@
 {
-  List<SolverBenchmark> rankableSolverBenchmarkList=new ArrayList<SolverBenchmark>(solverBenchmarkList);
-  for (Iterator<SolverBenchmark> it=rankableSolverBenchmarkList.iterator(); it.hasNext(); ) {
-    SolverBenchmark solverBenchmark=it.next();
-    if (solverBenchmark.hasAnyFailure()) {
+  List<SolverBenchmarkResult> rankableSolverBenchmarkResultList=new ArrayList<SolverBenchmarkResult>(solverBenchmarkResultList);
+  for (Iterator<SolverBenchmarkResult> it=rankableSolverBenchmarkResultList.iterator(); it.hasNext(); ) {
+    SolverBenchmarkResult solverBenchmarkResult=it.next();
+    if (solverBenchmarkResult.hasAnyFailure()) {
       it.remove();
     }
   }
-  List<List<SolverBenchmark>> sameRankingListList=createSameRankingListList(benchmarkReport,rankableSolverBenchmarkList);
+  List<List<SolverBenchmarkResult>> sameRankingListList=createSameRankingListList(benchmarkReport,rankableSolverBenchmarkResultList);
   int ranking=0;
-  for (  List<SolverBenchmark> sameRankingList : sameRankingListList) {
-    for (    SolverBenchmark solverBenchmark : sameRankingList) {
-      solverBenchmark.setRanking(ranking);
+  for (  List<SolverBenchmarkResult> sameRankingList : sameRankingListList) {
+    for (    SolverBenchmarkResult solverBenchmarkResult : sameRankingList) {
+      solverBenchmarkResult.setRanking(ranking);
     }
     ranking+=sameRankingList.size();
   }
-  favoriteSolverBenchmark=sameRankingListList.isEmpty() ? null : sameRankingListList.get(0).get(0);
+  favoriteSolverBenchmarkResult=sameRankingListList.isEmpty() ? null : sameRankingListList.get(0).get(0);
 }

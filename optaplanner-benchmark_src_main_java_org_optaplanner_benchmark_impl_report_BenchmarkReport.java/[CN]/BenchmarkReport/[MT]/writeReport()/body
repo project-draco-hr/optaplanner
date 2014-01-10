@@ -11,9 +11,9 @@
   writeTimeSpendSummaryChart();
   writeTimeSpendScalabilitySummaryChart();
   writeBestScorePerTimeSpendSummaryChart();
-  for (  ProblemBenchmark problemBenchmark : plannerBenchmarkResult.getUnifiedProblemBenchmarkList()) {
-    if (problemBenchmark.hasAnySuccess()) {
-      for (      ProblemStatistic problemStatistic : problemBenchmark.getProblemStatisticList()) {
+  for (  ProblemBenchmarkResult problemBenchmarkResult : plannerBenchmarkResult.getUnifiedProblemBenchmarkResultList()) {
+    if (problemBenchmarkResult.hasAnySuccess()) {
+      for (      ProblemStatistic problemStatistic : problemBenchmarkResult.getProblemStatisticList()) {
         problemStatistic.writeGraphFiles(this);
       }
     }

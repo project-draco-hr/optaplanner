@@ -1,0 +1,25 @@
+{
+  BenchmarkReport benchmarkReport=mock(BenchmarkReport.class);
+  TotalRankSolverBenchmarkRankingWeightFactory factory=new TotalRankSolverBenchmarkRankingWeightFactory();
+  List<SolverBenchmarkResult> solverBenchmarkResultList=new ArrayList<SolverBenchmarkResult>();
+  SolverBenchmarkResult a=new SolverBenchmarkResult(null);
+  List<SingleBenchmarkResult> aSingleBenchmarkResultList=new ArrayList<SingleBenchmarkResult>();
+  addSingleBenchmark(aSingleBenchmarkResultList,-1000,-40,-1000);
+  addSingleBenchmark(aSingleBenchmarkResultList,-300,-40,-1000);
+  addSingleBenchmark(aSingleBenchmarkResultList,-40,-40,-1000);
+  a.setSingleBenchmarkResultList(aSingleBenchmarkResultList);
+  a.accumulateResults(benchmarkReport);
+  solverBenchmarkResultList.add(a);
+  SolverBenchmarkResult b=new SolverBenchmarkResult(null);
+  List<SingleBenchmarkResult> bSingleBenchmarkResultList=new ArrayList<SingleBenchmarkResult>();
+  addSingleBenchmark(bSingleBenchmarkResultList,-2000,-30,-2000);
+  addSingleBenchmark(bSingleBenchmarkResultList,-200,-30,-2000);
+  addSingleBenchmark(bSingleBenchmarkResultList,-30,-30,-2000);
+  b.setSingleBenchmarkResultList(bSingleBenchmarkResultList);
+  b.accumulateResults(benchmarkReport);
+  solverBenchmarkResultList.add(b);
+  Comparable aWeight=factory.createRankingWeight(solverBenchmarkResultList,a);
+  Comparable bWeight=factory.createRankingWeight(solverBenchmarkResultList,b);
+  assertEquals(-1,aWeight.compareTo(bWeight));
+  assertEquals(1,bWeight.compareTo(aWeight));
+}

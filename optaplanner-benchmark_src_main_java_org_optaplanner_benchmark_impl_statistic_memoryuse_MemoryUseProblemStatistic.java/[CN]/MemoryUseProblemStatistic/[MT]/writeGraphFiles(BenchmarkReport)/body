@@ -7,8 +7,8 @@
   XYPlot plot=new XYPlot(null,xAxis,yAxis,null);
   plot.setOrientation(PlotOrientation.VERTICAL);
   int seriesIndex=0;
-  for (  SingleBenchmarkResult singleBenchmarkResult : problemBenchmark.getSingleBenchmarkResultList()) {
-    XYSeries usedSeries=new XYSeries(singleBenchmarkResult.getSolverBenchmark().getNameWithFavoriteSuffix() + " used");
+  for (  SingleBenchmarkResult singleBenchmarkResult : problemBenchmarkResult.getSingleBenchmarkResultList()) {
+    XYSeries usedSeries=new XYSeries(singleBenchmarkResult.getSolverBenchmarkResult().getNameWithFavoriteSuffix() + " used");
     XYItemRenderer renderer=new XYLineAndShapeRenderer();
     if (singleBenchmarkResult.isSuccess()) {
       MemoryUseSingleStatistic singleStatistic=(MemoryUseSingleStatistic)singleBenchmarkResult.getSingleStatistic(problemStatisticType);
@@ -21,12 +21,12 @@
     XYSeriesCollection seriesCollection=new XYSeriesCollection();
     seriesCollection.addSeries(usedSeries);
     plot.setDataset(seriesIndex,seriesCollection);
-    if (singleBenchmarkResult.getSolverBenchmark().isFavorite()) {
+    if (singleBenchmarkResult.getSolverBenchmarkResult().isFavorite()) {
       renderer.setSeriesStroke(0,new BasicStroke(2.0f));
     }
     plot.setRenderer(seriesIndex,renderer);
     seriesIndex++;
   }
-  JFreeChart chart=new JFreeChart(problemBenchmark.getName() + " memory use statistic",JFreeChart.DEFAULT_TITLE_FONT,plot,true);
-  graphFile=writeChartToImageFile(chart,problemBenchmark.getName() + "MemoryUseStatistic");
+  JFreeChart chart=new JFreeChart(problemBenchmarkResult.getName() + " memory use statistic",JFreeChart.DEFAULT_TITLE_FONT,plot,true);
+  graphFile=writeChartToImageFile(chart,problemBenchmarkResult.getName() + "MemoryUseStatistic");
 }

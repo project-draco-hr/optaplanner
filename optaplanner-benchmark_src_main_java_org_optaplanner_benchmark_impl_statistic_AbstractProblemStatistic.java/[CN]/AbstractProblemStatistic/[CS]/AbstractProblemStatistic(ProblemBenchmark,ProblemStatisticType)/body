@@ -1,4 +1,0 @@
-{
-  this.problemBenchmark=problemBenchmark;
-  this.problemStatisticType=problemStatisticType;
-}

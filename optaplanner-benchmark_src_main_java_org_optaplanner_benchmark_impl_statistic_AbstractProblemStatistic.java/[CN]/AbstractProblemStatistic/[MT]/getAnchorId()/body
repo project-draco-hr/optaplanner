@@ -1,3 +1,3 @@
 {
-  return ReportHelper.escapeHtmlId(problemBenchmark.getName() + "_" + problemStatisticType.name());
+  return ReportHelper.escapeHtmlId(problemBenchmarkResult.getName() + "_" + problemStatisticType.name());
 }

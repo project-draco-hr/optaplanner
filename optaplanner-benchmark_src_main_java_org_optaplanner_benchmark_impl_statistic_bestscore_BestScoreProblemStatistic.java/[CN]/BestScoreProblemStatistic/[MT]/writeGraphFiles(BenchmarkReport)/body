@@ -1,7 +1,7 @@
 {
   List<XYPlot> plotList=new ArrayList<XYPlot>(BenchmarkReport.CHARTED_SCORE_LEVEL_SIZE);
   int seriesIndex=0;
-  for (  SingleBenchmarkResult singleBenchmarkResult : problemBenchmark.getSingleBenchmarkResultList()) {
+  for (  SingleBenchmarkResult singleBenchmarkResult : problemBenchmarkResult.getSingleBenchmarkResultList()) {
     List<XYSeries> seriesList=new ArrayList<XYSeries>(BenchmarkReport.CHARTED_SCORE_LEVEL_SIZE);
     XYItemRenderer renderer=new XYStepRenderer();
     if (singleBenchmarkResult.isSuccess()) {
@@ -11,7 +11,7 @@
         double[] levelValues=ScoreUtils.extractLevelDoubles(point.getScore());
         for (int i=0; i < levelValues.length && i < BenchmarkReport.CHARTED_SCORE_LEVEL_SIZE; i++) {
           if (i >= seriesList.size()) {
-            seriesList.add(new XYSeries(singleBenchmarkResult.getSolverBenchmark().getNameWithFavoriteSuffix()));
+            seriesList.add(new XYSeries(singleBenchmarkResult.getSolverBenchmarkResult().getNameWithFavoriteSuffix()));
           }
           seriesList.get(i).add(timeMillisSpend,levelValues[i]);
         }
@@ -20,7 +20,7 @@
       double[] bestScoreLevels=ScoreUtils.extractLevelDoubles(singleBenchmarkResult.getScore());
       for (int i=0; i < bestScoreLevels.length && i < BenchmarkReport.CHARTED_SCORE_LEVEL_SIZE; i++) {
         if (i >= seriesList.size()) {
-          seriesList.add(new XYSeries(singleBenchmarkResult.getSolverBenchmark().getNameWithFavoriteSuffix()));
+          seriesList.add(new XYSeries(singleBenchmarkResult.getSolverBenchmarkResult().getNameWithFavoriteSuffix()));
         }
         seriesList.get(i).add(timeMillisSpend,bestScoreLevels[i]);
       }
@@ -28,7 +28,7 @@
         renderer=new StandardXYItemRenderer(StandardXYItemRenderer.SHAPES_AND_LINES);
       }
     }
-    if (singleBenchmarkResult.getSolverBenchmark().isFavorite()) {
+    if (singleBenchmarkResult.getSolverBenchmarkResult().isFavorite()) {
       renderer.setSeriesStroke(0,new BasicStroke(2.0f));
     }
     for (int i=0; i < seriesList.size(); i++) {
@@ -42,7 +42,7 @@
   }
   graphFileList=new ArrayList<File>(plotList.size());
   for (int scoreLevelIndex=0; scoreLevelIndex < plotList.size(); scoreLevelIndex++) {
-    JFreeChart chart=new JFreeChart(problemBenchmark.getName() + " best score level " + scoreLevelIndex+ " statistic",JFreeChart.DEFAULT_TITLE_FONT,plotList.get(scoreLevelIndex),true);
-    graphFileList.add(writeChartToImageFile(chart,problemBenchmark.getName() + "BestScoreStatisticLevel" + scoreLevelIndex));
+    JFreeChart chart=new JFreeChart(problemBenchmarkResult.getName() + " best score level " + scoreLevelIndex+ " statistic",JFreeChart.DEFAULT_TITLE_FONT,plotList.get(scoreLevelIndex),true);
+    graphFileList.add(writeChartToImageFile(chart,problemBenchmarkResult.getName() + "BestScoreStatisticLevel" + scoreLevelIndex));
   }
 }

@@ -1,0 +1,24 @@
+{
+  validate(solverBenchmarkResult);
+  ProblemIO problemIO=buildProblemIO();
+  List<ProblemBenchmarkResult> problemBenchmarkResultList=new ArrayList<ProblemBenchmarkResult>(inputSolutionFileList.size());
+  List<ProblemBenchmarkResult> unifiedProblemBenchmarkResultList=plannerBenchmark.getUnifiedProblemBenchmarkResultList();
+  for (  File inputSolutionFile : inputSolutionFileList) {
+    if (!inputSolutionFile.exists()) {
+      throw new IllegalArgumentException("The inputSolutionFile (" + inputSolutionFile + ") does not exist.");
+    }
+    ProblemBenchmarkResult newProblemBenchmarkResult=buildProblemBenchmark(plannerBenchmark,problemIO,inputSolutionFile);
+    ProblemBenchmarkResult problemBenchmarkResult;
+    int index=unifiedProblemBenchmarkResultList.indexOf(newProblemBenchmarkResult);
+    if (index < 0) {
+      problemBenchmarkResult=newProblemBenchmarkResult;
+      unifiedProblemBenchmarkResultList.add(problemBenchmarkResult);
+    }
+ else {
+      problemBenchmarkResult=unifiedProblemBenchmarkResultList.get(index);
+    }
+    addSingleBenchmark(solverBenchmarkResult,problemBenchmarkResult);
+    problemBenchmarkResultList.add(problemBenchmarkResult);
+  }
+  return problemBenchmarkResultList;
+}

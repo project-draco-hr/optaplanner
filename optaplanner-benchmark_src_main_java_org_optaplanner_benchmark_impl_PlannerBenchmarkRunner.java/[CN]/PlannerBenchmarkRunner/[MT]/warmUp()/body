@@ -5,14 +5,14 @@
     logger.info("================================================================================");
     long startingTimeMillis=System.currentTimeMillis();
     long timeLeft=plannerBenchmarkResult.getWarmUpTimeMillisSpend();
-    List<ProblemBenchmark> unifiedProblemBenchmarkList=plannerBenchmarkResult.getUnifiedProblemBenchmarkList();
-    Iterator<ProblemBenchmark> it=unifiedProblemBenchmarkList.iterator();
+    List<ProblemBenchmarkResult> unifiedProblemBenchmarkResultList=plannerBenchmarkResult.getUnifiedProblemBenchmarkResultList();
+    Iterator<ProblemBenchmarkResult> it=unifiedProblemBenchmarkResultList.iterator();
     while (timeLeft > 0L) {
       if (!it.hasNext()) {
-        it=unifiedProblemBenchmarkList.iterator();
+        it=unifiedProblemBenchmarkResultList.iterator();
       }
-      ProblemBenchmark problemBenchmark=it.next();
-      timeLeft=problemBenchmark.warmUp(startingTimeMillis,plannerBenchmarkResult.getWarmUpTimeMillisSpend(),timeLeft);
+      ProblemBenchmarkResult problemBenchmarkResult=it.next();
+      timeLeft=problemBenchmarkResult.warmUp(startingTimeMillis,plannerBenchmarkResult.getWarmUpTimeMillisSpend(),timeLeft);
     }
     logger.info("================================================================================");
     logger.info("Warming up ended");

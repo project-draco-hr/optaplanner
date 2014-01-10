@@ -1,9 +1,9 @@
 {
-  for (  ProblemBenchmark problemBenchmark : unifiedProblemBenchmarkList) {
-    problemBenchmark.accumulateResults(benchmarkReport);
+  for (  ProblemBenchmarkResult problemBenchmarkResult : unifiedProblemBenchmarkResultList) {
+    problemBenchmarkResult.accumulateResults(benchmarkReport);
   }
-  for (  SolverBenchmark solverBenchmark : solverBenchmarkList) {
-    solverBenchmark.accumulateResults(benchmarkReport);
+  for (  SolverBenchmarkResult solverBenchmarkResult : solverBenchmarkResultList) {
+    solverBenchmarkResult.accumulateResults(benchmarkReport);
   }
   determineTotalsAndAverages();
   determineSolverBenchmarkRanking(benchmarkReport);

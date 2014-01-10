@@ -1,7 +1,7 @@
 {
   Map<SingleBenchmarkRunner,Future<SingleBenchmarkRunner>> futureMap=new HashMap<SingleBenchmarkRunner,Future<SingleBenchmarkRunner>>();
-  for (  ProblemBenchmark problemBenchmark : plannerBenchmarkResult.getUnifiedProblemBenchmarkList()) {
-    for (    SingleBenchmarkResult singleBenchmarkResult : problemBenchmark.getSingleBenchmarkResultList()) {
+  for (  ProblemBenchmarkResult problemBenchmarkResult : plannerBenchmarkResult.getUnifiedProblemBenchmarkResultList()) {
+    for (    SingleBenchmarkResult singleBenchmarkResult : problemBenchmarkResult.getSingleBenchmarkResultList()) {
       SingleBenchmarkRunner singleBenchmarkRunner=new SingleBenchmarkRunner(singleBenchmarkResult);
       Future<SingleBenchmarkRunner> future=executorService.submit(singleBenchmarkRunner);
       futureMap.put(singleBenchmarkRunner,future);

@@ -1,5 +1,5 @@
 {
-  for (  ProblemBenchmark problemBenchmark : plannerBenchmarkResult.getUnifiedProblemBenchmarkList()) {
-    problemBenchmark.initSubdirs(benchmarkReportDirectory);
+  for (  ProblemBenchmarkResult problemBenchmarkResult : plannerBenchmarkResult.getUnifiedProblemBenchmarkResultList()) {
+    problemBenchmarkResult.initSubdirs(benchmarkReportDirectory);
   }
 }

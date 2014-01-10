@@ -8,7 +8,7 @@
  else   if (solverBenchmarkRankingComparatorClass != null && solverBenchmarkRankingWeightFactoryClass != null) {
     throw new IllegalStateException("The PlannerBenchmark cannot have" + " a solverBenchmarkRankingComparatorClass (" + solverBenchmarkRankingComparatorClass.getName() + ") and a solverBenchmarkRankingWeightFactoryClass ("+ solverBenchmarkRankingWeightFactoryClass.getName()+ ") at the same time.");
   }
-  Comparator<SolverBenchmark> solverBenchmarkRankingComparator=null;
+  Comparator<SolverBenchmarkResult> solverBenchmarkRankingComparator=null;
   SolverBenchmarkRankingWeightFactory solverBenchmarkRankingWeightFactory=null;
   if (solverBenchmarkRankingType != null) {
 switch (solverBenchmarkRankingType) {

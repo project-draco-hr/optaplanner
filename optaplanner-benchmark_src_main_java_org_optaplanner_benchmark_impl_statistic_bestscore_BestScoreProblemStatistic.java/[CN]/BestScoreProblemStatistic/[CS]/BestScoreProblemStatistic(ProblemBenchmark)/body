@@ -1,3 +1,0 @@
-{
-  super(problemBenchmark,ProblemStatisticType.BEST_SCORE);
-}

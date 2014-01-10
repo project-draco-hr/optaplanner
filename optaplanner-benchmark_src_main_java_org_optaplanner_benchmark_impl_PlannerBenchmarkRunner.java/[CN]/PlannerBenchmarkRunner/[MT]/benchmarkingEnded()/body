@@ -6,7 +6,7 @@
   plannerBenchmarkResult.setBenchmarkTimeMillisSpend(calculateTimeMillisSpend());
   benchmarkReport.writeReport();
   if (plannerBenchmarkResult.getFailureCount() == 0) {
-    logger.info("Benchmarking ended: time spend ({}), favoriteSolverBenchmark ({}), statistic html overview ({}).",plannerBenchmarkResult.getBenchmarkTimeMillisSpend(),plannerBenchmarkResult.getFavoriteSolverBenchmark().getName(),benchmarkReport.getHtmlOverviewFile().getAbsolutePath());
+    logger.info("Benchmarking ended: time spend ({}), favoriteSolverBenchmark ({}), statistic html overview ({}).",plannerBenchmarkResult.getBenchmarkTimeMillisSpend(),plannerBenchmarkResult.getFavoriteSolverBenchmarkResult().getName(),benchmarkReport.getHtmlOverviewFile().getAbsolutePath());
   }
  else {
     logger.info("Benchmarking failed: time spend ({}), failureCount ({}), statistic html overview ({}).",plannerBenchmarkResult.getBenchmarkTimeMillisSpend(),plannerBenchmarkResult.getFailureCount(),benchmarkReport.getHtmlOverviewFile().getAbsolutePath());

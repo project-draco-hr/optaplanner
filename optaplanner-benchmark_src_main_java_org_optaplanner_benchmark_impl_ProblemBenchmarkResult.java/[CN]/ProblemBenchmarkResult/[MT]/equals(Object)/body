@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof ProblemBenchmarkResult) {
+    ProblemBenchmarkResult other=(ProblemBenchmarkResult)o;
+    return inputSolutionFile.equals(other.getInputSolutionFile());
+  }
+ else {
+    return false;
+  }
+}

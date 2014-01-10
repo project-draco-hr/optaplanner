@@ -2,19 +2,19 @@
   failureCount=0;
   long totalProblemScale=0L;
   int problemScaleCount=0;
-  for (  ProblemBenchmark problemBenchmark : unifiedProblemBenchmarkList) {
-    Long problemScale=problemBenchmark.getProblemScale();
+  for (  ProblemBenchmarkResult problemBenchmarkResult : unifiedProblemBenchmarkResultList) {
+    Long problemScale=problemBenchmarkResult.getProblemScale();
     if (problemScale != null && problemScale >= 0L) {
       totalProblemScale+=problemScale;
       problemScaleCount++;
     }
-    failureCount+=problemBenchmark.getFailureCount();
+    failureCount+=problemBenchmarkResult.getFailureCount();
   }
   averageProblemScale=problemScaleCount == 0 ? null : totalProblemScale / (long)problemScaleCount;
   Score totalScore=null;
   int solverBenchmarkCount=0;
-  for (  SolverBenchmark solverBenchmark : solverBenchmarkList) {
-    Score score=solverBenchmark.getAverageScore();
+  for (  SolverBenchmarkResult solverBenchmarkResult : solverBenchmarkResultList) {
+    Score score=solverBenchmarkResult.getAverageScore();
     if (score != null) {
       totalScore=(totalScore == null) ? score : totalScore.add(score);
       solverBenchmarkCount++;

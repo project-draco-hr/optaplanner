@@ -4,11 +4,11 @@
   }
   startingSystemTimeMillis=System.currentTimeMillis();
   plannerBenchmarkResult.setStartingTimestamp(new Date());
-  List<SolverBenchmark> solverBenchmarkList=plannerBenchmarkResult.getSolverBenchmarkList();
-  if (solverBenchmarkList == null || solverBenchmarkList.isEmpty()) {
-    throw new IllegalArgumentException("The solverBenchmarkList (" + solverBenchmarkList + ") cannot be empty.");
+  List<SolverBenchmarkResult> solverBenchmarkResultList=plannerBenchmarkResult.getSolverBenchmarkResultList();
+  if (solverBenchmarkResultList == null || solverBenchmarkResultList.isEmpty()) {
+    throw new IllegalArgumentException("The solverBenchmarkResultList (" + solverBenchmarkResultList + ") cannot be empty.");
   }
   initBenchmarkDirectoryAndSubdirs();
   executorService=Executors.newFixedThreadPool(plannerBenchmarkResult.getParallelBenchmarkCount());
-  logger.info("Benchmarking started: solverBenchmarkList size ({}), parallelBenchmarkCount ({}).",solverBenchmarkList.size(),plannerBenchmarkResult.getParallelBenchmarkCount());
+  logger.info("Benchmarking started: solverBenchmarkResultList size ({}), parallelBenchmarkCount ({}).",solverBenchmarkResultList.size(),plannerBenchmarkResult.getParallelBenchmarkCount());
 }

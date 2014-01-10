@@ -1,11 +1,11 @@
 {
-  List<XYSeries> seriesList=new ArrayList<XYSeries>(plannerBenchmarkResult.getSolverBenchmarkList().size());
-  for (  SolverBenchmark solverBenchmark : plannerBenchmarkResult.getSolverBenchmarkList()) {
-    String solverLabel=solverBenchmark.getNameWithFavoriteSuffix();
+  List<XYSeries> seriesList=new ArrayList<XYSeries>(plannerBenchmarkResult.getSolverBenchmarkResultList().size());
+  for (  SolverBenchmarkResult solverBenchmarkResult : plannerBenchmarkResult.getSolverBenchmarkResultList()) {
+    String solverLabel=solverBenchmarkResult.getNameWithFavoriteSuffix();
     XYSeries series=new XYSeries(solverLabel);
-    for (    SingleBenchmarkResult singleBenchmarkResult : solverBenchmark.getSingleBenchmarkResultList()) {
+    for (    SingleBenchmarkResult singleBenchmarkResult : solverBenchmarkResult.getSingleBenchmarkResultList()) {
       if (singleBenchmarkResult.isSuccess()) {
-        long problemScale=singleBenchmarkResult.getProblemBenchmark().getProblemScale();
+        long problemScale=singleBenchmarkResult.getProblemBenchmarkResult().getProblemScale();
         long timeMillisSpend=singleBenchmarkResult.getTimeMillisSpend();
         series.add((Long)problemScale,(Long)timeMillisSpend);
       }

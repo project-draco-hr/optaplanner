@@ -1,0 +1,9 @@
+{
+  if (problemScale == null) {
+    problemScale=registeringProblemScale;
+  }
+ else   if (problemScale.longValue() != registeringProblemScale) {
+    logger.warn("The problemBenchmarkResult ({}) has different problemScale values ([{},{}]).",getName(),problemScale,registeringProblemScale);
+    problemScale=-1L;
+  }
+}

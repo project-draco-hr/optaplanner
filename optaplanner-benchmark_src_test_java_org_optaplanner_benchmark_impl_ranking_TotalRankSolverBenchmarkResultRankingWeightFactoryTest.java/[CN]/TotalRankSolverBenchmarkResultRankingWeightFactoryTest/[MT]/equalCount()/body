@@ -1,0 +1,38 @@
+{
+  BenchmarkReport benchmarkReport=mock(BenchmarkReport.class);
+  TotalRankSolverBenchmarkRankingWeightFactory factory=new TotalRankSolverBenchmarkRankingWeightFactory();
+  List<SolverBenchmarkResult> solverBenchmarkResultList=new ArrayList<SolverBenchmarkResult>();
+  SolverBenchmarkResult a=new SolverBenchmarkResult(null);
+  List<SingleBenchmarkResult> aSingleBenchmarkResultList=new ArrayList<SingleBenchmarkResult>();
+  addSingleBenchmark(aSingleBenchmarkResultList,-5000,-90,-5000);
+  addSingleBenchmark(aSingleBenchmarkResultList,-900,-90,-5000);
+  addSingleBenchmark(aSingleBenchmarkResultList,-90,-90,-5000);
+  a.setSingleBenchmarkResultList(aSingleBenchmarkResultList);
+  a.accumulateResults(benchmarkReport);
+  solverBenchmarkResultList.add(a);
+  SolverBenchmarkResult b=new SolverBenchmarkResult(null);
+  List<SingleBenchmarkResult> bSingleBenchmarkResultList=new ArrayList<SingleBenchmarkResult>();
+  addSingleBenchmark(bSingleBenchmarkResultList,-1000,-20,-1000);
+  addSingleBenchmark(bSingleBenchmarkResultList,-200,-20,-1000);
+  addSingleBenchmark(bSingleBenchmarkResultList,-20,-20,-1000);
+  b.setSingleBenchmarkResultList(bSingleBenchmarkResultList);
+  b.accumulateResults(benchmarkReport);
+  solverBenchmarkResultList.add(b);
+  SolverBenchmarkResult c=new SolverBenchmarkResult(null);
+  List<SingleBenchmarkResult> cSingleBenchmarkResultList=new ArrayList<SingleBenchmarkResult>();
+  addSingleBenchmark(cSingleBenchmarkResultList,-5000,-10,-5000);
+  addSingleBenchmark(cSingleBenchmarkResultList,-100,-10,-5000);
+  addSingleBenchmark(cSingleBenchmarkResultList,-10,-10,-5000);
+  c.setSingleBenchmarkResultList(cSingleBenchmarkResultList);
+  c.accumulateResults(benchmarkReport);
+  solverBenchmarkResultList.add(c);
+  Comparable aWeight=factory.createRankingWeight(solverBenchmarkResultList,a);
+  Comparable bWeight=factory.createRankingWeight(solverBenchmarkResultList,b);
+  Comparable cWeight=factory.createRankingWeight(solverBenchmarkResultList,c);
+  assertEquals(-1,aWeight.compareTo(bWeight));
+  assertEquals(1,bWeight.compareTo(aWeight));
+  assertEquals(-1,aWeight.compareTo(cWeight));
+  assertEquals(1,cWeight.compareTo(aWeight));
+  assertEquals(-1,bWeight.compareTo(cWeight));
+  assertEquals(1,cWeight.compareTo(bWeight));
+}

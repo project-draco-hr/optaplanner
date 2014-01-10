@@ -1,9 +1,9 @@
 {
   List<DefaultCategoryDataset> datasetList=new ArrayList<DefaultCategoryDataset>(CHARTED_SCORE_LEVEL_SIZE);
-  for (  SolverBenchmark solverBenchmark : plannerBenchmarkResult.getSolverBenchmarkList()) {
-    String solverLabel=solverBenchmark.getNameWithFavoriteSuffix();
-    for (    SingleBenchmarkResult singleBenchmarkResult : solverBenchmark.getSingleBenchmarkResultList()) {
-      String planningProblemLabel=singleBenchmarkResult.getProblemBenchmark().getName();
+  for (  SolverBenchmarkResult solverBenchmarkResult : plannerBenchmarkResult.getSolverBenchmarkResultList()) {
+    String solverLabel=solverBenchmarkResult.getNameWithFavoriteSuffix();
+    for (    SingleBenchmarkResult singleBenchmarkResult : solverBenchmarkResult.getSingleBenchmarkResultList()) {
+      String planningProblemLabel=singleBenchmarkResult.getProblemBenchmarkResult().getName();
       if (singleBenchmarkResult.isSuccess()) {
         double[] levelValues=ScoreUtils.extractLevelDoubles(singleBenchmarkResult.getScore());
         for (int i=0; i < levelValues.length && i < CHARTED_SCORE_LEVEL_SIZE; i++) {

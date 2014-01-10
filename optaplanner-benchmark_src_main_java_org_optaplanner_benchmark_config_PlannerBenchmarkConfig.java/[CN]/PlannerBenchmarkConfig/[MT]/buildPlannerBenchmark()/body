@@ -12,13 +12,13 @@
   plannerBenchmarkRunner.setBenchmarkReport(benchmarkReport);
   benchmarkReport.setLocale(benchmarkReportLocale == null ? Locale.getDefault() : benchmarkReportLocale);
   supplySolverBenchmarkRanking(benchmarkReport);
-  List<SolverBenchmark> solverBenchmarkList=new ArrayList<SolverBenchmark>(solverBenchmarkConfigList.size());
-  List<ProblemBenchmark> unifiedProblemBenchmarkList=new ArrayList<ProblemBenchmark>();
-  plannerBenchmarkResult.setUnifiedProblemBenchmarkList(unifiedProblemBenchmarkList);
+  List<SolverBenchmarkResult> solverBenchmarkResultList=new ArrayList<SolverBenchmarkResult>(solverBenchmarkConfigList.size());
+  List<ProblemBenchmarkResult> unifiedProblemBenchmarkResultList=new ArrayList<ProblemBenchmarkResult>();
+  plannerBenchmarkResult.setUnifiedProblemBenchmarkResultList(unifiedProblemBenchmarkResultList);
   for (  SolverBenchmarkConfig solverBenchmarkConfig : solverBenchmarkConfigList) {
-    SolverBenchmark solverBenchmark=solverBenchmarkConfig.buildSolverBenchmark(plannerBenchmarkResult);
-    solverBenchmarkList.add(solverBenchmark);
+    SolverBenchmarkResult solverBenchmarkResult=solverBenchmarkConfig.buildSolverBenchmark(plannerBenchmarkResult);
+    solverBenchmarkResultList.add(solverBenchmarkResult);
   }
-  plannerBenchmarkResult.setSolverBenchmarkList(solverBenchmarkList);
+  plannerBenchmarkResult.setSolverBenchmarkResultList(solverBenchmarkResultList);
   return plannerBenchmarkRunner;
 }

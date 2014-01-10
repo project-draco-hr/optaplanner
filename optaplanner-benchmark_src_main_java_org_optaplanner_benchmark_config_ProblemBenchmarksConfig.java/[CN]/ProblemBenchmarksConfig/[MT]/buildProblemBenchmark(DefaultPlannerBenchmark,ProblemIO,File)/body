@@ -1,17 +1,17 @@
 {
-  ProblemBenchmark problemBenchmark=new ProblemBenchmark(plannerBenchmark);
+  ProblemBenchmarkResult problemBenchmarkResult=new ProblemBenchmarkResult(plannerBenchmark);
   String name=FilenameUtils.getBaseName(inputSolutionFile.getName());
-  problemBenchmark.setName(name);
-  problemBenchmark.setProblemIO(problemIO);
-  problemBenchmark.setWriteOutputSolutionEnabled(writeOutputSolutionEnabled == null ? false : writeOutputSolutionEnabled);
-  problemBenchmark.setInputSolutionFile(inputSolutionFile);
+  problemBenchmarkResult.setName(name);
+  problemBenchmarkResult.setProblemIO(problemIO);
+  problemBenchmarkResult.setWriteOutputSolutionEnabled(writeOutputSolutionEnabled == null ? false : writeOutputSolutionEnabled);
+  problemBenchmarkResult.setInputSolutionFile(inputSolutionFile);
   List<ProblemStatistic> problemStatisticList=new ArrayList<ProblemStatistic>(problemStatisticTypeList == null ? 0 : problemStatisticTypeList.size());
   if (problemStatisticTypeList != null) {
     for (    ProblemStatisticType problemStatisticType : problemStatisticTypeList) {
-      problemStatisticList.add(problemStatisticType.create(problemBenchmark));
+      problemStatisticList.add(problemStatisticType.create(problemBenchmarkResult));
     }
   }
-  problemBenchmark.setProblemStatisticList(problemStatisticList);
-  problemBenchmark.setSingleBenchmarkResultList(new ArrayList<SingleBenchmarkResult>());
-  return problemBenchmark;
+  problemBenchmarkResult.setProblemStatisticList(problemStatisticList);
+  problemBenchmarkResult.setSingleBenchmarkResultList(new ArrayList<SingleBenchmarkResult>());
+  return problemBenchmarkResult;
 }
