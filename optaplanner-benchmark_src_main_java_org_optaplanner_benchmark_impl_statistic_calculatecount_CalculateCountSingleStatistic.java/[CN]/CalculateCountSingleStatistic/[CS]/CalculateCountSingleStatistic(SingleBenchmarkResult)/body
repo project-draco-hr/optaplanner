@@ -1,0 +1,3 @@
+{
+  this(singleBenchmarkResult,1000L);
+}

@@ -2,10 +2,10 @@
   DefaultCategoryDataset dataset=new DefaultCategoryDataset();
   for (  SolverBenchmark solverBenchmark : plannerBenchmarkResult.getSolverBenchmarkList()) {
     String solverLabel=solverBenchmark.getNameWithFavoriteSuffix();
-    for (    SingleBenchmark singleBenchmark : solverBenchmark.getSingleBenchmarkList()) {
-      String planningProblemLabel=singleBenchmark.getProblemBenchmark().getName();
-      if (singleBenchmark.isSuccess()) {
-        long timeMillisSpend=singleBenchmark.getTimeMillisSpend();
+    for (    SingleBenchmarkResult singleBenchmarkResult : solverBenchmark.getSingleBenchmarkResultList()) {
+      String planningProblemLabel=singleBenchmarkResult.getProblemBenchmark().getName();
+      if (singleBenchmarkResult.isSuccess()) {
+        long timeMillisSpend=singleBenchmarkResult.getTimeMillisSpend();
         dataset.addValue(timeMillisSpend,solverLabel,planningProblemLabel);
       }
     }

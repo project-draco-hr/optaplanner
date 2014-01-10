@@ -2,16 +2,16 @@
   failureCount=0;
   long totalUsedMemoryAfterInputSolution=0L;
   int usedMemoryAfterInputSolutionCount=0;
-  List<SingleBenchmark> successSingleBenchmarkList=new ArrayList<SingleBenchmark>(singleBenchmarkList);
-  for (Iterator<SingleBenchmark> it=successSingleBenchmarkList.iterator(); it.hasNext(); ) {
-    SingleBenchmark singleBenchmark=it.next();
-    if (singleBenchmark.isFailure()) {
+  List<SingleBenchmarkResult> successResultList=new ArrayList<SingleBenchmarkResult>(singleBenchmarkResultList);
+  for (Iterator<SingleBenchmarkResult> it=successResultList.iterator(); it.hasNext(); ) {
+    SingleBenchmarkResult singleBenchmarkResult=it.next();
+    if (singleBenchmarkResult.isFailure()) {
       failureCount++;
       it.remove();
     }
  else {
-      if (singleBenchmark.getUsedMemoryAfterInputSolution() != null) {
-        totalUsedMemoryAfterInputSolution+=singleBenchmark.getUsedMemoryAfterInputSolution();
+      if (singleBenchmarkResult.getUsedMemoryAfterInputSolution() != null) {
+        totalUsedMemoryAfterInputSolution+=singleBenchmarkResult.getUsedMemoryAfterInputSolution();
         usedMemoryAfterInputSolutionCount++;
       }
     }
@@ -19,5 +19,5 @@
   if (usedMemoryAfterInputSolutionCount > 0) {
     averageUsedMemoryAfterInputSolution=totalUsedMemoryAfterInputSolution / (long)usedMemoryAfterInputSolutionCount;
   }
-  determineRanking(successSingleBenchmarkList);
+  determineRanking(successResultList);
 }

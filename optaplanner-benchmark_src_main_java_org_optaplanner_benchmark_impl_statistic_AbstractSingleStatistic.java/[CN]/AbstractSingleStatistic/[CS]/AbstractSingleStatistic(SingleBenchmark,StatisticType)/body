@@ -1,4 +1,0 @@
-{
-  this.singleBenchmark=singleBenchmark;
-  this.statisticType=statisticType;
-}

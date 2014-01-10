@@ -1,0 +1,10 @@
+{
+  SingleBenchmarkResult singleBenchmarkResult=new SingleBenchmarkResult(null,null);
+  SimpleScore scoreObject=SimpleScore.valueOf(score);
+  SimpleScore bestScoreObject=SimpleScore.valueOf(bestScore);
+  SimpleScore worstScoreObject=SimpleScore.valueOf(worstScore);
+  singleBenchmarkResult.setScore(scoreObject);
+  singleBenchmarkResult.setWinningScoreDifference(scoreObject.subtract(bestScoreObject));
+  singleBenchmarkResult.setWorstScoreDifferencePercentage(ScoreDifferencePercentage.calculateScoreDifferencePercentage(worstScoreObject,scoreObject));
+  singleBenchmarkResultList.add(singleBenchmarkResult);
+}

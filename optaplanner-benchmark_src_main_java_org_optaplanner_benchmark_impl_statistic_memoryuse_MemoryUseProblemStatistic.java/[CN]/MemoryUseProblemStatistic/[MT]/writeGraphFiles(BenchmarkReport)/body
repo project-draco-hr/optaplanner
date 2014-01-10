@@ -7,11 +7,11 @@
   XYPlot plot=new XYPlot(null,xAxis,yAxis,null);
   plot.setOrientation(PlotOrientation.VERTICAL);
   int seriesIndex=0;
-  for (  SingleBenchmark singleBenchmark : problemBenchmark.getSingleBenchmarkList()) {
-    XYSeries usedSeries=new XYSeries(singleBenchmark.getSolverBenchmark().getNameWithFavoriteSuffix() + " used");
+  for (  SingleBenchmarkResult singleBenchmarkResult : problemBenchmark.getSingleBenchmarkResultList()) {
+    XYSeries usedSeries=new XYSeries(singleBenchmarkResult.getSolverBenchmark().getNameWithFavoriteSuffix() + " used");
     XYItemRenderer renderer=new XYLineAndShapeRenderer();
-    if (singleBenchmark.isSuccess()) {
-      MemoryUseSingleStatistic singleStatistic=(MemoryUseSingleStatistic)singleBenchmark.getSingleStatistic(problemStatisticType);
+    if (singleBenchmarkResult.isSuccess()) {
+      MemoryUseSingleStatistic singleStatistic=(MemoryUseSingleStatistic)singleBenchmarkResult.getSingleStatistic(problemStatisticType);
       for (      MemoryUseSingleStatisticPoint point : singleStatistic.getPointList()) {
         long timeMillisSpend=point.getTimeMillisSpend();
         MemoryUseMeasurement memoryUseMeasurement=point.getMemoryUseMeasurement();
@@ -21,7 +21,7 @@
     XYSeriesCollection seriesCollection=new XYSeriesCollection();
     seriesCollection.addSeries(usedSeries);
     plot.setDataset(seriesIndex,seriesCollection);
-    if (singleBenchmark.getSolverBenchmark().isFavorite()) {
+    if (singleBenchmarkResult.getSolverBenchmark().isFavorite()) {
       renderer.setSeriesStroke(0,new BasicStroke(2.0f));
     }
     plot.setRenderer(seriesIndex,renderer);

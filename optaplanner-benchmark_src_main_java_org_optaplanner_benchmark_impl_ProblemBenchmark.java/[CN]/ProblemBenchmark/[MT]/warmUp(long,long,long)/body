@@ -1,6 +1,6 @@
 {
-  for (  SingleBenchmark singleBenchmark : singleBenchmarkList) {
-    SolverBenchmark solverBenchmark=singleBenchmark.getSolverBenchmark();
+  for (  SingleBenchmarkResult singleBenchmarkResult : singleBenchmarkResultList) {
+    SolverBenchmark solverBenchmark=singleBenchmarkResult.getSolverBenchmark();
     TerminationConfig originalTerminationConfig=solverBenchmark.getSolverConfig().getTerminationConfig();
     TerminationConfig tmpTerminationConfig=originalTerminationConfig == null ? new TerminationConfig() : originalTerminationConfig.clone();
     tmpTerminationConfig.shortenMaximumTimeMillisSpendTotal(timeLeft);

@@ -1,6 +1,6 @@
 {
-  for (  SingleBenchmark singleBenchmark : singleBenchmarkList) {
-    singleBenchmark.accumulateResults(benchmarkReport);
+  for (  SingleBenchmarkResult singleBenchmarkResult : singleBenchmarkResultList) {
+    singleBenchmarkResult.accumulateResults(benchmarkReport);
   }
   determineTotalsAndAveragesAndRanking();
   determineWinningScoreDifference();

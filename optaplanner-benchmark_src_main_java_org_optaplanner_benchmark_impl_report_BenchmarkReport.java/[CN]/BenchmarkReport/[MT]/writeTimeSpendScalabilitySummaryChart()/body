@@ -3,10 +3,10 @@
   for (  SolverBenchmark solverBenchmark : plannerBenchmarkResult.getSolverBenchmarkList()) {
     String solverLabel=solverBenchmark.getNameWithFavoriteSuffix();
     XYSeries series=new XYSeries(solverLabel);
-    for (    SingleBenchmark singleBenchmark : solverBenchmark.getSingleBenchmarkList()) {
-      if (singleBenchmark.isSuccess()) {
-        long problemScale=singleBenchmark.getProblemBenchmark().getProblemScale();
-        long timeMillisSpend=singleBenchmark.getTimeMillisSpend();
+    for (    SingleBenchmarkResult singleBenchmarkResult : solverBenchmark.getSingleBenchmarkResultList()) {
+      if (singleBenchmarkResult.isSuccess()) {
+        long problemScale=singleBenchmarkResult.getProblemBenchmark().getProblemScale();
+        long timeMillisSpend=singleBenchmarkResult.getTimeMillisSpend();
         series.add((Long)problemScale,(Long)timeMillisSpend);
       }
     }

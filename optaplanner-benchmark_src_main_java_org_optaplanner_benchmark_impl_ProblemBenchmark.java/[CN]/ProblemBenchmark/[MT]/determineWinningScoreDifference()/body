@@ -1,9 +1,9 @@
 {
-  for (  SingleBenchmark singleBenchmark : singleBenchmarkList) {
-    if (singleBenchmark.isFailure()) {
+  for (  SingleBenchmarkResult singleBenchmarkResult : singleBenchmarkResultList) {
+    if (singleBenchmarkResult.isFailure()) {
       continue;
     }
-    singleBenchmark.setWinningScoreDifference(singleBenchmark.getScore().subtract(winningSingleBenchmark.getScore()));
-    singleBenchmark.setWorstScoreDifferencePercentage(ScoreDifferencePercentage.calculateScoreDifferencePercentage(worstSingleBenchmark.getScore(),singleBenchmark.getScore()));
+    singleBenchmarkResult.setWinningScoreDifference(singleBenchmarkResult.getScore().subtract(winningSingleBenchmarkResult.getScore()));
+    singleBenchmarkResult.setWorstScoreDifferencePercentage(ScoreDifferencePercentage.calculateScoreDifferencePercentage(worstSingleBenchmarkResult.getScore(),singleBenchmarkResult.getScore()));
   }
 }

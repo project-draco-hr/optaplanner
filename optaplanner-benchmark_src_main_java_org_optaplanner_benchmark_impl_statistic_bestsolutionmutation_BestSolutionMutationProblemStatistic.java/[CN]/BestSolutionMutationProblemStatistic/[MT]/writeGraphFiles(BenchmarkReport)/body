@@ -8,11 +8,11 @@
   XYPlot plot=new XYPlot(null,xAxis,yAxis,null);
   plot.setOrientation(PlotOrientation.VERTICAL);
   int seriesIndex=0;
-  for (  SingleBenchmark singleBenchmark : problemBenchmark.getSingleBenchmarkList()) {
-    XYSeries series=new XYSeries(singleBenchmark.getSolverBenchmark().getNameWithFavoriteSuffix());
+  for (  SingleBenchmarkResult singleBenchmarkResult : problemBenchmark.getSingleBenchmarkResultList()) {
+    XYSeries series=new XYSeries(singleBenchmarkResult.getSolverBenchmark().getNameWithFavoriteSuffix());
     XYItemRenderer renderer=new XYLineAndShapeRenderer();
-    if (singleBenchmark.isSuccess()) {
-      BestSolutionMutationSingleStatistic singleStatistic=(BestSolutionMutationSingleStatistic)singleBenchmark.getSingleStatistic(problemStatisticType);
+    if (singleBenchmarkResult.isSuccess()) {
+      BestSolutionMutationSingleStatistic singleStatistic=(BestSolutionMutationSingleStatistic)singleBenchmarkResult.getSingleStatistic(problemStatisticType);
       for (      BestSolutionMutationSingleStatisticPoint point : singleStatistic.getPointList()) {
         long timeMillisSpend=point.getTimeMillisSpend();
         long mutationCount=point.getMutationCount();
@@ -20,7 +20,7 @@
       }
     }
     plot.setDataset(seriesIndex,new XYSeriesCollection(series));
-    if (singleBenchmark.getSolverBenchmark().isFavorite()) {
+    if (singleBenchmarkResult.getSolverBenchmark().isFavorite()) {
       renderer.setSeriesStroke(0,new BasicStroke(2.0f));
     }
     plot.setRenderer(seriesIndex,renderer);

@@ -1,5 +1,5 @@
 {
-  ScoreDefinition scoreDefinition=singleBenchmark.getSolverBenchmark().getSolverConfig().getScoreDirectorFactoryConfig().buildScoreDefinition();
+  ScoreDefinition scoreDefinition=singleBenchmarkResult.getSolverBenchmark().getSolverConfig().getScoreDirectorFactoryConfig().buildScoreDefinition();
   List<P> pointList=getPointList();
   if (!pointList.isEmpty()) {
     throw new IllegalStateException("The pointList with size (" + pointList.size() + ") should be empty.");

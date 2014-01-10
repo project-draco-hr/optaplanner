@@ -1,9 +1,9 @@
 {
-  SingleBenchmark singleBenchmark=new SingleBenchmark(solverBenchmark,problemBenchmark);
+  SingleBenchmarkResult singleBenchmarkResult=new SingleBenchmarkResult(solverBenchmark,problemBenchmark);
   for (  ProblemStatistic problemStatistic : problemBenchmark.getProblemStatisticList()) {
-    SingleStatistic singleStatistic=problemStatistic.createSingleStatistic(singleBenchmark);
-    singleBenchmark.getSingleStatisticMap().put(problemStatistic.getProblemStatisticType(),singleStatistic);
+    SingleStatistic singleStatistic=problemStatistic.createSingleStatistic(singleBenchmarkResult);
+    singleBenchmarkResult.getSingleStatisticMap().put(problemStatistic.getProblemStatisticType(),singleStatistic);
   }
-  solverBenchmark.getSingleBenchmarkList().add(singleBenchmark);
-  problemBenchmark.getSingleBenchmarkList().add(singleBenchmark);
+  solverBenchmark.getSingleBenchmarkResultList().add(singleBenchmarkResult);
+  problemBenchmark.getSingleBenchmarkResultList().add(singleBenchmarkResult);
 }

@@ -1,3 +1,0 @@
-{
-  super(singleBenchmark,ProblemStatisticType.MOVE_COUNT_PER_STEP);
-}

@@ -1,0 +1,4 @@
+List<SingleBenchmarkResult> singleBenchmarkResultList
+int score
+int bestScore
+int worstScore

@@ -1,7 +1,7 @@
 {
-  List<Score> scoreList=new ArrayList<Score>(singleBenchmarkList.size());
-  for (  SingleBenchmark singleBenchmark : singleBenchmarkList) {
-    scoreList.add(singleBenchmark.getScore());
+  List<Score> scoreList=new ArrayList<Score>(singleBenchmarkResultList.size());
+  for (  SingleBenchmarkResult singleBenchmarkResult : singleBenchmarkResultList) {
+    scoreList.add(singleBenchmarkResult.getScore());
   }
   return scoreList;
 }

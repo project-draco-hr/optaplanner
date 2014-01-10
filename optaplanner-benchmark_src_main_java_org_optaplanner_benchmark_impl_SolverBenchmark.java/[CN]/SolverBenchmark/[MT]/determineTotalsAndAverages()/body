@@ -5,23 +5,23 @@
   totalWinningScoreDifference=null;
   ScoreDifferencePercentage totalWorstScoreDifferencePercentage=null;
   long totalAverageCalculateCountPerSecond=0L;
-  for (  SingleBenchmark singleBenchmark : singleBenchmarkList) {
-    if (singleBenchmark.isFailure()) {
+  for (  SingleBenchmarkResult singleBenchmarkResult : singleBenchmarkResultList) {
+    if (singleBenchmarkResult.isFailure()) {
       failureCount++;
     }
  else {
       if (firstNonFailure) {
-        totalScore=singleBenchmark.getScore();
-        totalWinningScoreDifference=singleBenchmark.getWinningScoreDifference();
-        totalWorstScoreDifferencePercentage=singleBenchmark.getWorstScoreDifferencePercentage();
-        totalAverageCalculateCountPerSecond=singleBenchmark.getAverageCalculateCountPerSecond();
+        totalScore=singleBenchmarkResult.getScore();
+        totalWinningScoreDifference=singleBenchmarkResult.getWinningScoreDifference();
+        totalWorstScoreDifferencePercentage=singleBenchmarkResult.getWorstScoreDifferencePercentage();
+        totalAverageCalculateCountPerSecond=singleBenchmarkResult.getAverageCalculateCountPerSecond();
         firstNonFailure=false;
       }
  else {
-        totalScore=totalScore.add(singleBenchmark.getScore());
-        totalWinningScoreDifference=totalWinningScoreDifference.add(singleBenchmark.getWinningScoreDifference());
-        totalWorstScoreDifferencePercentage=totalWorstScoreDifferencePercentage.add(singleBenchmark.getWorstScoreDifferencePercentage());
-        totalAverageCalculateCountPerSecond+=singleBenchmark.getAverageCalculateCountPerSecond();
+        totalScore=totalScore.add(singleBenchmarkResult.getScore());
+        totalWinningScoreDifference=totalWinningScoreDifference.add(singleBenchmarkResult.getWinningScoreDifference());
+        totalWorstScoreDifferencePercentage=totalWorstScoreDifferencePercentage.add(singleBenchmarkResult.getWorstScoreDifferencePercentage());
+        totalAverageCalculateCountPerSecond+=singleBenchmarkResult.getAverageCalculateCountPerSecond();
       }
     }
   }

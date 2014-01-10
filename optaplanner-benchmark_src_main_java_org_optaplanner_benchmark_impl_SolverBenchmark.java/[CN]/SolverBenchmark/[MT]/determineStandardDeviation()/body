@@ -4,9 +4,9 @@
     return;
   }
   double[] differenceSquaredTotalDoubles=null;
-  for (  SingleBenchmark singleBenchmark : singleBenchmarkList) {
-    if (!singleBenchmark.isFailure()) {
-      Score difference=singleBenchmark.getScore().subtract(averageScore);
+  for (  SingleBenchmarkResult singleBenchmarkResult : singleBenchmarkResultList) {
+    if (!singleBenchmarkResult.isFailure()) {
+      Score difference=singleBenchmarkResult.getScore().subtract(averageScore);
       double[] differenceDoubles=ScoreUtils.extractLevelDoubles(difference);
       if (differenceSquaredTotalDoubles == null) {
         differenceSquaredTotalDoubles=new double[differenceDoubles.length];

@@ -2,14 +2,14 @@
   defaultShownScoreLevelIndex=Integer.MAX_VALUE;
   for (  ProblemBenchmark problemBenchmark : plannerBenchmarkResult.getUnifiedProblemBenchmarkList()) {
     if (problemBenchmark.hasAnySuccess()) {
-      double[] winningScoreLevels=ScoreUtils.extractLevelDoubles(problemBenchmark.getWinningSingleBenchmark().getScore());
+      double[] winningScoreLevels=ScoreUtils.extractLevelDoubles(problemBenchmark.getWinningSingleBenchmarkResult().getScore());
       int[] differenceCount=new int[winningScoreLevels.length];
       for (int i=0; i < differenceCount.length; i++) {
         differenceCount[i]=0;
       }
-      for (      SingleBenchmark singleBenchmark : problemBenchmark.getSingleBenchmarkList()) {
-        if (singleBenchmark.isSuccess()) {
-          double[] scoreLevels=ScoreUtils.extractLevelDoubles(singleBenchmark.getScore());
+      for (      SingleBenchmarkResult singleBenchmarkResult : problemBenchmark.getSingleBenchmarkResultList()) {
+        if (singleBenchmarkResult.isSuccess()) {
+          double[] scoreLevels=ScoreUtils.extractLevelDoubles(singleBenchmarkResult.getScore());
           for (int i=0; i < scoreLevels.length; i++) {
             if (scoreLevels[i] != winningScoreLevels[i]) {
               differenceCount[i]=differenceCount[i] + 1;

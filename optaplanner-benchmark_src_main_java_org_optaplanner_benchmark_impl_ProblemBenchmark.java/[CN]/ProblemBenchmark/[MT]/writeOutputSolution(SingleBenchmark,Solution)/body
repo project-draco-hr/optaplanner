@@ -1,8 +1,0 @@
-{
-  if (!writeOutputSolutionEnabled) {
-    return;
-  }
-  String filename=singleBenchmark.getName() + "." + problemIO.getFileExtension();
-  File outputSolutionFile=new File(problemReportDirectory,filename);
-  problemIO.write(outputSolution,outputSolutionFile);
-}

@@ -1,15 +1,14 @@
 {
   Runtime runtime=Runtime.getRuntime();
-  ProblemBenchmark problemBenchmark=singleBenchmark.getProblemBenchmark();
-  SolverBenchmark solverBenchmark=singleBenchmark.getSolverBenchmark();
+  ProblemBenchmark problemBenchmark=singleBenchmarkResult.getProblemBenchmark();
   Solution inputSolution=problemBenchmark.readPlanningProblem();
   if (!problemBenchmark.getPlannerBenchmark().hasMultipleParallelBenchmarks()) {
     runtime.gc();
-    singleBenchmark.setUsedMemoryAfterInputSolution(runtime.totalMemory() - runtime.freeMemory());
+    singleBenchmarkResult.setUsedMemoryAfterInputSolution(runtime.totalMemory() - runtime.freeMemory());
   }
-  logger.trace("Benchmark inputSolution has been read for singleBenchmark ({}_{}).",problemBenchmark.getName(),solverBenchmark.getName());
-  Solver solver=solverBenchmark.getSolverConfig().buildSolver();
-  for (  SingleStatistic singleStatistic : singleBenchmark.getSingleStatisticMap().values()) {
+  logger.trace("Benchmark inputSolution has been read for singleBenchmarkResult ({}).",singleBenchmarkResult.getName());
+  Solver solver=singleBenchmarkResult.getSolverBenchmark().getSolverConfig().buildSolver();
+  for (  SingleStatistic singleStatistic : singleBenchmarkResult.getSingleStatisticMap().values()) {
     singleStatistic.open(solver);
   }
   solver.setPlanningProblem(inputSolution);
@@ -17,16 +16,16 @@
   long timeMillisSpend=solver.getTimeMillisSpend();
   Solution outputSolution=solver.getBestSolution();
   SolutionDescriptor solutionDescriptor=((DefaultSolver)solver).getSolutionDescriptor();
-  singleBenchmark.setPlanningEntityCount(solutionDescriptor.getEntityCount(outputSolution));
+  singleBenchmarkResult.setPlanningEntityCount(solutionDescriptor.getEntityCount(outputSolution));
   problemBenchmark.registerProblemScale(solutionDescriptor.getProblemScale(outputSolution));
-  singleBenchmark.setScore(outputSolution.getScore());
-  singleBenchmark.setTimeMillisSpend(timeMillisSpend);
+  singleBenchmarkResult.setScore(outputSolution.getScore());
+  singleBenchmarkResult.setTimeMillisSpend(timeMillisSpend);
   DefaultSolverScope solverScope=((DefaultSolver)solver).getSolverScope();
-  singleBenchmark.setCalculateCount(solverScope.getCalculateCount());
-  for (  SingleStatistic singleStatistic : singleBenchmark.getSingleStatisticMap().values()) {
+  singleBenchmarkResult.setCalculateCount(solverScope.getCalculateCount());
+  for (  SingleStatistic singleStatistic : singleBenchmarkResult.getSingleStatisticMap().values()) {
     singleStatistic.close(solver);
     singleStatistic.writeCsvStatisticFile();
   }
-  problemBenchmark.writeOutputSolution(singleBenchmark,outputSolution);
+  problemBenchmark.writeOutputSolution(singleBenchmarkResult,outputSolution);
   return this;
 }

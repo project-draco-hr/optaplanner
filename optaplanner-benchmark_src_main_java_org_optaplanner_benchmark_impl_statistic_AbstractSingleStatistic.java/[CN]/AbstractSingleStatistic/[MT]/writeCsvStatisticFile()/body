@@ -1,5 +1,5 @@
 {
-  csvFile=new File(singleBenchmark.getReportDirectory(),statisticType.name() + ".csv");
+  csvFile=new File(singleBenchmarkResult.getReportDirectory(),statisticType.name() + ".csv");
   Writer writer=null;
   try {
     writer=new OutputStreamWriter(new FileOutputStream(csvFile),"UTF-8");
@@ -8,7 +8,7 @@
     for (    AbstractSingleStatisticPoint point : getPointList()) {
       writeCsvLine(writer,point.toCsvLine());
     }
-    if (singleBenchmark.isFailure()) {
+    if (singleBenchmarkResult.isFailure()) {
       writer.append("Failed\n");
     }
   }

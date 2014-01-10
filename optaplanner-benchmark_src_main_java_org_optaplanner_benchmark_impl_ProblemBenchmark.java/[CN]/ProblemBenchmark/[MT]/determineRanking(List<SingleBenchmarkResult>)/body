@@ -1,0 +1,18 @@
+{
+  Comparator singleBenchmarkRankingComparator=new SingleBenchmarkRankingComparator();
+  Collections.sort(rankedSingleBenchmarkResultList,Collections.reverseOrder(singleBenchmarkRankingComparator));
+  int ranking=0;
+  SingleBenchmarkResult previousSingleBenchmarkResult=null;
+  int previousSameRankingCount=0;
+  for (  SingleBenchmarkResult singleBenchmarkResult : rankedSingleBenchmarkResultList) {
+    if (previousSingleBenchmarkResult != null && singleBenchmarkRankingComparator.compare(previousSingleBenchmarkResult,singleBenchmarkResult) != 0) {
+      ranking+=previousSameRankingCount;
+      previousSameRankingCount=0;
+    }
+    singleBenchmarkResult.setRanking(ranking);
+    previousSingleBenchmarkResult=singleBenchmarkResult;
+    previousSameRankingCount++;
+  }
+  winningSingleBenchmarkResult=rankedSingleBenchmarkResultList.isEmpty() ? null : rankedSingleBenchmarkResultList.get(0);
+  worstSingleBenchmarkResult=rankedSingleBenchmarkResultList.isEmpty() ? null : rankedSingleBenchmarkResultList.get(rankedSingleBenchmarkResultList.size() - 1);
+}
