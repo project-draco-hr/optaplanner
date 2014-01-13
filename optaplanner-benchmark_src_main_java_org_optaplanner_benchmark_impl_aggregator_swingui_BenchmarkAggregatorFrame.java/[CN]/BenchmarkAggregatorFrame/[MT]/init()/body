@@ -1,0 +1,7 @@
+{
+  setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+  setContentPane(createContentPane());
+  refreshPlannerBenchmarkResultList();
+  pack();
+  setLocationRelativeTo(null);
+}

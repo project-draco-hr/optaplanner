@@ -1,0 +1,6 @@
+{
+  JTextField benchmarkDirectoryField=new JTextField(80);
+  benchmarkDirectoryField.setText(benchmarkDirectory.getAbsolutePath());
+  benchmarkDirectoryField.setEditable(false);
+  return benchmarkDirectoryField;
+}

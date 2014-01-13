@@ -1,0 +1,4 @@
+{
+  resultSelectionPanel=new JPanel(new GridLayout(0,1));
+  return resultSelectionPanel;
+}

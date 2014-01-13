@@ -1,11 +1,16 @@
 {
-  File plannerBenchmarkResultFile=new File(benchmarkReportDirectory,PLANNER_BENCHMARK_RESULT_FILENAME);
+  if (!plannerBenchmarkResultFile.exists()) {
+    throw new IllegalArgumentException("The plannerBenchmarkResultFile (" + plannerBenchmarkResultFile + ") does not exist.");
+  }
   Reader reader=null;
   try {
     reader=new InputStreamReader(new FileInputStream(plannerBenchmarkResultFile),"UTF-8");
     return (PlannerBenchmarkResult)xStream.fromXML(reader);
   }
- catch (  IOException e) {
+ catch (  XStreamException e) {
+    throw new IllegalArgumentException("Problem reading plannerBenchmarkResultFile: " + plannerBenchmarkResultFile,e);
+  }
+catch (  IOException e) {
     throw new IllegalArgumentException("Problem reading plannerBenchmarkResultFile: " + plannerBenchmarkResultFile,e);
   }
  finally {

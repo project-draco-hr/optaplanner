@@ -1,0 +1,6 @@
+{
+  JPanel buttonPanel=new JPanel(new FlowLayout(FlowLayout.RIGHT));
+  JButton generateReportButton=new JButton(new GenerateReportAction());
+  buttonPanel.add(generateReportButton);
+  return buttonPanel;
+}

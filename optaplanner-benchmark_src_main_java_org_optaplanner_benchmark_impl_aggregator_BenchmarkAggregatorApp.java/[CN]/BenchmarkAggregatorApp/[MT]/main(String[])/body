@@ -1,0 +1,17 @@
+{
+  BenchmarkAggregatorApp app=new BenchmarkAggregatorApp();
+  File defaultBenchmarkDirectory;
+  if (args.length == 0) {
+    defaultBenchmarkDirectory=null;
+  }
+ else {
+    if (args.length > 1) {
+      throw new IllegalStateException("The program arguments (" + Arrays.toString(args) + ") are invalid: only 1 program argument is supported.");
+    }
+    defaultBenchmarkDirectory=new File(args[0]);
+    if (!defaultBenchmarkDirectory.exists()) {
+      throw new IllegalArgumentException("The defaultBenchmarkDirectory (" + defaultBenchmarkDirectory + ") does not exist.");
+    }
+  }
+  app.init(defaultBenchmarkDirectory);
+}
