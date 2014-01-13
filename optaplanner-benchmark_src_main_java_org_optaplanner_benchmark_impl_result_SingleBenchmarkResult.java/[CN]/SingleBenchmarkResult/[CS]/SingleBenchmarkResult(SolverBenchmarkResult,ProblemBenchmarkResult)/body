@@ -1,5 +1,4 @@
 {
   this.solverBenchmarkResult=solverBenchmarkResult;
   this.problemBenchmarkResult=problemBenchmarkResult;
-  singleStatisticMap=new HashMap<StatisticType,SingleStatistic>(problemBenchmarkResult.getProblemStatisticList().size());
 }

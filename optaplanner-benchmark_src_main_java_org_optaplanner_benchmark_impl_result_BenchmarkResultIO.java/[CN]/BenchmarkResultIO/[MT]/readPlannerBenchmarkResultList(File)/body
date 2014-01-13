@@ -10,7 +10,8 @@
   for (  File benchmarkReportDirectory : benchmarkReportDirectories) {
     File plannerBenchmarkResultFile=new File(benchmarkReportDirectory,PLANNER_BENCHMARK_RESULT_FILENAME);
     if (plannerBenchmarkResultFile.exists()) {
-      plannerBenchmarkResultList.add(readPlannerBenchmarkResult(plannerBenchmarkResultFile));
+      PlannerBenchmarkResult plannerBenchmarkResult=readPlannerBenchmarkResult(plannerBenchmarkResultFile);
+      plannerBenchmarkResultList.add(plannerBenchmarkResult);
     }
   }
   return plannerBenchmarkResultList;
