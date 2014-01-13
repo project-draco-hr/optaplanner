@@ -1,0 +1,14 @@
+{
+  File plannerBenchmarkResultFile=new File(benchmarkReportDirectory,PLANNER_BENCHMARK_RESULT_FILENAME);
+  Reader reader=null;
+  try {
+    reader=new InputStreamReader(new FileInputStream(plannerBenchmarkResultFile),"UTF-8");
+    return (PlannerBenchmarkResult)xStream.fromXML(reader);
+  }
+ catch (  IOException e) {
+    throw new IllegalArgumentException("Problem reading plannerBenchmarkResultFile: " + plannerBenchmarkResultFile,e);
+  }
+ finally {
+    IOUtils.closeQuietly(reader);
+  }
+}
