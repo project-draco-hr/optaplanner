@@ -4,5 +4,6 @@
     throw new IllegalArgumentException("The timeMillisThresholdInterval (" + timeMillisThresholdInterval + ") must be bigger than 0.");
   }
   this.timeMillisThresholdInterval=timeMillisThresholdInterval;
-  nextTimeMillisThreshold=timeMillisThresholdInterval;
+  listener=new MemoryUseSingleStatisticListener();
+  pointList=new ArrayList<MemoryUseSingleStatisticPoint>();
 }

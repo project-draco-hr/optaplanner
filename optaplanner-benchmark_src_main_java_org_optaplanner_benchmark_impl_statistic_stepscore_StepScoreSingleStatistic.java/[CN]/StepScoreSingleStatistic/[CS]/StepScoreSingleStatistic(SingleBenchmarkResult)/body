@@ -1,3 +1,5 @@
 {
   super(singleBenchmarkResult,ProblemStatisticType.STEP_SCORE);
+  listener=new StepScoreSingleStatisticListener();
+  pointList=new ArrayList<StepScoreSingleStatisticPoint>();
 }

@@ -1,4 +1,5 @@
 {
   super(singleBenchmarkResult,ProblemStatisticType.BEST_SCORE);
+  listener=new BestScoreSingleStatisticListener();
   pointList=new ArrayList<BestScoreSingleStatisticPoint>();
 }
