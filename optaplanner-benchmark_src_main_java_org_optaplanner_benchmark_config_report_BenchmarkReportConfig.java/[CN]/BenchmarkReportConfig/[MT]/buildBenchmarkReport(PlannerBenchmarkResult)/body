@@ -1,0 +1,6 @@
+{
+  BenchmarkReport benchmarkReport=new BenchmarkReport(plannerBenchmark);
+  benchmarkReport.setLocale(locale == null ? Locale.getDefault() : locale);
+  supplySolverRanking(benchmarkReport);
+  return benchmarkReport;
+}

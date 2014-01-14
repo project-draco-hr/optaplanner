@@ -1,0 +1,6 @@
+{
+  locale=ConfigUtils.inheritOverwritableProperty(locale,inheritedConfig.getLocale());
+  solverRankingType=ConfigUtils.inheritOverwritableProperty(solverRankingType,inheritedConfig.getSolverRankingType());
+  solverRankingComparatorClass=ConfigUtils.inheritOverwritableProperty(solverRankingComparatorClass,inheritedConfig.getSolverRankingComparatorClass());
+  solverRankingWeightFactoryClass=ConfigUtils.inheritOverwritableProperty(solverRankingWeightFactoryClass,inheritedConfig.getSolverRankingWeightFactoryClass());
+}
