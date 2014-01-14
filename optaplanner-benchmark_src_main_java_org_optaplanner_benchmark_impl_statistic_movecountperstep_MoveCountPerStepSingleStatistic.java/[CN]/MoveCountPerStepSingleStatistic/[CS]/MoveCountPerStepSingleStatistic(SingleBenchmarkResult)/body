@@ -1,5 +1,5 @@
 {
   super(singleBenchmarkResult,ProblemStatisticType.MOVE_COUNT_PER_STEP);
   listener=new MoveCountPerStepSingleStatisticListener();
-  pointList=new ArrayList<MoveCountPerStepSingleStatisticPoint>();
+  pointList=new ArrayList<MoveCountPerStepStatisticPoint>();
 }

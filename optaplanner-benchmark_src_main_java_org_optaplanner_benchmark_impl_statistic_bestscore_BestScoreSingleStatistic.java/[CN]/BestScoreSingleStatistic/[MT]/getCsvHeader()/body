@@ -1,3 +1,3 @@
 {
-  return BestScoreSingleStatisticPoint.buildCsvLine("timeMillisSpend","score");
+  return BestScoreStatisticPoint.buildCsvLine("timeMillisSpend","score");
 }

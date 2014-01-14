@@ -1,1 +1,1 @@
-AbstractSingleStatistic<MoveCountPerStepSingleStatisticPoint>
+SingleStatistic<MoveCountPerStepStatisticPoint>

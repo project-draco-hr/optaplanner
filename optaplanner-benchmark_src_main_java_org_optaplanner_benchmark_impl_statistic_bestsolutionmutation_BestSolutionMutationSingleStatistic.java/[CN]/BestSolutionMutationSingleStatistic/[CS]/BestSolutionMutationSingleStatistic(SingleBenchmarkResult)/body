@@ -1,5 +1,5 @@
 {
   super(singleBenchmarkResult,ProblemStatisticType.BEST_SOLUTION_MUTATION);
   listener=new BestSolutionMutationSingleStatisticListener();
-  pointList=new ArrayList<BestSolutionMutationSingleStatisticPoint>();
+  pointList=new ArrayList<BestSolutionMutationStatisticPoint>();
 }

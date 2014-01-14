@@ -1,6 +1,6 @@
 {
   if (stepScope.hasNoUninitializedVariables()) {
     long timeMillisSpend=stepScope.getPhaseScope().calculateSolverTimeMillisSpend();
-    pointList.add(new StepScoreSingleStatisticPoint(timeMillisSpend,stepScope.getScore()));
+    pointList.add(new StepScoreStatisticPoint(timeMillisSpend,stepScope.getScore()));
   }
 }

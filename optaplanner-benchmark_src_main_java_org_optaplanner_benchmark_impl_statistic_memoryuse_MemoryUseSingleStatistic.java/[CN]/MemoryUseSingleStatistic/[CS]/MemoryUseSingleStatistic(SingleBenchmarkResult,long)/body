@@ -5,5 +5,5 @@
   }
   this.timeMillisThresholdInterval=timeMillisThresholdInterval;
   listener=new MemoryUseSingleStatisticListener();
-  pointList=new ArrayList<MemoryUseSingleStatisticPoint>();
+  pointList=new ArrayList<MemoryUseStatisticPoint>();
 }

@@ -1,1 +1,1 @@
-AbstractSingleStatistic<BestSolutionMutationSingleStatisticPoint>
+SingleStatistic<BestSolutionMutationStatisticPoint>

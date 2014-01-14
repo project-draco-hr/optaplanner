@@ -1,1 +1,1 @@
-AbstractSingleStatistic<MemoryUseSingleStatisticPoint>
+SingleStatistic<MemoryUseStatisticPoint>

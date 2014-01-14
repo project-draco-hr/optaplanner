@@ -1,4 +1,4 @@
 {
   long timeMillisSpend=stepScope.getPhaseScope().calculateSolverTimeMillisSpend();
-  pointList.add(new MoveCountPerStepSingleStatisticPoint(timeMillisSpend,new MoveCountPerStepMeasurement(stepScope.getAcceptedMoveCount(),stepScope.getSelectedMoveCount())));
+  pointList.add(new MoveCountPerStepStatisticPoint(timeMillisSpend,new MoveCountPerStepMeasurement(stepScope.getAcceptedMoveCount(),stepScope.getSelectedMoveCount())));
 }
