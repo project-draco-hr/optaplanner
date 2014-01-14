@@ -2,10 +2,11 @@
   if (!plannerBenchmarkResultFile.exists()) {
     throw new IllegalArgumentException("The plannerBenchmarkResultFile (" + plannerBenchmarkResultFile + ") does not exist.");
   }
+  PlannerBenchmarkResult plannerBenchmarkResult;
   Reader reader=null;
   try {
     reader=new InputStreamReader(new FileInputStream(plannerBenchmarkResultFile),"UTF-8");
-    return (PlannerBenchmarkResult)xStream.fromXML(reader);
+    plannerBenchmarkResult=(PlannerBenchmarkResult)xStream.fromXML(reader);
   }
  catch (  XStreamException e) {
     throw new IllegalArgumentException("Problem reading plannerBenchmarkResultFile: " + plannerBenchmarkResultFile,e);
@@ -16,4 +17,6 @@ catch (  IOException e) {
  finally {
     IOUtils.closeQuietly(reader);
   }
+  restoreOmittedBidirectionalFields(plannerBenchmarkResult);
+  return plannerBenchmarkResult;
 }

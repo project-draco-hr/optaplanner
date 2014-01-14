@@ -1,0 +1,17 @@
+{
+  for (  SolverBenchmarkResult solverBenchmarkResult : plannerBenchmarkResult.getSolverBenchmarkResultList()) {
+    solverBenchmarkResult.setPlannerBenchmarkResult(plannerBenchmarkResult);
+    for (    SingleBenchmarkResult singleBenchmarkResult : solverBenchmarkResult.getSingleBenchmarkResultList()) {
+      singleBenchmarkResult.setSolverBenchmarkResult(solverBenchmarkResult);
+    }
+  }
+  for (  ProblemBenchmarkResult problemBenchmarkResult : plannerBenchmarkResult.getUnifiedProblemBenchmarkResultList()) {
+    problemBenchmarkResult.setPlannerBenchmarkResult(plannerBenchmarkResult);
+    for (    SingleBenchmarkResult singleBenchmarkResult : problemBenchmarkResult.getSingleBenchmarkResultList()) {
+      singleBenchmarkResult.setProblemBenchmarkResult(problemBenchmarkResult);
+    }
+    for (    ProblemStatistic problemStatistic : problemBenchmarkResult.getProblemStatisticList()) {
+      problemStatistic.setProblemBenchmarkResult(problemBenchmarkResult);
+    }
+  }
+}
