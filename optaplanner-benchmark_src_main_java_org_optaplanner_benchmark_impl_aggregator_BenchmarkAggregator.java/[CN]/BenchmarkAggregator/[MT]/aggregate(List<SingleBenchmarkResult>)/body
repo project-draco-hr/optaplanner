@@ -1,9 +1,23 @@
 {
+  if (benchmarkDirectory == null) {
+    throw new IllegalArgumentException("The benchmarkDirectory (" + benchmarkDirectory + ") must not be null.");
+  }
+  if (!benchmarkDirectory.exists()) {
+    throw new IllegalArgumentException("The benchmarkDirectory (" + benchmarkDirectory + ") must exist.");
+  }
+  Date startingTimestamp=new Date();
   for (  SingleBenchmarkResult singleBenchmarkResult : singleBenchmarkResultList) {
     singleBenchmarkResult.initSingleStatisticMap();
     for (    SingleStatistic singleStatistic : singleBenchmarkResult.getSingleStatisticMap().values()) {
+      singleStatistic.initSubdirs(singleBenchmarkResult.getSingleReportDirectory());
       singleStatistic.readCsvStatisticFile();
     }
   }
-  PlannerBenchmarkResult mergedResult=PlannerBenchmarkResult.createMergedResult(singleBenchmarkResultList);
+  PlannerBenchmarkResult plannerBenchmarkResult=PlannerBenchmarkResult.createMergedResult(singleBenchmarkResultList);
+  plannerBenchmarkResult.setStartingTimestamp(startingTimestamp);
+  BenchmarkReport benchmarkReport=new BenchmarkReportConfig().buildBenchmarkReport(plannerBenchmarkResult);
+  benchmarkReport.initBenchmarkReportDirectoryInBenchmarkDirectory(benchmarkDirectory);
+  plannerBenchmarkResult.accumulateResults(benchmarkReport);
+  benchmarkReport.writeReport();
+  logger.info("Aggregation ended: statistic html overview ({}).",benchmarkReport.getHtmlOverviewFile().getAbsolutePath());
 }

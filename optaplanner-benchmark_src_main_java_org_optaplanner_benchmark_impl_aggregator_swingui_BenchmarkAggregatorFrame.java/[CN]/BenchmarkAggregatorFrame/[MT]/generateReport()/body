@@ -6,5 +6,6 @@
     }
   }
   BenchmarkAggregator benchmarkAggregator=new BenchmarkAggregator();
+  benchmarkAggregator.setBenchmarkDirectory(benchmarkDirectory);
   benchmarkAggregator.aggregate(singleBenchmarkResultList);
 }

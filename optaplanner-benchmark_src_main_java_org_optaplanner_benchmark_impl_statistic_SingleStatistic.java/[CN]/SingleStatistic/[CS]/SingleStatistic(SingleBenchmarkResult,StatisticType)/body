@@ -1,5 +1,4 @@
 {
   this.singleBenchmarkResult=singleBenchmarkResult;
   this.statisticType=statisticType;
-  csvFile=new File(singleBenchmarkResult.getReportDirectory(),statisticType.name() + ".csv");
 }

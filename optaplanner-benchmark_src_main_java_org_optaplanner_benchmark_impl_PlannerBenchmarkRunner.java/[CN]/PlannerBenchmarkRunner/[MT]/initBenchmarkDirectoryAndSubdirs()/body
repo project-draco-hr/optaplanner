@@ -3,15 +3,5 @@
     throw new IllegalArgumentException("The benchmarkDirectory (" + benchmarkDirectory + ") must not be null.");
   }
   benchmarkDirectory.mkdirs();
-  String timestamp=new SimpleDateFormat("yyyy-MM-dd_HHmmss").format(plannerBenchmarkResult.getStartingTimestamp());
-  if (StringUtils.isEmpty(plannerBenchmarkResult.getName())) {
-    plannerBenchmarkResult.setName(timestamp);
-  }
-  File benchmarkReportDirectory=new File(benchmarkDirectory,timestamp);
-  boolean benchmarkReportDirectoryAdded=benchmarkReportDirectory.mkdirs();
-  if (!benchmarkReportDirectoryAdded) {
-    throw new IllegalArgumentException("The benchmarkReportDirectory (" + benchmarkReportDirectory + ") creation failed. It probably already exists.");
-  }
-  benchmarkReport.setBenchmarkReportDirectory(benchmarkReportDirectory);
-  benchmarkReport.initSubdirs();
+  benchmarkReport.initBenchmarkReportDirectoryInBenchmarkDirectory(benchmarkDirectory);
 }
