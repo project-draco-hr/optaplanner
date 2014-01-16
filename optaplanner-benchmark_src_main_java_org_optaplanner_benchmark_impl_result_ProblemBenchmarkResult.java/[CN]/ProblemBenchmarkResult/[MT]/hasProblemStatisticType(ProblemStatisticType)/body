@@ -1,0 +1,8 @@
+{
+  for (  ProblemStatistic problemStatistic : problemStatisticList) {
+    if (problemStatistic.getProblemStatisticType() == problemStatisticType) {
+      return true;
+    }
+  }
+  return false;
+}

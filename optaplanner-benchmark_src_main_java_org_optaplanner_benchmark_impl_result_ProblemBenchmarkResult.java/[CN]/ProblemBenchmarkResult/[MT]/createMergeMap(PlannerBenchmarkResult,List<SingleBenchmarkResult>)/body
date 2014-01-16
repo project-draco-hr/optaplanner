@@ -1,0 +1,38 @@
+{
+  Map<ProblemBenchmarkResult,ProblemBenchmarkResult> mergeMap=new IdentityHashMap<ProblemBenchmarkResult,ProblemBenchmarkResult>();
+  Map<File,ProblemBenchmarkResult> fileToNewResultMap=new HashMap<File,ProblemBenchmarkResult>();
+  for (  SingleBenchmarkResult singleBenchmarkResult : singleBenchmarkResultList) {
+    ProblemBenchmarkResult oldResult=singleBenchmarkResult.getProblemBenchmarkResult();
+    if (!mergeMap.containsKey(oldResult)) {
+      ProblemBenchmarkResult newResult;
+      if (!fileToNewResultMap.containsKey(oldResult.inputSolutionFile)) {
+        newResult=new ProblemBenchmarkResult(newPlannerBenchmarkResult);
+        newResult.name=oldResult.name;
+        newResult.inputSolutionFile=oldResult.inputSolutionFile;
+        newResult.problemStatisticList=new ArrayList<ProblemStatistic>(oldResult.problemStatisticList.size());
+        for (        ProblemStatistic oldProblemStatistic : oldResult.problemStatisticList) {
+          newResult.problemStatisticList.add(oldProblemStatistic.getProblemStatisticType().create(newResult));
+        }
+        newResult.singleBenchmarkResultList=new ArrayList<SingleBenchmarkResult>(oldResult.singleBenchmarkResultList.size());
+        newResult.problemScale=oldResult.problemScale;
+        fileToNewResultMap.put(oldResult.inputSolutionFile,newResult);
+        newPlannerBenchmarkResult.getUnifiedProblemBenchmarkResultList().add(newResult);
+      }
+ else {
+        newResult=fileToNewResultMap.get(oldResult.inputSolutionFile);
+        if (!ObjectUtils.equals(oldResult.name,newResult.name)) {
+          throw new IllegalStateException("The oldResult (" + oldResult + ") and newResult ("+ newResult+ ") should have the same name, because they have the same inputSolutionFile ("+ oldResult.inputSolutionFile+ ").");
+        }
+        for (Iterator<ProblemStatistic> it=newResult.problemStatisticList.iterator(); it.hasNext(); ) {
+          ProblemStatistic newStatistic=it.next();
+          if (!oldResult.hasProblemStatisticType(newStatistic.getProblemStatisticType())) {
+            it.remove();
+          }
+        }
+        newResult.problemScale=ConfigUtils.mergeProperty(oldResult.problemScale,newResult.problemScale);
+      }
+      mergeMap.put(oldResult,newResult);
+    }
+  }
+  return mergeMap;
+}

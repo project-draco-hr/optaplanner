@@ -1,0 +1,15 @@
+{
+  SingleBenchmarkResult newResult=new SingleBenchmarkResult(solverBenchmarkResult,problemBenchmarkResult);
+  newResult.initSingleStatisticMap();
+  for (  SingleStatistic singleStatistic : newResult.singleStatisticMap.values()) {
+    singleStatistic.setPointList(oldResult.getSingleStatistic(singleStatistic.getStatisticType()).getPointList());
+  }
+  newResult.planningEntityCount=oldResult.planningEntityCount;
+  newResult.succeeded=oldResult.succeeded;
+  newResult.score=oldResult.score;
+  newResult.timeMillisSpend=oldResult.timeMillisSpend;
+  newResult.calculateCount=oldResult.calculateCount;
+  solverBenchmarkResult.getSingleBenchmarkResultList().add(newResult);
+  problemBenchmarkResult.getSingleBenchmarkResultList().add(newResult);
+  return newResult;
+}

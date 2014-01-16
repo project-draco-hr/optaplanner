@@ -2,4 +2,5 @@
   super("Benchmark aggregator");
   benchmarkDirectory=defaultBenchmarkDirectory;
   benchmarkResultIO=new BenchmarkResultIO();
+  visiblePlannerBenchmarkResultList=Collections.emptyList();
 }
