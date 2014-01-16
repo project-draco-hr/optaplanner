@@ -1,19 +1,17 @@
 {
-  csvFile=new File(singleBenchmarkResult.getReportDirectory(),statisticType.name() + ".csv");
   Writer writer=null;
   try {
     writer=new OutputStreamWriter(new FileOutputStream(csvFile),"UTF-8");
-    writeCsvLine(writer,getCsvHeader());
-    writer.append("\n");
+    writer.append(getCsvHeader()).append("\n");
     for (    StatisticPoint point : getPointList()) {
-      writeCsvLine(writer,point.toCsvLine());
+      writer.append(point.toCsvLine()).append("\n");
     }
     if (singleBenchmarkResult.isFailure()) {
       writer.append("Failed\n");
     }
   }
  catch (  IOException e) {
-    throw new IllegalArgumentException("Problem writing csvFile: " + csvFile,e);
+    throw new IllegalArgumentException("Failed writing csvFile (" + csvFile + ").",e);
   }
  finally {
     IOUtils.closeQuietly(writer);

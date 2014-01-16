@@ -1,0 +1,9 @@
+{
+  for (  SingleBenchmarkResult singleBenchmarkResult : singleBenchmarkResultList) {
+    singleBenchmarkResult.initSingleStatisticMap();
+    for (    SingleStatistic singleStatistic : singleBenchmarkResult.getSingleStatisticMap().values()) {
+      singleStatistic.readCsvStatisticFile();
+    }
+  }
+  PlannerBenchmarkResult mergedResult=PlannerBenchmarkResult.createMergedResult(singleBenchmarkResultList);
+}

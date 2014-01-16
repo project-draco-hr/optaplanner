@@ -1,7 +1,7 @@
 {
-  List<String> line=new ArrayList<String>(values.length);
+  StringBuilder line=new StringBuilder(values.length * 10);
   for (  String value : values) {
-    line.add("\"" + value.replaceAll("\"","\"\"") + "\"");
+    line.append(",").append("\"").append(value.replaceAll("\"","\"\"")).append("\"");
   }
-  return line;
+  return line.substring(1).toString();
 }
