@@ -5,6 +5,9 @@
   if (!benchmarkDirectory.exists()) {
     throw new IllegalArgumentException("The benchmarkDirectory (" + benchmarkDirectory + ") must exist.");
   }
+  if (benchmarkReportConfig == null) {
+    throw new IllegalArgumentException("The benchmarkReportConfig (" + benchmarkReportConfig + ") must not be null.");
+  }
   Date startingTimestamp=new Date();
   for (  SingleBenchmarkResult singleBenchmarkResult : singleBenchmarkResultList) {
     singleBenchmarkResult.initSingleStatisticMap();
@@ -15,7 +18,7 @@
   }
   PlannerBenchmarkResult plannerBenchmarkResult=PlannerBenchmarkResult.createMergedResult(singleBenchmarkResultList);
   plannerBenchmarkResult.setStartingTimestamp(startingTimestamp);
-  BenchmarkReport benchmarkReport=new BenchmarkReportConfig().buildBenchmarkReport(plannerBenchmarkResult);
+  BenchmarkReport benchmarkReport=benchmarkReportConfig.buildBenchmarkReport(plannerBenchmarkResult);
   benchmarkReport.initBenchmarkReportDirectoryInBenchmarkDirectory(benchmarkDirectory);
   plannerBenchmarkResult.accumulateResults(benchmarkReport);
   benchmarkReport.writeReport();

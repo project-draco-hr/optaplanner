@@ -1,7 +1,7 @@
 {
-  InputStream in=getClass().getResourceAsStream(resource);
+  InputStream in=getClass().getResourceAsStream(benchmarkConfigResource);
   if (in == null) {
-    throw new IllegalArgumentException("Could not find resource (" + resource + ").");
+    throw new IllegalArgumentException("Reading the benchmarkConfigResource (" + benchmarkConfigResource + ") failed.");
   }
   return configure(in);
 }

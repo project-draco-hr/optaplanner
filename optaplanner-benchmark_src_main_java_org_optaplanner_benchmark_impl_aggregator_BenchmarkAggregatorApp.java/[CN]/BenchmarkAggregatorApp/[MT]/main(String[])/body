@@ -1,17 +1,14 @@
 {
   BenchmarkAggregatorApp app=new BenchmarkAggregatorApp();
-  File defaultBenchmarkDirectory;
+  PlannerBenchmarkFactory plannerBenchmarkFactory;
   if (args.length == 0) {
-    defaultBenchmarkDirectory=null;
+    plannerBenchmarkFactory=new XmlPlannerBenchmarkFactory();
   }
  else {
     if (args.length > 1) {
       throw new IllegalStateException("The program arguments (" + Arrays.toString(args) + ") are invalid: only 1 program argument is supported.");
     }
-    defaultBenchmarkDirectory=new File(args[0]);
-    if (!defaultBenchmarkDirectory.exists()) {
-      throw new IllegalArgumentException("The defaultBenchmarkDirectory (" + defaultBenchmarkDirectory + ") does not exist.");
-    }
+    plannerBenchmarkFactory=new XmlPlannerBenchmarkFactory(args[0]);
   }
-  app.init(defaultBenchmarkDirectory);
+  BenchmarkAggregatorFrame.createAndDisplay(plannerBenchmarkFactory);
 }

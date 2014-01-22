@@ -1,6 +1,6 @@
 {
   super("Benchmark aggregator");
-  benchmarkDirectory=defaultBenchmarkDirectory;
+  this.benchmarkAggregator=benchmarkAggregator;
   benchmarkResultIO=new BenchmarkResultIO();
   visiblePlannerBenchmarkResultList=Collections.emptyList();
 }

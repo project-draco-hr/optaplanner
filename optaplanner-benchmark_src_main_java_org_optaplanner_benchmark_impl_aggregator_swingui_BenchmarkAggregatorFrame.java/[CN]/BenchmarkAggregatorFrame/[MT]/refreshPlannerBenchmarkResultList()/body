@@ -1,5 +1,5 @@
 {
-  visiblePlannerBenchmarkResultList=benchmarkResultIO.readPlannerBenchmarkResultList(benchmarkDirectory);
+  visiblePlannerBenchmarkResultList=benchmarkResultIO.readPlannerBenchmarkResultList(benchmarkAggregator.getBenchmarkDirectory());
   resultSelectionPanel.removeAll();
   for (  PlannerBenchmarkResult result : visiblePlannerBenchmarkResultList) {
     resultSelectionPanel.add(new JLabel(result.getName()));

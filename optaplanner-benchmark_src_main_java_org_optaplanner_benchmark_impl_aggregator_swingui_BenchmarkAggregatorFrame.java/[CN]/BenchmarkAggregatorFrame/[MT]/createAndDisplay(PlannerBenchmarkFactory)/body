@@ -1,0 +1,13 @@
+{
+  PlannerBenchmarkConfig plannerBenchmarkConfig=plannerBenchmarkFactory.getPlannerBenchmarkConfig();
+  BenchmarkAggregator benchmarkAggregator=new BenchmarkAggregator();
+  benchmarkAggregator.setBenchmarkDirectory(plannerBenchmarkConfig.getBenchmarkDirectory());
+  BenchmarkReportConfig benchmarkReportConfig=plannerBenchmarkConfig.getBenchmarkReportConfig();
+  if (benchmarkReportConfig == null) {
+    benchmarkReportConfig=new BenchmarkReportConfig();
+  }
+  benchmarkAggregator.setBenchmarkReportConfig(benchmarkReportConfig);
+  BenchmarkAggregatorFrame benchmarkAggregatorFrame=new BenchmarkAggregatorFrame(benchmarkAggregator);
+  benchmarkAggregatorFrame.init();
+  benchmarkAggregatorFrame.setVisible(true);
+}

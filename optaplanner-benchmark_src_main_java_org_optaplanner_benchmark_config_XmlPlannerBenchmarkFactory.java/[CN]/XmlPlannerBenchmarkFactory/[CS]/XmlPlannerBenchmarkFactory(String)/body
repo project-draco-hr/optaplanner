@@ -1,4 +1,4 @@
 {
   this();
-  configure(resource);
+  configure(benchmarkConfigResource);
 }

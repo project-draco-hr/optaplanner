@@ -1,5 +1,0 @@
-{
-  BenchmarkAggregatorFrame benchmarkAggregatorFrame=new BenchmarkAggregatorFrame(defaultBenchmarkDirectory);
-  benchmarkAggregatorFrame.init();
-  benchmarkAggregatorFrame.setVisible(true);
-}
