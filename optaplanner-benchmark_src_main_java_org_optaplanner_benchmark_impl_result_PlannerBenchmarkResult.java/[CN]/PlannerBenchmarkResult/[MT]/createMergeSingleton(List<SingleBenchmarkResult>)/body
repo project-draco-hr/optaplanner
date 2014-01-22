@@ -6,6 +6,7 @@
     if (!mergeMap.containsKey(oldResult)) {
       if (newResult == null) {
         newResult=new PlannerBenchmarkResult();
+        newResult.setAggregation(true);
         newResult.parallelBenchmarkCount=oldResult.parallelBenchmarkCount;
         newResult.warmUpTimeMillisSpend=oldResult.warmUpTimeMillisSpend;
         newResult.solverBenchmarkResultList=new ArrayList<SolverBenchmarkResult>();
