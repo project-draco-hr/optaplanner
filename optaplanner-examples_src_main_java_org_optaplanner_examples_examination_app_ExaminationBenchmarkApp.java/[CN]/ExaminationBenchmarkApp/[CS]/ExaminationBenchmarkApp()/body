@@ -1,0 +1,3 @@
+{
+  super(new ArgOption("default","/org/optaplanner/examples/examination/benchmark/examinationBenchmarkConfig.xml"),new ArgOption("stepLimit","/org/optaplanner/examples/examination/benchmark/examinationStepLimitBenchmarkConfig.xml"));
+}

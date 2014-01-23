@@ -1,0 +1,35 @@
+{
+  boolean aggregator=false;
+  ArgOption argOption=null;
+  for (  String arg : args) {
+    if (arg.equalsIgnoreCase(AGGREGATOR_ARG)) {
+      aggregator=true;
+    }
+ else     if (benchmarkArgumentMap.containsKey(arg)) {
+      if (argOption != null) {
+        throw new IllegalArgumentException("The args (" + Arrays.toString(args) + ") contains arg name ("+ argOption.getName()+ ") and arg name ("+ arg+ ").");
+      }
+      argOption=benchmarkArgumentMap.get(arg);
+    }
+ else {
+      throw new IllegalArgumentException("The args (" + Arrays.toString(args) + ") contains an arg ("+ arg+ ") which is not part of the recognized args ("+ benchmarkArgumentMap.keySet()+ " or "+ AGGREGATOR_ARG+ ").");
+    }
+  }
+  if (argOption == null) {
+    argOption=benchmarkArgumentMap.values().iterator().next();
+  }
+  PlannerBenchmarkFactory plannerBenchmarkFactory;
+  if (!argOption.isTemplate()) {
+    plannerBenchmarkFactory=new XmlPlannerBenchmarkFactory(argOption.getBenchmarkConfig());
+  }
+ else {
+    plannerBenchmarkFactory=new FreemarkerXmlPlannerBenchmarkFactory(argOption.getBenchmarkConfig());
+  }
+  if (!aggregator) {
+    PlannerBenchmark plannerBenchmark=plannerBenchmarkFactory.buildPlannerBenchmark();
+    plannerBenchmark.benchmark();
+  }
+ else {
+    BenchmarkAggregatorFrame.createAndDisplay(plannerBenchmarkFactory);
+  }
+}

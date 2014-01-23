@@ -1,0 +1,3 @@
+{
+  super(new ArgOption("default","/org/optaplanner/examples/machinereassignment/benchmark/machineReassignmentBenchmarkConfig.xml"),new ArgOption("stepLimit","/org/optaplanner/examples/machinereassignment/benchmark/machineReassignmentStepLimitBenchmarkConfig.xml"),new ArgOption("scoreDirector","/org/optaplanner/examples/machinereassignment/benchmark/machineReassignmentScoreDirectorBenchmarkConfig.xml"),new ArgOption("template","/org/optaplanner/examples/machinereassignment/benchmark/machineReassignmentBenchmarkConfigTemplate.xml.ftl",true));
+}

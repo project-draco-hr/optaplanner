@@ -1,0 +1,3 @@
+{
+  super(new ArgOption("default","/org/optaplanner/examples/pas/benchmark/patientAdmissionScheduleBenchmarkConfig.xml"));
+}

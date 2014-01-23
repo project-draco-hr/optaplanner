@@ -1,5 +1,0 @@
-{
-  PlannerBenchmarkFactory plannerBenchmarkFactory=new FreemarkerXmlPlannerBenchmarkFactory(benchmarkConfigTemplate);
-  PlannerBenchmark plannerBenchmark=plannerBenchmarkFactory.buildPlannerBenchmark();
-  plannerBenchmark.benchmark();
-}

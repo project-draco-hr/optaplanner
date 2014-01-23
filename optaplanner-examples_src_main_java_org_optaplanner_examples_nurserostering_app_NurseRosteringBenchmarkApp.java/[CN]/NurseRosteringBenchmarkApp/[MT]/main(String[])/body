@@ -1,24 +1,3 @@
 {
-  String benchmarkConfig;
-  if (args.length > 0) {
-    if (args[0].equals("sprint")) {
-      benchmarkConfig=SPRINT_BENCHMARK_CONFIG;
-    }
- else     if (args[0].equals("medium")) {
-      benchmarkConfig=MEDIUM_BENCHMARK_CONFIG;
-    }
- else     if (args[0].equals("long")) {
-      benchmarkConfig=LONG_BENCHMARK_CONFIG;
-    }
- else     if (args[0].equals("stepLimit")) {
-      benchmarkConfig=STEP_LIMIT_BENCHMARK_CONFIG;
-    }
- else {
-      throw new IllegalArgumentException("The program argument (" + args[0] + ") is not supported.");
-    }
-  }
- else {
-    benchmarkConfig=MEDIUM_BENCHMARK_CONFIG;
-  }
-  new NurseRosteringBenchmarkApp().buildAndBenchmark(benchmarkConfig);
+  new NurseRosteringBenchmarkApp().buildAndBenchmark(args);
 }

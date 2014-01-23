@@ -1,0 +1,3 @@
+{
+  super(new ArgOption("default","/org/optaplanner/examples/curriculumcourse/benchmark/curriculumCourseBenchmarkConfig.xml"),new ArgOption("stepLimit","/org/optaplanner/examples/curriculumcourse/benchmark/curriculumCourseStepLimitBenchmarkConfig.xml"),new ArgOption("template","/org/optaplanner/examples/curriculumcourse/benchmark/curriculumCourseBenchmarkConfigTemplate.xml.ftl",true));
+}
