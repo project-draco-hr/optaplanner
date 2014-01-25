@@ -1,4 +1,5 @@
 {
+  File benchmarkReportDirectory=plannerBenchmarkResult.getBenchmarkReportDirectory();
   WebsiteResourceUtils.copyResourcesTo(benchmarkReportDirectory);
   htmlOverviewFile=new File(benchmarkReportDirectory,"index.html");
   Configuration freemarkerCfg=new Configuration();

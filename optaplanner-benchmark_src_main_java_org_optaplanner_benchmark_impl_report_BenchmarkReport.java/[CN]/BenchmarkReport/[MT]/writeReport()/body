@@ -1,5 +1,5 @@
 {
-  summaryDirectory=new File(benchmarkReportDirectory,"summary");
+  summaryDirectory=new File(plannerBenchmarkResult.getBenchmarkReportDirectory(),"summary");
   summaryDirectory.mkdir();
   plannerBenchmarkResult.accumulateResults(this);
   fillWarningList();

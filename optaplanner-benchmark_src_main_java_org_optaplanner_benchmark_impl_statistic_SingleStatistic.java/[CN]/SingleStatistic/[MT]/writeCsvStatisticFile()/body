@@ -1,4 +1,5 @@
 {
+  File csvFile=getCsvFile();
   Writer writer=null;
   try {
     writer=new OutputStreamWriter(new FileOutputStream(csvFile),"UTF-8");

@@ -1,4 +1,5 @@
 {
+  File csvFile=getCsvFile();
   ScoreDefinition scoreDefinition=singleBenchmarkResult.getSolverBenchmarkResult().getSolverConfig().getScoreDirectorFactoryConfig().buildScoreDefinition();
   List<P> pointList=getPointList();
   if (!pointList.isEmpty()) {

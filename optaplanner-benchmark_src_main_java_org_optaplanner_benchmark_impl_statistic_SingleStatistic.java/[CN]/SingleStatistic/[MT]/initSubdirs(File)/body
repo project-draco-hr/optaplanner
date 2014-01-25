@@ -1,3 +1,0 @@
-{
-  csvFile=new File(singleReportDirectory,statisticType.name() + ".csv");
-}

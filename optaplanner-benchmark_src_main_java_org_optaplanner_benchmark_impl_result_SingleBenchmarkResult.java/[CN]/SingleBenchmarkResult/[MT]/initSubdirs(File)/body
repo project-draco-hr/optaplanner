@@ -1,7 +1,0 @@
-{
-  singleReportDirectory=new File(problemReportDirectory,solverBenchmarkResult.getName());
-  singleReportDirectory.mkdirs();
-  for (  SingleStatistic singleStatistic : singleStatisticMap.values()) {
-    singleStatistic.initSubdirs(singleReportDirectory);
-  }
-}

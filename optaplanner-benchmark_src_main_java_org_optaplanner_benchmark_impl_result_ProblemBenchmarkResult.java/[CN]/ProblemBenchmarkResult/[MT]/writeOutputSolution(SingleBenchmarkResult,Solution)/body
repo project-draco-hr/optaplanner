@@ -3,6 +3,6 @@
     return;
   }
   String filename=singleBenchmarkResult.getName() + "." + problemIO.getFileExtension();
-  File outputSolutionFile=new File(problemReportDirectory,filename);
+  File outputSolutionFile=new File(getProblemReportDirectory(),filename);
   problemIO.write(outputSolution,outputSolutionFile);
 }

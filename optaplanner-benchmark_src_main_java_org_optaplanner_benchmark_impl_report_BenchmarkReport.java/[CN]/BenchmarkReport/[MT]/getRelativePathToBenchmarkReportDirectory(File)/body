@@ -1,5 +1,5 @@
 {
-  String benchmarkReportDirectoryPath=benchmarkReportDirectory.getAbsolutePath();
+  String benchmarkReportDirectoryPath=plannerBenchmarkResult.getBenchmarkReportDirectory().getAbsolutePath();
   String filePath=file.getAbsolutePath();
   if (!filePath.startsWith(benchmarkReportDirectoryPath)) {
     throw new IllegalArgumentException("The filePath (" + filePath + ") does not start with the benchmarkReportDirectoryPath ("+ benchmarkReportDirectoryPath+ ").");

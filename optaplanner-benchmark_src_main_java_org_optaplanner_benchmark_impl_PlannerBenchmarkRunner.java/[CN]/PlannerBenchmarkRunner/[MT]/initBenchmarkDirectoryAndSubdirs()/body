@@ -3,5 +3,5 @@
     throw new IllegalArgumentException("The benchmarkDirectory (" + benchmarkDirectory + ") must not be null.");
   }
   benchmarkDirectory.mkdirs();
-  benchmarkReport.initBenchmarkReportDirectoryInBenchmarkDirectory(benchmarkDirectory);
+  plannerBenchmarkResult.initBenchmarkReportDirectory(benchmarkDirectory);
 }
