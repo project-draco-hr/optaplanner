@@ -1,0 +1,20 @@
+{
+  if (CHECKED.equals(status)) {
+    setSelected(true);
+    setArmed(false);
+    setPressed(false);
+  }
+ else   if (UNCHECKED.equals(status)) {
+    setSelected(false);
+    setArmed(false);
+    setPressed(false);
+  }
+ else   if (MIXED.equals(status)) {
+    setSelected(true);
+    setArmed(true);
+    setPressed(true);
+  }
+ else {
+    throw new IllegalArgumentException("Invalid argument '" + status + "' supplied.");
+  }
+}

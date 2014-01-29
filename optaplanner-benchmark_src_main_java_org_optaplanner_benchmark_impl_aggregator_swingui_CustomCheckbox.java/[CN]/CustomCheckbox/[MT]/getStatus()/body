@@ -1,0 +1,3 @@
+{
+  return ((CustomCheckboxModel)getModel()).getStatus();
+}

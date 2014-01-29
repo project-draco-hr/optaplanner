@@ -1,0 +1,60 @@
+{
+  TreePath path=tree.getPathForLocation(e.getX(),e.getY());
+  if (path != null) {
+    DefaultMutableTreeNode currentNode=(DefaultMutableTreeNode)path.getLastPathComponent();
+    CustomCheckbox checkbox=(CustomCheckbox)currentNode.getUserObject();
+switch (checkbox.getStatus()) {
+case CHECKED:
+{
+        checkbox.setStatus(CustomCheckbox.UNCHECKED);
+        selectChildren(currentNode,CustomCheckbox.UNCHECKED);
+        TreeNode[] ancestorNodes=currentNode.getPath();
+        for (int i=ancestorNodes.length - 2; i >= 0; i--) {
+          DefaultMutableTreeNode ancestorNode=(DefaultMutableTreeNode)ancestorNodes[i];
+          CustomCheckbox ancestorCheckbox=(CustomCheckbox)ancestorNode.getUserObject();
+          if (checkChildren(ancestorNode,CustomCheckbox.UNCHECKED)) {
+            ancestorCheckbox.setStatus(CustomCheckbox.UNCHECKED);
+          }
+ else {
+            ancestorCheckbox.setStatus(CustomCheckbox.MIXED);
+          }
+        }
+        break;
+      }
+case UNCHECKED:
+{
+      checkbox.setStatus(CustomCheckbox.CHECKED);
+      selectChildren(currentNode,CustomCheckbox.CHECKED);
+      TreeNode[] ancestorNodes=currentNode.getPath();
+      for (int i=ancestorNodes.length - 2; i >= 0; i--) {
+        DefaultMutableTreeNode ancestorNode=(DefaultMutableTreeNode)ancestorNodes[i];
+        CustomCheckbox ancestorCheckbox=(CustomCheckbox)ancestorNode.getUserObject();
+        if (checkChildren(ancestorNode,CustomCheckbox.CHECKED)) {
+          ancestorCheckbox.setStatus(CustomCheckbox.CHECKED);
+        }
+ else {
+          ancestorCheckbox.setStatus(CustomCheckbox.MIXED);
+        }
+      }
+      break;
+    }
+case MIXED:
+{
+    checkbox.setStatus(CustomCheckbox.CHECKED);
+    selectChildren(currentNode,CustomCheckbox.CHECKED);
+    TreeNode[] ancestorNodes=currentNode.getPath();
+    for (int i=ancestorNodes.length - 2; i >= 0; i--) {
+      DefaultMutableTreeNode ancestorNode=(DefaultMutableTreeNode)ancestorNodes[i];
+      CustomCheckbox ancestorCheckbox=(CustomCheckbox)ancestorNode.getUserObject();
+      if (checkChildren(ancestorNode,CustomCheckbox.CHECKED)) {
+        ancestorCheckbox.setStatus(CustomCheckbox.CHECKED);
+      }
+ else {
+        break;
+      }
+    }
+  }
+}
+tree.treeDidChange();
+}
+}
