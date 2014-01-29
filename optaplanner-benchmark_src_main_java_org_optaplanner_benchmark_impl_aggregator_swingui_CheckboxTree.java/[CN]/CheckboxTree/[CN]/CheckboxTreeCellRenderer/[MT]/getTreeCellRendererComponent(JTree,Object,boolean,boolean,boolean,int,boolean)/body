@@ -1,0 +1,5 @@
+{
+  DefaultMutableTreeNode node=(DefaultMutableTreeNode)value;
+  CustomCheckbox checkbox=(CustomCheckbox)node.getUserObject();
+  return checkbox;
+}

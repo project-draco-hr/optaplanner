@@ -1,0 +1,18 @@
+{
+switch (getStatus()) {
+case CHECKED:
+{
+      setStatus(UNCHECKED);
+      break;
+    }
+case UNCHECKED:
+{
+    setStatus(CHECKED);
+    break;
+  }
+case MIXED:
+{
+  setStatus(CHECKED);
+}
+}
+}
