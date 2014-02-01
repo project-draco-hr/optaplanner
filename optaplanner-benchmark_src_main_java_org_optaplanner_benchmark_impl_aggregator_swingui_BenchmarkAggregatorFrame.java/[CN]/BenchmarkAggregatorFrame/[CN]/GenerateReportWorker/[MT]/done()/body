@@ -1,0 +1,7 @@
+{
+  frameStatusBar.setText(null);
+  CustomDialog dialog=new CustomDialog(parentFrame,reportFile);
+  dialog.pack();
+  dialog.setLocationRelativeTo(null);
+  dialog.setVisible(true);
+}

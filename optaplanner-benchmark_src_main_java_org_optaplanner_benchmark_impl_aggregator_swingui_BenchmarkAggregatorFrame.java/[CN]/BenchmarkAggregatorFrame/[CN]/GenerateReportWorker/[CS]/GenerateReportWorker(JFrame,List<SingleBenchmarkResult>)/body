@@ -1,0 +1,4 @@
+{
+  this.parentFrame=parentFrame;
+  this.singleBenchmarkResultList=singleBenchmarkResultList;
+}

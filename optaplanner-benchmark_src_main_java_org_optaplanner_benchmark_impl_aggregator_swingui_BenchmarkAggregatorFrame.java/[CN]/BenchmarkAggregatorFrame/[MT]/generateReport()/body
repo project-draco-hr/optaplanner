@@ -1,9 +1,0 @@
-{
-  List<SingleBenchmarkResult> singleBenchmarkResultList=new ArrayList<SingleBenchmarkResult>();
-  for (  PlannerBenchmarkResult plannerBenchmarkResult : visiblePlannerBenchmarkResultList) {
-    for (    SolverBenchmarkResult solverBenchmarkResult : plannerBenchmarkResult.getSolverBenchmarkResultList()) {
-      singleBenchmarkResultList.addAll(solverBenchmarkResult.getSingleBenchmarkResultList());
-    }
-  }
-  benchmarkAggregator.aggregate(singleBenchmarkResultList);
-}

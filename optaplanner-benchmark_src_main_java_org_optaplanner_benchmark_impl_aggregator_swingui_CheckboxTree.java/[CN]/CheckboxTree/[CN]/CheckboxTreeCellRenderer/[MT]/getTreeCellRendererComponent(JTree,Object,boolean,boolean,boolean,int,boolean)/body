@@ -1,5 +1,6 @@
 {
   DefaultMutableTreeNode node=(DefaultMutableTreeNode)value;
   CustomCheckbox checkbox=(CustomCheckbox)node.getUserObject();
+  checkbox.setBackground(Color.WHITE);
   return checkbox;
 }

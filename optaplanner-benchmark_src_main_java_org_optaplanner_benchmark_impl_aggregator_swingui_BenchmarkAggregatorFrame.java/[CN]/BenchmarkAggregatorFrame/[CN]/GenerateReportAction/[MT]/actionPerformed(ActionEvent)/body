@@ -1,3 +1,4 @@
 {
+  jFrame.setEnabled(false);
   generateReport();
 }
