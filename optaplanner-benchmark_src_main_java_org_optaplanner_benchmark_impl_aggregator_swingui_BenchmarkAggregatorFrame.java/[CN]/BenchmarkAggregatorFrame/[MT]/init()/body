@@ -1,7 +1,8 @@
 {
   setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+  initPlannerBenchmarkResultList();
   setContentPane(createContentPane());
-  refreshPlannerBenchmarkResultList();
+  setPreferredSize(new Dimension(500,400));
   pack();
   setLocationRelativeTo(null);
 }

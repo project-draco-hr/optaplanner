@@ -1,0 +1,4 @@
+{
+  reportFile=benchmarkAggregator.aggregate(singleBenchmarkResultList);
+  return null;
+}

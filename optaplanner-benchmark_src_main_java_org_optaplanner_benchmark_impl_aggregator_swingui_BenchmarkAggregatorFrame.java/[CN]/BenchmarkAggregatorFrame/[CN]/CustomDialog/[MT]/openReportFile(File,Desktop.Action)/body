@@ -1,0 +1,25 @@
+{
+  clearStatusTextField();
+  Desktop desktop=Desktop.getDesktop();
+  try {
+switch (action) {
+case OPEN:
+{
+        if (desktop.isSupported(Desktop.Action.OPEN)) {
+          desktop.open(file);
+        }
+        break;
+      }
+case BROWSE:
+{
+      if (desktop.isSupported(Desktop.Action.BROWSE)) {
+        desktop.browse(file.toURI());
+      }
+    }
+}
+}
+ catch (IOException ex) {
+logger.error(ex.getMessage());
+dialogStatusBar.setText("Error has occured while opening report file.");
+}
+}

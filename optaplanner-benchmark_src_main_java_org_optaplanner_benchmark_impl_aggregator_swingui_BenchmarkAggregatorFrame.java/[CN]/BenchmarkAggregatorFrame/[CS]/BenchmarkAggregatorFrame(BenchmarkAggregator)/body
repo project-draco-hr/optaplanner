@@ -2,5 +2,5 @@
   super("Benchmark aggregator");
   this.benchmarkAggregator=benchmarkAggregator;
   benchmarkResultIO=new BenchmarkResultIO();
-  visiblePlannerBenchmarkResultList=Collections.emptyList();
+  plannerBenchmarkResultList=Collections.emptyList();
 }

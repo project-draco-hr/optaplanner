@@ -25,4 +25,5 @@
   plannerBenchmarkResult.accumulateResults(benchmarkReport);
   benchmarkReport.writeReport();
   logger.info("Aggregation ended: statistic html overview ({}).",benchmarkReport.getHtmlOverviewFile().getAbsolutePath());
+  return benchmarkReport.getHtmlOverviewFile().getAbsoluteFile();
 }

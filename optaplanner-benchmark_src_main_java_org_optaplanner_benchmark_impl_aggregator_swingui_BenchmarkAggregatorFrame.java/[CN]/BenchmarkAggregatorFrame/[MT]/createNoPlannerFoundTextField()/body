@@ -1,0 +1,13 @@
+{
+  String infoMessage="No planner benchmarks have been found in directory '" + benchmarkAggregator.getBenchmarkDirectory() + "'.";
+  JTextPane textPane=new JTextPane();
+  textPane.setEditable(false);
+  textPane.setText(infoMessage);
+  StyledDocument styledDocument=textPane.getStyledDocument();
+  SimpleAttributeSet center=new SimpleAttributeSet();
+  StyleConstants.setAlignment(center,StyleConstants.ALIGN_CENTER);
+  StyleConstants.setBold(center,true);
+  StyleConstants.setSpaceAbove(center,20);
+  styledDocument.setParagraphAttributes(0,styledDocument.getLength(),center,false);
+  return textPane;
+}

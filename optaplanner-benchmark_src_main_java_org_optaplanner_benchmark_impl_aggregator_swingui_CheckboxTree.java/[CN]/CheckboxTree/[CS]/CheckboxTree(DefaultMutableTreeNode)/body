@@ -2,4 +2,5 @@
   super(root);
   addMouseListener(new CheckboxTreeMouseListener(this));
   setCellRenderer(new CheckboxTreeCellRenderer());
+  setToggleClickCount(0);
 }

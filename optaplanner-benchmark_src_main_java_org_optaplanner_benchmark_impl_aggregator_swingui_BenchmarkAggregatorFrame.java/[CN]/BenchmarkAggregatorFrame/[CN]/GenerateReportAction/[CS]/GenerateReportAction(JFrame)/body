@@ -1,0 +1,4 @@
+{
+  super("Generate report");
+  this.jFrame=jFrame;
+}

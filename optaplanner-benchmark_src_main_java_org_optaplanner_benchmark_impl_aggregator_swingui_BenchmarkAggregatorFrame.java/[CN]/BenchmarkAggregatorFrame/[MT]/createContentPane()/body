@@ -1,7 +1,12 @@
 {
   JPanel contentPane=new JPanel(new BorderLayout());
-  contentPane.add(createBenchmarkDirectoryPanel(),BorderLayout.NORTH);
-  contentPane.add(createResultSelectionPanel(),BorderLayout.CENTER);
-  contentPane.add(createButtonPanel(),BorderLayout.SOUTH);
+  if (plannerBenchmarkResultList.isEmpty()) {
+    contentPane.add(createNoPlannerFoundTextField(),BorderLayout.CENTER);
+  }
+ else {
+    contentPane.add(createButtonPanel(),BorderLayout.NORTH);
+    contentPane.add(createBenchmarkTree(),BorderLayout.CENTER);
+  }
+  contentPane.add(createFrameStatusBar(),BorderLayout.SOUTH);
   return contentPane;
 }
