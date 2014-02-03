@@ -1,5 +1,5 @@
 {
-  CommonApp.fixateLookAndFeel();
+  CommonApp.prepareSwingEnvironment();
   OptaPlannerExamplesApp optaPlannerExamplesApp=new OptaPlannerExamplesApp();
   optaPlannerExamplesApp.pack();
   optaPlannerExamplesApp.setLocationRelativeTo(null);

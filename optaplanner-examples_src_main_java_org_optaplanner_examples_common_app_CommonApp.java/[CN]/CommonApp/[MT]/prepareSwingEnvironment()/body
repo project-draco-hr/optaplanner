@@ -1,0 +1,4 @@
+{
+  SwingUncaughtExceptionHandler.register();
+  SwingUtils.fixateLookAndFeel();
+}

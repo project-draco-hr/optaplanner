@@ -1,0 +1,5 @@
+{
+  System.err.append("Exception in thread \"").append(t.getName()).append("\" ");
+  e.printStackTrace();
+  displayException(t,e);
+}
