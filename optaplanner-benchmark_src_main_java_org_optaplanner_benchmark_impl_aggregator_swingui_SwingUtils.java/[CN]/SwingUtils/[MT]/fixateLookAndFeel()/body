@@ -1,7 +1,4 @@
 {
-  CommonUncaughtExceptionHandler uncaughtExceptionHandler=new CommonUncaughtExceptionHandler();
-  Thread.setDefaultUncaughtExceptionHandler(uncaughtExceptionHandler);
-  System.setProperty("sun.awt.exception.handler",CommonUncaughtExceptionHandler.class.getName());
   String lookAndFeelName="Metal";
   Exception lookAndFeelException;
   try {

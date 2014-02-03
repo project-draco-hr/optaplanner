@@ -1,4 +1,4 @@
 {
-  fixateLookAndFeel();
+  prepareSwingEnvironment();
   new NQueensApp().init();
 }

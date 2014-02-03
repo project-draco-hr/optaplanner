@@ -1,0 +1,5 @@
+{
+  SwingUncaughtExceptionHandler exceptionHandler=new SwingUncaughtExceptionHandler();
+  Thread.setDefaultUncaughtExceptionHandler(exceptionHandler);
+  System.setProperty("sun.awt.exception.handler",SwingUncaughtExceptionHandler.class.getName());
+}
