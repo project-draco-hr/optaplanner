@@ -16,6 +16,10 @@
   for (  SolverBenchmarkResult solverBenchmarkResult : solverBenchmarkResultList) {
     Score score=solverBenchmarkResult.getAverageScore();
     if (score != null) {
+      if (totalScore != null && !totalScore.isCompatibleArithmeticArgument(score)) {
+        totalScore=null;
+        break;
+      }
       totalScore=(totalScore == null) ? score : totalScore.add(score);
       solverBenchmarkCount++;
     }
