@@ -1,5 +1,4 @@
 {
-  clearStatusTextField();
   Desktop desktop=Desktop.getDesktop();
   try {
 switch (action) {
@@ -19,7 +18,6 @@ case BROWSE:
 }
 }
  catch (IOException ex) {
-logger.error(ex.getMessage());
-dialogStatusBar.setText("Error has occured while opening report file.");
+throw new IllegalStateException(ex);
 }
 }

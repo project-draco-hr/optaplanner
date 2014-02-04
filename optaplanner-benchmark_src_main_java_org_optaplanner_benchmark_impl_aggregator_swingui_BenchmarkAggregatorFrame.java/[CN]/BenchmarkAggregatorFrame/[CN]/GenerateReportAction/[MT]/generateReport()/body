@@ -1,24 +1,17 @@
 {
   List<SingleBenchmarkResult> singleBenchmarkResultList=new ArrayList<SingleBenchmarkResult>();
-  for (  Map.Entry<CustomCheckbox,SingleBenchmarkResult> entry : resultCheckboxMapping.entrySet()) {
-    if (CustomCheckbox.CheckboxStatus.CHECKED.equals(entry.getKey().getStatus())) {
+  for (  Map.Entry<MixedCheckBox,SingleBenchmarkResult> entry : resultCheckBoxMapping.entrySet()) {
+    if (MixedCheckBoxStatus.CHECKED == entry.getKey().getStatus()) {
       singleBenchmarkResultList.add(entry.getValue());
     }
   }
   if (singleBenchmarkResultList.isEmpty()) {
     frameStatusBar.setText("No single benchmarks have been selected.");
-    jFrame.setEnabled(true);
+    parentFrame.setEnabled(true);
   }
  else {
     frameStatusBar.setText("Generating merged report...");
-    GenerateReportWorker worker=new GenerateReportWorker(jFrame,singleBenchmarkResultList);
-    try {
-      worker.execute();
-    }
- catch (    Exception e) {
-      logger.error(e.getMessage());
-      frameStatusBar.setText("Error has occured while generating merged report.");
-      jFrame.setEnabled(true);
-    }
+    GenerateReportWorker worker=new GenerateReportWorker(parentFrame,singleBenchmarkResultList);
+    worker.execute();
   }
 }

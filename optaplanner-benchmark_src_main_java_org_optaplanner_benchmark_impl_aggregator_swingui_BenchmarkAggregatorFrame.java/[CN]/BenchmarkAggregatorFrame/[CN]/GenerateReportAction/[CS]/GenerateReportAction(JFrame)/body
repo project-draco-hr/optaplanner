@@ -1,4 +1,4 @@
 {
   super("Generate report");
-  this.jFrame=jFrame;
+  this.parentFrame=parentFrame;
 }

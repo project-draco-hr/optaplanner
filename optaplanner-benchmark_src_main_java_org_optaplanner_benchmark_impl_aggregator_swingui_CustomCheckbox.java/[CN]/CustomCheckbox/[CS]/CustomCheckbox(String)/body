@@ -1,6 +1,0 @@
-{
-  super(text);
-  setModel(new CustomCheckboxModel());
-  setStatus(UNCHECKED);
-  addMouseListener(new CustomCheckboxMouseListener());
-}

@@ -1,5 +1,0 @@
-{
-  dialogStatusBar=new JTextField();
-  dialogStatusBar.setEditable(false);
-  return dialogStatusBar;
-}

@@ -1,0 +1,3 @@
+{
+  ((MixedCheckBoxModel)getModel()).setStatus(status);
+}

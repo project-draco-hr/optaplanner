@@ -1,0 +1,9 @@
+{
+  Enumeration children=parent.children();
+  while (children.hasMoreElements()) {
+    DefaultMutableTreeNode child=(DefaultMutableTreeNode)children.nextElement();
+    MixedCheckBox checkbox=(MixedCheckBox)child.getUserObject();
+    checkbox.setStatus(status);
+    selectChildren(child,status);
+  }
+}

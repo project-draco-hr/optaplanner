@@ -1,3 +1,0 @@
-{
-  dialogStatusBar.setText(null);
-}
