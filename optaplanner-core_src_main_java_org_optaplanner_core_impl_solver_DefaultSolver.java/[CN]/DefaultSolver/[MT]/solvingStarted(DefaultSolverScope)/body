@@ -4,16 +4,11 @@
   }
   solverScope.setStartingSystemTimeMillis(System.currentTimeMillis());
   solverScope.setScoreDirector(scoreDirectorFactory.buildScoreDirector());
-  if (randomSeed != null) {
-    solverScope.setWorkingRandom(new Random(randomSeed));
-  }
- else {
-    solverScope.setWorkingRandom(new Random());
-  }
+  solverScope.setWorkingRandom(randomFactory.createRandom());
   solverScope.setWorkingSolutionFromBestSolution();
   bestSolutionRecaller.solvingStarted(solverScope);
   for (  SolverPhase solverPhase : solverPhaseList) {
     solverPhase.solvingStarted(solverScope);
   }
-  logger.info("Solving started: time spend ({}), score ({}), new best score ({}), random seed ({}).",solverScope.calculateTimeMillisSpend(),solverScope.getStartingInitializedScore(),solverScope.getBestScore(),(randomSeed != null ? randomSeed : "not fixed"));
+  logger.info("Solving started: time spend ({}), score ({}), new best score ({}), random seed ({}).",solverScope.calculateTimeMillisSpend(),solverScope.getStartingInitializedScore(),solverScope.getBestScore(),(randomFactory != null ? randomFactory : "not fixed"));
 }
