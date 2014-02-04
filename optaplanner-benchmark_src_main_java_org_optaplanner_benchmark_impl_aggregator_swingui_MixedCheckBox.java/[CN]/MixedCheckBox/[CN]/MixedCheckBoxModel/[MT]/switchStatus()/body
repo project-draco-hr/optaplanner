@@ -1,0 +1,18 @@
+{
+switch (getStatus()) {
+case CHECKED:
+{
+      setStatus(MixedCheckBoxStatus.UNCHECKED);
+      break;
+    }
+case UNCHECKED:
+{
+    setStatus(MixedCheckBoxStatus.CHECKED);
+    break;
+  }
+case MIXED:
+{
+  setStatus(MixedCheckBoxStatus.CHECKED);
+}
+}
+}

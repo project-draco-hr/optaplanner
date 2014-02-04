@@ -1,0 +1,6 @@
+{
+  super(text);
+  setModel(new MixedCheckBoxModel());
+  setStatus(MixedCheckBoxStatus.UNCHECKED);
+  addMouseListener(new CustomCheckboxMouseListener());
+}

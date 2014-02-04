@@ -1,4 +1,4 @@
 {
-  jFrame.setEnabled(false);
+  parentFrame.setEnabled(false);
   generateReport();
 }

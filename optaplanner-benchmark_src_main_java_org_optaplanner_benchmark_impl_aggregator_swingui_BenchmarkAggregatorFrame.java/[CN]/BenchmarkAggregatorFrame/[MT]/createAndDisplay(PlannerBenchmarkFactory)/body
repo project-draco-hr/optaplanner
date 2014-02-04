@@ -1,4 +1,6 @@
 {
+  SwingUncaughtExceptionHandler.register();
+  SwingUtils.fixateLookAndFeel();
   PlannerBenchmarkConfig plannerBenchmarkConfig=plannerBenchmarkFactory.getPlannerBenchmarkConfig();
   BenchmarkAggregator benchmarkAggregator=new BenchmarkAggregator();
   benchmarkAggregator.setBenchmarkDirectory(plannerBenchmarkConfig.getBenchmarkDirectory());

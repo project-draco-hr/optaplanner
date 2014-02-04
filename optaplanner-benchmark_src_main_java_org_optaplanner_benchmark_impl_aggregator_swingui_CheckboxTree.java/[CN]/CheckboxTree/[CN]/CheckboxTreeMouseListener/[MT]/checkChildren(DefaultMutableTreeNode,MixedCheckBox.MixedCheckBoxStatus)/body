@@ -1,0 +1,13 @@
+{
+  boolean childrenCheck=true;
+  Enumeration children=parent.children();
+  while (children.hasMoreElements()) {
+    DefaultMutableTreeNode child=(DefaultMutableTreeNode)children.nextElement();
+    MixedCheckBox checkbox=(MixedCheckBox)child.getUserObject();
+    if (checkbox.getStatus() != status) {
+      childrenCheck=false;
+      break;
+    }
+  }
+  return childrenCheck;
+}

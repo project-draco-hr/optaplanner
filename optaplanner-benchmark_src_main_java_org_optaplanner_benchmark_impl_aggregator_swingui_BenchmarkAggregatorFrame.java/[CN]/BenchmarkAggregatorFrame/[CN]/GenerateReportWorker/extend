@@ -1,1 +1,1 @@
-SwingWorker<Void,Void>
+SwingWorker<File,Void>

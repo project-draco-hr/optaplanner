@@ -2,52 +2,52 @@
   TreePath path=tree.getPathForLocation(e.getX(),e.getY());
   if (path != null) {
     DefaultMutableTreeNode currentNode=(DefaultMutableTreeNode)path.getLastPathComponent();
-    CustomCheckbox checkbox=(CustomCheckbox)currentNode.getUserObject();
+    MixedCheckBox checkbox=(MixedCheckBox)currentNode.getUserObject();
 switch (checkbox.getStatus()) {
 case CHECKED:
 {
-        checkbox.setStatus(CustomCheckbox.UNCHECKED);
-        selectChildren(currentNode,CustomCheckbox.UNCHECKED);
+        checkbox.setStatus(UNCHECKED);
+        selectChildren(currentNode,UNCHECKED);
         TreeNode[] ancestorNodes=currentNode.getPath();
         for (int i=ancestorNodes.length - 2; i >= 0; i--) {
           DefaultMutableTreeNode ancestorNode=(DefaultMutableTreeNode)ancestorNodes[i];
-          CustomCheckbox ancestorCheckbox=(CustomCheckbox)ancestorNode.getUserObject();
-          if (checkChildren(ancestorNode,CustomCheckbox.UNCHECKED)) {
-            ancestorCheckbox.setStatus(CustomCheckbox.UNCHECKED);
+          MixedCheckBox ancestorCheckbox=(MixedCheckBox)ancestorNode.getUserObject();
+          if (checkChildren(ancestorNode,UNCHECKED)) {
+            ancestorCheckbox.setStatus(UNCHECKED);
           }
  else {
-            ancestorCheckbox.setStatus(CustomCheckbox.MIXED);
+            ancestorCheckbox.setStatus(MIXED);
           }
         }
         break;
       }
 case UNCHECKED:
 {
-      checkbox.setStatus(CustomCheckbox.CHECKED);
-      selectChildren(currentNode,CustomCheckbox.CHECKED);
+      checkbox.setStatus(CHECKED);
+      selectChildren(currentNode,CHECKED);
       TreeNode[] ancestorNodes=currentNode.getPath();
       for (int i=ancestorNodes.length - 2; i >= 0; i--) {
         DefaultMutableTreeNode ancestorNode=(DefaultMutableTreeNode)ancestorNodes[i];
-        CustomCheckbox ancestorCheckbox=(CustomCheckbox)ancestorNode.getUserObject();
-        if (checkChildren(ancestorNode,CustomCheckbox.CHECKED)) {
-          ancestorCheckbox.setStatus(CustomCheckbox.CHECKED);
+        MixedCheckBox ancestorCheckbox=(MixedCheckBox)ancestorNode.getUserObject();
+        if (checkChildren(ancestorNode,CHECKED)) {
+          ancestorCheckbox.setStatus(CHECKED);
         }
  else {
-          ancestorCheckbox.setStatus(CustomCheckbox.MIXED);
+          ancestorCheckbox.setStatus(MIXED);
         }
       }
       break;
     }
 case MIXED:
 {
-    checkbox.setStatus(CustomCheckbox.CHECKED);
-    selectChildren(currentNode,CustomCheckbox.CHECKED);
+    checkbox.setStatus(CHECKED);
+    selectChildren(currentNode,CHECKED);
     TreeNode[] ancestorNodes=currentNode.getPath();
     for (int i=ancestorNodes.length - 2; i >= 0; i--) {
       DefaultMutableTreeNode ancestorNode=(DefaultMutableTreeNode)ancestorNodes[i];
-      CustomCheckbox ancestorCheckbox=(CustomCheckbox)ancestorNode.getUserObject();
-      if (checkChildren(ancestorNode,CustomCheckbox.CHECKED)) {
-        ancestorCheckbox.setStatus(CustomCheckbox.CHECKED);
+      MixedCheckBox ancestorCheckbox=(MixedCheckBox)ancestorNode.getUserObject();
+      if (checkChildren(ancestorNode,CHECKED)) {
+        ancestorCheckbox.setStatus(CHECKED);
       }
  else {
         break;

@@ -1,0 +1,3 @@
+{
+  return isSelected() ? (isArmed() ? MixedCheckBoxStatus.MIXED : MixedCheckBoxStatus.CHECKED) : MixedCheckBoxStatus.UNCHECKED;
+}
