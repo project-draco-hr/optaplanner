@@ -1,0 +1,7 @@
+List<SingleBenchmarkResult> singleBenchmarkResultList
+long hardScore
+long softScore
+long hardBestScore
+long softBestScore
+long hardWorstScore
+long softWorstScore
