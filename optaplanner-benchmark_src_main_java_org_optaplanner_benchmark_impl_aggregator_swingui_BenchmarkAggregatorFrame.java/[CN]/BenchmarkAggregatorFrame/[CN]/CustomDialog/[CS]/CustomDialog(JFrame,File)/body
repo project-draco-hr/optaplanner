@@ -18,7 +18,7 @@
   }
 );
   contentPanel.add(openFileButton);
-  final JCheckBox exitCheckbox=new JCheckBox("Exit application???");
+  final JCheckBox exitCheckbox=new JCheckBox("Exit application");
   exitCheckbox.setSelected(true);
   contentPanel.add(exitCheckbox);
   JButton closeButton=new JButton("Ok");

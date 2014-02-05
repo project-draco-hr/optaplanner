@@ -1,4 +1,4 @@
 {
-  CheckboxTree checkboxTree=new CheckboxTree(initBenchmarkHierarchy());
-  return new JScrollPane(checkboxTree);
+  CheckBoxTree checkBoxTree=new CheckBoxTree(initBenchmarkHierarchy());
+  return new JScrollPane(checkBoxTree);
 }

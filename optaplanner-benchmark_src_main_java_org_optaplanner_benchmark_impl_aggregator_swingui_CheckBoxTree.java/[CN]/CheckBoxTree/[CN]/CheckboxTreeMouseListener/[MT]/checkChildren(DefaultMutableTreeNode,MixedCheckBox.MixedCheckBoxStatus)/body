@@ -3,8 +3,8 @@
   Enumeration children=parent.children();
   while (children.hasMoreElements()) {
     DefaultMutableTreeNode child=(DefaultMutableTreeNode)children.nextElement();
-    MixedCheckBox checkbox=(MixedCheckBox)child.getUserObject();
-    if (checkbox.getStatus() != status) {
+    MixedCheckBox checkBox=(MixedCheckBox)child.getUserObject();
+    if (checkBox.getStatus() != status) {
       childrenCheck=false;
       break;
     }

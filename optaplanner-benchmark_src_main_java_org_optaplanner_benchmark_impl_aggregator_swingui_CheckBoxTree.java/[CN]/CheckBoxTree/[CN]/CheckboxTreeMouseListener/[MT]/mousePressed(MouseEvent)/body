@@ -2,11 +2,11 @@
   TreePath path=tree.getPathForLocation(e.getX(),e.getY());
   if (path != null) {
     DefaultMutableTreeNode currentNode=(DefaultMutableTreeNode)path.getLastPathComponent();
-    MixedCheckBox checkbox=(MixedCheckBox)currentNode.getUserObject();
-switch (checkbox.getStatus()) {
+    MixedCheckBox checkBox=(MixedCheckBox)currentNode.getUserObject();
+switch (checkBox.getStatus()) {
 case CHECKED:
 {
-        checkbox.setStatus(UNCHECKED);
+        checkBox.setStatus(UNCHECKED);
         selectChildren(currentNode,UNCHECKED);
         TreeNode[] ancestorNodes=currentNode.getPath();
         for (int i=ancestorNodes.length - 2; i >= 0; i--) {
@@ -23,7 +23,7 @@ case CHECKED:
       }
 case UNCHECKED:
 {
-      checkbox.setStatus(CHECKED);
+      checkBox.setStatus(CHECKED);
       selectChildren(currentNode,CHECKED);
       TreeNode[] ancestorNodes=currentNode.getPath();
       for (int i=ancestorNodes.length - 2; i >= 0; i--) {
@@ -40,7 +40,7 @@ case UNCHECKED:
     }
 case MIXED:
 {
-    checkbox.setStatus(CHECKED);
+    checkBox.setStatus(CHECKED);
     selectChildren(currentNode,CHECKED);
     TreeNode[] ancestorNodes=currentNode.getPath();
     for (int i=ancestorNodes.length - 2; i >= 0; i--) {
