@@ -1,8 +1,7 @@
 {
-  super(parentFrame,"Reprot generation finished");
+  super(parentFrame,"Report generation finished");
   JPanel contentPanel=new JPanel(new GridLayout(2,2,10,10));
-  contentPanel.setBorder(new EmptyBorder(15,15,15,15));
-  contentPanel.setBackground(Color.WHITE);
+  contentPanel.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
   JButton openBrowserButton=new JButton("Show in browser");
   openBrowserButton.addActionListener(new AbstractAction(){
     @Override public void actionPerformed(    ActionEvent e){
@@ -21,7 +20,6 @@
   contentPanel.add(openFileButton);
   final JCheckBox exitCheckbox=new JCheckBox("Exit application???");
   exitCheckbox.setSelected(true);
-  exitCheckbox.setBackground(Color.WHITE);
   contentPanel.add(exitCheckbox);
   JButton closeButton=new JButton("Ok");
   closeButton.addActionListener(new AbstractAction(){
@@ -37,5 +35,4 @@
 );
   contentPanel.add(closeButton);
   getContentPane().add(contentPanel);
-  setPreferredSize(new Dimension(400,150));
 }

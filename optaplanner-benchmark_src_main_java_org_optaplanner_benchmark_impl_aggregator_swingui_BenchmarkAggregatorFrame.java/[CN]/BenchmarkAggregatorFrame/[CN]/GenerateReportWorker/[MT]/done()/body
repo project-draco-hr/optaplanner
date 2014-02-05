@@ -1,16 +1,16 @@
 {
   try {
-    File reportFile=get();
-    CustomDialog dialog=new CustomDialog(parentFrame,reportFile);
+    File htmlOverviewFile=get();
+    CustomDialog dialog=new CustomDialog(parentFrame,htmlOverviewFile);
     dialog.pack();
-    dialog.setLocationRelativeTo(null);
+    dialog.setLocationRelativeTo(BenchmarkAggregatorFrame.this);
     dialog.setVisible(true);
   }
- catch (  InterruptedException ex) {
-    throw new IllegalStateException(ex);
+ catch (  InterruptedException e) {
+    throw new IllegalStateException(e);
   }
-catch (  ExecutionException ex) {
-    throw new IllegalStateException(ex);
+catch (  ExecutionException e) {
+    throw new IllegalStateException(e);
   }
  finally {
     parentFrame.setEnabled(true);

@@ -3,21 +3,18 @@
   try {
 switch (action) {
 case OPEN:
-{
-        if (desktop.isSupported(Desktop.Action.OPEN)) {
-          desktop.open(file);
-        }
-        break;
+      if (desktop.isSupported(Desktop.Action.OPEN)) {
+        desktop.open(file);
       }
+    break;
 case BROWSE:
-{
-      if (desktop.isSupported(Desktop.Action.BROWSE)) {
-        desktop.browse(file.toURI());
-      }
-    }
+  if (desktop.isSupported(Desktop.Action.BROWSE)) {
+    desktop.browse(file.toURI());
+  }
+break;
 }
 }
- catch (IOException ex) {
-throw new IllegalStateException(ex);
+ catch (IOException e) {
+throw new IllegalStateException(e);
 }
 }
