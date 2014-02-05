@@ -2,10 +2,8 @@
 switch (randomType) {
 case JDK:
     return randomSeed == null ? new Random() : new Random(randomSeed);
-case ISAAC:
-  return new RandomAdaptor(randomSeed == null ? new ISAACRandom() : new ISAACRandom(randomSeed));
 case MERSENNE_TWISTER:
-return new RandomAdaptor(randomSeed == null ? new MersenneTwister() : new MersenneTwister(randomSeed));
+  return new RandomAdaptor(randomSeed == null ? new MersenneTwister() : new MersenneTwister(randomSeed));
 case WELL512A:
 return new RandomAdaptor(randomSeed == null ? new Well512a() : new Well512a(randomSeed));
 case WELL1024A:

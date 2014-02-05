@@ -1,0 +1,3 @@
+{
+  return randomType.name() + (randomSeed == null ? "" : " with seed " + randomSeed);
+}
