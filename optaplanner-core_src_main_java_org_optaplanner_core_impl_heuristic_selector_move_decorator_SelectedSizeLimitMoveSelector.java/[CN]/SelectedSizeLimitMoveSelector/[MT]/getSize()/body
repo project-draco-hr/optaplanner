@@ -1,4 +1,0 @@
-{
-  long childSize=childMoveSelector.getSize();
-  return Math.min(selectedSizeLimit,childSize);
-}

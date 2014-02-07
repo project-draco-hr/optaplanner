@@ -1,7 +1,0 @@
-{
-  if (selectedSize >= selectedSizeLimit) {
-    throw new NoSuchElementException();
-  }
-  selectedSize++;
-  return childMoveIterator.next();
-}

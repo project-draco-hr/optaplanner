@@ -4,13 +4,13 @@
   validateCacheTypeVersusSelectionOrder(resolvedCacheType,resolvedSelectionOrder);
   validateSorting(resolvedSelectionOrder);
   validateProbability(resolvedSelectionOrder);
-  validateSelectedSizeLimit(minimumCacheType);
+  validateSelectedLimit(minimumCacheType);
   MoveSelector moveSelector=buildBaseMoveSelector(configPolicy,SelectionCacheType.max(minimumCacheType,resolvedCacheType),determineBaseRandomSelection(resolvedCacheType,resolvedSelectionOrder));
   moveSelector=applyFiltering(resolvedCacheType,resolvedSelectionOrder,moveSelector);
   moveSelector=applySorting(resolvedCacheType,resolvedSelectionOrder,moveSelector);
   moveSelector=applyProbability(resolvedCacheType,resolvedSelectionOrder,moveSelector);
   moveSelector=applyShuffling(resolvedCacheType,resolvedSelectionOrder,moveSelector);
   moveSelector=applyCaching(resolvedCacheType,resolvedSelectionOrder,moveSelector);
-  moveSelector=applySelectedSizeLimit(resolvedCacheType,resolvedSelectionOrder,moveSelector);
+  moveSelector=applySelectedLimit(resolvedCacheType,resolvedSelectionOrder,moveSelector);
   return moveSelector;
 }
