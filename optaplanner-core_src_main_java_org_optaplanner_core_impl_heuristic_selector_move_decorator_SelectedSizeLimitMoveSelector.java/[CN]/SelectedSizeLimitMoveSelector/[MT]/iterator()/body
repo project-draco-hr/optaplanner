@@ -1,0 +1,3 @@
+{
+  return new SelectedSizeLimitMoveIterator(childMoveSelector.iterator());
+}

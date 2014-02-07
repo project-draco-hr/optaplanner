@@ -1,0 +1,6 @@
+{
+  if (selectedSizeLimit != null) {
+    moveSelector=new SelectedSizeLimitMoveSelector(moveSelector,selectedSizeLimit);
+  }
+  return moveSelector;
+}

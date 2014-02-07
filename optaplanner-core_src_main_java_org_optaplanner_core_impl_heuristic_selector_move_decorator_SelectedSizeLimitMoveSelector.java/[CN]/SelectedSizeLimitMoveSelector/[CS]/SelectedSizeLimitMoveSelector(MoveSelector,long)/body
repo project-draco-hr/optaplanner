@@ -1,0 +1,8 @@
+{
+  this.childMoveSelector=childMoveSelector;
+  this.selectedSizeLimit=selectedSizeLimit;
+  if (selectedSizeLimit < 0L) {
+    throw new IllegalArgumentException("The selector (" + this + ") has a negative selectedSizeLimit ("+ selectedSizeLimit+ ").");
+  }
+  solverPhaseLifecycleSupport.addEventListener(childMoveSelector);
+}

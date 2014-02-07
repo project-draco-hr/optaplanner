@@ -8,5 +8,6 @@
   sorterOrder=ConfigUtils.inheritOverwritableProperty(sorterOrder,inheritedConfig.getSorterOrder());
   sorterClass=ConfigUtils.inheritOverwritableProperty(sorterClass,inheritedConfig.getSorterClass());
   probabilityWeightFactoryClass=ConfigUtils.inheritOverwritableProperty(probabilityWeightFactoryClass,inheritedConfig.getProbabilityWeightFactoryClass());
+  selectedSizeLimit=ConfigUtils.inheritOverwritableProperty(selectedSizeLimit,inheritedConfig.getSelectedSizeLimit());
   fixedProbabilityWeight=ConfigUtils.inheritOverwritableProperty(fixedProbabilityWeight,inheritedConfig.getFixedProbabilityWeight());
 }
