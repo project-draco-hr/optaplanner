@@ -1,5 +1,0 @@
-{
-  frameStatusBar=new JTextField();
-  frameStatusBar.setEditable(false);
-  return frameStatusBar;
-}

@@ -4,9 +4,9 @@
     contentPane.add(createNoPlannerFoundTextField(),BorderLayout.CENTER);
   }
  else {
-    contentPane.add(createButtonPanel(),BorderLayout.NORTH);
-    contentPane.add(createBenchmarkTree(),BorderLayout.CENTER);
+    contentPane.add(createTopButtonPanel(),BorderLayout.NORTH);
+    contentPane.add(createBenchmarkTreePanel(),BorderLayout.CENTER);
   }
-  contentPane.add(createFrameStatusBar(),BorderLayout.SOUTH);
+  contentPane.add(createDetailTextArea(),BorderLayout.SOUTH);
   return contentPane;
 }

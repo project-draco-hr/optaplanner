@@ -1,0 +1,6 @@
+{
+  MixedCheckBox singleBenchmarkCheckbox=new MixedCheckBox(singleBenchmarkResult.getName());
+  singleBenchmarkCheckbox.setDetail(String.format(DETAIL_TEMPLATE,singleBenchmarkResult.getScore(),singleBenchmarkResult.getPlanningEntityCount(),singleBenchmarkResult.getUsedMemoryAfterInputSolution(),singleBenchmarkResult.getTimeMillisSpend()));
+  resultCheckBoxMapping.put(singleBenchmarkCheckbox,singleBenchmarkResult);
+  return singleBenchmarkCheckbox;
+}
