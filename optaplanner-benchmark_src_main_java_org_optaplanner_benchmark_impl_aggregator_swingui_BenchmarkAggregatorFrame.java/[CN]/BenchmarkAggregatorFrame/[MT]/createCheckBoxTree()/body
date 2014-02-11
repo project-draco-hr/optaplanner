@@ -1,5 +1,5 @@
 {
-  CheckboxTree resultCheckBoxTree=new CheckboxTree(initBenchmarkHierarchy());
+  CheckBoxTree resultCheckBoxTree=new CheckBoxTree(initBenchmarkHierarchy());
   resultCheckBoxTree.addMouseMotionListener(new MouseMotionAdapter(){
     private TreePath lastTreePath;
     @Override public void mouseMoved(    MouseEvent e){
