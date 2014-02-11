@@ -1,0 +1,4 @@
+{
+  long childSize=childEntitySelector.getSize();
+  return Math.min(selectedCountLimit,childSize);
+}

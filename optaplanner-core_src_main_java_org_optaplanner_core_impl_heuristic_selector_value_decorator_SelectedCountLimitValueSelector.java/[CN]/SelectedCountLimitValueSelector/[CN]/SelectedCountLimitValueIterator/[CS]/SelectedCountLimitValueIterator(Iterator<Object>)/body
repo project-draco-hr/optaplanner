@@ -1,0 +1,4 @@
+{
+  this.childValueIterator=childValueIterator;
+  selectedSize=0L;
+}

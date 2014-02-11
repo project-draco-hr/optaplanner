@@ -1,0 +1,6 @@
+{
+  if (selectedCountLimit != null) {
+    valueSelector=new SelectedCountLimitValueSelector(valueSelector,selectedCountLimit);
+  }
+  return valueSelector;
+}

@@ -1,0 +1,47 @@
+{
+  super(parentFrame,"Report generation finished");
+  JPanel contentPanel=new JPanel(new GridLayout(1,3,10,10));
+  final JCheckBox exitCheckBox=new JCheckBox("Exit application???");
+  exitCheckBox.setSelected(true);
+  JButton openBrowserButton=new JButton("Show in browser");
+  openBrowserButton.addActionListener(new AbstractAction(){
+    @Override public void actionPerformed(    ActionEvent e){
+      openReportFile(reportFile.getAbsoluteFile(),Desktop.Action.BROWSE);
+      if (exitCheckBox.isSelected()) {
+        parentFrame.dispose();
+      }
+    }
+  }
+);
+  contentPanel.add(openBrowserButton);
+  JButton openFileButton=new JButton("Show in files");
+  openFileButton.addActionListener(new AbstractAction(){
+    @Override public void actionPerformed(    ActionEvent e){
+      openReportFile(reportFile.getParentFile(),Desktop.Action.OPEN);
+      if (exitCheckBox.isSelected()) {
+        parentFrame.dispose();
+      }
+    }
+  }
+);
+  contentPanel.add(openFileButton);
+  JButton closeButton=new JButton("Ok");
+  closeButton.addActionListener(new AbstractAction(){
+    @Override public void actionPerformed(    ActionEvent e){
+      if (exitCheckBox.isSelected()) {
+        parentFrame.dispose();
+      }
+ else {
+        dispose();
+      }
+    }
+  }
+);
+  contentPanel.add(closeButton);
+  JPanel mainPanel=new JPanel(new BorderLayout(0,10));
+  mainPanel.add(exitCheckBox,BorderLayout.NORTH);
+  mainPanel.add(contentPanel,BorderLayout.CENTER);
+  mainPanel.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+  getContentPane().add(mainPanel);
+  pack();
+}

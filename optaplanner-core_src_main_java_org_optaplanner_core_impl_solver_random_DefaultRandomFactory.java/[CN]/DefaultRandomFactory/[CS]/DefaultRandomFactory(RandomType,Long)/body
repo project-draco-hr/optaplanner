@@ -1,0 +1,4 @@
+{
+  this.randomType=randomType;
+  this.randomSeed=randomSeed;
+}

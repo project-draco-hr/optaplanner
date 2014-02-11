@@ -3,14 +3,22 @@
   BasicPlumbingTermination basicPlumbingTermination=new BasicPlumbingTermination();
   solver.setBasicPlumbingTermination(basicPlumbingTermination);
   EnvironmentMode environmentMode=this.environmentMode == null ? EnvironmentMode.REPRODUCIBLE : this.environmentMode;
-  if (randomSeed != null) {
-    solver.setRandomSeed(randomSeed);
+  RandomFactory randomFactory;
+  if (randomFactoryClass != null) {
+    if (randomType != null || randomSeed != null) {
+      throw new IllegalArgumentException("The solverConfig with randomFactoryClass (" + randomFactoryClass + ") has a non-null randomType ("+ randomType+ ") or a non-null randomSeed ("+ randomSeed+ ").");
+    }
+    randomFactory=ConfigUtils.newInstance(this,"randomFactoryClass",randomFactoryClass);
   }
  else {
-    if (environmentMode != EnvironmentMode.PRODUCTION) {
-      solver.setRandomSeed(DEFAULT_RANDOM_SEED);
+    RandomType randomType_=randomType == null ? RandomType.JDK : randomType;
+    Long randomSeed_=randomSeed;
+    if (randomSeed == null && environmentMode != EnvironmentMode.PRODUCTION) {
+      randomSeed_=DEFAULT_RANDOM_SEED;
     }
+    randomFactory=new DefaultRandomFactory(randomType_,randomSeed_);
   }
+  solver.setRandomFactory(randomFactory);
   SolutionDescriptor solutionDescriptor=buildSolutionDescriptor();
   ScoreDirectorFactoryConfig scoreDirectorFactoryConfig_=scoreDirectorFactoryConfig == null ? new ScoreDirectorFactoryConfig() : scoreDirectorFactoryConfig;
   ScoreDirectorFactory scoreDirectorFactory=scoreDirectorFactoryConfig_.buildScoreDirectorFactory(environmentMode,solutionDescriptor);

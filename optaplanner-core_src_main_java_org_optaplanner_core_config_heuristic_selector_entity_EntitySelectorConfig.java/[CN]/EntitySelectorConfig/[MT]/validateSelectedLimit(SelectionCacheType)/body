@@ -1,0 +1,5 @@
+{
+  if (selectedCountLimit != null && minimumCacheType.compareTo(SelectionCacheType.JUST_IN_TIME) > 0) {
+    throw new IllegalArgumentException("The entitySelectorConfig (" + this + ") with selectedCountLimit ("+ selectedCountLimit+ ") has a minimumCacheType ("+ minimumCacheType+ ") that is higher than "+ SelectionCacheType.JUST_IN_TIME+ ".");
+  }
+}

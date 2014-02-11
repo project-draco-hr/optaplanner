@@ -1,7 +1,7 @@
 {
   JPanel benchmarkTreePanel=new JPanel(new BorderLayout());
-  CheckboxTree checkboxTree=createCheckBoxTree();
-  benchmarkTreePanel.add(new JScrollPane(checkboxTree),BorderLayout.CENTER);
+  CheckboxTree checkBoxTree=createCheckBoxTree();
+  benchmarkTreePanel.add(new JScrollPane(checkBoxTree),BorderLayout.CENTER);
   JPanel buttonPanel=new JPanel(new FlowLayout(FlowLayout.RIGHT));
   JButton generateReportButton=new JButton(new GenerateReportAction(this));
   buttonPanel.add(generateReportButton);

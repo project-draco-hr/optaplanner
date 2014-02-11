@@ -1,6 +1,6 @@
 {
-  CheckboxTree checkboxTree=new CheckboxTree(initBenchmarkHierarchy());
-  checkboxTree.addMouseMotionListener(new MouseMotionAdapter(){
+  CheckboxTree resultCheckBoxTree=new CheckboxTree(initBenchmarkHierarchy());
+  resultCheckBoxTree.addMouseMotionListener(new MouseMotionAdapter(){
     private TreePath lastTreePath;
     @Override public void mouseMoved(    MouseEvent e){
       TreePath treePath=checkBoxTree.getPathForLocation(e.getX(),e.getY());
@@ -23,6 +23,6 @@
     }
   }
 );
-  checkBoxTree=checkboxTree;
-  return checkboxTree;
+  checkBoxTree=resultCheckBoxTree;
+  return resultCheckBoxTree;
 }

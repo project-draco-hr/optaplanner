@@ -3,5 +3,13 @@
   Collections.sort(aScoreList);
   List<Score> bScoreList=b.getScoreList();
   Collections.sort(bScoreList);
-  return new CompareToBuilder().append(aScoreList.toArray(),bScoreList.toArray()).toComparison();
+  int aSize=aScoreList.size();
+  int bSize=bScoreList.size();
+  for (int i=0; i < aSize && i < bSize; i++) {
+    int comparison=resilientScoreComparator.compare(aScoreList.get(i),bScoreList.get(i));
+    if (comparison != 0) {
+      return comparison;
+    }
+  }
+  return aSize == bSize ? 0 : aSize < bSize ? -1 : 1;
 }

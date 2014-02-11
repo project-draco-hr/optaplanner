@@ -12,4 +12,5 @@
   sorterOrder=ConfigUtils.inheritOverwritableProperty(sorterOrder,inheritedConfig.getSorterOrder());
   sorterClass=ConfigUtils.inheritOverwritableProperty(sorterClass,inheritedConfig.getSorterClass());
   probabilityWeightFactoryClass=ConfigUtils.inheritOverwritableProperty(probabilityWeightFactoryClass,inheritedConfig.getProbabilityWeightFactoryClass());
+  selectedCountLimit=ConfigUtils.inheritOverwritableProperty(selectedCountLimit,inheritedConfig.getSelectedCountLimit());
 }

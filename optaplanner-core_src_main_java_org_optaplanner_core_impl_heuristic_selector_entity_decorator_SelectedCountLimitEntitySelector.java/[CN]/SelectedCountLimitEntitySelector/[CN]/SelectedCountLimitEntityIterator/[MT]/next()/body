@@ -1,0 +1,7 @@
+{
+  if (selectedSize >= selectedCountLimit) {
+    throw new NoSuchElementException();
+  }
+  selectedSize++;
+  return childEntityIterator.next();
+}
