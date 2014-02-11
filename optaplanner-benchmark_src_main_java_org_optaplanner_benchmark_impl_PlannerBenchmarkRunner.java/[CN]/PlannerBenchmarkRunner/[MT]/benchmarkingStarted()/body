@@ -9,6 +9,7 @@
     throw new IllegalArgumentException("The solverBenchmarkResultList (" + solverBenchmarkResultList + ") cannot be empty.");
   }
   initBenchmarkDirectoryAndSubdirs();
+  plannerBenchmarkResult.initSystemProperties();
   executorService=Executors.newFixedThreadPool(plannerBenchmarkResult.getParallelBenchmarkCount());
   benchmarkResultIO=new BenchmarkResultIO();
   logger.info("Benchmarking started: solverBenchmarkResultList size ({}), parallelBenchmarkCount ({}).",solverBenchmarkResultList.size(),plannerBenchmarkResult.getParallelBenchmarkCount());

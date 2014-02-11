@@ -1,3 +1,0 @@
-{
-  return SolverFactory.class.getPackage().getImplementationVersion();
-}

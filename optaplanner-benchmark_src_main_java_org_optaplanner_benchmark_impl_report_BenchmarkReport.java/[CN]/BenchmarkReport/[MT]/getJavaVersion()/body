@@ -1,3 +1,0 @@
-{
-  return "Java " + System.getProperty("java.version") + " ("+ System.getProperty("java.vendor")+ ")";
-}
