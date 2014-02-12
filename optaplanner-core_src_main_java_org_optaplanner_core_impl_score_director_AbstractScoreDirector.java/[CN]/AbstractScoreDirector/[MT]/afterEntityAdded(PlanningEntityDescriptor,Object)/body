@@ -1,4 +1,7 @@
 {
   trailingEntityMapSupport.insertInTrailingEntityMap(entityDescriptor,entity);
   variableListenerSupport.afterEntityAdded(this,entityDescriptor,entity);
+  if (!allChangesWillBeUndoneBeforeStepEnds) {
+    setWorkingEntityListDirty();
+  }
 }

@@ -1,0 +1,4 @@
+{
+  this.entityDescriptor=entityDescriptor;
+  this.randomSelection=randomSelection;
+}

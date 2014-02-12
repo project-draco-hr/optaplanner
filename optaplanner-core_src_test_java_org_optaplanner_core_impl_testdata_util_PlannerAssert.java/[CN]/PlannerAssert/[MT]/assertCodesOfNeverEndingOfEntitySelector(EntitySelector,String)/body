@@ -1,0 +1,3 @@
+{
+  assertCodesOfNeverEndingOfEntitySelector(entitySelector,DO_NOT_ASSERT_SIZE,codes);
+}

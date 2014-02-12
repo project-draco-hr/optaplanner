@@ -1,0 +1,10 @@
+{
+  Iterator<Object> iterator=entitySelector.iterator();
+  assertCodesOfIterator(iterator,codes);
+  assertTrue(iterator.hasNext());
+  assertEquals(true,entitySelector.isCountable());
+  assertEquals(true,entitySelector.isNeverEnding());
+  if (size != DO_NOT_ASSERT_SIZE) {
+    assertEquals(size,entitySelector.getSize());
+  }
+}

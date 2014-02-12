@@ -1,3 +1,6 @@
 {
   variableListenerSupport.afterEntityRemoved(this,entityDescriptor,entity);
+  if (!allChangesWillBeUndoneBeforeStepEnds) {
+    setWorkingEntityListDirty();
+  }
 }

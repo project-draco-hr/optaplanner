@@ -1,3 +1,0 @@
-{
-  cachedEntityList=entityDescriptor.extractEntities(solverScope.getWorkingSolution());
-}
