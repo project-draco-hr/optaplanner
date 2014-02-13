@@ -1,0 +1,4 @@
+{
+  this.valueRangeDescriptor=valueRangeDescriptor;
+  this.randomSelection=randomSelection;
+}

@@ -17,6 +17,6 @@
     return new FromSolutionPropertyValueSelector((EntityIndependentValueRangeDescriptor)valueRangeDescriptor,minimumCacheType,randomSelection);
   }
  else {
-    return new FromEntityPropertyValueSelector(valueRangeDescriptor,minimumCacheType,randomSelection);
+    return new FromEntityPropertyValueSelector(valueRangeDescriptor,randomSelection);
   }
 }

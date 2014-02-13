@@ -1,3 +1,2 @@
 ValueRangeDescriptor valueRangeDescriptor
-SelectionCacheType cacheType
 boolean randomSelection
