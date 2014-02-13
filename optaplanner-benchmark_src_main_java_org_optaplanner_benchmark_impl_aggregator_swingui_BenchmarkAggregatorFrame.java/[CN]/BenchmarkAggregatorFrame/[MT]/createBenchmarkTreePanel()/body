@@ -6,6 +6,6 @@
   JButton generateReportButton=new JButton(new GenerateReportAction(this));
   buttonPanel.add(generateReportButton);
   benchmarkTreePanel.add(buttonPanel,BorderLayout.SOUTH);
-  benchmarkTreePanel.setBorder(new EmptyBorder(0,0,15,0));
+  benchmarkTreePanel.setBorder(BorderFactory.createEmptyBorder(0,0,15,0));
   return benchmarkTreePanel;
 }
