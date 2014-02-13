@@ -1,7 +1,7 @@
 {
   try {
     File htmlOverviewFile=get();
-    CustomDialog dialog=new CustomDialog(parentFrame,htmlOverviewFile);
+    ReportFinishedDialog dialog=new ReportFinishedDialog(parentFrame,htmlOverviewFile);
     dialog.pack();
     dialog.setLocationRelativeTo(BenchmarkAggregatorFrame.this);
     dialog.setVisible(true);
@@ -14,6 +14,9 @@ catch (  ExecutionException e) {
   }
  finally {
     parentFrame.setEnabled(true);
-    frameStatusBar.setText(null);
+    detailTextArea.setText(null);
+    generateProgressBar.setIndeterminate(false);
+    generateProgressBar.setString(null);
+    generateProgressBar.setStringPainted(false);
   }
 }

@@ -11,9 +11,8 @@
         problemNode.add(solverNode);
         for (        SingleBenchmarkResult singleBenchmarkResult : solverBenchmarkResult.getSingleBenchmarkResultList()) {
           if (singleBenchmarkResult.getProblemBenchmarkResult().equals(problemBenchmarkResult)) {
-            MixedCheckBox singleCheckbox=new MixedCheckBox(singleBenchmarkResult.getName());
-            DefaultMutableTreeNode singleNode=new DefaultMutableTreeNode(singleCheckbox);
-            resultCheckBoxMapping.put(singleCheckbox,singleBenchmarkResult);
+            MixedCheckBox singleCheckBox=createMixedCheckBox(singleBenchmarkResult);
+            DefaultMutableTreeNode singleNode=new DefaultMutableTreeNode(singleCheckBox);
             solverNode.add(singleNode);
           }
         }

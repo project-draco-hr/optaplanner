@@ -6,11 +6,13 @@
     }
   }
   if (singleBenchmarkResultList.isEmpty()) {
-    frameStatusBar.setText("No single benchmarks have been selected.");
+    JOptionPane.showMessageDialog(parentFrame,"No single benchmarks have been selected.","Warning",JOptionPane.WARNING_MESSAGE);
     parentFrame.setEnabled(true);
   }
  else {
-    frameStatusBar.setText("Generating merged report...");
+    generateProgressBar.setIndeterminate(true);
+    generateProgressBar.setStringPainted(true);
+    generateProgressBar.setString("Generating...");
     GenerateReportWorker worker=new GenerateReportWorker(parentFrame,singleBenchmarkResultList);
     worker.execute();
   }

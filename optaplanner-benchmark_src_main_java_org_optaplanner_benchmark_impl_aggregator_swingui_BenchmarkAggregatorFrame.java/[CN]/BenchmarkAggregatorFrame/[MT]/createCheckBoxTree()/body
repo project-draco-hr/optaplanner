@@ -1,0 +1,8 @@
+{
+  CheckBoxTree resultCheckBoxTree=new CheckBoxTree(initBenchmarkHierarchy());
+  CheckBoxTreeMouseListener checkBoxTreeMouseListener=new CheckBoxTreeMouseListener();
+  resultCheckBoxTree.addMouseListener(checkBoxTreeMouseListener);
+  resultCheckBoxTree.addMouseMotionListener(checkBoxTreeMouseListener);
+  checkBoxTree=resultCheckBoxTree;
+  return resultCheckBoxTree;
+}

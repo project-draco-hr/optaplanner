@@ -1,0 +1,9 @@
+{
+  JPanel detailPanel=new JPanel(new BorderLayout());
+  JLabel detailLabel=new JLabel("Details");
+  detailPanel.add(detailLabel,BorderLayout.NORTH);
+  detailTextArea=new JTextArea(4,80);
+  detailTextArea.setEditable(false);
+  detailPanel.add(detailTextArea,BorderLayout.SOUTH);
+  return detailPanel;
+}
