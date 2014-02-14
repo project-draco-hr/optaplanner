@@ -3,4 +3,5 @@
   ScoreDirector scoreDirector=phaseScope.getScoreDirector();
   cachedEntityList=entityDescriptor.extractEntities(scoreDirector.getWorkingSolution());
   cachedEntityListRevision=scoreDirector.getWorkingEntityListRevision();
+  cachedEntityListIsDirty=false;
 }

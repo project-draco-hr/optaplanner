@@ -1,4 +1,5 @@
 {
+  checkCachedEntityListIsDirty();
   if (!randomSelection) {
     return cachedEntityList.listIterator(index);
   }

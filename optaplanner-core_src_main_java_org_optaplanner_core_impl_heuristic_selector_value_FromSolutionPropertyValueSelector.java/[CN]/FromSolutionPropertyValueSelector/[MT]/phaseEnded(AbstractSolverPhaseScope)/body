@@ -3,5 +3,6 @@
   cachedValueRange=null;
   if (valueRangeMightContainEntity) {
     cachedEntityListRevision=null;
+    cachedEntityListIsDirty=false;
   }
 }

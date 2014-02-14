@@ -1,0 +1,5 @@
+{
+  if (cachedEntityListIsDirty) {
+    throw new IllegalStateException("The selector (" + this + ") with minimumCacheType ("+ minimumCacheType+ ")'s workingEntityList became dirty between steps but is still used afterwards.");
+  }
+}

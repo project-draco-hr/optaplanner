@@ -4,5 +4,6 @@
   cachedValueRange=(ValueRange<Object>)valueRangeDescriptor.extractValueRange(scoreDirector.getWorkingSolution());
   if (valueRangeMightContainEntity) {
     cachedEntityListRevision=scoreDirector.getWorkingEntityListRevision();
+    cachedEntityListIsDirty=false;
   }
 }

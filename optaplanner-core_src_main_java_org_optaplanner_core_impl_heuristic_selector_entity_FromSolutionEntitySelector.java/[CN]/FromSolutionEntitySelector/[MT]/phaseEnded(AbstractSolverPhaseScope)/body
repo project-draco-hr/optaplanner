@@ -2,4 +2,5 @@
   super.phaseEnded(phaseScope);
   cachedEntityList=null;
   cachedEntityListRevision=null;
+  cachedEntityListIsDirty=false;
 }
