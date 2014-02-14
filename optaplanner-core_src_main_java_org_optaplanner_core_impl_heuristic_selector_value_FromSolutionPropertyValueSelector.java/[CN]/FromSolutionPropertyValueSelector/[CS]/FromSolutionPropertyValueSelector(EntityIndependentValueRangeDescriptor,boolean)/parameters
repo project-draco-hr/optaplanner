@@ -1,3 +1,2 @@
 EntityIndependentValueRangeDescriptor valueRangeDescriptor
-SelectionCacheType cacheType
 boolean randomSelection

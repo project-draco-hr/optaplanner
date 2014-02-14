@@ -1,3 +1,0 @@
-{
-  cachedValueRange=(ValueRange<Object>)valueRangeDescriptor.extractValueRange(solverScope.getWorkingSolution());
-}

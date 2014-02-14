@@ -1,0 +1,10 @@
+{
+  super.stepStarted(stepScope);
+  if (valueRangeMightContainEntity) {
+    ScoreDirector scoreDirector=stepScope.getScoreDirector();
+    if (scoreDirector.isWorkingEntityListDirty(cachedEntityListRevision)) {
+      cachedValueRange=(ValueRange<Object>)valueRangeDescriptor.extractValueRange(scoreDirector.getWorkingSolution());
+      cachedEntityListRevision=scoreDirector.getWorkingEntityListRevision();
+    }
+  }
+}

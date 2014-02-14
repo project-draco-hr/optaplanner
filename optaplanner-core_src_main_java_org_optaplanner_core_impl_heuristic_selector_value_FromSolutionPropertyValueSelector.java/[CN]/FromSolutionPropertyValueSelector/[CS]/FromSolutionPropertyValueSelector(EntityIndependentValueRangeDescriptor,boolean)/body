@@ -1,0 +1,5 @@
+{
+  this.valueRangeDescriptor=valueRangeDescriptor;
+  this.randomSelection=randomSelection;
+  valueRangeMightContainEntity=valueRangeDescriptor.mightContainEntity();
+}

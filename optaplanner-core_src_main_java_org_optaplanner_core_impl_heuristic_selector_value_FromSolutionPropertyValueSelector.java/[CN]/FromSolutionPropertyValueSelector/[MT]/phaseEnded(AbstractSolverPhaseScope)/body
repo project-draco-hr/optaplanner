@@ -1,0 +1,7 @@
+{
+  super.phaseEnded(phaseScope);
+  cachedValueRange=null;
+  if (valueRangeMightContainEntity) {
+    cachedEntityListRevision=null;
+  }
+}
