@@ -4,7 +4,7 @@
     throw new IllegalArgumentException("The minimumCacheType (" + minimumCacheType + ") is not yet supported. Please use "+ SelectionCacheType.PHASE+ " instead.");
   }
   if (valueRangeDescriptor.isEntityIndependent()) {
-    return new FromSolutionPropertyValueSelector((EntityIndependentValueRangeDescriptor)valueRangeDescriptor,randomSelection);
+    return new FromSolutionPropertyValueSelector((EntityIndependentValueRangeDescriptor)valueRangeDescriptor,minimumCacheType,randomSelection);
   }
  else {
     return new FromEntityPropertyValueSelector(valueRangeDescriptor,randomSelection);

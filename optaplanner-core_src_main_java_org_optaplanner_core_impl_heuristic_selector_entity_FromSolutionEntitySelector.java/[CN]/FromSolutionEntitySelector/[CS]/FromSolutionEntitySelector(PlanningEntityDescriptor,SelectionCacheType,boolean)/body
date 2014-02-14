@@ -1,4 +1,5 @@
 {
   this.entityDescriptor=entityDescriptor;
+  this.minimumCacheType=minimumCacheType;
   this.randomSelection=randomSelection;
 }

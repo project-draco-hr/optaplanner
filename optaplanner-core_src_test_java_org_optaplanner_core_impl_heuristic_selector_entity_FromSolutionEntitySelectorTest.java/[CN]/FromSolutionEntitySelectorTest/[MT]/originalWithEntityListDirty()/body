@@ -6,7 +6,7 @@
   when(scoreDirector.getWorkingSolution()).thenReturn(workingSolution);
   when(scoreDirector.getWorkingEntityListRevision()).thenReturn(7L);
   when(scoreDirector.isWorkingEntityListDirty(7L)).thenReturn(false);
-  FromSolutionEntitySelector entitySelector=new FromSolutionEntitySelector(entityDescriptor,false);
+  FromSolutionEntitySelector entitySelector=new FromSolutionEntitySelector(entityDescriptor,SelectionCacheType.JUST_IN_TIME,false);
   DefaultSolverScope solverScope=mock(DefaultSolverScope.class);
   entitySelector.solvingStarted(solverScope);
   AbstractSolverPhaseScope phaseScopeA=mock(AbstractSolverPhaseScope.class);

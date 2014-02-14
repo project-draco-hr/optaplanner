@@ -1,2 +1,3 @@
 EntityIndependentValueRangeDescriptor valueRangeDescriptor
+SelectionCacheType minimumCacheType
 boolean randomSelection

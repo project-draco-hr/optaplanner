@@ -6,7 +6,7 @@
   when(scoreDirector.getWorkingSolution()).thenReturn(workingSolution);
   when(scoreDirector.getWorkingEntityListRevision()).thenReturn(7L);
   when(scoreDirector.isWorkingEntityListDirty(7L)).thenReturn(false);
-  FromSolutionEntitySelector entitySelector=new FromSolutionEntitySelector(entityDescriptor,true);
+  FromSolutionEntitySelector entitySelector=new FromSolutionEntitySelector(entityDescriptor,SelectionCacheType.JUST_IN_TIME,true);
   Random workingRandom=mock(Random.class);
   when(workingRandom.nextInt(3)).thenReturn(1,0,0,2,1,2,2,1,0);
   DefaultSolverScope solverScope=mock(DefaultSolverScope.class);

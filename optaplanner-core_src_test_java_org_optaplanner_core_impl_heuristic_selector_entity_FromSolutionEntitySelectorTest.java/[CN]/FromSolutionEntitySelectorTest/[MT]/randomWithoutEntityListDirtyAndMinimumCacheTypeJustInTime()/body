@@ -1,0 +1,3 @@
+{
+  runRandomWithoutEntityListDirtyAndMinimumCacheType(SelectionCacheType.JUST_IN_TIME);
+}

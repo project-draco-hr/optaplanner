@@ -1,5 +1,6 @@
 {
   this.valueRangeDescriptor=valueRangeDescriptor;
+  this.minimumCacheType=minimumCacheType;
   this.randomSelection=randomSelection;
   valueRangeMightContainEntity=valueRangeDescriptor.mightContainEntity();
 }

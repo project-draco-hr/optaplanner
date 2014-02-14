@@ -1,2 +1,3 @@
 PlanningEntityDescriptor entityDescriptor
+SelectionCacheType minimumCacheType
 boolean randomSelection

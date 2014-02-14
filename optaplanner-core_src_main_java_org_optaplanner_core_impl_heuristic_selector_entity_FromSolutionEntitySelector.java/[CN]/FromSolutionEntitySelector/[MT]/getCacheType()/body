@@ -1,3 +1,4 @@
 {
-  return SelectionCacheType.STEP;
+  SelectionCacheType inheritCacheType=SelectionCacheType.STEP;
+  return (inheritCacheType.compareTo(minimumCacheType) > 0) ? inheritCacheType : minimumCacheType;
 }

@@ -2,6 +2,9 @@
   super.stepStarted(stepScope);
   ScoreDirector scoreDirector=stepScope.getScoreDirector();
   if (scoreDirector.isWorkingEntityListDirty(cachedEntityListRevision)) {
+    if (minimumCacheType.compareTo(SelectionCacheType.STEP) > 0) {
+      throw new IllegalStateException("The selector (" + this + ") with minimumCacheType ("+ minimumCacheType+ ")'s workingEntityList becomes dirty between steps.");
+    }
     cachedEntityList=entityDescriptor.extractEntities(scoreDirector.getWorkingSolution());
     cachedEntityListRevision=scoreDirector.getWorkingEntityListRevision();
   }

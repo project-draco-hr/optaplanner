@@ -1,0 +1,3 @@
+{
+  runRandomWithoutEntityListDirtyAndMinimumCacheType(SelectionCacheType.PHASE);
+}
