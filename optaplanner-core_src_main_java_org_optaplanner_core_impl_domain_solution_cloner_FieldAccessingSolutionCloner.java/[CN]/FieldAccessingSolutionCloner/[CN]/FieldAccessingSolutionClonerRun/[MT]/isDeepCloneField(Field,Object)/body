@@ -2,14 +2,5 @@
   if (originalValue == null) {
     return false;
   }
-  if (isFieldAnEntityPropertyOnSolution(field)) {
-    return true;
-  }
-  if (isFieldAnEntityOrSolution(field)) {
-    return true;
-  }
-  if (isValueAnEntityOrSolution(originalValue)) {
-    return true;
-  }
-  return false;
+  return retrieveDeepCloneDecision(field,originalValue.getClass());
 }

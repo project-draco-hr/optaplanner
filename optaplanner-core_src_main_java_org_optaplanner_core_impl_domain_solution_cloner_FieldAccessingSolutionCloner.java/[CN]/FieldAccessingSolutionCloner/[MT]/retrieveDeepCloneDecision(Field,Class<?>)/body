@@ -1,0 +1,16 @@
+{
+  Boolean deepCloneDecision=deepCloneDecisionFieldCache.get(field);
+  if (deepCloneDecision == null) {
+    deepCloneDecision=isFieldAnEntityPropertyOnSolution(field) || isFieldAnEntityOrSolution(field);
+    deepCloneDecisionFieldCache.put(field,deepCloneDecision);
+  }
+  if (deepCloneDecision) {
+    return true;
+  }
+  deepCloneDecision=deepCloneDecisionActualValueClassCache.get(actualValueClass);
+  if (deepCloneDecision == null) {
+    deepCloneDecision=isClassEntityOrSolution(actualValueClass);
+    deepCloneDecisionActualValueClassCache.put(actualValueClass,deepCloneDecision);
+  }
+  return deepCloneDecision;
+}
