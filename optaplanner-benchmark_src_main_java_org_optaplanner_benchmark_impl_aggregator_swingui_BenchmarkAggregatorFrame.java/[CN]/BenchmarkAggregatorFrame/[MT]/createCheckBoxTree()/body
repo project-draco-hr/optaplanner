@@ -1,8 +1,17 @@
 {
   CheckBoxTree resultCheckBoxTree=new CheckBoxTree(initBenchmarkHierarchy());
-  CheckBoxTreeMouseListener checkBoxTreeMouseListener=new CheckBoxTreeMouseListener();
-  resultCheckBoxTree.addMouseListener(checkBoxTreeMouseListener);
-  resultCheckBoxTree.addMouseMotionListener(checkBoxTreeMouseListener);
+  resultCheckBoxTree.addTreeSelectionListener(new TreeSelectionListener(){
+    @Override public void valueChanged(    TreeSelectionEvent e){
+      TreePath treeSelectionPath=e.getNewLeadSelectionPath();
+      if (treeSelectionPath != null) {
+        DefaultMutableTreeNode treeNode=(DefaultMutableTreeNode)treeSelectionPath.getLastPathComponent();
+        MixedCheckBox checkBox=(MixedCheckBox)treeNode.getUserObject();
+        detailTextArea.setText(checkBox.getDetail());
+        detailTextArea.setCaretPosition(0);
+      }
+    }
+  }
+);
   checkBoxTree=resultCheckBoxTree;
   return resultCheckBoxTree;
 }

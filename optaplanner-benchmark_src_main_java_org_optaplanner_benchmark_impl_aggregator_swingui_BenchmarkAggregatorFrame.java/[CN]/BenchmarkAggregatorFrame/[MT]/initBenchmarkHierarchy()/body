@@ -1,19 +1,18 @@
 {
   DefaultMutableTreeNode parentNode=new DefaultMutableTreeNode(new MixedCheckBox("Planner benchmarks"));
   for (  PlannerBenchmarkResult plannerBenchmarkResult : plannerBenchmarkResultList) {
-    DefaultMutableTreeNode plannerNode=new DefaultMutableTreeNode(new MixedCheckBox(plannerBenchmarkResult.getName()));
+    DefaultMutableTreeNode plannerNode=new DefaultMutableTreeNode(createPlannerBenchmarkCheckBox(plannerBenchmarkResult));
     parentNode.add(plannerNode);
-    for (    ProblemBenchmarkResult problemBenchmarkResult : plannerBenchmarkResult.getUnifiedProblemBenchmarkResultList()) {
-      DefaultMutableTreeNode problemNode=new DefaultMutableTreeNode(new MixedCheckBox(problemBenchmarkResult.getName()));
-      plannerNode.add(problemNode);
-      for (      SolverBenchmarkResult solverBenchmarkResult : plannerBenchmarkResult.getSolverBenchmarkResultList()) {
-        DefaultMutableTreeNode solverNode=new DefaultMutableTreeNode(new MixedCheckBox(solverBenchmarkResult.getName()));
-        problemNode.add(solverNode);
-        for (        SingleBenchmarkResult singleBenchmarkResult : solverBenchmarkResult.getSingleBenchmarkResultList()) {
+    for (    SolverBenchmarkResult solverBenchmarkResult : plannerBenchmarkResult.getSolverBenchmarkResultList()) {
+      DefaultMutableTreeNode solverNode=new DefaultMutableTreeNode(createSolverBenchmarkCheckBox(solverBenchmarkResult));
+      plannerNode.add(solverNode);
+      for (      ProblemBenchmarkResult problemBenchmarkResult : plannerBenchmarkResult.getUnifiedProblemBenchmarkResultList()) {
+        DefaultMutableTreeNode problemNode=new DefaultMutableTreeNode(createProblemBenchmarkCheckBox(problemBenchmarkResult));
+        solverNode.add(problemNode);
+        for (        SingleBenchmarkResult singleBenchmarkResult : problemBenchmarkResult.getSingleBenchmarkResultList()) {
           if (singleBenchmarkResult.getProblemBenchmarkResult().equals(problemBenchmarkResult)) {
-            MixedCheckBox singleCheckBox=createMixedCheckBox(singleBenchmarkResult);
-            DefaultMutableTreeNode singleNode=new DefaultMutableTreeNode(singleCheckBox);
-            solverNode.add(singleNode);
+            DefaultMutableTreeNode singleNode=new DefaultMutableTreeNode(createSingleBenchmarkCheckBox(singleBenchmarkResult));
+            problemNode.add(singleNode);
           }
         }
       }

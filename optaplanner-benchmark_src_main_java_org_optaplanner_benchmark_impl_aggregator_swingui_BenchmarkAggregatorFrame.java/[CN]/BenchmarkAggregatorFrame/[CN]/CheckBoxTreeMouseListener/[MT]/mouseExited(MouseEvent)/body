@@ -1,4 +1,0 @@
-{
-  detailTextArea.setText(null);
-  lastTreePath=null;
-}
