@@ -1,0 +1,4 @@
+{
+  this.tree=tree;
+  unlabeledMixedCheckBoxWidth=new MixedCheckBox().getPreferredSize().getWidth();
+}

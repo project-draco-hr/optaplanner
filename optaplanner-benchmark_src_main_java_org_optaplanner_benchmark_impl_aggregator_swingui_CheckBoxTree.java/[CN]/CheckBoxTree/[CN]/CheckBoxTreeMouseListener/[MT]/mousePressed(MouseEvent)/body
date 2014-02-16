@@ -3,6 +3,9 @@
   if (path != null) {
     DefaultMutableTreeNode currentNode=(DefaultMutableTreeNode)path.getLastPathComponent();
     MixedCheckBox checkBox=(MixedCheckBox)currentNode.getUserObject();
+    if (e.getX() - tree.getPathBounds(path).getX() > unlabeledMixedCheckBoxWidth) {
+      return;
+    }
 switch (checkBox.getStatus()) {
 case CHECKED:
 {

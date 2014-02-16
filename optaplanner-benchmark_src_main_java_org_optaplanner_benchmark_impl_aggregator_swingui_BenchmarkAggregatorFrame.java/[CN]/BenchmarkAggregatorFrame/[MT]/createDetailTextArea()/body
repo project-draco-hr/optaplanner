@@ -2,8 +2,9 @@
   JPanel detailPanel=new JPanel(new BorderLayout());
   JLabel detailLabel=new JLabel("Details");
   detailPanel.add(detailLabel,BorderLayout.NORTH);
-  detailTextArea=new JTextArea(4,80);
+  detailTextArea=new JTextArea(5,80);
   detailTextArea.setEditable(false);
-  detailPanel.add(detailTextArea,BorderLayout.SOUTH);
+  JScrollPane detailScrollPane=new JScrollPane(detailTextArea,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+  detailPanel.add(detailScrollPane,BorderLayout.SOUTH);
   return detailPanel;
 }

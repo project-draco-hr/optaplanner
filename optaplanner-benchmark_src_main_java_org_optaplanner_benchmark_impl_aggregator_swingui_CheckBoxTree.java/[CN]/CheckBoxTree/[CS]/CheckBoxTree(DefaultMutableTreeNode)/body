@@ -1,6 +1,7 @@
 {
   super(root);
-  addMouseListener(new CheckboxTreeMouseListener(this));
-  setCellRenderer(new CheckboxTreeCellRenderer());
+  addMouseListener(new CheckBoxTreeMouseListener(this));
+  setCellRenderer(new CheckBoxTreeCellRenderer());
   setToggleClickCount(0);
+  getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
 }
