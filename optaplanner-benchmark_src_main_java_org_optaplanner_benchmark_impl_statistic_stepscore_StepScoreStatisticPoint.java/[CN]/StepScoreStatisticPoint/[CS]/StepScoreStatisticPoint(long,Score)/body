@@ -1,4 +1,4 @@
 {
-  this.timeMillisSpend=timeMillisSpend;
+  this.timeMillisSpent=timeMillisSpent;
   this.score=score;
 }

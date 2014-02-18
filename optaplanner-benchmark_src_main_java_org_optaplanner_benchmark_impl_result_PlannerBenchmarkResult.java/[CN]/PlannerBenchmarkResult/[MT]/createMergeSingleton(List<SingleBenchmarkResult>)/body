@@ -18,7 +18,7 @@
         newResult.solverBenchmarkResultList=new ArrayList<SolverBenchmarkResult>();
         newResult.unifiedProblemBenchmarkResultList=new ArrayList<ProblemBenchmarkResult>();
         newResult.startingTimestamp=null;
-        newResult.benchmarkTimeMillisSpend=null;
+        newResult.benchmarkTimeMillisSpent=null;
       }
  else {
         newResult.availableProcessors=ConfigUtils.mergeProperty(newResult.availableProcessors,oldResult.availableProcessors);

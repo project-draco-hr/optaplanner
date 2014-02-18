@@ -7,22 +7,22 @@
     if (singleBenchmarkResult.isSuccess()) {
       BestScoreSingleStatistic singleStatistic=(BestScoreSingleStatistic)singleBenchmarkResult.getSingleStatistic(problemStatisticType);
       for (      BestScoreStatisticPoint point : singleStatistic.getPointList()) {
-        long timeMillisSpend=point.getTimeMillisSpend();
+        long timeMillisSpent=point.getTimeMillisSpent();
         double[] levelValues=ScoreUtils.extractLevelDoubles(point.getScore());
         for (int i=0; i < levelValues.length && i < BenchmarkReport.CHARTED_SCORE_LEVEL_SIZE; i++) {
           if (i >= seriesList.size()) {
             seriesList.add(new XYSeries(singleBenchmarkResult.getSolverBenchmarkResult().getNameWithFavoriteSuffix()));
           }
-          seriesList.get(i).add(timeMillisSpend,levelValues[i]);
+          seriesList.get(i).add(timeMillisSpent,levelValues[i]);
         }
       }
-      long timeMillisSpend=singleBenchmarkResult.getTimeMillisSpend();
+      long timeMillisSpent=singleBenchmarkResult.getTimeMillisSpent();
       double[] bestScoreLevels=ScoreUtils.extractLevelDoubles(singleBenchmarkResult.getScore());
       for (int i=0; i < bestScoreLevels.length && i < BenchmarkReport.CHARTED_SCORE_LEVEL_SIZE; i++) {
         if (i >= seriesList.size()) {
           seriesList.add(new XYSeries(singleBenchmarkResult.getSolverBenchmarkResult().getNameWithFavoriteSuffix()));
         }
-        seriesList.get(i).add(timeMillisSpend,bestScoreLevels[i]);
+        seriesList.get(i).add(timeMillisSpent,bestScoreLevels[i]);
       }
       if (singleStatistic.getPointList().size() <= 1) {
         renderer=new StandardXYItemRenderer(StandardXYItemRenderer.SHAPES_AND_LINES);

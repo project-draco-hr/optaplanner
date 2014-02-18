@@ -1,3 +1,3 @@
 Solver source
-long timeMillisSpend
+long timeMillisSpent
 Solution newBestSolution

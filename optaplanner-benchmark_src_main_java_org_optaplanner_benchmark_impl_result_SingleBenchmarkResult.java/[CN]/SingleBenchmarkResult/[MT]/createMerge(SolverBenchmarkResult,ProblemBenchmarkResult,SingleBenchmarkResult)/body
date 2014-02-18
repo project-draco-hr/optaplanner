@@ -7,7 +7,7 @@
   newResult.planningEntityCount=oldResult.planningEntityCount;
   newResult.succeeded=oldResult.succeeded;
   newResult.score=oldResult.score;
-  newResult.timeMillisSpend=oldResult.timeMillisSpend;
+  newResult.timeMillisSpent=oldResult.timeMillisSpent;
   newResult.calculateCount=oldResult.calculateCount;
   solverBenchmarkResult.getSingleBenchmarkResultList().add(newResult);
   problemBenchmarkResult.getSingleBenchmarkResultList().add(newResult);

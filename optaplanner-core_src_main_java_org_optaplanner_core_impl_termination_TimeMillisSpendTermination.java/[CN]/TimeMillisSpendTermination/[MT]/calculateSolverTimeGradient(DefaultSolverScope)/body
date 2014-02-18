@@ -1,4 +1,4 @@
 {
-  long solverTimeMillisSpend=solverScope.calculateTimeMillisSpend();
-  return calculateTimeGradient(solverTimeMillisSpend);
+  long solverTimeMillisSpent=solverScope.calculateTimeMillisSpent();
+  return calculateTimeGradient(solverTimeMillisSpent);
 }

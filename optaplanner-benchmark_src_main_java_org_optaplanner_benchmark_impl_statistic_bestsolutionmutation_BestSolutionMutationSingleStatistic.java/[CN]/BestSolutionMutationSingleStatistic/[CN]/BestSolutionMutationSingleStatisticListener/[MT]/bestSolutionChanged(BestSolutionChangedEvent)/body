@@ -7,6 +7,6 @@
  else {
     mutationCount=mutationCounter.countMutations(oldBestSolution,newBestSolution);
   }
-  pointList.add(new BestSolutionMutationStatisticPoint(event.getTimeMillisSpend(),mutationCount));
+  pointList.add(new BestSolutionMutationStatisticPoint(event.getTimeMillisSpent(),mutationCount));
   oldBestSolution=newBestSolution;
 }

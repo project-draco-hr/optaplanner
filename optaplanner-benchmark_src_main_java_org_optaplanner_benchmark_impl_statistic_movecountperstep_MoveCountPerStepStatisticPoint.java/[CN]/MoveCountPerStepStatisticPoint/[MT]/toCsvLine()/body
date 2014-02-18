@@ -1,3 +1,3 @@
 {
-  return buildCsvLineWithLongs(timeMillisSpend,moveCountPerStepMeasurement.getAcceptedMoveCount(),moveCountPerStepMeasurement.getSelectedMoveCount());
+  return buildCsvLineWithLongs(timeMillisSpent,moveCountPerStepMeasurement.getAcceptedMoveCount(),moveCountPerStepMeasurement.getSelectedMoveCount());
 }

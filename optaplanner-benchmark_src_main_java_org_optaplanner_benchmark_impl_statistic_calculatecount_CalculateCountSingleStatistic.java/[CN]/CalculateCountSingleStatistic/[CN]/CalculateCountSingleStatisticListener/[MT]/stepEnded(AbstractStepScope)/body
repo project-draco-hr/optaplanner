@@ -1,20 +1,20 @@
 {
-  long timeMillisSpend=stepScope.getPhaseScope().calculateSolverTimeMillisSpend();
-  if (timeMillisSpend >= nextTimeMillisThreshold) {
+  long timeMillisSpent=stepScope.getPhaseScope().calculateSolverTimeMillisSpent();
+  if (timeMillisSpent >= nextTimeMillisThreshold) {
     DefaultSolverScope solverScope=stepScope.getPhaseScope().getSolverScope();
     long calculateCount=solverScope.getCalculateCount();
     long calculateCountInterval=calculateCount - lastCalculateCount;
-    long timeMillisSpendInterval=timeMillisSpend - lastTimeMillisSpend;
-    if (timeMillisSpendInterval == 0L) {
-      timeMillisSpendInterval=1L;
+    long timeMillisSpentInterval=timeMillisSpent - lastTimeMillisSpent;
+    if (timeMillisSpentInterval == 0L) {
+      timeMillisSpentInterval=1L;
     }
-    long averageCalculateCountPerSecond=calculateCountInterval * 1000L / timeMillisSpendInterval;
-    pointList.add(new CalculateCountStatisticPoint(timeMillisSpend,averageCalculateCountPerSecond));
+    long averageCalculateCountPerSecond=calculateCountInterval * 1000L / timeMillisSpentInterval;
+    pointList.add(new CalculateCountStatisticPoint(timeMillisSpent,averageCalculateCountPerSecond));
     lastCalculateCount=calculateCount;
-    lastTimeMillisSpend=timeMillisSpend;
+    lastTimeMillisSpent=timeMillisSpent;
     nextTimeMillisThreshold+=timeMillisThresholdInterval;
-    if (nextTimeMillisThreshold < timeMillisSpend) {
-      nextTimeMillisThreshold=timeMillisSpend;
+    if (nextTimeMillisThreshold < timeMillisSpent) {
+      nextTimeMillisThreshold=timeMillisSpent;
     }
   }
 }

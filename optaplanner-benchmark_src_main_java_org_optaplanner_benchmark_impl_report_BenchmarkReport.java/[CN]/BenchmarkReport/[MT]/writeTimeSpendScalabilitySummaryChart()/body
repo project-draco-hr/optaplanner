@@ -6,13 +6,13 @@
     for (    SingleBenchmarkResult singleBenchmarkResult : solverBenchmarkResult.getSingleBenchmarkResultList()) {
       if (singleBenchmarkResult.isSuccess()) {
         long problemScale=singleBenchmarkResult.getProblemBenchmarkResult().getProblemScale();
-        long timeMillisSpend=singleBenchmarkResult.getTimeMillisSpend();
-        series.add((Long)problemScale,(Long)timeMillisSpend);
+        long timeMillisSpent=singleBenchmarkResult.getTimeMillisSpent();
+        series.add((Long)problemScale,(Long)timeMillisSpent);
       }
     }
     seriesList.add(series);
   }
-  XYPlot plot=createScalabilityPlot(seriesList,"Problem scale",NumberFormat.getInstance(locale),"Time spend",new MillisecondsSpendNumberFormat(locale));
-  JFreeChart chart=new JFreeChart("Time spend scalability summary (lower is better)",JFreeChart.DEFAULT_TITLE_FONT,plot,true);
-  timeSpendScalabilitySummaryChartFile=writeChartToImageFile(chart,"timeSpendScalabilitySummary");
+  XYPlot plot=createScalabilityPlot(seriesList,"Problem scale",NumberFormat.getInstance(locale),"Time spent",new MillisecondsSpendNumberFormat(locale));
+  JFreeChart chart=new JFreeChart("Time spent scalability summary (lower is better)",JFreeChart.DEFAULT_TITLE_FONT,plot,true);
+  timeSpentScalabilitySummaryChartFile=writeChartToImageFile(chart,"timeSpentScalabilitySummary");
 }

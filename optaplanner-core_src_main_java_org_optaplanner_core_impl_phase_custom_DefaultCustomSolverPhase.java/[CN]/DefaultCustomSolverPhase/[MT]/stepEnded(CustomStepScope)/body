@@ -8,7 +8,7 @@
   }
   CustomSolverPhaseScope phaseScope=stepScope.getPhaseScope();
   if (logger.isDebugEnabled()) {
-    long timeMillisSpend=phaseScope.calculateSolverTimeMillisSpend();
-    logger.debug("    Step index ({}), time spend ({}), score ({}), {} best score ({}).",stepScope.getStepIndex(),timeMillisSpend,stepScope.getScore(),bestScoreImproved ? "new" : (forceUpdateBestSolution ? "forced" : "   "),phaseScope.getBestScore());
+    long timeMillisSpent=phaseScope.calculateSolverTimeMillisSpent();
+    logger.debug("    Step index ({}), time spent ({}), score ({}), {} best score ({}).",stepScope.getStepIndex(),timeMillisSpent,stepScope.getScore(),bestScoreImproved ? "new" : (forceUpdateBestSolution ? "forced" : "   "),phaseScope.getBestScore());
   }
 }

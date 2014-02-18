@@ -3,7 +3,7 @@
   entityPlacer.stepEnded(stepScope);
   decider.stepEnded(stepScope);
   if (logger.isDebugEnabled()) {
-    long timeMillisSpend=stepScope.getPhaseScope().calculateSolverTimeMillisSpend();
-    logger.debug("    Step index ({}), time spend ({}), score ({}), selected move count ({})" + " for constructing step ({}).",stepScope.getStepIndex(),timeMillisSpend,stepScope.getScore(),stepScope.getSelectedMoveCount(),stepScope.getStepString());
+    long timeMillisSpent=stepScope.getPhaseScope().calculateSolverTimeMillisSpent();
+    logger.debug("    Step index ({}), time spent ({}), score ({}), selected move count ({})" + " for constructing step ({}).",stepScope.getStepIndex(),timeMillisSpent,stepScope.getScore(),stepScope.getSelectedMoveCount(),stepScope.getStepString());
   }
 }

@@ -1,6 +1,6 @@
 {
   StringBuilder line=new StringBuilder(values.length * 10);
-  line.append(Long.toString(timeMillisSpend));
+  line.append(Long.toString(timeMillisSpent));
   for (  double value : values) {
     line.append(",").append(Double.toString(value));
   }

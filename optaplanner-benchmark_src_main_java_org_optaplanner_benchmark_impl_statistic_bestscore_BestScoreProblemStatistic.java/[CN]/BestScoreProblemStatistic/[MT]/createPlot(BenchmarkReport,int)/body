@@ -1,6 +1,6 @@
 {
   Locale locale=benchmarkReport.getLocale();
-  NumberAxis xAxis=new NumberAxis("Time spend");
+  NumberAxis xAxis=new NumberAxis("Time spent");
   xAxis.setNumberFormatOverride(new MillisecondsSpendNumberFormat(locale));
   NumberAxis yAxis=new NumberAxis("Best score level " + scoreLevelIndex);
   yAxis.setNumberFormatOverride(NumberFormat.getInstance(locale));

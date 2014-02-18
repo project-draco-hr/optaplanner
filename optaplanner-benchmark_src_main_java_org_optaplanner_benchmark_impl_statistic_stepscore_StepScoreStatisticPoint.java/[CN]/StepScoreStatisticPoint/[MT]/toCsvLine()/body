@@ -1,3 +1,3 @@
 {
-  return buildCsvLineWithStrings(timeMillisSpend,score.toString());
+  return buildCsvLineWithStrings(timeMillisSpent,score.toString());
 }

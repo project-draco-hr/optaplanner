@@ -3,10 +3,10 @@
     solverPhase.solvingEnded(solverScope);
   }
   bestSolutionRecaller.solvingEnded(solverScope);
-  long timeMillisSpend=solverScope.calculateTimeMillisSpend();
-  if (timeMillisSpend == 0L) {
-    timeMillisSpend=1L;
+  long timeMillisSpent=solverScope.calculateTimeMillisSpent();
+  if (timeMillisSpent == 0L) {
+    timeMillisSpent=1L;
   }
-  long averageCalculateCountPerSecond=solverScope.getCalculateCount() * 1000L / timeMillisSpend;
-  logger.info("Solving ended: time spend ({}), best score ({}), average calculate count per second ({}).",timeMillisSpend,solverScope.getBestScoreWithUninitializedPrefix(),averageCalculateCountPerSecond);
+  long averageCalculateCountPerSecond=solverScope.getCalculateCount() * 1000L / timeMillisSpent;
+  logger.info("Solving ended: time spent ({}), best score ({}), average calculate count per second ({}).",timeMillisSpent,solverScope.getBestScoreWithUninitializedPrefix(),averageCalculateCountPerSecond);
 }

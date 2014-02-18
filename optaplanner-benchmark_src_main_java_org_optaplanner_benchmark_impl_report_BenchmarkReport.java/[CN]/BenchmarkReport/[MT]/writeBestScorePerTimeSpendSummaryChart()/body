@@ -5,7 +5,7 @@
     String solverLabel=solverBenchmarkResult.getNameWithFavoriteSuffix();
     for (    SingleBenchmarkResult singleBenchmarkResult : solverBenchmarkResult.getSingleBenchmarkResultList()) {
       if (singleBenchmarkResult.isSuccess()) {
-        long timeMillisSpend=singleBenchmarkResult.getTimeMillisSpend();
+        long timeMillisSpent=singleBenchmarkResult.getTimeMillisSpent();
         double[] levelValues=ScoreUtils.extractLevelDoubles(singleBenchmarkResult.getScore());
         for (int i=0; i < levelValues.length && i < CHARTED_SCORE_LEVEL_SIZE; i++) {
           if (i >= seriesListList.size()) {
@@ -15,18 +15,18 @@
           while (solverBenchmarkIndex >= seriesList.size()) {
             seriesList.add(new XYSeries(solverLabel));
           }
-          seriesList.get(solverBenchmarkIndex).add((Long)timeMillisSpend,(Double)levelValues[i]);
+          seriesList.get(solverBenchmarkIndex).add((Long)timeMillisSpent,(Double)levelValues[i]);
         }
       }
     }
     solverBenchmarkIndex++;
   }
-  bestScorePerTimeSpendSummaryChartFileList=new ArrayList<File>(seriesListList.size());
+  bestScorePerTimeSpentSummaryChartFileList=new ArrayList<File>(seriesListList.size());
   int scoreLevelIndex=0;
   for (  List<XYSeries> seriesList : seriesListList) {
-    XYPlot plot=createScalabilityPlot(seriesList,"Time spend",new MillisecondsSpendNumberFormat(locale),"Score level " + scoreLevelIndex,NumberFormat.getInstance(locale));
-    JFreeChart chart=new JFreeChart("Best score per time spend level " + scoreLevelIndex + " summary (higher left is better)",JFreeChart.DEFAULT_TITLE_FONT,plot,true);
-    bestScorePerTimeSpendSummaryChartFileList.add(writeChartToImageFile(chart,"bestScorePerTimeSpendSummaryLevel" + scoreLevelIndex));
+    XYPlot plot=createScalabilityPlot(seriesList,"Time spent",new MillisecondsSpendNumberFormat(locale),"Score level " + scoreLevelIndex,NumberFormat.getInstance(locale));
+    JFreeChart chart=new JFreeChart("Best score per time spent level " + scoreLevelIndex + " summary (higher left is better)",JFreeChart.DEFAULT_TITLE_FONT,plot,true);
+    bestScorePerTimeSpentSummaryChartFileList.add(writeChartToImageFile(chart,"bestScorePerTimeSpentSummaryLevel" + scoreLevelIndex));
     scoreLevelIndex++;
   }
 }
