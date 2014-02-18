@@ -1,3 +1,3 @@
 {
-  terminationList=Arrays.asList(terminations);
+  this(Arrays.asList(terminations));
 }
