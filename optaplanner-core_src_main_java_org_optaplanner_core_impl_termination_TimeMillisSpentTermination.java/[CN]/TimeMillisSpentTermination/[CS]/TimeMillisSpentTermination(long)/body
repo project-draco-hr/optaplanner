@@ -1,0 +1,6 @@
+{
+  this.timeMillisSpentLimit=timeMillisSpentLimit;
+  if (timeMillisSpentLimit <= 0L) {
+    throw new IllegalArgumentException("The timeMillisSpentLimit (" + timeMillisSpentLimit + ") cannot be negative.");
+  }
+}

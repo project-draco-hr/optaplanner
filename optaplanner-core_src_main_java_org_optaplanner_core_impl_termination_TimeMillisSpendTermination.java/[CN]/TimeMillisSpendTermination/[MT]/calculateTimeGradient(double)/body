@@ -1,4 +1,0 @@
-{
-  double timeGradient=((double)timeMillisSpent) / ((double)maximumTimeMillisSpend);
-  return Math.min(timeGradient,1.0);
-}

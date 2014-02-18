@@ -1,0 +1,3 @@
+{
+  this.bestScoreLimit=bestScoreLimit;
+}

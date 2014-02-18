@@ -1,6 +1,6 @@
 {
-  this.maximumUnimprovedStepCount=maximumUnimprovedStepCount;
-  if (maximumUnimprovedStepCount < 0) {
-    throw new IllegalArgumentException("Property maximumUnimprovedStepCount (" + maximumUnimprovedStepCount + ") must be greater or equal to 0.");
+  this.unimprovedStepCountLimit=unimprovedStepCountLimit;
+  if (unimprovedStepCountLimit < 0) {
+    throw new IllegalArgumentException("The unimprovedStepCountLimit (" + unimprovedStepCountLimit + ") cannot be negative.");
   }
 }

@@ -5,26 +5,26 @@
   if (terminationCompositionStyle == null) {
     terminationCompositionStyle=inheritedConfig.getTerminationCompositionStyle();
   }
-  if (maximumTimeMillisSpend == null) {
-    maximumTimeMillisSpend=inheritedConfig.getMaximumTimeMillisSpend();
+  if (millisecondsSpentLimit == null) {
+    millisecondsSpentLimit=inheritedConfig.getMillisecondsSpentLimit();
   }
-  if (maximumSecondsSpend == null) {
-    maximumSecondsSpend=inheritedConfig.getMaximumSecondsSpend();
+  if (secondsSpentLimit == null) {
+    secondsSpentLimit=inheritedConfig.getSecondsSpentLimit();
   }
-  if (maximumMinutesSpend == null) {
-    maximumMinutesSpend=inheritedConfig.getMaximumMinutesSpend();
+  if (minutesSpentLimit == null) {
+    minutesSpentLimit=inheritedConfig.getMinutesSpentLimit();
   }
-  if (maximumHoursSpend == null) {
-    maximumHoursSpend=inheritedConfig.getMaximumHoursSpend();
+  if (hoursSpentLimit == null) {
+    hoursSpentLimit=inheritedConfig.getHoursSpentLimit();
   }
-  if (scoreAttained == null) {
-    scoreAttained=inheritedConfig.getScoreAttained();
+  if (bestScoreLimit == null) {
+    bestScoreLimit=inheritedConfig.getBestScoreLimit();
   }
-  if (maximumStepCount == null) {
-    maximumStepCount=inheritedConfig.getMaximumStepCount();
+  if (stepCountLimit == null) {
+    stepCountLimit=inheritedConfig.getStepCountLimit();
   }
-  if (maximumUnimprovedStepCount == null) {
-    maximumUnimprovedStepCount=inheritedConfig.getMaximumUnimprovedStepCount();
+  if (unimprovedStepCountLimit == null) {
+    unimprovedStepCountLimit=inheritedConfig.getUnimprovedStepCountLimit();
   }
   terminationConfigList=ConfigUtils.inheritMergeableListProperty(terminationConfigList,inheritedConfig.getTerminationConfigList());
 }

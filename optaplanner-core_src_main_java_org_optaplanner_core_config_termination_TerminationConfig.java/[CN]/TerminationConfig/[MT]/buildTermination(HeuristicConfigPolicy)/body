@@ -4,22 +4,22 @@
     Termination termination=ConfigUtils.newInstance(this,"terminationClass",terminationClass);
     terminationList.add(termination);
   }
-  Long maximumTimeMillisSpendTotal=calculateMaximumTimeMillisSpendTotal();
-  if (maximumTimeMillisSpendTotal != null) {
-    TimeMillisSpendTermination termination=new TimeMillisSpendTermination(maximumTimeMillisSpendTotal);
+  Long timeMillisSpentLimit=calculateTimeMillisSpentLimit();
+  if (timeMillisSpentLimit != null) {
+    TimeMillisSpentTermination termination=new TimeMillisSpentTermination(timeMillisSpentLimit);
     terminationList.add(termination);
   }
-  if (scoreAttained != null) {
-    Score scoreAttained_=configPolicy.getScoreDefinition().parseScore(scoreAttained);
-    ScoreAttainedTermination termination=new ScoreAttainedTermination(scoreAttained_);
+  if (bestScoreLimit != null) {
+    Score bestScoreLimit_=configPolicy.getScoreDefinition().parseScore(bestScoreLimit);
+    BestScoreTermination termination=new BestScoreTermination(bestScoreLimit_);
     terminationList.add(termination);
   }
-  if (maximumStepCount != null) {
-    StepCountTermination termination=new StepCountTermination(maximumStepCount);
+  if (stepCountLimit != null) {
+    StepCountTermination termination=new StepCountTermination(stepCountLimit);
     terminationList.add(termination);
   }
-  if (maximumUnimprovedStepCount != null) {
-    UnimprovedStepCountTermination termination=new UnimprovedStepCountTermination(maximumUnimprovedStepCount);
+  if (unimprovedStepCountLimit != null) {
+    UnimprovedStepCountTermination termination=new UnimprovedStepCountTermination(unimprovedStepCountLimit);
     terminationList.add(termination);
   }
   if (!CollectionUtils.isEmpty(terminationConfigList)) {

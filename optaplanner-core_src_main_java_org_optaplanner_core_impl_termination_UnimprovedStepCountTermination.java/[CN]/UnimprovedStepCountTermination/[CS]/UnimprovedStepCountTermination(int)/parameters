@@ -1,1 +1,1 @@
-int maximumUnimprovedStepCount
+int unimprovedStepCountLimit

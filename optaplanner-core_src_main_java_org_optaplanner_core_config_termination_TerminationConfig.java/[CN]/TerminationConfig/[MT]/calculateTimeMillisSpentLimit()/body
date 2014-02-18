@@ -1,0 +1,19 @@
+{
+  if (millisecondsSpentLimit == null && secondsSpentLimit == null && minutesSpentLimit == null && hoursSpentLimit == null) {
+    return null;
+  }
+  long timeMillisSpentLimit=0L;
+  if (millisecondsSpentLimit != null) {
+    timeMillisSpentLimit+=millisecondsSpentLimit;
+  }
+  if (secondsSpentLimit != null) {
+    timeMillisSpentLimit+=secondsSpentLimit * 1000L;
+  }
+  if (minutesSpentLimit != null) {
+    timeMillisSpentLimit+=minutesSpentLimit * 60000L;
+  }
+  if (hoursSpentLimit != null) {
+    timeMillisSpentLimit+=hoursSpentLimit * 3600000L;
+  }
+  return timeMillisSpentLimit;
+}

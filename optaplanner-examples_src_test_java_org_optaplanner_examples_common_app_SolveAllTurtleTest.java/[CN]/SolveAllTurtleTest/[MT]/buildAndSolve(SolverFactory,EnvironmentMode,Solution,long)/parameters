@@ -1,4 +1,4 @@
 SolverFactory solverFactory
 EnvironmentMode environmentMode
 Solution planningProblem
-long maximumMinutesSpend
+long maximumMinutesSpent

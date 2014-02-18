@@ -1,6 +1,6 @@
 {
   SolverConfig solverConfig=solverFactory.getSolverConfig();
-  solverConfig.getTerminationConfig().setMaximumMinutesSpend(maximumMinutesSpend);
+  solverConfig.getTerminationConfig().setMinutesSpentLimit(maximumMinutesSpent);
   solverConfig.setEnvironmentMode(environmentMode);
   Class<? extends SimpleScoreCalculator> simpleScoreCalculatorClass=overwritingSimpleScoreCalculatorClass();
   if (simpleScoreCalculatorClass != null && environmentMode.isAsserted()) {

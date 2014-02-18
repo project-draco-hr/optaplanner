@@ -10,7 +10,7 @@
   plannerBenchmarkConfig.setBenchmarkDirectory(new File(path.replace(prefix,"target/test/data/")));
   plannerBenchmarkConfig.setWarmUpHoursSpend(0L);
   plannerBenchmarkConfig.setWarmUpMinutesSpend(0L);
-  plannerBenchmarkConfig.setWarmUpSecondsSpend(WARM_UP_SECONDS_SPEND);
+  plannerBenchmarkConfig.setWarmUpSecondsSpend(WARM_UP_SECONDS_SPENT);
   plannerBenchmarkConfig.setWarmUpTimeMillisSpend(0L);
   List<SolverBenchmarkConfig> solverBenchmarkConfigList=plannerBenchmarkConfig.getSolverBenchmarkConfigList();
   if (CollectionUtils.isEmpty(solverBenchmarkConfigList)) {
@@ -20,7 +20,7 @@
     solverBenchmarkConfigList=solverBenchmarkConfigList.subList(0,MAXIMUM_SOLVER_BENCHMARK_SIZE);
     plannerBenchmarkConfig.setSolverBenchmarkConfigList(solverBenchmarkConfigList);
   }
-  long maximumSecondsSpendPerSolverBenchmark=MAXIMUM_SECONDS_SPEND / solverBenchmarkConfigList.size();
+  long maximumSecondsSpentPerSolverBenchmark=MAXIMUM_SECONDS_SPENT / solverBenchmarkConfigList.size();
   SolverBenchmarkConfig inheritedSolverBenchmarkConfig=plannerBenchmarkConfig.getInheritedSolverBenchmarkConfig();
   if (inheritedSolverBenchmarkConfig != null) {
     ProblemBenchmarksConfig problemBenchmarksConfig=inheritedSolverBenchmarkConfig.getProblemBenchmarksConfig();
@@ -30,7 +30,7 @@
     }
     problemBenchmarksConfig.setInputSolutionFileList(Collections.singletonList(unsolvedDataFile));
     TerminationConfig terminationConfig=new TerminationConfig();
-    terminationConfig.setMaximumSecondsSpend(maximumSecondsSpendPerSolverBenchmark);
+    terminationConfig.setSecondsSpentLimit(maximumSecondsSpentPerSolverBenchmark);
     inheritedSolverBenchmarkConfig.getSolverConfig().setTerminationConfig(terminationConfig);
   }
   for (  SolverBenchmarkConfig solverBenchmarkConfig : solverBenchmarkConfigList) {

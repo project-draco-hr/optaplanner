@@ -1,5 +1,5 @@
 {
-  SolverFactory solverFactory=super.buildSolverFactory(scoreAttainedString,environmentMode);
+  SolverFactory solverFactory=super.buildSolverFactory(bestScoreLimitString,environmentMode);
   solverFactory.getSolverConfig().setSolverPhaseConfigList(Collections.<SolverPhaseConfig>singletonList(new BruteForceSolverPhaseConfig()));
   return solverFactory;
 }

@@ -1,0 +1,4 @@
+{
+  long phaseTimeMillisSpent=phaseScope.calculatePhaseTimeMillisSpent();
+  return isTerminated(phaseTimeMillisSpent);
+}

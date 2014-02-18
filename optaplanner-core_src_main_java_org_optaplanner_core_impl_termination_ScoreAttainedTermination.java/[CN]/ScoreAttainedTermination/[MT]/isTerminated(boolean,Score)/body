@@ -1,3 +1,0 @@
-{
-  return bestSolutionInitialized && bestScore.compareTo(scoreAttained) >= 0;
-}

@@ -1,5 +1,5 @@
 {
-  SolverFactory solverFactory=buildSolverFactory(scoreAttainedString,environmentMode);
+  SolverFactory solverFactory=buildSolverFactory(bestScoreLimitString,environmentMode);
   Solver solver=solve(solverFactory,unsolvedDataFile);
-  assertBestSolution(solver,scoreAttainedString);
+  assertBestSolution(solver,bestScoreLimitString);
 }

@@ -1,0 +1,9 @@
+{
+  Long oldLimit=calculateTimeMillisSpentLimit();
+  if (oldLimit == null || timeMillisSpentLimit < oldLimit) {
+    millisecondsSpentLimit=timeMillisSpentLimit;
+    secondsSpentLimit=null;
+    minutesSpentLimit=null;
+    hoursSpentLimit=null;
+  }
+}
