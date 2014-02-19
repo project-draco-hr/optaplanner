@@ -1,0 +1,5 @@
+{
+  solverScope.getScoreDirector().dispose();
+  solverScope.setEndingSystemTimeMillis(System.currentTimeMillis());
+  solving.set(false);
+}

@@ -1,6 +1,5 @@
 {
-  solving.set(true);
-  basicPlumbingTermination.resetTerminateEarly();
+  outerSolvingStarted(solverScope);
   solverScope.setRestartSolver(true);
   while (solverScope.isRestartSolver()) {
     solverScope.setRestartSolver(false);
@@ -9,6 +8,5 @@
     solvingEnded(solverScope);
     checkProblemFactChanges();
   }
-  solverScope.getScoreDirector().dispose();
-  solving.set(false);
+  outerSolvingEnded(solverScope);
 }

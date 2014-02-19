@@ -1,0 +1,9 @@
+{
+  solving.set(true);
+  basicPlumbingTermination.resetTerminateEarly();
+  solverScope.setStartingSystemTimeMillis(System.currentTimeMillis());
+  solverScope.setEndingSystemTimeMillis(null);
+  if (solverScope.getBestSolution() == null) {
+    throw new IllegalStateException("The planningProblem must not be null." + " Use Solver.setPlanningProblem(Solution).");
+  }
+}
