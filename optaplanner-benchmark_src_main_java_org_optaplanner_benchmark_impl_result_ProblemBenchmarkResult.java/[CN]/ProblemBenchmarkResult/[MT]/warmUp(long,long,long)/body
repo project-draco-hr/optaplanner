@@ -10,7 +10,7 @@
     solver.solve();
     solverBenchmarkResult.getSolverConfig().setTerminationConfig(originalTerminationConfig);
     long timeSpent=System.currentTimeMillis() - startingTimeMillis;
-    timeLeft=warmUpTimeMillisSpend - timeSpent;
+    timeLeft=warmUpTimeMillisSpentLimit - timeSpent;
     if (timeLeft <= 0L) {
       return timeLeft;
     }

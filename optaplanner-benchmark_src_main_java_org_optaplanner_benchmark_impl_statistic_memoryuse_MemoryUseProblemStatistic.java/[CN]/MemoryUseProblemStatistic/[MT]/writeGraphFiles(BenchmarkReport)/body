@@ -1,7 +1,7 @@
 {
   Locale locale=benchmarkReport.getLocale();
   NumberAxis xAxis=new NumberAxis("Time spent");
-  xAxis.setNumberFormatOverride(new MillisecondsSpendNumberFormat(locale));
+  xAxis.setNumberFormatOverride(new MillisecondsSpentNumberFormat(locale));
   NumberAxis yAxis=new NumberAxis("Memory");
   yAxis.setNumberFormatOverride(NumberFormat.getInstance(locale));
   XYPlot plot=new XYPlot(null,xAxis,yAxis,null);

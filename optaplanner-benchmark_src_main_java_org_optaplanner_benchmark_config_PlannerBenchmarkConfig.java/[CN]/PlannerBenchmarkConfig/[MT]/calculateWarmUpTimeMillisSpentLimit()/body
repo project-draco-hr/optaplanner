@@ -1,0 +1,16 @@
+{
+  long warmUpTimeMillisSpentLimit=0L;
+  if (warmUpMillisecondsSpentLimit != null) {
+    warmUpTimeMillisSpentLimit+=warmUpMillisecondsSpentLimit;
+  }
+  if (warmUpSecondsSpentLimit != null) {
+    warmUpTimeMillisSpentLimit+=warmUpSecondsSpentLimit * 1000L;
+  }
+  if (warmUpMinutesSpentLimit != null) {
+    warmUpTimeMillisSpentLimit+=warmUpMinutesSpentLimit * 60000L;
+  }
+  if (warmUpHoursSpentLimit != null) {
+    warmUpTimeMillisSpentLimit+=warmUpHoursSpentLimit * 3600000L;
+  }
+  return warmUpTimeMillisSpentLimit;
+}

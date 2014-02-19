@@ -9,8 +9,8 @@
   writeWorstScoreDifferencePercentageSummaryChart();
   writeAverageCalculateCountPerSecondSummaryChart();
   writeTimeSpentSummaryChart();
-  writeTimeSpendScalabilitySummaryChart();
-  writeBestScorePerTimeSpendSummaryChart();
+  writeTimeSpentScalabilitySummaryChart();
+  writeBestScorePerTimeSpentSummaryChart();
   for (  ProblemBenchmarkResult problemBenchmarkResult : plannerBenchmarkResult.getUnifiedProblemBenchmarkResultList()) {
     if (problemBenchmarkResult.hasAnySuccess()) {
       for (      ProblemStatistic problemStatistic : problemBenchmarkResult.getProblemStatisticList()) {

@@ -8,7 +8,7 @@
   PlannerBenchmarkRunner plannerBenchmarkRunner=new PlannerBenchmarkRunner(plannerBenchmarkResult);
   plannerBenchmarkRunner.setBenchmarkDirectory(benchmarkDirectory);
   plannerBenchmarkResult.setParallelBenchmarkCount(resolveParallelBenchmarkCount());
-  plannerBenchmarkResult.setWarmUpTimeMillisSpend(calculateWarmUpTimeMillisSpendTotal());
+  plannerBenchmarkResult.setWarmUpTimeMillisSpentLimit(calculateWarmUpTimeMillisSpentLimit());
   BenchmarkReportConfig benchmarkReportConfig_=benchmarkReportConfig == null ? new BenchmarkReportConfig() : benchmarkReportConfig;
   plannerBenchmarkRunner.setBenchmarkReport(benchmarkReportConfig_.buildBenchmarkReport(plannerBenchmarkResult));
   List<SolverBenchmarkResult> solverBenchmarkResultList=new ArrayList<SolverBenchmarkResult>(solverBenchmarkConfigList.size());
