@@ -1,3 +1,3 @@
 {
-  return getLabel() + "->" + computer;
+  return super.getId() + "@" + computer;
 }
