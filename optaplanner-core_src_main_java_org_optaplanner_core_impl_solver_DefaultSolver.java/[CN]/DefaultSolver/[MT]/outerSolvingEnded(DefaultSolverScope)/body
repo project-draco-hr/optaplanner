@@ -1,5 +1,8 @@
 {
   solverScope.getScoreDirector().dispose();
   solverScope.setEndingSystemTimeMillis(System.currentTimeMillis());
+  long timeMillisSpent=getTimeMillisSpent();
+  long averageCalculateCountPerSecond=solverScope.getCalculateCount() * 1000L / (timeMillisSpent == 0L ? 1L : timeMillisSpent);
+  logger.info("Solving ended: time spent ({}), best score ({}), average calculate count per second ({}).",timeMillisSpent,solverScope.getBestScoreWithUninitializedPrefix(),averageCalculateCountPerSecond);
   solving.set(false);
 }
