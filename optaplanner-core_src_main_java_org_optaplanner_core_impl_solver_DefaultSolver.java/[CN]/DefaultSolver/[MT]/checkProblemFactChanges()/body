@@ -1,19 +1,20 @@
 {
   BlockingQueue<ProblemFactChange> problemFactChangeQueue=basicPlumbingTermination.getProblemFactChangeQueue();
-  if (!problemFactChangeQueue.isEmpty()) {
-    solverScope.setRestartSolver(true);
-    solverScope.setWorkingSolutionFromBestSolution();
-    Score score=null;
-    int count=0;
-    ProblemFactChange problemFactChange=problemFactChangeQueue.poll();
-    while (problemFactChange != null) {
-      score=doProblemFactChange(problemFactChange);
-      count++;
-      problemFactChange=problemFactChangeQueue.poll();
-    }
-    Solution newBestSolution=solverScope.getScoreDirector().cloneWorkingSolution();
-    int newBestUninitializedVariableCount=solverScope.getSolutionDescriptor().countUninitializedVariables(newBestSolution);
-    bestSolutionRecaller.updateBestSolution(solverScope,newBestSolution,newBestUninitializedVariableCount);
-    logger.info("Done {} ProblemFactChange(s): new score ({}) possibly uninitialized. Restarting solver.",count,score);
+  if (problemFactChangeQueue.isEmpty()) {
+    return false;
   }
+  solverScope.setWorkingSolutionFromBestSolution();
+  Score score=null;
+  int count=0;
+  ProblemFactChange problemFactChange=problemFactChangeQueue.poll();
+  while (problemFactChange != null) {
+    score=doProblemFactChange(problemFactChange);
+    count++;
+    problemFactChange=problemFactChangeQueue.poll();
+  }
+  Solution newBestSolution=solverScope.getScoreDirector().cloneWorkingSolution();
+  int newBestUninitializedVariableCount=solverScope.getSolutionDescriptor().countUninitializedVariables(newBestSolution);
+  bestSolutionRecaller.updateBestSolution(solverScope,newBestSolution,newBestUninitializedVariableCount);
+  logger.info("Done {} ProblemFactChange(s): new score ({}) possibly uninitialized. Restarting solver.",count,score);
+  return true;
 }

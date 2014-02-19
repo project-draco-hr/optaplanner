@@ -1,12 +1,11 @@
 {
   outerSolvingStarted(solverScope);
-  solverScope.setRestartSolver(true);
-  while (solverScope.isRestartSolver()) {
-    solverScope.setRestartSolver(false);
+  boolean restartSolver=true;
+  while (restartSolver) {
     solvingStarted(solverScope);
     runSolverPhases();
     solvingEnded(solverScope);
-    checkProblemFactChanges();
+    restartSolver=checkProblemFactChanges();
   }
   outerSolvingEnded(solverScope);
 }

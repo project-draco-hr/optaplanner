@@ -6,5 +6,7 @@
   for (  SolverPhase solverPhase : solverPhaseList) {
     solverPhase.solvingStarted(solverScope);
   }
-  logger.info("Solving started: time spent ({}), score ({}), new best score ({}), random ({}).",solverScope.calculateTimeMillisSpent(),solverScope.getStartingInitializedScore(),solverScope.getBestScore(),(randomFactory != null ? randomFactory : "not fixed"));
+  int startingSolverCount=solverScope.getStartingSolverCount() + 1;
+  solverScope.setStartingSolverCount(startingSolverCount);
+  logger.info("Solving {}: time spent ({}), score ({}), new best score ({}), random ({}).",(startingSolverCount == 1 ? "started" : "restarted"),solverScope.calculateTimeMillisSpent(),solverScope.getStartingInitializedScore(),solverScope.getBestScore(),(randomFactory != null ? randomFactory : "not fixed"));
 }
