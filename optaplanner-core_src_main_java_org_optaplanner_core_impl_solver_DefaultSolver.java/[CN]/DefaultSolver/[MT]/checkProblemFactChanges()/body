@@ -5,16 +5,16 @@
   }
   solverScope.setWorkingSolutionFromBestSolution();
   Score score=null;
-  int count=0;
+  int stepIndex=0;
   ProblemFactChange problemFactChange=problemFactChangeQueue.poll();
   while (problemFactChange != null) {
-    score=doProblemFactChange(problemFactChange);
-    count++;
+    score=doProblemFactChange(problemFactChange,stepIndex);
+    stepIndex++;
     problemFactChange=problemFactChangeQueue.poll();
   }
   Solution newBestSolution=solverScope.getScoreDirector().cloneWorkingSolution();
   int newBestUninitializedVariableCount=solverScope.getSolutionDescriptor().countUninitializedVariables(newBestSolution);
   bestSolutionRecaller.updateBestSolution(solverScope,newBestSolution,newBestUninitializedVariableCount);
-  logger.info("Done {} ProblemFactChange(s): new score ({}) possibly uninitialized. Restarting solver.",count,score);
+  logger.info("Real-time problem fact changes done: step total ({}), new {} best score ({}).",stepIndex,(newBestUninitializedVariableCount <= 0 ? "initialized" : "uninitialized"),score);
   return true;
 }

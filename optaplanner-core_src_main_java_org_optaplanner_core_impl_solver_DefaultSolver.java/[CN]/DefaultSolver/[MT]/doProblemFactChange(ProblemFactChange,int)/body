@@ -1,6 +1,6 @@
 {
   problemFactChange.doChange(solverScope.getScoreDirector());
   Score score=solverScope.calculateScore();
-  logger.debug("    Done ProblemFactChange: new score ({}).",score);
+  logger.debug("    Step index ({}), new score ({}) for real-time problem fact change.",stepIndex,score);
   return score;
 }
