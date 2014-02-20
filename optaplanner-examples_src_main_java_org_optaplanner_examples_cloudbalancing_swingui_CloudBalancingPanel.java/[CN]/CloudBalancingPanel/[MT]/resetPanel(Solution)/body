@@ -24,6 +24,5 @@
   unassignedPanel=new CloudComputerPanel(this,null);
   computersPanel.add(unassignedPanel);
   computerToPanelMap.put(null,unassignedPanel);
-  processToPanelMap.clear();
   updatePanel(solution);
 }

@@ -10,26 +10,13 @@
       computersPanel.add(computerPanel);
       computerToPanelMap.put(computer,computerPanel);
     }
+    computerPanel.clearAllProcesses();
   }
-  Set<CloudProcess> deadCloudProcessSet=new LinkedHashSet<CloudProcess>(processToPanelMap.keySet());
+  unassignedPanel.clearAllProcesses();
   for (  CloudProcess process : cloudBalance.getProcessList()) {
-    deadCloudProcessSet.remove(process);
-    CloudComputerPanel computerPanel=processToPanelMap.get(process);
     CloudComputer computer=process.getComputer();
-    if (computerPanel != null && !ObjectUtils.equals(computerPanel.getComputer(),computer)) {
-      processToPanelMap.remove(process);
-      computerPanel.removeProcess(process);
-      computerPanel=null;
-    }
-    if (computerPanel == null) {
-      computerPanel=computerToPanelMap.get(computer);
-      computerPanel.addProcess(process);
-      processToPanelMap.put(process,computerPanel);
-    }
-  }
-  for (  CloudProcess deadProcess : deadCloudProcessSet) {
-    CloudComputerPanel deadComputerPanel=processToPanelMap.remove(deadProcess);
-    deadComputerPanel.removeProcess(deadProcess);
+    CloudComputerPanel computerPanel=computerToPanelMap.get(computer);
+    computerPanel.addProcess(process);
   }
   for (  CloudComputer deadComputer : deadCloudComputerSet) {
     CloudComputerPanel deadComputerPanel=computerToPanelMap.remove(deadComputer);

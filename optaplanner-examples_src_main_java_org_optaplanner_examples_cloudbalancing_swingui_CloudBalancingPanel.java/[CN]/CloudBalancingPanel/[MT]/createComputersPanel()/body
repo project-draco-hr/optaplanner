@@ -1,6 +1,5 @@
 {
   computersPanel=new JPanel(new GridLayout(0,1));
   computerToPanelMap=new LinkedHashMap<CloudComputer,CloudComputerPanel>();
-  processToPanelMap=new LinkedHashMap<CloudProcess,CloudComputerPanel>();
   return computersPanel;
 }
