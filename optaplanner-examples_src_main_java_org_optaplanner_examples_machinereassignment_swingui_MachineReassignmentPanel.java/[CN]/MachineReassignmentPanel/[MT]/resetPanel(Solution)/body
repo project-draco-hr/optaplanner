@@ -6,7 +6,6 @@
   }
   machineToPanelMap.clear();
   machineToPanelMap.put(null,unassignedPanel);
-  processAssignmentToPanelMap.clear();
-  unassignedPanel.clearMrProcessAssignments();
+  unassignedPanel.clearProcessAssignments();
   updatePanel(solution);
 }

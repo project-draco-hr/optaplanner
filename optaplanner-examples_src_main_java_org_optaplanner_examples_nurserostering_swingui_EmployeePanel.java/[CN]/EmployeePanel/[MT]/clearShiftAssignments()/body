@@ -1,6 +1,7 @@
 {
   for (  JPanel shiftPanel : shiftPanelMap.values()) {
     shiftPanel.removeAll();
+    shiftPanel.repaint();
   }
   shiftAssignmentButtonMap.clear();
 }

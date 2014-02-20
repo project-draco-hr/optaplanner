@@ -5,5 +5,4 @@
   employeeListPanel.add(unassignedPanel);
   employeeToPanelMap=new LinkedHashMap<Employee,EmployeePanel>();
   employeeToPanelMap.put(null,unassignedPanel);
-  shiftAssignmentToPanelMap=new LinkedHashMap<ShiftAssignment,EmployeePanel>();
 }

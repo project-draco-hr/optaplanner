@@ -7,7 +7,6 @@
   }
   employeeToPanelMap.clear();
   employeeToPanelMap.put(null,unassignedPanel);
-  shiftAssignmentToPanelMap.clear();
   unassignedPanel.clearShiftAssignments();
   List<ShiftDate> shiftDateList=nurseRoster.getShiftDateList();
   List<Shift> shiftList=nurseRoster.getShiftList();

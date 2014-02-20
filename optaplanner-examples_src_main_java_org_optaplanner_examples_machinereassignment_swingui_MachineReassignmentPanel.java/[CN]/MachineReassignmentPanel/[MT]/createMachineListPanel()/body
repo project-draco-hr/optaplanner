@@ -4,5 +4,4 @@
   machineListPanel.add(unassignedPanel);
   machineToPanelMap=new LinkedHashMap<MrMachine,MrMachinePanel>();
   machineToPanelMap.put(null,unassignedPanel);
-  processAssignmentToPanelMap=new LinkedHashMap<MrProcessAssignment,MrMachinePanel>();
 }
