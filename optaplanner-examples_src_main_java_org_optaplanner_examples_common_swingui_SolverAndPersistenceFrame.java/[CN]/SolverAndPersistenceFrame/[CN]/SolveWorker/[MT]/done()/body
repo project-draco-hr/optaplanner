@@ -1,0 +1,16 @@
+{
+  try {
+    Solution bestSolution=get();
+    solutionBusiness.setSolution(bestSolution);
+  }
+ catch (  InterruptedException e) {
+    throw new IllegalStateException("Solving interrupted.",e);
+  }
+catch (  ExecutionException e) {
+    throw new IllegalStateException("Solving failed.",e.getCause());
+  }
+ finally {
+    setSolvingState(false);
+    resetScreen();
+  }
+}
