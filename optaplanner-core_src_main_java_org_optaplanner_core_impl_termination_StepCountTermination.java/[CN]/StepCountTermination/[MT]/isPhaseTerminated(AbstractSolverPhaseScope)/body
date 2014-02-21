@@ -1,4 +1,4 @@
 {
-  int nextStepIndex=phaseScope.getLastCompletedStepScope().getStepIndex() + 1;
+  int nextStepIndex=phaseScope.getNextStepIndex();
   return nextStepIndex >= stepCountLimit;
 }
