@@ -1,0 +1,25 @@
+{
+  Termination termination=new BestScoreTermination(SimpleScore.valueOf(-1000));
+  AbstractSolverPhaseScope phaseScope=mock(AbstractSolverPhaseScope.class);
+  when(phaseScope.getScoreDefinition()).thenReturn(new SimpleScoreDefinition());
+  when(phaseScope.isBestSolutionInitialized()).thenReturn(true);
+  when(phaseScope.getStartingScore()).thenReturn(SimpleScore.valueOf(-1100));
+  when(phaseScope.getBestScore()).thenReturn(SimpleScore.valueOf(-1100));
+  assertEquals(false,termination.isPhaseTerminated(phaseScope));
+  assertEquals(0.0,termination.calculatePhaseTimeGradient(phaseScope),0.0);
+  when(phaseScope.getBestScore()).thenReturn(SimpleScore.valueOf(-1100));
+  assertEquals(false,termination.isPhaseTerminated(phaseScope));
+  assertEquals(0.0,termination.calculatePhaseTimeGradient(phaseScope),0.0);
+  when(phaseScope.getBestScore()).thenReturn(SimpleScore.valueOf(-1040));
+  assertEquals(false,termination.isPhaseTerminated(phaseScope));
+  assertEquals(0.6,termination.calculatePhaseTimeGradient(phaseScope),0.0);
+  when(phaseScope.getBestScore()).thenReturn(SimpleScore.valueOf(-1040));
+  assertEquals(false,termination.isPhaseTerminated(phaseScope));
+  assertEquals(0.6,termination.calculatePhaseTimeGradient(phaseScope),0.0);
+  when(phaseScope.getBestScore()).thenReturn(SimpleScore.valueOf(-1000));
+  assertEquals(true,termination.isPhaseTerminated(phaseScope));
+  assertEquals(1.0,termination.calculatePhaseTimeGradient(phaseScope),0.0);
+  when(phaseScope.getBestScore()).thenReturn(SimpleScore.valueOf(-900));
+  assertEquals(true,termination.isPhaseTerminated(phaseScope));
+  assertEquals(1.0,termination.calculatePhaseTimeGradient(phaseScope),0.0);
+}
