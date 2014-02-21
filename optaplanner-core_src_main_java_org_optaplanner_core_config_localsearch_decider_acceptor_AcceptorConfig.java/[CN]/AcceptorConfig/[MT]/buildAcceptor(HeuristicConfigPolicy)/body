@@ -11,7 +11,7 @@
     HillClimbingAcceptor acceptor=new HillClimbingAcceptor();
     acceptorList.add(acceptor);
   }
-  if ((acceptorTypeList != null && acceptorTypeList.contains(AcceptorType.PLANNING_ENTITY_TABU)) || entityTabuSize != null || entityTabuRatio != null || fadingEntityTabuSize != null || fadingEntityTabuRatio != null) {
+  if ((acceptorTypeList != null && acceptorTypeList.contains(AcceptorType.ENTITY_TABU)) || entityTabuSize != null || entityTabuRatio != null || fadingEntityTabuSize != null || fadingEntityTabuRatio != null) {
     EntityTabuAcceptor acceptor=new EntityTabuAcceptor();
     if (entityTabuSize != null) {
       if (entityTabuRatio != null) {
@@ -36,7 +36,7 @@
     }
     acceptorList.add(acceptor);
   }
-  if ((acceptorTypeList != null && acceptorTypeList.contains(AcceptorType.PLANNING_VALUE_TABU)) || valueTabuSize != null || valueTabuRatio != null || fadingValueTabuSize != null || fadingValueTabuRatio != null) {
+  if ((acceptorTypeList != null && acceptorTypeList.contains(AcceptorType.VALUE_TABU)) || valueTabuSize != null || valueTabuRatio != null || fadingValueTabuSize != null || fadingValueTabuRatio != null) {
     ValueTabuAcceptor acceptor=new ValueTabuAcceptor();
     if (valueTabuSize != null) {
       if (valueTabuRatio != null) {
