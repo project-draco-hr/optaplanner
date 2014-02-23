@@ -1,10 +1,13 @@
 {
-  JPanel buttonPanel=new JPanel(new GridLayout(1,3));
+  JPanel buttonPanel=new JPanel(new GridLayout(2,3));
   JButton expandNodesButton=new JButton(new ExpandAllNodesAction());
   buttonPanel.add(expandNodesButton);
   JButton collapseNodesButton=new JButton(new CollapseAllNodesAction());
   buttonPanel.add(collapseNodesButton);
   generateProgressBar=new JProgressBar();
   buttonPanel.add(generateProgressBar);
+  buttonPanel.add(new JButton(new MoveNodeAction(true)));
+  buttonPanel.add(new JButton(new MoveNodeAction(false)));
+  buttonPanel.add(new JButton(new RenameNodeAction()));
   return buttonPanel;
 }

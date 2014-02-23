@@ -1,0 +1,8 @@
+{
+  super(text);
+  this.detail=detail;
+  this.benchmarkResult=benchmarkResult;
+  setModel(new MixedCheckBoxModel());
+  setStatus(MixedCheckBoxStatus.UNCHECKED);
+  addMouseListener(new CustomCheckboxMouseListener());
+}
