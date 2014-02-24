@@ -1,7 +1,7 @@
 {
   super(parentFrame,"Report generation finished");
   JPanel contentPanel=new JPanel(new GridLayout(1,3,10,10));
-  final JCheckBox exitCheckBox=new JCheckBox("Exit application???");
+  final JCheckBox exitCheckBox=new JCheckBox("Exit application");
   exitCheckBox.setSelected(true);
   JButton openBrowserButton=new JButton("Show in browser");
   openBrowserButton.addActionListener(new AbstractAction(){
