@@ -1,0 +1,11 @@
+{
+  if (checkBoxTree.getSelectionPath() != null) {
+    DefaultMutableTreeNode selectedNode=(DefaultMutableTreeNode)checkBoxTree.getSelectionPath().getLastPathComponent();
+    if (selectedNode != null && ((MixedCheckBox)selectedNode.getUserObject()).getBenchmarkResult() != null) {
+      RenameNodeDialog renameNodeDialog=new RenameNodeDialog(selectedNode);
+      renameNodeDialog.pack();
+      renameNodeDialog.setLocationRelativeTo(BenchmarkAggregatorFrame.this);
+      renameNodeDialog.setVisible(true);
+    }
+  }
+}

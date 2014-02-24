@@ -1,0 +1,14 @@
+{
+  if (checkBoxTree.getSelectionPath() != null) {
+    DefaultMutableTreeNode selectedNode=(DefaultMutableTreeNode)checkBoxTree.getSelectionPath().getLastPathComponent();
+    DefaultMutableTreeNode parentNode=(DefaultMutableTreeNode)selectedNode.getParent();
+    if (parentNode != null) {
+      DefaultMutableTreeNode immediateSiblingNode=directionUp ? (DefaultMutableTreeNode)parentNode.getChildBefore(selectedNode) : (DefaultMutableTreeNode)parentNode.getChildAfter(selectedNode);
+      if (immediateSiblingNode != null) {
+        parentNode.insert(immediateSiblingNode,parentNode.getIndex(selectedNode));
+        ((DefaultTreeModel)checkBoxTree.getModel()).nodeStructureChanged(parentNode);
+        checkBoxTree.setSelectionPath(new TreePath(selectedNode.getPath()));
+      }
+    }
+  }
+}

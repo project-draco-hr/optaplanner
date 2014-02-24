@@ -1,5 +1,6 @@
 {
   String solverCheckBoxName=solverBenchmarkResult.getName() + " (" + solverBenchmarkResult.getRanking()+ ")";
   String solverBenchmarkDetail=String.format(DETAIL_TEMPLATE_SOLVER_BENCHMARK,solverBenchmarkResult.getAverageScore(),solverBenchmarkResult.getTotalScore(),solverBenchmarkResult.getAverageTimeMillisSpent(),solverBenchmarkResult.getTotalWinningScoreDifference());
-  return new MixedCheckBox(solverCheckBoxName,solverBenchmarkDetail);
+  solverBenchmarkResultNameMapping.put(solverBenchmarkResult,solverBenchmarkResult.getName());
+  return new MixedCheckBox(solverCheckBoxName,solverBenchmarkDetail,solverBenchmarkResult);
 }

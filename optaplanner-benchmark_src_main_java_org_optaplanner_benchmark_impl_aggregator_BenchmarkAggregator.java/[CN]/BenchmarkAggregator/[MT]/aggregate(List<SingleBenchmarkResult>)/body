@@ -1,29 +1,3 @@
 {
-  if (benchmarkDirectory == null) {
-    throw new IllegalArgumentException("The benchmarkDirectory (" + benchmarkDirectory + ") must not be null.");
-  }
-  if (!benchmarkDirectory.exists()) {
-    throw new IllegalArgumentException("The benchmarkDirectory (" + benchmarkDirectory + ") must exist.");
-  }
-  if (benchmarkReportConfig == null) {
-    throw new IllegalArgumentException("The benchmarkReportConfig (" + benchmarkReportConfig + ") must not be null.");
-  }
-  if (singleBenchmarkResultList.isEmpty()) {
-    throw new IllegalArgumentException("The singleBenchmarkResultList (" + singleBenchmarkResultList + ") must not be empty.");
-  }
-  Date startingTimestamp=new Date();
-  for (  SingleBenchmarkResult singleBenchmarkResult : singleBenchmarkResultList) {
-    singleBenchmarkResult.initSingleStatisticMap();
-    for (    SingleStatistic singleStatistic : singleBenchmarkResult.getSingleStatisticMap().values()) {
-      singleStatistic.readCsvStatisticFile();
-    }
-  }
-  PlannerBenchmarkResult plannerBenchmarkResult=PlannerBenchmarkResult.createMergedResult(singleBenchmarkResultList);
-  plannerBenchmarkResult.setStartingTimestamp(startingTimestamp);
-  plannerBenchmarkResult.initBenchmarkReportDirectory(benchmarkDirectory);
-  BenchmarkReport benchmarkReport=benchmarkReportConfig.buildBenchmarkReport(plannerBenchmarkResult);
-  plannerBenchmarkResult.accumulateResults(benchmarkReport);
-  benchmarkReport.writeReport();
-  logger.info("Aggregation ended: statistic html overview ({}).",benchmarkReport.getHtmlOverviewFile().getAbsolutePath());
-  return benchmarkReport.getHtmlOverviewFile().getAbsoluteFile();
+  return aggregate(singleBenchmarkResultList,null);
 }

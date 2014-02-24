@@ -1,0 +1,4 @@
+{
+  super(directionUp ? "Move up" : "Move down");
+  this.directionUp=directionUp;
+}

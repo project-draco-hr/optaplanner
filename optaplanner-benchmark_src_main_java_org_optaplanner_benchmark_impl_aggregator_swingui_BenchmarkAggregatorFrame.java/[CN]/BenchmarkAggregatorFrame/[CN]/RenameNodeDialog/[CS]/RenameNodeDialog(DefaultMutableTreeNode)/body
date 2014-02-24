@@ -1,0 +1,34 @@
+{
+  super(BenchmarkAggregatorFrame.this,"Rename node");
+  final MixedCheckBox mixedCheckBox=(MixedCheckBox)treeNode.getUserObject();
+  final Object benchmarkResult=mixedCheckBox.getBenchmarkResult();
+  JPanel mainPanel=new JPanel(new BorderLayout());
+  final JTextField benchmarkResultNameTextField=new JTextField(benchmarkResult.toString(),30);
+  mainPanel.add(benchmarkResultNameTextField,BorderLayout.WEST);
+  JButton confirmRenameButton=new JButton("Rename");
+  mainPanel.add(confirmRenameButton,BorderLayout.EAST);
+  setContentPane(mainPanel);
+  mainPanel.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+  confirmRenameButton.addActionListener(new AbstractAction(){
+    @Override public void actionPerformed(    ActionEvent e){
+      String newBenchmarkResultName=benchmarkResultNameTextField.getText();
+      if (StringUtils.isEmpty(newBenchmarkResultName)) {
+        JOptionPane.showMessageDialog(BenchmarkAggregatorFrame.this,"New benchmark's name cannot be empty.","Warning",JOptionPane.WARNING_MESSAGE);
+      }
+ else {
+        if (benchmarkResult instanceof PlannerBenchmarkResult) {
+          ((PlannerBenchmarkResult)benchmarkResult).setName(newBenchmarkResultName);
+          mixedCheckBox.setText(newBenchmarkResultName);
+          ((DefaultTreeModel)checkBoxTree.getModel()).nodeChanged(treeNode);
+        }
+ else         if (benchmarkResult instanceof SolverBenchmarkResult) {
+          mixedCheckBox.setText(newBenchmarkResultName);
+          ((DefaultTreeModel)checkBoxTree.getModel()).nodeChanged(treeNode);
+          solverBenchmarkResultNameMapping.put((SolverBenchmarkResult)benchmarkResult,newBenchmarkResultName);
+        }
+        dispose();
+      }
+    }
+  }
+);
+}
