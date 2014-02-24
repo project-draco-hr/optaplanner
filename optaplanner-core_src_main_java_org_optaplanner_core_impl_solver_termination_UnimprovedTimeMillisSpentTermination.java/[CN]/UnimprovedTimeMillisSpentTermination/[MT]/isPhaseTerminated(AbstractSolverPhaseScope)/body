@@ -1,0 +1,4 @@
+{
+  long bestSolutionTimeMillis=phaseScope.getPhaseBestSolutionTimeMillis();
+  return isTerminated(bestSolutionTimeMillis);
+}

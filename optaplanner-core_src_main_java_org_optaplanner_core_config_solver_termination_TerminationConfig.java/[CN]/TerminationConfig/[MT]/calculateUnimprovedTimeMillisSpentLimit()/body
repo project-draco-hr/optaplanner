@@ -1,0 +1,19 @@
+{
+  if (unimprovedMillisecondsSpentLimit == null && unimprovedSecondsSpentLimit == null && unimprovedMinutesSpentLimit == null && unimprovedHoursSpentLimit == null) {
+    return null;
+  }
+  long unimprovedTimeMillisSpentLimit=0L;
+  if (unimprovedMillisecondsSpentLimit != null) {
+    unimprovedTimeMillisSpentLimit+=unimprovedMillisecondsSpentLimit;
+  }
+  if (unimprovedSecondsSpentLimit != null) {
+    unimprovedTimeMillisSpentLimit+=unimprovedSecondsSpentLimit * 1000L;
+  }
+  if (unimprovedMinutesSpentLimit != null) {
+    unimprovedTimeMillisSpentLimit+=unimprovedMinutesSpentLimit * 60000L;
+  }
+  if (unimprovedHoursSpentLimit != null) {
+    unimprovedTimeMillisSpentLimit+=unimprovedHoursSpentLimit * 3600000L;
+  }
+  return unimprovedTimeMillisSpentLimit;
+}

@@ -1,30 +1,16 @@
 {
-  if (terminationClass == null) {
-    terminationClass=inheritedConfig.getTerminationClass();
-  }
-  if (terminationCompositionStyle == null) {
-    terminationCompositionStyle=inheritedConfig.getTerminationCompositionStyle();
-  }
-  if (millisecondsSpentLimit == null) {
-    millisecondsSpentLimit=inheritedConfig.getMillisecondsSpentLimit();
-  }
-  if (secondsSpentLimit == null) {
-    secondsSpentLimit=inheritedConfig.getSecondsSpentLimit();
-  }
-  if (minutesSpentLimit == null) {
-    minutesSpentLimit=inheritedConfig.getMinutesSpentLimit();
-  }
-  if (hoursSpentLimit == null) {
-    hoursSpentLimit=inheritedConfig.getHoursSpentLimit();
-  }
-  if (bestScoreLimit == null) {
-    bestScoreLimit=inheritedConfig.getBestScoreLimit();
-  }
-  if (stepCountLimit == null) {
-    stepCountLimit=inheritedConfig.getStepCountLimit();
-  }
-  if (unimprovedStepCountLimit == null) {
-    unimprovedStepCountLimit=inheritedConfig.getUnimprovedStepCountLimit();
-  }
+  terminationClass=ConfigUtils.inheritOverwritableProperty(terminationClass,inheritedConfig.getTerminationClass());
+  terminationCompositionStyle=ConfigUtils.inheritOverwritableProperty(terminationCompositionStyle,inheritedConfig.getTerminationCompositionStyle());
+  millisecondsSpentLimit=ConfigUtils.inheritOverwritableProperty(millisecondsSpentLimit,inheritedConfig.getMillisecondsSpentLimit());
+  secondsSpentLimit=ConfigUtils.inheritOverwritableProperty(secondsSpentLimit,inheritedConfig.getSecondsSpentLimit());
+  minutesSpentLimit=ConfigUtils.inheritOverwritableProperty(minutesSpentLimit,inheritedConfig.getMinutesSpentLimit());
+  hoursSpentLimit=ConfigUtils.inheritOverwritableProperty(hoursSpentLimit,inheritedConfig.getHoursSpentLimit());
+  unimprovedMillisecondsSpentLimit=ConfigUtils.inheritOverwritableProperty(unimprovedMillisecondsSpentLimit,inheritedConfig.getUnimprovedMillisecondsSpentLimit());
+  unimprovedSecondsSpentLimit=ConfigUtils.inheritOverwritableProperty(unimprovedSecondsSpentLimit,inheritedConfig.getUnimprovedSecondsSpentLimit());
+  unimprovedMinutesSpentLimit=ConfigUtils.inheritOverwritableProperty(unimprovedMinutesSpentLimit,inheritedConfig.getUnimprovedMinutesSpentLimit());
+  unimprovedHoursSpentLimit=ConfigUtils.inheritOverwritableProperty(unimprovedHoursSpentLimit,inheritedConfig.getUnimprovedHoursSpentLimit());
+  bestScoreLimit=ConfigUtils.inheritOverwritableProperty(bestScoreLimit,inheritedConfig.getBestScoreLimit());
+  stepCountLimit=ConfigUtils.inheritOverwritableProperty(stepCountLimit,inheritedConfig.getStepCountLimit());
+  unimprovedStepCountLimit=ConfigUtils.inheritOverwritableProperty(unimprovedStepCountLimit,inheritedConfig.getUnimprovedStepCountLimit());
   terminationConfigList=ConfigUtils.inheritMergeableListProperty(terminationConfigList,inheritedConfig.getTerminationConfigList());
 }

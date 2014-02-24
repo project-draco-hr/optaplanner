@@ -6,21 +6,21 @@
   }
   Long timeMillisSpentLimit=calculateTimeMillisSpentLimit();
   if (timeMillisSpentLimit != null) {
-    TimeMillisSpentTermination termination=new TimeMillisSpentTermination(timeMillisSpentLimit);
-    terminationList.add(termination);
+    terminationList.add(new TimeMillisSpentTermination(timeMillisSpentLimit));
+  }
+  Long unimprovedTimeMillisSpentLimit=calculateUnimprovedTimeMillisSpentLimit();
+  if (unimprovedTimeMillisSpentLimit != null) {
+    terminationList.add(new UnimprovedTimeMillisSpentTermination(unimprovedTimeMillisSpentLimit));
   }
   if (bestScoreLimit != null) {
     Score bestScoreLimit_=configPolicy.getScoreDefinition().parseScore(bestScoreLimit);
-    BestScoreTermination termination=new BestScoreTermination(bestScoreLimit_);
-    terminationList.add(termination);
+    terminationList.add(new BestScoreTermination(bestScoreLimit_));
   }
   if (stepCountLimit != null) {
-    StepCountTermination termination=new StepCountTermination(stepCountLimit);
-    terminationList.add(termination);
+    terminationList.add(new StepCountTermination(stepCountLimit));
   }
   if (unimprovedStepCountLimit != null) {
-    UnimprovedStepCountTermination termination=new UnimprovedStepCountTermination(unimprovedStepCountLimit);
-    terminationList.add(termination);
+    terminationList.add(new UnimprovedStepCountTermination(unimprovedStepCountLimit));
   }
   if (!CollectionUtils.isEmpty(terminationConfigList)) {
     for (    TerminationConfig terminationConfig : terminationConfigList) {

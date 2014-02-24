@@ -1,0 +1,7 @@
+{
+  long bestSolutionTimeMillis=solverScope.getBestSolutionTimeMillis();
+  if (bestSolutionTimeMillis < startingSystemTimeMillis) {
+    bestSolutionTimeMillis=startingSystemTimeMillis;
+  }
+  return bestSolutionTimeMillis;
+}

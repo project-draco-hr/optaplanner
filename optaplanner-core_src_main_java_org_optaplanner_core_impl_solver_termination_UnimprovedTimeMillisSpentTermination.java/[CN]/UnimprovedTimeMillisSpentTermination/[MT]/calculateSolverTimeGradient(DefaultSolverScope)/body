@@ -1,0 +1,4 @@
+{
+  long bestSolutionTimeMillis=solverScope.getBestSolutionTimeMillis();
+  return calculateTimeGradient(bestSolutionTimeMillis);
+}

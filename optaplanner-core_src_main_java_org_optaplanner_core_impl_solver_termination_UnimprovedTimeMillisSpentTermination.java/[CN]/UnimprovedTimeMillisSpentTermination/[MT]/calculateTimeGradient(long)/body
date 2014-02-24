@@ -1,0 +1,6 @@
+{
+  long now=System.currentTimeMillis();
+  long unimprovedTimeMillisSpent=now - bestSolutionTimeMillis;
+  double timeGradient=((double)unimprovedTimeMillisSpent) / ((double)unimprovedTimeMillisSpentLimit);
+  return Math.min(timeGradient,1.0);
+}
