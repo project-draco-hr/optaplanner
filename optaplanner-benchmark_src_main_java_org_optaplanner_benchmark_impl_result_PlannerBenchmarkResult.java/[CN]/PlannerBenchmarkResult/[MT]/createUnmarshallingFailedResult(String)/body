@@ -1,0 +1,7 @@
+{
+  PlannerBenchmarkResult result=new PlannerBenchmarkResult();
+  result.setName("Failed reading " + benchmarkReportDirectoryName);
+  result.setSolverBenchmarkResultList(Collections.<SolverBenchmarkResult>emptyList());
+  result.setUnifiedProblemBenchmarkResultList(Collections.<ProblemBenchmarkResult>emptyList());
+  return result;
+}

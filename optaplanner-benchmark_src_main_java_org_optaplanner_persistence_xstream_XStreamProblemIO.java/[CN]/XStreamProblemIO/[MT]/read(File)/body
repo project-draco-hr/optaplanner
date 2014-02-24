@@ -6,10 +6,10 @@
     unsolvedSolution=(Solution)xStream.fromXML(reader);
   }
  catch (  XStreamException e) {
-    throw new IllegalArgumentException("Problem reading inputSolutionFile: " + inputSolutionFile,e);
+    throw new IllegalArgumentException("Problem reading inputSolutionFile (" + inputSolutionFile + ").",e);
   }
 catch (  IOException e) {
-    throw new IllegalArgumentException("Problem reading inputSolutionFile: " + inputSolutionFile,e);
+    throw new IllegalArgumentException("Problem reading inputSolutionFile (" + inputSolutionFile + ").",e);
   }
  finally {
     IOUtils.closeQuietly(reader);

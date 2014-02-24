@@ -5,7 +5,7 @@
     xStream.toXML(solution,writer);
   }
  catch (  IOException e) {
-    throw new IllegalArgumentException("Problem writing outputSolutionFile: " + outputSolutionFile,e);
+    throw new IllegalArgumentException("Problem writing outputSolutionFile (" + outputSolutionFile + ").",e);
   }
  finally {
     IOUtils.closeQuietly(writer);

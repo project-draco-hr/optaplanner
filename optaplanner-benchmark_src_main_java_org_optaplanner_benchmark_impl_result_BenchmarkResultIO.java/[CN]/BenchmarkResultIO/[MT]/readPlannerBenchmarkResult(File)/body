@@ -8,11 +8,15 @@
     reader=new InputStreamReader(new FileInputStream(plannerBenchmarkResultFile),"UTF-8");
     plannerBenchmarkResult=(PlannerBenchmarkResult)xStream.fromXML(reader);
   }
- catch (  XStreamException e) {
-    throw new IllegalArgumentException("Problem reading plannerBenchmarkResultFile: " + plannerBenchmarkResultFile,e);
+ catch (  ConversionException e) {
+    String benchmarkReportDirectoryName=plannerBenchmarkResultFile.getParentFile().getName();
+    plannerBenchmarkResult=PlannerBenchmarkResult.createUnmarshallingFailedResult(benchmarkReportDirectoryName);
+  }
+catch (  XStreamException e) {
+    throw new IllegalArgumentException("Problem reading plannerBenchmarkResultFile (" + plannerBenchmarkResultFile + ").",e);
   }
 catch (  IOException e) {
-    throw new IllegalArgumentException("Problem reading plannerBenchmarkResultFile: " + plannerBenchmarkResultFile,e);
+    throw new IllegalArgumentException("Problem reading plannerBenchmarkResultFile (" + plannerBenchmarkResultFile + ").",e);
   }
  finally {
     IOUtils.closeQuietly(reader);
