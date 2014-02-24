@@ -9,6 +9,7 @@
     plannerBenchmarkResult=(PlannerBenchmarkResult)xStream.fromXML(reader);
   }
  catch (  ConversionException e) {
+    logger.warn("Problem reading plannerBenchmarkResultFile (" + plannerBenchmarkResultFile + ").",e);
     String benchmarkReportDirectoryName=plannerBenchmarkResultFile.getParentFile().getName();
     plannerBenchmarkResult=PlannerBenchmarkResult.createUnmarshallingFailedResult(benchmarkReportDirectoryName);
   }
