@@ -1,7 +1,12 @@
 {
   InputStream in=getClass().getResourceAsStream(benchmarkConfigResource);
   if (in == null) {
-    throw new IllegalArgumentException("Reading the benchmarkConfigResource (" + benchmarkConfigResource + ") failed.");
+    throw new IllegalArgumentException("The benchmarkConfigResource (" + benchmarkConfigResource + ") does not exist in the classpath.");
   }
-  return configure(in);
+  try {
+    return configure(in);
+  }
+ catch (  ConversionException e) {
+    throw new IllegalArgumentException("Unmarshalling of benchmarkConfigResource (" + benchmarkConfigResource + ") fails.",e);
+  }
 }

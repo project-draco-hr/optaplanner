@@ -1,7 +1,12 @@
 {
   InputStream in=getClass().getResourceAsStream(solverConfigResource);
   if (in == null) {
-    throw new IllegalArgumentException("Reading the solverConfigResource (" + solverConfigResource + ") failed.");
+    throw new IllegalArgumentException("The solverConfigResource (" + solverConfigResource + ") does not exist in the classpath.");
   }
-  return configure(in);
+  try {
+    return configure(in);
+  }
+ catch (  ConversionException e) {
+    throw new IllegalArgumentException("Unmarshalling of solverConfigResource (" + solverConfigResource + ") fails.",e);
+  }
 }
