@@ -2,10 +2,14 @@
   JPanel benchmarkTreePanel=new JPanel(new BorderLayout());
   CheckBoxTree checkBoxTree=createCheckBoxTree();
   benchmarkTreePanel.add(new JScrollPane(checkBoxTree),BorderLayout.CENTER);
-  JPanel buttonPanel=new JPanel(new FlowLayout(FlowLayout.RIGHT));
+  JPanel buttonPanelWrapper=new JPanel(new FlowLayout(FlowLayout.RIGHT));
+  JPanel buttonPanel=new JPanel(new GridLayout(1,2,10,0));
   JButton generateReportButton=new JButton(new GenerateReportAction(this));
   buttonPanel.add(generateReportButton);
-  benchmarkTreePanel.add(buttonPanel,BorderLayout.SOUTH);
+  generateProgressBar=new JProgressBar();
+  buttonPanel.add(generateProgressBar);
+  buttonPanelWrapper.add(buttonPanel);
+  benchmarkTreePanel.add(buttonPanelWrapper,BorderLayout.SOUTH);
   benchmarkTreePanel.setBorder(BorderFactory.createEmptyBorder(0,0,15,0));
   return benchmarkTreePanel;
 }

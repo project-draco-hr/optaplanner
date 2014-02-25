@@ -22,7 +22,7 @@
           ((DefaultTreeModel)checkBoxTree.getModel()).nodeChanged(treeNode);
         }
  else         if (benchmarkResult instanceof SolverBenchmarkResult) {
-          mixedCheckBox.setText(newBenchmarkResultName);
+          mixedCheckBox.setText(newBenchmarkResultName + " (" + ((SolverBenchmarkResult)benchmarkResult).getRanking()+ ")");
           ((DefaultTreeModel)checkBoxTree.getModel()).nodeChanged(treeNode);
           solverBenchmarkResultNameMapping.put((SolverBenchmarkResult)benchmarkResult,newBenchmarkResultName);
         }
