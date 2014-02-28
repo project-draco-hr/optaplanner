@@ -1,4 +1,9 @@
 {
   PlanningVariableDescriptor variableDescriptor=guiScoreDirector.getSolutionDescriptor().findVariableDescriptor(entity,variableName);
-  return new ChangeMove(entity,variableDescriptor,toPlanningValue);
+  if (variableDescriptor.isChained()) {
+    return new ChainedChangeMove(entity,variableDescriptor,toPlanningValue);
+  }
+ else {
+    return new ChangeMove(entity,variableDescriptor,toPlanningValue);
+  }
 }
