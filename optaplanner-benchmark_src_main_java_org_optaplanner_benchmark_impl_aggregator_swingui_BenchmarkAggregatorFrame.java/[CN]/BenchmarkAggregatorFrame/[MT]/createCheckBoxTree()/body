@@ -1,5 +1,5 @@
 {
-  CheckBoxTree resultCheckBoxTree=new CheckBoxTree(initBenchmarkHierarchy());
+  final CheckBoxTree resultCheckBoxTree=new CheckBoxTree(initBenchmarkHierarchy(true));
   resultCheckBoxTree.addTreeSelectionListener(new TreeSelectionListener(){
     @Override public void valueChanged(    TreeSelectionEvent e){
       TreePath treeSelectionPath=e.getNewLeadSelectionPath();
@@ -8,7 +8,14 @@
         MixedCheckBox checkBox=(MixedCheckBox)treeNode.getUserObject();
         detailTextArea.setText(checkBox.getDetail());
         detailTextArea.setCaretPosition(0);
+        renameNodeButton.setEnabled(checkBox.getBenchmarkResult() instanceof PlannerBenchmarkResult || checkBox.getBenchmarkResult() instanceof SolverBenchmarkResult);
       }
+    }
+  }
+);
+  resultCheckBoxTree.addMouseListener(new MouseAdapter(){
+    @Override public void mousePressed(    MouseEvent e){
+      generateReportButton.setEnabled(!resultCheckBoxTree.getSelectedSingleBenchmarkNodes().isEmpty());
     }
   }
 );

@@ -1,0 +1,15 @@
+{
+  for (  SingleBenchmarkResult singleBenchmarkResult : solverBenchmarkResult.getSingleBenchmarkResultList()) {
+    if (singleBenchmarkResult.getProblemBenchmarkResult().equals(problemBenchmarkResult)) {
+      DefaultMutableTreeNode singleBenchmarkNode=resultCheckBoxMapping.get(singleBenchmarkResult);
+      if (singleBenchmarkNode != null) {
+        problemNode.add(singleBenchmarkNode);
+      }
+ else {
+        DefaultMutableTreeNode singleNode=new DefaultMutableTreeNode(createSingleBenchmarkCheckBox(singleBenchmarkResult));
+        problemNode.add(singleNode);
+        resultCheckBoxMapping.put(singleBenchmarkResult,singleNode);
+      }
+    }
+  }
+}

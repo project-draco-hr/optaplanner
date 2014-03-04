@@ -1,0 +1,4 @@
+{
+  super("Switch levels",new ImageIcon(BenchmarkAggregatorFrame.class.getResource("switchTree.png")));
+  this.solverLevelFirst=solverLevelFirst;
+}

@@ -1,12 +1,7 @@
 {
   JPanel contentPane=new JPanel(new BorderLayout());
-  if (plannerBenchmarkResultList.isEmpty()) {
-    contentPane.add(createNoPlannerFoundTextField(),BorderLayout.CENTER);
-  }
- else {
-    contentPane.add(createTopButtonPanel(),BorderLayout.NORTH);
-    contentPane.add(createBenchmarkTreePanel(),BorderLayout.CENTER);
-  }
+  contentPane.add(createTopButtonPanel(),BorderLayout.NORTH);
+  contentPane.add(createBenchmarkTreePanel(),BorderLayout.CENTER);
   contentPane.add(createDetailTextArea(),BorderLayout.SOUTH);
   return contentPane;
 }

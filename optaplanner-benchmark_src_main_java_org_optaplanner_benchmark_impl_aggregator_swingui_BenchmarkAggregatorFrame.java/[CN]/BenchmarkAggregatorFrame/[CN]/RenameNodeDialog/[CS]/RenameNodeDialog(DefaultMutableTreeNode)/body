@@ -3,7 +3,11 @@
   final MixedCheckBox mixedCheckBox=(MixedCheckBox)treeNode.getUserObject();
   final Object benchmarkResult=mixedCheckBox.getBenchmarkResult();
   JPanel mainPanel=new JPanel(new BorderLayout());
-  final JTextField benchmarkResultNameTextField=new JTextField(benchmarkResult.toString(),30);
+  String benchmarkResultTextFieldText=null;
+  if (benchmarkResult instanceof SolverBenchmarkResult) {
+    benchmarkResultTextFieldText=solverBenchmarkResultNameMapping.get(benchmarkResult);
+  }
+  final JTextField benchmarkResultNameTextField=new JTextField(benchmarkResultTextFieldText == null ? benchmarkResult.toString() : benchmarkResultTextFieldText,30);
   mainPanel.add(benchmarkResultNameTextField,BorderLayout.WEST);
   JButton confirmRenameButton=new JButton("Rename");
   mainPanel.add(confirmRenameButton,BorderLayout.EAST);

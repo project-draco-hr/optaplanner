@@ -1,0 +1,3 @@
+DefaultMutableTreeNode currentNode
+MixedCheckBox.MixedCheckBoxStatus newStatus
+MixedCheckBox.MixedCheckBoxStatus mixedStatus

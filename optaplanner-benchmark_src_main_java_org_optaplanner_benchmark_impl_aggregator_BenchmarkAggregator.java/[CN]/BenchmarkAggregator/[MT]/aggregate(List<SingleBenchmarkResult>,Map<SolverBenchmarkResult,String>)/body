@@ -18,19 +18,19 @@
       singleStatistic.readCsvStatisticFile();
     }
   }
-  if (solverBenchamkarkResultNameMap != null) {
-    for (    Entry<SolverBenchmarkResult,String> results : solverBenchamkarkResultNameMap.entrySet()) {
-      if (!results.getKey().getName().equals(results.getValue())) {
-        results.getKey().setName(results.getValue());
-      }
-    }
+  handleRenamedSolverBenchmarkNames(solverBenchamkarkResultNameMap);
+  BenchmarkReport benchmarkReport=null;
+  try {
+    PlannerBenchmarkResult plannerBenchmarkResult=PlannerBenchmarkResult.createMergedResult(singleBenchmarkResultList);
+    plannerBenchmarkResult.setStartingTimestamp(startingTimestamp);
+    plannerBenchmarkResult.initBenchmarkReportDirectory(benchmarkDirectory);
+    benchmarkReport=benchmarkReportConfig.buildBenchmarkReport(plannerBenchmarkResult);
+    plannerBenchmarkResult.accumulateResults(benchmarkReport);
+    benchmarkReport.writeReport();
+    logger.info("Aggregation ended: statistic html overview ({}).",benchmarkReport.getHtmlOverviewFile().getAbsolutePath());
+    return benchmarkReport.getHtmlOverviewFile().getAbsoluteFile();
   }
-  PlannerBenchmarkResult plannerBenchmarkResult=PlannerBenchmarkResult.createMergedResult(singleBenchmarkResultList);
-  plannerBenchmarkResult.setStartingTimestamp(startingTimestamp);
-  plannerBenchmarkResult.initBenchmarkReportDirectory(benchmarkDirectory);
-  BenchmarkReport benchmarkReport=benchmarkReportConfig.buildBenchmarkReport(plannerBenchmarkResult);
-  plannerBenchmarkResult.accumulateResults(benchmarkReport);
-  benchmarkReport.writeReport();
-  logger.info("Aggregation ended: statistic html overview ({}).",benchmarkReport.getHtmlOverviewFile().getAbsolutePath());
-  return benchmarkReport.getHtmlOverviewFile().getAbsoluteFile();
+  finally {
+    handleRenamedSolverBenchmarkNames(solverBenchamkarkResultNameMap);
+  }
 }

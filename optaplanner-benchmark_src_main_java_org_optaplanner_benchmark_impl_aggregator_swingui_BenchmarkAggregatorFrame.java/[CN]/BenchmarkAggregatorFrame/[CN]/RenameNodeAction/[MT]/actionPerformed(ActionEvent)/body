@@ -1,7 +1,8 @@
 {
   if (checkBoxTree.getSelectionPath() != null) {
     DefaultMutableTreeNode selectedNode=(DefaultMutableTreeNode)checkBoxTree.getSelectionPath().getLastPathComponent();
-    if (selectedNode != null && ((MixedCheckBox)selectedNode.getUserObject()).getBenchmarkResult() != null) {
+    MixedCheckBox mixedCheckBox=(MixedCheckBox)selectedNode.getUserObject();
+    if (mixedCheckBox.getBenchmarkResult() instanceof PlannerBenchmarkResult || mixedCheckBox.getBenchmarkResult() instanceof SolverBenchmarkResult) {
       RenameNodeDialog renameNodeDialog=new RenameNodeDialog(selectedNode);
       renameNodeDialog.pack();
       renameNodeDialog.setLocationRelativeTo(BenchmarkAggregatorFrame.this);

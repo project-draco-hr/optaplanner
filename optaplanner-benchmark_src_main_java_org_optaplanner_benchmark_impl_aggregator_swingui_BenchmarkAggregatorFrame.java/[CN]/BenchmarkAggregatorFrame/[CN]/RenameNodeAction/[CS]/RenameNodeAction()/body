@@ -1,3 +1,4 @@
 {
-  super("Rename");
+  super("Rename",new ImageIcon(BenchmarkAggregatorFrame.class.getResource("rename.png")));
+  setEnabled(!plannerBenchmarkResultList.isEmpty());
 }
