@@ -7,5 +7,5 @@
   }
   BigDecimal scoreTotal=endScore.getScore().subtract(startScore.getScore());
   BigDecimal scoreDelta=score.getScore().subtract(startScore.getScore());
-  return scoreDelta.divide(scoreTotal).doubleValue();
+  return scoreDelta.doubleValue() / scoreTotal.doubleValue();
 }
