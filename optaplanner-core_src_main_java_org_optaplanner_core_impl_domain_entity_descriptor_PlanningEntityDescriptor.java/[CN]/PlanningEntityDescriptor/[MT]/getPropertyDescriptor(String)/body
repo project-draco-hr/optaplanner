@@ -1,5 +1,5 @@
 {
-  for (  PropertyDescriptor propertyDescriptor : planningEntityBeanInfo.getPropertyDescriptors()) {
+  for (  PropertyDescriptor propertyDescriptor : entityBeanInfo.getPropertyDescriptors()) {
     if (propertyDescriptor.getName().equals(propertyName)) {
       return propertyDescriptor;
     }

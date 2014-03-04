@@ -1,7 +1,7 @@
 {
-  PlanningEntity entityAnnotation=planningEntityClass.getAnnotation(PlanningEntity.class);
+  PlanningEntity entityAnnotation=entityClass.getAnnotation(PlanningEntity.class);
   if (entityAnnotation == null) {
-    throw new IllegalStateException("The planningEntityClass (" + planningEntityClass + ") has been specified as a planning entity in the configuration,"+ " but does not have a "+ PlanningEntity.class.getSimpleName()+ " annotation.");
+    throw new IllegalStateException("The planningEntityClass (" + entityClass + ") has been specified as a planning entity in the configuration,"+ " but does not have a "+ PlanningEntity.class.getSimpleName()+ " annotation.");
   }
   processMovable(descriptorPolicy,entityAnnotation);
   processDifficulty(descriptorPolicy,entityAnnotation);

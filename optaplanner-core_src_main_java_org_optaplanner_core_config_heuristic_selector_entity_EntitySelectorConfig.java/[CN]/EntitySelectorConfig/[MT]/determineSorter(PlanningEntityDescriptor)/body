@@ -4,7 +4,7 @@ switch (this) {
 case DECREASING_DIFFICULTY:
     sorter=entityDescriptor.getDecreasingDifficultySorter();
   if (sorter == null) {
-    throw new IllegalArgumentException("The sorterManner (" + this + ") on entity class ("+ entityDescriptor.getPlanningEntityClass()+ ") fails because that entity class's "+ PlanningEntity.class.getSimpleName()+ " annotation does not declare any difficulty comparison.");
+    throw new IllegalArgumentException("The sorterManner (" + this + ") on entity class ("+ entityDescriptor.getEntityClass()+ ") fails because that entity class's "+ PlanningEntity.class.getSimpleName()+ " annotation does not declare any difficulty comparison.");
   }
 return sorter;
 default :

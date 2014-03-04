@@ -1,2 +1,2 @@
 SolutionDescriptor solutionDescriptor
-Class<?> planningEntityClass
+Class<?> entityClass

@@ -1,7 +1,7 @@
 {
   planningValueSelector.phaseEnded(phaseScope);
   scoreDirector=null;
-  planningEntity=null;
+  entity=null;
   isFirstValue=false;
   workingValue=null;
 }

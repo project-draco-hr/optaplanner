@@ -3,7 +3,7 @@
     return cachedPlanningValues.iterator();
   }
  else {
-    CountableValueRange<?> valueRange=(CountableValueRange<?>)valueRangeDescriptor.extractValueRange(scoreDirector.getWorkingSolution(),planningEntity);
+    CountableValueRange<?> valueRange=(CountableValueRange<?>)valueRangeDescriptor.extractValueRange(scoreDirector.getWorkingSolution(),entity);
     List<?> values=IteratorUtils.toList(valueRange.createOriginalIterator(),(int)valueRange.getSize());
     return values.iterator();
   }

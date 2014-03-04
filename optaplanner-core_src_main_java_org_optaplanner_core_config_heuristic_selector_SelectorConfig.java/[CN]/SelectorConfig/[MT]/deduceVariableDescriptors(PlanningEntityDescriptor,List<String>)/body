@@ -14,7 +14,7 @@
       }
     }
     if (!found) {
-      throw new IllegalStateException("The selectorConfig (" + this + ") has a variableNameInclude ("+ variableNameInclude+ ") which does not exist in the entity ("+ entityDescriptor.getPlanningEntityClass()+ ")'s variableDescriptors ("+ variableDescriptors+ ").");
+      throw new IllegalStateException("The selectorConfig (" + this + ") has a variableNameInclude ("+ variableNameInclude+ ") which does not exist in the entity ("+ entityDescriptor.getEntityClass()+ ")'s variableDescriptors ("+ variableDescriptors+ ").");
     }
   }
   return resolvedVariableDescriptors;

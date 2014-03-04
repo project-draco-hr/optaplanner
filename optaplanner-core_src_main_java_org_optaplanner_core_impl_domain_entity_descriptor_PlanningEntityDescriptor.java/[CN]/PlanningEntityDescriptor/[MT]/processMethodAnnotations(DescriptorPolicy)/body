@@ -1,5 +1,5 @@
 {
-  for (  Method method : planningEntityClass.getMethods()) {
+  for (  Method method : entityClass.getMethods()) {
     if (method.isAnnotationPresent(ValueRangeProvider.class)) {
       descriptorPolicy.addFromEntityValueRangeProvider(method);
     }

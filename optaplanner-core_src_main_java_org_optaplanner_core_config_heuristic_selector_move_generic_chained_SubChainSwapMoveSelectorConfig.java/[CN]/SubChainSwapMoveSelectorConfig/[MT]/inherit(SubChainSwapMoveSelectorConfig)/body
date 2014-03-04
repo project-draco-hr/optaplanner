@@ -1,6 +1,6 @@
 {
   super.inherit(inheritedConfig);
-  planningEntityClass=ConfigUtils.inheritOverwritableProperty(planningEntityClass,inheritedConfig.getPlanningEntityClass());
+  entityClass=ConfigUtils.inheritOverwritableProperty(entityClass,inheritedConfig.getEntityClass());
   if (subChainSelectorConfig == null) {
     subChainSelectorConfig=inheritedConfig.getSubChainSelectorConfig();
   }

@@ -1,14 +1,14 @@
 {
   long problemScale=0L;
   for (  PropertyAccessor entityPropertyAccessor : entityPropertyAccessorMap.values()) {
-    Object entity=extractPlanningEntity(entityPropertyAccessor,solution);
+    Object entity=extractEntity(entityPropertyAccessor,solution);
     if (entity != null) {
       PlanningEntityDescriptor entityDescriptor=getEntityDescriptor(entity.getClass());
       problemScale+=entityDescriptor.getProblemScale(solution,entity);
     }
   }
   for (  PropertyAccessor entityCollectionPropertyAccessor : entityCollectionPropertyAccessorMap.values()) {
-    Collection<?> entityCollection=extractPlanningEntityCollection(entityCollectionPropertyAccessor,solution);
+    Collection<?> entityCollection=extractEntityCollection(entityCollectionPropertyAccessor,solution);
     for (    Object entity : entityCollection) {
       PlanningEntityDescriptor entityDescriptor=getEntityDescriptor(entity.getClass());
       problemScale+=entityDescriptor.getProblemScale(solution,entity);
