@@ -1,5 +1,5 @@
 {
-  PlanningEntityDescriptor entityDescriptor=TestdataChainedEntity.buildEntityDescriptor();
+  EntityDescriptor entityDescriptor=TestdataChainedEntity.buildEntityDescriptor();
   PlanningVariableDescriptor variableDescriptor=entityDescriptor.getVariableDescriptor("chainedObject");
   ScoreDirector scoreDirector=mock(ScoreDirector.class);
   TestdataChainedAnchor a0=new TestdataChainedAnchor("a0");

@@ -1,7 +1,7 @@
 {
   TestdataSolution workingSolution=new TestdataSolution();
   final List<Object> entityList=Arrays.<Object>asList(new TestdataEntity("e1"),new TestdataEntity("e2"),new TestdataEntity("e3"));
-  PlanningEntityDescriptor entityDescriptor=mock(PlanningEntityDescriptor.class);
+  EntityDescriptor entityDescriptor=mock(EntityDescriptor.class);
   when(entityDescriptor.extractEntities(workingSolution)).thenReturn(entityList);
   ScoreDirector scoreDirector=mock(ScoreDirector.class);
   when(scoreDirector.getWorkingSolution()).thenReturn(workingSolution);

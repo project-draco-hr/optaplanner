@@ -1,5 +1,5 @@
 {
-  PlanningEntityDescriptor entityDescriptor=variableDescriptor.getEntityDescriptor();
+  EntityDescriptor entityDescriptor=variableDescriptor.getEntityDescriptor();
   Class<?> returnType=readMethodAccessor.getReturnType();
   collectionWrapping=Collection.class.isAssignableFrom(returnType);
   if (!collectionWrapping && !ValueRange.class.isAssignableFrom(returnType)) {

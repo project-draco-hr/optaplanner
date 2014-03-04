@@ -2,7 +2,7 @@
   List<Object> entityList=phaseScope.getWorkingEntityList();
   planningVariableWalkerList=new ArrayList<PlanningVariableWalker>(entityList.size());
   for (  Object entity : entityList) {
-    PlanningEntityDescriptor entityDescriptor=solutionDescriptor.getEntityDescriptor(entity.getClass());
+    EntityDescriptor entityDescriptor=solutionDescriptor.getEntityDescriptor(entity.getClass());
     PlanningVariableWalker planningVariableWalker=new PlanningVariableWalker(entityDescriptor);
     List<PlanningValueWalker> planningValueWalkerList=buildPlanningValueWalkerList(entityDescriptor);
     planningVariableWalker.setPlanningValueWalkerList(planningValueWalkerList);

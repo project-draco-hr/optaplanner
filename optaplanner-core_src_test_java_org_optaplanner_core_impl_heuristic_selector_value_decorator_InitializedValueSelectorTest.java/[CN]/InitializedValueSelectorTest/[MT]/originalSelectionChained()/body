@@ -1,5 +1,5 @@
 {
-  PlanningEntityDescriptor entityDescriptor=TestdataChainedEntity.buildEntityDescriptor();
+  EntityDescriptor entityDescriptor=TestdataChainedEntity.buildEntityDescriptor();
   PlanningVariableDescriptor variableDescriptor=entityDescriptor.getVariableDescriptor("chainedObject");
   TestdataChainedAnchor a0=new TestdataChainedAnchor("a0");
   TestdataChainedEntity a1=new TestdataChainedEntity("a1");

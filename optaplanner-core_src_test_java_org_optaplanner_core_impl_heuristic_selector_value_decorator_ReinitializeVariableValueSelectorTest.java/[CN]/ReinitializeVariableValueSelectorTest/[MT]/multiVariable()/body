@@ -1,5 +1,5 @@
 {
-  PlanningEntityDescriptor entityDescriptor=TestdataMultiVarEntity.buildEntityDescriptor();
+  EntityDescriptor entityDescriptor=TestdataMultiVarEntity.buildEntityDescriptor();
   PlanningVariableDescriptor variableDescriptor=entityDescriptor.getVariableDescriptor("secondaryValue");
   TestdataMultiVarEntity e1=new TestdataMultiVarEntity("e1");
   TestdataMultiVarEntity e2=new TestdataMultiVarEntity("e2");

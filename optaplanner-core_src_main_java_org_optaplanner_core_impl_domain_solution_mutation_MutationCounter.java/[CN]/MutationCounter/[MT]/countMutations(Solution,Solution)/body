@@ -1,6 +1,6 @@
 {
   int mutationCount=0;
-  for (  PlanningEntityDescriptor entityDescriptor : solutionDescriptor.getGenuineEntityDescriptors()) {
+  for (  EntityDescriptor entityDescriptor : solutionDescriptor.getGenuineEntityDescriptors()) {
     List<Object> aEntities=entityDescriptor.extractEntities(a);
     List<Object> bEntities=entityDescriptor.extractEntities(b);
     for (Iterator aIt=aEntities.iterator(), bIt=bEntities.iterator(); aIt.hasNext() && bIt.hasNext(); ) {

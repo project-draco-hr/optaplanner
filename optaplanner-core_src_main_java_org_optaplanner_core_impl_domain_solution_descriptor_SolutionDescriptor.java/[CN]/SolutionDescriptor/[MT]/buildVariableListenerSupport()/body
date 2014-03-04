@@ -1,6 +1,6 @@
 {
   Map<PlanningVariableDescriptor,List<PlanningVariableListener>> variableListenerMap=new LinkedHashMap<PlanningVariableDescriptor,List<PlanningVariableListener>>();
-  for (  PlanningEntityDescriptor entityDescriptor : entityDescriptorMap.values()) {
+  for (  EntityDescriptor entityDescriptor : entityDescriptorMap.values()) {
     entityDescriptor.addVariableListenersToMap(variableListenerMap);
   }
   return new PlanningVariableListenerSupport(variableListenerMap);

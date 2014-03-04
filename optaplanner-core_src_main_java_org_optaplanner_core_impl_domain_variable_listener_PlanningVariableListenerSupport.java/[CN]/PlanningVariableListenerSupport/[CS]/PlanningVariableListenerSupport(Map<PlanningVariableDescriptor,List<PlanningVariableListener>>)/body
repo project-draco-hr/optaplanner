@@ -1,8 +1,8 @@
 {
   this.variableListenerMap=variableListenerMap;
-  entityVariableListenerMap=new LinkedHashMap<PlanningEntityDescriptor,List<PlanningVariableListener>>(variableListenerMap.size());
+  entityVariableListenerMap=new LinkedHashMap<EntityDescriptor,List<PlanningVariableListener>>(variableListenerMap.size());
   for (  Map.Entry<PlanningVariableDescriptor,List<PlanningVariableListener>> entry : variableListenerMap.entrySet()) {
-    PlanningEntityDescriptor entityDescriptor=entry.getKey().getEntityDescriptor();
+    EntityDescriptor entityDescriptor=entry.getKey().getEntityDescriptor();
     List<PlanningVariableListener> variableListenerList=entry.getValue();
     List<PlanningVariableListener> entityVariableListenerList=entityVariableListenerMap.get(entityDescriptor);
     if (entityVariableListenerList == null) {

@@ -1,5 +1,5 @@
 {
-  PlanningEntityDescriptor entityDescriptor=TestdataNullableEntity.buildEntityDescriptor();
+  EntityDescriptor entityDescriptor=TestdataNullableEntity.buildEntityDescriptor();
   TestdataNullableEntity e1=new TestdataNullableEntity("e1");
   PlanningVariableDescriptor variableDescriptor=entityDescriptor.getVariableDescriptor("value");
   TestdataValue v1=new TestdataValue("v1");

@@ -9,7 +9,7 @@
   solution.setChainedAnchorList(Arrays.asList(a0,b0));
   solution.setChainedEntityList(Arrays.asList(a1,a2,a3,b1));
   SolutionDescriptor solutionDescriptor=TestdataChainedSolution.buildSolutionDescriptor();
-  PlanningEntityDescriptor entityDescriptor=solutionDescriptor.getEntityDescriptor(TestdataChainedEntity.class);
+  EntityDescriptor entityDescriptor=solutionDescriptor.getEntityDescriptor(TestdataChainedEntity.class);
   PlanningVariableDescriptor variableDescriptor=entityDescriptor.getVariableDescriptor("chainedObject");
   AbstractScoreDirectorFactory scoreDirectorFactory=mock(AbstractScoreDirectorFactory.class);
   when(scoreDirectorFactory.getSolutionDescriptor()).thenReturn(solutionDescriptor);

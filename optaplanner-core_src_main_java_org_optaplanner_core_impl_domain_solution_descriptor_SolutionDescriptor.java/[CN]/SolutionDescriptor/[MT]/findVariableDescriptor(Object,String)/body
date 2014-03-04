@@ -1,4 +1,4 @@
 {
-  PlanningEntityDescriptor entityDescriptor=getEntityDescriptor(entity.getClass());
+  EntityDescriptor entityDescriptor=getEntityDescriptor(entity.getClass());
   return entityDescriptor.getVariableDescriptor(variableName);
 }

@@ -1,5 +1,5 @@
 {
-  for (  PlanningEntityDescriptor entityDescriptor : entityDescriptorMap.values()) {
+  for (  EntityDescriptor entityDescriptor : entityDescriptorMap.values()) {
     entityDescriptor.afterAnnotationsProcessed(descriptorPolicy);
   }
 }
