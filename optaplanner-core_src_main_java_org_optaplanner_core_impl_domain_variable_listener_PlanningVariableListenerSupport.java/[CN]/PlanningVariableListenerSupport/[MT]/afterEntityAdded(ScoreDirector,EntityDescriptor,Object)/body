@@ -1,5 +1,0 @@
-{
-  for (  PlanningVariableListener variableListener : entityVariableListenerMap.get(entityDescriptor)) {
-    variableListener.afterEntityAdded(scoreDirector,entity);
-  }
-}
