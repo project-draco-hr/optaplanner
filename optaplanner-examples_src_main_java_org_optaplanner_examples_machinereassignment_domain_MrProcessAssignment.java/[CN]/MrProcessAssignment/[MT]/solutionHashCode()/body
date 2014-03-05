@@ -1,3 +1,0 @@
-{
-  return new HashCodeBuilder().append(process).append(machine).toHashCode();
-}

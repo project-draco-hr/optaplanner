@@ -1,7 +1,0 @@
-{
-  HashCodeBuilder hashCodeBuilder=new HashCodeBuilder();
-  for (  MrProcessAssignment processAssignment : processAssignmentList) {
-    hashCodeBuilder.append(processAssignment.solutionHashCode());
-  }
-  return hashCodeBuilder.toHashCode();
-}

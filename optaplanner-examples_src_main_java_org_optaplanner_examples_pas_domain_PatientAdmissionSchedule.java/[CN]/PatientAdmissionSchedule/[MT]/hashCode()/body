@@ -1,7 +1,0 @@
-{
-  HashCodeBuilder hashCodeBuilder=new HashCodeBuilder();
-  for (  BedDesignation bedDesignation : bedDesignationList) {
-    hashCodeBuilder.append(bedDesignation.solutionHashCode());
-  }
-  return hashCodeBuilder.toHashCode();
-}

@@ -1,3 +1,0 @@
-{
-  return new HashCodeBuilder().append(id).append(topic).append(period).append(room).toHashCode();
-}
