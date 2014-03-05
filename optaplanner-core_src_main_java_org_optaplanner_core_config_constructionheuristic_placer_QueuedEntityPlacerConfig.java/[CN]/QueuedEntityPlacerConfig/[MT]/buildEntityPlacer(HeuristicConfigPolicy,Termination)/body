@@ -25,9 +25,9 @@
   List<MoveSelectorConfig> moveSelectorConfigList_;
   if (CollectionUtils.isEmpty(moveSelectorConfigList)) {
     EntityDescriptor entityDescriptor=entitySelector.getEntityDescriptor();
-    Collection<PlanningVariableDescriptor> variableDescriptors=entityDescriptor.getVariableDescriptors();
+    Collection<GenuineVariableDescriptor> variableDescriptors=entityDescriptor.getVariableDescriptors();
     List<MoveSelectorConfig> subMoveSelectorConfigList=new ArrayList<MoveSelectorConfig>(variableDescriptors.size());
-    for (    PlanningVariableDescriptor variableDescriptor : variableDescriptors) {
+    for (    GenuineVariableDescriptor variableDescriptor : variableDescriptors) {
       ChangeMoveSelectorConfig changeMoveSelectorConfig=new ChangeMoveSelectorConfig();
       EntitySelectorConfig changeEntitySelectorConfig=new EntitySelectorConfig();
       changeEntitySelectorConfig.setMimicSelectorRef(entitySelectorId);

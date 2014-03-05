@@ -6,7 +6,7 @@
     for (Iterator aIt=aEntities.iterator(), bIt=bEntities.iterator(); aIt.hasNext() && bIt.hasNext(); ) {
       Object aEntity=aIt.next();
       Object bEntity=bIt.next();
-      for (      PlanningVariableDescriptor variableDescriptor : entityDescriptor.getVariableDescriptors()) {
+      for (      GenuineVariableDescriptor variableDescriptor : entityDescriptor.getVariableDescriptors()) {
         if (variableDescriptor.getValue(aEntity) != variableDescriptor.getValue(bEntity)) {
           mutationCount++;
         }

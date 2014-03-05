@@ -1,7 +1,7 @@
 {
-  Collection<PlanningVariableDescriptor> variableDescriptors=entityDescriptor.getVariableDescriptors();
+  Collection<GenuineVariableDescriptor> variableDescriptors=entityDescriptor.getVariableDescriptors();
   List<PlanningValueWalker> planningValueWalkerList=new ArrayList<PlanningValueWalker>(variableDescriptors.size());
-  for (  PlanningVariableDescriptor variableDescriptor : variableDescriptors) {
+  for (  GenuineVariableDescriptor variableDescriptor : variableDescriptors) {
     PlanningValueSelector planningValueSelector=new PlanningValueSelector(variableDescriptor);
     planningValueSelector.setSelectionOrder(PlanningValueSelectionOrder.ORIGINAL);
     planningValueSelector.setSelectionPromotion(PlanningValueSelectionPromotion.NONE);

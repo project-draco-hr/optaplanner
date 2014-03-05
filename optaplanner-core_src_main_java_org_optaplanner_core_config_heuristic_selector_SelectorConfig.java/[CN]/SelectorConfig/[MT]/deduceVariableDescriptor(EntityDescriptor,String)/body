@@ -1,5 +1,5 @@
 {
-  PlanningVariableDescriptor variableDescriptor;
+  GenuineVariableDescriptor variableDescriptor;
   if (variableName != null) {
     variableDescriptor=entityDescriptor.getVariableDescriptor(variableName);
     if (variableDescriptor == null) {
@@ -12,7 +12,7 @@
     }
   }
  else {
-    Collection<PlanningVariableDescriptor> variableDescriptors=entityDescriptor.getVariableDescriptors();
+    Collection<GenuineVariableDescriptor> variableDescriptors=entityDescriptor.getVariableDescriptors();
     if (variableDescriptors.size() != 1) {
       throw new IllegalArgumentException("The selectorConfig (" + this + ") has no configured variableName ("+ variableName+ ") for planningEntityClass ("+ entityDescriptor.getEntityClass()+ ") and because there are multiple in the variableNameSet ("+ entityDescriptor.getPlanningVariableNameSet()+ "), it can not be deducted automatically.");
     }

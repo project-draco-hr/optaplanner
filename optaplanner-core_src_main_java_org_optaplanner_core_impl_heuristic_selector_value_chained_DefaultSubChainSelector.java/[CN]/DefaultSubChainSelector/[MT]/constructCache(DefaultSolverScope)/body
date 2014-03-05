@@ -1,6 +1,6 @@
 {
   ScoreDirector scoreDirector=solverScope.getScoreDirector();
-  PlanningVariableDescriptor variableDescriptor=valueSelector.getVariableDescriptor();
+  GenuineVariableDescriptor variableDescriptor=valueSelector.getVariableDescriptor();
   Class<?> entityClass=variableDescriptor.getEntityDescriptor().getEntityClass();
   long valueSize=valueSelector.getSize();
   if (valueSize > (long)Integer.MAX_VALUE) {

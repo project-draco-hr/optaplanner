@@ -1,6 +1,6 @@
 {
   List<Object> values=new ArrayList<Object>(variableDescriptors.size() * 2);
-  for (  PlanningVariableDescriptor variableDescriptor : variableDescriptors) {
+  for (  GenuineVariableDescriptor variableDescriptor : variableDescriptors) {
     values.add(variableDescriptor.getValue(leftEntityList.get(0)));
     values.add(variableDescriptor.getValue(rightEntityList.get(0)));
   }

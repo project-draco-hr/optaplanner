@@ -6,7 +6,7 @@
   Map<List<Object>,List<Object>> valueStateToPillarMap=new LinkedHashMap<List<Object>,List<Object>>((int)entitySize);
   for (  Object entity : entitySelector) {
     List<Object> valueState=new ArrayList<Object>(variableDescriptors.size());
-    for (    PlanningVariableDescriptor variableDescriptor : variableDescriptors) {
+    for (    GenuineVariableDescriptor variableDescriptor : variableDescriptors) {
       Object value=variableDescriptor.getValue(entity);
       valueState.add(value);
     }

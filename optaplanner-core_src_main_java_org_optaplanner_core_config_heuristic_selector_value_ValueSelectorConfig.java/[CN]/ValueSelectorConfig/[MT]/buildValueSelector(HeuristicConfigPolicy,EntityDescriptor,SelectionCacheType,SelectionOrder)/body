@@ -1,5 +1,5 @@
 {
-  PlanningVariableDescriptor variableDescriptor=deduceVariableDescriptor(entityDescriptor,variableName);
+  GenuineVariableDescriptor variableDescriptor=deduceVariableDescriptor(entityDescriptor,variableName);
   SelectionCacheType resolvedCacheType=SelectionCacheType.resolve(cacheType,minimumCacheType);
   SelectionOrder resolvedSelectionOrder=SelectionOrder.resolve(selectionOrder,inheritedSelectionOrder);
   validateCacheTypeVersusSelectionOrder(resolvedCacheType,resolvedSelectionOrder);

@@ -1,0 +1,28 @@
+{
+  this.leftEntitySelector=leftEntitySelector;
+  this.rightEntitySelector=rightEntitySelector;
+  this.variableDescriptors=variableDescriptors;
+  this.randomSelection=randomSelection;
+  EntityDescriptor leftEntityDescriptor=leftEntitySelector.getEntityDescriptor();
+  EntityDescriptor rightEntityDescriptor=rightEntitySelector.getEntityDescriptor();
+  if (!leftEntityDescriptor.getEntityClass().equals(rightEntityDescriptor.getEntityClass())) {
+    throw new IllegalStateException("The selector (" + this + ") has a leftEntitySelector's entityClass ("+ leftEntityDescriptor.getEntityClass()+ ") which is not equal to the rightEntitySelector's entityClass ("+ rightEntityDescriptor.getEntityClass()+ ").");
+  }
+  boolean anyChained=false;
+  if (variableDescriptors.isEmpty()) {
+    throw new IllegalStateException("The selector (" + this + ")'s variableDescriptors ("+ variableDescriptors+ ") is empty.");
+  }
+  for (  GenuineVariableDescriptor variableDescriptor : variableDescriptors) {
+    if (!leftEntityDescriptor.getEntityClass().equals(variableDescriptor.getEntityDescriptor().getEntityClass())) {
+      throw new IllegalStateException("The selector (" + this + ") has a variableDescriptor with a entityClass ("+ variableDescriptor.getEntityDescriptor().getEntityClass()+ ") which is not equal to the leftEntitySelector's entityClass ("+ leftEntityDescriptor.getEntityClass()+ ").");
+    }
+    if (variableDescriptor.isChained()) {
+      anyChained=true;
+    }
+  }
+  this.anyChained=anyChained;
+  solverPhaseLifecycleSupport.addEventListener(leftEntitySelector);
+  if (leftEntitySelector != rightEntitySelector) {
+    solverPhaseLifecycleSupport.addEventListener(rightEntitySelector);
+  }
+}

@@ -1,5 +1,0 @@
-HeuristicConfigPolicy configPolicy
-PlanningVariableDescriptor variableDescriptor
-SelectionCacheType resolvedCacheType
-SelectionOrder resolvedSelectionOrder
-ValueSelector valueSelector

@@ -10,7 +10,7 @@
   final TestdataEntity e=new TestdataEntity("e",val3);
   final TestdataEntity f=new TestdataEntity("f",val3);
   EntitySelector entitySelector=SelectorTestUtils.mockEntitySelector(TestdataEntity.class,a,b,c,d,e,f);
-  PlanningVariableDescriptor variableDescriptor=SelectorTestUtils.mockVariableDescriptor(entitySelector.getEntityDescriptor(),"value");
+  GenuineVariableDescriptor variableDescriptor=SelectorTestUtils.mockVariableDescriptor(entitySelector.getEntityDescriptor(),"value");
   for (  final TestdataEntity entity : Arrays.asList(a,b,c,d,e,f)) {
     when(variableDescriptor.getValue(entity)).thenAnswer(new Answer<Object>(){
       public Object answer(      InvocationOnMock invocation) throws Throwable {

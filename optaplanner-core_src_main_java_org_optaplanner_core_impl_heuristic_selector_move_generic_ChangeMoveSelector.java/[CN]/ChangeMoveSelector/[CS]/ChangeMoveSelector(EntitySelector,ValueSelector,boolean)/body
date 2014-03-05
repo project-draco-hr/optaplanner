@@ -2,7 +2,7 @@
   this.entitySelector=entitySelector;
   this.valueSelector=valueSelector;
   this.randomSelection=randomSelection;
-  PlanningVariableDescriptor variableDescriptor=valueSelector.getVariableDescriptor();
+  GenuineVariableDescriptor variableDescriptor=valueSelector.getVariableDescriptor();
   chained=variableDescriptor.isChained();
   solverPhaseLifecycleSupport.addEventListener(entitySelector);
   solverPhaseLifecycleSupport.addEventListener(valueSelector);

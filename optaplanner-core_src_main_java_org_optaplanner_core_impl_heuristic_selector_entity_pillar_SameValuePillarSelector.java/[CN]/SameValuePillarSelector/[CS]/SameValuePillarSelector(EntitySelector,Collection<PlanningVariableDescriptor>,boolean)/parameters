@@ -1,3 +1,0 @@
-EntitySelector entitySelector
-Collection<PlanningVariableDescriptor> variableDescriptors
-boolean randomSelection

@@ -1,6 +1,6 @@
 {
   PropertyDescriptor[] propertyDescriptors=entityBeanInfo.getPropertyDescriptors();
-  genuineVariableDescriptorMap=new LinkedHashMap<String,PlanningVariableDescriptor>(propertyDescriptors.length);
+  genuineVariableDescriptorMap=new LinkedHashMap<String,GenuineVariableDescriptor>(propertyDescriptors.length);
   shadowVariableDescriptorMap=new LinkedHashMap<String,ShadowVariableDescriptor>(propertyDescriptors.length);
   boolean noPlanningVariableAnnotation=true;
   for (  PropertyDescriptor propertyDescriptor : propertyDescriptors) {
@@ -12,7 +12,7 @@
         throw new IllegalStateException("The planningEntityClass (" + entityClass + ") has a PlanningVariable annotated property ("+ propertyDescriptor.getName()+ ") that should have a setter.");
       }
       if (planningVariableAnnotation.mappedBy().equals("")) {
-        PlanningVariableDescriptor variableDescriptor=new PlanningVariableDescriptor(this,propertyDescriptor);
+        GenuineVariableDescriptor variableDescriptor=new GenuineVariableDescriptor(this,propertyDescriptor);
         genuineVariableDescriptorMap.put(propertyDescriptor.getName(),variableDescriptor);
         variableDescriptor.processAnnotations(descriptorPolicy);
       }

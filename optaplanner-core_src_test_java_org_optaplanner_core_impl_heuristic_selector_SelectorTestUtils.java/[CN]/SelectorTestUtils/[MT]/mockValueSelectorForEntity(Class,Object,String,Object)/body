@@ -1,4 +1,4 @@
 {
-  PlanningVariableDescriptor variableDescriptor=mockVariableDescriptor(entityClass,variableName);
+  GenuineVariableDescriptor variableDescriptor=mockVariableDescriptor(entityClass,variableName);
   return mockValueSelectorForEntity(variableDescriptor,entity,values);
 }

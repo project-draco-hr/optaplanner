@@ -1,0 +1,3 @@
+GenuineVariableDescriptor variableDescriptor
+boolean addNullInValueRange
+List<ValueRangeDescriptor> childValueRangeDescriptorList
