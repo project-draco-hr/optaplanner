@@ -1,0 +1,3 @@
+Comparator<ExhaustiveSearchNode> comparator
+ExhaustiveSearchNode a
+ExhaustiveSearchNode b
