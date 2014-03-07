@@ -1,10 +1,6 @@
 {
-  String solverBenchmarkName=solverBenchmarkResultNameMapping.get(solverBenchmarkResult);
-  if (solverBenchmarkName == null) {
-    solverBenchmarkName=solverBenchmarkResult.getName();
-  }
-  String solverCheckBoxName=solverBenchmarkName + " (" + solverBenchmarkResult.getRanking()+ ")";
+  String solverCheckBoxName=solverBenchmarkResult.getName() + " (" + solverBenchmarkResult.getRanking()+ ")";
   String solverBenchmarkDetail=String.format(DETAIL_TEMPLATE_SOLVER_BENCHMARK,solverBenchmarkResult.getAverageScore(),solverBenchmarkResult.getTotalScore(),solverBenchmarkResult.getAverageTimeMillisSpent(),solverBenchmarkResult.getTotalWinningScoreDifference());
-  solverBenchmarkResultNameMapping.put(solverBenchmarkResult,solverBenchmarkName);
+  solverBenchmarkResultNameMapping.put(solverBenchmarkResult,solverBenchmarkResult.getName());
   return new MixedCheckBox(solverCheckBoxName,solverBenchmarkDetail,solverBenchmarkResult);
 }
