@@ -4,8 +4,8 @@
   String entitySelectorId="undefined";
   if (entitySelectorConfig == null) {
     entitySelectorConfig_=new EntitySelectorConfig();
-    PlanningEntityDescriptor entityDescriptor=deduceEntityDescriptor(configPolicy.getSolutionDescriptor());
-    Class<?> entityClass=entityDescriptor.getPlanningEntityClass();
+    EntityDescriptor entityDescriptor=deduceEntityDescriptor(configPolicy.getSolutionDescriptor());
+    Class<?> entityClass=entityDescriptor.getEntityClass();
     entitySelectorId=entityClass.getName();
     entitySelectorConfig_.setId(entitySelectorId);
     entitySelectorConfig_.setEntityClass(entityClass);
@@ -24,10 +24,10 @@
   EntitySelector entitySelector=entitySelectorConfig_.buildEntitySelector(configPolicy,SelectionCacheType.PHASE,defaultSelectionOrder);
   List<MoveSelectorConfig> moveSelectorConfigList_;
   if (CollectionUtils.isEmpty(moveSelectorConfigList)) {
-    PlanningEntityDescriptor entityDescriptor=entitySelector.getEntityDescriptor();
-    Collection<PlanningVariableDescriptor> variableDescriptors=entityDescriptor.getVariableDescriptors();
+    EntityDescriptor entityDescriptor=entitySelector.getEntityDescriptor();
+    Collection<GenuineVariableDescriptor> variableDescriptors=entityDescriptor.getVariableDescriptors();
     List<MoveSelectorConfig> subMoveSelectorConfigList=new ArrayList<MoveSelectorConfig>(variableDescriptors.size());
-    for (    PlanningVariableDescriptor variableDescriptor : variableDescriptors) {
+    for (    GenuineVariableDescriptor variableDescriptor : variableDescriptors) {
       ChangeMoveSelectorConfig changeMoveSelectorConfig=new ChangeMoveSelectorConfig();
       EntitySelectorConfig changeEntitySelectorConfig=new EntitySelectorConfig();
       changeEntitySelectorConfig.setMimicSelectorRef(entitySelectorId);

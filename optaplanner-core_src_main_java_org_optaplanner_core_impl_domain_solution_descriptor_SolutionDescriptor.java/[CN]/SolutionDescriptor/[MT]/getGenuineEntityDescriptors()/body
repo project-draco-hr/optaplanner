@@ -1,6 +1,6 @@
 {
-  List<PlanningEntityDescriptor> genuineEntityDescriptorList=new ArrayList<PlanningEntityDescriptor>(entityDescriptorMap.size());
-  for (  PlanningEntityDescriptor entityDescriptor : entityDescriptorMap.values()) {
+  List<EntityDescriptor> genuineEntityDescriptorList=new ArrayList<EntityDescriptor>(entityDescriptorMap.size());
+  for (  EntityDescriptor entityDescriptor : entityDescriptorMap.values()) {
     if (entityDescriptor.hasGenuineVariableDescriptor()) {
       genuineEntityDescriptorList.add(entityDescriptor);
     }

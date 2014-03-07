@@ -1,7 +1,0 @@
-{
-  HashCodeBuilder hashCodeBuilder=new HashCodeBuilder();
-  for (  ShiftAssignment shiftAssignment : shiftAssignmentList) {
-    hashCodeBuilder.append(shiftAssignment.solutionHashCode());
-  }
-  return hashCodeBuilder.toHashCode();
-}

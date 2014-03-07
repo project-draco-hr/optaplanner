@@ -1,16 +1,16 @@
 {
   int uninitializedVariableCount=0;
   for (  PropertyAccessor entityPropertyAccessor : entityPropertyAccessorMap.values()) {
-    Object entity=extractPlanningEntity(entityPropertyAccessor,solution);
+    Object entity=extractEntity(entityPropertyAccessor,solution);
     if (entity != null) {
-      PlanningEntityDescriptor entityDescriptor=getEntityDescriptor(entity.getClass());
+      EntityDescriptor entityDescriptor=getEntityDescriptor(entity.getClass());
       uninitializedVariableCount+=entityDescriptor.countUninitializedVariables(entity);
     }
   }
   for (  PropertyAccessor entityCollectionPropertyAccessor : entityCollectionPropertyAccessorMap.values()) {
-    Collection<?> entityCollection=extractPlanningEntityCollection(entityCollectionPropertyAccessor,solution);
+    Collection<?> entityCollection=extractEntityCollection(entityCollectionPropertyAccessor,solution);
     for (    Object entity : entityCollection) {
-      PlanningEntityDescriptor entityDescriptor=getEntityDescriptor(entity.getClass());
+      EntityDescriptor entityDescriptor=getEntityDescriptor(entity.getClass());
       uninitializedVariableCount+=entityDescriptor.countUninitializedVariables(entity);
     }
   }

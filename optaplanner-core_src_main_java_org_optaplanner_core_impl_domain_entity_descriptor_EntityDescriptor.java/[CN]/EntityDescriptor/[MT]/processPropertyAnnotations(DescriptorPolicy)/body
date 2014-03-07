@@ -1,0 +1,29 @@
+{
+  PropertyDescriptor[] propertyDescriptors=entityBeanInfo.getPropertyDescriptors();
+  genuineVariableDescriptorMap=new LinkedHashMap<String,GenuineVariableDescriptor>(propertyDescriptors.length);
+  shadowVariableDescriptorMap=new LinkedHashMap<String,ShadowVariableDescriptor>(propertyDescriptors.length);
+  boolean noPlanningVariableAnnotation=true;
+  for (  PropertyDescriptor propertyDescriptor : propertyDescriptors) {
+    Method propertyGetter=propertyDescriptor.getReadMethod();
+    if (propertyGetter != null && propertyGetter.isAnnotationPresent(PlanningVariable.class)) {
+      PlanningVariable planningVariableAnnotation=propertyGetter.getAnnotation(PlanningVariable.class);
+      noPlanningVariableAnnotation=false;
+      if (propertyDescriptor.getWriteMethod() == null) {
+        throw new IllegalStateException("The planningEntityClass (" + entityClass + ") has a PlanningVariable annotated property ("+ propertyDescriptor.getName()+ ") that should have a setter.");
+      }
+      if (planningVariableAnnotation.mappedBy().equals("")) {
+        GenuineVariableDescriptor variableDescriptor=new GenuineVariableDescriptor(this,propertyDescriptor);
+        genuineVariableDescriptorMap.put(propertyDescriptor.getName(),variableDescriptor);
+        variableDescriptor.processAnnotations(descriptorPolicy);
+      }
+ else {
+        ShadowVariableDescriptor variableDescriptor=new ShadowVariableDescriptor(this,propertyDescriptor);
+        shadowVariableDescriptorMap.put(propertyDescriptor.getName(),variableDescriptor);
+        variableDescriptor.processAnnotations(descriptorPolicy);
+      }
+    }
+  }
+  if (noPlanningVariableAnnotation) {
+    throw new IllegalStateException("The planningEntityClass (" + entityClass + ") should have at least 1 getter with a "+ PlanningVariable.class.getSimpleName()+ " annotation.");
+  }
+}

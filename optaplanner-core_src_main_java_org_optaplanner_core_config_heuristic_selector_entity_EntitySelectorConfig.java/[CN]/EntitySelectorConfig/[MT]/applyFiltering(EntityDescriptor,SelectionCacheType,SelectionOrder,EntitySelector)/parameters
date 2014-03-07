@@ -1,0 +1,4 @@
+EntityDescriptor entityDescriptor
+SelectionCacheType resolvedCacheType
+SelectionOrder resolvedSelectionOrder
+EntitySelector entitySelector

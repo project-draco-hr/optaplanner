@@ -9,8 +9,8 @@
     throw new IllegalArgumentException("Configure at least 1 <planningEntityClass> in the solver configuration.");
   }
   for (  Class<?> planningEntityClass : planningEntityClassList) {
-    PlanningEntityDescriptor entityDescriptor=new PlanningEntityDescriptor(solutionDescriptor,planningEntityClass);
-    solutionDescriptor.addPlanningEntityDescriptor(entityDescriptor);
+    EntityDescriptor entityDescriptor=new EntityDescriptor(solutionDescriptor,planningEntityClass);
+    solutionDescriptor.addEntityDescriptor(entityDescriptor);
     entityDescriptor.processAnnotations(descriptorPolicy);
   }
   solutionDescriptor.afterAnnotationsProcessed(descriptorPolicy);

@@ -1,0 +1,21 @@
+{
+  Class<? extends Comparator> strengthComparatorClass=planningVariableAnnotation.strengthComparatorClass();
+  if (strengthComparatorClass == PlanningVariable.NullStrengthComparator.class) {
+    strengthComparatorClass=null;
+  }
+  Class<? extends SelectionSorterWeightFactory> strengthWeightFactoryClass=planningVariableAnnotation.strengthWeightFactoryClass();
+  if (strengthWeightFactoryClass == PlanningVariable.NullStrengthWeightFactory.class) {
+    strengthWeightFactoryClass=null;
+  }
+  if (strengthComparatorClass != null && strengthWeightFactoryClass != null) {
+    throw new IllegalStateException("The planningEntityClass (" + entityDescriptor.getEntityClass() + ") property ("+ variablePropertyAccessor.getName()+ ") cannot have a strengthComparatorClass ("+ strengthComparatorClass.getName()+ ") and a strengthWeightFactoryClass ("+ strengthWeightFactoryClass.getName()+ ") at the same time.");
+  }
+  if (strengthComparatorClass != null) {
+    Comparator<Object> strengthComparator=ConfigUtils.newInstance(this,"strengthComparatorClass",strengthComparatorClass);
+    increasingStrengthSorter=new ComparatorSelectionSorter(strengthComparator,SelectionSorterOrder.ASCENDING);
+  }
+  if (strengthWeightFactoryClass != null) {
+    SelectionSorterWeightFactory strengthWeightFactory=ConfigUtils.newInstance(this,"strengthWeightFactoryClass",strengthWeightFactoryClass);
+    increasingStrengthSorter=new WeightFactorySelectionSorter(strengthWeightFactory,SelectionSorterOrder.ASCENDING);
+  }
+}

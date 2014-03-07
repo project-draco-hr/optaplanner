@@ -1,5 +1,5 @@
 {
-  for (  PlanningVariableDescriptor variableDescriptor : variableDescriptors) {
+  for (  GenuineVariableDescriptor variableDescriptor : variableDescriptors) {
     Object leftValue=variableDescriptor.getValue(leftEntity);
     Object rightValue=variableDescriptor.getValue(rightEntity);
     if (!ObjectUtils.equals(leftValue,rightValue)) {

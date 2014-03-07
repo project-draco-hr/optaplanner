@@ -1,9 +1,9 @@
 {
   this.solutionDescriptor=solutionDescriptor;
-  Collection<PlanningVariableDescriptor> chainedVariableDescriptors=solutionDescriptor.getChainedVariableDescriptors();
+  Collection<GenuineVariableDescriptor> chainedVariableDescriptors=solutionDescriptor.getChainedVariableDescriptors();
   hasChainedVariables=!chainedVariableDescriptors.isEmpty();
-  trailingEntitiesMap=new LinkedHashMap<PlanningVariableDescriptor,Map<Object,Set<Object>>>(chainedVariableDescriptors.size());
-  for (  PlanningVariableDescriptor chainedVariableDescriptor : chainedVariableDescriptors) {
+  trailingEntitiesMap=new LinkedHashMap<GenuineVariableDescriptor,Map<Object,Set<Object>>>(chainedVariableDescriptors.size());
+  for (  GenuineVariableDescriptor chainedVariableDescriptor : chainedVariableDescriptors) {
     trailingEntitiesMap.put(chainedVariableDescriptor,null);
   }
 }

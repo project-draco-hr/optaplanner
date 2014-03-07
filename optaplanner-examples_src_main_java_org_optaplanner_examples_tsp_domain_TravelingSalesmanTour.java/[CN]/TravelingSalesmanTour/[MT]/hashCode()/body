@@ -1,7 +1,0 @@
-{
-  HashCodeBuilder hashCodeBuilder=new HashCodeBuilder();
-  for (  Visit visit : visitList) {
-    hashCodeBuilder.append(visit.solutionHashCode());
-  }
-  return hashCodeBuilder.toHashCode();
-}

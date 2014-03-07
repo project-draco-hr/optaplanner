@@ -1,0 +1,21 @@
+{
+  Collection<GenuineVariableDescriptor> variableDescriptors=entityDescriptor.getVariableDescriptors();
+  if (variableNameIncludeList == null) {
+    return variableDescriptors;
+  }
+  List<GenuineVariableDescriptor> resolvedVariableDescriptors=new ArrayList<GenuineVariableDescriptor>(variableDescriptors.size());
+  for (  String variableNameInclude : variableNameIncludeList) {
+    boolean found=false;
+    for (    GenuineVariableDescriptor variableDescriptor : variableDescriptors) {
+      if (variableDescriptor.getVariableName().equals(variableNameInclude)) {
+        resolvedVariableDescriptors.add(variableDescriptor);
+        found=true;
+        break;
+      }
+    }
+    if (!found) {
+      throw new IllegalStateException("The selectorConfig (" + this + ") has a variableNameInclude ("+ variableNameInclude+ ") which does not exist in the entity ("+ entityDescriptor.getEntityClass()+ ")'s variableDescriptors ("+ variableDescriptors+ ").");
+    }
+  }
+  return resolvedVariableDescriptors;
+}

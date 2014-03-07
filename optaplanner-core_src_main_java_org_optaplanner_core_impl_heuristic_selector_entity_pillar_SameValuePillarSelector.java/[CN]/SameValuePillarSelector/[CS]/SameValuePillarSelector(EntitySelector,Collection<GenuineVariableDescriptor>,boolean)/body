@@ -1,0 +1,24 @@
+{
+  this.entitySelector=entitySelector;
+  this.variableDescriptors=variableDescriptors;
+  this.randomSelection=randomSelection;
+  Class<?> entityClass=entitySelector.getEntityDescriptor().getEntityClass();
+  for (  GenuineVariableDescriptor variableDescriptor : variableDescriptors) {
+    if (!entityClass.equals(variableDescriptor.getEntityDescriptor().getEntityClass())) {
+      throw new IllegalStateException("The selector (" + this + ") has a variableDescriptor ("+ variableDescriptor+ ") with a entityClass ("+ variableDescriptor.getEntityDescriptor().getEntityClass()+ ") which is not equal to the entitySelector's entityClass ("+ entityClass+ ").");
+    }
+    if (variableDescriptor.isChained()) {
+      throw new IllegalStateException("The selector (" + this + ") has a variableDescriptor ("+ variableDescriptor+ ") which is chained ("+ variableDescriptor.isChained()+ ").");
+    }
+  }
+  for (  GenuineVariableDescriptor variableDescriptor : variableDescriptors) {
+    if (variableDescriptor.isChained()) {
+      throw new IllegalStateException("The selector (" + this + ") cannot have a variableDescriptor ("+ variableDescriptor+ ") which is chained ("+ variableDescriptor.isChained()+ ").");
+    }
+  }
+  if (entitySelector.isNeverEnding()) {
+    throw new IllegalStateException("The selector (" + this + ") has an entitySelector ("+ entitySelector+ ") with neverEnding ("+ entitySelector.isNeverEnding()+ ").");
+  }
+  solverPhaseLifecycleSupport.addEventListener(entitySelector);
+  solverPhaseLifecycleSupport.addEventListener(new SelectionCacheLifecycleBridge(CACHE_TYPE,this));
+}

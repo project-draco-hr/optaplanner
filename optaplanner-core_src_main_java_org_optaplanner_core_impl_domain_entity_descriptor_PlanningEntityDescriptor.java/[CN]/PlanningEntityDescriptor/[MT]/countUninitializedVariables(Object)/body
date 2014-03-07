@@ -1,9 +1,0 @@
-{
-  int uninitializedVariableCount=0;
-  for (  PlanningVariableDescriptor variableDescriptor : genuineVariableDescriptorMap.values()) {
-    if (!variableDescriptor.isInitialized(planningEntity)) {
-      uninitializedVariableCount++;
-    }
-  }
-  return uninitializedVariableCount;
-}

@@ -1,0 +1,21 @@
+{
+  Class<? extends Comparator> difficultyComparatorClass=entityAnnotation.difficultyComparatorClass();
+  if (difficultyComparatorClass == PlanningEntity.NullDifficultyComparator.class) {
+    difficultyComparatorClass=null;
+  }
+  Class<? extends SelectionSorterWeightFactory> difficultyWeightFactoryClass=entityAnnotation.difficultyWeightFactoryClass();
+  if (difficultyWeightFactoryClass == PlanningEntity.NullDifficultyWeightFactory.class) {
+    difficultyWeightFactoryClass=null;
+  }
+  if (difficultyComparatorClass != null && difficultyWeightFactoryClass != null) {
+    throw new IllegalStateException("The planningEntityClass (" + entityClass + ") cannot have a difficultyComparatorClass ("+ difficultyComparatorClass.getName()+ ") and a difficultyWeightFactoryClass ("+ difficultyWeightFactoryClass.getName()+ ") at the same time.");
+  }
+  if (difficultyComparatorClass != null) {
+    Comparator<Object> difficultyComparator=ConfigUtils.newInstance(this,"difficultyComparatorClass",difficultyComparatorClass);
+    decreasingDifficultySorter=new ComparatorSelectionSorter(difficultyComparator,SelectionSorterOrder.DESCENDING);
+  }
+  if (difficultyWeightFactoryClass != null) {
+    SelectionSorterWeightFactory difficultyWeightFactory=ConfigUtils.newInstance(this,"difficultyWeightFactoryClass",difficultyWeightFactoryClass);
+    decreasingDifficultySorter=new WeightFactorySelectionSorter(difficultyWeightFactory,SelectionSorterOrder.DESCENDING);
+  }
+}

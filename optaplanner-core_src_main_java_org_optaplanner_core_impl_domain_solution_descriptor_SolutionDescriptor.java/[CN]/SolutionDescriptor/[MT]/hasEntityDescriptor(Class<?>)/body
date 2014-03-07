@@ -1,5 +1,5 @@
 {
-  for (  Map.Entry<Class<?>,PlanningEntityDescriptor> entry : entityDescriptorMap.entrySet()) {
+  for (  Map.Entry<Class<?>,EntityDescriptor> entry : entityDescriptorMap.entrySet()) {
     if (entry.getKey().isAssignableFrom(entitySubclass)) {
       return true;
     }

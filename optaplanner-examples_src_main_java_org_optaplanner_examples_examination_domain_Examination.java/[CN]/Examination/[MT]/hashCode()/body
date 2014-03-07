@@ -1,7 +1,0 @@
-{
-  HashCodeBuilder hashCodeBuilder=new HashCodeBuilder();
-  for (  Exam exam : examList) {
-    hashCodeBuilder.append(exam.solutionHashCode());
-  }
-  return hashCodeBuilder.toHashCode();
-}

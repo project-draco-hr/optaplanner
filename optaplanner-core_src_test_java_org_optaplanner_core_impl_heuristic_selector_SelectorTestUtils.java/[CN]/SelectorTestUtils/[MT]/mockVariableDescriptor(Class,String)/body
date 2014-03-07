@@ -1,4 +1,4 @@
 {
-  PlanningEntityDescriptor entityDescriptor=mockEntityDescriptor(entityClass);
+  EntityDescriptor entityDescriptor=mockEntityDescriptor(entityClass);
   return mockVariableDescriptor(entityDescriptor,variableName);
 }

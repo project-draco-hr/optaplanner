@@ -3,7 +3,7 @@
   TestdataValue v2=new TestdataValue("2");
   TestdataValue v3=new TestdataValue("3");
   EntitySelector entitySelector=SelectorTestUtils.mockEntitySelector(TestdataEntity.class);
-  PlanningVariableDescriptor variableDescriptor=SelectorTestUtils.mockVariableDescriptor(entitySelector.getEntityDescriptor(),"value");
+  GenuineVariableDescriptor variableDescriptor=SelectorTestUtils.mockVariableDescriptor(entitySelector.getEntityDescriptor(),"value");
   SameValuePillarSelector pillarSelector=new SameValuePillarSelector(entitySelector,Arrays.asList(variableDescriptor),false);
   DefaultSolverScope solverScope=mock(DefaultSolverScope.class);
   pillarSelector.solvingStarted(solverScope);

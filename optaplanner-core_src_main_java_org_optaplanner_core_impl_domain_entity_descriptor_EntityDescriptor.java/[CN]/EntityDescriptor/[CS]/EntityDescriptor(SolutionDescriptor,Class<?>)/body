@@ -1,0 +1,10 @@
+{
+  this.solutionDescriptor=solutionDescriptor;
+  this.entityClass=entityClass;
+  try {
+    entityBeanInfo=Introspector.getBeanInfo(entityClass);
+  }
+ catch (  IntrospectionException e) {
+    throw new IllegalStateException("The planningEntityClass (" + entityClass + ") is not a valid java bean.",e);
+  }
+}

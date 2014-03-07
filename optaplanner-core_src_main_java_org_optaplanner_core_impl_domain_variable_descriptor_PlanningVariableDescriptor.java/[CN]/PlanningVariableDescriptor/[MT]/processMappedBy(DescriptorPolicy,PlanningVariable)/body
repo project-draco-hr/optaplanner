@@ -1,6 +1,0 @@
-{
-  String mappedBy=planningVariableAnnotation.mappedBy();
-  if (!mappedBy.equals("")) {
-    throw new IllegalStateException("Impossible state: the " + PlanningEntityDescriptor.class + " would never try to build a "+ PlanningVariableDescriptor.class+ " for a shadow variable with mappedBy ("+ mappedBy+ ").");
-  }
-}

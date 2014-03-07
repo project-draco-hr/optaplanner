@@ -1,0 +1,5 @@
+HeuristicConfigPolicy configPolicy
+GenuineVariableDescriptor variableDescriptor
+SelectionCacheType resolvedCacheType
+SelectionOrder resolvedSelectionOrder
+ValueSelector valueSelector

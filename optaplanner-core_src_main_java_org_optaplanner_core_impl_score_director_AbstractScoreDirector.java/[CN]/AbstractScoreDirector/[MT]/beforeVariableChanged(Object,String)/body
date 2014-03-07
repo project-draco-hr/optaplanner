@@ -1,5 +1,5 @@
 {
-  PlanningVariableDescriptor variableDescriptor=getSolutionDescriptor().findVariableDescriptor(entity,variableName);
+  GenuineVariableDescriptor variableDescriptor=getSolutionDescriptor().findVariableDescriptor(entity,variableName);
   if (variableDescriptor != null) {
     beforeVariableChanged(variableDescriptor,entity);
   }

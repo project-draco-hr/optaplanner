@@ -1,9 +1,0 @@
-{
-  if (hasChainedVariables) {
-    for (    PlanningVariableDescriptor variableDescriptor : entityDescriptor.getVariableDescriptors()) {
-      if (variableDescriptor.isChained()) {
-        retractFromTrailingEntityMap(variableDescriptor,entity);
-      }
-    }
-  }
-}

@@ -3,5 +3,5 @@
     planningValueWalker.phaseEnded(phaseScope);
   }
   scoreDirector=null;
-  planningEntity=null;
+  entity=null;
 }

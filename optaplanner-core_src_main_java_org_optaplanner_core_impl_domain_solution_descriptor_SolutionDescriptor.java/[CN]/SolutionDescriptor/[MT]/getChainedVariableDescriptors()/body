@@ -1,7 +1,7 @@
 {
-  Collection<PlanningVariableDescriptor> chainedVariableDescriptors=new ArrayList<PlanningVariableDescriptor>();
-  for (  PlanningEntityDescriptor entityDescriptor : entityDescriptorMap.values()) {
-    for (    PlanningVariableDescriptor variableDescriptor : entityDescriptor.getVariableDescriptors()) {
+  Collection<GenuineVariableDescriptor> chainedVariableDescriptors=new ArrayList<GenuineVariableDescriptor>();
+  for (  EntityDescriptor entityDescriptor : entityDescriptorMap.values()) {
+    for (    GenuineVariableDescriptor variableDescriptor : entityDescriptor.getVariableDescriptors()) {
       if (variableDescriptor.isChained()) {
         chainedVariableDescriptors.add(variableDescriptor);
       }

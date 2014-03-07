@@ -1,7 +1,0 @@
-{
-  HashCodeBuilder hashCodeBuilder=new HashCodeBuilder();
-  for (  SeatDesignation seatDesignation : seatDesignationList) {
-    hashCodeBuilder.append(seatDesignation.solutionHashCode());
-  }
-  return hashCodeBuilder.toHashCode();
-}

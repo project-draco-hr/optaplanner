@@ -3,8 +3,8 @@
   SolutionDescriptor solutionDescriptor=new SolutionDescriptor(solutionClass);
   solutionDescriptor.processAnnotations(descriptorPolicy);
   for (  Class<?> entityClass : entityClasses) {
-    PlanningEntityDescriptor entityDescriptor=new PlanningEntityDescriptor(solutionDescriptor,entityClass);
-    solutionDescriptor.addPlanningEntityDescriptor(entityDescriptor);
+    EntityDescriptor entityDescriptor=new EntityDescriptor(solutionDescriptor,entityClass);
+    solutionDescriptor.addEntityDescriptor(entityDescriptor);
     entityDescriptor.processAnnotations(descriptorPolicy);
   }
   solutionDescriptor.afterAnnotationsProcessed(descriptorPolicy);

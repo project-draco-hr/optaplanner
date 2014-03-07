@@ -1,3 +1,0 @@
-{
-  return planningEntityClass.isAssignableFrom(entity.getClass());
-}

@@ -1,4 +1,4 @@
 {
   Object toPlanningValue=planningValueIterator.next();
-  return new ChainedChangeMove(planningEntity,variableDescriptor,toPlanningValue);
+  return new ChainedChangeMove(entity,variableDescriptor,toPlanningValue);
 }

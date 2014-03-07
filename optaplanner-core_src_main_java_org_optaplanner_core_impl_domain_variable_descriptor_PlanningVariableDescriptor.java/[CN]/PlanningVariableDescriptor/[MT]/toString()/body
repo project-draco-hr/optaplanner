@@ -1,3 +1,0 @@
-{
-  return getClass().getSimpleName() + "(" + variablePropertyAccessor.getName()+ " of "+ entityDescriptor.getPlanningEntityClass().getName()+ ")";
-}

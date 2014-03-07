@@ -1,14 +1,14 @@
 {
   if (planningValueWalkerList.size() == 1) {
     PlanningValueWalker planningValueWalker=planningValueWalkerList.iterator().next();
-    return planningValueWalker.moveIterator(planningEntity);
+    return planningValueWalker.moveIterator(entity);
   }
  else {
     final List<Iterator<Move>> moveIteratorList=new ArrayList<Iterator<Move>>(planningValueWalkerList.size());
     final List<Move> composedMoveList=new ArrayList<Move>(planningValueWalkerList.size());
     boolean moveIteratorIsFirst=true;
     for (    PlanningValueWalker planningValueWalker : planningValueWalkerList) {
-      Iterator<Move> moveIterator=planningValueWalker.moveIterator(planningEntity);
+      Iterator<Move> moveIterator=planningValueWalker.moveIterator(entity);
       moveIteratorList.add(moveIterator);
       Move initialMove;
       if (moveIteratorIsFirst) {
@@ -17,7 +17,7 @@
       }
  else {
         if (!moveIterator.hasNext()) {
-          throw new IllegalStateException("The planning entity class (" + entityDescriptor.getPlanningEntityClass() + ") for planning variable ("+ planningValueWalker.getVariableDescriptor().getVariableName()+ ") has an empty planning value range for planning entity ("+ planningEntity+ ").");
+          throw new IllegalStateException("The planning entity class (" + entityDescriptor.getEntityClass() + ") for planning variable ("+ planningValueWalker.getVariableDescriptor().getVariableName()+ ") has an empty planning value range for planning entity ("+ entity+ ").");
         }
         initialMove=moveIterator.next();
       }
@@ -40,7 +40,7 @@
             break;
           }
  else {
-            moveIterator=planningValueWalkerList.get(i).moveIterator(planningEntity);
+            moveIterator=planningValueWalkerList.get(i).moveIterator(entity);
             moveIteratorList.set(i,moveIterator);
             composedMoveList.set(i,moveIterator.next());
           }

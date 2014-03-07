@@ -1,7 +1,7 @@
 {
   SolutionDescriptor solutionDescriptor=variableDescriptor.getEntityDescriptor().getSolutionDescriptor();
   Class<?> variablePropertyType=variableDescriptor.getVariablePropertyType();
-  for (  Class<?> entityClass : solutionDescriptor.getPlanningEntityClassSet()) {
+  for (  Class<?> entityClass : solutionDescriptor.getEntityClassSet()) {
     if (variablePropertyType.isAssignableFrom(entityClass)) {
       return true;
     }

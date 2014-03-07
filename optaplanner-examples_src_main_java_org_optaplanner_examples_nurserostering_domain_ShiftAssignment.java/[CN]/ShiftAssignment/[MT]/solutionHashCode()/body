@@ -1,3 +1,0 @@
-{
-  return new HashCodeBuilder().append(id).append(shift).append(employee).toHashCode();
-}
