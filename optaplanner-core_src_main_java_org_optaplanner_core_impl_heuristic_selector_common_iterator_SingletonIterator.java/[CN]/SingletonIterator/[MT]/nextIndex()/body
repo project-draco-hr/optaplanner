@@ -1,0 +1,3 @@
+{
+  return hasNext ? 0 : 1;
+}

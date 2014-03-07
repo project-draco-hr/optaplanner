@@ -1,0 +1,8 @@
+{
+  if (!hasNext) {
+    throw new NoSuchElementException();
+  }
+  hasNext=false;
+  hasPrevious=true;
+  return singleton;
+}
