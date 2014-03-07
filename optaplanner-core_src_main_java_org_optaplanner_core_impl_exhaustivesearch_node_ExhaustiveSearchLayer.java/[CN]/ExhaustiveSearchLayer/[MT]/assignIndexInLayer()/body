@@ -1,0 +1,5 @@
+{
+  long assignIndexInLayer=nextIndexInLayer;
+  nextIndexInLayer++;
+  return assignIndexInLayer;
+}

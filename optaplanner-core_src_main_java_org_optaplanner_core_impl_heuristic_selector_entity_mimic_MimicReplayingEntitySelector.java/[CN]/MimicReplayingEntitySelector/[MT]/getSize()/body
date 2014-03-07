@@ -1,3 +1,3 @@
 {
-  return recordingEntitySelector.getSize();
+  return entityMimicRecorder.getSize();
 }

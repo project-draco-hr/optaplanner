@@ -1,0 +1,5 @@
+{
+  super(solverScope);
+  lastCompletedStepScope=new ExhaustiveSearchStepScope(this,-1);
+  bestPessimisticBound=solverScope.getScoreDefinition().getPerfectMinimumScore();
+}

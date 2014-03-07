@@ -1,0 +1,3 @@
+ScoreDirector scoreDirector
+Score score
+int uninitializedVariableCount

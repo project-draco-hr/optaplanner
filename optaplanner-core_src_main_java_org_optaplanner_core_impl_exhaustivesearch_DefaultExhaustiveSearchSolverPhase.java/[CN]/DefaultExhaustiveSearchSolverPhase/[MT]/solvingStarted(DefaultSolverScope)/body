@@ -1,0 +1,5 @@
+{
+  super.solvingStarted(solverScope);
+  entitySelector.solvingStarted(solverScope);
+  decider.solvingStarted(solverScope);
+}

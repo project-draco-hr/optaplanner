@@ -1,0 +1,4 @@
+{
+  this.sourceEntitySelector=sourceEntitySelector;
+  replayingEntitySelectorList=new ArrayList<MimicReplayingEntitySelector>();
+}

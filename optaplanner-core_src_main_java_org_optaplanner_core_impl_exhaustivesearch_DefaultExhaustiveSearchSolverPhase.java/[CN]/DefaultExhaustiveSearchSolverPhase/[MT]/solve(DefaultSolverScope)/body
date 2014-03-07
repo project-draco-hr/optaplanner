@@ -1,0 +1,19 @@
+{
+  ExhaustiveSearchSolverPhaseScope phaseScope=new ExhaustiveSearchSolverPhaseScope(solverScope);
+  phaseStarted(phaseScope);
+  SortedSet<ExhaustiveSearchNode> expandableNodeQueue=new TreeSet<ExhaustiveSearchNode>(new DepthFirstNodeComparator());
+  phaseScope.setExpandableNodeQueue(expandableNodeQueue);
+  fillLayerList(phaseScope);
+  initStartNode(phaseScope);
+  while (!expandableNodeQueue.isEmpty() && !termination.isPhaseTerminated(phaseScope)) {
+    ExhaustiveSearchStepScope stepScope=new ExhaustiveSearchStepScope(phaseScope);
+    ExhaustiveSearchNode node=expandableNodeQueue.last();
+    stepScope.setExpandingNode(node);
+    stepStarted(stepScope);
+    restoreWorkingSolution(stepScope);
+    decider.expandNode(stepScope);
+    stepEnded(stepScope);
+    phaseScope.setLastCompletedStepScope(stepScope);
+  }
+  phaseEnded(phaseScope);
+}

@@ -1,4 +1,4 @@
 {
-  this.recordingEntitySelector=recordingEntitySelector;
-  recordingEntitySelector.addMimicReplayingEntitySelector(this);
+  this.entityMimicRecorder=entityMimicRecorder;
+  entityMimicRecorder.addMimicReplayingEntitySelector(this);
 }

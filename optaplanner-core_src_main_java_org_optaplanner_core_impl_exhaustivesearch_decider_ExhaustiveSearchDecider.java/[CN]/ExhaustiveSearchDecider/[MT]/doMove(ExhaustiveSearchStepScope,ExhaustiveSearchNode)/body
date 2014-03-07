@@ -1,0 +1,14 @@
+{
+  ScoreDirector scoreDirector=stepScope.getScoreDirector();
+  Move move=moveNode.getMove();
+  Move undoMove=move.createUndoMove(scoreDirector);
+  moveNode.setUndoMove(undoMove);
+  move.doMove(scoreDirector);
+  processMove(stepScope,moveNode);
+  undoMove.doMove(scoreDirector);
+  if (assertExpectedUndoMoveScore) {
+    ExhaustiveSearchSolverPhaseScope phaseScope=stepScope.getPhaseScope();
+    phaseScope.assertExpectedUndoMoveScore(move,undoMove);
+  }
+  logger.trace("        Move indexInLayer ({}), score ({}) for move ({}).",moveNode.getIndexInLayer(),moveNode.getScore(),moveNode.getMove());
+}

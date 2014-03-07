@@ -1,0 +1,8 @@
+{
+  super.stepEnded(stepScope);
+  decider.stepEnded(stepScope);
+  if (logger.isDebugEnabled()) {
+    long timeMillisSpent=stepScope.getPhaseScope().calculateSolverTimeMillisSpent();
+    logger.debug("    Step index ({}), time spent ({}), exhaustive depth ({}), score ({}).",stepScope.getStepIndex(),timeMillisSpent,stepScope.getDepth(),stepScope.getScore());
+  }
+}

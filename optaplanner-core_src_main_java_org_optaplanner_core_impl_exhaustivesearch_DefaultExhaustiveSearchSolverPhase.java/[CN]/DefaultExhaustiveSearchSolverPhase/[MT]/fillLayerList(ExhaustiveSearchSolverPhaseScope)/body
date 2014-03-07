@@ -1,0 +1,17 @@
+{
+  ExhaustiveSearchStepScope stepScope=new ExhaustiveSearchStepScope(phaseScope);
+  entitySelector.stepStarted(stepScope);
+  long entitySize=entitySelector.getSize();
+  if (entitySize > (long)Integer.MAX_VALUE) {
+    throw new IllegalStateException("The entitySelector (" + entitySelector + ") has an entitySize ("+ entitySize+ ") which is higher than Integer.MAX_VALUE.");
+  }
+  List<ExhaustiveSearchLayer> layerList=new ArrayList<ExhaustiveSearchLayer>((int)entitySize);
+  int depth=0;
+  for (  Object entity : entitySelector) {
+    ExhaustiveSearchLayer layer=new ExhaustiveSearchLayer(depth,entity);
+    layerList.add(layer);
+    depth++;
+  }
+  entitySelector.stepEnded(stepScope);
+  phaseScope.setLayerList(layerList);
+}

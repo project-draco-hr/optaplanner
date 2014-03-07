@@ -1,0 +1,13 @@
+{
+  ExhaustiveSearchNode expandingNode=stepScope.getExpandingNode();
+  manualEntityMimicRecorder.setRecordedEntity(expandingNode.getEntity());
+  ExhaustiveSearchLayer moveLayer=stepScope.getPhaseScope().getLayerList().get(expandingNode.getDepth() + 1);
+  for (  Move move : moveSelector) {
+    ExhaustiveSearchNode moveNode=new ExhaustiveSearchNode(moveLayer,expandingNode,moveLayer.assignIndexInLayer());
+    moveNode.setMove(move);
+    doMove(stepScope,moveNode);
+    if (termination.isPhaseTerminated(stepScope.getPhaseScope())) {
+      break;
+    }
+  }
+}

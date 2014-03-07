@@ -1,0 +1,5 @@
+{
+  this.layer=layer;
+  this.parent=parent;
+  this.indexInLayer=indexInLayer;
+}

@@ -1,0 +1,6 @@
+{
+  this.recordedEntity=recordedEntity;
+  for (  MimicReplayingEntitySelector replayingEntitySelector : replayingEntitySelectorList) {
+    replayingEntitySelector.recordedNext(recordedEntity);
+  }
+}

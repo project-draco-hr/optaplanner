@@ -1,0 +1,21 @@
+{
+  ExhaustiveSearchSolverPhaseScope phaseScope=stepScope.getPhaseScope();
+  Score score=phaseScope.calculateScore();
+  if (assertMoveScoreFromScratch) {
+    phaseScope.assertWorkingScoreFromScratch(score,moveNode.getMove());
+  }
+  moveNode.setScore(score);
+  int uninitializedVariableCount=phaseScope.getDepthSize() - moveNode.getDepth();
+  if (uninitializedVariableCount == 0) {
+    phaseScope.registerPessimisticBound(score);
+  }
+ else {
+    Score optimisticBound=scoreBounder.calculateOptimisticBound(phaseScope.getScoreDirector(),score,uninitializedVariableCount);
+    moveNode.setOptimisticBound(optimisticBound);
+    if (optimisticBound.compareTo(phaseScope.getBestPessimisticBound()) > 0) {
+      phaseScope.getExpandableNodeQueue().add(moveNode);
+      Score pessimisticBound=scoreBounder.calculatePessimisticBound(phaseScope.getScoreDirector(),score,uninitializedVariableCount);
+      phaseScope.registerPessimisticBound(pessimisticBound);
+    }
+  }
+}
