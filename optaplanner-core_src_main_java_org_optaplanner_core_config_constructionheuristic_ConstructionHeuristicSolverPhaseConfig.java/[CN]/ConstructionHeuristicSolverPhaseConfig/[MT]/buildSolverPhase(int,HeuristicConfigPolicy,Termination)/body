@@ -9,7 +9,7 @@
   configureSolverPhase(phase,phaseIndex,phaseConfigPolicy,solverTermination);
   phase.setDecider(buildDecider(phaseConfigPolicy,phase.getTermination()));
   EntityPlacerConfig entityPlacerConfig;
-  if (CollectionUtils.isEmpty(entityPlacerConfigList)) {
+  if (entityPlacerConfigList == null || entityPlacerConfigList.isEmpty()) {
     entityPlacerConfig=new QueuedEntityPlacerConfig();
   }
  else   if (entityPlacerConfigList.size() == 1) {

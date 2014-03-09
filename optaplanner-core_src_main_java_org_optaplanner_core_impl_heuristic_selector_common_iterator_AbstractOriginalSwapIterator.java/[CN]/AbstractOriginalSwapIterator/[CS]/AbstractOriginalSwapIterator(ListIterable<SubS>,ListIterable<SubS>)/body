@@ -3,5 +3,5 @@
   this.rightSubSelector=rightSubSelector;
   leftEqualsRight=(leftSubSelector == rightSubSelector);
   leftSubSelectionIterator=leftSubSelector.listIterator();
-  rightSubSelectionIterator=IteratorUtils.emptyListIterator();
+  rightSubSelectionIterator=(ListIterator<SubS>)ImmutableList.of().listIterator();
 }

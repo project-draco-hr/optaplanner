@@ -1,6 +1,6 @@
 {
   if (kieBase != null) {
-    if (!CollectionUtils.isEmpty(scoreDrlList)) {
+    if (!(scoreDrlList == null || scoreDrlList.isEmpty())) {
       throw new IllegalArgumentException("If kieBase is not null, the scoreDrlList (" + scoreDrlList + ") must be empty.");
     }
     if (kieBaseConfigurationProperties != null) {
@@ -9,7 +9,7 @@
     return kieBase;
   }
  else {
-    if (CollectionUtils.isEmpty(scoreDrlList)) {
+    if (scoreDrlList == null || scoreDrlList.isEmpty()) {
       throw new IllegalArgumentException("The scoreDrlList (" + scoreDrlList + ") cannot be empty.");
     }
     KieServices kieServices=KieServices.Factory.get();

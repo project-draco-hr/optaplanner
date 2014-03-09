@@ -15,7 +15,7 @@
     }
   }
  else   if (benchmarkReport.getSolverRankingWeightFactory() != null) {
-    SortedMap<Comparable,List<SolverBenchmarkResult>> rankedMap=new TreeMap<Comparable,List<SolverBenchmarkResult>>(new ReverseComparator());
+    SortedMap<Comparable,List<SolverBenchmarkResult>> rankedMap=new TreeMap<Comparable,List<SolverBenchmarkResult>>(Ordering.arbitrary().reverse());
     for (    SolverBenchmarkResult solverBenchmarkResult : rankableSolverBenchmarkResultList) {
       Comparable rankingWeight=benchmarkReport.getSolverRankingWeightFactory().createRankingWeight(rankableSolverBenchmarkResultList,solverBenchmarkResult);
       List<SolverBenchmarkResult> sameRankingList=rankedMap.get(rankingWeight);

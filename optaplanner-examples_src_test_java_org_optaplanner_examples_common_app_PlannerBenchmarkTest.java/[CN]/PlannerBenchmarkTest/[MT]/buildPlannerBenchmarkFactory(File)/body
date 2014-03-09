@@ -13,7 +13,7 @@
   plannerBenchmarkConfig.setWarmUpSecondsSpentLimit(WARM_UP_SECONDS_SPENT);
   plannerBenchmarkConfig.setWarmUpMillisecondsSpentLimit(0L);
   List<SolverBenchmarkConfig> solverBenchmarkConfigList=plannerBenchmarkConfig.getSolverBenchmarkConfigList();
-  if (CollectionUtils.isEmpty(solverBenchmarkConfigList)) {
+  if (solverBenchmarkConfigList == null || solverBenchmarkConfigList.isEmpty()) {
     throw new IllegalStateException("The benchmarkConfigResource (" + benchmarkConfigResource + ") should have at least 1 solverBenchmarkConfig.");
   }
   if (solverBenchmarkConfigList.size() > MAXIMUM_SOLVER_BENCHMARK_SIZE) {

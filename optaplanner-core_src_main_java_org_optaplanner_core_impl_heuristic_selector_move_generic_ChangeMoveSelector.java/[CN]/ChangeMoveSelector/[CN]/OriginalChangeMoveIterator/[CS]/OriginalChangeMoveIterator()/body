@@ -1,4 +1,4 @@
 {
   entityIterator=entitySelector.iterator();
-  valueIterator=IteratorUtils.emptyIterator();
+  valueIterator=Iterators.emptyIterator();
 }
