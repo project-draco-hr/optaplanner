@@ -4,6 +4,5 @@
     Move undoMove=move.createUndoMove(scoreDirector);
     undoMoveList.add(undoMove);
   }
-  Collections.reverse(undoMoveList);
-  return new CompositeMove(undoMoveList);
+  return new CompositeMove(Lists.reverse(undoMoveList));
 }
