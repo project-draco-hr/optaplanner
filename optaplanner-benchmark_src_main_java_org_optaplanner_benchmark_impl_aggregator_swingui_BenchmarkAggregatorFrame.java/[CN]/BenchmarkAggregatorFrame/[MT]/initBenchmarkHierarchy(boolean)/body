@@ -1,0 +1,30 @@
+{
+  DefaultMutableTreeNode parentNode=new DefaultMutableTreeNode(new MixedCheckBox("Planner benchmarks"));
+  for (  PlannerBenchmarkResult plannerBenchmarkResult : plannerBenchmarkResultList) {
+    DefaultMutableTreeNode plannerNode=new DefaultMutableTreeNode(createPlannerBenchmarkCheckBox(plannerBenchmarkResult));
+    parentNode.add(plannerNode);
+    if (solverFirst) {
+      for (      SolverBenchmarkResult solverBenchmarkResult : plannerBenchmarkResult.getSolverBenchmarkResultList()) {
+        DefaultMutableTreeNode solverNode=new DefaultMutableTreeNode(createSolverBenchmarkCheckBox(solverBenchmarkResult));
+        plannerNode.add(solverNode);
+        for (        ProblemBenchmarkResult problemBenchmarkResult : plannerBenchmarkResult.getUnifiedProblemBenchmarkResultList()) {
+          DefaultMutableTreeNode problemNode=new DefaultMutableTreeNode(createProblemBenchmarkCheckBox(problemBenchmarkResult));
+          solverNode.add(problemNode);
+          initSingleBenchmarkNodes(solverBenchmarkResult,problemBenchmarkResult,problemNode);
+        }
+      }
+    }
+ else {
+      for (      ProblemBenchmarkResult problemBenchmarkResult : plannerBenchmarkResult.getUnifiedProblemBenchmarkResultList()) {
+        DefaultMutableTreeNode problemNode=new DefaultMutableTreeNode(createProblemBenchmarkCheckBox(problemBenchmarkResult));
+        plannerNode.add(problemNode);
+        for (        SolverBenchmarkResult solverBenchmarkResult : plannerBenchmarkResult.getSolverBenchmarkResultList()) {
+          DefaultMutableTreeNode solverNode=new DefaultMutableTreeNode(createSolverBenchmarkCheckBox(solverBenchmarkResult));
+          problemNode.add(solverNode);
+          initSingleBenchmarkNodes(solverBenchmarkResult,problemBenchmarkResult,solverNode);
+        }
+      }
+    }
+  }
+  return parentNode;
+}

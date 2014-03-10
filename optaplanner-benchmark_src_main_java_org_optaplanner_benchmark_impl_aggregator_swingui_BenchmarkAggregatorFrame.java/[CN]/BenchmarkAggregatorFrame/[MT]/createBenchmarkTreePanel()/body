@@ -1,10 +1,10 @@
 {
   JPanel benchmarkTreePanel=new JPanel(new BorderLayout());
-  CheckBoxTree checkBoxTree=createCheckBoxTree();
-  benchmarkTreePanel.add(new JScrollPane(checkBoxTree),BorderLayout.CENTER);
+  benchmarkTreePanel.add(new JScrollPane(plannerBenchmarkResultList.isEmpty() ? createNoPlannerFoundTextField() : createCheckBoxTree(),JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED),BorderLayout.CENTER);
   JPanel buttonPanelWrapper=new JPanel(new FlowLayout(FlowLayout.RIGHT));
   JPanel buttonPanel=new JPanel(new GridLayout(1,2,10,0));
-  JButton generateReportButton=new JButton(new GenerateReportAction(this));
+  generateReportButton=new JButton(new GenerateReportAction(this));
+  generateReportButton.setEnabled(false);
   buttonPanel.add(generateReportButton);
   generateProgressBar=new JProgressBar();
   buttonPanel.add(generateProgressBar);

@@ -1,0 +1,14 @@
+{
+  DefaultMutableTreeNode treeRoot=initBenchmarkHierarchy(solverLevelFirst);
+  DefaultTreeModel treeModel=new DefaultTreeModel(treeRoot);
+  checkBoxTree.setModel(treeModel);
+  treeModel.nodeStructureChanged(treeRoot);
+  solverLevelFirst=!solverLevelFirst;
+  checkBoxTree.setSelectedSingleBenchmarkNodes(new HashSet<DefaultMutableTreeNode>());
+  for (  Map.Entry<SingleBenchmarkResult,DefaultMutableTreeNode> entry : resultCheckBoxMapping.entrySet()) {
+    if (((MixedCheckBox)entry.getValue().getUserObject()).getStatus() == MixedCheckBoxStatus.CHECKED) {
+      checkBoxTree.getSelectedSingleBenchmarkNodes().add(entry.getValue());
+    }
+  }
+  checkBoxTree.updateHierarchyCheckBoxStates();
+}

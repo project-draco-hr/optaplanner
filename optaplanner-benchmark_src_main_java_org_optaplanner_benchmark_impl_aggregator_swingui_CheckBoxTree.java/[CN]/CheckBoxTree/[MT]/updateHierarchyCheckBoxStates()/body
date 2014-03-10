@@ -1,0 +1,6 @@
+{
+  for (  DefaultMutableTreeNode currentNode : selectedSingleBenchmarkNodes) {
+    resolveNewCheckBoxState(currentNode,CHECKED,MIXED);
+  }
+  treeDidChange();
+}

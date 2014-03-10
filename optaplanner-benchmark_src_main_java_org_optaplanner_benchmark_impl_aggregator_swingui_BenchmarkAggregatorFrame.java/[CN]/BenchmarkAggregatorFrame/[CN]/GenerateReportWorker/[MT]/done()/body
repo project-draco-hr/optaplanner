@@ -13,7 +13,6 @@ catch (  ExecutionException e) {
     throw new IllegalStateException(e);
   }
  finally {
-    parentFrame.setEnabled(true);
     detailTextArea.setText(null);
     generateProgressBar.setIndeterminate(false);
     generateProgressBar.setString(null);

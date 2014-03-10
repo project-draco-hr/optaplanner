@@ -1,0 +1,19 @@
+{
+  MixedCheckBox checkBox=(MixedCheckBox)currentNode.getUserObject();
+  checkBox.setStatus(newStatus);
+  selectChildren(currentNode,newStatus);
+  TreeNode[] ancestorNodes=currentNode.getPath();
+  for (int i=ancestorNodes.length - 2; i >= 0; i--) {
+    DefaultMutableTreeNode ancestorNode=(DefaultMutableTreeNode)ancestorNodes[i];
+    MixedCheckBox ancestorCheckbox=(MixedCheckBox)ancestorNode.getUserObject();
+    if (checkChildren(ancestorNode,newStatus)) {
+      ancestorCheckbox.setStatus(newStatus);
+    }
+ else {
+      if (mixedStatus == null) {
+        break;
+      }
+      ancestorCheckbox.setStatus(mixedStatus);
+    }
+  }
+}

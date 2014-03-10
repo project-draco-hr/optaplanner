@@ -1,0 +1,18 @@
+{
+  MixedCheckBox box=(MixedCheckBox)parent.getUserObject();
+  if (box.getBenchmarkResult() instanceof SingleBenchmarkResult) {
+    if (status == CHECKED) {
+      selectedSingleBenchmarkNodes.add(parent);
+    }
+ else     if (status == UNCHECKED) {
+      selectedSingleBenchmarkNodes.remove(parent);
+    }
+  }
+  Enumeration children=parent.children();
+  while (children.hasMoreElements()) {
+    DefaultMutableTreeNode child=(DefaultMutableTreeNode)children.nextElement();
+    MixedCheckBox childCheckBox=(MixedCheckBox)child.getUserObject();
+    childCheckBox.setStatus(status);
+    selectChildren(child,status);
+  }
+}

@@ -1,7 +1,6 @@
 {
   String singleCheckBoxName=singleBenchmarkResult.getName() + " (" + singleBenchmarkResult.getRanking()+ ")";
   String singleBenchmarkDetail=String.format(DETAIL_TEMPLATE_SINGLE_BENCHMARK,singleBenchmarkResult.getScore(),singleBenchmarkResult.getEntityCount(),toEmptyStringIfNull(singleBenchmarkResult.getUsedMemoryAfterInputSolution()),singleBenchmarkResult.getTimeMillisSpent());
-  MixedCheckBox singleBenchmarkCheckBox=new MixedCheckBox(singleCheckBoxName,singleBenchmarkDetail);
-  resultCheckBoxMapping.put(singleBenchmarkCheckBox,singleBenchmarkResult);
+  MixedCheckBox singleBenchmarkCheckBox=new MixedCheckBox(singleCheckBoxName,singleBenchmarkDetail,singleBenchmarkResult);
   return singleBenchmarkCheckBox;
 }

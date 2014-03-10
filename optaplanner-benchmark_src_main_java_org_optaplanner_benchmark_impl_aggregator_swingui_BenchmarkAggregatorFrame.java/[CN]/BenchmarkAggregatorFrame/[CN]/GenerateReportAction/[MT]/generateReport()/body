@@ -1,8 +1,8 @@
 {
   List<SingleBenchmarkResult> singleBenchmarkResultList=new ArrayList<SingleBenchmarkResult>();
-  for (  Map.Entry<MixedCheckBox,SingleBenchmarkResult> entry : resultCheckBoxMapping.entrySet()) {
-    if (MixedCheckBoxStatus.CHECKED == entry.getKey().getStatus()) {
-      singleBenchmarkResultList.add(entry.getValue());
+  for (  Map.Entry<SingleBenchmarkResult,DefaultMutableTreeNode> entry : resultCheckBoxMapping.entrySet()) {
+    if (((MixedCheckBox)entry.getValue().getUserObject()).getStatus() == MixedCheckBoxStatus.CHECKED) {
+      singleBenchmarkResultList.add(entry.getKey());
     }
   }
   if (singleBenchmarkResultList.isEmpty()) {
