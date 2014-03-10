@@ -8,7 +8,6 @@
   long machineId=0L;
   List<MrMachineCapacity> machineCapacityList=new ArrayList<MrMachineCapacity>(machineListSize * resourceListSize);
   long machineCapacityId=0L;
-  ArrayList<ArrayList<Integer>> moveCostsCache=new ArrayList<ArrayList<Integer>>(machineListSize);
   for (int i=0; i < machineListSize; i++) {
     MrMachine machine=new MrMachine();
     machine.setId(machineId);
@@ -51,21 +50,13 @@
       machineCapacityId++;
     }
     machine.setMachineCapacityList(machineCapacityListOfMachine);
-    ArrayList<Integer> machineMoveCosts=new ArrayList<Integer>(machineListSize);
-    for (int j=0; j < machineListSize; j++) {
-      int moveCost=Integer.parseInt(lineTokens[moveCostOffset + j]);
-      machineMoveCosts.add(j,moveCost);
-    }
-    moveCostsCache.add(i,machineMoveCosts);
-  }
-  for (int i=0; i < machineListSize; i++) {
-    ArrayTable<MrNeighborhood,MrLocation,Integer> machineMoveCostMap=ArrayTable.create(neighborhoodList,locationList);
+    Map<MrMachine,Integer> machineMoveCostMap=new HashMap<MrMachine,Integer>(machineListSize);
     for (int j=0; j < machineListSize; j++) {
       MrMachine toMachine=machineList.get(j);
-      int moveCost=moveCostsCache.get(i).get(j);
-      machineMoveCostMap.put(toMachine.getNeighborhood(),toMachine.getLocation(),moveCost);
+      int moveCost=Integer.parseInt(lineTokens[moveCostOffset + j]);
+      machineMoveCostMap.put(toMachine,moveCost);
     }
-    machineList.get(i).setMachineMoveCostTable(machineMoveCostMap);
+    machine.setMachineMoveCostMap(machineMoveCostMap);
   }
   machineReassignment.setNeighborhoodList(neighborhoodList);
   machineReassignment.setLocationList(locationList);
