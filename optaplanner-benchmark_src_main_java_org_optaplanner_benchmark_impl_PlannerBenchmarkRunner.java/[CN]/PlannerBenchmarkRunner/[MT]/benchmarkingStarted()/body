@@ -5,7 +5,7 @@
   startingSystemTimeMillis=System.currentTimeMillis();
   plannerBenchmarkResult.setStartingTimestamp(new Date());
   List<SolverBenchmarkResult> solverBenchmarkResultList=plannerBenchmarkResult.getSolverBenchmarkResultList();
-  if (solverBenchmarkResultList == null || solverBenchmarkResultList.isEmpty()) {
+  if (ConfigUtils.isEmptyCollection(solverBenchmarkResultList)) {
     throw new IllegalArgumentException("The solverBenchmarkResultList (" + solverBenchmarkResultList + ") cannot be empty.");
   }
   initBenchmarkDirectoryAndSubdirs();
