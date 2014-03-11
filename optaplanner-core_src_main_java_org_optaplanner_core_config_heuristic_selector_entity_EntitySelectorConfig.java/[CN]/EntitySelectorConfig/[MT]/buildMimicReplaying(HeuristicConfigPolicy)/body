@@ -2,9 +2,9 @@
   if (id != null || entityClass != null || cacheType != null || selectionOrder != null || filterClassList != null || sorterManner != null || sorterComparatorClass != null || sorterWeightFactoryClass != null || sorterOrder != null || sorterClass != null || probabilityWeightFactoryClass != null) {
     throw new IllegalArgumentException("The entitySelectorConfig (" + this + ") with mimicSelectorRef ("+ mimicSelectorRef+ ") has another property that is not null.");
   }
-  MimicRecordingEntitySelector mimicRecordingEntitySelector=configPolicy.getMimicRecordingEntitySelector(mimicSelectorRef);
-  if (mimicRecordingEntitySelector == null) {
+  EntityMimicRecorder entityMimicRecorder=configPolicy.getEntityMimicRecorder(mimicSelectorRef);
+  if (entityMimicRecorder == null) {
     throw new IllegalArgumentException("The entitySelectorConfig (" + this + ") has a mimicSelectorRef ("+ mimicSelectorRef+ ") for which no entitySelector with that id exists (in its solver phase).");
   }
-  return new MimicReplayingEntitySelector(mimicRecordingEntitySelector);
+  return new MimicReplayingEntitySelector(entityMimicRecorder);
 }

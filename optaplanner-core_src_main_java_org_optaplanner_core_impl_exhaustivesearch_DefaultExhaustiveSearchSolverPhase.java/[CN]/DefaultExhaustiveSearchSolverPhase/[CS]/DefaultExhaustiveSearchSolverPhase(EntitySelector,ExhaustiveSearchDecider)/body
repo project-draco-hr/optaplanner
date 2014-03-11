@@ -1,4 +1,0 @@
-{
-  this.entitySelector=entitySelector;
-  this.decider=decider;
-}

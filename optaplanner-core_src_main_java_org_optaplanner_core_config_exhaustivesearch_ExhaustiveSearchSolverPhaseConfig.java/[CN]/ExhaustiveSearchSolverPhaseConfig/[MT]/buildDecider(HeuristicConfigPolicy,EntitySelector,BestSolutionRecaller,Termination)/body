@@ -1,0 +1,17 @@
+{
+  ManualEntityMimicRecorder manualEntityMimicRecorder=new ManualEntityMimicRecorder(sourceEntitySelector);
+  String mimicSelectorId=sourceEntitySelector.getEntityDescriptor().getEntityClass().getName();
+  configPolicy.addEntityMimicRecorder(mimicSelectorId,manualEntityMimicRecorder);
+  MoveSelectorConfig moveSelectorConfig_=buildMoveSelectorConfig(configPolicy,sourceEntitySelector,mimicSelectorId);
+  MoveSelector moveSelector=moveSelectorConfig_.buildMoveSelector(configPolicy,SelectionCacheType.JUST_IN_TIME,SelectionOrder.ORIGINAL);
+  ScoreBounder scoreBounder=new FallingScoreBounder(configPolicy.getScoreDefinition());
+  ExhaustiveSearchDecider decider=new ExhaustiveSearchDecider(bestSolutionRecaller,termination,manualEntityMimicRecorder,moveSelector,scoreBounder);
+  EnvironmentMode environmentMode=configPolicy.getEnvironmentMode();
+  if (environmentMode.isNonIntrusiveFullAsserted()) {
+    decider.setAssertMoveScoreFromScratch(true);
+  }
+  if (environmentMode.isIntrusiveFastAsserted()) {
+    decider.setAssertExpectedUndoMoveScore(true);
+  }
+  return decider;
+}

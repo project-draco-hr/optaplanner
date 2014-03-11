@@ -1,0 +1,3 @@
+{
+  return entityMimicRecorderMap.get(id);
+}

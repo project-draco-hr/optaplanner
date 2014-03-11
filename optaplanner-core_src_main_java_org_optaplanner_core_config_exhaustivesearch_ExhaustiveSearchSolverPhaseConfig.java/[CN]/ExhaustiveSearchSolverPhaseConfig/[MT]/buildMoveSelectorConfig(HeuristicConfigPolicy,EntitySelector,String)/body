@@ -1,15 +1,13 @@
 {
-  EntitySelectorConfig entitySelectorConfig_=buildEntitySelectorConfig(configPolicy);
-  EntitySelector entitySelector=entitySelectorConfig_.buildEntitySelector(configPolicy,SelectionCacheType.PHASE,SelectionOrder.ORIGINAL);
-  List<MoveSelectorConfig> moveSelectorConfigList_;
-  if (ConfigUtils.isEmptyCollection(moveSelectorConfigList)) {
+  MoveSelectorConfig moveSelectorConfig_;
+  if (moveSelectorConfig == null) {
     EntityDescriptor entityDescriptor=entitySelector.getEntityDescriptor();
     Collection<GenuineVariableDescriptor> variableDescriptors=entityDescriptor.getVariableDescriptors();
     List<MoveSelectorConfig> subMoveSelectorConfigList=new ArrayList<MoveSelectorConfig>(variableDescriptors.size());
     for (    GenuineVariableDescriptor variableDescriptor : variableDescriptors) {
       ChangeMoveSelectorConfig changeMoveSelectorConfig=new ChangeMoveSelectorConfig();
       EntitySelectorConfig changeEntitySelectorConfig=new EntitySelectorConfig();
-      changeEntitySelectorConfig.setMimicSelectorRef(entitySelectorConfig_.getId());
+      changeEntitySelectorConfig.setMimicSelectorRef(mimicSelectorId);
       changeMoveSelectorConfig.setEntitySelectorConfig(changeEntitySelectorConfig);
       ValueSelectorConfig changeValueSelectorConfig=new ValueSelectorConfig();
       changeValueSelectorConfig.setVariableName(variableDescriptor.getVariableName());
@@ -26,19 +24,10 @@
       changeMoveSelectorConfig.setValueSelectorConfig(changeValueSelectorConfig);
       subMoveSelectorConfigList.add(changeMoveSelectorConfig);
     }
-    if (true) {
-      moveSelectorConfigList_=Collections.<MoveSelectorConfig>singletonList(new CartesianProductMoveSelectorConfig(subMoveSelectorConfigList));
-    }
- else {
-      moveSelectorConfigList_=subMoveSelectorConfigList;
-    }
+    moveSelectorConfig_=new CartesianProductMoveSelectorConfig(subMoveSelectorConfigList);
   }
  else {
-    moveSelectorConfigList_=moveSelectorConfigList;
+    moveSelectorConfig_=moveSelectorConfig;
   }
-  List<MoveSelector> moveSelectorList=new ArrayList<MoveSelector>(moveSelectorConfigList_.size());
-  for (  MoveSelectorConfig moveSelectorConfig : moveSelectorConfigList_) {
-    moveSelectorList.add(moveSelectorConfig.buildMoveSelector(configPolicy,SelectionCacheType.JUST_IN_TIME,SelectionOrder.ORIGINAL));
-  }
-  return new QueuedEntityPlacer(entitySelector,moveSelectorList);
+  return moveSelectorConfig_;
 }

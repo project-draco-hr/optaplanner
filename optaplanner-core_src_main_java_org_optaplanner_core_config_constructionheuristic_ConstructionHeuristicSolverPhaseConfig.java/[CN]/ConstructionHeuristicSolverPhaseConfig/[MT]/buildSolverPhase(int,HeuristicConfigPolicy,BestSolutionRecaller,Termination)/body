@@ -1,0 +1,31 @@
+{
+  HeuristicConfigPolicy phaseConfigPolicy=solverConfigPolicy.createPhaseConfigPolicy();
+  phaseConfigPolicy.setReinitializeVariableFilterEnabled(true);
+  phaseConfigPolicy.setInitializedChainedValueFilterEnabled(true);
+  ConstructionHeuristicType constructionHeuristicType_=constructionHeuristicType == null ? ConstructionHeuristicType.FIRST_FIT : constructionHeuristicType;
+  phaseConfigPolicy.setSortEntitiesByDecreasingDifficultyEnabled(constructionHeuristicType_.isSortEntitiesByDecreasingDifficulty());
+  phaseConfigPolicy.setSortValuesByIncreasingStrengthEnabled(constructionHeuristicType_.isSortValuesByIncreasingStrength());
+  DefaultConstructionHeuristicSolverPhase phase=new DefaultConstructionHeuristicSolverPhase();
+  configureSolverPhase(phase,phaseIndex,phaseConfigPolicy,bestSolutionRecaller,solverTermination);
+  phase.setDecider(buildDecider(phaseConfigPolicy,phase.getTermination()));
+  EntityPlacerConfig entityPlacerConfig;
+  if (ConfigUtils.isEmptyCollection(entityPlacerConfigList)) {
+    entityPlacerConfig=new QueuedEntityPlacerConfig();
+  }
+ else   if (entityPlacerConfigList.size() == 1) {
+    entityPlacerConfig=entityPlacerConfigList.get(0);
+  }
+ else {
+    throw new IllegalArgumentException("The entityPlacerConfigList (" + entityPlacerConfigList + ") must be a singleton or empty. Use multiple "+ ConstructionHeuristicSolverPhaseConfig.class+ " elements to initialize multiple entity classes.");
+  }
+  EntityPlacer entityPlacer=entityPlacerConfig.buildEntityPlacer(phaseConfigPolicy,phase.getTermination());
+  phase.setEntityPlacer(entityPlacer);
+  EnvironmentMode environmentMode=phaseConfigPolicy.getEnvironmentMode();
+  if (environmentMode.isNonIntrusiveFullAsserted()) {
+    phase.setAssertStepScoreFromScratch(true);
+  }
+  if (environmentMode.isIntrusiveFastAsserted()) {
+    phase.setAssertExpectedStepScore(true);
+  }
+  return phase;
+}

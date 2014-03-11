@@ -1,0 +1,8 @@
+{
+switch (this) {
+case DEPTH_FIRST_BRANCH_AND_BOUND:
+    return true;
+default :
+  throw new IllegalStateException("The exhaustiveSearchType (" + this + ") is not implemented.");
+}
+}

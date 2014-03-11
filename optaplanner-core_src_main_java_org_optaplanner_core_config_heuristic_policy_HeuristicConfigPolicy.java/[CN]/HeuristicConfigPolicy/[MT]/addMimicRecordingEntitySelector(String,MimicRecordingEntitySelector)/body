@@ -1,6 +1,0 @@
-{
-  MimicRecordingEntitySelector put=mimicRecordingEntitySelectorMap.put(id,mimicRecordingEntitySelector);
-  if (put != null) {
-    throw new IllegalStateException("Multiple entity selectors have the same id (" + id + ").");
-  }
-}
