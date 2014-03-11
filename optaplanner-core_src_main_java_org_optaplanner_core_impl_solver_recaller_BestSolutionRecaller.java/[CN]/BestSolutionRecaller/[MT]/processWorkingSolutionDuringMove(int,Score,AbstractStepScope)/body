@@ -1,10 +1,5 @@
 {
-  if (stepScope.isBestSolutionCloningDelayed()) {
-    return;
-  }
   AbstractSolverPhaseScope phaseScope=stepScope.getPhaseScope();
-  int uninitializedVariableCount=stepScope.getUninitializedVariableCount();
-  Score score=stepScope.getScore();
   DefaultSolverScope solverScope=phaseScope.getSolverScope();
   int bestUninitializedVariableCount=solverScope.getBestUninitializedVariableCount();
   Score bestScore=solverScope.getBestScore();
@@ -18,7 +13,7 @@
   stepScope.setBestScoreImproved(bestScoreImproved);
   if (bestScoreImproved) {
     phaseScope.setBestSolutionStepIndex(stepScope.getStepIndex());
-    Solution newBestSolution=stepScope.createOrGetClonedSolution();
+    Solution newBestSolution=solverScope.getScoreDirector().cloneWorkingSolution();
     updateBestSolution(solverScope,newBestSolution,uninitializedVariableCount);
   }
  else   if (assertBestScoreIsUnmodified) {

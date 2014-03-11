@@ -8,6 +8,7 @@
   int uninitializedVariableCount=phaseScope.getDepthSize() - moveNode.getDepth();
   if (uninitializedVariableCount == 0) {
     phaseScope.registerPessimisticBound(score);
+    bestSolutionRecaller.processWorkingSolutionDuringMove(uninitializedVariableCount,score,stepScope);
   }
  else {
     Score optimisticBound=scoreBounder.calculateOptimisticBound(phaseScope.getScoreDirector(),score,uninitializedVariableCount);

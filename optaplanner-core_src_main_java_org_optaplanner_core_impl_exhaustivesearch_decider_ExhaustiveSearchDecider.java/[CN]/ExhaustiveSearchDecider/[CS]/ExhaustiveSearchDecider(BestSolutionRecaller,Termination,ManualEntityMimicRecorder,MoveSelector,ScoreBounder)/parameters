@@ -1,3 +1,4 @@
+BestSolutionRecaller bestSolutionRecaller
 Termination termination
 ManualEntityMimicRecorder manualEntityMimicRecorder
 MoveSelector moveSelector

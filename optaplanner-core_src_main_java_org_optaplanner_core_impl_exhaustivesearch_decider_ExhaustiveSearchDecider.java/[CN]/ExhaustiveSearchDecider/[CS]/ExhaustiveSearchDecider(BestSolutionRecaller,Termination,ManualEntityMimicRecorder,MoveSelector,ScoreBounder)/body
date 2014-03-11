@@ -1,4 +1,5 @@
 {
+  this.bestSolutionRecaller=bestSolutionRecaller;
   this.termination=termination;
   this.manualEntityMimicRecorder=manualEntityMimicRecorder;
   this.moveSelector=moveSelector;
