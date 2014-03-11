@@ -30,7 +30,7 @@
   solver.setTermination(termination);
   BestSolutionRecaller bestSolutionRecaller=buildBestSolutionRecaller(environmentMode);
   solver.setBestSolutionRecaller(bestSolutionRecaller);
-  if (CollectionUtils.isEmpty(solverPhaseConfigList)) {
+  if (ConfigUtils.isEmptyCollection(solverPhaseConfigList)) {
     throw new IllegalArgumentException("Configure at least 1 phase (for example <localSearch>) in the solver configuration.");
   }
   List<SolverPhase> solverPhaseList=new ArrayList<SolverPhase>(solverPhaseConfigList.size());

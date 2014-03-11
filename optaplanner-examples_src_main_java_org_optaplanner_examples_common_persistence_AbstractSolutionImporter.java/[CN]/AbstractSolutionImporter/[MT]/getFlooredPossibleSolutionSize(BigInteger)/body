@@ -2,5 +2,5 @@
   if (possibleSolutionSize.compareTo(BigInteger.valueOf(1000L)) < 0) {
     return possibleSolutionSize.toString();
   }
-  return "10^" + (possibleSolutionSize.toString().length() - 1);
+  return "10^" + (BigIntegerMath.log10(possibleSolutionSize,RoundingMode.FLOOR));
 }

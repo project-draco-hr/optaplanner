@@ -3,5 +3,9 @@
   for (  CountableValueRange<T> childValueRange : childValueRangeList) {
     iteratorList.add(childValueRange.createOriginalIterator());
   }
-  return IteratorUtils.chainedIterator(iteratorList);
+  Iterator<T> originalIterator=Iterators.emptyIterator();
+  for (  Iterator<T> iterator : iteratorList) {
+    originalIterator=Iterators.concat(originalIterator,iterator);
+  }
+  return originalIterator;
 }

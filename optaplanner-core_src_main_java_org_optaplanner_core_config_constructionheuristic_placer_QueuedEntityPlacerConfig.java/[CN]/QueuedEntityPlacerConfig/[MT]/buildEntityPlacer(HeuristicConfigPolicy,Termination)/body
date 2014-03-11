@@ -23,7 +23,7 @@
   }
   EntitySelector entitySelector=entitySelectorConfig_.buildEntitySelector(configPolicy,SelectionCacheType.PHASE,defaultSelectionOrder);
   List<MoveSelectorConfig> moveSelectorConfigList_;
-  if (CollectionUtils.isEmpty(moveSelectorConfigList)) {
+  if (ConfigUtils.isEmptyCollection(moveSelectorConfigList)) {
     EntityDescriptor entityDescriptor=entitySelector.getEntityDescriptor();
     Collection<GenuineVariableDescriptor> variableDescriptors=entityDescriptor.getVariableDescriptors();
     List<MoveSelectorConfig> subMoveSelectorConfigList=new ArrayList<MoveSelectorConfig>(variableDescriptors.size());

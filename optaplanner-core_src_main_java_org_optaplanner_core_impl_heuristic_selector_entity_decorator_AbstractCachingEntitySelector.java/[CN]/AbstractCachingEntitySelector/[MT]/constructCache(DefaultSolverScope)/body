@@ -4,6 +4,6 @@
     throw new IllegalStateException("The selector (" + this + ") has a childEntitySelector ("+ childEntitySelector+ ") with childSize ("+ childSize+ ") which is higher than Integer.MAX_VALUE.");
   }
   cachedEntityList=new ArrayList<Object>((int)childSize);
-  CollectionUtils.addAll(cachedEntityList,childEntitySelector.iterator());
+  Iterators.addAll(cachedEntityList,childEntitySelector.iterator());
   logger.trace("    Created cachedEntityList with size ({}) in entitySelector({}).",cachedEntityList.size(),this);
 }

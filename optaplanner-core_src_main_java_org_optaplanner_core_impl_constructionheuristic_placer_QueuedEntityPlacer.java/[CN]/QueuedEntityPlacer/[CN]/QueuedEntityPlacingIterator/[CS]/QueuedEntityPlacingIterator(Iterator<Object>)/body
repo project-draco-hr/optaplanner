@@ -1,4 +1,4 @@
 {
   this.entityIterator=entityIterator;
-  moveSelectorIterator=IteratorUtils.emptyIterator();
+  moveSelectorIterator=Iterators.emptyIterator();
 }

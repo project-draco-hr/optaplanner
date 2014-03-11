@@ -4,6 +4,6 @@
     throw new IllegalStateException("The selector (" + this + ") has a childValueSelector ("+ childValueSelector+ ") with childSize ("+ childSize+ ") which is higher than Integer.MAX_VALUE.");
   }
   cachedValueList=new ArrayList<Object>((int)childSize);
-  CollectionUtils.addAll(cachedValueList,childValueSelector.iterator());
+  Iterators.addAll(cachedValueList,childValueSelector.iterator());
   logger.trace("    Created cachedValueList with size ({}) in valueSelector({}).",cachedValueList.size(),this);
 }
