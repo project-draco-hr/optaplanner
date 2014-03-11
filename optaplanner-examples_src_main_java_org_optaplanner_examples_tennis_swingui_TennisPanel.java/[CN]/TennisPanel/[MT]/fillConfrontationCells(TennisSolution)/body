@@ -12,9 +12,7 @@
   for (  Team left : teamList) {
     for (    Team right : teamList) {
       if (left != right) {
-        List<Team> teamPair=new ArrayList<Team>(2);
-        teamPair.add(left);
-        teamPair.add(right);
+        List<Team> teamPair=Arrays.asList(left,right);
         teamPairToConfrontationCountMap.put(teamPair,0);
       }
     }
@@ -23,9 +21,7 @@
     for (    TeamAssignment left : teamAssignmentSubList) {
       for (      TeamAssignment right : teamAssignmentSubList) {
         if (left.getTeam() != right.getTeam()) {
-          List<Team> teamPair=new ArrayList<Team>(2);
-          teamPair.add(left.getTeam());
-          teamPair.add(right.getTeam());
+          List<Team> teamPair=Arrays.asList(left.getTeam(),right.getTeam());
           int confrontationCount=teamPairToConfrontationCountMap.get(teamPair);
           confrontationCount++;
           teamPairToConfrontationCountMap.put(teamPair,confrontationCount);
