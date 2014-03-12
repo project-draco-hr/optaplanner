@@ -2,7 +2,7 @@
   this.selectionSorterWeightFactory=selectionSorterWeightFactory;
 switch (selectionSorterOrder) {
 case ASCENDING:
-    this.appliedWeightComparator=Ordering.arbitrary();
+    this.appliedWeightComparator=Ordering.natural();
   break;
 case DESCENDING:
 this.appliedWeightComparator=Collections.reverseOrder();
