@@ -5,7 +5,7 @@
     phaseScope.assertWorkingScoreFromScratch(score,moveNode.getMove());
   }
   moveNode.setScore(score);
-  int uninitializedVariableCount=phaseScope.getDepthSize() - moveNode.getDepth();
+  int uninitializedVariableCount=moveNode.getUninitializedVariableCount();
   if (uninitializedVariableCount == 0) {
     phaseScope.registerPessimisticBound(score);
     bestSolutionRecaller.processWorkingSolutionDuringMove(uninitializedVariableCount,score,stepScope);

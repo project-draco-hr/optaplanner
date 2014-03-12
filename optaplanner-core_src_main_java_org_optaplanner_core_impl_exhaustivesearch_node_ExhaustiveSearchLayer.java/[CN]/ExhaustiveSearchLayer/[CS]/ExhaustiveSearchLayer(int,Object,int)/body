@@ -1,5 +1,6 @@
 {
   this.depth=depth;
   this.entity=entity;
+  this.uninitializedVariableCount=uninitializedVariableCount;
   nextIndexInLayer=0L;
 }

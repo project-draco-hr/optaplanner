@@ -5,13 +5,19 @@
   if (entitySize > (long)Integer.MAX_VALUE) {
     throw new IllegalStateException("The entitySelector (" + entitySelector + ") has an entitySize ("+ entitySize+ ") which is higher than Integer.MAX_VALUE.");
   }
-  List<ExhaustiveSearchLayer> layerList=new ArrayList<ExhaustiveSearchLayer>((int)entitySize);
+  int entitySizeInt=(int)entitySize;
+  List<ExhaustiveSearchLayer> layerList=new ArrayList<ExhaustiveSearchLayer>(entitySizeInt);
   int depth=0;
   for (  Object entity : entitySelector) {
-    ExhaustiveSearchLayer layer=new ExhaustiveSearchLayer(depth,entity);
+    ExhaustiveSearchLayer layer=new ExhaustiveSearchLayer(depth,entity,entitySizeInt - depth);
     layerList.add(layer);
     depth++;
   }
+  if ((entitySizeInt - depth) != 0) {
+    throw new IllegalStateException("The entitySelector (" + entitySelector + ")'s size ("+ entitySizeInt+ ") is not accurate enough for exhaustive search.");
+  }
+  ExhaustiveSearchLayer layer=new ExhaustiveSearchLayer(depth,null,entitySizeInt - depth);
+  layerList.add(layer);
   entitySelector.stepEnded(stepScope);
   phaseScope.setLayerList(layerList);
 }
