@@ -1,0 +1,17 @@
+{
+  SelectionSorterWeightFactory<Solution,TestdataEntity> weightFactory=new SelectionSorterWeightFactory<Solution,TestdataEntity>(){
+    @Override public Comparable createSorterWeight(    Solution solution,    TestdataEntity selection){
+      return Integer.valueOf(selection.getCode().charAt(0));
+    }
+  }
+;
+  WeightFactorySelectionSorter<TestdataEntity> selectionSorter=new WeightFactorySelectionSorter<TestdataEntity>(weightFactory,SelectionSorterOrder.DESCENDING);
+  ScoreDirector scoreDirector=mock(ScoreDirector.class);
+  List<TestdataEntity> selectionList=new ArrayList<TestdataEntity>();
+  selectionList.add(new TestdataEntity("C"));
+  selectionList.add(new TestdataEntity("A"));
+  selectionList.add(new TestdataEntity("D"));
+  selectionList.add(new TestdataEntity("B"));
+  selectionSorter.sort(scoreDirector,selectionList);
+  assertCodesOfIterator(selectionList.iterator(),"D","C","B","A");
+}
