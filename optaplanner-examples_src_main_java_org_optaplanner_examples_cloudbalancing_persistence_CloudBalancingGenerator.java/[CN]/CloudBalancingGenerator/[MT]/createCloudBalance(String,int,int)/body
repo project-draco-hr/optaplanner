@@ -2,9 +2,10 @@
   random=new Random(47);
   CloudBalance cloudBalance=new CloudBalance();
   cloudBalance.setId(0L);
-  createCloudComputerList(cloudBalance,cloudComputerListSize);
-  createCloudProcessList(cloudBalance,cloudProcessListSize);
+  createComputerList(cloudBalance,computerListSize);
+  createProcessList(cloudBalance,processListSize);
+  assureComputerCapacityTotalAtLeastProcessRequiredTotal(cloudBalance);
   BigInteger possibleSolutionSize=BigInteger.valueOf(cloudBalance.getComputerList().size()).pow(cloudBalance.getProcessList().size());
-  logger.info("CloudBalance {} has {} computers and {} processes with a search space of {}.",inputId,cloudComputerListSize,cloudProcessListSize,AbstractSolutionImporter.getFlooredPossibleSolutionSize(possibleSolutionSize));
+  logger.info("CloudBalance {} has {} computers and {} processes with a search space of {}.",inputId,computerListSize,processListSize,AbstractSolutionImporter.getFlooredPossibleSolutionSize(possibleSolutionSize));
   return cloudBalance;
 }

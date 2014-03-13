@@ -1,6 +1,6 @@
 {
-  String inputId=determineInputId(cloudComputerListSize,cloudProcessListSize);
+  String inputId=determineInputId(computerListSize,processListSize);
   File outputFile=new File(outputDir,inputId + ".xml");
-  CloudBalance cloudBalance=createCloudBalance(inputId,cloudComputerListSize,cloudProcessListSize);
+  CloudBalance cloudBalance=createCloudBalance(inputId,computerListSize,processListSize);
   solutionDao.writeSolution(cloudBalance,outputFile);
 }

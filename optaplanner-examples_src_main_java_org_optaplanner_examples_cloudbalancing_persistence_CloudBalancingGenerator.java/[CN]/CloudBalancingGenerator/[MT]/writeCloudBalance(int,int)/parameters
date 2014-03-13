@@ -1,2 +1,2 @@
-int cloudComputerListSize
-int cloudProcessListSize
+int computerListSize
+int processListSize

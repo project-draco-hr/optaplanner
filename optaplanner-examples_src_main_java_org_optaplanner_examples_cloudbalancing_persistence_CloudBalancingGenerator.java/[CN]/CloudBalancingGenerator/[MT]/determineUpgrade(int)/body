@@ -1,0 +1,8 @@
+{
+  for (  int upgrade : new int[]{8,4,2,1}) {
+    if (lacking >= upgrade) {
+      return upgrade;
+    }
+  }
+  throw new IllegalStateException("Lacking (" + lacking + ") should be at least 1.");
+}

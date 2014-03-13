@@ -1,3 +1,3 @@
 {
-  return createCloudBalance(determineInputId(cloudComputerListSize,cloudProcessListSize),cloudComputerListSize,cloudProcessListSize);
+  return createCloudBalance(determineInputId(computerListSize,processListSize),computerListSize,processListSize);
 }
