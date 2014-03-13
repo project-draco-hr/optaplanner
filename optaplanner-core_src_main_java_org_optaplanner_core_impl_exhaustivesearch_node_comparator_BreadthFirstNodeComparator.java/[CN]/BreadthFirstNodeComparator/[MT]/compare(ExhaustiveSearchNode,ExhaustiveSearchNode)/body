@@ -1,0 +1,28 @@
+{
+  int aDepth=a.getDepth();
+  int bDepth=b.getDepth();
+  if (aDepth < bDepth) {
+    return 1;
+  }
+ else   if (aDepth > bDepth) {
+    return -1;
+  }
+  int optimisticBoundComparison=a.getOptimisticBound().compareTo(b.getOptimisticBound());
+  if (optimisticBoundComparison < 0) {
+    return -1;
+  }
+ else   if (optimisticBoundComparison > 0) {
+    return 1;
+  }
+  long aIndex=a.getIndexInLayer();
+  long bIndex=b.getIndexInLayer();
+  if (aIndex < bIndex) {
+    return 1;
+  }
+ else   if (aIndex > bIndex) {
+    return -1;
+  }
+ else {
+    return 0;
+  }
+}
