@@ -10,5 +10,5 @@
     ExhaustiveSearchSolverPhaseScope phaseScope=stepScope.getPhaseScope();
     phaseScope.assertExpectedUndoMoveScore(move,undoMove);
   }
-  logger.trace("        Move indexInLayer ({}), score ({}) for move ({}).",moveNode.getIndexInLayer(),moveNode.getScore(),moveNode.getMove());
+  logger.trace("        Move indexInLayer ({}), score ({}), move ({}).",moveNode.getIndexInLayer(),moveNode.getScore(),moveNode.getMove());
 }

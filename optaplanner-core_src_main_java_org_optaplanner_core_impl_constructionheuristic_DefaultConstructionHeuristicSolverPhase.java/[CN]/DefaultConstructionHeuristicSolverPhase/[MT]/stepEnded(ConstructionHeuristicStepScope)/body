@@ -4,6 +4,6 @@
   decider.stepEnded(stepScope);
   if (logger.isDebugEnabled()) {
     long timeMillisSpent=stepScope.getPhaseScope().calculateSolverTimeMillisSpent();
-    logger.debug("    Step index ({}), time spent ({}), score ({}), selected move count ({})" + " for constructing step ({}).",stepScope.getStepIndex(),timeMillisSpent,stepScope.getScore(),stepScope.getSelectedMoveCount(),stepScope.getStepString());
+    logger.debug("    CH step ({}), time spent ({}), score ({}), selected move count ({})," + " picked move ({}).",stepScope.getStepIndex(),timeMillisSpent,stepScope.getScore(),stepScope.getSelectedMoveCount(),stepScope.getStepString());
   }
 }

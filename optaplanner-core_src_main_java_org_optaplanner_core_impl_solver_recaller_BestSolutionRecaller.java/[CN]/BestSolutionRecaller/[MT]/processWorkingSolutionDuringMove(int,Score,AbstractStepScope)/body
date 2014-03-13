@@ -10,7 +10,9 @@
  else {
     bestScoreImproved=uninitializedVariableCount < bestUninitializedVariableCount;
   }
-  stepScope.setBestScoreImproved(bestScoreImproved);
+  if (bestScoreImproved) {
+    stepScope.setBestScoreImproved(bestScoreImproved);
+  }
   if (bestScoreImproved) {
     phaseScope.setBestSolutionStepIndex(stepScope.getStepIndex());
     Solution newBestSolution=solverScope.getScoreDirector().cloneWorkingSolution();

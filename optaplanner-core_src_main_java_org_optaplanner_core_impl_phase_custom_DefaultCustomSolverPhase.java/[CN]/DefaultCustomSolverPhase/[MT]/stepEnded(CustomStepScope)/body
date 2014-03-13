@@ -9,6 +9,6 @@
   CustomSolverPhaseScope phaseScope=stepScope.getPhaseScope();
   if (logger.isDebugEnabled()) {
     long timeMillisSpent=phaseScope.calculateSolverTimeMillisSpent();
-    logger.debug("    Step index ({}), time spent ({}), score ({}), {} best score ({}).",stepScope.getStepIndex(),timeMillisSpent,stepScope.getScore(),bestScoreImproved ? "new" : (forceUpdateBestSolution ? "forced" : "   "),phaseScope.getBestScore());
+    logger.debug("    Custom step ({}), time spent ({}), score ({}), {} best score ({}).",stepScope.getStepIndex(),timeMillisSpent,stepScope.getScore(),bestScoreImproved ? "new" : (forceUpdateBestSolution ? "forced" : "   "),phaseScope.getBestScoreWithUninitializedPrefix());
   }
 }

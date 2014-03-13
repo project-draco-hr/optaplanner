@@ -4,6 +4,6 @@
   LocalSearchSolverPhaseScope phaseScope=stepScope.getPhaseScope();
   if (logger.isDebugEnabled()) {
     long timeMillisSpent=phaseScope.calculateSolverTimeMillisSpent();
-    logger.debug("    Step index ({}), time spent ({}), score ({}), {} best score ({})," + " accepted/selected move count ({}/{}) for picked step ({}).",stepScope.getStepIndex(),timeMillisSpent,stepScope.getScore(),(stepScope.getBestScoreImproved() ? "new" : "   "),phaseScope.getBestScore(),stepScope.getAcceptedMoveCount(),stepScope.getSelectedMoveCount(),stepScope.getStepString());
+    logger.debug("    LS step ({}), time spent ({}), score ({}), {} best score ({})," + " accepted/selected move count ({}/{}), picked move ({}).",stepScope.getStepIndex(),timeMillisSpent,stepScope.getScore(),(stepScope.getBestScoreImproved() ? "new" : "   "),phaseScope.getBestScore(),stepScope.getAcceptedMoveCount(),stepScope.getSelectedMoveCount(),stepScope.getStepString());
   }
 }
