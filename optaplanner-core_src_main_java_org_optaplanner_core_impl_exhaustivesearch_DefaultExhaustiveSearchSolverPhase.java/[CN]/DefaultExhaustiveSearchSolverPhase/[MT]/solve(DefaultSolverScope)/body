@@ -1,7 +1,7 @@
 {
   ExhaustiveSearchSolverPhaseScope phaseScope=new ExhaustiveSearchSolverPhaseScope(solverScope);
   phaseStarted(phaseScope);
-  SortedSet<ExhaustiveSearchNode> expandableNodeQueue=new TreeSet<ExhaustiveSearchNode>(new DepthFirstNodeComparator());
+  SortedSet<ExhaustiveSearchNode> expandableNodeQueue=new TreeSet<ExhaustiveSearchNode>(nodeComparator);
   phaseScope.setExpandableNodeQueue(expandableNodeQueue);
   fillLayerList(phaseScope);
   initStartNode(phaseScope);

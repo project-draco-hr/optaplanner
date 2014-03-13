@@ -1,0 +1,12 @@
+{
+switch (this) {
+case BREADTH_FIRST_BRANCH_AND_BOUND:
+    return new BreadthFirstNodeComparator();
+case DEPTH_FIRST_BRANCH_AND_BOUND:
+  return new DepthFirstNodeComparator();
+case OPTIMISTIC_BOUND_FIRST_BRANCH_AND_BOUND:
+return new OptimisticBoundFirstNodeComparator();
+default :
+throw new IllegalStateException("The exhaustiveSearchType (" + this + ") is not implemented.");
+}
+}

@@ -6,6 +6,7 @@
   phaseConfigPolicy.setSortValuesByIncreasingStrengthEnabled(exhaustiveSearchType_.isSortValuesByIncreasingStrength());
   DefaultExhaustiveSearchSolverPhase phase=new DefaultExhaustiveSearchSolverPhase();
   configureSolverPhase(phase,phaseIndex,phaseConfigPolicy,bestSolutionRecaller,solverTermination);
+  phase.setNodeComparator(exhaustiveSearchType_.buildNodeComparator());
   EntitySelectorConfig entitySelectorConfig_=buildEntitySelectorConfig(phaseConfigPolicy);
   EntitySelector entitySelector=entitySelectorConfig_.buildEntitySelector(phaseConfigPolicy,SelectionCacheType.PHASE,SelectionOrder.ORIGINAL);
   phase.setEntitySelector(entitySelector);

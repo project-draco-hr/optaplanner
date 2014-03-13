@@ -1,6 +1,8 @@
 {
 switch (this) {
+case BREADTH_FIRST_BRANCH_AND_BOUND:
 case DEPTH_FIRST_BRANCH_AND_BOUND:
+case OPTIMISTIC_BOUND_FIRST_BRANCH_AND_BOUND:
     return true;
 default :
   throw new IllegalStateException("The exhaustiveSearchType (" + this + ") is not implemented.");
