@@ -113,11 +113,6 @@
     acceptor.setStartingTemperature(configPolicy.getScoreDefinition().parseScore(simulatedAnnealingStartingTemperature));
     acceptorList.add(acceptor);
   }
-  if ((acceptorTypeList != null && acceptorTypeList.contains(AcceptorType.GREAT_DELUGE)) || greatDelugeWaterLevelUpperBoundRate != null || greatDelugeWaterRisingRate != null) {
-    double waterLevelUpperBoundRate=(Double)ObjectUtils.defaultIfNull(greatDelugeWaterLevelUpperBoundRate,1.20);
-    double waterRisingRate=(Double)ObjectUtils.defaultIfNull(greatDelugeWaterRisingRate,0.0000001);
-    acceptorList.add(new GreatDelugeAcceptor(waterLevelUpperBoundRate,waterRisingRate));
-  }
   if ((acceptorTypeList != null && acceptorTypeList.contains(AcceptorType.LATE_ACCEPTANCE)) || lateAcceptanceSize != null) {
     LateAcceptanceAcceptor acceptor=new LateAcceptanceAcceptor();
     acceptor.setLateAcceptanceSize((lateAcceptanceSize == null) ? 1000 : lateAcceptanceSize);
