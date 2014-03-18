@@ -1,4 +1,7 @@
 {
+  resp.setHeader("Cache-Control","no-cache, no-store, must-revalidate");
+  resp.setHeader("Pragma","no-cache");
+  resp.setHeader("Expires","0");
   HttpSession session=req.getSession();
   VehicleRoutingSolution shownSolution=(VehicleRoutingSolution)session.getAttribute(VrpSessionAttributeName.SHOWN_SOLUTION);
   Dimension size=new Dimension(800,600);
