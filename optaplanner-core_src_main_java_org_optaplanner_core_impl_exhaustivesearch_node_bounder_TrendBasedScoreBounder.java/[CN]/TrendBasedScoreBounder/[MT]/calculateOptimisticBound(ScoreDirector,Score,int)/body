@@ -1,0 +1,6 @@
+{
+  if (uninitializedVariableCount == 0) {
+    return score;
+  }
+  return scoreDefinition.buildOptimisticBound(initializingScoreTrend,score);
+}

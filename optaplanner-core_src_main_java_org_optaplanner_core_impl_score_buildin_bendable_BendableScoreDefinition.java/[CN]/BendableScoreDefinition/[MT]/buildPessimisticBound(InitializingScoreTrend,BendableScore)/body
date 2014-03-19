@@ -1,0 +1,12 @@
+{
+  InitializingScoreTrendLevel[] trendLevels=initializingScoreTrend.getTrendLevels();
+  int[] hardScores=new int[hardLevelCount];
+  for (int i=0; i < hardLevelCount; i++) {
+    hardScores[i]=(trendLevels[i] == InitializingScoreTrendLevel.ONLY_UP) ? score.getHardScore(i) : Integer.MIN_VALUE;
+  }
+  int[] softScores=new int[softLevelCount];
+  for (int i=0; i < softLevelCount; i++) {
+    softScores[i]=(trendLevels[hardLevelCount + i] == InitializingScoreTrendLevel.ONLY_UP) ? score.getSoftScore(i) : Integer.MIN_VALUE;
+  }
+  return BendableScore.valueOf(hardScores,softScores);
+}

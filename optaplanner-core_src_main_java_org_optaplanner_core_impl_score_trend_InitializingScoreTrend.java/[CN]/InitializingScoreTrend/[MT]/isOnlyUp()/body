@@ -1,0 +1,8 @@
+{
+  for (  InitializingScoreTrendLevel trendLevel : trendLevels) {
+    if (trendLevel != InitializingScoreTrendLevel.ONLY_UP) {
+      return false;
+    }
+  }
+  return true;
+}

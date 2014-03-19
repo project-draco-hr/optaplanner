@@ -5,18 +5,11 @@
     bendableHardLevelCount=inheritedConfig.getBendableHardLevelCount();
     bendableSoftLevelCount=inheritedConfig.getBendableSoftLevelCount();
   }
-  if (simpleScoreCalculatorClass == null) {
-    simpleScoreCalculatorClass=inheritedConfig.getSimpleScoreCalculatorClass();
-  }
-  if (incrementalScoreCalculatorClass == null) {
-    incrementalScoreCalculatorClass=inheritedConfig.getIncrementalScoreCalculatorClass();
-  }
-  if (kieBase == null) {
-    kieBase=inheritedConfig.getKieBase();
-  }
+  simpleScoreCalculatorClass=ConfigUtils.inheritOverwritableProperty(simpleScoreCalculatorClass,inheritedConfig.getSimpleScoreCalculatorClass());
+  incrementalScoreCalculatorClass=ConfigUtils.inheritOverwritableProperty(incrementalScoreCalculatorClass,inheritedConfig.getIncrementalScoreCalculatorClass());
+  kieBase=ConfigUtils.inheritOverwritableProperty(kieBase,inheritedConfig.getKieBase());
   scoreDrlList=ConfigUtils.inheritMergeableListProperty(scoreDrlList,inheritedConfig.getScoreDrlList());
   kieBaseConfigurationProperties=ConfigUtils.inheritMergeableMapProperty(kieBaseConfigurationProperties,inheritedConfig.getKieBaseConfigurationProperties());
-  if (assertionScoreDirectorFactory == null) {
-    assertionScoreDirectorFactory=inheritedConfig.getAssertionScoreDirectorFactory();
-  }
+  initializingScoreTrend=ConfigUtils.inheritOverwritableProperty(initializingScoreTrend,inheritedConfig.getInitializingScoreTrend());
+  assertionScoreDirectorFactory=ConfigUtils.inheritOverwritableProperty(assertionScoreDirectorFactory,inheritedConfig.getAssertionScoreDirectorFactory());
 }

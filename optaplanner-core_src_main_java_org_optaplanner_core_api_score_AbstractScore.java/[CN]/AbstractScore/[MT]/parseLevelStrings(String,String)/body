@@ -1,5 +1,5 @@
 {
-  String[] scoreTokens=scoreString.split("\\/");
+  String[] scoreTokens=scoreString.split("/");
   if (scoreTokens.length != levelSuffixes.length) {
     throw new IllegalArgumentException("The scoreString (" + scoreString + ") doesn't follow the correct pattern ("+ buildScorePattern(levelSuffixes)+ "):"+ " the scoreTokens length ("+ scoreTokens.length+ ") differs from the levelSuffixes length ("+ levelSuffixes.length+ ").");
   }

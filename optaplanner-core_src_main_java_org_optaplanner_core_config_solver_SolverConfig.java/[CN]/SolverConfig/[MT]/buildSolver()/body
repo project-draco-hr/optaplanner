@@ -23,8 +23,7 @@
   ScoreDirectorFactoryConfig scoreDirectorFactoryConfig_=scoreDirectorFactoryConfig == null ? new ScoreDirectorFactoryConfig() : scoreDirectorFactoryConfig;
   ScoreDirectorFactory scoreDirectorFactory=scoreDirectorFactoryConfig_.buildScoreDirectorFactory(environmentMode,solutionDescriptor);
   solver.setScoreDirectorFactory(scoreDirectorFactory);
-  ScoreDefinition scoreDefinition=scoreDirectorFactory.getScoreDefinition();
-  HeuristicConfigPolicy configPolicy=new HeuristicConfigPolicy(environmentMode,solutionDescriptor,scoreDefinition);
+  HeuristicConfigPolicy configPolicy=new HeuristicConfigPolicy(environmentMode,scoreDirectorFactory);
   TerminationConfig terminationConfig_=terminationConfig == null ? new TerminationConfig() : terminationConfig;
   Termination termination=terminationConfig_.buildTermination(configPolicy,basicPlumbingTermination);
   solver.setTermination(termination);

@@ -1,0 +1,4 @@
+{
+  this.environmentMode=environmentMode;
+  this.scoreDirectorFactory=scoreDirectorFactory;
+}

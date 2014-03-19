@@ -1,6 +1,0 @@
-{
-  if (uninitializedVariableCount == 0) {
-    return score;
-  }
-  return scoreDefinition.getPerfectMinimumScore();
-}

@@ -1,11 +1,14 @@
 {
-  if ((bendableHardLevelCount != null || bendableSoftLevelCount != null) && scoreDefinitionType != ScoreDefinitionType.BENDABLE) {
+  if (scoreDefinitionType != ScoreDefinitionType.BENDABLE && (bendableHardLevelCount != null || bendableSoftLevelCount != null)) {
     throw new IllegalArgumentException("With scoreDefinitionType (" + scoreDefinitionType + ") there must be no bendableHardLevelCount ("+ bendableHardLevelCount+ ") or bendableSoftLevelCount ("+ bendableSoftLevelCount+ ").");
   }
   if (scoreDefinitionClass != null) {
+    if (scoreDefinitionType != null || bendableHardLevelCount != null || bendableSoftLevelCount != null) {
+      throw new IllegalStateException("With scoreDefinitionClass (" + scoreDefinitionClass + ") there must be no scoreDefinitionType ("+ scoreDefinitionType+ ") or bendableHardLevelCount ("+ bendableHardLevelCount+ ") or bendableSoftLevelCount ("+ bendableSoftLevelCount+ ").");
+    }
     return ConfigUtils.newInstance(this,"scoreDefinitionClass",scoreDefinitionClass);
   }
- else   if (scoreDefinitionType != null) {
+  if (scoreDefinitionType != null) {
 switch (scoreDefinitionType) {
 case SIMPLE:
       return new SimpleScoreDefinition();

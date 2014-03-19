@@ -2,4 +2,6 @@
   super.phaseStarted(phaseScope);
   entitySelector.phaseStarted(phaseScope);
   decider.phaseStarted(phaseScope);
+  fillLayerList(phaseScope);
+  initStartNode(phaseScope);
 }

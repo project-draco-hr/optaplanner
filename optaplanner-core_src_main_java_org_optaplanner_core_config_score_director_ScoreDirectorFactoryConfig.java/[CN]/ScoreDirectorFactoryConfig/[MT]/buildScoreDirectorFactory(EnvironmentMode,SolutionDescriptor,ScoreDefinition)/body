@@ -21,5 +21,6 @@
     }
     scoreDirectorFactory.setAssertionScoreDirectorFactory(assertionScoreDirectorFactory.buildScoreDirectorFactory(EnvironmentMode.PRODUCTION,solutionDescriptor,scoreDefinition));
   }
+  scoreDirectorFactory.setInitializingScoreTrend(InitializingScoreTrend.parseTrend(initializingScoreTrend == null ? InitializingScoreTrendLevel.ANY.name() : initializingScoreTrend,scoreDefinition.getLevelCount()));
   return scoreDirectorFactory;
 }

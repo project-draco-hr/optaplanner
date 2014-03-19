@@ -1,0 +1,14 @@
+{
+  StringBuilder trendPattern=new StringBuilder(levelsSize * 4);
+  boolean first=true;
+  for (int i=0; i < levelsSize; i++) {
+    if (first) {
+      first=false;
+    }
+ else {
+      trendPattern.append("/");
+    }
+    trendPattern.append(InitializingScoreTrendLevel.ANY.name());
+  }
+  return trendPattern.toString();
+}

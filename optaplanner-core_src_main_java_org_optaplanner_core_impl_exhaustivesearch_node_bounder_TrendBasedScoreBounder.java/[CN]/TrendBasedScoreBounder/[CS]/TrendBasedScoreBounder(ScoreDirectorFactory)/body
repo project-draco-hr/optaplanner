@@ -1,0 +1,4 @@
+{
+  scoreDefinition=scoreDirectorFactory.getScoreDefinition();
+  initializingScoreTrend=scoreDirectorFactory.getInitializingScoreTrend();
+}
