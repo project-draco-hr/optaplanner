@@ -1,0 +1,5 @@
+{
+  long breadth=nextBreadth;
+  nextBreadth++;
+  return breadth;
+}

@@ -1,5 +1,5 @@
 {
   this.layer=layer;
   this.parent=parent;
-  this.indexInLayer=indexInLayer;
+  this.breadth=layer.assignBreadth();
 }

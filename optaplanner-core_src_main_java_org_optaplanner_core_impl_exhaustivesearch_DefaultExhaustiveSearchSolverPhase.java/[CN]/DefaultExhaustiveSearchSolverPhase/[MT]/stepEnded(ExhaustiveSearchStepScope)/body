@@ -4,6 +4,6 @@
   if (logger.isDebugEnabled()) {
     ExhaustiveSearchSolverPhaseScope phaseScope=stepScope.getPhaseScope();
     long timeMillisSpent=phaseScope.calculateSolverTimeMillisSpent();
-    logger.debug("    ES step ({}), time spent ({}), depth ({}), {} best score ({}), selected move count ({}).",stepScope.getStepIndex(),timeMillisSpent,stepScope.getDepth(),(stepScope.getBestScoreImproved() ? "new" : "   "),phaseScope.getBestScoreWithUninitializedPrefix(),stepScope.getSelectedMoveCount());
+    logger.debug("    ES step ({}), time spent ({}), depth ({}), breadth ({}), {} best score ({}), selected move count ({}).",stepScope.getStepIndex(),timeMillisSpent,stepScope.getDepth(),stepScope.getBreadth(),(stepScope.getBestScoreImproved() ? "new" : "   "),phaseScope.getBestScoreWithUninitializedPrefix(),stepScope.getSelectedMoveCount());
   }
 }

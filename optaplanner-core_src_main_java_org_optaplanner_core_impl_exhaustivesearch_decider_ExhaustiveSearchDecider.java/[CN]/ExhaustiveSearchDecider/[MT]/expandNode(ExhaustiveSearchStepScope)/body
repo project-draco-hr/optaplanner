@@ -5,7 +5,7 @@
   int moveIndex=0;
   ExhaustiveSearchLayer moveLayer=stepScope.getPhaseScope().getLayerList().get(expandingNode.getDepth() + 1);
   for (  Move move : moveSelector) {
-    ExhaustiveSearchNode moveNode=new ExhaustiveSearchNode(moveLayer,expandingNode,moveLayer.assignIndexInLayer());
+    ExhaustiveSearchNode moveNode=new ExhaustiveSearchNode(moveLayer,expandingNode);
     moveIndex++;
     moveNode.setMove(move);
     doMove(stepScope,moveNode);

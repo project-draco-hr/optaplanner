@@ -1,9 +1,11 @@
 {
 switch (this) {
+case BRUTE_FORCE:
+    return new BruteForceNodeComparator();
 case BREADTH_FIRST_BRANCH_AND_BOUND:
-    return new BreadthFirstNodeComparator();
+  return new BreadthFirstNodeComparator();
 case DEPTH_FIRST_BRANCH_AND_BOUND:
-  return new DepthFirstNodeComparator();
+return new DepthFirstNodeComparator();
 case OPTIMISTIC_BOUND_FIRST_BRANCH_AND_BOUND:
 return new OptimisticBoundFirstNodeComparator();
 default :
