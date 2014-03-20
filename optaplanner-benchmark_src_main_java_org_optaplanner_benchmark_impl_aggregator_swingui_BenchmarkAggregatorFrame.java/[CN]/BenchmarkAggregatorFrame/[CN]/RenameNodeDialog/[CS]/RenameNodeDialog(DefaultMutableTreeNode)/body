@@ -13,7 +13,7 @@
   mainPanel.add(confirmRenameButton,BorderLayout.EAST);
   setContentPane(mainPanel);
   mainPanel.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
-  confirmRenameButton.addActionListener(new AbstractAction(){
+  AbstractAction renamedAction=new AbstractAction(){
     @Override public void actionPerformed(    ActionEvent e){
       String newBenchmarkResultName=benchmarkResultNameTextField.getText();
       if (StringUtils.isEmpty(newBenchmarkResultName)) {
@@ -34,5 +34,7 @@
       }
     }
   }
-);
+;
+  benchmarkResultNameTextField.addActionListener(renamedAction);
+  confirmRenameButton.addActionListener(renamedAction);
 }
