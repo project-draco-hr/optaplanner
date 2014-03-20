@@ -7,4 +7,5 @@
   DefaultTreeModel treeModel=new DefaultTreeModel(newCheckBoxRootNode);
   checkBoxTree.setModel(treeModel);
   treeModel.nodeStructureChanged(newCheckBoxRootNode);
+  parentFrame.setEnabled(true);
 }

@@ -1,0 +1,10 @@
+{
+  exitApplicationWhenReportFinished=exitCheckBox.isSelected();
+  if (exitApplicationWhenReportFinished) {
+    parentFrame.dispose();
+  }
+ else {
+    dispose();
+    refreshParentFrame();
+  }
+}

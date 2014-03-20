@@ -1,0 +1,30 @@
+{
+  JPanel buttonPanel=new JPanel(new GridLayout(1,3,10,10));
+  JButton openBrowserButton=new JButton("Show in browser");
+  openBrowserButton.addActionListener(new AbstractAction(){
+    @Override public void actionPerformed(    ActionEvent e){
+      openReportFile(reportFile.getAbsoluteFile(),Desktop.Action.BROWSE);
+      finishDialog();
+    }
+  }
+);
+  buttonPanel.add(openBrowserButton);
+  JButton openFileButton=new JButton("Show in files");
+  openFileButton.addActionListener(new AbstractAction(){
+    @Override public void actionPerformed(    ActionEvent e){
+      openReportFile(reportFile.getParentFile(),Desktop.Action.OPEN);
+      finishDialog();
+    }
+  }
+);
+  buttonPanel.add(openFileButton);
+  JButton closeButton=new JButton("Ok");
+  closeButton.addActionListener(new AbstractAction(){
+    @Override public void actionPerformed(    ActionEvent e){
+      finishDialog();
+    }
+  }
+);
+  buttonPanel.add(closeButton);
+  return buttonPanel;
+}
