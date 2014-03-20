@@ -8,4 +8,7 @@
   if (uninitializedVariableCount == 0) {
     solverScope.setStartingInitializedScore(score);
   }
+ else {
+    solverScope.setStartingInitializedScore(null);
+  }
 }

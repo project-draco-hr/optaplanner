@@ -4,9 +4,6 @@
       solverScope.setStartingInitializedScore(solution.getScore());
     }
   }
- else {
-    solverScope.setStartingInitializedScore(null);
-  }
   solverScope.setBestUninitializedVariableCount(uninitializedVariableCount);
   solverScope.setBestSolution(solution);
   solverScope.setBestScore(solution.getScore());
