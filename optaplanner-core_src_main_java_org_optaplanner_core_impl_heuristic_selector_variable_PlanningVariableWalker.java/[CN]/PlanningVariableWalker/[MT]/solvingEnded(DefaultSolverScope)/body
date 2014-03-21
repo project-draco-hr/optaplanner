@@ -1,5 +1,0 @@
-{
-  for (  PlanningValueWalker planningValueWalker : planningValueWalkerList) {
-    planningValueWalker.solvingEnded(solverScope);
-  }
-}

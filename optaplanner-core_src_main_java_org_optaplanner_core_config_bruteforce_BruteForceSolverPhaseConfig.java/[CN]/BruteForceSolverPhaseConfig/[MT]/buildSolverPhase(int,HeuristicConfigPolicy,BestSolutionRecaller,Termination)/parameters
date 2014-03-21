@@ -1,4 +1,0 @@
-int phaseIndex
-HeuristicConfigPolicy solverConfigPolicy
-BestSolutionRecaller bestSolutionRecaller
-Termination solverTermination

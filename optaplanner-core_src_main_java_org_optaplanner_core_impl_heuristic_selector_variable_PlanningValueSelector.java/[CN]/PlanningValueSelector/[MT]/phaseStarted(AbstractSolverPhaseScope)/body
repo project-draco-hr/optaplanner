@@ -1,5 +1,0 @@
-{
-  scoreDirector=phaseScope.getScoreDirector();
-  workingRandom=phaseScope.getWorkingRandom();
-  initSelectedPlanningValueList(phaseScope);
-}

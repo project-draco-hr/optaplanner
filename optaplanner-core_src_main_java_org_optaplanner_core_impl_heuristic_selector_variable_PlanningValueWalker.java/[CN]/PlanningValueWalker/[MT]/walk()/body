@@ -1,9 +1,0 @@
-{
-  if (isFirstValue) {
-    isFirstValue=false;
-  }
- else {
-    Object value=planningValueIterator.next();
-    changeWorkingValue(value);
-  }
-}

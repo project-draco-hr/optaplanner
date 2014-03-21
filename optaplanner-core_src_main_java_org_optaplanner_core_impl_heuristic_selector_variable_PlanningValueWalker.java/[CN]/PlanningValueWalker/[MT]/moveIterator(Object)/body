@@ -1,9 +1,0 @@
-{
-  final Iterator<?> planningValueIterator=planningValueSelector.iterator(entity);
-  if (!variableDescriptor.isChained()) {
-    return new ChangeMoveIterator(planningValueIterator,entity);
-  }
- else {
-    return new ChainedChangeMoveIterator(planningValueIterator,entity);
-  }
-}

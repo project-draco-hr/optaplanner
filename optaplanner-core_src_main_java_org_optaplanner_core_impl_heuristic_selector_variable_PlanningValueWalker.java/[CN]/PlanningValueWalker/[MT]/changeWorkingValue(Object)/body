@@ -1,6 +1,0 @@
-{
-  scoreDirector.beforeVariableChanged(entity,variableDescriptor.getVariableName());
-  variableDescriptor.setValue(entity,value);
-  scoreDirector.afterVariableChanged(entity,variableDescriptor.getVariableName());
-  workingValue=value;
-}

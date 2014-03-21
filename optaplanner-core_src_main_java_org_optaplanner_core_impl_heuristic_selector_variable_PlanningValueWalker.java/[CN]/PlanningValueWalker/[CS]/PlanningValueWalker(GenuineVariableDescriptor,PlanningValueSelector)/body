@@ -1,4 +1,0 @@
-{
-  this.variableDescriptor=variableDescriptor;
-  this.planningValueSelector=planningValueSelector;
-}

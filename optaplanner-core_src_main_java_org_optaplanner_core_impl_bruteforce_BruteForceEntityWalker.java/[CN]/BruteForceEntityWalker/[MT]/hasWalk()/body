@@ -1,8 +1,0 @@
-{
-  for (  PlanningVariableWalker planningVariableWalker : planningVariableWalkerList) {
-    if (planningVariableWalker.hasWalk()) {
-      return true;
-    }
-  }
-  return false;
-}

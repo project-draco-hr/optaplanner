@@ -1,4 +1,0 @@
-{
-  super.phaseStarted(phaseScope);
-  bruteForceEntityWalker.phaseStarted(phaseScope);
-}

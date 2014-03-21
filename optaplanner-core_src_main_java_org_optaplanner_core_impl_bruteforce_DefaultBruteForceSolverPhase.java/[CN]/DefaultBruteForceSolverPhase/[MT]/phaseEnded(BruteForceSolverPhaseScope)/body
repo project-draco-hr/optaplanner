@@ -1,5 +1,0 @@
-{
-  super.phaseEnded(phaseScope);
-  bruteForceEntityWalker.phaseEnded(phaseScope);
-  logger.info("Phase ({}) bruteForce ended: step total ({}), time spent ({}), best score ({}).",phaseIndex,phaseScope.getNextStepIndex(),phaseScope.calculateSolverTimeMillisSpent(),phaseScope.getBestScore());
-}

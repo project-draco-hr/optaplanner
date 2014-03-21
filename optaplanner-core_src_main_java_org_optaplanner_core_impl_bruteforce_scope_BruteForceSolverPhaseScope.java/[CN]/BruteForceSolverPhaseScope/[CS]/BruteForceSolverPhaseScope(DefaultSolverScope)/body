@@ -1,4 +1,0 @@
-{
-  super(solverScope);
-  lastCompletedStepScope=new BruteForceStepScope(this,-1);
-}

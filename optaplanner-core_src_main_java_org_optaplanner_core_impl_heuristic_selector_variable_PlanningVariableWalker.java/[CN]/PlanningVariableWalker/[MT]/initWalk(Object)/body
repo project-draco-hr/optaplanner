@@ -1,6 +1,0 @@
-{
-  this.entity=entity;
-  for (  PlanningValueWalker planningValueWalker : planningValueWalkerList) {
-    planningValueWalker.initWalk(entity);
-  }
-}

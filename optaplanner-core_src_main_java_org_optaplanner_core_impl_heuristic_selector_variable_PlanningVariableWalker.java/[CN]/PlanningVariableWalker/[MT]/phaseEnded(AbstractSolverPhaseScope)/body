@@ -1,7 +1,0 @@
-{
-  for (  PlanningValueWalker planningValueWalker : planningValueWalkerList) {
-    planningValueWalker.phaseEnded(phaseScope);
-  }
-  scoreDirector=null;
-  entity=null;
-}

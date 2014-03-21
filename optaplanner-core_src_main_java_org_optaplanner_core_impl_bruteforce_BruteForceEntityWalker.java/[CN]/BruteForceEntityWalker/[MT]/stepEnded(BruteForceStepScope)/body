@@ -1,5 +1,0 @@
-{
-  for (  PlanningVariableWalker planningVariableWalker : planningVariableWalkerList) {
-    planningVariableWalker.stepEnded(stepScope);
-  }
-}

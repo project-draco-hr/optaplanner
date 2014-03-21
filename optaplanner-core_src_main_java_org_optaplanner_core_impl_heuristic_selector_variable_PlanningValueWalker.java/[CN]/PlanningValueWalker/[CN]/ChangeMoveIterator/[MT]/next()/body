@@ -1,4 +1,0 @@
-{
-  Object toPlanningValue=planningValueIterator.next();
-  return new ChangeMove(entity,variableDescriptor,toPlanningValue);
-}
