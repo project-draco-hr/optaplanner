@@ -1,4 +1,4 @@
 {
-  BreadthFirstNodeComparator comparator=new BreadthFirstNodeComparator();
+  BreadthFirstNodeComparator comparator=new BreadthFirstNodeComparator(true);
   assertScoreCompareToOrder(comparator,buildNode(2,-110,7),buildNode(2,-110,5),buildNode(2,-90,7),buildNode(2,-90,5),buildNode(1,-110,7),buildNode(1,-110,5),buildNode(1,-90,7),buildNode(1,-90,5));
 }

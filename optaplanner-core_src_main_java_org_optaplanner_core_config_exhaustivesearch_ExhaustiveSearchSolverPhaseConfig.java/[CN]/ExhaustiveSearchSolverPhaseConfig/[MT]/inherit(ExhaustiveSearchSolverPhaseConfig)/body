@@ -1,6 +1,7 @@
 {
   super.inherit(inheritedConfig);
   exhaustiveSearchType=ConfigUtils.inheritOverwritableProperty(exhaustiveSearchType,inheritedConfig.getExhaustiveSearchType());
+  nodeExplorationType=ConfigUtils.inheritOverwritableProperty(nodeExplorationType,inheritedConfig.getNodeExplorationType());
   if (entitySelectorConfig == null) {
     entitySelectorConfig=inheritedConfig.getEntitySelectorConfig();
   }

@@ -1,0 +1,5 @@
+{
+  if (!scoreBounderEnabled) {
+    throw new IllegalArgumentException("This " + getClass().getSimpleName() + " only works if scoreBounderEnabled ("+ scoreBounderEnabled+ ") is true.");
+  }
+}
