@@ -1,22 +1,37 @@
 {
   ExhaustiveSearchSolverPhaseScope phaseScope=stepScope.getPhaseScope();
-  Score score=phaseScope.calculateScore();
-  if (assertMoveScoreFromScratch) {
-    phaseScope.assertWorkingScoreFromScratch(score,moveNode.getMove());
-  }
-  moveNode.setScore(score);
   int uninitializedVariableCount=moveNode.getUninitializedVariableCount();
-  if (uninitializedVariableCount == 0) {
-    phaseScope.registerPessimisticBound(score);
-    bestSolutionRecaller.processWorkingSolutionDuringMove(uninitializedVariableCount,score,stepScope);
+  if (!scoreBounderEnabled) {
+    if (uninitializedVariableCount == 0) {
+      Score score=phaseScope.calculateScore();
+      moveNode.setScore(score);
+      if (assertMoveScoreFromScratch) {
+        phaseScope.assertWorkingScoreFromScratch(score,moveNode.getMove());
+      }
+      bestSolutionRecaller.processWorkingSolutionDuringMove(uninitializedVariableCount,score,stepScope);
+    }
+ else {
+      phaseScope.getExpandableNodeQueue().add(moveNode);
+    }
   }
  else {
-    Score optimisticBound=scoreBounder.calculateOptimisticBound(phaseScope.getScoreDirector(),score,uninitializedVariableCount);
-    moveNode.setOptimisticBound(optimisticBound);
-    if (optimisticBound.compareTo(phaseScope.getBestPessimisticBound()) > 0) {
-      phaseScope.getExpandableNodeQueue().add(moveNode);
-      Score pessimisticBound=scoreBounder.calculatePessimisticBound(phaseScope.getScoreDirector(),score,uninitializedVariableCount);
-      phaseScope.registerPessimisticBound(pessimisticBound);
+    Score score=phaseScope.calculateScore();
+    moveNode.setScore(score);
+    if (assertMoveScoreFromScratch) {
+      phaseScope.assertWorkingScoreFromScratch(score,moveNode.getMove());
+    }
+    if (uninitializedVariableCount == 0) {
+      phaseScope.registerPessimisticBound(score);
+      bestSolutionRecaller.processWorkingSolutionDuringMove(uninitializedVariableCount,score,stepScope);
+    }
+ else {
+      Score optimisticBound=scoreBounder.calculateOptimisticBound(phaseScope.getScoreDirector(),score,uninitializedVariableCount);
+      moveNode.setOptimisticBound(optimisticBound);
+      if (optimisticBound.compareTo(phaseScope.getBestPessimisticBound()) > 0) {
+        phaseScope.getExpandableNodeQueue().add(moveNode);
+        Score pessimisticBound=scoreBounder.calculatePessimisticBound(phaseScope.getScoreDirector(),score,uninitializedVariableCount);
+        phaseScope.registerPessimisticBound(pessimisticBound);
+      }
     }
   }
 }

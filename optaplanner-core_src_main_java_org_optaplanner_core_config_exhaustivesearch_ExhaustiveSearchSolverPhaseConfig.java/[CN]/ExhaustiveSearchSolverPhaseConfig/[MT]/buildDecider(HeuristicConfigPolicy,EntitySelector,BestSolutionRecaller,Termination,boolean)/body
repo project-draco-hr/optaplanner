@@ -4,8 +4,8 @@
   configPolicy.addEntityMimicRecorder(mimicSelectorId,manualEntityMimicRecorder);
   MoveSelectorConfig moveSelectorConfig_=buildMoveSelectorConfig(configPolicy,sourceEntitySelector,mimicSelectorId);
   MoveSelector moveSelector=moveSelectorConfig_.buildMoveSelector(configPolicy,SelectionCacheType.JUST_IN_TIME,SelectionOrder.ORIGINAL);
-  ScoreBounder scoreBounder=new TrendBasedScoreBounder(configPolicy.getScoreDirectorFactory());
-  ExhaustiveSearchDecider decider=new ExhaustiveSearchDecider(bestSolutionRecaller,termination,manualEntityMimicRecorder,moveSelector,scoreBounder);
+  ScoreBounder scoreBounder=scoreBounderEnabled ? new TrendBasedScoreBounder(configPolicy.getScoreDirectorFactory()) : null;
+  ExhaustiveSearchDecider decider=new ExhaustiveSearchDecider(bestSolutionRecaller,termination,manualEntityMimicRecorder,moveSelector,scoreBounderEnabled,scoreBounder);
   EnvironmentMode environmentMode=configPolicy.getEnvironmentMode();
   if (environmentMode.isNonIntrusiveFullAsserted()) {
     decider.setAssertMoveScoreFromScratch(true);

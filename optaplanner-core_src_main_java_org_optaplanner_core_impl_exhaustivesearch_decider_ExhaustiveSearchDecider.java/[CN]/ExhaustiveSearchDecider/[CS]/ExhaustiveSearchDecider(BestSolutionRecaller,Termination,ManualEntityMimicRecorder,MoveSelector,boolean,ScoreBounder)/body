@@ -3,5 +3,6 @@
   this.termination=termination;
   this.manualEntityMimicRecorder=manualEntityMimicRecorder;
   this.moveSelector=moveSelector;
+  this.scoreBounderEnabled=scoreBounderEnabled;
   this.scoreBounder=scoreBounder;
 }

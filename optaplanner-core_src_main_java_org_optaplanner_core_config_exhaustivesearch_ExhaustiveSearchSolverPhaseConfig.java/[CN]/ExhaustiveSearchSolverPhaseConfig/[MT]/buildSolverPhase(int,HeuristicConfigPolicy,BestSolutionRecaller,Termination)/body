@@ -10,7 +10,7 @@
   EntitySelectorConfig entitySelectorConfig_=buildEntitySelectorConfig(phaseConfigPolicy);
   EntitySelector entitySelector=entitySelectorConfig_.buildEntitySelector(phaseConfigPolicy,SelectionCacheType.PHASE,SelectionOrder.ORIGINAL);
   phase.setEntitySelector(entitySelector);
-  phase.setDecider(buildDecider(phaseConfigPolicy,entitySelector,bestSolutionRecaller,phase.getTermination()));
+  phase.setDecider(buildDecider(phaseConfigPolicy,entitySelector,bestSolutionRecaller,phase.getTermination(),exhaustiveSearchType_.isScoreBounderEnabled()));
   EnvironmentMode environmentMode=phaseConfigPolicy.getEnvironmentMode();
   if (environmentMode.isNonIntrusiveFullAsserted()) {
     phase.setAssertWorkingSolutionScoreFromScratch(true);

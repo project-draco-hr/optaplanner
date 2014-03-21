@@ -2,3 +2,4 @@ HeuristicConfigPolicy configPolicy
 EntitySelector sourceEntitySelector
 BestSolutionRecaller bestSolutionRecaller
 Termination termination
+boolean scoreBounderEnabled
