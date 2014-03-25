@@ -67,7 +67,7 @@
           }
           moveListByPillarPartDuo.add(new EmployeeMultipleChangeMove(pillarPartAssignmentSequence.getEmployee(),pillarPartAssignmentSequence.getShiftAssignmentList(),otherEmployee));
         }
-        moveList.add(new CompositeMove(moveListByPillarPartDuo));
+        moveList.add(CompositeMove.buildMove(moveListByPillarPartDuo));
       }
     }
   }
