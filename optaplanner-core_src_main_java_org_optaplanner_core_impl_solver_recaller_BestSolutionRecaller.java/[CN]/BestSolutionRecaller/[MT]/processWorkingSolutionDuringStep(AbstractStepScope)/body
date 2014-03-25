@@ -1,7 +1,4 @@
 {
-  if (stepScope.isBestSolutionCloningDelayed()) {
-    return;
-  }
   AbstractSolverPhaseScope phaseScope=stepScope.getPhaseScope();
   int uninitializedVariableCount=stepScope.getUninitializedVariableCount();
   Score score=stepScope.getScore();
