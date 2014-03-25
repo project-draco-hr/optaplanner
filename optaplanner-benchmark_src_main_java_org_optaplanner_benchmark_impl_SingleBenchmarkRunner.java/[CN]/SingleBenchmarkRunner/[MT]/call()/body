@@ -11,8 +11,7 @@
   for (  SingleStatistic singleStatistic : singleBenchmarkResult.getSingleStatisticMap().values()) {
     singleStatistic.open(solver);
   }
-  solver.setPlanningProblem(inputSolution);
-  solver.solve();
+  solver.solve(inputSolution);
   long timeMillisSpent=solver.getTimeMillisSpent();
   Solution outputSolution=solver.getBestSolution();
   DefaultSolverScope solverScope=((DefaultSolver)solver).getSolverScope();

@@ -1,7 +1,6 @@
 {
   Solution planningProblem=solutionDao.readSolution(unsolvedDataFile);
   Solver solver=solverFactory.buildSolver();
-  solver.setPlanningProblem(planningProblem);
-  solver.solve();
+  solver.solve(planningProblem);
   return solver;
 }
