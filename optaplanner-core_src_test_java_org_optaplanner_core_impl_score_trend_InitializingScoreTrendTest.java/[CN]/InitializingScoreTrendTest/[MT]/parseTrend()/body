@@ -1,0 +1,3 @@
+{
+  assertArrayEquals(new InitializingScoreTrendLevel[]{InitializingScoreTrendLevel.ONLY_DOWN,InitializingScoreTrendLevel.ANY,InitializingScoreTrendLevel.ONLY_UP},InitializingScoreTrend.parseTrend("ONLY_DOWN/ANY/ONLY_UP",3).getTrendLevels());
+}
