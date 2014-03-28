@@ -55,4 +55,5 @@
   schedule.setLocationList(locationList);
   schedule.setDepotList(depotList);
   schedule.setCustomerList(customerList);
+  locationListSize=locationList.size();
 }
