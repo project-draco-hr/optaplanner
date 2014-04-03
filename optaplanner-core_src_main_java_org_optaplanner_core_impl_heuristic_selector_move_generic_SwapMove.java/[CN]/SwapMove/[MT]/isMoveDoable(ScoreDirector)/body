@@ -1,10 +1,26 @@
 {
+  boolean movable=false;
   for (  GenuineVariableDescriptor variableDescriptor : variableDescriptors) {
     Object leftValue=variableDescriptor.getValue(leftEntity);
     Object rightValue=variableDescriptor.getValue(rightEntity);
     if (!ObjectUtils.equals(leftValue,rightValue)) {
-      return true;
+      if (variableDescriptor.getValueRangeEntityIndependent()) {
+        return true;
+      }
+ else {
+        movable=true;
+        ValueRangeDescriptor valueRangeDescriptor=variableDescriptor.getValueRangeDescriptor();
+        Solution workingSolution=scoreDirector.getWorkingSolution();
+        ValueRange rightValueRange=valueRangeDescriptor.extractValueRange(workingSolution,rightEntity);
+        if (!rightValueRange.contains(leftValue)) {
+          return false;
+        }
+        ValueRange leftValueRange=valueRangeDescriptor.extractValueRange(workingSolution,leftEntity);
+        if (!leftValueRange.contains(rightValue)) {
+          return false;
+        }
+      }
     }
   }
-  return false;
+  return movable;
 }
