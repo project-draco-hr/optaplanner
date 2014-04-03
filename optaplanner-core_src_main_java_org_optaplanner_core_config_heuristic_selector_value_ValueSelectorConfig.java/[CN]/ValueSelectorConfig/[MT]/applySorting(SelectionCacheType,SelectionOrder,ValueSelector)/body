@@ -18,7 +18,7 @@
  else {
       throw new IllegalArgumentException("The valueSelectorConfig (" + this + ") with resolvedSelectionOrder ("+ resolvedSelectionOrder+ ") needs a sorterManner ("+ sorterManner+ ") or a sorterComparatorClass ("+ sorterComparatorClass+ ") or a sorterWeightFactoryClass ("+ sorterWeightFactoryClass+ ") or a sorterClass ("+ sorterClass+ ").");
     }
-    if (!valueSelector.getVariableDescriptor().getValueRangeEntityIndependent() && resolvedCacheType == SelectionCacheType.STEP) {
+    if (!valueSelector.getVariableDescriptor().isValueRangeEntityIndependent() && resolvedCacheType == SelectionCacheType.STEP) {
       valueSelector=new EntityDependentSortingValueSelector(valueSelector,resolvedCacheType,sorter);
     }
  else {
