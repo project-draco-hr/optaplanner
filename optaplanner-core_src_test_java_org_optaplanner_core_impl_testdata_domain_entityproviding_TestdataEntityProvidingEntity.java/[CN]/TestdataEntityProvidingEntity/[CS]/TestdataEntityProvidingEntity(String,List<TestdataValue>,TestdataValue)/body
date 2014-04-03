@@ -1,0 +1,5 @@
+{
+  super(code);
+  this.valueRange=valueRange;
+  this.value=value;
+}
