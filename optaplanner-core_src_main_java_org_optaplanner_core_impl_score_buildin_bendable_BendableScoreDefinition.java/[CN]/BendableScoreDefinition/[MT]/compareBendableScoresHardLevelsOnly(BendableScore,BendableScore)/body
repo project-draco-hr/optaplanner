@@ -1,0 +1,14 @@
+{
+  score1.validateCompatible(score2);
+  for (int i=0; i < score1.getHardLevelCount(); i++) {
+    if (score1.getHardScore(i) != score2.getHardScore(i)) {
+      if (score1.getHardScore(i) < score2.getHardScore(i)) {
+        return -1;
+      }
+ else {
+        return 1;
+      }
+    }
+  }
+  return 0;
+}

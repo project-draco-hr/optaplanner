@@ -1,0 +1,38 @@
+{
+  if (compareBendableScoresHardLevelsOnly(score,startScore) <= 0) {
+    return 0.0;
+  }
+  double timeGradient=0.0;
+  double remainingTimeGradient=1.0;
+  int levelCount=hardLevelCount;
+  for (int i=0; i < levelCount; i++) {
+    double levelTimeGradientWeight;
+    if (i != (levelCount - 1)) {
+      levelTimeGradientWeight=remainingTimeGradient * recursiveTimeGradientWeight;
+      remainingTimeGradient-=levelTimeGradientWeight;
+    }
+ else {
+      levelTimeGradientWeight=remainingTimeGradient;
+    }
+    int startScoreLevel=startScore.getHardScore(i);
+    int endScoreLevel=0;
+    int scoreLevel=score.getHardScore(i);
+    if (scoreLevel >= endScoreLevel) {
+      timeGradient+=levelTimeGradientWeight;
+    }
+ else {
+      if (scoreLevel <= startScoreLevel) {
+      }
+ else {
+        int levelTotal=endScoreLevel - startScoreLevel;
+        int levelDelta=scoreLevel - startScoreLevel;
+        double levelTimeGradient=(double)levelDelta / (double)levelTotal;
+        timeGradient+=levelTimeGradient * levelTimeGradientWeight;
+      }
+    }
+  }
+  if (timeGradient > 1.0) {
+    timeGradient=1.0;
+  }
+  return timeGradient;
+}

@@ -1,0 +1,4 @@
+{
+  FeasibilityScoreDefinition scoreDefinition=(FeasibilityScoreDefinition)solverScope.getScoreDefinition();
+  return scoreDefinition.calculateFeasibilityTimeGradient((FeasibilityScore)solverScope.getStartingInitializedScore(),(FeasibilityScore)solverScope.getBestScore());
+}
