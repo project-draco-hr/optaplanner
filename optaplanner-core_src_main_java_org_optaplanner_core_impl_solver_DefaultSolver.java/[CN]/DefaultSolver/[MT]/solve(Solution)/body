@@ -1,0 +1,15 @@
+{
+  if (planningProblem == null) {
+    throw new IllegalArgumentException("The planningProblem (" + planningProblem + ") must not be null.");
+  }
+  solverScope.setBestSolution(planningProblem);
+  outerSolvingStarted(solverScope);
+  boolean restartSolver=true;
+  while (restartSolver) {
+    solvingStarted(solverScope);
+    runSolverPhases();
+    solvingEnded(solverScope);
+    restartSolver=checkProblemFactChanges();
+  }
+  outerSolvingEnded(solverScope);
+}

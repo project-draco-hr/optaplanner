@@ -1,0 +1,5 @@
+{
+  assertEquals(true,InitializingScoreTrend.parseTrend("ONLY_DOWN/ONLY_DOWN/ONLY_DOWN",3).isOnlyDown());
+  assertEquals(false,InitializingScoreTrend.parseTrend("ONLY_DOWN/ANY/ONLY_DOWN",3).isOnlyDown());
+  assertEquals(false,InitializingScoreTrend.parseTrend("ONLY_DOWN/ONLY_DOWN/ONLY_UP",3).isOnlyDown());
+}

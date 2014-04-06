@@ -1,3 +1,10 @@
 {
-  return getInputFilesAsParameters(new MachineReassignmentImporter());
+  Collection<Object[]> inputFilesAsParameters=getInputFilesAsParameters(new MachineReassignmentImporter());
+  for (Iterator<Object[]> it=inputFilesAsParameters.iterator(); it.hasNext(); ) {
+    Object[] inputFilesAsParameter=it.next();
+    if (((File)inputFilesAsParameter[0]).getName().equals("model_b_10.txt")) {
+      it.remove();
+    }
+  }
+  return inputFilesAsParameters;
 }

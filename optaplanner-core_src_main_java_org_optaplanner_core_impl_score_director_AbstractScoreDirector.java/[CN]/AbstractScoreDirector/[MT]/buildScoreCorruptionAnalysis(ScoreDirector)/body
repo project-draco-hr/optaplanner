@@ -44,7 +44,6 @@
   if (excessMap.isEmpty() && missingMap.isEmpty()) {
     analysis.append("  The corrupted scoreDirector has no ConstraintMatch(s) in excess or missing." + " That could be a bug in this class (").append(getClass()).append(").\n");
   }
-  appendLegacyConstraintOccurrences(analysis,this,uncorruptedScoreDirector);
   analysis.append("  Check your score constraints.");
   return analysis.toString();
 }

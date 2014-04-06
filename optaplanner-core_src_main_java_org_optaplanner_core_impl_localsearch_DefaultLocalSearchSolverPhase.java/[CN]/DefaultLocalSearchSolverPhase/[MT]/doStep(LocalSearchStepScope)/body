@@ -9,4 +9,5 @@
   if (assertExpectedStepScore) {
     phaseScope.assertExpectedWorkingScore(stepScope.getScore(),nextStep);
   }
+  bestSolutionRecaller.processWorkingSolutionDuringStep(stepScope);
 }

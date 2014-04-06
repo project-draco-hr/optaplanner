@@ -1,0 +1,12 @@
+{
+  int size=moveList.size();
+  if (size > 1) {
+    return new CompositeMove(moveList);
+  }
+ else   if (size == 1) {
+    return moveList.get(0);
+  }
+ else {
+    return new NoChangeMove();
+  }
+}

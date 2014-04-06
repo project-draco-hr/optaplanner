@@ -21,7 +21,7 @@
     schedule.setName(firstLine);
     readTimeWindowedSolution();
   }
-  BigInteger possibleSolutionSize=factorial(schedule.getLocationList().size() - 1);
+  BigInteger possibleSolutionSize=factorial(locationListSize + vehicleListSize - 1).divide(factorial(vehicleListSize - 1));
   logger.info("VehicleRoutingSolution {} has {} depots, {} vehicles and {} customers with a search space of {}.",getInputId(),schedule.getDepotList().size(),schedule.getVehicleList().size(),schedule.getCustomerList().size(),getFlooredPossibleSolutionSize(possibleSolutionSize));
   return schedule;
 }

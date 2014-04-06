@@ -9,8 +9,7 @@
     solverConfig.getScoreDirectorFactoryConfig().setAssertionScoreDirectorFactory(assertionScoreDirectorFactoryConfig);
   }
   Solver solver=solverFactory.buildSolver();
-  solver.setPlanningProblem(planningProblem);
-  solver.solve();
+  solver.solve(planningProblem);
   Solution bestSolution=solver.getBestSolution();
   if (bestSolution == null) {
     bestSolution=planningProblem;

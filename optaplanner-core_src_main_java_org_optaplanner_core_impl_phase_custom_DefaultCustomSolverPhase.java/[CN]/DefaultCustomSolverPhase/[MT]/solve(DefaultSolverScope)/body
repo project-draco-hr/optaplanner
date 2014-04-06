@@ -6,11 +6,7 @@
   while (!termination.isPhaseTerminated(phaseScope) && commandIterator.hasNext()) {
     CustomSolverPhaseCommand customSolverPhaseCommand=commandIterator.next();
     stepStarted(stepScope);
-    customSolverPhaseCommand.changeWorkingSolution(solverScope.getScoreDirector());
-    int uninitializedVariableCount=solverScope.getSolutionDescriptor().countUninitializedVariables(stepScope.getWorkingSolution());
-    stepScope.setUninitializedVariableCount(uninitializedVariableCount);
-    Score score=phaseScope.calculateScore();
-    stepScope.setScore(score);
+    doStep(stepScope,customSolverPhaseCommand);
     stepEnded(stepScope);
     phaseScope.setLastCompletedStepScope(stepScope);
     stepScope=new CustomStepScope(phaseScope);

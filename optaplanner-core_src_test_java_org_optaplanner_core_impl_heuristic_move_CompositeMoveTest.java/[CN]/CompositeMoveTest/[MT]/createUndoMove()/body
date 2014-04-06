@@ -1,0 +1,10 @@
+{
+  ScoreDirector scoreDirector=mock(ScoreDirector.class);
+  Move a=new DummyMove("a");
+  Move b=new DummyMove("b");
+  Move c=new DummyMove("c");
+  CompositeMove move=new CompositeMove(Arrays.asList(a,b,c));
+  CompositeMove undoMove=move.createUndoMove(scoreDirector);
+  assertAllCodesOfIterator(move.getMoveList().iterator(),"a","b","c");
+  assertAllCodesOfIterator(undoMove.getMoveList().iterator(),"undo c","undo b","undo a");
+}

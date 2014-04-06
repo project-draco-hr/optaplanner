@@ -12,7 +12,7 @@
       ValueSelectorConfig changeValueSelectorConfig=new ValueSelectorConfig();
       changeValueSelectorConfig.setVariableName(variableDescriptor.getVariableName());
       if (configPolicy.isSortValuesByIncreasingStrengthEnabled()) {
-        if (variableDescriptor.getValueRangeDescriptor().isEntityIndependent()) {
+        if (variableDescriptor.isValueRangeEntityIndependent()) {
           changeValueSelectorConfig.setCacheType(SelectionCacheType.PHASE);
         }
  else {

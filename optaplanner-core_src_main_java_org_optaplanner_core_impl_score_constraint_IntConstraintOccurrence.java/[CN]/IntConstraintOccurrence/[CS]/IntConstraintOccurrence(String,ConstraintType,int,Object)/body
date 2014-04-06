@@ -1,4 +1,0 @@
-{
-  super(ruleId,constraintType,causes);
-  this.weight=weight;
-}

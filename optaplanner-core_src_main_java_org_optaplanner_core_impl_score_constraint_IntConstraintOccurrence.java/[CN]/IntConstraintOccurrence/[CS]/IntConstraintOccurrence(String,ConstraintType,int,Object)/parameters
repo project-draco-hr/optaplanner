@@ -1,4 +1,0 @@
-String ruleId
-ConstraintType constraintType
-int weight
-Object causes
