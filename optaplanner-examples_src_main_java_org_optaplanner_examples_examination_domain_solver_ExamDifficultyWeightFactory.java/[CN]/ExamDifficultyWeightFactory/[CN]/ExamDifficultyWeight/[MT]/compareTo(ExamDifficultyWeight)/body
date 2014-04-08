@@ -1,0 +1,3 @@
+{
+  return new CompareToBuilder().append(studentSizeTotal,other.studentSizeTotal).append(maximumDuration,other.maximumDuration).append(exam.getId(),other.exam.getId()).toComparison();
+}

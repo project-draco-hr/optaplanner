@@ -1,6 +1,0 @@
-List<PeriodScoring> periodScoringList
-List<Room> roomList
-ScoreDirector scoreDirector
-Score unscheduledScore
-List<ExamToHandle> examToHandleList
-Exam leader

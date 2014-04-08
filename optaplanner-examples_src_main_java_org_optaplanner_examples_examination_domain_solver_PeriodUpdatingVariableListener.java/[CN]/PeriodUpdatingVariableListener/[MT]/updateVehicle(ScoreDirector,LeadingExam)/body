@@ -1,0 +1,8 @@
+{
+  Period period=leadingExam.getPeriod();
+  for (  FollowingExam followingExam : leadingExam.getFollowingExamList()) {
+    scoreDirector.beforeVariableChanged(followingExam,"vehicle");
+    followingExam.setPeriod(period);
+    scoreDirector.afterVariableChanged(followingExam,"vehicle");
+  }
+}

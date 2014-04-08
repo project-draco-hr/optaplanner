@@ -1,3 +1,0 @@
-{
-  ExaminationMoveHelper.movePeriod(scoreDirector,exam,toPeriod);
-}

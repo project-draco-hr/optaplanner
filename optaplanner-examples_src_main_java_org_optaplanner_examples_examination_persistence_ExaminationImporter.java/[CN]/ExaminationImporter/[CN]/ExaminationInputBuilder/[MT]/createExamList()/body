@@ -1,0 +1,34 @@
+{
+  List<Topic> topicList=examination.getTopicList();
+  List<Exam> examList=new ArrayList<Exam>(topicList.size());
+  Map<Topic,LeadingExam> leadingTopicToExamMap=new HashMap<Topic,LeadingExam>(topicList.size());
+  for (  Topic topic : topicList) {
+    Exam exam;
+    Topic leadingTopic=topic;
+    for (    Topic coincidenceTopic : coincidenceMap.get(topic)) {
+      if (coincidenceTopic.getId() < leadingTopic.getId()) {
+        leadingTopic=coincidenceTopic;
+      }
+    }
+    if (leadingTopic == topic) {
+      LeadingExam leadingExam=new LeadingExam();
+      leadingExam.setFollowingExamList(new ArrayList<FollowingExam>(10));
+      leadingTopicToExamMap.put(topic,leadingExam);
+      exam=leadingExam;
+    }
+ else {
+      FollowingExam followingExam=new FollowingExam();
+      LeadingExam leadingExam=leadingTopicToExamMap.get(leadingTopic);
+      if (leadingExam == null) {
+        throw new IllegalStateException("The followingExam (" + topic.getId() + ")'s leadingExam ("+ leadingExam+ ") cannot be null.");
+      }
+      followingExam.setLeadingExam(leadingExam);
+      leadingExam.getFollowingExamList().add(followingExam);
+      exam=followingExam;
+    }
+    exam.setId(topic.getId());
+    exam.setTopic(topic);
+    examList.add(exam);
+  }
+  examination.setExamList(examList);
+}

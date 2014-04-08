@@ -1,5 +1,0 @@
-{
-  this.exam=exam;
-  totalStudentSize=calculateTotalStudentSize(exam);
-  maximumDuration=calculateMaximumDuration(exam);
-}

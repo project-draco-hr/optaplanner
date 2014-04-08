@@ -1,0 +1,20 @@
+{
+  List<Topic> topicList=examination.getTopicList();
+  List<RoomPenalty> roomPenaltyList=new ArrayList<RoomPenalty>();
+  String line=bufferedReader.readLine();
+  int id=0;
+  while (!line.equals("[InstitutionalWeightings]")) {
+    String[] lineTokens=line.split(SPLIT_REGEX);
+    if (lineTokens.length != 2) {
+      throw new IllegalArgumentException("Read line (" + line + ") is expected to contain 2 tokens.");
+    }
+    RoomPenalty roomPenalty=new RoomPenalty();
+    roomPenalty.setId((long)id);
+    roomPenalty.setTopic(topicList.get(Integer.parseInt(lineTokens[0])));
+    roomPenalty.setRoomPenaltyType(RoomPenaltyType.valueOf(lineTokens[1]));
+    roomPenaltyList.add(roomPenalty);
+    line=bufferedReader.readLine();
+    id++;
+  }
+  examination.setRoomPenaltyList(roomPenaltyList);
+}

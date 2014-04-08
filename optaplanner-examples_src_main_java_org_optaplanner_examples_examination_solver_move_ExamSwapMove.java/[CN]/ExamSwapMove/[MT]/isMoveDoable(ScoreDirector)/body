@@ -1,3 +1,0 @@
-{
-  return !(ObjectUtils.equals(leftExam.getPeriod(),rightExam.getPeriod()) && ObjectUtils.equals(leftExam.getRoom(),rightExam.getRoom()));
-}

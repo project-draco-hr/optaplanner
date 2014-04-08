@@ -1,9 +1,0 @@
-{
-  scoreDirector.beforeVariableChanged(exam,"period");
-  scoreDirector.beforeVariableChanged(exam,"room");
-  exam.setPeriod(period);
-  exam.setRoom(room);
-  scoreDirector.afterVariableChanged(exam,"period");
-  scoreDirector.afterVariableChanged(exam,"room");
-  movePeriodCoincidence(scoreDirector,exam,period);
-}
