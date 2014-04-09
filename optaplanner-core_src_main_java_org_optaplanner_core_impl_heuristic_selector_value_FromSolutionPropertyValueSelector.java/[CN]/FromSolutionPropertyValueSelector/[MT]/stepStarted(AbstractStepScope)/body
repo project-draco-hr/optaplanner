@@ -1,7 +1,7 @@
 {
   super.stepStarted(stepScope);
   if (valueRangeMightContainEntity) {
-    ScoreDirector scoreDirector=stepScope.getScoreDirector();
+    InnerScoreDirector scoreDirector=stepScope.getScoreDirector();
     if (scoreDirector.isWorkingEntityListDirty(cachedEntityListRevision)) {
       if (minimumCacheType.compareTo(SelectionCacheType.STEP) > 0) {
         cachedEntityListIsDirty=true;

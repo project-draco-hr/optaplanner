@@ -1,7 +1,7 @@
 {
   GenuineVariableDescriptor variableDescriptor=SelectorTestUtils.mockVariableDescriptor(TestdataChainedEntity.class,"chainedObject");
   when(variableDescriptor.isChained()).thenReturn(true);
-  ScoreDirector scoreDirector=mock(ScoreDirector.class);
+  InnerScoreDirector scoreDirector=mock(InnerScoreDirector.class);
   TestdataChainedAnchor a0=new TestdataChainedAnchor("a0");
   TestdataChainedAnchor b0=new TestdataChainedAnchor("b0");
   SelectorTestUtils.mockMethodGetTrailingEntity(scoreDirector,variableDescriptor,new TestdataChainedEntity[]{});

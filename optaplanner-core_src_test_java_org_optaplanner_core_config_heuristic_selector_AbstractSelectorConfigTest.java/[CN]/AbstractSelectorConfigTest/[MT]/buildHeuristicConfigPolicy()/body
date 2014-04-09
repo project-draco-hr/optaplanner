@@ -1,5 +1,5 @@
 {
-  ScoreDirectorFactory scoreDirectorFactory=mock(ScoreDirectorFactory.class);
+  InnerScoreDirectorFactory scoreDirectorFactory=mock(InnerScoreDirectorFactory.class);
   when(scoreDirectorFactory.getSolutionDescriptor()).thenReturn(TestdataSolution.buildSolutionDescriptor());
   when(scoreDirectorFactory.getScoreDefinition()).thenReturn(new SimpleScoreDefinition());
   return new HeuristicConfigPolicy(EnvironmentMode.REPRODUCIBLE,scoreDirectorFactory);

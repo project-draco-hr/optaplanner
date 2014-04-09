@@ -1,5 +1,5 @@
 {
-  ScoreDirector scoreDirector=solverScope.getScoreDirector();
+  InnerScoreDirector scoreDirector=solverScope.getScoreDirector();
   GenuineVariableDescriptor variableDescriptor=valueSelector.getVariableDescriptor();
   Class<?> entityClass=variableDescriptor.getEntityDescriptor().getEntityClass();
   long valueSize=valueSelector.getSize();

@@ -1,9 +1,10 @@
 {
+  InnerScoreDirector innerScoreDirector=(InnerScoreDirector)scoreDirector;
   Object firstEntity=subChain.getFirstEntity();
   Object lastEntity=subChain.getLastEntity();
   Object oldFirstValue=variableDescriptor.getValue(firstEntity);
-  Object oldTrailingEntity=scoreDirector.getTrailingEntity(variableDescriptor,lastEntity);
-  Object newTrailingEntity=scoreDirector.getTrailingEntity(variableDescriptor,toPlanningValue);
+  Object oldTrailingEntity=innerScoreDirector.getTrailingEntity(variableDescriptor,lastEntity);
+  Object newTrailingEntity=innerScoreDirector.getTrailingEntity(variableDescriptor,toPlanningValue);
   if (oldTrailingEntity != null) {
     scoreDirector.beforeVariableChanged(oldTrailingEntity,variableDescriptor.getVariableName());
   }

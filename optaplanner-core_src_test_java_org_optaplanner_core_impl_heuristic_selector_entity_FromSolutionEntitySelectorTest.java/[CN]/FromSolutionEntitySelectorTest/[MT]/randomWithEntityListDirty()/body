@@ -2,7 +2,7 @@
   TestdataSolution workingSolution=new TestdataSolution();
   EntityDescriptor entityDescriptor=mock(EntityDescriptor.class);
   when(entityDescriptor.extractEntities(workingSolution)).thenReturn(Arrays.<Object>asList(new TestdataEntity("e1"),new TestdataEntity("e2"),new TestdataEntity("e3")));
-  ScoreDirector scoreDirector=mock(ScoreDirector.class);
+  InnerScoreDirector scoreDirector=mock(InnerScoreDirector.class);
   when(scoreDirector.getWorkingSolution()).thenReturn(workingSolution);
   when(scoreDirector.getWorkingEntityListRevision()).thenReturn(7L);
   when(scoreDirector.isWorkingEntityListDirty(7L)).thenReturn(false);

@@ -1,5 +1,5 @@
 {
-  ScoreDirector scoreDirector=stepScope.getScoreDirector();
+  InnerScoreDirector scoreDirector=stepScope.getScoreDirector();
   scoreDirector.setAllChangesWillBeUndoneBeforeStepEnds(true);
   int moveIndex=0;
   for (  Move move : moveSelector) {
