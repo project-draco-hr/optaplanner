@@ -1,6 +1,6 @@
 {
   for (  Period period : examination.getPeriodList()) {
-    roomsPanel.addRowHeader(HEADER_COLUMN,period,createHeaderPanel(new JLabel(period.getLabel())));
+    roomsPanel.addRowHeader(HEADER_COLUMN,period,createHeaderPanel(new JLabel(period.getLabel()),"Duration: " + period.getDuration()));
   }
-  roomsPanel.addRowHeader(HEADER_COLUMN,null,createHeaderPanel(new JLabel("Unassigned")));
+  roomsPanel.addRowHeader(HEADER_COLUMN,null,createHeaderPanel(new JLabel("Unassigned"),null));
 }
