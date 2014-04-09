@@ -1,8 +1,7 @@
 {
   super.inherit(inheritedConfig);
-  if (variableName == null) {
-    variableName=inheritedConfig.getVariableName();
-  }
+  downcastEntityClass=ConfigUtils.inheritOverwritableProperty(downcastEntityClass,inheritedConfig.getDowncastEntityClass());
+  variableName=ConfigUtils.inheritOverwritableProperty(variableName,inheritedConfig.getVariableName());
   cacheType=ConfigUtils.inheritOverwritableProperty(cacheType,inheritedConfig.getCacheType());
   selectionOrder=ConfigUtils.inheritOverwritableProperty(selectionOrder,inheritedConfig.getSelectionOrder());
   sorterManner=ConfigUtils.inheritOverwritableProperty(sorterManner,inheritedConfig.getSorterManner());

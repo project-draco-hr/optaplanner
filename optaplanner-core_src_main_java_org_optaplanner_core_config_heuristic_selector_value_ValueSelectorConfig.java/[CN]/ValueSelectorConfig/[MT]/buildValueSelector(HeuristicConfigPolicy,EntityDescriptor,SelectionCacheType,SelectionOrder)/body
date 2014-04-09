@@ -1,4 +1,11 @@
 {
+  if (downcastEntityClass != null) {
+    Class<?> parentEntityClass=entityDescriptor.getEntityClass();
+    if (!parentEntityClass.isAssignableFrom(downcastEntityClass)) {
+      throw new IllegalStateException("The downcastEntityClass (" + downcastEntityClass + ") is not a subclass of the parentEntityClass ("+ parentEntityClass+ ") configured by the "+ EntitySelector.class.getSimpleName()+ ".");
+    }
+    entityDescriptor=configPolicy.getSolutionDescriptor().getEntityDescriptorStrict(downcastEntityClass);
+  }
   GenuineVariableDescriptor variableDescriptor=deduceVariableDescriptor(entityDescriptor,variableName);
   SelectionCacheType resolvedCacheType=SelectionCacheType.resolve(cacheType,minimumCacheType);
   SelectionOrder resolvedSelectionOrder=SelectionOrder.resolve(selectionOrder,inheritedSelectionOrder);
@@ -14,5 +21,6 @@
   valueSelector=applyCaching(resolvedCacheType,resolvedSelectionOrder,valueSelector);
   valueSelector=applySelectedLimit(resolvedCacheType,resolvedSelectionOrder,valueSelector);
   valueSelector=applyReinitializeVariableFiltering(configPolicy,valueSelector);
+  valueSelector=applyDowncasting(configPolicy,valueSelector);
   return valueSelector;
 }
