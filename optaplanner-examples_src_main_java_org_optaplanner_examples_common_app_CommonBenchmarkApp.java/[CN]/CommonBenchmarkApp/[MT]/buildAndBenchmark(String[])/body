@@ -20,10 +20,10 @@
   }
   PlannerBenchmarkFactory plannerBenchmarkFactory;
   if (!argOption.isTemplate()) {
-    plannerBenchmarkFactory=new XmlPlannerBenchmarkFactory(argOption.getBenchmarkConfig());
+    plannerBenchmarkFactory=PlannerBenchmarkFactory.createFromXmlResource(argOption.getBenchmarkConfig());
   }
  else {
-    plannerBenchmarkFactory=new FreemarkerXmlPlannerBenchmarkFactory(argOption.getBenchmarkConfig());
+    plannerBenchmarkFactory=PlannerBenchmarkFactory.createFromFreemarkerXmlResource(argOption.getBenchmarkConfig());
   }
   if (!aggregator) {
     PlannerBenchmark plannerBenchmark=plannerBenchmarkFactory.buildPlannerBenchmark();

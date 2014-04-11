@@ -1,3 +1,0 @@
-{
-  xmlPlannerBenchmarkFactory=new XmlPlannerBenchmarkFactory();
-}

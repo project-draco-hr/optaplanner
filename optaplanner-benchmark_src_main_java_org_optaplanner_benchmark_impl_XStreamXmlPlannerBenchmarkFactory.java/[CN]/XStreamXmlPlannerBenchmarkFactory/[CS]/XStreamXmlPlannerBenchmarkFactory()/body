@@ -1,0 +1,4 @@
+{
+  xStream=XStreamXmlSolverFactory.buildXStream();
+  xStream.processAnnotations(PlannerBenchmarkConfig.class);
+}

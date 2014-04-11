@@ -1,0 +1,7 @@
+{
+  InputStream templateIn=getClass().getResourceAsStream(templateResource);
+  if (templateIn == null) {
+    throw new IllegalArgumentException("Could not find templateResource (" + templateResource + ").");
+  }
+  return configure(templateIn,model);
+}
