@@ -1,5 +1,8 @@
 {
   TangoColorFactory tangoColorFactory=new TangoColorFactory();
+  for (  Team team : tennisSolution.getTeamList()) {
+    tangoColorFactory.pickColor(team);
+  }
   for (  TeamAssignment teamAssignment : tennisSolution.getTeamAssignmentList()) {
     Team team=teamAssignment.getTeam();
     Color teamColor=team == null ? TangoColorFactory.SCARLET_1 : tangoColorFactory.pickColor(team);
