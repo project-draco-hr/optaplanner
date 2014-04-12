@@ -1,19 +1,15 @@
 {
-  Examination examination=new Examination();
+  examination=new Examination();
   examination.setId(0L);
-  readTopicListAndStudentList(examination);
-  readPeriodList(examination);
-  readRoomList(examination);
-  String line=bufferedReader.readLine();
-  if (!line.equals("[PeriodHardConstraints]")) {
-    throw new IllegalStateException("Read line (" + line + " is not the expected header ([PeriodHardConstraints])");
-  }
-  readPeriodPenaltyList(examination);
-  readRoomPenaltyList(examination);
-  readInstitutionalWeighting(examination);
-  tagFrontLoadLargeTopics(examination);
-  tagFrontLoadLastPeriods(examination);
-  createExamList(examination);
+  readTopicListAndStudentList();
+  readPeriodList();
+  readRoomList();
+  readPeriodPenaltyList();
+  readRoomPenaltyList();
+  readInstitutionalWeighting();
+  tagFrontLoadLargeTopics();
+  tagFrontLoadLastPeriods();
+  createExamList();
   int possibleForOneExamSize=examination.getPeriodList().size() * examination.getRoomList().size();
   BigInteger possibleSolutionSize=BigInteger.valueOf(possibleForOneExamSize).pow(examination.getExamList().size());
   logger.info("Examination {} has {} students, {} exams, {} periods, {} rooms, {} period constraints" + " and {} room constraints with a search space of {}.",getInputId(),examination.getStudentList().size(),examination.getExamList().size(),examination.getPeriodList().size(),examination.getRoomList().size(),examination.getPeriodPenaltyList().size(),examination.getRoomPenaltyList().size(),getFlooredPossibleSolutionSize(possibleSolutionSize));

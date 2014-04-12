@@ -1,0 +1,128 @@
+{
+  readConstantLine("[PeriodHardConstraints]");
+  List<Topic> topicList=examination.getTopicList();
+  List<PeriodPenalty> periodPenaltyList=new ArrayList<PeriodPenalty>();
+  String line=bufferedReader.readLine();
+  int id=0;
+  while (!line.equals("[RoomHardConstraints]")) {
+    String[] lineTokens=line.split(SPLIT_REGEX);
+    if (lineTokens.length != 3) {
+      throw new IllegalArgumentException("Read line (" + line + ") is expected to contain 3 tokens.");
+    }
+    PeriodPenalty periodPenalty=new PeriodPenalty();
+    periodPenalty.setId((long)id);
+    id++;
+    Topic leftTopic=topicList.get(Integer.parseInt(lineTokens[0]));
+    periodPenalty.setLeftSideTopic(leftTopic);
+    PeriodPenaltyType periodPenaltyType=PeriodPenaltyType.valueOf(lineTokens[1]);
+    periodPenalty.setPeriodPenaltyType(periodPenaltyType);
+    Topic rightTopic=topicList.get(Integer.parseInt(lineTokens[2]));
+    periodPenalty.setRightSideTopic(rightTopic);
+    boolean ignorePenalty=false;
+switch (periodPenaltyType) {
+case EXAM_COINCIDENCE:
+      if (leftTopic.getId().equals(rightTopic.getId())) {
+        logger.warn("  Filtering out periodPenalty (" + periodPenalty + ") because the left and right topic are the same.");
+        ignorePenalty=true;
+      }
+ else       if (!Collections.disjoint(leftTopic.getStudentList(),rightTopic.getStudentList())) {
+        throw new IllegalStateException("PeriodPenalty (" + periodPenalty + ") for leftTopic ("+ leftTopic+ ") and rightTopic ("+ rightTopic+ ")'s left and right topic share students.");
+      }
+ else       if (coincidenceMap.get(leftTopic).contains(rightTopic)) {
+        logger.trace("  Filtering out periodPenalty (" + periodPenalty + ") for leftTopic ("+ leftTopic+ ") and rightTopic ("+ rightTopic+ ") because it is mentioned twice.");
+        ignorePenalty=true;
+      }
+ else {
+        boolean added=coincidenceMap.get(leftTopic).add(rightTopic) && coincidenceMap.get(rightTopic).add(leftTopic);
+        if (!added) {
+          throw new IllegalStateException("The periodPenaltyType (" + periodPenaltyType + ") for leftTopic ("+ leftTopic+ ") and rightTopic ("+ rightTopic+ ") was not successfully added twice.");
+        }
+      }
+    break;
+case EXCLUSION:
+  if (leftTopic.getId().equals(rightTopic.getId())) {
+    logger.warn("  Filtering out periodPenalty (" + periodPenalty + ") for leftTopic ("+ leftTopic+ ") and rightTopic ("+ rightTopic+ ") because the left and right topic are the same.");
+    ignorePenalty=true;
+  }
+ else   if (exclusionMap.get(leftTopic).contains(rightTopic)) {
+    logger.trace("  Filtering out periodPenalty (" + periodPenalty + ") for leftTopic ("+ leftTopic+ ") and rightTopic ("+ rightTopic+ ") because it is mentioned twice.");
+    ignorePenalty=true;
+  }
+ else {
+    boolean added=exclusionMap.get(leftTopic).add(rightTopic) && exclusionMap.get(rightTopic).add(leftTopic);
+    if (!added) {
+      throw new IllegalStateException("The periodPenaltyType (" + periodPenaltyType + ") for leftTopic ("+ leftTopic+ ") and rightTopic ("+ rightTopic+ ") was not successfully added twice.");
+    }
+  }
+break;
+case AFTER:
+if (afterMap.get(leftTopic).contains(rightTopic)) {
+ignorePenalty=true;
+}
+ else {
+boolean added=afterMap.get(leftTopic).add(rightTopic);
+if (!added) {
+  throw new IllegalStateException("The periodPenaltyType (" + periodPenaltyType + ") for leftTopic ("+ leftTopic+ ") and rightTopic ("+ rightTopic+ ") was not successfully added.");
+}
+}
+break;
+default :
+throw new IllegalStateException("The periodPenaltyType (" + periodPenalty.getPeriodPenaltyType() + ") is not implemented.");
+}
+if (!ignorePenalty) {
+periodPenaltyList.add(periodPenalty);
+}
+line=bufferedReader.readLine();
+}
+for (Map.Entry<Topic,Set<Topic>> entry : coincidenceMap.entrySet()) {
+Topic leftTopic=entry.getKey();
+Set<Topic> middleTopicSet=entry.getValue();
+for (Topic middleTopic : new ArrayList<Topic>(middleTopicSet)) {
+for (Topic rightTopic : new ArrayList<Topic>(coincidenceMap.get(middleTopic))) {
+if (rightTopic != leftTopic && !middleTopicSet.contains(rightTopic)) {
+PeriodPenalty indirectPeriodPenalty=new PeriodPenalty();
+indirectPeriodPenalty.setId((long)id);
+id++;
+indirectPeriodPenalty.setPeriodPenaltyType(PeriodPenaltyType.EXAM_COINCIDENCE);
+indirectPeriodPenalty.setLeftSideTopic(leftTopic);
+indirectPeriodPenalty.setRightSideTopic(rightTopic);
+periodPenaltyList.add(indirectPeriodPenalty);
+boolean added=coincidenceMap.get(leftTopic).add(rightTopic) && coincidenceMap.get(rightTopic).add(leftTopic);
+if (!added) {
+throw new IllegalStateException("The periodPenalty (" + indirectPeriodPenalty + ") for leftTopic ("+ leftTopic+ ") and rightTopic ("+ rightTopic+ ") was not successfully added twice.");
+}
+}
+}
+}
+}
+for (Map.Entry<Topic,Set<Topic>> entry : afterMap.entrySet()) {
+Topic leftTopic=entry.getKey();
+Set<Topic> afterLeftSet=entry.getValue();
+Queue<Topic> queue=new LinkedList<Topic>();
+for (Topic topic : afterMap.get(leftTopic)) {
+queue.add(topic);
+queue.addAll(coincidenceMap.get(topic));
+}
+while (!queue.isEmpty()) {
+Topic rightTopic=queue.poll();
+if (!afterLeftSet.contains(rightTopic)) {
+PeriodPenalty indirectPeriodPenalty=new PeriodPenalty();
+indirectPeriodPenalty.setId((long)id);
+id++;
+indirectPeriodPenalty.setPeriodPenaltyType(PeriodPenaltyType.AFTER);
+indirectPeriodPenalty.setLeftSideTopic(leftTopic);
+indirectPeriodPenalty.setRightSideTopic(rightTopic);
+periodPenaltyList.add(indirectPeriodPenalty);
+boolean added=afterMap.get(leftTopic).add(rightTopic);
+if (!added) {
+throw new IllegalStateException("The periodPenalty (" + indirectPeriodPenalty + ") for leftTopic ("+ leftTopic+ ") and rightTopic ("+ rightTopic+ ") was not successfully added.");
+}
+}
+for (Topic topic : afterMap.get(rightTopic)) {
+queue.add(topic);
+queue.addAll(coincidenceMap.get(topic));
+}
+}
+}
+examination.setPeriodPenaltyList(periodPenaltyList);
+}

@@ -1,3 +1,0 @@
-{
-  return new PeriodChangeMove(exam,exam.getPeriod());
-}

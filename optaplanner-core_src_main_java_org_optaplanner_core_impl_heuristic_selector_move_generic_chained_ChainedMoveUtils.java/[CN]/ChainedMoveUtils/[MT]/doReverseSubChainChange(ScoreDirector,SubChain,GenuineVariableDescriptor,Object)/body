@@ -1,9 +1,10 @@
 {
+  InnerScoreDirector innerScoreDirector=(InnerScoreDirector)scoreDirector;
   Object firstEntity=subChain.getFirstEntity();
   Object lastEntity=subChain.getLastEntity();
-  Object oldFirstPlanningValue=variableDescriptor.getValue(firstEntity);
-  Object oldTrailingEntity=scoreDirector.getTrailingEntity(variableDescriptor,lastEntity);
-  Object newTrailingEntity=scoreDirector.getTrailingEntity(variableDescriptor,toPlanningValue);
+  Object oldFirstValue=variableDescriptor.getValue(firstEntity);
+  Object oldTrailingEntity=innerScoreDirector.getTrailingEntity(variableDescriptor,lastEntity);
+  Object newTrailingEntity=innerScoreDirector.getTrailingEntity(variableDescriptor,toPlanningValue);
   boolean unmovedReverse=firstEntity == newTrailingEntity;
   List<Object> entityList=subChain.getEntityList();
   if (oldTrailingEntity != null) {
@@ -19,7 +20,7 @@
     }
   }
   if (oldTrailingEntity != null) {
-    variableDescriptor.setValue(oldTrailingEntity,oldFirstPlanningValue);
+    variableDescriptor.setValue(oldTrailingEntity,oldFirstValue);
   }
   Object nextEntity=toPlanningValue;
   for (ListIterator<Object> it=entityList.listIterator(entityList.size()); it.hasPrevious(); ) {

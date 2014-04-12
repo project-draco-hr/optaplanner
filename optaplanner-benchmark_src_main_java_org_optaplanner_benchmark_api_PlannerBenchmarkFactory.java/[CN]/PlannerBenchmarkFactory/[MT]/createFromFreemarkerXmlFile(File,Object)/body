@@ -1,0 +1,5 @@
+{
+  FreemarkerXmlPlannerBenchmarkFactory plannerBenchmarkFactory=new FreemarkerXmlPlannerBenchmarkFactory();
+  plannerBenchmarkFactory.configure(templateFile,model);
+  return plannerBenchmarkFactory;
+}

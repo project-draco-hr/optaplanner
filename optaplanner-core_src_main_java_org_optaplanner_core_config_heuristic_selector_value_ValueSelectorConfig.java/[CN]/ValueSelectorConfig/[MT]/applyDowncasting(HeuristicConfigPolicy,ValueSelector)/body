@@ -1,0 +1,6 @@
+{
+  if (downcastEntityClass != null) {
+    valueSelector=new DowncastingValueSelector(valueSelector,downcastEntityClass);
+  }
+  return valueSelector;
+}

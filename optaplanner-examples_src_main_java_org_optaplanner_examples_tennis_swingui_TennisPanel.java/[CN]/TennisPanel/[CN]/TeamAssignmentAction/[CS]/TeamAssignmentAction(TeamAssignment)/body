@@ -1,0 +1,4 @@
+{
+  super("Play");
+  this.teamAssignment=teamAssignment;
+}

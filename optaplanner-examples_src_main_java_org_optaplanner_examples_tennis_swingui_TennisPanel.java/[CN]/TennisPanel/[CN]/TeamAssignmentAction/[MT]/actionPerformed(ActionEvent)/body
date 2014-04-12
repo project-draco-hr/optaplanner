@@ -1,0 +1,28 @@
+{
+  JPanel listFieldsPanel=new JPanel(new GridLayout(2,2));
+  listFieldsPanel.add(new JLabel("Team:"));
+  List<Team> teamList=getTennisSolution().getTeamList();
+  JComboBox teamListField=new JComboBox(teamList.toArray());
+  teamListField.setSelectedItem(teamAssignment.getTeam());
+  listFieldsPanel.add(teamListField);
+  listFieldsPanel.add(new JLabel("Locked:"));
+  JCheckBox lockedField=new JCheckBox("immovable during planning");
+  lockedField.setSelected(teamAssignment.isLocked());
+  listFieldsPanel.add(lockedField);
+  int result=JOptionPane.showConfirmDialog(TennisPanel.this.getRootPane(),listFieldsPanel,"Select team",JOptionPane.OK_CANCEL_OPTION);
+  if (result == JOptionPane.OK_OPTION) {
+    Team toTeam=(Team)teamListField.getSelectedItem();
+    if (teamAssignment.getTeam() != toTeam) {
+      solutionBusiness.doChangeMove(teamAssignment,"team",toTeam);
+    }
+    boolean toLocked=lockedField.isSelected();
+    if (teamAssignment.isLocked() != toLocked) {
+      if (solutionBusiness.isSolving()) {
+        logger.error("Not doing user change because the solver is solving.");
+        return;
+      }
+      teamAssignment.setLocked(toLocked);
+    }
+    solverAndPersistenceFrame.resetScreen();
+  }
+}

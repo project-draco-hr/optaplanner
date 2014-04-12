@@ -3,6 +3,6 @@
   fillDayCells(tennisSolution);
   fillTeamCells(tennisSolution);
   fillUnavailabilityPenaltyCells(tennisSolution);
-  fillLectureCells(tennisSolution);
+  fillTeamAssignmentCells(tennisSolution);
   fillConfrontationCells(tennisSolution);
 }

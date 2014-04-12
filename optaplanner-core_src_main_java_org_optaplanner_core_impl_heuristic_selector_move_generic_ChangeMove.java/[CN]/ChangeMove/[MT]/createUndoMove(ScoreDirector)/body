@@ -1,4 +1,4 @@
 {
-  Object oldPlanningValue=variableDescriptor.getValue(entity);
-  return new ChangeMove(entity,variableDescriptor,oldPlanningValue);
+  Object oldValue=variableDescriptor.getValue(entity);
+  return new ChangeMove(entity,variableDescriptor,oldValue);
 }

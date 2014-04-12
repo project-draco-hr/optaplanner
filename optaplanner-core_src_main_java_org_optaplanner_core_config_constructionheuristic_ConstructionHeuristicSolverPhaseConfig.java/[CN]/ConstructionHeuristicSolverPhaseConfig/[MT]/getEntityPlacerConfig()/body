@@ -1,0 +1,3 @@
+{
+  return entityPlacerConfigList == null ? null : entityPlacerConfigList.get(0);
+}

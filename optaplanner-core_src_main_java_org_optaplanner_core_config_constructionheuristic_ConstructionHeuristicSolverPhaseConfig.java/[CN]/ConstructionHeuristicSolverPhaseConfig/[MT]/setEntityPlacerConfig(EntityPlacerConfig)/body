@@ -1,0 +1,3 @@
+{
+  this.entityPlacerConfigList=Collections.singletonList(entityPlacerConfig);
+}

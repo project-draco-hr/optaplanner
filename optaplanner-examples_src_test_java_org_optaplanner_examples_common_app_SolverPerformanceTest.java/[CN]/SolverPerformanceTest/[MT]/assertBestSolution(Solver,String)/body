@@ -2,6 +2,7 @@
   Solution bestSolution=solver.getBestSolution();
   assertNotNull(bestSolution);
   Score bestScore=bestSolution.getScore();
-  Score bestScoreLimit=solver.getScoreDirectorFactory().getScoreDefinition().parseScore(bestScoreLimitString);
+  InnerScoreDirectorFactory scoreDirectorFactory=(InnerScoreDirectorFactory)solver.getScoreDirectorFactory();
+  Score bestScoreLimit=scoreDirectorFactory.getScoreDefinition().parseScore(bestScoreLimitString);
   assertTrue("The bestScore (" + bestScore + ") must be at least bestScoreLimit ("+ bestScoreLimit+ ").",bestScore.compareTo(bestScoreLimit) >= 0);
 }

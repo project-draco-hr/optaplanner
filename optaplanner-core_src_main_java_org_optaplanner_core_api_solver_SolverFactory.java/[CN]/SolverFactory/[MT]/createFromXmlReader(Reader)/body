@@ -1,0 +1,5 @@
+{
+  XStreamXmlSolverFactory solverFactory=new XStreamXmlSolverFactory();
+  solverFactory.configure(reader);
+  return solverFactory;
+}

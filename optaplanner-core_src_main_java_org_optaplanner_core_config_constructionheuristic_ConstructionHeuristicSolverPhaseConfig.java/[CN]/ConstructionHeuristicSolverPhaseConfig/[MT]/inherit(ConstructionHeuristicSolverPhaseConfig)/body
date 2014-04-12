@@ -1,7 +1,7 @@
 {
   super.inherit(inheritedConfig);
   constructionHeuristicType=ConfigUtils.inheritOverwritableProperty(constructionHeuristicType,inheritedConfig.getConstructionHeuristicType());
-  entityPlacerConfigList=ConfigUtils.inheritMergeableListProperty(entityPlacerConfigList,inheritedConfig.getEntityPlacerConfigList());
+  setEntityPlacerConfig(ConfigUtils.inheritOverwritableProperty(getEntityPlacerConfig(),inheritedConfig.getEntityPlacerConfig()));
   if (foragerConfig == null) {
     foragerConfig=inheritedConfig.getForagerConfig();
   }

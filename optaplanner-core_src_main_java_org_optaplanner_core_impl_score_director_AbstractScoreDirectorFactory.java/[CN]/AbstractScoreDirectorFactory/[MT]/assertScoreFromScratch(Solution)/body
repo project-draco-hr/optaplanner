@@ -1,6 +1,6 @@
 {
   Score score=solution.getScore();
-  ScoreDirector uncorruptedScoreDirector=buildScoreDirector();
+  InnerScoreDirector uncorruptedScoreDirector=buildScoreDirector();
   uncorruptedScoreDirector.setWorkingSolution(solution);
   Score uncorruptedScore=uncorruptedScoreDirector.calculateScore();
   uncorruptedScoreDirector.dispose();

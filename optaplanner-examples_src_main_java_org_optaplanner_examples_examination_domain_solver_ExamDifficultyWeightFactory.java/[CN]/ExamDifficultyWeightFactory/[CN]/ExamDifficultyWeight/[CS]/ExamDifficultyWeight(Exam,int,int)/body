@@ -1,0 +1,5 @@
+{
+  this.exam=exam;
+  this.studentSizeTotal=studentSizeTotal;
+  this.maximumDuration=maximumDuration;
+}

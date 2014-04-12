@@ -1,0 +1,12 @@
+{
+  JButton button=new JButton(new ExamAction(exam));
+  if (toolTipText != null) {
+    button.setToolTipText(toolTipText);
+  }
+  button.setMargin(new Insets(0,0,0,0));
+  button.setBackground(color);
+  if (exam instanceof FollowingExam) {
+    button.setForeground(TangoColorFactory.ALUMINIUM_5);
+  }
+  return button;
+}

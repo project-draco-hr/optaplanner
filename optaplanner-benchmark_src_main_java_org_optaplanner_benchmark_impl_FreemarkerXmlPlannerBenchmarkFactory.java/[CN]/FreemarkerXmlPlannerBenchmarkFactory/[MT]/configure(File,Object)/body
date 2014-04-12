@@ -1,0 +1,8 @@
+{
+  try {
+    return configure(new FileInputStream(templateFile),model);
+  }
+ catch (  FileNotFoundException e) {
+    throw new IllegalArgumentException("The templateFile (" + templateFile + ") was not found.",e);
+  }
+}

@@ -1,4 +1,0 @@
-{
-  this.exam=exam;
-  this.toPeriod=toPeriod;
-}

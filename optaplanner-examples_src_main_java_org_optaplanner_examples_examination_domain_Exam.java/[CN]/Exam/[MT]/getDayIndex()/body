@@ -1,4 +1,5 @@
 {
+  Period period=getPeriod();
   if (period == null) {
     return Integer.MIN_VALUE;
   }

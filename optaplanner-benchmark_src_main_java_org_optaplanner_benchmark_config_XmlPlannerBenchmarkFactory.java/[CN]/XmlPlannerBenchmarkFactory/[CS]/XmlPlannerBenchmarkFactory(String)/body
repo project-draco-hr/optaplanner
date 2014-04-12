@@ -1,4 +1,0 @@
-{
-  this();
-  configure(benchmarkConfigResource);
-}

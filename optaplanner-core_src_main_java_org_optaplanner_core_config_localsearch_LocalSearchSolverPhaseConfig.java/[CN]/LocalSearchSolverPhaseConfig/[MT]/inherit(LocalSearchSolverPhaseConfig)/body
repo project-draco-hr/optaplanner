@@ -1,6 +1,6 @@
 {
   super.inherit(inheritedConfig);
-  moveSelectorConfigList=ConfigUtils.inheritMergeableListProperty(moveSelectorConfigList,inheritedConfig.getMoveSelectorConfigList());
+  setMoveSelectorConfig(ConfigUtils.inheritOverwritableProperty(getMoveSelectorConfig(),inheritedConfig.getMoveSelectorConfig()));
   if (acceptorConfig == null) {
     acceptorConfig=inheritedConfig.getAcceptorConfig();
   }

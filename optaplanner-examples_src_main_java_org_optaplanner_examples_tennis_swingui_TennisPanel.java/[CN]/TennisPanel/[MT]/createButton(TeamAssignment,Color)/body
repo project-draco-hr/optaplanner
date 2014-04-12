@@ -1,6 +1,9 @@
 {
-  JButton button=new JButton("Play");
+  JButton button=new JButton(new TeamAssignmentAction(teamAssignment));
   button.setMargin(new Insets(0,0,0,0));
   button.setBackground(color);
+  if (teamAssignment.isLocked()) {
+    button.setIcon(CommonIcons.LOCKED_ICON);
+  }
   return button;
 }

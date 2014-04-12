@@ -1,6 +1,6 @@
 {
   super.phaseStarted(phaseScope);
-  ScoreDirector scoreDirector=phaseScope.getScoreDirector();
+  InnerScoreDirector scoreDirector=phaseScope.getScoreDirector();
   cachedEntityList=entityDescriptor.extractEntities(scoreDirector.getWorkingSolution());
   cachedEntityListRevision=scoreDirector.getWorkingEntityListRevision();
   cachedEntityListIsDirty=false;

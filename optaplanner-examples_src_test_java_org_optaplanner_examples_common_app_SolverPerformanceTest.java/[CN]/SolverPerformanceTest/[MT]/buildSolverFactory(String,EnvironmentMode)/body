@@ -1,5 +1,5 @@
 {
-  SolverFactory solverFactory=new XmlSolverFactory(createSolverConfigResource());
+  SolverFactory solverFactory=SolverFactory.createFromXmlResource(createSolverConfigResource());
   solverFactory.getSolverConfig().setEnvironmentMode(environmentMode);
   TerminationConfig terminationConfig=new TerminationConfig();
   terminationConfig.setBestScoreLimit(bestScoreLimitString);
