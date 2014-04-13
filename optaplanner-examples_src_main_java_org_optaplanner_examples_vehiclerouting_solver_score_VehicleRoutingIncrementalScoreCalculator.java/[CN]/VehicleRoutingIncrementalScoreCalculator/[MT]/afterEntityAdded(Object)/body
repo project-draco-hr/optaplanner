@@ -5,6 +5,6 @@
   insertPreviousStandstill((Customer)entity);
   insertVehicle((Customer)entity);
   if (timeWindowed) {
-    insertMilliArrivalTime((TimeWindowedCustomer)entity);
+    insertArrivalTime((TimeWindowedCustomer)entity);
   }
 }

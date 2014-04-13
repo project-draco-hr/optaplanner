@@ -1,6 +1,6 @@
 {
-  if (milliArrivalTime == null) {
+  if (arrivalTime == null) {
     return null;
   }
-  return Math.max(milliArrivalTime,milliReadyTime) + milliServiceDuration;
+  return Math.max(arrivalTime,readyTime) + serviceDuration;
 }

@@ -1,9 +1,0 @@
-{
-  if (customer == null) {
-    return null;
-  }
-  if (previousMilliDepartureTime == null) {
-    return Math.max(customer.getMilliReadyTime(),customer.getMilliDistanceToPreviousStandstill());
-  }
-  return previousMilliDepartureTime + customer.getMilliDistanceToPreviousStandstill();
-}

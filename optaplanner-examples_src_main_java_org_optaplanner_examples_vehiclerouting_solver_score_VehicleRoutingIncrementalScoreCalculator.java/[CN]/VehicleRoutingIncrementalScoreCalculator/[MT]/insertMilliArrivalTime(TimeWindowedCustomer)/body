@@ -1,9 +1,0 @@
-{
-  Integer milliArrivalTime=customer.getMilliArrivalTime();
-  if (milliArrivalTime != null) {
-    int milliDueTime=customer.getMilliDueTime();
-    if (milliDueTime < milliArrivalTime) {
-      hardScore-=(milliArrivalTime - milliDueTime);
-    }
-  }
-}

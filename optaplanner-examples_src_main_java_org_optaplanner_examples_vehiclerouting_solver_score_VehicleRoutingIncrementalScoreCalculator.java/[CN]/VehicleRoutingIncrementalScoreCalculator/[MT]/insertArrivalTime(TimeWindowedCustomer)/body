@@ -1,0 +1,9 @@
+{
+  Integer arrivalTime=customer.getArrivalTime();
+  if (arrivalTime != null) {
+    int dueTime=customer.getDueTime();
+    if (dueTime < arrivalTime) {
+      hardScore-=(arrivalTime - dueTime);
+    }
+  }
+}

@@ -1,6 +1,0 @@
-{
-  if (previousStandstill == null) {
-    return 0;
-  }
-  return getMilliDistanceTo(previousStandstill);
-}

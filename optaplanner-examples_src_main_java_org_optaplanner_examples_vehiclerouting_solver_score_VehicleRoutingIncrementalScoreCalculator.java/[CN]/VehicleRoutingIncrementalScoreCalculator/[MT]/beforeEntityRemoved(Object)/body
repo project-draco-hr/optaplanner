@@ -5,6 +5,6 @@
   retractPreviousStandstill((Customer)entity);
   retractVehicle((Customer)entity);
   if (timeWindowed) {
-    retractMilliArrivalTime((TimeWindowedCustomer)entity);
+    retractArrivalTime((TimeWindowedCustomer)entity);
   }
 }

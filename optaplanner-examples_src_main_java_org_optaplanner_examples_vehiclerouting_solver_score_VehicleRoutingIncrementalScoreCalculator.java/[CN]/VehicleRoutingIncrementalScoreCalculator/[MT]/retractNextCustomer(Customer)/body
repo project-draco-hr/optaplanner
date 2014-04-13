@@ -2,7 +2,7 @@
   Vehicle vehicle=customer.getVehicle();
   if (vehicle != null) {
     if (customer.getNextCustomer() == null) {
-      softScore+=vehicle.getLocation().getMilliDistance(customer.getLocation());
+      softScore+=vehicle.getLocation().getDistance(customer.getLocation());
     }
   }
 }

@@ -11,7 +11,7 @@
     insertPreviousStandstill(customer);
     insertVehicle(customer);
     if (timeWindowed) {
-      insertMilliArrivalTime((TimeWindowedCustomer)customer);
+      insertArrivalTime((TimeWindowedCustomer)customer);
     }
   }
 }

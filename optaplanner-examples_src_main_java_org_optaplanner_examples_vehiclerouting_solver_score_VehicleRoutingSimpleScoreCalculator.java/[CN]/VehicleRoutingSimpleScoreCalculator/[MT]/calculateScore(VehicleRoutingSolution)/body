@@ -13,16 +13,16 @@
     if (previousStandstill != null) {
       Vehicle vehicle=customer.getVehicle();
       vehicleDemandMap.put(vehicle,vehicleDemandMap.get(vehicle) + customer.getDemand());
-      softScore-=customer.getMilliDistanceToPreviousStandstill();
+      softScore-=customer.getDistanceToPreviousStandstill();
       if (customer.getNextCustomer() == null) {
-        softScore-=vehicle.getLocation().getMilliDistance(customer.getLocation());
+        softScore-=vehicle.getLocation().getDistance(customer.getLocation());
       }
       if (timeWindowed) {
         TimeWindowedCustomer timeWindowedCustomer=(TimeWindowedCustomer)customer;
-        int milliDueTime=timeWindowedCustomer.getMilliDueTime();
-        Integer milliArrivalTime=timeWindowedCustomer.getMilliArrivalTime();
-        if (milliDueTime < milliArrivalTime) {
-          hardScore-=(milliArrivalTime - milliDueTime);
+        int dueTime=timeWindowedCustomer.getDueTime();
+        Integer arrivalTime=timeWindowedCustomer.getArrivalTime();
+        if (dueTime < arrivalTime) {
+          hardScore-=(arrivalTime - dueTime);
         }
       }
     }
