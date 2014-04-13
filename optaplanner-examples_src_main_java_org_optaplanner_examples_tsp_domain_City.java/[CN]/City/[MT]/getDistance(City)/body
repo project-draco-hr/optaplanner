@@ -2,5 +2,5 @@
   double latitudeDifference=city.latitude - latitude;
   double longitudeDifference=city.longitude - longitude;
   double distance=Math.sqrt((latitudeDifference * latitudeDifference) + (longitudeDifference * longitudeDifference));
-  return (int)(distance + 0.5);
+  return (int)(distance * 1000.0 + 0.5);
 }
