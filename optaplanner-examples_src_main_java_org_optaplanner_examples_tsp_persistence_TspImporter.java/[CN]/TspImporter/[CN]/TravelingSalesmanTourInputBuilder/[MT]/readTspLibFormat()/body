@@ -1,0 +1,6 @@
+{
+  readTspLibHeaders();
+  readTspLibCityList();
+  readConstantLine("EOF");
+  createVisitList();
+}

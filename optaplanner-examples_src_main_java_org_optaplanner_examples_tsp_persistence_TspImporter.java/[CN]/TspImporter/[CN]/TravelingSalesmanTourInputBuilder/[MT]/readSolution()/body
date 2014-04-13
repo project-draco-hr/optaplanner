@@ -1,10 +1,16 @@
 {
   travelingSalesmanTour=new TravelingSalesmanTour();
   travelingSalesmanTour.setId(0L);
-  readHeaders();
-  readCityList();
-  readConstantLine("EOF");
-  createVisitList();
+  String firstLine=readStringValue();
+  if (firstLine.trim().startsWith("NAME :")) {
+    travelingSalesmanTour.setName(removePrefixSuffixFromLine(firstLine,"NAME :",""));
+    readTspLibFormat();
+  }
+ else {
+    travelingSalesmanTour.setName(FilenameUtils.getBaseName(inputFile.getName()));
+    cityListSize=Integer.parseInt(firstLine.trim());
+    readCourseraFormat();
+  }
   BigInteger possibleSolutionSize=factorial(travelingSalesmanTour.getCityList().size() - 1);
   logger.info("TravelingSalesmanTour {} has {} cities with a search space of {}.",getInputId(),travelingSalesmanTour.getCityList().size(),getFlooredPossibleSolutionSize(possibleSolutionSize));
   return travelingSalesmanTour;

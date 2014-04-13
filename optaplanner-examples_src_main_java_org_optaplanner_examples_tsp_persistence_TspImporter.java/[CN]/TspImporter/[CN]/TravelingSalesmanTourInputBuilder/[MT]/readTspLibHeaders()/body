@@ -1,5 +1,4 @@
 {
-  travelingSalesmanTour.setName(readStringValue("NAME :"));
   readUntilConstantLine("TYPE : TSP");
   cityListSize=readIntegerValue("DIMENSION :");
   String edgeWeightType=readStringValue("EDGE_WEIGHT_TYPE :");
