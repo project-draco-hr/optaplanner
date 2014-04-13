@@ -4,7 +4,7 @@
     schedule=new VehicleRoutingSolution();
     schedule.setId(0L);
     schedule.setName(removePrefixSuffixFromLine(firstLine,"NAME :",""));
-    readBasicSolution();
+    readBasicFormat();
   }
  else   if (splitBySpace(firstLine).length == 3) {
     schedule=new VehicleRoutingSolution();
@@ -13,13 +13,13 @@
     locationListSize=Integer.parseInt(tokens[0]);
     vehicleListSize=Integer.parseInt(tokens[1]);
     capacity=Integer.parseInt(tokens[2]);
-    readAlternativeBasicSolution();
+    readCourseraFormat();
   }
  else {
     schedule=new TimeWindowedVehicleRoutingSolution();
     schedule.setId(0L);
     schedule.setName(firstLine);
-    readTimeWindowedSolution();
+    readTimeWindowedFormat();
   }
   BigInteger possibleSolutionSize=factorial(locationListSize + vehicleListSize - 1).divide(factorial(vehicleListSize - 1));
   logger.info("VehicleRoutingSolution {} has {} depots, {} vehicles and {} customers with a search space of {}.",getInputId(),schedule.getDepotList().size(),schedule.getVehicleList().size(),schedule.getCustomerList().size(),getFlooredPossibleSolutionSize(possibleSolutionSize));
