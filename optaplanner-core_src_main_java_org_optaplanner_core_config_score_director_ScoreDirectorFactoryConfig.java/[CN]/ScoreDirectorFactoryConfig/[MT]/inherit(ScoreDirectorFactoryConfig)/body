@@ -9,6 +9,7 @@
   incrementalScoreCalculatorClass=ConfigUtils.inheritOverwritableProperty(incrementalScoreCalculatorClass,inheritedConfig.getIncrementalScoreCalculatorClass());
   kieBase=ConfigUtils.inheritOverwritableProperty(kieBase,inheritedConfig.getKieBase());
   scoreDrlList=ConfigUtils.inheritMergeableListProperty(scoreDrlList,inheritedConfig.getScoreDrlList());
+  scoreDrlFileList=ConfigUtils.inheritMergeableListProperty(scoreDrlFileList,inheritedConfig.getScoreDrlFileList());
   kieBaseConfigurationProperties=ConfigUtils.inheritMergeableMapProperty(kieBaseConfigurationProperties,inheritedConfig.getKieBaseConfigurationProperties());
   initializingScoreTrend=ConfigUtils.inheritOverwritableProperty(initializingScoreTrend,inheritedConfig.getInitializingScoreTrend());
   assertionScoreDirectorFactory=ConfigUtils.inheritOverwritableProperty(assertionScoreDirectorFactory,inheritedConfig.getAssertionScoreDirectorFactory());
