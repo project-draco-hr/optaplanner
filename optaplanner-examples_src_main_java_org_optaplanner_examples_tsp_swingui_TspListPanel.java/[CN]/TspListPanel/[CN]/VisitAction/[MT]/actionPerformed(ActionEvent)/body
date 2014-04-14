@@ -4,9 +4,7 @@
   for (  Standstill previousStandstill : travelingSalesmanTour.getVisitList()) {
     previousStandstillListField.addItem(previousStandstill);
   }
-  for (  Standstill previousStandstill : travelingSalesmanTour.getDomicileList()) {
-    previousStandstillListField.addItem(previousStandstill);
-  }
+  previousStandstillListField.addItem(travelingSalesmanTour.getDomicile());
   previousStandstillListField.setSelectedItem(visit.getPreviousStandstill());
   int result=JOptionPane.showConfirmDialog(TspListPanel.this.getRootPane(),previousStandstillListField,"Visit " + visit.getCity().getSafeName() + " after",JOptionPane.OK_CANCEL_OPTION);
   if (result == JOptionPane.OK_OPTION) {

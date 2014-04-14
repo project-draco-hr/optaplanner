@@ -5,10 +5,8 @@
   headerLabel.setBackground(HEADER_COLOR);
   headerLabel.setOpaque(true);
   add(headerLabel);
-  for (  Domicile domicile : travelingSalesmanTour.getDomicileList()) {
-    JLabel domicileLabel=new JLabel(domicile.getCity().getSafeName());
-    add(domicileLabel);
-  }
+  Domicile domicile=travelingSalesmanTour.getDomicile();
+  add(new JLabel(domicile.getCity().getSafeName()));
   if (travelingSalesmanTour.getVisitList().size() > 1000) {
     JLabel tooBigLabel=new JLabel("The dataset is too big to show.");
     add(tooBigLabel);
