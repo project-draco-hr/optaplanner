@@ -3,7 +3,7 @@
     throw new UnsupportedOperationException("The domicileList (" + tour.getDomicileList() + ") should be a singleton.");
   }
   domicile=tour.getDomicileList().get(0);
-  score=0;
+  score=0L;
   for (  Visit visit : tour.getVisitList()) {
     insert(visit);
   }
