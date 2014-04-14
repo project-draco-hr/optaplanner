@@ -1,0 +1,3 @@
+{
+  return new CompareToBuilder().append(domicileDistance,other.domicileDistance).append(visit.getCity().getLatitude(),other.visit.getCity().getLatitude()).append(visit.getId(),other.visit.getId()).toComparison();
+}

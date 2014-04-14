@@ -1,0 +1,4 @@
+{
+  this.visit=visit;
+  this.domicileDistance=domicileDistance;
+}
