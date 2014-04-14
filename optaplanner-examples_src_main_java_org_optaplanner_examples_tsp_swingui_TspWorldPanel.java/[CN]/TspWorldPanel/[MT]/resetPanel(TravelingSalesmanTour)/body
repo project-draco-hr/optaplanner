@@ -70,7 +70,7 @@
   String clickString="Click anywhere in the map to add a visit.";
   g.drawString(clickString,(int)width - 5 - g.getFontMetrics().stringWidth(clickString),(int)height - 5);
   g.setColor(TangoColorFactory.ORANGE_3);
-  SimpleScore score=travelingSalesmanTour.getScore();
+  SimpleLongScore score=travelingSalesmanTour.getScore();
   if (score != null) {
     double fuel=((double)-score.getScore()) / 1000.0;
     String fuelString=NUMBER_FORMAT.format(fuel) + " fuel";

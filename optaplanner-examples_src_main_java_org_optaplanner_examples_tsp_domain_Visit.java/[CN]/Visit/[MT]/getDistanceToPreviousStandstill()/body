@@ -1,6 +1,6 @@
 {
   if (previousStandstill == null) {
-    return 0;
+    return 0L;
   }
   return getDistanceTo(previousStandstill);
 }
