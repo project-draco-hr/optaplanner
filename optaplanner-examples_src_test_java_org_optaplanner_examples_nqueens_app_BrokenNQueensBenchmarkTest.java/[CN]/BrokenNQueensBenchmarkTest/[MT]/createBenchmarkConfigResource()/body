@@ -1,3 +1,3 @@
 {
-  return "/org/optaplanner/examples/nqueens/benchmark/nqueensBenchmarkConfig.xml";
+  return "org/optaplanner/examples/nqueens/benchmark/nqueensBenchmarkConfig.xml";
 }

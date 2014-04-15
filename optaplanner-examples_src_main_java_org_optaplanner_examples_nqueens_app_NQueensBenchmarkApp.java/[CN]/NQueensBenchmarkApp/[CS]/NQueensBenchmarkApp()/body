@@ -1,3 +1,3 @@
 {
-  super(new ArgOption("default","/org/optaplanner/examples/nqueens/benchmark/nqueensBenchmarkConfig.xml"),new ArgOption("stepLimit","/org/optaplanner/examples/nqueens/benchmark/nqueensStepLimitBenchmarkConfig.xml"),new ArgOption("scoreDirector","/org/optaplanner/examples/nqueens/benchmark/nqueensScoreDirectorBenchmarkConfig.xml"));
+  super(new ArgOption("default","org/optaplanner/examples/nqueens/benchmark/nqueensBenchmarkConfig.xml"),new ArgOption("stepLimit","org/optaplanner/examples/nqueens/benchmark/nqueensStepLimitBenchmarkConfig.xml"),new ArgOption("scoreDirector","org/optaplanner/examples/nqueens/benchmark/nqueensScoreDirectorBenchmarkConfig.xml"));
 }

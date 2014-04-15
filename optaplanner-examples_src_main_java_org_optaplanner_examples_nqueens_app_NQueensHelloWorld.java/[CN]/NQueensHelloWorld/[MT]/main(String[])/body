@@ -1,5 +1,5 @@
 {
-  SolverFactory solverFactory=SolverFactory.createFromXmlResource("/org/optaplanner/examples/nqueens/solver/nqueensSolverConfig.xml");
+  SolverFactory solverFactory=SolverFactory.createFromXmlResource("org/optaplanner/examples/nqueens/solver/nqueensSolverConfig.xml");
   Solver solver=solverFactory.buildSolver();
   NQueens unsolved8Queens=new NQueensGenerator().createNQueens(8);
   solver.solve(unsolved8Queens);
