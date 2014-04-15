@@ -1,18 +1,18 @@
 {
-  if (problemIOClass != null && xstreamAnnotatedClassList != null) {
-    throw new IllegalArgumentException("Cannot use problemIOClass (" + problemIOClass + ") and xstreamAnnotatedClassList ("+ xstreamAnnotatedClassList+ ") together.");
+  if (problemIOClass != null && xStreamAnnotatedClassList != null) {
+    throw new IllegalArgumentException("Cannot use problemIOClass (" + problemIOClass + ") and xStreamAnnotatedClassList ("+ xStreamAnnotatedClassList+ ") together.");
   }
   if (problemIOClass != null) {
     return ConfigUtils.newInstance(this,"problemIOClass",problemIOClass);
   }
  else {
-    Class[] xstreamAnnotatedClasses;
-    if (xstreamAnnotatedClassList != null) {
-      xstreamAnnotatedClasses=xstreamAnnotatedClassList.toArray(new Class[xstreamAnnotatedClassList.size()]);
+    Class[] xStreamAnnotatedClasses;
+    if (xStreamAnnotatedClassList != null) {
+      xStreamAnnotatedClasses=xStreamAnnotatedClassList.toArray(new Class[xStreamAnnotatedClassList.size()]);
     }
  else {
-      xstreamAnnotatedClasses=new Class[0];
+      xStreamAnnotatedClasses=new Class[0];
     }
-    return new XStreamProblemIO(xstreamAnnotatedClasses);
+    return new XStreamProblemIO(xStreamAnnotatedClasses);
   }
 }
