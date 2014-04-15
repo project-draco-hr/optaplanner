@@ -39,15 +39,10 @@
         if (scoreDrlFile == null) {
           throw new IllegalArgumentException("The scoreDrlFile (" + scoreDrlFile + ") cannot be null.");
         }
-        InputStream scoreDrlIn=null;
-        try {
-          scoreDrlIn=new FileInputStream(scoreDrlFile);
+        if (!scoreDrlFile.exists()) {
+          throw new IllegalArgumentException("The scoreDrlFile (" + scoreDrlFile + ") does not exist.");
         }
- catch (        FileNotFoundException e) {
-          throw new IllegalArgumentException("The scoreDrlFile (" + scoreDrlFile + ") does not exist.",e);
-        }
-        String path="src/main/resources/optaplanner-kie-namespace/" + scoreDrlFile.getName();
-        kieFileSystem.write(path,kieResources.newInputStreamResource(scoreDrlIn,"UTF-8"));
+        kieFileSystem.write(kieResources.newFileSystemResource(scoreDrlFile));
       }
     }
     KieBuilder kieBuilder=kieServices.newKieBuilder(kieFileSystem);
