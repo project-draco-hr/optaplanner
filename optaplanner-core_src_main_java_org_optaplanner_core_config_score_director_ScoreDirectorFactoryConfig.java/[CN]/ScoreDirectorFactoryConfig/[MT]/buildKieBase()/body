@@ -42,7 +42,7 @@
         if (!scoreDrlFile.exists()) {
           throw new IllegalArgumentException("The scoreDrlFile (" + scoreDrlFile + ") does not exist.");
         }
-        kieFileSystem.write(kieResources.newFileSystemResource(scoreDrlFile));
+        kieFileSystem.write(kieResources.newFileSystemResource(scoreDrlFile,"UTF-8"));
       }
     }
     KieBuilder kieBuilder=kieServices.newKieBuilder(kieFileSystem);
