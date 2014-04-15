@@ -1,4 +1,4 @@
 {
   File unsolvedDataFile=new File("data/tsp/unsolved/europe40.xml");
-  runSpeedTest(unsolvedDataFile,"-219637",EnvironmentMode.FAST_ASSERT);
+  runSpeedTest(unsolvedDataFile,"-219637000",EnvironmentMode.FAST_ASSERT);
 }
