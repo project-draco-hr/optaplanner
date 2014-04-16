@@ -1,4 +1,4 @@
 {
-  super("=>");
+  super(process.getLabel());
   this.process=process;
 }

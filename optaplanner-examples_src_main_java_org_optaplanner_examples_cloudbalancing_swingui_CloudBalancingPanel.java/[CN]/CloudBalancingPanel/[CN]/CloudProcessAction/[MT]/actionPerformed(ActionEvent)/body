@@ -1,11 +1,16 @@
 {
-  List<CloudComputer> computerList=getCloudBalance().getComputerList();
-  JComboBox computerListField=new JComboBox(computerList.toArray());
+  JPanel listFieldsPanel=new JPanel(new GridLayout(1,2));
+  listFieldsPanel.add(new JLabel("Computer:"));
+  List<CloudComputer> periodList=getCloudBalance().getComputerList();
+  JComboBox computerListField=new JComboBox(periodList.toArray());
   computerListField.setSelectedItem(process.getComputer());
-  int result=JOptionPane.showConfirmDialog(CloudBalancingPanel.this.getRootPane(),computerListField,"Select computer",JOptionPane.OK_CANCEL_OPTION);
+  listFieldsPanel.add(computerListField);
+  int result=JOptionPane.showConfirmDialog(CloudBalancingPanel.this.getRootPane(),listFieldsPanel,"Select computer",JOptionPane.OK_CANCEL_OPTION);
   if (result == JOptionPane.OK_OPTION) {
     CloudComputer toComputer=(CloudComputer)computerListField.getSelectedItem();
-    solutionBusiness.doChangeMove(process,"computer",toComputer);
+    if (process.getComputer() != toComputer) {
+      solutionBusiness.doChangeMove(process,"computer",toComputer);
+    }
     solverAndPersistenceFrame.resetScreen();
   }
 }

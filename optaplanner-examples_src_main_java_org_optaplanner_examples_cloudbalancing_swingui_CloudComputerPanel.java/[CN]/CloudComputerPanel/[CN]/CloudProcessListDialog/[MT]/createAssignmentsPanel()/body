@@ -14,7 +14,7 @@
     JTextField networkBandwidthField=new JTextField(process.getRequiredNetworkBandwidth() + " GB");
     networkBandwidthField.setEditable(false);
     assignmentsPanel.add(networkBandwidthField);
-    assignmentsPanel.add(new JLabel(""));
+    assignmentsPanel.add(cloudBalancingPanel.createButton(process));
     colorIndex=(colorIndex + 1) % TangoColorFactory.SEQUENCE_1.length;
   }
   return assignmentsPanel;
