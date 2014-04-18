@@ -2,12 +2,13 @@
   JButton button=new JButton(new SeatDesignationAction(seatDesignation));
   add(button);
   add(new JLabel(seatDesignation.getGuest().getJob().getJobType().getCode() + ": " + seatDesignation.getGuest().getJob().getName(),SwingConstants.CENTER));
-  StringBuilder hobbyString=new StringBuilder();
+  JPanel hobbyPanel=new JPanel(new FlowLayout(FlowLayout.CENTER));
+  hobbyPanel.setOpaque(false);
   for (  HobbyPractician hobbyPractician : seatDesignation.getGuest().getHobbyPracticianList()) {
-    if (hobbyString.length() > 0) {
-      hobbyString.append(", ");
-    }
-    hobbyString.append(hobbyPractician.getHobby().toString());
+    Hobby hobby=hobbyPractician.getHobby();
+    JLabel hobbyLabel=new JLabel(hobbyImageIconMap.get(hobby));
+    hobbyLabel.setToolTipText(hobby.getLabel());
+    hobbyPanel.add(hobbyLabel);
   }
-  add(new JLabel(hobbyString.toString(),SwingConstants.CENTER));
+  add(hobbyPanel);
 }

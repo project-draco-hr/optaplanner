@@ -1,4 +1,29 @@
 {
   gridLayout=new GridLayout(0,1);
   setLayout(gridLayout);
+  Hobby[] hobbies=Hobby.values();
+  hobbyImageIconMap=new HashMap<Hobby,ImageIcon>(hobbies.length);
+  for (  Hobby hobby : hobbies) {
+    String imageIconFilename;
+switch (hobby) {
+case TENNIS:
+      imageIconFilename="hobbyTennis.png";
+    break;
+case GOLF:
+  imageIconFilename="hobbyGolf.png";
+break;
+case MOTORCYCLES:
+imageIconFilename="hobbyMotorcycles.png";
+break;
+case CHESS:
+imageIconFilename="hobbyChess.png";
+break;
+case POKER:
+imageIconFilename="hobbyPoker.png";
+break;
+default :
+throw new IllegalArgumentException("The hobby (" + hobby + ") is not supported.");
+}
+hobbyImageIconMap.put(hobby,new ImageIcon(getClass().getResource(imageIconFilename)));
+}
 }
