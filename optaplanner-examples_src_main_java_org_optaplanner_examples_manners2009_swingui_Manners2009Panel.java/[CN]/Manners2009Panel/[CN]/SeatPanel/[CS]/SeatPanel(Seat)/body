@@ -1,5 +1,5 @@
 {
-  setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
+  setLayout(new BorderLayout(5,0));
   setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(Color.DARK_GRAY),BorderFactory.createEmptyBorder(2,2,2,2)));
   SeatDesignation dummySeatDesignation=new SeatDesignation();
   dummySeatDesignation.setGuest(null);
