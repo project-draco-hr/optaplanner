@@ -26,4 +26,10 @@ throw new IllegalArgumentException("The hobby (" + hobby + ") is not supported."
 }
 hobbyImageIconMap.put(hobby,new ImageIcon(getClass().getResource(imageIconFilename)));
 }
+maleImageIconList=new ArrayList<ImageIcon>(MALE_FEMALE_ICON_VARIATION);
+femaleImageIconList=new ArrayList<ImageIcon>(MALE_FEMALE_ICON_VARIATION);
+for (int i=0; i < MALE_FEMALE_ICON_VARIATION; i++) {
+maleImageIconList.add(new ImageIcon(getClass().getResource("guestMale" + i + ".png")));
+femaleImageIconList.add(new ImageIcon(getClass().getResource("guestFemale" + i + ".png")));
+}
 }

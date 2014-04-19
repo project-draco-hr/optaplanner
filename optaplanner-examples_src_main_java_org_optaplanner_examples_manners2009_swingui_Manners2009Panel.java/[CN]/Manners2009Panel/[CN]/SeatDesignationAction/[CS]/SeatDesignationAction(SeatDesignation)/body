@@ -1,4 +1,9 @@
 {
-  super(seatDesignation.getGuest().getCode() + "(" + seatDesignation.getGuest().getGender().getCode()+ ")");
+  super(null,determineGuestIcon(seatDesignation));
+  Seat seat=seatDesignation.getSeat();
+  if (seat != null) {
+    Guest guest=seatDesignation.getGuest();
+    setToolTipText((guest == null ? "" : "Guest " + guest.getCode() + " @ ") + "Seat " + seat.getSeatIndexInTable());
+  }
   this.seatDesignation=seatDesignation;
 }

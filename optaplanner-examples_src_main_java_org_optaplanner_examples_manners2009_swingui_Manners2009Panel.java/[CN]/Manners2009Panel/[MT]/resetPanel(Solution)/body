@@ -44,6 +44,6 @@
   for (  SeatDesignation seatDesignation : manners2009.getSeatDesignationList()) {
     SeatPanel seatPanel=seatPanelMap.get(seatDesignation.getSeat());
     seatPanel.setBackground(tangoColorFactory.pickColor(seatDesignation.getGuestJobType()));
-    seatPanel.addSeatDesignation(seatDesignation);
+    seatPanel.setSeatDesignation(seatDesignation);
   }
 }

@@ -1,0 +1,27 @@
+{
+  removeAll();
+  if (seatDesignation.getGuest() == null) {
+    add(new JLabel("Empty seat"));
+    return;
+  }
+  JButton button=new JButton(new SeatDesignationAction(seatDesignation));
+  button.setAlignmentX(CENTER_ALIGNMENT);
+  button.setMargin(new Insets(0,0,0,0));
+  add(button);
+  JLabel jobTypeLabel=new JLabel(seatDesignation.getGuest().getJob().getJobType().getCode(),SwingConstants.CENTER);
+  jobTypeLabel.setAlignmentX(CENTER_ALIGNMENT);
+  add(jobTypeLabel);
+  JLabel jobLabel=new JLabel(seatDesignation.getGuest().getJob().getName(),SwingConstants.CENTER);
+  jobLabel.setAlignmentX(CENTER_ALIGNMENT);
+  add(jobLabel);
+  JPanel hobbyPanel=new JPanel(new FlowLayout(FlowLayout.CENTER));
+  hobbyPanel.setOpaque(false);
+  hobbyPanel.setAlignmentX(CENTER_ALIGNMENT);
+  for (  HobbyPractician hobbyPractician : seatDesignation.getGuest().getHobbyPracticianList()) {
+    Hobby hobby=hobbyPractician.getHobby();
+    JLabel hobbyLabel=new JLabel(hobbyImageIconMap.get(hobby));
+    hobbyLabel.setToolTipText(hobby.getLabel());
+    hobbyPanel.add(hobbyLabel);
+  }
+  add(hobbyPanel);
+}

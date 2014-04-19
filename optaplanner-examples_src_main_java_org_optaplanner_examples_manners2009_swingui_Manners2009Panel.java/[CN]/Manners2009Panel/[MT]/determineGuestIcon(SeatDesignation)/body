@@ -1,0 +1,8 @@
+{
+  Guest guest=seatDesignation.getGuest();
+  if (guest == null) {
+    return null;
+  }
+  List<ImageIcon> imageIconList=guest.getGender() == Gender.MALE ? maleImageIconList : femaleImageIconList;
+  return imageIconList.get(guest.getId().intValue() % imageIconList.size());
+}
