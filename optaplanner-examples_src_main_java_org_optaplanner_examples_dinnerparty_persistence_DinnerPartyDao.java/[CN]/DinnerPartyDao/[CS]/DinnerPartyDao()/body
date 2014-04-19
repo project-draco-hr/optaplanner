@@ -1,0 +1,3 @@
+{
+  super("dinnerparty",DinnerParty.class);
+}

@@ -1,3 +1,0 @@
-{
-  super(new Manners2009Dao());
-}

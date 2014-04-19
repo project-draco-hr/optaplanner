@@ -1,3 +1,0 @@
-{
-  return new Manners2009InputBuilder();
-}

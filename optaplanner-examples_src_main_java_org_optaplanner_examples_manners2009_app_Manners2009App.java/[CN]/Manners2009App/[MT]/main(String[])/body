@@ -1,4 +1,0 @@
-{
-  prepareSwingEnvironment();
-  new Manners2009App().init();
-}

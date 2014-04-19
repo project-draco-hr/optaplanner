@@ -1,0 +1,10 @@
+{
+  List<SeatDesignation> seatDesignationList=getDinnerParty().getSeatDesignationList();
+  JComboBox seatDesignationListField=new JComboBox(seatDesignationList.toArray());
+  seatDesignationListField.setSelectedItem(seatDesignation);
+  int result=JOptionPane.showConfirmDialog(DinnerPartyPanel.this.getRootPane(),seatDesignationListField,"Select seat designation to switch with",JOptionPane.OK_CANCEL_OPTION);
+  if (result == JOptionPane.OK_OPTION) {
+    SeatDesignation switchSeatDesignation=(SeatDesignation)seatDesignationListField.getSelectedItem();
+    throw new UnsupportedOperationException();
+  }
+}

@@ -1,0 +1,3 @@
+{
+  super("Dinner party","Decide the seating at a big fancy dinner party with round tables.\n" + "Assign guests to seats at tables.",null);
+}

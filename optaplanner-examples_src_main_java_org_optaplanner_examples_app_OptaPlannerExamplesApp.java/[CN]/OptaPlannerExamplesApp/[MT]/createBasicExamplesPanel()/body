@@ -6,7 +6,7 @@
   panel.add(createExampleButton(new NQueensApp()));
   panel.add(createExampleButton(new CloudBalancingApp()));
   panel.add(createExampleButton(new TspApp()));
-  panel.add(createExampleButton(new Manners2009App()));
+  panel.add(createExampleButton(new DinnerPartyApp()));
   panel.add(createExampleButton(new TennisApp()));
   return panel;
 }
