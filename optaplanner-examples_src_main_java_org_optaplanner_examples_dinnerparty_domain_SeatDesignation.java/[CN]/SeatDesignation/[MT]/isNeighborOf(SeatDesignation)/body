@@ -1,0 +1,6 @@
+{
+  if (seat == null || otherSeatDesignation.seat == null) {
+    return false;
+  }
+  return seat.getLeftSeat() == otherSeatDesignation.seat || seat.getRightSeat() == otherSeatDesignation.seat;
+}
