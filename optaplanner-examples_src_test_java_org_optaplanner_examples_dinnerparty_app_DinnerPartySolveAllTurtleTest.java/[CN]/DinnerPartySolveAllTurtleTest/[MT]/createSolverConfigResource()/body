@@ -1,0 +1,3 @@
+{
+  return "org/optaplanner/examples/dinnerparty/solver/dinnerPartySolverConfig.xml";
+}

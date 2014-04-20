@@ -1,0 +1,4 @@
+{
+  File unsolvedDataFile=new File("data/dinnerparty/unsolved/wedding01.xml");
+  runSpeedTest(unsolvedDataFile,"-90");
+}
