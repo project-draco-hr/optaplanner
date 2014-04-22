@@ -1,20 +1,25 @@
 {
   Desktop desktop=Desktop.getDesktop();
-  try {
 switch (action) {
 case OPEN:
-      if (desktop.isSupported(Desktop.Action.OPEN)) {
-        desktop.open(file);
+    if (desktop.isSupported(Desktop.Action.OPEN)) {
+      try {
+        desktop.open(reportFile);
       }
-    break;
+ catch (      IOException e) {
+        throw new IllegalStateException("Failed showing reportFile (" + reportFile + ") in file explorer.",e);
+      }
+    }
+  break;
 case BROWSE:
-  if (desktop.isSupported(Desktop.Action.BROWSE)) {
-    desktop.browse(file.toURI());
+if (desktop.isSupported(Desktop.Action.BROWSE)) {
+  try {
+    desktop.browse(reportFile.toURI());
   }
+ catch (  IOException e) {
+    throw new IllegalStateException("Failed showing reportFile (" + reportFile + ") in browser.",e);
+  }
+}
 break;
-}
-}
- catch (IOException e) {
-throw new IllegalStateException(e);
 }
 }

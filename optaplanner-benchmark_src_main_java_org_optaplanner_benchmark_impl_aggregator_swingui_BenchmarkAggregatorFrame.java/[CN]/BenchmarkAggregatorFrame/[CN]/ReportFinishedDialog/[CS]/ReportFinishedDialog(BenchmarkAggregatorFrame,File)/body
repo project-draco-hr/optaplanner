@@ -4,7 +4,7 @@
   this.reportFile=reportFile;
   addWindowListener(new WindowAdapter(){
     @Override public void windowClosing(    WindowEvent e){
-      refreshParentFrame();
+      refresh();
     }
   }
 );

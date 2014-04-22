@@ -1,2 +1,2 @@
-JFrame parentFrame
+BenchmarkAggregatorFrame parentFrame
 List<SingleBenchmarkResult> singleBenchmarkResultList
