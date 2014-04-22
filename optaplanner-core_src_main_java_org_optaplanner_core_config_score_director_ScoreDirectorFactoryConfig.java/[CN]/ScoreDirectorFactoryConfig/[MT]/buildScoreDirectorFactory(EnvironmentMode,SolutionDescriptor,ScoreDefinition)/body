@@ -1,6 +1,6 @@
 {
   AbstractScoreDirectorFactory scoreDirectorFactory;
-  scoreDirectorFactory=buildSimpleScoreDirectorFactory();
+  scoreDirectorFactory=buildEasyScoreDirectorFactory();
   if (scoreDirectorFactory == null) {
     scoreDirectorFactory=buildIncrementalScoreDirectorFactory();
   }

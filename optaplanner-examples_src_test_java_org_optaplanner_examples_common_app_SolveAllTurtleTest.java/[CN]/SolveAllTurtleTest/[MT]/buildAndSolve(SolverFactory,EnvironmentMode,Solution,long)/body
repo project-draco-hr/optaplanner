@@ -2,10 +2,10 @@
   SolverConfig solverConfig=solverFactory.getSolverConfig();
   solverConfig.getTerminationConfig().setMinutesSpentLimit(maximumMinutesSpent);
   solverConfig.setEnvironmentMode(environmentMode);
-  Class<? extends SimpleScoreCalculator> simpleScoreCalculatorClass=overwritingSimpleScoreCalculatorClass();
-  if (simpleScoreCalculatorClass != null && environmentMode.isAsserted()) {
+  Class<? extends EasyScoreCalculator> easyScoreCalculatorClass=overwritingEasyScoreCalculatorClass();
+  if (easyScoreCalculatorClass != null && environmentMode.isAsserted()) {
     ScoreDirectorFactoryConfig assertionScoreDirectorFactoryConfig=new ScoreDirectorFactoryConfig();
-    assertionScoreDirectorFactoryConfig.setSimpleScoreCalculatorClass(simpleScoreCalculatorClass);
+    assertionScoreDirectorFactoryConfig.setEasyScoreCalculatorClass(easyScoreCalculatorClass);
     solverConfig.getScoreDirectorFactoryConfig().setAssertionScoreDirectorFactory(assertionScoreDirectorFactoryConfig);
   }
   Solver solver=solverFactory.buildSolver();

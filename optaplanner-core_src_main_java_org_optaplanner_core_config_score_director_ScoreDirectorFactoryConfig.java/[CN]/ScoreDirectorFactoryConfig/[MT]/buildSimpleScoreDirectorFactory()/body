@@ -1,9 +1,0 @@
-{
-  if (simpleScoreCalculatorClass != null) {
-    SimpleScoreCalculator simpleScoreCalculator=ConfigUtils.newInstance(this,"simpleScoreCalculatorClass",simpleScoreCalculatorClass);
-    return new SimpleScoreDirectorFactory(simpleScoreCalculator);
-  }
- else {
-    return null;
-  }
-}

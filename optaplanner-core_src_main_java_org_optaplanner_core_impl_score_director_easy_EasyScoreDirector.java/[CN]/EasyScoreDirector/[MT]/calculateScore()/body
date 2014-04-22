@@ -1,0 +1,5 @@
+{
+  Score score=easyScoreCalculator.calculateScore(workingSolution);
+  setCalculatedScore(score);
+  return score;
+}

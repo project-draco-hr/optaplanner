@@ -5,7 +5,7 @@
     bendableHardLevelCount=inheritedConfig.getBendableHardLevelCount();
     bendableSoftLevelCount=inheritedConfig.getBendableSoftLevelCount();
   }
-  simpleScoreCalculatorClass=ConfigUtils.inheritOverwritableProperty(simpleScoreCalculatorClass,inheritedConfig.getSimpleScoreCalculatorClass());
+  easyScoreCalculatorClass=ConfigUtils.inheritOverwritableProperty(easyScoreCalculatorClass,inheritedConfig.getEasyScoreCalculatorClass());
   incrementalScoreCalculatorClass=ConfigUtils.inheritOverwritableProperty(incrementalScoreCalculatorClass,inheritedConfig.getIncrementalScoreCalculatorClass());
   kieBase=ConfigUtils.inheritOverwritableProperty(kieBase,inheritedConfig.getKieBase());
   scoreDrlList=ConfigUtils.inheritMergeableListProperty(scoreDrlList,inheritedConfig.getScoreDrlList());

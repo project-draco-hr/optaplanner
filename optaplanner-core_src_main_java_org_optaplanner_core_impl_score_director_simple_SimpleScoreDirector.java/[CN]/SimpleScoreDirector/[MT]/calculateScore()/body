@@ -1,5 +1,0 @@
-{
-  Score score=simpleScoreCalculator.calculateScore(workingSolution);
-  setCalculatedScore(score);
-  return score;
-}
