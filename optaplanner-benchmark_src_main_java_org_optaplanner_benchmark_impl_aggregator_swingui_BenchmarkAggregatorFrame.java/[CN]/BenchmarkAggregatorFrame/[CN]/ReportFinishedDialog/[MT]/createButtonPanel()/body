@@ -1,30 +1,40 @@
 {
+  final Desktop desktop=Desktop.getDesktop();
   JPanel buttonPanel=new JPanel(new GridLayout(1,3,10,10));
-  JButton openBrowserButton=new JButton("Show in browser");
-  openBrowserButton.addActionListener(new AbstractAction(){
-    @Override public void actionPerformed(    ActionEvent e){
-      openReportFile(reportFile.getAbsoluteFile(),Desktop.Action.BROWSE);
+  AbstractAction openBrowserAction=new AbstractAction("Show in browser"){
+    @Override public void actionPerformed(    ActionEvent event){
+      try {
+        desktop.browse(reportFile.getAbsoluteFile().toURI());
+      }
+ catch (      IOException e) {
+        throw new IllegalStateException("Failed showing reportFile (" + reportFile + ") in browser.",e);
+      }
       finishDialog();
     }
   }
-);
-  buttonPanel.add(openBrowserButton);
-  JButton openFileButton=new JButton("Show in files");
-  openFileButton.addActionListener(new AbstractAction(){
-    @Override public void actionPerformed(    ActionEvent e){
-      openReportFile(reportFile.getParentFile(),Desktop.Action.OPEN);
+;
+  openBrowserAction.setEnabled(desktop.isSupported(Desktop.Action.BROWSE));
+  buttonPanel.add(new JButton(openBrowserAction));
+  AbstractAction openFileAction=new AbstractAction("Show in files"){
+    @Override public void actionPerformed(    ActionEvent event){
+      try {
+        desktop.open(reportFile.getParentFile());
+      }
+ catch (      IOException e) {
+        throw new IllegalStateException("Failed showing reportFile (" + reportFile + ") in file explorer.",e);
+      }
       finishDialog();
     }
   }
-);
-  buttonPanel.add(openFileButton);
-  JButton closeButton=new JButton("Ok");
-  closeButton.addActionListener(new AbstractAction(){
+;
+  openBrowserAction.setEnabled(desktop.isSupported(Desktop.Action.OPEN));
+  buttonPanel.add(new JButton(openFileAction));
+  AbstractAction closeAction=new AbstractAction("Ok"){
     @Override public void actionPerformed(    ActionEvent e){
       finishDialog();
     }
   }
-);
-  buttonPanel.add(closeButton);
+;
+  buttonPanel.add(new JButton(closeAction));
   return buttonPanel;
 }
