@@ -1,1 +1,1 @@
-AbstractScoreDefinition<HardSoftLongScore>
+AbstractFeasibilityScoreDefinition<HardSoftLongScore>

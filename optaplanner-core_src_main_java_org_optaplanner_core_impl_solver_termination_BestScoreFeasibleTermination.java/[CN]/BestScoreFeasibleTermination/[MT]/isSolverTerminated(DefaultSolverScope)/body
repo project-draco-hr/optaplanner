@@ -1,0 +1,4 @@
+{
+  FeasibilityScore bestScore=(FeasibilityScore)solverScope.getBestScore();
+  return bestScore.isFeasible();
+}

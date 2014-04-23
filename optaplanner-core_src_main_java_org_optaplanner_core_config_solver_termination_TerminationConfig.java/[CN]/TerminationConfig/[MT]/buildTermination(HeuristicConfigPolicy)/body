@@ -22,6 +22,15 @@
   if (unimprovedStepCountLimit != null) {
     terminationList.add(new UnimprovedStepCountTermination(unimprovedStepCountLimit));
   }
+  if (bestScoreFeasible != null) {
+    Class scoreDefinitionClass=configPolicy.getScoreDefinition().getClass();
+    if (!FeasibilityScoreDefinition.class.isAssignableFrom(scoreDefinitionClass)) {
+      throw new IllegalStateException("BestScoreFeasible termination is not compatible with supplied score definition class." + " Expected (" + FeasibilityScoreDefinition.class.getName() + "), was ("+ scoreDefinitionClass.getName()+ ").");
+    }
+    if (bestScoreFeasible) {
+      terminationList.add(new BestScoreFeasibleTermination());
+    }
+  }
   if (!ConfigUtils.isEmptyCollection(terminationConfigList)) {
     for (    TerminationConfig terminationConfig : terminationConfigList) {
       Termination termination=terminationConfig.buildTermination(configPolicy);

@@ -1,0 +1,4 @@
+{
+  FeasibilityScore bestScore=(FeasibilityScore)phaseScope.getBestScore();
+  return bestScore.isFeasible();
+}
