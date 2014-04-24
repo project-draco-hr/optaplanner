@@ -1,0 +1,4 @@
+{
+  assertEquals(SimpleScore.valueOf(-5),SimpleScore.valueOf(5).negate());
+  assertEquals(SimpleScore.valueOf(5),SimpleScore.valueOf(-5).negate());
+}

@@ -1,0 +1,4 @@
+{
+  assertEquals(HardMediumSoftLongScore.valueOf(-3L,4L,-5L),HardMediumSoftLongScore.valueOf(3L,-4L,5L).negate());
+  assertEquals(HardMediumSoftLongScore.valueOf(3L,-4L,5L),HardMediumSoftLongScore.valueOf(-3L,4L,-5L).negate());
+}
