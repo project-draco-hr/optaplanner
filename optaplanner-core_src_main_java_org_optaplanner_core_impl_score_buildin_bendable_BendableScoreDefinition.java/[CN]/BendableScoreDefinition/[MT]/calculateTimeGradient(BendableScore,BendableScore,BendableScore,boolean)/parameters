@@ -1,4 +1,0 @@
-BendableScore startScore
-BendableScore endScore
-BendableScore score
-boolean feasibilityScore

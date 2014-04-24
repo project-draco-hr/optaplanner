@@ -1,7 +1,0 @@
-{
-  if (score.getHardScore().compareTo(startScore.getHardScore()) <= 0) {
-    return 0.0;
-  }
-  double timeGradient=(startScore.getHardScore().subtract(score.getHardScore())).divide(startScore.getHardScore()).doubleValue();
-  return Math.min(timeGradient,1.0);
-}

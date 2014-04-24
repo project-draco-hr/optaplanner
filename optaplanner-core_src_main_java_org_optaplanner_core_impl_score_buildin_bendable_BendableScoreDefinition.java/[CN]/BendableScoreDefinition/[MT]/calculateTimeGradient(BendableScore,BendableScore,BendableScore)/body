@@ -1,3 +1,0 @@
-{
-  return calculateTimeGradient(startScore,endScore,score,false);
-}
