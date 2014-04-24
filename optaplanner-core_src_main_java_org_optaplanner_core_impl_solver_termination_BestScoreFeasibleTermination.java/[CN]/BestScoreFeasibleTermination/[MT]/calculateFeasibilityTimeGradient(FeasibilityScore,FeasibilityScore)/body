@@ -1,0 +1,10 @@
+{
+  Score totalDiff=startScore.negate();
+  Number[] totalDiffNumbers=totalDiff.toLevelNumbers();
+  Score scoreDiff=score.subtract(startScore);
+  Number[] scoreDiffNumbers=scoreDiff.toLevelNumbers();
+  if (scoreDiffNumbers.length != totalDiffNumbers.length) {
+    throw new IllegalStateException("The startScore (" + startScore + ") and score ("+ score+ ") don't have the same level count.");
+  }
+  return ScoreUtils.calculateTimeGradient(totalDiffNumbers,scoreDiffNumbers,timeGradientWeightFeasibleNumbers,feasibleLevelCount);
+}

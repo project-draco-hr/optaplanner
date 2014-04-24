@@ -1,0 +1,37 @@
+{
+  double timeGradient=0.0;
+  double remainingTimeGradient=1.0;
+  for (int i=0; i < levelDepth; i++) {
+    double levelTimeGradientWeight;
+    if (i != (levelDepth - 1)) {
+      levelTimeGradientWeight=remainingTimeGradient * timeGradientWeightNumbers[i];
+      remainingTimeGradient-=levelTimeGradientWeight;
+    }
+ else {
+      levelTimeGradientWeight=remainingTimeGradient;
+      remainingTimeGradient=0.0;
+    }
+    double totalDiffLevel=totalDiffNumbers[i].doubleValue();
+    double scoreDiffLevel=scoreDiffNumbers[i].doubleValue();
+    if (scoreDiffLevel == totalDiffLevel) {
+      timeGradient+=levelTimeGradientWeight;
+    }
+ else     if (scoreDiffLevel > totalDiffLevel) {
+      timeGradient+=levelTimeGradientWeight + remainingTimeGradient;
+      break;
+    }
+ else     if (scoreDiffLevel == 0.0) {
+    }
+ else     if (scoreDiffLevel < 0.0) {
+      break;
+    }
+ else {
+      double levelTimeGradient=(double)scoreDiffLevel / (double)totalDiffLevel;
+      timeGradient+=levelTimeGradient * levelTimeGradientWeight;
+    }
+  }
+  if (timeGradient > 1.0) {
+    timeGradient=1.0;
+  }
+  return timeGradient;
+}

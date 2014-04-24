@@ -1,2 +1,3 @@
+ScoreDefinition scoreDefinition
 Score bestScoreLimit
 double[] timeGradientWeightNumbers

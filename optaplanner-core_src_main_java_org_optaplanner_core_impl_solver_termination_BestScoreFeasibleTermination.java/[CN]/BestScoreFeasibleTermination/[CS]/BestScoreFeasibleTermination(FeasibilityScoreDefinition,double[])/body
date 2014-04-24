@@ -1,0 +1,7 @@
+{
+  feasibleLevelCount=scoreDefinition.getFeasibleLevelCount();
+  this.timeGradientWeightFeasibleNumbers=timeGradientWeightFeasibleNumbers;
+  if (timeGradientWeightFeasibleNumbers.length != feasibleLevelCount - 1) {
+    throw new IllegalStateException("The timeGradientWeightNumbers (" + Arrays.toString(timeGradientWeightFeasibleNumbers) + ")'s length ("+ timeGradientWeightFeasibleNumbers.length+ ") is not 1 less than the feasibleLevelCount ("+ scoreDefinition.getFeasibleLevelCount()+ ").");
+  }
+}

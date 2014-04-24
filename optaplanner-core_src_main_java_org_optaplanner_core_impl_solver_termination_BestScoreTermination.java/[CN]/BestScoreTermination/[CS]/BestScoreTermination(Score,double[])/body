@@ -1,7 +1,0 @@
-{
-  this.bestScoreLimit=bestScoreLimit;
-  if (bestScoreLimit == null) {
-    throw new IllegalArgumentException("The bestScoreLimit (" + bestScoreLimit + ") cannot be null.");
-  }
-  this.timeGradientWeightNumbers=timeGradientWeightNumbers;
-}

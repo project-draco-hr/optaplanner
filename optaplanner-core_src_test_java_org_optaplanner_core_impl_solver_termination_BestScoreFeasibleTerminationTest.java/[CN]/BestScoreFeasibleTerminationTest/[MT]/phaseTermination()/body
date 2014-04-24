@@ -1,5 +1,7 @@
 {
-  Termination termination=new BestScoreFeasibleTermination();
+  FeasibilityScoreDefinition scoreDefinition=mock(FeasibilityScoreDefinition.class);
+  when(scoreDefinition.getFeasibleLevelCount()).thenReturn(1);
+  Termination termination=new BestScoreFeasibleTermination(scoreDefinition,new double[]{});
   AbstractSolverPhaseScope phaseScope=mock(AbstractSolverPhaseScope.class);
   when(phaseScope.getScoreDefinition()).thenReturn(new HardSoftScoreDefinition());
   when(phaseScope.getStartingScore()).thenReturn(HardSoftScore.valueOf(-100,-100));

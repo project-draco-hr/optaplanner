@@ -1,5 +1,7 @@
 {
-  BestScoreTermination termination=new BestScoreTermination(HardSoftBigDecimalScore.valueOf(new BigDecimal("10.00"),new BigDecimal("10.00")),new double[]{0.75});
+  ScoreDefinition scoreDefinition=mock(ScoreDefinition.class);
+  when(scoreDefinition.getLevelCount()).thenReturn(2);
+  BestScoreTermination termination=new BestScoreTermination(scoreDefinition,HardSoftBigDecimalScore.valueOf(new BigDecimal("10.00"),new BigDecimal("10.00")),new double[]{0.75});
   assertEquals(0.0,termination.calculateTimeGradient(HardSoftBigDecimalScore.valueOf(new BigDecimal("0.00"),new BigDecimal("0.00")),HardSoftBigDecimalScore.valueOf(new BigDecimal("10.00"),new BigDecimal("10.00")),HardSoftBigDecimalScore.valueOf(new BigDecimal("0.00"),new BigDecimal("0.00"))),0.0);
   assertEquals(0.6,termination.calculateTimeGradient(HardSoftBigDecimalScore.valueOf(new BigDecimal("0.00"),new BigDecimal("0.00")),HardSoftBigDecimalScore.valueOf(new BigDecimal("10.00"),new BigDecimal("10.00")),HardSoftBigDecimalScore.valueOf(new BigDecimal("6.00"),new BigDecimal("6.00"))),0.0);
   assertEquals(1.0,termination.calculateTimeGradient(HardSoftBigDecimalScore.valueOf(new BigDecimal("0.00"),new BigDecimal("0.00")),HardSoftBigDecimalScore.valueOf(new BigDecimal("10.00"),new BigDecimal("10.00")),HardSoftBigDecimalScore.valueOf(new BigDecimal("10.00"),new BigDecimal("10.00"))),0.0);

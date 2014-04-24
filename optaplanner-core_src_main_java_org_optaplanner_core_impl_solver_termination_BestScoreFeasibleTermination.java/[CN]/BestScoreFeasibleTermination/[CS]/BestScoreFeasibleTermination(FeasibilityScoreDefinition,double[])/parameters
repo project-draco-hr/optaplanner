@@ -1,0 +1,2 @@
+FeasibilityScoreDefinition scoreDefinition
+double[] timeGradientWeightFeasibleNumbers

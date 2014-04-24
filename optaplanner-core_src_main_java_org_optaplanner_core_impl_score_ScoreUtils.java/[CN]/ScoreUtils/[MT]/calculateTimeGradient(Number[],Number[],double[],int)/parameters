@@ -1,0 +1,4 @@
+Number[] totalDiffNumbers
+Number[] scoreDiffNumbers
+double[] timeGradientWeightNumbers
+int levelDepth

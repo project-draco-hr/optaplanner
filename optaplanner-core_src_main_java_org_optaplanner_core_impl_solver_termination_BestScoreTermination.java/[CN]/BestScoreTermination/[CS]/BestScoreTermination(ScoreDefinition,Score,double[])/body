@@ -1,0 +1,11 @@
+{
+  levelCount=scoreDefinition.getLevelCount();
+  this.bestScoreLimit=bestScoreLimit;
+  if (bestScoreLimit == null) {
+    throw new IllegalArgumentException("The bestScoreLimit (" + bestScoreLimit + ") cannot be null.");
+  }
+  this.timeGradientWeightNumbers=timeGradientWeightNumbers;
+  if (timeGradientWeightNumbers.length != levelCount - 1) {
+    throw new IllegalStateException("The timeGradientWeightNumbers (" + Arrays.toString(timeGradientWeightNumbers) + ")'s length ("+ timeGradientWeightNumbers.length+ ") is not 1 less than the levelCount ("+ scoreDefinition.getLevelCount()+ ").");
+  }
+}
