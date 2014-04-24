@@ -1,5 +1,5 @@
 {
-  Termination termination=new BestScoreTermination(SimpleScore.valueOf(-1000));
+  Termination termination=new BestScoreTermination(SimpleScore.valueOf(-1000),new double[]{});
   DefaultSolverScope solverScope=mock(DefaultSolverScope.class);
   when(solverScope.getScoreDefinition()).thenReturn(new SimpleScoreDefinition());
   when(solverScope.isBestSolutionInitialized()).thenReturn(true);

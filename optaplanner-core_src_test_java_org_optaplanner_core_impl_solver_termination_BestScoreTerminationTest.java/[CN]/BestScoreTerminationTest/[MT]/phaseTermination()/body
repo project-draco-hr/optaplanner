@@ -1,5 +1,5 @@
 {
-  Termination termination=new BestScoreTermination(SimpleScore.valueOf(-1000));
+  Termination termination=new BestScoreTermination(SimpleScore.valueOf(-1000),new double[]{});
   AbstractSolverPhaseScope phaseScope=mock(AbstractSolverPhaseScope.class);
   when(phaseScope.getScoreDefinition()).thenReturn(new SimpleScoreDefinition());
   when(phaseScope.isBestSolutionInitialized()).thenReturn(true);
