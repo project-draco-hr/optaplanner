@@ -1,5 +1,0 @@
-{
-  if (solver.isEveryProblemFactChangeProcessed()) {
-    phaser.arrive();
-  }
-}

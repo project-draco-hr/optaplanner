@@ -1,0 +1,3 @@
+{
+  return newUninitializedVariableCount == 0;
+}

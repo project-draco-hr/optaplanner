@@ -1,5 +1,0 @@
-{
-  super(source);
-  this.timeMillisSpent=timeMillisSpent;
-  this.newBestSolution=newBestSolution;
-}

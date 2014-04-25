@@ -1,7 +1,7 @@
 {
   final Iterator<SolverEventListener> it=getEventListenersIterator();
   if (it.hasNext()) {
-    final BestSolutionChangedEvent event=new BestSolutionChangedEvent(solver,solver.getSolverScope().calculateTimeMillisSpent(),newBestSolution);
+    final BestSolutionChangedEvent event=new BestSolutionChangedEvent(solver,solver.getSolverScope().calculateTimeMillisSpent(),newBestSolution,newUninitializedVariableCount);
     do {
       it.next().bestSolutionChanged(event);
     }

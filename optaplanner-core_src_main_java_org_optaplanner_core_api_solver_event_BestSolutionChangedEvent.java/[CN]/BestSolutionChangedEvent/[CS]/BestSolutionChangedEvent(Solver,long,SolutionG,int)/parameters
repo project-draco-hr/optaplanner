@@ -1,0 +1,4 @@
+Solver solver
+long timeMillisSpent
+SolutionG newBestSolution
+int newUninitializedVariableCount
