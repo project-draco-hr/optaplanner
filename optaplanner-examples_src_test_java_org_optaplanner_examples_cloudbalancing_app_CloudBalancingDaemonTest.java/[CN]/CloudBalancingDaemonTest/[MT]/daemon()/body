@@ -1,0 +1,24 @@
+{
+  Solver solver=buildSolver();
+  CloudBalance cloudBalance=buildPlanningProblem();
+  SolverThread solverThread=new SolverThread(solver,cloudBalance);
+  solverThread.start();
+  phaser.arriveAndAwaitAdvance();
+  for (int i=0; i < 8; i++) {
+    CloudProcess process=notYetAddedProcessQueue.poll();
+    solver.addProblemFactChange(new AddProcessChange(process));
+  }
+  phaser.arriveAndAwaitAdvance();
+  while (!notYetAddedProcessQueue.isEmpty()) {
+    CloudProcess process=notYetAddedProcessQueue.poll();
+    solver.addProblemFactChange(new AddProcessChange(process));
+  }
+  phaser.arriveAndAwaitAdvance();
+  solver.terminateEarly();
+  try {
+    solverThread.join();
+  }
+ catch (  InterruptedException e) {
+    throw new IllegalStateException("SolverThread did not die.",e);
+  }
+}

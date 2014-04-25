@@ -1,0 +1,4 @@
+{
+  this.solver=solver;
+  this.cloudBalance=cloudBalance;
+}

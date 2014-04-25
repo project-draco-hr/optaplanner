@@ -1,5 +1,6 @@
 {
   environmentMode=ConfigUtils.inheritOverwritableProperty(environmentMode,inheritedConfig.getEnvironmentMode());
+  daemon=ConfigUtils.inheritOverwritableProperty(daemon,inheritedConfig.getDaemon());
   randomType=ConfigUtils.inheritOverwritableProperty(randomType,inheritedConfig.getRandomType());
   randomSeed=ConfigUtils.inheritOverwritableProperty(randomSeed,inheritedConfig.getRandomSeed());
   randomFactoryClass=ConfigUtils.inheritOverwritableProperty(randomFactoryClass,inheritedConfig.getRandomFactoryClass());

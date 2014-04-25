@@ -1,0 +1,4 @@
+{
+  solver.addEventListener(this);
+  solver.solve(cloudBalance);
+}

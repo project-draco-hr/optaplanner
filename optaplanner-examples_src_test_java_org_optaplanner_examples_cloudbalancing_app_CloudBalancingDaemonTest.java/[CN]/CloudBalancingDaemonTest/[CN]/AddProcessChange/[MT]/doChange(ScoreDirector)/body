@@ -1,0 +1,6 @@
+{
+  CloudBalance cloudBalance=(CloudBalance)scoreDirector.getWorkingSolution();
+  scoreDirector.beforeEntityAdded(process);
+  cloudBalance.getProcessList().add(process);
+  scoreDirector.afterEntityAdded(process);
+}
