@@ -2,7 +2,7 @@
   SolverFactory solverFactory=SolverFactory.createFromXmlResource("org/optaplanner/examples/cloudbalancing/solver/cloudBalancingSolverConfig.xml");
   solverFactory.getSolverConfig().setDaemon(true);
   TerminationConfig terminationConfig=new TerminationConfig();
-  terminationConfig.setMillisecondsSpentLimit(600000L);
+  terminationConfig.setMillisecondsSpentLimit(800L);
   solverFactory.getSolverConfig().setTerminationConfig(terminationConfig);
   return solverFactory.buildSolver();
 }

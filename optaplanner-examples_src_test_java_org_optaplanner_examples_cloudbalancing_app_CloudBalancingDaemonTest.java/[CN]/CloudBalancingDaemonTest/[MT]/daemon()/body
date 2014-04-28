@@ -10,7 +10,7 @@
     solver.addProblemFactChange(new AddProcessChange(process));
   }
   waitForNextStage();
-  Thread.sleep(500);
+  Thread.sleep(1000);
   while (!notYetAddedProcessQueue.isEmpty()) {
     CloudProcess process=notYetAddedProcessQueue.poll();
     solver.addProblemFactChange(new AddProcessChange(process));
