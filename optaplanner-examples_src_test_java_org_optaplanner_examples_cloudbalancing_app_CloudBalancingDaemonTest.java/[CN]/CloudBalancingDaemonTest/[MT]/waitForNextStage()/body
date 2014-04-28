@@ -1,0 +1,24 @@
+{
+  CountDownLatch latch;
+synchronized (stageLock) {
+switch (stageNumber.get()) {
+case 0:
+      latch=stage1Latch;
+    break;
+case 1:
+  latch=stage2Latch;
+break;
+case 2:
+latch=stage3Latch;
+break;
+default :
+throw new IllegalStateException("Unsupported phaseNumber (" + stageNumber.get() + ").");
+}
+}
+latch.await();
+int stage;
+synchronized (stageLock) {
+stage=stageNumber.incrementAndGet();
+}
+logger.info("==== New testing stage ({}) started. ====",stage);
+}

@@ -1,0 +1,15 @@
+{
+synchronized (stageLock) {
+switch (stageNumber.get()) {
+case 0:
+      stage1Latch.countDown();
+    break;
+case 1:
+  stage2Latch.countDown();
+break;
+case 2:
+stage3Latch.countDown();
+break;
+}
+}
+}

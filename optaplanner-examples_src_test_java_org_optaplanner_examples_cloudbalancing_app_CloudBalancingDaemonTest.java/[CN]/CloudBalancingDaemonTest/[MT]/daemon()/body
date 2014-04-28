@@ -3,17 +3,19 @@
   CloudBalance cloudBalance=buildPlanningProblem();
   SolverThread solverThread=new SolverThread(solver,cloudBalance);
   solverThread.start();
-  phaser.arriveAndAwaitAdvance();
+  waitForNextStage();
+  Thread.sleep(500);
   for (int i=0; i < 8; i++) {
     CloudProcess process=notYetAddedProcessQueue.poll();
     solver.addProblemFactChange(new AddProcessChange(process));
   }
-  phaser.arriveAndAwaitAdvance();
+  waitForNextStage();
+  Thread.sleep(500);
   while (!notYetAddedProcessQueue.isEmpty()) {
     CloudProcess process=notYetAddedProcessQueue.poll();
     solver.addProblemFactChange(new AddProcessChange(process));
   }
-  phaser.arriveAndAwaitAdvance();
+  waitForNextStage();
   solver.terminateEarly();
   try {
     solverThread.join();
