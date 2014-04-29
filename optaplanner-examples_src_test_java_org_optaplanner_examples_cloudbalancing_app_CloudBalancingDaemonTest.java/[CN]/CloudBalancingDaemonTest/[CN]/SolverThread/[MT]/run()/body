@@ -1,4 +1,5 @@
 {
   solver.addEventListener(this);
+  nextStage();
   solver.solve(cloudBalance);
 }
