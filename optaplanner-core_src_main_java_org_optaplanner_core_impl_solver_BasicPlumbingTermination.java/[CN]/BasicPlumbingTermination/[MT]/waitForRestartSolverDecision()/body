@@ -1,0 +1,16 @@
+{
+  if (!daemon) {
+    return !problemFactChangeQueue.isEmpty() && !terminatedEarly;
+  }
+ else {
+    while (problemFactChangeQueue.isEmpty() && !terminatedEarly) {
+      try {
+        wait();
+      }
+ catch (      InterruptedException e) {
+        throw new IllegalStateException("Solver thread interrupted during wait.",e);
+      }
+    }
+    return !terminatedEarly;
+  }
+}

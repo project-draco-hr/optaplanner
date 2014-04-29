@@ -1,3 +1,5 @@
 {
-  return problemFactChangeQueue.add(problemFactChange);
+  boolean added=problemFactChangeQueue.add(problemFactChange);
+  notifyAll();
+  return added;
 }

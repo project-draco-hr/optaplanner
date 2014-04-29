@@ -1,7 +1,9 @@
 {
-  boolean terminationEarlySuccessful=!terminatedEarly.getAndSet(true);
+  boolean terminationEarlySuccessful=!terminatedEarly;
   if (terminationEarlySuccessful) {
     logger.info("Terminating solver early.");
   }
+  terminatedEarly=true;
+  notifyAll();
   return terminationEarlySuccessful;
 }
