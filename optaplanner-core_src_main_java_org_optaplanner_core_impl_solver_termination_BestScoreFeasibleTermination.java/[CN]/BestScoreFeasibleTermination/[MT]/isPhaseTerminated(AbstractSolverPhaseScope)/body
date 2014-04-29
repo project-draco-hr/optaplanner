@@ -1,4 +1,3 @@
 {
-  FeasibilityScore bestScore=(FeasibilityScore)phaseScope.getBestScore();
-  return bestScore.isFeasible();
+  return isTerminated(phaseScope.isBestSolutionInitialized(),phaseScope.getBestScore());
 }

@@ -1,0 +1,3 @@
+{
+  return bestSolutionInitialized && ((FeasibilityScore)bestScore).isFeasible();
+}
