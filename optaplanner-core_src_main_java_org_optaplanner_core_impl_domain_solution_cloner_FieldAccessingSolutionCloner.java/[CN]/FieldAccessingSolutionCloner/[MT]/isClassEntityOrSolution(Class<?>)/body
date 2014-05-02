@@ -1,3 +1,0 @@
-{
-  return solutionDescriptor.hasEntityDescriptor(type) || solutionDescriptor.getSolutionClass().isAssignableFrom(type);
-}

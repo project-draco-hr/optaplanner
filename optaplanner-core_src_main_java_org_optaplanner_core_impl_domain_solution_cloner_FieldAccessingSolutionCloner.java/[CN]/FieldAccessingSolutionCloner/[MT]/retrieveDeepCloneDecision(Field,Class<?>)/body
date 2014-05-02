@@ -9,7 +9,7 @@
   }
   deepCloneDecision=deepCloneDecisionActualValueClassCache.get(actualValueClass);
   if (deepCloneDecision == null) {
-    deepCloneDecision=isClassEntityOrSolution(actualValueClass);
+    deepCloneDecision=isClassDeepCloned(actualValueClass);
     deepCloneDecisionActualValueClassCache.put(actualValueClass,deepCloneDecision);
   }
   return deepCloneDecision;

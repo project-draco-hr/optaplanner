@@ -1,6 +1,6 @@
 {
   Class<?> type=field.getType();
-  if (isClassEntityOrSolution(type)) {
+  if (isClassDeepCloned(type)) {
     return true;
   }
   if (Collection.class.isAssignableFrom(type) || Map.class.isAssignableFrom(type)) {
@@ -8,7 +8,7 @@
     if (genericType instanceof ParameterizedType) {
       ParameterizedType parameterizedType=(ParameterizedType)genericType;
       for (      Type actualTypeArgument : parameterizedType.getActualTypeArguments()) {
-        if (actualTypeArgument instanceof Class && isClassEntityOrSolution((Class)actualTypeArgument)) {
+        if (actualTypeArgument instanceof Class && isClassDeepCloned((Class)actualTypeArgument)) {
           return true;
         }
       }
