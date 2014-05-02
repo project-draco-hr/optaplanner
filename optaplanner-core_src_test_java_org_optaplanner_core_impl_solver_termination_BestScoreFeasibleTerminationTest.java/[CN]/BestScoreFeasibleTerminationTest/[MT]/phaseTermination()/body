@@ -5,6 +5,7 @@
   AbstractSolverPhaseScope phaseScope=mock(AbstractSolverPhaseScope.class);
   when(phaseScope.getScoreDefinition()).thenReturn(new HardSoftScoreDefinition());
   when(phaseScope.getStartingScore()).thenReturn(HardSoftScore.valueOf(-100,-100));
+  when(phaseScope.isBestSolutionInitialized()).thenReturn(true);
   when(phaseScope.getBestScore()).thenReturn(HardSoftScore.valueOf(-100,-100));
   assertEquals(false,termination.isPhaseTerminated(phaseScope));
   assertEquals(0.0,termination.calculatePhaseTimeGradient(phaseScope),0.0);
