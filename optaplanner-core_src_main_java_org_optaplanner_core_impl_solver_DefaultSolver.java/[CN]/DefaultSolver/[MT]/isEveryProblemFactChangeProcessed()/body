@@ -1,4 +1,3 @@
 {
-  BlockingQueue<ProblemFactChange> problemFactChangeQueue=basicPlumbingTermination.getProblemFactChangeQueue();
-  return problemFactChangeQueue.isEmpty();
+  return basicPlumbingTermination.isEveryProblemFactChangeProcessed();
 }

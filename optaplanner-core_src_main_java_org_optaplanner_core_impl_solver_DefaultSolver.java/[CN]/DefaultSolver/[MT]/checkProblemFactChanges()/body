@@ -4,7 +4,7 @@
     return false;
   }
  else {
-    BlockingQueue<ProblemFactChange> problemFactChangeQueue=basicPlumbingTermination.getProblemFactChangeQueue();
+    BlockingQueue<ProblemFactChange> problemFactChangeQueue=basicPlumbingTermination.startProblemFactChangesProcessing();
     solverScope.setWorkingSolutionFromBestSolution();
     Score score=null;
     int stepIndex=0;
@@ -14,6 +14,7 @@
       stepIndex++;
       problemFactChange=problemFactChangeQueue.poll();
     }
+    basicPlumbingTermination.endProblemFactChangesProcessing();
     Solution newBestSolution=solverScope.getScoreDirector().cloneWorkingSolution();
     int newBestUninitializedVariableCount=solverScope.getSolutionDescriptor().countUninitializedVariables(newBestSolution);
     bestSolutionRecaller.updateBestSolution(solverScope,newBestSolution,newBestUninitializedVariableCount);
