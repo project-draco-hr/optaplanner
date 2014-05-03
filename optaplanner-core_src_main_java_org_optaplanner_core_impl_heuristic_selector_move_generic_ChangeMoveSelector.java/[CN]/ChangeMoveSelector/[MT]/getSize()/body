@@ -4,7 +4,7 @@
   }
  else {
     long size=0;
-    for (java.util.Iterator it=entitySelector.endingIterator(); it.hasNext(); ) {
+    for (Iterator it=entitySelector.endingIterator(); it.hasNext(); ) {
       Object entity=it.next();
       size+=valueSelector.getSize(entity);
     }

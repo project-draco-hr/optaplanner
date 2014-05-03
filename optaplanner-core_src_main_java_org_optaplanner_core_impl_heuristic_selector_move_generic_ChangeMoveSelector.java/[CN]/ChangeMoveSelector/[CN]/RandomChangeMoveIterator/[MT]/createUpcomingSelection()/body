@@ -6,7 +6,7 @@
     }
   }
   Object entity=entityIterator.next();
-  valueIterator=valueSelector.iterator(entity);
+  Iterator<Object> valueIterator=valueSelector.iterator(entity);
   int entityIteratorCreationCount=0;
   while (!valueIterator.hasNext()) {
     if (!entityIterator.hasNext()) {

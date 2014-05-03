@@ -4,7 +4,7 @@
   }
  else   if (o instanceof SubChainChangeMove) {
     SubChainChangeMove other=(SubChainChangeMove)o;
-    return new EqualsBuilder().append(subChain,other.subChain).append(variableDescriptor.getVariableName(),other.variableDescriptor.getVariableName()).append(toPlanningValue,other.toPlanningValue).isEquals();
+    return new EqualsBuilder().append(subChain,other.subChain).append(variableDescriptor,other.variableDescriptor).append(toPlanningValue,other.toPlanningValue).isEquals();
   }
  else {
     return false;

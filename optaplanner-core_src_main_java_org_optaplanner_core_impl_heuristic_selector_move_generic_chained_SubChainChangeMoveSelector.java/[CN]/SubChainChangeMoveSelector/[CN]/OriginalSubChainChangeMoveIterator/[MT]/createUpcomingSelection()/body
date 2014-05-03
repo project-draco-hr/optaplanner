@@ -4,12 +4,15 @@
     nextReversingSelection=null;
     return upcomingSelection;
   }
-  while (!valueIterator.hasNext()) {
+  if (!valueIterator.hasNext()) {
     if (!subChainIterator.hasNext()) {
       return noUpcomingSelection();
     }
     upcomingSubChain=subChainIterator.next();
     valueIterator=valueSelector.iterator();
+    if (!valueIterator.hasNext()) {
+      return noUpcomingSelection();
+    }
   }
   Object toValue=valueIterator.next();
   Move upcomingSelection=new SubChainChangeMove(upcomingSubChain,valueSelector.getVariableDescriptor(),toValue);

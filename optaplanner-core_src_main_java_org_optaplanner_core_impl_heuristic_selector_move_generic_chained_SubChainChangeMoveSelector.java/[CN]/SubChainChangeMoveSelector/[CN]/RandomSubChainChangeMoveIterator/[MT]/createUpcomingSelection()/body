@@ -1,20 +1,15 @@
 {
   if (!subChainIterator.hasNext()) {
     subChainIterator=subChainSelector.iterator();
+    if (!subChainIterator.hasNext()) {
+      return noUpcomingSelection();
+    }
   }
   SubChain subChain=subChainIterator.next();
-  int subChainIteratorCreationCount=0;
-  while (!valueIterator.hasNext()) {
+  if (!valueIterator.hasNext()) {
     valueIterator=valueSelector.iterator();
     if (!valueIterator.hasNext()) {
-      if (!subChainIterator.hasNext()) {
-        subChainIterator=subChainSelector.iterator();
-        subChainIteratorCreationCount++;
-        if (subChainIteratorCreationCount >= 2) {
-          return noUpcomingSelection();
-        }
-      }
-      subChain=subChainIterator.next();
+      return noUpcomingSelection();
     }
   }
   Object toValue=valueIterator.next();

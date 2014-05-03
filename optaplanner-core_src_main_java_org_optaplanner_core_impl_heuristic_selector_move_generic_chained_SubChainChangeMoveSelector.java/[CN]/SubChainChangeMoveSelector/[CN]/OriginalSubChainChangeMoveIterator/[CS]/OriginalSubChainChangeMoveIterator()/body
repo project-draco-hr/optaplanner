@@ -1,11 +1,4 @@
 {
   subChainIterator=subChainSelector.iterator();
-  valueIterator=valueSelector.iterator();
-  if (!subChainIterator.hasNext() || !valueIterator.hasNext()) {
-    upcomingSelection=noUpcomingSelection();
-    upcomingCreated=true;
-  }
- else {
-    upcomingSubChain=subChainIterator.next();
-  }
+  valueIterator=Iterators.emptyIterator();
 }
