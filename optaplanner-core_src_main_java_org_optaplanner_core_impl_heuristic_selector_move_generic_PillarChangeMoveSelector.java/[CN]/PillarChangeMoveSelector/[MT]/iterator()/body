@@ -1,0 +1,8 @@
+{
+  if (!randomSelection) {
+    return new OriginalPillarChangeMoveIterator();
+  }
+ else {
+    return new RandomPillarChangeMoveIterator();
+  }
+}

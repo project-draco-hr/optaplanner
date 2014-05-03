@@ -1,5 +1,5 @@
 {
   this.variableDescriptors=variableDescriptors;
-  this.leftEntityList=leftEntityList;
-  this.rightEntityList=rightEntityList;
+  this.leftPillar=leftPillar;
+  this.rightPillar=rightPillar;
 }

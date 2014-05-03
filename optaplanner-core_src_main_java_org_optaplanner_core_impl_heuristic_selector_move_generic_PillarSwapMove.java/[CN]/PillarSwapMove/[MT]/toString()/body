@@ -1,3 +1,3 @@
 {
-  return leftEntityList + " <=> " + rightEntityList;
+  return leftPillar + " <=> " + rightPillar;
 }

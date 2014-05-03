@@ -1,0 +1,4 @@
+{
+  Object oldValue=variableDescriptor.getValue(pillar.get(0));
+  return !ObjectUtils.equals(oldValue,toPlanningValue);
+}

@@ -1,0 +1,7 @@
+{
+  for (  Object entity : pillar) {
+    scoreDirector.beforeVariableChanged(entity,variableDescriptor.getVariableName());
+    variableDescriptor.setValue(entity,toPlanningValue);
+    scoreDirector.afterVariableChanged(entity,variableDescriptor.getVariableName());
+  }
+}

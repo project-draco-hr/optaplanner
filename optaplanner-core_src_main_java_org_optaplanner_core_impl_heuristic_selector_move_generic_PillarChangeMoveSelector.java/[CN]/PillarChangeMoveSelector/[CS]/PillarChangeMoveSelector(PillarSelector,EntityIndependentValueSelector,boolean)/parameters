@@ -1,0 +1,3 @@
+PillarSelector pillarSelector
+EntityIndependentValueSelector valueSelector
+boolean randomSelection

@@ -1,0 +1,15 @@
+{
+  super.inherit(inheritedConfig);
+  if (pillarSelectorConfig == null) {
+    pillarSelectorConfig=inheritedConfig.getPillarSelectorConfig();
+  }
+ else   if (inheritedConfig.getPillarSelectorConfig() != null) {
+    pillarSelectorConfig.inherit(inheritedConfig.getPillarSelectorConfig());
+  }
+  if (valueSelectorConfig == null) {
+    valueSelectorConfig=inheritedConfig.getValueSelectorConfig();
+  }
+ else   if (inheritedConfig.getValueSelectorConfig() != null) {
+    valueSelectorConfig.inherit(inheritedConfig.getValueSelectorConfig());
+  }
+}

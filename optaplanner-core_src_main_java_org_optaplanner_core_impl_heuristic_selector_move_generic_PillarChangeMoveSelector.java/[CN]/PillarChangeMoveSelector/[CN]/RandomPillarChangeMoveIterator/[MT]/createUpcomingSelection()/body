@@ -1,0 +1,17 @@
+{
+  if (!pillarIterator.hasNext()) {
+    pillarIterator=pillarSelector.iterator();
+    if (!pillarIterator.hasNext()) {
+      return noUpcomingSelection();
+    }
+  }
+  List<Object> pillar=pillarIterator.next();
+  if (!valueIterator.hasNext()) {
+    valueIterator=valueSelector.iterator();
+    if (!valueIterator.hasNext()) {
+      return noUpcomingSelection();
+    }
+  }
+  Object toValue=valueIterator.next();
+  return new PillarChangeMove(pillar,valueSelector.getVariableDescriptor(),toValue);
+}

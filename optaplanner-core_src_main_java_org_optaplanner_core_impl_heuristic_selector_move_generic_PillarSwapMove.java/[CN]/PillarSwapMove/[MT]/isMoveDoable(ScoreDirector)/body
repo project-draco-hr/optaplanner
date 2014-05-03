@@ -1,7 +1,7 @@
 {
   for (  GenuineVariableDescriptor variableDescriptor : variableDescriptors) {
-    Object leftValue=variableDescriptor.getValue(leftEntityList.get(0));
-    Object rightValue=variableDescriptor.getValue(rightEntityList.get(0));
+    Object leftValue=variableDescriptor.getValue(leftPillar.get(0));
+    Object rightValue=variableDescriptor.getValue(rightPillar.get(0));
     if (!ObjectUtils.equals(leftValue,rightValue)) {
       return true;
     }

@@ -1,0 +1,5 @@
+{
+  this.pillar=pillar;
+  this.variableDescriptor=variableDescriptor;
+  this.toPlanningValue=toPlanningValue;
+}
