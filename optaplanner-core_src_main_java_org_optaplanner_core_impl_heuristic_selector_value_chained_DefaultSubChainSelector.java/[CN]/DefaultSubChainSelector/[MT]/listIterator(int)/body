@@ -1,6 +1,6 @@
 {
   if (!randomSelection) {
-    OriginalSubChainIterator it=new OriginalSubChainIterator(anchorTrailingChainList.iterator());
+    OriginalSubChainIterator it=new OriginalSubChainIterator(anchorTrailingChainList.listIterator());
     for (int i=0; i < index; i++) {
       it.next();
     }

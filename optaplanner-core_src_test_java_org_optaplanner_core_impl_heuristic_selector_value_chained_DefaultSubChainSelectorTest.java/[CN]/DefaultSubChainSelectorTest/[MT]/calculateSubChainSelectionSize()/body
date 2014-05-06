@@ -1,0 +1,17 @@
+{
+  assertCalculateSubChainSelectionSize(4L,1,1);
+  assertCalculateSubChainSelectionSize(3L,2,2);
+  assertCalculateSubChainSelectionSize(2L,3,3);
+  assertCalculateSubChainSelectionSize(1L,4,4);
+  assertCalculateSubChainSelectionSize(7L,1,2);
+  assertCalculateSubChainSelectionSize(9L,1,3);
+  assertCalculateSubChainSelectionSize(10L,1,4);
+  assertCalculateSubChainSelectionSize(5L,2,3);
+  assertCalculateSubChainSelectionSize(6L,2,4);
+  assertCalculateSubChainSelectionSize(3L,3,4);
+  assertCalculateSubChainSelectionSize(10L,1,5);
+  assertCalculateSubChainSelectionSize(6L,2,5);
+  assertCalculateSubChainSelectionSize(3L,3,5);
+  assertCalculateSubChainSelectionSize(1L,4,5);
+  assertCalculateSubChainSelectionSize(0L,5,5);
+}

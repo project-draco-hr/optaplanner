@@ -1,6 +1,6 @@
 {
   if (!randomSelection) {
-    return new OriginalSubChainIterator(anchorTrailingChainList.iterator());
+    return new OriginalSubChainIterator(anchorTrailingChainList.listIterator());
   }
  else {
     return new RandomSubChainIterator();

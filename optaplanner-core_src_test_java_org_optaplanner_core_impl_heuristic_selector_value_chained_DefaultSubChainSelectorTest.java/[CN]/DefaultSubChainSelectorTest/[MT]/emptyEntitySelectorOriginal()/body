@@ -1,6 +1,5 @@
 {
-  GenuineVariableDescriptor variableDescriptor=SelectorTestUtils.mockVariableDescriptor(TestdataChainedEntity.class,"chainedObject");
-  when(variableDescriptor.isChained()).thenReturn(true);
+  GenuineVariableDescriptor variableDescriptor=TestdataChainedEntity.buildVariableDescriptorForChainedObject();
   InnerScoreDirector scoreDirector=mock(InnerScoreDirector.class);
   TestdataChainedAnchor a0=new TestdataChainedAnchor("a0");
   TestdataChainedAnchor b0=new TestdataChainedAnchor("b0");

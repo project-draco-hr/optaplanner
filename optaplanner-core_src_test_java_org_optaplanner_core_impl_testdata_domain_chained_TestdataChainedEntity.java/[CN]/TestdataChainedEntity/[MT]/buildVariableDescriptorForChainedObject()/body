@@ -1,0 +1,5 @@
+{
+  SolutionDescriptor solutionDescriptor=TestdataChainedSolution.buildSolutionDescriptor();
+  EntityDescriptor entityDescriptor=solutionDescriptor.getEntityDescriptor(TestdataChainedEntity.class);
+  return entityDescriptor.getVariableDescriptor("chainedObject");
+}

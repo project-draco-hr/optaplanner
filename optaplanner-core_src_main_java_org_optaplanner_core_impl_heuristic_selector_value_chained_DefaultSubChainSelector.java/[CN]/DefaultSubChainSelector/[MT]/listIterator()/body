@@ -1,6 +1,6 @@
 {
   if (!randomSelection) {
-    return new OriginalSubChainIterator(anchorTrailingChainList.iterator());
+    return new OriginalSubChainIterator(anchorTrailingChainList.listIterator());
   }
  else {
     throw new IllegalStateException("The selector (" + this + ") does not support a ListIterator with randomSelection ("+ randomSelection+ ").");
