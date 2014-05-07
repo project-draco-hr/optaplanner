@@ -1,4 +1,4 @@
 {
-  String problemBenchmarkDetail=String.format(DETAIL_TEMPLATE_PROBLEM_BENCHMARK,problemBenchmarkResult.getProblemScale(),toEmptyStringIfNull(problemBenchmarkResult.getAverageUsedMemoryAfterInputSolution()));
+  String problemBenchmarkDetail=String.format("Problem scale: %d%n" + "Used memory: %s",problemBenchmarkResult.getProblemScale(),toEmptyStringIfNull(problemBenchmarkResult.getAverageUsedMemoryAfterInputSolution()));
   return new MixedCheckBox(problemBenchmarkResult.getName(),problemBenchmarkDetail);
 }

@@ -1,4 +1,4 @@
 {
-  String plannerBenchmarkDetail=String.format(DETAIL_TEMPLATE_PLANNER_BENCHMARK,plannerBenchmarkResult.getAverageScore(),plannerBenchmarkResult.getAverageProblemScale());
+  String plannerBenchmarkDetail=String.format("Average score: %s%n" + "Average problem scale: %d",plannerBenchmarkResult.getAverageScore(),plannerBenchmarkResult.getAverageProblemScale());
   return new MixedCheckBox(plannerBenchmarkResult.getName(),plannerBenchmarkDetail,plannerBenchmarkResult);
 }

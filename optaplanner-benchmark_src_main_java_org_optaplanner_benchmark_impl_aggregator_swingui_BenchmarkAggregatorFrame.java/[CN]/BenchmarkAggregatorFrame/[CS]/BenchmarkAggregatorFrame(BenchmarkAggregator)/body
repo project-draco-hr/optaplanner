@@ -3,4 +3,6 @@
   this.benchmarkAggregator=benchmarkAggregator;
   benchmarkResultIO=new BenchmarkResultIO();
   plannerBenchmarkResultList=Collections.emptyList();
+  Locale locale=benchmarkAggregator.getBenchmarkReportConfig().determineLocale();
+  millisecondsSpentNumberFormat=new MillisecondsSpentNumberFormat(locale);
 }
