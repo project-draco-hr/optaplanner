@@ -21,4 +21,16 @@
   }
   solverPhaseLifecycleSupport.addEventListener(entitySelector);
   solverPhaseLifecycleSupport.addEventListener(new SelectionCacheLifecycleBridge(CACHE_TYPE,this));
+  this.subPillarEnabled=subPillarEnabled;
+  this.minimumSubPillarSize=minimumSubPillarSize;
+  this.maximumSubPillarSize=maximumSubPillarSize;
+  if (minimumSubPillarSize < 1) {
+    throw new IllegalStateException("The selector (" + this + ")'s minimumPillarSize ("+ minimumSubPillarSize+ ") must be at least 1.");
+  }
+  if (minimumSubPillarSize > maximumSubPillarSize) {
+    throw new IllegalStateException("The minimumPillarSize (" + minimumSubPillarSize + ") must be at least maximumSubChainSize ("+ maximumSubPillarSize+ ").");
+  }
+  if (!randomSelection && subPillarEnabled) {
+    throw new IllegalStateException("The selector (" + this + ") with randomSelection  ("+ randomSelection+ ") and subPillarEnabled ("+ subPillarEnabled+ ") does not support non random selection with sub pillars"+ " because the number of sub pillars scales exponentially.\n"+ "Either set subPillarEnabled to false or use JIT random selection.");
+  }
 }

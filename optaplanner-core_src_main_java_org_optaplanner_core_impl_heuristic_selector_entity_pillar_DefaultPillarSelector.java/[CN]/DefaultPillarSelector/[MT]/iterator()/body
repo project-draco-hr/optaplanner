@@ -1,8 +1,18 @@
 {
   if (!randomSelection) {
-    return cachedPillarList.iterator();
+    if (!subPillarEnabled) {
+      return cachedBasePillarList.iterator();
+    }
+ else {
+      throw new IllegalStateException("Impossible state because the constructors fails with randomSelection (" + randomSelection + ") and subPillarEnabled ("+ subPillarEnabled+ ").");
+    }
   }
  else {
-    return new CachedListRandomIterator<List<Object>>(cachedPillarList,workingRandom);
+    if (!subPillarEnabled) {
+      return new CachedListRandomIterator<List<Object>>(cachedBasePillarList,workingRandom);
+    }
+ else {
+      return new RandomSubPillarIterator();
+    }
   }
 }

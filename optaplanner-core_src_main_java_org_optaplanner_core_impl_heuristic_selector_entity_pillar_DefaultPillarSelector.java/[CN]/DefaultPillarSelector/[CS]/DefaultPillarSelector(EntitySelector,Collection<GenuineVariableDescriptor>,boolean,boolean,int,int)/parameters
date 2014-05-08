@@ -1,3 +1,6 @@
 EntitySelector entitySelector
 Collection<GenuineVariableDescriptor> variableDescriptors
 boolean randomSelection
+boolean subPillarEnabled
+int minimumSubPillarSize
+int maximumSubPillarSize

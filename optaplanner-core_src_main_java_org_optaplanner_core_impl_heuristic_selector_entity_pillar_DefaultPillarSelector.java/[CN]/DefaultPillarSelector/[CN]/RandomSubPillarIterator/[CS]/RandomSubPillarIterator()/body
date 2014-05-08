@@ -1,0 +1,6 @@
+{
+  if (cachedBasePillarList.isEmpty()) {
+    upcomingSelection=noUpcomingSelection();
+    upcomingCreated=true;
+  }
+}

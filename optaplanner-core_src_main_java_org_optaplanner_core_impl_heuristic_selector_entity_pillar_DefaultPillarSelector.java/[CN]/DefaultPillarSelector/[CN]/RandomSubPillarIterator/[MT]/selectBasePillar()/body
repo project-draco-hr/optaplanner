@@ -1,0 +1,4 @@
+{
+  int baseListIndex=workingRandom.nextInt(cachedBasePillarList.size());
+  return cachedBasePillarList.get(baseListIndex);
+}

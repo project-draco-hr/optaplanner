@@ -1,3 +1,8 @@
 {
-  return (long)cachedPillarList.size();
+  if (!subPillarEnabled) {
+    return (long)cachedBasePillarList.size();
+  }
+ else {
+    throw new UnsupportedOperationException("The selector (" + this + ") with randomSelection  ("+ randomSelection+ ") and subPillarEnabled ("+ subPillarEnabled+ ") does not support getSize()"+ " because the number of sub pillars scales exponentially.");
+  }
 }

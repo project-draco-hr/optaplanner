@@ -6,4 +6,7 @@
  else   if (inheritedConfig.getEntitySelectorConfig() != null) {
     entitySelectorConfig.inherit(inheritedConfig.getEntitySelectorConfig());
   }
+  subPillarEnabled=ConfigUtils.inheritOverwritableProperty(subPillarEnabled,inheritedConfig.getSubPillarEnabled());
+  minimumSubPillarSize=ConfigUtils.inheritOverwritableProperty(minimumSubPillarSize,inheritedConfig.getMinimumSubPillarSize());
+  maximumSubPillarSize=ConfigUtils.inheritOverwritableProperty(maximumSubPillarSize,inheritedConfig.getMaximumSubPillarSize());
 }
