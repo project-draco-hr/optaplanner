@@ -2,11 +2,11 @@
   int studentSizeTotal=exam.getTopicStudentSize();
   int maximumDuration=exam.getTopicDuration();
   for (  PeriodPenalty periodPenalty : examination.getPeriodPenaltyList()) {
-    if (periodPenalty.getLeftSideTopic().equals(exam.getTopic())) {
+    if (periodPenalty.getLeftTopic().equals(exam.getTopic())) {
 switch (periodPenalty.getPeriodPenaltyType()) {
 case EXAM_COINCIDENCE:
-        studentSizeTotal+=periodPenalty.getRightSideTopic().getStudentSize();
-      maximumDuration=Math.max(maximumDuration,periodPenalty.getRightSideTopic().getDuration());
+        studentSizeTotal+=periodPenalty.getRightTopic().getStudentSize();
+      maximumDuration=Math.max(maximumDuration,periodPenalty.getRightTopic().getDuration());
     break;
 case EXCLUSION:
   break;
@@ -16,17 +16,17 @@ default :
 throw new IllegalStateException("The periodPenaltyType (" + periodPenalty.getPeriodPenaltyType() + ") is not implemented.");
 }
 }
- else if (periodPenalty.getRightSideTopic().equals(exam.getTopic())) {
+ else if (periodPenalty.getRightTopic().equals(exam.getTopic())) {
 switch (periodPenalty.getPeriodPenaltyType()) {
 case EXAM_COINCIDENCE:
-studentSizeTotal+=periodPenalty.getLeftSideTopic().getStudentSize();
-maximumDuration=Math.max(maximumDuration,periodPenalty.getLeftSideTopic().getDuration());
+studentSizeTotal+=periodPenalty.getLeftTopic().getStudentSize();
+maximumDuration=Math.max(maximumDuration,periodPenalty.getLeftTopic().getDuration());
 break;
 case EXCLUSION:
 break;
 case AFTER:
-studentSizeTotal+=periodPenalty.getLeftSideTopic().getStudentSize();
-maximumDuration=Math.max(maximumDuration,periodPenalty.getLeftSideTopic().getDuration());
+studentSizeTotal+=periodPenalty.getLeftTopic().getStudentSize();
+maximumDuration=Math.max(maximumDuration,periodPenalty.getLeftTopic().getDuration());
 break;
 default :
 throw new IllegalStateException("The periodPenaltyType (" + periodPenalty.getPeriodPenaltyType() + ") is not implemented.");
