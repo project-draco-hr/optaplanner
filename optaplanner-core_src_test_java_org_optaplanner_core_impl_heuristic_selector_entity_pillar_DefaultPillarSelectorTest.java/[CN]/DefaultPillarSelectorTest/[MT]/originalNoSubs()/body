@@ -9,16 +9,8 @@
   final TestdataEntity d=new TestdataEntity("d",val2);
   final TestdataEntity e=new TestdataEntity("e",val3);
   final TestdataEntity f=new TestdataEntity("f",val3);
-  EntitySelector entitySelector=SelectorTestUtils.mockEntitySelector(TestdataEntity.class,a,b,c,d,e,f);
-  GenuineVariableDescriptor variableDescriptor=SelectorTestUtils.mockVariableDescriptor(entitySelector.getEntityDescriptor(),"value");
-  for (  final TestdataEntity entity : Arrays.asList(a,b,c,d,e,f)) {
-    when(variableDescriptor.getValue(entity)).thenAnswer(new Answer<Object>(){
-      public Object answer(      InvocationOnMock invocation) throws Throwable {
-        return entity.getValue();
-      }
-    }
-);
-  }
+  GenuineVariableDescriptor variableDescriptor=TestdataEntity.buildVariableDescriptorForValue();
+  EntitySelector entitySelector=SelectorTestUtils.mockEntitySelector(variableDescriptor.getEntityDescriptor(),a,b,c,d,e,f);
   DefaultPillarSelector pillarSelector=new DefaultPillarSelector(entitySelector,Arrays.asList(variableDescriptor),false,false,1,Integer.MAX_VALUE);
   DefaultSolverScope solverScope=mock(DefaultSolverScope.class);
   pillarSelector.solvingStarted(solverScope);
