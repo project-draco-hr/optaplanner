@@ -1,0 +1,35 @@
+{
+  TestdataValue v1=new TestdataValue("1");
+  TestdataValue v2=new TestdataValue("2");
+  TestdataValue v3=new TestdataValue("3");
+  GenuineVariableDescriptor variableDescriptor=TestdataEntity.buildVariableDescriptorForValue();
+  EntitySelector entitySelector=SelectorTestUtils.mockEntitySelector(variableDescriptor.getEntityDescriptor());
+  DefaultPillarSelector pillarSelector=new DefaultPillarSelector(entitySelector,Arrays.asList(variableDescriptor),true,true,1,Integer.MAX_VALUE);
+  DefaultSolverScope solverScope=mock(DefaultSolverScope.class);
+  pillarSelector.solvingStarted(solverScope);
+  AbstractSolverPhaseScope phaseScopeA=mock(AbstractSolverPhaseScope.class);
+  when(phaseScopeA.getSolverScope()).thenReturn(solverScope);
+  pillarSelector.phaseStarted(phaseScopeA);
+  AbstractStepScope stepScopeA1=mock(AbstractStepScope.class);
+  when(stepScopeA1.getPhaseScope()).thenReturn(phaseScopeA);
+  pillarSelector.stepStarted(stepScopeA1);
+  assertCodesOfNeverEndingPillarSelector(pillarSelector);
+  pillarSelector.stepEnded(stepScopeA1);
+  AbstractStepScope stepScopeA2=mock(AbstractStepScope.class);
+  when(stepScopeA2.getPhaseScope()).thenReturn(phaseScopeA);
+  pillarSelector.stepStarted(stepScopeA2);
+  assertCodesOfNeverEndingPillarSelector(pillarSelector);
+  pillarSelector.stepEnded(stepScopeA2);
+  pillarSelector.phaseEnded(phaseScopeA);
+  AbstractSolverPhaseScope phaseScopeB=mock(AbstractSolverPhaseScope.class);
+  when(phaseScopeB.getSolverScope()).thenReturn(solverScope);
+  pillarSelector.phaseStarted(phaseScopeB);
+  AbstractStepScope stepScopeB1=mock(AbstractStepScope.class);
+  when(stepScopeB1.getPhaseScope()).thenReturn(phaseScopeB);
+  pillarSelector.stepStarted(stepScopeB1);
+  assertCodesOfNeverEndingPillarSelector(pillarSelector);
+  pillarSelector.stepEnded(stepScopeB1);
+  pillarSelector.phaseEnded(phaseScopeB);
+  pillarSelector.solvingEnded(solverScope);
+  verifySolverPhaseLifecycle(entitySelector,1,2,3);
+}

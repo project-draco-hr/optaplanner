@@ -1,0 +1,5 @@
+{
+  assertCodesOfIterator(pillarSelector.iterator(),codes);
+  assertEquals(true,pillarSelector.isCountable());
+  assertEquals(true,pillarSelector.isNeverEnding());
+}
