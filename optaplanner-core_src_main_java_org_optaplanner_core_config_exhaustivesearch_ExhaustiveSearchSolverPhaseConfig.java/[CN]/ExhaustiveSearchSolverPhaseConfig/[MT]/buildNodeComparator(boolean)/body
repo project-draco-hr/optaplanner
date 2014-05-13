@@ -6,6 +6,8 @@ case DEPTH_FIRST:
   return new DepthFirstNodeComparator(scoreBounderEnabled);
 case BREADTH_FIRST:
 return new BreadthFirstNodeComparator(scoreBounderEnabled);
+case SCORE_FIRST:
+return new ScoreFirstNodeComparator(scoreBounderEnabled);
 case OPTIMISTIC_BOUND_FIRST:
 return new OptimisticBoundFirstNodeComparator(scoreBounderEnabled);
 default :
