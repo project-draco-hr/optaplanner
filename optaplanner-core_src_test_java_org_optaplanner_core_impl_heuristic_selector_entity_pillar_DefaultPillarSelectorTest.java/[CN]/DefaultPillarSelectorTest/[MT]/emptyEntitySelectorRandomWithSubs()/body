@@ -7,7 +7,7 @@
   DefaultPillarSelector pillarSelector=new DefaultPillarSelector(entitySelector,Arrays.asList(variableDescriptor),true,true,1,Integer.MAX_VALUE);
   DefaultSolverScope solverScope=mock(DefaultSolverScope.class);
   pillarSelector.solvingStarted(solverScope);
-  AbstractSolverPhaseScope phaseScopeA=mock(AbstractSolverPhaseScope.class);
+  AbstractPhaseScope phaseScopeA=mock(AbstractPhaseScope.class);
   when(phaseScopeA.getSolverScope()).thenReturn(solverScope);
   pillarSelector.phaseStarted(phaseScopeA);
   AbstractStepScope stepScopeA1=mock(AbstractStepScope.class);
@@ -21,7 +21,7 @@
   assertCodesOfNeverEndingPillarSelector(pillarSelector);
   pillarSelector.stepEnded(stepScopeA2);
   pillarSelector.phaseEnded(phaseScopeA);
-  AbstractSolverPhaseScope phaseScopeB=mock(AbstractSolverPhaseScope.class);
+  AbstractPhaseScope phaseScopeB=mock(AbstractPhaseScope.class);
   when(phaseScopeB.getSolverScope()).thenReturn(solverScope);
   pillarSelector.phaseStarted(phaseScopeB);
   AbstractStepScope stepScopeB1=mock(AbstractStepScope.class);
@@ -31,5 +31,5 @@
   pillarSelector.stepEnded(stepScopeB1);
   pillarSelector.phaseEnded(phaseScopeB);
   pillarSelector.solvingEnded(solverScope);
-  verifySolverPhaseLifecycle(entitySelector,1,2,3);
+  verifyPhaseLifecycle(entitySelector,1,2,3);
 }

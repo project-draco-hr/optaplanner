@@ -2,7 +2,7 @@
   this.childMoveSelectorList=childMoveSelectorList;
   this.randomSelection=randomSelection;
   for (  MoveSelector childMoveSelector : childMoveSelectorList) {
-    solverPhaseLifecycleSupport.addEventListener(childMoveSelector);
+    phaseLifecycleSupport.addEventListener(childMoveSelector);
   }
   if (!randomSelection) {
     if (!childMoveSelectorList.isEmpty()) {

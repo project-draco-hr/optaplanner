@@ -1,6 +1,6 @@
 {
-  for (  SolverPhase solverPhase : solverPhaseList) {
-    solverPhase.solvingEnded(solverScope);
+  for (  Phase phase : phaseList) {
+    phase.solvingEnded(solverScope);
   }
   bestSolutionRecaller.solvingEnded(solverScope);
 }

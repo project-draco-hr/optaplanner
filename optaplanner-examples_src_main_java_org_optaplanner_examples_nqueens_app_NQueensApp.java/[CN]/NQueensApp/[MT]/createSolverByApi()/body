@@ -9,18 +9,18 @@
   TerminationConfig terminationConfig=new TerminationConfig();
   terminationConfig.setBestScoreLimit("0");
   solverConfig.setTerminationConfig(terminationConfig);
-  List<SolverPhaseConfig> solverPhaseConfigList=new ArrayList<SolverPhaseConfig>();
-  ConstructionHeuristicSolverPhaseConfig constructionHeuristicSolverPhaseConfig=new ConstructionHeuristicSolverPhaseConfig();
-  constructionHeuristicSolverPhaseConfig.setConstructionHeuristicType(ConstructionHeuristicSolverPhaseConfig.ConstructionHeuristicType.FIRST_FIT_DECREASING);
-  solverPhaseConfigList.add(constructionHeuristicSolverPhaseConfig);
-  LocalSearchSolverPhaseConfig localSearchSolverPhaseConfig=new LocalSearchSolverPhaseConfig();
+  List<PhaseConfig> phaseConfigList=new ArrayList<PhaseConfig>();
+  ConstructionHeuristicPhaseConfig constructionHeuristicPhaseConfig=new ConstructionHeuristicPhaseConfig();
+  constructionHeuristicPhaseConfig.setConstructionHeuristicType(ConstructionHeuristicPhaseConfig.ConstructionHeuristicType.FIRST_FIT_DECREASING);
+  phaseConfigList.add(constructionHeuristicPhaseConfig);
+  LocalSearchPhaseConfig localSearchPhaseConfig=new LocalSearchPhaseConfig();
   ChangeMoveSelectorConfig changeMoveSelectorConfig=new ChangeMoveSelectorConfig();
   changeMoveSelectorConfig.setSelectionOrder(SelectionOrder.ORIGINAL);
-  localSearchSolverPhaseConfig.setMoveSelectorConfig(changeMoveSelectorConfig);
+  localSearchPhaseConfig.setMoveSelectorConfig(changeMoveSelectorConfig);
   AcceptorConfig acceptorConfig=new AcceptorConfig();
   acceptorConfig.setEntityTabuSize(5);
-  localSearchSolverPhaseConfig.setAcceptorConfig(acceptorConfig);
-  solverPhaseConfigList.add(localSearchSolverPhaseConfig);
-  solverConfig.setSolverPhaseConfigList(solverPhaseConfigList);
+  localSearchPhaseConfig.setAcceptorConfig(acceptorConfig);
+  phaseConfigList.add(localSearchPhaseConfig);
+  solverConfig.setPhaseConfigList(phaseConfigList);
   return solverConfig.buildSolver();
 }

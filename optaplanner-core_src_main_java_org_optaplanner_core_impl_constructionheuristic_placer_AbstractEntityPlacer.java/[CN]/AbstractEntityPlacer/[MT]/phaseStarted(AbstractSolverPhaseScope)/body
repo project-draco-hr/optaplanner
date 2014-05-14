@@ -1,3 +1,0 @@
-{
-  solverPhaseLifecycleSupport.firePhaseStarted(solverPhaseScope);
-}

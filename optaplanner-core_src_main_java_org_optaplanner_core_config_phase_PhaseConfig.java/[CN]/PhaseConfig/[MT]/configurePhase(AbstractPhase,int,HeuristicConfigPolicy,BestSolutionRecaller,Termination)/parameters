@@ -1,0 +1,5 @@
+AbstractPhase phase
+int phaseIndex
+HeuristicConfigPolicy configPolicy
+BestSolutionRecaller bestSolutionRecaller
+Termination solverTermination

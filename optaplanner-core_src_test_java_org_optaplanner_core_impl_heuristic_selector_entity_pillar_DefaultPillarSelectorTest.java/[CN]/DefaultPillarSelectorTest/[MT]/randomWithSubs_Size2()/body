@@ -16,7 +16,7 @@
   DefaultSolverScope solverScope=mock(DefaultSolverScope.class);
   when(solverScope.getWorkingRandom()).thenReturn(workingRandom);
   pillarSelector.solvingStarted(solverScope);
-  AbstractSolverPhaseScope phaseScopeA=mock(AbstractSolverPhaseScope.class);
+  AbstractPhaseScope phaseScopeA=mock(AbstractPhaseScope.class);
   when(phaseScopeA.getSolverScope()).thenReturn(solverScope);
   pillarSelector.phaseStarted(phaseScopeA);
   AbstractStepScope stepScopeA1=mock(AbstractStepScope.class);
@@ -27,5 +27,5 @@
   pillarSelector.stepEnded(stepScopeA1);
   pillarSelector.phaseEnded(phaseScopeA);
   pillarSelector.solvingEnded(solverScope);
-  verifySolverPhaseLifecycle(entitySelector,1,1,1);
+  verifyPhaseLifecycle(entitySelector,1,1,1);
 }

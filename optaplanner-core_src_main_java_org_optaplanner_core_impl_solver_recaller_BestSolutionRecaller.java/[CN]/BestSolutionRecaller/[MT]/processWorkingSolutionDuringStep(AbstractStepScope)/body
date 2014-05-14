@@ -1,5 +1,5 @@
 {
-  AbstractSolverPhaseScope phaseScope=stepScope.getPhaseScope();
+  AbstractPhaseScope phaseScope=stepScope.getPhaseScope();
   int uninitializedVariableCount=stepScope.getUninitializedVariableCount();
   Score score=stepScope.getScore();
   DefaultSolverScope solverScope=phaseScope.getSolverScope();

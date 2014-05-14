@@ -30,16 +30,16 @@
   solver.setTermination(termination);
   BestSolutionRecaller bestSolutionRecaller=buildBestSolutionRecaller(environmentMode);
   solver.setBestSolutionRecaller(bestSolutionRecaller);
-  if (ConfigUtils.isEmptyCollection(solverPhaseConfigList)) {
+  if (ConfigUtils.isEmptyCollection(phaseConfigList)) {
     throw new IllegalArgumentException("Configure at least 1 phase (for example <localSearch>) in the solver configuration.");
   }
-  List<SolverPhase> solverPhaseList=new ArrayList<SolverPhase>(solverPhaseConfigList.size());
+  List<Phase> phaseList=new ArrayList<Phase>(phaseConfigList.size());
   int phaseIndex=0;
-  for (  SolverPhaseConfig solverPhaseConfig : solverPhaseConfigList) {
-    SolverPhase solverPhase=solverPhaseConfig.buildSolverPhase(phaseIndex,configPolicy,bestSolutionRecaller,termination);
-    solverPhaseList.add(solverPhase);
+  for (  PhaseConfig phaseConfig : phaseConfigList) {
+    Phase phase=phaseConfig.buildPhase(phaseIndex,configPolicy,bestSolutionRecaller,termination);
+    phaseList.add(phase);
     phaseIndex++;
   }
-  solver.setSolverPhaseList(solverPhaseList);
+  solver.setPhaseList(phaseList);
   return solver;
 }

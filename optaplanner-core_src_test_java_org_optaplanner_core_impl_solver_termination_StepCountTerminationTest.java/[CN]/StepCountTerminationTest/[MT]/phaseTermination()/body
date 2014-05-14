@@ -1,6 +1,6 @@
 {
   Termination termination=new StepCountTermination(4);
-  AbstractSolverPhaseScope phaseScope=mock(AbstractSolverPhaseScope.class);
+  AbstractPhaseScope phaseScope=mock(AbstractPhaseScope.class);
   when(phaseScope.getNextStepIndex()).thenReturn(0);
   assertEquals(false,termination.isPhaseTerminated(phaseScope));
   assertEquals(0.0,termination.calculatePhaseTimeGradient(phaseScope),0.0);

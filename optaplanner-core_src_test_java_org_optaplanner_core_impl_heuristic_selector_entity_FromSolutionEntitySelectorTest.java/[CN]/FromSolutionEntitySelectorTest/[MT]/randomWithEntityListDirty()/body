@@ -12,7 +12,7 @@
   DefaultSolverScope solverScope=mock(DefaultSolverScope.class);
   when(solverScope.getWorkingRandom()).thenReturn(workingRandom);
   entitySelector.solvingStarted(solverScope);
-  AbstractSolverPhaseScope phaseScopeA=mock(AbstractSolverPhaseScope.class);
+  AbstractPhaseScope phaseScopeA=mock(AbstractPhaseScope.class);
   when(phaseScopeA.getSolverScope()).thenReturn(solverScope);
   when(phaseScopeA.getScoreDirector()).thenReturn(scoreDirector);
   entitySelector.phaseStarted(phaseScopeA);
@@ -33,7 +33,7 @@
   assertCodesOfNeverEndingOfEntitySelector(entitySelector,3L,"f2","f3");
   entitySelector.stepEnded(stepScopeA2);
   entitySelector.phaseEnded(phaseScopeA);
-  AbstractSolverPhaseScope phaseScopeB=mock(AbstractSolverPhaseScope.class);
+  AbstractPhaseScope phaseScopeB=mock(AbstractPhaseScope.class);
   when(phaseScopeB.getSolverScope()).thenReturn(solverScope);
   when(phaseScopeB.getScoreDirector()).thenReturn(scoreDirector);
   entitySelector.phaseStarted(phaseScopeB);

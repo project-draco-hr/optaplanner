@@ -2,7 +2,7 @@
   ScoreDefinition scoreDefinition=mock(ScoreDefinition.class);
   when(scoreDefinition.getLevelCount()).thenReturn(1);
   Termination termination=new BestScoreTermination(scoreDefinition,SimpleScore.valueOf(-1000),new double[]{});
-  AbstractSolverPhaseScope phaseScope=mock(AbstractSolverPhaseScope.class);
+  AbstractPhaseScope phaseScope=mock(AbstractPhaseScope.class);
   when(phaseScope.getScoreDefinition()).thenReturn(new SimpleScoreDefinition());
   when(phaseScope.isBestSolutionInitialized()).thenReturn(true);
   when(phaseScope.getStartingScore()).thenReturn(SimpleScore.valueOf(-1100));

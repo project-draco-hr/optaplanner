@@ -1,0 +1,20 @@
+{
+  EntitySelectorConfig entitySelectorConfig_;
+  if (entitySelectorConfig == null) {
+    entitySelectorConfig_=new EntitySelectorConfig();
+    EntityDescriptor entityDescriptor=deduceEntityDescriptor(configPolicy.getSolutionDescriptor());
+    entitySelectorConfig_.setEntityClass(entityDescriptor.getEntityClass());
+    if (configPolicy.isSortEntitiesByDecreasingDifficultyEnabled()) {
+      entitySelectorConfig_.setCacheType(SelectionCacheType.PHASE);
+      entitySelectorConfig_.setSelectionOrder(SelectionOrder.SORTED);
+      entitySelectorConfig_.setSorterManner(EntitySelectorConfig.EntitySorterManner.DECREASING_DIFFICULTY);
+    }
+  }
+ else {
+    entitySelectorConfig_=entitySelectorConfig;
+  }
+  if (entitySelectorConfig_.getCacheType() != null && entitySelectorConfig_.getCacheType().compareTo(SelectionCacheType.PHASE) < 0) {
+    throw new IllegalArgumentException("The phaseConfig (" + this + ") cannot have an entitySelectorConfig ("+ entitySelectorConfig_+ ") with a cacheType ("+ entitySelectorConfig_.getCacheType()+ ") lower than "+ SelectionCacheType.PHASE+ ".");
+  }
+  return entitySelectorConfig_;
+}

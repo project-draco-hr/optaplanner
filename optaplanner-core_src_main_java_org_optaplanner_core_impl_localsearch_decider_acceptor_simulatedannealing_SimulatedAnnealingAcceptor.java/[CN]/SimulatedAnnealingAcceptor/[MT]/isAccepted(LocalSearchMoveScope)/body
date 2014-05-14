@@ -1,5 +1,5 @@
 {
-  LocalSearchSolverPhaseScope phaseScope=moveScope.getStepScope().getPhaseScope();
+  LocalSearchPhaseScope phaseScope=moveScope.getStepScope().getPhaseScope();
   Score lastStepScore=phaseScope.getLastCompletedStepScope().getScore();
   Score moveScore=moveScope.getScore();
   if (moveScore.compareTo(lastStepScore) >= 0) {

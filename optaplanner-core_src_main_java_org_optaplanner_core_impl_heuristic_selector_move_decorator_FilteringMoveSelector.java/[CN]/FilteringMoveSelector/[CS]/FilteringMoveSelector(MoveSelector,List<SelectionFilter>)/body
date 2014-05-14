@@ -2,5 +2,5 @@
   this.childMoveSelector=childMoveSelector;
   this.filterList=filterList;
   bailOutEnabled=childMoveSelector.isNeverEnding();
-  solverPhaseLifecycleSupport.addEventListener(childMoveSelector);
+  phaseLifecycleSupport.addEventListener(childMoveSelector);
 }

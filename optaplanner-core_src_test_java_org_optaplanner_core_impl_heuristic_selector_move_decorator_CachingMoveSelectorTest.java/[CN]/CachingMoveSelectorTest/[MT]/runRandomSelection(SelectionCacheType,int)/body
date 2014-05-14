@@ -6,7 +6,7 @@
   DefaultSolverScope solverScope=mock(DefaultSolverScope.class);
   when(solverScope.getWorkingRandom()).thenReturn(workingRandom);
   moveSelector.solvingStarted(solverScope);
-  AbstractSolverPhaseScope phaseScopeA=mock(AbstractSolverPhaseScope.class);
+  AbstractPhaseScope phaseScopeA=mock(AbstractPhaseScope.class);
   when(phaseScopeA.getSolverScope()).thenReturn(solverScope);
   when(phaseScopeA.getWorkingRandom()).thenReturn(workingRandom);
   moveSelector.phaseStarted(phaseScopeA);
@@ -25,7 +25,7 @@
   assertCodesOfNeverEndingMoveSelector(moveSelector,3L,"a3","a1","a2");
   moveSelector.stepEnded(stepScopeA2);
   moveSelector.phaseEnded(phaseScopeA);
-  AbstractSolverPhaseScope phaseScopeB=mock(AbstractSolverPhaseScope.class);
+  AbstractPhaseScope phaseScopeB=mock(AbstractPhaseScope.class);
   when(phaseScopeB.getSolverScope()).thenReturn(solverScope);
   when(phaseScopeB.getWorkingRandom()).thenReturn(workingRandom);
   moveSelector.phaseStarted(phaseScopeB);
@@ -38,7 +38,7 @@
   moveSelector.stepEnded(stepScopeB1);
   moveSelector.phaseEnded(phaseScopeB);
   moveSelector.solvingEnded(solverScope);
-  verifySolverPhaseLifecycle(childMoveSelector,1,2,3);
+  verifyPhaseLifecycle(childMoveSelector,1,2,3);
   verify(childMoveSelector,times(timesCalled)).iterator();
   verify(childMoveSelector,times(timesCalled)).getSize();
 }

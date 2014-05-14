@@ -1,6 +1,6 @@
 {
   Termination termination=new TimeMillisSpentTermination(1000L);
-  AbstractSolverPhaseScope phaseScope=mock(AbstractSolverPhaseScope.class);
+  AbstractPhaseScope phaseScope=mock(AbstractPhaseScope.class);
   when(phaseScope.calculatePhaseTimeMillisSpent()).thenReturn(0L);
   assertEquals(false,termination.isPhaseTerminated(phaseScope));
   assertEquals(0.0,termination.calculatePhaseTimeGradient(phaseScope),0.0);

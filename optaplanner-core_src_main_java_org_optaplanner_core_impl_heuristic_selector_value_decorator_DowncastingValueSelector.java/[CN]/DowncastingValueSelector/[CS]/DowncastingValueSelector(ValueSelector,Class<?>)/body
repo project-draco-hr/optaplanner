@@ -1,5 +1,5 @@
 {
   this.childValueSelector=childValueSelector;
   this.downcastEntityClass=downcastEntityClass;
-  solverPhaseLifecycleSupport.addEventListener(childValueSelector);
+  phaseLifecycleSupport.addEventListener(childValueSelector);
 }

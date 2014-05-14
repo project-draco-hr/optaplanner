@@ -1,4 +1,4 @@
 {
-  solverPhaseLifecycleSupport.fireSolvingEnded(solverScope);
+  phaseLifecycleSupport.fireSolvingEnded(solverScope);
   workingRandom=null;
 }

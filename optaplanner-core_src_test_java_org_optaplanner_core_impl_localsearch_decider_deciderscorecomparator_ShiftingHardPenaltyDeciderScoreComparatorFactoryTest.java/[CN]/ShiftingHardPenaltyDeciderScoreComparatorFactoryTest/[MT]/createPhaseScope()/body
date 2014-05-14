@@ -1,7 +1,7 @@
 {
   DefaultSolverScope solverScope=new DefaultSolverScope();
   solverScope.setBestScore(HardSoftScore.valueOf(-11,-200));
-  LocalSearchSolverPhaseScope phaseScope=new LocalSearchSolverPhaseScope(solverScope);
+  LocalSearchPhaseScope phaseScope=new LocalSearchPhaseScope(solverScope);
   phaseScope.setBestSolutionStepIndex(1000);
   LocalSearchStepScope lastCompletedStepScope=new LocalSearchStepScope(phaseScope,1000);
   lastCompletedStepScope.setScore(HardSoftScore.valueOf(-11,-200));

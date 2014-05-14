@@ -3,7 +3,7 @@
   MoveSelector moveSelector=new SelectedCountLimitMoveSelector(childMoveSelector,3L);
   DefaultSolverScope solverScope=mock(DefaultSolverScope.class);
   moveSelector.solvingStarted(solverScope);
-  AbstractSolverPhaseScope phaseScopeA=mock(AbstractSolverPhaseScope.class);
+  AbstractPhaseScope phaseScopeA=mock(AbstractPhaseScope.class);
   when(phaseScopeA.getSolverScope()).thenReturn(solverScope);
   moveSelector.phaseStarted(phaseScopeA);
   AbstractStepScope stepScopeA1=mock(AbstractStepScope.class);
@@ -17,7 +17,7 @@
   assertAllCodesOfMoveSelector(moveSelector,"a1","a2","a3");
   moveSelector.stepEnded(stepScopeA2);
   moveSelector.phaseEnded(phaseScopeA);
-  AbstractSolverPhaseScope phaseScopeB=mock(AbstractSolverPhaseScope.class);
+  AbstractPhaseScope phaseScopeB=mock(AbstractPhaseScope.class);
   when(phaseScopeB.getSolverScope()).thenReturn(solverScope);
   moveSelector.phaseStarted(phaseScopeB);
   AbstractStepScope stepScopeB1=mock(AbstractStepScope.class);
@@ -37,7 +37,7 @@
   moveSelector.stepEnded(stepScopeB3);
   moveSelector.phaseEnded(phaseScopeB);
   moveSelector.solvingEnded(solverScope);
-  verifySolverPhaseLifecycle(childMoveSelector,1,2,5);
+  verifyPhaseLifecycle(childMoveSelector,1,2,5);
   verify(childMoveSelector,times(5)).iterator();
   verify(childMoveSelector,times(5)).getSize();
 }

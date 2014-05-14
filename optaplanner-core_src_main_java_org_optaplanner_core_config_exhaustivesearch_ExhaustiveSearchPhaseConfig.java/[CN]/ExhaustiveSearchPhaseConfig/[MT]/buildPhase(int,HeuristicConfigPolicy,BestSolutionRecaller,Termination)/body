@@ -1,0 +1,24 @@
+{
+  HeuristicConfigPolicy phaseConfigPolicy=solverConfigPolicy.createPhaseConfigPolicy();
+  phaseConfigPolicy.setInitializedChainedValueFilterEnabled(true);
+  ExhaustiveSearchType exhaustiveSearchType_=exhaustiveSearchType == null ? ExhaustiveSearchType.BRANCH_AND_BOUND : exhaustiveSearchType;
+  phaseConfigPolicy.setSortEntitiesByDecreasingDifficultyEnabled(exhaustiveSearchType_.isSortEntitiesByDecreasingDifficulty());
+  phaseConfigPolicy.setSortValuesByIncreasingStrengthEnabled(exhaustiveSearchType_.isSortValuesByIncreasingStrength());
+  DefaultExhaustiveSearchPhase phase=new DefaultExhaustiveSearchPhase();
+  configurePhase(phase,phaseIndex,phaseConfigPolicy,bestSolutionRecaller,solverTermination);
+  boolean scoreBounderEnabled=exhaustiveSearchType_.isScoreBounderEnabled();
+  NodeExplorationType nodeExplorationType_=nodeExplorationType != null ? nodeExplorationType : (exhaustiveSearchType_ == ExhaustiveSearchType.BRUTE_FORCE ? NodeExplorationType.ORIGINAL_ORDER : NodeExplorationType.DEPTH_FIRST);
+  phase.setNodeComparator(nodeExplorationType_.buildNodeComparator(scoreBounderEnabled));
+  EntitySelectorConfig entitySelectorConfig_=buildEntitySelectorConfig(phaseConfigPolicy);
+  EntitySelector entitySelector=entitySelectorConfig_.buildEntitySelector(phaseConfigPolicy,SelectionCacheType.PHASE,SelectionOrder.ORIGINAL);
+  phase.setEntitySelector(entitySelector);
+  phase.setDecider(buildDecider(phaseConfigPolicy,entitySelector,bestSolutionRecaller,phase.getTermination(),scoreBounderEnabled));
+  EnvironmentMode environmentMode=phaseConfigPolicy.getEnvironmentMode();
+  if (environmentMode.isNonIntrusiveFullAsserted()) {
+    phase.setAssertWorkingSolutionScoreFromScratch(true);
+  }
+  if (environmentMode.isIntrusiveFastAsserted()) {
+    phase.setAssertExpectedWorkingSolutionScore(true);
+  }
+  return phase;
+}

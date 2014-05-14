@@ -3,7 +3,7 @@
   SwapMoveSelector moveSelector=new SwapMoveSelector(entitySelector,entitySelector,entitySelector.getEntityDescriptor().getVariableDescriptors(),false);
   DefaultSolverScope solverScope=mock(DefaultSolverScope.class);
   moveSelector.solvingStarted(solverScope);
-  AbstractSolverPhaseScope phaseScopeA=mock(AbstractSolverPhaseScope.class);
+  AbstractPhaseScope phaseScopeA=mock(AbstractPhaseScope.class);
   when(phaseScopeA.getSolverScope()).thenReturn(solverScope);
   moveSelector.phaseStarted(phaseScopeA);
   AbstractStepScope stepScopeA1=mock(AbstractStepScope.class);
@@ -17,7 +17,7 @@
   assertAllCodesOfMoveSelector(moveSelector);
   moveSelector.stepEnded(stepScopeA2);
   moveSelector.phaseEnded(phaseScopeA);
-  AbstractSolverPhaseScope phaseScopeB=mock(AbstractSolverPhaseScope.class);
+  AbstractPhaseScope phaseScopeB=mock(AbstractPhaseScope.class);
   when(phaseScopeB.getSolverScope()).thenReturn(solverScope);
   moveSelector.phaseStarted(phaseScopeB);
   AbstractStepScope stepScopeB1=mock(AbstractStepScope.class);
@@ -37,5 +37,5 @@
   moveSelector.stepEnded(stepScopeB3);
   moveSelector.phaseEnded(phaseScopeB);
   moveSelector.solvingEnded(solverScope);
-  verifySolverPhaseLifecycle(entitySelector,1,2,5);
+  verifyPhaseLifecycle(entitySelector,1,2,5);
 }

@@ -5,7 +5,7 @@
   DefaultSolverScope solverScope=mock(DefaultSolverScope.class);
   recordingEntitySelector.solvingStarted(solverScope);
   replayingEntitySelector.solvingStarted(solverScope);
-  AbstractSolverPhaseScope phaseScopeA=mock(AbstractSolverPhaseScope.class);
+  AbstractPhaseScope phaseScopeA=mock(AbstractPhaseScope.class);
   when(phaseScopeA.getSolverScope()).thenReturn(solverScope);
   recordingEntitySelector.phaseStarted(phaseScopeA);
   replayingEntitySelector.phaseStarted(phaseScopeA);
@@ -25,7 +25,7 @@
   replayingEntitySelector.stepEnded(stepScopeA2);
   recordingEntitySelector.phaseEnded(phaseScopeA);
   replayingEntitySelector.phaseEnded(phaseScopeA);
-  AbstractSolverPhaseScope phaseScopeB=mock(AbstractSolverPhaseScope.class);
+  AbstractPhaseScope phaseScopeB=mock(AbstractPhaseScope.class);
   when(phaseScopeB.getSolverScope()).thenReturn(solverScope);
   recordingEntitySelector.phaseStarted(phaseScopeB);
   replayingEntitySelector.phaseStarted(phaseScopeB);
@@ -40,6 +40,6 @@
   replayingEntitySelector.phaseEnded(phaseScopeB);
   recordingEntitySelector.solvingEnded(solverScope);
   replayingEntitySelector.solvingEnded(solverScope);
-  verifySolverPhaseLifecycle(childEntitySelector,1,2,3);
+  verifyPhaseLifecycle(childEntitySelector,1,2,3);
   verify(childEntitySelector,times(3)).iterator();
 }

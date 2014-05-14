@@ -14,6 +14,6 @@
       throw new IllegalStateException("The selector (" + this + ") has a valueSelector ("+ valueSelector+ ") with neverEnding ("+ valueSelector.isNeverEnding()+ ").");
     }
   }
-  solverPhaseLifecycleSupport.addEventListener(subChainSelector);
-  solverPhaseLifecycleSupport.addEventListener(valueSelector);
+  phaseLifecycleSupport.addEventListener(subChainSelector);
+  phaseLifecycleSupport.addEventListener(valueSelector);
 }

@@ -13,7 +13,7 @@
   when(solverScope.getScoreDirector()).thenReturn(scoreDirector);
   when(solverScope.getWorkingRandom()).thenReturn(new Random(0L));
   subChainSelector.solvingStarted(solverScope);
-  AbstractSolverPhaseScope phaseScopeA=mock(AbstractSolverPhaseScope.class);
+  AbstractPhaseScope phaseScopeA=mock(AbstractPhaseScope.class);
   when(phaseScopeA.getSolverScope()).thenReturn(solverScope);
   subChainSelector.phaseStarted(phaseScopeA);
   AbstractStepScope stepScopeA1=mock(AbstractStepScope.class);
@@ -23,5 +23,5 @@
   subChainSelector.stepEnded(stepScopeA1);
   subChainSelector.phaseEnded(phaseScopeA);
   subChainSelector.solvingEnded(solverScope);
-  verifySolverPhaseLifecycle(valueSelector,1,1,1);
+  verifyPhaseLifecycle(valueSelector,1,1,1);
 }

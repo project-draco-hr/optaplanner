@@ -7,7 +7,7 @@
   processMove(moveScope);
   undoMove.doMove(scoreDirector);
   if (assertExpectedUndoMoveScore) {
-    ConstructionHeuristicSolverPhaseScope phaseScope=moveScope.getStepScope().getPhaseScope();
+    ConstructionHeuristicPhaseScope phaseScope=moveScope.getStepScope().getPhaseScope();
     phaseScope.assertExpectedUndoMoveScore(move,undoMove);
   }
   logger.trace("        Move index ({}), score ({}), move ({}).",moveScope.getMoveIndex(),moveScope.getScore(),moveScope.getMove());

@@ -9,7 +9,7 @@
   TestdataEntity e4=new TestdataEntity("e4");
   DefaultSolverScope solverScope=new DefaultSolverScope();
   solverScope.setBestScore(SimpleScore.valueOf(0));
-  LocalSearchSolverPhaseScope phaseScope=new LocalSearchSolverPhaseScope(solverScope);
+  LocalSearchPhaseScope phaseScope=new LocalSearchPhaseScope(solverScope);
   acceptor.phaseStarted(phaseScope);
   LocalSearchStepScope stepScope0=new LocalSearchStepScope(phaseScope);
   LocalSearchMoveScope moveScope1=buildMoveScope(stepScope0,e1);

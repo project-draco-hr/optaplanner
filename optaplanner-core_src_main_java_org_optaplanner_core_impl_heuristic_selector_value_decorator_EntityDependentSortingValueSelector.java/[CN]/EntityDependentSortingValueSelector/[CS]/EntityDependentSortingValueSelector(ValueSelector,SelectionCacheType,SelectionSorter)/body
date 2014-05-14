@@ -8,5 +8,5 @@
   if (cacheType != SelectionCacheType.STEP) {
     throw new IllegalArgumentException("The selector (" + this + ") does not support the cacheType ("+ cacheType+ ").");
   }
-  solverPhaseLifecycleSupport.addEventListener(childValueSelector);
+  phaseLifecycleSupport.addEventListener(childValueSelector);
 }

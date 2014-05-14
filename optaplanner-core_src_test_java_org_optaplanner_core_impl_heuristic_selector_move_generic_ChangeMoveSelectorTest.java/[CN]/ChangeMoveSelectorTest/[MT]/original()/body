@@ -4,7 +4,7 @@
   ChangeMoveSelector moveSelector=new ChangeMoveSelector(entitySelector,valueSelector,false);
   DefaultSolverScope solverScope=mock(DefaultSolverScope.class);
   moveSelector.solvingStarted(solverScope);
-  AbstractSolverPhaseScope phaseScopeA=mock(AbstractSolverPhaseScope.class);
+  AbstractPhaseScope phaseScopeA=mock(AbstractPhaseScope.class);
   when(phaseScopeA.getSolverScope()).thenReturn(solverScope);
   moveSelector.phaseStarted(phaseScopeA);
   AbstractStepScope stepScopeA1=mock(AbstractStepScope.class);
@@ -18,7 +18,7 @@
   assertAllCodesOfMoveSelector(moveSelector,"a->1","a->2","a->3","b->1","b->2","b->3","c->1","c->2","c->3","d->1","d->2","d->3");
   moveSelector.stepEnded(stepScopeA2);
   moveSelector.phaseEnded(phaseScopeA);
-  AbstractSolverPhaseScope phaseScopeB=mock(AbstractSolverPhaseScope.class);
+  AbstractPhaseScope phaseScopeB=mock(AbstractPhaseScope.class);
   when(phaseScopeB.getSolverScope()).thenReturn(solverScope);
   moveSelector.phaseStarted(phaseScopeB);
   AbstractStepScope stepScopeB1=mock(AbstractStepScope.class);
@@ -38,6 +38,6 @@
   moveSelector.stepEnded(stepScopeB3);
   moveSelector.phaseEnded(phaseScopeB);
   moveSelector.solvingEnded(solverScope);
-  verifySolverPhaseLifecycle(entitySelector,1,2,5);
-  verifySolverPhaseLifecycle(valueSelector,1,2,5);
+  verifyPhaseLifecycle(entitySelector,1,2,5);
+  verifyPhaseLifecycle(valueSelector,1,2,5);
 }

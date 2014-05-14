@@ -1,5 +1,5 @@
 {
-  AbstractSolverPhaseScope phaseScope=stepScope.getPhaseScope();
+  AbstractPhaseScope phaseScope=stepScope.getPhaseScope();
   DefaultSolverScope solverScope=phaseScope.getSolverScope();
   int bestUninitializedVariableCount=solverScope.getBestUninitializedVariableCount();
   Score bestScore=solverScope.getBestScore();

@@ -18,5 +18,5 @@
  else   if (inheritedConfig.getTerminationConfig() != null) {
     terminationConfig.inherit(inheritedConfig.getTerminationConfig());
   }
-  solverPhaseConfigList=ConfigUtils.inheritMergeableListProperty(solverPhaseConfigList,inheritedConfig.getSolverPhaseConfigList());
+  phaseConfigList=ConfigUtils.inheritMergeableListProperty(phaseConfigList,inheritedConfig.getPhaseConfigList());
 }

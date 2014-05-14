@@ -1,0 +1,10 @@
+{
+  Iterator<Phase> it=phaseList.iterator();
+  while (!termination.isSolverTerminated(solverScope) && it.hasNext()) {
+    Phase phase=it.next();
+    phase.solve(solverScope);
+    if (it.hasNext()) {
+      solverScope.setWorkingSolutionFromBestSolution();
+    }
+  }
+}

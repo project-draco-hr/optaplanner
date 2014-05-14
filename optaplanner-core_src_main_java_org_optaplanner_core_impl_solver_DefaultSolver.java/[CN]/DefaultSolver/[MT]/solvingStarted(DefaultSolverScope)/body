@@ -3,8 +3,8 @@
   solverScope.setWorkingRandom(randomFactory.createRandom());
   solverScope.setWorkingSolutionFromBestSolution();
   bestSolutionRecaller.solvingStarted(solverScope);
-  for (  SolverPhase solverPhase : solverPhaseList) {
-    solverPhase.solvingStarted(solverScope);
+  for (  Phase phase : phaseList) {
+    phase.solvingStarted(solverScope);
   }
   int startingSolverCount=solverScope.getStartingSolverCount() + 1;
   solverScope.setStartingSolverCount(startingSolverCount);

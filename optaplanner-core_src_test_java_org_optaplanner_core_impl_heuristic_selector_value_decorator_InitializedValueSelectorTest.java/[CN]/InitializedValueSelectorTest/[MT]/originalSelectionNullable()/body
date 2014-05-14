@@ -10,7 +10,7 @@
   verify(childValueSelector,times(1)).isNeverEnding();
   DefaultSolverScope solverScope=mock(DefaultSolverScope.class);
   valueSelector.solvingStarted(solverScope);
-  AbstractSolverPhaseScope phaseScopeA=mock(AbstractSolverPhaseScope.class);
+  AbstractPhaseScope phaseScopeA=mock(AbstractPhaseScope.class);
   when(phaseScopeA.getSolverScope()).thenReturn(solverScope);
   valueSelector.phaseStarted(phaseScopeA);
   AbstractStepScope stepScopeA1=mock(AbstractStepScope.class);
@@ -21,6 +21,6 @@
   valueSelector.stepEnded(stepScopeA1);
   valueSelector.phaseEnded(phaseScopeA);
   valueSelector.solvingEnded(solverScope);
-  verifySolverPhaseLifecycle(childValueSelector,1,1,1);
+  verifyPhaseLifecycle(childValueSelector,1,1,1);
   verify(childValueSelector,times(1)).iterator(any());
 }

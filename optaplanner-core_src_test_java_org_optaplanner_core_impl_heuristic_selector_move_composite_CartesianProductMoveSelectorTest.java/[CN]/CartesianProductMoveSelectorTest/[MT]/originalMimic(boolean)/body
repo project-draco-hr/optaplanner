@@ -9,7 +9,7 @@
   MoveSelector moveSelector=new CartesianProductMoveSelector(moveSelectorList,ignoreEmptyChildIterators,false);
   DefaultSolverScope solverScope=mock(DefaultSolverScope.class);
   moveSelector.solvingStarted(solverScope);
-  AbstractSolverPhaseScope phaseScopeA=mock(AbstractSolverPhaseScope.class);
+  AbstractPhaseScope phaseScopeA=mock(AbstractPhaseScope.class);
   when(phaseScopeA.getSolverScope()).thenReturn(solverScope);
   moveSelector.phaseStarted(phaseScopeA);
   AbstractStepScope stepScopeA1=mock(AbstractStepScope.class);
@@ -24,7 +24,7 @@
   moveSelector.stepEnded(stepScopeA2);
   moveSelector.phaseEnded(phaseScopeA);
   moveSelector.solvingEnded(solverScope);
-  verifySolverPhaseLifecycle(entitySelector,1,1,2);
-  verifySolverPhaseLifecycle(primaryValueSelector,1,1,2);
-  verifySolverPhaseLifecycle(secondaryValueSelector,1,1,2);
+  verifyPhaseLifecycle(entitySelector,1,1,2);
+  verifyPhaseLifecycle(primaryValueSelector,1,1,2);
+  verifyPhaseLifecycle(secondaryValueSelector,1,1,2);
 }

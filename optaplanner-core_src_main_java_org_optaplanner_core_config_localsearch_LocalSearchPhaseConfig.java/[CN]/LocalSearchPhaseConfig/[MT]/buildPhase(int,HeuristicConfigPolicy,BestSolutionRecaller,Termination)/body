@@ -1,0 +1,14 @@
+{
+  HeuristicConfigPolicy phaseConfigPolicy=solverConfigPolicy.createPhaseConfigPolicy();
+  DefaultLocalSearchPhase phase=new DefaultLocalSearchPhase();
+  configurePhase(phase,phaseIndex,phaseConfigPolicy,bestSolutionRecaller,solverTermination);
+  phase.setDecider(buildDecider(phaseConfigPolicy,phase.getTermination()));
+  EnvironmentMode environmentMode=phaseConfigPolicy.getEnvironmentMode();
+  if (environmentMode.isNonIntrusiveFullAsserted()) {
+    phase.setAssertStepScoreFromScratch(true);
+  }
+  if (environmentMode.isIntrusiveFastAsserted()) {
+    phase.setAssertExpectedStepScore(true);
+  }
+  return phase;
+}

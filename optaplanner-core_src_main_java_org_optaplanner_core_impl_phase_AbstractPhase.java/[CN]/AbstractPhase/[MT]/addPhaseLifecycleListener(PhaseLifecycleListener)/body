@@ -1,0 +1,3 @@
+{
+  phaseLifecycleSupport.addEventListener(phaseLifecycleListener);
+}

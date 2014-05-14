@@ -1,0 +1,6 @@
+{
+  phaseScope.reset();
+  bestSolutionRecaller.phaseStarted(phaseScope);
+  termination.phaseStarted(phaseScope);
+  phaseLifecycleSupport.firePhaseStarted(phaseScope);
+}

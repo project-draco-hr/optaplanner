@@ -1,0 +1,5 @@
+{
+  bestSolutionRecaller.stepEnded(stepScope);
+  termination.stepEnded(stepScope);
+  phaseLifecycleSupport.fireStepEnded(stepScope);
+}

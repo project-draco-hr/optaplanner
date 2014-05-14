@@ -7,7 +7,7 @@
   boolean restartSolver=true;
   while (restartSolver) {
     solvingStarted(solverScope);
-    runSolverPhases();
+    runPhases();
     solvingEnded(solverScope);
     restartSolver=checkProblemFactChanges();
   }

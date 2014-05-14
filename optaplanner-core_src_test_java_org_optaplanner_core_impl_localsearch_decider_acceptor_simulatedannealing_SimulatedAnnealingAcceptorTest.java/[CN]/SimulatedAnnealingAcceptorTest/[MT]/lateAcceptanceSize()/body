@@ -5,7 +5,7 @@
   solverScope.setBestScore(SimpleScore.valueOf(-1000));
   Random workingRandom=mock(Random.class);
   solverScope.setWorkingRandom(workingRandom);
-  LocalSearchSolverPhaseScope phaseScope=new LocalSearchSolverPhaseScope(solverScope);
+  LocalSearchPhaseScope phaseScope=new LocalSearchPhaseScope(solverScope);
   LocalSearchStepScope lastCompletedStepScope=new LocalSearchStepScope(phaseScope,-1);
   lastCompletedStepScope.setScore(SimpleScore.valueOf(-1000));
   phaseScope.setLastCompletedStepScope(lastCompletedStepScope);

@@ -1,6 +1,6 @@
 {
   Termination termination=new UnimprovedStepCountTermination(4);
-  AbstractSolverPhaseScope phaseScope=mock(AbstractSolverPhaseScope.class);
+  AbstractPhaseScope phaseScope=mock(AbstractPhaseScope.class);
   AbstractStepScope lastCompletedStepScope=mock(AbstractStepScope.class);
   when(phaseScope.getLastCompletedStepScope()).thenReturn(lastCompletedStepScope);
   when(phaseScope.getBestSolutionStepIndex()).thenReturn(10);

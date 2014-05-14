@@ -5,7 +5,7 @@
   deciderScoreComparatorFactory.setSuccessiveNoHardChangeMaximum(3);
   deciderScoreComparatorFactory.setSuccessiveNoHardChangeRepetitionMultiplicand(5.0);
   deciderScoreComparatorFactory.setHardWeightSurvivalRatio(0.9);
-  LocalSearchSolverPhaseScope phaseScope=createPhaseScope();
+  LocalSearchPhaseScope phaseScope=createPhaseScope();
   deciderScoreComparatorFactory.phaseStarted(phaseScope);
   LocalSearchStepScope stepScope=phaseScope.getLastCompletedStepScope();
   stepScope=nextStepScope(stepScope);

@@ -1,4 +1,0 @@
-{
-  termination.solvingStarted(solverScope);
-  solverPhaseLifecycleSupport.fireSolvingStarted(solverScope);
-}

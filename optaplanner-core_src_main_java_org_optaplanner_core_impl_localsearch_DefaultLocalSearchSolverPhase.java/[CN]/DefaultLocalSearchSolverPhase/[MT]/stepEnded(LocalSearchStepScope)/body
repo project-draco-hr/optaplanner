@@ -1,9 +1,0 @@
-{
-  super.stepEnded(stepScope);
-  decider.stepEnded(stepScope);
-  LocalSearchSolverPhaseScope phaseScope=stepScope.getPhaseScope();
-  if (logger.isDebugEnabled()) {
-    long timeMillisSpent=phaseScope.calculateSolverTimeMillisSpent();
-    logger.debug("    LS step ({}), time spent ({}), score ({}), {} best score ({})," + " accepted/selected move count ({}/{}), picked move ({}).",stepScope.getStepIndex(),timeMillisSpent,stepScope.getScore(),(stepScope.getBestScoreImproved() ? "new" : "   "),phaseScope.getBestScore(),stepScope.getAcceptedMoveCount(),stepScope.getSelectedMoveCount(),stepScope.getStepString());
-  }
-}

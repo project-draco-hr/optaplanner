@@ -9,7 +9,7 @@
   DefaultSolverScope solverScope=mock(DefaultSolverScope.class);
   when(solverScope.getScoreDirector()).thenReturn(scoreDirector);
   subChainSelector.solvingStarted(solverScope);
-  AbstractSolverPhaseScope phaseScopeA=mock(AbstractSolverPhaseScope.class);
+  AbstractPhaseScope phaseScopeA=mock(AbstractPhaseScope.class);
   when(phaseScopeA.getSolverScope()).thenReturn(solverScope);
   subChainSelector.phaseStarted(phaseScopeA);
   AbstractStepScope stepScopeA1=mock(AbstractStepScope.class);
@@ -23,7 +23,7 @@
   assertAllCodesOfSubChainSelector(subChainSelector);
   subChainSelector.stepEnded(stepScopeA2);
   subChainSelector.phaseEnded(phaseScopeA);
-  AbstractSolverPhaseScope phaseScopeB=mock(AbstractSolverPhaseScope.class);
+  AbstractPhaseScope phaseScopeB=mock(AbstractPhaseScope.class);
   when(phaseScopeB.getSolverScope()).thenReturn(solverScope);
   subChainSelector.phaseStarted(phaseScopeB);
   AbstractStepScope stepScopeB1=mock(AbstractStepScope.class);
@@ -33,5 +33,5 @@
   subChainSelector.stepEnded(stepScopeB1);
   subChainSelector.phaseEnded(phaseScopeB);
   subChainSelector.solvingEnded(solverScope);
-  verifySolverPhaseLifecycle(valueSelector,1,2,3);
+  verifyPhaseLifecycle(valueSelector,1,2,3);
 }

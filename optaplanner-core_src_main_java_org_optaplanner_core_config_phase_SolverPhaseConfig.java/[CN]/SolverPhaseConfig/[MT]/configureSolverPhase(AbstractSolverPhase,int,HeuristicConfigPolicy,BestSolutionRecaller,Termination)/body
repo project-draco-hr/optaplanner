@@ -1,6 +1,0 @@
-{
-  solverPhase.setPhaseIndex(phaseIndex);
-  solverPhase.setBestSolutionRecaller(bestSolutionRecaller);
-  TerminationConfig terminationConfig_=terminationConfig == null ? new TerminationConfig() : terminationConfig;
-  solverPhase.setTermination(terminationConfig_.buildTermination(configPolicy,new PhaseToSolverTerminationBridge(solverTermination)));
-}

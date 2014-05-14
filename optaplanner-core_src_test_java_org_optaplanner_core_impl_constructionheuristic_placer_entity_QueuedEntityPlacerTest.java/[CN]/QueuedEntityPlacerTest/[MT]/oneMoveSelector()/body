@@ -6,7 +6,7 @@
   QueuedEntityPlacer placer=new QueuedEntityPlacer(recordingEntitySelector,Collections.singletonList(moveSelector));
   DefaultSolverScope solverScope=mock(DefaultSolverScope.class);
   placer.solvingStarted(solverScope);
-  AbstractSolverPhaseScope phaseScopeA=mock(AbstractSolverPhaseScope.class);
+  AbstractPhaseScope phaseScopeA=mock(AbstractPhaseScope.class);
   when(phaseScopeA.getSolverScope()).thenReturn(solverScope);
   placer.phaseStarted(phaseScopeA);
   Iterator<Placement> placementIterator=placer.iterator();
@@ -30,7 +30,7 @@
   placer.stepEnded(stepScopeA3);
   assertFalse(placementIterator.hasNext());
   placer.phaseEnded(phaseScopeA);
-  AbstractSolverPhaseScope phaseScopeB=mock(AbstractSolverPhaseScope.class);
+  AbstractPhaseScope phaseScopeB=mock(AbstractPhaseScope.class);
   when(phaseScopeB.getSolverScope()).thenReturn(solverScope);
   placer.phaseStarted(phaseScopeB);
   placementIterator=placer.iterator();
@@ -42,6 +42,6 @@
   placer.stepEnded(stepScopeB1);
   placer.phaseEnded(phaseScopeB);
   placer.solvingEnded(solverScope);
-  verifySolverPhaseLifecycle(entitySelector,1,2,4);
-  verifySolverPhaseLifecycle(valueSelector,1,2,4);
+  verifyPhaseLifecycle(entitySelector,1,2,4);
+  verifyPhaseLifecycle(valueSelector,1,2,4);
 }

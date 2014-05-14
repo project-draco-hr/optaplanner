@@ -7,7 +7,7 @@
   processMove(stepScope,moveNode);
   undoMove.doMove(scoreDirector);
   if (assertExpectedUndoMoveScore) {
-    ExhaustiveSearchSolverPhaseScope phaseScope=stepScope.getPhaseScope();
+    ExhaustiveSearchPhaseScope phaseScope=stepScope.getPhaseScope();
     phaseScope.assertExpectedUndoMoveScore(move,undoMove);
   }
   logger.trace("        Move breadth ({}), score ({}), move ({}).",moveNode.getBreadth(),moveNode.getScore(),moveNode.getMove());

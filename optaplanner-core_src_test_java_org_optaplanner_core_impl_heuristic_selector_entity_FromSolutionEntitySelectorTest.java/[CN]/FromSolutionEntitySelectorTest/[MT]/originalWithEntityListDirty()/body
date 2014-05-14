@@ -9,7 +9,7 @@
   FromSolutionEntitySelector entitySelector=new FromSolutionEntitySelector(entityDescriptor,SelectionCacheType.JUST_IN_TIME,false);
   DefaultSolverScope solverScope=mock(DefaultSolverScope.class);
   entitySelector.solvingStarted(solverScope);
-  AbstractSolverPhaseScope phaseScopeA=mock(AbstractSolverPhaseScope.class);
+  AbstractPhaseScope phaseScopeA=mock(AbstractPhaseScope.class);
   when(phaseScopeA.getSolverScope()).thenReturn(solverScope);
   when(phaseScopeA.getScoreDirector()).thenReturn(scoreDirector);
   entitySelector.phaseStarted(phaseScopeA);
@@ -30,7 +30,7 @@
   assertAllCodesOfEntitySelector(entitySelector,"f1","f2","f3");
   entitySelector.stepEnded(stepScopeA2);
   entitySelector.phaseEnded(phaseScopeA);
-  AbstractSolverPhaseScope phaseScopeB=mock(AbstractSolverPhaseScope.class);
+  AbstractPhaseScope phaseScopeB=mock(AbstractPhaseScope.class);
   when(phaseScopeB.getSolverScope()).thenReturn(solverScope);
   when(phaseScopeB.getScoreDirector()).thenReturn(scoreDirector);
   entitySelector.phaseStarted(phaseScopeB);

@@ -7,8 +7,8 @@
   if (leftSubChainSelector.getVariableDescriptor() != rightSubChainSelector.getVariableDescriptor()) {
     throw new IllegalStateException("The selector (" + this + ") has a leftSubChainSelector's variableDescriptor ("+ leftSubChainSelector.getVariableDescriptor()+ ") which is not equal to the rightSubChainSelector's variableDescriptor ("+ rightSubChainSelector.getVariableDescriptor()+ ").");
   }
-  solverPhaseLifecycleSupport.addEventListener(leftSubChainSelector);
+  phaseLifecycleSupport.addEventListener(leftSubChainSelector);
   if (leftSubChainSelector != rightSubChainSelector) {
-    solverPhaseLifecycleSupport.addEventListener(rightSubChainSelector);
+    phaseLifecycleSupport.addEventListener(rightSubChainSelector);
   }
 }

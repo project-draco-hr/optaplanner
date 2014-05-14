@@ -2,7 +2,7 @@
   StepCountingHillClimbingAcceptor acceptor=new StepCountingHillClimbingAcceptor(2,StepCountingHillClimbingType.EQUAL_OR_IMPROVING_STEP);
   DefaultSolverScope solverScope=new DefaultSolverScope();
   solverScope.setBestScore(SimpleScore.valueOf(-1000));
-  LocalSearchSolverPhaseScope phaseScope=new LocalSearchSolverPhaseScope(solverScope);
+  LocalSearchPhaseScope phaseScope=new LocalSearchPhaseScope(solverScope);
   LocalSearchStepScope lastCompletedStepScope=new LocalSearchStepScope(phaseScope,-1);
   lastCompletedStepScope.setScore(solverScope.getBestScore());
   phaseScope.setLastCompletedStepScope(lastCompletedStepScope);

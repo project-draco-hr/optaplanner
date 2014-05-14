@@ -1,0 +1,15 @@
+{
+  CustomPhaseScope phaseScope=new CustomPhaseScope(solverScope);
+  phaseStarted(phaseScope);
+  CustomStepScope stepScope=new CustomStepScope(phaseScope);
+  Iterator<CustomSolverPhaseCommand> commandIterator=customSolverPhaseCommandList.iterator();
+  while (!termination.isPhaseTerminated(phaseScope) && commandIterator.hasNext()) {
+    CustomSolverPhaseCommand customSolverPhaseCommand=commandIterator.next();
+    stepStarted(stepScope);
+    doStep(stepScope,customSolverPhaseCommand);
+    stepEnded(stepScope);
+    phaseScope.setLastCompletedStepScope(stepScope);
+    stepScope=new CustomStepScope(phaseScope);
+  }
+  phaseEnded(phaseScope);
+}

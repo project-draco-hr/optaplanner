@@ -4,7 +4,7 @@
   verify(childEntitySelector,times(1)).isNeverEnding();
   DefaultSolverScope solverScope=mock(DefaultSolverScope.class);
   entitySelector.solvingStarted(solverScope);
-  AbstractSolverPhaseScope phaseScopeA=mock(AbstractSolverPhaseScope.class);
+  AbstractPhaseScope phaseScopeA=mock(AbstractPhaseScope.class);
   when(phaseScopeA.getSolverScope()).thenReturn(solverScope);
   entitySelector.phaseStarted(phaseScopeA);
   AbstractStepScope stepScopeA1=mock(AbstractStepScope.class);
@@ -18,7 +18,7 @@
   assertAllCodesOfEntitySelector(entitySelector,"e1","e2","e3");
   entitySelector.stepEnded(stepScopeA2);
   entitySelector.phaseEnded(phaseScopeA);
-  AbstractSolverPhaseScope phaseScopeB=mock(AbstractSolverPhaseScope.class);
+  AbstractPhaseScope phaseScopeB=mock(AbstractPhaseScope.class);
   when(phaseScopeB.getSolverScope()).thenReturn(solverScope);
   entitySelector.phaseStarted(phaseScopeB);
   AbstractStepScope stepScopeB1=mock(AbstractStepScope.class);
@@ -38,7 +38,7 @@
   entitySelector.stepEnded(stepScopeB3);
   entitySelector.phaseEnded(phaseScopeB);
   entitySelector.solvingEnded(solverScope);
-  verifySolverPhaseLifecycle(childEntitySelector,1,2,5);
+  verifyPhaseLifecycle(childEntitySelector,1,2,5);
   verify(childEntitySelector,times(timesCalled)).iterator();
   verify(childEntitySelector,times(timesCalled)).getSize();
 }

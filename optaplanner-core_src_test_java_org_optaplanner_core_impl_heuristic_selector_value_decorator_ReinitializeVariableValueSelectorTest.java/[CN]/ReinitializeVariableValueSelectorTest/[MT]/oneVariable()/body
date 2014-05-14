@@ -10,7 +10,7 @@
   ValueSelector valueSelector=new ReinitializeVariableValueSelector(childValueSelector);
   DefaultSolverScope solverScope=mock(DefaultSolverScope.class);
   valueSelector.solvingStarted(solverScope);
-  AbstractSolverPhaseScope phaseScopeA=mock(AbstractSolverPhaseScope.class);
+  AbstractPhaseScope phaseScopeA=mock(AbstractPhaseScope.class);
   when(phaseScopeA.getSolverScope()).thenReturn(solverScope);
   valueSelector.phaseStarted(phaseScopeA);
   AbstractStepScope stepScopeA1=mock(AbstractStepScope.class);
@@ -25,7 +25,7 @@
   assertAllCodesOfValueSelectorForEntity(valueSelector,e2);
   valueSelector.stepEnded(stepScopeA2);
   valueSelector.phaseEnded(phaseScopeA);
-  AbstractSolverPhaseScope phaseScopeB=mock(AbstractSolverPhaseScope.class);
+  AbstractPhaseScope phaseScopeB=mock(AbstractPhaseScope.class);
   when(phaseScopeB.getSolverScope()).thenReturn(solverScope);
   valueSelector.phaseStarted(phaseScopeB);
   AbstractStepScope stepScopeB1=mock(AbstractStepScope.class);
@@ -42,7 +42,7 @@
   valueSelector.stepEnded(stepScopeB2);
   valueSelector.phaseEnded(phaseScopeB);
   valueSelector.solvingEnded(solverScope);
-  verifySolverPhaseLifecycle(childValueSelector,1,2,4);
+  verifyPhaseLifecycle(childValueSelector,1,2,4);
   verify(childValueSelector,atMost(4)).iterator(any());
   verify(childValueSelector,atMost(4)).getSize(any());
 }

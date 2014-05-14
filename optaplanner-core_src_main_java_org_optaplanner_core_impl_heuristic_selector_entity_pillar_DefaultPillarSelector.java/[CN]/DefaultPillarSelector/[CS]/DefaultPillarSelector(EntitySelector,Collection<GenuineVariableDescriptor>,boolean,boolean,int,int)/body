@@ -19,8 +19,8 @@
   if (entitySelector.isNeverEnding()) {
     throw new IllegalStateException("The selector (" + this + ") has an entitySelector ("+ entitySelector+ ") with neverEnding ("+ entitySelector.isNeverEnding()+ ").");
   }
-  solverPhaseLifecycleSupport.addEventListener(entitySelector);
-  solverPhaseLifecycleSupport.addEventListener(new SelectionCacheLifecycleBridge(CACHE_TYPE,this));
+  phaseLifecycleSupport.addEventListener(entitySelector);
+  phaseLifecycleSupport.addEventListener(new SelectionCacheLifecycleBridge(CACHE_TYPE,this));
   this.subPillarEnabled=subPillarEnabled;
   this.minimumSubPillarSize=minimumSubPillarSize;
   this.maximumSubPillarSize=maximumSubPillarSize;

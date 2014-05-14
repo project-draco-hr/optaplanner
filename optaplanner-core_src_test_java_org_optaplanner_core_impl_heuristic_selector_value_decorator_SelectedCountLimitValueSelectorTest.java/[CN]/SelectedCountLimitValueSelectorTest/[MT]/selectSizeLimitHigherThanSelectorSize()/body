@@ -3,7 +3,7 @@
   EntityIndependentValueSelector valueSelector=new SelectedCountLimitValueSelector(childValueSelector,5L);
   DefaultSolverScope solverScope=mock(DefaultSolverScope.class);
   valueSelector.solvingStarted(solverScope);
-  AbstractSolverPhaseScope phaseScopeA=mock(AbstractSolverPhaseScope.class);
+  AbstractPhaseScope phaseScopeA=mock(AbstractPhaseScope.class);
   when(phaseScopeA.getSolverScope()).thenReturn(solverScope);
   valueSelector.phaseStarted(phaseScopeA);
   AbstractStepScope stepScopeA1=mock(AbstractStepScope.class);
@@ -17,7 +17,7 @@
   assertAllCodesOfValueSelector(valueSelector,"v1","v2","v3");
   valueSelector.stepEnded(stepScopeA2);
   valueSelector.phaseEnded(phaseScopeA);
-  AbstractSolverPhaseScope phaseScopeB=mock(AbstractSolverPhaseScope.class);
+  AbstractPhaseScope phaseScopeB=mock(AbstractPhaseScope.class);
   when(phaseScopeB.getSolverScope()).thenReturn(solverScope);
   valueSelector.phaseStarted(phaseScopeB);
   AbstractStepScope stepScopeB1=mock(AbstractStepScope.class);
@@ -37,7 +37,7 @@
   valueSelector.stepEnded(stepScopeB3);
   valueSelector.phaseEnded(phaseScopeB);
   valueSelector.solvingEnded(solverScope);
-  verifySolverPhaseLifecycle(childValueSelector,1,2,5);
+  verifyPhaseLifecycle(childValueSelector,1,2,5);
   verify(childValueSelector,times(5)).iterator();
   verify(childValueSelector,times(5)).getSize();
 }

@@ -1,6 +1,6 @@
 {
   DefaultSolverScope solverScope=new DefaultSolverScope();
-  LocalSearchSolverPhaseScope phaseScope=new LocalSearchSolverPhaseScope(solverScope);
+  LocalSearchPhaseScope phaseScope=new LocalSearchPhaseScope(solverScope);
   DroolsScoreDirectorFactory scoreDirectorFactory=new DroolsScoreDirectorFactory();
   scoreDirectorFactory.setSolutionDescriptor(TestdataSolution.buildSolutionDescriptor());
   scoreDirectorFactory.setScoreDefinition(new SimpleScoreDefinition());

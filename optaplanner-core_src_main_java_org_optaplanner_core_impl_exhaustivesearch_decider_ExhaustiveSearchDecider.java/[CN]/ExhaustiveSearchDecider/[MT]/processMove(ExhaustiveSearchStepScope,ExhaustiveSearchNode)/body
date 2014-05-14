@@ -1,5 +1,5 @@
 {
-  ExhaustiveSearchSolverPhaseScope phaseScope=stepScope.getPhaseScope();
+  ExhaustiveSearchPhaseScope phaseScope=stepScope.getPhaseScope();
   int uninitializedVariableCount=moveNode.getUninitializedVariableCount();
   if (!scoreBounderEnabled) {
     if (uninitializedVariableCount == 0) {
