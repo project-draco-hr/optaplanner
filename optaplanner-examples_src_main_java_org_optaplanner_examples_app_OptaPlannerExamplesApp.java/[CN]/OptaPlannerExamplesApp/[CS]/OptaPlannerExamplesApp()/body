@@ -1,5 +1,5 @@
 {
-  super("OptaPlanner examples");
+  super("OptaPlanner examples " + determineOptaPlannerExamplesVersion());
   setIconImage(SolverAndPersistenceFrame.OPTA_PLANNER_ICON.getImage());
   setContentPane(createContentPane());
   setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

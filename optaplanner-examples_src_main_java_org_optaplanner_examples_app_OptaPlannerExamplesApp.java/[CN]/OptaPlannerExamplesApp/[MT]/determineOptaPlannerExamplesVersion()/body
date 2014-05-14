@@ -1,0 +1,7 @@
+{
+  String optaPlannerExamplesVersion=OptaPlannerExamplesApp.class.getPackage().getImplementationVersion();
+  if (optaPlannerExamplesVersion == null) {
+    optaPlannerExamplesVersion="";
+  }
+  return optaPlannerExamplesVersion;
+}
