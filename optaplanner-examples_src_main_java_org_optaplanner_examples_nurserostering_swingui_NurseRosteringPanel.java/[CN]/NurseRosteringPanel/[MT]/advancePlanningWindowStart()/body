@@ -7,9 +7,9 @@
   solutionBusiness.doProblemFactChange(new ProblemFactChange(){
     public void doChange(    ScoreDirector scoreDirector){
       NurseRoster nurseRoster=(NurseRoster)scoreDirector.getWorkingSolution();
-      NurseRosterInfo nurseRosterInfo=nurseRoster.getNurseRosterInfo();
+      NurseRosterParametrization nurseRosterParametrization=nurseRoster.getNurseRosterParametrization();
       List<ShiftDate> shiftDateList=nurseRoster.getShiftDateList();
-      ShiftDate planningWindowStart=nurseRosterInfo.getPlanningWindowStart();
+      ShiftDate planningWindowStart=nurseRosterParametrization.getPlanningWindowStart();
       int windowStartIndex=shiftDateList.indexOf(planningWindowStart);
       if (windowStartIndex < 0) {
         throw new IllegalStateException("The planningWindowStart (" + planningWindowStart + ") must be in the shiftDateList ("+ shiftDateList+ ").");
@@ -53,9 +53,9 @@
       }
       windowStartIndex++;
       ShiftDate newPlanningWindowStart=shiftDateList.get(windowStartIndex);
-      nurseRosterInfo.setPlanningWindowStart(newPlanningWindowStart);
-      nurseRosterInfo.setLastShiftDate(newShiftDate);
-      scoreDirector.afterProblemFactChanged(nurseRosterInfo);
+      nurseRosterParametrization.setPlanningWindowStart(newPlanningWindowStart);
+      nurseRosterParametrization.setLastShiftDate(newShiftDate);
+      scoreDirector.afterProblemFactChanged(nurseRosterParametrization);
     }
   }
 );

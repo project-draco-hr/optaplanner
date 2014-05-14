@@ -1,6 +1,6 @@
 {
   List<Object> facts=new ArrayList<Object>();
-  facts.add(nurseRosterInfo);
+  facts.add(nurseRosterParametrization);
   facts.addAll(skillList);
   facts.addAll(shiftTypeList);
   facts.addAll(shiftTypeSkillRequirementList);
