@@ -1,5 +1,5 @@
 {
   super.inherit(inheritedConfig);
-  customSolverPhaseCommandClassList=ConfigUtils.inheritMergeableListProperty(customSolverPhaseCommandClassList,inheritedConfig.getCustomSolverPhaseCommandClassList());
+  customPhaseCommandClassList=ConfigUtils.inheritMergeableListProperty(customPhaseCommandClassList,inheritedConfig.getCustomPhaseCommandClassList());
   forceUpdateBestSolution=ConfigUtils.inheritOverwritableProperty(forceUpdateBestSolution,inheritedConfig.getForceUpdateBestSolution());
 }

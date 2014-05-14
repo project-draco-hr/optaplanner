@@ -1,16 +1,16 @@
 {
   HeuristicConfigPolicy phaseConfigPolicy=solverConfigPolicy.createPhaseConfigPolicy();
-  DefaultCustomPhase customSolverPhase=new DefaultCustomPhase();
-  configurePhase(customSolverPhase,phaseIndex,phaseConfigPolicy,bestSolutionRecaller,solverTermination);
-  if (ConfigUtils.isEmptyCollection(customSolverPhaseCommandClassList)) {
-    throw new IllegalArgumentException("Configure at least 1 <customSolverPhaseCommandClass> in the <customSolverPhase> configuration.");
+  DefaultCustomPhase customPhase=new DefaultCustomPhase();
+  configurePhase(customPhase,phaseIndex,phaseConfigPolicy,bestSolutionRecaller,solverTermination);
+  if (ConfigUtils.isEmptyCollection(customPhaseCommandClassList)) {
+    throw new IllegalArgumentException("Configure at least 1 <customPhaseCommandClass> in the <customPhase> configuration.");
   }
-  List<CustomSolverPhaseCommand> customSolverPhaseCommandList=new ArrayList<CustomSolverPhaseCommand>(customSolverPhaseCommandClassList.size());
-  for (  Class<? extends CustomSolverPhaseCommand> customSolverPhaseCommandClass : customSolverPhaseCommandClassList) {
-    CustomSolverPhaseCommand customSolverPhaseCommand=ConfigUtils.newInstance(this,"customSolverPhaseCommandClass",customSolverPhaseCommandClass);
-    customSolverPhaseCommandList.add(customSolverPhaseCommand);
+  List<CustomPhaseCommand> customPhaseCommandList=new ArrayList<CustomPhaseCommand>(customPhaseCommandClassList.size());
+  for (  Class<? extends CustomPhaseCommand> customPhaseCommandClass : customPhaseCommandClassList) {
+    CustomPhaseCommand customPhaseCommand=ConfigUtils.newInstance(this,"customPhaseCommandClass",customPhaseCommandClass);
+    customPhaseCommandList.add(customPhaseCommand);
   }
-  customSolverPhase.setCustomSolverPhaseCommandList(customSolverPhaseCommandList);
-  customSolverPhase.setForceUpdateBestSolution(forceUpdateBestSolution == null ? false : forceUpdateBestSolution);
-  return customSolverPhase;
+  customPhase.setCustomPhaseCommandList(customPhaseCommandList);
+  customPhase.setForceUpdateBestSolution(forceUpdateBestSolution == null ? false : forceUpdateBestSolution);
+  return customPhase;
 }

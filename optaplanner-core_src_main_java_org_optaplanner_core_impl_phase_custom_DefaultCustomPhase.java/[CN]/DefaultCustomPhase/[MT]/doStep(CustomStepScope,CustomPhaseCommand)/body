@@ -1,6 +1,6 @@
 {
   InnerScoreDirector scoreDirector=stepScope.getScoreDirector();
-  customSolverPhaseCommand.changeWorkingSolution(scoreDirector);
+  customPhaseCommand.changeWorkingSolution(scoreDirector);
   int uninitializedVariableCount=scoreDirector.getSolutionDescriptor().countUninitializedVariables(stepScope.getWorkingSolution());
   stepScope.setUninitializedVariableCount(uninitializedVariableCount);
   Score score=scoreDirector.calculateScore();
