@@ -5,6 +5,9 @@
   if (!getSolutionDescriptor().hasEntityDescriptor(entity.getClass())) {
     throw new IllegalArgumentException("The entity (" + entity + ") of class ("+ entity.getClass()+ ") is not a configured @PlanningEntity.");
   }
+  if (kieSession.getFactHandle(entity) != null) {
+    throw new IllegalArgumentException("The entity (" + entity + ") was already added to this ScoreDirector."+ " Usually the cause is that that specific instance was already in your Solution's entities"+ " and you probably want to use before/afterVariableChanged() instead.");
+  }
   kieSession.insert(entity);
   super.afterEntityAdded(entityDescriptor,entity);
 }
