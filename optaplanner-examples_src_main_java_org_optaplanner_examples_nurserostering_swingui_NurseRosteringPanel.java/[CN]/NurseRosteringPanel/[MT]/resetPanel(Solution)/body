@@ -12,6 +12,6 @@
   List<Shift> shiftList=nurseRoster.getShiftList();
   unassignedPanel.setShiftDateListAndShiftList(shiftDateList,shiftList);
   updatePanel(nurseRoster);
-  advancePlanningWindowStartButton.setEnabled(true);
+  advancePlanningWindowStartAction.setEnabled(true);
   planningWindowStartField.setText(nurseRoster.getNurseRosterParametrization().getPlanningWindowStart().getLabel());
 }
