@@ -1,9 +1,9 @@
 {
   setLayout(new BorderLayout());
-  add(createHeaderPanel(),BorderLayout.NORTH);
   JTabbedPane tabbedPane=new JTabbedPane();
   roomsPanel=new TimeTablePanel<Room,Period>();
   tabbedPane.add("Rooms",new JScrollPane(roomsPanel));
   add(tabbedPane,BorderLayout.CENTER);
+  add(createFooterPanel(),BorderLayout.SOUTH);
   setPreferredSize(PREFERRED_SCROLLABLE_VIEWPORT_SIZE);
 }

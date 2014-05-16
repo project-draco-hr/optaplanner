@@ -1,5 +1,5 @@
 {
-  JPanel headerPanel=new JPanel(new FlowLayout(FlowLayout.RIGHT));
+  JPanel footerPanel=new JPanel(new FlowLayout(FlowLayout.CENTER));
   institutionParametrizationEditAction=new AbstractAction("Edit scoring parameters"){
     @Override public void actionPerformed(    ActionEvent e){
       if (solutionBusiness.isSolving()) {
@@ -12,6 +12,6 @@
   }
 ;
   institutionParametrizationEditAction.setEnabled(false);
-  headerPanel.add(new JButton(institutionParametrizationEditAction));
-  return headerPanel;
+  footerPanel.add(new JButton(institutionParametrizationEditAction));
+  return footerPanel;
 }
