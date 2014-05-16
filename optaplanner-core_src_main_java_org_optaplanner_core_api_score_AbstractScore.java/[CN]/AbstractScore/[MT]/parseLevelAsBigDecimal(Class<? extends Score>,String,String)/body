@@ -1,0 +1,8 @@
+{
+  try {
+    return new BigDecimal(levelString);
+  }
+ catch (  NumberFormatException e) {
+    throw new IllegalArgumentException("The scoreString (" + scoreString + ") for the scoreClass ("+ scoreClass.getSimpleName()+ ") has a levelString ("+ levelString+ ") which is not a valid BigDecimal.",e);
+  }
+}
