@@ -17,9 +17,11 @@
   formPanel.add(mixedDurationPenaltyField);
   formPanel.add(new JLabel("Front load: large exam size"));
   frontLoadLargeTopicSizeField=new JSpinner(new SpinnerNumberModel(0,0,null,1));
+  frontLoadLargeTopicSizeField.setEnabled(false);
   formPanel.add(frontLoadLargeTopicSizeField);
   formPanel.add(new JLabel("Front load: last period size"));
   frontLoadLastPeriodSizeField=new JSpinner(new SpinnerNumberModel(0,0,null,1));
+  frontLoadLastPeriodSizeField.setEnabled(false);
   formPanel.add(frontLoadLastPeriodSizeField);
   formPanel.add(new JLabel("Front load: penalty"));
   frontLoadPenaltyField=new JSpinner(new SpinnerNumberModel(0,0,null,1));

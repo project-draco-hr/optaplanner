@@ -1,0 +1,4 @@
+{
+  super.setSolverAndPersistenceFrame(solverAndPersistenceFrame);
+  institutionParametrizationDialog=new InstitutionParametrizationDialog(solverAndPersistenceFrame,this);
+}
