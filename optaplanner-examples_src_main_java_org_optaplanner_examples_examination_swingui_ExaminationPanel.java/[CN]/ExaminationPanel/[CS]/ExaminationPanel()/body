@@ -1,5 +1,8 @@
 {
   setLayout(new BorderLayout());
+  Container topLevelAncestor=getTopLevelAncestor();
+  institutionParametrizationDialog=new InstitutionParametrizationDialog((topLevelAncestor instanceof JFrame ? (JFrame)topLevelAncestor : null),this);
+  add(createHeaderPanel(),BorderLayout.NORTH);
   JTabbedPane tabbedPane=new JTabbedPane();
   roomsPanel=new TimeTablePanel<Room,Period>();
   tabbedPane.add("Rooms",new JScrollPane(roomsPanel));

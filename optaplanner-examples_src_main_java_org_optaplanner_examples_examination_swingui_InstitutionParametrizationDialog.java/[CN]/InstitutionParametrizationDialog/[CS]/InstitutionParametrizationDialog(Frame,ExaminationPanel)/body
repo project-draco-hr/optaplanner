@@ -1,0 +1,16 @@
+{
+  super(owner,"Edit institution score parametrization",true);
+  this.examinationPanel=examinationPanel;
+  JPanel contentPanel=new JPanel(new BorderLayout(5,5));
+  contentPanel.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
+  contentPanel.add(createFormPanel(),BorderLayout.CENTER);
+  saveAction=new AbstractAction("Save"){
+    @Override public void actionPerformed(    ActionEvent e){
+      save();
+    }
+  }
+;
+  contentPanel.add(new JButton(saveAction),BorderLayout.SOUTH);
+  setContentPane(contentPanel);
+  pack();
+}

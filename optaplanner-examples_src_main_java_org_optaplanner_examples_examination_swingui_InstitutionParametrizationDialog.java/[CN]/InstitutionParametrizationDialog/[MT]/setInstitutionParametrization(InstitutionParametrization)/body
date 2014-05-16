@@ -1,0 +1,11 @@
+{
+  twoInARowPenaltyField.setValue(institutionParametrization.getTwoInARowPenalty());
+  twoInADayPenaltyField.setValue(institutionParametrization.getTwoInADayPenalty());
+  periodSpreadLengthField.setValue(institutionParametrization.getPeriodSpreadLength());
+  periodSpreadPenaltyField.setValue(institutionParametrization.getPeriodSpreadPenalty());
+  mixedDurationPenaltyField.setValue(institutionParametrization.getMixedDurationPenalty());
+  frontLoadLargeTopicSizeField.setValue(institutionParametrization.getFrontLoadLargeTopicSize());
+  frontLoadLastPeriodSizeField.setValue(institutionParametrization.getFrontLoadLastPeriodSize());
+  frontLoadPenaltyField.setValue(institutionParametrization.getFrontLoadPenalty());
+  setLocationRelativeTo(examinationPanel.getTopLevelAncestor());
+}

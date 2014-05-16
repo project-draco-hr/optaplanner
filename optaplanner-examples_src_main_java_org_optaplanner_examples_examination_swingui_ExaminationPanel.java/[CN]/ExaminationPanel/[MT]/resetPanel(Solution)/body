@@ -3,5 +3,6 @@
   Examination examination=(Examination)solution;
   defineGrid(examination);
   fillCells(examination);
+  institutionParametrizationEditAction.setEnabled(true);
   repaint();
 }
