@@ -1,0 +1,9 @@
+{
+  maximumPeriodDuration=0;
+  for (  Period period : examination.getPeriodList()) {
+    int periodDuration=period.getDuration();
+    if (periodDuration > maximumPeriodDuration) {
+      maximumPeriodDuration=periodDuration;
+    }
+  }
+}

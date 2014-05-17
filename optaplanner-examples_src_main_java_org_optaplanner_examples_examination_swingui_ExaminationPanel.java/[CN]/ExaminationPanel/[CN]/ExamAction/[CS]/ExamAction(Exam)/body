@@ -1,4 +1,4 @@
 {
-  super(exam.getLabel());
+  super(exam.getLabel(),new DurationIcon(exam.getTopicDuration(),false));
   this.exam=exam;
 }
