@@ -1,6 +1,6 @@
 {
   for (  Room room : examination.getRoomList()) {
-    roomsPanel.addColumnHeader(room,HEADER_ROW,createHeaderPanel(new JLabel(room.getLabel(),SwingConstants.CENTER),"Capacity: " + room.getCapacity()));
+    roomsPanel.addColumnHeader(room,HEADER_ROW,createHeaderPanel(new JLabel(room.getLabel(),new RoomIcon(room),SwingConstants.CENTER),"Capacity: " + room.getCapacity()));
   }
   roomsPanel.addColumnHeader(null,HEADER_ROW,createHeaderPanel(new JLabel("Unassigned",SwingConstants.CENTER),null));
 }

@@ -1,0 +1,8 @@
+{
+  g.setColor(TangoColorFactory.ALUMINIUM_6);
+  g.fillOval(x,y,DIAMETER,DIAMETER);
+  g.setColor(Color.WHITE);
+  g.fillArc(x,y,DIAMETER,DIAMETER,90,-(360 * period.getDuration() / maximumPeriodDuration));
+  g.setColor(TangoColorFactory.ALUMINIUM_6);
+  g.drawOval(x,y,DIAMETER,DIAMETER);
+}

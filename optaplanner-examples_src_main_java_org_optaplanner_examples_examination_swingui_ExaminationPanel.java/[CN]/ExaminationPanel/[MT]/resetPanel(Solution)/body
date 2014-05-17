@@ -1,7 +1,7 @@
 {
   roomsPanel.reset();
   Examination examination=(Examination)solution;
-  refreshMaximumPeriodDuration(examination);
+  refreshMaximums(examination);
   defineGrid(examination);
   fillCells(examination);
   institutionParametrizationEditAction.setEnabled(true);

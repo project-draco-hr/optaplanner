@@ -1,0 +1,9 @@
+{
+  g.setColor(TangoColorFactory.ALUMINIUM_6);
+  g.fillRect(x + 1,y,ICON_WIDTH - 2,ICON_HEIGHT);
+  g.setColor(Color.WHITE);
+  int capacityHeight=ICON_HEIGHT * room.getCapacity() / maximumRoomCapacity;
+  g.fillRect(x + 1,y + (ICON_HEIGHT - capacityHeight),ICON_WIDTH - 2,capacityHeight);
+  g.setColor(TangoColorFactory.ALUMINIUM_6);
+  g.drawRect(x + 1,y,ICON_WIDTH - 2,ICON_HEIGHT);
+}

@@ -1,0 +1,16 @@
+{
+  g.setColor(Color.WHITE);
+  g.fillOval(x,y,DIAMETER,DIAMETER);
+  g.setColor(TangoColorFactory.ALUMINIUM_4);
+  g.fillArc(x,y,DIAMETER,DIAMETER,90,-(360 * exam.getTopicDuration() / maximumPeriodDuration));
+  g.setColor(TangoColorFactory.ALUMINIUM_6);
+  g.drawOval(x,y,DIAMETER,DIAMETER);
+  x+=DIAMETER + 1;
+  g.setColor(Color.WHITE);
+  g.fillRect(x + 1,y,ICON_WIDTH - 2,ICON_HEIGHT);
+  g.setColor(TangoColorFactory.ALUMINIUM_4);
+  int capacityHeight=ICON_HEIGHT * exam.getTopicStudentSize() / maximumRoomCapacity;
+  g.fillRect(x + 1,y + (ICON_HEIGHT - capacityHeight),ICON_WIDTH - 2,capacityHeight);
+  g.setColor(TangoColorFactory.ALUMINIUM_6);
+  g.drawRect(x + 1,y,ICON_WIDTH - 2,ICON_HEIGHT);
+}

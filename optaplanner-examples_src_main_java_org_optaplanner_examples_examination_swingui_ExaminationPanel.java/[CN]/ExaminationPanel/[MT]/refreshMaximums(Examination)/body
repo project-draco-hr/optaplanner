@@ -6,4 +6,11 @@
       maximumPeriodDuration=periodDuration;
     }
   }
+  maximumRoomCapacity=0;
+  for (  Room room : examination.getRoomList()) {
+    int roomCapacity=room.getCapacity();
+    if (roomCapacity > maximumRoomCapacity) {
+      maximumRoomCapacity=roomCapacity;
+    }
+  }
 }
