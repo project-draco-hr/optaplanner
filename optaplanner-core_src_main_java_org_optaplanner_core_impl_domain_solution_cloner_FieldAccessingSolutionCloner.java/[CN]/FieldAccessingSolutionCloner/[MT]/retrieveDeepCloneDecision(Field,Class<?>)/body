@@ -1,7 +1,7 @@
 {
   Boolean deepCloneDecision=deepCloneDecisionFieldCache.get(field);
   if (deepCloneDecision == null) {
-    deepCloneDecision=isFieldAnEntityPropertyOnSolution(field) || isFieldAnEntityOrSolution(field);
+    deepCloneDecision=isFieldDeepCloned(field);
     deepCloneDecisionFieldCache.put(field,deepCloneDecision);
   }
   if (deepCloneDecision) {

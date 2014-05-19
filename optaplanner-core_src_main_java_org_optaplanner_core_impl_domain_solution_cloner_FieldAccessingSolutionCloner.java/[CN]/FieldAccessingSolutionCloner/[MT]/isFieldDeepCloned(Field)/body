@@ -1,0 +1,3 @@
+{
+  return isFieldAnEntityPropertyOnSolution(field) || isFieldAnEntityOrSolution(field) || isFieldADeepCloneProperty(field);
+}

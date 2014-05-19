@@ -1,0 +1,4 @@
+TestdataDeepCloningEntity originalEntity
+TestdataDeepCloningEntity cloneEntity
+String entityCode
+String valueCode
