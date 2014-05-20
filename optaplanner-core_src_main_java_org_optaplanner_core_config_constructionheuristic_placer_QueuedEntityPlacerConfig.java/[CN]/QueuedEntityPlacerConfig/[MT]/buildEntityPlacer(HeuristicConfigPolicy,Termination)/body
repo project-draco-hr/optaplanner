@@ -7,24 +7,7 @@
     Collection<GenuineVariableDescriptor> variableDescriptors=entityDescriptor.getVariableDescriptors();
     List<MoveSelectorConfig> subMoveSelectorConfigList=new ArrayList<MoveSelectorConfig>(variableDescriptors.size());
     for (    GenuineVariableDescriptor variableDescriptor : variableDescriptors) {
-      ChangeMoveSelectorConfig changeMoveSelectorConfig=new ChangeMoveSelectorConfig();
-      EntitySelectorConfig changeEntitySelectorConfig=new EntitySelectorConfig();
-      changeEntitySelectorConfig.setMimicSelectorRef(entitySelectorConfig_.getId());
-      changeMoveSelectorConfig.setEntitySelectorConfig(changeEntitySelectorConfig);
-      ValueSelectorConfig changeValueSelectorConfig=new ValueSelectorConfig();
-      changeValueSelectorConfig.setVariableName(variableDescriptor.getVariableName());
-      if (configPolicy.isSortValuesByIncreasingStrengthEnabled()) {
-        if (variableDescriptor.isValueRangeEntityIndependent()) {
-          changeValueSelectorConfig.setCacheType(SelectionCacheType.PHASE);
-        }
- else {
-          changeValueSelectorConfig.setCacheType(SelectionCacheType.STEP);
-        }
-        changeValueSelectorConfig.setSelectionOrder(SelectionOrder.SORTED);
-        changeValueSelectorConfig.setSorterManner(ValueSelectorConfig.ValueSorterManner.INCREASING_STRENGTH);
-      }
-      changeMoveSelectorConfig.setValueSelectorConfig(changeValueSelectorConfig);
-      subMoveSelectorConfigList.add(changeMoveSelectorConfig);
+      subMoveSelectorConfigList.add(buildChangeMoveSelectorConfig(configPolicy,entitySelectorConfig_.getId(),variableDescriptor));
     }
     if (true) {
       MoveSelectorConfig subMoveSelectorConfig;

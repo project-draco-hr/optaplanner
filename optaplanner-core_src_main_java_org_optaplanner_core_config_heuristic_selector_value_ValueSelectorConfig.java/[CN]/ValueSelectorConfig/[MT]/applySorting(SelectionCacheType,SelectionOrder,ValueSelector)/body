@@ -2,7 +2,11 @@
   if (resolvedSelectionOrder == SelectionOrder.SORTED) {
     SelectionSorter sorter;
     if (sorterManner != null) {
-      sorter=sorterManner.determineSorter(valueSelector.getVariableDescriptor());
+      GenuineVariableDescriptor variableDescriptor=valueSelector.getVariableDescriptor();
+      if (!sorterManner.hasSorter(variableDescriptor)) {
+        return valueSelector;
+      }
+      sorter=sorterManner.determineSorter(variableDescriptor);
     }
  else     if (sorterComparatorClass != null) {
       Comparator<Object> sorterComparator=ConfigUtils.newInstance(this,"sorterComparatorClass",sorterComparatorClass);

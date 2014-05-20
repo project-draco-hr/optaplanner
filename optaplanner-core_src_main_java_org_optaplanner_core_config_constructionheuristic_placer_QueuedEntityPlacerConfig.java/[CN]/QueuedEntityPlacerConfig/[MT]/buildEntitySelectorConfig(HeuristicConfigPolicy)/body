@@ -6,10 +6,10 @@
     Class<?> entityClass=entityDescriptor.getEntityClass();
     entitySelectorConfig_.setId(entityClass.getName());
     entitySelectorConfig_.setEntityClass(entityClass);
-    if (configPolicy.isSortEntitiesByDecreasingDifficultyEnabled()) {
+    if (configPolicy.getEntitySorterManner().hasSorter(entityDescriptor)) {
       entitySelectorConfig_.setCacheType(SelectionCacheType.PHASE);
       entitySelectorConfig_.setSelectionOrder(SelectionOrder.SORTED);
-      entitySelectorConfig_.setSorterManner(EntitySelectorConfig.EntitySorterManner.DECREASING_DIFFICULTY);
+      entitySelectorConfig_.setSorterManner(configPolicy.getEntitySorterManner());
     }
   }
  else {

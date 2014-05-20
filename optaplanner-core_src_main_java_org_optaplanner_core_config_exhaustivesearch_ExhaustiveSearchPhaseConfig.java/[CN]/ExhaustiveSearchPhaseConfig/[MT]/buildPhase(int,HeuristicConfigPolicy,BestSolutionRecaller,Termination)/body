@@ -2,8 +2,8 @@
   HeuristicConfigPolicy phaseConfigPolicy=solverConfigPolicy.createPhaseConfigPolicy();
   phaseConfigPolicy.setInitializedChainedValueFilterEnabled(true);
   ExhaustiveSearchType exhaustiveSearchType_=exhaustiveSearchType == null ? ExhaustiveSearchType.BRANCH_AND_BOUND : exhaustiveSearchType;
-  phaseConfigPolicy.setSortEntitiesByDecreasingDifficultyEnabled(exhaustiveSearchType_.isSortEntitiesByDecreasingDifficulty());
-  phaseConfigPolicy.setSortValuesByIncreasingStrengthEnabled(exhaustiveSearchType_.isSortValuesByIncreasingStrength());
+  phaseConfigPolicy.setEntitySorterManner(entitySorterManner != null ? entitySorterManner : exhaustiveSearchType_.getDefaultEntitySorterManner());
+  phaseConfigPolicy.setValueSorterManner(valueSorterManner != null ? valueSorterManner : exhaustiveSearchType_.getDefaultValueSorterManner());
   DefaultExhaustiveSearchPhase phase=new DefaultExhaustiveSearchPhase();
   configurePhase(phase,phaseIndex,phaseConfigPolicy,bestSolutionRecaller,solverTermination);
   boolean scoreBounderEnabled=exhaustiveSearchType_.isScoreBounderEnabled();

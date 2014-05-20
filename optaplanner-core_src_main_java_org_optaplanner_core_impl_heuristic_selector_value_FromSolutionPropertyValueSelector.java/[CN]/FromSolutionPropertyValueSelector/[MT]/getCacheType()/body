@@ -1,4 +1,4 @@
 {
-  SelectionCacheType inheritCacheType=valueRangeMightContainEntity ? SelectionCacheType.STEP : SelectionCacheType.PHASE;
-  return (inheritCacheType.compareTo(minimumCacheType) > 0) ? inheritCacheType : minimumCacheType;
+  SelectionCacheType intrinsicCacheType=valueRangeMightContainEntity ? SelectionCacheType.STEP : SelectionCacheType.PHASE;
+  return (intrinsicCacheType.compareTo(minimumCacheType) > 0) ? intrinsicCacheType : minimumCacheType;
 }
