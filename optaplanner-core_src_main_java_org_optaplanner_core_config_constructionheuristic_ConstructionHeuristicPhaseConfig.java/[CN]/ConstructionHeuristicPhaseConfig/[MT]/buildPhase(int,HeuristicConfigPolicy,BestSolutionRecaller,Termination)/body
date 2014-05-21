@@ -2,18 +2,21 @@
   HeuristicConfigPolicy phaseConfigPolicy=solverConfigPolicy.createPhaseConfigPolicy();
   phaseConfigPolicy.setReinitializeVariableFilterEnabled(true);
   phaseConfigPolicy.setInitializedChainedValueFilterEnabled(true);
-  ConstructionHeuristicType constructionHeuristicType_=constructionHeuristicType == null ? ConstructionHeuristicType.FIRST_FIT : constructionHeuristicType;
-  phaseConfigPolicy.setEntitySorterManner(constructionHeuristicType_.getDefaultEntitySorterManner());
-  phaseConfigPolicy.setValueSorterManner(constructionHeuristicType_.getDefaultValueSorterManner());
   DefaultConstructionHeuristicPhase phase=new DefaultConstructionHeuristicPhase();
   configurePhase(phase,phaseIndex,phaseConfigPolicy,bestSolutionRecaller,solverTermination);
   phase.setDecider(buildDecider(phaseConfigPolicy,phase.getTermination()));
+  ConstructionHeuristicType constructionHeuristicType_=constructionHeuristicType == null ? ConstructionHeuristicType.FIRST_FIT : constructionHeuristicType;
+  phaseConfigPolicy.setEntitySorterManner(constructionHeuristicType_.getDefaultEntitySorterManner());
+  phaseConfigPolicy.setValueSorterManner(constructionHeuristicType_.getDefaultValueSorterManner());
   EntityPlacerConfig entityPlacerConfig;
   if (ConfigUtils.isEmptyCollection(entityPlacerConfigList)) {
-    entityPlacerConfig=new QueuedEntityPlacerConfig();
+    entityPlacerConfig=constructionHeuristicType_.newEntityPlacerConfig();
   }
  else   if (entityPlacerConfigList.size() == 1) {
     entityPlacerConfig=entityPlacerConfigList.get(0);
+    if (constructionHeuristicType != null) {
+      throw new IllegalArgumentException("The constructionHeuristicType (" + constructionHeuristicType + ") should not be configured if the entityPlacerConfig ("+ entityPlacerConfig+ ") is explicitly configured.");
+    }
   }
  else {
     throw new IllegalArgumentException("The entityPlacerConfigList (" + entityPlacerConfigList + ") must be a singleton or empty. Use multiple "+ ConstructionHeuristicPhaseConfig.class+ " elements to initialize multiple entity classes.");

@@ -1,0 +1,23 @@
+{
+  EntityDescriptor entityDescriptor=deduceEntityDescriptor(configPolicy.getSolutionDescriptor());
+  EntitySelectorConfig entitySelectorConfig=buildEntitySelectorConfig(configPolicy,entityDescriptor);
+  Collection<GenuineVariableDescriptor> variableDescriptors=entityDescriptor.getVariableDescriptors();
+  List<MoveSelectorConfig> subMoveSelectorConfigList=new ArrayList<MoveSelectorConfig>(variableDescriptors.size());
+  for (  GenuineVariableDescriptor variableDescriptor : variableDescriptors) {
+    subMoveSelectorConfigList.add(buildChangeMoveSelectorConfig(configPolicy,entitySelectorConfig.getId(),variableDescriptor));
+  }
+  ((ChangeMoveSelectorConfig)subMoveSelectorConfigList.get(0)).setEntitySelectorConfig(entitySelectorConfig);
+  MoveSelectorConfig moveSelectorConfig;
+  if (subMoveSelectorConfigList.size() > 1) {
+    if (true) {
+      moveSelectorConfig=new CartesianProductMoveSelectorConfig(subMoveSelectorConfigList);
+    }
+ else {
+      moveSelectorConfig=new UnionMoveSelectorConfig(subMoveSelectorConfigList);
+    }
+  }
+ else {
+    moveSelectorConfig=subMoveSelectorConfigList.get(0);
+  }
+  return moveSelectorConfig;
+}

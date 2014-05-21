@@ -6,6 +6,8 @@ case FIRST_FIT_DECREASING:
 case BEST_FIT:
 case BEST_FIT_DECREASING:
   return ValueSorterManner.INCREASING_STRENGTH;
+case CHEAPEST_INSERTION:
+return ValueSorterManner.INCREASING_STRENGTH_IF_AVAILABLE;
 default :
 throw new IllegalStateException("The constructionHeuristicType (" + this + ") is not implemented.");
 }

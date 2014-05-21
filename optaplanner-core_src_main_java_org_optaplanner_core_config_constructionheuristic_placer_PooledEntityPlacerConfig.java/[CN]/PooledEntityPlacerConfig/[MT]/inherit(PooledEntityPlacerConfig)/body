@@ -1,0 +1,4 @@
+{
+  super.inherit(inheritedConfig);
+  setMoveSelectorConfig(ConfigUtils.inheritOverwritableProperty(getMoveSelectorConfig(),inheritedConfig.getMoveSelectorConfig()));
+}

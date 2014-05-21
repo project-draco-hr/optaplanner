@@ -1,0 +1,4 @@
+{
+  this.moveSelector=moveSelector;
+  phaseLifecycleSupport.addEventListener(moveSelector);
+}
