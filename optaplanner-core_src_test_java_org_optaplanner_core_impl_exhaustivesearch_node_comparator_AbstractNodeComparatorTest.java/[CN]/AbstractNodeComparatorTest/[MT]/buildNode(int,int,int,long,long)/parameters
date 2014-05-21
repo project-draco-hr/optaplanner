@@ -1,4 +1,5 @@
 int depth
 int scoreString
 int optimisticBoundString
+long parentBreadth
 long breadth
