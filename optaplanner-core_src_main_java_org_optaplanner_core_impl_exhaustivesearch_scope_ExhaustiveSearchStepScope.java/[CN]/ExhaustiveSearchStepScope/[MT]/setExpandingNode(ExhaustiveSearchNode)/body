@@ -1,3 +1,4 @@
 {
   this.expandingNode=expandingNode;
+  this.score=expandingNode.getScore();
 }
