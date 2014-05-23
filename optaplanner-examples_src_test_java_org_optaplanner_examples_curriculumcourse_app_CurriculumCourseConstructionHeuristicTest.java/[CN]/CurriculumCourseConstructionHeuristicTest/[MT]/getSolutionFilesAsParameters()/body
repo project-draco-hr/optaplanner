@@ -1,0 +1,3 @@
+{
+  return buildParameters(new CurriculumCourseDao(),"toy01.xml");
+}
