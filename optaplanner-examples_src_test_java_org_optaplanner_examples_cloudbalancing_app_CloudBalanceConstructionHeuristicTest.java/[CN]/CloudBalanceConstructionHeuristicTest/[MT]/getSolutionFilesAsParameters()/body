@@ -1,0 +1,3 @@
+{
+  return buildParameters(new CloudBalancingDao(),"2computers-6processes.xml","3computers-9processes.xml");
+}

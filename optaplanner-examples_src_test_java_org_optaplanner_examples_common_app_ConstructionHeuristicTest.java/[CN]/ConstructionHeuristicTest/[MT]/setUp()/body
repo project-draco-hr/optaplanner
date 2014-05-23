@@ -1,0 +1,3 @@
+{
+  solutionDao=createSolutionDao();
+}

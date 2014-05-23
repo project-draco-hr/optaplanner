@@ -1,0 +1,4 @@
+{
+  this.dataFile=dataFile;
+  this.constructionHeuristicType=constructionHeuristicType;
+}

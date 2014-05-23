@@ -1,0 +1,3 @@
+{
+  return buildParameters(new NQueensDao(),"4queens.xml","8queens.xml");
+}
