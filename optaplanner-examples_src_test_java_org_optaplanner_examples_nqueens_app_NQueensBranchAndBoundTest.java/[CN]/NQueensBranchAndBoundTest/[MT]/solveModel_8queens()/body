@@ -1,3 +1,0 @@
-{
-  runSpeedTest(new File("data/nqueens/unsolved/8queens.xml"),"0",EnvironmentMode.REPRODUCIBLE);
-}

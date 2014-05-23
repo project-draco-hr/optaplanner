@@ -1,0 +1,4 @@
+{
+  super.assertSolution(bestSolution);
+  assertEquals(0,((NQueens)bestSolution).getScore());
+}

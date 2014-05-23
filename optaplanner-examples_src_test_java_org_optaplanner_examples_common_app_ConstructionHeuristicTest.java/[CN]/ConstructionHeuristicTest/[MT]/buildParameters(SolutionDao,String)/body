@@ -1,16 +1,3 @@
 {
-  ConstructionHeuristicPhaseConfig.ConstructionHeuristicType[] types=ConstructionHeuristicPhaseConfig.ConstructionHeuristicType.values();
-  List<Object[]> filesAsParameters=new ArrayList<Object[]>(unsolvedFileNames.length * types.length);
-  File dataDir=solutionDao.getDataDir();
-  File unsolvedDataDir=new File(dataDir,"unsolved");
-  for (  String unsolvedFileName : unsolvedFileNames) {
-    File unsolvedFile=new File(unsolvedDataDir,unsolvedFileName);
-    if (!unsolvedFile.exists()) {
-      throw new IllegalStateException("The directory unsolvedFile (" + unsolvedFile.getAbsolutePath() + ") does not exist.");
-    }
-    for (    ConstructionHeuristicPhaseConfig.ConstructionHeuristicType type : types) {
-      filesAsParameters.add(new Object[]{unsolvedFile,type});
-    }
-  }
-  return filesAsParameters;
+  return buildParameters(solutionDao,ConstructionHeuristicPhaseConfig.ConstructionHeuristicType.values(),unsolvedFileNames);
 }

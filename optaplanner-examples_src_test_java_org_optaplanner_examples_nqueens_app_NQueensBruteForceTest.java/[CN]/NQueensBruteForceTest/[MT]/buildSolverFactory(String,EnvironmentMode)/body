@@ -1,7 +1,0 @@
-{
-  SolverFactory solverFactory=super.buildSolverFactory(bestScoreLimitString,environmentMode);
-  ExhaustiveSearchPhaseConfig phaseConfig=new ExhaustiveSearchPhaseConfig();
-  phaseConfig.setExhaustiveSearchType(ExhaustiveSearchPhaseConfig.ExhaustiveSearchType.BRUTE_FORCE);
-  solverFactory.getSolverConfig().setPhaseConfigList(Collections.<PhaseConfig>singletonList(phaseConfig));
-  return solverFactory;
-}

@@ -1,4 +1,4 @@
 {
-  this.dataFile=dataFile;
+  super(dataFile);
   this.constructionHeuristicType=constructionHeuristicType;
 }

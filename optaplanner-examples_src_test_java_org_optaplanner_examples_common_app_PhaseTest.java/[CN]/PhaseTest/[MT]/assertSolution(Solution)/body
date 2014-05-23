@@ -1,0 +1,4 @@
+{
+  assertNotNull(bestSolution);
+  assertNotNull(bestSolution.getScore());
+}
