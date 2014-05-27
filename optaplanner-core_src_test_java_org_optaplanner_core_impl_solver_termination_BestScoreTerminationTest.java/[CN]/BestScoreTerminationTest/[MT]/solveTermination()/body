@@ -1,6 +1,6 @@
 {
   ScoreDefinition scoreDefinition=mock(ScoreDefinition.class);
-  when(scoreDefinition.getLevelCount()).thenReturn(1);
+  when(scoreDefinition.getLevelsSize()).thenReturn(1);
   Termination termination=new BestScoreTermination(scoreDefinition,SimpleScore.valueOf(-1000),new double[]{});
   DefaultSolverScope solverScope=mock(DefaultSolverScope.class);
   when(solverScope.getScoreDefinition()).thenReturn(new SimpleScoreDefinition());

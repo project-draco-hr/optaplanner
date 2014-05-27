@@ -1,6 +1,6 @@
 {
   ScoreDefinition scoreDefinition=mock(ScoreDefinition.class);
-  when(scoreDefinition.getLevelCount()).thenReturn(1);
+  when(scoreDefinition.getLevelsSize()).thenReturn(1);
   BestScoreTermination termination=new BestScoreTermination(scoreDefinition,SimpleBigDecimalScore.valueOf(new BigDecimal("10.00")),new double[]{});
   assertEquals(0.0,termination.calculateTimeGradient(SimpleBigDecimalScore.valueOf(new BigDecimal("0.00")),SimpleBigDecimalScore.valueOf(new BigDecimal("10.00")),SimpleBigDecimalScore.valueOf(new BigDecimal("0.00"))),0.0);
   assertEquals(0.6,termination.calculateTimeGradient(SimpleBigDecimalScore.valueOf(new BigDecimal("0.00")),SimpleBigDecimalScore.valueOf(new BigDecimal("10.00")),SimpleBigDecimalScore.valueOf(new BigDecimal("6.00"))),0.0);

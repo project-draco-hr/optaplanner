@@ -1,6 +1,6 @@
 {
   ScoreDefinition scoreDefinition=mock(ScoreDefinition.class);
-  when(scoreDefinition.getLevelCount()).thenReturn(2);
+  when(scoreDefinition.getLevelsSize()).thenReturn(2);
   BestScoreTermination termination=new BestScoreTermination(scoreDefinition,HardSoftScore.valueOf(-10,-300),new double[]{0.75});
   assertEquals(0.6,termination.calculateTimeGradient(HardSoftScore.valueOf(-20,-400),HardSoftScore.valueOf(-10,-300),HardSoftScore.valueOf(-14,-340)),0.0);
   assertEquals(0.75,termination.calculateTimeGradient(HardSoftScore.valueOf(-20,-400),HardSoftScore.valueOf(-10,-300),HardSoftScore.valueOf(-10,-400)),0.0);

@@ -1,2 +1,2 @@
-int hardLevelCount
-int softLevelCount
+int hardLevelsSize
+int softLevelsSize

@@ -1,7 +1,7 @@
 {
-  int levelCount=hardLevelCount + softLevelCount;
-  if (scores.length != levelCount) {
-    throw new IllegalArgumentException("The scores (" + Arrays.toString(scores) + ")'s length ("+ scores.length+ ") is not levelCount ("+ levelCount+ ").");
+  int levelsSize=hardLevelsSize + softLevelsSize;
+  if (scores.length != levelsSize) {
+    throw new IllegalArgumentException("The scores (" + Arrays.toString(scores) + ")'s length ("+ scores.length+ ") is not levelsSize ("+ levelsSize+ ").");
   }
-  return BendableScore.valueOf(Arrays.copyOfRange(scores,0,hardLevelCount),Arrays.copyOfRange(scores,hardLevelCount,levelCount));
+  return BendableScore.valueOf(Arrays.copyOfRange(scores,0,hardLevelsSize),Arrays.copyOfRange(scores,hardLevelsSize,levelsSize));
 }

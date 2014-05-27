@@ -1,8 +1,8 @@
 {
-  int levelCount=hardLevelCount + softLevelCount;
-  String[] levelStrings=parseLevelStrings(BendableScore.class,scoreString,levelCount);
-  int[] hardScores=new int[hardLevelCount];
-  int[] softScores=new int[softLevelCount];
+  int levelsSize=hardLevelsSize + softLevelsSize;
+  String[] levelStrings=parseLevelStrings(BendableScore.class,scoreString,levelsSize);
+  int[] hardScores=new int[hardLevelsSize];
+  int[] softScores=new int[softLevelsSize];
   for (int i=0; i < hardScores.length; i++) {
     hardScores[i]=parseLevelAsInt(BendableScore.class,scoreString,levelStrings[i]);
   }

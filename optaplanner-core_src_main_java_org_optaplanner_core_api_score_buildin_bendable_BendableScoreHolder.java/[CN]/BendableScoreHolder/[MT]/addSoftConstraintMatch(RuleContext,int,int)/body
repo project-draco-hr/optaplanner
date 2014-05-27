@@ -1,6 +1,6 @@
 {
   softScores[softLevel]+=weight;
-  registerIntConstraintMatch(kcontext,getHardLevelCount() + softLevel,weight,new Runnable(){
+  registerIntConstraintMatch(kcontext,getHardLevelsSize() + softLevel,weight,new Runnable(){
     public void run(){
       softScores[softLevel]-=weight;
     }

@@ -4,7 +4,7 @@
   }
  else   if (o instanceof BendableScore) {
     BendableScore other=(BendableScore)o;
-    if (getHardLevelCount() != other.getHardLevelCount() || getSoftLevelCount() != other.getSoftLevelCount()) {
+    if (getHardLevelsSize() != other.getHardLevelsSize() || getSoftLevelsSize() != other.getSoftLevelsSize()) {
       return false;
     }
     for (int i=0; i < hardScores.length; i++) {

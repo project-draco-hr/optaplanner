@@ -6,5 +6,5 @@
   if (scoreDiffNumbers.length != totalDiffNumbers.length) {
     throw new IllegalStateException("The startScore (" + startScore + "), endScore ("+ endScore+ ") and score ("+ score+ ") don't have the same level count.");
   }
-  return ScoreUtils.calculateTimeGradient(totalDiffNumbers,scoreDiffNumbers,timeGradientWeightNumbers,levelCount);
+  return ScoreUtils.calculateTimeGradient(totalDiffNumbers,scoreDiffNumbers,timeGradientWeightNumbers,levelsSize);
 }

@@ -1,6 +1,6 @@
 {
   ScoreDefinition scoreDefinition=mock(ScoreDefinition.class);
-  when(scoreDefinition.getLevelCount()).thenReturn(1);
+  when(scoreDefinition.getLevelsSize()).thenReturn(1);
   Termination termination=new BestScoreTermination(scoreDefinition,SimpleScore.valueOf(-1000),new double[]{});
   AbstractPhaseScope phaseScope=mock(AbstractPhaseScope.class);
   when(phaseScope.getScoreDefinition()).thenReturn(new SimpleScoreDefinition());

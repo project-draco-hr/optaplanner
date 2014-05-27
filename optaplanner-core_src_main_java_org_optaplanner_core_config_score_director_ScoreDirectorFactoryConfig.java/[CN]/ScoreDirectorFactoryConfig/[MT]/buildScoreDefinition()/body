@@ -1,10 +1,10 @@
 {
-  if (scoreDefinitionType != ScoreDefinitionType.BENDABLE && (bendableHardLevelCount != null || bendableSoftLevelCount != null)) {
-    throw new IllegalArgumentException("With scoreDefinitionType (" + scoreDefinitionType + ") there must be no bendableHardLevelCount ("+ bendableHardLevelCount+ ") or bendableSoftLevelCount ("+ bendableSoftLevelCount+ ").");
+  if (scoreDefinitionType != ScoreDefinitionType.BENDABLE && (bendableHardLevelsSize != null || bendableSoftLevelsSize != null)) {
+    throw new IllegalArgumentException("With scoreDefinitionType (" + scoreDefinitionType + ") there must be no bendableHardLevelsSize ("+ bendableHardLevelsSize+ ") or bendableSoftLevelsSize ("+ bendableSoftLevelsSize+ ").");
   }
   if (scoreDefinitionClass != null) {
-    if (scoreDefinitionType != null || bendableHardLevelCount != null || bendableSoftLevelCount != null) {
-      throw new IllegalStateException("With scoreDefinitionClass (" + scoreDefinitionClass + ") there must be no scoreDefinitionType ("+ scoreDefinitionType+ ") or bendableHardLevelCount ("+ bendableHardLevelCount+ ") or bendableSoftLevelCount ("+ bendableSoftLevelCount+ ").");
+    if (scoreDefinitionType != null || bendableHardLevelsSize != null || bendableSoftLevelsSize != null) {
+      throw new IllegalStateException("With scoreDefinitionClass (" + scoreDefinitionClass + ") there must be no scoreDefinitionType ("+ scoreDefinitionType+ ") or bendableHardLevelsSize ("+ bendableHardLevelsSize+ ") or bendableSoftLevelsSize ("+ bendableSoftLevelsSize+ ").");
     }
     return ConfigUtils.newInstance(this,"scoreDefinitionClass",scoreDefinitionClass);
   }
@@ -31,10 +31,10 @@ return new HardMediumSoftScoreDefinition();
 case HARD_MEDIUM_SOFT_LONG:
 return new HardMediumSoftLongScoreDefinition();
 case BENDABLE:
-if (bendableHardLevelCount == null || bendableSoftLevelCount == null) {
-throw new IllegalArgumentException("With scoreDefinitionType (" + scoreDefinitionType + ") there must be a bendableHardLevelCount ("+ bendableHardLevelCount+ ") and a bendableSoftLevelCount ("+ bendableSoftLevelCount+ ").");
+if (bendableHardLevelsSize == null || bendableSoftLevelsSize == null) {
+throw new IllegalArgumentException("With scoreDefinitionType (" + scoreDefinitionType + ") there must be a bendableHardLevelsSize ("+ bendableHardLevelsSize+ ") and a bendableSoftLevelsSize ("+ bendableSoftLevelsSize+ ").");
 }
-return new BendableScoreDefinition(bendableHardLevelCount,bendableSoftLevelCount);
+return new BendableScoreDefinition(bendableHardLevelsSize,bendableSoftLevelsSize);
 default :
 throw new IllegalStateException("The scoreDefinitionType (" + scoreDefinitionType + ") is not implemented.");
 }

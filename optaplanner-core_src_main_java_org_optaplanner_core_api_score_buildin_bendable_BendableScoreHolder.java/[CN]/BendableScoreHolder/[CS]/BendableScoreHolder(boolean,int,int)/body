@@ -1,5 +1,5 @@
 {
   super(constraintMatchEnabled);
-  hardScores=new int[hardLevelCount];
-  softScores=new int[softLevelCount];
+  hardScores=new int[hardLevelsSize];
+  softScores=new int[softLevelsSize];
 }

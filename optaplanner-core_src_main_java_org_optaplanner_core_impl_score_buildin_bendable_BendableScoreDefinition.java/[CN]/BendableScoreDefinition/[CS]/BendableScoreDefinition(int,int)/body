@@ -1,4 +1,4 @@
 {
-  this.hardLevelCount=hardLevelCount;
-  this.softLevelCount=softLevelCount;
+  this.hardLevelsSize=hardLevelsSize;
+  this.softLevelsSize=softLevelsSize;
 }

@@ -1,9 +1,9 @@
 {
-  if (scoreDefinitionClass == null && scoreDefinitionType == null && bendableHardLevelCount == null && bendableSoftLevelCount == null) {
+  if (scoreDefinitionClass == null && scoreDefinitionType == null && bendableHardLevelsSize == null && bendableSoftLevelsSize == null) {
     scoreDefinitionClass=inheritedConfig.getScoreDefinitionClass();
     scoreDefinitionType=inheritedConfig.getScoreDefinitionType();
-    bendableHardLevelCount=inheritedConfig.getBendableHardLevelCount();
-    bendableSoftLevelCount=inheritedConfig.getBendableSoftLevelCount();
+    bendableHardLevelsSize=inheritedConfig.getBendableHardLevelsSize();
+    bendableSoftLevelsSize=inheritedConfig.getBendableSoftLevelsSize();
   }
   easyScoreCalculatorClass=ConfigUtils.inheritOverwritableProperty(easyScoreCalculatorClass,inheritedConfig.getEasyScoreCalculatorClass());
   incrementalScoreCalculatorClass=ConfigUtils.inheritOverwritableProperty(incrementalScoreCalculatorClass,inheritedConfig.getIncrementalScoreCalculatorClass());
