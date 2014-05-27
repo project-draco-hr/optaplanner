@@ -2,10 +2,9 @@
   if (foragerClass != null) {
     return ConfigUtils.newInstance(this,"foragerClass",foragerClass);
   }
-  PickEarlyType pickEarlyType=(this.pickEarlyType == null) ? PickEarlyType.NEVER : this.pickEarlyType;
+  LocalSearchPickEarlyType pickEarlyType_=(this.pickEarlyType == null) ? LocalSearchPickEarlyType.NEVER : this.pickEarlyType;
   int acceptedCountLimit=(this.acceptedCountLimit == null) ? Integer.MAX_VALUE : this.acceptedCountLimit;
   DeciderScoreComparatorFactoryConfig deciderScoreComparatorFactoryConfig_=deciderScoreComparatorFactoryConfig == null ? new DeciderScoreComparatorFactoryConfig() : deciderScoreComparatorFactoryConfig;
   DeciderScoreComparatorFactory deciderScoreComparatorFactory=deciderScoreComparatorFactoryConfig_.buildDeciderScoreComparatorFactory();
-  AcceptedForager forager=new AcceptedForager(deciderScoreComparatorFactory,pickEarlyType,acceptedCountLimit);
-  return forager;
+  return new AcceptedForager(deciderScoreComparatorFactory,pickEarlyType_,acceptedCountLimit);
 }

@@ -5,7 +5,7 @@
   decider.setMoveSelector(moveSelector);
   AcceptorConfig acceptorConfig_=acceptorConfig == null ? new AcceptorConfig() : acceptorConfig;
   decider.setAcceptor(acceptorConfig_.buildAcceptor(configPolicy));
-  ForagerConfig foragerConfig_=foragerConfig == null ? new ForagerConfig() : foragerConfig;
+  LocalSearchForagerConfig foragerConfig_=foragerConfig == null ? new LocalSearchForagerConfig() : foragerConfig;
   Forager forager=foragerConfig_.buildForager(configPolicy);
   decider.setForager(forager);
   if (moveSelector.isNeverEnding() && !forager.supportsNeverEndingMoveSelector()) {
