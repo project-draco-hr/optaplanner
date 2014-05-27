@@ -11,7 +11,7 @@
   solverConfig.setTerminationConfig(terminationConfig);
   List<PhaseConfig> phaseConfigList=new ArrayList<PhaseConfig>();
   ConstructionHeuristicPhaseConfig constructionHeuristicPhaseConfig=new ConstructionHeuristicPhaseConfig();
-  constructionHeuristicPhaseConfig.setConstructionHeuristicType(ConstructionHeuristicPhaseConfig.ConstructionHeuristicType.FIRST_FIT_DECREASING);
+  constructionHeuristicPhaseConfig.setConstructionHeuristicType(ConstructionHeuristicType.FIRST_FIT_DECREASING);
   phaseConfigList.add(constructionHeuristicPhaseConfig);
   LocalSearchPhaseConfig localSearchPhaseConfig=new LocalSearchPhaseConfig();
   ChangeMoveSelectorConfig changeMoveSelectorConfig=new ChangeMoveSelectorConfig();
