@@ -1,5 +1,9 @@
 {
-  JSplitPane quickOpenSplitPane=new JSplitPane(JSplitPane.VERTICAL_SPLIT,createQuickOpenUnsolvedPanel(),createQuickOpenSolvedPanel());
-  quickOpenSplitPane.setResizeWeight(0.8);
-  return quickOpenSplitPane;
+  JPanel quickOpenPanel=new JPanel(new BorderLayout());
+  quickOpenPanel.add(new JLabel("Quick open"),BorderLayout.NORTH);
+  JSplitPane splitPane=new JSplitPane(JSplitPane.VERTICAL_SPLIT,createQuickOpenUnsolvedPanel(),createQuickOpenSolvedPanel());
+  splitPane.setResizeWeight(0.8);
+  splitPane.setBorder(null);
+  quickOpenPanel.add(splitPane,BorderLayout.CENTER);
+  return quickOpenPanel;
 }

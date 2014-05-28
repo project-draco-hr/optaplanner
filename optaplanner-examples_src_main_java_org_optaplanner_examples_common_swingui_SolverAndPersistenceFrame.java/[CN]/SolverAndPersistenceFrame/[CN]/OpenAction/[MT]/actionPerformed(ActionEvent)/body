@@ -5,7 +5,7 @@
       return file.isDirectory() || file.getName().endsWith(".xml");
     }
     public String getDescription(){
-      return "Solver xml files";
+      return "Solution XStream XML files";
     }
   }
 );
