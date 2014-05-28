@@ -18,13 +18,7 @@
   if (argOption == null) {
     argOption=benchmarkArgumentMap.values().iterator().next();
   }
-  PlannerBenchmarkFactory plannerBenchmarkFactory;
-  if (!argOption.isTemplate()) {
-    plannerBenchmarkFactory=PlannerBenchmarkFactory.createFromXmlResource(argOption.getBenchmarkConfig());
-  }
- else {
-    plannerBenchmarkFactory=PlannerBenchmarkFactory.createFromFreemarkerXmlResource(argOption.getBenchmarkConfig());
-  }
+  PlannerBenchmarkFactory plannerBenchmarkFactory=argOption.buildPlannerBenchmarkFactory();
   if (!aggregator) {
     PlannerBenchmark plannerBenchmark=plannerBenchmarkFactory.buildPlannerBenchmark();
     plannerBenchmark.benchmark();

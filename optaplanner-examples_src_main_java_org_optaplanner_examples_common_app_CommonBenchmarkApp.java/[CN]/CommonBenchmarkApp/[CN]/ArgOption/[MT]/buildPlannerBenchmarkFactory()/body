@@ -1,0 +1,8 @@
+{
+  if (!template) {
+    return PlannerBenchmarkFactory.createFromXmlResource(benchmarkConfig);
+  }
+ else {
+    return PlannerBenchmarkFactory.createFromFreemarkerXmlResource(benchmarkConfig);
+  }
+}

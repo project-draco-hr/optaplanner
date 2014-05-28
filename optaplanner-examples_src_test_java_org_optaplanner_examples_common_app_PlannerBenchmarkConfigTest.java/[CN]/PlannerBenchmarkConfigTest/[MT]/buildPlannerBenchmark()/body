@@ -1,0 +1,5 @@
+{
+  PlannerBenchmarkFactory plannerBenchmarkFactory=argOption.buildPlannerBenchmarkFactory();
+  PlannerBenchmark plannerBenchmark=plannerBenchmarkFactory.buildPlannerBenchmark();
+  assertNotNull(plannerBenchmark);
+}
