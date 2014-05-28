@@ -1,0 +1,3 @@
+{
+  return getArgOptionsAsParameters(new NQueensBenchmarkApp());
+}
