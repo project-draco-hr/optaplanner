@@ -1,5 +1,5 @@
 {
-  chained=planningVariableAnnotation.chained();
+  chained=planningVariableAnnotation.graphType() == PlanningVariableGraphType.CHAINED;
   if (chained && !variablePropertyAccessor.getPropertyType().isAssignableFrom(entityDescriptor.getEntityClass())) {
     throw new IllegalArgumentException("The planningEntityClass (" + entityDescriptor.getEntityClass() + ") has a PlanningVariable annotated property ("+ variablePropertyAccessor.getName()+ ") with chained ("+ chained+ ") and propertyType ("+ variablePropertyAccessor.getPropertyType()+ ") which is not a superclass/interface of or the same as the planningEntityClass ("+ entityDescriptor.getEntityClass()+ ").");
   }
