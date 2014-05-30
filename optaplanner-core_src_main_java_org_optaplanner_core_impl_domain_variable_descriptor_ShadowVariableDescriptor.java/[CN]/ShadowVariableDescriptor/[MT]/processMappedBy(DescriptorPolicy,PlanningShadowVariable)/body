@@ -1,0 +1,6 @@
+{
+  mappedBy=shadowVariableAnnotation.mappedBy();
+  if (mappedBy.equals("")) {
+    throw new IllegalArgumentException("The planningEntityClass (" + entityDescriptor.getEntityClass() + ") has "+ PlanningShadowVariable.class.getSimpleName()+ " annotated property ("+ variablePropertyAccessor.getName()+ ") with a mappedBy ("+ mappedBy+ ") which is empty.");
+  }
+}

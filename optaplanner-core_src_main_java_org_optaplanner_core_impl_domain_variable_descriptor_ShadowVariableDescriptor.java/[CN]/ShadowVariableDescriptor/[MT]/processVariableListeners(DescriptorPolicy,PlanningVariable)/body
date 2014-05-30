@@ -1,6 +1,0 @@
-{
-  Class<? extends VariableListener>[] variableListenerClasses=planningVariableAnnotation.variableListenerClasses();
-  if (variableListenerClasses.length != 0) {
-    throw new IllegalArgumentException("The planningEntityClass (" + entityDescriptor.getEntityClass() + ") has shadow PlanningVariable annotated property ("+ variablePropertyAccessor.getName()+ ") with mappedBy ("+ planningVariableAnnotation.mappedBy()+ ") which also has variableListenerClasses ("+ Arrays.toString(variableListenerClasses)+ ").");
-  }
-}

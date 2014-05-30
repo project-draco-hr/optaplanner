@@ -1,6 +1,0 @@
-{
-  String[] valueRangeRefs=planningVariableAnnotation.valueRangeProviderRefs();
-  if (!ArrayUtils.isEmpty(valueRangeRefs)) {
-    throw new IllegalArgumentException("The planningEntityClass (" + entityDescriptor.getEntityClass() + ") has shadow PlanningVariable annotated property ("+ variablePropertyAccessor.getName()+ ") with mappedBy ("+ planningVariableAnnotation.mappedBy()+ ") which has a non-empty valueRangeProviderRefs ("+ Arrays.toString(valueRangeRefs)+ ").");
-  }
-}
