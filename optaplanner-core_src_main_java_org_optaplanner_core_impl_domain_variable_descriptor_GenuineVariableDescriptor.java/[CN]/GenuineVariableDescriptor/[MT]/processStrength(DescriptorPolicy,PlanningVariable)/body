@@ -13,9 +13,11 @@
   if (strengthComparatorClass != null) {
     Comparator<Object> strengthComparator=ConfigUtils.newInstance(this,"strengthComparatorClass",strengthComparatorClass);
     increasingStrengthSorter=new ComparatorSelectionSorter(strengthComparator,SelectionSorterOrder.ASCENDING);
+    decreasingStrengthSorter=new ComparatorSelectionSorter(strengthComparator,SelectionSorterOrder.DESCENDING);
   }
   if (strengthWeightFactoryClass != null) {
     SelectionSorterWeightFactory strengthWeightFactory=ConfigUtils.newInstance(this,"strengthWeightFactoryClass",strengthWeightFactoryClass);
     increasingStrengthSorter=new WeightFactorySelectionSorter(strengthWeightFactory,SelectionSorterOrder.ASCENDING);
+    decreasingStrengthSorter=new WeightFactorySelectionSorter(strengthWeightFactory,SelectionSorterOrder.DESCENDING);
   }
 }
