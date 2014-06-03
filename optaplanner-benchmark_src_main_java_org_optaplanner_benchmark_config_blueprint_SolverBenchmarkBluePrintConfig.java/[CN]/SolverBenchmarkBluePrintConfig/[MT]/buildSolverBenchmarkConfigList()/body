@@ -1,0 +1,12 @@
+{
+  validate();
+  List<SolverBenchmarkConfig> solverBenchmarkConfigList;
+switch (solverBenchmarkBluePrintType) {
+case ALL_CONSTRUCTION_HEURISTIC_TYPES:
+    solverBenchmarkConfigList=buildAllConstructionHeuristicTypes();
+  break;
+default :
+throw new IllegalStateException("The solverBenchmarkBluePrintType (" + solverBenchmarkBluePrintType + ") is not implemented.");
+}
+return solverBenchmarkConfigList;
+}

@@ -1,0 +1,15 @@
+{
+  ConstructionHeuristicType[] types=ConstructionHeuristicType.values();
+  List<SolverBenchmarkConfig> solverBenchmarkConfigList=new ArrayList<SolverBenchmarkConfig>(types.length);
+  for (  ConstructionHeuristicType type : types) {
+    SolverBenchmarkConfig solverBenchmarkConfig=new SolverBenchmarkConfig();
+    solverBenchmarkConfig.setName(type.name());
+    SolverConfig solverConfig=new SolverConfig();
+    ConstructionHeuristicPhaseConfig phaseConfig=new ConstructionHeuristicPhaseConfig();
+    phaseConfig.setConstructionHeuristicType(type);
+    solverConfig.setPhaseConfigList(Collections.<PhaseConfig>singletonList(phaseConfig));
+    solverBenchmarkConfig.setSolverConfig(solverConfig);
+    solverBenchmarkConfigList.add(solverBenchmarkConfig);
+  }
+  return solverBenchmarkConfigList;
+}

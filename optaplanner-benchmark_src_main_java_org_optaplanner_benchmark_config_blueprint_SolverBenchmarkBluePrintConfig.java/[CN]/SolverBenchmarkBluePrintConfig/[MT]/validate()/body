@@ -1,0 +1,5 @@
+{
+  if (solverBenchmarkBluePrintType == null) {
+    throw new IllegalArgumentException("The solverBenchmarkBluePrint must have" + " a solverBenchmarkBluePrintType (" + solverBenchmarkBluePrintType + ").");
+  }
+}

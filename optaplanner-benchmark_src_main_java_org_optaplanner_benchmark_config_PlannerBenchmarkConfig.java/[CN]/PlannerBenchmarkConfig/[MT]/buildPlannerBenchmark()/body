@@ -1,7 +1,7 @@
 {
   validate();
   generateSolverBenchmarkConfigNames();
-  inherit();
+  List<SolverBenchmarkConfig> effectiveSolverBenchmarkConfigList=buildEffectiveSolverBenchmarkConfigList();
   PlannerBenchmarkResult plannerBenchmarkResult=new PlannerBenchmarkResult();
   plannerBenchmarkResult.setName(name);
   plannerBenchmarkResult.setAggregation(false);
@@ -11,12 +11,10 @@
   plannerBenchmarkResult.setWarmUpTimeMillisSpentLimit(calculateWarmUpTimeMillisSpentLimit());
   BenchmarkReportConfig benchmarkReportConfig_=benchmarkReportConfig == null ? new BenchmarkReportConfig() : benchmarkReportConfig;
   plannerBenchmarkRunner.setBenchmarkReport(benchmarkReportConfig_.buildBenchmarkReport(plannerBenchmarkResult));
-  List<SolverBenchmarkResult> solverBenchmarkResultList=new ArrayList<SolverBenchmarkResult>(solverBenchmarkConfigList.size());
-  List<ProblemBenchmarkResult> unifiedProblemBenchmarkResultList=new ArrayList<ProblemBenchmarkResult>();
-  plannerBenchmarkResult.setUnifiedProblemBenchmarkResultList(unifiedProblemBenchmarkResultList);
-  for (  SolverBenchmarkConfig solverBenchmarkConfig : solverBenchmarkConfigList) {
-    SolverBenchmarkResult solverBenchmarkResult=solverBenchmarkConfig.buildSolverBenchmark(plannerBenchmarkResult);
-    solverBenchmarkResultList.add(solverBenchmarkResult);
+  plannerBenchmarkResult.setUnifiedProblemBenchmarkResultList(new ArrayList<ProblemBenchmarkResult>());
+  List<SolverBenchmarkResult> solverBenchmarkResultList=new ArrayList<SolverBenchmarkResult>(effectiveSolverBenchmarkConfigList.size());
+  for (  SolverBenchmarkConfig solverBenchmarkConfig : effectiveSolverBenchmarkConfigList) {
+    solverBenchmarkResultList.add(solverBenchmarkConfig.buildSolverBenchmark(plannerBenchmarkResult));
   }
   plannerBenchmarkResult.setSolverBenchmarkResultList(solverBenchmarkResultList);
   return plannerBenchmarkRunner;

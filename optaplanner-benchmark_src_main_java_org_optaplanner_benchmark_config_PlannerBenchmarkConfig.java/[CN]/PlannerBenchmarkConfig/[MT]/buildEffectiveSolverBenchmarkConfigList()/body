@@ -1,0 +1,17 @@
+{
+  List<SolverBenchmarkConfig> effectiveSolverBenchmarkConfigList=new ArrayList<SolverBenchmarkConfig>(0);
+  if (solverBenchmarkConfigList != null) {
+    effectiveSolverBenchmarkConfigList.addAll(solverBenchmarkConfigList);
+  }
+  if (solverBenchmarkBluePrintConfigList != null) {
+    for (    SolverBenchmarkBluePrintConfig solverBenchmarkBluePrintConfig : solverBenchmarkBluePrintConfigList) {
+      effectiveSolverBenchmarkConfigList.addAll(solverBenchmarkBluePrintConfig.buildSolverBenchmarkConfigList());
+    }
+  }
+  if (inheritedSolverBenchmarkConfig != null) {
+    for (    SolverBenchmarkConfig solverBenchmarkConfig : effectiveSolverBenchmarkConfigList) {
+      solverBenchmarkConfig.inherit(inheritedSolverBenchmarkConfig);
+    }
+  }
+  return effectiveSolverBenchmarkConfigList;
+}
