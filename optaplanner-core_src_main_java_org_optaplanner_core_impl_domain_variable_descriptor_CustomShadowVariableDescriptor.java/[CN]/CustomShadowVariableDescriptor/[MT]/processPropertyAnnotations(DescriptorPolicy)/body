@@ -1,0 +1,8 @@
+{
+  CustomShadowVariable shadowVariableAnnotation=variablePropertyAccessor.getReadMethod().getAnnotation(CustomShadowVariable.class);
+  variableListenerClass=shadowVariableAnnotation.variableListenerClass();
+  CustomShadowVariable.Source[] sources=shadowVariableAnnotation.sources();
+  if (sources.length < 1) {
+    throw new IllegalArgumentException("The planningEntityClass (" + entityDescriptor.getEntityClass() + ") has a "+ CustomShadowVariable.class.getSimpleName()+ " annotated property ("+ variablePropertyAccessor.getName()+ ") with sources ("+ Arrays.toString(sources)+ ") which is empty.");
+  }
+}

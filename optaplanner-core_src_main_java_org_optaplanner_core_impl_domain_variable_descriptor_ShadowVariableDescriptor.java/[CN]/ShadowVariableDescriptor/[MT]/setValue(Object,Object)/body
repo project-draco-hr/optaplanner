@@ -1,3 +1,0 @@
-{
-  variablePropertyAccessor.executeSetter(entity,value);
-}

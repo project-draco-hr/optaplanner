@@ -1,3 +1,0 @@
-{
-  return variableName.equals(getVariableName()) && entityDescriptor.matchesEntity(entity);
-}

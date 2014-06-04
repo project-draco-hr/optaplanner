@@ -1,0 +1,17 @@
+{
+  InverseRelationShadowVariable shadowVariableAnnotation=variablePropertyAccessor.getReadMethod().getAnnotation(InverseRelationShadowVariable.class);
+  Class<?> masterClass=getVariablePropertyType();
+  EntityDescriptor sourceEntityDescriptor=getEntityDescriptor().getSolutionDescriptor().getEntityDescriptor(masterClass);
+  if (sourceEntityDescriptor == null) {
+    throw new IllegalArgumentException("The planningEntityClass (" + entityDescriptor.getEntityClass() + ") has a "+ InverseRelationShadowVariable.class.getSimpleName()+ " annotated property ("+ variablePropertyAccessor.getName()+ ") with a masterClass ("+ masterClass+ ") which is not a valid planning entity.");
+  }
+  String sourceVariableName=shadowVariableAnnotation.sourceVariableName();
+  sourceVariableDescriptor=sourceEntityDescriptor.getVariableDescriptor(sourceVariableName);
+  if (sourceVariableDescriptor == null) {
+    throw new IllegalArgumentException("The planningEntityClass (" + entityDescriptor.getEntityClass() + ") has a "+ InverseRelationShadowVariable.class.getSimpleName()+ " annotated property ("+ variablePropertyAccessor.getName()+ ") with sourceVariableName ("+ sourceVariableName+ ") which is not a valid planning variable on entityClass ("+ sourceEntityDescriptor.getEntityClass()+ ").");
+  }
+  if (!sourceVariableDescriptor.isChained()) {
+    throw new IllegalArgumentException("The planningEntityClass (" + entityDescriptor.getEntityClass() + ") has a "+ InverseRelationShadowVariable.class.getSimpleName()+ " annotated property ("+ variablePropertyAccessor.getName()+ ") with sourceVariableName ("+ sourceVariableName+ ") which is not chained ("+ sourceVariableDescriptor.isChained()+ ").");
+  }
+  sourceVariableDescriptor.registerShadowVariableDescriptor(this);
+}

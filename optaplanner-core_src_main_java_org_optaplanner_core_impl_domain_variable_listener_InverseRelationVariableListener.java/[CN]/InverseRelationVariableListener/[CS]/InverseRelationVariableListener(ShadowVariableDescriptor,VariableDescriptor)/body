@@ -1,0 +1,4 @@
+{
+  this.shadowVariableDescriptor=shadowVariableDescriptor;
+  this.sourceVariableDescriptor=sourceVariableDescriptor;
+}

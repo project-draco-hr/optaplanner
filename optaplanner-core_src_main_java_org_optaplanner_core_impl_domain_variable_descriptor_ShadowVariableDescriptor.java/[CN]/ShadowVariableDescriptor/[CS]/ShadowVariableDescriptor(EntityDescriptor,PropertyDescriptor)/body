@@ -1,4 +1,3 @@
 {
-  this.entityDescriptor=entityDescriptor;
-  variablePropertyAccessor=new ReflectionPropertyAccessor(propertyDescriptor);
+  super(entityDescriptor,propertyDescriptor);
 }

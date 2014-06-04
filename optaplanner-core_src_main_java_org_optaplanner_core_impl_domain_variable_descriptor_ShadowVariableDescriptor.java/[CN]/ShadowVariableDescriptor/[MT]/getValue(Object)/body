@@ -1,3 +1,0 @@
-{
-  return variablePropertyAccessor.executeGetter(entity);
-}

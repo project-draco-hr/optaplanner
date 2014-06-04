@@ -1,0 +1,24 @@
+{
+  CustomShadowVariable shadowVariableAnnotation=variablePropertyAccessor.getReadMethod().getAnnotation(CustomShadowVariable.class);
+  SolutionDescriptor solutionDescriptor=entityDescriptor.getSolutionDescriptor();
+  CustomShadowVariable.Source[] sources=shadowVariableAnnotation.sources();
+  for (  CustomShadowVariable.Source source : sources) {
+    EntityDescriptor sourceEntityDescriptor;
+    Class<?> sourceEntityClass=source.entityClass();
+    if (sourceEntityClass.equals(CustomShadowVariable.Source.NullEntityClass.class)) {
+      sourceEntityDescriptor=entityDescriptor;
+    }
+ else {
+      sourceEntityDescriptor=solutionDescriptor.getEntityDescriptor(sourceEntityClass);
+      if (sourceEntityDescriptor == null) {
+        throw new IllegalArgumentException("The planningEntityClass (" + entityDescriptor.getEntityClass() + ") has a "+ CustomShadowVariable.class.getSimpleName()+ " annotated property ("+ variablePropertyAccessor.getName()+ ") with a sourceEntityClass ("+ sourceEntityClass+ ") which is not a valid planning entity.");
+      }
+    }
+    String sourceVariableName=source.variableName();
+    GenuineVariableDescriptor sourceVariableDescriptor=sourceEntityDescriptor.getVariableDescriptor(sourceVariableName);
+    if (sourceVariableDescriptor == null) {
+      throw new IllegalArgumentException("The planningEntityClass (" + entityDescriptor.getEntityClass() + ") has a "+ CustomShadowVariable.class.getSimpleName()+ " annotated property ("+ variablePropertyAccessor.getName()+ ") with sourceVariableName ("+ sourceVariableName+ ") which is not a valid planning variable on entityClass ("+ sourceEntityDescriptor.getEntityClass()+ ").");
+    }
+    sourceVariableDescriptor.registerShadowVariableDescriptor(this);
+  }
+}

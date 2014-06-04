@@ -1,4 +1,0 @@
-{
-  PlanningShadowVariable shadowVariableAnnotation=variablePropertyAccessor.getReadMethod().getAnnotation(PlanningShadowVariable.class);
-  processMappedBy(descriptorPolicy,shadowVariableAnnotation);
-}

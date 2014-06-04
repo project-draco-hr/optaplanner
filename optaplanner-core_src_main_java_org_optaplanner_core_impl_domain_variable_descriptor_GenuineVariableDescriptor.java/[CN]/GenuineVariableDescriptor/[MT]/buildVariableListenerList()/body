@@ -1,10 +1,7 @@
 {
-  List<VariableListener> variableListenerList=new ArrayList<VariableListener>(shadowVariableDescriptorList.size() + nonMappedByVariableListeners.size());
+  List<VariableListener> variableListenerList=new ArrayList<VariableListener>(shadowVariableDescriptorList.size());
   for (  ShadowVariableDescriptor shadowVariableDescriptor : shadowVariableDescriptorList) {
     variableListenerList.add(shadowVariableDescriptor.buildVariableListener());
-  }
-  for (  VariableListener variableListener : nonMappedByVariableListeners) {
-    variableListenerList.add(variableListener);
   }
   return variableListenerList;
 }

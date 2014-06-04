@@ -4,5 +4,4 @@
   processChained(descriptorPolicy,planningVariableAnnotation);
   processValueRangeRefs(descriptorPolicy,planningVariableAnnotation);
   processStrength(descriptorPolicy,planningVariableAnnotation);
-  processVariableListeners(descriptorPolicy,planningVariableAnnotation);
 }
