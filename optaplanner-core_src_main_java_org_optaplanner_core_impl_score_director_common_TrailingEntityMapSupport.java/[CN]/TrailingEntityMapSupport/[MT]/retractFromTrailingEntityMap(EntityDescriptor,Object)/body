@@ -1,6 +1,6 @@
 {
   if (hasChainedVariables) {
-    for (    GenuineVariableDescriptor variableDescriptor : entityDescriptor.getVariableDescriptors()) {
+    for (    GenuineVariableDescriptor variableDescriptor : entityDescriptor.getGenuineVariableDescriptors()) {
       if (variableDescriptor.isChained()) {
         retractFromTrailingEntityMap(variableDescriptor,entity);
       }

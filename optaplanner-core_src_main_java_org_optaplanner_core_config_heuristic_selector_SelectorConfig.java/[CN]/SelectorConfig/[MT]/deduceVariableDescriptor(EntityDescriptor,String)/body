@@ -1,9 +1,9 @@
 {
   GenuineVariableDescriptor variableDescriptor;
   if (variableName != null) {
-    variableDescriptor=entityDescriptor.getVariableDescriptor(variableName);
+    variableDescriptor=entityDescriptor.getGenuineVariableDescriptor(variableName);
     if (variableDescriptor == null) {
-      if (entityDescriptor.getPropertyDescriptor(variableName) == null) {
+      if (!entityDescriptor.hasProperty(variableName)) {
         throw new IllegalArgumentException("The selectorConfig (" + this + ") has a variableName ("+ variableName+ ") for planningEntityClass ("+ entityDescriptor.getEntityClass()+ ") that does not have that as a getter.\n"+ "Check the spelling of the variableName ("+ variableName+ ").");
       }
  else {
@@ -12,9 +12,9 @@
     }
   }
  else {
-    Collection<GenuineVariableDescriptor> variableDescriptors=entityDescriptor.getVariableDescriptors();
+    Collection<GenuineVariableDescriptor> variableDescriptors=entityDescriptor.getGenuineVariableDescriptors();
     if (variableDescriptors.size() != 1) {
-      throw new IllegalArgumentException("The selectorConfig (" + this + ") has no configured variableName ("+ variableName+ ") for planningEntityClass ("+ entityDescriptor.getEntityClass()+ ") and because there are multiple in the variableNameSet ("+ entityDescriptor.getPlanningVariableNameSet()+ "), it can not be deducted automatically.");
+      throw new IllegalArgumentException("The selectorConfig (" + this + ") has no configured variableName ("+ variableName+ ") for planningEntityClass ("+ entityDescriptor.getEntityClass()+ ") and because there are multiple variableNames ("+ entityDescriptor.getGenuineVariableNameSet()+ "), it can not be deducted automatically.");
     }
     variableDescriptor=variableDescriptors.iterator().next();
   }

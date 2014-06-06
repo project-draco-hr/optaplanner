@@ -1,9 +1,10 @@
 {
   Class<?> entityClass=entityDescriptor.getEntityClass();
   for (  Class<?> otherEntityClass : entityDescriptorMap.keySet()) {
-    if (otherEntityClass.isAssignableFrom(entityClass)) {
-      throw new IllegalArgumentException("An earlier planningEntityClass (" + otherEntityClass + ") should not be a superclass of a later planningEntityClass ("+ entityClass+ "). Switch their declaration so superclasses are defined later.");
+    if (entityClass.isAssignableFrom(otherEntityClass)) {
+      throw new IllegalArgumentException("An earlier planningEntityClass (" + otherEntityClass + ") should not be a subclass of a later planningEntityClass ("+ entityClass+ "). Switch their declaration so superclasses are defined earlier.");
     }
   }
-  entityDescriptorMap.put(entityDescriptor.getEntityClass(),entityDescriptor);
+  entityDescriptorMap.put(entityClass,entityDescriptor);
+  reversedEntityClassList.add(0,entityClass);
 }

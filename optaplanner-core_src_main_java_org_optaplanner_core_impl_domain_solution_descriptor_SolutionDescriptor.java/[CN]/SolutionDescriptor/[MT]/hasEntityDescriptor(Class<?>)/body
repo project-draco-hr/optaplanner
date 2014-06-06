@@ -1,6 +1,6 @@
 {
-  for (  Map.Entry<Class<?>,EntityDescriptor> entry : entityDescriptorMap.entrySet()) {
-    if (entry.getKey().isAssignableFrom(entitySubclass)) {
+  for (  Class<?> entityClass : reversedEntityClassList) {
+    if (entityClass.isAssignableFrom(entitySubclass)) {
       return true;
     }
   }

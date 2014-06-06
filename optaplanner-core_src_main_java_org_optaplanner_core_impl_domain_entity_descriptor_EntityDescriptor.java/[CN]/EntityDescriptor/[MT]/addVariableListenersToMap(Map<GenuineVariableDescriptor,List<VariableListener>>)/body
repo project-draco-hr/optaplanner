@@ -1,5 +1,0 @@
-{
-  for (  GenuineVariableDescriptor variableDescriptor : genuineVariableDescriptorMap.values()) {
-    variableListenerMap.put(variableDescriptor,variableDescriptor.buildVariableListenerList());
-  }
-}

@@ -1,7 +1,7 @@
 {
   Collection<GenuineVariableDescriptor> chainedVariableDescriptors=new ArrayList<GenuineVariableDescriptor>();
   for (  EntityDescriptor entityDescriptor : entityDescriptorMap.values()) {
-    for (    GenuineVariableDescriptor variableDescriptor : entityDescriptor.getVariableDescriptors()) {
+    for (    GenuineVariableDescriptor variableDescriptor : entityDescriptor.getGenuineVariableDescriptors()) {
       if (variableDescriptor.isChained()) {
         chainedVariableDescriptors.add(variableDescriptor);
       }

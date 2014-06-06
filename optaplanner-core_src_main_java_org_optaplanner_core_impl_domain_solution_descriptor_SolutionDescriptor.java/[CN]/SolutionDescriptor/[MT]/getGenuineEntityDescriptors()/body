@@ -1,7 +1,7 @@
 {
   List<EntityDescriptor> genuineEntityDescriptorList=new ArrayList<EntityDescriptor>(entityDescriptorMap.size());
   for (  EntityDescriptor entityDescriptor : entityDescriptorMap.values()) {
-    if (entityDescriptor.hasGenuineVariableDescriptor()) {
+    if (entityDescriptor.hasAnyDeclaredGenuineVariableDescriptor()) {
       genuineEntityDescriptorList.add(entityDescriptor);
     }
   }

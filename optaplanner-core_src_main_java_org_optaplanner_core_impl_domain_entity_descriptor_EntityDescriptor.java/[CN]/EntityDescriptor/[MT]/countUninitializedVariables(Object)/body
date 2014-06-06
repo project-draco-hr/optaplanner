@@ -1,6 +1,6 @@
 {
   int uninitializedVariableCount=0;
-  for (  GenuineVariableDescriptor variableDescriptor : genuineVariableDescriptorMap.values()) {
+  for (  GenuineVariableDescriptor variableDescriptor : effectiveGenuineVariableDescriptorMap.values()) {
     if (!variableDescriptor.isInitialized(entity)) {
       uninitializedVariableCount++;
     }

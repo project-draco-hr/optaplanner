@@ -1,0 +1,5 @@
+{
+  inheritedEntityDescriptorList=new ArrayList<EntityDescriptor>(4);
+  investigateParentsToLinkInherited(entityClass);
+  createEffectiveVariableDescriptorMaps();
+}

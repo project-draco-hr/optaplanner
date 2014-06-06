@@ -1,8 +1,8 @@
 {
   for (  PropertyDescriptor propertyDescriptor : entityBeanInfo.getPropertyDescriptors()) {
     if (propertyDescriptor.getName().equals(propertyName)) {
-      return propertyDescriptor;
+      return true;
     }
   }
-  return null;
+  return false;
 }

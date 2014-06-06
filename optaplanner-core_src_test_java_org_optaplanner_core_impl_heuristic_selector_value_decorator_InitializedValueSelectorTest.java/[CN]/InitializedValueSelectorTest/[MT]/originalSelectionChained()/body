@@ -1,6 +1,6 @@
 {
   EntityDescriptor entityDescriptor=TestdataChainedEntity.buildEntityDescriptor();
-  GenuineVariableDescriptor variableDescriptor=entityDescriptor.getVariableDescriptor("chainedObject");
+  GenuineVariableDescriptor variableDescriptor=entityDescriptor.getGenuineVariableDescriptor("chainedObject");
   TestdataChainedAnchor a0=new TestdataChainedAnchor("a0");
   TestdataChainedEntity a1=new TestdataChainedEntity("a1");
   TestdataChainedEntity a2=new TestdataChainedEntity("a2");

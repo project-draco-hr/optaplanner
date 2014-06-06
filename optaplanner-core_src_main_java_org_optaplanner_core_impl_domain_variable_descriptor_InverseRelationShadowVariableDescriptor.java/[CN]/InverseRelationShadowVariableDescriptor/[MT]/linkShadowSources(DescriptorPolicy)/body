@@ -6,7 +6,7 @@
     throw new IllegalArgumentException("The planningEntityClass (" + entityDescriptor.getEntityClass() + ") has a "+ InverseRelationShadowVariable.class.getSimpleName()+ " annotated property ("+ variablePropertyAccessor.getName()+ ") with a masterClass ("+ masterClass+ ") which is not a valid planning entity.");
   }
   String sourceVariableName=shadowVariableAnnotation.sourceVariableName();
-  sourceVariableDescriptor=sourceEntityDescriptor.getVariableDescriptor(sourceVariableName);
+  sourceVariableDescriptor=sourceEntityDescriptor.getGenuineVariableDescriptor(sourceVariableName);
   if (sourceVariableDescriptor == null) {
     throw new IllegalArgumentException("The planningEntityClass (" + entityDescriptor.getEntityClass() + ") has a "+ InverseRelationShadowVariable.class.getSimpleName()+ " annotated property ("+ variablePropertyAccessor.getName()+ ") with sourceVariableName ("+ sourceVariableName+ ") which is not a valid planning variable on entityClass ("+ sourceEntityDescriptor.getEntityClass()+ ").");
   }

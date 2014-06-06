@@ -1,0 +1,9 @@
+{
+  EntityDescriptor superEntityDescriptor=solutionDescriptor.getEntityDescriptorStrict(investigateClass);
+  if (superEntityDescriptor != null) {
+    inheritedEntityDescriptorList.add(superEntityDescriptor);
+  }
+ else {
+    investigateParentsToLinkInherited(investigateClass);
+  }
+}

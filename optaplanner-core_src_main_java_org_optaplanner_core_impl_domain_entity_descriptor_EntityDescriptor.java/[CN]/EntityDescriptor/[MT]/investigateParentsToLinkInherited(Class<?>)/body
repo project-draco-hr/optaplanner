@@ -1,0 +1,9 @@
+{
+  if (investigateClass == null || investigateClass.isArray()) {
+    return;
+  }
+  linkInherited(investigateClass.getSuperclass());
+  for (  Class<?> superInterface : investigateClass.getInterfaces()) {
+    linkInherited(superInterface);
+  }
+}

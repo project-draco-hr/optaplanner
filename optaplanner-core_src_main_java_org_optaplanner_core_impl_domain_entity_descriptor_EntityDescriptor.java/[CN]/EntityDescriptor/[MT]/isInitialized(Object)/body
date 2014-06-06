@@ -1,5 +1,5 @@
 {
-  for (  GenuineVariableDescriptor variableDescriptor : genuineVariableDescriptorMap.values()) {
+  for (  GenuineVariableDescriptor variableDescriptor : effectiveGenuineVariableDescriptorMap.values()) {
     if (!variableDescriptor.isInitialized(entity)) {
       return false;
     }

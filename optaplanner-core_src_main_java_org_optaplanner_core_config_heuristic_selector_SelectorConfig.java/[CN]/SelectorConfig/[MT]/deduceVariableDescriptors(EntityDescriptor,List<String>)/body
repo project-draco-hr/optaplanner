@@ -1,5 +1,5 @@
 {
-  Collection<GenuineVariableDescriptor> variableDescriptors=entityDescriptor.getVariableDescriptors();
+  Collection<GenuineVariableDescriptor> variableDescriptors=entityDescriptor.getGenuineVariableDescriptors();
   if (variableNameIncludeList == null) {
     return variableDescriptors;
   }
