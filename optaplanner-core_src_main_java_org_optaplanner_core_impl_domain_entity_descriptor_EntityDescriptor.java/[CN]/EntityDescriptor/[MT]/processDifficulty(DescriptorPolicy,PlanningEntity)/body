@@ -8,7 +8,7 @@
     difficultyWeightFactoryClass=null;
   }
   if (difficultyComparatorClass != null && difficultyWeightFactoryClass != null) {
-    throw new IllegalStateException("The planningEntityClass (" + entityClass + ") cannot have a difficultyComparatorClass ("+ difficultyComparatorClass.getName()+ ") and a difficultyWeightFactoryClass ("+ difficultyWeightFactoryClass.getName()+ ") at the same time.");
+    throw new IllegalStateException("The entityClass (" + entityClass + ") cannot have a difficultyComparatorClass ("+ difficultyComparatorClass.getName()+ ") and a difficultyWeightFactoryClass ("+ difficultyWeightFactoryClass.getName()+ ") at the same time.");
   }
   if (difficultyComparatorClass != null) {
     Comparator<Object> difficultyComparator=ConfigUtils.newInstance(this,"difficultyComparatorClass",difficultyComparatorClass);

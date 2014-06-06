@@ -5,6 +5,6 @@
     entityBeanInfo=Introspector.getBeanInfo(entityClass);
   }
  catch (  IntrospectionException e) {
-    throw new IllegalStateException("The planningEntityClass (" + entityClass + ") is not a valid java bean.",e);
+    throw new IllegalStateException("The entityClass (" + entityClass + ") is not a valid java bean.",e);
   }
 }

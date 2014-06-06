@@ -3,7 +3,7 @@
   Class<?> returnType=readMethodAccessor.getReturnType();
   collectionWrapping=Collection.class.isAssignableFrom(returnType);
   if (!collectionWrapping && !ValueRange.class.isAssignableFrom(returnType)) {
-    throw new IllegalArgumentException("The planningEntityClass (" + entityDescriptor.getEntityClass() + ") has a "+ PlanningVariable.class.getSimpleName()+ " annotated property ("+ variableDescriptor.getVariableName()+ ") that refers to a "+ ValueRangeProvider.class.getSimpleName()+ " annotated method ("+ readMethodAccessor.getReadMethod()+ ") that does not return a "+ Collection.class.getSimpleName()+ " or a "+ ValueRange.class.getSimpleName()+ ".");
+    throw new IllegalArgumentException("The entityClass (" + entityDescriptor.getEntityClass() + ") has a "+ PlanningVariable.class.getSimpleName()+ " annotated property ("+ variableDescriptor.getVariableName()+ ") that refers to a "+ ValueRangeProvider.class.getSimpleName()+ " annotated method ("+ readMethodAccessor.getReadMethod()+ ") that does not return a "+ Collection.class.getSimpleName()+ " or a "+ ValueRange.class.getSimpleName()+ ".");
   }
   countable=collectionWrapping || CountableValueRange.class.isAssignableFrom(returnType);
 }

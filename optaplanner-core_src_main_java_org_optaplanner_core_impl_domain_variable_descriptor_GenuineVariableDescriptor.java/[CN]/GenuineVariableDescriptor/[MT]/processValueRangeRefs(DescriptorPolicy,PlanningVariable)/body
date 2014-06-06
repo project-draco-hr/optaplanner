@@ -1,7 +1,7 @@
 {
   String[] valueRangeProviderRefs=planningVariableAnnotation.valueRangeProviderRefs();
   if (ArrayUtils.isEmpty(valueRangeProviderRefs)) {
-    throw new IllegalArgumentException("The planningEntityClass (" + entityDescriptor.getEntityClass() + ") has a "+ PlanningVariable.class.getSimpleName()+ " annotated property ("+ variablePropertyAccessor.getName()+ ") that has no valueRangeProviderRefs ("+ Arrays.toString(valueRangeProviderRefs)+ ").");
+    throw new IllegalArgumentException("The entityClass (" + entityDescriptor.getEntityClass() + ") has a "+ PlanningVariable.class.getSimpleName()+ " annotated property ("+ variablePropertyAccessor.getName()+ ") that has no valueRangeProviderRefs ("+ Arrays.toString(valueRangeProviderRefs)+ ").");
   }
   List<ValueRangeDescriptor> valueRangeDescriptorList=new ArrayList<ValueRangeDescriptor>(valueRangeProviderRefs.length);
   boolean addNullInValueRange=nullable && valueRangeProviderRefs.length == 1;

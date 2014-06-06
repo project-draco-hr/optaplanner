@@ -10,7 +10,7 @@
       for (      Class<? extends Annotation> detectedAnnotationClass : Arrays.asList(PlanningVariable.class,InverseRelationShadowVariable.class,CustomShadowVariable.class)) {
         if (propertyGetter.isAnnotationPresent(detectedAnnotationClass)) {
           if (variableAnnotationClass != null) {
-            throw new IllegalStateException("The planningEntityClass (" + entityClass + ") has a property ("+ propertyDescriptor.getName()+ ") that has both a "+ variableAnnotationClass.getSimpleName()+ " annotation and a "+ detectedAnnotationClass.getSimpleName()+ " annotation.");
+            throw new IllegalStateException("The entityClass (" + entityClass + ") has a property ("+ propertyDescriptor.getName()+ ") that has both a "+ variableAnnotationClass.getSimpleName()+ " annotation and a "+ detectedAnnotationClass.getSimpleName()+ " annotation.");
           }
           variableAnnotationClass=detectedAnnotationClass;
         }
@@ -18,7 +18,7 @@
       if (variableAnnotationClass != null) {
         noPlanningVariableAnnotation=false;
         if (propertyDescriptor.getWriteMethod() == null) {
-          throw new IllegalStateException("The planningEntityClass (" + entityClass + ") has a "+ variableAnnotationClass.getSimpleName()+ " annotated property ("+ propertyDescriptor.getName()+ ") that should have a setter.");
+          throw new IllegalStateException("The entityClass (" + entityClass + ") has a "+ variableAnnotationClass.getSimpleName()+ " annotated property ("+ propertyDescriptor.getName()+ ") that should have a setter.");
         }
         if (variableAnnotationClass.equals(PlanningVariable.class)) {
           GenuineVariableDescriptor variableDescriptor=new GenuineVariableDescriptor(this,propertyDescriptor);
@@ -42,6 +42,6 @@
     }
   }
   if (noPlanningVariableAnnotation) {
-    throw new IllegalStateException("The planningEntityClass (" + entityClass + ") should have at least 1 getter with a "+ PlanningVariable.class.getSimpleName()+ " annotation or a shadow variable annotation.");
+    throw new IllegalStateException("The entityClass (" + entityClass + ") should have at least 1 getter with a "+ PlanningVariable.class.getSimpleName()+ " annotation or a shadow variable annotation.");
   }
 }

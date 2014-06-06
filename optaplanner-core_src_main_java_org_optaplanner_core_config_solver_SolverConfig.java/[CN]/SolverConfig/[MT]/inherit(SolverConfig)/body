@@ -5,7 +5,7 @@
   randomSeed=ConfigUtils.inheritOverwritableProperty(randomSeed,inheritedConfig.getRandomSeed());
   randomFactoryClass=ConfigUtils.inheritOverwritableProperty(randomFactoryClass,inheritedConfig.getRandomFactoryClass());
   solutionClass=ConfigUtils.inheritOverwritableProperty(solutionClass,inheritedConfig.getSolutionClass());
-  planningEntityClassList=ConfigUtils.inheritMergeableListProperty(planningEntityClassList,inheritedConfig.getPlanningEntityClassList());
+  entityClassList=ConfigUtils.inheritMergeableListProperty(entityClassList,inheritedConfig.getEntityClassList());
   if (scoreDirectorFactoryConfig == null) {
     scoreDirectorFactoryConfig=inheritedConfig.getScoreDirectorFactoryConfig();
   }
