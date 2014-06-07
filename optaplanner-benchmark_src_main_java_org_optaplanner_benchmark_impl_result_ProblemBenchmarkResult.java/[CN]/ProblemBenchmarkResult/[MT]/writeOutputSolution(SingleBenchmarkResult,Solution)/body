@@ -2,7 +2,7 @@
   if (!writeOutputSolutionEnabled) {
     return;
   }
-  String filename=getName() + "." + problemIO.getFileExtension();
+  String filename=getName() + "." + solutionFileIO.getOutputFileExtension();
   File outputSolutionFile=new File(singleBenchmarkResult.getSingleReportDirectory(),filename);
-  problemIO.write(outputSolution,outputSolutionFile);
+  solutionFileIO.write(outputSolution,outputSolutionFile);
 }

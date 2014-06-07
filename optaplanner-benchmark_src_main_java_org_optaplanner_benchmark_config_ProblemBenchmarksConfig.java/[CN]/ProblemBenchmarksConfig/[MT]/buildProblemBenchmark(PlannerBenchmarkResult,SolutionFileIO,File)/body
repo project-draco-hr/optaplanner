@@ -1,0 +1,17 @@
+{
+  ProblemBenchmarkResult problemBenchmarkResult=new ProblemBenchmarkResult(plannerBenchmark);
+  String name=FilenameUtils.getBaseName(inputSolutionFile.getName());
+  problemBenchmarkResult.setName(name);
+  problemBenchmarkResult.setSolutionFileIO(solutionFileIO);
+  problemBenchmarkResult.setWriteOutputSolutionEnabled(writeOutputSolutionEnabled == null ? false : writeOutputSolutionEnabled);
+  problemBenchmarkResult.setInputSolutionFile(inputSolutionFile);
+  List<ProblemStatistic> problemStatisticList=new ArrayList<ProblemStatistic>(problemStatisticTypeList == null ? 0 : problemStatisticTypeList.size());
+  if (problemStatisticTypeList != null) {
+    for (    ProblemStatisticType problemStatisticType : problemStatisticTypeList) {
+      problemStatisticList.add(problemStatisticType.buildProblemStatistic(problemBenchmarkResult));
+    }
+  }
+  problemBenchmarkResult.setProblemStatisticList(problemStatisticList);
+  problemBenchmarkResult.setSingleBenchmarkResultList(new ArrayList<SingleBenchmarkResult>());
+  return problemBenchmarkResult;
+}

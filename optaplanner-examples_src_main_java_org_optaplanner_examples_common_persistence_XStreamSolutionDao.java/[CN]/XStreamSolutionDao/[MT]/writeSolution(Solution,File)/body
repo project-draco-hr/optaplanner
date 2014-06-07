@@ -1,4 +1,4 @@
 {
-  xStreamProblemIO.write(solution,outputSolutionFile);
+  xStreamSolutionFileIO.write(solution,outputSolutionFile);
   logger.info("Saved: {}",outputSolutionFile);
 }

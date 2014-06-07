@@ -1,0 +1,18 @@
+{
+  if (solutionFileIOClass != null && xStreamAnnotatedClassList != null) {
+    throw new IllegalArgumentException("Cannot use solutionFileIOClass (" + solutionFileIOClass + ") and xStreamAnnotatedClassList ("+ xStreamAnnotatedClassList+ ") together.");
+  }
+  if (solutionFileIOClass != null) {
+    return ConfigUtils.newInstance(this,"solutionFileIOClass",solutionFileIOClass);
+  }
+ else {
+    Class[] xStreamAnnotatedClasses;
+    if (xStreamAnnotatedClassList != null) {
+      xStreamAnnotatedClasses=xStreamAnnotatedClassList.toArray(new Class[xStreamAnnotatedClassList.size()]);
+    }
+ else {
+      xStreamAnnotatedClasses=new Class[0];
+    }
+    return new XStreamSolutionFileIO(xStreamAnnotatedClasses);
+  }
+}

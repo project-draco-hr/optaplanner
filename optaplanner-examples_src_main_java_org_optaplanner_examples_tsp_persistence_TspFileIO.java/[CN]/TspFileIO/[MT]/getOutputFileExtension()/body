@@ -1,0 +1,3 @@
+{
+  return TspExporter.OUTPUT_FILE_SUFFIX;
+}

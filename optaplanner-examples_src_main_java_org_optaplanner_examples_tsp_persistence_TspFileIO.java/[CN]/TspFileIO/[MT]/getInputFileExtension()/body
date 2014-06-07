@@ -1,0 +1,3 @@
+{
+  return TspImporter.INPUT_FILE_SUFFIX;
+}
