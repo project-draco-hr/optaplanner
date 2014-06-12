@@ -1,7 +1,7 @@
 {
   this.variableListenerMap=variableListenerMap;
   entityVariableListenerMap=new LinkedHashMap<EntityDescriptor,List<VariableListener>>(variableListenerMap.size());
-  for (  Map.Entry<GenuineVariableDescriptor,List<VariableListener>> entry : variableListenerMap.entrySet()) {
+  for (  Map.Entry<VariableDescriptor,List<VariableListener>> entry : variableListenerMap.entrySet()) {
     EntityDescriptor entityDescriptor=entry.getKey().getEntityDescriptor();
     List<VariableListener> variableListenerList=entry.getValue();
     List<VariableListener> entityVariableListenerList=entityVariableListenerMap.get(entityDescriptor);
