@@ -1,4 +1,4 @@
 {
-  EntityDescriptor entityDescriptor=getEntityDescriptor(entity.getClass());
+  EntityDescriptor entityDescriptor=findEntityDescriptorOrFail(entity.getClass());
   return entityDescriptor.getVariableDescriptor(variableName);
 }

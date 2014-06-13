@@ -7,4 +7,5 @@
   }
   entityDescriptorMap.put(entityClass,entityDescriptor);
   reversedEntityClassList.add(0,entityClass);
+  lowestEntityDescriptorCache.put(entityClass,entityDescriptor);
 }

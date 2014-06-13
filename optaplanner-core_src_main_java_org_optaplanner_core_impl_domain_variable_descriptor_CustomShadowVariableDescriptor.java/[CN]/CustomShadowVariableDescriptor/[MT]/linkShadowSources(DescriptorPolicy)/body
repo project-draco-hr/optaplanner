@@ -9,7 +9,7 @@
       sourceEntityDescriptor=entityDescriptor;
     }
  else {
-      sourceEntityDescriptor=solutionDescriptor.getEntityDescriptor(sourceEntityClass);
+      sourceEntityDescriptor=solutionDescriptor.findEntityDescriptor(sourceEntityClass);
       if (sourceEntityDescriptor == null) {
         throw new IllegalArgumentException("The entityClass (" + entityDescriptor.getEntityClass() + ") has a "+ CustomShadowVariable.class.getSimpleName()+ " annotated property ("+ variablePropertyAccessor.getName()+ ") with a sourceEntityClass ("+ sourceEntityClass+ ") which is not a valid planning entity.");
       }

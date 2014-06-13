@@ -5,7 +5,7 @@
       entry.setValue(new IdentityHashMap<Object,Set<Object>>(entityList.size()));
     }
     for (    Object entity : entityList) {
-      insertInTrailingEntityMap(solutionDescriptor.getEntityDescriptor(entity.getClass()),entity);
+      insertInTrailingEntityMap(solutionDescriptor.findEntityDescriptorOrFail(entity.getClass()),entity);
     }
   }
 }

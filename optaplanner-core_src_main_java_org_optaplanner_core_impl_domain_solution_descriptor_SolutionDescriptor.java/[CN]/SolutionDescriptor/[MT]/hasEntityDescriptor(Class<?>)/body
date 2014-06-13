@@ -1,8 +1,4 @@
 {
-  for (  Class<?> entityClass : reversedEntityClassList) {
-    if (entityClass.isAssignableFrom(entitySubclass)) {
-      return true;
-    }
-  }
-  return false;
+  EntityDescriptor entityDescriptor=lowestEntityDescriptorCache.get(entitySubclass);
+  return entityDescriptor != null;
 }

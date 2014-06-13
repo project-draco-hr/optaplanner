@@ -1,4 +1,4 @@
 {
   SolutionDescriptor solutionDescriptor=TestdataMappedByChainedSolution.buildSolutionDescriptor();
-  return solutionDescriptor.getEntityDescriptor(TestdataMappedByChainedEntity.class);
+  return solutionDescriptor.findEntityDescriptorOrFail(TestdataMappedByChainedEntity.class);
 }

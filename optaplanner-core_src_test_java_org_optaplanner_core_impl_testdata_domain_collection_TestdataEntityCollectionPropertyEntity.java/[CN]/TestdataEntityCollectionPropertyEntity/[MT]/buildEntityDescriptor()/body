@@ -1,4 +1,4 @@
 {
   SolutionDescriptor solutionDescriptor=TestdataEntityCollectionPropertySolution.buildSolutionDescriptor();
-  return solutionDescriptor.getEntityDescriptor(TestdataEntityCollectionPropertyEntity.class);
+  return solutionDescriptor.findEntityDescriptorOrFail(TestdataEntityCollectionPropertyEntity.class);
 }

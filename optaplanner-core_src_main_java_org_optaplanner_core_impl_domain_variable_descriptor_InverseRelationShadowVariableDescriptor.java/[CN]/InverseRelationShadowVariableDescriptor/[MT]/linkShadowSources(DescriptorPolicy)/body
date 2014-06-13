@@ -1,7 +1,7 @@
 {
   InverseRelationShadowVariable shadowVariableAnnotation=variablePropertyAccessor.getReadMethod().getAnnotation(InverseRelationShadowVariable.class);
   Class<?> masterClass=getVariablePropertyType();
-  EntityDescriptor sourceEntityDescriptor=getEntityDescriptor().getSolutionDescriptor().getEntityDescriptor(masterClass);
+  EntityDescriptor sourceEntityDescriptor=getEntityDescriptor().getSolutionDescriptor().findEntityDescriptor(masterClass);
   if (sourceEntityDescriptor == null) {
     throw new IllegalArgumentException("The entityClass (" + entityDescriptor.getEntityClass() + ") has a "+ InverseRelationShadowVariable.class.getSimpleName()+ " annotated property ("+ variablePropertyAccessor.getName()+ ") with a masterClass ("+ masterClass+ ") which is not a valid planning entity.");
   }

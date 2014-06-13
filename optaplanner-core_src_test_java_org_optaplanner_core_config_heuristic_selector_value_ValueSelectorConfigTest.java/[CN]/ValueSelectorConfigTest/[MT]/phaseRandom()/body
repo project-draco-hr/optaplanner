@@ -1,6 +1,6 @@
 {
   HeuristicConfigPolicy configPolicy=buildHeuristicConfigPolicy();
-  EntityDescriptor entityDescriptor=configPolicy.getSolutionDescriptor().getEntityDescriptor(TestdataEntity.class);
+  EntityDescriptor entityDescriptor=configPolicy.getSolutionDescriptor().findEntityDescriptorOrFail(TestdataEntity.class);
   ValueSelectorConfig valueSelectorConfig=new ValueSelectorConfig();
   valueSelectorConfig.setCacheType(SelectionCacheType.PHASE);
   valueSelectorConfig.setSelectionOrder(SelectionOrder.RANDOM);

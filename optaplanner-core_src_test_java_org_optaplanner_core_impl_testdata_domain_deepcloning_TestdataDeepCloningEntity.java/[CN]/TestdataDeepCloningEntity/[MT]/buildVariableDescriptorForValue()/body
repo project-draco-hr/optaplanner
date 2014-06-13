@@ -1,5 +1,5 @@
 {
   SolutionDescriptor solutionDescriptor=TestdataDeepCloningSolution.buildSolutionDescriptor();
-  EntityDescriptor entityDescriptor=solutionDescriptor.getEntityDescriptor(TestdataDeepCloningEntity.class);
+  EntityDescriptor entityDescriptor=solutionDescriptor.findEntityDescriptorOrFail(TestdataDeepCloningEntity.class);
   return entityDescriptor.getGenuineVariableDescriptor("value");
 }

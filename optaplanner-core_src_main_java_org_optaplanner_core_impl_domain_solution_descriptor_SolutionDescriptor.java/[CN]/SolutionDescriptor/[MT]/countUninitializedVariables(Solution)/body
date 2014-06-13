@@ -3,14 +3,14 @@
   for (  PropertyAccessor entityPropertyAccessor : entityPropertyAccessorMap.values()) {
     Object entity=extractEntity(entityPropertyAccessor,solution);
     if (entity != null) {
-      EntityDescriptor entityDescriptor=getEntityDescriptor(entity.getClass());
+      EntityDescriptor entityDescriptor=findEntityDescriptorOrFail(entity.getClass());
       uninitializedVariableCount+=entityDescriptor.countUninitializedVariables(entity);
     }
   }
   for (  PropertyAccessor entityCollectionPropertyAccessor : entityCollectionPropertyAccessorMap.values()) {
     Collection<?> entityCollection=extractEntityCollection(entityCollectionPropertyAccessor,solution);
     for (    Object entity : entityCollection) {
-      EntityDescriptor entityDescriptor=getEntityDescriptor(entity.getClass());
+      EntityDescriptor entityDescriptor=findEntityDescriptorOrFail(entity.getClass());
       uninitializedVariableCount+=entityDescriptor.countUninitializedVariables(entity);
     }
   }

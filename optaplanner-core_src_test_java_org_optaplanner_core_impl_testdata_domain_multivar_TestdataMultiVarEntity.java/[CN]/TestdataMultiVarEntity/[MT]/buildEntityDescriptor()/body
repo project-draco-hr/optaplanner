@@ -1,4 +1,4 @@
 {
   SolutionDescriptor solutionDescriptor=TestdataMultiVarSolution.buildSolutionDescriptor();
-  return solutionDescriptor.getEntityDescriptor(TestdataMultiVarEntity.class);
+  return solutionDescriptor.findEntityDescriptorOrFail(TestdataMultiVarEntity.class);
 }

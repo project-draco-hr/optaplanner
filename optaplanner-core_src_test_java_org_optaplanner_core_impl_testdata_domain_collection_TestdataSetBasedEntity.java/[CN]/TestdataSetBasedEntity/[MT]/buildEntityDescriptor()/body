@@ -1,4 +1,4 @@
 {
   SolutionDescriptor solutionDescriptor=TestdataSetBasedSolution.buildSolutionDescriptor();
-  return solutionDescriptor.getEntityDescriptor(TestdataSetBasedEntity.class);
+  return solutionDescriptor.findEntityDescriptorOrFail(TestdataSetBasedEntity.class);
 }

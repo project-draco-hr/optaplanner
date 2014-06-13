@@ -12,4 +12,5 @@
   entityCollectionPropertyAccessorMap=new LinkedHashMap<String,PropertyAccessor>(mapSize);
   entityDescriptorMap=new LinkedHashMap<Class<?>,EntityDescriptor>(mapSize);
   reversedEntityClassList=new ArrayList<Class<?>>(mapSize);
+  lowestEntityDescriptorCache=new HashMap<Class<?>,EntityDescriptor>(mapSize);
 }

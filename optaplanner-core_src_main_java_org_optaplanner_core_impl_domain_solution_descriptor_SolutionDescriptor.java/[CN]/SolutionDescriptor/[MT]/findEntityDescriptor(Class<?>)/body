@@ -1,0 +1,13 @@
+{
+  EntityDescriptor entityDescriptor=lowestEntityDescriptorCache.get(entitySubclass);
+  if (entityDescriptor == null) {
+    for (    Class<?> entityClass : reversedEntityClassList) {
+      if (entityClass.isAssignableFrom(entitySubclass)) {
+        entityDescriptor=entityDescriptorMap.get(entityClass);
+        lowestEntityDescriptorCache.put(entitySubclass,entityDescriptor);
+        break;
+      }
+    }
+  }
+  return entityDescriptor;
+}

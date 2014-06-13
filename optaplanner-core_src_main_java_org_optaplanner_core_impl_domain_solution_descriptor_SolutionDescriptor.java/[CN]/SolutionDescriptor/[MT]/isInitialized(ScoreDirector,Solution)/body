@@ -2,7 +2,7 @@
   for (  PropertyAccessor entityPropertyAccessor : entityPropertyAccessorMap.values()) {
     Object entity=extractEntity(entityPropertyAccessor,solution);
     if (entity != null) {
-      EntityDescriptor entityDescriptor=getEntityDescriptor(entity.getClass());
+      EntityDescriptor entityDescriptor=findEntityDescriptorOrFail(entity.getClass());
       if (!entityDescriptor.isInitialized(entity)) {
         if (!entityDescriptor.hasMovableEntitySelectionFilter() || entityDescriptor.getMovableEntitySelectionFilter().accept(scoreDirector,entity)) {
           return false;
@@ -13,7 +13,7 @@
   for (  PropertyAccessor entityCollectionPropertyAccessor : entityCollectionPropertyAccessorMap.values()) {
     Collection<?> entityCollection=extractEntityCollection(entityCollectionPropertyAccessor,solution);
     for (    Object entity : entityCollection) {
-      EntityDescriptor entityDescriptor=getEntityDescriptor(entity.getClass());
+      EntityDescriptor entityDescriptor=findEntityDescriptorOrFail(entity.getClass());
       if (!entityDescriptor.isInitialized(entity)) {
         if (!entityDescriptor.hasMovableEntitySelectionFilter() || entityDescriptor.getMovableEntitySelectionFilter().accept(scoreDirector,entity)) {
           return false;
