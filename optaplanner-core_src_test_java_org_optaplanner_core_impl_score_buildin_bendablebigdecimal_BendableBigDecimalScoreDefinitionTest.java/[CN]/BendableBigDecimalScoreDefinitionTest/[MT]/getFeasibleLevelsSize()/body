@@ -1,0 +1,7 @@
+{
+  assertEquals(1,new BendableBigDecimalScoreDefinition(1,1).getFeasibleLevelsSize());
+  assertEquals(3,new BendableBigDecimalScoreDefinition(3,4).getFeasibleLevelsSize());
+  assertEquals(4,new BendableBigDecimalScoreDefinition(4,3).getFeasibleLevelsSize());
+  assertEquals(0,new BendableBigDecimalScoreDefinition(0,5).getFeasibleLevelsSize());
+  assertEquals(5,new BendableBigDecimalScoreDefinition(5,0).getFeasibleLevelsSize());
+}

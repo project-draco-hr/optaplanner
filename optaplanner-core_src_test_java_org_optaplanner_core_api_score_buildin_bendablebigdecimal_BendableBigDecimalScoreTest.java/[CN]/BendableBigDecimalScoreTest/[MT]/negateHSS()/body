@@ -1,0 +1,4 @@
+{
+  assertEquals(scoreDefinitionHSS.createScore(MINUS_THREE,FOUR,MINUS_FIVE),scoreDefinitionHSS.createScore(THREE,MINUS_FOUR,FIVE).negate());
+  assertEquals(scoreDefinitionHSS.createScore(THREE,MINUS_FOUR,FIVE),scoreDefinitionHSS.createScore(MINUS_THREE,FOUR,MINUS_FIVE).negate());
+}

@@ -1,0 +1,3 @@
+int hardLevelsSize
+int softLevelsSize
+String scoreString

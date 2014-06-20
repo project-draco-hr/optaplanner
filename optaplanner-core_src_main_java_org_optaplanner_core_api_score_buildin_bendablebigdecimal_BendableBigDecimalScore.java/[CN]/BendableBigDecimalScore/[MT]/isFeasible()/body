@@ -1,0 +1,12 @@
+{
+  for (  BigDecimal hardScore : hardScores) {
+    int comparison=hardScore.compareTo(BigDecimal.ZERO);
+    if (comparison > 0) {
+      return true;
+    }
+ else     if (comparison < 0) {
+      return false;
+    }
+  }
+  return true;
+}

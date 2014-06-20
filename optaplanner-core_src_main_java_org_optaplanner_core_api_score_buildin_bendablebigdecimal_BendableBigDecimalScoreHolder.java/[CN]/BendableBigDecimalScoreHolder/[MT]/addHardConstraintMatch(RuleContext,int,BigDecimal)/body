@@ -1,0 +1,9 @@
+{
+  hardScores[hardLevel]=hardScores[hardLevel].add(weight);
+  registerBigDecimalConstraintMatch(kcontext,hardLevel,weight,new Runnable(){
+    public void run(){
+      hardScores[hardLevel]=hardScores[hardLevel].subtract(weight);
+    }
+  }
+);
+}

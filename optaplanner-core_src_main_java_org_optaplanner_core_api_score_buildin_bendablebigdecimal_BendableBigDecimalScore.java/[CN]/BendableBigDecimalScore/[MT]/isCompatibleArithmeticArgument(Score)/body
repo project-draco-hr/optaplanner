@@ -1,0 +1,7 @@
+{
+  if (!(otherScore instanceof BendableBigDecimalScore)) {
+    return false;
+  }
+  BendableBigDecimalScore otherBendableScore=(BendableBigDecimalScore)otherScore;
+  return hardScores.length == otherBendableScore.hardScores.length && softScores.length == otherBendableScore.softScores.length;
+}
