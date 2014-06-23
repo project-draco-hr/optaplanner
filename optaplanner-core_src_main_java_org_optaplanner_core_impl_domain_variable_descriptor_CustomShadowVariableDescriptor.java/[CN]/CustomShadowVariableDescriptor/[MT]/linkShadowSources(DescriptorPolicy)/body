@@ -17,7 +17,7 @@
     String sourceVariableName=source.variableName();
     GenuineVariableDescriptor sourceVariableDescriptor=sourceEntityDescriptor.getGenuineVariableDescriptor(sourceVariableName);
     if (sourceVariableDescriptor == null) {
-      throw new IllegalArgumentException("The entityClass (" + entityDescriptor.getEntityClass() + ") has a "+ CustomShadowVariable.class.getSimpleName()+ " annotated property ("+ variablePropertyAccessor.getName()+ ") with sourceVariableName ("+ sourceVariableName+ ") which is not a valid planning variable on entityClass ("+ sourceEntityDescriptor.getEntityClass()+ ").");
+      throw new IllegalArgumentException("The entityClass (" + entityDescriptor.getEntityClass() + ") has a "+ CustomShadowVariable.class.getSimpleName()+ " annotated property ("+ variablePropertyAccessor.getName()+ ") with sourceVariableName ("+ sourceVariableName+ ") which is not a valid planning variable on entityClass ("+ sourceEntityDescriptor.getEntityClass()+ ").\n"+ entityDescriptor.buildInvalidVariableNameExceptionMessage(sourceVariableName));
     }
     sourceVariableDescriptor.registerShadowVariableDescriptor(this);
   }

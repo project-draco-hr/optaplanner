@@ -8,7 +8,7 @@
   String sourceVariableName=shadowVariableAnnotation.sourceVariableName();
   sourceVariableDescriptor=sourceEntityDescriptor.getGenuineVariableDescriptor(sourceVariableName);
   if (sourceVariableDescriptor == null) {
-    throw new IllegalArgumentException("The entityClass (" + entityDescriptor.getEntityClass() + ") has a "+ InverseRelationShadowVariable.class.getSimpleName()+ " annotated property ("+ variablePropertyAccessor.getName()+ ") with sourceVariableName ("+ sourceVariableName+ ") which is not a valid planning variable on entityClass ("+ sourceEntityDescriptor.getEntityClass()+ ").");
+    throw new IllegalArgumentException("The entityClass (" + entityDescriptor.getEntityClass() + ") has a "+ InverseRelationShadowVariable.class.getSimpleName()+ " annotated property ("+ variablePropertyAccessor.getName()+ ") with sourceVariableName ("+ sourceVariableName+ ") which is not a valid planning variable on entityClass ("+ sourceEntityDescriptor.getEntityClass()+ ").\n"+ entityDescriptor.buildInvalidVariableNameExceptionMessage(sourceVariableName));
   }
   if (!sourceVariableDescriptor.isChained()) {
     throw new IllegalArgumentException("The entityClass (" + entityDescriptor.getEntityClass() + ") has a "+ InverseRelationShadowVariable.class.getSimpleName()+ " annotated property ("+ variablePropertyAccessor.getName()+ ") with sourceVariableName ("+ sourceVariableName+ ") which is not chained ("+ sourceVariableDescriptor.isChained()+ ").");

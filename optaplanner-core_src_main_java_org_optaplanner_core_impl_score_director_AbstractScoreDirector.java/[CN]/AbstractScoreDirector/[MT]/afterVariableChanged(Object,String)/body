@@ -1,7 +1,7 @@
 {
-  GenuineVariableDescriptor variableDescriptor=getSolutionDescriptor().findGenuineVariableDescriptor(entity,variableName);
-  if (variableDescriptor != null) {
-    afterVariableChanged(variableDescriptor,entity);
+  VariableDescriptor variableDescriptor=getSolutionDescriptor().findVariableDescriptorOrFail(entity,variableName);
+  if (variableDescriptor instanceof GenuineVariableDescriptor) {
+    afterVariableChanged((GenuineVariableDescriptor)variableDescriptor,entity);
   }
  else {
     afterShadowVariableChanged(entity,variableName);

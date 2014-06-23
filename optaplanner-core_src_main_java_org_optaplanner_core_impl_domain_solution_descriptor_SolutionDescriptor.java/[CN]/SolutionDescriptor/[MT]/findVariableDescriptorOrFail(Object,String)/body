@@ -1,0 +1,8 @@
+{
+  EntityDescriptor entityDescriptor=findEntityDescriptorOrFail(entity.getClass());
+  VariableDescriptor variableDescriptor=entityDescriptor.getVariableDescriptor(variableName);
+  if (variableDescriptor == null) {
+    throw new IllegalArgumentException(entityDescriptor.buildInvalidVariableNameExceptionMessage(variableName));
+  }
+  return variableDescriptor;
+}
