@@ -1,6 +1,0 @@
-{
-  this.recursiveTimeGradientWeight=recursiveTimeGradientWeight;
-  if (recursiveTimeGradientWeight < 0.0 || recursiveTimeGradientWeight > 1.0) {
-    throw new IllegalArgumentException("Property recursiveTimeGradientWeight (" + recursiveTimeGradientWeight + ") must be greater or equal to 0.0 and smaller or equal to 1.0.");
-  }
-}
