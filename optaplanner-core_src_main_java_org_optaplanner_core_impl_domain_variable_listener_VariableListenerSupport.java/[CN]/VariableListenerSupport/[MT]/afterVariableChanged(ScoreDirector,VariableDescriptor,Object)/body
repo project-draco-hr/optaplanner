@@ -1,5 +1,7 @@
 {
-  for (  VariableListener variableListener : variableListenerMap.get(variableDescriptor)) {
-    variableListener.afterVariableChanged(scoreDirector,entity);
+  if (variableDescriptor.hasAnyShadow()) {
+    for (    VariableListener variableListener : variableListenerMap.get(variableDescriptor)) {
+      variableListener.afterVariableChanged(scoreDirector,entity);
+    }
   }
 }
