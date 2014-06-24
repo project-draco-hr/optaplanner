@@ -1,6 +1,7 @@
 {
   SolutionDescriptor solutionDescriptor=TestdataMappedByChainedSolution.buildSolutionDescriptor();
-  InverseRelationVariableListener variableListener=new InverseRelationVariableListener(solutionDescriptor.findEntityDescriptorOrFail(TestdataMappedByChainedObject.class).getShadowVariableDescriptor("nextEntity"),solutionDescriptor.findEntityDescriptorOrFail(TestdataMappedByChainedEntity.class).getGenuineVariableDescriptor("chainedObject"));
+  ShadowVariableDescriptor nextEntityVariableDescriptor=solutionDescriptor.findEntityDescriptorOrFail(TestdataMappedByChainedObject.class).getShadowVariableDescriptor("nextEntity");
+  InverseRelationVariableListener variableListener=new InverseRelationVariableListener(nextEntityVariableDescriptor,solutionDescriptor.findEntityDescriptorOrFail(TestdataMappedByChainedEntity.class).getGenuineVariableDescriptor("chainedObject"));
   ScoreDirector scoreDirector=mock(ScoreDirector.class);
   TestdataMappedByChainedAnchor a0=new TestdataMappedByChainedAnchor("a0");
   TestdataMappedByChainedEntity a1=new TestdataMappedByChainedEntity("a1",a0);
@@ -23,7 +24,7 @@
   variableListener.afterVariableChanged(scoreDirector,a3);
   assertEquals(a3,b1.getNextEntity());
   InOrder inOrder=inOrder(scoreDirector);
-  inOrder.verify(scoreDirector).beforeVariableChanged(b1,"nextEntity");
-  inOrder.verify(scoreDirector).afterVariableChanged(b1,"nextEntity");
+  inOrder.verify(scoreDirector).beforeVariableChanged(nextEntityVariableDescriptor,b1);
+  inOrder.verify(scoreDirector).afterVariableChanged(nextEntityVariableDescriptor,b1);
   inOrder.verifyNoMoreInteractions();
 }

@@ -14,8 +14,8 @@
   move.doMove(scoreDirector);
   SelectorTestUtils.assertChain(a0,a1,a2);
   SelectorTestUtils.assertChain(b0,b1,a3);
-  verify(scoreDirector).beforeVariableChanged(a3,"chainedObject");
-  verify(scoreDirector).afterVariableChanged(a3,"chainedObject");
+  verify(scoreDirector).beforeVariableChanged(variableDescriptor,a3);
+  verify(scoreDirector).afterVariableChanged(variableDescriptor,a3);
   undoMove.doMove(scoreDirector);
   SelectorTestUtils.assertChain(a0,a1,a2,a3);
   SelectorTestUtils.assertChain(b0,b1);

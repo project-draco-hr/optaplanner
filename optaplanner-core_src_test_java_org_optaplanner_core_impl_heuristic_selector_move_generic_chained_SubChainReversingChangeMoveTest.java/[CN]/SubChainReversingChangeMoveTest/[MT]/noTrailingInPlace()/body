@@ -13,12 +13,12 @@
   Move undoMove=move.createUndoMove(scoreDirector);
   move.doMove(scoreDirector);
   SelectorTestUtils.assertChain(a0,a1,a2,a5,a4,a3);
-  verify(scoreDirector).beforeVariableChanged(a5,"chainedObject");
-  verify(scoreDirector).afterVariableChanged(a5,"chainedObject");
-  verify(scoreDirector).beforeVariableChanged(a4,"chainedObject");
-  verify(scoreDirector).afterVariableChanged(a4,"chainedObject");
-  verify(scoreDirector).beforeVariableChanged(a3,"chainedObject");
-  verify(scoreDirector).afterVariableChanged(a3,"chainedObject");
+  verify(scoreDirector).beforeVariableChanged(variableDescriptor,a5);
+  verify(scoreDirector).afterVariableChanged(variableDescriptor,a5);
+  verify(scoreDirector).beforeVariableChanged(variableDescriptor,a4);
+  verify(scoreDirector).afterVariableChanged(variableDescriptor,a4);
+  verify(scoreDirector).beforeVariableChanged(variableDescriptor,a3);
+  verify(scoreDirector).afterVariableChanged(variableDescriptor,a3);
   undoMove.doMove(scoreDirector);
   SelectorTestUtils.assertChain(a0,a1,a2,a3,a4,a5);
 }
