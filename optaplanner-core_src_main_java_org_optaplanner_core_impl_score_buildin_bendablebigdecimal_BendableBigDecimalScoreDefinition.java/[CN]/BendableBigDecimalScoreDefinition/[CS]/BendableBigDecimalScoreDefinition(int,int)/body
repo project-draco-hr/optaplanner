@@ -1,0 +1,4 @@
+{
+  this.hardLevelsSize=hardLevelsSize;
+  this.softLevelsSize=softLevelsSize;
+}

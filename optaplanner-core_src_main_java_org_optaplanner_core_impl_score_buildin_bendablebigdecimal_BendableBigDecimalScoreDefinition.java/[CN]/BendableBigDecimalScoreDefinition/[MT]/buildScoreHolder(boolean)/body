@@ -1,0 +1,3 @@
+{
+  return new BendableBigDecimalScoreHolder(constraintMatchEnabled,hardLevelsSize,softLevelsSize);
+}

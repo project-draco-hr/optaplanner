@@ -1,0 +1,23 @@
+{
+  StringBuilder s=new StringBuilder(((hardScores.length + softScores.length) * 4) + 1);
+  boolean first=true;
+  for (  BigDecimal hardScore : hardScores) {
+    if (first) {
+      first=false;
+    }
+ else {
+      s.append("/");
+    }
+    s.append(hardScore);
+  }
+  for (  BigDecimal softScore : softScores) {
+    if (first) {
+      first=false;
+    }
+ else {
+      s.append("/");
+    }
+    s.append(softScore);
+  }
+  return s.toString();
+}

@@ -1,0 +1,9 @@
+{
+  softScores[softLevel]=softScores[softLevel].add(weight);
+  registerBigDecimalConstraintMatch(kcontext,softLevel,weight,new Runnable(){
+    public void run(){
+      softScores[softLevel]=softScores[softLevel].subtract(weight);
+    }
+  }
+);
+}

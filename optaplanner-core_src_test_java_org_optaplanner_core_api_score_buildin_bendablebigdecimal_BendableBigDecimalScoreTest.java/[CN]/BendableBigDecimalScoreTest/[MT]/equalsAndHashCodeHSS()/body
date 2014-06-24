@@ -1,0 +1,3 @@
+{
+  assertScoresEqualsAndHashCode(scoreDefinitionHSS.createScore(MINUS_TEN,MINUS_20,MINUS_30),scoreDefinitionHSS.createScore(MINUS_TEN,MINUS_20,MINUS_30));
+}

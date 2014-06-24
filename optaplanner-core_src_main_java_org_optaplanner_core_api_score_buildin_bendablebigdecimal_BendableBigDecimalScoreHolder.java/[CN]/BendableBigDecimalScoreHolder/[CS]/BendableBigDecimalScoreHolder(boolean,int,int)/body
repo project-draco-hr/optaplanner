@@ -1,0 +1,7 @@
+{
+  super(constraintMatchEnabled);
+  hardScores=new BigDecimal[hardLevelsSize];
+  Arrays.fill(hardScores,BigDecimal.ZERO);
+  softScores=new BigDecimal[softLevelsSize];
+  Arrays.fill(softScores,BigDecimal.ZERO);
+}

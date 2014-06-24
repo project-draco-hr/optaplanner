@@ -1,0 +1,12 @@
+{
+  BigDecimal[] newHardScores=new BigDecimal[hardScores.length];
+  BigDecimal[] newSoftScores=new BigDecimal[softScores.length];
+  BigDecimal bigDecimalMultiplicand=BigDecimal.valueOf(multiplicand);
+  for (int i=0; i < newHardScores.length; i++) {
+    newHardScores[i]=hardScores[i].multiply(bigDecimalMultiplicand);
+  }
+  for (int i=0; i < newSoftScores.length; i++) {
+    newSoftScores[i]=softScores[i].multiply(bigDecimalMultiplicand);
+  }
+  return new BendableBigDecimalScore(newHardScores,newSoftScores);
+}
