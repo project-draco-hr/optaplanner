@@ -1,5 +1,5 @@
 {
-  if (hasChainedVariables && variableDescriptor.isChained()) {
+  if (hasChainedVariables && variableDescriptor instanceof GenuineVariableDescriptor && ((GenuineVariableDescriptor)variableDescriptor).isChained()) {
     Map<Object,Set<Object>> valueToTrailingEntityMap=trailingEntitiesMap.get(variableDescriptor);
     if (valueToTrailingEntityMap == null) {
       throw new IllegalStateException("The ScoreDirector (" + getClass() + ") is bugged,"+ " because the chained planningVariable ("+ variableDescriptor.getVariableName()+ ") was not found in the trailingEntitiesMap.");

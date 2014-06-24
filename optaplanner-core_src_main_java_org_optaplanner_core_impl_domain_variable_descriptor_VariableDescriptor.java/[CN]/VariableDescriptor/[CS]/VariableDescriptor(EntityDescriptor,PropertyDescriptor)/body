@@ -1,4 +1,5 @@
 {
   this.entityDescriptor=entityDescriptor;
   variablePropertyAccessor=new ReflectionPropertyAccessor(propertyDescriptor);
+  variableName=variablePropertyAccessor.getName();
 }
