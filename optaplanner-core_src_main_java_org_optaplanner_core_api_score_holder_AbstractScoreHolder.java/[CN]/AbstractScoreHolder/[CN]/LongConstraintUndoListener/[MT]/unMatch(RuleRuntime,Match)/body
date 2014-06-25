@@ -1,0 +1,6 @@
+{
+  undo();
+  if (constraintMatchEnabled) {
+    constraintMatchTotal.removeConstraintMatch(constraintMatch);
+  }
+}

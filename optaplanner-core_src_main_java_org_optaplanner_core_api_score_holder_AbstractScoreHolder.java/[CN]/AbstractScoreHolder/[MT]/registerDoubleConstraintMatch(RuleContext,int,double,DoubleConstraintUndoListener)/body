@@ -1,0 +1,8 @@
+{
+  AgendaItem agendaItem=prepareAgendaItemForUnMatchListener(kcontext);
+  if (constraintMatchEnabled) {
+    constraintUndoListener.constraintMatchTotal=findDoubleConstraintMatchTotal(kcontext,scoreLevel);
+    constraintUndoListener.constraintMatch=constraintUndoListener.constraintMatchTotal.addConstraintMatch(kcontext,weight);
+  }
+  agendaItem.setActivationUnMatchListener(constraintUndoListener);
+}

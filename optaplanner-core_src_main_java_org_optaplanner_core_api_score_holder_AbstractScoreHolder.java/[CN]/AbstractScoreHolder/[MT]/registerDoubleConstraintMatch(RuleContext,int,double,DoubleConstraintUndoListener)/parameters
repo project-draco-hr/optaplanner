@@ -1,0 +1,4 @@
+RuleContext kcontext
+int scoreLevel
+double weight
+DoubleConstraintUndoListener constraintUndoListener

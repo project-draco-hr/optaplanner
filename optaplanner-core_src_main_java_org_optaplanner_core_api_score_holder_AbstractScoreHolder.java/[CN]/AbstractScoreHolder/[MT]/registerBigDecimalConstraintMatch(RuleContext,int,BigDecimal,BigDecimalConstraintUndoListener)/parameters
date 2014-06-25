@@ -1,0 +1,4 @@
+RuleContext kcontext
+int scoreLevel
+BigDecimal weight
+BigDecimalConstraintUndoListener constraintUndoListener

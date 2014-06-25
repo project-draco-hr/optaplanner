@@ -1,7 +1,7 @@
 {
   softScore+=weight;
-  registerIntConstraintMatch(kcontext,1,weight,new Runnable(){
-    public void run(){
+  registerIntConstraintMatch(kcontext,1,weight,new IntConstraintUndoListener(){
+    public void undo(){
       softScore-=weight;
     }
   }
