@@ -12,5 +12,5 @@
       resource.setCapacity(capacity);
     }
   }
-  readRegexConstantLine("\\*+");
+  readConstantLine("\\*+");
 }

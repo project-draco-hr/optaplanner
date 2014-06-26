@@ -1,7 +1,7 @@
 {
   readConstantLine("REQUESTS/DURATIONS:");
   splitBySpacesOrTabs(readStringValue());
-  readRegexConstantLine("\\-+");
+  readConstantLine("\\-+");
   int resourceSize=globalResourceListSize + renewableLocalResourceSize + nonrenewableLocalResourceSize;
   for (int i=0; i < jobListSize; i++) {
     Job job=project.getJobList().get(i);
@@ -42,5 +42,5 @@
       schedule.getResourceRequirementList().addAll(resourceRequirementList);
     }
   }
-  readRegexConstantLine("\\*+");
+  readConstantLine("\\*+");
 }

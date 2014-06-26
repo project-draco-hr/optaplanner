@@ -1,15 +1,15 @@
 {
   String firstLine=readStringValue();
-  if (firstLine.trim().startsWith("NAME :")) {
+  if (firstLine.matches("\\s*NAME\\s*:.*")) {
     schedule=new VehicleRoutingSolution();
     schedule.setId(0L);
-    schedule.setName(removePrefixSuffixFromLine(firstLine,"NAME :",""));
+    schedule.setName(removePrefixSuffixFromLine(firstLine,"\\s*NAME\\s*:",""));
     readBasicFormat();
   }
- else   if (splitBySpace(firstLine).length == 3) {
+ else   if (splitBySpacesOrTabs(firstLine).length == 3) {
     schedule=new VehicleRoutingSolution();
     schedule.setId(0L);
-    String[] tokens=splitBySpace(firstLine,3);
+    String[] tokens=splitBySpacesOrTabs(firstLine,3);
     locationListSize=Integer.parseInt(tokens[0]);
     vehicleListSize=Integer.parseInt(tokens[1]);
     capacity=Integer.parseInt(tokens[2]);

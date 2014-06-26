@@ -1,6 +1,6 @@
 {
   readConstantLine("PRECEDENCE RELATIONS:");
-  readConstantLine("jobnr.    #modes  #successors   successors");
+  readConstantLine("jobnr\\. +\\#modes +\\#successors +successors");
   List<Job> jobList=new ArrayList<Job>(jobListSize);
   for (int i=0; i < jobListSize; i++) {
     Job job=new Job();
@@ -52,5 +52,5 @@
     }
     job.setSuccessorJobList(successorJobList);
   }
-  readRegexConstantLine("\\*+");
+  readConstantLine("\\*+");
 }

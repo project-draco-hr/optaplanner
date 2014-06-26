@@ -1,6 +1,6 @@
 {
   readConstantLine("PROJECT INFORMATION:");
-  readConstantLine("pronr.  #jobs rel.date duedate tardcost  MPM-Time");
+  readConstantLine("pronr\\. +\\#jobs +rel\\.date +duedate +tardcost +MPM\\-Time");
   String[] tokens=splitBySpacesOrTabs(readStringValue(),6);
   if (Integer.parseInt(tokens[0]) != 1) {
     throw new IllegalArgumentException("The project information tokens (" + Arrays.toString(tokens) + ") index 0 should be 1.");
@@ -8,5 +8,5 @@
   if (Integer.parseInt(tokens[1]) != jobListSize - 2) {
     throw new IllegalArgumentException("The project information tokens (" + Arrays.toString(tokens) + ") index 1 should be "+ (jobListSize - 2)+ ".");
   }
-  readRegexConstantLine("\\*+");
+  readConstantLine("\\*+");
 }

@@ -1,12 +1,12 @@
 {
   readEmptyLine();
   readConstantLine("VEHICLE");
-  readConstantLine("NUMBER     CAPACITY");
+  readConstantLine("NUMBER +CAPACITY");
   String[] lineTokens=splitBySpacesOrTabs(readStringValue(),2);
   vehicleListSize=Integer.parseInt(lineTokens[0]);
   capacity=Integer.parseInt(lineTokens[1]);
   readEmptyLine();
   readConstantLine("CUSTOMER");
-  readRegexConstantLine("CUST\\s+NO\\.\\s+XCOORD\\.\\s+YCOORD\\.\\s+DEMAND\\s+READY\\s+TIME\\s+DUE\\s+DATE\\s+SERVICE\\s+TIME");
+  readConstantLine("CUST\\s+NO\\.\\s+XCOORD\\.\\s+YCOORD\\.\\s+DEMAND\\s+READY\\s+TIME\\s+DUE\\s+DATE\\s+SERVICE\\s+TIME");
   readEmptyLine();
 }

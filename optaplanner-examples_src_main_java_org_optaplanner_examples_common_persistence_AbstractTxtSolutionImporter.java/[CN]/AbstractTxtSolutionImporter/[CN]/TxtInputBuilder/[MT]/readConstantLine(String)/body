@@ -1,10 +1,10 @@
 {
   String line=bufferedReader.readLine();
   if (line == null) {
-    throw new IllegalArgumentException("File ends before a line is expected to be a constant value (" + constantValue + ").");
+    throw new IllegalArgumentException("File ends before a line is expected to be a constant value (" + constantRegex + ").");
   }
   String value=line.trim();
-  if (!value.equals(constantValue)) {
-    throw new IllegalArgumentException("Read line (" + line + ") is expected to be a constant value ("+ constantValue+ ").");
+  if (!value.matches(constantRegex)) {
+    throw new IllegalArgumentException("Read line (" + line + ") is expected to be a constant value ("+ constantRegex+ ").");
   }
 }

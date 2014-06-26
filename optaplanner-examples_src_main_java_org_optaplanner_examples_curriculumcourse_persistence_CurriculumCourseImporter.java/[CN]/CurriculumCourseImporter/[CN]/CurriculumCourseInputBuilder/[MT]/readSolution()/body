@@ -14,7 +14,7 @@
   readCurriculumList(schedule,courseMap,curriculumListSize);
   readUnavailablePeriodPenaltyList(schedule,courseMap,periodMap,unavailablePeriodPenaltyListSize);
   readEmptyLine();
-  readConstantLine("END.");
+  readConstantLine("END\\.");
   createLectureList(schedule);
   int possibleForOneLectureSize=schedule.getPeriodList().size() * schedule.getRoomList().size();
   BigInteger possibleSolutionSize=BigInteger.valueOf(possibleForOneLectureSize).pow(schedule.getLectureList().size());

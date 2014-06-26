@@ -2,8 +2,8 @@
   travelingSalesmanTour=new TravelingSalesmanTour();
   travelingSalesmanTour.setId(0L);
   String firstLine=readStringValue();
-  if (firstLine.trim().startsWith("NAME :")) {
-    travelingSalesmanTour.setName(removePrefixSuffixFromLine(firstLine,"NAME :",""));
+  if (firstLine.matches("\\s*NAME\\s*:.*")) {
+    travelingSalesmanTour.setName(removePrefixSuffixFromLine(firstLine,"\\s*NAME\\s*:",""));
     readTspLibFormat();
   }
  else {

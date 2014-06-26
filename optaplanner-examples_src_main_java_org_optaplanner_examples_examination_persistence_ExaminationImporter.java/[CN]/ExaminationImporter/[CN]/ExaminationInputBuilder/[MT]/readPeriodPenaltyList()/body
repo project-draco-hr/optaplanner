@@ -1,5 +1,5 @@
 {
-  readConstantLine("[PeriodHardConstraints]");
+  readConstantLine("\\[PeriodHardConstraints\\]");
   List<Topic> topicList=examination.getTopicList();
   List<PeriodPenalty> periodPenaltyList=new ArrayList<PeriodPenalty>();
   String line=bufferedReader.readLine();

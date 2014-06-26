@@ -1,13 +1,13 @@
 {
   String value=line.trim();
-  if (!value.startsWith(prefix)) {
-    throw new IllegalArgumentException("Read line (" + line + ") is expected to start with prefix ("+ prefix+ ").");
+  if (!value.matches("^" + prefixRegex + ".*")) {
+    throw new IllegalArgumentException("Read line (" + line + ") is expected to start with prefixRegex ("+ prefixRegex+ ").");
   }
-  value=value.substring(prefix.length());
-  if (!value.endsWith(suffix)) {
-    throw new IllegalArgumentException("Read line (" + line + ") is expected to end with suffix ("+ suffix+ ").");
+  value=value.replaceAll("^" + prefixRegex + "(.*)","$1");
+  if (!value.matches(".*" + suffixRegex + "$")) {
+    throw new IllegalArgumentException("Read line (" + line + ") is expected to end with suffixRegex ("+ suffixRegex+ ").");
   }
-  value=value.substring(0,value.length() - suffix.length());
+  value=value.replaceAll("(.*)" + suffixRegex + "$","$1");
   value=value.trim();
   return value;
 }

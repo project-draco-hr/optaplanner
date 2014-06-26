@@ -1,7 +1,7 @@
 {
   String inputFileName=inputFile.getName();
   if (inputFileName.toLowerCase().startsWith("tutorial")) {
-    vehicleListSize=readIntegerValue("VEHICLES :");
+    vehicleListSize=readIntegerValue("VEHICLES *:");
   }
  else {
     String inputFileNameRegex="^.+\\-k(\\d+)\\.vrp$";

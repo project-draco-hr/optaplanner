@@ -4,9 +4,9 @@
   do {
     line=bufferedReader.readLine();
     if (line == null) {
-      throw new IllegalArgumentException("File ends before a line is expected to be a constant value (" + constantValue + ").");
+      throw new IllegalArgumentException("File ends before a line is expected to be a constant regex (" + constantRegex + ").");
     }
     value=line.trim();
   }
- while (!value.equals(constantValue));
+ while (!value.matches(constantRegex));
 }

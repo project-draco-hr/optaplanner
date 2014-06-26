@@ -1,12 +1,12 @@
 {
   readConstantLine("RESOURCES");
-  int renewableResourceSize=readIntegerValue("- renewable                 :","R");
+  int renewableResourceSize=readIntegerValue("\\- renewable *:","R");
   if (renewableResourceSize < globalResourceListSize) {
     throw new IllegalArgumentException("The renewableResourceSize (" + renewableResourceSize + ") can not be less than globalResourceListSize ("+ globalResourceListSize+ ").");
   }
   renewableLocalResourceSize=renewableResourceSize - globalResourceListSize;
-  nonrenewableLocalResourceSize=readIntegerValue("- nonrenewable              :","N");
-  int doublyConstrainedResourceSize=readIntegerValue("- doubly constrained        :","D");
+  nonrenewableLocalResourceSize=readIntegerValue("\\- nonrenewable *:","N");
+  int doublyConstrainedResourceSize=readIntegerValue("\\- doubly constrained *:","D");
   if (doublyConstrainedResourceSize != 0) {
     throw new IllegalArgumentException("The doublyConstrainedResourceSize (" + doublyConstrainedResourceSize + ") should always be 0.");
   }
@@ -29,5 +29,5 @@
   }
   project.setLocalResourceList(localResourceList);
   schedule.getResourceList().addAll(localResourceList);
-  readRegexConstantLine("\\*+");
+  readConstantLine("\\*+");
 }

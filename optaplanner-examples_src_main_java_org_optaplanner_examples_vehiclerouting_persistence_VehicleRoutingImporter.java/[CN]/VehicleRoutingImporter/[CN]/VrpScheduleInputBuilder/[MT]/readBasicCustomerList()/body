@@ -3,7 +3,7 @@
   List<Customer> customerList=new ArrayList<Customer>(locationListSize);
   for (int i=0; i < locationListSize; i++) {
     String line=bufferedReader.readLine();
-    String[] lineTokens=splitBySpace(line.trim().replaceAll(" +"," "),2);
+    String[] lineTokens=splitBySpacesOrTabs(line.trim(),2);
     Customer customer=new Customer();
     long id=Long.parseLong(lineTokens[0]);
     customer.setId(id);
