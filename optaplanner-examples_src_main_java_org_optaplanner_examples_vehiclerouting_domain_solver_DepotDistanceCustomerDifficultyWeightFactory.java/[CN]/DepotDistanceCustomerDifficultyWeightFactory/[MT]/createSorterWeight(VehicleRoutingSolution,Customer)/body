@@ -1,0 +1,4 @@
+{
+  Depot depot=vehicleRoutingSolution.getDepotList().get(0);
+  return new DepotDistanceCustomerDifficultyWeight(customer,customer.getLocation().getDistance(depot.getLocation()));
+}
