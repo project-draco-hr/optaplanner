@@ -1,0 +1,9 @@
+{
+  generateVrp(new File(tspImporter.getInputDir(),"usa115475.tsp"),100,10,250);
+  generateVrp(new File(tspImporter.getInputDir(),"usa115475.tsp"),500,20,250);
+  generateVrp(new File(tspImporter.getInputDir(),"usa115475.tsp"),1000,20,500);
+  generateVrp(new File(tspImporter.getInputDir(),"usa115475.tsp"),5000,100,500);
+  generateVrp(new File(tspImporter.getInputDir(),"usa115475.tsp"),10000,100,1000);
+  generateVrp(new File(tspImporter.getInputDir(),"usa115475.tsp"),50000,500,1000);
+  generateVrp(new File(tspImporter.getInputDir(),"usa115475.tsp"),100000,500,2000);
+}

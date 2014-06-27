@@ -1,0 +1,4 @@
+File tspInputFile
+int locationListSize
+int vehicleListSize
+int capacity

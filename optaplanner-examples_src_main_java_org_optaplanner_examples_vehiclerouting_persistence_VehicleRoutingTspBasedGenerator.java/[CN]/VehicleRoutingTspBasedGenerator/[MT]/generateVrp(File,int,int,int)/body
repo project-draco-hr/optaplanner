@@ -1,0 +1,49 @@
+{
+  TravelingSalesmanTour tour=(TravelingSalesmanTour)tspImporter.readSolution(tspInputFile);
+  String name=tspInputFile.getName().replaceAll("\\d+\\.tsp","") + "-n" + locationListSize+ "-k"+ vehicleListSize;
+  File vrpOutputFile=new File(vehicleRoutingDao.getDataDir(),"import/capacitated/" + name + ".vrp");
+  if (!vrpOutputFile.getParentFile().exists()) {
+    throw new IllegalArgumentException("The vrpOutputFile parent directory (" + vrpOutputFile.getParentFile() + ") does not exist.");
+  }
+  BufferedWriter vrpWriter=null;
+  try {
+    vrpWriter=new BufferedWriter(new OutputStreamWriter(new FileOutputStream(vrpOutputFile),"UTF-8"));
+    vrpWriter.write("NAME: " + name + "\n");
+    vrpWriter.write("COMMENT: Generated from " + tspInputFile.getName() + "\n");
+    vrpWriter.write("TYPE: CVRP\n");
+    vrpWriter.write("DIMENSION: " + locationListSize + "\n");
+    vrpWriter.write("EDGE_WEIGHT_TYPE: EUC_2D\n");
+    vrpWriter.write("CAPACITY: " + capacity + "\n");
+    vrpWriter.write("NODE_COORD_SECTION\n");
+    List<City> cityList=tour.getCityList();
+    double selectionDecrement=(double)locationListSize / (double)cityList.size();
+    double selection=(double)locationListSize;
+    int index=1;
+    for (    City city : cityList) {
+      double newSelection=selection - selectionDecrement;
+      if ((int)newSelection < (int)selection) {
+        vrpWriter.write(index + " " + city.getLatitude()+ " "+ city.getLongitude()+ "\n");
+        index++;
+      }
+      selection=newSelection;
+    }
+    vrpWriter.write("DEMAND_SECTION\n");
+    int maximumDemand=(4 * vehicleListSize * capacity) / (locationListSize * 3);
+    Random random=new Random(37);
+    vrpWriter.write("1 0\n");
+    for (int i=2; i <= locationListSize; i++) {
+      vrpWriter.write(i + " " + (random.nextInt(maximumDemand) + 1)+ "\n");
+    }
+    vrpWriter.write("DEPOT_SECTION\n");
+    vrpWriter.write("1\n");
+    vrpWriter.write("-1\n");
+    vrpWriter.write("EOF\n");
+  }
+ catch (  IOException e) {
+    throw new IllegalArgumentException("Could not read the tspInputFile (" + tspInputFile.getName() + ") or write the vrpOutputFile ("+ vrpOutputFile.getName()+ ").",e);
+  }
+ finally {
+    IOUtils.closeQuietly(vrpWriter);
+  }
+  logger.info("Generated: {}",vrpOutputFile);
+}

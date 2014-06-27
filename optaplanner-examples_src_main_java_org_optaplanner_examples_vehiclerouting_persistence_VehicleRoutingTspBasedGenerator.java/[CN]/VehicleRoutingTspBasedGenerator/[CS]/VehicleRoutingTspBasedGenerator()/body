@@ -1,0 +1,4 @@
+{
+  tspImporter=new TspImporter();
+  vehicleRoutingDao=new VehicleRoutingDao();
+}

@@ -1,0 +1,3 @@
+{
+  new VehicleRoutingTspBasedGenerator().generate();
+}
