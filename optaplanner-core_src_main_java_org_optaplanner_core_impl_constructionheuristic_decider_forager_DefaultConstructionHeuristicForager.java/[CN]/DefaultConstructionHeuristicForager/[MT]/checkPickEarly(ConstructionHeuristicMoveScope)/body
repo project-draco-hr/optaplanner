@@ -8,6 +8,17 @@ if (scoreComparator.compare(moveScope.getScore(),lastStepScore) >= 0) {
   earlyPickedMoveScope=moveScope;
 }
 break;
+case FIRST_FEASIBLE_SCORE:
+if (((FeasibilityScore)moveScope.getScore()).isFeasible()) {
+earlyPickedMoveScope=moveScope;
+}
+break;
+case FIRST_FEASIBLE_SCORE_OR_NON_DETERIORATING_HARD:
+Score lastStepScoreDifference=moveScope.getScore().subtract(moveScope.getStepScope().getPhaseScope().getLastCompletedStepScope().getScore());
+if (((FeasibilityScore)lastStepScoreDifference).isFeasible()) {
+earlyPickedMoveScope=moveScope;
+}
+break;
 default :
 throw new IllegalStateException("The pickEarlyType (" + pickEarlyType + ") is not implemented.");
 }

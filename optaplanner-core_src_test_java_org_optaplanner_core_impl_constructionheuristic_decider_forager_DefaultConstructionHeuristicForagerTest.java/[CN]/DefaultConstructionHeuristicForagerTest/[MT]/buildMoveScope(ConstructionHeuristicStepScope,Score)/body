@@ -1,0 +1,6 @@
+{
+  ConstructionHeuristicMoveScope moveScope=mock(ConstructionHeuristicMoveScope.class);
+  when(moveScope.getStepScope()).thenReturn(stepScope);
+  when(moveScope.getScore()).thenReturn(score);
+  return moveScope;
+}
