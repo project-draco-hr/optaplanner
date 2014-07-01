@@ -1,10 +1,10 @@
 {
   DefaultSolverScope solverScope=new DefaultSolverScope();
   LocalSearchPhaseScope phaseScope=new LocalSearchPhaseScope(solverScope);
-  DroolsScoreDirectorFactory scoreDirectorFactory=new DroolsScoreDirectorFactory();
-  scoreDirectorFactory.setSolutionDescriptor(TestdataSolution.buildSolutionDescriptor());
-  scoreDirectorFactory.setScoreDefinition(new SimpleScoreDefinition());
-  solverScope.setScoreDirector(scoreDirectorFactory.buildScoreDirector());
+  InnerScoreDirector scoreDirector=mock(InnerScoreDirector.class);
+  when(scoreDirector.getSolutionDescriptor()).thenReturn(TestdataSolution.buildSolutionDescriptor());
+  when(scoreDirector.getScoreDefinition()).thenReturn(new SimpleScoreDefinition());
+  solverScope.setScoreDirector(scoreDirector);
   Random workingRandom=mock(Random.class);
   when(workingRandom.nextInt(2)).thenReturn(0);
   solverScope.setWorkingRandom(workingRandom);
