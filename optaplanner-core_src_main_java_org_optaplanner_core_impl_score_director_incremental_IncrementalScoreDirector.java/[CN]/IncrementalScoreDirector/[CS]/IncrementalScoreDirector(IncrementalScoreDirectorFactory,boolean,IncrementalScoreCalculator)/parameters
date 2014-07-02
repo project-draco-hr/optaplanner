@@ -1,2 +1,3 @@
 IncrementalScoreDirectorFactory scoreDirectorFactory
+boolean constraintMatchEnabledPreference
 IncrementalScoreCalculator incrementalScoreCalculator

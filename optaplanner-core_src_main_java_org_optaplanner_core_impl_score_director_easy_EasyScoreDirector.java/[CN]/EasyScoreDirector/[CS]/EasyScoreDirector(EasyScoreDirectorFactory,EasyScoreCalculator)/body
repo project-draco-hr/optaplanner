@@ -1,4 +1,0 @@
-{
-  super(scoreDirectorFactory);
-  this.easyScoreCalculator=easyScoreCalculator;
-}

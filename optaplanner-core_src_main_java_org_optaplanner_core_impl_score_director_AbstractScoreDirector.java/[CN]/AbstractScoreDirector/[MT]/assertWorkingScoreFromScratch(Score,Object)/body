@@ -3,7 +3,7 @@
   if (assertionScoreDirectorFactory == null) {
     assertionScoreDirectorFactory=scoreDirectorFactory;
   }
-  InnerScoreDirector uncorruptedScoreDirector=assertionScoreDirectorFactory.buildScoreDirector();
+  InnerScoreDirector uncorruptedScoreDirector=assertionScoreDirectorFactory.buildScoreDirector(true);
   uncorruptedScoreDirector.setWorkingSolution(workingSolution);
   Score uncorruptedScore=uncorruptedScoreDirector.calculateScore();
   if (!workingScore.equals(uncorruptedScore)) {

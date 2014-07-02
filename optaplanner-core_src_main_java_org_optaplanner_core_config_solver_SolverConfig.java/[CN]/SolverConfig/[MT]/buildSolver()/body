@@ -4,6 +4,7 @@
   BasicPlumbingTermination basicPlumbingTermination=new BasicPlumbingTermination(daemon_);
   solver.setBasicPlumbingTermination(basicPlumbingTermination);
   EnvironmentMode environmentMode=this.environmentMode == null ? EnvironmentMode.REPRODUCIBLE : this.environmentMode;
+  solver.setEnvironmentMode(environmentMode);
   RandomFactory randomFactory;
   if (randomFactoryClass != null) {
     if (randomType != null || randomSeed != null) {

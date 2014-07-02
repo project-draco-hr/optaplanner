@@ -1,4 +1,4 @@
 {
-  super(scoreDirectorFactory);
+  super(scoreDirectorFactory,constraintMatchEnabledPreference);
   this.incrementalScoreCalculator=incrementalScoreCalculator;
 }

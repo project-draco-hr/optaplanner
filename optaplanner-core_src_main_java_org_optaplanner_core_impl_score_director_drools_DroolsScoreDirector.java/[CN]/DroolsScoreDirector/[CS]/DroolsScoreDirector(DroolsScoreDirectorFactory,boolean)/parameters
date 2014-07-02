@@ -1,1 +1,2 @@
 DroolsScoreDirectorFactory scoreDirectorFactory
+boolean constraintMatchEnabledPreference

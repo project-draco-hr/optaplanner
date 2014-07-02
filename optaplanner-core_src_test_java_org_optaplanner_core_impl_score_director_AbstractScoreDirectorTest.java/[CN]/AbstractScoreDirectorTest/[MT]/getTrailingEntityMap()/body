@@ -13,7 +13,7 @@
   GenuineVariableDescriptor variableDescriptor=entityDescriptor.getGenuineVariableDescriptor("chainedObject");
   AbstractScoreDirectorFactory scoreDirectorFactory=mock(AbstractScoreDirectorFactory.class);
   when(scoreDirectorFactory.getSolutionDescriptor()).thenReturn(solutionDescriptor);
-  AbstractScoreDirector scoreDirector=new AbstractScoreDirector<AbstractScoreDirectorFactory>(scoreDirectorFactory){
+  AbstractScoreDirector scoreDirector=new AbstractScoreDirector<AbstractScoreDirectorFactory>(scoreDirectorFactory,false){
     public Score calculateScore(){
       return SimpleScore.valueOf(-100);
     }
