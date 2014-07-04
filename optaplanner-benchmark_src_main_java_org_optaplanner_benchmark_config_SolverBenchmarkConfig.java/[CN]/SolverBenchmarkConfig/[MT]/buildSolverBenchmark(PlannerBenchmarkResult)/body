@@ -5,6 +5,6 @@
   solverBenchmarkResult.setSolverConfig(solverConfig);
   solverBenchmarkResult.setSingleBenchmarkResultList(new ArrayList<SingleBenchmarkResult>());
   ProblemBenchmarksConfig problemBenchmarksConfig_=problemBenchmarksConfig == null ? new ProblemBenchmarksConfig() : problemBenchmarksConfig;
+  plannerBenchmark.getSolverBenchmarkResultList().add(solverBenchmarkResult);
   problemBenchmarksConfig_.buildProblemBenchmarkList(solverBenchmarkResult);
-  return solverBenchmarkResult;
 }

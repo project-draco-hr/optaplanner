@@ -18,8 +18,7 @@
  else {
       problemBenchmarkResult=unifiedProblemBenchmarkResultList.get(index);
     }
-    addSingleBenchmark(solverBenchmarkResult,problemBenchmarkResult);
     problemBenchmarkResultList.add(problemBenchmarkResult);
+    buildSingleBenchmark(solverBenchmarkResult,problemBenchmarkResult);
   }
-  return problemBenchmarkResultList;
 }
