@@ -1,4 +1,5 @@
 {
   this.singleBenchmarkResult=singleBenchmarkResult;
   this.statisticType=statisticType;
+  pointList=new ArrayList<P>();
 }

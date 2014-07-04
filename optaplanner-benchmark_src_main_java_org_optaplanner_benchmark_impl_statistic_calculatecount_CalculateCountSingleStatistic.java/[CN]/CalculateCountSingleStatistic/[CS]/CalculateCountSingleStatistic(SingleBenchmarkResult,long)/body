@@ -5,5 +5,4 @@
   }
   this.timeMillisThresholdInterval=timeMillisThresholdInterval;
   listener=new CalculateCountSingleStatisticListener();
-  pointList=new ArrayList<CalculateCountStatisticPoint>();
 }
