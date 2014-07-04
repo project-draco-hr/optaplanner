@@ -1,5 +1,5 @@
 {
-  ProblemBenchmarkResult problemBenchmarkResult=new ProblemBenchmarkResult(plannerBenchmark);
+  ProblemBenchmarkResult problemBenchmarkResult=new ProblemBenchmarkResult(plannerBenchmarkResult);
   String name=FilenameUtils.getBaseName(inputSolutionFile.getName());
   problemBenchmarkResult.setName(name);
   problemBenchmarkResult.setSolutionFileIO(solutionFileIO);
