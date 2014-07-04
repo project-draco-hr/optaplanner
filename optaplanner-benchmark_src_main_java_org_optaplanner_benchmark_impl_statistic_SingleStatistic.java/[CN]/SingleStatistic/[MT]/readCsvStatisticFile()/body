@@ -1,7 +1,6 @@
 {
   File csvFile=getCsvFile();
   ScoreDefinition scoreDefinition=singleBenchmarkResult.getSolverBenchmarkResult().getSolverConfig().getScoreDirectorFactoryConfig().buildScoreDefinition();
-  List<P> pointList=getPointList();
   if (!pointList.isEmpty()) {
     throw new IllegalStateException("The pointList with size (" + pointList.size() + ") should be empty.");
   }
