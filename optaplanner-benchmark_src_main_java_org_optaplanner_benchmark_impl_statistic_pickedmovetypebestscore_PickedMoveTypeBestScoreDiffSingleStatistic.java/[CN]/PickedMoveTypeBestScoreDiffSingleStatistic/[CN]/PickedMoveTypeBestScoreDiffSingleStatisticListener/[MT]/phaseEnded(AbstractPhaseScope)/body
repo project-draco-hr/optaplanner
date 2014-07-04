@@ -1,0 +1,5 @@
+{
+  if (phaseScope instanceof LocalSearchPhaseScope) {
+    oldBestScore=null;
+  }
+}

@@ -8,7 +8,7 @@
   }
   logger.trace("Benchmark inputSolution has been read for singleBenchmarkResult ({}).",singleBenchmarkResult.getName());
   Solver solver=singleBenchmarkResult.getSolverBenchmarkResult().getSolverConfig().buildSolver();
-  for (  SingleStatistic singleStatistic : singleBenchmarkResult.getSingleStatisticMap().values()) {
+  for (  SingleStatistic singleStatistic : singleBenchmarkResult.getEffectiveSingleStatisticMap().values()) {
     singleStatistic.open(solver);
   }
   solver.solve(inputSolution);
@@ -21,7 +21,7 @@
   singleBenchmarkResult.setScore(outputSolution.getScore());
   singleBenchmarkResult.setTimeMillisSpent(timeMillisSpent);
   singleBenchmarkResult.setCalculateCount(solverScope.getCalculateCount());
-  for (  SingleStatistic singleStatistic : singleBenchmarkResult.getSingleStatisticMap().values()) {
+  for (  SingleStatistic singleStatistic : singleBenchmarkResult.getEffectiveSingleStatisticMap().values()) {
     singleStatistic.close(solver);
     singleStatistic.writeCsvStatisticFile();
   }

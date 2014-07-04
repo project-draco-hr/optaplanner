@@ -1,0 +1,10 @@
+{
+  if (stepScope.getBestScoreImproved()) {
+    long timeMillisSpent=stepScope.getPhaseScope().calculateSolverTimeMillisSpent();
+    String moveType=stepScope.getStep().getClass().getSimpleName();
+    Score newBestScore=stepScope.getScore();
+    Score bestScoreDiff=newBestScore.subtract(oldBestScore);
+    oldBestScore=newBestScore;
+    pointList.add(new PickedMoveTypeBestScoreDiffStatisticPoint(timeMillisSpent,moveType,bestScoreDiff));
+  }
+}

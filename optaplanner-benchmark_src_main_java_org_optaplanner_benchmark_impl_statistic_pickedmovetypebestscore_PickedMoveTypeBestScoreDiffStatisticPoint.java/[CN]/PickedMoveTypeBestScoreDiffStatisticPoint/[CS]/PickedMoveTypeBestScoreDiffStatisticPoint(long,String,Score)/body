@@ -1,0 +1,5 @@
+{
+  this.timeMillisSpent=timeMillisSpent;
+  this.moveType=moveType;
+  this.bestScoreDiff=bestScoreDiff;
+}

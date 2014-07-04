@@ -1,7 +1,7 @@
 {
   SingleBenchmarkResult newResult=new SingleBenchmarkResult(solverBenchmarkResult,problemBenchmarkResult);
   newResult.initSingleStatisticMap();
-  for (  SingleStatistic singleStatistic : newResult.singleStatisticMap.values()) {
+  for (  SingleStatistic singleStatistic : newResult.effectiveSingleStatisticMap.values()) {
     singleStatistic.setPointList(oldResult.getSingleStatistic(singleStatistic.getStatisticType()).getPointList());
   }
   newResult.entityCount=oldResult.entityCount;

@@ -1,5 +1,12 @@
 {
   SingleBenchmarkResult singleBenchmarkResult=new SingleBenchmarkResult(solverBenchmarkResult,problemBenchmarkResult);
+  List<SingleStatistic> singleStatisticList=new ArrayList<SingleStatistic>(singleStatisticTypeList == null ? 0 : singleStatisticTypeList.size());
+  if (problemStatisticTypeList != null) {
+    for (    SingleStatisticType singleStatisticType : singleStatisticTypeList) {
+      singleStatisticList.add(singleStatisticType.buildSingleStatistic(singleBenchmarkResult));
+    }
+  }
+  singleBenchmarkResult.setSingleStatisticList(singleStatisticList);
   singleBenchmarkResult.initSingleStatisticMap();
   solverBenchmarkResult.getSingleBenchmarkResultList().add(singleBenchmarkResult);
   problemBenchmarkResult.getSingleBenchmarkResultList().add(singleBenchmarkResult);
