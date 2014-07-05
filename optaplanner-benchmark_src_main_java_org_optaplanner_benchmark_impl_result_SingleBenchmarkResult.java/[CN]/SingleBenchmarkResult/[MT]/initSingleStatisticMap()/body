@@ -4,7 +4,7 @@
     SingleStatistic singleStatistic=problemStatistic.createSingleStatistic(this);
     effectiveSingleStatisticMap.put(singleStatistic.getStatisticType(),singleStatistic);
   }
-  for (  SingleStatistic singleStatistic : singleStatisticList) {
-    effectiveSingleStatisticMap.put(singleStatistic.getStatisticType(),singleStatistic);
+  for (  PureSingleStatistic pureSingleStatistic : pureSingleStatisticList) {
+    effectiveSingleStatisticMap.put(pureSingleStatistic.getStatisticType(),pureSingleStatistic);
   }
 }

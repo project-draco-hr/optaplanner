@@ -1,8 +1,8 @@
 {
   SingleBenchmarkResult newResult=new SingleBenchmarkResult(solverBenchmarkResult,problemBenchmarkResult);
-  newResult.singleStatisticList=new ArrayList<SingleStatistic>(oldResult.singleStatisticList.size());
-  for (  SingleStatistic oldSingleStatistic : oldResult.singleStatisticList) {
-    newResult.singleStatisticList.add(((SingleStatisticType)oldSingleStatistic.getStatisticType()).buildSingleStatistic(newResult));
+  newResult.pureSingleStatisticList=new ArrayList<PureSingleStatistic>(oldResult.pureSingleStatisticList.size());
+  for (  PureSingleStatistic oldSingleStatistic : oldResult.pureSingleStatisticList) {
+    newResult.pureSingleStatisticList.add(oldSingleStatistic.getSingleStatisticType().buildPureSingleStatistic(newResult));
   }
   newResult.initSingleStatisticMap();
   for (  SingleStatistic singleStatistic : newResult.effectiveSingleStatisticMap.values()) {
