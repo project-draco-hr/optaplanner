@@ -1,1 +1,1 @@
-SingleStatistic<MoveCountPerStepStatisticPoint>
+ProblemBasedSingleStatistic<MoveCountPerStepStatisticPoint>

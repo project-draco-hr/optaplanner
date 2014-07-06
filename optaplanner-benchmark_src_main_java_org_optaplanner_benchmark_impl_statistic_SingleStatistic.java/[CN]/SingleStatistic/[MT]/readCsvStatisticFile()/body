@@ -18,7 +18,7 @@
     reader=new BufferedReader(new InputStreamReader(new FileInputStream(csvFile),"UTF-8"));
     String line=reader.readLine();
     if (!getCsvHeader().equals(line)) {
-      throw new IllegalStateException("The read line (" + line + ") is expected to be the header line ("+ getCsvHeader()+ ") for statisticType ("+ statisticType+ ").");
+      throw new IllegalStateException("The read line (" + line + ") is expected to be the header line ("+ getCsvHeader()+ ") for statisticType ("+ getStatisticType()+ ").");
     }
     for (line=reader.readLine(); line != null && !line.isEmpty(); line=reader.readLine()) {
       List<String> csvLine=StatisticPoint.parseCsvLine(line);
