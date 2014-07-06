@@ -1,16 +1,5 @@
 {
-  BufferedImage chartImage=chart.createBufferedImage(1024,768);
   File chartFile=new File(problemBenchmarkResult.getProblemReportDirectory(),fileNameBase + ".png");
-  OutputStream out=null;
-  try {
-    out=new FileOutputStream(chartFile);
-    ImageIO.write(chartImage,"png",out);
-  }
- catch (  IOException e) {
-    throw new IllegalArgumentException("Problem writing chartFile: " + chartFile,e);
-  }
- finally {
-    IOUtils.closeQuietly(out);
-  }
+  GraphSupport.writeChartToImageFile(chart,chartFile);
   return chartFile;
 }
