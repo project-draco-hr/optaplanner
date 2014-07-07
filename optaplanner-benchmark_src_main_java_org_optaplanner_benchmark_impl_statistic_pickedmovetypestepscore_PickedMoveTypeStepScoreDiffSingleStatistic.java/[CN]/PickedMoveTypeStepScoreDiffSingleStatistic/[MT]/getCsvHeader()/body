@@ -1,0 +1,3 @@
+{
+  return PickedMoveTypeStepScoreDiffStatisticPoint.buildCsvLine("timeMillisSpent","moveType","stepScoreDiff");
+}

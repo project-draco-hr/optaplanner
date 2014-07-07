@@ -1,0 +1,8 @@
+{
+  long timeMillisSpent=stepScope.getPhaseScope().calculateSolverTimeMillisSpent();
+  String moveType=stepScope.getStep().getSimpleMoveTypeDescription();
+  Score newStepScore=stepScope.getScore();
+  Score stepScoreDiff=newStepScore.subtract(oldStepScore);
+  oldStepScore=newStepScore;
+  pointList.add(new PickedMoveTypeStepScoreDiffStatisticPoint(timeMillisSpent,moveType,stepScoreDiff));
+}

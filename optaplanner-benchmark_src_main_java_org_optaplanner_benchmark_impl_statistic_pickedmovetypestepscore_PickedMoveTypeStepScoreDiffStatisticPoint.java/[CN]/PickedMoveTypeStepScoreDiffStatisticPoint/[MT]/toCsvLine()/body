@@ -1,0 +1,3 @@
+{
+  return buildCsvLineWithStrings(timeMillisSpent,moveType,stepScoreDiff.toString());
+}
