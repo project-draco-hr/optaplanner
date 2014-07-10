@@ -4,8 +4,8 @@
     throw new IllegalStateException("The cloneMapClass (" + cloneMap.getClass() + ") created for originalMapClass ("+ originalMap.getClass()+ ") is not assignable to the field's type ("+ expectedType+ ")."+ " Consider replacing the default "+ SolutionCloner.class.getSimpleName()+ ".");
   }
   for (  Map.Entry<K,V> originalEntry : originalMap.entrySet()) {
-    K cloneKey=clone(originalEntry.getKey());
-    V cloneValue=clone(originalEntry.getValue());
+    K cloneKey=cloneCollectionsElementIfNeeded(originalEntry.getKey());
+    V cloneValue=cloneCollectionsElementIfNeeded(originalEntry.getValue());
     cloneMap.put(cloneKey,cloneValue);
   }
   return cloneMap;

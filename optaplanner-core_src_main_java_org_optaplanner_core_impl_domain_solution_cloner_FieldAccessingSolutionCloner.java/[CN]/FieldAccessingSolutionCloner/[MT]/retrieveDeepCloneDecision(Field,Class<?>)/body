@@ -7,10 +7,5 @@
   if (deepCloneDecision) {
     return true;
   }
-  deepCloneDecision=deepCloneDecisionActualValueClassCache.get(actualValueClass);
-  if (deepCloneDecision == null) {
-    deepCloneDecision=isClassDeepCloned(actualValueClass);
-    deepCloneDecisionActualValueClassCache.put(actualValueClass,deepCloneDecision);
-  }
-  return deepCloneDecision;
+  return retrieveDeepCloneDecisionForActualValueClass(actualValueClass);
 }

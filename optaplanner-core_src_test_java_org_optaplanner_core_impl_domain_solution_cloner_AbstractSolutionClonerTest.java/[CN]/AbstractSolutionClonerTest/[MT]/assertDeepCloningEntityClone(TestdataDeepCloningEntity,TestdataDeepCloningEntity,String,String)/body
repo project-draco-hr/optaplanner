@@ -12,7 +12,7 @@
     assertNotSame(originalShadowVariableList,cloneShadowVariableList);
     assertEquals(originalShadowVariableList.size(),cloneShadowVariableList.size());
     for (int i=0; i < originalShadowVariableList.size(); i++) {
-      assertEquals(originalShadowVariableList.get(i),cloneShadowVariableList.get(i));
+      assertSame(originalShadowVariableList.get(i),cloneShadowVariableList.get(i));
     }
   }
   Map<String,String> originalShadowVariableMap=originalEntity.getShadowVariableMap();
@@ -24,7 +24,7 @@
     assertNotSame(originalShadowVariableMap,cloneShadowVariableMap);
     assertEquals(originalShadowVariableMap.size(),cloneShadowVariableMap.size());
     for (    String key : originalShadowVariableMap.keySet()) {
-      assertEquals(originalShadowVariableMap.get(key),cloneShadowVariableMap.get(key));
+      assertSame(originalShadowVariableMap.get(key),cloneShadowVariableMap.get(key));
     }
   }
 }

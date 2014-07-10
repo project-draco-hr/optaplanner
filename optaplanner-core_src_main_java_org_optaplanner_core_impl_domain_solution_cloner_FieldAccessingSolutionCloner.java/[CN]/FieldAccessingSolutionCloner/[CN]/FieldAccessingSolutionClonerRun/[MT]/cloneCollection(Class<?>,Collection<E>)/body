@@ -4,7 +4,7 @@
     throw new IllegalStateException("The cloneCollectionClass (" + cloneCollection.getClass() + ") created for originalCollectionClass ("+ originalCollection.getClass()+ ") is not assignable to the field's type ("+ expectedType+ ")."+ " Consider replacing the default "+ SolutionCloner.class.getSimpleName()+ ".");
   }
   for (  E originalElement : originalCollection) {
-    E cloneElement=clone(originalElement);
+    E cloneElement=cloneCollectionsElementIfNeeded(originalElement);
     cloneCollection.add(cloneElement);
   }
   return cloneCollection;

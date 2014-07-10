@@ -41,8 +41,8 @@
   List<String> cloneGeneralShadowVariableList=clone.getGeneralShadowVariableList();
   assertNotSame(generalShadowVariableList,cloneGeneralShadowVariableList);
   assertEquals(2,cloneGeneralShadowVariableList.size());
-  assertEquals("shadow g1",cloneGeneralShadowVariableList.get(0));
-  assertEquals("shadow g2",cloneGeneralShadowVariableList.get(1));
+  assertSame(generalShadowVariableList.get(0),cloneGeneralShadowVariableList.get(0));
+  assertEquals(generalShadowVariableList.get(1),cloneGeneralShadowVariableList.get(1));
   b.setValue(val2);
   assertCode("2",b.getValue());
   assertCode("1",cloneB.getValue());

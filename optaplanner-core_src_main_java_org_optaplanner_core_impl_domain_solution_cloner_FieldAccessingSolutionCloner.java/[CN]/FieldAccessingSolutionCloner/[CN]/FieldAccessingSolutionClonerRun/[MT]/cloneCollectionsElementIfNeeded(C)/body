@@ -1,0 +1,8 @@
+{
+  if (retrieveDeepCloneDecisionForActualValueClass(original.getClass())) {
+    return clone(original);
+  }
+ else {
+    return original;
+  }
+}

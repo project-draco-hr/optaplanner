@@ -1,0 +1,8 @@
+{
+  Boolean deepCloneDecision=deepCloneDecisionActualValueClassCache.get(actualValueClass);
+  if (deepCloneDecision == null) {
+    deepCloneDecision=isClassDeepCloned(actualValueClass);
+    deepCloneDecisionActualValueClassCache.put(actualValueClass,deepCloneDecision);
+  }
+  return deepCloneDecision;
+}
