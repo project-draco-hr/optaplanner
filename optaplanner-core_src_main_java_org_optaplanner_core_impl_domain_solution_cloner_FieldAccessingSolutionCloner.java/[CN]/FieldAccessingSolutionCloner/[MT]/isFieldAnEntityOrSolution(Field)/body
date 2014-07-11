@@ -4,14 +4,8 @@
     return true;
   }
   if (Collection.class.isAssignableFrom(type) || Map.class.isAssignableFrom(type)) {
-    Type genericType=field.getGenericType();
-    if (genericType instanceof ParameterizedType) {
-      ParameterizedType parameterizedType=(ParameterizedType)genericType;
-      for (      Type actualTypeArgument : parameterizedType.getActualTypeArguments()) {
-        if (actualTypeArgument instanceof Class && isClassDeepCloned((Class)actualTypeArgument)) {
-          return true;
-        }
-      }
+    if (isTypeArgumentDeepCloned(field.getGenericType())) {
+      return true;
     }
   }
   return false;

@@ -1,4 +1,10 @@
 {
+  if (original instanceof Collection) {
+    return (C)cloneCollection(Collection.class,(Collection)original);
+  }
+ else   if (original instanceof Collection) {
+    return (C)cloneMap(Map.class,(Map)original);
+  }
   if (retrieveDeepCloneDecisionForActualValueClass(original.getClass())) {
     return clone(original);
   }

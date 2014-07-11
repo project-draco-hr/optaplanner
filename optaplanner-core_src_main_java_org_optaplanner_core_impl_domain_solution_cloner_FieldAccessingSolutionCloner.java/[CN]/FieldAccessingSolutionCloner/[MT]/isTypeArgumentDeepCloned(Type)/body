@@ -1,0 +1,14 @@
+{
+  if (genericType instanceof ParameterizedType) {
+    ParameterizedType parameterizedType=(ParameterizedType)genericType;
+    for (    Type actualTypeArgument : parameterizedType.getActualTypeArguments()) {
+      if (actualTypeArgument instanceof Class && isClassDeepCloned((Class)actualTypeArgument)) {
+        return true;
+      }
+      if (isTypeArgumentDeepCloned(actualTypeArgument)) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
