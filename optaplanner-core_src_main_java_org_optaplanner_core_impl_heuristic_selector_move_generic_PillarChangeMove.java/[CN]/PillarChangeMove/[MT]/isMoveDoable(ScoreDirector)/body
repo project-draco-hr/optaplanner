@@ -1,4 +1,17 @@
 {
   Object oldValue=variableDescriptor.getValue(pillar.get(0));
-  return !ObjectUtils.equals(oldValue,toPlanningValue);
+  if (ObjectUtils.equals(oldValue,toPlanningValue)) {
+    return false;
+  }
+  if (!variableDescriptor.isValueRangeEntityIndependent()) {
+    ValueRangeDescriptor valueRangeDescriptor=variableDescriptor.getValueRangeDescriptor();
+    Solution workingSolution=scoreDirector.getWorkingSolution();
+    for (    Object entity : pillar) {
+      ValueRange rightValueRange=valueRangeDescriptor.extractValueRange(workingSolution,entity);
+      if (!rightValueRange.contains(toPlanningValue)) {
+        return false;
+      }
+    }
+  }
+  return true;
 }
