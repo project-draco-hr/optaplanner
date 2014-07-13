@@ -1,0 +1,3 @@
+{
+  return (CheapTimeSolution)solutionBusiness.getSolution();
+}

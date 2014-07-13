@@ -1,0 +1,3 @@
+{
+  return new CompareToBuilder().append(a.getTask().getResourceUsageMultiplicand(),b.getTask().getResourceUsageMultiplicand()).append(a.getId(),b.getId()).toComparison();
+}

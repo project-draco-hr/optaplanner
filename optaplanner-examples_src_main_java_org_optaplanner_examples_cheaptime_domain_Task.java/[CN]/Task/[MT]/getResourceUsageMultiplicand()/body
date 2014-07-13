@@ -1,0 +1,7 @@
+{
+  int multiplicand=1;
+  for (  TaskRequirement taskRequirement : taskRequirementList) {
+    multiplicand*=taskRequirement.getResourceUsage();
+  }
+  return multiplicand;
+}
