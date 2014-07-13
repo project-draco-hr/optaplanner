@@ -1,0 +1,42 @@
+{
+  int taskListSize=readIntegerValue();
+  List<Task> taskList=new ArrayList<Task>(taskListSize);
+  List<TaskRequirement> taskRequirementList=new ArrayList<TaskRequirement>(taskListSize * resourceListSize);
+  long taskRequirementId=0L;
+  for (int i=0; i < taskListSize; i++) {
+    String[] taskLineTokens=splitBySpace(readStringValue(),4);
+    Task task=new Task();
+    task.setId(Long.parseLong(taskLineTokens[0]));
+    int duration=Integer.parseInt(taskLineTokens[1]);
+    if (duration <= 0) {
+      throw new IllegalArgumentException("Task with id (" + task.getId() + ") has a duration ("+ duration+ ") which is not 1 or higher.");
+    }
+    task.setDuration(duration);
+    int earliestStart=Integer.parseInt(taskLineTokens[2]);
+    if (earliestStart < 0 || earliestStart > maximumPeriod) {
+      throw new IllegalArgumentException("Task with id (" + task.getId() + ") has a earliestStart ("+ earliestStart+ ") which is not between 0 and maximumPeriod ("+ maximumPeriod+ "), both inclusive.");
+    }
+    task.setStartPeriodRangeFrom(earliestStart);
+    int latestEnd=Integer.parseInt(taskLineTokens[3]);
+    if (latestEnd < 0 || latestEnd > maximumPeriod) {
+      throw new IllegalArgumentException("Task with id (" + task.getId() + ") has a latestEnd ("+ latestEnd+ ") which is not between 0 and maximumPeriod ("+ maximumPeriod+ "), both inclusive.");
+    }
+    task.setStartPeriodRangeTo(latestEnd - duration + 1);
+    String[] usageLineTokens=splitBySpacesOrTabs(readStringValue(),resourceListSize);
+    List<TaskRequirement> taskRequirementListOfTask=new ArrayList<TaskRequirement>(resourceListSize);
+    for (int j=0; j < resourceListSize; j++) {
+      TaskRequirement taskRequirement=new TaskRequirement();
+      taskRequirement.setId(taskRequirementId);
+      taskRequirementId++;
+      taskRequirement.setTask(task);
+      taskRequirement.setResource(solution.getResourceList().get(j));
+      taskRequirement.setResourceUsage(Integer.parseInt(usageLineTokens[j]));
+      taskRequirementList.add(taskRequirement);
+      taskRequirementListOfTask.add(taskRequirement);
+    }
+    task.setTaskRequirementList(taskRequirementListOfTask);
+    taskList.add(task);
+  }
+  solution.setTaskList(taskList);
+  solution.setTaskRequirementList(taskRequirementList);
+}

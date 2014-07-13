@@ -1,0 +1,3 @@
+{
+  return ValueRangeFactory.createIntValueRange(task.getStartPeriodRangeFrom(),task.getStartPeriodRangeTo());
+}

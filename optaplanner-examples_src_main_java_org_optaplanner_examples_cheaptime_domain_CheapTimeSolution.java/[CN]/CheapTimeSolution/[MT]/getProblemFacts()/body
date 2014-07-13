@@ -1,0 +1,9 @@
+{
+  List<Object> facts=new ArrayList<Object>();
+  facts.addAll(resourceList);
+  facts.addAll(machineList);
+  facts.addAll(machineCapacityList);
+  facts.addAll(taskList);
+  facts.addAll(taskRequirementList);
+  return facts;
+}

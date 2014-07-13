@@ -1,0 +1,11 @@
+{
+  List<Task> taskList=solution.getTaskList();
+  List<TaskAssignment> taskAssignmentList=new ArrayList<TaskAssignment>(taskList.size());
+  for (  Task task : taskList) {
+    TaskAssignment taskAssignment=new TaskAssignment();
+    taskAssignment.setId(task.getId());
+    taskAssignment.setTask(task);
+    taskAssignmentList.add(taskAssignment);
+  }
+  solution.setTaskAssignmentList(taskAssignmentList);
+}

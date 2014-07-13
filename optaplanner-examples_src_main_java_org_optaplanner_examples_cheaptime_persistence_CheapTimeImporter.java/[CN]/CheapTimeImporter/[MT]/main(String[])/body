@@ -1,0 +1,3 @@
+{
+  new CheapTimeImporter().convertAll();
+}

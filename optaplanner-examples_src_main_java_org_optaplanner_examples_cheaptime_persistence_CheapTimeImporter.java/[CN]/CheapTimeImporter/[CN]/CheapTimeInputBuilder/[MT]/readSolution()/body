@@ -1,0 +1,14 @@
+{
+  solution=new CheapTimeSolution();
+  solution.setId(0L);
+  int timeResolutionInMinutes=readIntegerValue();
+  solution.setTimeResolutionInMinutes(timeResolutionInMinutes);
+  maximumPeriod=((24 * 60) / timeResolutionInMinutes) + 1;
+  readResourceList();
+  readMachineList();
+  readTaskList();
+  readForecast();
+  createTaskAssignmentList();
+  logger.info("CheapTime {} has {} resources, {} machines, {} periods and {} tasks.",getInputId(),solution.getResourceList().size(),solution.getMachineList().size(),maximumPeriod,solution.getTaskList().size());
+  return solution;
+}
