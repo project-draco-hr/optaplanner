@@ -3,12 +3,12 @@
   solution.setId(0L);
   int timeResolutionInMinutes=readIntegerValue();
   solution.setTimeResolutionInMinutes(timeResolutionInMinutes);
-  maximumPeriod=((24 * 60) / timeResolutionInMinutes) + 1;
+  maximumEndPeriod=((24 * 60) / timeResolutionInMinutes) + 1;
   readResourceList();
   readMachineList();
   readTaskList();
-  readForecast();
+  readForecastFile();
   createTaskAssignmentList();
-  logger.info("CheapTime {} has {} resources, {} machines, {} periods and {} tasks.",getInputId(),solution.getResourceList().size(),solution.getMachineList().size(),maximumPeriod,solution.getTaskList().size());
+  logger.info("CheapTime {} has {} resources, {} machines, {} periods and {} tasks.",getInputId(),solution.getResourceList().size(),solution.getMachineList().size(),maximumEndPeriod - 1,solution.getTaskList().size());
   return solution;
 }

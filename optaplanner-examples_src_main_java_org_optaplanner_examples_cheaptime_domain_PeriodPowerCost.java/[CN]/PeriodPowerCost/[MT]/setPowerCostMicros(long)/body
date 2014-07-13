@@ -1,0 +1,3 @@
+{
+  this.powerCostMicros=powerCostMicros;
+}

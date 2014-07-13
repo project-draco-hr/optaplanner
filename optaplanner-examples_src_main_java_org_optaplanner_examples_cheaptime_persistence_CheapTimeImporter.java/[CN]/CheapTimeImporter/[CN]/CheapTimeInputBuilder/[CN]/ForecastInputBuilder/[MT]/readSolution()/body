@@ -1,0 +1,15 @@
+{
+  int periodListSize=readIntegerValue();
+  List<PeriodPowerCost> periodPowerCostList=new ArrayList<PeriodPowerCost>(periodListSize);
+  for (int i=0; i < periodListSize; i++) {
+    String[] taskLineTokens=splitBySpacesOrTabs(readStringValue(),2);
+    PeriodPowerCost periodPowerCost=new PeriodPowerCost();
+    int period=Integer.parseInt(taskLineTokens[0]);
+    periodPowerCost.setId((long)period);
+    periodPowerCost.setPeriod(period);
+    periodPowerCost.setPowerCostMicros(CostCalculator.parseMicroCost(taskLineTokens[1]));
+    periodPowerCostList.add(periodPowerCost);
+  }
+  solution.setPeriodPowerCostList(periodPowerCostList);
+  return null;
+}
