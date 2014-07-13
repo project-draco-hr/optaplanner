@@ -3,12 +3,12 @@
   List<Machine> machineList=new ArrayList<Machine>(machineListSize);
   List<MachineCapacity> machineCapacityList=new ArrayList<MachineCapacity>(machineListSize * resourceListSize);
   long machineCapacityId=0L;
-  for (int i=0; i < machineListSize * 2; i++) {
+  for (int i=0; i < machineListSize; i++) {
     Machine machine=new Machine();
     String[] machineLineTokens=splitBySpacesOrTabs(readStringValue(),4);
     machine.setId(Long.parseLong(machineLineTokens[0]));
     machine.setEnergyUsage(Integer.parseInt(machineLineTokens[1]));
-    machine.setSpinUpDownCost(Integer.parseInt(machineLineTokens[2]) + Integer.parseInt(machineLineTokens[3]));
+    machine.setSpinUpDownCostMicros(CostCalculator.parseMicroCost(machineLineTokens[2]) + CostCalculator.parseMicroCost(machineLineTokens[3]));
     String[] capacityLineTokens=splitBySpacesOrTabs(readStringValue(),resourceListSize);
     List<MachineCapacity> machineCapacityListOfMachine=new ArrayList<MachineCapacity>(resourceListSize);
     for (int j=0; j < resourceListSize; j++) {
