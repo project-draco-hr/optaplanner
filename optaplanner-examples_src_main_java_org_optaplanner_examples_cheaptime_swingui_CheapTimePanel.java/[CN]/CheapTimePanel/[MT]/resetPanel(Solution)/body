@@ -1,3 +1,5 @@
 {
-  updatePanel(solution);
+  removeAll();
+  ChartPanel chartPanel=new ChartPanel(createChart((CheapTimeSolution)solution));
+  add(chartPanel,BorderLayout.CENTER);
 }
