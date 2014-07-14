@@ -7,7 +7,7 @@
     Machine machine=new Machine();
     String[] machineLineTokens=splitBySpacesOrTabs(readStringValue(),4);
     machine.setId(Long.parseLong(machineLineTokens[0]));
-    machine.setEnergyUsage(Integer.parseInt(machineLineTokens[1]));
+    machine.setPowerConsumptionMicros(CostCalculator.parseMicroCost(machineLineTokens[1]));
     machine.setSpinUpDownCostMicros(CostCalculator.parseMicroCost(machineLineTokens[2]) + CostCalculator.parseMicroCost(machineLineTokens[3]));
     String[] capacityLineTokens=splitBySpacesOrTabs(readStringValue(),resourceListSize);
     List<MachineCapacity> machineCapacityListOfMachine=new ArrayList<MachineCapacity>(resourceListSize);

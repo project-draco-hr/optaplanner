@@ -1,0 +1,10 @@
+{
+  active=true;
+  Task task=taskAssignment.getTask();
+  taskPowerConsumptionTotalMicros+=task.getPowerConsumptionMicros();
+  for (int i=0; i < resourceAvailableList.size(); i++) {
+    int resourceAvailable=resourceAvailableList.get(i);
+    TaskRequirement taskRequirement=task.getTaskRequirementList().get(i);
+    resourceAvailableList.set(i,resourceAvailable - taskRequirement.getResourceUsage());
+  }
+}

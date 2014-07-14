@@ -1,0 +1,3 @@
+{
+  exporter.writeSolution(solution,outputSolutionFile);
+}

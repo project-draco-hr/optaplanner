@@ -1,0 +1,3 @@
+{
+  return CheapTimeSolutionFileIO.FILE_EXTENSION;
+}

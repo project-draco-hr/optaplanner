@@ -1,0 +1,13 @@
+{
+  List<Machine> machineList=solution.getMachineList();
+  bufferedWriter.write(machineList.size() + "\n");
+  for (  Machine machine : machineList) {
+    bufferedWriter.write(machine.getId() + "\n");
+    throw new UnsupportedOperationException("TODO implement me");
+  }
+  List<TaskAssignment> taskAssignmentList=solution.getTaskAssignmentList();
+  bufferedWriter.write(taskAssignmentList.size() + "\n");
+  for (  TaskAssignment taskAssignment : taskAssignmentList) {
+    bufferedWriter.write(taskAssignment.getTask().getId() + " " + taskAssignment.getMachine().getId()+ " "+ taskAssignment.getStartPeriod()+ "\n");
+  }
+}

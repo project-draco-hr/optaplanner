@@ -1,0 +1,3 @@
+Machine machine
+int period
+int resourceListSize

@@ -1,0 +1,6 @@
+{
+  if (startPeriod == null) {
+    return null;
+  }
+  return startPeriod + task.getDuration();
+}

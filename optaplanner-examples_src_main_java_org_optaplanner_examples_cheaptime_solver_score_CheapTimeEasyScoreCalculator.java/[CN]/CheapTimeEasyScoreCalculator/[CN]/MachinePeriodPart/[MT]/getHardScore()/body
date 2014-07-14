@@ -1,0 +1,9 @@
+{
+  long hardScore=0L;
+  for (  int resourceAvailable : resourceAvailableList) {
+    if (resourceAvailable < 0) {
+      hardScore+=(long)resourceAvailable;
+    }
+  }
+  return hardScore;
+}

@@ -5,6 +5,9 @@
     String[] taskLineTokens=splitBySpacesOrTabs(readStringValue(),2);
     PeriodPowerCost periodPowerCost=new PeriodPowerCost();
     int period=Integer.parseInt(taskLineTokens[0]);
+    if (periodPowerCostList.size() != period) {
+      throw new IllegalStateException("The forecast period (" + period + ") does not increment normally and gets a different list index ("+ periodPowerCostList.size()+ ").");
+    }
     periodPowerCost.setId((long)period);
     periodPowerCost.setPeriod(period);
     periodPowerCost.setPowerCostMicros(CostCalculator.parseMicroCost(taskLineTokens[1]));

@@ -13,13 +13,13 @@
     }
     task.setDuration(duration);
     int earliestStart=Integer.parseInt(taskLineTokens[2]);
-    if (earliestStart < 0 || earliestStart > maximumEndPeriod) {
-      throw new IllegalArgumentException("Task with id (" + task.getId() + ") has a earliestStart ("+ earliestStart+ ") which is not between 0 and maximumEndPeriod ("+ maximumEndPeriod+ "), both inclusive.");
+    if (earliestStart < solution.getGlobalPeriodRangeFrom() || earliestStart >= solution.getGlobalPeriodRangeTo()) {
+      throw new IllegalArgumentException("Task with id (" + task.getId() + ") has a earliestStart ("+ earliestStart+ ") which is not between globalPeriodRangeFrom ("+ solution.getGlobalPeriodRangeFrom()+ ") and globalPeriodRangeTo ("+ solution.getGlobalPeriodRangeTo()+ ").");
     }
     task.setStartPeriodRangeFrom(earliestStart);
     int latestEnd=Integer.parseInt(taskLineTokens[3]);
-    if (latestEnd < 0 || latestEnd > maximumEndPeriod) {
-      throw new IllegalArgumentException("Task with id (" + task.getId() + ") has a latestEnd ("+ latestEnd+ ") which is not between 0 and maximumEndPeriod ("+ maximumEndPeriod+ "), both inclusive.");
+    if (latestEnd < solution.getGlobalPeriodRangeFrom() || latestEnd > solution.getGlobalPeriodRangeTo()) {
+      throw new IllegalArgumentException("Task with id (" + task.getId() + ") has a latestEnd ("+ latestEnd+ ") which is not between globalPeriodRangeFrom ("+ solution.getGlobalPeriodRangeFrom()+ ") and globalPeriodRangeTo ("+ solution.getGlobalPeriodRangeTo()+ ").");
     }
     task.setPowerConsumptionMicros(CostCalculator.parseMicroCost(taskLineTokens[4]));
     task.setStartPeriodRangeTo(latestEnd - duration + 1);
