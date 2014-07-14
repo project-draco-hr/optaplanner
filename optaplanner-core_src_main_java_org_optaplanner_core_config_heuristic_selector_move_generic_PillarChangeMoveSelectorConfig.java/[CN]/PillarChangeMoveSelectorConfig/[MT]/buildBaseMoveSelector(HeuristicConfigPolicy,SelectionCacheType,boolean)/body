@@ -1,6 +1,7 @@
 {
   PillarSelectorConfig pillarSelectorConfig_=pillarSelectorConfig == null ? new PillarSelectorConfig() : pillarSelectorConfig;
-  PillarSelector pillarSelector=pillarSelectorConfig_.buildPillarSelector(configPolicy,minimumCacheType,SelectionOrder.fromRandomSelectionBoolean(randomSelection));
+  List<String> variableNameIncludeList=valueSelectorConfig == null ? null : valueSelectorConfig.getVariableName() == null ? null : Collections.singletonList(valueSelectorConfig.getVariableName());
+  PillarSelector pillarSelector=pillarSelectorConfig_.buildPillarSelector(configPolicy,minimumCacheType,SelectionOrder.fromRandomSelectionBoolean(randomSelection),variableNameIncludeList);
   ValueSelectorConfig valueSelectorConfig_=valueSelectorConfig == null ? new ValueSelectorConfig() : valueSelectorConfig;
   ValueSelector valueSelector=valueSelectorConfig_.buildValueSelector(configPolicy,pillarSelector.getEntityDescriptor(),minimumCacheType,SelectionOrder.fromRandomSelectionBoolean(randomSelection));
   if (!(valueSelector instanceof EntityIndependentValueSelector)) {
