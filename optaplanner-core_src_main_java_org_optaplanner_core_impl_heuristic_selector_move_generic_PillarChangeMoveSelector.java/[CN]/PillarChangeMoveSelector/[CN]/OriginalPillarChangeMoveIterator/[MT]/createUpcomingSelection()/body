@@ -4,7 +4,7 @@
       return noUpcomingSelection();
     }
     upcomingPillar=pillarIterator.next();
-    valueIterator=valueSelector.iterator();
+    valueIterator=valueSelector.iterator(upcomingPillar.get(0));
     if (!valueIterator.hasNext()) {
       return noUpcomingSelection();
     }

@@ -7,7 +7,7 @@
   }
   List<Object> pillar=pillarIterator.next();
   if (!valueIterator.hasNext()) {
-    valueIterator=valueSelector.iterator();
+    valueIterator=valueSelector.iterator(pillar.get(0));
     if (!valueIterator.hasNext()) {
       return noUpcomingSelection();
     }
