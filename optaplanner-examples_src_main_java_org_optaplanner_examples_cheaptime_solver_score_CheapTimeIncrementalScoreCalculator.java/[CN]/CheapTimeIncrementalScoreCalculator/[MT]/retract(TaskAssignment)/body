@@ -1,0 +1,12 @@
+{
+  Machine machine=taskAssignment.getMachine();
+  Integer startPeriod=taskAssignment.getStartPeriod();
+  if (machine != null && startPeriod != null) {
+    List<MachinePeriodPart> machinePeriodList=machinePeriodListMap.get(machine);
+    int endPeriod=taskAssignment.getEndPeriod();
+    for (int period=startPeriod; period < endPeriod; period++) {
+      MachinePeriodPart machinePeriodPart=machinePeriodList.get(period);
+      machinePeriodPart.removeTaskAssignment(taskAssignment);
+    }
+  }
+}

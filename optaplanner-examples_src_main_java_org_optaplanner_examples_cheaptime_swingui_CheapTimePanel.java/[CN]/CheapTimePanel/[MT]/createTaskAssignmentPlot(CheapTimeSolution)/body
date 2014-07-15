@@ -1,0 +1,38 @@
+{
+  YIntervalSeriesCollection seriesCollection=new YIntervalSeriesCollection();
+  Map<Machine,YIntervalSeries> machineSeriesMap=new LinkedHashMap<Machine,YIntervalSeries>(solution.getMachineList().size());
+  YIntervalRenderer renderer=new YIntervalRenderer();
+  int seriesIndex=0;
+  for (  Machine machine : solution.getMachineList()) {
+    YIntervalSeries projectSeries=new YIntervalSeries(machine.getLabel());
+    seriesCollection.addSeries(projectSeries);
+    machineSeriesMap.put(machine,projectSeries);
+    renderer.setSeriesShape(seriesIndex,new Rectangle());
+    renderer.setSeriesStroke(seriesIndex,new BasicStroke(3.0f));
+    seriesIndex++;
+  }
+  YIntervalSeries unassignedProjectSeries=new YIntervalSeries("Unassigned");
+  seriesCollection.addSeries(unassignedProjectSeries);
+  machineSeriesMap.put(null,unassignedProjectSeries);
+  renderer.setSeriesShape(seriesIndex,new Rectangle());
+  renderer.setSeriesStroke(seriesIndex,new BasicStroke(3.0f));
+  List<TaskAssignment> taskAssignmentList=new ArrayList<TaskAssignment>(solution.getTaskAssignmentList());
+  Collections.sort(taskAssignmentList,plotTaskAssignmentComparator);
+  int pixelIndex=0;
+  for (  TaskAssignment taskAssignment : taskAssignmentList) {
+    Integer startPeriod=taskAssignment.getStartPeriod();
+    Integer endPeriod=taskAssignment.getEndPeriod();
+    if (startPeriod == null) {
+      startPeriod=0;
+      endPeriod=0;
+    }
+    YIntervalSeries machineSeries=machineSeriesMap.get(taskAssignment.getMachine());
+    machineSeries.add(pixelIndex,(startPeriod + endPeriod) / 2.0,startPeriod,endPeriod);
+    pixelIndex++;
+  }
+  NumberAxis domainAxis=new NumberAxis("Task");
+  domainAxis.setStandardTickUnits(NumberAxis.createIntegerTickUnits());
+  domainAxis.setRange(-0.5,taskAssignmentList.size() - 0.5);
+  domainAxis.setInverted(true);
+  return new XYPlot(seriesCollection,domainAxis,null,renderer);
+}

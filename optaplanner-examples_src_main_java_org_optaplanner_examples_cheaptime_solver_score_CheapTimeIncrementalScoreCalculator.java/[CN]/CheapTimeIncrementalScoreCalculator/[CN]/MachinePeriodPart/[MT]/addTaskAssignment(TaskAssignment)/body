@@ -1,0 +1,16 @@
+{
+  Task task=taskAssignment.getTask();
+  if (taskCount == 0) {
+    softScore-=CostCalculator.multiplyTwoMicros(machine.getPowerConsumptionMicros(),periodPowerCostMicros);
+  }
+  taskCount++;
+  for (int i=0; i < resourceAvailableList.size(); i++) {
+    int resourceAvailable=resourceAvailableList.get(i);
+    TaskRequirement taskRequirement=task.getTaskRequirementList().get(i);
+    hardScore-=Math.min(resourceAvailable,0);
+    resourceAvailable-=taskRequirement.getResourceUsage();
+    resourceAvailableList.set(i,resourceAvailable);
+    hardScore+=Math.min(resourceAvailable,0);
+  }
+  softScore-=CostCalculator.multiplyTwoMicros(task.getPowerConsumptionMicros(),periodPowerCostMicros);
+}

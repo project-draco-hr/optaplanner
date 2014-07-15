@@ -1,0 +1,3 @@
+{
+  retract((TaskAssignment)entity);
+}

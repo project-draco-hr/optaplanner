@@ -1,0 +1,5 @@
+{
+  Machine aMachine=a.getMachine();
+  Machine bMachine=b.getMachine();
+  return new CompareToBuilder().append(aMachine == null ? null : aMachine.getId(),bMachine == null ? null : bMachine.getId()).append(a.getStartPeriod(),b.getStartPeriod()).append(a.getTask().getDuration(),b.getTask().getDuration()).append(a.getId(),b.getId()).toComparison();
+}

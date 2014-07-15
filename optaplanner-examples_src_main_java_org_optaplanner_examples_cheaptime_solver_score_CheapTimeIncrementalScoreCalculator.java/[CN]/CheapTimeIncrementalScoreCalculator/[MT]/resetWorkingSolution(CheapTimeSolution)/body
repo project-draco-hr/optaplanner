@@ -1,0 +1,23 @@
+{
+  this.cheapTimeSolution=solution;
+  hardScore=0L;
+  softScore=0L;
+  if (solution.getGlobalPeriodRangeFrom() != 0) {
+    throw new IllegalStateException("The globalPeriodRangeFrom (" + solution.getGlobalPeriodRangeFrom() + ") should be 0.");
+  }
+  resourceListSize=solution.getResourceList().size();
+  globalPeriodRangeTo=solution.getGlobalPeriodRangeTo();
+  List<Machine> machineList=solution.getMachineList();
+  List<PeriodPowerCost> periodPowerCostList=solution.getPeriodPowerCostList();
+  machinePeriodListMap=new LinkedHashMap<Machine,List<MachinePeriodPart>>(machineList.size());
+  for (  Machine machine : machineList) {
+    List<MachinePeriodPart> machinePeriodList=new ArrayList<MachinePeriodPart>(globalPeriodRangeTo);
+    for (int period=0; period < globalPeriodRangeTo; period++) {
+      machinePeriodList.add(new MachinePeriodPart(machine,periodPowerCostList.get(period)));
+    }
+    machinePeriodListMap.put(machine,machinePeriodList);
+  }
+  for (  TaskAssignment taskAssignment : solution.getTaskAssignmentList()) {
+    insert(taskAssignment);
+  }
+}
