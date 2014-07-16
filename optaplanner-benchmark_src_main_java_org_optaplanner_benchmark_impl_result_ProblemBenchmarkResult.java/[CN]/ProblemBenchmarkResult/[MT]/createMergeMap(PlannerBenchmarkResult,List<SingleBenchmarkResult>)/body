@@ -14,6 +14,8 @@
           newResult.problemStatisticList.add(oldProblemStatistic.getProblemStatisticType().buildProblemStatistic(newResult));
         }
         newResult.singleBenchmarkResultList=new ArrayList<SingleBenchmarkResult>(oldResult.singleBenchmarkResultList.size());
+        newResult.entityCount=oldResult.entityCount;
+        newResult.variableCount=oldResult.variableCount;
         newResult.problemScale=oldResult.problemScale;
         fileToNewResultMap.put(oldResult.inputSolutionFile,newResult);
         newPlannerBenchmarkResult.getUnifiedProblemBenchmarkResultList().add(newResult);
@@ -29,6 +31,8 @@
             it.remove();
           }
         }
+        newResult.entityCount=ConfigUtils.mergeProperty(oldResult.entityCount,newResult.entityCount);
+        newResult.variableCount=ConfigUtils.mergeProperty(oldResult.variableCount,newResult.variableCount);
         newResult.problemScale=ConfigUtils.mergeProperty(oldResult.problemScale,newResult.problemScale);
       }
       mergeMap.put(oldResult,newResult);

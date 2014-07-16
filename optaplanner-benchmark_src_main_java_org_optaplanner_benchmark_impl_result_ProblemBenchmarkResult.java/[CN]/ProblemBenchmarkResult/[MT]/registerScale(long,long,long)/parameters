@@ -1,0 +1,3 @@
+long registeringEntityCount
+long registeringVariableCount
+long registeringProblemScale

@@ -8,7 +8,6 @@
   for (  SingleStatistic singleStatistic : newResult.effectiveSingleStatisticMap.values()) {
     singleStatistic.setPointList(oldResult.getSingleStatistic(singleStatistic.getStatisticType()).getPointList());
   }
-  newResult.entityCount=oldResult.entityCount;
   newResult.succeeded=oldResult.succeeded;
   newResult.score=oldResult.score;
   newResult.timeMillisSpent=oldResult.timeMillisSpent;
