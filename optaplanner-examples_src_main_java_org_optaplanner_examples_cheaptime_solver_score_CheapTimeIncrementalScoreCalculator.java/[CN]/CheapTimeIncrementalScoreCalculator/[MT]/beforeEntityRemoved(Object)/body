@@ -1,3 +1,5 @@
 {
-  retract((TaskAssignment)entity);
+  TaskAssignment taskAssignment=(TaskAssignment)entity;
+  oldMachine=taskAssignment.getMachine();
+  oldStartPeriod=taskAssignment.getStartPeriod();
 }

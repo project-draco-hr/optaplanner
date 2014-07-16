@@ -3,8 +3,10 @@
   this.period=periodPowerCost.getPeriod();
   this.periodPowerCostMicros=periodPowerCost.getPowerCostMicros();
   taskCount=0;
-  resourceAvailableList=new ArrayList<Integer>(resourceListSize);
-  for (int i=0; i < resourceListSize; i++) {
-    resourceAvailableList.add(machine.getMachineCapacityList().get(i).getCapacity());
+  if (machine != null) {
+    resourceAvailableList=new ArrayList<Integer>(resourceListSize);
+    for (int i=0; i < resourceListSize; i++) {
+      resourceAvailableList.add(machine.getMachineCapacityList().get(i).getCapacity());
+    }
   }
 }

@@ -1,4 +1,7 @@
 {
+  if (machine == null) {
+    return;
+  }
   Task task=taskAssignment.getTask();
   if (taskCount == 1) {
     softScore+=CostCalculator.multiplyTwoMicros(machine.getPowerConsumptionMicros(),periodPowerCostMicros);
@@ -12,5 +15,4 @@
     resourceAvailableList.set(i,resourceAvailable);
     hardScore+=Math.min(resourceAvailable,0);
   }
-  softScore+=CostCalculator.multiplyTwoMicros(task.getPowerConsumptionMicros(),periodPowerCostMicros);
 }

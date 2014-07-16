@@ -1,2 +1,5 @@
 {
+  TaskAssignment taskAssignment=(TaskAssignment)entity;
+  modifyMachine(taskAssignment,oldMachine,null);
+  modifyStartPeriod(taskAssignment,oldStartPeriod,null);
 }

@@ -1,0 +1,24 @@
+{
+  if (ObjectUtils.equals(oldMachine,newMachine)) {
+    return;
+  }
+  Integer startPeriod=taskAssignment.getStartPeriod();
+  if (startPeriod == null) {
+    return;
+  }
+  Integer endPeriod=taskAssignment.getEndPeriod();
+  if (oldMachine != null) {
+    List<MachinePeriodPart> machinePeriodList=machinePeriodListMap.get(oldMachine);
+    for (int period=startPeriod; period < endPeriod; period++) {
+      MachinePeriodPart machinePeriodPart=machinePeriodList.get(period);
+      machinePeriodPart.removeTaskAssignment(taskAssignment);
+    }
+  }
+  if (newMachine != null) {
+    List<MachinePeriodPart> machinePeriodList=machinePeriodListMap.get(newMachine);
+    for (int period=startPeriod; period < endPeriod; period++) {
+      MachinePeriodPart machinePeriodPart=machinePeriodList.get(period);
+      machinePeriodPart.addTaskAssignment(taskAssignment);
+    }
+  }
+}
