@@ -1,0 +1,3 @@
+{
+  super(new ArgOption("default","org/optaplanner/examples/cheaptime/benchmark/cheapTimeBenchmarkConfig.xml"),new ArgOption("template","org/optaplanner/examples/cheaptime/benchmark/cheapTimeBenchmarkConfigTemplate.xml.ftl",true));
+}

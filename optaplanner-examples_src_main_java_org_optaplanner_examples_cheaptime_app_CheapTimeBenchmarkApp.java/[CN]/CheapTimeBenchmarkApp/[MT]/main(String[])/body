@@ -1,0 +1,3 @@
+{
+  new CheapTimeBenchmarkApp().buildAndBenchmark(args);
+}
