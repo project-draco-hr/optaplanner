@@ -1,9 +1,58 @@
 {
+  int globalPeriodRangeTo=solution.getGlobalPeriodRangeTo();
   List<Machine> machineList=solution.getMachineList();
+  List<PeriodPowerCost> periodPowerCostList=solution.getPeriodPowerCostList();
   bufferedWriter.write(machineList.size() + "\n");
+  Map<Machine,List<Boolean>> machinePeriodActiveListMap=createMachinePeriodActiveListMap(machineList);
   for (  Machine machine : machineList) {
     bufferedWriter.write(machine.getId() + "\n");
-    throw new UnsupportedOperationException("TODO implement me");
+    List<Boolean> periodActiveList=machinePeriodActiveListMap.get(machine);
+    int spinCount=0;
+    StringBuilder spinUpDownLines=new StringBuilder("");
+    MachinePeriodStatus previousStatus=MachinePeriodStatus.OFF;
+    long idleCostMicros=0L;
+    int lastSpinDown=Integer.MIN_VALUE;
+    for (int i=0; i < globalPeriodRangeTo; i++) {
+      boolean active=periodActiveList.get(i);
+      if (active) {
+        if (previousStatus == MachinePeriodStatus.OFF) {
+          if (lastSpinDown >= 0) {
+            spinCount++;
+            spinUpDownLines.append("0 ").append(lastSpinDown).append("\n");
+            lastSpinDown=Integer.MIN_VALUE;
+          }
+          spinCount++;
+          spinUpDownLines.append("1 ").append(i).append("\n");
+        }
+        previousStatus=MachinePeriodStatus.ACTIVE;
+      }
+ else {
+        if (previousStatus != MachinePeriodStatus.OFF) {
+          if (previousStatus == MachinePeriodStatus.ACTIVE) {
+            lastSpinDown=i - 1;
+          }
+          PeriodPowerCost periodPowerCost=periodPowerCostList.get(i);
+          idleCostMicros+=CheapTimeCostCalculator.multiplyTwoMicros(machine.getPowerConsumptionMicros(),periodPowerCost.getPowerCostMicros());
+          if (idleCostMicros > machine.getSpinUpDownCostMicros()) {
+            idleCostMicros=0L;
+            previousStatus=MachinePeriodStatus.OFF;
+          }
+ else {
+            previousStatus=MachinePeriodStatus.IDLE;
+          }
+        }
+      }
+    }
+    if (previousStatus == MachinePeriodStatus.ACTIVE) {
+      lastSpinDown=globalPeriodRangeTo - 1;
+    }
+    if (lastSpinDown >= 0) {
+      spinCount++;
+      spinUpDownLines.append("0 ").append(lastSpinDown).append("\n");
+      lastSpinDown=Integer.MIN_VALUE;
+    }
+    bufferedWriter.write(spinCount + "\n");
+    bufferedWriter.write(spinUpDownLines.toString());
   }
   List<TaskAssignment> taskAssignmentList=solution.getTaskAssignmentList();
   bufferedWriter.write(taskAssignmentList.size() + "\n");
