@@ -1,0 +1,5 @@
+TaskAssignment taskAssignment
+List<MachinePeriodPart> machinePeriodList
+int startPeriod
+int endPeriod
+boolean insertTaskCost

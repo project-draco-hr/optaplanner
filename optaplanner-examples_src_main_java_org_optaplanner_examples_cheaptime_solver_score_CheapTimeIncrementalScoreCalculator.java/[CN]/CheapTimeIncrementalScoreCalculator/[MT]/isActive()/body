@@ -1,0 +1,3 @@
+{
+  return this == MachinePeriodStatus.STILL_ACTIVE || this == MachinePeriodStatus.SPIN_UP_AND_ACTIVE;
+}

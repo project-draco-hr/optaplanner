@@ -3,15 +3,22 @@
     return;
   }
   Task task=taskAssignment.getTask();
-  if (taskCount == 0) {
-    softScore-=CostCalculator.multiplyTwoMicros(machine.getPowerConsumptionMicros(),periodPowerCostMicros);
+  if (status == MachinePeriodStatus.OFF || status == MachinePeriodStatus.IDLE) {
+    throw new IllegalStateException("Impossible status (" + status + ").");
   }
-  taskCount++;
+  taskCount--;
+  if (taskCount == 0) {
+    softScore+=machineCostMicros;
+    if (status == MachinePeriodStatus.SPIN_UP_AND_ACTIVE) {
+      softScore+=machine.getSpinUpDownCostMicros();
+    }
+    status=MachinePeriodStatus.OFF;
+  }
   for (int i=0; i < resourceAvailableList.size(); i++) {
     int resourceAvailable=resourceAvailableList.get(i);
     TaskRequirement taskRequirement=task.getTaskRequirementList().get(i);
     hardScore-=Math.min(resourceAvailable,0);
-    resourceAvailable-=taskRequirement.getResourceUsage();
+    resourceAvailable+=taskRequirement.getResourceUsage();
     resourceAvailableList.set(i,resourceAvailable);
     hardScore+=Math.min(resourceAvailable,0);
   }

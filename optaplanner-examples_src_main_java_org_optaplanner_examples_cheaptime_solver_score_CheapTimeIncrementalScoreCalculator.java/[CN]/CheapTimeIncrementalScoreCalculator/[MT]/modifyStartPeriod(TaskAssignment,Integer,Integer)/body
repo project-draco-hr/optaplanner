@@ -42,14 +42,10 @@
   }
   Machine machine=taskAssignment.getMachine();
   List<MachinePeriodPart> machinePeriodList=machinePeriodListMap.get(machine);
-  for (int period=retractStart; period < retractEnd; period++) {
-    MachinePeriodPart machinePeriodPart=machinePeriodList.get(period);
-    machinePeriodPart.removeTaskAssignment(taskAssignment);
-    softScore+=CostCalculator.multiplyTwoMicros(task.getPowerConsumptionMicros(),machinePeriodPart.periodPowerCostMicros);
+  if (retractStart != retractEnd) {
+    retractRange(taskAssignment,machinePeriodList,retractStart,retractEnd,true);
   }
-  for (int period=insertStart; period < insertEnd; period++) {
-    MachinePeriodPart machinePeriodPart=machinePeriodList.get(period);
-    machinePeriodPart.addTaskAssignment(taskAssignment);
-    softScore-=CostCalculator.multiplyTwoMicros(task.getPowerConsumptionMicros(),machinePeriodPart.periodPowerCostMicros);
+  if (insertStart != insertEnd) {
+    insertRange(taskAssignment,machinePeriodList,insertStart,insertEnd,true);
   }
 }

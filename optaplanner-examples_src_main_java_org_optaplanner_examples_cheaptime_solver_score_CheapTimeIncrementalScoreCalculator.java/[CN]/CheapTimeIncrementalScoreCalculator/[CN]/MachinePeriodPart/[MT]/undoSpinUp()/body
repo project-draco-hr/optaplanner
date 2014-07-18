@@ -1,0 +1,7 @@
+{
+  if (status != MachinePeriodStatus.SPIN_UP_AND_ACTIVE) {
+    throw new IllegalStateException("Impossible status (" + status + ").");
+  }
+  softScore+=machine.getSpinUpDownCostMicros();
+  status=MachinePeriodStatus.STILL_ACTIVE;
+}

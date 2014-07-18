@@ -1,0 +1,54 @@
+{
+  long powerConsumptionMicros=taskAssignment.getTask().getPowerConsumptionMicros();
+  MachinePeriodPart startMachinePeriod=machinePeriodList.get(startPeriod);
+  boolean startIsOff=startMachinePeriod.status == MachinePeriodStatus.OFF;
+  boolean lastIsOff=machinePeriodList.get(endPeriod - 1).status == MachinePeriodStatus.OFF;
+  for (int i=startPeriod; i < endPeriod; i++) {
+    MachinePeriodPart machinePeriod=machinePeriodList.get(i);
+    machinePeriod.insertTaskAssignment(taskAssignment);
+    if (insertTaskCost) {
+      softScore-=CostCalculator.multiplyTwoMicros(powerConsumptionMicros,machinePeriod.periodPowerCostMicros);
+    }
+    if (machinePeriod.status == MachinePeriodStatus.SPIN_UP_AND_ACTIVE && i != startPeriod) {
+      machinePeriod.undoSpinUp();
+    }
+  }
+  if (startIsOff) {
+    long idleAvailable=taskAssignment.getMachine().getSpinUpDownCostMicros();
+    int idlePeriodStart=Integer.MIN_VALUE;
+    for (int i=startPeriod - 1; i >= 0 && idleAvailable >= 0L; i--) {
+      MachinePeriodPart machinePeriod=machinePeriodList.get(i);
+      if (machinePeriod.status.isActive()) {
+        idlePeriodStart=i + 1;
+        break;
+      }
+      idleAvailable-=machinePeriod.machineCostMicros;
+    }
+    if (idlePeriodStart >= 0) {
+      for (int i=idlePeriodStart; i < startPeriod; i++) {
+        machinePeriodList.get(i).makeIdle();
+      }
+    }
+ else {
+      startMachinePeriod.spinUp();
+    }
+  }
+  if (lastIsOff) {
+    long idleAvailable=taskAssignment.getMachine().getSpinUpDownCostMicros();
+    int idlePeriodEnd=Integer.MIN_VALUE;
+    for (int i=endPeriod; i < globalPeriodRangeTo && idleAvailable >= 0L; i++) {
+      MachinePeriodPart machinePeriod=machinePeriodList.get(i);
+      if (machinePeriod.status.isActive()) {
+        idlePeriodEnd=i;
+        machinePeriod.undoSpinUp();
+        break;
+      }
+      idleAvailable-=machinePeriod.machineCostMicros;
+    }
+    if (idlePeriodEnd >= 0) {
+      for (int i=endPeriod; i < idlePeriodEnd; i++) {
+        machinePeriodList.get(i).makeIdle();
+      }
+    }
+  }
+}

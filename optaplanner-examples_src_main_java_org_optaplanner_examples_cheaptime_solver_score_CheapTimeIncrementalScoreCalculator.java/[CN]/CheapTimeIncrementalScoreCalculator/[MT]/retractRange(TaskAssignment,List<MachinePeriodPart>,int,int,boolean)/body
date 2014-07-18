@@ -1,0 +1,100 @@
+{
+  long powerConsumptionMicros=taskAssignment.getTask().getPowerConsumptionMicros();
+  long spinUpDownCostMicros=taskAssignment.getMachine().getSpinUpDownCostMicros();
+  MachinePeriodStatus previousStatus;
+  int idlePeriodStart=Integer.MIN_VALUE;
+  long idleAvailable;
+  if (startPeriod == 0) {
+    previousStatus=MachinePeriodStatus.OFF;
+    idleAvailable=Long.MIN_VALUE;
+  }
+ else {
+    previousStatus=machinePeriodList.get(startPeriod - 1).status;
+    if (previousStatus == MachinePeriodStatus.IDLE) {
+      idleAvailable=spinUpDownCostMicros;
+      for (int i=startPeriod - 1; i >= 0 && idleAvailable >= 0L; i--) {
+        MachinePeriodPart machinePeriod=machinePeriodList.get(i);
+        if (machinePeriod.status.isActive()) {
+          idlePeriodStart=i + 1;
+          break;
+        }
+        idleAvailable-=machinePeriod.machineCostMicros;
+      }
+    }
+ else {
+      idleAvailable=Long.MIN_VALUE;
+    }
+  }
+  for (int i=startPeriod; i < endPeriod; i++) {
+    MachinePeriodPart machinePeriod=machinePeriodList.get(i);
+    machinePeriod.retractTaskAssignment(taskAssignment);
+    if (retractTaskCost) {
+      softScore+=CostCalculator.multiplyTwoMicros(powerConsumptionMicros,machinePeriod.periodPowerCostMicros);
+    }
+    if (machinePeriod.status.isActive()) {
+      if (previousStatus == MachinePeriodStatus.OFF) {
+        if (machinePeriod.status != MachinePeriodStatus.SPIN_UP_AND_ACTIVE) {
+          machinePeriod.spinUp();
+        }
+      }
+ else       if (previousStatus == MachinePeriodStatus.IDLE) {
+        for (int j=idlePeriodStart; j < i; j++) {
+          machinePeriodList.get(j).makeIdle();
+        }
+        idlePeriodStart=Integer.MIN_VALUE;
+        idleAvailable=Long.MIN_VALUE;
+      }
+      previousStatus=MachinePeriodStatus.STILL_ACTIVE;
+    }
+ else     if (machinePeriod.status == MachinePeriodStatus.OFF) {
+      if (previousStatus != MachinePeriodStatus.OFF) {
+        if (previousStatus.isActive()) {
+          idlePeriodStart=i;
+          idleAvailable=spinUpDownCostMicros;
+        }
+        idleAvailable-=machinePeriod.machineCostMicros;
+        if (idleAvailable < 0) {
+          previousStatus=MachinePeriodStatus.OFF;
+          idlePeriodStart=Integer.MIN_VALUE;
+          idleAvailable=Long.MIN_VALUE;
+        }
+ else {
+          previousStatus=MachinePeriodStatus.IDLE;
+        }
+      }
+    }
+ else {
+      throw new IllegalStateException("Impossible status (" + machinePeriod.status + ").");
+    }
+  }
+  if (endPeriod < globalPeriodRangeTo && machinePeriodList.get(endPeriod).status != MachinePeriodStatus.OFF && !previousStatus.isActive()) {
+    for (int i=endPeriod; i < globalPeriodRangeTo; i++) {
+      MachinePeriodPart machinePeriod=machinePeriodList.get(i);
+      if (machinePeriod.status.isActive()) {
+        if (previousStatus == MachinePeriodStatus.OFF) {
+          machinePeriod.spinUp();
+        }
+ else         if (previousStatus == MachinePeriodStatus.IDLE) {
+          for (int j=idlePeriodStart; j < i; j++) {
+            machinePeriodList.get(j).makeIdle();
+          }
+        }
+        break;
+      }
+ else       if (machinePeriod.status == MachinePeriodStatus.IDLE) {
+        machinePeriod.status=MachinePeriodStatus.OFF;
+        if (previousStatus == MachinePeriodStatus.IDLE) {
+          idleAvailable-=machinePeriod.machineCostMicros;
+          if (idleAvailable < 0) {
+            previousStatus=MachinePeriodStatus.OFF;
+            idlePeriodStart=Integer.MIN_VALUE;
+            idleAvailable=Long.MIN_VALUE;
+          }
+        }
+      }
+ else {
+        throw new IllegalStateException("Impossible status (" + machinePeriod.status + ").");
+      }
+    }
+  }
+}
