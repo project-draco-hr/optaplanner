@@ -7,8 +7,8 @@
     Machine machine=new Machine();
     String[] machineLineTokens=splitBySpacesOrTabs(readStringValue(),4);
     machine.setId(Long.parseLong(machineLineTokens[0]));
-    machine.setPowerConsumptionMicros(CostCalculator.parseMicroCost(machineLineTokens[1]));
-    machine.setSpinUpDownCostMicros(CostCalculator.parseMicroCost(machineLineTokens[2]) + CostCalculator.parseMicroCost(machineLineTokens[3]));
+    machine.setPowerConsumptionMicros(CheapTimeCostCalculator.parseMicroCost(machineLineTokens[1]));
+    machine.setSpinUpDownCostMicros(CheapTimeCostCalculator.parseMicroCost(machineLineTokens[2]) + CheapTimeCostCalculator.parseMicroCost(machineLineTokens[3]));
     String[] capacityLineTokens=splitBySpacesOrTabs(readStringValue(),resourceListSize);
     List<MachineCapacity> machineCapacityListOfMachine=new ArrayList<MachineCapacity>(resourceListSize);
     for (int j=0; j < resourceListSize; j++) {

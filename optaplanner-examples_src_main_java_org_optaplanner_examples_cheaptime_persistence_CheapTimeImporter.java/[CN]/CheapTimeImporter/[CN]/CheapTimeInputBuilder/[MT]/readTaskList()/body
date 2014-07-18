@@ -21,7 +21,7 @@
     if (latestEnd < solution.getGlobalPeriodRangeFrom() || latestEnd > solution.getGlobalPeriodRangeTo()) {
       throw new IllegalArgumentException("Task with id (" + task.getId() + ") has a latestEnd ("+ latestEnd+ ") which is not between globalPeriodRangeFrom ("+ solution.getGlobalPeriodRangeFrom()+ ") and globalPeriodRangeTo ("+ solution.getGlobalPeriodRangeTo()+ ").");
     }
-    task.setPowerConsumptionMicros(CostCalculator.parseMicroCost(taskLineTokens[4]));
+    task.setPowerConsumptionMicros(CheapTimeCostCalculator.parseMicroCost(taskLineTokens[4]));
     task.setStartPeriodRangeTo(latestEnd - duration + 1);
     String[] usageLineTokens=splitBySpacesOrTabs(readStringValue(),resourceListSize);
     List<TaskRequirement> taskRequirementListOfTask=new ArrayList<TaskRequirement>(resourceListSize);

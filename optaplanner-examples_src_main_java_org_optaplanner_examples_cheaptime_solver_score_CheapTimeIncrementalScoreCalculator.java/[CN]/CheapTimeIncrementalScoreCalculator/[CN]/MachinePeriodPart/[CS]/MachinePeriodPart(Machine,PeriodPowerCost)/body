@@ -9,7 +9,7 @@
     for (int i=0; i < resourceListSize; i++) {
       resourceAvailableList.add(machine.getMachineCapacityList().get(i).getCapacity());
     }
-    machineCostMicros=CostCalculator.multiplyTwoMicros(machine.getPowerConsumptionMicros(),periodPowerCostMicros);
+    machineCostMicros=CheapTimeCostCalculator.multiplyTwoMicros(machine.getPowerConsumptionMicros(),periodPowerCostMicros);
   }
  else {
     machineCostMicros=Long.MIN_VALUE;

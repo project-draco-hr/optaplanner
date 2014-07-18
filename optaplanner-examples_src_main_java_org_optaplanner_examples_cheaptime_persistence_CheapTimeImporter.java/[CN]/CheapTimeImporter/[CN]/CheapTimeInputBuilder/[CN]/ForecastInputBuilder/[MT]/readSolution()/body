@@ -10,7 +10,7 @@
     }
     periodPowerCost.setId((long)period);
     periodPowerCost.setPeriod(period);
-    periodPowerCost.setPowerCostMicros(CostCalculator.parseMicroCost(taskLineTokens[1]));
+    periodPowerCost.setPowerCostMicros(CheapTimeCostCalculator.parseMicroCost(taskLineTokens[1]));
     periodPowerCostList.add(periodPowerCost);
   }
   solution.setPeriodPowerCostList(periodPowerCostList);
