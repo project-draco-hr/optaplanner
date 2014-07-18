@@ -11,12 +11,16 @@
     status=MachinePeriodStatus.STILL_ACTIVE;
   }
   taskCount++;
-  for (int i=0; i < resourceAvailableList.size(); i++) {
-    int resourceAvailable=resourceAvailableList.get(i);
+  for (int i=0; i < resourceAvailableList.length; i++) {
+    int resourceAvailable=resourceAvailableList[i];
     TaskRequirement taskRequirement=task.getTaskRequirementList().get(i);
-    hardScore-=Math.min(resourceAvailable,0);
+    if (resourceAvailable < 0) {
+      hardScore-=resourceAvailable;
+    }
     resourceAvailable-=taskRequirement.getResourceUsage();
-    resourceAvailableList.set(i,resourceAvailable);
-    hardScore+=Math.min(resourceAvailable,0);
+    if (resourceAvailable < 0) {
+      hardScore+=resourceAvailable;
+    }
+    resourceAvailableList[i]=resourceAvailable;
   }
 }
