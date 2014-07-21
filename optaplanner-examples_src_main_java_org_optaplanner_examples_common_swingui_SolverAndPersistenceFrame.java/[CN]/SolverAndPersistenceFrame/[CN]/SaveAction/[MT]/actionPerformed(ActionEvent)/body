@@ -1,15 +1,4 @@
 {
-  JFileChooser fileChooser=new JFileChooser(solutionBusiness.getSolvedDataDir());
-  fileChooser.setFileFilter(new FileFilter(){
-    public boolean accept(    File file){
-      return file.isDirectory() || file.getName().endsWith(".xml");
-    }
-    public String getDescription(){
-      return "Solution XStream XML files";
-    }
-  }
-);
-  fileChooser.setDialogTitle(NAME);
   fileChooser.setSelectedFile(new File(solutionBusiness.getSolvedDataDir(),FilenameUtils.getBaseName(solutionBusiness.getSolutionFileName()) + ".xml"));
   int approved=fileChooser.showSaveDialog(SolverAndPersistenceFrame.this);
   if (approved == JFileChooser.APPROVE_OPTION) {

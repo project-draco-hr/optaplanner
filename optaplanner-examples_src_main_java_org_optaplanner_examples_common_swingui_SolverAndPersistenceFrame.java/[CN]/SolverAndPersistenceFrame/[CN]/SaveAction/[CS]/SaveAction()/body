@@ -1,3 +1,14 @@
 {
   super(NAME,new ImageIcon(SolverAndPersistenceFrame.class.getResource("saveAction.png")));
+  fileChooser=new JFileChooser(solutionBusiness.getSolvedDataDir());
+  fileChooser.setFileFilter(new FileFilter(){
+    public boolean accept(    File file){
+      return file.isDirectory() || file.getName().endsWith(".xml");
+    }
+    public String getDescription(){
+      return "Solution XStream XML files";
+    }
+  }
+);
+  fileChooser.setDialogTitle(NAME);
 }

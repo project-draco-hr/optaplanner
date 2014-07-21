@@ -1,3 +1,14 @@
 {
   super(NAME,new ImageIcon(SolverAndPersistenceFrame.class.getResource("importAction.png")));
+  fileChooser=new JFileChooser(solutionBusiness.getImportDataDir());
+  fileChooser.setFileFilter(new FileFilter(){
+    public boolean accept(    File file){
+      return file.isDirectory() || solutionBusiness.acceptImportFile(file);
+    }
+    public String getDescription(){
+      return "Import files (*." + solutionBusiness.getImportFileSuffix() + ")";
+    }
+  }
+);
+  fileChooser.setDialogTitle(NAME);
 }
