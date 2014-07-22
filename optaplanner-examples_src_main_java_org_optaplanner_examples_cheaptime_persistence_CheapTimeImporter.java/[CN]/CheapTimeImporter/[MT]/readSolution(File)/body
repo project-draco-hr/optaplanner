@@ -1,0 +1,4 @@
+{
+  File instanceFile=new File(inputFile,"instance.txt");
+  return super.readSolution(instanceFile);
+}
