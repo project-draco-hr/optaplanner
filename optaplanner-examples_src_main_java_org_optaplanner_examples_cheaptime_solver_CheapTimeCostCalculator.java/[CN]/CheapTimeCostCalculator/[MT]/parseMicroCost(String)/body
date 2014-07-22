@@ -1,7 +1,8 @@
 {
   BigDecimal costBigDecimal=new BigDecimal(costString);
-  if (costBigDecimal.scale() > 6) {
-    throw new IllegalArgumentException("The costString (" + costString + ") has a scale ("+ costBigDecimal.scale()+ ") higher than 6.");
+  if (costBigDecimal.scale() > 11) {
+    throw new IllegalArgumentException("The costString (" + costString + ") has a scale ("+ costBigDecimal.scale()+ ") higher than 10.");
   }
+  costBigDecimal=costBigDecimal.setScale(11);
   return costBigDecimal.multiply(ONE_MILLION_BIG_DECIMAL).longValueExact();
 }

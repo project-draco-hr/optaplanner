@@ -1,5 +1,6 @@
 {
   int periodListSize=readIntegerValue();
+  long periodDurationPerHour=CheapTimeCostCalculator.divideTwoMicros(CheapTimeCostCalculator.toMicroCost(1440),CheapTimeCostCalculator.toMicroCost(periodListSize * 60L));
   List<PeriodPowerCost> periodPowerCostList=new ArrayList<PeriodPowerCost>(periodListSize);
   for (int i=0; i < periodListSize; i++) {
     String[] taskLineTokens=splitBySpacesOrTabs(readStringValue(),2);
@@ -10,7 +11,8 @@
     }
     periodPowerCost.setId((long)period);
     periodPowerCost.setPeriod(period);
-    periodPowerCost.setPowerCostMicros(CheapTimeCostCalculator.parseMicroCost(taskLineTokens[1]));
+    long hourlyPowerCostMicros=CheapTimeCostCalculator.parseMicroCost(taskLineTokens[1]);
+    periodPowerCost.setPowerCostMicros(CheapTimeCostCalculator.multiplyTwoMicros(hourlyPowerCostMicros,periodDurationPerHour));
     periodPowerCostList.add(periodPowerCost);
   }
   solution.setPeriodPowerCostList(periodPowerCostList);
