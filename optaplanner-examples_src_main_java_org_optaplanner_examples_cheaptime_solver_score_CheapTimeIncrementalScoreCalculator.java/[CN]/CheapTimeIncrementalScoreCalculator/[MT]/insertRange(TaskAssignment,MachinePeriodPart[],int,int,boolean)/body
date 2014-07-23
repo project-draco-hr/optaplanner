@@ -1,10 +1,10 @@
 {
   long powerConsumptionMicros=taskAssignment.getTask().getPowerConsumptionMicros();
-  MachinePeriodPart startMachinePeriod=machinePeriodList.get(startPeriod);
+  MachinePeriodPart startMachinePeriod=machinePeriodList[startPeriod];
   boolean startIsOff=startMachinePeriod.status == MachinePeriodStatus.OFF;
-  boolean lastIsOff=machinePeriodList.get(endPeriod - 1).status == MachinePeriodStatus.OFF;
+  boolean lastIsOff=machinePeriodList[endPeriod - 1].status == MachinePeriodStatus.OFF;
   for (int i=startPeriod; i < endPeriod; i++) {
-    MachinePeriodPart machinePeriod=machinePeriodList.get(i);
+    MachinePeriodPart machinePeriod=machinePeriodList[i];
     machinePeriod.insertTaskAssignment(taskAssignment);
     if (insertTaskCost) {
       softScore-=CheapTimeCostCalculator.multiplyTwoMicros(powerConsumptionMicros,machinePeriod.periodPowerCostMicros);
@@ -17,7 +17,7 @@
     long idleAvailable=taskAssignment.getMachine().getSpinUpDownCostMicros();
     int idlePeriodStart=Integer.MIN_VALUE;
     for (int i=startPeriod - 1; i >= 0 && idleAvailable >= 0L; i--) {
-      MachinePeriodPart machinePeriod=machinePeriodList.get(i);
+      MachinePeriodPart machinePeriod=machinePeriodList[i];
       if (machinePeriod.status.isActive()) {
         idlePeriodStart=i + 1;
         break;
@@ -26,7 +26,7 @@
     }
     if (idlePeriodStart >= 0) {
       for (int i=idlePeriodStart; i < startPeriod; i++) {
-        machinePeriodList.get(i).makeIdle();
+        machinePeriodList[i].makeIdle();
       }
     }
  else {
@@ -37,7 +37,7 @@
     long idleAvailable=taskAssignment.getMachine().getSpinUpDownCostMicros();
     int idlePeriodEnd=Integer.MIN_VALUE;
     for (int i=endPeriod; i < globalPeriodRangeTo && idleAvailable >= 0L; i++) {
-      MachinePeriodPart machinePeriod=machinePeriodList.get(i);
+      MachinePeriodPart machinePeriod=machinePeriodList[i];
       if (machinePeriod.status.isActive()) {
         idlePeriodEnd=i;
         machinePeriod.undoSpinUp();
@@ -47,7 +47,7 @@
     }
     if (idlePeriodEnd >= 0) {
       for (int i=endPeriod; i < idlePeriodEnd; i++) {
-        machinePeriodList.get(i).makeIdle();
+        machinePeriodList[i].makeIdle();
       }
     }
   }

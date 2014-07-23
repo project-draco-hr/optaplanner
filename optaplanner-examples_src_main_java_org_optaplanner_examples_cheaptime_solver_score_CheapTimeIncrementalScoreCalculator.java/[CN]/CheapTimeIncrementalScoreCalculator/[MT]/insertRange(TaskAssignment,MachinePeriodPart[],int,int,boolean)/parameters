@@ -1,5 +1,5 @@
 TaskAssignment taskAssignment
-List<MachinePeriodPart> machinePeriodList
+MachinePeriodPart[] machinePeriodList
 int startPeriod
 int endPeriod
 boolean insertTaskCost

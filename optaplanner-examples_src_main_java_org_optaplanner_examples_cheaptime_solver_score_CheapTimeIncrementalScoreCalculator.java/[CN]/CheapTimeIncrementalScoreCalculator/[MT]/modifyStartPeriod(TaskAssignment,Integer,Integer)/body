@@ -41,7 +41,13 @@
     }
   }
   Machine machine=taskAssignment.getMachine();
-  List<MachinePeriodPart> machinePeriodList=machinePeriodListMap.get(machine);
+  MachinePeriodPart[] machinePeriodList;
+  if (machine != null) {
+    machinePeriodList=machineToMachinePeriodListMap[machine.getIndex()];
+  }
+ else {
+    machinePeriodList=unassignedMachinePeriodList;
+  }
   if (retractStart != retractEnd) {
     retractRange(taskAssignment,machinePeriodList,retractStart,retractEnd,true);
   }

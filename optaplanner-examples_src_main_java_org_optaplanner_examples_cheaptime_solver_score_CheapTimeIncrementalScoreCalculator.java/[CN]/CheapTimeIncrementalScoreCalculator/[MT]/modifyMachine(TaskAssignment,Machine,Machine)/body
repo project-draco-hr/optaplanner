@@ -8,11 +8,11 @@
   }
   Integer endPeriod=taskAssignment.getEndPeriod();
   if (oldMachine != null) {
-    List<MachinePeriodPart> machinePeriodList=machinePeriodListMap.get(oldMachine);
+    MachinePeriodPart[] machinePeriodList=machineToMachinePeriodListMap[oldMachine.getIndex()];
     retractRange(taskAssignment,machinePeriodList,startPeriod,endPeriod,false);
   }
   if (newMachine != null) {
-    List<MachinePeriodPart> machinePeriodList=machinePeriodListMap.get(newMachine);
+    MachinePeriodPart[] machinePeriodList=machineToMachinePeriodListMap[newMachine.getIndex()];
     insertRange(taskAssignment,machinePeriodList,startPeriod,endPeriod,false);
   }
 }

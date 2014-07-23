@@ -9,11 +9,11 @@
     idleAvailable=Long.MIN_VALUE;
   }
  else {
-    previousStatus=machinePeriodList.get(startPeriod - 1).status;
+    previousStatus=machinePeriodList[startPeriod - 1].status;
     if (previousStatus == MachinePeriodStatus.IDLE) {
       idleAvailable=spinUpDownCostMicros;
       for (int i=startPeriod - 1; i >= 0; i--) {
-        MachinePeriodPart machinePeriod=machinePeriodList.get(i);
+        MachinePeriodPart machinePeriod=machinePeriodList[i];
         if (machinePeriod.status.isActive()) {
           idlePeriodStart=i + 1;
           break;
@@ -30,7 +30,7 @@
     }
   }
   for (int i=startPeriod; i < endPeriod; i++) {
-    MachinePeriodPart machinePeriod=machinePeriodList.get(i);
+    MachinePeriodPart machinePeriod=machinePeriodList[i];
     machinePeriod.retractTaskAssignment(taskAssignment);
     if (retractTaskCost) {
       softScore+=CheapTimeCostCalculator.multiplyTwoMicros(powerConsumptionMicros,machinePeriod.periodPowerCostMicros);
@@ -43,7 +43,7 @@
       }
  else       if (previousStatus == MachinePeriodStatus.IDLE) {
         for (int j=idlePeriodStart; j < i; j++) {
-          machinePeriodList.get(j).makeIdle();
+          machinePeriodList[j].makeIdle();
         }
         idlePeriodStart=Integer.MIN_VALUE;
         idleAvailable=Long.MIN_VALUE;
@@ -71,16 +71,16 @@
       throw new IllegalStateException("Impossible status (" + machinePeriod.status + ").");
     }
   }
-  if (endPeriod < globalPeriodRangeTo && machinePeriodList.get(endPeriod).status != MachinePeriodStatus.OFF && !previousStatus.isActive()) {
+  if (endPeriod < globalPeriodRangeTo && machinePeriodList[endPeriod].status != MachinePeriodStatus.OFF && !previousStatus.isActive()) {
     for (int i=endPeriod; i < globalPeriodRangeTo; i++) {
-      MachinePeriodPart machinePeriod=machinePeriodList.get(i);
+      MachinePeriodPart machinePeriod=machinePeriodList[i];
       if (machinePeriod.status.isActive()) {
         if (previousStatus == MachinePeriodStatus.OFF) {
           machinePeriod.spinUp();
         }
  else         if (previousStatus == MachinePeriodStatus.IDLE) {
           for (int j=idlePeriodStart; j < i; j++) {
-            machinePeriodList.get(j).makeIdle();
+            machinePeriodList[j].makeIdle();
           }
         }
         break;
