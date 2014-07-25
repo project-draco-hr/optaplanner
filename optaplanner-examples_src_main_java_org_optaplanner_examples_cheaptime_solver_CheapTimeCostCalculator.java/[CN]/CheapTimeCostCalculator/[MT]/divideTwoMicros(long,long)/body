@@ -1,6 +1,6 @@
 {
-  double aDouble=((double)(aMicros)) / ONE_MILLION_DOUBLE;
-  double bDouble=((double)(bMicros)) / ONE_MILLION_DOUBLE;
+  double aDouble=((double)(aMicros)) / MICROS_PER_ONE_AS_DOUBLE;
+  double bDouble=((double)(bMicros)) / MICROS_PER_ONE_AS_DOUBLE;
   double result=aDouble / bDouble;
-  return Math.round(result * ONE_MILLION_DOUBLE);
+  return Math.round(result * MICROS_PER_ONE_AS_DOUBLE);
 }
