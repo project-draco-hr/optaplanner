@@ -40,6 +40,12 @@
       }
     }
   }
+  if (oldStartPeriod != null) {
+    softScore+=oldStartPeriod;
+  }
+  if (newStartPeriod != null) {
+    softScore-=newStartPeriod;
+  }
   Machine machine=taskAssignment.getMachine();
   MachinePeriodPart[] machinePeriodList;
   if (machine != null) {

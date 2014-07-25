@@ -8,9 +8,9 @@
   }
   taskCount--;
   if (taskCount == 0) {
-    softScore+=machineCostMicros;
+    mediumScore+=machineCostMicros;
     if (status == MachinePeriodStatus.SPIN_UP_AND_ACTIVE) {
-      softScore+=machine.getSpinUpDownCostMicros();
+      mediumScore+=machine.getSpinUpDownCostMicros();
     }
     status=MachinePeriodStatus.OFF;
   }

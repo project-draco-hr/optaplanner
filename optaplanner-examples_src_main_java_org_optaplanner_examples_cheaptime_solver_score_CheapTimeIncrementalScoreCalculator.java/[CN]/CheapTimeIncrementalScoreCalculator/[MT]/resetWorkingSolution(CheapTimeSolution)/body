@@ -1,6 +1,7 @@
 {
   this.cheapTimeSolution=solution;
   hardScore=0L;
+  mediumScore=0L;
   softScore=0L;
   if (solution.getGlobalPeriodRangeFrom() != 0) {
     throw new IllegalStateException("The globalPeriodRangeFrom (" + solution.getGlobalPeriodRangeFrom() + ") should be 0.");

@@ -7,7 +7,7 @@
     MachinePeriodPart machinePeriod=machinePeriodList[i];
     machinePeriod.insertTaskAssignment(taskAssignment);
     if (insertTaskCost) {
-      softScore-=CheapTimeCostCalculator.multiplyTwoMicros(powerConsumptionMicros,machinePeriod.periodPowerCostMicros);
+      mediumScore-=CheapTimeCostCalculator.multiplyTwoMicros(powerConsumptionMicros,machinePeriod.periodPowerCostMicros);
     }
     if (machinePeriod.status == MachinePeriodStatus.SPIN_UP_AND_ACTIVE && i != startPeriod) {
       machinePeriod.undoSpinUp();

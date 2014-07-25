@@ -13,6 +13,7 @@
     }
     machinePeriodListMap.put(machine,machinePeriodList);
   }
+  long mediumScore=0L;
   long softScore=0L;
   List<PeriodPowerCost> periodPowerCostList=solution.getPeriodPowerCostList();
   for (  TaskAssignment taskAssignment : solution.getTaskAssignmentList()) {
@@ -25,8 +26,9 @@
         MachinePeriodPart machinePeriodPart=machinePeriodList.get(period);
         machinePeriodPart.addTaskAssignment(taskAssignment);
         PeriodPowerCost periodPowerCost=periodPowerCostList.get(period);
-        softScore-=CheapTimeCostCalculator.multiplyTwoMicros(taskAssignment.getTask().getPowerConsumptionMicros(),periodPowerCost.getPowerCostMicros());
+        mediumScore-=CheapTimeCostCalculator.multiplyTwoMicros(taskAssignment.getTask().getPowerConsumptionMicros(),periodPowerCost.getPowerCostMicros());
       }
+      softScore-=startPeriod;
     }
   }
   long hardScore=0L;
@@ -41,14 +43,14 @@
       boolean active=machinePeriodPart.isActive();
       if (active) {
         if (previousStatus == MachinePeriodStatus.OFF) {
-          softScore-=machine.getSpinUpDownCostMicros();
+          mediumScore-=machine.getSpinUpDownCostMicros();
         }
  else         if (previousStatus == MachinePeriodStatus.IDLE) {
-          softScore-=idleCostMicros;
+          mediumScore-=idleCostMicros;
           idleCostMicros=0L;
         }
         hardScore+=machinePeriodPart.getHardScore();
-        softScore-=CheapTimeCostCalculator.multiplyTwoMicros(machine.getPowerConsumptionMicros(),periodPowerCost.getPowerCostMicros());
+        mediumScore-=CheapTimeCostCalculator.multiplyTwoMicros(machine.getPowerConsumptionMicros(),periodPowerCost.getPowerCostMicros());
         previousStatus=MachinePeriodStatus.ACTIVE;
       }
  else {
@@ -65,5 +67,5 @@
       }
     }
   }
-  return HardSoftLongScore.valueOf(hardScore,softScore);
+  return HardMediumSoftLongScore.valueOf(hardScore,mediumScore,softScore);
 }
