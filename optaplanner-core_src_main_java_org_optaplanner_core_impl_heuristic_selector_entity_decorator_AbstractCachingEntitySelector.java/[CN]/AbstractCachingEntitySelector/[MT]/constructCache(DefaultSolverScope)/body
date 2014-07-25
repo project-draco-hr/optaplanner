@@ -5,5 +5,5 @@
   }
   cachedEntityList=new ArrayList<Object>((int)childSize);
   Iterators.addAll(cachedEntityList,childEntitySelector.iterator());
-  logger.trace("    Created cachedEntityList with size ({}) in entitySelector({}).",cachedEntityList.size(),this);
+  logger.trace("    Created cachedEntityList: size ({}), entitySelector ({}).",cachedEntityList.size(),this);
 }

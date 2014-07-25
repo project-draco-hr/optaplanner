@@ -5,5 +5,5 @@
   }
   cachedMoveList=new ArrayList<Move>((int)childSize);
   Iterators.addAll(cachedMoveList,childMoveSelector.iterator());
-  logger.trace("    Created cachedMoveList with size ({}) in moveSelector({}).",cachedMoveList.size(),this);
+  logger.trace("    Created cachedMoveList: size ({}), moveSelector ({}).",cachedMoveList.size(),this);
 }

@@ -1,5 +1,5 @@
 {
   super.constructCache(solverScope);
   sorter.sort(solverScope.getScoreDirector(),cachedMoveList);
-  logger.trace("    Sorted cachedMoveList with size ({}) in moveSelector({}).",cachedMoveList.size(),this);
+  logger.trace("    Sorted cachedMoveList: size ({}), moveSelector ({}).",cachedMoveList.size(),this);
 }

@@ -1,5 +1,5 @@
 {
   super.constructCache(solverScope);
   sorter.sort(solverScope.getScoreDirector(),cachedEntityList);
-  logger.trace("    Sorted cachedEntityList with size ({}) in entitySelector({}).",cachedEntityList.size(),this);
+  logger.trace("    Sorted cachedEntityList: size ({}), entitySelector ({}).",cachedEntityList.size(),this);
 }
