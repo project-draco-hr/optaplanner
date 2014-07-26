@@ -1,0 +1,7 @@
+{
+  if (status != MachinePeriodStatus.IDLE) {
+    throw new IllegalStateException("Impossible status (" + status + ").");
+  }
+  mediumScore+=machineCostMicros;
+  status=MachinePeriodStatus.OFF;
+}

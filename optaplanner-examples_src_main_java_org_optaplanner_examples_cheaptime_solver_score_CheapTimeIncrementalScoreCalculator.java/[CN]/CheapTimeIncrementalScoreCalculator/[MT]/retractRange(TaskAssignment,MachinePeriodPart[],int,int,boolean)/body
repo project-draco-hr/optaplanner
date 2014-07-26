@@ -18,7 +18,7 @@
           idlePeriodStart=i + 1;
           break;
         }
-        machinePeriod.status=MachinePeriodStatus.OFF;
+        machinePeriod.undoMakeIdle();
         idleAvailable-=machinePeriod.machineCostMicros;
       }
       if (idleAvailable < 0L) {
@@ -86,7 +86,7 @@
         break;
       }
  else       if (machinePeriod.status == MachinePeriodStatus.IDLE) {
-        machinePeriod.status=MachinePeriodStatus.OFF;
+        machinePeriod.undoMakeIdle();
         if (previousStatus == MachinePeriodStatus.IDLE) {
           idleAvailable-=machinePeriod.machineCostMicros;
           if (idleAvailable < 0) {
