@@ -1,20 +1,19 @@
 {
-  YIntervalSeriesCollection seriesCollection=new YIntervalSeriesCollection();
-  Map<Machine,YIntervalSeries> machineSeriesMap=new LinkedHashMap<Machine,YIntervalSeries>(solution.getMachineList().size());
-  YIntervalRenderer renderer=new YIntervalRenderer();
+  OHLCSeriesCollection seriesCollection=new OHLCSeriesCollection();
+  Map<Machine,OHLCSeries> machineSeriesMap=new LinkedHashMap<Machine,OHLCSeries>(solution.getMachineList().size());
+  HighLowRenderer renderer=new HighLowRenderer();
+  renderer.setTickLength(0.0);
   int seriesIndex=0;
   for (  Machine machine : solution.getMachineList()) {
-    YIntervalSeries projectSeries=new YIntervalSeries(machine.getLabel());
+    OHLCSeries projectSeries=new OHLCSeries(machine.getLabel());
     seriesCollection.addSeries(projectSeries);
     machineSeriesMap.put(machine,projectSeries);
-    renderer.setSeriesShape(seriesIndex,new Rectangle());
     renderer.setSeriesStroke(seriesIndex,new BasicStroke(3.0f));
     seriesIndex++;
   }
-  YIntervalSeries unassignedProjectSeries=new YIntervalSeries("Unassigned");
+  OHLCSeries unassignedProjectSeries=new OHLCSeries("Unassigned");
   seriesCollection.addSeries(unassignedProjectSeries);
   machineSeriesMap.put(null,unassignedProjectSeries);
-  renderer.setSeriesShape(seriesIndex,new Rectangle());
   renderer.setSeriesStroke(seriesIndex,new BasicStroke(3.0f));
   List<TaskAssignment> taskAssignmentList=new ArrayList<TaskAssignment>(solution.getTaskAssignmentList());
   Collections.sort(taskAssignmentList,plotTaskAssignmentComparator);
@@ -26,8 +25,9 @@
       startPeriod=0;
       endPeriod=0;
     }
-    YIntervalSeries machineSeries=machineSeriesMap.get(taskAssignment.getMachine());
-    machineSeries.add(pixelIndex,(startPeriod + endPeriod) / 2.0,startPeriod,endPeriod);
+    OHLCSeries machineSeries=machineSeriesMap.get(taskAssignment.getMachine());
+    Task task=taskAssignment.getTask();
+    machineSeries.add(new FixedMillisecond(pixelIndex),task.getStartPeriodRangeFrom(),startPeriod,endPeriod,task.getStartPeriodRangeTo() + task.getDuration());
     pixelIndex++;
   }
   NumberAxis domainAxis=new NumberAxis("Task");
