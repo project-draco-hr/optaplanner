@@ -1,5 +1,9 @@
 {
   super(NAME,new ImageIcon(SolverAndPersistenceFrame.class.getResource("exportAction.png")));
+  if (!solutionBusiness.hasExporter()) {
+    fileChooser=null;
+    return;
+  }
   fileChooser=new JFileChooser(solutionBusiness.getExportDataDir());
   fileChooser.setFileFilter(new FileFilter(){
     public boolean accept(    File file){

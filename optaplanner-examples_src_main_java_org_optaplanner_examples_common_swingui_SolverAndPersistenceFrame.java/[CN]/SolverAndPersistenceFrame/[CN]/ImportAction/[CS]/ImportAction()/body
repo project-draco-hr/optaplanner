@@ -1,5 +1,9 @@
 {
   super(NAME,new ImageIcon(SolverAndPersistenceFrame.class.getResource("importAction.png")));
+  if (!solutionBusiness.hasImporter()) {
+    fileChooser=null;
+    return;
+  }
   fileChooser=new JFileChooser(solutionBusiness.getImportDataDir());
   FileFilter filter;
   if (solutionBusiness.isImportFileDirectory()) {
