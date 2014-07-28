@@ -1,0 +1,3 @@
+{
+  return new CompareToBuilder().append(depotAngle,other.depotAngle).append(depotDistance,other.depotDistance).append(customer.getId(),other.customer.getId()).toComparison();
+}

@@ -1,0 +1,5 @@
+{
+  this.customer=customer;
+  this.depotAngle=depotAngle;
+  this.depotDistance=depotDistance;
+}
