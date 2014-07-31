@@ -1,10 +1,4 @@
 {
-  weightTotal+=weight;
   List<Object> justificationList=extractJustificationList(kcontext);
-  LongConstraintMatch constraintMatch=new LongConstraintMatch(constraintPackage,constraintName,scoreLevel,justificationList,weight);
-  boolean added=constraintMatchSet.add(constraintMatch);
-  if (!added) {
-    throw new IllegalStateException("The constraintMatchTotal (" + this + ") could not add constraintMatch ("+ constraintMatch+ ") to its constraintMatchSet ("+ constraintMatchSet+ ").");
-  }
-  return constraintMatch;
+  return addConstraintMatch(justificationList,weight);
 }

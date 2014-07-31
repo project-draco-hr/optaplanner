@@ -1,4 +1,9 @@
 {
   super.setWorkingSolution(workingSolution);
-  incrementalScoreCalculator.resetWorkingSolution(workingSolution);
+  if (incrementalScoreCalculator instanceof ConstraintMatchAwareIncrementalScoreCalculator) {
+    ((ConstraintMatchAwareIncrementalScoreCalculator)incrementalScoreCalculator).resetWorkingSolution(workingSolution,constraintMatchEnabledPreference);
+  }
+ else {
+    incrementalScoreCalculator.resetWorkingSolution(workingSolution);
+  }
 }

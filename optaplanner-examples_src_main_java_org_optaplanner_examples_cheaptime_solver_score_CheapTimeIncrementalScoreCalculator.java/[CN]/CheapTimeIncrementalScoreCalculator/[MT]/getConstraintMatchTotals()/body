@@ -1,0 +1,39 @@
+{
+  List<Resource> resourceList=cheapTimeSolution.getResourceList();
+  LongConstraintMatchTotal resourceCapacityMatchTotal=new LongConstraintMatchTotal(CONSTRAINT_PACKAGE,"resourceCapacity",0);
+  LongConstraintMatchTotal spinUpDownMatchTotal=new LongConstraintMatchTotal(CONSTRAINT_PACKAGE,"spinUpDown",1);
+  LongConstraintMatchTotal machineConsumptionMatchTotal=new LongConstraintMatchTotal(CONSTRAINT_PACKAGE,"machineConsumption",1);
+  LongConstraintMatchTotal taskConsumptionMatchTotal=new LongConstraintMatchTotal(CONSTRAINT_PACKAGE,"taskConsumption",1);
+  LongConstraintMatchTotal minimizeTaskStartPeriodMatchTotal=new LongConstraintMatchTotal(CONSTRAINT_PACKAGE,"minimizeTaskStartPeriod",2);
+  for (  Machine machine : cheapTimeSolution.getMachineList()) {
+    for (int period=0; period < globalPeriodRangeTo; period++) {
+      MachinePeriodPart machinePeriod=machineToMachinePeriodListMap[machine.getIndex()][period];
+      for (int i=0; i < machinePeriod.resourceAvailableList.length; i++) {
+        int resourceAvailable=machinePeriod.resourceAvailableList[i];
+        if (resourceAvailable < 0) {
+          resourceCapacityMatchTotal.addConstraintMatch(Arrays.<Object>asList(machine,period,resourceList.get(i)),resourceAvailable);
+        }
+      }
+      if (machinePeriod.status == MachinePeriodStatus.SPIN_UP_AND_ACTIVE) {
+        spinUpDownMatchTotal.addConstraintMatch(Arrays.<Object>asList(machine,period),-machine.getSpinUpDownCostMicros());
+      }
+      if (machinePeriod.status != MachinePeriodStatus.OFF) {
+        machineConsumptionMatchTotal.addConstraintMatch(Arrays.<Object>asList(machine,period),-machinePeriod.machineCostMicros);
+      }
+    }
+  }
+  taskConsumptionMatchTotal.addConstraintMatch(Arrays.<Object>asList(),mediumScore - spinUpDownMatchTotal.getWeightTotal() - machineConsumptionMatchTotal.getWeightTotal());
+  for (  TaskAssignment taskAssignment : cheapTimeSolution.getTaskAssignmentList()) {
+    Integer startPeriod=taskAssignment.getStartPeriod();
+    if (startPeriod != null) {
+      minimizeTaskStartPeriodMatchTotal.addConstraintMatch(Arrays.<Object>asList(taskAssignment),-startPeriod);
+    }
+  }
+  List<ConstraintMatchTotal> constraintMatchTotalList=new ArrayList<ConstraintMatchTotal>(4);
+  constraintMatchTotalList.add(resourceCapacityMatchTotal);
+  constraintMatchTotalList.add(spinUpDownMatchTotal);
+  constraintMatchTotalList.add(machineConsumptionMatchTotal);
+  constraintMatchTotalList.add(taskConsumptionMatchTotal);
+  constraintMatchTotalList.add(minimizeTaskStartPeriodMatchTotal);
+  return constraintMatchTotalList;
+}
