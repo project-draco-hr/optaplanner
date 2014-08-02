@@ -1,0 +1,7 @@
+{
+  for (  TaskAssignment taskAssignment : pillar) {
+    scoreDirector.beforeVariableChanged(taskAssignment,"startPeriod");
+    taskAssignment.setStartPeriod(taskAssignment.getStartPeriod() + startPeriodDiff);
+    scoreDirector.afterVariableChanged(taskAssignment,"startPeriod");
+  }
+}

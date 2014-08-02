@@ -1,0 +1,33 @@
+{
+  CheapTimeSolution cheapTimeSolution=(CheapTimeSolution)scoreDirector.getWorkingSolution();
+  Map<Machine,List<TaskAssignment>> positivePillarMap=new LinkedHashMap<Machine,List<TaskAssignment>>(cheapTimeSolution.getGlobalPeriodRangeTo());
+  Map<Machine,List<TaskAssignment>> negativePillarMap=new LinkedHashMap<Machine,List<TaskAssignment>>(cheapTimeSolution.getGlobalPeriodRangeTo());
+  List<TaskAssignment> taskAssignmentList=cheapTimeSolution.getTaskAssignmentList();
+  int pillarCapacity=(taskAssignmentList.size() * 2 / cheapTimeSolution.getMachineList().size()) + 1;
+  for (  TaskAssignment taskAssignment : taskAssignmentList) {
+    Machine machine=taskAssignment.getMachine();
+    Task task=taskAssignment.getTask();
+    Integer startPeriod=taskAssignment.getStartPeriod();
+    if (startPeriod != null) {
+      if (startPeriod < task.getStartPeriodRangeTo() - 1) {
+        List<TaskAssignment> pillar=positivePillarMap.get(machine);
+        if (pillar == null) {
+          pillar=new ArrayList<TaskAssignment>(pillarCapacity);
+          positivePillarMap.put(machine,pillar);
+        }
+        pillar.add(taskAssignment);
+      }
+      if (startPeriod > task.getStartPeriodRangeFrom()) {
+        List<TaskAssignment> pillar=negativePillarMap.get(machine);
+        if (pillar == null) {
+          pillar=new ArrayList<TaskAssignment>(pillarCapacity);
+          negativePillarMap.put(machine,pillar);
+        }
+        pillar.add(taskAssignment);
+      }
+    }
+  }
+  List<List<TaskAssignment>> positivePillarList=new ArrayList<List<TaskAssignment>>(positivePillarMap.values());
+  List<List<TaskAssignment>> negativePillarList=new ArrayList<List<TaskAssignment>>(negativePillarMap.values());
+  return new RandomCheapTimePillarSlideMoveIterator(positivePillarList,negativePillarList,workingRandom);
+}

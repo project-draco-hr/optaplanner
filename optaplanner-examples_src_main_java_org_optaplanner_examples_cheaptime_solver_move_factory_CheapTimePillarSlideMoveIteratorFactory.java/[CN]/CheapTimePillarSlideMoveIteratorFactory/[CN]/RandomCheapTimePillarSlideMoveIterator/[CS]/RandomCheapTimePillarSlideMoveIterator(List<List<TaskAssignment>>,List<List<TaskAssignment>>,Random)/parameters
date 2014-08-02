@@ -1,0 +1,3 @@
+List<List<TaskAssignment>> positivePillarList
+List<List<TaskAssignment>> negativePillarList
+Random workingRandom

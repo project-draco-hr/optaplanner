@@ -1,0 +1,7 @@
+{
+  List<Integer> startPeriodList=new ArrayList<Integer>(pillar.size());
+  for (  TaskAssignment taskAssignment : pillar) {
+    startPeriodList.add(taskAssignment.getStartPeriod());
+  }
+  return Collections.singletonList(startPeriodList);
+}

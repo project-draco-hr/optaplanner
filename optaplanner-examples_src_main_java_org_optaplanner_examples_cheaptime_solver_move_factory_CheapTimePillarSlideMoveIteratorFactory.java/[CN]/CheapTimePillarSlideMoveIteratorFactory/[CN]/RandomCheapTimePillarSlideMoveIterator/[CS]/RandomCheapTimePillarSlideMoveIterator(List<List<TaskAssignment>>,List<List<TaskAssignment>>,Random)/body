@@ -1,0 +1,6 @@
+{
+  this.positivePillarList=positivePillarList;
+  this.negativePillarList=negativePillarList;
+  this.workingRandom=workingRandom;
+  totalSize=positivePillarList.size() + negativePillarList.size();
+}

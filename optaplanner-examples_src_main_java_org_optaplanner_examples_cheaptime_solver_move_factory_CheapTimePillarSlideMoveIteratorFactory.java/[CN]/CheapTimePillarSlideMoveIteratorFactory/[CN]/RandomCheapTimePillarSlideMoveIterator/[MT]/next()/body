@@ -1,0 +1,26 @@
+{
+  int listIndex=workingRandom.nextInt(totalSize);
+  boolean positive=listIndex < positivePillarList.size();
+  List<TaskAssignment> basePillar=positive ? positivePillarList.get(listIndex) : negativePillarList.get(listIndex - positivePillarList.size());
+  int basePillarSize=basePillar.size();
+  int subPillarSize=workingRandom.nextInt(basePillarSize);
+  TaskAssignment[] sandboxPillar=basePillar.toArray(new TaskAssignment[basePillar.size()]);
+  List<TaskAssignment> subPillar=new ArrayList<TaskAssignment>(subPillarSize);
+  int minimumAbsDiff=Integer.MAX_VALUE;
+  for (int i=0; i < subPillarSize; i++) {
+    int index=i + workingRandom.nextInt(basePillarSize - i);
+    TaskAssignment taskAssignment=sandboxPillar[index];
+    Task task=taskAssignment.getTask();
+    int absDiff=positive ? task.getStartPeriodRangeTo() - 1 - taskAssignment.getStartPeriod() : taskAssignment.getStartPeriod() - task.getStartPeriodRangeFrom();
+    if (absDiff < minimumAbsDiff) {
+      minimumAbsDiff=absDiff;
+    }
+    subPillar.add(taskAssignment);
+    sandboxPillar[index]=sandboxPillar[i];
+  }
+  int startPeriodDiff=1 + workingRandom.nextInt(minimumAbsDiff);
+  if (!positive) {
+    startPeriodDiff=-startPeriodDiff;
+  }
+  return new CheapTimePillarSlideMove(subPillar,startPeriodDiff);
+}
