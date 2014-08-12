@@ -1,4 +1,5 @@
 {
+  MDC.put(NAME_MDC,singleBenchmarkResult.getName());
   Runtime runtime=Runtime.getRuntime();
   ProblemBenchmarkResult problemBenchmarkResult=singleBenchmarkResult.getProblemBenchmarkResult();
   Solution inputSolution=problemBenchmarkResult.readPlanningProblem();
@@ -25,5 +26,6 @@
     singleStatistic.writeCsvStatisticFile();
   }
   problemBenchmarkResult.writeOutputSolution(singleBenchmarkResult,outputSolution);
+  MDC.remove(NAME_MDC);
   return this;
 }
