@@ -1,12 +1,7 @@
 {
   super.stepStarted(stepScope);
-  deciderScoreComparatorFactory.stepStarted(stepScope);
-  scoreComparator=deciderScoreComparatorFactory.createDeciderScoreComparator();
+  finalistPodium.stepStarted(stepScope);
   selectedMoveCount=0L;
   acceptedMoveCount=0L;
-  maxScoreAcceptedList=new ArrayList<LocalSearchMoveScope>(1024);
-  maxAcceptedScore=null;
-  maxScoreUnacceptedList=new ArrayList<LocalSearchMoveScope>(1024);
-  maxUnacceptedScore=null;
   earlyPickedMoveScope=null;
 }

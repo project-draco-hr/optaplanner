@@ -4,7 +4,5 @@
   if (earlyPickedMoveScope != null) {
     return earlyPickedMoveScope;
   }
- else {
-    return pickMaxScoreMoveScope(stepScope);
-  }
+  return finalistPodium.pickMove(stepScope);
 }

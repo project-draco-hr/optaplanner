@@ -1,13 +1,6 @@
 {
-  if (foragerClass == null && pickEarlyType == null && acceptedCountLimit == null) {
-    foragerClass=inheritedConfig.getForagerClass();
-    pickEarlyType=inheritedConfig.getPickEarlyType();
-    acceptedCountLimit=inheritedConfig.getAcceptedCountLimit();
-  }
-  if (deciderScoreComparatorFactoryConfig == null) {
-    deciderScoreComparatorFactoryConfig=inheritedConfig.getDeciderScoreComparatorFactoryConfig();
-  }
- else   if (inheritedConfig.getDeciderScoreComparatorFactoryConfig() != null) {
-    deciderScoreComparatorFactoryConfig.inherit(inheritedConfig.getDeciderScoreComparatorFactoryConfig());
-  }
+  foragerClass=ConfigUtils.inheritOverwritableProperty(foragerClass,inheritedConfig.getForagerClass());
+  pickEarlyType=ConfigUtils.inheritOverwritableProperty(pickEarlyType,inheritedConfig.getPickEarlyType());
+  acceptedCountLimit=ConfigUtils.inheritOverwritableProperty(acceptedCountLimit,inheritedConfig.getAcceptedCountLimit());
+  finalistPodiumType=ConfigUtils.inheritOverwritableProperty(finalistPodiumType,inheritedConfig.getFinalistPodiumType());
 }

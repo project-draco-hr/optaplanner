@@ -1,5 +1,0 @@
-{
-  LocalSearchPhaseScope phaseScope=lastCompletedStepScope.getPhaseScope();
-  phaseScope.setLastCompletedStepScope(lastCompletedStepScope);
-  return new LocalSearchStepScope(phaseScope);
-}

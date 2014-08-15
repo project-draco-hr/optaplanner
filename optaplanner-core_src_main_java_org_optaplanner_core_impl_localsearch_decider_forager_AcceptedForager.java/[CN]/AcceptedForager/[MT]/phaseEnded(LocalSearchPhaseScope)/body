@@ -1,12 +1,7 @@
 {
   super.phaseEnded(phaseScope);
-  deciderScoreComparatorFactory.phaseEnded(phaseScope);
-  scoreComparator=null;
+  finalistPodium.phaseEnded(phaseScope);
   selectedMoveCount=0L;
   acceptedMoveCount=0L;
-  maxScoreAcceptedList=null;
-  maxAcceptedScore=null;
-  maxScoreUnacceptedList=null;
-  maxUnacceptedScore=null;
   earlyPickedMoveScope=null;
 }

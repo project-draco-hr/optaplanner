@@ -1,4 +1,4 @@
 {
   super.stepEnded(stepScope);
-  deciderScoreComparatorFactory.stepEnded(stepScope);
+  finalistPodium.stepEnded(stepScope);
 }

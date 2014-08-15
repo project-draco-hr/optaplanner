@@ -1,4 +1,4 @@
 {
   super.phaseStarted(phaseScope);
-  deciderScoreComparatorFactory.phaseStarted(phaseScope);
+  finalistPodium.phaseStarted(phaseScope);
 }

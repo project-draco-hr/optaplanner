@@ -1,5 +1,5 @@
 {
-  this.deciderScoreComparatorFactory=deciderScoreComparatorFactory;
+  this.finalistPodium=finalistPodium;
   this.pickEarlyType=pickEarlyType;
   this.acceptedCountLimit=acceptedCountLimit;
   if (acceptedCountLimit < 1) {
