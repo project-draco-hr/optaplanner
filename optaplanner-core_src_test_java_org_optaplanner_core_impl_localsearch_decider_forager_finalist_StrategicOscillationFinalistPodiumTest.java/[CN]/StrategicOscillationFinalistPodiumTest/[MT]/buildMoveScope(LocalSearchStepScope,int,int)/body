@@ -1,0 +1,8 @@
+{
+  LocalSearchMoveScope moveScope=new LocalSearchMoveScope(stepScope);
+  Move move=mock(Move.class);
+  moveScope.setAccepted(true);
+  moveScope.setMove(move);
+  moveScope.setScore(HardSoftScore.valueOf(hardScore,softScore));
+  return moveScope;
+}

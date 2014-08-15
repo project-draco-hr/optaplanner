@@ -1,0 +1,6 @@
+{
+  super.stepStarted(stepScope);
+  lastStepLevelNumbers=stepScope.getPhaseScope().getLastCompletedStepScope().getScore().toLevelNumbers();
+  finalistScore=null;
+  finalistLevelNumbers=null;
+}

@@ -1,0 +1,6 @@
+{
+  if (finalistScore == null) {
+    return 1;
+  }
+  return moveScore.compareTo(finalistScore);
+}

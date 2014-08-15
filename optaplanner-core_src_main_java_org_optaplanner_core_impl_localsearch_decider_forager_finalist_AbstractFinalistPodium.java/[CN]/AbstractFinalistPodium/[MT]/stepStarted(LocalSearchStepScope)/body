@@ -1,0 +1,5 @@
+{
+  super.stepStarted(stepScope);
+  finalistIsAccepted=false;
+  finalistList=new ArrayList<LocalSearchMoveScope>(1024);
+}

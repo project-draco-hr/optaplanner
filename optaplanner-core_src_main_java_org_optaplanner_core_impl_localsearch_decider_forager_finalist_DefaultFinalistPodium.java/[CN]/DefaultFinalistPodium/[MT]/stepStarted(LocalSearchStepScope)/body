@@ -1,0 +1,4 @@
+{
+  super.stepStarted(stepScope);
+  finalistScore=null;
+}

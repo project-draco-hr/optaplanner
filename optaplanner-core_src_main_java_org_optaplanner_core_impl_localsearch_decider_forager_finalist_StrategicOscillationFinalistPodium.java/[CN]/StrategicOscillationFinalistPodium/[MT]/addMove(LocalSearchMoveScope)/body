@@ -1,0 +1,23 @@
+{
+  boolean accepted=moveScope.getAccepted();
+  if (finalistIsAccepted && !accepted) {
+    return;
+  }
+  if (accepted && !finalistIsAccepted) {
+    finalistIsAccepted=true;
+    finalistScore=null;
+    finalistLevelNumbers=null;
+  }
+  Score moveScore=moveScope.getScore();
+  Number[] moveLevelNumbers=moveScore.toLevelNumbers();
+  int comparison=doComparison(moveScore,moveLevelNumbers);
+  if (comparison > 0) {
+    finalistScore=moveScore;
+    finalistLevelNumbers=moveLevelNumbers;
+    finalistList.clear();
+    finalistList.add(moveScope);
+  }
+ else   if (comparison == 0) {
+    finalistList.add(moveScope);
+  }
+}

@@ -1,0 +1,20 @@
+{
+  boolean accepted=moveScope.getAccepted();
+  if (finalistIsAccepted && !accepted) {
+    return;
+  }
+  if (accepted && !finalistIsAccepted) {
+    finalistIsAccepted=true;
+    finalistScore=null;
+  }
+  Score moveScore=moveScope.getScore();
+  int scoreComparison=doComparison(moveScore);
+  if (scoreComparison > 0) {
+    finalistScore=moveScore;
+    finalistList.clear();
+    finalistList.add(moveScope);
+  }
+ else   if (scoreComparison == 0) {
+    finalistList.add(moveScope);
+  }
+}
