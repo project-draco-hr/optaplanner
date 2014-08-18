@@ -1,6 +1,6 @@
 {
   super.phaseEnded(phaseScope);
-  lastStepLevelNumbers=null;
+  referenceLevelNumbers=null;
   finalistScore=null;
   finalistLevelNumbers=null;
 }

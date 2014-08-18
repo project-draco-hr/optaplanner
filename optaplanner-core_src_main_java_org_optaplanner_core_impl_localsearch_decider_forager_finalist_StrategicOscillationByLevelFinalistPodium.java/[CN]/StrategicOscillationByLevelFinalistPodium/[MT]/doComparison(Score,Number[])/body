@@ -2,9 +2,9 @@
   if (finalistScore == null) {
     return 1;
   }
-  for (int i=0; i < lastStepLevelNumbers.length; i++) {
-    boolean moveIsHigher=((Comparable)moveLevelNumbers[i]).compareTo(lastStepLevelNumbers[i]) > 0;
-    boolean finalistIsHigher=((Comparable)finalistLevelNumbers[i]).compareTo(lastStepLevelNumbers[i]) > 0;
+  for (int i=0; i < referenceLevelNumbers.length; i++) {
+    boolean moveIsHigher=((Comparable)moveLevelNumbers[i]).compareTo(referenceLevelNumbers[i]) > 0;
+    boolean finalistIsHigher=((Comparable)finalistLevelNumbers[i]).compareTo(referenceLevelNumbers[i]) > 0;
     if (moveIsHigher) {
       if (finalistIsHigher) {
         break;

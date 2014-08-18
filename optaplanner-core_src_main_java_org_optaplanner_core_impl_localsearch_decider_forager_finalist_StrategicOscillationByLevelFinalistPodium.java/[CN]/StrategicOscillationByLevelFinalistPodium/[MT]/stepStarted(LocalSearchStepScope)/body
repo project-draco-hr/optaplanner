@@ -1,0 +1,6 @@
+{
+  super.stepStarted(stepScope);
+  referenceLevelNumbers=referenceBestScoreInsteadOfLastStepScore ? stepScope.getPhaseScope().getBestScore().toLevelNumbers() : stepScope.getPhaseScope().getLastCompletedStepScope().getScore().toLevelNumbers();
+  finalistScore=null;
+  finalistLevelNumbers=null;
+}
