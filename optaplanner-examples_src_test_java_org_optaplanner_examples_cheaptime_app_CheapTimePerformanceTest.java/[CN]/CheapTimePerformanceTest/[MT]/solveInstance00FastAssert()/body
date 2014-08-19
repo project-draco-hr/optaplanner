@@ -1,0 +1,4 @@
+{
+  File unsolvedDataFile=new File("data/cheaptime/unsolved/instance00.xml");
+  runSpeedTest(unsolvedDataFile,"0hard/-918680355373904medium/-22228soft",EnvironmentMode.FAST_ASSERT);
+}

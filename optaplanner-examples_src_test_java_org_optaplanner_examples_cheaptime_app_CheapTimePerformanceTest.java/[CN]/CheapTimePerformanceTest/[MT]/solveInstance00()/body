@@ -1,0 +1,4 @@
+{
+  File unsolvedDataFile=new File("data/cheaptime/unsolved/instance00.xml");
+  runSpeedTest(unsolvedDataFile,"0hard/-902335925205947medium/-20672soft");
+}
