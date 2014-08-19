@@ -10,6 +10,11 @@
   readTaskList();
   readForecastFile();
   createTaskAssignmentList();
-  logger.info("CheapTime {} has {} resources, {} machines, {} periods and {} tasks.",getInputId(),solution.getResourceList().size(),solution.getMachineList().size(),solution.getGlobalPeriodRangeTo(),solution.getTaskList().size());
+  BigInteger possibleSolutionSize=BigInteger.ONE;
+  for (  Task task : solution.getTaskList()) {
+    possibleSolutionSize=possibleSolutionSize.multiply(BigInteger.valueOf(task.getStartPeriodRangeTo() - task.getStartPeriodRangeFrom()));
+  }
+  possibleSolutionSize=possibleSolutionSize.multiply(BigInteger.valueOf(solution.getMachineList().size()).pow(solution.getTaskList().size()));
+  logger.info("CheapTime {} has {} resources, {} machines, {} periods and {} tasks" + " with a search space of {}.",getInputId(),solution.getResourceList().size(),solution.getMachineList().size(),solution.getGlobalPeriodRangeTo(),solution.getTaskList().size(),getFlooredPossibleSolutionSize(possibleSolutionSize));
   return solution;
 }

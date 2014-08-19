@@ -4,6 +4,11 @@
   HighLowRenderer renderer=new HighLowRenderer();
   renderer.setTickLength(0.0);
   int seriesIndex=0;
+  OHLCSeries unassignedProjectSeries=new OHLCSeries("Unassigned");
+  seriesCollection.addSeries(unassignedProjectSeries);
+  machineSeriesMap.put(null,unassignedProjectSeries);
+  renderer.setSeriesStroke(seriesIndex,new BasicStroke(3.0f));
+  seriesIndex++;
   for (  Machine machine : solution.getMachineList()) {
     OHLCSeries projectSeries=new OHLCSeries(machine.getLabel());
     seriesCollection.addSeries(projectSeries);
@@ -11,10 +16,6 @@
     renderer.setSeriesStroke(seriesIndex,new BasicStroke(3.0f));
     seriesIndex++;
   }
-  OHLCSeries unassignedProjectSeries=new OHLCSeries("Unassigned");
-  seriesCollection.addSeries(unassignedProjectSeries);
-  machineSeriesMap.put(null,unassignedProjectSeries);
-  renderer.setSeriesStroke(seriesIndex,new BasicStroke(3.0f));
   List<TaskAssignment> taskAssignmentList=new ArrayList<TaskAssignment>(solution.getTaskAssignmentList());
   Collections.sort(taskAssignmentList,plotTaskAssignmentComparator);
   int pixelIndex=0;

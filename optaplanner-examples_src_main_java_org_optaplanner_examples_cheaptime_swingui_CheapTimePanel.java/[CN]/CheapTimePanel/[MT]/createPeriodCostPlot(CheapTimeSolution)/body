@@ -1,5 +1,5 @@
 {
-  XYSeries series=new XYSeries("Power cost");
+  XYSeries series=new XYSeries("Power price");
   for (  PeriodPowerCost periodPowerCost : solution.getPeriodPowerCostList()) {
     series.add((double)periodPowerCost.getPowerCostMicros() / 1000000.0,periodPowerCost.getPeriod());
   }
@@ -7,6 +7,6 @@
   seriesCollection.addSeries(series);
   XYItemRenderer renderer=new StandardXYItemRenderer(StandardXYItemRenderer.SHAPES);
   renderer.setSeriesShape(0,ShapeUtilities.createDiamond(2.0F));
-  NumberAxis domainAxis=new NumberAxis("Power cost");
+  NumberAxis domainAxis=new NumberAxis("Power price");
   return new XYPlot(seriesCollection,domainAxis,null,renderer);
 }
