@@ -1,3 +1,3 @@
 {
-  return "org/optaplanner/examples/cloudbalancing/solver/cloudBalancingSolverConfig.xml";
+  return CloudBalancingApp.SOLVER_CONFIG;
 }
