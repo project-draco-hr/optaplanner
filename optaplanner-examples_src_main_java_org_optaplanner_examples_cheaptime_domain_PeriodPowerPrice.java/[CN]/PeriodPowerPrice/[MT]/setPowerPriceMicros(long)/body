@@ -1,0 +1,3 @@
+{
+  this.powerPriceMicros=powerPriceMicros;
+}

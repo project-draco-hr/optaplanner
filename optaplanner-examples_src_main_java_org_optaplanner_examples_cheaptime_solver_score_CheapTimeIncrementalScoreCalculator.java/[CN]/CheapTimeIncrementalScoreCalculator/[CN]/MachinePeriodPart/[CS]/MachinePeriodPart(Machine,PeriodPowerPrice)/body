@@ -1,7 +1,7 @@
 {
   this.machine=machine;
-  this.period=periodPowerCost.getPeriod();
-  this.periodPowerCostMicros=periodPowerCost.getPowerCostMicros();
+  this.period=periodPowerPrice.getPeriod();
+  this.periodPowerPriceMicros=periodPowerPrice.getPowerPriceMicros();
   taskCount=0;
   status=MachinePeriodStatus.OFF;
   if (machine != null) {
@@ -9,7 +9,7 @@
     for (int i=0; i < resourceListSize; i++) {
       resourceAvailableList[i]=machine.getMachineCapacityList().get(i).getCapacity();
     }
-    machineCostMicros=CheapTimeCostCalculator.multiplyTwoMicros(machine.getPowerConsumptionMicros(),periodPowerCostMicros);
+    machineCostMicros=CheapTimeCostCalculator.multiplyTwoMicros(machine.getPowerConsumptionMicros(),periodPowerPriceMicros);
   }
  else {
     machineCostMicros=Long.MIN_VALUE;

@@ -15,7 +15,7 @@
   }
   long mediumScore=0L;
   long softScore=0L;
-  List<PeriodPowerCost> periodPowerCostList=solution.getPeriodPowerCostList();
+  List<PeriodPowerPrice> periodPowerPriceList=solution.getPeriodPowerPriceList();
   for (  TaskAssignment taskAssignment : solution.getTaskAssignmentList()) {
     Machine machine=taskAssignment.getMachine();
     Integer startPeriod=taskAssignment.getStartPeriod();
@@ -25,8 +25,8 @@
       for (int period=startPeriod; period < endPeriod; period++) {
         MachinePeriodPart machinePeriodPart=machinePeriodList.get(period);
         machinePeriodPart.addTaskAssignment(taskAssignment);
-        PeriodPowerCost periodPowerCost=periodPowerCostList.get(period);
-        mediumScore-=CheapTimeCostCalculator.multiplyTwoMicros(taskAssignment.getTask().getPowerConsumptionMicros(),periodPowerCost.getPowerCostMicros());
+        PeriodPowerPrice periodPowerPrice=periodPowerPriceList.get(period);
+        mediumScore-=CheapTimeCostCalculator.multiplyTwoMicros(taskAssignment.getTask().getPowerConsumptionMicros(),periodPowerPrice.getPowerPriceMicros());
       }
       softScore-=startPeriod;
     }
@@ -38,7 +38,7 @@
     MachinePeriodStatus previousStatus=MachinePeriodStatus.OFF;
     long idleCostMicros=0L;
     for (int period=0; period < globalPeriodRangeTo; period++) {
-      PeriodPowerCost periodPowerCost=periodPowerCostList.get(period);
+      PeriodPowerPrice periodPowerPrice=periodPowerPriceList.get(period);
       MachinePeriodPart machinePeriodPart=machinePeriodList.get(period);
       boolean active=machinePeriodPart.isActive();
       if (active) {
@@ -50,12 +50,12 @@
           idleCostMicros=0L;
         }
         hardScore+=machinePeriodPart.getHardScore();
-        mediumScore-=CheapTimeCostCalculator.multiplyTwoMicros(machine.getPowerConsumptionMicros(),periodPowerCost.getPowerCostMicros());
+        mediumScore-=CheapTimeCostCalculator.multiplyTwoMicros(machine.getPowerConsumptionMicros(),periodPowerPrice.getPowerPriceMicros());
         previousStatus=MachinePeriodStatus.ACTIVE;
       }
  else {
         if (previousStatus != MachinePeriodStatus.OFF) {
-          idleCostMicros+=CheapTimeCostCalculator.multiplyTwoMicros(machine.getPowerConsumptionMicros(),periodPowerCost.getPowerCostMicros());
+          idleCostMicros+=CheapTimeCostCalculator.multiplyTwoMicros(machine.getPowerConsumptionMicros(),periodPowerPrice.getPowerPriceMicros());
           if (idleCostMicros > machine.getSpinUpDownCostMicros()) {
             idleCostMicros=0L;
             previousStatus=MachinePeriodStatus.OFF;

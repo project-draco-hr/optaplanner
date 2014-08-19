@@ -9,18 +9,18 @@
   resourceListSize=solution.getResourceList().size();
   globalPeriodRangeTo=solution.getGlobalPeriodRangeTo();
   List<Machine> machineList=solution.getMachineList();
-  List<PeriodPowerCost> periodPowerCostList=solution.getPeriodPowerCostList();
+  List<PeriodPowerPrice> periodPowerPriceList=solution.getPeriodPowerPriceList();
   machineToMachinePeriodListMap=new MachinePeriodPart[machineList.size()][];
   for (  Machine machine : machineList) {
     MachinePeriodPart[] machinePeriodList=new MachinePeriodPart[globalPeriodRangeTo];
     for (int period=0; period < globalPeriodRangeTo; period++) {
-      machinePeriodList[period]=new MachinePeriodPart(machine,periodPowerCostList.get(period));
+      machinePeriodList[period]=new MachinePeriodPart(machine,periodPowerPriceList.get(period));
     }
     machineToMachinePeriodListMap[machine.getIndex()]=machinePeriodList;
   }
   unassignedMachinePeriodList=new MachinePeriodPart[globalPeriodRangeTo];
   for (int period=0; period < globalPeriodRangeTo; period++) {
-    unassignedMachinePeriodList[period]=new MachinePeriodPart(null,periodPowerCostList.get(period));
+    unassignedMachinePeriodList[period]=new MachinePeriodPart(null,periodPowerPriceList.get(period));
   }
   for (  TaskAssignment taskAssignment : solution.getTaskAssignmentList()) {
     modifyStartPeriod(taskAssignment,null,taskAssignment.getStartPeriod());

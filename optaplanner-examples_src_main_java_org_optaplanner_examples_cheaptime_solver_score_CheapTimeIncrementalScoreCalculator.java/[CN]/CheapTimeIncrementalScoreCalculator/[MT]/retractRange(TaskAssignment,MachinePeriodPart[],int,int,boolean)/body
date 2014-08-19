@@ -33,7 +33,7 @@
     MachinePeriodPart machinePeriod=machinePeriodList[i];
     machinePeriod.retractTaskAssignment(taskAssignment);
     if (retractTaskCost) {
-      mediumScore+=CheapTimeCostCalculator.multiplyTwoMicros(powerConsumptionMicros,machinePeriod.periodPowerCostMicros);
+      mediumScore+=CheapTimeCostCalculator.multiplyTwoMicros(powerConsumptionMicros,machinePeriod.periodPowerPriceMicros);
     }
     if (machinePeriod.status.isActive()) {
       if (previousStatus == MachinePeriodStatus.OFF) {
