@@ -1,0 +1,30 @@
+{
+  Locale locale=benchmarkReport.getLocale();
+  NumberAxis xAxis=new NumberAxis("Time spent");
+  xAxis.setNumberFormatOverride(new MillisecondsSpentNumberFormat(locale));
+  NumberAxis yAxis=new NumberAxis("Constraint match total weight");
+  yAxis.setNumberFormatOverride(NumberFormat.getInstance(locale));
+  yAxis.setAutoRangeIncludesZero(true);
+  XYPlot plot=new XYPlot(null,xAxis,yAxis,null);
+  plot.setOrientation(PlotOrientation.VERTICAL);
+  Map<String,XYSeries> constraintIdToWeightSeriesMap=new LinkedHashMap<String,XYSeries>();
+  for (  ConstraintMatchTotalBestScoreStatisticPoint point : getPointList()) {
+    String constraintId=point.getConstraintId();
+    XYSeries weightSeries=constraintIdToWeightSeriesMap.get(constraintId);
+    if (weightSeries == null) {
+      weightSeries=new XYSeries(constraintId + " weight");
+      constraintIdToWeightSeriesMap.put(constraintId,weightSeries);
+    }
+    long timeMillisSpent=point.getTimeMillisSpent();
+    weightSeries.add(timeMillisSpent,point.getWeightTotal());
+  }
+  int seriesIndex=0;
+  for (  XYSeries weightSeries : constraintIdToWeightSeriesMap.values()) {
+    plot.setDataset(seriesIndex,new XYSeriesCollection(weightSeries));
+    XYItemRenderer renderer=new XYLineAndShapeRenderer(true,false);
+    plot.setRenderer(seriesIndex,renderer);
+    seriesIndex++;
+  }
+  JFreeChart chart=new JFreeChart(singleBenchmarkResult.getName() + " constraint match total best score statistic",JFreeChart.DEFAULT_TITLE_FONT,plot,true);
+  graphFile=writeChartToImageFile(chart,"ConstraintMatchTotalBestScoreStatistic");
+}

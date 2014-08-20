@@ -1,0 +1,3 @@
+{
+  return buildCsvLineWithStrings(timeMillisSpent,constraintId,Integer.toString(constraintMatchCount),Double.toString(weightTotal));
+}

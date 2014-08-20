@@ -1,0 +1,3 @@
+{
+  return new ConstraintMatchTotalBestScoreStatisticPoint(Long.valueOf(csvLine.get(0)),csvLine.get(1),Integer.valueOf(csvLine.get(2)),Double.valueOf(csvLine.get(3)));
+}

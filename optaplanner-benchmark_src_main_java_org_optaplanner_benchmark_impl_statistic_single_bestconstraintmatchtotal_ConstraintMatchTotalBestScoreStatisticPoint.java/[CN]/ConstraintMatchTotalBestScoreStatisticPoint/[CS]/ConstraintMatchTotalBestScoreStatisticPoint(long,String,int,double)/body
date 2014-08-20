@@ -1,0 +1,6 @@
+{
+  this.timeMillisSpent=timeMillisSpent;
+  this.constraintId=constraintId;
+  this.constraintMatchCount=constraintMatchCount;
+  this.weightTotal=weightTotal;
+}
