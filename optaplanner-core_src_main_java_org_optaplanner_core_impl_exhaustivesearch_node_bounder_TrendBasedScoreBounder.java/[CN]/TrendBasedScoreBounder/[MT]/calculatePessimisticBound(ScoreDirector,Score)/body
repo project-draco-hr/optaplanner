@@ -1,6 +1,3 @@
 {
-  if (uninitializedVariableCount == 0) {
-    return score;
-  }
   return scoreDefinition.buildPessimisticBound(initializingScoreTrend,score);
 }
