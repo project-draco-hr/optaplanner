@@ -1,0 +1,4 @@
+LocalSearchStepScope stepScope
+int hardScore
+int mediumScore
+int softScore
