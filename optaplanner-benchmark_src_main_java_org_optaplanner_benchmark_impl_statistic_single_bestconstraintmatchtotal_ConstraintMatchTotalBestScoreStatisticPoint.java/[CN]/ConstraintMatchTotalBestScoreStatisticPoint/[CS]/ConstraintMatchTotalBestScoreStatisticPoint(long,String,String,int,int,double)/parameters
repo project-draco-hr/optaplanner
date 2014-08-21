@@ -1,4 +1,6 @@
 long timeMillisSpent
-String constraintId
+String constraintPackage
+String constraintName
+int scoreLevel
 int constraintMatchCount
 double weightTotal

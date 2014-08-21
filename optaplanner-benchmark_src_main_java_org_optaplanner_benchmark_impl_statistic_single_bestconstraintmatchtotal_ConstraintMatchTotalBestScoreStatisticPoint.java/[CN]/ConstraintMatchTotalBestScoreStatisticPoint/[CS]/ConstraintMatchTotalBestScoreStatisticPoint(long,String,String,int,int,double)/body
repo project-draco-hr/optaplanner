@@ -1,6 +1,8 @@
 {
   this.timeMillisSpent=timeMillisSpent;
-  this.constraintId=constraintId;
+  this.constraintPackage=constraintPackage;
+  this.constraintName=constraintName;
+  this.scoreLevel=scoreLevel;
   this.constraintMatchCount=constraintMatchCount;
   this.weightTotal=weightTotal;
 }
