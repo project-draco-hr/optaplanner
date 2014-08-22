@@ -1,5 +1,5 @@
 {
-  if (stepScope.getBestScoreImproved()) {
+  if (constraintMatchEnabled && stepScope.getBestScoreImproved()) {
     long timeMillisSpent=stepScope.getPhaseScope().calculateSolverTimeMillisSpent();
     for (    ConstraintMatchTotal constraintMatchTotal : stepScope.getScoreDirector().getConstraintMatchTotals()) {
       pointList.add(new ConstraintMatchTotalBestScoreStatisticPoint(timeMillisSpent,constraintMatchTotal.getConstraintPackage(),constraintMatchTotal.getConstraintName(),constraintMatchTotal.getScoreLevel(),constraintMatchTotal.getConstraintMatchCount(),constraintMatchTotal.getWeightTotalAsNumber().doubleValue()));

@@ -1,3 +1,5 @@
 {
-  ((DefaultSolver)solver).addPhaseLifecycleListener(listener);
+  DefaultSolver defaultSolver=(DefaultSolver)solver;
+  defaultSolver.setConstraintMatchEnabledPreference(true);
+  defaultSolver.addPhaseLifecycleListener(listener);
 }

@@ -24,6 +24,7 @@
   SolutionDescriptor solutionDescriptor=buildSolutionDescriptor();
   ScoreDirectorFactoryConfig scoreDirectorFactoryConfig_=scoreDirectorFactoryConfig == null ? new ScoreDirectorFactoryConfig() : scoreDirectorFactoryConfig;
   InnerScoreDirectorFactory scoreDirectorFactory=scoreDirectorFactoryConfig_.buildScoreDirectorFactory(environmentMode,solutionDescriptor);
+  solver.setConstraintMatchEnabledPreference(environmentMode.isAsserted());
   solver.setScoreDirectorFactory(scoreDirectorFactory);
   HeuristicConfigPolicy configPolicy=new HeuristicConfigPolicy(environmentMode,scoreDirectorFactory);
   TerminationConfig terminationConfig_=terminationConfig == null ? new TerminationConfig() : terminationConfig;

@@ -1,6 +1,6 @@
 {
   solverScope.setWorkingRandom(randomFactory.createRandom());
-  solverScope.setScoreDirector(scoreDirectorFactory.buildScoreDirector(environmentMode.isAsserted()));
+  solverScope.setScoreDirector(scoreDirectorFactory.buildScoreDirector(constraintMatchEnabledPreference));
   solverScope.setWorkingSolutionFromBestSolution();
   bestSolutionRecaller.solvingStarted(solverScope);
   for (  Phase phase : phaseList) {
