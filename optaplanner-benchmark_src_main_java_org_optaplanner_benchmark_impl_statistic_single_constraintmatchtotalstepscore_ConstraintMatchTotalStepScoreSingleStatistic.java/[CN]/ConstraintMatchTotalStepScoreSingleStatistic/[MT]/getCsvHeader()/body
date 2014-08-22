@@ -1,0 +1,3 @@
+{
+  return ConstraintMatchTotalStepScoreStatisticPoint.buildCsvLine("timeMillisSpent","constraintPackage","constraintName","scoreLevel","constraintMatchCount","weightTotal");
+}

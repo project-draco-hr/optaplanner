@@ -1,0 +1,6 @@
+long timeMillisSpent
+String constraintPackage
+String constraintName
+int scoreLevel
+int constraintMatchCount
+double weightTotal
