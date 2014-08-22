@@ -1,3 +1,3 @@
 {
-  return PickedMoveTypeBestScoreDiffStatisticPoint.buildCsvLine("timeMillisSpent","constraintPackage","constraintName","scoreLevel","constraintMatchCount","weightTotal");
+  return ConstraintMatchTotalBestScoreStatisticPoint.buildCsvLine("timeMillisSpent","constraintPackage","constraintName","scoreLevel","constraintMatchCount","weightTotal");
 }
