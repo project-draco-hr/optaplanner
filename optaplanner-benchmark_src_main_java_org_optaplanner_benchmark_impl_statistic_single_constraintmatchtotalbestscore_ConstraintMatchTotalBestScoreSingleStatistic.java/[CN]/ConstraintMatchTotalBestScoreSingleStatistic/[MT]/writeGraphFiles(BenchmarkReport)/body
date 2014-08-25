@@ -25,7 +25,7 @@
   graphFileList=new ArrayList<File>(constraintIdToWeightSeriesMapList.size());
   for (int scoreLevelIndex=0; scoreLevelIndex < constraintIdToWeightSeriesMapList.size(); scoreLevelIndex++) {
     XYPlot plot=createPlot(benchmarkReport,scoreLevelIndex);
-    XYItemRenderer renderer=new XYLineAndShapeRenderer(true,false);
+    XYItemRenderer renderer=new XYStepRenderer();
     plot.setRenderer(renderer);
     XYSeriesCollection seriesCollection=new XYSeriesCollection();
     for (    XYSeries series : constraintIdToWeightSeriesMapList.get(scoreLevelIndex).values()) {
