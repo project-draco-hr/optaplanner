@@ -1,0 +1,6 @@
+{
+  PlannerBenchmarkFactory plannerBenchmarkFactory=PlannerBenchmarkFactory.createFromXmlResource("org/optaplanner/examples/cloudbalancing/benchmark/cloudBalancingBenchmarkConfig.xml");
+  PlannerBenchmark plannerBenchmark=plannerBenchmarkFactory.buildPlannerBenchmark();
+  plannerBenchmark.benchmark();
+  System.out.println("\nPlease open the benchmark report in:  \n" + plannerBenchmarkFactory.getPlannerBenchmarkConfig().getBenchmarkDirectory().getAbsolutePath());
+}
