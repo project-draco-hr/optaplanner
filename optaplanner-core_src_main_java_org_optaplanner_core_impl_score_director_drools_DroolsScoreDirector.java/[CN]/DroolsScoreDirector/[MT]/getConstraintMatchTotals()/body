@@ -1,3 +1,4 @@
 {
+  kieSession.fireAllRules();
   return workingScoreHolder.getConstraintMatchTotals();
 }
