@@ -20,8 +20,22 @@
     if (!getCsvHeader().equals(line)) {
       throw new IllegalStateException("The read line (" + line + ") is expected to be the header line ("+ getCsvHeader()+ ") for statisticType ("+ getStatisticType()+ ").");
     }
+    Map<String,String> stringDuplicationRemovalMap=new HashMap<String,String>(1024);
     for (line=reader.readLine(); line != null && !line.isEmpty(); line=reader.readLine()) {
       List<String> csvLine=StatisticPoint.parseCsvLine(line);
+      for (ListIterator<String> it=csvLine.listIterator(); it.hasNext(); ) {
+        String token=it.next();
+        if (token == null) {
+          continue;
+        }
+        String originalToken=stringDuplicationRemovalMap.get(token);
+        if (originalToken == null) {
+          stringDuplicationRemovalMap.put(token,token);
+        }
+ else {
+          it.set(originalToken);
+        }
+      }
       pointList.add(createPointFromCsvLine(scoreDefinition,csvLine));
     }
   }
