@@ -1,5 +1,5 @@
 {
-  final Location newLocation=new Location();
+  final AirDistanceLocation newLocation=new AirDistanceLocation();
   newLocation.setId(nextLocationId);
   nextLocationId++;
   newLocation.setLongitude(longitude);
