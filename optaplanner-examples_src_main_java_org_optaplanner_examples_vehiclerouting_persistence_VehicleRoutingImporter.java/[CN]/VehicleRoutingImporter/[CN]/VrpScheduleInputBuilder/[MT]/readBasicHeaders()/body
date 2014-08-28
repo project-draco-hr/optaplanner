@@ -2,7 +2,19 @@
   readUntilConstantLine("TYPE *: CVRP");
   locationListSize=readIntegerValue("DIMENSION *:");
   String edgeWeightType=readStringValue("EDGE_WEIGHT_TYPE *:");
-  if (!edgeWeightType.equalsIgnoreCase("EUC_2D")) {
+  if (edgeWeightType.equalsIgnoreCase("EUC_2D")) {
+    schedule.setDistanceType(DistanceType.AIR_DISTANCE);
+  }
+ else   if (edgeWeightType.equalsIgnoreCase("EXPLICIT")) {
+    schedule.setDistanceType(DistanceType.ROAD_DISTANCE);
+    String edgeWeightFormat=readStringValue("EDGE_WEIGHT_FORMAT *:");
+    if (edgeWeightFormat.equalsIgnoreCase("FULL_MATRIX")) {
+    }
+ else {
+      throw new IllegalArgumentException("The edgeWeightFormat (" + edgeWeightFormat + ") is not supported.");
+    }
+  }
+ else {
     throw new IllegalArgumentException("The edgeWeightType (" + edgeWeightType + ") is not supported.");
   }
   capacity=readIntegerValue("CAPACITY *:");

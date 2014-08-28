@@ -1,3 +1,4 @@
 {
-  throw new UnsupportedOperationException();
+  double distance=travelDistanceMap.get((RoadDistanceLocation)location);
+  return (int)(distance * 1000.0 + 0.5);
 }

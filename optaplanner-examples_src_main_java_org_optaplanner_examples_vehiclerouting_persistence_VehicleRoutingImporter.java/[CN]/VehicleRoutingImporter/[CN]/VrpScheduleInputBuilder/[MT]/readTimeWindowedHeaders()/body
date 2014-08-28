@@ -1,4 +1,5 @@
 {
+  schedule.setDistanceType(DistanceType.AIR_DISTANCE);
   readEmptyLine();
   readConstantLine("VEHICLE");
   readConstantLine("NUMBER +CAPACITY");

@@ -1,4 +1,5 @@
 {
+  schedule.setDistanceType(DistanceType.AIR_DISTANCE);
   List<Location> locationList=new ArrayList<Location>(locationListSize);
   depotList=new ArrayList<Depot>(1);
   List<Customer> customerList=new ArrayList<Customer>(locationListSize);

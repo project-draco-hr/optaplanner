@@ -9,6 +9,7 @@
  else   if (splitBySpacesOrTabs(firstLine).length == 3) {
     schedule=new VehicleRoutingSolution();
     schedule.setId(0L);
+    schedule.setName(FilenameUtils.getBaseName(inputFile.getName()));
     String[] tokens=splitBySpacesOrTabs(firstLine,3);
     locationListSize=Integer.parseInt(tokens[0]);
     vehicleListSize=Integer.parseInt(tokens[1]);
