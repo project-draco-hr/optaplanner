@@ -65,7 +65,7 @@
         Location location=customer.getLocation();
         int x=translator.translateLongitudeToX(location.getLongitude());
         int y=translator.translateLatitudeToY(location.getLatitude());
-        g.drawLine(previousX,previousY,x,y);
+        drawRoute(g,previousX,previousY,x,y,location instanceof AirDistanceLocation);
         int distance=customer.getDistanceToPreviousStandstill();
         if (customer.getPreviousStandstill() instanceof Customer) {
           if (longestNonDepotDistance < distance) {
@@ -81,7 +81,7 @@
           int vehicleX=translator.translateLongitudeToX(vehicleLocation.getLongitude());
           int vehicleY=translator.translateLatitudeToY(vehicleLocation.getLatitude());
           g.setStroke(TangoColorFactory.FAT_DASHED_STROKE);
-          g.drawLine(x,y,vehicleX,vehicleY);
+          drawRoute(g,x,y,vehicleX,vehicleY,location instanceof AirDistanceLocation);
           g.setStroke(TangoColorFactory.NORMAL_STROKE);
         }
       }
