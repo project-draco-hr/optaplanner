@@ -13,5 +13,5 @@
     depotList.add(depot);
     id=readLongValue();
   }
-  schedule.setDepotList(depotList);
+  solution.setDepotList(depotList);
 }

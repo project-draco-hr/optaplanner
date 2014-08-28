@@ -52,8 +52,8 @@
     }
     line=bufferedReader.readLine();
   }
-  schedule.setLocationList(locationList);
-  schedule.setDepotList(depotList);
-  schedule.setCustomerList(customerList);
+  solution.setLocationList(locationList);
+  solution.setDepotList(depotList);
+  solution.setCustomerList(customerList);
   locationListSize=locationList.size();
 }

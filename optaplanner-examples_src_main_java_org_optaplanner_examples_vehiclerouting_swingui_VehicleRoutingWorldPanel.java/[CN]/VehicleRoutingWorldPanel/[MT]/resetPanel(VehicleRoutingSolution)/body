@@ -1,4 +1,4 @@
 {
-  schedulePainter.reset(schedule,getSize(),this);
+  solutionPainter.reset(solution,getSize(),this);
   repaint();
 }

@@ -1,4 +1,4 @@
 {
-  VehicleRoutingSolution schedule=(VehicleRoutingSolution)solution;
-  vehicleRoutingWorldPanel.updatePanel(schedule);
+  VehicleRoutingSolution solution=(VehicleRoutingSolution)solutionObject;
+  vehicleRoutingWorldPanel.updatePanel(solution);
 }

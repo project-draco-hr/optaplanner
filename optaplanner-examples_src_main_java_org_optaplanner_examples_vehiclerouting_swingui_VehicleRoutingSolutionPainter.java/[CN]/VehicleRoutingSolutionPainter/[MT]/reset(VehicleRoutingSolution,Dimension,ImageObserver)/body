@@ -1,16 +1,16 @@
 {
   translator=new LatitudeLongitudeTranslator();
-  for (  Location location : schedule.getLocationList()) {
+  for (  Location location : solution.getLocationList()) {
     translator.addCoordinates(location.getLatitude(),location.getLongitude());
   }
-  int maximumTimeWindowTime=determineMaximumTimeWindowTime(schedule);
+  int maximumTimeWindowTime=determineMaximumTimeWindowTime(solution);
   double width=size.getWidth();
   double height=size.getHeight();
   translator.prepareFor(width,height - 10 - TEXT_SIZE);
   Graphics2D g=createCanvas(width,height);
   g.setFont(g.getFont().deriveFont((float)TEXT_SIZE));
   g.setStroke(TangoColorFactory.NORMAL_STROKE);
-  for (  Customer customer : schedule.getCustomerList()) {
+  for (  Customer customer : solution.getCustomerList()) {
     Location location=customer.getLocation();
     int x=translator.translateLongitudeToX(location.getLongitude());
     int y=translator.translateLatitudeToY(location.getLatitude());
@@ -44,19 +44,19 @@
     }
   }
   g.setColor(TangoColorFactory.ALUMINIUM_3);
-  for (  Depot depot : schedule.getDepotList()) {
+  for (  Depot depot : solution.getDepotList()) {
     int x=translator.translateLongitudeToX(depot.getLocation().getLongitude());
     int y=translator.translateLatitudeToY(depot.getLocation().getLatitude());
     g.fillRect(x - 2,y - 2,5,5);
     g.drawImage(depotImageIcon.getImage(),x - depotImageIcon.getIconWidth() / 2,y - 2 - depotImageIcon.getIconHeight(),imageObserver);
   }
   int colorIndex=0;
-  for (  Vehicle vehicle : schedule.getVehicleList()) {
+  for (  Vehicle vehicle : solution.getVehicleList()) {
     g.setColor(TangoColorFactory.SEQUENCE_2[colorIndex]);
     Customer vehicleInfoCustomer=null;
     int longestNonDepotDistance=-1;
     int load=0;
-    for (    Customer customer : schedule.getCustomerList()) {
+    for (    Customer customer : solution.getCustomerList()) {
       if (customer.getPreviousStandstill() != null && customer.getVehicle() == vehicle) {
         load+=customer.getDemand();
         Location previousLocation=customer.getPreviousStandstill().getLocation();
@@ -107,17 +107,19 @@
   g.setColor(TangoColorFactory.ALUMINIUM_3);
   g.fillRect(5,(int)height - 12 - TEXT_SIZE- (TEXT_SIZE / 2),5,5);
   g.drawString("Depot",15,(int)height - 10 - TEXT_SIZE);
-  String vehiclesSizeString=schedule.getVehicleList().size() + " vehicles";
+  String vehiclesSizeString=solution.getVehicleList().size() + " vehicles";
   g.drawString(vehiclesSizeString,((int)width - g.getFontMetrics().stringWidth(vehiclesSizeString)) / 2,(int)height - 10 - TEXT_SIZE);
   g.setColor(TangoColorFactory.ALUMINIUM_4);
   g.fillRect(6,(int)height - 6 - (TEXT_SIZE / 2),3,3);
-  g.drawString((schedule instanceof TimeWindowedVehicleRoutingSolution) ? "Customer: demand, time window and arrival time" : "Customer: demand",15,(int)height - 5);
-  String customersSizeString=schedule.getCustomerList().size() + " customers";
+  g.drawString((solution instanceof TimeWindowedVehicleRoutingSolution) ? "Customer: demand, time window and arrival time" : "Customer: demand",15,(int)height - 5);
+  String customersSizeString=solution.getCustomerList().size() + " customers";
   g.drawString(customersSizeString,((int)width - g.getFontMetrics().stringWidth(customersSizeString)) / 2,(int)height - 5);
-  String clickString="Click anywhere in the map to add a customer.";
-  g.drawString(clickString,(int)width - 5 - g.getFontMetrics().stringWidth(clickString),(int)height - 5);
+  if (solution.getDistanceType() == DistanceType.AIR_DISTANCE) {
+    String clickString="Click anywhere in the map to add a customer.";
+    g.drawString(clickString,(int)width - 5 - g.getFontMetrics().stringWidth(clickString),(int)height - 5);
+  }
   g.setColor(TangoColorFactory.ORANGE_3);
-  HardSoftScore score=schedule.getScore();
+  HardSoftScore score=solution.getScore();
   if (score != null) {
     String fuelString;
     if (!score.isFeasible()) {

@@ -1,38 +1,32 @@
 {
-  final AirDistanceLocation newLocation=new AirDistanceLocation();
-  newLocation.setId(nextLocationId);
-  nextLocationId++;
-  newLocation.setLongitude(longitude);
-  newLocation.setLatitude(latitude);
-  logger.info("Scheduling insertion of newLocation ({}).",newLocation);
-  solutionBusiness.doProblemFactChange(new ProblemFactChange(){
-    public void doChange(    ScoreDirector scoreDirector){
-      VehicleRoutingSolution schedule=(VehicleRoutingSolution)scoreDirector.getWorkingSolution();
-      scoreDirector.beforeProblemFactAdded(newLocation);
-      schedule.getLocationList().add(newLocation);
-      scoreDirector.afterProblemFactAdded(newLocation);
-      Customer newCustomer;
-      if (schedule instanceof TimeWindowedVehicleRoutingSolution) {
-        TimeWindowedCustomer newTimeWindowedCustomer=new TimeWindowedCustomer();
-        TimeWindowedDepot timeWindowedDepot=(TimeWindowedDepot)schedule.getDepotList().get(0);
-        int windowTime=(timeWindowedDepot.getDueTime() - timeWindowedDepot.getReadyTime()) / 4;
-        int readyTime=demandRandom.nextInt(windowTime * 3);
-        newTimeWindowedCustomer.setReadyTime(readyTime);
-        newTimeWindowedCustomer.setDueTime(readyTime + windowTime);
-        newTimeWindowedCustomer.setServiceDuration(Math.min(10000,windowTime / 2));
-        newCustomer=newTimeWindowedCustomer;
-      }
- else {
-        newCustomer=new Customer();
-      }
-      newCustomer.setId(newLocation.getId());
-      newCustomer.setLocation(newLocation);
-      newCustomer.setDemand(demandRandom.nextInt(10) + 1);
-      scoreDirector.beforeEntityAdded(newCustomer);
-      schedule.getCustomerList().add(newCustomer);
-      scoreDirector.afterEntityAdded(newCustomer);
-    }
-  }
+  final Location newLocation;
+switch (getVehicleRoutingSolution().getDistanceType()) {
+case AIR_DISTANCE:
+    newLocation=new AirDistanceLocation();
+  break;
+case ROAD_DISTANCE:
+logger.warn("Adding locations for a road distance dataset is not supported.");
+return;
+default :
+throw new IllegalStateException("The distanceType (" + getVehicleRoutingSolution().getDistanceType() + ") is not implemented.");
+}
+newLocation.setId(nextLocationId);
+nextLocationId++;
+newLocation.setLongitude(longitude);
+newLocation.setLatitude(latitude);
+logger.info("Scheduling insertion of newLocation ({}).",newLocation);
+solutionBusiness.doProblemFactChange(new ProblemFactChange(){
+public void doChange(ScoreDirector scoreDirector){
+VehicleRoutingSolution solution=(VehicleRoutingSolution)scoreDirector.getWorkingSolution();
+scoreDirector.beforeProblemFactAdded(newLocation);
+solution.getLocationList().add(newLocation);
+scoreDirector.afterProblemFactAdded(newLocation);
+Customer newCustomer=createCustomer(solution,newLocation);
+scoreDirector.beforeEntityAdded(newCustomer);
+solution.getCustomerList().add(newCustomer);
+scoreDirector.afterEntityAdded(newCustomer);
+}
+}
 );
-  updatePanel(solutionBusiness.getSolution());
+updatePanel(solutionBusiness.getSolution());
 }

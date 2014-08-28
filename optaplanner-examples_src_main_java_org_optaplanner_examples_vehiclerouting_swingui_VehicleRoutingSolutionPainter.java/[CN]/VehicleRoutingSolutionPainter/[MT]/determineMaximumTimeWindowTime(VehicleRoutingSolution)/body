@@ -1,6 +1,6 @@
 {
   int maximumTimeWindowTime=0;
-  for (  Depot depot : schedule.getDepotList()) {
+  for (  Depot depot : solution.getDepotList()) {
     if (depot instanceof TimeWindowedDepot) {
       int timeWindowTime=((TimeWindowedDepot)depot).getDueTime();
       if (timeWindowTime > maximumTimeWindowTime) {
@@ -8,7 +8,7 @@
       }
     }
   }
-  for (  Customer customer : schedule.getCustomerList()) {
+  for (  Customer customer : solution.getCustomerList()) {
     if (customer instanceof TimeWindowedCustomer) {
       int timeWindowTime=((TimeWindowedCustomer)customer).getDueTime();
       if (timeWindowTime > maximumTimeWindowTime) {

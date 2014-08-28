@@ -1,5 +1,5 @@
 {
-  schedule.setDistanceType(DistanceType.AIR_DISTANCE);
+  solution.setDistanceType(DistanceType.AIR_DISTANCE);
   List<Location> locationList=new ArrayList<Location>(locationListSize);
   depotList=new ArrayList<Depot>(1);
   List<Customer> customerList=new ArrayList<Customer>(locationListSize);
@@ -32,8 +32,8 @@
       }
     }
   }
-  schedule.setLocationList(locationList);
-  schedule.setDepotList(depotList);
-  schedule.setCustomerList(customerList);
+  solution.setLocationList(locationList);
+  solution.setDepotList(depotList);
+  solution.setCustomerList(customerList);
   createVehicleList();
 }

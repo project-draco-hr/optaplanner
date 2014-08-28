@@ -1,5 +1,5 @@
 {
-  boolean roadDistance=schedule.getDistanceType() == DistanceType.ROAD_DISTANCE;
+  boolean roadDistance=solution.getDistanceType() == DistanceType.ROAD_DISTANCE;
   readConstantLine("NODE_COORD_SECTION");
   List<Location> locationList=new ArrayList<Location>(locationListSize);
   locationMap=new HashMap<Long,Location>(locationListSize);
@@ -16,7 +16,7 @@
     locationList.add(location);
     locationMap.put(location.getId(),location);
   }
-  schedule.setLocationList(locationList);
+  solution.setLocationList(locationList);
   if (roadDistance) {
     readConstantLine("EDGE_WEIGHT_SECTION");
     for (int i=0; i < locationListSize; i++) {

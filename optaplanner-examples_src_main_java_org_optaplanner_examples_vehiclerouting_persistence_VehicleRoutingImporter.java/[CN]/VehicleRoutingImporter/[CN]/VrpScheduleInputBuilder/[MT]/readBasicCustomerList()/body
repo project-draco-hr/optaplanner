@@ -18,5 +18,5 @@
       customerList.add(customer);
     }
   }
-  schedule.setCustomerList(customerList);
+  solution.setCustomerList(customerList);
 }

@@ -9,5 +9,5 @@
     vehicle.setDepot(depotList.get(0));
     vehicleList.add(vehicle);
   }
-  schedule.setVehicleList(vehicleList);
+  solution.setVehicleList(vehicleList);
 }

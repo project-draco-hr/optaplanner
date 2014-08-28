@@ -1,0 +1,20 @@
+{
+  Customer newCustomer;
+  if (solution instanceof TimeWindowedVehicleRoutingSolution) {
+    TimeWindowedCustomer newTimeWindowedCustomer=new TimeWindowedCustomer();
+    TimeWindowedDepot timeWindowedDepot=(TimeWindowedDepot)solution.getDepotList().get(0);
+    int windowTime=(timeWindowedDepot.getDueTime() - timeWindowedDepot.getReadyTime()) / 4;
+    int readyTime=demandRandom.nextInt(windowTime * 3);
+    newTimeWindowedCustomer.setReadyTime(readyTime);
+    newTimeWindowedCustomer.setDueTime(readyTime + windowTime);
+    newTimeWindowedCustomer.setServiceDuration(Math.min(10000,windowTime / 2));
+    newCustomer=newTimeWindowedCustomer;
+  }
+ else {
+    newCustomer=new Customer();
+  }
+  newCustomer.setId(newLocation.getId());
+  newCustomer.setLocation(newLocation);
+  newCustomer.setDemand(demandRandom.nextInt(10) + 1);
+  return newCustomer;
+}
