@@ -1,0 +1,18 @@
+{
+  TreeSet<Double> xValues=new TreeSet<Double>();
+  int itemCounter=0;
+  for (  XYSeries series : seriesList) {
+    for (    XYDataItem dataItem : (List<XYDataItem>)series.getItems()) {
+      xValues.add(dataItem.getXValue());
+      itemCounter++;
+    }
+  }
+  if (itemCounter < 5)   return false;
+  double threshold=0.2 * (xValues.last() - xValues.first());
+  int thresholdCounter=0;
+  for (  Double value : xValues.descendingSet()) {
+    if (value > threshold)     thresholdCounter++;
+ else     break;
+  }
+  return thresholdCounter < 0.2 * xValues.size();
+}
