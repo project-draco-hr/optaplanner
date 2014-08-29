@@ -1,5 +1,8 @@
 {
   NumberAxis xAxis=new NumberAxis(xAxisLabel);
+  if (areProblemScalesLogarithmic(seriesList)) {
+    xAxis=new LogarithmicAxis(xAxis.getLabel() + " (logarithmic)");
+  }
   xAxis.setNumberFormatOverride(xAxisNumberFormat);
   NumberAxis yAxis=new NumberAxis(yAxisLabel);
   yAxis.setNumberFormatOverride(yAxisNumberFormat);
