@@ -1,8 +1,10 @@
 {
+  double distance;
   if (location instanceof RoadSegmentLocation) {
-    return getDistanceToRoadLocation((RoadSegmentLocation)location);
+    distance=getDistanceDouble((RoadSegmentLocation)location);
   }
  else {
-    return getDistanceToHubLocation((HubSegmentLocation)location);
+    distance=hubTravelDistanceMap.get((HubSegmentLocation)location);
   }
+  return (int)(distance * 1000.0 + 0.5);
 }

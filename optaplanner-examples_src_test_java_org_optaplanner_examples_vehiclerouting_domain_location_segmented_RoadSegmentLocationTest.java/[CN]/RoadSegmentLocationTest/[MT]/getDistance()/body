@@ -1,0 +1,36 @@
+{
+  long id=0;
+  RoadSegmentLocation a=new RoadSegmentLocation(id++,0.0,0.0);
+  RoadSegmentLocation b=new RoadSegmentLocation(id++,0.0,4.0);
+  RoadSegmentLocation c=new RoadSegmentLocation(id++,2.0,0.0);
+  RoadSegmentLocation d=new RoadSegmentLocation(id++,100.0,2.0);
+  HubSegmentLocation x=new HubSegmentLocation(id++,1.0,0.0);
+  HubSegmentLocation y=new HubSegmentLocation(id++,1.0,3.0);
+  HubSegmentLocation z=new HubSegmentLocation(id++,99.0,3.0);
+  a.setNearbyTravelDistanceMap(createNearbyTravelDistanceMap(a,b,c));
+  a.setHubTravelDistanceMap(createHubTravelDistanceMap(a,x,y));
+  b.setNearbyTravelDistanceMap(createNearbyTravelDistanceMap(b,a));
+  b.setHubTravelDistanceMap(createHubTravelDistanceMap(b,x,y));
+  c.setNearbyTravelDistanceMap(createNearbyTravelDistanceMap(c,a));
+  c.setHubTravelDistanceMap(createHubTravelDistanceMap(c,x,y));
+  d.setNearbyTravelDistanceMap(createNearbyTravelDistanceMap(d));
+  d.setHubTravelDistanceMap(createHubTravelDistanceMap(d,z));
+  x.setNearbyTravelDistanceMap(createNearbyTravelDistanceMap(x,a,b,c));
+  x.setHubTravelDistanceMap(createHubTravelDistanceMap(x,y,z));
+  y.setNearbyTravelDistanceMap(createNearbyTravelDistanceMap(y,a,b,c));
+  y.setHubTravelDistanceMap(createHubTravelDistanceMap(y,x,z));
+  z.setNearbyTravelDistanceMap(createNearbyTravelDistanceMap(z,d));
+  z.setHubTravelDistanceMap(createHubTravelDistanceMap(z,x,y));
+  assertEquals(sumOfArcs(a,b),a.getDistance(b));
+  assertEquals(sumOfArcs(a,c),a.getDistance(c));
+  assertEquals(sumOfArcs(a,x,z,d),a.getDistance(d));
+  assertEquals(sumOfArcs(b,a),b.getDistance(a));
+  assertEquals(sumOfArcs(b,y,c),b.getDistance(c));
+  assertEquals(sumOfArcs(b,y,z,d),b.getDistance(d));
+  assertEquals(sumOfArcs(c,a),c.getDistance(a));
+  assertEquals(sumOfArcs(c,y,b),c.getDistance(b));
+  assertEquals(sumOfArcs(c,x,z,d),c.getDistance(d));
+  assertEquals(sumOfArcs(d,z,x,a),d.getDistance(a));
+  assertEquals(sumOfArcs(d,z,y,b),d.getDistance(b));
+  assertEquals(sumOfArcs(d,z,x,c),d.getDistance(c));
+}

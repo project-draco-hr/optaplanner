@@ -1,7 +1,7 @@
 {
   Double distance=nearbyTravelDistanceMap.get((RoadSegmentLocation)location);
   if (distance == null) {
-    distance=getShortestDistanceThroughHubs((RoadSegmentLocation)location);
+    distance=getShortestDistanceDoubleThroughHubs((RoadSegmentLocation)location);
   }
   return (int)(distance * 1000.0 + 0.5);
 }
