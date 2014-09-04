@@ -1,0 +1,8 @@
+{
+  if (location instanceof RoadSegmentLocation) {
+    return getDistanceToRoadLocation((RoadSegmentLocation)location);
+  }
+ else {
+    return getDistanceToHubLocation((HubSegmentLocation)location);
+  }
+}

@@ -6,7 +6,7 @@
   for (int i=0; i < locationListSize; i++) {
     String line=bufferedReader.readLine();
     String[] lineTokens=splitBySpacesOrTabs(line.trim(),3,4);
-    Location location=roadDistance ? new RoadDistanceLocation() : new AirDistanceLocation();
+    Location location=roadDistance ? new RoadLocation() : new AirLocation();
     location.setId(Long.parseLong(lineTokens[0]));
     location.setLatitude(Double.parseDouble(lineTokens[1]));
     location.setLongitude(Double.parseDouble(lineTokens[2]));
@@ -20,8 +20,8 @@
   if (roadDistance) {
     readConstantLine("EDGE_WEIGHT_SECTION");
     for (int i=0; i < locationListSize; i++) {
-      RoadDistanceLocation location=(RoadDistanceLocation)locationList.get(i);
-      HashMap<RoadDistanceLocation,Double> travelDistanceMap=new HashMap<RoadDistanceLocation,Double>(locationListSize);
+      RoadLocation location=(RoadLocation)locationList.get(i);
+      HashMap<RoadLocation,Double> travelDistanceMap=new HashMap<RoadLocation,Double>(locationListSize);
       String line=bufferedReader.readLine();
       String[] lineTokens=splitBySpacesOrTabs(line.trim(),locationListSize);
       for (int j=0; j < locationListSize; j++) {
@@ -32,7 +32,7 @@
           }
         }
  else {
-          RoadDistanceLocation otherLocation=(RoadDistanceLocation)locationList.get(j);
+          RoadLocation otherLocation=(RoadLocation)locationList.get(j);
           travelDistanceMap.put(otherLocation,travelDistance);
         }
       }

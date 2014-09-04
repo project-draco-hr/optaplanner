@@ -9,7 +9,7 @@
   while (line != null && !line.trim().isEmpty()) {
     String[] lineTokens=splitBySpacesOrTabs(line.trim(),7);
     long id=Long.parseLong(lineTokens[0]);
-    AirDistanceLocation location=new AirDistanceLocation();
+    AirLocation location=new AirLocation();
     location.setId(id);
     location.setLatitude(Double.parseDouble(lineTokens[1]));
     location.setLongitude(Double.parseDouble(lineTokens[2]));

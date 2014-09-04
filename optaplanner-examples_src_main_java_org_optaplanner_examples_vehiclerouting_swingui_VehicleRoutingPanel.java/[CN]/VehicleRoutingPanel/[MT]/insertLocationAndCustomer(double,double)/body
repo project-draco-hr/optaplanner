@@ -2,10 +2,13 @@
   final Location newLocation;
 switch (getVehicleRoutingSolution().getDistanceType()) {
 case AIR_DISTANCE:
-    newLocation=new AirDistanceLocation();
+    newLocation=new AirLocation();
   break;
 case ROAD_DISTANCE:
 logger.warn("Adding locations for a road distance dataset is not supported.");
+return;
+case SEGMENTED_ROAD_DISTANCE:
+logger.warn("Adding locations for a segmented road distance dataset is not supported.");
 return;
 default :
 throw new IllegalStateException("The distanceType (" + getVehicleRoutingSolution().getDistanceType() + ") is not implemented.");

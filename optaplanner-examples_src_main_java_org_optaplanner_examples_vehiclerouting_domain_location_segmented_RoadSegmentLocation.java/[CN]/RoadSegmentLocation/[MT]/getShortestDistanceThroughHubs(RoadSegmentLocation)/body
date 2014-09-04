@@ -1,0 +1,11 @@
+{
+  double shortestDistance=Double.MAX_VALUE;
+  for (  Map.Entry<HubSegmentLocation,Double> entry : hubTravelDistanceMap.entrySet()) {
+    double distance=entry.getValue();
+    distance+=entry.getKey().getDistanceToRoadLocation(location);
+    if (distance < shortestDistance) {
+      shortestDistance=distance;
+    }
+  }
+  return shortestDistance;
+}

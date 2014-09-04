@@ -7,7 +7,7 @@
   for (int i=0; i < locationListSize; i++) {
     String line=bufferedReader.readLine();
     String[] lineTokens=splitBySpacesOrTabs(line.trim(),3,4);
-    AirDistanceLocation location=new AirDistanceLocation();
+    AirLocation location=new AirLocation();
     location.setId((long)i);
     location.setLatitude(Double.parseDouble(lineTokens[1]));
     location.setLongitude(Double.parseDouble(lineTokens[2]));
