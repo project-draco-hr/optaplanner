@@ -1,8 +1,0 @@
-{
-  readBasicHeaders();
-  readBasicLocationList();
-  readBasicCustomerList();
-  readBasicDepotList();
-  createBasicVehicleList();
-  readConstantLine("EOF");
-}

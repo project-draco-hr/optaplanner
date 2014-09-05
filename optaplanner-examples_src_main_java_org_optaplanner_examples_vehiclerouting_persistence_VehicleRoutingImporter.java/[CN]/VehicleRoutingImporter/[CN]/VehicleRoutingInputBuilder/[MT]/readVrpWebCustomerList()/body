@@ -1,7 +1,7 @@
 {
   readConstantLine("DEMAND_SECTION");
-  List<Customer> customerList=new ArrayList<Customer>(locationListSize);
-  for (int i=0; i < locationListSize; i++) {
+  List<Customer> customerList=new ArrayList<Customer>(customerListSize);
+  for (int i=0; i < customerListSize; i++) {
     String line=bufferedReader.readLine();
     String[] lineTokens=splitBySpacesOrTabs(line.trim(),2);
     Customer customer=new Customer();

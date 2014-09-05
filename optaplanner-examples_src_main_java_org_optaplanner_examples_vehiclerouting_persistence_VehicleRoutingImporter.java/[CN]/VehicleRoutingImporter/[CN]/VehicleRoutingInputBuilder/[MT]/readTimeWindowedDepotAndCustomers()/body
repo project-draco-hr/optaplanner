@@ -55,5 +55,5 @@
   solution.setLocationList(locationList);
   solution.setDepotList(depotList);
   solution.setCustomerList(customerList);
-  locationListSize=locationList.size();
+  customerListSize=locationList.size();
 }

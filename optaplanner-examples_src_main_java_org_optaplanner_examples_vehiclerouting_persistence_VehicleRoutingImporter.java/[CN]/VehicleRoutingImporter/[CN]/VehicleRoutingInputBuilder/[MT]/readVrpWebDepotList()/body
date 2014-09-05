@@ -1,6 +1,6 @@
 {
   readConstantLine("DEPOT_SECTION");
-  depotList=new ArrayList<Depot>(locationListSize);
+  depotList=new ArrayList<Depot>(customerListSize);
   long id=readLongValue();
   while (id != -1) {
     Depot depot=new Depot();

@@ -4,14 +4,14 @@
     solution=new VehicleRoutingSolution();
     solution.setId(0L);
     solution.setName(removePrefixSuffixFromLine(firstLine,"\\s*NAME\\s*:",""));
-    readBasicFormat();
+    readVrpWebFormat();
   }
  else   if (splitBySpacesOrTabs(firstLine).length == 3) {
     solution=new VehicleRoutingSolution();
     solution.setId(0L);
     solution.setName(FilenameUtils.getBaseName(inputFile.getName()));
     String[] tokens=splitBySpacesOrTabs(firstLine,3);
-    locationListSize=Integer.parseInt(tokens[0]);
+    customerListSize=Integer.parseInt(tokens[0]);
     vehicleListSize=Integer.parseInt(tokens[1]);
     capacity=Integer.parseInt(tokens[2]);
     readCourseraFormat();
@@ -22,7 +22,7 @@
     solution.setName(firstLine);
     readTimeWindowedFormat();
   }
-  BigInteger possibleSolutionSize=factorial(locationListSize + vehicleListSize - 1).divide(factorial(vehicleListSize - 1));
+  BigInteger possibleSolutionSize=factorial(customerListSize + vehicleListSize - 1).divide(factorial(vehicleListSize - 1));
   logger.info("VehicleRoutingSolution {} has {} depots, {} vehicles and {} customers with a search space of {}.",getInputId(),solution.getDepotList().size(),solution.getVehicleList().size(),solution.getCustomerList().size(),getFlooredPossibleSolutionSize(possibleSolutionSize));
   return solution;
 }

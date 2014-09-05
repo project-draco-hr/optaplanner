@@ -1,0 +1,8 @@
+{
+  readVrpWebHeaders();
+  readVrpWebLocationList();
+  readVrpWebCustomerList();
+  readVrpWebDepotList();
+  createVrpWebVehicleList();
+  readConstantLine("EOF");
+}
