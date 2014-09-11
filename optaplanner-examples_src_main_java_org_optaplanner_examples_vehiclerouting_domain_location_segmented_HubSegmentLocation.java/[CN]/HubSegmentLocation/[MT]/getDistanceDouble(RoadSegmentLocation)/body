@@ -1,7 +1,7 @@
 {
   Double distance=nearbyTravelDistanceMap.get(location);
   if (distance == null) {
-    distance=getShortestDistanceDoubleThroughHub(location);
+    distance=getShortestDistanceDoubleThroughOtherHub(location);
   }
   return distance;
 }

@@ -1,0 +1,14 @@
+{
+  double shortestDistance=Double.MAX_VALUE;
+  for (  Map.Entry<HubSegmentLocation,Double> otherHubEntry : hubTravelDistanceMap.entrySet()) {
+    HubSegmentLocation otherHub=otherHubEntry.getKey();
+    Double otherHubNearbyDistance=otherHub.nearbyTravelDistanceMap.get(location);
+    if (otherHubNearbyDistance != null) {
+      double distance=otherHubEntry.getValue() + otherHubNearbyDistance;
+      if (distance < shortestDistance) {
+        shortestDistance=distance;
+      }
+    }
+  }
+  return shortestDistance;
+}
