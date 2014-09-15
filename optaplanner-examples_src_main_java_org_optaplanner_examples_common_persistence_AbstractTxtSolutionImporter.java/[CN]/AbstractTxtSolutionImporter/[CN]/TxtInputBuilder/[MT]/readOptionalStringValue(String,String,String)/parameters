@@ -1,0 +1,3 @@
+String prefixRegex
+String suffixRegex
+String defaultValue

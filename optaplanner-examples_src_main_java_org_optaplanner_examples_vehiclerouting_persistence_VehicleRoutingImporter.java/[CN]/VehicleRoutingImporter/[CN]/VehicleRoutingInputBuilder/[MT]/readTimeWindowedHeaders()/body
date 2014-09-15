@@ -1,5 +1,6 @@
 {
   solution.setDistanceType(DistanceType.AIR_DISTANCE);
+  solution.setDistanceUnitOfMeasurement("distance");
   readEmptyLine();
   readConstantLine("VEHICLE");
   readConstantLine("NUMBER +CAPACITY");
