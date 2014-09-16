@@ -1,5 +1,4 @@
 {
   TaskAssignment taskAssignment=(TaskAssignment)entity;
-  modifyMachine(taskAssignment,null,taskAssignment.getMachine());
   modifyStartPeriod(taskAssignment,null,taskAssignment.getStartPeriod());
 }
