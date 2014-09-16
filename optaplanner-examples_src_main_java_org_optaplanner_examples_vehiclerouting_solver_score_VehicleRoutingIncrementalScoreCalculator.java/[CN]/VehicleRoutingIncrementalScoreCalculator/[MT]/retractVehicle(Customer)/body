@@ -7,7 +7,7 @@
     hardScore+=Math.min(capacity - newDemand,0) - Math.min(capacity - oldDemand,0);
     vehicleDemandMap.put(vehicle,newDemand);
     if (customer.getNextCustomer() == null) {
-      softScore+=vehicle.getLocation().getDistance(customer.getLocation());
+      softScore+=customer.getLocation().getDistance(vehicle.getLocation());
     }
   }
 }
