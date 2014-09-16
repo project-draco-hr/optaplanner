@@ -1,7 +1,8 @@
 {
-  int uninitializedVariableCount=solverScope.getScoreDirector().countWorkingSolutionUninitializedVariables();
+  InnerScoreDirector scoreDirector=solverScope.getScoreDirector();
+  int uninitializedVariableCount=scoreDirector.countWorkingSolutionUninitializedVariables();
   solverScope.setBestUninitializedVariableCount(uninitializedVariableCount);
-  Score score=solverScope.calculateScore();
+  Score score=scoreDirector.calculateScore();
   solverScope.setBestScore(score);
   solverScope.setBestSolutionTimeMillis(System.currentTimeMillis());
   solverScope.getBestSolution().setScore(score);
@@ -10,5 +11,8 @@
   }
  else {
     solverScope.setStartingInitializedScore(null);
+  }
+  if (assertInitialScoreFromScratch) {
+    scoreDirector.assertWorkingScoreFromScratch(score,"Initial score calculated");
   }
 }

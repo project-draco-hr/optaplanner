@@ -1,6 +1,7 @@
 {
   BestSolutionRecaller bestSolutionRecaller=new BestSolutionRecaller();
   if (environmentMode.isNonIntrusiveFullAsserted()) {
+    bestSolutionRecaller.setAssertInitialScoreFromScratch(true);
     bestSolutionRecaller.setAssertBestScoreIsUnmodified(true);
   }
   return bestSolutionRecaller;
