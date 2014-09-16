@@ -4,15 +4,27 @@
   }
   long timeMillisSpentLimit=0L;
   if (millisecondsSpentLimit != null) {
+    if (millisecondsSpentLimit < 0L) {
+      throw new IllegalArgumentException("The termination millisecondsSpentLimit (" + millisecondsSpentLimit + ") cannot be negative.");
+    }
     timeMillisSpentLimit+=millisecondsSpentLimit;
   }
   if (secondsSpentLimit != null) {
+    if (secondsSpentLimit < 0L) {
+      throw new IllegalArgumentException("The termination secondsSpentLimit (" + secondsSpentLimit + ") cannot be negative.");
+    }
     timeMillisSpentLimit+=secondsSpentLimit * 1000L;
   }
   if (minutesSpentLimit != null) {
+    if (minutesSpentLimit < 0L) {
+      throw new IllegalArgumentException("The termination minutesSpentLimit (" + minutesSpentLimit + ") cannot be negative.");
+    }
     timeMillisSpentLimit+=minutesSpentLimit * 60000L;
   }
   if (hoursSpentLimit != null) {
+    if (hoursSpentLimit < 0L) {
+      throw new IllegalArgumentException("The termination hoursSpentLimit (" + hoursSpentLimit + ") cannot be negative.");
+    }
     timeMillisSpentLimit+=hoursSpentLimit * 3600000L;
   }
   return timeMillisSpentLimit;
