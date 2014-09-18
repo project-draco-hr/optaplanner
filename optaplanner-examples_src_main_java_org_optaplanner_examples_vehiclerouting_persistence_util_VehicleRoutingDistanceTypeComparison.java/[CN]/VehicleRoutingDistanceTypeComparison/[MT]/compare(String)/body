@@ -1,0 +1,26 @@
+{
+  File[] files=new File[filePaths.length];
+  for (int i=0; i < filePaths.length; i++) {
+    File file=new File(vehicleRoutingDao.getDataDir(),filePaths[i]);
+    if (!file.exists()) {
+      throw new IllegalArgumentException("The file (" + file + ") does not exist.");
+    }
+    files[i]=file;
+  }
+  for (  File varFile : files) {
+    logger.info("  Results for {}:",varFile.getName());
+    VehicleRoutingSolution variablesSolution=(VehicleRoutingSolution)vehicleRoutingDao.readSolution(varFile);
+    for (    File inputFile : files) {
+      HardSoftScore score;
+      if (inputFile == varFile) {
+        score=variablesSolution.getScore();
+      }
+ else {
+        VehicleRoutingSolution inputSolution=(VehicleRoutingSolution)vehicleRoutingDao.readSolution(inputFile);
+        applyVariables(inputSolution,variablesSolution);
+        score=inputSolution.getScore();
+      }
+      logger.info("    {} (according to {})",score.getSoftScore(),inputFile.getName());
+    }
+  }
+}

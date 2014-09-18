@@ -1,0 +1,27 @@
+{
+  List<Vehicle> inputVehicleList=inputSolution.getVehicleList();
+  Map<Long,Vehicle> inputVehicleMap=new LinkedHashMap<Long,Vehicle>(inputVehicleList.size());
+  for (  Vehicle vehicle : inputVehicleList) {
+    inputVehicleMap.put(vehicle.getId(),vehicle);
+  }
+  List<Customer> inputCustomerList=inputSolution.getCustomerList();
+  Map<Long,Customer> inputCustomerMap=new LinkedHashMap<Long,Customer>(inputCustomerList.size());
+  for (  Customer customer : inputCustomerList) {
+    inputCustomerMap.put(customer.getId(),customer);
+  }
+  for (  Vehicle varVehicle : varSolution.getVehicleList()) {
+    Vehicle inputVehicle=inputVehicleMap.get(varVehicle.getId());
+    Customer varNext=varVehicle.getNextCustomer();
+    inputVehicle.setNextCustomer(varNext == null ? null : inputCustomerMap.get(varNext.getId()));
+  }
+  for (  Customer varCustomer : varSolution.getCustomerList()) {
+    Customer inputCustomer=inputCustomerMap.get(varCustomer.getId());
+    Standstill varPrevious=varCustomer.getPreviousStandstill();
+    inputCustomer.setPreviousStandstill(varPrevious == null ? null : varPrevious instanceof Vehicle ? inputVehicleMap.get(((Vehicle)varPrevious).getId()) : inputCustomerMap.get(((Customer)varPrevious).getId()));
+    Customer varNext=varCustomer.getNextCustomer();
+    inputCustomer.setNextCustomer(varNext == null ? null : inputCustomerMap.get(varNext.getId()));
+  }
+  ScoreDirector scoreDirector=scoreDirectorFactory.buildScoreDirector();
+  scoreDirector.setWorkingSolution(inputSolution);
+  scoreDirector.calculateScore();
+}

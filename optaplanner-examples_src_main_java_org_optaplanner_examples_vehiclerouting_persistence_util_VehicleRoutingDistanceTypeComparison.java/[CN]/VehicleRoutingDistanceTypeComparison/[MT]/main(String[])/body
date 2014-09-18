@@ -1,0 +1,3 @@
+{
+  new VehicleRoutingDistanceTypeComparison().compare("solved/tmp-p-belgium-n50-k10.xml","solved/tmp-p-belgium-road-km-n50-k10.xml","solved/tmp-p-belgium-road-time-n50-k10.xml");
+}
