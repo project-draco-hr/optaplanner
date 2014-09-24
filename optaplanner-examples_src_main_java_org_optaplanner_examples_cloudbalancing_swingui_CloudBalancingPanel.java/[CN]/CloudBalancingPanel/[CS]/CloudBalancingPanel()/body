@@ -1,5 +1,6 @@
 {
   cloudComputerIcon=new ImageIcon(getClass().getResource("cloudComputer.png"));
+  addCloudComputerIcon=new ImageIcon(getClass().getResource("addCloudComputer.png"));
   deleteCloudComputerIcon=new ImageIcon(getClass().getResource("deleteCloudComputer.png"));
   GroupLayout layout=new GroupLayout(this);
   setLayout(layout);
