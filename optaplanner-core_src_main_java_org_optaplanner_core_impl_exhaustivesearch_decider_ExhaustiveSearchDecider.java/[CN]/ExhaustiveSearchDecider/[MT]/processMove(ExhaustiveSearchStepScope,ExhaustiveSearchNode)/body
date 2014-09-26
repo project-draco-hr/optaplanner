@@ -12,7 +12,7 @@
       bestSolutionRecaller.processWorkingSolutionDuringMove(uninitializedVariableCount,score,stepScope);
     }
  else {
-      phaseScope.getExpandableNodeQueue().add(moveNode);
+      phaseScope.addExpandableNode(moveNode);
     }
   }
  else {
@@ -30,7 +30,7 @@
       Score optimisticBound=scoreBounder.calculateOptimisticBound(scoreDirector,score);
       moveNode.setOptimisticBound(optimisticBound);
       if (optimisticBound.compareTo(phaseScope.getBestPessimisticBound()) > 0) {
-        phaseScope.getExpandableNodeQueue().add(moveNode);
+        phaseScope.addExpandableNode(moveNode);
         Score pessimisticBound=scoreBounder.calculatePessimisticBound(scoreDirector,score);
         phaseScope.registerPessimisticBound(pessimisticBound);
       }

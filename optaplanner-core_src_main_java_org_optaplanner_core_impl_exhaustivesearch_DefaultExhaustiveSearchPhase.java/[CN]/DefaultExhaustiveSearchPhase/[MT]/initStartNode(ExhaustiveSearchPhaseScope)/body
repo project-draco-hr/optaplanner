@@ -9,6 +9,6 @@
     phaseScope.setBestPessimisticBound(startLayer.isLastLayer() ? score : scoreBounder.calculatePessimisticBound(scoreDirector,score));
     startNode.setOptimisticBound(startLayer.isLastLayer() ? score : scoreBounder.calculateOptimisticBound(scoreDirector,score));
   }
-  phaseScope.getExpandableNodeQueue().add(startNode);
+  phaseScope.addExpandableNode(startNode);
   phaseScope.getLastCompletedStepScope().setExpandingNode(startNode);
 }

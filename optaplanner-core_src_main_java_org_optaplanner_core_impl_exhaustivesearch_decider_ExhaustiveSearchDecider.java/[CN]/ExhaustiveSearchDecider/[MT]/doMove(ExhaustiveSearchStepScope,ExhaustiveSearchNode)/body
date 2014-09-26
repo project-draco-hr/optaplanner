@@ -10,5 +10,5 @@
     ExhaustiveSearchPhaseScope phaseScope=stepScope.getPhaseScope();
     phaseScope.assertExpectedUndoMoveScore(move,undoMove);
   }
-  logger.trace("        Move breadth ({}), score ({}), move ({}).",moveNode.getBreadth(),moveNode.getScore(),moveNode.getMove());
+  logger.trace("        Move treeId ({}), score ({}), expandable ({}), move ({}).",moveNode.getTreeId(),moveNode.getScore(),moveNode.isExpandable(),moveNode.getMove());
 }

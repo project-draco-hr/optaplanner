@@ -1,0 +1,4 @@
+{
+  expandableNodeQueue.add(moveNode);
+  moveNode.setExpandable(true);
+}
