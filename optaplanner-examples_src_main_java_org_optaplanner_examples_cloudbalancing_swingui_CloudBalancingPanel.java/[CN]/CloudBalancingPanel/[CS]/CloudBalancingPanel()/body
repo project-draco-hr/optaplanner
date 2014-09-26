@@ -2,6 +2,9 @@
   cloudComputerIcon=new ImageIcon(getClass().getResource("cloudComputer.png"));
   addCloudComputerIcon=new ImageIcon(getClass().getResource("addCloudComputer.png"));
   deleteCloudComputerIcon=new ImageIcon(getClass().getResource("deleteCloudComputer.png"));
+  cloudProcessIcon=new ImageIcon(getClass().getResource("cloudProcess.png"));
+  addCloudProcessIcon=new ImageIcon(getClass().getResource("addCloudProcess.png"));
+  deleteCloudProcessIcon=new ImageIcon(getClass().getResource("deleteCloudProcess.png"));
   GroupLayout layout=new GroupLayout(this);
   setLayout(layout);
   JPanel headerPanel=createHeaderPanel();

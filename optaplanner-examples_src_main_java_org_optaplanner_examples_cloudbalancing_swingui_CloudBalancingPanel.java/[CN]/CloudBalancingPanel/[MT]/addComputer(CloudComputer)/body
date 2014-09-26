@@ -4,14 +4,16 @@
     public void doChange(    ScoreDirector scoreDirector){
       CloudBalance cloudBalance=(CloudBalance)scoreDirector.getWorkingSolution();
       long nextComputerId=0L;
-      for (      CloudComputer computer : cloudBalance.getComputerList()) {
-        if (nextComputerId <= computer.getId()) {
-          nextComputerId=computer.getId() + 1L;
+      for (      CloudComputer otherComputer : cloudBalance.getComputerList()) {
+        if (nextComputerId <= otherComputer.getId()) {
+          nextComputerId=otherComputer.getId() + 1L;
         }
       }
       computer.setId(nextComputerId);
       cloudBalance.setComputerList(new ArrayList<CloudComputer>(cloudBalance.getComputerList()));
+      scoreDirector.beforeProblemFactAdded(computer);
       cloudBalance.getComputerList().add(computer);
+      scoreDirector.afterProblemFactAdded(computer);
     }
   }
 );
