@@ -1,6 +1,6 @@
 {
   logger.info("Scheduling delete of machine ({}).",machine);
-  solutionBusiness.doProblemFactChange(new ProblemFactChange(){
+  doProblemFactChange(new ProblemFactChange(){
     public void doChange(    ScoreDirector scoreDirector){
       MachineReassignment machineReassignment=(MachineReassignment)scoreDirector.getWorkingSolution();
       for (      MrProcessAssignment processAssignment : machineReassignment.getProcessAssignmentList()) {
@@ -23,5 +23,4 @@
     }
   }
 );
-  updatePanel(solutionBusiness.getSolution());
 }

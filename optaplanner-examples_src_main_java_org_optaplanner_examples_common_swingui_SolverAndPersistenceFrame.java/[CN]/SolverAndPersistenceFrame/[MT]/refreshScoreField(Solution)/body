@@ -1,0 +1,4 @@
+{
+  scoreField.setForeground(determineScoreFieldForeground(solution.getScore()));
+  scoreField.setText("Latest best score: " + solution.getScore());
+}

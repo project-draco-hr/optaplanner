@@ -1,6 +1,6 @@
 {
-  solutionPanel.resetPanel(solutionBusiness.getSolution());
+  Solution solution=solutionBusiness.getSolution();
+  solutionPanel.resetPanel(solution);
   validate();
-  scoreField.setForeground(determineScoreFieldForeground(solutionBusiness.getScore()));
-  scoreField.setText("Score: " + solutionBusiness.getScore());
+  refreshScoreField(solution);
 }

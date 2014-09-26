@@ -1,0 +1,12 @@
+{
+  solutionBusiness.doProblemFactChange(problemFactChange);
+  Solution solution=solutionBusiness.getSolution();
+  if (reset) {
+    resetPanel(solution);
+  }
+ else {
+    updatePanel(solution);
+  }
+  validate();
+  solverAndPersistenceFrame.refreshScoreField(solution);
+}

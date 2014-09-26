@@ -1,6 +1,6 @@
 {
   logger.info("Scheduling addition of computer ({}).",computer);
-  solutionBusiness.doProblemFactChange(new ProblemFactChange(){
+  doProblemFactChange(new ProblemFactChange(){
     public void doChange(    ScoreDirector scoreDirector){
       CloudBalance cloudBalance=(CloudBalance)scoreDirector.getWorkingSolution();
       long nextComputerId=0L;
@@ -17,5 +17,4 @@
     }
   }
 );
-  updatePanel(solutionBusiness.getSolution());
 }

@@ -1,6 +1,6 @@
 {
   logger.info("Scheduling delete of process ({}).",process);
-  solutionBusiness.doProblemFactChange(new ProblemFactChange(){
+  doProblemFactChange(new ProblemFactChange(){
     public void doChange(    ScoreDirector scoreDirector){
       CloudBalance cloudBalance=(CloudBalance)scoreDirector.getWorkingSolution();
       for (Iterator<CloudProcess> it=cloudBalance.getProcessList().iterator(); it.hasNext(); ) {
@@ -15,5 +15,4 @@
     }
   }
 );
-  updatePanel(solutionBusiness.getSolution());
 }

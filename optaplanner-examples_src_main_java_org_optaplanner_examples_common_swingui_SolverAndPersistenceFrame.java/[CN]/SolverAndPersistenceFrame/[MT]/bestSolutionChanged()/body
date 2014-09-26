@@ -4,6 +4,5 @@
     solutionPanel.updatePanel(solution);
     validate();
   }
-  scoreField.setForeground(determineScoreFieldForeground(solutionBusiness.getScore()));
-  scoreField.setText("Latest best score: " + solution.getScore());
+  refreshScoreField(solution);
 }

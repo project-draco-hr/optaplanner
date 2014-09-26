@@ -1,6 +1,6 @@
 {
   logger.info("Scheduling addition of process ({}).",process);
-  solutionBusiness.doProblemFactChange(new ProblemFactChange(){
+  doProblemFactChange(new ProblemFactChange(){
     public void doChange(    ScoreDirector scoreDirector){
       CloudBalance cloudBalance=(CloudBalance)scoreDirector.getWorkingSolution();
       long nextProcessId=0L;
@@ -16,5 +16,4 @@
     }
   }
 );
-  updatePanel(solutionBusiness.getSolution());
 }

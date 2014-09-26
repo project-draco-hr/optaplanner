@@ -1,6 +1,6 @@
 {
   logger.info("Scheduling delete of computer ({}).",computer);
-  solutionBusiness.doProblemFactChange(new ProblemFactChange(){
+  doProblemFactChange(new ProblemFactChange(){
     public void doChange(    ScoreDirector scoreDirector){
       CloudBalance cloudBalance=(CloudBalance)scoreDirector.getWorkingSolution();
       for (      CloudProcess process : cloudBalance.getProcessList()) {
@@ -23,5 +23,4 @@
     }
   }
 );
-  updatePanel(solutionBusiness.getSolution());
 }

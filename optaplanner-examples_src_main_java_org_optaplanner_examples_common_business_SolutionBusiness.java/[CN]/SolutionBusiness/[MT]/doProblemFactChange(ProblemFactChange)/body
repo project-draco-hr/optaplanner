@@ -4,5 +4,6 @@
   }
  else {
     problemFactChange.doChange(guiScoreDirector);
+    guiScoreDirector.calculateScore();
   }
 }

@@ -5,7 +5,7 @@
   newCity.setLongitude(longitude);
   newCity.setLatitude(latitude);
   logger.info("Scheduling insertion of newCity ({}).",newCity);
-  solutionBusiness.doProblemFactChange(new ProblemFactChange(){
+  doProblemFactChange(new ProblemFactChange(){
     public void doChange(    ScoreDirector scoreDirector){
       TravelingSalesmanTour solution=(TravelingSalesmanTour)scoreDirector.getWorkingSolution();
       scoreDirector.beforeProblemFactAdded(newCity);
@@ -20,5 +20,4 @@
     }
   }
 );
-  updatePanel(solutionBusiness.getSolution());
 }
