@@ -7,20 +7,21 @@
   }
   List<ExhaustiveSearchLayer> layerList=new ArrayList<ExhaustiveSearchLayer>((int)entitySize);
   int depth=0;
-  int uninitializedVariableCount=phaseScope.getSolutionDescriptor().countUninitializedVariables(phaseScope.getWorkingSolution());
+  InnerScoreDirector scoreDirector=phaseScope.getScoreDirector();
+  int uninitializedVariableCount=phaseScope.getSolutionDescriptor().countReinitializableVariables(scoreDirector,phaseScope.getWorkingSolution());
   Collection<GenuineVariableDescriptor> genuineVariableDescriptors=entitySelector.getEntityDescriptor().getGenuineVariableDescriptors();
   for (  Object entity : entitySelector) {
     ExhaustiveSearchLayer layer=new ExhaustiveSearchLayer(depth,entity,uninitializedVariableCount);
-    layerList.add(layer);
-    depth++;
-    for (    GenuineVariableDescriptor genuineVariableDescriptor : genuineVariableDescriptors) {
-      if (!genuineVariableDescriptor.isInitialized(entity)) {
-        uninitializedVariableCount--;
-      }
+    int reinitializeVariableCount=entitySelector.getEntityDescriptor().countReinitializableVariables(scoreDirector,entity);
+    if (reinitializeVariableCount == 0) {
+      continue;
     }
+    depth++;
+    uninitializedVariableCount-=reinitializeVariableCount;
+    layerList.add(layer);
   }
-  ExhaustiveSearchLayer layer=new ExhaustiveSearchLayer(depth,null,uninitializedVariableCount);
-  layerList.add(layer);
+  ExhaustiveSearchLayer lastLayer=new ExhaustiveSearchLayer(depth,null,uninitializedVariableCount);
+  layerList.add(lastLayer);
   entitySelector.stepEnded(stepScope);
   phaseScope.setLayerList(layerList);
 }

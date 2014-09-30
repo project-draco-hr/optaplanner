@@ -1,5 +1,6 @@
 {
   HeuristicConfigPolicy phaseConfigPolicy=solverConfigPolicy.createPhaseConfigPolicy();
+  phaseConfigPolicy.setReinitializeVariableFilterEnabled(true);
   phaseConfigPolicy.setInitializedChainedValueFilterEnabled(true);
   ExhaustiveSearchType exhaustiveSearchType_=exhaustiveSearchType == null ? ExhaustiveSearchType.BRANCH_AND_BOUND : exhaustiveSearchType;
   phaseConfigPolicy.setEntitySorterManner(entitySorterManner != null ? entitySorterManner : exhaustiveSearchType_.getDefaultEntitySorterManner());

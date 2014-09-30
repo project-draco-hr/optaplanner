@@ -1,7 +1,7 @@
 {
   int count=0;
   for (  GenuineVariableDescriptor variableDescriptor : effectiveGenuineVariableDescriptorMap.values()) {
-    if (!variableDescriptor.isInitialized(entity)) {
+    if (variableDescriptor.isReinitializable(scoreDirector,entity)) {
       count++;
     }
   }
