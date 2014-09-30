@@ -1,0 +1,6 @@
+{
+  if (hasRecordingCreated && !hasRecording) {
+    return "No next replay";
+  }
+  return "Next replay (" + (recordingCreated ? recording : "?") + ")";
+}
