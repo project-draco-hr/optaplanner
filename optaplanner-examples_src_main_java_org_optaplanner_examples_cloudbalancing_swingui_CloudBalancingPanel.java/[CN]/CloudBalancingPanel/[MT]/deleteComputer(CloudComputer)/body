@@ -5,9 +5,9 @@
       CloudBalance cloudBalance=(CloudBalance)scoreDirector.getWorkingSolution();
       for (      CloudProcess process : cloudBalance.getProcessList()) {
         if (ObjectUtils.equals(process.getComputer(),computer)) {
-          scoreDirector.beforeEntityRemoved(process);
+          scoreDirector.beforeVariableChanged(process,"computer");
           process.setComputer(null);
-          scoreDirector.afterEntityRemoved(process);
+          scoreDirector.afterVariableChanged(process,"computer");
         }
       }
       cloudBalance.setComputerList(new ArrayList<CloudComputer>(cloudBalance.getComputerList()));
