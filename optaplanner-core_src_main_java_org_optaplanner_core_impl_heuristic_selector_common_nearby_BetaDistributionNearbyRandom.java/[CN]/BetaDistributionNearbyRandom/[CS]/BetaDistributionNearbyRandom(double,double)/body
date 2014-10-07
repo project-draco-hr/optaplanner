@@ -1,0 +1,3 @@
+{
+  betaDistribution=new BetaDistribution(betaDistributionAlpha,betaDistributionBeta);
+}

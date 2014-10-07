@@ -2,6 +2,13 @@
   super.inherit(inheritedConfig);
   downcastEntityClass=ConfigUtils.inheritOverwritableProperty(downcastEntityClass,inheritedConfig.getDowncastEntityClass());
   variableName=ConfigUtils.inheritOverwritableProperty(variableName,inheritedConfig.getVariableName());
+  if (nearbyOriginEntitySelectorConfig == null) {
+    nearbyOriginEntitySelectorConfig=inheritedConfig.getNearbyOriginEntitySelectorConfig();
+  }
+ else   if (inheritedConfig.getNearbyOriginEntitySelectorConfig() != null) {
+    nearbyOriginEntitySelectorConfig.inherit(inheritedConfig.getNearbyOriginEntitySelectorConfig());
+  }
+  nearEntityNearbyMethodClass=ConfigUtils.inheritOverwritableProperty(nearEntityNearbyMethodClass,inheritedConfig.getNearEntityNearbyMethodClass());
   cacheType=ConfigUtils.inheritOverwritableProperty(cacheType,inheritedConfig.getCacheType());
   selectionOrder=ConfigUtils.inheritOverwritableProperty(selectionOrder,inheritedConfig.getSelectionOrder());
   sorterManner=ConfigUtils.inheritOverwritableProperty(sorterManner,inheritedConfig.getSorterManner());

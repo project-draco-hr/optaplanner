@@ -1,23 +1,15 @@
 {
-  if (downcastEntityClass != null) {
-    Class<?> parentEntityClass=entityDescriptor.getEntityClass();
-    if (!parentEntityClass.isAssignableFrom(downcastEntityClass)) {
-      throw new IllegalStateException("The downcastEntityClass (" + downcastEntityClass + ") is not a subclass of the parentEntityClass ("+ parentEntityClass+ ") configured by the "+ EntitySelector.class.getSimpleName()+ ".");
-    }
-    SolutionDescriptor solutionDescriptor=configPolicy.getSolutionDescriptor();
-    entityDescriptor=solutionDescriptor.getEntityDescriptorStrict(downcastEntityClass);
-    if (entityDescriptor == null) {
-      throw new IllegalArgumentException("The selectorConfig (" + this + ") has an downcastEntityClass ("+ downcastEntityClass+ ") that is not a known planning entity.\n"+ "Check your solver configuration. If that class ("+ downcastEntityClass.getSimpleName()+ ") is not in the entityClassSet ("+ solutionDescriptor.getEntityClassSet()+ "), check your Solution implementation's annotated methods too.");
-    }
-  }
+  entityDescriptor=downcastEntityDescriptor(configPolicy,entityDescriptor);
   GenuineVariableDescriptor variableDescriptor=deduceVariableDescriptor(entityDescriptor,variableName);
   SelectionCacheType resolvedCacheType=SelectionCacheType.resolve(cacheType,minimumCacheType);
   SelectionOrder resolvedSelectionOrder=SelectionOrder.resolve(selectionOrder,inheritedSelectionOrder);
+  validateNearby(resolvedCacheType,resolvedSelectionOrder);
   validateCacheTypeVersusSelectionOrder(resolvedCacheType,resolvedSelectionOrder);
   validateSorting(resolvedSelectionOrder);
   validateProbability(resolvedSelectionOrder);
   validateSelectedLimit(minimumCacheType);
   ValueSelector valueSelector=buildBaseValueSelector(configPolicy,variableDescriptor,SelectionCacheType.max(minimumCacheType,resolvedCacheType),determineBaseRandomSelection(variableDescriptor,resolvedCacheType,resolvedSelectionOrder));
+  valueSelector=applyNearby(configPolicy,minimumCacheType,resolvedCacheType,resolvedSelectionOrder,valueSelector);
   valueSelector=applyInitializedChainedValueFilter(configPolicy,variableDescriptor,resolvedCacheType,resolvedSelectionOrder,valueSelector);
   valueSelector=applySorting(resolvedCacheType,resolvedSelectionOrder,valueSelector);
   valueSelector=applyProbability(resolvedCacheType,resolvedSelectionOrder,valueSelector);

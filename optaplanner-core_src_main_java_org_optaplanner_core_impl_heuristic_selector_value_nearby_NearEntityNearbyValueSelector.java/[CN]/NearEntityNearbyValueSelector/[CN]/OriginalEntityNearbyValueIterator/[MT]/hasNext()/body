@@ -1,0 +1,3 @@
+{
+  return originEntityIterator.hasNext() && nextNearbyIndex < childSize;
+}

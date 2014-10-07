@@ -1,0 +1,12 @@
+{
+  this.childEntitySelector=childEntitySelector;
+  this.originEntitySelector=originEntitySelector;
+  this.nearEntityNearbyMethod=nearEntityNearbyMethod;
+  this.nearbyRandom=nearbyRandom;
+  this.randomSelection=randomSelection;
+  if (!childEntitySelector.getEntityDescriptor().getEntityClass().isAssignableFrom(originEntitySelector.getEntityDescriptor().getEntityClass())) {
+    throw new IllegalArgumentException("The entitySelector (" + this + ") has an entityClass ("+ childEntitySelector.getEntityDescriptor().getEntityClass()+ ") which is not a superclass of the originEntitySelector's entityClass ("+ originEntitySelector.getEntityDescriptor().getEntityClass()+ ").");
+  }
+  phaseLifecycleSupport.addEventListener(childEntitySelector);
+  phaseLifecycleSupport.addEventListener(originEntitySelector);
+}

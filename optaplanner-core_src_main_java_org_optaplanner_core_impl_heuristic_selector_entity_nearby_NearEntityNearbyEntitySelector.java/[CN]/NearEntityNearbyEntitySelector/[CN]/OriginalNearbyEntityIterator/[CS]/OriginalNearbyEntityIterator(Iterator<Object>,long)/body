@@ -1,0 +1,5 @@
+{
+  this.originEntityIterator=originEntityIterator;
+  this.childSize=childSize;
+  nextNearbyIndex=discardNearbyIndexZero ? 1 : 0;
+}

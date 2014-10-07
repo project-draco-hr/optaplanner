@@ -3,6 +3,13 @@
   id=ConfigUtils.inheritOverwritableProperty(id,inheritedConfig.getId());
   mimicSelectorRef=ConfigUtils.inheritOverwritableProperty(mimicSelectorRef,inheritedConfig.getMimicSelectorRef());
   entityClass=ConfigUtils.inheritOverwritableProperty(entityClass,inheritedConfig.getEntityClass());
+  if (nearbyOriginEntitySelectorConfig == null) {
+    nearbyOriginEntitySelectorConfig=inheritedConfig.getNearbyOriginEntitySelectorConfig();
+  }
+ else   if (inheritedConfig.getNearbyOriginEntitySelectorConfig() != null) {
+    nearbyOriginEntitySelectorConfig.inherit(inheritedConfig.getNearbyOriginEntitySelectorConfig());
+  }
+  nearEntityNearbyMethodClass=ConfigUtils.inheritOverwritableProperty(nearEntityNearbyMethodClass,inheritedConfig.getNearEntityNearbyMethodClass());
   cacheType=ConfigUtils.inheritOverwritableProperty(cacheType,inheritedConfig.getCacheType());
   selectionOrder=ConfigUtils.inheritOverwritableProperty(selectionOrder,inheritedConfig.getSelectionOrder());
   filterClassList=ConfigUtils.inheritOverwritableProperty(filterClassList,inheritedConfig.getFilterClassList());

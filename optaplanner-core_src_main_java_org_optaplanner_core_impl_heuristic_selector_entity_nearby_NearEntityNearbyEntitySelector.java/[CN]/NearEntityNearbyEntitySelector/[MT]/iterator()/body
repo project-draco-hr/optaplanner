@@ -1,0 +1,8 @@
+{
+  if (!randomSelection) {
+    return new OriginalNearbyEntityIterator(originEntitySelector.iterator(),childEntitySelector.getSize());
+  }
+ else {
+    return new RandomNearbyEntityIterator(originEntitySelector.iterator(),childEntitySelector.getSize());
+  }
+}

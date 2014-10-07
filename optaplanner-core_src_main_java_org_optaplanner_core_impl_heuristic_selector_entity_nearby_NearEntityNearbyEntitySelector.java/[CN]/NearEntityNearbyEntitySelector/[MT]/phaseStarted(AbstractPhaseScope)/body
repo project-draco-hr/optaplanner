@@ -1,0 +1,6 @@
+{
+  super.phaseStarted(phaseScope);
+  if (nearEntityNearbyMethod instanceof WorkingSolutionAware) {
+    ((WorkingSolutionAware)nearEntityNearbyMethod).setWorkingSolution(phaseScope.getWorkingSolution());
+  }
+}

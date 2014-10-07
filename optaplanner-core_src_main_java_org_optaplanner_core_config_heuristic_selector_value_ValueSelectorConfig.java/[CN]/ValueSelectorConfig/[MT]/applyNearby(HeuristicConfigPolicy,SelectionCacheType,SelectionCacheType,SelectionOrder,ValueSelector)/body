@@ -1,0 +1,10 @@
+{
+  if (nearbyOriginEntitySelectorConfig != null) {
+    boolean randomSelection=resolvedSelectionOrder.toRandomSelectionBoolean();
+    EntitySelector originEntitySelector=nearbyOriginEntitySelectorConfig.buildEntitySelector(configPolicy,minimumCacheType,resolvedSelectionOrder);
+    NearEntityNearbyMethod nearEntityNearbyMethod=ConfigUtils.newInstance(this,"nearEntityNearbyMethodClass",nearEntityNearbyMethodClass);
+    NearbyRandom nearbyRandom=new BetaDistributionNearbyRandom(1.0,5.0);
+    valueSelector=new NearEntityNearbyValueSelector(valueSelector,originEntitySelector,nearEntityNearbyMethod,nearbyRandom,randomSelection);
+  }
+  return valueSelector;
+}

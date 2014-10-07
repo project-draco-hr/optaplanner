@@ -1,0 +1,14 @@
+{
+  if (downcastEntityClass != null) {
+    Class<?> parentEntityClass=entityDescriptor.getEntityClass();
+    if (!parentEntityClass.isAssignableFrom(downcastEntityClass)) {
+      throw new IllegalStateException("The downcastEntityClass (" + downcastEntityClass + ") is not a subclass of the parentEntityClass ("+ parentEntityClass+ ") configured by the "+ EntitySelector.class.getSimpleName()+ ".");
+    }
+    SolutionDescriptor solutionDescriptor=configPolicy.getSolutionDescriptor();
+    entityDescriptor=solutionDescriptor.getEntityDescriptorStrict(downcastEntityClass);
+    if (entityDescriptor == null) {
+      throw new IllegalArgumentException("The selectorConfig (" + this + ") has an downcastEntityClass ("+ downcastEntityClass+ ") that is not a known planning entity.\n"+ "Check your solver configuration. If that class ("+ downcastEntityClass.getSimpleName()+ ") is not in the entityClassSet ("+ solutionDescriptor.getEntityClassSet()+ "), check your Solution implementation's annotated methods too.");
+    }
+  }
+  return entityDescriptor;
+}

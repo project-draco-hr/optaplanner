@@ -1,0 +1,7 @@
+{
+  this.originEntityIterator=originEntityIterator;
+  if (childSize > (long)Integer.MAX_VALUE) {
+    throw new IllegalStateException("The valueSelector (" + this + ") has an entitySize ("+ childSize+ ") which is higher than Integer.MAX_VALUE.");
+  }
+  nearbySize=(int)childSize - (discardNearbyIndexZero ? 1 : 0);
+}

@@ -1,0 +1,4 @@
+{
+  Customer[] nearbyStandstillList=nearbyCustomerListMap.get(origin);
+  return nearbyStandstillList[nearbyIndex];
+}

@@ -1,0 +1,5 @@
+HeuristicConfigPolicy configPolicy
+SelectionCacheType minimumCacheType
+SelectionCacheType resolvedCacheType
+SelectionOrder resolvedSelectionOrder
+ValueSelector valueSelector

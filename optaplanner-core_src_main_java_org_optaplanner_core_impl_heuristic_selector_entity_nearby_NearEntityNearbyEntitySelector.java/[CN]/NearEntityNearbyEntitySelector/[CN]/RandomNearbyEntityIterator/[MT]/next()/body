@@ -1,0 +1,8 @@
+{
+  Object origin=originEntityIterator.next();
+  int nearbyIndex=nearbyRandom.nextInt(workingRandom,nearbySize - 1) + 1;
+  if (discardNearbyIndexZero) {
+    nearbyIndex++;
+  }
+  return nearEntityNearbyMethod.getByNearbyIndex(origin,nearbyIndex);
+}
