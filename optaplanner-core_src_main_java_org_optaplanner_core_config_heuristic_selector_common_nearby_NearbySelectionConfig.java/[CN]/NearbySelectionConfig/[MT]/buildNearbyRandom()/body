@@ -1,0 +1,5 @@
+{
+  double betaDistributionAlpha_=betaDistributionAlpha == null ? 1.0 : betaDistributionAlpha;
+  double betaDistributionBeta_=betaDistributionBeta == null ? 5.0 : betaDistributionBeta;
+  return new BetaDistributionNearbyRandom(betaDistributionAlpha_,betaDistributionBeta_);
+}

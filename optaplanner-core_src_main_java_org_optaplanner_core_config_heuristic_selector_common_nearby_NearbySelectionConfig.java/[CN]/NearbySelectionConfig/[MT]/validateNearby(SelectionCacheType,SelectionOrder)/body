@@ -11,4 +11,10 @@
   if (resolvedCacheType.isCached()) {
     throw new IllegalArgumentException("The nearbySelectorConfig (" + this + ") with nearbyOriginEntitySelector ("+ originEntitySelectorConfig+ ") and nearEntityNearbyMethodClass ("+ nearEntityNearbyMethodClass+ ") has a resolvedCacheType ("+ resolvedCacheType+ ") that is cached.");
   }
+  if (betaDistributionAlpha != null && betaDistributionAlpha < 0.0) {
+    throw new IllegalArgumentException("The nearbySelectorConfig (" + this + ")'s betaDistributionAlpha ("+ betaDistributionAlpha+ ") must be positive.");
+  }
+  if (betaDistributionBeta != null && betaDistributionBeta < 0.0) {
+    throw new IllegalArgumentException("The nearbySelectorConfig (" + this + ")'s betaDistributionBeta ("+ betaDistributionBeta+ ") must be positive.");
+  }
 }

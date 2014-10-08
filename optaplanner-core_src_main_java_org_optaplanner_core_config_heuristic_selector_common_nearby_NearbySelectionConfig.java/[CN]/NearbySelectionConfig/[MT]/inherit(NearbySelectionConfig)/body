@@ -7,4 +7,6 @@
     originEntitySelectorConfig.inherit(inheritedConfig.getOriginEntitySelectorConfig());
   }
   nearEntityNearbyMethodClass=ConfigUtils.inheritOverwritableProperty(nearEntityNearbyMethodClass,inheritedConfig.getNearEntityNearbyMethodClass());
+  betaDistributionAlpha=ConfigUtils.inheritOverwritableProperty(betaDistributionAlpha,inheritedConfig.getBetaDistributionAlpha());
+  betaDistributionBeta=ConfigUtils.inheritOverwritableProperty(betaDistributionBeta,inheritedConfig.getBetaDistributionBeta());
 }
