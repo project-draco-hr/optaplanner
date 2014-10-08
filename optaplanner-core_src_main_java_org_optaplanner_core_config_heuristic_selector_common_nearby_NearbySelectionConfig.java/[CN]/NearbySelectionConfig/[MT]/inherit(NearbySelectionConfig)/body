@@ -1,0 +1,10 @@
+{
+  super.inherit(inheritedConfig);
+  if (originEntitySelectorConfig == null) {
+    originEntitySelectorConfig=inheritedConfig.getOriginEntitySelectorConfig();
+  }
+ else   if (inheritedConfig.getOriginEntitySelectorConfig() != null) {
+    originEntitySelectorConfig.inherit(inheritedConfig.getOriginEntitySelectorConfig());
+  }
+  nearEntityNearbyMethodClass=ConfigUtils.inheritOverwritableProperty(nearEntityNearbyMethodClass,inheritedConfig.getNearEntityNearbyMethodClass());
+}

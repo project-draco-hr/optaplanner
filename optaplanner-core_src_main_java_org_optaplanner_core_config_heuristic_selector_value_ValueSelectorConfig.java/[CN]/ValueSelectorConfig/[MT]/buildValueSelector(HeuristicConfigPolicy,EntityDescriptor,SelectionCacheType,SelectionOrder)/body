@@ -3,13 +3,17 @@
   GenuineVariableDescriptor variableDescriptor=deduceVariableDescriptor(entityDescriptor,variableName);
   SelectionCacheType resolvedCacheType=SelectionCacheType.resolve(cacheType,minimumCacheType);
   SelectionOrder resolvedSelectionOrder=SelectionOrder.resolve(selectionOrder,inheritedSelectionOrder);
-  validateNearby(resolvedCacheType,resolvedSelectionOrder);
+  if (nearbySelectionConfig != null) {
+    nearbySelectionConfig.validateNearby(resolvedCacheType,resolvedSelectionOrder);
+  }
   validateCacheTypeVersusSelectionOrder(resolvedCacheType,resolvedSelectionOrder);
   validateSorting(resolvedSelectionOrder);
   validateProbability(resolvedSelectionOrder);
   validateSelectedLimit(minimumCacheType);
   ValueSelector valueSelector=buildBaseValueSelector(configPolicy,variableDescriptor,SelectionCacheType.max(minimumCacheType,resolvedCacheType),determineBaseRandomSelection(variableDescriptor,resolvedCacheType,resolvedSelectionOrder));
-  valueSelector=applyNearby(configPolicy,minimumCacheType,resolvedCacheType,resolvedSelectionOrder,valueSelector);
+  if (nearbySelectionConfig != null) {
+    valueSelector=nearbySelectionConfig.applyNearbyValueSelector(configPolicy,minimumCacheType,resolvedCacheType,resolvedSelectionOrder,valueSelector);
+  }
   valueSelector=applyInitializedChainedValueFilter(configPolicy,variableDescriptor,resolvedCacheType,resolvedSelectionOrder,valueSelector);
   valueSelector=applySorting(resolvedCacheType,resolvedSelectionOrder,valueSelector);
   valueSelector=applyProbability(resolvedCacheType,resolvedSelectionOrder,valueSelector);
