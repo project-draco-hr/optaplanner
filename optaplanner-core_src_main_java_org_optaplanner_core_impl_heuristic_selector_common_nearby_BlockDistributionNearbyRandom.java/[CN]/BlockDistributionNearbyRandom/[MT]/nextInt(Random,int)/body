@@ -1,0 +1,24 @@
+{
+  if (uniformDistributionProbability > 0.0) {
+    if (random.nextDouble() < uniformDistributionProbability) {
+      return random.nextInt(n);
+    }
+  }
+  int size;
+  if (blockRatio < 1.0) {
+    size=(int)(n * blockRatio);
+    if (size < blockSizeMinimum) {
+      size=blockSizeMinimum;
+      if (size > n) {
+        size=n;
+      }
+    }
+  }
+ else {
+    size=n;
+  }
+  if (size > blockSizeMaximum) {
+    size=blockSizeMaximum;
+  }
+  return random.nextInt(size);
+}

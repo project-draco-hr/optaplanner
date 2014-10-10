@@ -1,0 +1,18 @@
+{
+  this.blockSizeMinimum=blockSizeMinimum;
+  this.blockSizeMaximum=blockSizeMaximum;
+  this.blockRatio=blockRatio;
+  this.uniformDistributionProbability=uniformDistributionProbability;
+  if (blockSizeMinimum < 0) {
+    throw new IllegalArgumentException("The blockSizeMinimum (" + blockSizeMinimum + ") must be at least 0.");
+  }
+  if (blockSizeMaximum < blockSizeMinimum) {
+    throw new IllegalArgumentException("The blockSizeMaximum (" + blockSizeMaximum + ") must be at least the blockSizeMinimum ("+ blockSizeMinimum+ ").");
+  }
+  if (blockRatio < 0.0 || blockRatio > 1.0) {
+    throw new IllegalArgumentException("The blockRatio (" + blockRatio + ") must be between 0.0 and 1.0.");
+  }
+  if (uniformDistributionProbability < 0.0 || uniformDistributionProbability > 1.0) {
+    throw new IllegalArgumentException("The uniformDistributionProbability (" + uniformDistributionProbability + ") must be between 0.0 and 1.0.");
+  }
+}

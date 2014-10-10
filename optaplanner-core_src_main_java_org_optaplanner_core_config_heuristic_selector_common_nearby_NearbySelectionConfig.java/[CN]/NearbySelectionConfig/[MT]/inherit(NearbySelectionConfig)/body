@@ -7,6 +7,10 @@
     originEntitySelectorConfig.inherit(inheritedConfig.getOriginEntitySelectorConfig());
   }
   nearEntityNearbyMethodClass=ConfigUtils.inheritOverwritableProperty(nearEntityNearbyMethodClass,inheritedConfig.getNearEntityNearbyMethodClass());
+  blockDistributionBlockSizeMinimum=ConfigUtils.inheritOverwritableProperty(blockDistributionBlockSizeMinimum,inheritedConfig.getBlockDistributionBlockSizeMinimum());
+  blockDistributionBlockSizeMaximum=ConfigUtils.inheritOverwritableProperty(blockDistributionBlockSizeMaximum,inheritedConfig.getBlockDistributionBlockSizeMaximum());
+  blockDistributionBlockRatio=ConfigUtils.inheritOverwritableProperty(blockDistributionBlockRatio,inheritedConfig.getBlockDistributionBlockRatio());
+  blockDistributionUniformDistributionProbability=ConfigUtils.inheritOverwritableProperty(blockDistributionUniformDistributionProbability,inheritedConfig.getBlockDistributionUniformDistributionProbability());
   betaDistributionAlpha=ConfigUtils.inheritOverwritableProperty(betaDistributionAlpha,inheritedConfig.getBetaDistributionAlpha());
   betaDistributionBeta=ConfigUtils.inheritOverwritableProperty(betaDistributionBeta,inheritedConfig.getBetaDistributionBeta());
 }
