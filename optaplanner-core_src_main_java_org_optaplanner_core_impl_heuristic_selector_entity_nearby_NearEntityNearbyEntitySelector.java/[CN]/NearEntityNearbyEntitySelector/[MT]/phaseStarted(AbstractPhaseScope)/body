@@ -18,8 +18,8 @@
     }
     Arrays.sort(destinations,new Comparator<Object>(){
       @Override public int compare(      Object a,      Object b){
-        double aDistance=nearEntityNearbyMethod.getNearbyDistance(origin,a);
-        double bDistance=nearEntityNearbyMethod.getNearbyDistance(origin,b);
+        double aDistance=nearbyDistanceMeter.getNearbyDistance(origin,a);
+        double bDistance=nearbyDistanceMeter.getNearbyDistance(origin,b);
         if (aDistance < bDistance) {
           return -1;
         }

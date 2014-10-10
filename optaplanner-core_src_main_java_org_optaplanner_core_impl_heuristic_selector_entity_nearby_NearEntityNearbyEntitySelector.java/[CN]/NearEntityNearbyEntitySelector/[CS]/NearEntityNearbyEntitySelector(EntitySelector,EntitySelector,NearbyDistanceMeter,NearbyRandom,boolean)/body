@@ -1,7 +1,7 @@
 {
   this.childEntitySelector=childEntitySelector;
   this.originEntitySelector=originEntitySelector;
-  this.nearEntityNearbyMethod=nearEntityNearbyMethod;
+  this.nearbyDistanceMeter=nearbyDistanceMeter;
   this.nearbyRandom=nearbyRandom;
   this.randomSelection=randomSelection;
   if (!childEntitySelector.getEntityDescriptor().getEntityClass().isAssignableFrom(originEntitySelector.getEntityDescriptor().getEntityClass())) {

@@ -6,7 +6,7 @@
  else   if (inheritedConfig.getOriginEntitySelectorConfig() != null) {
     originEntitySelectorConfig.inherit(inheritedConfig.getOriginEntitySelectorConfig());
   }
-  nearEntityNearbyMethodClass=ConfigUtils.inheritOverwritableProperty(nearEntityNearbyMethodClass,inheritedConfig.getNearEntityNearbyMethodClass());
+  nearbyDistanceMeterClass=ConfigUtils.inheritOverwritableProperty(nearbyDistanceMeterClass,inheritedConfig.getNearbyDistanceMeterClass());
   blockDistributionBlockSizeMinimum=ConfigUtils.inheritOverwritableProperty(blockDistributionBlockSizeMinimum,inheritedConfig.getBlockDistributionBlockSizeMinimum());
   blockDistributionBlockSizeMaximum=ConfigUtils.inheritOverwritableProperty(blockDistributionBlockSizeMaximum,inheritedConfig.getBlockDistributionBlockSizeMaximum());
   blockDistributionBlockRatio=ConfigUtils.inheritOverwritableProperty(blockDistributionBlockRatio,inheritedConfig.getBlockDistributionBlockRatio());

@@ -2,13 +2,13 @@
   if (originEntitySelectorConfig == null) {
     throw new IllegalArgumentException("The nearbySelectorConfig (" + this + ") is nearby selection"+ " but lacks a nearbyOriginEntitySelector ("+ originEntitySelectorConfig+ ").");
   }
-  if (nearEntityNearbyMethodClass == null) {
-    throw new IllegalArgumentException("The nearbySelectorConfig (" + this + ") is nearby selection"+ " but lacks a nearEntityNearbyMethodClass ("+ nearEntityNearbyMethodClass+ ").");
+  if (nearbyDistanceMeterClass == null) {
+    throw new IllegalArgumentException("The nearbySelectorConfig (" + this + ") is nearby selection"+ " but lacks a nearbyDistanceMeterClass ("+ nearbyDistanceMeterClass+ ").");
   }
   if (resolvedSelectionOrder != SelectionOrder.ORIGINAL && resolvedSelectionOrder != SelectionOrder.RANDOM) {
-    throw new IllegalArgumentException("The nearbySelectorConfig (" + this + ") with nearbyOriginEntitySelector ("+ originEntitySelectorConfig+ ") and nearEntityNearbyMethodClass ("+ nearEntityNearbyMethodClass+ ") has a resolvedSelectionOrder ("+ resolvedSelectionOrder+ ") that is not "+ SelectionOrder.ORIGINAL+ " or "+ SelectionOrder.RANDOM+ ".");
+    throw new IllegalArgumentException("The nearbySelectorConfig (" + this + ") with nearbyOriginEntitySelector ("+ originEntitySelectorConfig+ ") and nearbyDistanceMeterClass ("+ nearbyDistanceMeterClass+ ") has a resolvedSelectionOrder ("+ resolvedSelectionOrder+ ") that is not "+ SelectionOrder.ORIGINAL+ " or "+ SelectionOrder.RANDOM+ ".");
   }
   if (resolvedCacheType.isCached()) {
-    throw new IllegalArgumentException("The nearbySelectorConfig (" + this + ") with nearbyOriginEntitySelector ("+ originEntitySelectorConfig+ ") and nearEntityNearbyMethodClass ("+ nearEntityNearbyMethodClass+ ") has a resolvedCacheType ("+ resolvedCacheType+ ") that is cached.");
+    throw new IllegalArgumentException("The nearbySelectorConfig (" + this + ") with nearbyOriginEntitySelector ("+ originEntitySelectorConfig+ ") and nearbyDistanceMeterClass ("+ nearbyDistanceMeterClass+ ") has a resolvedCacheType ("+ resolvedCacheType+ ") that is cached.");
   }
 }

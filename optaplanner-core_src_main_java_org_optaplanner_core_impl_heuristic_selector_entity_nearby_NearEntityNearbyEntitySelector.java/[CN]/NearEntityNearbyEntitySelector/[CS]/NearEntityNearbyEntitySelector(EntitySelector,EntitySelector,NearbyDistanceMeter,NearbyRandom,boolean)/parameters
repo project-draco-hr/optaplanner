@@ -1,5 +1,5 @@
 EntitySelector childEntitySelector
 EntitySelector originEntitySelector
-NearEntityNearbyMethod nearEntityNearbyMethod
+NearbyDistanceMeter nearbyDistanceMeter
 NearbyRandom nearbyRandom
 boolean randomSelection
