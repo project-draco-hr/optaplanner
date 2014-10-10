@@ -4,5 +4,6 @@
   if (discardNearbyIndexZero) {
     nearbyIndex++;
   }
-  return nearEntityNearbyMethod.getByNearbyIndex(origin,nearbyIndex);
+  Object[] destinations=originToDestinationsMap.get(origin);
+  return destinations[nearbyIndex];
 }

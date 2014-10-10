@@ -1,0 +1,3 @@
+{
+  return ((CountableValueRange<Object>)cachedValueRange).createOriginalIterator();
+}

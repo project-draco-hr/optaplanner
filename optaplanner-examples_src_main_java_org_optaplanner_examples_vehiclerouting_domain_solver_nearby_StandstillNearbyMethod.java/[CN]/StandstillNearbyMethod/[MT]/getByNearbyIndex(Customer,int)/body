@@ -1,4 +1,0 @@
-{
-  Standstill[] nearbyStandstillList=nearbyStandstillListMap.get(origin);
-  return nearbyStandstillList[nearbyIndex];
-}

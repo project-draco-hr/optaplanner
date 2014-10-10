@@ -1,6 +1,7 @@
 {
   Object origin=originEntityIterator.next();
-  Object next=nearEntityNearbyMethod.getByNearbyIndex(origin,nextNearbyIndex);
+  Object[] destinations=originToDestinationsMap.get(origin);
+  Object next=destinations[nextNearbyIndex];
   nextNearbyIndex++;
   return next;
 }

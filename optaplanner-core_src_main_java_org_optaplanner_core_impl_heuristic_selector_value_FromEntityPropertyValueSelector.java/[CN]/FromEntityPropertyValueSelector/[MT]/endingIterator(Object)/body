@@ -1,0 +1,4 @@
+{
+  ValueRange<Object> valueRange=(ValueRange<Object>)valueRangeDescriptor.extractValueRange(workingSolution,entity);
+  return ((CountableValueRange<Object>)valueRange).createOriginalIterator();
+}
