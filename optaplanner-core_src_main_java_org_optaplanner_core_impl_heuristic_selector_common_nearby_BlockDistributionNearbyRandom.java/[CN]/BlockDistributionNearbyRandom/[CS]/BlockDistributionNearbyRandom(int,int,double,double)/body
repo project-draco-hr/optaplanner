@@ -1,16 +1,16 @@
 {
-  this.blockSizeMinimum=blockSizeMinimum;
-  this.blockSizeMaximum=blockSizeMaximum;
-  this.blockRatio=blockRatio;
+  this.sizeMinimum=sizeMinimum;
+  this.sizeMaximum=sizeMaximum;
+  this.sizeRatio=sizeRatio;
   this.uniformDistributionProbability=uniformDistributionProbability;
-  if (blockSizeMinimum < 0) {
-    throw new IllegalArgumentException("The blockSizeMinimum (" + blockSizeMinimum + ") must be at least 0.");
+  if (sizeMinimum < 0) {
+    throw new IllegalArgumentException("The sizeMinimum (" + sizeMinimum + ") must be at least 0.");
   }
-  if (blockSizeMaximum < blockSizeMinimum) {
-    throw new IllegalArgumentException("The blockSizeMaximum (" + blockSizeMaximum + ") must be at least the blockSizeMinimum ("+ blockSizeMinimum+ ").");
+  if (sizeMaximum < sizeMinimum) {
+    throw new IllegalArgumentException("The sizeMaximum (" + sizeMaximum + ") must be at least the sizeMinimum ("+ sizeMinimum+ ").");
   }
-  if (blockRatio < 0.0 || blockRatio > 1.0) {
-    throw new IllegalArgumentException("The blockRatio (" + blockRatio + ") must be between 0.0 and 1.0.");
+  if (sizeRatio < 0.0 || sizeRatio > 1.0) {
+    throw new IllegalArgumentException("The sizeRatio (" + sizeRatio + ") must be between 0.0 and 1.0.");
   }
   if (uniformDistributionProbability < 0.0 || uniformDistributionProbability > 1.0) {
     throw new IllegalArgumentException("The uniformDistributionProbability (" + uniformDistributionProbability + ") must be between 0.0 and 1.0.");

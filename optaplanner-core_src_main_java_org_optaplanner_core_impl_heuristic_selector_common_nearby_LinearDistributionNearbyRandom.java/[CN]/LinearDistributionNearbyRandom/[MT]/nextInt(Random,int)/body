@@ -1,0 +1,10 @@
+{
+  int m=sizeMaximum <= n ? sizeMaximum : n;
+  double p=random.nextDouble();
+  double x=m * (1.0 - Math.sqrt(1.0 - p));
+  int next=(int)x;
+  if (next >= m) {
+    next=m - 1;
+  }
+  return next;
+}

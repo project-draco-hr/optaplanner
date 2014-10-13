@@ -5,10 +5,10 @@
     }
   }
   int size;
-  if (blockRatio < 1.0) {
-    size=(int)(n * blockRatio);
-    if (size < blockSizeMinimum) {
-      size=blockSizeMinimum;
+  if (sizeRatio < 1.0) {
+    size=(int)(n * sizeRatio);
+    if (size < sizeMinimum) {
+      size=sizeMinimum;
       if (size > n) {
         size=n;
       }
@@ -17,8 +17,8 @@
  else {
     size=n;
   }
-  if (size > blockSizeMaximum) {
-    size=blockSizeMaximum;
+  if (size > sizeMaximum) {
+    size=sizeMaximum;
   }
   return random.nextInt(size);
 }

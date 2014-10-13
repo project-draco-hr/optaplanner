@@ -1,15 +1,26 @@
 {
-  boolean blockDistributionEnabled=blockDistributionBlockSizeMinimum != null || blockDistributionBlockSizeMaximum != null || blockDistributionBlockRatio != null || blockDistributionUniformDistributionProbability != null;
+  boolean blockDistributionEnabled=blockDistributionSizeMinimum != null || blockDistributionSizeMaximum != null || blockDistributionSizeRatio != null || blockDistributionUniformDistributionProbability != null;
+  boolean linearDistributionEnabled=linearDistributionSizeMaximum != null;
   boolean betaDistributionEnabled=betaDistributionAlpha != null || betaDistributionBeta != null;
+  if (blockDistributionEnabled && linearDistributionEnabled) {
+    throw new IllegalArgumentException("The nearbySelectorConfig (" + this + ") has both blockDistribution and linearDistribution parameters.");
+  }
   if (blockDistributionEnabled && betaDistributionEnabled) {
     throw new IllegalArgumentException("The nearbySelectorConfig (" + this + ") has both blockDistribution and betaDistribution parameters.");
   }
+  if (linearDistributionEnabled && betaDistributionEnabled) {
+    throw new IllegalArgumentException("The nearbySelectorConfig (" + this + ") has both linearDistribution and betaDistribution parameters.");
+  }
   if (blockDistributionEnabled) {
-    int blockSizeMinimum=blockDistributionBlockSizeMinimum == null ? 0 : blockDistributionBlockSizeMinimum;
-    int blockSizeMaximum=blockDistributionBlockSizeMaximum == null ? Integer.MAX_VALUE : blockDistributionBlockSizeMaximum;
-    double blockRatio=blockDistributionBlockRatio == null ? 1.0 : blockDistributionBlockRatio;
+    int sizeMinimum=blockDistributionSizeMinimum == null ? 0 : blockDistributionSizeMinimum;
+    int sizeMaximum=blockDistributionSizeMaximum == null ? Integer.MAX_VALUE : blockDistributionSizeMaximum;
+    double sizeRatio=blockDistributionSizeRatio == null ? 1.0 : blockDistributionSizeRatio;
     double uniformDistributionProbability=blockDistributionUniformDistributionProbability == null ? 0.0 : blockDistributionUniformDistributionProbability;
-    return new BlockDistributionNearbyRandom(blockSizeMinimum,blockSizeMaximum,blockRatio,uniformDistributionProbability);
+    return new BlockDistributionNearbyRandom(sizeMinimum,sizeMaximum,sizeRatio,uniformDistributionProbability);
+  }
+ else   if (linearDistributionEnabled) {
+    int sizeMaximum=linearDistributionSizeMaximum == null ? Integer.MAX_VALUE : linearDistributionSizeMaximum;
+    return new LinearDistributionNearbyRandom(sizeMaximum);
   }
  else   if (betaDistributionEnabled) {
     double alpha=betaDistributionAlpha == null ? 1.0 : betaDistributionAlpha;

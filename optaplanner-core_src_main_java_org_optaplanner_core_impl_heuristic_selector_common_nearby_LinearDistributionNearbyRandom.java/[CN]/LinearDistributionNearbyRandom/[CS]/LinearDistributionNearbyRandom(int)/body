@@ -1,0 +1,6 @@
+{
+  this.sizeMaximum=sizeMaximum;
+  if (sizeMaximum < 1) {
+    throw new IllegalArgumentException("The maximum (" + sizeMaximum + ") must be at least 1.");
+  }
+}

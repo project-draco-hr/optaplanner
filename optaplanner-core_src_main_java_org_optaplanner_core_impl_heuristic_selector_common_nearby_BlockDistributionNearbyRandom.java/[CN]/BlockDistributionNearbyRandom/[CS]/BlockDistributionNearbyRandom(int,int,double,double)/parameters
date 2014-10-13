@@ -1,4 +1,4 @@
-int blockSizeMinimum
-int blockSizeMaximum
-double blockRatio
+int sizeMinimum
+int sizeMaximum
+double sizeRatio
 double uniformDistributionProbability
