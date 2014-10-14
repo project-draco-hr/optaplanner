@@ -1,2 +1,2 @@
 Customer customer
-int depotDistance
+int depotRoundTripDistance

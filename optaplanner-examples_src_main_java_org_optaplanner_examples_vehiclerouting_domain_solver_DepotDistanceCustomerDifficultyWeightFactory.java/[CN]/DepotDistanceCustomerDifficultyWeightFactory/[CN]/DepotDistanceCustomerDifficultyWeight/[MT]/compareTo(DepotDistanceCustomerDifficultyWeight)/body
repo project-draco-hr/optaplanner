@@ -1,3 +1,3 @@
 {
-  return new CompareToBuilder().append(depotDistance,other.depotDistance).append(customer.getDemand(),other.customer.getDemand()).append(customer.getLocation().getLatitude(),other.customer.getLocation().getLatitude()).append(customer.getLocation().getLongitude(),other.customer.getLocation().getLongitude()).append(customer.getId(),other.customer.getId()).toComparison();
+  return new CompareToBuilder().append(depotRoundTripDistance,other.depotRoundTripDistance).append(customer.getDemand(),other.customer.getDemand()).append(customer.getLocation().getLatitude(),other.customer.getLocation().getLatitude()).append(customer.getLocation().getLongitude(),other.customer.getLocation().getLongitude()).append(customer.getId(),other.customer.getId()).toComparison();
 }

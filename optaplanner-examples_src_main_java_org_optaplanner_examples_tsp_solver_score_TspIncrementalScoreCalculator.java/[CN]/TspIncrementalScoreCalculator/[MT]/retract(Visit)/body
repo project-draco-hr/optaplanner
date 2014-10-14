@@ -1,8 +1,8 @@
 {
   Standstill previousStandstill=visit.getPreviousStandstill();
   if (previousStandstill != null) {
-    score+=visit.getDistanceToPreviousStandstill();
-    score-=domicile.getCity().getDistance(previousStandstill.getCity());
-    score+=domicile.getCity().getDistance(visit.getCity());
+    score+=visit.getDistanceFromPreviousStandstill();
+    score-=previousStandstill.getDistanceTo(domicile);
+    score+=visit.getDistanceTo(domicile);
   }
 }

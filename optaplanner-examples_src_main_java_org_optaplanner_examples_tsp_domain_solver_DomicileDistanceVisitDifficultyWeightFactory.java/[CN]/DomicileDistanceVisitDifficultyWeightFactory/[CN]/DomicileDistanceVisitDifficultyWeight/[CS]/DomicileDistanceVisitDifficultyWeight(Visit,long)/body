@@ -1,4 +1,4 @@
 {
   this.visit=visit;
-  this.domicileDistance=domicileDistance;
+  this.domicileRoundTripDistance=domicileRoundTripDistance;
 }

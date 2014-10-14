@@ -1,6 +1,6 @@
 {
   Standstill previousStandstill=customer.getPreviousStandstill();
   if (previousStandstill != null) {
-    softScore+=customer.getDistanceToPreviousStandstill();
+    softScore+=customer.getDistanceFromPreviousStandstill();
   }
 }

@@ -1,4 +1,4 @@
 {
   this.customer=customer;
-  this.depotDistance=depotDistance;
+  this.depotRoundTripDistance=depotRoundTripDistance;
 }
