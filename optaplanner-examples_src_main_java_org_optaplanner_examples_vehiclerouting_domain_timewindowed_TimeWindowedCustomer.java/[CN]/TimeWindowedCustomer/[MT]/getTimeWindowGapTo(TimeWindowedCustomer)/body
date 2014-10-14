@@ -1,0 +1,11 @@
+{
+  int latestDepartureTime=dueTime + serviceDuration;
+  int otherLatestDepartureTime=other.getDueTime() + other.getServiceDuration();
+  if (latestDepartureTime < other.getReadyTime()) {
+    return other.getReadyTime() - latestDepartureTime;
+  }
+  if (otherLatestDepartureTime < readyTime) {
+    return readyTime - otherLatestDepartureTime;
+  }
+  return 0;
+}
