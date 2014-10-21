@@ -1,0 +1,23 @@
+{
+  for (int hardLevelSize=1; hardLevelSize < 5; hardLevelSize++) {
+    for (int softLevelSize=1; softLevelSize < 5; softLevelSize++) {
+      int sum=hardLevelSize + softLevelSize;
+      int[] scores=new int[sum];
+      for (int i=0; i < sum; i++) {
+        scores[i]=i;
+      }
+      BendableScoreDefinition bendableScoreDefinition=new BendableScoreDefinition(hardLevelSize,softLevelSize);
+      BendableScore bendableScore=bendableScoreDefinition.createScore(scores);
+      assertEquals(hardLevelSize,bendableScore.getHardLevelsSize());
+      assertEquals(softLevelSize,bendableScore.getSoftLevelsSize());
+      for (int i=0; i < sum; i++) {
+        if (i < hardLevelSize) {
+          assertEquals(scores[i],bendableScore.getHardScore(i));
+        }
+ else {
+          assertEquals(scores[i],bendableScore.getSoftScore(i - hardLevelSize));
+        }
+      }
+    }
+  }
+}

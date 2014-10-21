@@ -1,0 +1,19 @@
+{
+  int scoreSize=new HardSoftScoreDefinition().getLevelsSize();
+  InitializingScoreTrendLevel[] levels=new InitializingScoreTrendLevel[scoreSize];
+  for (int i=0; i < scoreSize; i++) {
+    levels[i]=InitializingScoreTrendLevel.ONLY_UP;
+  }
+  HardSoftScore score=HardSoftScore.parseScore("-999hard/-999soft");
+  InitializingScoreTrend scoreTrend=new InitializingScoreTrend(levels);
+  HardSoftScoreDefinition hardSoftScoreDefinition=new HardSoftScoreDefinition();
+  HardSoftScore score2=hardSoftScoreDefinition.buildPessimisticBound(scoreTrend,score);
+  assertEquals(-999,score2.getHardScore());
+  assertEquals(-999,score2.getSoftScore());
+  for (int i=0; i < scoreSize; i++) {
+    levels[i]=InitializingScoreTrendLevel.ONLY_DOWN;
+  }
+  score2=hardSoftScoreDefinition.buildPessimisticBound(scoreTrend,score);
+  assertEquals(Integer.MIN_VALUE,score2.getHardScore());
+  assertEquals(Integer.MIN_VALUE,score2.getSoftScore());
+}
