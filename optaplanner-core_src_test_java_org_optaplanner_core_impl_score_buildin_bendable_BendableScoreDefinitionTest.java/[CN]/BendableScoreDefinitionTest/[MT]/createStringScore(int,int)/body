@@ -1,0 +1,8 @@
+{
+  String stringScore=String.valueOf(startingScore);
+  startingScore-=1;
+  for (int i=0; i < scoreSize - 1; i++, startingScore-=1) {
+    stringScore+="/" + String.valueOf(startingScore);
+  }
+  return stringScore;
+}

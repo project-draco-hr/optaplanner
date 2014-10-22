@@ -1,0 +1,9 @@
+{
+  int scoreSize=new HardSoftLongScoreDefinition().getLevelsSize();
+  HardSoftLongScore score=HardSoftLongScore.parseScore("-1hard/-2soft");
+  InitializingScoreTrend scoreTrend=InitializingScoreTrendLevelFactory.createInitializingScoreTrendLevelArray(scoreSize,InitializingScoreTrendLevel.ONLY_UP);
+  HardSoftLongScoreDefinition hardSoftScoreDefinition=new HardSoftLongScoreDefinition();
+  HardSoftLongScore score2=hardSoftScoreDefinition.buildPessimisticBound(scoreTrend,score);
+  assertEquals(-1,score2.getHardScore());
+  assertEquals(-2,score2.getSoftScore());
+}

@@ -1,0 +1,8 @@
+{
+  int scoreSize=new SimpleScoreDefinition().getLevelsSize();
+  SimpleScore score=SimpleScore.parseScore("-1");
+  InitializingScoreTrend scoreTrend=InitializingScoreTrendLevelFactory.createInitializingScoreTrendLevelArray(scoreSize,InitializingScoreTrendLevel.ONLY_UP);
+  SimpleScoreDefinition hardSoftScoreDefinition=new SimpleScoreDefinition();
+  SimpleScore score2=hardSoftScoreDefinition.buildOptimisticBound(scoreTrend,score);
+  assertEquals(Integer.MAX_VALUE,score2.getScore());
+}
