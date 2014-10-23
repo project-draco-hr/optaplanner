@@ -1,5 +1,5 @@
 {
-  for (  Move move : moveList) {
+  for (  Move move : moves) {
     move.doMove(scoreDirector);
   }
 }

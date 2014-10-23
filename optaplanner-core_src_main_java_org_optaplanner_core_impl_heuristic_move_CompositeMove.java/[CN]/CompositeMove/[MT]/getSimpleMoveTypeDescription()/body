@@ -1,9 +1,9 @@
 {
   Set<String> childMoveTypeDescriptionSet=new TreeSet<String>();
-  for (  Move move : moveList) {
+  for (  Move move : moves) {
     childMoveTypeDescriptionSet.add(move.getSimpleMoveTypeDescription());
   }
-  StringBuilder moveTypeDescription=new StringBuilder(20 * (moveList.size() + 1));
+  StringBuilder moveTypeDescription=new StringBuilder(20 * (moves.length + 1));
   moveTypeDescription.append(getClass().getSimpleName()).append("(");
   String delimiter="";
   for (  String childMoveTypeDescription : childMoveTypeDescriptionSet) {

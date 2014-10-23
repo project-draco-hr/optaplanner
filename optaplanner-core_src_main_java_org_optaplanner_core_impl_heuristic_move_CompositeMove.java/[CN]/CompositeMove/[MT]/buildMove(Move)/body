@@ -1,0 +1,12 @@
+{
+  int size=moves.length;
+  if (size > 1) {
+    return new CompositeMove(moves);
+  }
+ else   if (size == 1) {
+    return moves[0];
+  }
+ else {
+    return new NoChangeMove();
+  }
+}

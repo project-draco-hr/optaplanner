@@ -3,7 +3,7 @@
   Move a=mock(Move.class);
   Move b=mock(Move.class);
   Move c=mock(Move.class);
-  CompositeMove move=new CompositeMove(Arrays.asList(a,b,c));
+  CompositeMove move=new CompositeMove(a,b,c);
   move.doMove(scoreDirector);
   verify(a,times(1)).doMove(scoreDirector);
   verify(b,times(1)).doMove(scoreDirector);

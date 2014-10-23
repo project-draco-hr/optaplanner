@@ -1,8 +1,8 @@
 {
-  List<Move> undoMoveList=new ArrayList<Move>(moveList.size());
-  for (  Move move : moveList) {
-    Move undoMove=move.createUndoMove(scoreDirector);
-    undoMoveList.add(undoMove);
+  Move[] undoMoves=new Move[moves.length];
+  for (int i=0; i < moves.length; i++) {
+    Move undoMove=moves[i].createUndoMove(scoreDirector);
+    undoMoves[moves.length - 1 - i]=undoMove;
   }
-  return new CompositeMove(Lists.reverse(undoMoveList));
+  return new CompositeMove(undoMoves);
 }

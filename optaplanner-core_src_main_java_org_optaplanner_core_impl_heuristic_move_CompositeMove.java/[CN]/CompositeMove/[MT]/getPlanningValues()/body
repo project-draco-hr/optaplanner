@@ -1,6 +1,6 @@
 {
-  Set<Object> values=new LinkedHashSet<Object>(moveList.size() * 2);
-  for (  Move move : moveList) {
+  Set<Object> values=new LinkedHashSet<Object>(moves.length * 2);
+  for (  Move move : moves) {
     values.addAll(move.getPlanningValues());
   }
   return values;

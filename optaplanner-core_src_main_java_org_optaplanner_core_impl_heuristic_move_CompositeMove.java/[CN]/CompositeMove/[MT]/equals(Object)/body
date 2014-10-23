@@ -4,7 +4,7 @@
   }
  else   if (o instanceof CompositeMove) {
     CompositeMove other=(CompositeMove)o;
-    return moveList.equals(other.moveList);
+    return Arrays.equals(moves,other.moves);
   }
  else {
     return false;

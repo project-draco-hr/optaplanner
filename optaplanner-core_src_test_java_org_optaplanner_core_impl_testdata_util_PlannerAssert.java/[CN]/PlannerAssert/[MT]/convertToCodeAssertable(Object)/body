@@ -25,8 +25,8 @@
   }
  else   if (o instanceof CompositeMove) {
     CompositeMove compositeMove=(CompositeMove)o;
-    StringBuilder codeBuilder=new StringBuilder(compositeMove.getMoveList().size() * 80);
-    for (    Move move : compositeMove.getMoveList()) {
+    StringBuilder codeBuilder=new StringBuilder(compositeMove.getMoves().length * 80);
+    for (    Move move : compositeMove.getMoves()) {
       codeBuilder.append("+").append(convertToCodeAssertable(move).getCode());
     }
     final String code=codeBuilder.substring(1);
