@@ -1,10 +1,10 @@
 {
-  EasyScoreDirectorFactory factory=new EasyScoreDirectorFactory(new EasyScoreCalcul());
-  factory.setSolutionDescriptor(new SolutionDescriptor(Solution.class));
-  EasyScoreDirector director=factory.buildScoreDirector(true);
-  director.setWorkingSolution(new TestSolution());
-  assertTrue(((SimpleScore)director.calculateScore()).getScore() == EasyScoreCalcul.TESTING_SCORE);
-  assertTrue(!director.isConstraintMatchEnabled());
-  EasyScoreDirector director2=factory.buildScoreDirector(false);
-  assertTrue(!director2.isConstraintMatchEnabled());
+  SolutionDescriptor solutionDescriptor=TestdataSolution.buildSolutionDescriptor();
+  EasyScoreCalculator scoreCalculator=mock(EasyScoreCalculator.class);
+  when(scoreCalculator.calculateScore(any(TestdataSolution.class))).thenReturn(SimpleScore.valueOf(-10));
+  EasyScoreDirectorFactory directorFactory=new EasyScoreDirectorFactory(scoreCalculator);
+  directorFactory.setSolutionDescriptor(solutionDescriptor);
+  EasyScoreDirector director=directorFactory.buildScoreDirector(false);
+  director.setWorkingSolution(new TestdataSolution());
+  assertEquals(SimpleScore.valueOf(-10),director.calculateScore());
 }

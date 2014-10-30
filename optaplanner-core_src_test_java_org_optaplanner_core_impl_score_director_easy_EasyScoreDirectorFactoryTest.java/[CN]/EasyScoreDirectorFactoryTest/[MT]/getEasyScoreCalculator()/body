@@ -1,5 +1,5 @@
 {
-  EasyScoreDirectorFactory factory=new EasyScoreDirectorFactory(new EasyScoreCalcul());
-  assertTrue(factory.getEasyScoreCalculator() instanceof EasyScoreCalcul);
-  assertTrue(((SimpleScore)((EasyScoreCalcul)factory.getEasyScoreCalculator()).calculateScore(null)).getScore() == EasyScoreCalcul.TESTING_SCORE);
+  EasyScoreCalculator scoreCalculator=mock(EasyScoreCalculator.class);
+  EasyScoreDirectorFactory directorFactory=new EasyScoreDirectorFactory(scoreCalculator);
+  assertSame(scoreCalculator,directorFactory.getEasyScoreCalculator());
 }
