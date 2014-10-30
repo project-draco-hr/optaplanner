@@ -1,0 +1,4 @@
+int expectedResult
+int modifier
+String firstScore
+String secondScore

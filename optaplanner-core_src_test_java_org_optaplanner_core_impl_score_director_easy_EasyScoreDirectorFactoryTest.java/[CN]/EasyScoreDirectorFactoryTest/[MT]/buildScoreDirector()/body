@@ -1,0 +1,10 @@
+{
+  EasyScoreDirectorFactory factory=new EasyScoreDirectorFactory(new EasyScoreCalcul());
+  factory.setSolutionDescriptor(new SolutionDescriptor(Solution.class));
+  EasyScoreDirector director=factory.buildScoreDirector(true);
+  director.setWorkingSolution(new TestSolution());
+  assertTrue(((SimpleScore)director.calculateScore()).getScore() == EasyScoreCalcul.TESTING_SCORE);
+  assertTrue(!director.isConstraintMatchEnabled());
+  EasyScoreDirector director2=factory.buildScoreDirector(false);
+  assertTrue(!director2.isConstraintMatchEnabled());
+}

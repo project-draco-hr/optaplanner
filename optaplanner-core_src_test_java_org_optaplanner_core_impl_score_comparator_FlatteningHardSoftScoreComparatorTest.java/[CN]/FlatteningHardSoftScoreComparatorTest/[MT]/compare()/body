@@ -1,0 +1,3 @@
+{
+  assertEquals(expectedResult,new FlatteningHardSoftScoreComparator(modifier).compare(new HardSoftScoreDefinition().parseScore(firstScore),new HardSoftScoreDefinition().parseScore(secondScore)));
+}

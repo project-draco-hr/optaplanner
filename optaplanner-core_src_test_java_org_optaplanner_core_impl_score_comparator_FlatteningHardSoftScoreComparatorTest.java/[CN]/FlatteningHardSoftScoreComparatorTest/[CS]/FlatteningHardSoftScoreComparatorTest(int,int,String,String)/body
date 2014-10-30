@@ -1,0 +1,6 @@
+{
+  this.expectedResult=expectedResult;
+  this.modifier=modifier;
+  this.firstScore=firstScore;
+  this.secondScore=secondScore;
+}
