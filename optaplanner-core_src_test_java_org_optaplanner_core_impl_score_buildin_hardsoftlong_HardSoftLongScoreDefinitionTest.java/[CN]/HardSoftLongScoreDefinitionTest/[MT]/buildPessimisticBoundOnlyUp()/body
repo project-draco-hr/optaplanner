@@ -1,0 +1,6 @@
+{
+  HardSoftLongScoreDefinition scoreDefinition=new HardSoftLongScoreDefinition();
+  HardSoftLongScore pessimisticBound=scoreDefinition.buildPessimisticBound(InitializingScoreTrend.buildUniformTrend(InitializingScoreTrendLevel.ONLY_UP,2),HardSoftLongScore.valueOf(-1L,-2L));
+  assertEquals(-1L,pessimisticBound.getHardScore());
+  assertEquals(-2L,pessimisticBound.getSoftScore());
+}

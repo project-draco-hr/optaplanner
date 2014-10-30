@@ -1,0 +1,5 @@
+{
+  SimpleDoubleScoreDefinition scoreDefinition=new SimpleDoubleScoreDefinition();
+  SimpleDoubleScore pessimisticBound=scoreDefinition.buildPessimisticBound(InitializingScoreTrend.buildUniformTrend(InitializingScoreTrendLevel.ONLY_DOWN,1),SimpleDoubleScore.valueOf(-1.7));
+  assertEquals(Double.NEGATIVE_INFINITY,pessimisticBound.getScore(),0.0);
+}

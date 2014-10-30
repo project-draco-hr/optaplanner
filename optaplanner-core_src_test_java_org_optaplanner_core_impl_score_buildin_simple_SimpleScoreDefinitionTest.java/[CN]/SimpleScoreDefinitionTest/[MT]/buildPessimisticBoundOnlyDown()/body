@@ -1,0 +1,5 @@
+{
+  SimpleScoreDefinition scoreDefinition=new SimpleScoreDefinition();
+  SimpleScore pessimisticBound=scoreDefinition.buildPessimisticBound(InitializingScoreTrend.buildUniformTrend(InitializingScoreTrendLevel.ONLY_DOWN,1),SimpleScore.valueOf(-1));
+  assertEquals(Integer.MIN_VALUE,pessimisticBound.getScore());
+}

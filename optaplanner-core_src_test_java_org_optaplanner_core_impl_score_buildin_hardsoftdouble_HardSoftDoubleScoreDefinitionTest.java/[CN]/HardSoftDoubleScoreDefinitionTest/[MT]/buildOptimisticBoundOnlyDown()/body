@@ -1,0 +1,6 @@
+{
+  HardSoftDoubleScoreDefinition scoreDefinition=new HardSoftDoubleScoreDefinition();
+  HardSoftDoubleScore optimisticBound=scoreDefinition.buildOptimisticBound(InitializingScoreTrend.buildUniformTrend(InitializingScoreTrendLevel.ONLY_DOWN,2),HardSoftDoubleScore.valueOf(-1.7,-2.2));
+  assertEquals(-1.7,optimisticBound.getHardScore(),0.0);
+  assertEquals(-2.2,optimisticBound.getSoftScore(),0.0);
+}

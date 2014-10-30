@@ -1,8 +1,0 @@
-{
-  int scoreSize=new SimpleLongScoreDefinition().getLevelsSize();
-  SimpleLongScore score=SimpleLongScore.parseScore("-1");
-  InitializingScoreTrend scoreTrend=InitializingScoreTrend.buildUniformTrend(InitializingScoreTrendLevel.ONLY_DOWN,scoreSize);
-  SimpleLongScoreDefinition hardSoftScoreDefinition=new SimpleLongScoreDefinition();
-  SimpleLongScore score2=hardSoftScoreDefinition.buildPessimisticBound(scoreTrend,score);
-  assertEquals(Long.MIN_VALUE,score2.getScore());
-}
