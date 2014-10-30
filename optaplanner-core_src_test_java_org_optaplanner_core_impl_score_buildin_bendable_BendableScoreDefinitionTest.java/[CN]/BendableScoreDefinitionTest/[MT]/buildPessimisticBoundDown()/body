@@ -4,7 +4,7 @@
   int scoreSize=softScoreSize + hardScoreSize;
   int startingScore=-1;
   BendableScore score=BendableScore.parseScore(hardScoreSize,softScoreSize,createStringScore(scoreSize,startingScore));
-  InitializingScoreTrend scoreTrend=InitializingScoreTrendLevelFactory.createInitializingScoreTrendLevelArray(scoreSize,InitializingScoreTrendLevel.ONLY_DOWN);
+  InitializingScoreTrend scoreTrend=InitializingScoreTrend.buildUniformTrend(InitializingScoreTrendLevel.ONLY_DOWN,scoreSize);
   BendableScoreDefinition bendableScoreDefinition=new BendableScoreDefinition(hardScoreSize,softScoreSize);
   BendableScore score2=bendableScoreDefinition.buildPessimisticBound(scoreTrend,score);
   for (int i=0; i < score2.getHardLevelsSize() + score2.getSoftLevelsSize(); i++) {

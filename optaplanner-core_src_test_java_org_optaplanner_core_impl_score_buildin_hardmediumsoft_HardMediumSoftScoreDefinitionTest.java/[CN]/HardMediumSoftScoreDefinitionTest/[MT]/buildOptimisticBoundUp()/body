@@ -1,7 +1,7 @@
 {
   int scoreSize=new HardMediumSoftScoreDefinition().getLevelsSize();
   HardMediumSoftScore score=HardMediumSoftScore.parseScore("-1hard/-2medium/-3soft");
-  InitializingScoreTrend scoreTrend=InitializingScoreTrendLevelFactory.createInitializingScoreTrendLevelArray(scoreSize,InitializingScoreTrendLevel.ONLY_UP);
+  InitializingScoreTrend scoreTrend=InitializingScoreTrend.buildUniformTrend(InitializingScoreTrendLevel.ONLY_UP,scoreSize);
   HardMediumSoftScoreDefinition hardMediumSoftScoreDefinition=new HardMediumSoftScoreDefinition();
   HardMediumSoftScore score2=hardMediumSoftScoreDefinition.buildOptimisticBound(scoreTrend,score);
   assertEquals(Integer.MAX_VALUE,score2.getHardScore());
