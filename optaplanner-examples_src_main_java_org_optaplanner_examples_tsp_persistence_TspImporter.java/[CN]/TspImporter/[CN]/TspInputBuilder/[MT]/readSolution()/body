@@ -8,10 +8,10 @@
   }
  else {
     travelingSalesmanTour.setName(FilenameUtils.getBaseName(inputFile.getName()));
-    cityListSize=Integer.parseInt(firstLine.trim());
+    locationListSize=Integer.parseInt(firstLine.trim());
     readCourseraFormat();
   }
-  BigInteger possibleSolutionSize=factorial(travelingSalesmanTour.getCityList().size() - 1);
-  logger.info("TravelingSalesmanTour {} has {} cities with a search space of {}.",getInputId(),travelingSalesmanTour.getCityList().size(),getFlooredPossibleSolutionSize(possibleSolutionSize));
+  BigInteger possibleSolutionSize=factorial(travelingSalesmanTour.getLocationList().size() - 1);
+  logger.info("TravelingSalesmanTour {} has {} locations with a search space of {}.",getInputId(),travelingSalesmanTour.getLocationList().size(),getFlooredPossibleSolutionSize(possibleSolutionSize));
   return travelingSalesmanTour;
 }

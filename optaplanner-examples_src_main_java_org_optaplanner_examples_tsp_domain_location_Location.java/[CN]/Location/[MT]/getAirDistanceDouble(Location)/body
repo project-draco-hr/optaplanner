@@ -1,0 +1,5 @@
+{
+  double latitudeDifference=location.latitude - latitude;
+  double longitudeDifference=location.longitude - longitude;
+  return Math.sqrt((latitudeDifference * latitudeDifference) + (longitudeDifference * longitudeDifference));
+}

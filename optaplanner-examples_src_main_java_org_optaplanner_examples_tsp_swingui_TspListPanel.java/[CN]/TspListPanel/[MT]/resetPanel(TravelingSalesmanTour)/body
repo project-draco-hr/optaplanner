@@ -6,7 +6,7 @@
   headerLabel.setOpaque(true);
   add(headerLabel);
   Domicile domicile=travelingSalesmanTour.getDomicile();
-  add(new JLabel(domicile.getCity().getSafeName()));
+  add(new JLabel(domicile.getLocation().toString()));
   if (travelingSalesmanTour.getVisitList().size() > 1000) {
     JLabel tooBigLabel=new JLabel("The dataset is too big to show.");
     add(tooBigLabel);
@@ -21,7 +21,7 @@
       distanceLabelString="Unassigned";
     }
  else {
-      distanceLabelString="After " + visit.getPreviousStandstill().getCity().getSafeName() + " with distance "+ visit.getDistanceFromPreviousStandstill();
+      distanceLabelString="After " + visit.getPreviousStandstill().getLocation() + " with distance "+ visit.getDistanceFromPreviousStandstill();
     }
     visitPanel.add(new JLabel(distanceLabelString));
     add(visitPanel);

@@ -1,0 +1,6 @@
+Graphics2D g
+double lon1
+double lat1
+double lon2
+double lat2
+boolean straight

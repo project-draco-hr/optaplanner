@@ -2,5 +2,5 @@
   TravelingSalesmanTour travelingSalesmanTour=(TravelingSalesmanTour)solution;
   tspWorldPanel.resetPanel(travelingSalesmanTour);
   tspListPanel.resetPanel(travelingSalesmanTour);
-  resetNextCityId();
+  resetNextLocationId();
 }

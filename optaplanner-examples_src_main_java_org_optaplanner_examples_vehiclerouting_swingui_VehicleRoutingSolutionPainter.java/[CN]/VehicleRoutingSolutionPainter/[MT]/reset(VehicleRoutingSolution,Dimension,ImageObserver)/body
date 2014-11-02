@@ -60,12 +60,8 @@
       if (customer.getPreviousStandstill() != null && customer.getVehicle() == vehicle) {
         load+=customer.getDemand();
         Location previousLocation=customer.getPreviousStandstill().getLocation();
-        int previousX=translator.translateLongitudeToX(previousLocation.getLongitude());
-        int previousY=translator.translateLatitudeToY(previousLocation.getLatitude());
         Location location=customer.getLocation();
-        int x=translator.translateLongitudeToX(location.getLongitude());
-        int y=translator.translateLatitudeToY(location.getLatitude());
-        drawRoute(g,previousX,previousY,x,y,location instanceof AirLocation);
+        translator.drawRoute(g,previousLocation.getLongitude(),previousLocation.getLatitude(),location.getLongitude(),location.getLatitude(),location instanceof AirLocation);
         int distance=customer.getDistanceFromPreviousStandstill();
         if (customer.getPreviousStandstill() instanceof Customer) {
           if (longestNonDepotDistance < distance) {
@@ -78,10 +74,8 @@
         }
         if (customer.getNextCustomer() == null) {
           Location vehicleLocation=vehicle.getLocation();
-          int vehicleX=translator.translateLongitudeToX(vehicleLocation.getLongitude());
-          int vehicleY=translator.translateLatitudeToY(vehicleLocation.getLatitude());
           g.setStroke(TangoColorFactory.FAT_DASHED_STROKE);
-          drawRoute(g,x,y,vehicleX,vehicleY,location instanceof AirLocation);
+          translator.drawRoute(g,location.getLongitude(),location.getLatitude(),vehicleLocation.getLongitude(),vehicleLocation.getLatitude(),location instanceof AirLocation);
           g.setStroke(TangoColorFactory.NORMAL_STROKE);
         }
       }
