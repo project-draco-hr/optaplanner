@@ -1,0 +1,3 @@
+{
+  NearbyRandom nearbyRandom=new LinearDistributionNearbyRandom(-10);
+}

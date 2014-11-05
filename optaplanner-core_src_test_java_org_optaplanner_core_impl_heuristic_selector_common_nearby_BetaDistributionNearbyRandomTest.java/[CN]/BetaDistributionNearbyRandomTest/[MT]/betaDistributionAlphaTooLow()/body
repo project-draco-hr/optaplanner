@@ -1,0 +1,3 @@
+{
+  NearbyRandom nearbyRandom=new BetaDistributionNearbyRandom(-0.2,0.3);
+}
