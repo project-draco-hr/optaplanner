@@ -1,7 +1,7 @@
 {
   SolutionDescriptor solutionDescriptor=TestdataMappedByChainedSolution.buildSolutionDescriptor();
   ShadowVariableDescriptor nextEntityVariableDescriptor=solutionDescriptor.findEntityDescriptorOrFail(TestdataMappedByChainedObject.class).getShadowVariableDescriptor("nextEntity");
-  InverseRelationVariableListener variableListener=new InverseRelationVariableListener(nextEntityVariableDescriptor,solutionDescriptor.findEntityDescriptorOrFail(TestdataMappedByChainedEntity.class).getGenuineVariableDescriptor("chainedObject"));
+  SingletonInverseVariableListener variableListener=new SingletonInverseVariableListener(nextEntityVariableDescriptor,solutionDescriptor.findEntityDescriptorOrFail(TestdataMappedByChainedEntity.class).getGenuineVariableDescriptor("chainedObject"));
   ScoreDirector scoreDirector=mock(ScoreDirector.class);
   TestdataMappedByChainedAnchor a0=new TestdataMappedByChainedAnchor("a0");
   TestdataMappedByChainedEntity a1=new TestdataMappedByChainedEntity("a1",a0);
