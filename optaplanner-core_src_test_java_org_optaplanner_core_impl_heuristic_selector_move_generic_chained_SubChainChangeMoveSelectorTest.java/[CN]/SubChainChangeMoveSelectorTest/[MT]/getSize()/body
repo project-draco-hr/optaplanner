@@ -1,14 +1,14 @@
 {
   SubChainSelector subChainSelector=mock(DefaultSubChainSelector.class);
-  GenuineVariableDescriptor descriptor=SelectorTestUtils.mockVariableDescriptor(TestdataEntity.class,"value");
+  GenuineVariableDescriptor descriptor=TestdataEntity.buildVariableDescriptorForValue();
   when(subChainSelector.getVariableDescriptor()).thenReturn(descriptor);
-  EntityIndependentValueSelector valueSelector=SelectorTestUtils.mockEntityIndependentValueSelector(SelectorTestUtils.mockVariableDescriptor(TestdataEntity.class,"val"));
+  EntityIndependentValueSelector valueSelector=mock(EntityIndependentValueSelector.class);
   when(valueSelector.getVariableDescriptor()).thenReturn(descriptor);
   SubChainChangeMoveSelector testedSelector=new SubChainChangeMoveSelector(subChainSelector,valueSelector,true,true);
   when(subChainSelector.getSize()).thenReturn(1L);
   when(valueSelector.getSize()).thenReturn(2L);
-  assertTrue(testedSelector.getSize() == 2);
+  assertEquals(2,testedSelector.getSize());
   when(subChainSelector.getSize()).thenReturn(100L);
   when(valueSelector.getSize()).thenReturn(200L);
-  assertTrue(testedSelector.getSize() == 20000);
+  assertEquals(20000,testedSelector.getSize());
 }
