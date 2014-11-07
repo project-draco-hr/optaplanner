@@ -1,15 +1,25 @@
 {
   boolean blockDistributionEnabled=blockDistributionSizeMinimum != null || blockDistributionSizeMaximum != null || blockDistributionSizeRatio != null || blockDistributionUniformDistributionProbability != null;
   boolean linearDistributionEnabled=linearDistributionSizeMaximum != null;
+  boolean parabolicDistributionEnabled=parabolicDistributionSizeMaximum != null;
   boolean betaDistributionEnabled=betaDistributionAlpha != null || betaDistributionBeta != null;
   if (blockDistributionEnabled && linearDistributionEnabled) {
     throw new IllegalArgumentException("The nearbySelectorConfig (" + this + ") has both blockDistribution and linearDistribution parameters.");
   }
+  if (blockDistributionEnabled && parabolicDistributionEnabled) {
+    throw new IllegalArgumentException("The nearbySelectorConfig (" + this + ") has both blockDistribution and parabolicDistribution parameters.");
+  }
   if (blockDistributionEnabled && betaDistributionEnabled) {
     throw new IllegalArgumentException("The nearbySelectorConfig (" + this + ") has both blockDistribution and betaDistribution parameters.");
   }
+  if (linearDistributionEnabled && parabolicDistributionEnabled) {
+    throw new IllegalArgumentException("The nearbySelectorConfig (" + this + ") has both linearDistribution and parabolicDistribution parameters.");
+  }
   if (linearDistributionEnabled && betaDistributionEnabled) {
     throw new IllegalArgumentException("The nearbySelectorConfig (" + this + ") has both linearDistribution and betaDistribution parameters.");
+  }
+  if (parabolicDistributionEnabled && betaDistributionEnabled) {
+    throw new IllegalArgumentException("The nearbySelectorConfig (" + this + ") has both parabolicDistribution and betaDistribution parameters.");
   }
   if (blockDistributionEnabled) {
     int sizeMinimum=blockDistributionSizeMinimum == null ? 0 : blockDistributionSizeMinimum;
@@ -21,6 +31,10 @@
  else   if (linearDistributionEnabled) {
     int sizeMaximum=linearDistributionSizeMaximum == null ? Integer.MAX_VALUE : linearDistributionSizeMaximum;
     return new LinearDistributionNearbyRandom(sizeMaximum);
+  }
+ else   if (parabolicDistributionEnabled) {
+    int sizeMaximum=parabolicDistributionSizeMaximum == null ? Integer.MAX_VALUE : parabolicDistributionSizeMaximum;
+    return new ParabolicDistributionNearbyRandom(sizeMaximum);
   }
  else   if (betaDistributionEnabled) {
     double alpha=betaDistributionAlpha == null ? 1.0 : betaDistributionAlpha;

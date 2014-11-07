@@ -1,0 +1,3 @@
+{
+  NearbyRandom nearbyRandom=new ParabolicDistributionNearbyRandom(-10);
+}
