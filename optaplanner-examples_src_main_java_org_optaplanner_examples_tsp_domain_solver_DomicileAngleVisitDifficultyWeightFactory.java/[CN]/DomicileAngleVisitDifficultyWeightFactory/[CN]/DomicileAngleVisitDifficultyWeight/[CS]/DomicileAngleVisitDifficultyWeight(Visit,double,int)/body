@@ -1,0 +1,5 @@
+{
+  this.visit=visit;
+  this.domicileAngle=domicileAngle;
+  this.domicileRoundTripDistance=domicileRoundTripDistance;
+}
