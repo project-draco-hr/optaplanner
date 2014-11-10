@@ -1,0 +1,8 @@
+{
+  ScoreDirector scoreDirector=mock(ScoreDirector.class);
+  Move first=new DummyMove();
+  Move second=mock(DummyMove.class);
+  when(second.isMoveDoable(scoreDirector)).thenReturn(false);
+  Move move=CompositeMove.buildMove(first,second);
+  assertFalse(move.isMoveDoable(scoreDirector));
+}

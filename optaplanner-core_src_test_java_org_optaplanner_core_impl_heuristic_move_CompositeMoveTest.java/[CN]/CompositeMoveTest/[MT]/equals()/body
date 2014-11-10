@@ -1,0 +1,12 @@
+{
+  Move first=new DummyMove();
+  Move second=new NoChangeMove();
+  Move move=CompositeMove.buildMove(Arrays.asList(first,second));
+  Move other=CompositeMove.buildMove(Arrays.asList(first,second));
+  assertTrue(move.equals(other));
+  move=CompositeMove.buildMove(Arrays.asList(first,second));
+  other=CompositeMove.buildMove(Arrays.asList(second,first));
+  assertFalse(move.equals(other));
+  assertFalse(move.equals(new DummyMove()));
+  assertTrue(move.equals(move));
+}
