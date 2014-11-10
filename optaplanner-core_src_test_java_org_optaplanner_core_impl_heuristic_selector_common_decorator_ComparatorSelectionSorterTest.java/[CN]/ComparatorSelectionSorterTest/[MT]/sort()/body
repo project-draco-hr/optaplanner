@@ -1,0 +1,13 @@
+{
+  Object[] baseArray=new Object[]{3,4,3,5,1};
+  List<Object> arrayToSort=new ArrayList<Object>();
+  Collections.addAll(arrayToSort,baseArray);
+  ComparatorSelectionSorter selectionSorter=new ComparatorSelectionSorter(new TestComparator(),SelectionSorterOrder.ASCENDING);
+  selectionSorter.sort(null,arrayToSort);
+  assertTrue(ascendingSort(arrayToSort));
+  arrayToSort=new ArrayList<Object>();
+  Collections.addAll(arrayToSort,baseArray);
+  selectionSorter=new ComparatorSelectionSorter(new TestComparator(),SelectionSorterOrder.DESCENDING);
+  selectionSorter.sort(null,arrayToSort);
+  assertTrue(descandingSort(arrayToSort));
+}
