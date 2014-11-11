@@ -1,0 +1,6 @@
+{
+  EntityDescriptor entityDescriptor=mock(EntityDescriptor.class);
+  when(entityDescriptor.getEntityClass()).thenReturn((Class)TestdataEntity.class);
+  FromSolutionEntitySelector entitySelector=new FromSolutionEntitySelector(entityDescriptor,SelectionCacheType.JUST_IN_TIME,true);
+  entitySelector.listIterator();
+}
