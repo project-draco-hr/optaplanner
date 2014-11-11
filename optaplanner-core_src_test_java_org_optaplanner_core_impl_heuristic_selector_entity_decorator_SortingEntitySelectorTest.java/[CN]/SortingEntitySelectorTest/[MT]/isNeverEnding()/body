@@ -1,0 +1,4 @@
+{
+  EntitySelector entitySelector=new SortingEntitySelector(mock(EntitySelector.class),SelectionCacheType.PHASE,mock(SelectionSorter.class));
+  assertFalse(entitySelector.isNeverEnding());
+}

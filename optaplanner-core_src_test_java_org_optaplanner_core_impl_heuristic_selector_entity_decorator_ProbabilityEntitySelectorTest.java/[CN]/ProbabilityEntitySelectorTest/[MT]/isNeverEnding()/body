@@ -1,0 +1,5 @@
+{
+  EntitySelector childEntitySelector=SelectorTestUtils.mockEntitySelector(TestdataEntity.class);
+  EntitySelector entitySelector=new ProbabilityEntitySelector(childEntitySelector,SelectionCacheType.STEP,null);
+  assertTrue(entitySelector.isNeverEnding());
+}

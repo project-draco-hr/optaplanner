@@ -1,0 +1,5 @@
+{
+  EntitySelector childEntitySelector=SelectorTestUtils.mockEntitySelector(TestdataEntity.class);
+  CachingEntitySelector cachingEntitySelector=new CachingEntitySelector(childEntitySelector,SelectionCacheType.PHASE,true);
+  cachingEntitySelector.listIterator();
+}

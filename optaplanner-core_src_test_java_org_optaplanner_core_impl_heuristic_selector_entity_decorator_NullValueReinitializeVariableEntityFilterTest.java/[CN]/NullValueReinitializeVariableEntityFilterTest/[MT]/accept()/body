@@ -1,0 +1,24 @@
+{
+  EntityDescriptor entityDescriptor=new EntityDescriptor(null,TestdataNullableEntity.class);
+  PropertyDescriptor[] propertyDescriptors=Introspector.getBeanInfo(TestdataNullableEntity.class).getPropertyDescriptors();
+  for (int i=0; i < propertyDescriptors.length; i++) {
+    if (propertyDescriptors[i].getName().equals("value")) {
+      GenuineVariableDescriptor descriptor=new GenuineVariableDescriptor(entityDescriptor,propertyDescriptors[i]);
+      NullValueReinitializeVariableEntityFilter filter=new NullValueReinitializeVariableEntityFilter(descriptor);
+      assertTrue(filter.accept(null,new TestdataNullableEntity()));
+      break;
+    }
+  }
+  entityDescriptor=new EntityDescriptor(null,TestdataEntity.class);
+  propertyDescriptors=Introspector.getBeanInfo(TestdataEntity.class).getPropertyDescriptors();
+  for (int i=0; i < propertyDescriptors.length; i++) {
+    if (propertyDescriptors[i].getName().equals("value")) {
+      GenuineVariableDescriptor descriptor=new GenuineVariableDescriptor(entityDescriptor,propertyDescriptors[i]);
+      NullValueReinitializeVariableEntityFilter filter=new NullValueReinitializeVariableEntityFilter(descriptor);
+      TestdataEntity object=new TestdataEntity();
+      object.setValue(new TestdataValue());
+      assertFalse(filter.accept(null,object));
+      break;
+    }
+  }
+}

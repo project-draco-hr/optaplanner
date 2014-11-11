@@ -1,0 +1,7 @@
+{
+  EntitySelector childEntitySelector=SelectorTestUtils.mockEntitySelector(TestdataEntity.class);
+  CachingEntitySelector cachingEntitySelector=new CachingEntitySelector(childEntitySelector,SelectionCacheType.PHASE,true);
+  assertTrue(cachingEntitySelector.isNeverEnding());
+  cachingEntitySelector=new CachingEntitySelector(childEntitySelector,SelectionCacheType.PHASE,false);
+  assertFalse(cachingEntitySelector.isNeverEnding());
+}

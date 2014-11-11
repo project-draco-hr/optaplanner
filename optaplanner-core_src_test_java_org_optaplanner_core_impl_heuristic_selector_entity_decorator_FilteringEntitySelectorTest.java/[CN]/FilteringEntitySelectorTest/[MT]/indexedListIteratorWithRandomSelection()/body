@@ -1,0 +1,5 @@
+{
+  EntitySelector childEntitySelector=SelectorTestUtils.mockEntitySelector(TestdataEntity.class);
+  EntitySelector entitySelector=new FilteringEntitySelector(childEntitySelector,null);
+  entitySelector.listIterator(0);
+}

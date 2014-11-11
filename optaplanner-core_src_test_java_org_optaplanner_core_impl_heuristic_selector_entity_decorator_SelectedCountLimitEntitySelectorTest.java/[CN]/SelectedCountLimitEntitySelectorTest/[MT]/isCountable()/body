@@ -1,0 +1,5 @@
+{
+  EntitySelector childEntitySelector=SelectorTestUtils.mockEntitySelector(TestdataEntity.class);
+  EntitySelector entitySelector=new SelectedCountLimitEntitySelector(childEntitySelector,5L);
+  assertTrue(entitySelector.isCountable());
+}
