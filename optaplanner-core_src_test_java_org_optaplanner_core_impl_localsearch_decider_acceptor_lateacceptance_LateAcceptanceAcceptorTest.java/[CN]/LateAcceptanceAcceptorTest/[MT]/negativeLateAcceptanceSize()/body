@@ -1,0 +1,5 @@
+{
+  LateAcceptanceAcceptor acceptor=new LateAcceptanceAcceptor();
+  acceptor.setLateAcceptanceSize(-1);
+  acceptor.phaseStarted(null);
+}
