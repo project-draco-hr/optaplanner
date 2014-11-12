@@ -1,0 +1,3 @@
+{
+  return Arrays.asList((Acceptor)new TestingAcceptor(false),new TestingAcceptor(false),new TestingAcceptor(false));
+}
