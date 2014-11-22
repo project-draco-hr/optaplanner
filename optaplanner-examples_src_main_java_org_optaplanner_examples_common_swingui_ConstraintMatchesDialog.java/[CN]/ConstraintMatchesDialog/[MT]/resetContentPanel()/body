@@ -15,9 +15,10 @@
     JScrollPane tableScrollPane=new JScrollPane(table);
     tableScrollPane.setPreferredSize(new Dimension(700,300));
     splitPane.setTopComponent(tableScrollPane);
+    JPanel bottomPanel=new JPanel(new BorderLayout());
     final JTextArea detailTextArea=new JTextArea(10,80);
     JScrollPane detailScrollPane=new JScrollPane(detailTextArea);
-    splitPane.setBottomComponent(detailScrollPane);
+    bottomPanel.add(detailScrollPane,BorderLayout.CENTER);
     table.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
       public void valueChanged(      ListSelectionEvent event){
         int selectedRow=table.getSelectedRow();
@@ -32,6 +33,16 @@
       }
     }
 );
+    JPanel buttonPanel=new JPanel(new FlowLayout());
+    Action okAction=new AbstractAction("OK"){
+      @Override public void actionPerformed(      ActionEvent e){
+        setVisible(false);
+      }
+    }
+;
+    buttonPanel.add(new JButton(okAction));
+    bottomPanel.add(buttonPanel,BorderLayout.SOUTH);
+    splitPane.setBottomComponent(bottomPanel);
     splitPane.setResizeWeight(1.0);
     setContentPane(splitPane);
   }
