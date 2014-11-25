@@ -2,5 +2,5 @@
   quickOpenSolvedPanel=new JPanel();
   quickOpenSolvedActionList=new ArrayList<Action>();
   List<File> solvedFileList=solutionBusiness.getSolvedFileList();
-  return createQuickOpenPanel(quickOpenSolvedPanel,"Solved (XStream XML)",quickOpenSolvedActionList,solvedFileList);
+  return createQuickOpenPanel(quickOpenSolvedPanel,"Solved dataset",quickOpenSolvedActionList,solvedFileList);
 }
