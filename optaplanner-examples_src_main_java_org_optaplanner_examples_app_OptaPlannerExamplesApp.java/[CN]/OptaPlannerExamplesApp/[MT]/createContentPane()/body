@@ -1,5 +1,5 @@
 {
-  JPanel contentPane=new JPanel(new BorderLayout(10,10));
+  JPanel contentPane=new JPanel(new BorderLayout(5,5));
   contentPane.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
   JLabel titleLabel=new JLabel("Which example do you want to see?",JLabel.CENTER);
   titleLabel.setFont(titleLabel.getFont().deriveFont(20.0f));
@@ -8,6 +8,9 @@
   examplesScrollPane.getHorizontalScrollBar().setUnitIncrement(20);
   examplesScrollPane.getVerticalScrollBar().setUnitIncrement(20);
   contentPane.add(examplesScrollPane,BorderLayout.CENTER);
-  contentPane.add(createDescriptionPanel(),BorderLayout.SOUTH);
+  JPanel bottomPanel=new JPanel(new BorderLayout(5,5));
+  bottomPanel.add(createDescriptionPanel(),BorderLayout.CENTER);
+  bottomPanel.add(createExtraPanel(),BorderLayout.EAST);
+  contentPane.add(bottomPanel,BorderLayout.SOUTH);
   return contentPane;
 }

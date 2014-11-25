@@ -1,0 +1,9 @@
+{
+  super(title);
+  try {
+    uri=new URI(urlString);
+  }
+ catch (  URISyntaxException e) {
+    throw new IllegalStateException("Failed creating URI for urlString (" + urlString + ").",e);
+  }
+}

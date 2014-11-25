@@ -1,0 +1,5 @@
+{
+  JPanel middlePanel=new JPanel(new GridLayout(0,1));
+  middlePanel.add(new JLabel("To see the webexamples, deploy the optaplanner-webexamples-*.war on an application server."));
+  return middlePanel;
+}
