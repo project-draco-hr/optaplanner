@@ -1,5 +1,5 @@
 {
-  SolutionBusiness solutionBusiness=new SolutionBusiness();
+  SolutionBusiness solutionBusiness=new SolutionBusiness(this);
   solutionBusiness.setSolutionDao(createSolutionDao());
   solutionBusiness.setImporter(createSolutionImporter());
   solutionBusiness.setExporter(createSolutionExporter());

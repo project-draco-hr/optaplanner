@@ -1,6 +1,5 @@
 {
-  super(titlePrefix);
-  this.titlePrefix=titlePrefix;
+  super(solutionBusiness.getAppName() + " OptaPlanner example");
   this.solutionBusiness=solutionBusiness;
   this.solutionPanel=solutionPanel;
   setIconImage(OPTA_PLANNER_ICON.getImage());

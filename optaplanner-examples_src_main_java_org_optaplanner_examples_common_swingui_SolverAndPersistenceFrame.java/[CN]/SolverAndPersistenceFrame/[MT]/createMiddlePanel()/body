@@ -1,9 +1,19 @@
 {
   middlePanel=new JPanel(new CardLayout());
+  JPanel usageExplanationPanel=new JPanel(new BorderLayout(5,5));
   ImageIcon usageExplanationIcon=new ImageIcon(getClass().getResource(solutionPanel.getUsageExplanationPath()));
   JLabel usageExplanationLabel=new JLabel(usageExplanationIcon);
   usageExplanationLabel.setMinimumSize(new Dimension(100,100));
-  middlePanel.add(usageExplanationLabel,"usageExplanationPanel");
+  usageExplanationPanel.add(usageExplanationLabel,BorderLayout.CENTER);
+  JPanel descriptionPanel=new JPanel(new BorderLayout(2,2));
+  descriptionPanel.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
+  descriptionPanel.add(new JLabel("Example description"),BorderLayout.NORTH);
+  JTextArea descriptionTextArea=new JTextArea(8,70);
+  descriptionTextArea.setEditable(false);
+  descriptionTextArea.setText(solutionBusiness.getAppDescription());
+  descriptionPanel.add(new JScrollPane(descriptionTextArea,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED),BorderLayout.CENTER);
+  usageExplanationPanel.add(descriptionPanel,BorderLayout.SOUTH);
+  middlePanel.add(usageExplanationPanel,"usageExplanationPanel");
   JComponent wrappedSolutionPanel;
   if (solutionPanel.isWrapInScrollPane()) {
     wrappedSolutionPanel=new JScrollPane(solutionPanel);
