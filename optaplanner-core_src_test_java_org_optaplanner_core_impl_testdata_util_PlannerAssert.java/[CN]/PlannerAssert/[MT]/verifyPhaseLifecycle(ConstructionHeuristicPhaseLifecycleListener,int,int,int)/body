@@ -1,0 +1,8 @@
+{
+  verify(phaseLifecycleListener,times(solvingCount)).solvingStarted(Matchers.<DefaultSolverScope>any());
+  verify(phaseLifecycleListener,times(phaseCount)).phaseStarted(Matchers.<ConstructionHeuristicPhaseScope>any());
+  verify(phaseLifecycleListener,times(stepCount)).stepStarted(Matchers.<ConstructionHeuristicStepScope>any());
+  verify(phaseLifecycleListener,times(stepCount)).stepEnded(Matchers.<ConstructionHeuristicStepScope>any());
+  verify(phaseLifecycleListener,times(phaseCount)).phaseEnded(Matchers.<ConstructionHeuristicPhaseScope>any());
+  verify(phaseLifecycleListener,times(solvingCount)).solvingEnded(Matchers.<DefaultSolverScope>any());
+}

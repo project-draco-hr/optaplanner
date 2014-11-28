@@ -1,0 +1,4 @@
+ConstructionHeuristicPhaseLifecycleListener phaseLifecycleListener
+int solvingCount
+int phaseCount
+int stepCount

@@ -1,0 +1,8 @@
+{
+  verify(phaseLifecycleListener,times(solvingCount)).solvingStarted(Matchers.<DefaultSolverScope>any());
+  verify(phaseLifecycleListener,times(phaseCount)).phaseStarted(Matchers.<LocalSearchPhaseScope>any());
+  verify(phaseLifecycleListener,times(stepCount)).stepStarted(Matchers.<LocalSearchStepScope>any());
+  verify(phaseLifecycleListener,times(stepCount)).stepEnded(Matchers.<LocalSearchStepScope>any());
+  verify(phaseLifecycleListener,times(phaseCount)).phaseEnded(Matchers.<LocalSearchPhaseScope>any());
+  verify(phaseLifecycleListener,times(solvingCount)).solvingEnded(Matchers.<DefaultSolverScope>any());
+}

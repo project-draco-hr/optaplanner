@@ -1,9 +1,0 @@
-{
-  List<Acceptor> acceptorList=createAcceptors();
-  CompositeAcceptor compositeAcceptor=new CompositeAcceptor();
-  compositeAcceptor.setAcceptorList(acceptorList);
-  compositeAcceptor.stepStarted(null);
-  for (  Acceptor acceptor : acceptorList) {
-    assertTrue(((TestingAcceptor)acceptor).isStepStarted());
-  }
-}

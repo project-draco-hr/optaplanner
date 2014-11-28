@@ -1,0 +1,4 @@
+LocalSearchPhaseLifecycleListener phaseLifecycleListener
+int solvingCount
+int phaseCount
+int stepCount

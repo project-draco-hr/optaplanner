@@ -133,8 +133,7 @@
     return acceptorList.get(0);
   }
  else   if (acceptorList.size() > 1) {
-    CompositeAcceptor compositeAcceptor=new CompositeAcceptor();
-    compositeAcceptor.setAcceptorList(acceptorList);
+    CompositeAcceptor compositeAcceptor=new CompositeAcceptor(acceptorList);
     return compositeAcceptor;
   }
  else {
