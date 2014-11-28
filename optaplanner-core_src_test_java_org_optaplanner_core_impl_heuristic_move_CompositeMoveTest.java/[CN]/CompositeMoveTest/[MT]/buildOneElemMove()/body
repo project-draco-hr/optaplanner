@@ -1,0 +1,7 @@
+{
+  Move tmpMove=new DummyMove();
+  Move move=CompositeMove.buildMove(Collections.singletonList(tmpMove));
+  assertTrue(move instanceof DummyMove);
+  move=CompositeMove.buildMove(tmpMove);
+  assertTrue(move instanceof DummyMove);
+}

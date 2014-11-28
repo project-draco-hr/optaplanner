@@ -1,0 +1,4 @@
+{
+  ShufflingEntitySelector selector=new ShufflingEntitySelector(mock(EntitySelector.class),SelectionCacheType.PHASE);
+  assertTrue(selector.isCountable());
+}

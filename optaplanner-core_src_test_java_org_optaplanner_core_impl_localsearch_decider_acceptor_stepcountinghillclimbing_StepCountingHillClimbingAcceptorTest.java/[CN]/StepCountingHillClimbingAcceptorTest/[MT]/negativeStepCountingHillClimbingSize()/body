@@ -1,0 +1,3 @@
+{
+  StepCountingHillClimbingAcceptor acceptor=new StepCountingHillClimbingAcceptor(-1,StepCountingHillClimbingType.STEP);
+}

@@ -1,0 +1,10 @@
+{
+  Integer tmp=(Integer)list.get(0);
+  for (  Object aList : list) {
+    if (tmp >= (Integer)aList) {
+      tmp=(Integer)aList;
+    }
+ else     return false;
+  }
+  return true;
+}

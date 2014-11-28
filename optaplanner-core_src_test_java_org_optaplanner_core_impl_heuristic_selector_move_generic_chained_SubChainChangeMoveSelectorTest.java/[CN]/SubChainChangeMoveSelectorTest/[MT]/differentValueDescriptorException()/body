@@ -1,0 +1,9 @@
+{
+  SubChainSelector subChainSelector=mock(DefaultSubChainSelector.class);
+  GenuineVariableDescriptor descriptor=TestdataEntity.buildVariableDescriptorForValue();
+  when(subChainSelector.getVariableDescriptor()).thenReturn(descriptor);
+  EntityIndependentValueSelector valueSelector=mock(EntityIndependentValueSelector.class);
+  GenuineVariableDescriptor otherDescriptor=TestdataEntity.buildVariableDescriptorForValue();
+  when(valueSelector.getVariableDescriptor()).thenReturn(otherDescriptor);
+  SubChainChangeMoveSelector testedSelector=new SubChainChangeMoveSelector(subChainSelector,valueSelector,true,true);
+}

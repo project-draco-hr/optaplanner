@@ -1,0 +1,4 @@
+{
+  this.acceptingStates=acceptingStates;
+  this.result=result;
+}

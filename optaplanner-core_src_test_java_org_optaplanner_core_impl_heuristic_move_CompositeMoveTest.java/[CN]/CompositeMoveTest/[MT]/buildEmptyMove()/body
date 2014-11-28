@@ -1,0 +1,6 @@
+{
+  Move move=CompositeMove.buildMove(new ArrayList<Move>());
+  assertTrue(move instanceof NoChangeMove);
+  move=CompositeMove.buildMove();
+  assertTrue(move instanceof NoChangeMove);
+}

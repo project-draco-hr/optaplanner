@@ -1,0 +1,15 @@
+{
+  BestSolutionRecaller recaller=new BestSolutionRecaller();
+  recaller.setSolverEventSupport(mock(SolverEventSupport.class));
+  DefaultSolverScope solverScope=new DefaultSolverScope();
+  ConstructionHeuristicPhaseScope phaseScope=mock(ConstructionHeuristicPhaseScope.class);
+  when(phaseScope.getSolverScope()).thenReturn(solverScope);
+  ConstructionHeuristicStepScope stepScope=mock(ConstructionHeuristicStepScope.class);
+  when(stepScope.getPhaseScope()).thenReturn(phaseScope);
+  Score score=SimpleScore.parseScore("-1");
+  solverScope.setBestUninitializedVariableCount(0);
+  recaller.processWorkingSolutionDuringMove(1,score,stepScope);
+  assertEquals(null,solverScope.getBestSolution());
+  assertEquals(null,solverScope.getBestScore());
+  assertEquals(0,solverScope.getBestUninitializedVariableCount());
+}

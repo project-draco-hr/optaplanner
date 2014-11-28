@@ -1,0 +1,5 @@
+{
+  EntitySelector childEntitySelector=SelectorTestUtils.mockEntitySelector(TestdataEntity.class);
+  SelectionProbabilityWeightFactory prob=mock(SelectionProbabilityWeightFactory.class);
+  ProbabilityEntitySelector entitySelector=new ProbabilityEntitySelector(childEntitySelector,SelectionCacheType.JUST_IN_TIME,prob);
+}

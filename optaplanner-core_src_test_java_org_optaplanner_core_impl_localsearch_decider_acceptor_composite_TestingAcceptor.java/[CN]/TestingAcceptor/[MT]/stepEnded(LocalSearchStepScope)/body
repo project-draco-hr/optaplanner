@@ -1,0 +1,4 @@
+{
+  super.stepEnded(stepScope);
+  this.stepEnded=true;
+}

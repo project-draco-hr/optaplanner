@@ -1,0 +1,5 @@
+{
+  SimulatedAnnealingAcceptor acceptor=new SimulatedAnnealingAcceptor();
+  acceptor.setStartingTemperature(HardMediumSoftScore.parseScore("1, -1, 2"));
+  acceptor.phaseStarted(null);
+}
