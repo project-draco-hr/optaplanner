@@ -2,11 +2,11 @@
   Move first=new DummyMove();
   Move second=new NoChangeMove();
   Move move=CompositeMove.buildMove(Arrays.asList(first,second));
-  assertTrue(move instanceof CompositeMove);
-  assertTrue(((CompositeMove)move).getMoves()[0] instanceof DummyMove);
-  assertTrue(((CompositeMove)move).getMoves()[1] instanceof NoChangeMove);
+  assertInstanceOf(CompositeMove.class,move);
+  assertInstanceOf(DummyMove.class,((CompositeMove)move).getMoves()[0]);
+  assertInstanceOf(NoChangeMove.class,((CompositeMove)move).getMoves()[1]);
   move=CompositeMove.buildMove(first,second);
-  assertTrue(move instanceof CompositeMove);
-  assertTrue(((CompositeMove)move).getMoves()[0] instanceof DummyMove);
-  assertTrue(((CompositeMove)move).getMoves()[1] instanceof NoChangeMove);
+  assertInstanceOf(CompositeMove.class,move);
+  assertInstanceOf(DummyMove.class,((CompositeMove)move).getMoves()[0]);
+  assertInstanceOf(NoChangeMove.class,((CompositeMove)move).getMoves()[1]);
 }

@@ -9,5 +9,5 @@
   Collections.addAll(arrayToSort,baseArray);
   selectionSorter=new ComparatorSelectionSorter(new TestComparator(),SelectionSorterOrder.DESCENDING);
   selectionSorter.sort(null,arrayToSort);
-  assertTrue(descandingSort(arrayToSort));
+  assertTrue(descendingSort(arrayToSort));
 }

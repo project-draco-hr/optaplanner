@@ -1,7 +1,7 @@
 {
   Move tmpMove=new DummyMove();
   Move move=CompositeMove.buildMove(Collections.singletonList(tmpMove));
-  assertTrue(move instanceof DummyMove);
+  assertInstanceOf(DummyMove.class,move);
   move=CompositeMove.buildMove(tmpMove);
-  assertTrue(move instanceof DummyMove);
+  assertInstanceOf(DummyMove.class,move);
 }

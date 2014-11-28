@@ -1,9 +1,9 @@
 {
-  List<Acceptor> acceptors=createAcceptors();
-  CompositeAcceptor acceptor=new CompositeAcceptor();
-  acceptor.setAcceptorList(acceptors);
-  acceptor.stepStarted(null);
-  for (  Acceptor acceptor_ : acceptors) {
-    assertTrue(((TestingAcceptor)acceptor_).isStepStarted());
+  List<Acceptor> acceptorList=createAcceptors();
+  CompositeAcceptor compositeAcceptor=new CompositeAcceptor();
+  compositeAcceptor.setAcceptorList(acceptorList);
+  compositeAcceptor.stepStarted(null);
+  for (  Acceptor acceptor : acceptorList) {
+    assertTrue(((TestingAcceptor)acceptor).isStepStarted());
   }
 }

@@ -4,5 +4,5 @@
   Move second=mock(DummyMove.class);
   when(second.isMoveDoable(scoreDirector)).thenReturn(false);
   Move move=CompositeMove.buildMove(first,second);
-  assertFalse(move.isMoveDoable(scoreDirector));
+  assertEquals(false,move.isMoveDoable(scoreDirector));
 }
