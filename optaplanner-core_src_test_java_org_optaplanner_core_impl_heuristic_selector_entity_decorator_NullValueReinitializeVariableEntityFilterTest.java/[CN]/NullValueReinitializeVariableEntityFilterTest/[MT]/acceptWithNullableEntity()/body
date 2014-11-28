@@ -1,0 +1,7 @@
+{
+  EntityDescriptor entityDescriptor=TestdataNullableEntity.buildEntityDescriptor();
+  GenuineVariableDescriptor variableDescriptor=entityDescriptor.getGenuineVariableDescriptor("value");
+  NullValueReinitializeVariableEntityFilter filter=new NullValueReinitializeVariableEntityFilter(variableDescriptor);
+  assertEquals(false,filter.accept(null,new TestdataNullableEntity("a",new TestdataValue())));
+  assertEquals(true,filter.accept(null,new TestdataNullableEntity("b",null)));
+}
