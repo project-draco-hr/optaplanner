@@ -1,4 +1,0 @@
-{
-  super.solvingEnded(solverScope);
-  this.solvingEnded=true;
-}

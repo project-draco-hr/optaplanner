@@ -1,0 +1,10 @@
+{
+  List<Acceptor> acceptorList=new ArrayList<Acceptor>(childAccepts.length);
+  for (  boolean childAccept : childAccepts) {
+    Acceptor acceptor=mock(Acceptor.class);
+    when(acceptor.isAccepted(any(LocalSearchMoveScope.class))).thenReturn(childAccept);
+    acceptorList.add(acceptor);
+  }
+  CompositeAcceptor acceptor=new CompositeAcceptor(acceptorList);
+  return acceptor.isAccepted(mock(LocalSearchMoveScope.class));
+}

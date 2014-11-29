@@ -1,4 +1,0 @@
-{
-  super.solvingStarted(solverScope);
-  this.solvingStarted=true;
-}

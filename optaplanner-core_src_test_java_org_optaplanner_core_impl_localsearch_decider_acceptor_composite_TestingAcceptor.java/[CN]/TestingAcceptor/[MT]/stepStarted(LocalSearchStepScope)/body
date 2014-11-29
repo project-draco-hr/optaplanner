@@ -1,4 +1,0 @@
-{
-  super.stepStarted(stepScope);
-  this.stepStarted=true;
-}

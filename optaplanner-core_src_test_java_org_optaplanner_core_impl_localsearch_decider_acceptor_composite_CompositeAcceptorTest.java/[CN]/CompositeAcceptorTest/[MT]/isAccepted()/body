@@ -1,5 +1,7 @@
 {
-  List<Acceptor> acceptorList=Arrays.asList((Acceptor)new TestingAcceptor(acceptingStates[0]),new TestingAcceptor(acceptingStates[1]),new TestingAcceptor(acceptingStates[2]));
-  CompositeAcceptor acceptor=new CompositeAcceptor(acceptorList);
-  assertEquals(result,acceptor.isAccepted(null));
+  assertEquals(true,isCompositeAccepted(true,true,true));
+  assertEquals(false,isCompositeAccepted(false,true,true));
+  assertEquals(false,isCompositeAccepted(true,false,true));
+  assertEquals(false,isCompositeAccepted(true,true,false));
+  assertEquals(false,isCompositeAccepted(false,false,false));
 }

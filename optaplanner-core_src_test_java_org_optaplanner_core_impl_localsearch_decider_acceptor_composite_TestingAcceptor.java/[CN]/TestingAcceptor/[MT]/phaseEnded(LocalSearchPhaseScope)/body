@@ -1,4 +1,0 @@
-{
-  super.phaseEnded(phaseScope);
-  this.phaseEnded=true;
-}
