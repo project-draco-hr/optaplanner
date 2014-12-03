@@ -1,4 +1,3 @@
 {
-  SolutionCloner cloner=scoreDirector.getSolutionDescriptor().getSolutionCloner();
-  scoreDirector.setWorkingSolution(cloner.cloneSolution(getBestSolution()));
+  scoreDirector.setWorkingSolution(scoreDirector.cloneSolution(bestSolution));
 }
