@@ -1,5 +1,6 @@
 {
   this.workingSolution=workingSolution;
   trailingEntityMapSupport.resetTrailingEntityMap(workingSolution);
+  variableListenerSupport.resetWorkingSolution(this,workingSolution);
   setWorkingEntityListDirty();
 }

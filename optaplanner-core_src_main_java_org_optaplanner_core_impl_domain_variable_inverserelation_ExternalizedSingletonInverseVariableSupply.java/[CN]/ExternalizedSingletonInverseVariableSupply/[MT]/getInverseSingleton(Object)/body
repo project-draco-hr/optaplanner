@@ -1,0 +1,10 @@
+{
+  Set<Object> inverseEntitySet=inverseEntitySetMap.get(value);
+  if (inverseEntitySet == null) {
+    return null;
+  }
+  if (inverseEntitySet.size() > 1) {
+    throw new IllegalStateException("The planning value (" + value + ") has multiple inverse entities ("+ inverseEntitySet+ ") pointing to it from sourceVariable ("+ sourceVariableDescriptor.getVariableName()+ ").");
+  }
+  return inverseEntitySet.iterator().next();
+}

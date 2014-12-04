@@ -1,0 +1,11 @@
+{
+  Object value=sourceVariableDescriptor.getValue(entity);
+  Set<Object> inverseEntitySet=inverseEntitySetMap.get(value);
+  boolean removeSucceeded=inverseEntitySet.remove(entity);
+  if (!removeSucceeded) {
+    throw new IllegalStateException("The supply (" + this + ") is corrupted,"+ " because the entity ("+ entity+ ") for sourceVariable ("+ sourceVariableDescriptor.getVariableName()+ ") cannot be retracted: it was never inserted.");
+  }
+  if (inverseEntitySet.isEmpty()) {
+    inverseEntitySetMap.put(value,null);
+  }
+}

@@ -1,0 +1,27 @@
+{
+  GenuineVariableDescriptor variableDescriptor=TestdataChainedEntity.buildVariableDescriptorForChainedObject();
+  ScoreDirector scoreDirector=mock(ScoreDirector.class);
+  ExternalizedSingletonInverseVariableSupply supply=new ExternalizedSingletonInverseVariableSupply(variableDescriptor);
+  TestdataChainedAnchor a0=new TestdataChainedAnchor("a0");
+  TestdataChainedEntity a1=new TestdataChainedEntity("a1",a0);
+  TestdataChainedEntity a2=new TestdataChainedEntity("a2",a1);
+  TestdataChainedEntity a3=new TestdataChainedEntity("a3",a2);
+  TestdataChainedAnchor b0=new TestdataChainedAnchor("b0");
+  TestdataChainedEntity b1=new TestdataChainedEntity("b1",b0);
+  TestdataChainedSolution solution=new TestdataChainedSolution("solution");
+  solution.setChainedAnchorList(Arrays.asList(a0,b0));
+  solution.setChainedEntityList(Arrays.asList(a1,a2,a3,b1));
+  supply.resetWorkingSolution(scoreDirector,solution);
+  assertSame(a1,supply.getInverseSingleton(a0));
+  assertSame(a2,supply.getInverseSingleton(a1));
+  assertSame(a3,supply.getInverseSingleton(a2));
+  assertSame(null,supply.getInverseSingleton(a3));
+  assertSame(b1,supply.getInverseSingleton(b0));
+  assertSame(null,supply.getInverseSingleton(b1));
+  supply.beforeVariableChanged(scoreDirector,a3);
+  a3.setChainedObject(b1);
+  supply.afterVariableChanged(scoreDirector,a3);
+  assertSame(null,supply.getInverseSingleton(a2));
+  assertSame(a3,supply.getInverseSingleton(b1));
+  supply.clearWorkingSolution(scoreDirector);
+}
