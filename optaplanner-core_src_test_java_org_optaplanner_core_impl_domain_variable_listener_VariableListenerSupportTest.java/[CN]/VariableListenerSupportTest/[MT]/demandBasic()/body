@@ -1,0 +1,13 @@
+{
+  SolutionDescriptor solutionDescriptor=TestdataSolution.buildSolutionDescriptor();
+  InnerScoreDirector scoreDirector=mock(InnerScoreDirector.class);
+  when(scoreDirector.getSolutionDescriptor()).thenReturn(solutionDescriptor);
+  TestdataSolution solution=new TestdataSolution();
+  solution.setEntityList(Collections.<TestdataEntity>emptyList());
+  when(scoreDirector.getWorkingSolution()).thenReturn(solution);
+  VariableListenerSupport variableListenerSupport=new VariableListenerSupport(scoreDirector);
+  VariableDescriptor variableDescriptor=solutionDescriptor.getEntityDescriptorStrict(TestdataEntity.class).getVariableDescriptor("value");
+  SingletonInverseVariableSupply supply1=variableListenerSupport.demand(new SingletonInverseVariableDemand(variableDescriptor));
+  SingletonInverseVariableSupply supply2=variableListenerSupport.demand(new SingletonInverseVariableDemand(variableDescriptor));
+  assertSame(supply1,supply2);
+}

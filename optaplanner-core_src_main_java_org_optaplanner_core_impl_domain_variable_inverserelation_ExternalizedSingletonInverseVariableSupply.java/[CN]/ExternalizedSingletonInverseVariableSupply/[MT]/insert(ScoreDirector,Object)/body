@@ -1,5 +1,8 @@
 {
   Object value=sourceVariableDescriptor.getValue(entity);
+  if (value == null) {
+    return;
+  }
   Set<Object> inverseEntitySet=inverseEntitySetMap.get(value);
   if (inverseEntitySet == null) {
     inverseEntitySet=Collections.newSetFromMap(new IdentityHashMap<Object,Boolean>());

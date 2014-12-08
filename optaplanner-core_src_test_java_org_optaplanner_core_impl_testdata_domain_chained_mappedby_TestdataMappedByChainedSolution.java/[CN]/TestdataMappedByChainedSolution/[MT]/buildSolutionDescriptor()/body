@@ -1,3 +1,0 @@
-{
-  return TestdataUtils.buildSolutionDescriptor(TestdataMappedByChainedSolution.class,TestdataMappedByChainedObject.class,TestdataMappedByChainedEntity.class);
-}

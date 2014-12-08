@@ -1,5 +1,8 @@
 {
   Object value=sourceVariableDescriptor.getValue(entity);
+  if (value == null) {
+    return;
+  }
   Set<Object> inverseEntitySet=inverseEntitySetMap.get(value);
   boolean removeSucceeded=inverseEntitySet.remove(entity);
   if (!removeSucceeded) {

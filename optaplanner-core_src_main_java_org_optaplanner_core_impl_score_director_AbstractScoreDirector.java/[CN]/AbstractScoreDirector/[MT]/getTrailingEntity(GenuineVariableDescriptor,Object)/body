@@ -1,3 +1,4 @@
 {
-  return trailingEntityMapSupport.getTrailingEntity(chainedVariableDescriptor,planningValue);
+  SingletonInverseVariableSupply supply=variableListenerSupport.demand(new SingletonInverseVariableDemand(chainedVariableDescriptor));
+  return supply.getInverseSingleton(planningValue);
 }

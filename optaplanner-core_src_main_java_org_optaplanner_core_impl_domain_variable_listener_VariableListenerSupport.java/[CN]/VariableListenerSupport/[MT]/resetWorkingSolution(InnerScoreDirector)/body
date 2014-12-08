@@ -1,0 +1,9 @@
+{
+  for (  List<VariableListener> variableListenerList : variableListenerMap.values()) {
+    for (    VariableListener variableListener : variableListenerList) {
+      if (variableListener instanceof StatefulVariableListener) {
+        ((StatefulVariableListener)variableListener).resetWorkingSolution(scoreDirector);
+      }
+    }
+  }
+}

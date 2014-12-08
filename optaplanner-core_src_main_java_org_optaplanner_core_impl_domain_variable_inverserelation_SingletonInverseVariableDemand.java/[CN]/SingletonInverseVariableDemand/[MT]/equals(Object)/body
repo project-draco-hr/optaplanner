@@ -1,0 +1,13 @@
+{
+  if (this == o) {
+    return true;
+  }
+  if (!(o instanceof SingletonInverseVariableDemand)) {
+    return false;
+  }
+  SingletonInverseVariableDemand other=(SingletonInverseVariableDemand)o;
+  if (!sourceVariableDescriptor.equals(other.sourceVariableDescriptor)) {
+    return false;
+  }
+  return true;
+}

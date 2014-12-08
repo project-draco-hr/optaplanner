@@ -1,8 +1,0 @@
-{
-  EntityDescriptor entityDescriptor=sourceVariableDescriptor.getEntityDescriptor();
-  List<Object> entityList=entityDescriptor.extractEntities(workingSolution);
-  inverseEntitySetMap=new IdentityHashMap<Object,Set<Object>>(entityList.size());
-  for (  Object entity : entityList) {
-    insert(scoreDirector,entity);
-  }
-}

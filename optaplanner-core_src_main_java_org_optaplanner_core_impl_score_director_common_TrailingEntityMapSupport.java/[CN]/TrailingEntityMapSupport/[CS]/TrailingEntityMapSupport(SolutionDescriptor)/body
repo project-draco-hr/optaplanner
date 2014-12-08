@@ -1,9 +1,0 @@
-{
-  this.solutionDescriptor=solutionDescriptor;
-  Collection<GenuineVariableDescriptor> chainedVariableDescriptors=solutionDescriptor.getChainedVariableDescriptors();
-  hasChainedVariables=!chainedVariableDescriptors.isEmpty();
-  trailingEntitiesMap=new LinkedHashMap<GenuineVariableDescriptor,Map<Object,Set<Object>>>(chainedVariableDescriptors.size());
-  for (  GenuineVariableDescriptor chainedVariableDescriptor : chainedVariableDescriptors) {
-    trailingEntitiesMap.put(chainedVariableDescriptor,null);
-  }
-}

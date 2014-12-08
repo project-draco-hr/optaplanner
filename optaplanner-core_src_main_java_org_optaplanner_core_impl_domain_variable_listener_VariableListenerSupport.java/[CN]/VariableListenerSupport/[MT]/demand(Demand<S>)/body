@@ -1,0 +1,26 @@
+{
+  S supply=(S)supplyMap.get(demand);
+  if (supply == null) {
+    supply=demand.createExternalizedSupply();
+    if (supply instanceof StatefulVariableListener) {
+      StatefulVariableListener statefulVariableListener=(StatefulVariableListener)supply;
+      statefulVariableListener.resetWorkingSolution(scoreDirector);
+      VariableDescriptor variableDescriptor=statefulVariableListener.getVariableDescriptor();
+      List<VariableListener> variableListenerList=variableListenerMap.get(variableDescriptor);
+      if (variableListenerList == null) {
+        variableListenerList=new ArrayList<VariableListener>();
+        variableListenerMap.put(variableDescriptor,variableListenerList);
+      }
+      variableListenerList.add(statefulVariableListener);
+      EntityDescriptor entityDescriptor=variableDescriptor.getEntityDescriptor();
+      List<VariableListener> entityVariableListenerList=entityVariableListenerMap.get(entityDescriptor);
+      if (entityVariableListenerList == null) {
+        entityVariableListenerList=new ArrayList<VariableListener>();
+        entityVariableListenerMap.put(entityDescriptor,entityVariableListenerList);
+      }
+      entityVariableListenerList.add(statefulVariableListener);
+    }
+    supplyMap.put(demand,supply);
+  }
+  return supply;
+}

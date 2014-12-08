@@ -1,7 +1,5 @@
 {
   this.scoreDirectorFactory=scoreDirectorFactory;
   this.constraintMatchEnabledPreference=constraintMatchEnabledPreference;
-  SolutionDescriptor solutionDescriptor=getSolutionDescriptor();
-  trailingEntityMapSupport=new TrailingEntityMapSupport(solutionDescriptor);
-  variableListenerSupport=solutionDescriptor.buildVariableListenerSupport();
+  variableListenerSupport=new VariableListenerSupport(this);
 }

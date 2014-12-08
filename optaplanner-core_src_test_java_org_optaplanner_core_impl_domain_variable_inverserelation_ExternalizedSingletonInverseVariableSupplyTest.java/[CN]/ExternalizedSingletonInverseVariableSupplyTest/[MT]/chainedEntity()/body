@@ -11,7 +11,8 @@
   TestdataChainedSolution solution=new TestdataChainedSolution("solution");
   solution.setChainedAnchorList(Arrays.asList(a0,b0));
   solution.setChainedEntityList(Arrays.asList(a1,a2,a3,b1));
-  supply.resetWorkingSolution(scoreDirector,solution);
+  when(scoreDirector.getWorkingSolution()).thenReturn(solution);
+  supply.resetWorkingSolution(scoreDirector);
   assertSame(a1,supply.getInverseSingleton(a0));
   assertSame(a2,supply.getInverseSingleton(a1));
   assertSame(a3,supply.getInverseSingleton(a2));

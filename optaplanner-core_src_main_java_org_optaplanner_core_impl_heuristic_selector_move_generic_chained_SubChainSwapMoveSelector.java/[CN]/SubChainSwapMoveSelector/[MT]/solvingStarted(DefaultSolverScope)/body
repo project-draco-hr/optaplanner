@@ -1,0 +1,5 @@
+{
+  super.solvingStarted(solverScope);
+  SupplyManager supplyManager=solverScope.getScoreDirector().getSupplyManager();
+  SingletonInverseVariableSupply inverseVariableSupply=supplyManager.demand(new SingletonInverseVariableDemand(variableDescriptor));
+}
