@@ -1,7 +1,7 @@
 {
   if (this == location) {
-    return 0;
+    return 0L;
   }
   double distance=travelDistanceMap.get((RoadLocation)location);
-  return (int)(distance * 1000.0 + 0.5);
+  return (long)(distance * 1000.0 + 0.5);
 }
