@@ -1,0 +1,12 @@
+{
+  for (  EntityDescriptor entityDescriptor : scoreDirector.getSolutionDescriptor().getEntityDescriptors()) {
+    List<VariableListener> entityVariableListenerList=new ArrayList<VariableListener>();
+    for (    GenuineVariableDescriptor variableDescriptor : entityDescriptor.getDeclaredGenuineVariableDescriptors()) {
+      buildVariableListeners(entityVariableListenerList,variableDescriptor);
+    }
+    for (    ShadowVariableDescriptor variableDescriptor : entityDescriptor.getDeclaredShadowVariableDescriptors()) {
+      buildVariableListeners(entityVariableListenerList,variableDescriptor);
+    }
+    entityVariableListenerMap.put(entityDescriptor,entityVariableListenerList);
+  }
+}

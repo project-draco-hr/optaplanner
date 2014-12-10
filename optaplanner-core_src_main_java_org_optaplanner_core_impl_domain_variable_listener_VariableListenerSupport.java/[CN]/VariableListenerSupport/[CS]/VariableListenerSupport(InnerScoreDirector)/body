@@ -3,18 +3,4 @@
   variableListenerMap=new LinkedHashMap<VariableDescriptor,List<VariableListener>>();
   entityVariableListenerMap=new LinkedHashMap<EntityDescriptor,List<VariableListener>>();
   supplyMap=new LinkedHashMap<Demand,Supply>(variableListenerMap.size());
-  for (  EntityDescriptor entityDescriptor : scoreDirector.getSolutionDescriptor().getEntityDescriptors()) {
-    List<VariableListener> entityVariableListenerList=new ArrayList<VariableListener>();
-    for (    GenuineVariableDescriptor variableDescriptor : entityDescriptor.getDeclaredGenuineVariableDescriptors()) {
-      List<VariableListener> variableListenerList=variableDescriptor.buildVariableListenerListAndRegisterSupply(supplyMap);
-      variableListenerMap.put(variableDescriptor,variableListenerList);
-      entityVariableListenerList.addAll(variableListenerList);
-    }
-    for (    ShadowVariableDescriptor variableDescriptor : entityDescriptor.getDeclaredShadowVariableDescriptors()) {
-      List<VariableListener> variableListenerList=variableDescriptor.buildVariableListenerListAndRegisterSupply(supplyMap);
-      variableListenerMap.put(variableDescriptor,variableListenerList);
-      entityVariableListenerList.addAll(variableListenerList);
-    }
-    entityVariableListenerMap.put(entityDescriptor,entityVariableListenerList);
-  }
 }

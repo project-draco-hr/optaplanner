@@ -1,0 +1,4 @@
+{
+  SingletonInverseVariableSupply inverseVariableSupply=scoreDirector.getSupplyManager().demand(new SingletonInverseVariableDemand(sourceVariableDescriptor));
+  return new ExternalizedAnchorVariableSupply(sourceVariableDescriptor,inverseVariableSupply);
+}

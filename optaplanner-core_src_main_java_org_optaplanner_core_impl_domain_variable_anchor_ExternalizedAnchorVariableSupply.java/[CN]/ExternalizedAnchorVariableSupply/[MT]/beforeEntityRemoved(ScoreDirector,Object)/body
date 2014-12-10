@@ -1,0 +1,6 @@
+{
+  boolean removeSucceeded=anchorMap.remove(entity) != null;
+  if (!removeSucceeded) {
+    throw new IllegalStateException("The supply (" + this + ") is corrupted,"+ " because the entity ("+ entity+ ") for sourceVariable ("+ previousVariableDescriptor.getVariableName()+ ") cannot be retracted: it was never inserted.");
+  }
+}

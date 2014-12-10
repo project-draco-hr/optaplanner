@@ -1,0 +1,12 @@
+{
+  AnchorShadowVariable shadowVariableAnnotation=variablePropertyAccessor.getReadMethod().getAnnotation(AnchorShadowVariable.class);
+  String sourceVariableName=shadowVariableAnnotation.sourceVariableName();
+  sourceVariableDescriptor=entityDescriptor.getVariableDescriptor(sourceVariableName);
+  if (sourceVariableDescriptor == null) {
+    throw new IllegalArgumentException("The entityClass (" + entityDescriptor.getEntityClass() + ") has a "+ AnchorShadowVariable.class.getSimpleName()+ " annotated property ("+ variablePropertyAccessor.getName()+ ") with sourceVariableName ("+ sourceVariableName+ ") which is not a valid planning variable on entityClass ("+ entityDescriptor.getEntityClass()+ ").\n"+ entityDescriptor.buildInvalidVariableNameExceptionMessage(sourceVariableName));
+  }
+  if (!(sourceVariableDescriptor instanceof GenuineVariableDescriptor) || !((GenuineVariableDescriptor)sourceVariableDescriptor).isChained()) {
+    throw new IllegalArgumentException("The entityClass (" + entityDescriptor.getEntityClass() + ") has a "+ AnchorShadowVariable.class.getSimpleName()+ " annotated property ("+ variablePropertyAccessor.getName()+ ") with sourceVariableName ("+ sourceVariableName+ ") which is not chained.");
+  }
+  sourceVariableDescriptor.registerShadowVariableDescriptor(this);
+}

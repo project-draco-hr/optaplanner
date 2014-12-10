@@ -1,0 +1,18 @@
+{
+  Object previousEntity=previousVariableDescriptor.getValue(entity);
+  Object anchor;
+  if (previousEntity == null) {
+    anchor=null;
+  }
+ else   if (previousVariableDescriptor.getEntityDescriptor().getEntityClass().isAssignableFrom(previousEntity.getClass())) {
+    anchor=anchorMap.get(previousEntity);
+  }
+ else {
+    anchor=previousEntity;
+  }
+  Object nextEntity=entity;
+  while (nextEntity != null && anchorMap.get(nextEntity) != anchor) {
+    anchorMap.put(nextEntity,anchor);
+    nextEntity=nextVariableSupply.getInverseSingleton(nextEntity);
+  }
+}

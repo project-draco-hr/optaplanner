@@ -6,6 +6,7 @@
   solution.setEntityList(Collections.<TestdataEntity>emptyList());
   when(scoreDirector.getWorkingSolution()).thenReturn(solution);
   VariableListenerSupport variableListenerSupport=new VariableListenerSupport(scoreDirector);
+  variableListenerSupport.linkVariableListeners();
   VariableDescriptor variableDescriptor=solutionDescriptor.getEntityDescriptorStrict(TestdataEntity.class).getVariableDescriptor("value");
   SingletonInverseVariableSupply supply1=variableListenerSupport.demand(new SingletonInverseVariableDemand(variableDescriptor));
   SingletonInverseVariableSupply supply2=variableListenerSupport.demand(new SingletonInverseVariableDemand(variableDescriptor));

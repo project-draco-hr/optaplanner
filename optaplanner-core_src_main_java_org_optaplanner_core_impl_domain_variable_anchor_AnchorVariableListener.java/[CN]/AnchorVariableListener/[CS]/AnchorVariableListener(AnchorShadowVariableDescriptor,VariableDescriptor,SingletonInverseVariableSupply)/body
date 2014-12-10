@@ -1,0 +1,5 @@
+{
+  this.anchorShadowVariableDescriptor=anchorShadowVariableDescriptor;
+  this.previousVariableDescriptor=previousVariableDescriptor;
+  this.nextVariableSupply=nextVariableSupply;
+}

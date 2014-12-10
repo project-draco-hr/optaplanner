@@ -1,0 +1,4 @@
+{
+  this.previousVariableDescriptor=previousVariableDescriptor;
+  this.nextVariableSupply=nextVariableSupply;
+}

@@ -6,6 +6,7 @@
   solution.setChainedEntityList(Collections.<TestdataChainedEntity>emptyList());
   when(scoreDirector.getWorkingSolution()).thenReturn(solution);
   VariableListenerSupport variableListenerSupport=new VariableListenerSupport(scoreDirector);
+  variableListenerSupport.linkVariableListeners();
   VariableDescriptor variableDescriptor=solutionDescriptor.getEntityDescriptorStrict(TestdataChainedEntity.class).getVariableDescriptor("chainedObject");
   SingletonInverseVariableSupply supply1=variableListenerSupport.demand(new SingletonInverseVariableDemand(variableDescriptor));
   assertInstanceOf(ExternalizedSingletonInverseVariableSupply.class,supply1);

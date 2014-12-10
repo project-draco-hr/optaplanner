@@ -1,0 +1,13 @@
+{
+  if (this == o) {
+    return true;
+  }
+  if (!(o instanceof AnchorVariableDemand)) {
+    return false;
+  }
+  AnchorVariableDemand other=(AnchorVariableDemand)o;
+  if (!sourceVariableDescriptor.equals(other.sourceVariableDescriptor)) {
+    return false;
+  }
+  return true;
+}

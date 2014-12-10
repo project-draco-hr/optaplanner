@@ -1,0 +1,20 @@
+{
+  Object previousEntity=previousVariableDescriptor.getValue(entity);
+  Object anchor;
+  if (previousEntity == null) {
+    anchor=null;
+  }
+ else   if (previousVariableDescriptor.getEntityDescriptor().getEntityClass().isAssignableFrom(previousEntity.getClass())) {
+    anchor=anchorShadowVariableDescriptor.getValue(previousEntity);
+  }
+ else {
+    anchor=previousEntity;
+  }
+  Object nextEntity=entity;
+  while (nextEntity != null && anchorShadowVariableDescriptor.getValue(nextEntity) != anchor) {
+    scoreDirector.beforeVariableChanged(anchorShadowVariableDescriptor,nextEntity);
+    anchorShadowVariableDescriptor.setValue(nextEntity,anchor);
+    scoreDirector.afterVariableChanged(anchorShadowVariableDescriptor,nextEntity);
+    nextEntity=nextVariableSupply.getInverseSingleton(nextEntity);
+  }
+}

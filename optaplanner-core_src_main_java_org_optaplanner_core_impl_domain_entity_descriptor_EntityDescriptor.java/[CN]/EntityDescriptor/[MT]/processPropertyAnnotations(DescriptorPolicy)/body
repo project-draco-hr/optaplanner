@@ -7,7 +7,7 @@
     Method propertyGetter=propertyDescriptor.getReadMethod();
     if (propertyGetter != null && propertyGetter.getDeclaringClass() == entityClass) {
       Class<? extends Annotation> variableAnnotationClass=null;
-      for (      Class<? extends Annotation> detectedAnnotationClass : Arrays.asList(PlanningVariable.class,InverseRelationShadowVariable.class,CustomShadowVariable.class)) {
+      for (      Class<? extends Annotation> detectedAnnotationClass : Arrays.asList(PlanningVariable.class,InverseRelationShadowVariable.class,AnchorShadowVariable.class,CustomShadowVariable.class)) {
         if (propertyGetter.isAnnotationPresent(detectedAnnotationClass)) {
           if (variableAnnotationClass != null) {
             throw new IllegalStateException("The entityClass (" + entityClass + ") has a property ("+ propertyDescriptor.getName()+ ") that has both a "+ variableAnnotationClass.getSimpleName()+ " annotation and a "+ detectedAnnotationClass.getSimpleName()+ " annotation.");
@@ -27,6 +27,11 @@
         }
  else         if (variableAnnotationClass.equals(InverseRelationShadowVariable.class)) {
           ShadowVariableDescriptor variableDescriptor=new InverseRelationShadowVariableDescriptor(this,propertyDescriptor);
+          declaredShadowVariableDescriptorMap.put(propertyDescriptor.getName(),variableDescriptor);
+          variableDescriptor.processAnnotations(descriptorPolicy);
+        }
+ else         if (variableAnnotationClass.equals(AnchorShadowVariable.class)) {
+          ShadowVariableDescriptor variableDescriptor=new AnchorShadowVariableDescriptor(this,propertyDescriptor);
           declaredShadowVariableDescriptorMap.put(propertyDescriptor.getName(),variableDescriptor);
           variableDescriptor.processAnnotations(descriptorPolicy);
         }

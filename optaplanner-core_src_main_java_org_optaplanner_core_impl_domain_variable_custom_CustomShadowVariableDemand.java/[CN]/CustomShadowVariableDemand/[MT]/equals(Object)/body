@@ -1,0 +1,10 @@
+{
+  if (this == o) {
+    return true;
+  }
+  if (!(o instanceof CustomShadowVariableDemand)) {
+    return false;
+  }
+  CustomShadowVariableDemand other=(CustomShadowVariableDemand)o;
+  return targetShadowVariableDescriptor == other.targetShadowVariableDescriptor;
+}
