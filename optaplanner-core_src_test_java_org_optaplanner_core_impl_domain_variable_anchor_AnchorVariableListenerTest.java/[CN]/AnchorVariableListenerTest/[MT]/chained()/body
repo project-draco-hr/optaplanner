@@ -1,8 +1,11 @@
 {
   SolutionDescriptor solutionDescriptor=TestdataRichChainedSolution.buildSolutionDescriptor();
   EntityDescriptor entityDescriptor=solutionDescriptor.findEntityDescriptorOrFail(TestdataRichChainedEntity.class);
+  GenuineVariableDescriptor chainedObjectVariableDescriptor=entityDescriptor.getGenuineVariableDescriptor("chainedObject");
   ShadowVariableDescriptor nextEntityVariableDescriptor=entityDescriptor.getShadowVariableDescriptor("nextEntity");
-  SingletonInverseVariableListener variableListener=new SingletonInverseVariableListener((InverseRelationShadowVariableDescriptor)nextEntityVariableDescriptor,entityDescriptor.getGenuineVariableDescriptor("chainedObject"));
+  SingletonInverseVariableListener inverseVariableListener=new SingletonInverseVariableListener((InverseRelationShadowVariableDescriptor)nextEntityVariableDescriptor,entityDescriptor.getGenuineVariableDescriptor("chainedObject"));
+  ShadowVariableDescriptor anchorVariableDescriptor=entityDescriptor.getShadowVariableDescriptor("anchor");
+  AnchorVariableListener variableListener=new AnchorVariableListener((AnchorShadowVariableDescriptor)anchorVariableDescriptor,chainedObjectVariableDescriptor,inverseVariableListener);
   ScoreDirector scoreDirector=mock(ScoreDirector.class);
   TestdataRichChainedAnchor a0=new TestdataRichChainedAnchor("a0");
   TestdataRichChainedEntity a1=new TestdataRichChainedEntity("a1",a0);
@@ -21,13 +24,21 @@
   TestdataRichChainedSolution solution=new TestdataRichChainedSolution("solution");
   solution.setChainedAnchorList(Arrays.asList(a0,b0));
   solution.setChainedEntityList(Arrays.asList(a1,a2,a3,b1));
-  assertEquals(null,b1.getNextEntity());
+  assertSame(a0,a1.getAnchor());
+  assertSame(a0,a2.getAnchor());
+  assertSame(a0,a3.getAnchor());
+  assertSame(b0,b1.getAnchor());
+  inverseVariableListener.beforeVariableChanged(scoreDirector,a3);
   variableListener.beforeVariableChanged(scoreDirector,a3);
   a3.setChainedObject(b1);
+  inverseVariableListener.afterVariableChanged(scoreDirector,a3);
   variableListener.afterVariableChanged(scoreDirector,a3);
-  assertEquals(a3,b1.getNextEntity());
+  assertSame(a0,a1.getAnchor());
+  assertSame(a0,a2.getAnchor());
+  assertSame(b0,a3.getAnchor());
+  assertSame(b0,b1.getAnchor());
   InOrder inOrder=inOrder(scoreDirector);
-  inOrder.verify(scoreDirector).beforeVariableChanged(nextEntityVariableDescriptor,b1);
-  inOrder.verify(scoreDirector).afterVariableChanged(nextEntityVariableDescriptor,b1);
+  inOrder.verify(scoreDirector).beforeVariableChanged(anchorVariableDescriptor,a3);
+  inOrder.verify(scoreDirector).afterVariableChanged(anchorVariableDescriptor,a3);
   inOrder.verifyNoMoreInteractions();
 }

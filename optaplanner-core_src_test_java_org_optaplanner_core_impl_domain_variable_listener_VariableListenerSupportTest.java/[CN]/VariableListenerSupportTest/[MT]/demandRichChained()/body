@@ -1,15 +1,16 @@
 {
-  SolutionDescriptor solutionDescriptor=TestdataSolution.buildSolutionDescriptor();
+  SolutionDescriptor solutionDescriptor=TestdataRichChainedSolution.buildSolutionDescriptor();
   InnerScoreDirector scoreDirector=mock(InnerScoreDirector.class);
   when(scoreDirector.getSolutionDescriptor()).thenReturn(solutionDescriptor);
-  TestdataSolution solution=new TestdataSolution();
-  solution.setEntityList(Collections.<TestdataEntity>emptyList());
+  TestdataRichChainedSolution solution=new TestdataRichChainedSolution();
+  solution.setChainedEntityList(Collections.<TestdataRichChainedEntity>emptyList());
   when(scoreDirector.getWorkingSolution()).thenReturn(solution);
   when(scoreDirector.getSupplyManager()).thenReturn(mock(SupplyManager.class));
   VariableListenerSupport variableListenerSupport=new VariableListenerSupport(scoreDirector);
   variableListenerSupport.linkVariableListeners();
-  VariableDescriptor variableDescriptor=solutionDescriptor.getEntityDescriptorStrict(TestdataEntity.class).getVariableDescriptor("value");
+  VariableDescriptor variableDescriptor=solutionDescriptor.getEntityDescriptorStrict(TestdataRichChainedEntity.class).getVariableDescriptor("chainedObject");
   SingletonInverseVariableSupply supply1=variableListenerSupport.demand(new SingletonInverseVariableDemand(variableDescriptor));
+  assertInstanceOf(SingletonInverseVariableListener.class,supply1);
   SingletonInverseVariableSupply supply2=variableListenerSupport.demand(new SingletonInverseVariableDemand(variableDescriptor));
   assertSame(supply1,supply2);
 }

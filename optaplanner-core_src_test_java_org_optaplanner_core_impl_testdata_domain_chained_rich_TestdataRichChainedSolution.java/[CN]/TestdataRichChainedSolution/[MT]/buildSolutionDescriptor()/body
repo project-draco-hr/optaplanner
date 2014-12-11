@@ -1,0 +1,3 @@
+{
+  return TestdataUtils.buildSolutionDescriptor(TestdataRichChainedSolution.class,TestdataRichChainedObject.class,TestdataRichChainedEntity.class);
+}

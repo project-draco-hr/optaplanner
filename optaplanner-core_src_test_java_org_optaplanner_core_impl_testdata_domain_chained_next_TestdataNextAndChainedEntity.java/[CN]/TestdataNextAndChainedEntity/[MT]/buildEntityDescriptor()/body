@@ -1,4 +1,0 @@
-{
-  SolutionDescriptor solutionDescriptor=TestdataNextAndChainedSolution.buildSolutionDescriptor();
-  return solutionDescriptor.findEntityDescriptorOrFail(TestdataNextAndChainedEntity.class);
-}

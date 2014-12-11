@@ -1,0 +1,4 @@
+{
+  SolutionDescriptor solutionDescriptor=TestdataRichChainedSolution.buildSolutionDescriptor();
+  return solutionDescriptor.findEntityDescriptorOrFail(TestdataRichChainedEntity.class);
+}
