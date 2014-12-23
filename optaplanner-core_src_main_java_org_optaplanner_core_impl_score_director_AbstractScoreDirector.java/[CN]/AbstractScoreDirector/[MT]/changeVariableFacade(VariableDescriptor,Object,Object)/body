@@ -1,0 +1,5 @@
+{
+  beforeVariableChanged(variableDescriptor,entity);
+  variableDescriptor.setValue(entity,newValue);
+  afterVariableChanged(variableDescriptor,entity);
+}

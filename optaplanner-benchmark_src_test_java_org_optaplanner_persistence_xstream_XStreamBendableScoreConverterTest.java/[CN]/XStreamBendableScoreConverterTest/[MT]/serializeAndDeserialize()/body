@@ -1,6 +1,6 @@
 {
   XStreamBendableScoreConverterTestObject input=new XStreamBendableScoreConverterTestObject(BendableScore.valueOf(new int[]{-5},new int[]{-300,-4000}));
-  SerializationTestUtils.serializeAndDeserializeWithAll(input,new SerializationTestUtils.OutputAsserter<XStreamBendableScoreConverterTestObject>(){
+  PlannerTestUtils.serializeAndDeserializeWithAll(input,new PlannerTestUtils.OutputAsserter<XStreamBendableScoreConverterTestObject>(){
     public void assertOutput(    XStreamBendableScoreConverterTestObject output){
       BendableScore score=output.getScore();
       assertEquals(1,score.getHardLevelsSize());

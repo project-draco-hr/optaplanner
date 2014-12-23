@@ -1,6 +1,6 @@
 {
   HardMediumSoftLongScore input=HardMediumSoftLongScore.valueOf(-12L,3400L,-56L);
-  SerializationTestUtils.serializeAndDeserializeWithAll(input,new SerializationTestUtils.OutputAsserter<HardMediumSoftLongScore>(){
+  PlannerTestUtils.serializeAndDeserializeWithAll(input,new PlannerTestUtils.OutputAsserter<HardMediumSoftLongScore>(){
     public void assertOutput(    HardMediumSoftLongScore output){
       assertEquals(-12L,output.getHardScore());
       assertEquals(3400L,output.getMediumScore());

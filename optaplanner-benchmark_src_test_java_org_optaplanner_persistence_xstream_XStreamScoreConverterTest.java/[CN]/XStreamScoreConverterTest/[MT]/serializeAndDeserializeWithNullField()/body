@@ -1,6 +1,6 @@
 {
   XStreamScoreConverterTestObject input=new XStreamScoreConverterTestObject(null);
-  SerializationTestUtils.serializeAndDeserializeWithAll(input,new SerializationTestUtils.OutputAsserter<XStreamScoreConverterTestObject>(){
+  PlannerTestUtils.serializeAndDeserializeWithAll(input,new PlannerTestUtils.OutputAsserter<XStreamScoreConverterTestObject>(){
     public void assertOutput(    XStreamScoreConverterTestObject output){
       assertEquals(null,output.getScore());
     }

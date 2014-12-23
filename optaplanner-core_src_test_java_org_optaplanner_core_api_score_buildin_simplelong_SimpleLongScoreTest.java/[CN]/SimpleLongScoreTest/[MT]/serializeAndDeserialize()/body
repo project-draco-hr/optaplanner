@@ -1,6 +1,6 @@
 {
   SimpleLongScore input=SimpleLongScore.valueOf(123L);
-  SerializationTestUtils.serializeAndDeserializeWithAll(input,new SerializationTestUtils.OutputAsserter<SimpleLongScore>(){
+  PlannerTestUtils.serializeAndDeserializeWithAll(input,new PlannerTestUtils.OutputAsserter<SimpleLongScore>(){
     public void assertOutput(    SimpleLongScore output){
       assertEquals(123L,output.getScore());
     }

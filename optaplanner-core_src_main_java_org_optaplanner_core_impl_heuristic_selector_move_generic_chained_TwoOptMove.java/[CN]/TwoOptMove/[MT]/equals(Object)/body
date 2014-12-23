@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof TwoOptMove) {
+    TwoOptMove other=(TwoOptMove)o;
+    return new EqualsBuilder().append(leftEntity,other.leftEntity).append(rightEntity,other.rightEntity).isEquals();
+  }
+ else {
+    return false;
+  }
+}

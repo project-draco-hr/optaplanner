@@ -1,6 +1,6 @@
 {
   SimpleBigDecimalScore input=SimpleBigDecimalScore.valueOf(new BigDecimal("123.4"));
-  SerializationTestUtils.serializeAndDeserializeWithAll(input,new SerializationTestUtils.OutputAsserter<SimpleBigDecimalScore>(){
+  PlannerTestUtils.serializeAndDeserializeWithAll(input,new PlannerTestUtils.OutputAsserter<SimpleBigDecimalScore>(){
     public void assertOutput(    SimpleBigDecimalScore output){
       assertEquals(new BigDecimal("123.4"),output.getScore());
     }

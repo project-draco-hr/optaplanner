@@ -1,0 +1,4 @@
+GenuineVariableDescriptor variableDescriptor
+AnchorVariableSupply anchorVariableSupply
+Object leftEntity
+Object rightEntity

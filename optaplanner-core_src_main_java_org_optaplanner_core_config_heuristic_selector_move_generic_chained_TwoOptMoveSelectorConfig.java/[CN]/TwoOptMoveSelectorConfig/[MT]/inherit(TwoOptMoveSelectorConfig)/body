@@ -1,0 +1,16 @@
+{
+  super.inherit(inheritedConfig);
+  if (entitySelectorConfig == null) {
+    entitySelectorConfig=inheritedConfig.getEntitySelectorConfig();
+  }
+ else   if (inheritedConfig.getEntitySelectorConfig() != null) {
+    entitySelectorConfig.inherit(inheritedConfig.getEntitySelectorConfig());
+  }
+  if (secondaryEntitySelectorConfig == null) {
+    secondaryEntitySelectorConfig=inheritedConfig.getSecondaryEntitySelectorConfig();
+  }
+ else   if (inheritedConfig.getSecondaryEntitySelectorConfig() != null) {
+    secondaryEntitySelectorConfig.inherit(inheritedConfig.getSecondaryEntitySelectorConfig());
+  }
+  variableName=ConfigUtils.inheritOverwritableProperty(variableName,inheritedConfig.getVariableName());
+}

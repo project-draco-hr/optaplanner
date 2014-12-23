@@ -1,0 +1,18 @@
+{
+  if (!randomSelection) {
+    return new AbstractOriginalSwapIterator<Move,Object>(leftEntitySelector,rightEntitySelector){
+      @Override protected Move newSwapSelection(      Object leftSubSelection,      Object rightSubSelection){
+        return new TwoOptMove(variableDescriptor,anchorVariableSupply,leftSubSelection,rightSubSelection);
+      }
+    }
+;
+  }
+ else {
+    return new AbstractRandomSwapIterator<Move,Object>(leftEntitySelector,rightEntitySelector){
+      @Override protected Move newSwapSelection(      Object leftSubSelection,      Object rightSubSelection){
+        return new TwoOptMove(variableDescriptor,anchorVariableSupply,leftSubSelection,rightSubSelection);
+      }
+    }
+;
+  }
+}

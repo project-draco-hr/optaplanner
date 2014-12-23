@@ -1,6 +1,6 @@
 {
   SimpleScore input=SimpleScore.valueOf(123);
-  SerializationTestUtils.serializeAndDeserializeWithAll(input,new SerializationTestUtils.OutputAsserter<SimpleScore>(){
+  PlannerTestUtils.serializeAndDeserializeWithAll(input,new PlannerTestUtils.OutputAsserter<SimpleScore>(){
     public void assertOutput(    SimpleScore output){
       assertEquals(123,output.getScore());
     }

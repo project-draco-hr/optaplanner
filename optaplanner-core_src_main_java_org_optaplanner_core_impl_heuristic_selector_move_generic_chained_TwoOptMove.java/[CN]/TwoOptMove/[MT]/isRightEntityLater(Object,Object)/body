@@ -1,0 +1,10 @@
+{
+  Object entity=oldRightValue;
+  while (entity != rightAnchor) {
+    if (entity == leftEntity) {
+      return true;
+    }
+    entity=variableDescriptor.getValue(entity);
+  }
+  return false;
+}

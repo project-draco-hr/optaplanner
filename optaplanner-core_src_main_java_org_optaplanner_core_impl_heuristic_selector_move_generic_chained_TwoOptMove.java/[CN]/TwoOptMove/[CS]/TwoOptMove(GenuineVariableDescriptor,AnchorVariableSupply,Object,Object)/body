@@ -1,0 +1,6 @@
+{
+  this.variableDescriptor=variableDescriptor;
+  this.anchorVariableSupply=anchorVariableSupply;
+  this.leftEntity=leftEntity;
+  this.rightEntity=rightEntity;
+}

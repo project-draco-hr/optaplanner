@@ -1,6 +1,6 @@
 {
   BendableScore input=scoreDefinitionHSS.createScore(-5,-300,-4000);
-  SerializationTestUtils.serializeAndDeserializeWithAll(input,new SerializationTestUtils.OutputAsserter<BendableScore>(){
+  PlannerTestUtils.serializeAndDeserializeWithAll(input,new PlannerTestUtils.OutputAsserter<BendableScore>(){
     public void assertOutput(    BendableScore output){
       assertEquals(1,output.getHardLevelsSize());
       assertEquals(-5,output.getHardScore(0));
