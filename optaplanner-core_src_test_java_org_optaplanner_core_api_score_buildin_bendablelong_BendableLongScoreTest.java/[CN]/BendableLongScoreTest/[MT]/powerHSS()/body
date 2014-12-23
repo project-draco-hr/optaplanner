@@ -1,0 +1,4 @@
+{
+  assertEquals(scoreDefinitionHSS.createScore(90000000000L,160000000000L,250000000000L),scoreDefinitionHSS.createScore(300000L,-400000L,500000L).power(2.0));
+  assertEquals(scoreDefinitionHSS.createScore(300000L,400000L,500000L),scoreDefinitionHSS.createScore(90000000000L,160000000000L,250000000000L).power(0.5));
+}

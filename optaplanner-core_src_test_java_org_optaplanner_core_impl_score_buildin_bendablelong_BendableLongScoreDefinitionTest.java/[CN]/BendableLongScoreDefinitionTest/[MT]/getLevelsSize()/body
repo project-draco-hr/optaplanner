@@ -1,0 +1,7 @@
+{
+  assertEquals(2,new BendableLongScoreDefinition(1,1).getLevelsSize());
+  assertEquals(7,new BendableLongScoreDefinition(3,4).getLevelsSize());
+  assertEquals(7,new BendableLongScoreDefinition(4,3).getLevelsSize());
+  assertEquals(5,new BendableLongScoreDefinition(0,5).getLevelsSize());
+  assertEquals(5,new BendableLongScoreDefinition(5,0).getLevelsSize());
+}

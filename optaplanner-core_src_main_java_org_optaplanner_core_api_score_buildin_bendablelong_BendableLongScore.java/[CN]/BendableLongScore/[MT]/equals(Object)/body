@@ -1,0 +1,25 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof BendableLongScore) {
+    BendableLongScore other=(BendableLongScore)o;
+    if (getHardLevelsSize() != other.getHardLevelsSize() || getSoftLevelsSize() != other.getSoftLevelsSize()) {
+      return false;
+    }
+    for (int i=0; i < hardScores.length; i++) {
+      if (hardScores[i] != other.getHardScore(i)) {
+        return false;
+      }
+    }
+    for (int i=0; i < softScores.length; i++) {
+      if (softScores[i] != other.getSoftScore(i)) {
+        return false;
+      }
+    }
+    return true;
+  }
+ else {
+    return false;
+  }
+}
