@@ -1,0 +1,21 @@
+{
+  int hardLevelSize=3;
+  int softLevelSize=2;
+  int levelSize=hardLevelSize + softLevelSize;
+  long[] scores=new long[levelSize];
+  for (int i=0; i < levelSize; i++) {
+    scores[i]=Integer.MAX_VALUE + i;
+  }
+  BendableLongScoreDefinition bendableLongScoreDefinition=new BendableLongScoreDefinition(hardLevelSize,softLevelSize);
+  BendableLongScore bendableLongScore=bendableLongScoreDefinition.createScore(scores);
+  assertEquals(hardLevelSize,bendableLongScore.getHardLevelsSize());
+  assertEquals(softLevelSize,bendableLongScore.getSoftLevelsSize());
+  for (int i=0; i < levelSize; i++) {
+    if (i < hardLevelSize) {
+      assertEquals(scores[i],bendableLongScore.getHardScore(i));
+    }
+ else {
+      assertEquals(scores[i],bendableLongScore.getSoftScore(i - hardLevelSize));
+    }
+  }
+}

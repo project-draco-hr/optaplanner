@@ -1,0 +1,9 @@
+{
+  softScores[softLevel]+=weight;
+  registerLongConstraintMatch(kcontext,getHardLevelsSize() + softLevel,weight,new LongConstraintUndoListener(){
+    public void undo(){
+      softScores[softLevel]-=weight;
+    }
+  }
+);
+}

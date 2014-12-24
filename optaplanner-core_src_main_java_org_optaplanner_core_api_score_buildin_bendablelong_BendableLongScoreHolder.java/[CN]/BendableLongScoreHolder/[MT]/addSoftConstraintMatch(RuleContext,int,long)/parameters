@@ -1,0 +1,3 @@
+RuleContext kcontext
+int softLevel
+long weight

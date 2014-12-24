@@ -1,0 +1,11 @@
+{
+  long[] newHardScores=new long[hardScores.length];
+  long[] newSoftScores=new long[softScores.length];
+  for (int i=0; i < newHardScores.length; i++) {
+    newHardScores[i]=(long)Math.floor(Math.pow(hardScores[i],exponent));
+  }
+  for (int i=0; i < newSoftScores.length; i++) {
+    newSoftScores[i]=(long)Math.floor(Math.pow(softScores[i],exponent));
+  }
+  return new BendableLongScore(newHardScores,newSoftScores);
+}
