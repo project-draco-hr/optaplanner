@@ -20,5 +20,5 @@
     valueIterator=valueSelector.iterator(entity);
   }
   Object toValue=valueIterator.next();
-  return chained ? new ChainedChangeMove(entity,valueSelector.getVariableDescriptor(),toValue) : new ChangeMove(entity,valueSelector.getVariableDescriptor(),toValue);
+  return newChangeSelection(entity,toValue);
 }

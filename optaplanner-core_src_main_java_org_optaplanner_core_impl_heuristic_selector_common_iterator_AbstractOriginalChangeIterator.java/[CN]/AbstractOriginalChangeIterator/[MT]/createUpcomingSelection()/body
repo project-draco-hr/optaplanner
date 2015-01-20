@@ -7,5 +7,5 @@
     valueIterator=valueSelector.iterator(upcomingEntity);
   }
   Object toValue=valueIterator.next();
-  return chained ? new ChainedChangeMove(upcomingEntity,valueSelector.getVariableDescriptor(),toValue) : new ChangeMove(upcomingEntity,valueSelector.getVariableDescriptor(),toValue);
+  return newChangeSelection(upcomingEntity,toValue);
 }

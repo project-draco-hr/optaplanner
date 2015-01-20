@@ -1,8 +1,39 @@
 {
+  final GenuineVariableDescriptor variableDescriptor=valueSelector.getVariableDescriptor();
   if (!randomSelection) {
-    return new OriginalChangeMoveIterator();
+    if (chained) {
+      return new AbstractOriginalChangeIterator<Move>(entitySelector,valueSelector){
+        @Override protected Move newChangeSelection(        Object entity,        Object toValue){
+          return new ChainedChangeMove(entity,variableDescriptor,toValue);
+        }
+      }
+;
+    }
+ else {
+      return new AbstractOriginalChangeIterator<Move>(entitySelector,valueSelector){
+        @Override protected Move newChangeSelection(        Object entity,        Object toValue){
+          return new ChangeMove(entity,variableDescriptor,toValue);
+        }
+      }
+;
+    }
   }
  else {
-    return new RandomChangeMoveIterator();
+    if (chained) {
+      return new AbstractRandomChangeIterator<Move>(entitySelector,valueSelector){
+        @Override protected Move newChangeSelection(        Object entity,        Object toValue){
+          return new ChainedChangeMove(entity,variableDescriptor,toValue);
+        }
+      }
+;
+    }
+ else {
+      return new AbstractRandomChangeIterator<Move>(entitySelector,valueSelector){
+        @Override protected Move newChangeSelection(        Object entity,        Object toValue){
+          return new ChangeMove(entity,variableDescriptor,toValue);
+        }
+      }
+;
+    }
   }
 }

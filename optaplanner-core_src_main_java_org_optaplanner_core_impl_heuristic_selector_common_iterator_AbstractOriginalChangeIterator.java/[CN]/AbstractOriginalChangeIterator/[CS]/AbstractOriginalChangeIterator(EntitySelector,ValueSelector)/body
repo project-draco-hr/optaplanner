@@ -1,4 +1,6 @@
 {
+  this.entitySelector=entitySelector;
+  this.valueSelector=valueSelector;
   entityIterator=entitySelector.iterator();
   valueIterator=Iterators.emptyIterator();
 }
