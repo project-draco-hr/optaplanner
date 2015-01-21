@@ -1,4 +1,7 @@
 {
+  if (moveListFactoryClass == null) {
+    throw new IllegalArgumentException("The moveListFactoryConfig (" + this + ") lacks a moveListFactoryClass ("+ moveListFactoryClass+ ").");
+  }
   MoveListFactory moveListFactory=ConfigUtils.newInstance(this,"moveListFactoryClass",moveListFactoryClass);
   if (minimumCacheType.compareTo(SelectionCacheType.STEP) < 0) {
     minimumCacheType=SelectionCacheType.STEP;
