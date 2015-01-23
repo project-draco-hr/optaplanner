@@ -1,0 +1,4 @@
+{
+  Object rightEntity=inverseVariableSupply.getInverseSingleton(rightValue);
+  return Arrays.asList(leftEntity,rightEntity);
+}

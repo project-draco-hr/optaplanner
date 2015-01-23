@@ -1,0 +1,3 @@
+{
+  return entityDescriptor.getEntityClass().isAssignableFrom(value.getClass());
+}

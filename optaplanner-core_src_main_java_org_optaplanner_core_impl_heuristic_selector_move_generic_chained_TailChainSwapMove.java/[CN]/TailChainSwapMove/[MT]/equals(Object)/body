@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof TailChainSwapMove) {
+    TailChainSwapMove other=(TailChainSwapMove)o;
+    return new EqualsBuilder().append(leftEntity,other.leftEntity).append(rightValue,other.rightValue).isEquals();
+  }
+ else {
+    return false;
+  }
+}

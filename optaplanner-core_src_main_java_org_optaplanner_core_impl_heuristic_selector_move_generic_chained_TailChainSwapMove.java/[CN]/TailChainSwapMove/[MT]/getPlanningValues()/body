@@ -1,0 +1,4 @@
+{
+  Object leftValue=variableDescriptor.getValue(leftEntity);
+  return Arrays.asList(leftValue,rightValue);
+}
