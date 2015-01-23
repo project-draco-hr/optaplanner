@@ -1,0 +1,9 @@
+{
+  int[] hardScore1={1,2,3};
+  int[] softScore1={4,5};
+  int[] hardScore2={1,2};
+  int[] softScore2={4,5};
+  BendableScore score1=BendableScore.valueOf(hardScore1,softScore1);
+  BendableScore score2=BendableScore.valueOf(hardScore2,softScore2);
+  ScoreDifferencePercentage.calculateScoreDifferencePercentage(score1,score2);
+}

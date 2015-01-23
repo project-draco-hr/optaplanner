@@ -1,4 +1,7 @@
 {
+  if (percentageLevels.length != augment.getPercentageLevels().length) {
+    throw new IllegalStateException("The augment (" + augment + ")'s levelsLength ("+ augment.getPercentageLevels().length+ ") is different from the base ("+ this+ ")'s levelsLength ("+ percentageLevels.length+ ").");
+  }
   double[] newPercentageLevels=new double[percentageLevels.length];
   for (int i=0; i < percentageLevels.length; i++) {
     newPercentageLevels[i]=percentageLevels[i] + augment.percentageLevels[i];
