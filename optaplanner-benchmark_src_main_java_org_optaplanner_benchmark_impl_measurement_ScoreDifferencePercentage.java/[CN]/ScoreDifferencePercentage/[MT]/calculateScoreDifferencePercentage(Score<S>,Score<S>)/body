@@ -6,7 +6,7 @@
   }
   double[] percentageLevels=new double[baseLevels.length];
   for (int i=0; i < baseLevels.length; i++) {
-    percentageLevels[i]=calculatePercentageLevel(baseLevels[i],valueLevels[i]);
+    percentageLevels[i]=calculateScoreDifferencePercentageLevel(baseLevels[i],valueLevels[i]);
   }
   return new ScoreDifferencePercentage(percentageLevels);
 }

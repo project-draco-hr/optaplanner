@@ -1,4 +1,7 @@
 {
+  if (percentageLevels.length != subtrahend.getPercentageLevels().length) {
+    throw new IllegalStateException("The subtrahend (" + subtrahend + ")'s levelsLength ("+ subtrahend.getPercentageLevels().length+ ") is different from the base ("+ this+ ")'s levelsLength ("+ percentageLevels.length+ ").");
+  }
   double[] newPercentageLevels=new double[percentageLevels.length];
   for (int i=0; i < percentageLevels.length; i++) {
     newPercentageLevels[i]=percentageLevels[i] - subtrahend.percentageLevels[i];

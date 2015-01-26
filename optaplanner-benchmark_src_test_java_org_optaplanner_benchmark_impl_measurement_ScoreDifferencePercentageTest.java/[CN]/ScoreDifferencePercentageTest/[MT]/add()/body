@@ -1,0 +1,12 @@
+{
+  double tolerance=0.00001;
+  HardSoftScore hardSoftScore1=HardSoftScore.parseScore("-100hard/-1soft");
+  HardSoftScore hardSoftScore2=HardSoftScore.parseScore("-200hard/-10soft");
+  ScoreDifferencePercentage scoreDifferencePercentage=ScoreDifferencePercentage.calculateScoreDifferencePercentage(hardSoftScore1,hardSoftScore2);
+  hardSoftScore1=HardSoftScore.parseScore("-100hard/-1soft");
+  hardSoftScore2=HardSoftScore.parseScore("-200hard/-10soft");
+  ScoreDifferencePercentage scoreDifferencePercentage2=ScoreDifferencePercentage.calculateScoreDifferencePercentage(hardSoftScore1,hardSoftScore2);
+  double[] levels=scoreDifferencePercentage.add(scoreDifferencePercentage2).getPercentageLevels();
+  assertEquals(-2.0,levels[0],tolerance);
+  assertEquals(-18.0,levels[1],tolerance);
+}
