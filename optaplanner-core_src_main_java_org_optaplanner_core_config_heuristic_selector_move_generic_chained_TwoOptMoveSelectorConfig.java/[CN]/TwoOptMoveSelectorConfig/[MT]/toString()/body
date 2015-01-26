@@ -1,3 +1,0 @@
-{
-  return getClass().getSimpleName() + "(" + entitySelectorConfig+ (secondaryEntitySelectorConfig == null ? "" : ", " + secondaryEntitySelectorConfig)+ ")";
-}

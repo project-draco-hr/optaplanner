@@ -1,6 +1,0 @@
-{
-  List<Object> values=new ArrayList<Object>(2);
-  values.add(variableDescriptor.getValue(leftEntity));
-  values.add(variableDescriptor.getValue(rightEntity));
-  return values;
-}

@@ -1,3 +1,0 @@
-{
-  return leftEntitySelector.isCountable() && rightEntitySelector.isCountable();
-}

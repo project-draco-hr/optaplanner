@@ -1,3 +1,0 @@
-{
-  return leftEntity + " <=2opt=> " + rightEntity;
-}

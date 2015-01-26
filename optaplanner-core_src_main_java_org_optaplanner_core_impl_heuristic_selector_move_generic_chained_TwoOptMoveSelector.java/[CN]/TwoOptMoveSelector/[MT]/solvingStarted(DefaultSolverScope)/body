@@ -1,5 +1,0 @@
-{
-  super.solvingStarted(solverScope);
-  SupplyManager supplyManager=solverScope.getScoreDirector().getSupplyManager();
-  anchorVariableSupply=supplyManager.demand(new AnchorVariableDemand(variableDescriptor));
-}

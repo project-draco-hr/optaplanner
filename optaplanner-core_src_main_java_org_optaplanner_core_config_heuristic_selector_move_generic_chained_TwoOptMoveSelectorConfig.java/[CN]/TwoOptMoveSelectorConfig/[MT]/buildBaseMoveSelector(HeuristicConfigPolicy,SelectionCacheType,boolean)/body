@@ -1,8 +1,0 @@
-{
-  EntitySelectorConfig entitySelectorConfig_=entitySelectorConfig == null ? new EntitySelectorConfig() : entitySelectorConfig;
-  EntitySelector leftEntitySelector=entitySelectorConfig_.buildEntitySelector(configPolicy,minimumCacheType,SelectionOrder.fromRandomSelectionBoolean(randomSelection));
-  EntitySelectorConfig rightEntitySelectorConfig=secondaryEntitySelectorConfig == null ? entitySelectorConfig_ : secondaryEntitySelectorConfig;
-  EntitySelector rightEntitySelector=rightEntitySelectorConfig.buildEntitySelector(configPolicy,minimumCacheType,SelectionOrder.fromRandomSelectionBoolean(randomSelection));
-  GenuineVariableDescriptor variableDescriptor=deduceVariableDescriptor(leftEntitySelector.getEntityDescriptor(),variableName);
-  return new TwoOptMoveSelector(leftEntitySelector,rightEntitySelector,variableDescriptor,randomSelection);
-}
