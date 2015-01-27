@@ -1,3 +1,7 @@
 {
-  return dayIndex + " " + WEEKDAYS[dayIndex % WEEKDAYS.length];
+  String weekday=WEEKDAYS[dayIndex % WEEKDAYS.length];
+  if (dayIndex > WEEKDAYS.length) {
+    return "Day " + dayIndex;
+  }
+  return weekday;
 }

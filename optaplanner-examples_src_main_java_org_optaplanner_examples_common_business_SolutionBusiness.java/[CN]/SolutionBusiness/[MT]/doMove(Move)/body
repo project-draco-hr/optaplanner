@@ -9,4 +9,5 @@
   }
   logger.info("Doing user move ({}).",move);
   move.doMove(guiScoreDirector);
+  guiScoreDirector.calculateScore();
 }

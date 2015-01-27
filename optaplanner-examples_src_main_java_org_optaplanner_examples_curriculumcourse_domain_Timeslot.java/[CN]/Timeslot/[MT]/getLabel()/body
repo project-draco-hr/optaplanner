@@ -1,3 +1,7 @@
 {
-  return toString();
+  String time=TIMES[timeslotIndex % TIMES.length];
+  if (timeslotIndex > TIMES.length) {
+    return "Timeslot " + timeslotIndex;
+  }
+  return time;
 }
