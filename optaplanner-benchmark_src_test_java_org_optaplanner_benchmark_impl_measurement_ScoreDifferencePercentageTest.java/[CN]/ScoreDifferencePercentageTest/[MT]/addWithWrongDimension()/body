@@ -1,9 +1,9 @@
 {
-  HardSoftScore hardSoftScore1=HardSoftScore.parseScore("-100hard/-1soft");
-  HardSoftScore hardSoftScore2=HardSoftScore.parseScore("-200hard/-10soft");
+  HardSoftScore hardSoftScore1=HardSoftScore.valueOf(-100,-1);
+  HardSoftScore hardSoftScore2=HardSoftScore.valueOf(-200,-10);
   ScoreDifferencePercentage scoreDifferencePercentage=ScoreDifferencePercentage.calculateScoreDifferencePercentage(hardSoftScore1,hardSoftScore2);
-  SimpleScore score1=SimpleScore.parseScore("-100");
-  SimpleScore score2=SimpleScore.parseScore("-200");
+  SimpleScore score1=SimpleScore.valueOf(-100);
+  SimpleScore score2=SimpleScore.valueOf(-200);
   ScoreDifferencePercentage scoreDifferencePercentage2=ScoreDifferencePercentage.calculateScoreDifferencePercentage(score1,score2);
   scoreDifferencePercentage.add(scoreDifferencePercentage2);
 }
