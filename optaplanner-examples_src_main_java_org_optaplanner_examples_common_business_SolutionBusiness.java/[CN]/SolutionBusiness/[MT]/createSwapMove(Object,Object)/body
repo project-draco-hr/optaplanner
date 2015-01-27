@@ -1,0 +1,11 @@
+{
+  SolutionDescriptor solutionDescriptor=((InnerScoreDirector)guiScoreDirector).getSolutionDescriptor();
+  EntityDescriptor entityDescriptor=solutionDescriptor.findEntityDescriptor(leftEntity.getClass());
+  Collection<GenuineVariableDescriptor> variableDescriptors=entityDescriptor.getGenuineVariableDescriptors();
+  if (entityDescriptor.hasAnyChainedGenuineVariables()) {
+    return new ChainedSwapMove(variableDescriptors,leftEntity,rightEntity);
+  }
+ else {
+    return new SwapMove(variableDescriptors,leftEntity,rightEntity);
+  }
+}

@@ -1,6 +1,3 @@
 {
-  if (indexInRoom > 'Z') {
-    return Integer.toString(indexInRoom);
-  }
-  return Character.toString((char)('A' + indexInRoom));
+  return room.getDepartment().getName() + " " + room.getName()+ " "+ getLabelInRoom();
 }

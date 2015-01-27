@@ -1,10 +1,8 @@
 {
   JPanel listFieldsPanel=new JPanel(new GridLayout(2,1));
   List<Bed> bedList=getPatientAdmissionSchedule().getBedList();
-  List<Bed> bedListWithNull=new ArrayList<Bed>(bedList.size() + 1);
-  bedListWithNull.add(null);
-  bedListWithNull.addAll(bedList);
-  JComboBox bedListField=new JComboBox(bedListWithNull.toArray());
+  JComboBox<Bed> bedListField=new JComboBox<Bed>(bedList.toArray(new Bed[bedList.size() + 1]));
+  bedListField.setRenderer(new LabeledComboBoxRenderer());
   bedListField.setSelectedItem(bedDesignation.getBed());
   listFieldsPanel.add(bedListField);
   int result=JOptionPane.showConfirmDialog(PatientAdmissionSchedulePanel.this.getRootPane(),listFieldsPanel,"Select bed for " + bedDesignation.getAdmissionPart().getPatient().getName(),JOptionPane.OK_CANCEL_OPTION);

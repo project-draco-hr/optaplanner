@@ -2,7 +2,8 @@
   JPanel listFieldsPanel=new JPanel(new GridLayout(2,2));
   listFieldsPanel.add(new JLabel("Team:"));
   List<Team> teamList=getTennisSolution().getTeamList();
-  JComboBox teamListField=new JComboBox(teamList.toArray());
+  JComboBox<Team> teamListField=new JComboBox<Team>(teamList.toArray(new Team[teamList.size() + 1]));
+  teamListField.setRenderer(new LabeledComboBoxRenderer());
   teamListField.setSelectedItem(teamAssignment.getTeam());
   listFieldsPanel.add(teamListField);
   listFieldsPanel.add(new JLabel("Locked:"));

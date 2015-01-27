@@ -1,0 +1,6 @@
+{
+  if (indexInRoom > 'Z') {
+    return Integer.toString(indexInRoom);
+  }
+  return Character.toString((char)('A' + indexInRoom));
+}

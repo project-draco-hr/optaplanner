@@ -1,5 +1,6 @@
 {
-  GenuineVariableDescriptor variableDescriptor=((InnerScoreDirector)guiScoreDirector).getSolutionDescriptor().findGenuineVariableDescriptorOrFail(entity,variableName);
+  SolutionDescriptor solutionDescriptor=((InnerScoreDirector)guiScoreDirector).getSolutionDescriptor();
+  GenuineVariableDescriptor variableDescriptor=solutionDescriptor.findGenuineVariableDescriptorOrFail(entity,variableName);
   if (variableDescriptor.isChained()) {
     return new ChainedChangeMove(entity,variableDescriptor,toPlanningValue);
   }

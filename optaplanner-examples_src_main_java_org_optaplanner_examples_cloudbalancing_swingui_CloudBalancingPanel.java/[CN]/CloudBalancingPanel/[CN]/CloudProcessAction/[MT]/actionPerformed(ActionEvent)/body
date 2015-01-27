@@ -1,8 +1,9 @@
 {
   JPanel listFieldsPanel=new JPanel(new GridLayout(1,2));
   listFieldsPanel.add(new JLabel("Computer:"));
-  List<CloudComputer> periodList=getCloudBalance().getComputerList();
-  JComboBox computerListField=new JComboBox(periodList.toArray());
+  List<CloudComputer> computerList=getCloudBalance().getComputerList();
+  JComboBox<CloudComputer> computerListField=new JComboBox<CloudComputer>(computerList.toArray(new CloudComputer[computerList.size() + 1]));
+  computerListField.setRenderer(new LabeledComboBoxRenderer());
   computerListField.setSelectedItem(process.getComputer());
   listFieldsPanel.add(computerListField);
   int result=JOptionPane.showConfirmDialog(CloudBalancingPanel.this.getRootPane(),listFieldsPanel,"Select computer",JOptionPane.OK_CANCEL_OPTION);
