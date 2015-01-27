@@ -2,13 +2,13 @@
   JPanel listFieldsPanel=new JPanel(new GridLayout(2,2));
   listFieldsPanel.add(new JLabel("Period:"));
   List<Period> periodList=getExamination().getPeriodList();
-  JComboBox<Period> periodListField=new JComboBox<Period>(periodList.toArray(new Period[periodList.size() + 1]));
+  JComboBox periodListField=new JComboBox(periodList.toArray(new Object[periodList.size() + 1]));
   periodListField.setRenderer(new LabeledComboBoxRenderer());
   periodListField.setSelectedItem(exam.getPeriod());
   listFieldsPanel.add(periodListField);
   listFieldsPanel.add(new JLabel("Room:"));
   List<Room> roomList=getExamination().getRoomList();
-  JComboBox<Room> roomListField=new JComboBox<Room>(roomList.toArray(new Room[roomList.size() + 1]));
+  JComboBox roomListField=new JComboBox(roomList.toArray(new Object[roomList.size() + 1]));
   roomListField.setRenderer(new LabeledComboBoxRenderer());
   roomListField.setSelectedItem(exam.getRoom());
   listFieldsPanel.add(roomListField);
