@@ -9,7 +9,6 @@
   int depth=0;
   InnerScoreDirector scoreDirector=phaseScope.getScoreDirector();
   int uninitializedVariableCount=phaseScope.getSolutionDescriptor().countReinitializableVariables(scoreDirector,phaseScope.getWorkingSolution());
-  Collection<GenuineVariableDescriptor> genuineVariableDescriptors=entitySelector.getEntityDescriptor().getGenuineVariableDescriptors();
   for (  Object entity : entitySelector) {
     ExhaustiveSearchLayer layer=new ExhaustiveSearchLayer(depth,entity,uninitializedVariableCount);
     int reinitializeVariableCount=entitySelector.getEntityDescriptor().countReinitializableVariables(scoreDirector,entity);
