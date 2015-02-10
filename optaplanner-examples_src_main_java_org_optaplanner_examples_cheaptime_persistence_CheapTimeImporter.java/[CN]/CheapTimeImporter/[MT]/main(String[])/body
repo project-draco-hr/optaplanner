@@ -1,5 +1,6 @@
 {
   CheapTimeImporter importer=new CheapTimeImporter();
+  importer.convert("demo01","demo01.xml");
   importer.convert("sample01","sample01.xml");
   importer.convert("instance00","instance00.xml");
   importer.convert("instance01","instance01.xml");
