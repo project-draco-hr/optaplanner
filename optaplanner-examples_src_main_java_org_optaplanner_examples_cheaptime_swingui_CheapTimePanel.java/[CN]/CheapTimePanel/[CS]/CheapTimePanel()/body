@@ -1,3 +1,12 @@
 {
   setLayout(new BorderLayout());
+  groupByMachineCheckBox=new JCheckBox("Group by assigned machine",false);
+  groupByMachineCheckBox.setHorizontalAlignment(SwingConstants.RIGHT);
+  groupByMachineCheckBox.addActionListener(new ActionListener(){
+    @Override public void actionPerformed(    ActionEvent e){
+      updatePanel(solutionBusiness.getSolution());
+      validate();
+    }
+  }
+);
 }

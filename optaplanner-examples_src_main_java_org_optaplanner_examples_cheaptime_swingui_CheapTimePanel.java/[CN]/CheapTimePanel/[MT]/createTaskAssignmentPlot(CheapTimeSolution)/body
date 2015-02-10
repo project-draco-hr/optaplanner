@@ -17,17 +17,17 @@
     seriesIndex++;
   }
   List<TaskAssignment> taskAssignmentList=new ArrayList<TaskAssignment>(solution.getTaskAssignmentList());
-  Collections.sort(taskAssignmentList,plotTaskAssignmentComparator);
+  Collections.sort(taskAssignmentList,groupByMachineCheckBox.isSelected() ? groupByMachineTaskAssignmentComparator : stableTaskAssignmentComparator);
   int pixelIndex=0;
   for (  TaskAssignment taskAssignment : taskAssignmentList) {
+    Task task=taskAssignment.getTask();
     Integer startPeriod=taskAssignment.getStartPeriod();
     Integer endPeriod=taskAssignment.getEndPeriod();
     if (startPeriod == null) {
-      startPeriod=0;
-      endPeriod=0;
+      startPeriod=task.getStartPeriodRangeFrom();
+      endPeriod=startPeriod + task.getDuration();
     }
     OHLCSeries machineSeries=machineSeriesMap.get(taskAssignment.getMachine());
-    Task task=taskAssignment.getTask();
     machineSeries.add(new FixedMillisecond(pixelIndex),task.getStartPeriodRangeFrom(),startPeriod,endPeriod,task.getStartPeriodRangeTo() + task.getDuration());
     pixelIndex++;
   }

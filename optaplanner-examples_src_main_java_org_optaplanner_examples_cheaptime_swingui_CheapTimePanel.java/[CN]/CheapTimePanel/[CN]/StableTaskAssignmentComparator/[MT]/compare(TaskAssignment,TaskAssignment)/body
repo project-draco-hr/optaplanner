@@ -1,0 +1,3 @@
+{
+  return new CompareToBuilder().append(a.getTask().getStartPeriodRangeFrom(),b.getTask().getStartPeriodRangeFrom()).append(a.getTask().getStartPeriodRangeTo(),b.getTask().getStartPeriodRangeTo()).append(a.getTask().getDuration(),b.getTask().getDuration()).append(a.getId(),b.getId()).toComparison();
+}
