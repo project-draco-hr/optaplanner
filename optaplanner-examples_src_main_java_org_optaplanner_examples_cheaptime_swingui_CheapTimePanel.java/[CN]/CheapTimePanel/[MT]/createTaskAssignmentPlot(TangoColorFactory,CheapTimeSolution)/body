@@ -8,12 +8,14 @@
   seriesCollection.addSeries(unassignedProjectSeries);
   machineSeriesMap.put(null,unassignedProjectSeries);
   renderer.setSeriesStroke(seriesIndex,new BasicStroke(3.0f));
+  renderer.setSeriesPaint(seriesIndex,TangoColorFactory.SCARLET_1);
   seriesIndex++;
   for (  Machine machine : solution.getMachineList()) {
-    OHLCSeries projectSeries=new OHLCSeries(machine.getLabel());
-    seriesCollection.addSeries(projectSeries);
-    machineSeriesMap.put(machine,projectSeries);
+    OHLCSeries machineSeries=new OHLCSeries(machine.getLabel());
+    seriesCollection.addSeries(machineSeries);
+    machineSeriesMap.put(machine,machineSeries);
     renderer.setSeriesStroke(seriesIndex,new BasicStroke(3.0f));
+    renderer.setSeriesPaint(seriesIndex,tangoColorFactory.pickColor(machine));
     seriesIndex++;
   }
   List<TaskAssignment> taskAssignmentList=new ArrayList<TaskAssignment>(solution.getTaskAssignmentList());

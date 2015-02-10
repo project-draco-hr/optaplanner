@@ -6,6 +6,7 @@
   XYSeriesCollection seriesCollection=new XYSeriesCollection();
   seriesCollection.addSeries(series);
   XYItemRenderer renderer=new StandardXYItemRenderer(StandardXYItemRenderer.SHAPES);
+  renderer.setSeriesPaint(0,TangoColorFactory.ORANGE_1);
   renderer.setSeriesShape(0,ShapeUtilities.createDiamond(2.0F));
   NumberAxis domainAxis=new NumberAxis("Power price");
   return new XYPlot(seriesCollection,domainAxis,null,renderer);

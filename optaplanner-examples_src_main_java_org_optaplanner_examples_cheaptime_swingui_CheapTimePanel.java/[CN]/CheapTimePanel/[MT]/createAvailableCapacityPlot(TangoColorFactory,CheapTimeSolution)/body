@@ -1,0 +1,48 @@
+{
+  Map<MachineCapacity,List<Integer>> availableMap=new LinkedHashMap<MachineCapacity,List<Integer>>(solution.getMachineCapacityList().size());
+  for (  MachineCapacity machineCapacity : solution.getMachineCapacityList()) {
+    List<Integer> machineAvailableList=new ArrayList<Integer>(solution.getGlobalPeriodRangeTo());
+    for (int period=0; period < solution.getGlobalPeriodRangeTo(); period++) {
+      machineAvailableList.add(machineCapacity.getCapacity());
+    }
+    availableMap.put(machineCapacity,machineAvailableList);
+  }
+  for (  TaskAssignment taskAssignment : solution.getTaskAssignmentList()) {
+    Machine machine=taskAssignment.getMachine();
+    Integer startPeriod=taskAssignment.getStartPeriod();
+    if (machine != null && startPeriod != null) {
+      Task task=taskAssignment.getTask();
+      List<TaskRequirement> taskRequirementList=task.getTaskRequirementList();
+      for (int i=0; i < taskRequirementList.size(); i++) {
+        TaskRequirement taskRequirement=taskRequirementList.get(i);
+        MachineCapacity machineCapacity=machine.getMachineCapacityList().get(i);
+        List<Integer> machineAvailableList=availableMap.get(machineCapacity);
+        for (int j=0; j < task.getDuration(); j++) {
+          int period=j + taskAssignment.getStartPeriod();
+          int available=machineAvailableList.get(period);
+          machineAvailableList.set(period,available - taskRequirement.getResourceUsage());
+        }
+      }
+    }
+  }
+  XYSeriesCollection seriesCollection=new XYSeriesCollection();
+  XYItemRenderer renderer=new StandardXYItemRenderer(StandardXYItemRenderer.SHAPES);
+  int seriesIndex=0;
+  for (  Machine machine : solution.getMachineList()) {
+    XYSeries machineSeries=new XYSeries(machine.getLabel());
+    for (    MachineCapacity machineCapacity : machine.getMachineCapacityList()) {
+      List<Integer> machineAvailableList=availableMap.get(machineCapacity);
+      for (int period=0; period < solution.getGlobalPeriodRangeTo(); period++) {
+        int available=machineAvailableList.get(period);
+        machineSeries.add(available,period);
+      }
+    }
+    seriesCollection.addSeries(machineSeries);
+    renderer.setSeriesPaint(seriesIndex,tangoColorFactory.pickColor(machine));
+    renderer.setSeriesShape(seriesIndex,ShapeUtilities.createDiamond(1.5F));
+    renderer.setSeriesVisibleInLegend(seriesIndex,false);
+    seriesIndex++;
+  }
+  NumberAxis domainAxis=new NumberAxis("Capacity");
+  return new XYPlot(seriesCollection,domainAxis,null,renderer);
+}
