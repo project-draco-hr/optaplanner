@@ -1,5 +1,5 @@
 {
-  final Iterator<SolverEventListener> it=getEventListenersIterator();
+  final Iterator<SolverEventListener> it=eventListenerSet.iterator();
   if (it.hasNext()) {
     final BestSolutionChangedEvent event=new BestSolutionChangedEvent(solver,solver.getSolverScope().calculateTimeMillisSpent(),newBestSolution,newUninitializedVariableCount);
     do {

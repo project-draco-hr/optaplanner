@@ -1,6 +1,5 @@
 {
-  final Iterator<PhaseLifecycleListener> iter=getEventListenersIterator();
-  while (iter.hasNext()) {
-    iter.next().solvingStarted(solverScope);
+  for (  PhaseLifecycleListener phaseLifecycleListener : eventListenerSet) {
+    phaseLifecycleListener.solvingStarted(solverScope);
   }
 }
