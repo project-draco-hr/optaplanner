@@ -1,0 +1,4 @@
+{
+  super("Collapse",new ImageIcon(BenchmarkAggregatorFrame.class.getResource("collapse.png")));
+  setEnabled(!plannerBenchmarkResultList.isEmpty());
+}
