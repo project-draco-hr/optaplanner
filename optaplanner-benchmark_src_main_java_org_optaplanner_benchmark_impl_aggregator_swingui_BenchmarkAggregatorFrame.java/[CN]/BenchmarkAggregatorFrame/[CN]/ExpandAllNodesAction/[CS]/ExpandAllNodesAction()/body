@@ -1,4 +1,0 @@
-{
-  super("Expand all",new ImageIcon(BenchmarkAggregatorFrame.class.getResource("expandAll.png")));
-  setEnabled(!plannerBenchmarkResultList.isEmpty());
-}

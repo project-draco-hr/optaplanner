@@ -1,0 +1,19 @@
+{
+  if (path == null) {
+    TreePath selectionPath=getSelectionPath();
+    path=selectionPath == null ? new TreePath(treeModel.getRoot()) : selectionPath;
+  }
+  DefaultMutableTreeNode currentNode=(DefaultMutableTreeNode)path.getLastPathComponent();
+  Enumeration children=currentNode.children();
+  while (children.hasMoreElements()) {
+    DefaultMutableTreeNode child=(DefaultMutableTreeNode)children.nextElement();
+    TreePath expandedPath=path.pathByAddingChild(child);
+    expandSubtree(expandedPath,expand);
+  }
+  if (expand) {
+    expandPath(path);
+  }
+ else   if (path.getParentPath() != null) {
+    collapsePath(path);
+  }
+}
