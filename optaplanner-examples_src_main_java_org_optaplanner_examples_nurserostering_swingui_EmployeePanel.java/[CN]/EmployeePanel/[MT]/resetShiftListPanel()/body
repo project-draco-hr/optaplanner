@@ -49,7 +49,7 @@
       }
     }
     shiftPanel.setBackground(backgroundColor);
-    shiftPanel.setToolTipText((employee == null ? "Unassigned" : employee.getLabel()) + " on " + shift.getLabel());
+    shiftPanel.setToolTipText("<html>Date: " + shift.getShiftDate().getLabel() + "<br/>"+ "Employee: "+ (employee == null ? "unassigned" : employee.getLabel())+ "</html>");
     shiftPanelMap.put(shift,shiftPanel);
     shiftDatePanel.add(shiftPanel);
   }

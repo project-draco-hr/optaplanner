@@ -1,4 +1,8 @@
 {
   super(null,determineGuestIcon(seatDesignation));
   this.seatDesignation=seatDesignation;
+  Seat seat=seatDesignation.getSeat();
+  if (seat != null) {
+    putValue(SHORT_DESCRIPTION,"<html>Guest: " + seatDesignation.getGuest().getName() + "<br/>"+ "Table: "+ seat.getTable().getTableIndex()+ "<br/>"+ "Seat: "+ seat.getSeatIndexInTable()+ "</html>");
+  }
 }

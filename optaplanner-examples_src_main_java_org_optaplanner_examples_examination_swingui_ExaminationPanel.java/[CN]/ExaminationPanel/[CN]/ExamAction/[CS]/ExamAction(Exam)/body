@@ -1,4 +1,5 @@
 {
   super(exam.getLabel(),new ExamIcon(exam));
   this.exam=exam;
+  putValue(SHORT_DESCRIPTION,"<html>Exam: " + exam.getLabel() + "<br/>"+ "Duration: "+ exam.getTopicDuration()+ " (shown in circle)<br/>"+ "Has "+ exam.getTopicStudentSize()+ " students (shown in rectangle)"+ "</html>");
 }

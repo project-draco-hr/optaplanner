@@ -2,6 +2,6 @@
   TangoColorFactory tangoColorFactory=new TangoColorFactory();
   for (  Exam exam : examination.getExamList()) {
     Color examColor=tangoColorFactory.pickColor(exam);
-    roomsPanel.addCell(exam.getRoom(),exam.getPeriod(),createButton(exam,examColor,"Duration: " + exam.getTopicDuration() + " - Student size: "+ exam.getTopicStudentSize()));
+    roomsPanel.addCell(exam.getRoom(),exam.getPeriod(),createButton(exam,examColor));
   }
 }

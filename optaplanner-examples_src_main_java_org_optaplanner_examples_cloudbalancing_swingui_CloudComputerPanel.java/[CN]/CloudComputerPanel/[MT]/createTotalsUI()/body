@@ -9,6 +9,7 @@
   if (computer != null) {
     JPanel deletePanel=new JPanel(new BorderLayout());
     JButton deleteButton=new JButton(cloudBalancingPanel.getDeleteCloudComputerIcon());
+    deleteButton.setToolTipText("Delete");
     deleteButton.addActionListener(new ActionListener(){
       public void actionPerformed(      ActionEvent e){
         cloudBalancingPanel.deleteComputer(computer);

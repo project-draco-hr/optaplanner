@@ -1,4 +1,7 @@
 {
   super(shiftAssignment.getShift().getShiftType().getCode());
   this.shiftAssignment=shiftAssignment;
+  Shift shift=shiftAssignment.getShift();
+  ShiftType shiftType=shift.getShiftType();
+  putValue(SHORT_DESCRIPTION,"<html>Date: " + shift.getShiftDate().getLabel() + "<br/>"+ "Shift type: "+ shiftType.getLabel()+ " (from "+ shiftType.getStartTimeString()+ " to "+ shiftType.getEndTimeString()+ ")<br/>"+ "Employee: "+ (employee == null ? "unassigned" : employee.getLabel())+ "</html>");
 }

@@ -9,6 +9,7 @@
   if (employee != null) {
     JPanel deletePanel=new JPanel(new BorderLayout());
     deleteButton=new JButton(nurseRosteringPanel.getDeleteEmployeeIcon());
+    deleteButton.setToolTipText("Delete");
     deleteButton.addActionListener(new ActionListener(){
       public void actionPerformed(      ActionEvent e){
         nurseRosteringPanel.deleteEmployee(employee);
