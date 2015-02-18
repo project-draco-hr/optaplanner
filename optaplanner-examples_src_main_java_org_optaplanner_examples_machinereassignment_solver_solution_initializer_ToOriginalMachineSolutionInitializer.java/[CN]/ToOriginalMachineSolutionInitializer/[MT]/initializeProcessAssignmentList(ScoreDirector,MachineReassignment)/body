@@ -1,7 +1,9 @@
 {
   for (  MrProcessAssignment processAssignment : machineReassignment.getProcessAssignmentList()) {
+    MrMachine originalMachine=processAssignment.getOriginalMachine();
+    MrMachine machine=originalMachine == null ? machineReassignment.getMachineList().get(0) : originalMachine;
     scoreDirector.beforeVariableChanged(processAssignment,"machine");
-    processAssignment.setMachine(processAssignment.getOriginalMachine());
+    processAssignment.setMachine(machine);
     scoreDirector.afterVariableChanged(processAssignment,"machine");
   }
 }

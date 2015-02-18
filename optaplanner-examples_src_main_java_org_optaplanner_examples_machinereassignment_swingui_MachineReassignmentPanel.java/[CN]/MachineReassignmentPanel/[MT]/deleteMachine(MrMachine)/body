@@ -4,10 +4,15 @@
     public void doChange(    ScoreDirector scoreDirector){
       MachineReassignment machineReassignment=(MachineReassignment)scoreDirector.getWorkingSolution();
       for (      MrProcessAssignment processAssignment : machineReassignment.getProcessAssignmentList()) {
+        if (ObjectUtils.equals(processAssignment.getOriginalMachine(),machine)) {
+          scoreDirector.beforeProblemFactChanged(processAssignment);
+          processAssignment.setOriginalMachine(null);
+          scoreDirector.afterProblemFactChanged(processAssignment);
+        }
         if (ObjectUtils.equals(processAssignment.getMachine(),machine)) {
-          scoreDirector.beforeEntityRemoved(processAssignment);
+          scoreDirector.beforeVariableChanged(processAssignment,"machine");
           processAssignment.setMachine(null);
-          scoreDirector.afterEntityRemoved(processAssignment);
+          scoreDirector.afterVariableChanged(processAssignment,"machine");
         }
       }
       machineReassignment.setMachineList(new ArrayList<MrMachine>(machineReassignment.getMachineList()));
