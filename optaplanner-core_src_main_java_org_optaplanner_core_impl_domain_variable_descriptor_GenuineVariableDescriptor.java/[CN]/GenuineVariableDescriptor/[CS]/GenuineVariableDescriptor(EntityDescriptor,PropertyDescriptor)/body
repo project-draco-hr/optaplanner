@@ -1,3 +1,0 @@
-{
-  super(entityDescriptor,propertyDescriptor);
-}

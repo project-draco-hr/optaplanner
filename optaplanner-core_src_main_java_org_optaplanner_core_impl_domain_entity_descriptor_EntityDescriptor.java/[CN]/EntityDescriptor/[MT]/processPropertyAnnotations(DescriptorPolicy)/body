@@ -20,23 +20,24 @@
         if (propertyDescriptor.getWriteMethod() == null) {
           throw new IllegalStateException("The entityClass (" + entityClass + ") has a "+ variableAnnotationClass.getSimpleName()+ " annotated property ("+ propertyDescriptor.getName()+ ") that should have a setter.");
         }
+        PropertyAccessor propertyAccessor=new ReflectionPropertyAccessor(propertyDescriptor);
         if (variableAnnotationClass.equals(PlanningVariable.class)) {
-          GenuineVariableDescriptor variableDescriptor=new GenuineVariableDescriptor(this,propertyDescriptor);
+          GenuineVariableDescriptor variableDescriptor=new GenuineVariableDescriptor(this,propertyAccessor);
           declaredGenuineVariableDescriptorMap.put(propertyDescriptor.getName(),variableDescriptor);
           variableDescriptor.processAnnotations(descriptorPolicy);
         }
  else         if (variableAnnotationClass.equals(InverseRelationShadowVariable.class)) {
-          ShadowVariableDescriptor variableDescriptor=new InverseRelationShadowVariableDescriptor(this,propertyDescriptor);
+          ShadowVariableDescriptor variableDescriptor=new InverseRelationShadowVariableDescriptor(this,propertyAccessor);
           declaredShadowVariableDescriptorMap.put(propertyDescriptor.getName(),variableDescriptor);
           variableDescriptor.processAnnotations(descriptorPolicy);
         }
  else         if (variableAnnotationClass.equals(AnchorShadowVariable.class)) {
-          ShadowVariableDescriptor variableDescriptor=new AnchorShadowVariableDescriptor(this,propertyDescriptor);
+          ShadowVariableDescriptor variableDescriptor=new AnchorShadowVariableDescriptor(this,propertyAccessor);
           declaredShadowVariableDescriptorMap.put(propertyDescriptor.getName(),variableDescriptor);
           variableDescriptor.processAnnotations(descriptorPolicy);
         }
  else         if (variableAnnotationClass.equals(CustomShadowVariable.class)) {
-          ShadowVariableDescriptor variableDescriptor=new CustomShadowVariableDescriptor(this,propertyDescriptor);
+          ShadowVariableDescriptor variableDescriptor=new CustomShadowVariableDescriptor(this,propertyAccessor);
           declaredShadowVariableDescriptorMap.put(propertyDescriptor.getName(),variableDescriptor);
           variableDescriptor.processAnnotations(descriptorPolicy);
         }
