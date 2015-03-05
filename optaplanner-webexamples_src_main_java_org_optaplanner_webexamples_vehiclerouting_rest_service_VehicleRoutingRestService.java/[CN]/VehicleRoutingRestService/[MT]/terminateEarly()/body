@@ -1,8 +1,4 @@
 {
-  Solver solver=sessionSolverMap.remove(request.getSession().getId());
-  if (solver != null) {
-    solver.terminateEarly();
-    return new JsonMessage("Solver terminating early.");
-  }
-  return new JsonMessage("Solver was already terminated.");
+  boolean success=solverManager.terminateEarly(request.getSession().getId());
+  return new JsonMessage(success ? "Solver terminating early." : "Solver was already terminated.");
 }

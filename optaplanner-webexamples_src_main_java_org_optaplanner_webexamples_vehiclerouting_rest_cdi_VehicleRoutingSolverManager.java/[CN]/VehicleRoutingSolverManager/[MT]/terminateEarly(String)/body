@@ -1,0 +1,10 @@
+{
+  Solver solver=sessionSolverMap.remove(sessionId);
+  if (solver != null) {
+    solver.terminateEarly();
+    return true;
+  }
+ else {
+    return false;
+  }
+}

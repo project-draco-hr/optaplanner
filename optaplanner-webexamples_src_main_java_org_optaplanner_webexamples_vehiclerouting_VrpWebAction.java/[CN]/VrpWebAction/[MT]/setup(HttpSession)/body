@@ -1,9 +1,0 @@
-{
-  terminateEarly(session);
-  SolverFactory solverFactory=SolverFactory.createFromXmlResource("org/optaplanner/examples/vehiclerouting/solver/vehicleRoutingSolverConfig.xml");
-  Solver solver=solverFactory.buildSolver();
-  session.setAttribute(VrpSessionAttributeName.SOLVER,solver);
-  URL unsolvedSolutionURL=getClass().getResource(IMPORT_DATASET);
-  VehicleRoutingSolution unsolvedSolution=(VehicleRoutingSolution)new VehicleRoutingImporter(true).readSolution(unsolvedSolutionURL);
-  session.setAttribute(VrpSessionAttributeName.SHOWN_SOLUTION,unsolvedSolution);
-}

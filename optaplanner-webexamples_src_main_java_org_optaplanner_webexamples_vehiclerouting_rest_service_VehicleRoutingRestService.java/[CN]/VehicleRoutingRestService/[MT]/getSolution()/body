@@ -1,4 +1,4 @@
 {
-  VehicleRoutingSolution solution=retrieveOrCreateSolution();
+  VehicleRoutingSolution solution=solverManager.retrieveOrCreateSolution(request.getSession().getId());
   return convertToJsonVehicleRoutingSolution(solution);
 }

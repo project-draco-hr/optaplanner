@@ -1,0 +1,29 @@
+{
+  final Solver solver=solverFactory.buildSolver();
+  solver.addEventListener(new SolverEventListener(){
+    @Override public void bestSolutionChanged(    BestSolutionChangedEvent event){
+      VehicleRoutingSolution bestSolution=(VehicleRoutingSolution)event.getNewBestSolution();
+synchronized (VehicleRoutingSolverManager.this) {
+        sessionSolutionMap.put(sessionId,bestSolution);
+      }
+    }
+  }
+);
+  if (sessionSolverMap.containsKey(sessionId)) {
+    return false;
+  }
+  sessionSolverMap.put(sessionId,solver);
+  final VehicleRoutingSolution solution=retrieveOrCreateSolution(sessionId);
+  executor.submit(new Runnable(){
+    @Override public void run(){
+      solver.solve(solution);
+      VehicleRoutingSolution bestSolution=(VehicleRoutingSolution)solver.getBestSolution();
+synchronized (VehicleRoutingSolverManager.this) {
+        sessionSolutionMap.put(sessionId,bestSolution);
+        sessionSolverMap.remove(sessionId);
+      }
+    }
+  }
+);
+  return true;
+}

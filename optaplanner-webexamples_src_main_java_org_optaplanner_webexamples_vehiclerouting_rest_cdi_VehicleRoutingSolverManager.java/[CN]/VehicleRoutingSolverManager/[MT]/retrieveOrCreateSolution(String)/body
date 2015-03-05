@@ -1,9 +1,9 @@
 {
-  VehicleRoutingSolution solution=sessionSolutionMap.get(request.getSession().getId());
+  VehicleRoutingSolution solution=sessionSolutionMap.get(sessionId);
   if (solution == null) {
     URL unsolvedSolutionURL=getClass().getResource(IMPORT_DATASET);
     solution=(VehicleRoutingSolution)new VehicleRoutingImporter(true).readSolution(unsolvedSolutionURL);
-    sessionSolutionMap.put(request.getSession().getId(),solution);
+    sessionSolutionMap.put(sessionId,solution);
   }
   return solution;
 }

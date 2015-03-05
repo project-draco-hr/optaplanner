@@ -1,22 +1,4 @@
 {
-  final Solver solver=solverFactory.buildSolver();
-  final VehicleRoutingSolution solution=retrieveOrCreateSolution();
-  executor.submit(new Runnable(){
-    @Override public void run(){
-      sessionSolverMap.put(request.getSession().getId(),solver);
-      solver.addEventListener(new SolverEventListener(){
-        @Override public void bestSolutionChanged(        BestSolutionChangedEvent event){
-          VehicleRoutingSolution bestSolution=(VehicleRoutingSolution)event.getNewBestSolution();
-          sessionSolutionMap.put(request.getSession().getId(),bestSolution);
-        }
-      }
-);
-      solver.solve(solution);
-      VehicleRoutingSolution bestSolution=(VehicleRoutingSolution)solver.getBestSolution();
-      sessionSolutionMap.put(request.getSession().getId(),bestSolution);
-      sessionSolverMap.remove(request.getSession().getId());
-    }
-  }
-);
-  return new JsonMessage("Solving started");
+  boolean success=solverManager.solve(request.getSession().getId());
+  return new JsonMessage(success ? "Solving started." : "Solver was already running.");
 }
