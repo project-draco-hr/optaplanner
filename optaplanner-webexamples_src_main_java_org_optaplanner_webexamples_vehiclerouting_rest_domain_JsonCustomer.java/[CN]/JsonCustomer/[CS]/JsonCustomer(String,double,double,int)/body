@@ -1,0 +1,6 @@
+{
+  this.locationName=locationName;
+  this.latitude=latitude;
+  this.longitude=longitude;
+  this.demand=demand;
+}

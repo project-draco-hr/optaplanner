@@ -1,0 +1,4 @@
+String locationName
+double latitude
+double longitude
+int demand

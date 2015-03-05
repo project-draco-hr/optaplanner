@@ -1,0 +1,4 @@
+{
+  VehicleRoutingSolution solution=retrieveOrCreateSolution();
+  return convertToJsonVehicleRoutingSolution(solution);
+}

@@ -1,0 +1,9 @@
+{
+  solverFactory=SolverFactory.createFromXmlResource(SOLVER_CONFIG);
+  TerminationConfig terminationConfig=new TerminationConfig();
+  terminationConfig.setMinutesSpentLimit(2L);
+  solverFactory.getSolverConfig().setTerminationConfig(terminationConfig);
+  executor=Executors.newFixedThreadPool(4);
+  sessionSolutionMap=new ConcurrentHashMap<String,VehicleRoutingSolution>();
+  sessionSolverMap=new ConcurrentHashMap<String,Solver>();
+}

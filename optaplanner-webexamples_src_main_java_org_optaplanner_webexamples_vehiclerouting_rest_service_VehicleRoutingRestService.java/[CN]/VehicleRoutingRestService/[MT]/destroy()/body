@@ -1,0 +1,6 @@
+{
+  for (  Solver solver : sessionSolverMap.values()) {
+    solver.terminateEarly();
+  }
+  executor.shutdown();
+}
