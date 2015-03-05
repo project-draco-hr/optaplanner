@@ -1,5 +1,5 @@
 {
-  int m=sizeMaximum <= n ? sizeMaximum : n;
+  int m=sizeMaximum <= nearbySize ? sizeMaximum : nearbySize;
   double p=random.nextDouble();
   double x=m * (1.0 - Math.sqrt(1.0 - p));
   int next=(int)x;

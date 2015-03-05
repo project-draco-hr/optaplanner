@@ -1,8 +1,8 @@
 {
   double d=betaDistribution.inverseCumulativeProbability(random.nextDouble());
-  int next=(int)(d * (double)n);
-  if (next >= n) {
-    next=n - 1;
+  int next=(int)(d * (double)nearbySize);
+  if (next >= nearbySize) {
+    next=nearbySize - 1;
   }
   return next;
 }
