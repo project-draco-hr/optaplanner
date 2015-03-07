@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof MachinePeriodPart) {
+    MachinePeriodPart other=(MachinePeriodPart)o;
+    return new EqualsBuilder().append(machine,other.machine).append(period,other.period).append(active,other.active).append(resourceAvailableList,other.resourceAvailableList).isEquals();
+  }
+ else {
+    return false;
+  }
+}

@@ -1,0 +1,8 @@
+{
+  active=true;
+  Task task=taskAssignment.getTask();
+  for (int i=0; i < resourceAvailableList.length; i++) {
+    TaskRequirement taskRequirement=task.getTaskRequirementList().get(i);
+    resourceAvailableList[i]-=taskRequirement.getResourceUsage();
+  }
+}

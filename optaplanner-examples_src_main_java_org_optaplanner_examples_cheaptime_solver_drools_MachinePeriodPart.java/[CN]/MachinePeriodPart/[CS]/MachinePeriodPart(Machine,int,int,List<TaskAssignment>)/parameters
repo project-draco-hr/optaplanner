@@ -1,0 +1,4 @@
+Machine machine
+int period
+int resourceListSize
+List<TaskAssignment> taskAssignmentList

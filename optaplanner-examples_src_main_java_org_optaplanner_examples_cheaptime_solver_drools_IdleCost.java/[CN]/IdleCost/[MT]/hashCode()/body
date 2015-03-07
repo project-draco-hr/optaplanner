@@ -1,0 +1,3 @@
+{
+  return new HashCodeBuilder().append(machine).append(activePeriodAfterIdle).append(cost).toHashCode();
+}

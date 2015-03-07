@@ -6,5 +6,6 @@
   facts.addAll(taskList);
   facts.addAll(taskRequirementList);
   facts.addAll(periodPowerPriceList);
+  facts.add(this);
   return facts;
 }

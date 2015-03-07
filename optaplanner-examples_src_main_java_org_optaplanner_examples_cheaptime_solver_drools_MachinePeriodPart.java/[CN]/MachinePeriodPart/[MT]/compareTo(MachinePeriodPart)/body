@@ -1,0 +1,3 @@
+{
+  return new CompareToBuilder().append(machine,other.machine).append(period,other.period).append(active,other.active).append(resourceAvailableList,other.resourceAvailableList).toComparison();
+}
