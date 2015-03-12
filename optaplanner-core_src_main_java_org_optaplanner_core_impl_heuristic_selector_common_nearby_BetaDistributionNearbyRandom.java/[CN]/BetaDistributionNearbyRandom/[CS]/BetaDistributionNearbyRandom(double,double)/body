@@ -1,9 +1,9 @@
 {
-  if (betaDistributionAlpha < 0) {
-    throw new IllegalArgumentException("The betaDistributionAlpha (" + betaDistributionAlpha + ") must be at least 0.");
+  if (betaDistributionAlpha <= 0) {
+    throw new IllegalArgumentException("The betaDistributionAlpha (" + betaDistributionAlpha + ") must be positive.");
   }
-  if (betaDistributionBeta < 0) {
-    throw new IllegalArgumentException("The betaDistributionBeta (" + betaDistributionBeta + ") must be at least 0.");
+  if (betaDistributionBeta <= 0) {
+    throw new IllegalArgumentException("The betaDistributionBeta (" + betaDistributionBeta + ") must be positive.");
   }
   betaDistribution=new BetaDistribution(betaDistributionAlpha,betaDistributionBeta);
 }
