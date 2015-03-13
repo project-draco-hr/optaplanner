@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof IdleCost) {
+    IdleCost other=(IdleCost)o;
+    return new EqualsBuilder().append(machine,other.machine).append(activePeriodAfterIdle,other.activePeriodAfterIdle).append(cost,other.cost).isEquals();
+  }
+ else {
+    return false;
+  }
+}

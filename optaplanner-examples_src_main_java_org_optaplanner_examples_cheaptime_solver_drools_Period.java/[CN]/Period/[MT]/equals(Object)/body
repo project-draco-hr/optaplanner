@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof Period) {
+    Period other=(Period)o;
+    return new EqualsBuilder().append(period,other.period).isEquals();
+  }
+ else {
+    return false;
+  }
+}

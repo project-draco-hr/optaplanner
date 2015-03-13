@@ -1,0 +1,18 @@
+{
+  this.machine=machine;
+  this.period=period;
+  active=false;
+  resourceAvailableList=new int[resourceListSize];
+  for (int i=0; i < resourceListSize; i++) {
+    resourceAvailableList[i]=machine.getMachineCapacityList().get(i).getCapacity();
+  }
+  for (  TaskAssignment taskAssignment : taskAssignmentList) {
+    addTaskAssignment(taskAssignment);
+  }
+  resourceInShortTotal=0;
+  for (  int resourceAvailable : resourceAvailableList) {
+    if (resourceAvailable < 0) {
+      resourceInShortTotal+=resourceAvailable;
+    }
+  }
+}

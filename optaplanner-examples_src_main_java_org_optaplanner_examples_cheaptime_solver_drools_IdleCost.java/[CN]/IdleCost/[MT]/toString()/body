@@ -1,0 +1,3 @@
+{
+  return "machine = " + machine + ", activePeriodAfterIdle = "+ activePeriodAfterIdle+ ", cost = "+ cost;
+}

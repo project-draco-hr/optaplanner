@@ -1,0 +1,5 @@
+{
+  this.machine=machine;
+  this.activePeriodAfterIdle=activePeriodAfterIdle;
+  this.cost=cost;
+}
