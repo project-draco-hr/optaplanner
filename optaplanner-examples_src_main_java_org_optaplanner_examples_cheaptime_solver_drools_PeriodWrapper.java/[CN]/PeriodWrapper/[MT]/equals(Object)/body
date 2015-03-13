@@ -2,8 +2,8 @@
   if (this == o) {
     return true;
   }
- else   if (o instanceof Period) {
-    Period other=(Period)o;
+ else   if (o instanceof PeriodWrapper) {
+    PeriodWrapper other=(PeriodWrapper)o;
     return new EqualsBuilder().append(period,other.period).isEquals();
   }
  else {
