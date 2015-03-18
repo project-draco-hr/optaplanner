@@ -1,6 +1,6 @@
 String line
-String tokenRegex
-String tokenName
+String delimiterRegex
+String delimiterName
 Integer numberOfTokens
 boolean trim
 boolean removeQuotes

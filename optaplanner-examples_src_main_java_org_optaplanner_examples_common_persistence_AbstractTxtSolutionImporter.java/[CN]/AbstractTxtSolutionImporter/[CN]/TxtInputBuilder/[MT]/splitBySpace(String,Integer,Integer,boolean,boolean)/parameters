@@ -1,6 +1,4 @@
 String line
-String delimiterRegex
-String delimiterName
 Integer minimumNumberOfTokens
 Integer maximumNumberOfTokens
 boolean trim

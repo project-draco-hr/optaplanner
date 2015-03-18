@@ -1,0 +1,3 @@
+{
+  return splitBy(line,"\\ ","a space ( )",minimumNumberOfTokens,maximumNumberOfTokens,trim,removeQuotes);
+}

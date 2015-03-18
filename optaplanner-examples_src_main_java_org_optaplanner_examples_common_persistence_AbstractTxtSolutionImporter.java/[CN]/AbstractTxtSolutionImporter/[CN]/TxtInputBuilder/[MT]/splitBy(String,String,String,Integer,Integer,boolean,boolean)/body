@@ -1,21 +1,46 @@
 {
-  String[] lineTokens=line.split(tokenRegex);
+  String[] lineTokens=line.split(delimiterRegex);
+  if (removeQuotes) {
+    List<String> lineTokenList=new ArrayList<String>(lineTokens.length);
+    for (int i=0; i < lineTokens.length; i++) {
+      String token=lineTokens[i];
+      while ((trim ? token.trim() : token).startsWith("\"") && !(trim ? token.trim() : token).endsWith("\"")) {
+        i++;
+        if (i >= lineTokens.length) {
+          throw new IllegalArgumentException("The line (" + line + ") has an invalid use of quotes (\").");
+        }
+        String delimiter;
+        if (delimiterRegex.equals("\\ ")) {
+          delimiter=" ";
+        }
+ else         if (delimiterRegex.equals("\\,")) {
+          delimiter=",";
+        }
+ else {
+          throw new IllegalArgumentException("Not supported delimiterRegex (" + delimiterRegex + ")");
+        }
+        token+=delimiter + lineTokens[i];
+      }
+      if (trim) {
+        token=token.trim();
+      }
+      if (token.startsWith("\"") && token.endsWith("\"")) {
+        token=token.substring(1,token.length() - 1);
+        token=token.replaceAll("\"\"","\"");
+      }
+      lineTokenList.add(token);
+    }
+    lineTokens=lineTokenList.toArray(new String[lineTokenList.size()]);
+  }
   if (minimumNumberOfTokens != null && lineTokens.length < minimumNumberOfTokens) {
-    throw new IllegalArgumentException("Read line (" + line + ") has "+ lineTokens.length+ " tokens but is expected to contain at least "+ minimumNumberOfTokens+ " tokens separated by "+ tokenName+ ".");
+    throw new IllegalArgumentException("Read line (" + line + ") has "+ lineTokens.length+ " tokens but is expected to contain at least "+ minimumNumberOfTokens+ " tokens separated by "+ delimiterName+ ".");
   }
   if (maximumNumberOfTokens != null && lineTokens.length > maximumNumberOfTokens) {
-    throw new IllegalArgumentException("Read line (" + line + ") has "+ lineTokens.length+ " tokens but is expected to contain at most "+ maximumNumberOfTokens+ " tokens separated by "+ tokenName+ ".");
+    throw new IllegalArgumentException("Read line (" + line + ") has "+ lineTokens.length+ " tokens but is expected to contain at most "+ maximumNumberOfTokens+ " tokens separated by "+ delimiterName+ ".");
   }
   if (trim) {
     for (int i=0; i < lineTokens.length; i++) {
       lineTokens[i]=lineTokens[i].trim();
-    }
-  }
-  if (removeQuotes) {
-    for (int i=0; i < lineTokens.length; i++) {
-      if (lineTokens[i].startsWith("\"") && lineTokens[i].endsWith("\"")) {
-        lineTokens[i]=lineTokens[i].substring(1,lineTokens[i].length() - 1);
-      }
     }
   }
   return lineTokens;
