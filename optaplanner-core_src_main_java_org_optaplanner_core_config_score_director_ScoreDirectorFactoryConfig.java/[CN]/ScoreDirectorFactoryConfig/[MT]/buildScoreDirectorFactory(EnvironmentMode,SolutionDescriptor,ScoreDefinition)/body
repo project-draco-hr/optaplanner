@@ -1,11 +1,28 @@
 {
+  AbstractScoreDirectorFactory easyScoreDirectorFactory=buildEasyScoreDirectorFactory();
+  AbstractScoreDirectorFactory incrementalScoreDirectorFactory=buildIncrementalScoreDirectorFactory();
+  AbstractScoreDirectorFactory droolsScoreDirectorFactory=buildDroolsScoreDirectorFactory();
   AbstractScoreDirectorFactory scoreDirectorFactory;
-  scoreDirectorFactory=buildEasyScoreDirectorFactory();
-  if (scoreDirectorFactory == null) {
-    scoreDirectorFactory=buildIncrementalScoreDirectorFactory();
+  if (easyScoreDirectorFactory != null) {
+    if (incrementalScoreDirectorFactory != null) {
+      throw new IllegalArgumentException("The scoreDirectorFactory cannot have " + "both an easyScoreDirectorFactory and an incrementalScoreDirectorFactory.");
+    }
+    if (droolsScoreDirectorFactory != null) {
+      throw new IllegalArgumentException("The scoreDirectorFactory cannot have " + "both an easyScoreDirectorFactory and an droolsScoreDirectorFactory.");
+    }
+    scoreDirectorFactory=easyScoreDirectorFactory;
   }
-  if (scoreDirectorFactory == null) {
-    scoreDirectorFactory=buildDroolsScoreDirectorFactory();
+ else   if (incrementalScoreDirectorFactory != null) {
+    if (droolsScoreDirectorFactory != null) {
+      throw new IllegalArgumentException("The scoreDirectorFactory cannot have " + "both an incrementalScoreDirectorFactory and an droolsScoreDirectorFactory.");
+    }
+    scoreDirectorFactory=incrementalScoreDirectorFactory;
+  }
+ else   if (droolsScoreDirectorFactory != null) {
+    scoreDirectorFactory=droolsScoreDirectorFactory;
+  }
+ else {
+    throw new IllegalArgumentException("The scoreDirectorFactory lacks a configuration for an " + "easyScoreDirectorFactory, an incrementalScoreDirectorFactory or a droolsScoreDirectorFactory.");
   }
   scoreDirectorFactory.setSolutionDescriptor(solutionDescriptor);
   scoreDirectorFactory.setScoreDefinition(scoreDefinition);
