@@ -15,14 +15,14 @@
     vrpWriter.write("EDGE_WEIGHT_TYPE: EUC_2D\n");
     vrpWriter.write("CAPACITY: " + capacity + "\n");
     vrpWriter.write("NODE_COORD_SECTION\n");
-    List<Location> locationList=tour.getLocationList();
-    double selectionDecrement=(double)locationListSize / (double)locationList.size();
+    List<org.optaplanner.examples.tsp.domain.location.Location> tspLocationList=tour.getLocationList();
+    double selectionDecrement=(double)locationListSize / (double)tspLocationList.size();
     double selection=(double)locationListSize;
     int index=1;
-    for (    Location location : locationList) {
+    for (    org.optaplanner.examples.tsp.domain.location.Location tspLocation : tspLocationList) {
       double newSelection=selection - selectionDecrement;
       if ((int)newSelection < (int)selection) {
-        vrpWriter.write(index + " " + location.getLatitude()+ " "+ location.getLongitude()+ "\n");
+        vrpWriter.write(index + " " + tspLocation.getLatitude()+ " "+ tspLocation.getLongitude()+ "\n");
         index++;
       }
       selection=newSelection;

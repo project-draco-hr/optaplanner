@@ -1,0 +1,10 @@
+{
+switch (distanceType) {
+case AIR_DISTANCE:
+    return DistanceType.AIR_DISTANCE;
+case ROAD_DISTANCE:
+  return DistanceType.ROAD_DISTANCE;
+default :
+throw new IllegalStateException("The distanceType (" + distanceType + ") is not implemented.");
+}
+}
