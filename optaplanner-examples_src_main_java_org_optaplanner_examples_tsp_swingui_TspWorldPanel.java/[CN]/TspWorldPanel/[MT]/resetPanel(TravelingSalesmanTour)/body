@@ -44,9 +44,9 @@
     if (visit.getPreviousStandstill() != null) {
       Location previousLocation=visit.getPreviousStandstill().getLocation();
       Location location=visit.getLocation();
-      translator.drawRoute(g,previousLocation.getLongitude(),previousLocation.getLatitude(),location.getLongitude(),location.getLatitude(),location instanceof AirLocation);
+      translator.drawRoute(g,previousLocation.getLongitude(),previousLocation.getLatitude(),location.getLongitude(),location.getLatitude(),location instanceof AirLocation,false);
       if (needsBackToDomicileLineSet.contains(visit)) {
-        translator.drawRoute(g,location.getLongitude(),location.getLatitude(),domicileLocation.getLongitude(),domicileLocation.getLatitude(),location instanceof AirLocation);
+        translator.drawRoute(g,location.getLongitude(),location.getLatitude(),domicileLocation.getLongitude(),domicileLocation.getLatitude(),location instanceof AirLocation,true);
       }
     }
   }

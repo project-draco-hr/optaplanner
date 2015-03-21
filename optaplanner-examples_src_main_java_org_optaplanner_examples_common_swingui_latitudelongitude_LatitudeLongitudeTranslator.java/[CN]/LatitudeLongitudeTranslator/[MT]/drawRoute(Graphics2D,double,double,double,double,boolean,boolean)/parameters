@@ -4,3 +4,4 @@ double lat1
 double lon2
 double lat2
 boolean straight
+boolean dashed

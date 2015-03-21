@@ -3,6 +3,9 @@
   int y1=translateLatitudeToY(lat1);
   int x2=translateLongitudeToX(lon2);
   int y2=translateLatitudeToY(lat2);
+  if (dashed) {
+    g.setStroke(TangoColorFactory.FAT_DASHED_STROKE);
+  }
   if (straight) {
     g.drawLine(x1,y1,x2,y2);
   }
@@ -14,5 +17,8 @@
     double ctrlx2=x2 - xDistPart - yDistPart;
     double ctrly2=y2 + xDistPart - yDistPart;
     g.draw(new CubicCurve2D.Double(x1,y1,ctrlx1,ctrly1,ctrlx2,ctrly2,x2,y2));
+  }
+  if (dashed) {
+    g.setStroke(TangoColorFactory.NORMAL_STROKE);
   }
 }
