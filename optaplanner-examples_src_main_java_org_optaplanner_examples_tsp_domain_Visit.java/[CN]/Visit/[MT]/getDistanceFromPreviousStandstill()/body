@@ -2,5 +2,5 @@
   if (previousStandstill == null) {
     return 0L;
   }
-  return getDistanceTo(previousStandstill);
+  return getDistanceFrom(previousStandstill);
 }
