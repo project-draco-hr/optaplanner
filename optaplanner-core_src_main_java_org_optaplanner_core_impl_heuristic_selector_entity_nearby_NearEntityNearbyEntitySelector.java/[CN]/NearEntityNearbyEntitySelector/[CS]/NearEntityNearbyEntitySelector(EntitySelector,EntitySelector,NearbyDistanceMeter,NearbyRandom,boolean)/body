@@ -4,6 +4,9 @@
   this.nearbyDistanceMeter=nearbyDistanceMeter;
   this.nearbyRandom=nearbyRandom;
   this.randomSelection=randomSelection;
+  if (randomSelection && nearbyRandom == null) {
+    throw new IllegalArgumentException("The entitySelector (" + this + ") with randomSelection ("+ randomSelection+ ") has no nearbyRandom ("+ nearbyRandom+ ").");
+  }
   if (!childEntitySelector.getEntityDescriptor().getEntityClass().isAssignableFrom(originEntitySelector.getEntityDescriptor().getEntityClass())) {
     throw new IllegalArgumentException("The entitySelector (" + this + ") has an entityClass ("+ childEntitySelector.getEntityDescriptor().getEntityClass()+ ") which is not a superclass of the originEntitySelector's entityClass ("+ originEntitySelector.getEntityDescriptor().getEntityClass()+ ").");
   }

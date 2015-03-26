@@ -2,6 +2,6 @@
   boolean randomSelection=resolvedSelectionOrder.toRandomSelectionBoolean();
   EntitySelector originEntitySelector=originEntitySelectorConfig.buildEntitySelector(configPolicy,minimumCacheType,resolvedSelectionOrder);
   NearbyDistanceMeter nearbyDistanceMeter=ConfigUtils.newInstance(this,"nearbyDistanceMeterClass",nearbyDistanceMeterClass);
-  NearbyRandom nearbyRandom=buildNearbyRandom();
+  NearbyRandom nearbyRandom=buildNearbyRandom(randomSelection);
   return new NearEntityNearbyEntitySelector(entitySelector,originEntitySelector,nearbyDistanceMeter,nearbyRandom,randomSelection);
 }
