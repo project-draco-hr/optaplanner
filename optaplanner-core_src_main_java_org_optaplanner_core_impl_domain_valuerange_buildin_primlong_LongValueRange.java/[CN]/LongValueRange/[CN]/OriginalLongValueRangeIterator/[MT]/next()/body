@@ -1,0 +1,8 @@
+{
+  if (upcoming >= to) {
+    throw new NoSuchElementException();
+  }
+  long next=upcoming;
+  upcoming+=incrementUnit;
+  return next;
+}

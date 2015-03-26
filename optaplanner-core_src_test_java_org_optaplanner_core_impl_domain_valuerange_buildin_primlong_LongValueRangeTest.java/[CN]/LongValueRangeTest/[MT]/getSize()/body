@@ -1,0 +1,10 @@
+{
+  assertEquals(10L,new LongValueRange(0L,10L).getSize());
+  assertEquals(20L,new LongValueRange(100L,120L).getSize());
+  assertEquals(40L,new LongValueRange(-15L,25L).getSize());
+  assertEquals(0L,new LongValueRange(7L,7L).getSize());
+  assertEquals(Long.MAX_VALUE - 2000L,new LongValueRange(-1000L,Long.MAX_VALUE - 3000L).getSize());
+  assertEquals(5L,new LongValueRange(0L,10L,2L).getSize());
+  assertEquals(5L,new LongValueRange(-1L,9L,2L).getSize());
+  assertEquals(4L,new LongValueRange(100L,120L,5L).getSize());
+}

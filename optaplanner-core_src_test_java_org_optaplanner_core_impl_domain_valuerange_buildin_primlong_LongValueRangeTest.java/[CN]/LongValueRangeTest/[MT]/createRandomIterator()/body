@@ -1,0 +1,16 @@
+{
+  Random workingRandom=mock(Random.class);
+  when(workingRandom.nextInt(anyInt())).thenReturn(3,0);
+  assertElementsOfIterator(new LongValueRange(0L,7L).createRandomIterator(workingRandom),3L,0L);
+  when(workingRandom.nextInt(anyInt())).thenReturn(3,0);
+  assertElementsOfIterator(new LongValueRange(100L,104L).createRandomIterator(workingRandom),103L,100L);
+  when(workingRandom.nextInt(anyInt())).thenReturn(3,0);
+  assertElementsOfIterator(new LongValueRange(-4L,3L).createRandomIterator(workingRandom),-1L,-4L);
+  assertAllElementsOfIterator(new LongValueRange(7L,7L).createRandomIterator(workingRandom));
+  when(workingRandom.nextInt(anyInt())).thenReturn(3,0);
+  assertElementsOfIterator(new LongValueRange(0L,10L,2L).createRandomIterator(workingRandom),6L,0L);
+  when(workingRandom.nextInt(anyInt())).thenReturn(3,0);
+  assertElementsOfIterator(new LongValueRange(-1L,9L,2L).createRandomIterator(workingRandom),5L,-1L);
+  when(workingRandom.nextInt(anyInt())).thenReturn(3,0);
+  assertElementsOfIterator(new LongValueRange(100L,120L,5L).createRandomIterator(workingRandom),115L,100L);
+}

@@ -1,0 +1,17 @@
+{
+  this.from=from;
+  this.to=to;
+  this.incrementUnit=incrementUnit;
+  if (to < from) {
+    throw new IllegalArgumentException("The " + getClass().getSimpleName() + " cannot have a from ("+ from+ ") which is strictly higher than its to ("+ to+ ").");
+  }
+  if (incrementUnit <= 0L) {
+    throw new IllegalArgumentException("The " + getClass().getSimpleName() + " must have strictly positive incrementUnit ("+ incrementUnit+ ").");
+  }
+  if ((to - from) < 0L) {
+    throw new IllegalArgumentException("The " + getClass().getSimpleName() + " cannot have a from ("+ from+ ") and to ("+ to+ ") with a gap greater than Long.MAX_VALUE ("+ Long.MAX_VALUE+ ").");
+  }
+  if ((to - from) % incrementUnit != 0L) {
+    throw new IllegalArgumentException("The " + getClass().getSimpleName() + " 's incrementUnit ("+ incrementUnit+ ") must fit an integer number of times between from ("+ from+ ") and to ("+ to+ ").");
+  }
+}
