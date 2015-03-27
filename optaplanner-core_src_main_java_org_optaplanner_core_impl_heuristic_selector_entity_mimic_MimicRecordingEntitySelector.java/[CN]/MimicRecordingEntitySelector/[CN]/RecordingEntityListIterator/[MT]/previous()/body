@@ -1,0 +1,7 @@
+{
+  Object previous=childEntityIterator.previous();
+  for (  MimicReplayingEntitySelector replayingEntitySelector : replayingEntitySelectorList) {
+    replayingEntitySelector.recordedNext(previous);
+  }
+  return previous;
+}

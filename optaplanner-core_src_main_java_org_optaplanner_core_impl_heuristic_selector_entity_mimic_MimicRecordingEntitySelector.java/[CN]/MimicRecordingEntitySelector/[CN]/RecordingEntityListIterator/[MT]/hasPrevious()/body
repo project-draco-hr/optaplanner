@@ -1,0 +1,7 @@
+{
+  boolean hasPrevious=childEntityIterator.hasPrevious();
+  for (  MimicReplayingEntitySelector replayingEntitySelector : replayingEntitySelectorList) {
+    replayingEntitySelector.recordedHasNext(hasPrevious);
+  }
+  return hasPrevious;
+}
