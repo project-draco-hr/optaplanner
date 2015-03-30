@@ -1,3 +1,8 @@
 {
-  return new SingletonInverseVariableListener(this,sourceVariableDescriptor);
+  if (singleton) {
+    return new SingletonInverseVariableListener(this,sourceVariableDescriptor);
+  }
+ else {
+    return new CollectionInverseVariableListener(this,sourceVariableDescriptor);
+  }
 }

@@ -1,3 +1,8 @@
 {
-  return new SingletonInverseVariableDemand(sourceVariableDescriptor);
+  if (singleton) {
+    return new SingletonInverseVariableDemand(sourceVariableDescriptor);
+  }
+ else {
+    return new CollectionInverseVariableDemand(sourceVariableDescriptor);
+  }
 }

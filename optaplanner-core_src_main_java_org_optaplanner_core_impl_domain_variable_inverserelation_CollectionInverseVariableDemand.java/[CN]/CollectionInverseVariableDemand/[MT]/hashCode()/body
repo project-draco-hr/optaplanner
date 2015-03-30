@@ -1,0 +1,3 @@
+{
+  return CLASS_NAME_HASH_CODE + sourceVariableDescriptor.hashCode();
+}

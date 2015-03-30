@@ -1,0 +1,13 @@
+{
+  if (this == o) {
+    return true;
+  }
+  if (!(o instanceof CollectionInverseVariableDemand)) {
+    return false;
+  }
+  CollectionInverseVariableDemand other=(CollectionInverseVariableDemand)o;
+  if (!sourceVariableDescriptor.equals(other.sourceVariableDescriptor)) {
+    return false;
+  }
+  return true;
+}

@@ -1,0 +1,7 @@
+{
+  Set<Object> inverseEntitySet=inverseEntitySetMap.get(value);
+  if (inverseEntitySet == null) {
+    return Collections.emptySet();
+  }
+  return inverseEntitySet;
+}
