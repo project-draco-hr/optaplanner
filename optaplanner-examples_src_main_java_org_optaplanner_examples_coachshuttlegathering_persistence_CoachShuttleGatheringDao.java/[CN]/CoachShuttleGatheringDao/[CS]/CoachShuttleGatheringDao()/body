@@ -1,0 +1,3 @@
+{
+  super("coachshuttlegathering",CoachShuttleGatheringSolution.class);
+}

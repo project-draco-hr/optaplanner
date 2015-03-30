@@ -1,0 +1,31 @@
+{
+  File file=new File(inputFile.getParentFile(),"DistanceTimesCoordinates.csv");
+  latLongToLocationMap=new HashMap<List<Double>,RoadLocation>();
+  List<RoadLocation> locationList=new ArrayList<RoadLocation>();
+  long locationId=0L;
+  BufferedReader subBufferedReader=null;
+  try {
+    subBufferedReader=new BufferedReader(new InputStreamReader(new FileInputStream(file),"UTF-8"));
+    subBufferedReader.readLine();
+    for (String line=subBufferedReader.readLine(); line != null; line=subBufferedReader.readLine()) {
+      if (line.isEmpty()) {
+        continue;
+      }
+      String[] lineTokens=splitBySemicolonSeparatedValue(line,2);
+      RoadLocation location=new RoadLocation();
+      location.setId(locationId);
+      locationId++;
+      location.setLatitude(Double.parseDouble(lineTokens[0]));
+      location.setLongitude(Double.parseDouble(lineTokens[1]));
+      locationList.add(location);
+      latLongToLocationMap.put(Arrays.asList(location.getLatitude(),location.getLongitude()),location);
+    }
+  }
+ catch (  IOException e) {
+    throw new IllegalArgumentException("Could not read the file (" + file.getName() + ").",e);
+  }
+ finally {
+    IOUtils.closeQuietly(subBufferedReader);
+  }
+  solution.setLocationList(locationList);
+}

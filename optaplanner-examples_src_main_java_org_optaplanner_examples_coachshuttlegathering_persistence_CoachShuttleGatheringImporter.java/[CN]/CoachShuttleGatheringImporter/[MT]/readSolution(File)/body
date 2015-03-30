@@ -1,0 +1,4 @@
+{
+  File instanceFile=new File(inputFile,"Busstops.csv");
+  return super.readSolution(instanceFile);
+}

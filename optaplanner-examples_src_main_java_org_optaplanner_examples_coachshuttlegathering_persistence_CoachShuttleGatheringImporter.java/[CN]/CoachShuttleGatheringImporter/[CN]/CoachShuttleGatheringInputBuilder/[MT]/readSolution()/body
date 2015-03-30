@@ -1,0 +1,12 @@
+{
+  solution=new CoachShuttleGatheringSolution();
+  solution.setId(0L);
+  readLocationList();
+  readBusList();
+  readBusStopList();
+  int busListSize=solution.getCoachList().size() + solution.getShuttleList().size();
+  int base=solution.getBusStopList().size() + solution.getShuttleList().size();
+  BigInteger possibleSolutionSize=factorial(base + busListSize - 1).divide(factorial(busListSize - 1));
+  logger.info("CoachShuttleGathering {} has {} road locations, {} coaches, {} shuttles and {} bus stops" + " with a search space of {}.",getInputId(),solution.getLocationList().size(),solution.getCoachList().size(),solution.getShuttleList().size(),solution.getBusStopList().size(),getFlooredPossibleSolutionSize(possibleSolutionSize));
+  return solution;
+}

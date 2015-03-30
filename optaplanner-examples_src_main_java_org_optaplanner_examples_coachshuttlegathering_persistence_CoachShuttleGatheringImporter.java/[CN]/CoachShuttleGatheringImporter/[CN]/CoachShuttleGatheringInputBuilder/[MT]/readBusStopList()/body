@@ -1,0 +1,58 @@
+{
+  List<BusStop> busStopList=new ArrayList<BusStop>();
+  long busStopId=0L;
+  bufferedReader.readLine();
+  for (String line=bufferedReader.readLine(); line != null; line=bufferedReader.readLine()) {
+    if (line.isEmpty()) {
+      continue;
+    }
+    String[] lineTokens=splitBySemicolonSeparatedValue(line,8);
+    String busStopType=lineTokens[0];
+    String name=lineTokens[1];
+    if (busStopType.equalsIgnoreCase("HUB")) {
+      if (solution.getBusHub() != null) {
+        throw new IllegalArgumentException("The hub with name (" + name + ") is not the only hub ("+ solution.getBusHub().getName()+ ").");
+      }
+      BusHub hub=new BusHub();
+      hub.setId(busStopId);
+      busStopId++;
+      hub.setName(name);
+      double latitude=Double.parseDouble(lineTokens[4]);
+      double longitude=Double.parseDouble(lineTokens[5]);
+      RoadLocation location=latLongToLocationMap.get(Arrays.asList(latitude,longitude));
+      if (location == null) {
+        throw new IllegalArgumentException("The bus stop with name (" + name + ") has a coordinate ("+ latitude+ ", "+ longitude+ ") which is not in the coordinates file.");
+      }
+      hub.setLocation(location);
+      int passengerQuantity=Integer.parseInt(lineTokens[6]);
+      if (passengerQuantity != 0) {
+        throw new IllegalArgumentException("The hub with name (" + name + ") has an unsupported passengerQuantity ("+ passengerQuantity+ ").");
+      }
+      int transportTimeLimit=Integer.parseInt(lineTokens[7]);
+      if (transportTimeLimit != 0) {
+        throw new IllegalArgumentException("The hub with name (" + name + ") has an unsupported transportTimeLimit ("+ transportTimeLimit+ ").");
+      }
+      solution.setBusHub(hub);
+    }
+ else     if (busStopType.equalsIgnoreCase("BUSSTOP")) {
+      BusStop busStop=new BusStop();
+      busStop.setId(busStopId);
+      busStopId++;
+      busStop.setName(name);
+      double latitude=Double.parseDouble(lineTokens[4]);
+      double longitude=Double.parseDouble(lineTokens[5]);
+      RoadLocation location=latLongToLocationMap.get(Arrays.asList(latitude,longitude));
+      if (location == null) {
+        throw new IllegalArgumentException("The bus stop with name (" + name + ") has a coordinate ("+ latitude+ ", "+ longitude+ ") which is not in the coordinates file.");
+      }
+      busStop.setLocation(location);
+      busStop.setPassengerQuantity(Integer.parseInt(lineTokens[6]));
+      busStop.setTransportTimeLimit(Integer.parseInt(lineTokens[7]));
+      busStopList.add(busStop);
+    }
+ else {
+      throw new IllegalArgumentException("The bus stop with name (" + name + ") has an unsupported type ("+ busStopType+ ").");
+    }
+  }
+  solution.setBusStopList(busStopList);
+}

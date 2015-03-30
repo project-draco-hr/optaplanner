@@ -1,0 +1,69 @@
+{
+  File file=new File(inputFile.getParentFile(),"Fleet.csv");
+  List<Coach> coachList=new ArrayList<Coach>();
+  List<Shuttle> shuttleList=new ArrayList<Shuttle>();
+  long busId=0L;
+  BufferedReader subBufferedReader=null;
+  try {
+    subBufferedReader=new BufferedReader(new InputStreamReader(new FileInputStream(file),"UTF-8"));
+    subBufferedReader.readLine();
+    for (String line=subBufferedReader.readLine(); line != null; line=subBufferedReader.readLine()) {
+      if (line.isEmpty()) {
+        continue;
+      }
+      String[] lineTokens=splitBySemicolonSeparatedValue(line,8);
+      Bus bus;
+      String busType=lineTokens[0];
+      String name=lineTokens[1];
+      if (busType.equalsIgnoreCase("COACH")) {
+        bus=new Coach();
+        coachList.add((Coach)bus);
+      }
+ else       if (busType.equalsIgnoreCase("SHUTTLE")) {
+        bus=new Shuttle();
+        shuttleList.add((Shuttle)bus);
+      }
+ else {
+        throw new IllegalArgumentException("The fleet vehicle with name (" + name + ") has an unsupported type ("+ busType+ ").");
+      }
+      bus.setId(busId);
+      busId++;
+      bus.setName(name);
+      bus.setCapacity(Integer.parseInt(lineTokens[2]));
+      int stopLimit=Integer.parseInt(lineTokens[3]);
+      if (bus instanceof Coach) {
+        ((Coach)bus).setStopLimit(stopLimit);
+      }
+ else {
+        if (stopLimit != -1) {
+          throw new IllegalArgumentException("The shuttle with name (" + name + ") has an unsupported stopLimit ("+ stopLimit+ ").");
+        }
+      }
+      bus.setMileageCost(Integer.parseInt(lineTokens[4]));
+      int setupCost=Integer.parseInt(lineTokens[5]);
+      if (bus instanceof Coach) {
+        if (setupCost != 0) {
+          throw new IllegalArgumentException("The coach with name (" + name + ") has an unsupported setupCost ("+ setupCost+ ").");
+        }
+      }
+ else {
+        ((Shuttle)bus).setSetupCost(setupCost);
+      }
+      double latitude=Double.parseDouble(lineTokens[6]);
+      double longitude=Double.parseDouble(lineTokens[7]);
+      RoadLocation location=latLongToLocationMap.get(Arrays.asList(latitude,longitude));
+      if (location == null) {
+        throw new IllegalArgumentException("The fleet vehicle with name (" + name + ") has a coordinate ("+ latitude+ ", "+ longitude+ ") which is not in the coordinates file.");
+      }
+      bus.setDepartureLocation(location);
+    }
+  }
+ catch (  IOException e) {
+    throw new IllegalArgumentException("Could not read the file (" + file.getName() + ").",e);
+  }
+ finally {
+    IOUtils.closeQuietly(subBufferedReader);
+  }
+  solution.setCoachList(coachList);
+  solution.setShuttleList(shuttleList);
+}
