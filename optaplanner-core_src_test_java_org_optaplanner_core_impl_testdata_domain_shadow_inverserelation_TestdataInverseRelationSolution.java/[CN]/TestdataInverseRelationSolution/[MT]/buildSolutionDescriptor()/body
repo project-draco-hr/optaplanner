@@ -1,0 +1,3 @@
+{
+  return TestdataUtils.buildSolutionDescriptor(TestdataInverseRelationSolution.class,TestdataInverseRelationEntity.class,TestdataInverseRelationValue.class);
+}

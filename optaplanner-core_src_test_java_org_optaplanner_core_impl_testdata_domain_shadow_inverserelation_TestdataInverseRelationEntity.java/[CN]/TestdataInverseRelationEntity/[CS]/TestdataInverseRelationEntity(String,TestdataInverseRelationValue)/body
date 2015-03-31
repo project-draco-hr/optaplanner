@@ -1,0 +1,7 @@
+{
+  this(code);
+  this.value=value;
+  if (value != null) {
+    value.getEntities().add(this);
+  }
+}

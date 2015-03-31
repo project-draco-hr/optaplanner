@@ -1,0 +1,27 @@
+{
+  GenuineVariableDescriptor variableDescriptor=TestdataEntity.buildVariableDescriptorForValue();
+  ScoreDirector scoreDirector=mock(ScoreDirector.class);
+  ExternalizedCollectionInverseVariableSupply supply=new ExternalizedCollectionInverseVariableSupply(variableDescriptor);
+  TestdataValue val1=new TestdataValue("1");
+  TestdataValue val2=new TestdataValue("2");
+  TestdataValue val3=new TestdataValue("3");
+  TestdataEntity a=new TestdataEntity("a",val1);
+  TestdataEntity b=new TestdataEntity("b",val1);
+  TestdataEntity c=new TestdataEntity("c",val3);
+  TestdataEntity d=new TestdataEntity("d",val3);
+  TestdataSolution solution=new TestdataSolution("solution");
+  solution.setEntityList(Arrays.asList(a,b,c,d));
+  solution.setValueList(Arrays.asList(val1,val2,val3));
+  when(scoreDirector.getWorkingSolution()).thenReturn(solution);
+  supply.resetWorkingSolution(scoreDirector);
+  assertCollectionContainsExactly((Collection<Object>)supply.getInverseCollection(val1),a,b);
+  assertCollectionContainsExactly((Collection<Object>)supply.getInverseCollection(val2));
+  assertCollectionContainsExactly((Collection<Object>)supply.getInverseCollection(val3),c,d);
+  supply.beforeVariableChanged(scoreDirector,c);
+  c.setValue(val2);
+  supply.afterVariableChanged(scoreDirector,c);
+  assertCollectionContainsExactly((Collection<Object>)supply.getInverseCollection(val1),a,b);
+  assertCollectionContainsExactly((Collection<Object>)supply.getInverseCollection(val2),c);
+  assertCollectionContainsExactly((Collection<Object>)supply.getInverseCollection(val3),d);
+  supply.clearWorkingSolution(scoreDirector);
+}

@@ -1,0 +1,4 @@
+{
+  SolutionDescriptor solutionDescriptor=TestdataInverseRelationSolution.buildSolutionDescriptor();
+  return solutionDescriptor.findEntityDescriptorOrFail(TestdataInverseRelationEntity.class);
+}

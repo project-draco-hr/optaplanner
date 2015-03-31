@@ -1,0 +1,5 @@
+{
+  SolutionDescriptor solutionDescriptor=TestdataInverseRelationSolution.buildSolutionDescriptor();
+  EntityDescriptor entityDescriptor=solutionDescriptor.findEntityDescriptorOrFail(TestdataInverseRelationEntity.class);
+  return entityDescriptor.getGenuineVariableDescriptor("value");
+}
