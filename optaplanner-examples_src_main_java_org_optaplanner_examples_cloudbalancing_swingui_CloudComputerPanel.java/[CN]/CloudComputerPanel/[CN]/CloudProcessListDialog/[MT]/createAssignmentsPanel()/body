@@ -33,5 +33,7 @@
     assignmentsPanel.add(cloudBalancingPanel.createButton(process));
     colorIndex=(colorIndex + 1) % TangoColorFactory.SEQUENCE_1.length;
   }
-  return assignmentsPanel;
+  JPanel fillerAssignmentsPanel=new JPanel(new BorderLayout());
+  fillerAssignmentsPanel.add(assignmentsPanel,BorderLayout.NORTH);
+  return fillerAssignmentsPanel;
 }
