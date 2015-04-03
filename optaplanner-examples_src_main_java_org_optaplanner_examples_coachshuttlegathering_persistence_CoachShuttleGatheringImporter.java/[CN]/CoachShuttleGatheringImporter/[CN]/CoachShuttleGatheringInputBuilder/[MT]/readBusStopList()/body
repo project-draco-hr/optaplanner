@@ -10,8 +10,8 @@
     String busStopType=lineTokens[0];
     String name=lineTokens[1];
     if (busStopType.equalsIgnoreCase("HUB")) {
-      if (solution.getBusHub() != null) {
-        throw new IllegalArgumentException("The hub with name (" + name + ") is not the only hub ("+ solution.getBusHub().getName()+ ").");
+      if (solution.getHub() != null) {
+        throw new IllegalArgumentException("The hub with name (" + name + ") is not the only hub ("+ solution.getHub().getName()+ ").");
       }
       BusHub hub=new BusHub();
       hub.setId(busStopId);
@@ -32,7 +32,7 @@
       if (transportTimeLimit != 0) {
         throw new IllegalArgumentException("The hub with name (" + name + ") has an unsupported transportTimeLimit ("+ transportTimeLimit+ ").");
       }
-      solution.setBusHub(hub);
+      solution.setHub(hub);
     }
  else     if (busStopType.equalsIgnoreCase("BUSSTOP")) {
       BusStop busStop=new BusStop();

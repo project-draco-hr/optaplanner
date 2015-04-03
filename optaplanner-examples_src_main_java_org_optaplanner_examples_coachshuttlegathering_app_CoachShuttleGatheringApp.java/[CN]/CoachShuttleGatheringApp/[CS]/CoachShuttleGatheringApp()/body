@@ -1,0 +1,3 @@
+{
+  super("Coach shuttle gathering","Transport passengers to a hub by using coaches and shuttles.",CoachShuttleGatheringPanel.LOGO_PATH);
+}

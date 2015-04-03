@@ -1,0 +1,5 @@
+{
+  this.visit=visit;
+  this.hubAngle=hubAngle;
+  this.hubRoundTripDistance=hubRoundTripDistance;
+}

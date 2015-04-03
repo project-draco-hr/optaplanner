@@ -1,0 +1,31 @@
+{
+  List<Coach> coachList=solution.getCoachList();
+  List<Shuttle> shuttleList=solution.getShuttleList();
+  List<BusStartPoint> startPointList=new ArrayList<BusStartPoint>(coachList.size() + shuttleList.size());
+  long entityId=0L;
+  for (  Coach coach : coachList) {
+    BusStartPoint startPoint=new BusStartPoint();
+    startPoint.setId(entityId);
+    entityId++;
+    startPoint.setBus(coach);
+    startPointList.add(startPoint);
+  }
+  for (  Shuttle shuttle : shuttleList) {
+    BusStartPoint startPoint=new BusStartPoint();
+    startPoint.setId(entityId);
+    entityId++;
+    startPoint.setBus(shuttle);
+    startPointList.add(startPoint);
+  }
+  solution.setStartPointList(startPointList);
+  List<BusStop> busStopList=solution.getBusStopList();
+  List<BusVisit> visitList=new ArrayList<BusVisit>(busStopList.size());
+  for (  BusStop busStop : busStopList) {
+    BusVisit visit=new BusVisit();
+    visit.setId(entityId);
+    entityId++;
+    visit.setBusStop(busStop);
+    visitList.add(visit);
+  }
+  solution.setVisitList(visitList);
+}

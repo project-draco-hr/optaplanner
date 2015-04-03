@@ -1,5 +1,5 @@
 {
-  double latitudeDifference=roadLocation.latitude - latitude;
-  double longitudeDifference=roadLocation.longitude - longitude;
+  double latitudeDifference=location.latitude - latitude;
+  double longitudeDifference=location.longitude - longitude;
   return Math.atan2(latitudeDifference,longitudeDifference);
 }

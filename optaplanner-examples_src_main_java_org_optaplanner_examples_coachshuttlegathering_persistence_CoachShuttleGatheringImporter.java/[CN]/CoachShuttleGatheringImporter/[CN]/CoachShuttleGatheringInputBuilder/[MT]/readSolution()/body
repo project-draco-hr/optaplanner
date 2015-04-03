@@ -4,6 +4,7 @@
   readLocationList();
   readBusList();
   readBusStopList();
+  createStartPointListAndVisitList();
   int busListSize=solution.getCoachList().size() + solution.getShuttleList().size();
   int base=solution.getBusStopList().size() + solution.getShuttleList().size();
   BigInteger possibleSolutionSize=factorial(base + busListSize - 1).divide(factorial(busListSize - 1));

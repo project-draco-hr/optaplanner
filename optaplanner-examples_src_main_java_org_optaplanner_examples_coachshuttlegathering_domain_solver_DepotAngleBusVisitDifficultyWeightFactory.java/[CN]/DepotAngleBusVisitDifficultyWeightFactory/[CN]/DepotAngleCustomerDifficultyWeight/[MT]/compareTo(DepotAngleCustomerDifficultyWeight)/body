@@ -1,0 +1,3 @@
+{
+  return new CompareToBuilder().append(hubAngle,other.hubAngle).append(hubRoundTripDistance,other.hubRoundTripDistance).append(visit.getId(),other.visit.getId()).toComparison();
+}

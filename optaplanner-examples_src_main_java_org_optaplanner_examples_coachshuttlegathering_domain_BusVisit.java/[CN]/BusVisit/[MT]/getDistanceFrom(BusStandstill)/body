@@ -1,0 +1,3 @@
+{
+  return standstill.getLocation().getDistanceTo(getLocation());
+}

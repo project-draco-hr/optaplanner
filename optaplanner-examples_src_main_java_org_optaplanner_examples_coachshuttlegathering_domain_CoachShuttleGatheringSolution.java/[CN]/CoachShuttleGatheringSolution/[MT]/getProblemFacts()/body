@@ -3,7 +3,7 @@
   facts.addAll(locationList);
   facts.addAll(coachList);
   facts.addAll(shuttleList);
-  facts.add(busHub);
+  facts.add(hub);
   facts.addAll(busStopList);
   return facts;
 }
