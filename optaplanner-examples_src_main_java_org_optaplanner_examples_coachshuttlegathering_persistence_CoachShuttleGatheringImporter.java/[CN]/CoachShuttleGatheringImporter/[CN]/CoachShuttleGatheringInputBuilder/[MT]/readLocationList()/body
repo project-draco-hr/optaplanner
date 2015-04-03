@@ -28,4 +28,13 @@
     IOUtils.closeQuietly(subBufferedReader);
   }
   solution.setLocationList(locationList);
+  for (  RoadLocation sourceLocation : locationList) {
+    LinkedHashMap<RoadLocation,RoadLocationArc> travelDistanceMap=new LinkedHashMap<RoadLocation,RoadLocationArc>(locationList.size());
+    for (    RoadLocation targetLocation : locationList) {
+      travelDistanceMap.put(targetLocation,new RoadLocationArc());
+    }
+    sourceLocation.setTravelDistanceMap(travelDistanceMap);
+  }
+  readLocationDistancesCoaches();
+  readLocationDistancesShuttles();
 }

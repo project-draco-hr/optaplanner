@@ -1,0 +1,4 @@
+{
+  RoadLocationArc locationArc=travelDistanceMap.get(location);
+  return Math.max(locationArc.getCoachDistance(),locationArc.getShuttleDistance());
+}
