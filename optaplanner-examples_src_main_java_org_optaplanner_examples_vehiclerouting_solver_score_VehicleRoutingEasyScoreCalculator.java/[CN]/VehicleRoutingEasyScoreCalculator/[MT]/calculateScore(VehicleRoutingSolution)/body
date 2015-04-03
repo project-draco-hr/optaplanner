@@ -15,7 +15,7 @@
       vehicleDemandMap.put(vehicle,vehicleDemandMap.get(vehicle) + customer.getDemand());
       softScore-=customer.getDistanceFromPreviousStandstill();
       if (customer.getNextCustomer() == null) {
-        softScore-=customer.getLocation().getDistance(vehicle.getLocation());
+        softScore-=customer.getLocation().getDistanceTo(vehicle.getLocation());
       }
       if (timeWindowed) {
         TimeWindowedCustomer timeWindowedCustomer=(TimeWindowedCustomer)customer;

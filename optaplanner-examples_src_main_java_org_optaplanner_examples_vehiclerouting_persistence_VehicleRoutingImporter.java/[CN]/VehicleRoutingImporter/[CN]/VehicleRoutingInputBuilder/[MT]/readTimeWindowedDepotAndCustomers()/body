@@ -39,7 +39,7 @@
       customer.setLocation(location);
       customer.setDemand(demand);
       customer.setReadyTime(readyTime);
-      int maximumDueTime=depot.getDueTime() - serviceDuration - location.getDistance(depot.getLocation());
+      int maximumDueTime=depot.getDueTime() - serviceDuration - location.getDistanceTo(depot.getLocation());
       if (dueTime > maximumDueTime) {
         logger.warn("The customer ({})'s dueTime ({}) was automatically reduced" + " to maximumDueTime ({}) because of the depot's dueTime ({}).",customer,dueTime,maximumDueTime,depot.getDueTime());
         dueTime=maximumDueTime;

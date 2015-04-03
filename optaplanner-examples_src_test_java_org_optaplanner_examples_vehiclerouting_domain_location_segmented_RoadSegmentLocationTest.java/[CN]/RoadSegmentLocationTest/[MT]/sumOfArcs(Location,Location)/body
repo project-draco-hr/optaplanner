@@ -2,7 +2,7 @@
   Location previousLocation=fromLocation;
   int distance=0;
   for (  Location stopLocation : stopLocations) {
-    distance+=(int)(previousLocation.getAirDistanceDouble(stopLocation) * 1000.0 + 0.5);
+    distance+=(int)(previousLocation.getAirDistanceDoubleTo(stopLocation) * 1000.0 + 0.5);
     previousLocation=stopLocation;
   }
   return distance;
