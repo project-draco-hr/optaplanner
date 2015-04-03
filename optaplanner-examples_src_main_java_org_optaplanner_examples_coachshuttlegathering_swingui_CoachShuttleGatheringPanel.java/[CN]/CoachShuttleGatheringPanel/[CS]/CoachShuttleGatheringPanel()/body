@@ -1,2 +1,8 @@
 {
+  setLayout(new BorderLayout());
+  JTabbedPane tabbedPane=new JTabbedPane();
+  coachShuttleGatheringWorldPanel=new CoachShuttleGatheringWorldPanel(this);
+  coachShuttleGatheringWorldPanel.setPreferredSize(PREFERRED_SCROLLABLE_VIEWPORT_SIZE);
+  tabbedPane.add("World",coachShuttleGatheringWorldPanel);
+  add(tabbedPane,BorderLayout.CENTER);
 }
