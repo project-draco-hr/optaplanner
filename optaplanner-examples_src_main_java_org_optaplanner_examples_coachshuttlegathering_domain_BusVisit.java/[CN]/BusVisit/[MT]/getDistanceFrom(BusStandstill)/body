@@ -1,5 +1,0 @@
-{
-  RoadLocation sourceLocation=standstill.getLocation();
-  RoadLocation targetLocation=getLocation();
-  return startPoint.isCoach() ? sourceLocation.getCoachDistanceTo(targetLocation) : sourceLocation.getShuttleDistanceTo(targetLocation);
-}

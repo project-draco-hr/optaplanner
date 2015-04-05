@@ -2,7 +2,6 @@
   File file=new File(inputFile.getParentFile(),"Fleet.csv");
   List<Coach> coachList=new ArrayList<Coach>();
   List<Shuttle> shuttleList=new ArrayList<Shuttle>();
-  long busId=0L;
   BufferedReader subBufferedReader=null;
   try {
     subBufferedReader=new BufferedReader(new InputStreamReader(new FileInputStream(file),"UTF-8"));
@@ -26,8 +25,8 @@
  else {
         throw new IllegalArgumentException("The fleet vehicle with name (" + name + ") has an unsupported type ("+ busType+ ").");
       }
-      bus.setId(busId);
-      busId++;
+      bus.setId(busOrStopOrHubId);
+      busOrStopOrHubId++;
       bus.setName(name);
       bus.setCapacity(Integer.parseInt(lineTokens[2]));
       int stopLimit=Integer.parseInt(lineTokens[3]);

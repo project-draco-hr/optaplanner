@@ -1,0 +1,4 @@
+{
+  BusHub hub=solution.getHub();
+  return new DepotAngleCustomerDifficultyWeight(stop,stop.getLocation().getAngle(hub.getLocation()),stop.getLocation().getMaximumDistanceTo(hub.getLocation()) + hub.getLocation().getMaximumDistanceTo(stop.getLocation()));
+}

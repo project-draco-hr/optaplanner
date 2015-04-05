@@ -1,0 +1,6 @@
+{
+  if (previousBusOrStop == null) {
+    return 0;
+  }
+  return getDistanceFrom(previousBusOrStop) * bus.getMileageCost();
+}

@@ -1,3 +1,0 @@
-{
-  return isCoach() ? 0 : ((Shuttle)bus).getSetupCost();
-}

@@ -1,6 +1,5 @@
 {
   List<BusStop> busStopList=new ArrayList<BusStop>();
-  long busStopId=0L;
   bufferedReader.readLine();
   for (String line=bufferedReader.readLine(); line != null; line=bufferedReader.readLine()) {
     if (line.isEmpty()) {
@@ -14,8 +13,8 @@
         throw new IllegalArgumentException("The hub with name (" + name + ") is not the only hub ("+ solution.getHub().getName()+ ").");
       }
       BusHub hub=new BusHub();
-      hub.setId(busStopId);
-      busStopId++;
+      hub.setId(busOrStopOrHubId);
+      busOrStopOrHubId++;
       hub.setName(name);
       double latitude=Double.parseDouble(lineTokens[4]);
       double longitude=Double.parseDouble(lineTokens[5]);
@@ -36,8 +35,8 @@
     }
  else     if (busStopType.equalsIgnoreCase("BUSSTOP")) {
       BusStop busStop=new BusStop();
-      busStop.setId(busStopId);
-      busStopId++;
+      busStop.setId(busOrStopOrHubId);
+      busOrStopOrHubId++;
       busStop.setName(name);
       double latitude=Double.parseDouble(lineTokens[4]);
       double longitude=Double.parseDouble(lineTokens[5]);
@@ -54,5 +53,5 @@
       throw new IllegalArgumentException("The bus stop with name (" + name + ") has an unsupported type ("+ busStopType+ ").");
     }
   }
-  solution.setBusStopList(busStopList);
+  solution.setStopList(busStopList);
 }

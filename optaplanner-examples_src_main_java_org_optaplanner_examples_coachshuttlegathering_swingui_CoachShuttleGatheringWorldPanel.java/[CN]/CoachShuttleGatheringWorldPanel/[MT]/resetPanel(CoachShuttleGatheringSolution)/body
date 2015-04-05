@@ -9,30 +9,25 @@
   translator.prepareFor(width,height);
   Graphics2D g=createCanvas(width,height);
   g.setColor(TangoColorFactory.ALUMINIUM_6);
-  BusHub hub=solution.getHub();
-  int hubX=translator.translateLongitudeToX(hub.getLocation().getLongitude());
-  int hubY=translator.translateLatitudeToY(hub.getLocation().getLatitude());
-  g.fillRect(hubX - 2,hubY - 2,5,5);
-  for (  BusVisit visit : solution.getVisitList()) {
-    RoadLocation location=visit.getLocation();
-    int x=translator.translateLongitudeToX(location.getLongitude());
-    int y=translator.translateLatitudeToY(location.getLatitude());
-    g.setColor(TangoColorFactory.ALUMINIUM_4);
-    g.fillRect(x - 1,y - 1,3,3);
+  RoadLocation hubLocation=solution.getHub().getLocation();
+  translator.drawSquare(g,hubLocation.getLongitude(),hubLocation.getLatitude(),5);
+  g.setColor(TangoColorFactory.ALUMINIUM_4);
+  for (  BusStop stop : solution.getStopList()) {
+    RoadLocation location=stop.getLocation();
+    translator.drawSquare(g,location.getLongitude(),location.getLatitude(),3);
   }
-  for (  BusStartPoint startPoint : solution.getStartPointList()) {
-    RoadLocation location=startPoint.getLocation();
-    int x=translator.translateLongitudeToX(location.getLongitude());
-    int y=translator.translateLatitudeToY(location.getLatitude());
-    g.setColor(TangoColorFactory.ALUMINIUM_2);
-    g.fillRect(x - 1,y - 1,3,3);
+  List<Bus> busList=solution.getBusList();
+  g.setColor(TangoColorFactory.ALUMINIUM_2);
+  for (  Bus bus : busList) {
+    RoadLocation location=bus.getLocation();
+    translator.drawSquare(g,location.getLongitude(),location.getLatitude(),3);
   }
   int colorIndex=0;
-  for (  BusStartPoint startPoint : solution.getStartPointList()) {
+  for (  Bus bus : busList) {
     g.setColor(TangoColorFactory.SEQUENCE_2[colorIndex]);
-    for (BusVisit visit=startPoint.getNextVisit(); visit != null; visit=visit.getNextVisit()) {
-      RoadLocation previousLocation=visit.getPreviousStandstill().getLocation();
-      RoadLocation location=visit.getLocation();
+    for (BusStop stop=bus.getNextStop(); stop != null; stop=stop.getNextStop()) {
+      RoadLocation previousLocation=stop.getPreviousBusOrStop().getLocation();
+      RoadLocation location=stop.getLocation();
       translator.drawRoute(g,previousLocation.getLongitude(),previousLocation.getLatitude(),location.getLongitude(),location.getLatitude(),false,false);
     }
     colorIndex=(colorIndex + 1) % TangoColorFactory.SEQUENCE_2.length;

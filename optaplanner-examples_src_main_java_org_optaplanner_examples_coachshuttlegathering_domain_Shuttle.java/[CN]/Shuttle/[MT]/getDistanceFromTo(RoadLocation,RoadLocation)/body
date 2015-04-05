@@ -1,0 +1,3 @@
+{
+  return sourceLocation.getShuttleDistanceTo(targetLocation);
+}
