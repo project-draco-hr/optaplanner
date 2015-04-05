@@ -1,0 +1,8 @@
+{
+  int x=translateLongitudeToX(lon);
+  int y=translateLatitudeToY(lat);
+  g.fillRect(x - (diameter / 2),y - (diameter / 2),diameter,diameter);
+  if (label != null) {
+    g.drawString(label,x + diameter,y - diameter);
+  }
+}

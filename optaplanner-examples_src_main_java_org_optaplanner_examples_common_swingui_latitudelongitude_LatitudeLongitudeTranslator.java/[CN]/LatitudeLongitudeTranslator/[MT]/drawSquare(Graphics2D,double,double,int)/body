@@ -1,5 +1,3 @@
 {
-  int x=translateLongitudeToX(lon);
-  int y=translateLatitudeToY(lat);
-  g.fillRect(x - (diameter / 2),y - (diameter / 2),diameter,diameter);
+  drawSquare(g,lon,lat,diameter,null);
 }

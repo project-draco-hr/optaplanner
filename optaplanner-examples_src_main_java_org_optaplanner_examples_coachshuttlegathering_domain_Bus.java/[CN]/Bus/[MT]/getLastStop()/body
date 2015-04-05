@@ -1,0 +1,7 @@
+{
+  BusStop lastStop=null;
+  for (BusStop stop=nextStop; stop != null; stop=stop.getNextStop()) {
+    lastStop=stop;
+  }
+  return lastStop;
+}
