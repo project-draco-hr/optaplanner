@@ -1,5 +1,5 @@
 {
-  this.stop=stop;
+  this.busOrStop=busOrStop;
   this.hubAngle=hubAngle;
   this.hubRoundTripDistance=hubRoundTripDistance;
 }
