@@ -1,0 +1,12 @@
+{
+  bufferedWriter.append("VEHICLE_ID;TOUR_POSITION;LOCATION_ID;LOCATION_TYPE\n");
+  for (  Bus bus : solution.getBusList()) {
+    int i=1;
+    for (BusStop stop=bus.getNextStop(); stop != null; stop=stop.getNextStop()) {
+      bufferedWriter.append(bus.getName()).append(";").append(Integer.toString(i)).append(";").append(stop.getName()).append(";").append("BUSSTOP").append("\n");
+      i++;
+    }
+    StopOrHub destination=bus.getDestination();
+    bufferedWriter.append(bus.getName()).append(";").append(Integer.toString(i)).append(";").append(destination.getName()).append(";").append(destination instanceof BusHub ? "HUB" : "BUSSTOP").append("\n").append("\n");
+  }
+}
