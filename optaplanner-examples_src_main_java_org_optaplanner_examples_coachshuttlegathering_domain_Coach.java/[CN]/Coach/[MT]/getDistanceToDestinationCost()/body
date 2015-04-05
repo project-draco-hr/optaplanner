@@ -1,0 +1,3 @@
+{
+  return getDistanceFromTo(departureLocation,destination.getLocation()) * getMileageCost();
+}

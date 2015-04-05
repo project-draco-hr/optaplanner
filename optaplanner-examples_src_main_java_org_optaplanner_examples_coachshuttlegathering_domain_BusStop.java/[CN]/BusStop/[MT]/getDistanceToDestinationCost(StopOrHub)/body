@@ -1,0 +1,3 @@
+{
+  return bus.getDistanceFromTo(location,destination.getLocation()) * bus.getMileageCost();
+}
