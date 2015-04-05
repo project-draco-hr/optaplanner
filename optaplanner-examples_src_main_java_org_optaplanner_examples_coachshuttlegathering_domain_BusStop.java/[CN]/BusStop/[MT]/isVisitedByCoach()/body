@@ -1,0 +1,3 @@
+{
+  return bus != null && bus instanceof Coach;
+}
