@@ -1,0 +1,4 @@
+ScoreDirector scoreDirector
+BusStop sourceStop
+Bus bus
+Integer transportTimeToHub

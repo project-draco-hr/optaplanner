@@ -1,0 +1,4 @@
+ScoreDirector scoreDirector
+StopOrHub parentStop
+Integer parentTransportTimeToHub
+Shuttle shuttle

@@ -2,4 +2,7 @@
   if (busOrStop instanceof BusStop) {
     updateTransportTimeToHub(scoreDirector,(BusStop)busOrStop);
   }
+ else   if (busOrStop instanceof Shuttle) {
+    updateTransportTimeToHubOfShuttle(scoreDirector,(Shuttle)busOrStop);
+  }
 }

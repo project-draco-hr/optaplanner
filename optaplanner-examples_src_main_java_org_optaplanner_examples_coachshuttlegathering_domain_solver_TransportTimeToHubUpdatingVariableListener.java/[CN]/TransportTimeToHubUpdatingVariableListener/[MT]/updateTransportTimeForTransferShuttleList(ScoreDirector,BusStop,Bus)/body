@@ -1,0 +1,13 @@
+{
+  List<Shuttle> transferShuttleList=parentStop.getTransferShuttleList();
+  if (transferShuttleList.isEmpty()) {
+    return;
+  }
+  Integer parentTransportTimeToHub=parentStop.getTransportTimeToHub();
+  if (parentBus instanceof Shuttle) {
+    parentTransportTimeToHub=null;
+  }
+  for (  Shuttle shuttle : transferShuttleList) {
+    updateTransportTimeToHubOfShuttle(scoreDirector,parentStop,parentTransportTimeToHub,shuttle);
+  }
+}

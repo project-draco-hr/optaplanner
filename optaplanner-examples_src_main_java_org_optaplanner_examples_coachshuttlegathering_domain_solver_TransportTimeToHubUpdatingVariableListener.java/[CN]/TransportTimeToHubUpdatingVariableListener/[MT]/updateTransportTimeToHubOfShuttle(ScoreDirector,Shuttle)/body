@@ -1,0 +1,5 @@
+{
+  StopOrHub destination=shuttle.getDestination();
+  Integer destinationTransportTimeToHub=(destination == null) ? null : destination.getTransportTimeToHub();
+  updateTransportTimeToHubOfShuttle(scoreDirector,destination,destinationTransportTimeToHub,shuttle);
+}
