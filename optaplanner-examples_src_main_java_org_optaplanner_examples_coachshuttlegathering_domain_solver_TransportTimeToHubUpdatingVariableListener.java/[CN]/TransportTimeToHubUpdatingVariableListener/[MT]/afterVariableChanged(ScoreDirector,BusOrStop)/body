@@ -1,0 +1,5 @@
+{
+  if (busOrStop instanceof BusStop) {
+    updateTransportTimeToHub(scoreDirector,(BusStop)busOrStop);
+  }
+}

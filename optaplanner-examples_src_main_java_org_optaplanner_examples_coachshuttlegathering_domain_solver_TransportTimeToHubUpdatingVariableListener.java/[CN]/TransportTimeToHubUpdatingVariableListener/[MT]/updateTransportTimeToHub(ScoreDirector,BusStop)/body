@@ -1,0 +1,32 @@
+{
+  Bus bus=sourceStop.getBus();
+  Integer transportTimeToHub;
+  if (bus == null) {
+    transportTimeToHub=null;
+  }
+ else {
+    StopOrHub next=sourceStop.getNextStop();
+    if (next == null) {
+      next=bus.getDestination();
+    }
+    transportTimeToHub=(next == null) ? null : next.getTransportTimeToHub();
+    if (transportTimeToHub != null) {
+      transportTimeToHub+=bus.getDurationFromTo(sourceStop.getLocation(),next.getLocation());
+    }
+  }
+  scoreDirector.beforeVariableChanged(sourceStop,"transportTimeToHub");
+  sourceStop.setTransportTimeToHub(transportTimeToHub);
+  scoreDirector.afterVariableChanged(sourceStop,"transportTimeToHub");
+  BusStop toStop=sourceStop;
+  for (BusOrStop busOrStop=sourceStop.getPreviousBusOrStop(); busOrStop instanceof BusStop; ) {
+    BusStop stop=(BusStop)busOrStop;
+    if (transportTimeToHub != null) {
+      transportTimeToHub+=bus.getDurationFromTo(stop.getLocation(),toStop.getLocation());
+    }
+    scoreDirector.beforeVariableChanged(stop,"transportTimeToHub");
+    stop.setTransportTimeToHub(transportTimeToHub);
+    scoreDirector.afterVariableChanged(stop,"transportTimeToHub");
+    toStop=stop;
+    busOrStop=stop.getPreviousBusOrStop();
+  }
+}
