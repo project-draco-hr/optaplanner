@@ -1,0 +1,9 @@
+{
+  if (destination == null) {
+    return null;
+  }
+  if (!(destination instanceof BusStop)) {
+    return null;
+  }
+  return ((BusStop)destination).getBus();
+}
