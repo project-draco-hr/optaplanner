@@ -8,8 +8,16 @@
     StopOrHub next=sourceStop.getNextStop();
     if (next == null) {
       next=bus.getDestination();
+      if (next instanceof BusStop && ((BusStop)next).getBus() instanceof Shuttle) {
+        transportTimeToHub=null;
+      }
+ else {
+        transportTimeToHub=(next == null) ? null : next.getTransportTimeToHub();
+      }
     }
-    transportTimeToHub=(next == null) ? null : next.getTransportTimeToHub();
+ else {
+      transportTimeToHub=next.getTransportTimeToHub();
+    }
     if (transportTimeToHub != null) {
       transportTimeToHub+=bus.getDurationFromTo(sourceStop.getLocation(),next.getLocation());
     }
