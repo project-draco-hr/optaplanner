@@ -1,0 +1,9 @@
+{
+  if (transportTimeToHub == null) {
+    return null;
+  }
+  if (passengerQuantity <= 0) {
+    return 0;
+  }
+  return transportTimeLimit - transportTimeToHub;
+}

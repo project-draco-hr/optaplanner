@@ -1,0 +1,6 @@
+{
+  if (passengerQuantity <= 0) {
+    return null;
+  }
+  return (transportTimeToHub == null ? "inf" : transportTimeToHub.toString()) + "/" + transportTimeLimit;
+}
