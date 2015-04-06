@@ -6,7 +6,9 @@
       bufferedWriter.append(bus.getName()).append(";").append(Integer.toString(i)).append(";").append(stop.getName()).append(";").append("BUSSTOP").append("\n");
       i++;
     }
-    StopOrHub destination=bus.getDestination();
-    bufferedWriter.append(bus.getName()).append(";").append(Integer.toString(i)).append(";").append(destination.getName()).append(";").append(destination instanceof BusHub ? "HUB" : "BUSSTOP").append("\n").append("\n");
+    if (i > 1 || bus instanceof Coach) {
+      StopOrHub destination=bus.getDestination();
+      bufferedWriter.append(bus.getName()).append(";").append(Integer.toString(i)).append(";").append(destination.getName()).append(";").append(destination instanceof BusHub ? "HUB" : "BUSSTOP").append("\n").append("\n");
+    }
   }
 }
