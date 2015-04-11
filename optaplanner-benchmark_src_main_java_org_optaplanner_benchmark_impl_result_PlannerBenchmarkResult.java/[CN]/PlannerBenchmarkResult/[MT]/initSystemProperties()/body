@@ -1,5 +1,6 @@
 {
   availableProcessors=Runtime.getRuntime().availableProcessors();
+  loggingLevel=resolveLoggingLevel();
   maxMemory=Runtime.getRuntime().maxMemory();
   optaPlannerVersion=SolverFactory.class.getPackage().getImplementationVersion();
   if (optaPlannerVersion == null) {
