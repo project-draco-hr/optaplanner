@@ -1,0 +1,21 @@
+{
+  Logger logger=LoggerFactory.getLogger("org.optaplanner");
+  if (logger.isTraceEnabled()) {
+    return "trace";
+  }
+ else   if (logger.isDebugEnabled()) {
+    return "debug";
+  }
+ else   if (logger.isInfoEnabled()) {
+    return "info";
+  }
+ else   if (logger.isWarnEnabled()) {
+    return "warn";
+  }
+ else   if (logger.isErrorEnabled()) {
+    return "error";
+  }
+ else {
+    throw new IllegalStateException("Logging level for category (org.optaplanner) cannot be determined.");
+  }
+}
