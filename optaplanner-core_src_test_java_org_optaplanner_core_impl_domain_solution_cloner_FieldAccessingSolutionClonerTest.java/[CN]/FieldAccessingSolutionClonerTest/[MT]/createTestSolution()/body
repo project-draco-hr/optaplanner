@@ -1,0 +1,14 @@
+{
+  TestSolution s=new TestSolution();
+  s.vehicles=new ArrayList<TestVehicle>();
+  s.vehicles.add(new TestVehicle());
+  s.workloads=new ArrayList<TestWorkload>();
+  s.workloads.add(new TestWorkload());
+  s.workloads.add(new TestWorkload());
+  s.workloads.get(0).setPreviousStandstill(s.workloads.get(1));
+  s.workloads.get(1).setPreviousStandstill(s.vehicles.get(0));
+  s.workloads.get(0).id="W1";
+  s.workloads.get(1).id="W2";
+  s.vehicles.get(0).id="V1";
+  return s;
+}

@@ -15,4 +15,7 @@
   if (assertInitialScoreFromScratch) {
     scoreDirector.assertWorkingScoreFromScratch(score,"Initial score calculated");
   }
+  if (assertVariableListenersDoNotAffectInitialScore) {
+    scoreDirector.assertVariableListenersDoNotAffectWorkingScore(score);
+  }
 }
