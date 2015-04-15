@@ -1,0 +1,5 @@
+{
+  SolutionDescriptor solutionDescriptor=TestdataExtendedThirdPartySolution.buildSolutionDescriptor();
+  EntityDescriptor entityDescriptor=solutionDescriptor.findEntityDescriptorOrFail(TestdataThirdPartyEntityPojo.class);
+  return entityDescriptor.getGenuineVariableDescriptor("value");
+}

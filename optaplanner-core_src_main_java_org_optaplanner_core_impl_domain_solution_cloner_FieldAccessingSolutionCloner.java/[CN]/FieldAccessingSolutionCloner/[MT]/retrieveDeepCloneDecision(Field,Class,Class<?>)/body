@@ -1,0 +1,12 @@
+{
+  Pair<Field,Class> pair=Pair.of(field,fieldInstanceClass);
+  Boolean deepCloneDecision=deepCloneDecisionFieldCache.get(pair);
+  if (deepCloneDecision == null) {
+    deepCloneDecision=isFieldDeepCloned(field,fieldInstanceClass);
+    deepCloneDecisionFieldCache.put(pair,deepCloneDecision);
+  }
+  if (deepCloneDecision) {
+    return true;
+  }
+  return retrieveDeepCloneDecisionForActualValueClass(actualValueClass);
+}

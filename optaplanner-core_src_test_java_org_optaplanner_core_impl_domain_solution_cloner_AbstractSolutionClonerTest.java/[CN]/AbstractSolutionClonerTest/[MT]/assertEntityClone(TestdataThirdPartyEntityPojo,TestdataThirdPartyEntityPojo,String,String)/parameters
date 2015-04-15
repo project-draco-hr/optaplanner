@@ -1,0 +1,4 @@
+TestdataThirdPartyEntityPojo originalEntity
+TestdataThirdPartyEntityPojo cloneEntity
+String entityCode
+String valueCode

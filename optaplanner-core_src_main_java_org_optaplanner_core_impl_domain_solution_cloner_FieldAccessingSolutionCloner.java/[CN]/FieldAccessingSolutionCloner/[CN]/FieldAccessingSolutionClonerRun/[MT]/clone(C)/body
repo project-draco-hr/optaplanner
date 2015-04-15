@@ -6,9 +6,9 @@
   if (existingClone != null) {
     return existingClone;
   }
-  Class<C> clazz=(Class<C>)original.getClass();
-  C clone=constructClone(clazz);
+  Class<C> instanceClass=(Class<C>)original.getClass();
+  C clone=constructClone(instanceClass);
   originalToCloneMap.put(original,clone);
-  copyFields(clazz,original,clone);
+  copyFields(instanceClass,instanceClass,original,clone);
   return clone;
 }

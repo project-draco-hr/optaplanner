@@ -1,0 +1,4 @@
+Class<C> clazz
+Class<? extends C> instanceClass
+C original
+C clone

@@ -1,0 +1,3 @@
+{
+  return TestdataUtils.buildSolutionDescriptor(TestdataExtendedThirdPartySolution.class,TestdataExtendedThirdPartyEntity.class);
+}

@@ -1,0 +1,11 @@
+{
+  PropertyDescriptor propertyDescriptor;
+  try {
+    propertyDescriptor=new PropertyDescriptor(field.getName(),fieldInstanceClass);
+  }
+ catch (  IntrospectionException e) {
+    return false;
+  }
+  Method readMethod=propertyDescriptor.getReadMethod();
+  return readMethod != null && readMethod.isAnnotationPresent(DeepPlanningClone.class);
+}

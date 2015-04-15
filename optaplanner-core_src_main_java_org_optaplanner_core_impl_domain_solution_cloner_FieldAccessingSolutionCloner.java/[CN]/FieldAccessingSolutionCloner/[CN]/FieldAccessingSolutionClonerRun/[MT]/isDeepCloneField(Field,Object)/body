@@ -1,6 +1,0 @@
-{
-  if (originalValue == null) {
-    return false;
-  }
-  return retrieveDeepCloneDecision(field,originalValue.getClass());
-}

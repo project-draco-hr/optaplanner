@@ -1,0 +1,12 @@
+{
+  if (solutionDescriptor.getSolutionClass().isAssignableFrom(fieldInstanceClass)) {
+    String fieldName=field.getName();
+    if (solutionDescriptor.getEntityPropertyAccessorMap().get(fieldName) != null) {
+      return true;
+    }
+    if (solutionDescriptor.getEntityCollectionPropertyAccessorMap().get(fieldName) != null) {
+      return true;
+    }
+  }
+  return false;
+}
