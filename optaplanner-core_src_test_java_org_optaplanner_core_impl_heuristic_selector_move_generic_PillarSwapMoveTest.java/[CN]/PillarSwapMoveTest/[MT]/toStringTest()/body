@@ -1,0 +1,15 @@
+{
+  TestdataValue v1=new TestdataValue("v1");
+  TestdataValue v2=new TestdataValue("v2");
+  TestdataEntity a=new TestdataEntity("a",null);
+  TestdataEntity b=new TestdataEntity("b",null);
+  TestdataEntity c=new TestdataEntity("c",v1);
+  TestdataEntity d=new TestdataEntity("d",v1);
+  TestdataEntity e=new TestdataEntity("e",v1);
+  TestdataEntity f=new TestdataEntity("f",v2);
+  TestdataEntity g=new TestdataEntity("g",v2);
+  Collection<GenuineVariableDescriptor> variableDescriptors=TestdataEntity.buildEntityDescriptor().getGenuineVariableDescriptors();
+  assertEquals("[a, b] {null} <-> [c, d, e] {v1}",new PillarSwapMove(variableDescriptors,Arrays.<Object>asList(a,b),Arrays.<Object>asList(c,d,e)).toString());
+  assertEquals("[b] {null} <-> [c] {v1}",new PillarSwapMove(variableDescriptors,Arrays.<Object>asList(b),Arrays.<Object>asList(c)).toString());
+  assertEquals("[f, g] {v2} <-> [c, d, e] {v1}",new PillarSwapMove(variableDescriptors,Arrays.<Object>asList(f,g),Arrays.<Object>asList(c,d,e)).toString());
+}

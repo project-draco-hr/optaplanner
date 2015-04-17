@@ -1,3 +1,4 @@
 {
-  return pillar + " => " + toPlanningValue;
+  Object oldValue=variableDescriptor.getValue(pillar.get(0));
+  return pillar.toString() + " {" + oldValue+ " -> "+ toPlanningValue+ "}";
 }

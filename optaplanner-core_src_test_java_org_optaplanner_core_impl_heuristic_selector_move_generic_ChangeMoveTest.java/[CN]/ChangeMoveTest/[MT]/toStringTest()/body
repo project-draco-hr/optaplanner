@@ -1,0 +1,13 @@
+{
+  TestdataValue v1=new TestdataValue("v1");
+  TestdataValue v2=new TestdataValue("v2");
+  TestdataEntity a=new TestdataEntity("a",null);
+  TestdataEntity b=new TestdataEntity("b",v1);
+  GenuineVariableDescriptor variableDescriptor=TestdataEntity.buildVariableDescriptorForValue();
+  assertEquals("a {null -> null}",new ChangeMove(a,variableDescriptor,null).toString());
+  assertEquals("a {null -> v1}",new ChangeMove(a,variableDescriptor,v1).toString());
+  assertEquals("a {null -> v2}",new ChangeMove(a,variableDescriptor,v2).toString());
+  assertEquals("b {v1 -> null}",new ChangeMove(b,variableDescriptor,null).toString());
+  assertEquals("b {v1 -> v1}",new ChangeMove(b,variableDescriptor,v1).toString());
+  assertEquals("b {v1 -> v2}",new ChangeMove(b,variableDescriptor,v2).toString());
+}

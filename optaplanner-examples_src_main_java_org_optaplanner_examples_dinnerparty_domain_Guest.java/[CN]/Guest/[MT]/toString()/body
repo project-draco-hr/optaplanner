@@ -1,3 +1,3 @@
 {
-  return code + "(" + job+ ","+ gender.getCode()+ ")";
+  return name;
 }

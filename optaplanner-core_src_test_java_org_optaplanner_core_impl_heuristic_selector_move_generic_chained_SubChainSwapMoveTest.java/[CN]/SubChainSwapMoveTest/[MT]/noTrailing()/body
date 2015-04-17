@@ -1,6 +1,5 @@
 {
-  EntityDescriptor entityDescriptor=TestdataChainedEntity.buildEntityDescriptor();
-  GenuineVariableDescriptor variableDescriptor=entityDescriptor.getGenuineVariableDescriptor("chainedObject");
+  GenuineVariableDescriptor variableDescriptor=TestdataChainedEntity.buildVariableDescriptorForChainedObject();
   InnerScoreDirector scoreDirector=mock(InnerScoreDirector.class);
   TestdataChainedAnchor a0=new TestdataChainedAnchor("a0");
   TestdataChainedEntity a1=new TestdataChainedEntity("a1",a0);

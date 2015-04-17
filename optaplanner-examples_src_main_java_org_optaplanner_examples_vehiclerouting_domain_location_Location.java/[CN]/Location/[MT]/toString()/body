@@ -1,6 +1,6 @@
 {
   if (name == null) {
-    return id.toString();
+    return super.toString();
   }
-  return id.toString() + "-" + name;
+  return name;
 }

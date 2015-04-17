@@ -8,8 +8,8 @@
   TestdataEntityProvidingEntity b=new TestdataEntityProvidingEntity("b",Arrays.asList(v2,v3,v4,v5),null);
   TestdataEntityProvidingEntity c=new TestdataEntityProvidingEntity("c",Arrays.asList(v3,v4,v5),null);
   ScoreDirector scoreDirector=mock(ScoreDirector.class);
-  EntityDescriptor entityDescriptor=TestdataEntityProvidingEntity.buildEntityDescriptor();
-  PillarChangeMove abMove=new PillarChangeMove(Arrays.<Object>asList(a,b),entityDescriptor.getGenuineVariableDescriptor("value"),v2);
+  GenuineVariableDescriptor variableDescriptor=TestdataEntityProvidingEntity.buildVariableDescriptorForValue();
+  PillarChangeMove abMove=new PillarChangeMove(Arrays.<Object>asList(a,b),variableDescriptor,v2);
   a.setValue(v3);
   b.setValue(v3);
   abMove.doMove(scoreDirector);
@@ -20,7 +20,7 @@
   abMove.doMove(scoreDirector);
   assertEquals(v2,a.getValue());
   assertEquals(v2,b.getValue());
-  PillarChangeMove abcMove=new PillarChangeMove(Arrays.<Object>asList(a,b,c),entityDescriptor.getGenuineVariableDescriptor("value"),v2);
+  PillarChangeMove abcMove=new PillarChangeMove(Arrays.<Object>asList(a,b,c),variableDescriptor,v2);
   a.setValue(v2);
   b.setValue(v2);
   c.setValue(v2);

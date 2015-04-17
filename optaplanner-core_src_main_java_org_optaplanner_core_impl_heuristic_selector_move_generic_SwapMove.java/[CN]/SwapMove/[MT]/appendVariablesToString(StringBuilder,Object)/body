@@ -1,0 +1,10 @@
+{
+  boolean first=true;
+  for (  GenuineVariableDescriptor variableDescriptor : variableDescriptors) {
+    if (!first) {
+      s.append(", ");
+    }
+    s.append(variableDescriptor.getValue(entity));
+    first=false;
+  }
+}

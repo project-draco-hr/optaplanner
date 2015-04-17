@@ -1,0 +1,22 @@
+{
+  GenuineVariableDescriptor variableDescriptor=TestdataChainedEntity.buildVariableDescriptorForChainedObject();
+  SolutionDescriptor solutionDescriptor=variableDescriptor.getEntityDescriptor().getSolutionDescriptor();
+  InnerScoreDirector scoreDirector=PlannerTestUtils.mockScoreDirector(solutionDescriptor);
+  TestdataChainedAnchor a0=new TestdataChainedAnchor("a0");
+  TestdataChainedEntity a1=new TestdataChainedEntity("a1",a0);
+  TestdataChainedEntity a2=new TestdataChainedEntity("a2",a1);
+  TestdataChainedEntity a3=new TestdataChainedEntity("a3",a2);
+  TestdataChainedAnchor b0=new TestdataChainedAnchor("b0");
+  TestdataChainedEntity b1=new TestdataChainedEntity("b1",b0);
+  TestdataChainedSolution solution=new TestdataChainedSolution("solution");
+  solution.setChainedAnchorList(Arrays.asList(a0,b0));
+  solution.setChainedEntityList(Arrays.asList(a1,a2,a3,b1));
+  scoreDirector.setWorkingSolution(solution);
+  SingletonInverseVariableSupply inverseVariableSupply=scoreDirector.getSupplyManager().demand(new SingletonInverseVariableDemand(variableDescriptor));
+  AnchorVariableSupply anchorVariableSupply=scoreDirector.getSupplyManager().demand(new AnchorVariableDemand(variableDescriptor));
+  assertEquals("a1 {a0} <-tailChainSwap-> b1 {b0}",new TailChainSwapMove(variableDescriptor,inverseVariableSupply,anchorVariableSupply,a1,b0).toString());
+  assertEquals("a1 {a0} <-tailChainSwap-> null {b1}",new TailChainSwapMove(variableDescriptor,inverseVariableSupply,anchorVariableSupply,a1,b1).toString());
+  assertEquals("b1 {b0} <-tailChainSwap-> a1 {a0}",new TailChainSwapMove(variableDescriptor,inverseVariableSupply,anchorVariableSupply,b1,a0).toString());
+  assertEquals("a1 {a0} <-tailChainSwap-> null {a3}",new TailChainSwapMove(variableDescriptor,inverseVariableSupply,anchorVariableSupply,a1,a3).toString());
+  assertEquals("a2 {a1} <-tailChainSwap-> a1 {a0}",new TailChainSwapMove(variableDescriptor,inverseVariableSupply,anchorVariableSupply,a2,a0).toString());
+}

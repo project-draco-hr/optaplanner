@@ -1,3 +1,10 @@
 {
-  return leftEntity + " <=> " + rightEntity;
+  StringBuilder s=new StringBuilder(variableDescriptors.size() * 16);
+  s.append(leftEntity).append(" {");
+  appendVariablesToString(s,leftEntity);
+  s.append("} <-> ");
+  s.append(rightEntity).append(" {");
+  appendVariablesToString(s,rightEntity);
+  s.append("}");
+  return s.toString();
 }

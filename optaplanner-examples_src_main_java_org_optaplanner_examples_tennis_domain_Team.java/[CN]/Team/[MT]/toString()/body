@@ -1,0 +1,3 @@
+{
+  return name == null ? super.toString() : name;
+}

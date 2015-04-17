@@ -1,3 +1,3 @@
 {
-  return admissionPart + " @ " + bed;
+  return admissionPart.toString();
 }

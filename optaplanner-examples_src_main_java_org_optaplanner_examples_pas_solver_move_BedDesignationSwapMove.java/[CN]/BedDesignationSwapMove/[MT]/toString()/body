@@ -1,3 +1,3 @@
 {
-  return leftBedDesignation + " <=> " + rightBedDesignation;
+  return leftBedDesignation + " {" + leftBedDesignation.getBed()+ "} <-> "+ rightBedDesignation+ " {"+ rightBedDesignation.getBed()+ "}";
 }

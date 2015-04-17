@@ -1,3 +1,4 @@
 {
-  return subChain + " reversed => " + toPlanningValue;
+  Object oldFirstValue=variableDescriptor.getValue(subChain.getFirstEntity());
+  return subChain.toDottedString() + " {" + oldFirstValue+ " -reversing-> "+ toPlanningValue+ "}";
 }

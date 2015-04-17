@@ -7,22 +7,22 @@
   TestdataEntityProvidingEntity a=new TestdataEntityProvidingEntity("a",Arrays.asList(v1,v2,v3),null);
   TestdataEntityProvidingEntity b=new TestdataEntityProvidingEntity("b",Arrays.asList(v2,v3,v4,v5),null);
   ScoreDirector scoreDirector=mock(ScoreDirector.class);
-  EntityDescriptor entityDescriptor=TestdataEntityProvidingEntity.buildEntityDescriptor();
+  GenuineVariableDescriptor variableDescriptor=TestdataEntityProvidingEntity.buildVariableDescriptorForValue();
   PillarChangeMove abMove;
   a.setValue(v2);
   b.setValue(v2);
-  abMove=new PillarChangeMove(Arrays.<Object>asList(a,b),entityDescriptor.getGenuineVariableDescriptor("value"),v1);
+  abMove=new PillarChangeMove(Arrays.<Object>asList(a,b),variableDescriptor,v1);
   assertEquals(false,abMove.isMoveDoable(scoreDirector));
   a.setValue(v2);
   b.setValue(v2);
-  abMove=new PillarChangeMove(Arrays.<Object>asList(a,b),entityDescriptor.getGenuineVariableDescriptor("value"),v2);
+  abMove=new PillarChangeMove(Arrays.<Object>asList(a,b),variableDescriptor,v2);
   assertEquals(false,abMove.isMoveDoable(scoreDirector));
   a.setValue(v2);
   b.setValue(v2);
-  abMove=new PillarChangeMove(Arrays.<Object>asList(a,b),entityDescriptor.getGenuineVariableDescriptor("value"),v3);
+  abMove=new PillarChangeMove(Arrays.<Object>asList(a,b),variableDescriptor,v3);
   assertEquals(true,abMove.isMoveDoable(scoreDirector));
   a.setValue(v2);
   b.setValue(v2);
-  abMove=new PillarChangeMove(Arrays.<Object>asList(a,b),entityDescriptor.getGenuineVariableDescriptor("value"),v4);
+  abMove=new PillarChangeMove(Arrays.<Object>asList(a,b),variableDescriptor,v4);
   assertEquals(false,abMove.isMoveDoable(scoreDirector));
 }

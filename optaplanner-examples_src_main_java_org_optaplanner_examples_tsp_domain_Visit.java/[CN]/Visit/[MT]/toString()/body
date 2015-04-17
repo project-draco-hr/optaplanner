@@ -1,3 +1,6 @@
 {
-  return location + "(after " + (previousStandstill == null ? "null" : previousStandstill.getLocation())+ ")";
+  if (location.getName() == null) {
+    return super.toString();
+  }
+  return location.getName();
 }

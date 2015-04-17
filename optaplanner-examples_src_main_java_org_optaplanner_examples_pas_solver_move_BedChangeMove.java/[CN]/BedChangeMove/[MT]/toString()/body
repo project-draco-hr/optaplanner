@@ -1,3 +1,3 @@
 {
-  return bedDesignation + " => " + toBed;
+  return bedDesignation + " {" + bedDesignation.getBed()+ " -> "+ toBed+ "}";
 }

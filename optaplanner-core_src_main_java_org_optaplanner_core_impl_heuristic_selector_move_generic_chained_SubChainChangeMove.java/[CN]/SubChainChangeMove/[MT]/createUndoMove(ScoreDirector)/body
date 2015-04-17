@@ -1,4 +1,4 @@
 {
-  Object oldFirstPlanningValue=variableDescriptor.getValue(subChain.getFirstEntity());
-  return new SubChainChangeMove(subChain,variableDescriptor,oldFirstPlanningValue);
+  Object oldFirstValue=variableDescriptor.getValue(subChain.getFirstEntity());
+  return new SubChainChangeMove(subChain,variableDescriptor,oldFirstValue);
 }
