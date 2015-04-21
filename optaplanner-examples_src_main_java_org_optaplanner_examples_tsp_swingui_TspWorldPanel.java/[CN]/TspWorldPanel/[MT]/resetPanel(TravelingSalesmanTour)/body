@@ -60,7 +60,11 @@
   String locationsSizeString=travelingSalesmanTour.getLocationList().size() + " locations";
   g.drawString(locationsSizeString,((int)width - g.getFontMetrics().stringWidth(locationsSizeString)) / 2,(int)height - 5);
   if (travelingSalesmanTour.getDistanceType() == DistanceType.AIR_DISTANCE) {
-    String clickString="Click anywhere in the map to add a visit.";
+    String clickString="Left click anywhere in the map to add a visit.";
+    g.drawString(clickString,(int)width - 5 - g.getFontMetrics().stringWidth(clickString),(int)height - 10 - TEXT_SIZE);
+  }
+  if (travelingSalesmanTour.getDistanceType() == DistanceType.AIR_DISTANCE) {
+    String clickString="Right click near a visit to append it to the end.";
     g.drawString(clickString,(int)width - 5 - g.getFontMetrics().stringWidth(clickString),(int)height - 5);
   }
   g.setColor(TangoColorFactory.ORANGE_3);
@@ -68,7 +72,7 @@
   if (score != null) {
     String distanceString=travelingSalesmanTour.getDistanceString(NUMBER_FORMAT);
     g.setFont(g.getFont().deriveFont(Font.BOLD,(float)TEXT_SIZE * 2));
-    g.drawString(distanceString,(int)width - g.getFontMetrics().stringWidth(distanceString) - 10,(int)height - 10 - TEXT_SIZE);
+    g.drawString(distanceString,(int)width - g.getFontMetrics().stringWidth(distanceString) - 10,(int)height - 15 - 2 * TEXT_SIZE);
   }
   repaint();
 }

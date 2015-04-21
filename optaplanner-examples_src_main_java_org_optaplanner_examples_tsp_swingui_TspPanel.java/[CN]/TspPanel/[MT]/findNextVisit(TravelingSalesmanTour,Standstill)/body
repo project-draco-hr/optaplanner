@@ -1,0 +1,8 @@
+{
+  for (  Visit visit : tour.getVisitList()) {
+    if (visit.getPreviousStandstill() == standstill) {
+      return visit;
+    }
+  }
+  return null;
+}
