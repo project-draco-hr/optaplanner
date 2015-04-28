@@ -1,3 +1,0 @@
-{
-  return new RowChangeMove(queen,queen.getRow());
-}

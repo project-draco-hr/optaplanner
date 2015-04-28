@@ -1,5 +1,0 @@
-{
-  scoreDirector.beforeVariableChanged(queen,"row");
-  queen.setRow(toRow);
-  scoreDirector.afterVariableChanged(queen,"row");
-}

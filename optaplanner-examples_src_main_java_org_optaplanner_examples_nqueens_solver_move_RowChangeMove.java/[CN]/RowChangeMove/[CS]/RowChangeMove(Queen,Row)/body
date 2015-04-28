@@ -1,4 +1,0 @@
-{
-  this.queen=queen;
-  this.toRow=toRow;
-}

@@ -1,9 +1,0 @@
-{
-  List<Move> moveList=new ArrayList<Move>();
-  for (  Queen queen : nQueens.getQueenList()) {
-    for (    Row toRow : nQueens.getRowList()) {
-      moveList.add(new RowChangeMove(queen,toRow));
-    }
-  }
-  return moveList;
-}
