@@ -1,5 +1,5 @@
 {
-  Integer row=queen.getRow();
+  Row row=queen.getRow();
   if (row != null) {
     for (    Queen otherQueen : insertedQueenList) {
       if (queen.getRowIndex() == otherQueen.getRowIndex()) {

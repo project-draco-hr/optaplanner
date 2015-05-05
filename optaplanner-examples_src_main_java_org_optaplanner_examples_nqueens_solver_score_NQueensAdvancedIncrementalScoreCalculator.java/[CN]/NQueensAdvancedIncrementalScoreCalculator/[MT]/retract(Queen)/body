@@ -1,5 +1,5 @@
 {
-  Integer row=queen.getRow();
+  Row row=queen.getRow();
   if (row != null) {
     List<Queen> rowIndexList=rowIndexMap.get(queen.getRowIndex());
     rowIndexList.remove(queen);

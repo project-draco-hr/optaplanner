@@ -1,3 +1,0 @@
-{
-  return ValueRangeFactory.createIntValueRange(0,n);
-}

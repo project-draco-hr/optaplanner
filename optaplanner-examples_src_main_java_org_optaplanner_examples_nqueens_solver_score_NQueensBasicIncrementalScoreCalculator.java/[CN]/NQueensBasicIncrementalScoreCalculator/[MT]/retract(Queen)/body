@@ -1,5 +1,5 @@
 {
-  Integer row=queen.getRow();
+  Row row=queen.getRow();
   if (row != null) {
     insertedQueenList.remove(queen);
     for (    Queen otherQueen : insertedQueenList) {
