@@ -7,7 +7,7 @@
     }
   }
   for (  PropertyAccessor entityCollectionPropertyAccessor : entityCollectionPropertyAccessorMap.values()) {
-    Collection<?> entityCollection=extractEntityCollection(entityCollectionPropertyAccessor,solution);
+    Collection<Object> entityCollection=extractEntityCollection(entityCollectionPropertyAccessor,solution);
     entityCount+=entityCollection.size();
   }
   return entityCount;

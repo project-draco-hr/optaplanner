@@ -1,19 +1,14 @@
 {
-  Collection<Object> facts=new ArrayList<Object>();
-  Collection<?> problemFacts=solution.getProblemFacts();
-  if (problemFacts == null) {
-    throw new IllegalStateException("The solution (" + solution + ")'s method getProblemFacts() should never return null.");
-  }
-  facts.addAll(problemFacts);
+  List<Iterator<Object>> iteratorList=new ArrayList<Iterator<Object>>(entityPropertyAccessorMap.size() + entityCollectionPropertyAccessorMap.size());
   for (  PropertyAccessor entityPropertyAccessor : entityPropertyAccessorMap.values()) {
     Object entity=extractEntity(entityPropertyAccessor,solution);
     if (entity != null) {
-      facts.add(entity);
+      iteratorList.add(Collections.singletonList(entity).iterator());
     }
   }
   for (  PropertyAccessor entityCollectionPropertyAccessor : entityCollectionPropertyAccessorMap.values()) {
     Collection<Object> entityCollection=extractEntityCollection(entityCollectionPropertyAccessor,solution);
-    facts.addAll(entityCollection);
+    iteratorList.add(entityCollection.iterator());
   }
-  return facts;
+  return Iterators.concat(iteratorList.iterator());
 }

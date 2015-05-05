@@ -1,0 +1,4 @@
+{
+  EntityDescriptor entityDescriptor=findEntityDescriptorOrFail(entity.getClass());
+  return entityDescriptor.isInitialized(entity) || !entityDescriptor.isMovable(scoreDirector,entity);
+}

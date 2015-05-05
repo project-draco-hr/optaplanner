@@ -9,7 +9,7 @@
     }
   }
   for (  PropertyAccessor entityCollectionPropertyAccessor : entityCollectionPropertyAccessorMap.values()) {
-    Collection<?> entityCollection=extractEntityCollection(entityCollectionPropertyAccessor,solution);
+    Collection<Object> entityCollection=extractEntityCollection(entityCollectionPropertyAccessor,solution);
     for (    Object entity : entityCollection) {
       if (entityClass.isInstance(entity)) {
         entityList.add(entity);

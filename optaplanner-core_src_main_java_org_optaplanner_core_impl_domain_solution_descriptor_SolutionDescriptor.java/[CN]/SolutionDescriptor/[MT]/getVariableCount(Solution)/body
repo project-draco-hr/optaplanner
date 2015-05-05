@@ -1,18 +1,9 @@
 {
   long variableCount=0L;
-  for (  PropertyAccessor entityPropertyAccessor : entityPropertyAccessorMap.values()) {
-    Object entity=extractEntity(entityPropertyAccessor,solution);
-    if (entity != null) {
-      EntityDescriptor entityDescriptor=findEntityDescriptorOrFail(entity.getClass());
-      variableCount+=entityDescriptor.getVariableCount();
-    }
-  }
-  for (  PropertyAccessor entityCollectionPropertyAccessor : entityCollectionPropertyAccessorMap.values()) {
-    Collection<?> entityCollection=extractEntityCollection(entityCollectionPropertyAccessor,solution);
-    for (    Object entity : entityCollection) {
-      EntityDescriptor entityDescriptor=findEntityDescriptorOrFail(entity.getClass());
-      variableCount+=entityDescriptor.getVariableCount();
-    }
+  for (Iterator<Object> it=extractAllEntitiesIterator(solution); it.hasNext(); ) {
+    Object entity=it.next();
+    EntityDescriptor entityDescriptor=findEntityDescriptorOrFail(entity.getClass());
+    variableCount+=entityDescriptor.getVariableCount();
   }
   return variableCount;
 }

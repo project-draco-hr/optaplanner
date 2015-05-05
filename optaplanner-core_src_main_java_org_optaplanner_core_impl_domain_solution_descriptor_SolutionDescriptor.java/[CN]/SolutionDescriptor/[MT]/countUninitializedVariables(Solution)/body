@@ -1,18 +1,9 @@
 {
   int count=0;
-  for (  PropertyAccessor entityPropertyAccessor : entityPropertyAccessorMap.values()) {
-    Object entity=extractEntity(entityPropertyAccessor,solution);
-    if (entity != null) {
-      EntityDescriptor entityDescriptor=findEntityDescriptorOrFail(entity.getClass());
-      count+=entityDescriptor.countUninitializedVariables(entity);
-    }
-  }
-  for (  PropertyAccessor entityCollectionPropertyAccessor : entityCollectionPropertyAccessorMap.values()) {
-    Collection<?> entityCollection=extractEntityCollection(entityCollectionPropertyAccessor,solution);
-    for (    Object entity : entityCollection) {
-      EntityDescriptor entityDescriptor=findEntityDescriptorOrFail(entity.getClass());
-      count+=entityDescriptor.countUninitializedVariables(entity);
-    }
+  for (Iterator<Object> it=extractAllEntitiesIterator(solution); it.hasNext(); ) {
+    Object entity=it.next();
+    EntityDescriptor entityDescriptor=findEntityDescriptorOrFail(entity.getClass());
+    count+=entityDescriptor.countUninitializedVariables(entity);
   }
   return count;
 }
