@@ -3,7 +3,7 @@
   if (StringUtils.isEmpty(name)) {
     name=timestamp;
   }
-  benchmarkReportDirectory=new File(benchmarkDirectory,timestamp);
+  benchmarkReportDirectory=new File(benchmarkDirectory,BooleanUtils.isFalse(aggregation) ? timestamp : timestamp + "_aggregation");
   boolean benchmarkReportDirectoryAdded=benchmarkReportDirectory.mkdirs();
   if (!benchmarkReportDirectoryAdded) {
     throw new IllegalArgumentException("The benchmarkReportDirectory (" + benchmarkReportDirectory + ") creation failed. It probably already exists.");
