@@ -26,9 +26,13 @@
   }
   phaseScope.getWorkingSolution().setScore(stepScope.getScore());
   if (assertWorkingSolutionScoreFromScratch) {
-    phaseScope.assertWorkingScoreFromScratch(stepScope.getScore(),restoreMoveList);
+    if (stepScope.getScore() != null) {
+      phaseScope.assertWorkingScoreFromScratch(stepScope.getScore(),restoreMoveList);
+    }
   }
   if (assertExpectedWorkingSolutionScore) {
-    phaseScope.assertExpectedWorkingScore(stepScope.getScore(),restoreMoveList);
+    if (stepScope.getScore() != null) {
+      phaseScope.assertExpectedWorkingScore(stepScope.getScore(),restoreMoveList);
+    }
   }
 }

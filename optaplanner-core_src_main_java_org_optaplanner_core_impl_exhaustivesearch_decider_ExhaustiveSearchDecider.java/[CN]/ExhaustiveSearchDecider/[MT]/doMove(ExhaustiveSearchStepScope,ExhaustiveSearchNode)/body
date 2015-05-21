@@ -8,7 +8,9 @@
   undoMove.doMove(scoreDirector);
   if (assertExpectedUndoMoveScore) {
     ExhaustiveSearchPhaseScope phaseScope=stepScope.getPhaseScope();
-    phaseScope.assertExpectedUndoMoveScore(move,undoMove);
+    if (phaseScope.getLastCompletedStepScope().getScore() != null) {
+      phaseScope.assertExpectedUndoMoveScore(move,undoMove);
+    }
   }
   logger.trace("        Move treeId ({}), score ({}), expandable ({}), move ({}).",moveNode.getTreeId(),moveNode.getScore(),moveNode.isExpandable(),moveNode.getMove());
 }
