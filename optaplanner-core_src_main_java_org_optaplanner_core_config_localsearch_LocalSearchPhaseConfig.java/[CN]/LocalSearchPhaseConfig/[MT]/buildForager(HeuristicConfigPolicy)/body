@@ -1,0 +1,28 @@
+{
+  LocalSearchForagerConfig foragerConfig_;
+  if (foragerConfig != null) {
+    if (localSearchType != null) {
+      throw new IllegalArgumentException("The localSearchType (" + localSearchType + ") must not be configured if the foragerConfig ("+ foragerConfig+ ") is explicitly configured.");
+    }
+    foragerConfig_=foragerConfig;
+  }
+ else {
+    LocalSearchType localSearchType_=defaultIfNull(localSearchType,LocalSearchType.LATE_ACCEPTANCE);
+    foragerConfig_=new LocalSearchForagerConfig();
+switch (localSearchType_) {
+case HILL_CLIMBING:
+      foragerConfig_.setAcceptedCountLimit(1);
+    break;
+case TABU_SEARCH:
+  foragerConfig_.setAcceptedCountLimit(1000);
+break;
+case SIMULATED_ANNEALING:
+case LATE_ACCEPTANCE:
+foragerConfig_.setAcceptedCountLimit(1);
+break;
+default :
+throw new IllegalStateException("The localSearchType (" + localSearchType_ + ") is not implemented.");
+}
+}
+return foragerConfig_.buildForager(configPolicy);
+}

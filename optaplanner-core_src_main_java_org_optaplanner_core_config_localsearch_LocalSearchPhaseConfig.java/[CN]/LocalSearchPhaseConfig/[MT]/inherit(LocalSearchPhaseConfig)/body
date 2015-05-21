@@ -1,5 +1,6 @@
 {
   super.inherit(inheritedConfig);
+  localSearchType=ConfigUtils.inheritOverwritableProperty(localSearchType,inheritedConfig.getLocalSearchType());
   setMoveSelectorConfig(ConfigUtils.inheritOverwritableProperty(getMoveSelectorConfig(),inheritedConfig.getMoveSelectorConfig()));
   if (acceptorConfig == null) {
     acceptorConfig=inheritedConfig.getAcceptorConfig();

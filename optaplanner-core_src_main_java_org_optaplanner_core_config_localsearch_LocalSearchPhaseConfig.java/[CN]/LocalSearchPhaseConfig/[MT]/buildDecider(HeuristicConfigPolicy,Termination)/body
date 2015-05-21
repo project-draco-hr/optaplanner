@@ -3,10 +3,9 @@
   decider.setTermination(termination);
   MoveSelector moveSelector=buildMoveSelector(configPolicy);
   decider.setMoveSelector(moveSelector);
-  AcceptorConfig acceptorConfig_=acceptorConfig == null ? new AcceptorConfig() : acceptorConfig;
-  decider.setAcceptor(acceptorConfig_.buildAcceptor(configPolicy));
-  LocalSearchForagerConfig foragerConfig_=foragerConfig == null ? new LocalSearchForagerConfig() : foragerConfig;
-  Forager forager=foragerConfig_.buildForager(configPolicy);
+  Acceptor acceptor=buildAcceptor(configPolicy);
+  decider.setAcceptor(acceptor);
+  Forager forager=buildForager(configPolicy);
   decider.setForager(forager);
   if (moveSelector.isNeverEnding() && !forager.supportsNeverEndingMoveSelector()) {
     throw new IllegalStateException("The moveSelector (" + moveSelector + ") has neverEnding ("+ moveSelector.isNeverEnding()+ "), but the forager ("+ forager+ ") does not support it."+ " Configure the <forager> with <acceptedCountLimit>.");

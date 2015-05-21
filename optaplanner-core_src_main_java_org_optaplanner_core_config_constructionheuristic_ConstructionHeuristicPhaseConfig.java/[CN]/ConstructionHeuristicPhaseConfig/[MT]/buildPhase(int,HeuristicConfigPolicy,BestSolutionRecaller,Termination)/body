@@ -5,7 +5,7 @@
   DefaultConstructionHeuristicPhase phase=new DefaultConstructionHeuristicPhase();
   configurePhase(phase,phaseIndex,phaseConfigPolicy,bestSolutionRecaller,solverTermination);
   phase.setDecider(buildDecider(phaseConfigPolicy,phase.getTermination()));
-  ConstructionHeuristicType constructionHeuristicType_=constructionHeuristicType == null ? ConstructionHeuristicType.FIRST_FIT : constructionHeuristicType;
+  ConstructionHeuristicType constructionHeuristicType_=defaultIfNull(constructionHeuristicType,ConstructionHeuristicType.ALLOCATE_ENTITY_FROM_QUEUE);
   phaseConfigPolicy.setEntitySorterManner(entitySorterManner != null ? entitySorterManner : constructionHeuristicType_.getDefaultEntitySorterManner());
   phaseConfigPolicy.setValueSorterManner(valueSorterManner != null ? valueSorterManner : constructionHeuristicType_.getDefaultValueSorterManner());
   EntityPlacerConfig entityPlacerConfig;
@@ -15,7 +15,7 @@
  else   if (entityPlacerConfigList.size() == 1) {
     entityPlacerConfig=entityPlacerConfigList.get(0);
     if (constructionHeuristicType != null) {
-      throw new IllegalArgumentException("The constructionHeuristicType (" + constructionHeuristicType + ") should not be configured if the entityPlacerConfig ("+ entityPlacerConfig+ ") is explicitly configured.");
+      throw new IllegalArgumentException("The constructionHeuristicType (" + constructionHeuristicType + ") must not be configured if the entityPlacerConfig ("+ entityPlacerConfig+ ") is explicitly configured.");
     }
   }
  else {

@@ -1,0 +1,30 @@
+{
+  AcceptorConfig acceptorConfig_;
+  if (acceptorConfig != null) {
+    if (localSearchType != null) {
+      throw new IllegalArgumentException("The localSearchType (" + localSearchType + ") must not be configured if the acceptorConfig ("+ acceptorConfig+ ") is explicitly configured.");
+    }
+    acceptorConfig_=acceptorConfig;
+  }
+ else {
+    LocalSearchType localSearchType_=defaultIfNull(localSearchType,LocalSearchType.LATE_ACCEPTANCE);
+    acceptorConfig_=new AcceptorConfig();
+switch (localSearchType_) {
+case HILL_CLIMBING:
+      acceptorConfig_.setAcceptorTypeList(Collections.singletonList(AcceptorType.HILL_CLIMBING));
+    break;
+case TABU_SEARCH:
+  acceptorConfig_.setAcceptorTypeList(Collections.singletonList(AcceptorType.ENTITY_TABU));
+break;
+case SIMULATED_ANNEALING:
+acceptorConfig_.setAcceptorTypeList(Collections.singletonList(AcceptorType.SIMULATED_ANNEALING));
+break;
+case LATE_ACCEPTANCE:
+acceptorConfig_.setAcceptorTypeList(Collections.singletonList(AcceptorType.LATE_ACCEPTANCE));
+break;
+default :
+throw new IllegalStateException("The localSearchType (" + localSearchType_ + ") is not implemented.");
+}
+}
+return acceptorConfig_.buildAcceptor(configPolicy);
+}
