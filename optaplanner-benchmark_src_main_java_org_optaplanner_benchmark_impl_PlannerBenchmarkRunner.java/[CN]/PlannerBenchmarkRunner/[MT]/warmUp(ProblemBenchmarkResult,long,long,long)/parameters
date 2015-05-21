@@ -1,3 +1,4 @@
+ProblemBenchmarkResult problemBenchmarkResult
 long startingTimeMillis
 long warmUpTimeMillisSpentLimit
 long timeLeft

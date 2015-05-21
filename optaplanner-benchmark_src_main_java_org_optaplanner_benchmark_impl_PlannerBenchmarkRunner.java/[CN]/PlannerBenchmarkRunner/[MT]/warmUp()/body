@@ -12,7 +12,7 @@
         it=unifiedProblemBenchmarkResultList.iterator();
       }
       ProblemBenchmarkResult problemBenchmarkResult=it.next();
-      timeLeft=problemBenchmarkResult.warmUp(startingTimeMillis,plannerBenchmarkResult.getWarmUpTimeMillisSpentLimit(),timeLeft);
+      timeLeft=warmUp(problemBenchmarkResult,startingTimeMillis,plannerBenchmarkResult.getWarmUpTimeMillisSpentLimit(),timeLeft);
     }
     logger.info("================================================================================");
     logger.info("Warm up ended");
