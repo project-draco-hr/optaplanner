@@ -8,8 +8,8 @@
   undoMove.doMove(scoreDirector);
   if (assertExpectedUndoMoveScore) {
     ExhaustiveSearchPhaseScope phaseScope=stepScope.getPhaseScope();
-    if (phaseScope.getLastCompletedStepScope().getScore() != null) {
-      phaseScope.assertExpectedUndoMoveScore(move,undoMove);
+    if (stepScope.getStartingStepScore() != null) {
+      phaseScope.assertExpectedUndoMoveScore(move,undoMove,stepScope.getStartingStepScore());
     }
   }
   logger.trace("        Move treeId ({}), score ({}), expandable ({}), move ({}).",moveNode.getTreeId(),moveNode.getScore(),moveNode.isExpandable(),moveNode.getMove());

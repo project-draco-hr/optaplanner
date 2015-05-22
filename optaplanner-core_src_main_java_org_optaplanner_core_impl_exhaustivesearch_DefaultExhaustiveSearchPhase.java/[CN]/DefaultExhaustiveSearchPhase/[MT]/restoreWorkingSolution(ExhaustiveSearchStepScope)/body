@@ -24,15 +24,15 @@
   for (  Move restoreMove : restoreMoveList) {
     restoreMove.doMove(scoreDirector);
   }
-  phaseScope.getWorkingSolution().setScore(stepScope.getScore());
+  phaseScope.getWorkingSolution().setScore(stepScope.getStartingStepScore());
   if (assertWorkingSolutionScoreFromScratch) {
-    if (stepScope.getScore() != null) {
-      phaseScope.assertWorkingScoreFromScratch(stepScope.getScore(),restoreMoveList);
+    if (stepScope.getStartingStepScore() != null) {
+      phaseScope.assertWorkingScoreFromScratch(stepScope.getStartingStepScore(),restoreMoveList);
     }
   }
   if (assertExpectedWorkingSolutionScore) {
-    if (stepScope.getScore() != null) {
-      phaseScope.assertExpectedWorkingScore(stepScope.getScore(),restoreMoveList);
+    if (stepScope.getStartingStepScore() != null) {
+      phaseScope.assertExpectedWorkingScore(stepScope.getStartingStepScore(),restoreMoveList);
     }
   }
 }
