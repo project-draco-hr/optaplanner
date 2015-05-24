@@ -1,0 +1,4 @@
+{
+  GenuineVariableDescriptor variableDescriptor=mockVariableDescriptor(entityClass,variableName);
+  return mockValueSelectorForEntity(variableDescriptor,entityToValues);
+}

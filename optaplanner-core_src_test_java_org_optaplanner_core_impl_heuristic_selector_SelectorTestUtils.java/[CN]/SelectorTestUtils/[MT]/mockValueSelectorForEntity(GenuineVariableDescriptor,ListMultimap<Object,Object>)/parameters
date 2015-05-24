@@ -1,3 +1,2 @@
 GenuineVariableDescriptor variableDescriptor
-Object entity
-Object values
+ListMultimap<Object,Object> entityToValues
