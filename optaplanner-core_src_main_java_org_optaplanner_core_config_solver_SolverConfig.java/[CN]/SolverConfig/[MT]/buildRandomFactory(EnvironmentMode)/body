@@ -1,0 +1,18 @@
+{
+  RandomFactory randomFactory;
+  if (randomFactoryClass != null) {
+    if (randomType != null || randomSeed != null) {
+      throw new IllegalArgumentException("The solverConfig with randomFactoryClass (" + randomFactoryClass + ") has a non-null randomType ("+ randomType+ ") or a non-null randomSeed ("+ randomSeed+ ").");
+    }
+    randomFactory=ConfigUtils.newInstance(this,"randomFactoryClass",randomFactoryClass);
+  }
+ else {
+    RandomType randomType_=defaultIfNull(randomType,RandomType.JDK);
+    Long randomSeed_=randomSeed;
+    if (randomSeed == null && environmentMode_ != EnvironmentMode.PRODUCTION) {
+      randomSeed_=DEFAULT_RANDOM_SEED;
+    }
+    randomFactory=new DefaultRandomFactory(randomType_,randomSeed_);
+  }
+  return randomFactory;
+}

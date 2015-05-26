@@ -1,0 +1,13 @@
+{
+  if (ConfigUtils.isEmptyCollection(phaseConfigList)) {
+    throw new IllegalArgumentException("Configure at least 1 phase (for example <localSearch>) in the solver configuration.");
+  }
+  List<Phase> phaseList=new ArrayList<Phase>(phaseConfigList.size());
+  int phaseIndex=0;
+  for (  PhaseConfig phaseConfig : phaseConfigList) {
+    Phase phase=phaseConfig.buildPhase(phaseIndex,configPolicy,bestSolutionRecaller,termination);
+    phaseList.add(phase);
+    phaseIndex++;
+  }
+  return phaseList;
+}

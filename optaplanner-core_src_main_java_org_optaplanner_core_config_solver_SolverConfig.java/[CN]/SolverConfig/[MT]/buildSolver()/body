@@ -1,47 +1,22 @@
 {
   DefaultSolver solver=new DefaultSolver();
-  boolean daemon_=daemon == null ? false : daemon;
+  EnvironmentMode environmentMode_=defaultIfNull(environmentMode,EnvironmentMode.REPRODUCIBLE);
+  solver.setEnvironmentMode(environmentMode_);
+  boolean daemon_=defaultIfNull(daemon,false);
   BasicPlumbingTermination basicPlumbingTermination=new BasicPlumbingTermination(daemon_);
   solver.setBasicPlumbingTermination(basicPlumbingTermination);
-  EnvironmentMode environmentMode=this.environmentMode == null ? EnvironmentMode.REPRODUCIBLE : this.environmentMode;
-  solver.setEnvironmentMode(environmentMode);
-  RandomFactory randomFactory;
-  if (randomFactoryClass != null) {
-    if (randomType != null || randomSeed != null) {
-      throw new IllegalArgumentException("The solverConfig with randomFactoryClass (" + randomFactoryClass + ") has a non-null randomType ("+ randomType+ ") or a non-null randomSeed ("+ randomSeed+ ").");
-    }
-    randomFactory=ConfigUtils.newInstance(this,"randomFactoryClass",randomFactoryClass);
-  }
- else {
-    RandomType randomType_=randomType == null ? RandomType.JDK : randomType;
-    Long randomSeed_=randomSeed;
-    if (randomSeed == null && environmentMode != EnvironmentMode.PRODUCTION) {
-      randomSeed_=DEFAULT_RANDOM_SEED;
-    }
-    randomFactory=new DefaultRandomFactory(randomType_,randomSeed_);
-  }
-  solver.setRandomFactory(randomFactory);
+  solver.setRandomFactory(buildRandomFactory(environmentMode_));
   SolutionDescriptor solutionDescriptor=buildSolutionDescriptor();
   ScoreDirectorFactoryConfig scoreDirectorFactoryConfig_=scoreDirectorFactoryConfig == null ? new ScoreDirectorFactoryConfig() : scoreDirectorFactoryConfig;
-  InnerScoreDirectorFactory scoreDirectorFactory=scoreDirectorFactoryConfig_.buildScoreDirectorFactory(environmentMode,solutionDescriptor);
-  solver.setConstraintMatchEnabledPreference(environmentMode.isAsserted());
+  InnerScoreDirectorFactory scoreDirectorFactory=scoreDirectorFactoryConfig_.buildScoreDirectorFactory(environmentMode_,solutionDescriptor);
+  solver.setConstraintMatchEnabledPreference(environmentMode_.isAsserted());
   solver.setScoreDirectorFactory(scoreDirectorFactory);
-  HeuristicConfigPolicy configPolicy=new HeuristicConfigPolicy(environmentMode,scoreDirectorFactory);
+  HeuristicConfigPolicy configPolicy=new HeuristicConfigPolicy(environmentMode_,scoreDirectorFactory);
   TerminationConfig terminationConfig_=terminationConfig == null ? new TerminationConfig() : terminationConfig;
   Termination termination=terminationConfig_.buildTermination(configPolicy,basicPlumbingTermination);
   solver.setTermination(termination);
-  BestSolutionRecaller bestSolutionRecaller=buildBestSolutionRecaller(environmentMode);
+  BestSolutionRecaller bestSolutionRecaller=buildBestSolutionRecaller(environmentMode_);
   solver.setBestSolutionRecaller(bestSolutionRecaller);
-  if (ConfigUtils.isEmptyCollection(phaseConfigList)) {
-    throw new IllegalArgumentException("Configure at least 1 phase (for example <localSearch>) in the solver configuration.");
-  }
-  List<Phase> phaseList=new ArrayList<Phase>(phaseConfigList.size());
-  int phaseIndex=0;
-  for (  PhaseConfig phaseConfig : phaseConfigList) {
-    Phase phase=phaseConfig.buildPhase(phaseIndex,configPolicy,bestSolutionRecaller,termination);
-    phaseList.add(phase);
-    phaseIndex++;
-  }
-  solver.setPhaseList(phaseList);
+  solver.setPhaseList(buildPhaseList(configPolicy,bestSolutionRecaller,termination));
   return solver;
 }
