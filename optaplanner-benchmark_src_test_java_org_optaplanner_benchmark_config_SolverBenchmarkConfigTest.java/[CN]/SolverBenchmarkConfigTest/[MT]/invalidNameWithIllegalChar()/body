@@ -1,0 +1,5 @@
+{
+  SolverBenchmarkConfig config=new SolverBenchmarkConfig();
+  config.setName("slash/name");
+  config.validate();
+}

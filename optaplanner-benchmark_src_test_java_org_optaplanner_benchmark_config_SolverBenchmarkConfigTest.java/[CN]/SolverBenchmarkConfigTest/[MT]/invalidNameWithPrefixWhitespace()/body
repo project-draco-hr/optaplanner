@@ -1,0 +1,5 @@
+{
+  SolverBenchmarkConfig config=new SolverBenchmarkConfig();
+  config.setName(" prefixed with space");
+  config.validate();
+}

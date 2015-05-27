@@ -1,0 +1,5 @@
+{
+  SolverBenchmarkConfig config=new SolverBenchmarkConfig();
+  config.setName("Valid name (????????? in Japanese)");
+  config.validate();
+}
