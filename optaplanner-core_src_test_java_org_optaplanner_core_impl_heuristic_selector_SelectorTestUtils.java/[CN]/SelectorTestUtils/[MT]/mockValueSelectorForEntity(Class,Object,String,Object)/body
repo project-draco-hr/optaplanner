@@ -1,4 +1,3 @@
 {
-  GenuineVariableDescriptor variableDescriptor=mockVariableDescriptor(entityClass,variableName);
-  return mockValueSelectorForEntity(variableDescriptor,entity,values);
+  return mockValueSelectorForEntity(entityClass,variableName,ImmutableListMultimap.builder().putAll(entity,values).build());
 }
