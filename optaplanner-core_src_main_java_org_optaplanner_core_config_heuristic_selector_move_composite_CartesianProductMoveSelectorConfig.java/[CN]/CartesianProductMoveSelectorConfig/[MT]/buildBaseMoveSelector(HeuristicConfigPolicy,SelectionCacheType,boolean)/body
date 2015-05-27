@@ -3,6 +3,6 @@
   for (  MoveSelectorConfig moveSelectorConfig : moveSelectorConfigList) {
     moveSelectorList.add(moveSelectorConfig.buildMoveSelector(configPolicy,minimumCacheType,SelectionOrder.fromRandomSelectionBoolean(randomSelection)));
   }
-  boolean ignoreEmptyChildIterators_=ignoreEmptyChildIterators == null ? true : ignoreEmptyChildIterators;
+  boolean ignoreEmptyChildIterators_=defaultIfNull(ignoreEmptyChildIterators,true);
   return new CartesianProductMoveSelector(moveSelectorList,ignoreEmptyChildIterators_,randomSelection);
 }

@@ -10,13 +10,13 @@
   boolean scoreBounderEnabled=exhaustiveSearchType_.isScoreBounderEnabled();
   NodeExplorationType nodeExplorationType_;
   if (exhaustiveSearchType_ == ExhaustiveSearchType.BRUTE_FORCE) {
-    nodeExplorationType_=nodeExplorationType != null ? nodeExplorationType : NodeExplorationType.ORIGINAL_ORDER;
+    nodeExplorationType_=defaultIfNull(nodeExplorationType,NodeExplorationType.ORIGINAL_ORDER);
     if (nodeExplorationType_ != NodeExplorationType.ORIGINAL_ORDER) {
       throw new IllegalArgumentException("The phaseConfig (" + this + ") has an nodeExplorationType ("+ nodeExplorationType+ ") which is not compatible with its exhaustiveSearchType ("+ exhaustiveSearchType+ ").");
     }
   }
  else {
-    nodeExplorationType_=nodeExplorationType != null ? nodeExplorationType : NodeExplorationType.DEPTH_FIRST;
+    nodeExplorationType_=defaultIfNull(nodeExplorationType,NodeExplorationType.DEPTH_FIRST);
   }
   phase.setNodeComparator(nodeExplorationType_.buildNodeComparator(scoreBounderEnabled));
   EntitySelectorConfig entitySelectorConfig_=buildEntitySelectorConfig(phaseConfigPolicy);

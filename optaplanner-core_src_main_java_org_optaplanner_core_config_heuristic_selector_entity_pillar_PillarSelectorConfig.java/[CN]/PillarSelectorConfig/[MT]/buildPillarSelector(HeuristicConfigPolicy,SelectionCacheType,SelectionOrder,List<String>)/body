@@ -8,5 +8,5 @@
   if (BooleanUtils.isFalse(subPillarEnabled) && (minimumSubPillarSize != null || maximumSubPillarSize != null)) {
     throw new IllegalArgumentException("The pillarSelectorConfig (" + this + ") must not have subPillarEnabled ("+ subPillarEnabled+ ") with minimumSubPillarSize ("+ minimumSubPillarSize+ ") and maximumSubPillarSize ("+ maximumSubPillarSize+ ").");
   }
-  return new DefaultPillarSelector(entitySelector,variableDescriptors,inheritedSelectionOrder.toRandomSelectionBoolean(),subPillarEnabled == null ? true : subPillarEnabled,minimumSubPillarSize == null ? 1 : minimumSubPillarSize,maximumSubPillarSize == null ? Integer.MAX_VALUE : maximumSubPillarSize);
+  return new DefaultPillarSelector(entitySelector,variableDescriptors,inheritedSelectionOrder.toRandomSelectionBoolean(),defaultIfNull(subPillarEnabled,true),defaultIfNull(minimumSubPillarSize,1),defaultIfNull(maximumSubPillarSize,Integer.MAX_VALUE));
 }
