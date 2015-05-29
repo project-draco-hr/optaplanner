@@ -1,0 +1,6 @@
+{
+  PlannerBenchmarkConfig config=new PlannerBenchmarkConfig();
+  config.setName(" prefixed with space");
+  config.setSolverBenchmarkConfigList(Collections.singletonList(new SolverBenchmarkConfig()));
+  config.validate();
+}

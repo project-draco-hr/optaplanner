@@ -1,0 +1,6 @@
+{
+  PlannerBenchmarkConfig config=new PlannerBenchmarkConfig();
+  config.setName("Valid_name with space_and_underscore");
+  config.setSolverBenchmarkConfigList(Collections.singletonList(new SolverBenchmarkConfig()));
+  config.validate();
+}
