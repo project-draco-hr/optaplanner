@@ -1,3 +1,0 @@
-{
-  xStream.addDefaultImplementation(defaultImplementation,ofType);
-}
