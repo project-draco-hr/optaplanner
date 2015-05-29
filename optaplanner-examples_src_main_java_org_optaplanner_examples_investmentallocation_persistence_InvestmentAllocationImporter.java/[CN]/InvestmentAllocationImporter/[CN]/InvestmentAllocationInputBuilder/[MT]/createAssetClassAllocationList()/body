@@ -1,0 +1,11 @@
+{
+  List<AssetClass> assetClassList=solution.getAssetClassList();
+  List<AssetClassAllocation> assetClassAllocationList=new ArrayList<AssetClassAllocation>(assetClassList.size());
+  for (  AssetClass assetClass : assetClassList) {
+    AssetClassAllocation allocation=new AssetClassAllocation();
+    allocation.setId(assetClass.getId());
+    allocation.setAssetClass(assetClass);
+    assetClassAllocationList.add(allocation);
+  }
+  solution.setAssetClassAllocationList(assetClassAllocationList);
+}
