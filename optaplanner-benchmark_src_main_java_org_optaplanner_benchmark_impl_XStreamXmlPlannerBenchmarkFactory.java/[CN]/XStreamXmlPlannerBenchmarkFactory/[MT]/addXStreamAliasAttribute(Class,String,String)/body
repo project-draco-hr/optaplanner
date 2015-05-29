@@ -1,0 +1,3 @@
+{
+  xStream.aliasAttribute(definedIn,attributeName,alias);
+}
