@@ -1,0 +1,3 @@
+{
+  return ValueRangeFactory.createLongValueRange(0L,1000000000L);
+}

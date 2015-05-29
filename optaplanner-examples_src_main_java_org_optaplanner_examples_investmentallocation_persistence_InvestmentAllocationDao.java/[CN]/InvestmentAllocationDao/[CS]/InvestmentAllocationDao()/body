@@ -1,0 +1,3 @@
+{
+  super("investmentallocation",InvestmentAllocationSolution.class);
+}

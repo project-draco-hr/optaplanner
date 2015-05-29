@@ -1,0 +1,27 @@
+{
+  readConstantLine("ABC Institutional Investor Capital Markets Expectations;*");
+  readConstantLine("Asset class;+Correlation;*");
+  String headerLine=bufferedReader.readLine();
+  String[] headerTokens=splitBySemicolonSeparatedValue(headerLine);
+  String headerRegex="ID;Name;Expected return;Standard deviation(;\\d+)+";
+  if (!headerLine.trim().matches(headerRegex)) {
+    throw new IllegalArgumentException("Read line (" + headerLine + ") is expected to be a constant regex ("+ headerRegex+ ").");
+  }
+  int assetClassListSize=headerTokens.length - 4;
+  List<AssetClass> assetClassList=new ArrayList<AssetClass>(assetClassListSize);
+  Map<Long,AssetClass> idToAssetClassMap=new HashMap<Long,AssetClass>(assetClassListSize);
+  for (String line=bufferedReader.readLine(); line != null; line=bufferedReader.readLine()) {
+    String[] tokens=splitBySemicolonSeparatedValue(line,4 + assetClassListSize);
+    AssetClass assetClass=new AssetClass();
+    assetClass.setId(Long.parseLong(tokens[0]));
+    assetClass.setName(tokens[1]);
+    assetClass.setExpectedReturnNanos(parsePercentageNanos(tokens[2]));
+    assetClass.setStandardDeviationRiskNanos(parsePercentageNanos(tokens[3]));
+    assetClassList.add(assetClass);
+    idToAssetClassMap.put(assetClass.getId(),assetClass);
+  }
+  if (assetClassList.size() != assetClassListSize) {
+    throw new IllegalStateException("The assetClassList size (" + assetClassList.size() + ") is expected to be the same as the header's assetClassListSize ("+ assetClassListSize+ ")");
+  }
+  solution.setAssetClassList(assetClassList);
+}
