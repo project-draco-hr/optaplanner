@@ -1,5 +1,7 @@
 {
   correlationPanel.addCornerHeader(HEADER_COLUMN,HEADER_ROW,createHeaderPanel(new JLabel("Asset class"),null));
+  correlationPanel.addCornerHeader(HEADER_COLUMN_EXTRA_PROPERTY_1,HEADER_ROW,createHeaderPanel(new JLabel("Expected return"),null));
+  correlationPanel.addCornerHeader(HEADER_COLUMN_EXTRA_PROPERTY_2,HEADER_ROW,createHeaderPanel(new JLabel("Standard deviation risk"),null));
   for (  AssetClass assetClass : solution.getAssetClassList()) {
     correlationPanel.addColumnHeader(assetClass,HEADER_ROW,createHeaderPanel(new JLabel(assetClass.getName(),SwingConstants.CENTER),"Expected return: " + assetClass.getExpectedReturnLabel() + " - Standard deviation risk: "+ assetClass.getStandardDeviationRiskLabel()));
   }
@@ -11,4 +13,12 @@
       correlationPanel.addCell(a,b,new JLabel(a.getCorrelationLabel(b),SwingConstants.RIGHT));
     }
   }
+  correlationPanel.addCornerHeader(HEADER_COLUMN,TRAILING_HEADER_ROW,createHeaderPanel(new JLabel("Total"),null));
+  long expectedReturnTotalPicos=0L;
+  for (  AssetClassAllocation allocation : solution.getAssetClassAllocationList()) {
+    expectedReturnTotalPicos+=allocation.getQuantifiedExpectedReturnPicos();
+    correlationPanel.addRowHeader(HEADER_COLUMN_EXTRA_PROPERTY_1,allocation.getAssetClass(),new JLabel(allocation.getAssetClass().getExpectedReturnLabel(),SwingConstants.RIGHT));
+    correlationPanel.addRowHeader(HEADER_COLUMN_EXTRA_PROPERTY_2,allocation.getAssetClass(),new JLabel(allocation.getAssetClass().getStandardDeviationRiskLabel(),SwingConstants.RIGHT));
+  }
+  correlationPanel.addCornerHeader(HEADER_COLUMN_EXTRA_PROPERTY_1,TRAILING_HEADER_ROW,new JLabel(InvestmentAllocationMicrosUtil.formatPicosAsPercentage(expectedReturnTotalPicos),SwingConstants.RIGHT));
 }
