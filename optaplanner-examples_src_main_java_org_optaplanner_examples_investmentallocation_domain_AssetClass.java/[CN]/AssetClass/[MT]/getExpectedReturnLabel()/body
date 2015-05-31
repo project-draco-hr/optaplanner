@@ -1,4 +1,3 @@
 {
-  BigDecimal percentage=new BigDecimal(expectedReturnMicros).divide(new BigDecimal(1000000L),BigDecimal.ROUND_HALF_UP);
-  return DecimalFormat.getPercentInstance().format(percentage);
+  return InvestmentAllocationMicrosUtil.formatMicrosAsPercentage(expectedReturnMicros);
 }
