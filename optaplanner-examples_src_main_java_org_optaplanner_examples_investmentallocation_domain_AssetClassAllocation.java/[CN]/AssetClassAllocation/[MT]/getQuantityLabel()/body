@@ -1,0 +1,6 @@
+{
+  if (quantityMicros == null) {
+    return "";
+  }
+  return InvestmentAllocationMicrosUtil.formatMicrosAsPercentage(quantityMicros);
+}

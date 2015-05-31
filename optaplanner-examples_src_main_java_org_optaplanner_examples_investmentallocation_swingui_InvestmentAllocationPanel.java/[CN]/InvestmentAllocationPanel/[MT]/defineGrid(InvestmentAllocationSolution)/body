@@ -5,6 +5,7 @@
   correlationPanel.defineColumnHeaderByKey(HEADER_COLUMN);
   correlationPanel.defineColumnHeaderByKey(HEADER_COLUMN_EXTRA_PROPERTY_1);
   correlationPanel.defineColumnHeaderByKey(HEADER_COLUMN_EXTRA_PROPERTY_2);
+  correlationPanel.defineColumnHeaderByKey(HEADER_COLUMN_EXTRA_PROPERTY_3);
   for (  AssetClass assetClass : solution.getAssetClassList()) {
     correlationPanel.defineColumnHeader(assetClass,footprintWidth);
   }
