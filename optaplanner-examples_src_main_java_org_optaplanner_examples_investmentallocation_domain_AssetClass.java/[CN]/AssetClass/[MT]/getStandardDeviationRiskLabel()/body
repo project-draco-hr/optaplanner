@@ -1,0 +1,4 @@
+{
+  BigDecimal percentage=new BigDecimal(standardDeviationRiskMicros).divide(new BigDecimal(1000000L),BigDecimal.ROUND_HALF_UP);
+  return DecimalFormat.getPercentInstance().format(percentage);
+}

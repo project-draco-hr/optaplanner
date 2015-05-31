@@ -1,0 +1,14 @@
+{
+  correlationPanel.addCornerHeader(HEADER_COLUMN,HEADER_ROW,createHeaderPanel(new JLabel("Asset class"),null));
+  for (  AssetClass assetClass : solution.getAssetClassList()) {
+    correlationPanel.addColumnHeader(assetClass,HEADER_ROW,createHeaderPanel(new JLabel(assetClass.getName(),SwingConstants.CENTER),"Expected return: " + assetClass.getExpectedReturnLabel() + "\nStandard deviation risk: "+ assetClass.getStandardDeviationRiskLabel()));
+  }
+  for (  AssetClass assetClass : solution.getAssetClassList()) {
+    correlationPanel.addRowHeader(HEADER_COLUMN,assetClass,createHeaderPanel(new JLabel(assetClass.getName(),SwingConstants.CENTER),"Expected return: " + assetClass.getExpectedReturnLabel() + "\nStandard deviation risk: "+ assetClass.getStandardDeviationRiskLabel()));
+  }
+  for (  AssetClass a : solution.getAssetClassList()) {
+    for (    AssetClass b : solution.getAssetClassList()) {
+      correlationPanel.addCell(a,b,new JLabel(a.getCorrelationLabel(b)));
+    }
+  }
+}

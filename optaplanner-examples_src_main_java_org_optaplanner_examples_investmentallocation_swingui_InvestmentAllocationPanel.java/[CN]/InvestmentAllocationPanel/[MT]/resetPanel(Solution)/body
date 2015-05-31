@@ -1,0 +1,7 @@
+{
+  correlationPanel.reset();
+  InvestmentAllocationSolution solution=(InvestmentAllocationSolution)s;
+  defineGrid(solution);
+  fillCells(solution);
+  repaint();
+}

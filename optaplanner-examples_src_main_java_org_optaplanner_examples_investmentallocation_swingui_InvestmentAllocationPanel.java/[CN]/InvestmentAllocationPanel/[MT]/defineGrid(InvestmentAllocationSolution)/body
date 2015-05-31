@@ -1,0 +1,15 @@
+{
+  JButton footprint=new JButton("99999999");
+  footprint.setMargin(new Insets(0,0,0,0));
+  int footprintWidth=footprint.getPreferredSize().width;
+  correlationPanel.defineColumnHeaderByKey(HEADER_COLUMN);
+  for (  AssetClass assetClass : solution.getAssetClassList()) {
+    correlationPanel.defineColumnHeader(assetClass,footprintWidth);
+  }
+  correlationPanel.defineColumnHeader(null,footprintWidth);
+  correlationPanel.defineRowHeaderByKey(HEADER_ROW);
+  for (  AssetClass assetClass : solution.getAssetClassList()) {
+    correlationPanel.defineRowHeader(assetClass);
+  }
+  correlationPanel.defineRowHeader(null);
+}

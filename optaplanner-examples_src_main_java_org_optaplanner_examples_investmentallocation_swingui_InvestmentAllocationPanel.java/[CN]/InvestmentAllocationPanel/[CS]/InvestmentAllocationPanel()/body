@@ -1,0 +1,8 @@
+{
+  setLayout(new BorderLayout());
+  JTabbedPane tabbedPane=new JTabbedPane();
+  correlationPanel=new TimeTablePanel<AssetClass,AssetClass>();
+  tabbedPane.add("Correlation",new JScrollPane(correlationPanel));
+  add(tabbedPane,BorderLayout.CENTER);
+  setPreferredSize(PREFERRED_SCROLLABLE_VIEWPORT_SIZE);
+}

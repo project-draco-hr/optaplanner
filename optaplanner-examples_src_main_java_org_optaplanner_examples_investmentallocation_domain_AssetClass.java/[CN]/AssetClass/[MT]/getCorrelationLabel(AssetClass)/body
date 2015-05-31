@@ -1,0 +1,5 @@
+{
+  long correlationMicros=correlationMicrosMap.get(other);
+  BigDecimal percentage=new BigDecimal(correlationMicros).divide(new BigDecimal(1000000L),BigDecimal.ROUND_HALF_UP);
+  return DecimalFormat.getPercentInstance().format(percentage);
+}
