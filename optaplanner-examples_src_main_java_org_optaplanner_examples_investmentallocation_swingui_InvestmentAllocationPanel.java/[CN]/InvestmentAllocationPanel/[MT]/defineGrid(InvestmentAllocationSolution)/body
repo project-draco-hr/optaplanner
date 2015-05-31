@@ -9,6 +9,7 @@
   for (  AssetClass assetClass : solution.getAssetClassList()) {
     correlationPanel.defineColumnHeader(assetClass,footprintWidth);
   }
+  correlationPanel.defineRowHeaderByKey(HEADER_ROW_GROUP1);
   correlationPanel.defineRowHeaderByKey(HEADER_ROW);
   for (  AssetClass assetClass : solution.getAssetClassList()) {
     correlationPanel.defineRowHeader(assetClass);
