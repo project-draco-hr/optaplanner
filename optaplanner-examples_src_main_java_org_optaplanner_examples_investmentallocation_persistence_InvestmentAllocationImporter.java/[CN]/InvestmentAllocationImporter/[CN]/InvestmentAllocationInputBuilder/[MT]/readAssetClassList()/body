@@ -25,15 +25,15 @@
       throw new IllegalStateException("The assetClass line (" + line + ") has an assetClass id ("+ id+ ") that is not in the headerLine ("+ headerLine+ ")");
     }
     assetClass.setName(tokens[1]);
-    assetClass.setExpectedReturnNanos(parsePercentageNanos(tokens[2]));
-    assetClass.setStandardDeviationRiskNanos(parsePercentageNanos(tokens[3]));
-    Map<AssetClass,Long> correlationNanosMap=new LinkedHashMap<AssetClass,Long>(assetClassListSize);
+    assetClass.setExpectedReturnMicros(parsePercentageMicros(tokens[2]));
+    assetClass.setStandardDeviationRiskMicros(parsePercentageMicros(tokens[3]));
+    Map<AssetClass,Long> correlationMicrosMap=new LinkedHashMap<AssetClass,Long>(assetClassListSize);
     for (int i=0; i < assetClassListSize; i++) {
       AssetClass other=assetClassList.get(i);
-      long correlationNanos=parsePercentageNanos(tokens[ASSET_CLASS_PROPERTIES_COUNT + i]);
-      correlationNanosMap.put(other,correlationNanos);
+      long correlationMicros=parsePercentageMicros(tokens[ASSET_CLASS_PROPERTIES_COUNT + i]);
+      correlationMicrosMap.put(other,correlationMicros);
     }
-    assetClass.setCorrelationNanosMap(correlationNanosMap);
+    assetClass.setCorrelationMicrosMap(correlationMicrosMap);
   }
   solution.setAssetClassList(assetClassList);
 }
