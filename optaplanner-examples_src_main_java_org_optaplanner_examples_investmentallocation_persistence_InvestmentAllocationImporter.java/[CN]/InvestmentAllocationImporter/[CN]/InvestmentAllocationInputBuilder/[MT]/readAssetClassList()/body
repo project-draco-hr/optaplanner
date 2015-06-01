@@ -1,6 +1,4 @@
 {
-  readConstantLine("ABC Institutional Investor Capital Markets Expectations;*");
-  readConstantLine("Asset class;+Correlation;*");
   String headerLine=bufferedReader.readLine();
   String[] headerTokens=splitBySemicolonSeparatedValue(headerLine);
   String headerRegex="ID;Name;Expected return;Standard deviation(;\\d+)+";

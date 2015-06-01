@@ -1,0 +1,8 @@
+{
+  readConstantLine("ABC Institutional Investor Capital Markets Expectations;*");
+  readConstantLine("Asset class;+Correlation;*");
+  InvestmentParametrization parametrization=new InvestmentParametrization();
+  parametrization.setId(0L);
+  parametrization.setStandardDeviationMillisMaximum(95);
+  solution.setParametrization(parametrization);
+}
