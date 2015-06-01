@@ -1,0 +1,16 @@
+{
+  long budget=InvestmentAllocationMicrosUtil.MAXIMUM_QUANTITY_MICROS;
+  int size=solution.getAssetClassAllocationList().size();
+  long budgetPerAllocation=budget / size;
+  long remainder=budget % size;
+  for (  AssetClassAllocation allocation : solution.getAssetClassAllocationList()) {
+    long quantityMicros=budgetPerAllocation;
+    if (remainder > 0L) {
+      remainder--;
+      quantityMicros++;
+    }
+    scoreDirector.beforeVariableChanged(allocation,"quantityMicros");
+    allocation.setQuantityMicros(quantityMicros);
+    scoreDirector.afterVariableChanged(allocation,"quantityMicros");
+  }
+}
