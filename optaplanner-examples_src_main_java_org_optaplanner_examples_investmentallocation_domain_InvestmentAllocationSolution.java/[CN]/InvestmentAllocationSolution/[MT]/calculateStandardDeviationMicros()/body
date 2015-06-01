@@ -1,0 +1,16 @@
+{
+  long totalFemtos=0L;
+  for (  AssetClassAllocation a : assetClassAllocationList) {
+    for (    AssetClassAllocation b : assetClassAllocationList) {
+      if (a == b) {
+        totalFemtos+=a.getQuantifiedStandardDeviationRiskMicros() * b.getQuantifiedStandardDeviationRiskMicros() * 1000L;
+      }
+ else {
+        long correlationMillis=a.getAssetClass().getCorrelationMillisMap().get(b.getAssetClass());
+        totalFemtos+=a.getQuantifiedStandardDeviationRiskMicros() * b.getQuantifiedStandardDeviationRiskMicros() * correlationMillis;
+      }
+    }
+  }
+  long totalPicos=totalFemtos / 1000L;
+  return (long)Math.sqrt(totalPicos);
+}

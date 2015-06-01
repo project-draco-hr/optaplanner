@@ -2,17 +2,17 @@
   JButton footprint=new JButton("99999999");
   footprint.setMargin(new Insets(0,0,0,0));
   int footprintWidth=footprint.getPreferredSize().width;
-  correlationPanel.defineColumnHeaderByKey(HEADER_COLUMN);
-  correlationPanel.defineColumnHeaderByKey(HEADER_COLUMN_EXTRA_PROPERTY_1);
-  correlationPanel.defineColumnHeaderByKey(HEADER_COLUMN_EXTRA_PROPERTY_2);
-  correlationPanel.defineColumnHeaderByKey(HEADER_COLUMN_EXTRA_PROPERTY_3);
+  assetClassPanel.defineColumnHeaderByKey(HEADER_COLUMN);
+  assetClassPanel.defineColumnHeaderByKey(HEADER_COLUMN_EXTRA_PROPERTY_1);
+  assetClassPanel.defineColumnHeaderByKey(HEADER_COLUMN_EXTRA_PROPERTY_2);
+  assetClassPanel.defineColumnHeaderByKey(HEADER_COLUMN_EXTRA_PROPERTY_3);
   for (  AssetClass assetClass : solution.getAssetClassList()) {
-    correlationPanel.defineColumnHeader(assetClass,footprintWidth);
+    assetClassPanel.defineColumnHeader(assetClass,footprintWidth);
   }
-  correlationPanel.defineRowHeaderByKey(HEADER_ROW_GROUP1);
-  correlationPanel.defineRowHeaderByKey(HEADER_ROW);
+  assetClassPanel.defineRowHeaderByKey(HEADER_ROW_GROUP1);
+  assetClassPanel.defineRowHeaderByKey(HEADER_ROW);
   for (  AssetClass assetClass : solution.getAssetClassList()) {
-    correlationPanel.defineRowHeader(assetClass);
+    assetClassPanel.defineRowHeader(assetClass);
   }
-  correlationPanel.defineRowHeaderByKey(TRAILING_HEADER_ROW);
+  assetClassPanel.defineRowHeaderByKey(TRAILING_HEADER_ROW);
 }

@@ -1,0 +1,7 @@
+{
+  long expectedReturnMicros=0L;
+  for (  AssetClassAllocation allocation : assetClassAllocationList) {
+    expectedReturnMicros+=allocation.getQuantifiedExpectedReturnMicros();
+  }
+  return expectedReturnMicros;
+}
