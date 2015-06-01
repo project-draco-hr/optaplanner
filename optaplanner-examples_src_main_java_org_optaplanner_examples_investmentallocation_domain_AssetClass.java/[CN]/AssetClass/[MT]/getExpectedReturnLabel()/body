@@ -1,3 +1,3 @@
 {
-  return InvestmentAllocationMicrosUtil.formatMicrosAsPercentage(expectedReturnMicros);
+  return InvestmentAllocationNumericUtil.formatMillisAsPercentage(expectedReturnMillis);
 }

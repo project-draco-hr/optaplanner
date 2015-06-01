@@ -1,5 +1,5 @@
 {
   this.fromAssetClassAllocation=fromAssetClassAllocation;
   this.toAssetClassAllocation=toAssetClassAllocation;
-  this.transferMicros=transferMicros;
+  this.transferMillis=transferMillis;
 }

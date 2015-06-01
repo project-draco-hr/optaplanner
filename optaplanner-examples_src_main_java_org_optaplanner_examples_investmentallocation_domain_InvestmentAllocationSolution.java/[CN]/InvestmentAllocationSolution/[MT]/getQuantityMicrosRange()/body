@@ -1,3 +1,0 @@
-{
-  return ValueRangeFactory.createLongValueRange(0L,InvestmentAllocationMicrosUtil.MAXIMUM_QUANTITY_MICROS + 1L);
-}

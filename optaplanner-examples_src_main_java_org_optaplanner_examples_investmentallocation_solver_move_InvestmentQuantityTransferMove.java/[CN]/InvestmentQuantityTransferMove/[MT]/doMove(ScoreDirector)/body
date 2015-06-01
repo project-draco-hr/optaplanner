@@ -1,8 +1,8 @@
 {
-  scoreDirector.beforeVariableChanged(fromAssetClassAllocation,"quantityMicros");
-  fromAssetClassAllocation.setQuantityMicros(fromAssetClassAllocation.getQuantityMicros() - transferMicros);
-  scoreDirector.afterVariableChanged(fromAssetClassAllocation,"quantityMicros");
-  scoreDirector.beforeVariableChanged(toAssetClassAllocation,"quantityMicros");
-  toAssetClassAllocation.setQuantityMicros(toAssetClassAllocation.getQuantityMicros() + transferMicros);
-  scoreDirector.afterVariableChanged(toAssetClassAllocation,"quantityMicros");
+  scoreDirector.beforeVariableChanged(fromAssetClassAllocation,"quantityMillis");
+  fromAssetClassAllocation.setQuantityMillis(fromAssetClassAllocation.getQuantityMillis() - transferMillis);
+  scoreDirector.afterVariableChanged(fromAssetClassAllocation,"quantityMillis");
+  scoreDirector.beforeVariableChanged(toAssetClassAllocation,"quantityMillis");
+  toAssetClassAllocation.setQuantityMillis(toAssetClassAllocation.getQuantityMillis() + transferMillis);
+  scoreDirector.afterVariableChanged(toAssetClassAllocation,"quantityMillis");
 }

@@ -1,0 +1,10 @@
+{
+  BigDecimal millis;
+  if (token.endsWith("%")) {
+    millis=new BigDecimal(token.substring(0,token.length() - 1)).multiply(new BigDecimal(10L));
+  }
+ else {
+    millis=new BigDecimal(token).multiply(new BigDecimal(1000L));
+  }
+  return millis.longValueExact();
+}

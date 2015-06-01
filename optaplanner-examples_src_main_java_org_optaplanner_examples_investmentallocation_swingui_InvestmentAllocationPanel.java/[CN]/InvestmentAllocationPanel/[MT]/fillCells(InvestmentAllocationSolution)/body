@@ -19,12 +19,12 @@
     }
   }
   correlationPanel.addCornerHeader(HEADER_COLUMN,TRAILING_HEADER_ROW,createHeaderPanel(new JLabel("Total"),null));
-  long expectedReturnTotalPicos=0L;
-  long quantityTotalMicros=0L;
+  long expectedReturnTotalMicros=0L;
+  long quantityTotalMillis=0L;
   for (  AssetClassAllocation allocation : solution.getAssetClassAllocationList()) {
-    if (allocation.getQuantityMicros() != null) {
-      expectedReturnTotalPicos+=allocation.getQuantifiedExpectedReturnPicos();
-      quantityTotalMicros+=allocation.getQuantityMicros();
+    if (allocation.getQuantityMillis() != null) {
+      expectedReturnTotalMicros+=allocation.getQuantifiedExpectedReturnMicros();
+      quantityTotalMillis+=allocation.getQuantityMillis();
     }
     correlationPanel.addRowHeader(HEADER_COLUMN_EXTRA_PROPERTY_1,allocation.getAssetClass(),new JLabel(allocation.getAssetClass().getExpectedReturnLabel(),SwingConstants.RIGHT));
     correlationPanel.addRowHeader(HEADER_COLUMN_EXTRA_PROPERTY_2,allocation.getAssetClass(),new JLabel(allocation.getAssetClass().getStandardDeviationRiskLabel(),SwingConstants.RIGHT));
@@ -32,8 +32,8 @@
     quantityLabel.setForeground(TangoColorFactory.ORANGE_3);
     correlationPanel.addRowHeader(HEADER_COLUMN_EXTRA_PROPERTY_3,allocation.getAssetClass(),quantityLabel);
   }
-  correlationPanel.addCornerHeader(HEADER_COLUMN_EXTRA_PROPERTY_1,TRAILING_HEADER_ROW,new JLabel(InvestmentAllocationMicrosUtil.formatPicosAsPercentage(expectedReturnTotalPicos),SwingConstants.RIGHT));
-  JLabel quantityTotalLabel=new JLabel(InvestmentAllocationMicrosUtil.formatMicrosAsPercentage(quantityTotalMicros),SwingConstants.RIGHT);
+  correlationPanel.addCornerHeader(HEADER_COLUMN_EXTRA_PROPERTY_1,TRAILING_HEADER_ROW,new JLabel(InvestmentAllocationNumericUtil.formatMicrosAsPercentage(expectedReturnTotalMicros),SwingConstants.RIGHT));
+  JLabel quantityTotalLabel=new JLabel(InvestmentAllocationNumericUtil.formatMillisAsPercentage(quantityTotalMillis),SwingConstants.RIGHT);
   quantityTotalLabel.setForeground(TangoColorFactory.ORANGE_3);
   correlationPanel.addCornerHeader(HEADER_COLUMN_EXTRA_PROPERTY_3,TRAILING_HEADER_ROW,quantityTotalLabel);
 }

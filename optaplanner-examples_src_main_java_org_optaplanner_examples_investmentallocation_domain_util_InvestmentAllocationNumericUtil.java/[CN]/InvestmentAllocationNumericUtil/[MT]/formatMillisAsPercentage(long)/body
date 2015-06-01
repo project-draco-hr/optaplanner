@@ -1,0 +1,4 @@
+{
+  BigDecimal percentage=new BigDecimal(millis).divide(MILLIS_DIVISOR,3,BigDecimal.ROUND_HALF_UP);
+  return PERCENT_FORMAT.format(percentage);
+}

@@ -1,4 +1,4 @@
 {
-  long correlationMicros=correlationMicrosMap.get(other);
-  return InvestmentAllocationMicrosUtil.formatMicrosAsPercentage(correlationMicros);
+  long correlationMillis=correlationMillisMap.get(other);
+  return InvestmentAllocationNumericUtil.formatMillisAsPercentage(correlationMillis);
 }

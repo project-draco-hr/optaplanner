@@ -1,6 +1,0 @@
-{
-  if (quantityMicros == null) {
-    return 0L;
-  }
-  return quantityMicros * assetClass.getExpectedReturnMicros();
-}

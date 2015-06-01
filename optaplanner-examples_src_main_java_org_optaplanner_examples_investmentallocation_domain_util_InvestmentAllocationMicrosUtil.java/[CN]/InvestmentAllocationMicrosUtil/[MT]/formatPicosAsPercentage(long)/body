@@ -1,4 +1,0 @@
-{
-  BigDecimal percentage=new BigDecimal(picos).divide(PICOS_DIVISOR,12,BigDecimal.ROUND_HALF_UP);
-  return PERCENT_FORMAT.format(percentage);
-}
