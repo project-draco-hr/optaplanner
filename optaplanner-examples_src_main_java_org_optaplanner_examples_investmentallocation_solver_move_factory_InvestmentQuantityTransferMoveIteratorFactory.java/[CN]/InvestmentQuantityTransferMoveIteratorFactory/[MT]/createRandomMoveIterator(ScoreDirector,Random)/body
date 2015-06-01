@@ -1,0 +1,14 @@
+{
+  InvestmentAllocationSolution solution=(InvestmentAllocationSolution)scoreDirector.getWorkingSolution();
+  List<AssetClassAllocation> allocationList=solution.getAssetClassAllocationList();
+  NavigableMap<Long,AssetClassAllocation> quantityIncrementMicrosToAllocationMap=new TreeMap<Long,AssetClassAllocation>();
+  long quantityIncrementMicros=0L;
+  for (  AssetClassAllocation allocation : allocationList) {
+    quantityIncrementMicros+=allocation.getQuantityMicros();
+    quantityIncrementMicrosToAllocationMap.put(quantityIncrementMicros,allocation);
+  }
+  if (quantityIncrementMicros != InvestmentAllocationMicrosUtil.MAXIMUM_QUANTITY_MICROS) {
+    throw new IllegalStateException("The quantityIncrementMicros (" + quantityIncrementMicros + ") must always be total to MAXIMUM_QUANTITY_MICROS ("+ InvestmentAllocationMicrosUtil.MAXIMUM_QUANTITY_MICROS+ ").");
+  }
+  return new RandomInvestmentQuantityTransferMoveIterator(allocationList,quantityIncrementMicrosToAllocationMap,workingRandom);
+}

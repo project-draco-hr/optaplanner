@@ -1,0 +1,4 @@
+{
+  InvestmentAllocationSolution solution=(InvestmentAllocationSolution)scoreDirector.getWorkingSolution();
+  return (solution.getAssetClassAllocationList().size() - 1) * InvestmentAllocationMicrosUtil.MAXIMUM_QUANTITY_MICROS;
+}

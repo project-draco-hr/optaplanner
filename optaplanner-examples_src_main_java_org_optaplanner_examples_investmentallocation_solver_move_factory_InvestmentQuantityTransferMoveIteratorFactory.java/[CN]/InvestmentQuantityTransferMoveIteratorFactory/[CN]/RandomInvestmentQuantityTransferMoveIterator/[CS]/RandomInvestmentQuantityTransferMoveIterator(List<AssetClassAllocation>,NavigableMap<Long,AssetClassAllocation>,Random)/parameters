@@ -1,0 +1,3 @@
+List<AssetClassAllocation> allocationList
+NavigableMap<Long,AssetClassAllocation> quantityIncrementMicrosToAllocationMap
+Random workingRandom

@@ -1,0 +1,5 @@
+{
+  long fromQuantity=fromAssetClassAllocation.getQuantityMicros();
+  long toQuantity=toAssetClassAllocation.getQuantityMicros();
+  return "[" + fromAssetClassAllocation + " {"+ fromQuantity+ "->"+ (fromQuantity - transferMicros)+ "}, "+ toAssetClassAllocation+ " {"+ toQuantity+ "->"+ (toQuantity + transferMicros)+ "}]";
+}

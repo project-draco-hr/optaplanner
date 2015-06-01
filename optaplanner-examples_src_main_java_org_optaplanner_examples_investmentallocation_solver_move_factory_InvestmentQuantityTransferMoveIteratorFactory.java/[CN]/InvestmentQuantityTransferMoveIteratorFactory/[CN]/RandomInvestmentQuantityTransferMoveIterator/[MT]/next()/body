@@ -1,0 +1,14 @@
+{
+  long transferMicros=RandomUtils.nextLong(workingRandom,InvestmentAllocationMicrosUtil.MAXIMUM_QUANTITY_MICROS) + 1L;
+  Map.Entry<Long,AssetClassAllocation> lowerEntry=quantityIncrementMicrosToAllocationMap.lowerEntry(transferMicros);
+  Map.Entry<Long,AssetClassAllocation> ceilingEntry=quantityIncrementMicrosToAllocationMap.ceilingEntry(transferMicros);
+  transferMicros-=(lowerEntry == null ? 0L : lowerEntry.getKey());
+  AssetClassAllocation fromAllocation=ceilingEntry.getValue();
+  int fromAllocationIndex=allocationList.indexOf(fromAllocation);
+  int toAllocationIndex=workingRandom.nextInt(allocationList.size() - 1);
+  if (toAllocationIndex >= fromAllocationIndex) {
+    toAllocationIndex++;
+  }
+  AssetClassAllocation toAllocation=allocationList.get(toAllocationIndex);
+  return new InvestmentQuantityTransferMove(fromAllocation,toAllocation,transferMicros);
+}

@@ -1,0 +1,5 @@
+{
+  this.allocationList=allocationList;
+  this.quantityIncrementMicrosToAllocationMap=quantityIncrementMicrosToAllocationMap;
+  this.workingRandom=workingRandom;
+}
