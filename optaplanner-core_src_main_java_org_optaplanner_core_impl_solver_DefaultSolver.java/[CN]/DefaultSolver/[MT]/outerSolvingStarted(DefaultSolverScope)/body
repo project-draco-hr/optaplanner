@@ -1,7 +1,5 @@
 {
   solving.set(true);
   basicPlumbingTermination.resetTerminateEarly();
-  solverScope.setStartingSystemTimeMillis(System.currentTimeMillis());
-  solverScope.setEndingSystemTimeMillis(null);
   solverScope.setStartingSolverCount(0);
 }

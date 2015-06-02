@@ -1,4 +1,6 @@
 {
+  solverScope.setStartingSystemTimeMillis(System.currentTimeMillis());
+  solverScope.setEndingSystemTimeMillis(null);
   solverScope.setWorkingRandom(randomFactory.createRandom());
   solverScope.setScoreDirector(scoreDirectorFactory.buildScoreDirector(constraintMatchEnabledPreference));
   solverScope.setWorkingSolutionFromBestSolution();
