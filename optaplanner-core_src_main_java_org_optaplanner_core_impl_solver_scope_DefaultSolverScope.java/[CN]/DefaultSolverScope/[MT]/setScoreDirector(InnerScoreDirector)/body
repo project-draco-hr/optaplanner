@@ -1,6 +1,3 @@
 {
-  if (this.scoreDirector != null) {
-    this.scoreDirector.dispose();
-  }
   this.scoreDirector=scoreDirector;
 }

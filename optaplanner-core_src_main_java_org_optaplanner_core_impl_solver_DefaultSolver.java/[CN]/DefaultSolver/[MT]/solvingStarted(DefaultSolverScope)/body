@@ -1,8 +1,7 @@
 {
   solverScope.setStartingSystemTimeMillis(System.currentTimeMillis());
   solverScope.setEndingSystemTimeMillis(null);
-  solverScope.setWorkingRandom(randomFactory.createRandom());
-  solverScope.setScoreDirector(scoreDirectorFactory.buildScoreDirector(constraintMatchEnabledPreference));
+  solverScope.getScoreDirector().resetCalculateCount();
   solverScope.setWorkingSolutionFromBestSolution();
   bestSolutionRecaller.solvingStarted(solverScope);
   for (  Phase phase : phaseList) {

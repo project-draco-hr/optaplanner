@@ -2,4 +2,6 @@
   solving.set(true);
   basicPlumbingTermination.resetTerminateEarly();
   solverScope.setStartingSolverCount(0);
+  solverScope.setWorkingRandom(randomFactory.createRandom());
+  solverScope.setScoreDirector(scoreDirectorFactory.buildScoreDirector(constraintMatchEnabledPreference));
 }
