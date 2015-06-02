@@ -8,7 +8,9 @@
  else {
       long picos=allocation.getQuantifiedStandardDeviationRiskMicros() * other.getQuantifiedStandardDeviationRiskMicros();
       squaredFemtos+=picos * allocation.getAssetClass().getCorrelationMillisMap().get(other.getAssetClass());
-      squaredFemtos+=picos * other.getAssetClass().getCorrelationMillisMap().get(allocation.getAssetClass());
+      if (!reset) {
+        squaredFemtos+=picos * other.getAssetClass().getCorrelationMillisMap().get(allocation.getAssetClass());
+      }
     }
   }
   return squaredFemtos;

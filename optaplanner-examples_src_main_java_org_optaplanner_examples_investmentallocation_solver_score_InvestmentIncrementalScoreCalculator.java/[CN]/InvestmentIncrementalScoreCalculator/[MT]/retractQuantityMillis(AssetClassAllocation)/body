@@ -2,7 +2,7 @@
   if (standardDeviationSquaredFemtos > standardDeviationSquaredFemtosMaximum) {
     hardScore+=standardDeviationSquaredFemtos - standardDeviationSquaredFemtosMaximum;
   }
-  standardDeviationSquaredFemtos-=calculateStandardDeviationSquaredFemtosDelta(allocation);
+  standardDeviationSquaredFemtos-=calculateStandardDeviationSquaredFemtosDelta(allocation,false);
   if (standardDeviationSquaredFemtos > standardDeviationSquaredFemtosMaximum) {
     hardScore-=standardDeviationSquaredFemtos - standardDeviationSquaredFemtosMaximum;
   }

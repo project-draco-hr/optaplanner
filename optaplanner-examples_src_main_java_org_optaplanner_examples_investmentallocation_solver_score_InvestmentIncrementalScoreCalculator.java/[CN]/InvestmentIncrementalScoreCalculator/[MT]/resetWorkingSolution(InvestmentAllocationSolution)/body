@@ -6,6 +6,6 @@
   hardScore=0L;
   softScore=0L;
   for (  AssetClassAllocation allocation : solution.getAssetClassAllocationList()) {
-    insertQuantityMillis(allocation);
+    insertQuantityMillis(allocation,true);
   }
 }
