@@ -1,0 +1,10 @@
+{
+  if (standardDeviationSquaredFemtos > standardDeviationSquaredFemtosMaximum) {
+    hardScore+=standardDeviationSquaredFemtos - standardDeviationSquaredFemtosMaximum;
+  }
+  standardDeviationSquaredFemtos-=calculateStandardDeviationSquaredFemtosDelta(allocation);
+  if (standardDeviationSquaredFemtos > standardDeviationSquaredFemtosMaximum) {
+    hardScore-=standardDeviationSquaredFemtos - standardDeviationSquaredFemtosMaximum;
+  }
+  softScore-=allocation.getQuantifiedExpectedReturnMicros();
+}

@@ -1,0 +1,3 @@
+{
+  retractQuantityMillis((AssetClassAllocation)entity);
+}
