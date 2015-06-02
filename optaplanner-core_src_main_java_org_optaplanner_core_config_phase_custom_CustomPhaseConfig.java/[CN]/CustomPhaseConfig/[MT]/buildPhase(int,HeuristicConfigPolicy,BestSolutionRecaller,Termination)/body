@@ -12,5 +12,9 @@
   }
   customPhase.setCustomPhaseCommandList(customPhaseCommandList);
   customPhase.setForceUpdateBestSolution(forceUpdateBestSolution == null ? false : forceUpdateBestSolution);
+  EnvironmentMode environmentMode=phaseConfigPolicy.getEnvironmentMode();
+  if (environmentMode.isNonIntrusiveFullAsserted()) {
+    customPhase.setAssertStepScoreFromScratch(true);
+  }
   return customPhase;
 }
