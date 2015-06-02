@@ -1,0 +1,12 @@
+{
+  long hardScore=0L;
+  long softScore=0L;
+  long squaredFemtos=solution.calculateStandardDeviationSquaredFemtos();
+  long standardDeviationMillisMaximum=solution.getParametrization().getStandardDeviationMillisMaximum();
+  long squaredFemtosMaximum=standardDeviationMillisMaximum * standardDeviationMillisMaximum * 1000L* 1000L* 1000L;
+  if (squaredFemtos > squaredFemtosMaximum) {
+    hardScore-=squaredFemtos - squaredFemtosMaximum;
+  }
+  softScore+=solution.calculateExpectedReturnMicros();
+  return HardSoftLongScore.valueOf(hardScore,softScore);
+}
