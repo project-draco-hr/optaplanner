@@ -1,8 +1,7 @@
 {
   this.solution=solution;
-  standardDeviationSquaredFemtos=0L;
-  long standardDeviationMillisMaximum=solution.getParametrization().getStandardDeviationMillisMaximum();
-  standardDeviationSquaredFemtosMaximum=standardDeviationMillisMaximum * standardDeviationMillisMaximum * 1000L* 1000L* 1000L;
+  squaredStandardDeviationFemtosMaximum=solution.getParametrization().calculateSquaredStandardDeviationFemtosMaximum();
+  squaredStandardDeviationFemtos=0L;
   hardScore=0L;
   softScore=0L;
   for (  AssetClassAllocation allocation : solution.getAssetClassAllocationList()) {

@@ -1,10 +1,10 @@
 {
-  if (standardDeviationSquaredFemtos > standardDeviationSquaredFemtosMaximum) {
-    hardScore+=standardDeviationSquaredFemtos - standardDeviationSquaredFemtosMaximum;
+  if (squaredStandardDeviationFemtos > squaredStandardDeviationFemtosMaximum) {
+    hardScore+=squaredStandardDeviationFemtos - squaredStandardDeviationFemtosMaximum;
   }
-  standardDeviationSquaredFemtos-=calculateStandardDeviationSquaredFemtosDelta(allocation,false);
-  if (standardDeviationSquaredFemtos > standardDeviationSquaredFemtosMaximum) {
-    hardScore-=standardDeviationSquaredFemtos - standardDeviationSquaredFemtosMaximum;
+  squaredStandardDeviationFemtos-=calculateStandardDeviationSquaredFemtosDelta(allocation,false);
+  if (squaredStandardDeviationFemtos > squaredStandardDeviationFemtosMaximum) {
+    hardScore-=squaredStandardDeviationFemtos - squaredStandardDeviationFemtosMaximum;
   }
   softScore-=allocation.getQuantifiedExpectedReturnMicros();
 }
