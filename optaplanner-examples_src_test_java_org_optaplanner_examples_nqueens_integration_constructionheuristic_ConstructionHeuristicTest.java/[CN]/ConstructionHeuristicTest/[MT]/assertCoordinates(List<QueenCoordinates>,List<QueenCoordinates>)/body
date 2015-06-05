@@ -1,0 +1,7 @@
+{
+  assertEquals(expected.size(),recorded.size());
+  for (int i=0; i < expected.size(); i++) {
+    assertEquals(expected.get(i).getX(),recorded.get(i).getX());
+    assertEquals(expected.get(i).getY(),recorded.get(i).getY());
+  }
+}

@@ -1,0 +1,6 @@
+{
+  this.constructionHeuristicType=constructionHeuristicType;
+  this.entitySorterManner=entitySorterManner;
+  this.valueSorterManner=valueSorterManner;
+  this.expectedCoordinates=expectedCoordinates;
+}

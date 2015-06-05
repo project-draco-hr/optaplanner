@@ -1,0 +1,4 @@
+ConstructionHeuristicType constructionHeuristicType
+EntitySorterManner entitySorterManner
+ValueSorterManner valueSorterManner
+List<QueenCoordinates> expectedCoordinates

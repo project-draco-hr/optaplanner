@@ -1,0 +1,3 @@
+{
+  return new QueenCoordinates(x,y);
+}

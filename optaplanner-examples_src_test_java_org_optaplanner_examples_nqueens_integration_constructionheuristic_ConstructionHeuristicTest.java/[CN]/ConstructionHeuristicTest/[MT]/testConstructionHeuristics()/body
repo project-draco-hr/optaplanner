@@ -1,0 +1,43 @@
+{
+  SolverConfig config=new SolverConfig();
+  config.setEnvironmentMode(EnvironmentMode.REPRODUCIBLE);
+  config.setSolutionClass(NQueens.class);
+  config.setEntityClassList(Collections.<Class<?>>singletonList(Queen.class));
+  config.setScoreDirectorFactoryConfig(new ScoreDirectorFactoryConfig());
+  config.getScoreDirectorFactoryConfig().setScoreDefinitionType(ScoreDefinitionType.SIMPLE);
+  config.getScoreDirectorFactoryConfig().setIncrementalScoreCalculatorClass(NQueensAdvancedIncrementalScoreCalculator.class);
+  config.setTerminationConfig(new TerminationConfig());
+  config.getTerminationConfig().setBestScoreLimit("0");
+  ConstructionHeuristicPhaseConfig chConfig=new ConstructionHeuristicPhaseConfig();
+  chConfig.setConstructionHeuristicType(constructionHeuristicType);
+  chConfig.setEntitySorterManner(entitySorterManner);
+  chConfig.setValueSorterManner(valueSorterManner);
+  config.setPhaseConfigList(Collections.<PhaseConfig>singletonList(chConfig));
+  NQueens solution=new NQueens();
+  List<Queen> entities=new ArrayList<Queen>();
+  int dimension=8;
+  List<Row> rowList=new ArrayList<Row>();
+  List<Column> columnList=new ArrayList<Column>();
+  for (int i=0; i < dimension; i++) {
+    Column column=new Column();
+    column.setIndex(i);
+    Row row=new Row();
+    row.setIndex(i);
+    Queen entity=new Queen();
+    entity.setColumn(column);
+    rowList.add(row);
+    columnList.add(column);
+    entities.add(entity);
+  }
+  solution.setN(dimension);
+  solution.setRowList(rowList);
+  solution.setColumnList(columnList);
+  solution.setQueenList(entities);
+  QueenCoordinatesStepListener listener=new QueenCoordinatesStepListener();
+  DefaultSolver solver=(DefaultSolver)config.buildSolver();
+  solver.addPhaseLifecycleListener(listener);
+  solver.solve(solution);
+  NQueens result=(NQueens)solver.getBestSolution();
+  assertNotNull(result);
+  assertCoordinates(expectedCoordinates,listener.getCoordinates());
+}
