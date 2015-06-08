@@ -1,3 +1,4 @@
 FinalistPodium finalistPodium
 LocalSearchPickEarlyType pickEarlyType
 int acceptedCountLimit
+boolean breakTieRandomly

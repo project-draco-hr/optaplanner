@@ -8,5 +8,6 @@
   LocalSearchPickEarlyType pickEarlyType_=defaultIfNull(pickEarlyType,LocalSearchPickEarlyType.NEVER);
   int acceptedCountLimit_=defaultIfNull(acceptedCountLimit,Integer.MAX_VALUE);
   FinalistPodiumType finalistPodiumType_=defaultIfNull(finalistPodiumType,FinalistPodiumType.HIGHEST_SCORE);
-  return new AcceptedForager(finalistPodiumType_.buildFinalistPodium(),pickEarlyType_,acceptedCountLimit_);
+  boolean breakTieRandomly_=defaultIfNull(breakTieRandomly,true);
+  return new AcceptedForager(finalistPodiumType_.buildFinalistPodium(),pickEarlyType_,acceptedCountLimit_,breakTieRandomly_);
 }

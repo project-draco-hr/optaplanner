@@ -5,4 +5,5 @@
   if (acceptedCountLimit < 1) {
     throw new IllegalArgumentException("The acceptedCountLimit (" + acceptedCountLimit + ") cannot be negative or zero.");
   }
+  this.breakTieRandomly=breakTieRandomly;
 }

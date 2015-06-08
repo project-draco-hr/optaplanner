@@ -1,0 +1,4 @@
+{
+  assertEquals(1,singletonList.size());
+  return singletonList.get(0);
+}

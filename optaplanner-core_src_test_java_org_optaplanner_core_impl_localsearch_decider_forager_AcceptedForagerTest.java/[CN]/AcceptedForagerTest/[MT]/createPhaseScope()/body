@@ -6,7 +6,7 @@
   when(scoreDirector.getScoreDefinition()).thenReturn(new SimpleScoreDefinition());
   solverScope.setScoreDirector(scoreDirector);
   Random workingRandom=mock(Random.class);
-  when(workingRandom.nextInt(2)).thenReturn(0);
+  when(workingRandom.nextInt(3)).thenReturn(1);
   solverScope.setWorkingRandom(workingRandom);
   solverScope.setBestScore(SimpleScore.valueOf(-10));
   LocalSearchStepScope lastLocalSearchStepScope=new LocalSearchStepScope(phaseScope);

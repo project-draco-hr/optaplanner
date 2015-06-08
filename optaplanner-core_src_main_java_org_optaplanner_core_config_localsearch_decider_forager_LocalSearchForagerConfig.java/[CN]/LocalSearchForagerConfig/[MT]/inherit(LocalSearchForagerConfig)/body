@@ -3,4 +3,5 @@
   pickEarlyType=ConfigUtils.inheritOverwritableProperty(pickEarlyType,inheritedConfig.getPickEarlyType());
   acceptedCountLimit=ConfigUtils.inheritOverwritableProperty(acceptedCountLimit,inheritedConfig.getAcceptedCountLimit());
   finalistPodiumType=ConfigUtils.inheritOverwritableProperty(finalistPodiumType,inheritedConfig.getFinalistPodiumType());
+  breakTieRandomly=ConfigUtils.inheritOverwritableProperty(breakTieRandomly,inheritedConfig.getBreakTieRandomly());
 }
