@@ -1,28 +1,17 @@
 {
-  SolverConfig config=SolverFactory.createFromXmlResource("org/optaplanner/examples/nqueens/solver/nqueensSolverConfig.xml").getSolverConfig();
-  List<PhaseConfig> phaseConfigs=config.getPhaseConfigList();
-  if (phaseConfigs.get(1) instanceof LocalSearchPhaseConfig) {
-    phaseConfigs.remove(1);
-  }
- else {
-    throw new IllegalStateException("Config file had to be changed! Check org/optaplanner/examples/nqueens/solver/nqueensSolverConfig.xml");
-  }
-  if (phaseConfigs.get(0) instanceof ConstructionHeuristicPhaseConfig) {
-    ConstructionHeuristicPhaseConfig chConfig=(ConstructionHeuristicPhaseConfig)phaseConfigs.get(0);
-    chConfig.setValueSorterManner(valueSorterManner);
-    chConfig.setEntitySorterManner(entitySorterManner);
-    chConfig.setConstructionHeuristicType(constructionHeuristicType);
-  }
- else {
-    throw new IllegalStateException("Config file had to be changed! Check org/optaplanner/examples/nqueens/solver/nqueensSolverConfig.xml");
-  }
+  SolverConfig config=SolverFactory.createFromXmlResource(NQueensApp.SOLVER_CONFIG).getSolverConfig();
+  ConstructionHeuristicPhaseConfig chConfig=new ConstructionHeuristicPhaseConfig();
+  chConfig.setValueSorterManner(valueSorterManner);
+  chConfig.setEntitySorterManner(entitySorterManner);
+  chConfig.setConstructionHeuristicType(constructionHeuristicType);
+  config.setPhaseConfigList(Collections.<PhaseConfig>singletonList(chConfig));
   NQueensGenerator generator=new NQueensGenerator();
-  NQueens solution=generator.createNQueens(8);
+  NQueens planningProblem=generator.createNQueens(8);
   QueenCoordinatesStepListener listener=new QueenCoordinatesStepListener();
   DefaultSolver solver=(DefaultSolver)config.buildSolver();
   solver.addPhaseLifecycleListener(listener);
-  solver.solve(solution);
-  NQueens result=(NQueens)solver.getBestSolution();
-  assertNotNull(result);
+  solver.solve(planningProblem);
+  NQueens bestSolution=(NQueens)solver.getBestSolution();
+  assertNotNull(bestSolution);
   assertCoordinates(expectedCoordinates,listener.getCoordinates());
 }
