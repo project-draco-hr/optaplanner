@@ -3,7 +3,7 @@
   for (  Queen queen : queens.getQueenList()) {
     if (queen.getRow() != null && !filledColumns.contains(queen.getColumn().getIndex())) {
       filledColumns.add(queen.getColumn().getIndex());
-      coordinates.add(new QueenCoordinates(queen.getColumnIndex(),queen.getRowIndex()));
+      trackingList.add(new NQueensStepTracking(queen.getColumnIndex(),queen.getRowIndex()));
     }
   }
 }
