@@ -1,4 +1,4 @@
 {
-  this.x=x;
-  this.y=y;
+  this.columnIndex=columnIndex;
+  this.rowIndex=rowIndex;
 }

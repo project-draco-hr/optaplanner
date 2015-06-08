@@ -13,26 +13,8 @@
   chConfig.setEntitySorterManner(entitySorterManner);
   chConfig.setValueSorterManner(valueSorterManner);
   config.setPhaseConfigList(Collections.<PhaseConfig>singletonList(chConfig));
-  NQueens solution=new NQueens();
-  List<Queen> entities=new ArrayList<Queen>();
-  int dimension=8;
-  List<Row> rowList=new ArrayList<Row>();
-  List<Column> columnList=new ArrayList<Column>();
-  for (int i=0; i < dimension; i++) {
-    Column column=new Column();
-    column.setIndex(i);
-    Row row=new Row();
-    row.setIndex(i);
-    Queen entity=new Queen();
-    entity.setColumn(column);
-    rowList.add(row);
-    columnList.add(column);
-    entities.add(entity);
-  }
-  solution.setN(dimension);
-  solution.setRowList(rowList);
-  solution.setColumnList(columnList);
-  solution.setQueenList(entities);
+  NQueensGenerator generator=new NQueensGenerator();
+  NQueens solution=generator.createNQueens(8);
   QueenCoordinatesStepListener listener=new QueenCoordinatesStepListener();
   DefaultSolver solver=(DefaultSolver)config.buildSolver();
   solver.addPhaseLifecycleListener(listener);
