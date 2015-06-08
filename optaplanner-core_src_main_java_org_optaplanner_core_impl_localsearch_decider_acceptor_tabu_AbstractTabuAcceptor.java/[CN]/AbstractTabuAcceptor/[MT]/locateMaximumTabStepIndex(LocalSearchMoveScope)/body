@@ -10,10 +10,10 @@
       for (      Object tabu : tabuSequenceList) {
         if (tabu.equals(checkingTabu)) {
           if (tabu.hashCode() != checkingTabu.hashCode()) {
-            throw new IllegalStateException("HashCode violation: tabu (" + tabu + ") and checkingTabu ("+ checkingTabu+ ") are equal but have a different hashCode.");
+            throw new IllegalStateException("HashCode/equals contract violation: tabu (" + tabu + ") of class ("+ tabu.getClass()+ ") and checkingTabu ("+ checkingTabu+ ") are equals() but have a different hashCode().");
           }
           if (tabuStepIndexInteger == null) {
-            throw new IllegalStateException("HashCode violation: the hashCode of tabu (" + tabu + ") probably changed since it was inserted in the tabu Map or Set.");
+            throw new IllegalStateException("HashCode stability violation: the hashCode() of tabu (" + tabu + ") of class ("+ tabu.getClass()+ ") changed during planning, since it was inserted in the tabu Map or Set.");
           }
         }
       }
