@@ -1,18 +1,21 @@
 {
-  SolverConfig config=new SolverConfig();
-  config.setEnvironmentMode(EnvironmentMode.REPRODUCIBLE);
-  config.setSolutionClass(NQueens.class);
-  config.setEntityClassList(Collections.<Class<?>>singletonList(Queen.class));
-  config.setScoreDirectorFactoryConfig(new ScoreDirectorFactoryConfig());
-  config.getScoreDirectorFactoryConfig().setScoreDefinitionType(ScoreDefinitionType.SIMPLE);
-  config.getScoreDirectorFactoryConfig().setIncrementalScoreCalculatorClass(NQueensAdvancedIncrementalScoreCalculator.class);
-  config.setTerminationConfig(new TerminationConfig());
-  config.getTerminationConfig().setBestScoreLimit("0");
-  ConstructionHeuristicPhaseConfig chConfig=new ConstructionHeuristicPhaseConfig();
-  chConfig.setConstructionHeuristicType(constructionHeuristicType);
-  chConfig.setEntitySorterManner(entitySorterManner);
-  chConfig.setValueSorterManner(valueSorterManner);
-  config.setPhaseConfigList(Collections.<PhaseConfig>singletonList(chConfig));
+  SolverConfig config=SolverFactory.createFromXmlResource("org/optaplanner/examples/nqueens/solver/nqueensSolverConfig.xml").getSolverConfig();
+  List<PhaseConfig> phaseConfigs=config.getPhaseConfigList();
+  if (phaseConfigs.get(1) instanceof LocalSearchPhaseConfig) {
+    phaseConfigs.remove(1);
+  }
+ else {
+    throw new IllegalStateException("Config file had to be changed! Check org/optaplanner/examples/nqueens/solver/nqueensSolverConfig.xml");
+  }
+  if (phaseConfigs.get(0) instanceof ConstructionHeuristicPhaseConfig) {
+    ConstructionHeuristicPhaseConfig chConfig=(ConstructionHeuristicPhaseConfig)phaseConfigs.get(0);
+    chConfig.setValueSorterManner(valueSorterManner);
+    chConfig.setEntitySorterManner(entitySorterManner);
+    chConfig.setConstructionHeuristicType(constructionHeuristicType);
+  }
+ else {
+    throw new IllegalStateException("Config file had to be changed! Check org/optaplanner/examples/nqueens/solver/nqueensSolverConfig.xml");
+  }
   NQueensGenerator generator=new NQueensGenerator();
   NQueens solution=generator.createNQueens(8);
   QueenCoordinatesStepListener listener=new QueenCoordinatesStepListener();
