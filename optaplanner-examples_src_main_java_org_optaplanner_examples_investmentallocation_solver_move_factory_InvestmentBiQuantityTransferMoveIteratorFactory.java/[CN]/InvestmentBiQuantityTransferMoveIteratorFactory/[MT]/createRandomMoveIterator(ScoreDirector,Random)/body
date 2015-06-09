@@ -1,0 +1,12 @@
+{
+  InvestmentAllocationSolution solution=(InvestmentAllocationSolution)scoreDirector.getWorkingSolution();
+  List<AssetClassAllocation> allocationList=solution.getAssetClassAllocationList();
+  List<AssetClassAllocation> nonEmptyAllocationList=new ArrayList<AssetClassAllocation>(allocationList);
+  for (Iterator<AssetClassAllocation> it=nonEmptyAllocationList.iterator(); it.hasNext(); ) {
+    AssetClassAllocation allocation=it.next();
+    if (allocation.getQuantityMillis() == 0L) {
+      it.remove();
+    }
+  }
+  return new RandomInvestmentBiQuantityTransferMoveIterator(allocationList,nonEmptyAllocationList,workingRandom);
+}

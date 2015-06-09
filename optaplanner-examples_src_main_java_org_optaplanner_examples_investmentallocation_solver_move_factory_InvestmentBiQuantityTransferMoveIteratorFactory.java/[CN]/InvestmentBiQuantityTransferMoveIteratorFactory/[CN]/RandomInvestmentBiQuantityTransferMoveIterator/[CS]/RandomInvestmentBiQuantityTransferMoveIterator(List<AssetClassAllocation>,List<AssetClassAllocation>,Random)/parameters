@@ -1,0 +1,3 @@
+List<AssetClassAllocation> allocationList
+List<AssetClassAllocation> nonEmptyAllocationList
+Random workingRandom

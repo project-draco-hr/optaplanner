@@ -4,11 +4,10 @@
   Map.Entry<Long,AssetClassAllocation> ceilingEntry=quantityMillisIncrementToAllocationMap.ceilingEntry(transferMillis);
   transferMillis-=(lowerEntry == null ? 0L : lowerEntry.getKey());
   AssetClassAllocation fromAllocation=ceilingEntry.getValue();
-  int fromAllocationIndex=allocationList.indexOf(fromAllocation);
-  int toAllocationIndex=workingRandom.nextInt(allocationList.size() - 1);
-  if (toAllocationIndex >= fromAllocationIndex) {
-    toAllocationIndex++;
+  AssetClassAllocation toAllocation=allocationList.get(workingRandom.nextInt(allocationList.size() - 1));
+  if (toAllocation == fromAllocation) {
+    toAllocation=allocationList.get(allocationList.size() - 1);
   }
-  AssetClassAllocation toAllocation=allocationList.get(toAllocationIndex);
+  ;
   return new InvestmentQuantityTransferMove(fromAllocation,toAllocation,transferMillis);
 }

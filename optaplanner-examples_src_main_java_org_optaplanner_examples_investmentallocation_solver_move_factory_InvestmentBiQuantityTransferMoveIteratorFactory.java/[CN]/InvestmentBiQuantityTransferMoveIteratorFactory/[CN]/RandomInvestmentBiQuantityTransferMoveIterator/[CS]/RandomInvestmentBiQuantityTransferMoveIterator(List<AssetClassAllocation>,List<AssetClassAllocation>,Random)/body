@@ -1,0 +1,5 @@
+{
+  this.allocationList=allocationList;
+  this.nonEmptyAllocationList=nonEmptyAllocationList;
+  this.workingRandom=workingRandom;
+}
