@@ -1,0 +1,9 @@
+{
+  doProblemFactChange(new ProblemFactChange(){
+    public void doChange(    ScoreDirector scoreDirector){
+      InvestmentAllocationSolution solution=(InvestmentAllocationSolution)scoreDirector.getWorkingSolution();
+      solution.getParametrization().setStandardDeviationMillisMaximum(standardDeviationMillisMaximum);
+    }
+  }
+,true);
+}

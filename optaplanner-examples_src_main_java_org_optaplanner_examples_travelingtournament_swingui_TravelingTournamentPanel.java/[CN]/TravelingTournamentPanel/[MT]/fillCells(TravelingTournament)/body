@@ -1,5 +1,5 @@
 {
-  teamsPanel.addCornerHeader(HEADER_COLUMN,HEADER_ROW,createHeaderPanel(new JLabel("Day")));
+  teamsPanel.addCornerHeader(HEADER_COLUMN,HEADER_ROW,createTableHeader(new JLabel("Day")));
   fillTeamCells(travelingTournament);
   fillDayCells(travelingTournament);
   fillMatchCells(travelingTournament);

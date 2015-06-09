@@ -1,12 +1,12 @@
 {
-  roomsPanel.addCornerHeader(HEADER_COLUMN_GROUP1,HEADER_ROW,createHeaderPanel(new JLabel("Day")));
-  roomsPanel.addCornerHeader(HEADER_COLUMN,HEADER_ROW,createHeaderPanel(new JLabel("Time")));
+  roomsPanel.addCornerHeader(HEADER_COLUMN_GROUP1,HEADER_ROW,createTableHeader(new JLabel("Day")));
+  roomsPanel.addCornerHeader(HEADER_COLUMN,HEADER_ROW,createTableHeader(new JLabel("Time")));
   fillRoomCells(courseSchedule);
-  teachersPanel.addCornerHeader(HEADER_COLUMN_GROUP1,HEADER_ROW,createHeaderPanel(new JLabel("Day")));
-  teachersPanel.addCornerHeader(HEADER_COLUMN,HEADER_ROW,createHeaderPanel(new JLabel("Time")));
+  teachersPanel.addCornerHeader(HEADER_COLUMN_GROUP1,HEADER_ROW,createTableHeader(new JLabel("Day")));
+  teachersPanel.addCornerHeader(HEADER_COLUMN,HEADER_ROW,createTableHeader(new JLabel("Time")));
   fillTeacherCells(courseSchedule);
-  curriculaPanel.addCornerHeader(HEADER_COLUMN_GROUP1,HEADER_ROW,createHeaderPanel(new JLabel("Day")));
-  curriculaPanel.addCornerHeader(HEADER_COLUMN,HEADER_ROW,createHeaderPanel(new JLabel("Time")));
+  curriculaPanel.addCornerHeader(HEADER_COLUMN_GROUP1,HEADER_ROW,createTableHeader(new JLabel("Day")));
+  curriculaPanel.addCornerHeader(HEADER_COLUMN,HEADER_ROW,createTableHeader(new JLabel("Time")));
   fillCurriculumCells(courseSchedule);
   fillDayCells(courseSchedule);
   fillLectureCells(courseSchedule);

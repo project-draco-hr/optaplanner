@@ -1,8 +1,8 @@
 {
   for (  Team team : travelingTournament.getTeamList()) {
-    JPanel teamPanel=createHeaderPanel(new JLabel(team.getLabel(),SwingConstants.CENTER));
+    JPanel teamPanel=createTableHeader(new JLabel(team.getLabel(),SwingConstants.CENTER));
     teamPanel.setBackground(tangoColorFactory.pickColor(team));
     teamsPanel.addColumnHeader(team,HEADER_ROW,teamPanel);
   }
-  teamsPanel.addColumnHeader(null,HEADER_ROW,createHeaderPanel(new JLabel("Unassigned",SwingConstants.CENTER)));
+  teamsPanel.addColumnHeader(null,HEADER_ROW,createTableHeader(new JLabel("Unassigned",SwingConstants.CENTER)));
 }

@@ -1,5 +1,6 @@
 {
   setLayout(new BorderLayout());
+  add(createTableHeader(),BorderLayout.NORTH);
   JTabbedPane tabbedPane=new JTabbedPane();
   assetClassPanel=new TimeTablePanel<AssetClass,AssetClass>();
   tabbedPane.add("Asset classes",new JScrollPane(assetClassPanel));

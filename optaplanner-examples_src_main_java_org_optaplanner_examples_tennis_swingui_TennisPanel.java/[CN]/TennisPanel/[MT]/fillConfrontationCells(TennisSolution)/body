@@ -34,6 +34,6 @@
   for (  Map.Entry<List<Team>,Integer> teamPairToConfrontationCount : teamPairToConfrontationCountMap.entrySet()) {
     List<Team> teamPair=teamPairToConfrontationCount.getKey();
     int confrontationCount=teamPairToConfrontationCount.getValue();
-    confrontationsPanel.addCell(teamPair.get(0),teamPair.get(1),createHeaderPanel(new JLabel(Integer.toString(confrontationCount))));
+    confrontationsPanel.addCell(teamPair.get(0),teamPair.get(1),createTableHeader(new JLabel(Integer.toString(confrontationCount))));
   }
 }

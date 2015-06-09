@@ -1,6 +1,6 @@
 {
   for (  Day day : travelingTournament.getDayList()) {
-    teamsPanel.addRowHeader(HEADER_COLUMN,day,createHeaderPanel(new JLabel(day.getLabel())));
+    teamsPanel.addRowHeader(HEADER_COLUMN,day,createTableHeader(new JLabel(day.getLabel())));
   }
-  teamsPanel.addRowHeader(HEADER_COLUMN,null,createHeaderPanel(new JLabel("Unassigned")));
+  teamsPanel.addRowHeader(HEADER_COLUMN,null,createTableHeader(new JLabel("Unassigned")));
 }
