@@ -2,5 +2,5 @@
   if (quantityMillis == null) {
     return "";
   }
-  return InvestmentAllocationNumericUtil.formatMillisAsPercentage(quantityMillis);
+  return InvestmentNumericUtil.formatMillisAsPercentage(quantityMillis);
 }

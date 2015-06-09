@@ -1,4 +1,0 @@
-{
-  prepareSwingEnvironment();
-  new InvestmentAllocationApp().init();
-}

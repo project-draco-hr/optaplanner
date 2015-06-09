@@ -1,0 +1,3 @@
+{
+  super("Investment asset class allocation","Decide the percentage of the investor's budget to invest in each asset class.",InvestmentPanel.LOGO_PATH);
+}

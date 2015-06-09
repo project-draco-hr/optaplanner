@@ -1,0 +1,4 @@
+{
+  InvestmentImporter importer=new InvestmentImporter();
+  importer.convert("irrinki_1.csv","irrinki_1.xml");
+}

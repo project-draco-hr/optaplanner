@@ -1,3 +1,0 @@
-{
-  return ValueRangeFactory.createLongValueRange(0L,InvestmentAllocationNumericUtil.MAXIMUM_QUANTITY_MILLIS + 1L);
-}

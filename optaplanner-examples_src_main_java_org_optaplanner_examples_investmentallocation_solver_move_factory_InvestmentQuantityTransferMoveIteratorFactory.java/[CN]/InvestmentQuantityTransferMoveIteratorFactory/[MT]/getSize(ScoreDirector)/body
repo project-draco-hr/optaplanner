@@ -1,5 +1,5 @@
 {
-  InvestmentAllocationSolution solution=(InvestmentAllocationSolution)scoreDirector.getWorkingSolution();
+  InvestmentSolution solution=(InvestmentSolution)scoreDirector.getWorkingSolution();
   int size=solution.getAssetClassAllocationList().size();
-  return InvestmentAllocationNumericUtil.MAXIMUM_QUANTITY_MILLIS * (size - 1);
+  return InvestmentNumericUtil.MAXIMUM_QUANTITY_MILLIS * (size - 1);
 }

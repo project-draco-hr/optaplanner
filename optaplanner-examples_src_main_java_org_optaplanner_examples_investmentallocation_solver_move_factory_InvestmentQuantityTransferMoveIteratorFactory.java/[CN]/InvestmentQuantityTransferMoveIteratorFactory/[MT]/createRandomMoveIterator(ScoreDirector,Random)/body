@@ -1,5 +1,5 @@
 {
-  InvestmentAllocationSolution solution=(InvestmentAllocationSolution)scoreDirector.getWorkingSolution();
+  InvestmentSolution solution=(InvestmentSolution)scoreDirector.getWorkingSolution();
   List<AssetClassAllocation> allocationList=solution.getAssetClassAllocationList();
   NavigableMap<Long,AssetClassAllocation> quantityMillisIncrementToAllocationMap=new TreeMap<Long,AssetClassAllocation>();
   long quantityIncrementMillis=0L;
@@ -10,8 +10,8 @@
       quantityMillisIncrementToAllocationMap.put(quantityIncrementMillis,allocation);
     }
   }
-  if (quantityIncrementMillis != InvestmentAllocationNumericUtil.MAXIMUM_QUANTITY_MILLIS) {
-    throw new IllegalStateException("The quantityIncrementMillis (" + quantityIncrementMillis + ") must always be total to MAXIMUM_QUANTITY_MILLIS ("+ InvestmentAllocationNumericUtil.MAXIMUM_QUANTITY_MILLIS+ ").");
+  if (quantityIncrementMillis != InvestmentNumericUtil.MAXIMUM_QUANTITY_MILLIS) {
+    throw new IllegalStateException("The quantityIncrementMillis (" + quantityIncrementMillis + ") must always be total to MAXIMUM_QUANTITY_MILLIS ("+ InvestmentNumericUtil.MAXIMUM_QUANTITY_MILLIS+ ").");
   }
   return new RandomInvestmentQuantityTransferMoveIterator(allocationList,quantityMillisIncrementToAllocationMap,workingRandom);
 }

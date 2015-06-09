@@ -1,0 +1,11 @@
+{
+  assetClassPanel.reset();
+  InvestmentSolution solution=(InvestmentSolution)s;
+  InvestmentParametrization parametrization=solution.getParametrization();
+  ignoreChangeEvents=true;
+  standardDeviationMaximumField.setValue((double)parametrization.getStandardDeviationMillisMaximum() / 1000.0);
+  ignoreChangeEvents=false;
+  defineGrid(solution);
+  fillCells(solution);
+  repaint();
+}

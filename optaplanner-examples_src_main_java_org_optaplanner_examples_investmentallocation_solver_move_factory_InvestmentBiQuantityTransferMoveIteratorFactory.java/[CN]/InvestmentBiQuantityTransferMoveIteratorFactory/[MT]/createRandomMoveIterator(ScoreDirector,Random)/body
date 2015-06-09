@@ -1,5 +1,5 @@
 {
-  InvestmentAllocationSolution solution=(InvestmentAllocationSolution)scoreDirector.getWorkingSolution();
+  InvestmentSolution solution=(InvestmentSolution)scoreDirector.getWorkingSolution();
   List<AssetClassAllocation> allocationList=solution.getAssetClassAllocationList();
   List<AssetClassAllocation> nonEmptyAllocationList=new ArrayList<AssetClassAllocation>(allocationList);
   for (Iterator<AssetClassAllocation> it=nonEmptyAllocationList.iterator(); it.hasNext(); ) {

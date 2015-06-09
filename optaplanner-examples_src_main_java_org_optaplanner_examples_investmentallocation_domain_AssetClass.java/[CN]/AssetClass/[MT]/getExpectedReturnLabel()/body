@@ -1,3 +1,3 @@
 {
-  return InvestmentAllocationNumericUtil.formatMillisAsPercentage(expectedReturnMillis);
+  return InvestmentNumericUtil.formatMillisAsPercentage(expectedReturnMillis);
 }

@@ -1,0 +1,18 @@
+{
+  JPanel headerPanel=new JPanel(new FlowLayout());
+  headerPanel.add(new JLabel("Standard deviation maximum"));
+  standardDeviationMaximumField=new JSpinner(new SpinnerNumberModel(1.0,0.0,10.0,0.001));
+  standardDeviationMaximumField.setEditor(new JSpinner.NumberEditor(standardDeviationMaximumField,InvestmentNumericUtil.MILLIS_PERCENT_PATTERN));
+  headerPanel.add(standardDeviationMaximumField);
+  standardDeviationMaximumField.addChangeListener(new ChangeListener(){
+    @Override public void stateChanged(    ChangeEvent e){
+      if (ignoreChangeEvents) {
+        return;
+      }
+      long standardDeviationMillisMaximum=(long)(((Number)standardDeviationMaximumField.getValue()).doubleValue() * 1000.0);
+      changeStandardDeviationMillisMaximum(standardDeviationMillisMaximum);
+    }
+  }
+);
+  return headerPanel;
+}

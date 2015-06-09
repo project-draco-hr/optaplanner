@@ -1,9 +1,0 @@
-{
-  solution=new InvestmentAllocationSolution();
-  solution.setId(0L);
-  readHeaders();
-  readAssetClassList();
-  createAssetClassAllocationList();
-  logger.info("InvestmentAllocation {} has {} asset classes.",getInputId(),solution.getAssetClassList().size());
-  return solution;
-}

@@ -1,5 +1,5 @@
 {
-  long transferMillis=RandomUtils.nextLong(workingRandom,InvestmentAllocationNumericUtil.MAXIMUM_QUANTITY_MILLIS) + 1L;
+  long transferMillis=RandomUtils.nextLong(workingRandom,InvestmentNumericUtil.MAXIMUM_QUANTITY_MILLIS) + 1L;
   Map.Entry<Long,AssetClassAllocation> lowerEntry=quantityMillisIncrementToAllocationMap.lowerEntry(transferMillis);
   Map.Entry<Long,AssetClassAllocation> ceilingEntry=quantityMillisIncrementToAllocationMap.ceilingEntry(transferMillis);
   transferMillis-=(lowerEntry == null ? 0L : lowerEntry.getKey());
