@@ -3,6 +3,6 @@
   readConstantLine("Asset class;+Correlation;*");
   InvestmentParametrization parametrization=new InvestmentParametrization();
   parametrization.setId(0L);
-  parametrization.setStandardDeviationMillisMaximum(95);
+  parametrization.setStandardDeviationMillisMaximum(73);
   solution.setParametrization(parametrization);
 }
