@@ -1,17 +1,15 @@
 {
   boolean noPlanningEntityPropertyAnnotation=true;
   for (  PropertyDescriptor propertyDescriptor : solutionBeanInfo.getPropertyDescriptors()) {
-    PropertyAccessor propertyAccessor=new ReflectionPropertyAccessor(propertyDescriptor);
-    propertyAccessorMap.put(propertyAccessor.getName(),propertyAccessor);
-    Method propertyGetter=propertyAccessor.getReadMethod();
-    if (propertyGetter != null) {
-      if (propertyGetter.isAnnotationPresent(PlanningEntityProperty.class)) {
+    if (propertyDescriptor.getReadMethod() != null) {
+      PropertyAccessor propertyAccessor=new ReflectionPropertyAccessor(propertyDescriptor);
+      if (propertyAccessor.isAnnotationPresent(PlanningEntityProperty.class)) {
         noPlanningEntityPropertyAnnotation=false;
         entityPropertyAccessorMap.put(propertyAccessor.getName(),propertyAccessor);
       }
- else       if (propertyGetter.isAnnotationPresent(PlanningEntityCollectionProperty.class)) {
+ else       if (propertyAccessor.isAnnotationPresent(PlanningEntityCollectionProperty.class)) {
         noPlanningEntityPropertyAnnotation=false;
-        if (!Collection.class.isAssignableFrom(propertyAccessor.getPropertyType())) {
+        if (!Collection.class.isAssignableFrom(propertyAccessor.getType())) {
           throw new IllegalStateException("The solutionClass (" + solutionClass + ") has a PlanningEntityCollection annotated property ("+ propertyAccessor.getName()+ ") that does not return a Collection.");
         }
         entityCollectionPropertyAccessorMap.put(propertyAccessor.getName(),propertyAccessor);

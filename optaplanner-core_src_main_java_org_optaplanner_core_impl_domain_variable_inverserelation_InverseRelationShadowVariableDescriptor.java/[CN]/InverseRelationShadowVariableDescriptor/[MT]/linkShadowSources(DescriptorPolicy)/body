@@ -1,9 +1,9 @@
 {
-  InverseRelationShadowVariable shadowVariableAnnotation=variablePropertyAccessor.getReadMethod().getAnnotation(InverseRelationShadowVariable.class);
+  InverseRelationShadowVariable shadowVariableAnnotation=variablePropertyAccessor.getAnnotation(InverseRelationShadowVariable.class);
   Class<?> variablePropertyType=getVariablePropertyType();
   Class<?> masterClass;
   if (Collection.class.isAssignableFrom(variablePropertyType)) {
-    Type genericType=variablePropertyAccessor.getReadMethod().getGenericReturnType();
+    Type genericType=variablePropertyAccessor.getGenericType();
     if (!(genericType instanceof ParameterizedType)) {
       throw new IllegalArgumentException("The entityClass (" + entityDescriptor.getEntityClass() + ") has a "+ InverseRelationShadowVariable.class.getSimpleName()+ " annotated property ("+ variablePropertyAccessor.getName()+ ") with a property type ("+ variablePropertyType+ ") which is non parameterized collection.");
     }

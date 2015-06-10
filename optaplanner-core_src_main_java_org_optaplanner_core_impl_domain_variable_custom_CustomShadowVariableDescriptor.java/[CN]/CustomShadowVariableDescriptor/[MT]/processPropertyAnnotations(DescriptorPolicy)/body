@@ -1,5 +1,5 @@
 {
-  CustomShadowVariable shadowVariableAnnotation=variablePropertyAccessor.getReadMethod().getAnnotation(CustomShadowVariable.class);
+  CustomShadowVariable shadowVariableAnnotation=variablePropertyAccessor.getAnnotation(CustomShadowVariable.class);
   variableListenerClass=shadowVariableAnnotation.variableListenerClass();
   CustomShadowVariable.Source[] sources=shadowVariableAnnotation.sources();
   if (sources.length < 1) {

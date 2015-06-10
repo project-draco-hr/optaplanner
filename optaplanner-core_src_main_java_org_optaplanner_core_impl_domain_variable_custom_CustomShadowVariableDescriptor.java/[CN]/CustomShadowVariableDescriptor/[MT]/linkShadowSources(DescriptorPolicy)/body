@@ -1,5 +1,5 @@
 {
-  CustomShadowVariable shadowVariableAnnotation=variablePropertyAccessor.getReadMethod().getAnnotation(CustomShadowVariable.class);
+  CustomShadowVariable shadowVariableAnnotation=variablePropertyAccessor.getAnnotation(CustomShadowVariable.class);
   SolutionDescriptor solutionDescriptor=entityDescriptor.getSolutionDescriptor();
   CustomShadowVariable.Source[] sources=shadowVariableAnnotation.sources();
   sourceVariableDescriptorList=new ArrayList<VariableDescriptor>(sources.length);

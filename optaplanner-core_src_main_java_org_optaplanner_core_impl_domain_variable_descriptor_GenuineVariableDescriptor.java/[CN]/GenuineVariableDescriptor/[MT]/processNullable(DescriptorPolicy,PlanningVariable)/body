@@ -1,7 +1,7 @@
 {
   nullable=planningVariableAnnotation.nullable();
-  if (nullable && variablePropertyAccessor.getPropertyType().isPrimitive()) {
-    throw new IllegalArgumentException("The entityClass (" + entityDescriptor.getEntityClass() + ") has a PlanningVariable annotated property ("+ variablePropertyAccessor.getName()+ ") with nullable ("+ nullable+ "), which is not compatible with the primitive propertyType ("+ variablePropertyAccessor.getPropertyType()+ ").");
+  if (nullable && variablePropertyAccessor.getType().isPrimitive()) {
+    throw new IllegalArgumentException("The entityClass (" + entityDescriptor.getEntityClass() + ") has a PlanningVariable annotated property ("+ variablePropertyAccessor.getName()+ ") with nullable ("+ nullable+ "), which is not compatible with the primitive propertyType ("+ variablePropertyAccessor.getType()+ ").");
   }
   Class<? extends SelectionFilter> reinitializeVariableEntityFilterClass=planningVariableAnnotation.reinitializeVariableEntityFilter();
   if (reinitializeVariableEntityFilterClass == PlanningVariable.NullReinitializeVariableEntityFilter.class) {

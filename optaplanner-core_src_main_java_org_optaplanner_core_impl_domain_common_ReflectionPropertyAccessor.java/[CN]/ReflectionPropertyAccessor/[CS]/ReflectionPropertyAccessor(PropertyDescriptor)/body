@@ -1,9 +1,10 @@
 {
   this.propertyDescriptor=propertyDescriptor;
   readMethod=propertyDescriptor.getReadMethod();
-  if (readMethod != null) {
-    readMethod.setAccessible(true);
+  if (readMethod == null) {
+    throw new IllegalStateException("The propertyDescriptor (" + propertyDescriptor + ") lacks a readMethod ("+ readMethod+ ").");
   }
+  readMethod.setAccessible(true);
   writeMethod=propertyDescriptor.getWriteMethod();
   if (writeMethod != null) {
     writeMethod.setAccessible(true);

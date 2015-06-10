@@ -1,7 +1,7 @@
 {
   List<Object> entityList=new ArrayList<Object>();
   for (  PropertyAccessor entityPropertyAccessor : entityPropertyAccessorMap.values()) {
-    if (entityPropertyAccessor.getPropertyType().isAssignableFrom(entityClass)) {
+    if (entityPropertyAccessor.getType().isAssignableFrom(entityClass)) {
       Object entity=extractEntity(entityPropertyAccessor,solution);
       if (entity != null && entityClass.isInstance(entity)) {
         entityList.add(entity);

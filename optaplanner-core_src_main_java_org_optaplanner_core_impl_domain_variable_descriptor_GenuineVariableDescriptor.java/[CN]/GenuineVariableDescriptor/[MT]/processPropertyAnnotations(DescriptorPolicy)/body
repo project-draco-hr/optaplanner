@@ -1,5 +1,5 @@
 {
-  PlanningVariable planningVariableAnnotation=variablePropertyAccessor.getReadMethod().getAnnotation(PlanningVariable.class);
+  PlanningVariable planningVariableAnnotation=variablePropertyAccessor.getAnnotation(PlanningVariable.class);
   processNullable(descriptorPolicy,planningVariableAnnotation);
   processChained(descriptorPolicy,planningVariableAnnotation);
   processValueRangeRefs(descriptorPolicy,planningVariableAnnotation);
