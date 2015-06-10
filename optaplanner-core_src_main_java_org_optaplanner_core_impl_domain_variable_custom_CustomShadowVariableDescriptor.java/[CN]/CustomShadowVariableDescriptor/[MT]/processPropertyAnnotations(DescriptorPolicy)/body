@@ -1,8 +1,8 @@
 {
-  CustomShadowVariable shadowVariableAnnotation=variablePropertyAccessor.getAnnotation(CustomShadowVariable.class);
+  CustomShadowVariable shadowVariableAnnotation=variableMemberAccessor.getAnnotation(CustomShadowVariable.class);
   variableListenerClass=shadowVariableAnnotation.variableListenerClass();
   CustomShadowVariable.Source[] sources=shadowVariableAnnotation.sources();
   if (sources.length < 1) {
-    throw new IllegalArgumentException("The entityClass (" + entityDescriptor.getEntityClass() + ") has a "+ CustomShadowVariable.class.getSimpleName()+ " annotated property ("+ variablePropertyAccessor.getName()+ ") with sources ("+ Arrays.toString(sources)+ ") which is empty.");
+    throw new IllegalArgumentException("The entityClass (" + entityDescriptor.getEntityClass() + ") has a "+ CustomShadowVariable.class.getSimpleName()+ " annotated property ("+ variableMemberAccessor.getName()+ ") with sources ("+ Arrays.toString(sources)+ ") which is empty.");
   }
 }

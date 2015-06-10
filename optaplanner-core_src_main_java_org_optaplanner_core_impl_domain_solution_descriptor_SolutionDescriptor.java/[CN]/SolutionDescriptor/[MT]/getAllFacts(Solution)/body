@@ -5,14 +5,14 @@
     throw new IllegalStateException("The solution (" + solution + ")'s method getProblemFacts() should never return null.");
   }
   facts.addAll(problemFacts);
-  for (  PropertyAccessor entityPropertyAccessor : entityPropertyAccessorMap.values()) {
-    Object entity=extractEntity(entityPropertyAccessor,solution);
+  for (  MemberAccessor entityMemberAccessor : entityPropertyAccessorMap.values()) {
+    Object entity=extractEntity(entityMemberAccessor,solution);
     if (entity != null) {
       facts.add(entity);
     }
   }
-  for (  PropertyAccessor entityCollectionPropertyAccessor : entityCollectionPropertyAccessorMap.values()) {
-    Collection<Object> entityCollection=extractEntityCollection(entityCollectionPropertyAccessor,solution);
+  for (  MemberAccessor entityCollectionMemberAccessor : entityCollectionPropertyAccessorMap.values()) {
+    Collection<Object> entityCollection=extractEntityCollection(entityCollectionMemberAccessor,solution);
     facts.addAll(entityCollection);
   }
   return facts;

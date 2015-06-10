@@ -1,5 +1,0 @@
-{
-  this.entityDescriptor=entityDescriptor;
-  this.variablePropertyAccessor=variablePropertyAccessor;
-  variableName=variablePropertyAccessor.getName();
-}

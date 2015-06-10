@@ -2,17 +2,17 @@
   boolean noPlanningEntityPropertyAnnotation=true;
   for (  PropertyDescriptor propertyDescriptor : solutionBeanInfo.getPropertyDescriptors()) {
     if (propertyDescriptor.getReadMethod() != null) {
-      PropertyAccessor propertyAccessor=new ReflectionPropertyAccessor(propertyDescriptor);
-      if (propertyAccessor.isAnnotationPresent(PlanningEntityProperty.class)) {
+      MemberAccessor memberAccessor=new BeanPropertyMemberAccessor(propertyDescriptor);
+      if (memberAccessor.isAnnotationPresent(PlanningEntityProperty.class)) {
         noPlanningEntityPropertyAnnotation=false;
-        entityPropertyAccessorMap.put(propertyAccessor.getName(),propertyAccessor);
+        entityPropertyAccessorMap.put(memberAccessor.getName(),memberAccessor);
       }
- else       if (propertyAccessor.isAnnotationPresent(PlanningEntityCollectionProperty.class)) {
+ else       if (memberAccessor.isAnnotationPresent(PlanningEntityCollectionProperty.class)) {
         noPlanningEntityPropertyAnnotation=false;
-        if (!Collection.class.isAssignableFrom(propertyAccessor.getType())) {
-          throw new IllegalStateException("The solutionClass (" + solutionClass + ") has a PlanningEntityCollection annotated property ("+ propertyAccessor.getName()+ ") that does not return a Collection.");
+        if (!Collection.class.isAssignableFrom(memberAccessor.getType())) {
+          throw new IllegalStateException("The solutionClass (" + solutionClass + ") has a PlanningEntityCollection annotated property ("+ memberAccessor.getName()+ ") that does not return a Collection.");
         }
-        entityCollectionPropertyAccessorMap.put(propertyAccessor.getName(),propertyAccessor);
+        entityCollectionPropertyAccessorMap.put(memberAccessor.getName(),memberAccessor);
       }
     }
   }

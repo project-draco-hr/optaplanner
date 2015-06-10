@@ -1,15 +1,15 @@
 {
   List<Object> entityList=new ArrayList<Object>();
-  for (  PropertyAccessor entityPropertyAccessor : entityPropertyAccessorMap.values()) {
-    if (entityPropertyAccessor.getType().isAssignableFrom(entityClass)) {
-      Object entity=extractEntity(entityPropertyAccessor,solution);
+  for (  MemberAccessor entityMemberAccessor : entityPropertyAccessorMap.values()) {
+    if (entityMemberAccessor.getType().isAssignableFrom(entityClass)) {
+      Object entity=extractEntity(entityMemberAccessor,solution);
       if (entity != null && entityClass.isInstance(entity)) {
         entityList.add(entity);
       }
     }
   }
-  for (  PropertyAccessor entityCollectionPropertyAccessor : entityCollectionPropertyAccessorMap.values()) {
-    Collection<Object> entityCollection=extractEntityCollection(entityCollectionPropertyAccessor,solution);
+  for (  MemberAccessor entityCollectionMemberAccessor : entityCollectionPropertyAccessorMap.values()) {
+    Collection<Object> entityCollection=extractEntityCollection(entityCollectionMemberAccessor,solution);
     for (    Object entity : entityCollection) {
       if (entityClass.isInstance(entity)) {
         entityList.add(entity);

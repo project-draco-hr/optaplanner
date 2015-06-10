@@ -1,5 +1,5 @@
 {
-  CustomShadowVariable shadowVariableAnnotation=variablePropertyAccessor.getAnnotation(CustomShadowVariable.class);
+  CustomShadowVariable shadowVariableAnnotation=variableMemberAccessor.getAnnotation(CustomShadowVariable.class);
   SolutionDescriptor solutionDescriptor=entityDescriptor.getSolutionDescriptor();
   CustomShadowVariable.Source[] sources=shadowVariableAnnotation.sources();
   sourceVariableDescriptorList=new ArrayList<VariableDescriptor>(sources.length);
@@ -12,13 +12,13 @@
  else {
       sourceEntityDescriptor=solutionDescriptor.findEntityDescriptor(sourceEntityClass);
       if (sourceEntityDescriptor == null) {
-        throw new IllegalArgumentException("The entityClass (" + entityDescriptor.getEntityClass() + ") has a "+ CustomShadowVariable.class.getSimpleName()+ " annotated property ("+ variablePropertyAccessor.getName()+ ") with a sourceEntityClass ("+ sourceEntityClass+ ") which is not a valid planning entity.");
+        throw new IllegalArgumentException("The entityClass (" + entityDescriptor.getEntityClass() + ") has a "+ CustomShadowVariable.class.getSimpleName()+ " annotated property ("+ variableMemberAccessor.getName()+ ") with a sourceEntityClass ("+ sourceEntityClass+ ") which is not a valid planning entity.");
       }
     }
     String sourceVariableName=source.variableName();
     VariableDescriptor sourceVariableDescriptor=sourceEntityDescriptor.getVariableDescriptor(sourceVariableName);
     if (sourceVariableDescriptor == null) {
-      throw new IllegalArgumentException("The entityClass (" + entityDescriptor.getEntityClass() + ") has a "+ CustomShadowVariable.class.getSimpleName()+ " annotated property ("+ variablePropertyAccessor.getName()+ ") with sourceVariableName ("+ sourceVariableName+ ") which is not a valid planning variable on entityClass ("+ sourceEntityDescriptor.getEntityClass()+ ").\n"+ entityDescriptor.buildInvalidVariableNameExceptionMessage(sourceVariableName));
+      throw new IllegalArgumentException("The entityClass (" + entityDescriptor.getEntityClass() + ") has a "+ CustomShadowVariable.class.getSimpleName()+ " annotated property ("+ variableMemberAccessor.getName()+ ") with sourceVariableName ("+ sourceVariableName+ ") which is not a valid planning variable on entityClass ("+ sourceEntityDescriptor.getEntityClass()+ ").\n"+ entityDescriptor.buildInvalidVariableNameExceptionMessage(sourceVariableName));
     }
     sourceVariableDescriptor.registerShadowVariableDescriptor(this);
     sourceVariableDescriptorList.add(sourceVariableDescriptor);

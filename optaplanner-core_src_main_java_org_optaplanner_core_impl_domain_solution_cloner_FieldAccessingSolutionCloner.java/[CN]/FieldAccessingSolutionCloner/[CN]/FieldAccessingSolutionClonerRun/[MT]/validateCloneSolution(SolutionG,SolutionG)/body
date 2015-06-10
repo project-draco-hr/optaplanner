@@ -1,19 +1,19 @@
 {
-  for (  PropertyAccessor propertyAccessor : solutionDescriptor.getEntityPropertyAccessorMap().values()) {
-    Object originalProperty=propertyAccessor.executeGetter(originalSolution);
+  for (  MemberAccessor memberAccessor : solutionDescriptor.getEntityPropertyAccessorMap().values()) {
+    Object originalProperty=memberAccessor.executeGetter(originalSolution);
     if (originalProperty != null) {
-      Object cloneProperty=propertyAccessor.executeGetter(cloneSolution);
+      Object cloneProperty=memberAccessor.executeGetter(cloneSolution);
       if (originalProperty == cloneProperty) {
-        throw new IllegalStateException("The solutionProperty (" + propertyAccessor.getName() + ") was not cloned as expected."+ " The "+ FieldAccessingSolutionCloner.class.getSimpleName()+ " failed to recognize"+ " that property's field, probably because its field name is different.");
+        throw new IllegalStateException("The solutionProperty (" + memberAccessor.getName() + ") was not cloned as expected."+ " The "+ FieldAccessingSolutionCloner.class.getSimpleName()+ " failed to recognize"+ " that property's field, probably because its field name is different.");
       }
     }
   }
-  for (  PropertyAccessor propertyAccessor : solutionDescriptor.getEntityCollectionPropertyAccessorMap().values()) {
-    Object originalProperty=propertyAccessor.executeGetter(originalSolution);
+  for (  MemberAccessor memberAccessor : solutionDescriptor.getEntityCollectionPropertyAccessorMap().values()) {
+    Object originalProperty=memberAccessor.executeGetter(originalSolution);
     if (originalProperty != null) {
-      Object cloneProperty=propertyAccessor.executeGetter(cloneSolution);
+      Object cloneProperty=memberAccessor.executeGetter(cloneSolution);
       if (originalProperty == cloneProperty) {
-        throw new IllegalStateException("The solutionProperty (" + propertyAccessor.getName() + ") was not cloned as expected."+ " The "+ FieldAccessingSolutionCloner.class.getSimpleName()+ " failed to recognize"+ " that property's field, probably because its field name is different.");
+        throw new IllegalStateException("The solutionProperty (" + memberAccessor.getName() + ") was not cloned as expected."+ " The "+ FieldAccessingSolutionCloner.class.getSimpleName()+ " failed to recognize"+ " that property's field, probably because its field name is different.");
       }
     }
   }

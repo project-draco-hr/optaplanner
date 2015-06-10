@@ -1,12 +1,12 @@
 {
-  AnchorShadowVariable shadowVariableAnnotation=variablePropertyAccessor.getAnnotation(AnchorShadowVariable.class);
+  AnchorShadowVariable shadowVariableAnnotation=variableMemberAccessor.getAnnotation(AnchorShadowVariable.class);
   String sourceVariableName=shadowVariableAnnotation.sourceVariableName();
   sourceVariableDescriptor=entityDescriptor.getVariableDescriptor(sourceVariableName);
   if (sourceVariableDescriptor == null) {
-    throw new IllegalArgumentException("The entityClass (" + entityDescriptor.getEntityClass() + ") has a "+ AnchorShadowVariable.class.getSimpleName()+ " annotated property ("+ variablePropertyAccessor.getName()+ ") with sourceVariableName ("+ sourceVariableName+ ") which is not a valid planning variable on entityClass ("+ entityDescriptor.getEntityClass()+ ").\n"+ entityDescriptor.buildInvalidVariableNameExceptionMessage(sourceVariableName));
+    throw new IllegalArgumentException("The entityClass (" + entityDescriptor.getEntityClass() + ") has a "+ AnchorShadowVariable.class.getSimpleName()+ " annotated property ("+ variableMemberAccessor.getName()+ ") with sourceVariableName ("+ sourceVariableName+ ") which is not a valid planning variable on entityClass ("+ entityDescriptor.getEntityClass()+ ").\n"+ entityDescriptor.buildInvalidVariableNameExceptionMessage(sourceVariableName));
   }
   if (!(sourceVariableDescriptor instanceof GenuineVariableDescriptor) || !((GenuineVariableDescriptor)sourceVariableDescriptor).isChained()) {
-    throw new IllegalArgumentException("The entityClass (" + entityDescriptor.getEntityClass() + ") has a "+ AnchorShadowVariable.class.getSimpleName()+ " annotated property ("+ variablePropertyAccessor.getName()+ ") with sourceVariableName ("+ sourceVariableName+ ") which is not chained.");
+    throw new IllegalArgumentException("The entityClass (" + entityDescriptor.getEntityClass() + ") has a "+ AnchorShadowVariable.class.getSimpleName()+ " annotated property ("+ variableMemberAccessor.getName()+ ") with sourceVariableName ("+ sourceVariableName+ ") which is not chained.");
   }
   sourceVariableDescriptor.registerShadowVariableDescriptor(this);
 }
