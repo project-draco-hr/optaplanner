@@ -1,0 +1,8 @@
+{
+  try {
+    field.set(bean,value);
+  }
+ catch (  IllegalAccessException e) {
+    throw new IllegalStateException("Cannot set the field (" + field.getName() + ") on bean of class ("+ bean.getClass()+ ").",e);
+  }
+}
