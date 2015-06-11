@@ -50,6 +50,12 @@
       }
     }
   }
+  if (dragSourceStandstill != null) {
+    g.setColor(TangoColorFactory.CHOCOLATE_2);
+    Location sourceLocation=dragSourceStandstill.getLocation();
+    Location targetLocation=dragTargetStandstill.getLocation();
+    translator.drawRoute(g,sourceLocation.getLongitude(),sourceLocation.getLatitude(),targetLocation.getLongitude(),targetLocation.getLatitude(),sourceLocation instanceof AirLocation,dragTargetStandstill instanceof Domicile);
+  }
   g.setColor(TangoColorFactory.ALUMINIUM_4);
   g.fillRect(5,(int)height - 15 - TEXT_SIZE,5,5);
   g.drawString("Domicile",15,(int)height - 10 - TEXT_SIZE);
@@ -60,12 +66,10 @@
   String locationsSizeString=travelingSalesmanTour.getLocationList().size() + " locations";
   g.drawString(locationsSizeString,((int)width - g.getFontMetrics().stringWidth(locationsSizeString)) / 2,(int)height - 5);
   if (travelingSalesmanTour.getDistanceType() == DistanceType.AIR_DISTANCE) {
-    String clickString="Left click anywhere in the map to add a visit.";
-    g.drawString(clickString,(int)width - 5 - g.getFontMetrics().stringWidth(clickString),(int)height - 10 - TEXT_SIZE);
-  }
-  if (travelingSalesmanTour.getDistanceType() == DistanceType.AIR_DISTANCE) {
-    String clickString="Right click near a visit to append it to the end.";
-    g.drawString(clickString,(int)width - 5 - g.getFontMetrics().stringWidth(clickString),(int)height - 5);
+    String leftClickString="Left click and drag between 2 locations to connect them.";
+    g.drawString(leftClickString,(int)width - 5 - g.getFontMetrics().stringWidth(leftClickString),(int)height - 10 - TEXT_SIZE);
+    String rightClickString="Right click anywhere on the map to add a visit.";
+    g.drawString(rightClickString,(int)width - 5 - g.getFontMetrics().stringWidth(rightClickString),(int)height - 5);
   }
   g.setColor(TangoColorFactory.ORANGE_3);
   SimpleLongScore score=travelingSalesmanTour.getScore();

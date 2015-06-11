@@ -1,0 +1,15 @@
+{
+  if (targetStandstill instanceof Domicile) {
+    TravelingSalesmanTour tour=getTravelingSalesmanTour();
+    Standstill lastStandstill=tour.getDomicile();
+    for (Visit nextVisit=findNextVisit(tour,lastStandstill); nextVisit != null; nextVisit=findNextVisit(tour,lastStandstill)) {
+      lastStandstill=nextVisit;
+    }
+    targetStandstill=sourceStandstill;
+    sourceStandstill=lastStandstill;
+  }
+  if (targetStandstill instanceof Visit && (sourceStandstill instanceof Domicile || ((Visit)sourceStandstill).getPreviousStandstill() != null)) {
+    solutionBusiness.doChangeMove((Visit)targetStandstill,"previousStandstill",sourceStandstill);
+  }
+  solverAndPersistenceFrame.resetScreen();
+}

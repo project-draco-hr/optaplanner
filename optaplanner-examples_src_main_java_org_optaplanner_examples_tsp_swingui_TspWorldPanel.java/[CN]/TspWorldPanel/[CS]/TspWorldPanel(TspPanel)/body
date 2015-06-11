@@ -9,20 +9,57 @@
     }
   }
 );
-  addMouseListener(new MouseAdapter(){
+  MouseAdapter mouseAdapter=new MouseAdapter(){
     @Override public void mousePressed(    MouseEvent e){
       if (translator != null) {
         double longitude=translator.translateXToLongitude(e.getX());
         double latitude=translator.translateYToLatitude(e.getY());
         if (e.getButton() == MouseEvent.BUTTON1) {
+          dragSourceStandstill=TspWorldPanel.this.tspPanel.findNearestStandstill(new AirLocation(-1L,latitude,longitude));
+          TravelingSalesmanTour tour=TspWorldPanel.this.tspPanel.getTravelingSalesmanTour();
+          dragTargetStandstill=tour.getDomicile();
+          resetPanel(tour);
+        }
+ else         if (e.getButton() == MouseEvent.BUTTON2 || e.getButton() == MouseEvent.BUTTON3) {
           TspWorldPanel.this.tspPanel.insertLocationAndVisit(longitude,latitude);
         }
- else         if (e.getButton() == MouseEvent.BUTTON3) {
-          TspWorldPanel.this.tspPanel.moveVisitToTail(new AirLocation(-1L,latitude,longitude));
+      }
+    }
+    @Override public void mouseDragged(    MouseEvent e){
+      if (translator != null) {
+        if (dragSourceStandstill != null) {
+          double longitude=translator.translateXToLongitude(e.getX());
+          double latitude=translator.translateYToLatitude(e.getY());
+          dragTargetStandstill=TspWorldPanel.this.tspPanel.findNearestStandstill(new AirLocation(-1L,latitude,longitude));
+          TravelingSalesmanTour tour=TspWorldPanel.this.tspPanel.getTravelingSalesmanTour();
+          if (dragSourceStandstill == dragTargetStandstill) {
+            dragTargetStandstill=tour.getDomicile();
+          }
+          resetPanel(tour);
+        }
+      }
+    }
+    @Override public void mouseReleased(    MouseEvent e){
+      if (translator != null) {
+        if (e.getButton() == MouseEvent.BUTTON1) {
+          double longitude=translator.translateXToLongitude(e.getX());
+          double latitude=translator.translateYToLatitude(e.getY());
+          dragTargetStandstill=TspWorldPanel.this.tspPanel.findNearestStandstill(new AirLocation(-1L,latitude,longitude));
+          TravelingSalesmanTour tour=TspWorldPanel.this.tspPanel.getTravelingSalesmanTour();
+          if (dragSourceStandstill == dragTargetStandstill) {
+            dragTargetStandstill=tour.getDomicile();
+          }
+          Standstill sourceStandstill=TspWorldPanel.this.dragSourceStandstill;
+          Standstill targetStandstill=TspWorldPanel.this.dragTargetStandstill;
+          TspWorldPanel.this.dragSourceStandstill=null;
+          TspWorldPanel.this.dragTargetStandstill=null;
+          TspWorldPanel.this.tspPanel.connectStandstills(sourceStandstill,targetStandstill);
         }
       }
     }
   }
-);
+;
+  addMouseListener(mouseAdapter);
+  addMouseMotionListener(mouseAdapter);
   europaBackground=new ImageIcon(getClass().getResource("europaBackground.png"));
 }
