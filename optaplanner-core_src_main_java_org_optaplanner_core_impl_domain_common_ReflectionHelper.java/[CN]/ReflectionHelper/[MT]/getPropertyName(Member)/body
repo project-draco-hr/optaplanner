@@ -1,0 +1,15 @@
+{
+  String name=null;
+  if (member instanceof Field) {
+    name=member.getName();
+  }
+  if (member instanceof Method) {
+    String methodName=member.getName();
+    for (    String prefix : PROPERTY_ACCESSOR_PREFIXES) {
+      if (methodName.startsWith(prefix)) {
+        name=decapitalize(methodName.substring(prefix.length()));
+      }
+    }
+  }
+  return name;
+}

@@ -1,0 +1,13 @@
+{
+  if (type instanceof Class && Map.class.isAssignableFrom((Class<?>)type)) {
+    return true;
+  }
+  if (type instanceof ParameterizedType) {
+    return isMap(((ParameterizedType)type).getRawType());
+  }
+  if (type instanceof WildcardType) {
+    Type[] upperBounds=((WildcardType)type).getUpperBounds();
+    return upperBounds.length != 0 && isMap(upperBounds[0]);
+  }
+  return false;
+}

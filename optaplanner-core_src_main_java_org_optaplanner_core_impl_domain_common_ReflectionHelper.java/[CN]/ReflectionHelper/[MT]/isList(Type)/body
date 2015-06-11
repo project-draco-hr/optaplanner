@@ -1,0 +1,13 @@
+{
+  if (type instanceof Class && List.class.isAssignableFrom((Class<?>)type)) {
+    return true;
+  }
+  if (type instanceof ParameterizedType) {
+    return isList(((ParameterizedType)type).getRawType());
+  }
+  if (type instanceof WildcardType) {
+    Type[] upperBounds=((WildcardType)type).getUpperBounds();
+    return upperBounds.length != 0 && isList(upperBounds[0]);
+  }
+  return false;
+}
