@@ -1,8 +1,0 @@
-{
-  if (string == null || string.isEmpty() || startsWithSeveralUpperCaseLetters(string)) {
-    return string;
-  }
- else {
-    return string.substring(0,1).toLowerCase() + string.substring(1);
-  }
-}

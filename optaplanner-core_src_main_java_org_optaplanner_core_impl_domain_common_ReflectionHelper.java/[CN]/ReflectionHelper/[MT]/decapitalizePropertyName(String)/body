@@ -1,0 +1,8 @@
+{
+  if (propertyName.isEmpty() || startsWithSeveralUpperCaseLetters(propertyName)) {
+    return propertyName;
+  }
+ else {
+    return propertyName.substring(0,1).toLowerCase() + propertyName.substring(1);
+  }
+}

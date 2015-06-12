@@ -9,8 +9,5 @@
  else   if (methodName.startsWith(PROPERTY_ACCESSOR_PREFIX_IS) && method.getReturnType() == boolean.class) {
     return true;
   }
- else   if (methodName.startsWith(PROPERTY_ACCESSOR_PREFIX_HAS) && method.getReturnType() == boolean.class) {
-    return true;
-  }
   return false;
 }
