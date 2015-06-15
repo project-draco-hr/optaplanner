@@ -35,6 +35,7 @@
   assertEntityClone(b,cloneB,"b","1");
   assertEntityClone(c,cloneC,"c","3");
   assertEntityClone(d,cloneD,"d","3");
+  assertNotSame(b,cloneB);
   b.setValue(val2);
   assertCode("2",b.getValue());
   assertCode("1",cloneB.getValue());

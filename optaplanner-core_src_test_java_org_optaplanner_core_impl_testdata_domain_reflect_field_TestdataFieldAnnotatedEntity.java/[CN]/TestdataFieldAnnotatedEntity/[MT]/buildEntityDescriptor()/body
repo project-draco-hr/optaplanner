@@ -1,0 +1,4 @@
+{
+  SolutionDescriptor solutionDescriptor=TestdataFieldAnnotatedSolution.buildSolutionDescriptor();
+  return solutionDescriptor.findEntityDescriptorOrFail(TestdataFieldAnnotatedEntity.class);
+}

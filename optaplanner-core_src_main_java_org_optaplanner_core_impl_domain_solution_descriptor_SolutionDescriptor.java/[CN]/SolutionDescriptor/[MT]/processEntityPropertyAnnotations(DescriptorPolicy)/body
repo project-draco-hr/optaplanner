@@ -1,29 +1,28 @@
 {
   boolean noEntityPropertyAnnotation=true;
-  List<Method> methodList=Arrays.asList(solutionClass.getMethods());
+  List<Field> fieldList=Arrays.asList(solutionClass.getDeclaredFields());
+  Collections.sort(fieldList,new AlphabeticMemberComparator());
+  for (  Field field : fieldList) {
+    boolean entityPropertyAnnotated=field.isAnnotationPresent(PlanningEntityProperty.class);
+    boolean entityCollectionPropertyAnnotated=field.isAnnotationPresent(PlanningEntityCollectionProperty.class);
+    if (entityPropertyAnnotated || entityCollectionPropertyAnnotated) {
+      noEntityPropertyAnnotation=false;
+      MemberAccessor memberAccessor=new FieldMemberAccessor(field);
+      registerEntityPropertyAccessor(entityPropertyAnnotated,entityCollectionPropertyAnnotated,memberAccessor);
+    }
+  }
+  List<Method> methodList=Arrays.asList(solutionClass.getDeclaredMethods());
   Collections.sort(methodList,new AlphabeticMemberComparator());
   for (  Method method : methodList) {
     boolean entityPropertyAnnotated=method.isAnnotationPresent(PlanningEntityProperty.class);
     boolean entityCollectionPropertyAnnotated=method.isAnnotationPresent(PlanningEntityCollectionProperty.class);
-    if (entityPropertyAnnotated && entityCollectionPropertyAnnotated) {
-      throw new IllegalStateException("The solutionClass (" + solutionClass + ") has a method ("+ method+ ") that has both a "+ PlanningEntityProperty.class.getSimpleName()+ " annotation and a "+ PlanningEntityCollectionProperty.class.getSimpleName()+ " annotation.");
-    }
     if (entityPropertyAnnotated || entityCollectionPropertyAnnotated) {
       noEntityPropertyAnnotation=false;
       if (!ReflectionHelper.isGetterMethod(method)) {
         throw new IllegalStateException("The solutionClass (" + solutionClass + ")'s method ("+ method+ ") with a "+ PlanningEntityProperty.class.getSimpleName()+ " or "+ PlanningEntityCollectionProperty.class.getSimpleName()+ " annotation must be a valid getter method.\n"+ "  That annotation can only be used on a JavaBeans getter method or on a field.");
       }
       MemberAccessor memberAccessor=new BeanPropertyMemberAccessor(method);
-      if (entityPropertyAnnotated) {
-        entityPropertyAccessorMap.put(memberAccessor.getName(),memberAccessor);
-      }
- else       if (entityCollectionPropertyAnnotated) {
-        noEntityPropertyAnnotation=false;
-        if (!Collection.class.isAssignableFrom(memberAccessor.getType())) {
-          throw new IllegalStateException("The solutionClass (" + solutionClass + ") has a "+ PlanningEntityCollectionProperty.class.getSimpleName()+ " annotated property ("+ memberAccessor.getName()+ ") that does not return a "+ Collection.class.getSimpleName()+ ".");
-        }
-        entityCollectionPropertyAccessorMap.put(memberAccessor.getName(),memberAccessor);
-      }
+      registerEntityPropertyAccessor(entityPropertyAnnotated,entityCollectionPropertyAnnotated,memberAccessor);
     }
   }
   if (noEntityPropertyAnnotation) {

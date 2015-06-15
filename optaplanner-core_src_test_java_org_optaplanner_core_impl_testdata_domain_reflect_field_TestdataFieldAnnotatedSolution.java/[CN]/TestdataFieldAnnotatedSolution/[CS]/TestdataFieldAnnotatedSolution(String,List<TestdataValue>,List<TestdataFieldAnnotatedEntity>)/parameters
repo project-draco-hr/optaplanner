@@ -1,0 +1,3 @@
+String code
+List<TestdataValue> valueList
+List<TestdataFieldAnnotatedEntity> entityList

@@ -1,0 +1,5 @@
+{
+  SolutionDescriptor solutionDescriptor=TestdataFieldAnnotatedSolution.buildSolutionDescriptor();
+  EntityDescriptor entityDescriptor=solutionDescriptor.findEntityDescriptorOrFail(TestdataFieldAnnotatedEntity.class);
+  return entityDescriptor.getGenuineVariableDescriptor("value");
+}

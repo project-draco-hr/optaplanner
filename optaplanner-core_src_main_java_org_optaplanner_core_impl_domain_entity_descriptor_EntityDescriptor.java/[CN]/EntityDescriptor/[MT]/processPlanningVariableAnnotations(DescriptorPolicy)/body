@@ -2,6 +2,16 @@
   declaredGenuineVariableDescriptorMap=new LinkedHashMap<String,GenuineVariableDescriptor>();
   declaredShadowVariableDescriptorMap=new LinkedHashMap<String,ShadowVariableDescriptor>();
   boolean noVariableAnnotation=true;
+  List<Field> fieldList=Arrays.asList(entityClass.getDeclaredFields());
+  Collections.sort(fieldList,new AlphabeticMemberComparator());
+  for (  Field field : fieldList) {
+    Class<? extends Annotation> variableAnnotationClass=extractVariableAnnotationClass(field);
+    if (variableAnnotationClass != null) {
+      noVariableAnnotation=false;
+      MemberAccessor memberAccessor=new FieldMemberAccessor(field);
+      registerVariableAccessor(descriptorPolicy,variableAnnotationClass,memberAccessor);
+    }
+  }
   List<Method> methodList=Arrays.asList(entityClass.getDeclaredMethods());
   Collections.sort(methodList,new AlphabeticMemberComparator());
   for (  Method method : methodList) {
@@ -15,29 +25,7 @@
       if (!memberAccessor.supportSetter()) {
         throw new IllegalStateException("The entityClass (" + entityClass + ") has a "+ variableAnnotationClass.getSimpleName()+ " annotated getter method ("+ method+ "), but lacks a setter for that property ("+ memberAccessor.getName()+ ").");
       }
-      if (variableAnnotationClass.equals(PlanningVariable.class)) {
-        GenuineVariableDescriptor variableDescriptor=new GenuineVariableDescriptor(this,memberAccessor);
-        declaredGenuineVariableDescriptorMap.put(memberAccessor.getName(),variableDescriptor);
-        variableDescriptor.processAnnotations(descriptorPolicy);
-      }
- else       if (variableAnnotationClass.equals(InverseRelationShadowVariable.class)) {
-        ShadowVariableDescriptor variableDescriptor=new InverseRelationShadowVariableDescriptor(this,memberAccessor);
-        declaredShadowVariableDescriptorMap.put(memberAccessor.getName(),variableDescriptor);
-        variableDescriptor.processAnnotations(descriptorPolicy);
-      }
- else       if (variableAnnotationClass.equals(AnchorShadowVariable.class)) {
-        ShadowVariableDescriptor variableDescriptor=new AnchorShadowVariableDescriptor(this,memberAccessor);
-        declaredShadowVariableDescriptorMap.put(memberAccessor.getName(),variableDescriptor);
-        variableDescriptor.processAnnotations(descriptorPolicy);
-      }
- else       if (variableAnnotationClass.equals(CustomShadowVariable.class)) {
-        ShadowVariableDescriptor variableDescriptor=new CustomShadowVariableDescriptor(this,memberAccessor);
-        declaredShadowVariableDescriptorMap.put(memberAccessor.getName(),variableDescriptor);
-        variableDescriptor.processAnnotations(descriptorPolicy);
-      }
- else {
-        throw new IllegalStateException("The variableAnnotationClass (" + variableAnnotationClass + ") is not implemented.");
-      }
+      registerVariableAccessor(descriptorPolicy,variableAnnotationClass,memberAccessor);
     }
   }
   if (noVariableAnnotation) {

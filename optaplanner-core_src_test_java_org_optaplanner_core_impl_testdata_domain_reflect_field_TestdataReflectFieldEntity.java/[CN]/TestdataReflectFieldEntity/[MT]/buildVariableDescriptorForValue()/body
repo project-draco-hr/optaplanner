@@ -1,5 +1,0 @@
-{
-  SolutionDescriptor solutionDescriptor=TestdataReflectFieldSolution.buildSolutionDescriptor();
-  EntityDescriptor entityDescriptor=solutionDescriptor.findEntityDescriptorOrFail(TestdataReflectFieldEntity.class);
-  return entityDescriptor.getGenuineVariableDescriptor("value");
-}

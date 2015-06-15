@@ -1,0 +1,3 @@
+DescriptorPolicy descriptorPolicy
+Class<? extends Annotation> variableAnnotationClass
+MemberAccessor memberAccessor

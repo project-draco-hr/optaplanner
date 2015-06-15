@@ -1,3 +1,0 @@
-{
-  return TestdataUtils.buildSolutionDescriptor(TestdataReflectFieldSolution.class,TestdataReflectFieldEntity.class);
-}

@@ -1,0 +1,30 @@
+{
+  SolutionDescriptor solutionDescriptor=TestdataFieldAnnotatedSolution.buildSolutionDescriptor();
+  SolutionCloner<TestdataFieldAnnotatedSolution> cloner=createSolutionCloner(solutionDescriptor);
+  TestdataValue val1=new TestdataValue("1");
+  TestdataValue val2=new TestdataValue("2");
+  TestdataValue val3=new TestdataValue("3");
+  TestdataFieldAnnotatedEntity a=new TestdataFieldAnnotatedEntity("a",val1);
+  TestdataFieldAnnotatedEntity b=new TestdataFieldAnnotatedEntity("b",val1);
+  TestdataFieldAnnotatedEntity c=new TestdataFieldAnnotatedEntity("c",val3);
+  TestdataFieldAnnotatedEntity d=new TestdataFieldAnnotatedEntity("d",val3);
+  List<TestdataValue> valueList=Arrays.asList(val1,val2,val3);
+  List<TestdataFieldAnnotatedEntity> originalEntityList=Arrays.asList(a,b,c,d);
+  TestdataFieldAnnotatedSolution original=new TestdataFieldAnnotatedSolution("solution",valueList,originalEntityList);
+  TestdataFieldAnnotatedSolution clone=cloner.cloneSolution(original);
+  assertNotSame(original,clone);
+  assertCode("solution",clone);
+  assertSame(valueList,clone.getValueList());
+  List<TestdataFieldAnnotatedEntity> cloneEntityList=clone.getEntityList();
+  assertNotSame(originalEntityList,cloneEntityList);
+  assertEquals(4,cloneEntityList.size());
+  TestdataFieldAnnotatedEntity cloneA=cloneEntityList.get(0);
+  TestdataFieldAnnotatedEntity cloneB=cloneEntityList.get(1);
+  TestdataFieldAnnotatedEntity cloneC=cloneEntityList.get(2);
+  TestdataFieldAnnotatedEntity cloneD=cloneEntityList.get(3);
+  assertEntityClone(a,cloneA,"a","1");
+  assertEntityClone(b,cloneB,"b","1");
+  assertEntityClone(c,cloneC,"c","3");
+  assertEntityClone(d,cloneD,"d","3");
+  assertNotSame(b,cloneB);
+}

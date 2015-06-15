@@ -1,0 +1,4 @@
+TestdataFieldAnnotatedEntity originalEntity
+TestdataFieldAnnotatedEntity cloneEntity
+String entityCode
+String valueCode
