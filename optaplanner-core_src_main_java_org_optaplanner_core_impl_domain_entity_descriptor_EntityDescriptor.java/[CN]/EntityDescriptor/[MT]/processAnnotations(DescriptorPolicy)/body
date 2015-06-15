@@ -1,5 +1,5 @@
 {
   processEntityAnnotations(descriptorPolicy);
-  processMethodAnnotations(descriptorPolicy);
-  processPropertyAnnotations(descriptorPolicy);
+  processValueRangeProviderAnnotations(descriptorPolicy);
+  processPlanningVariableAnnotations(descriptorPolicy);
 }
