@@ -1,11 +1,14 @@
 {
-  this.readMethod=readMethod;
-  readMethod.setAccessible(true);
-  Class declaringClass=readMethod.getDeclaringClass();
-  propertyType=readMethod.getReturnType();
-  propertyName=ReflectionHelper.getGetterPropertyName(readMethod);
-  writeMethod=ReflectionHelper.getSetterMethod(declaringClass,readMethod.getReturnType(),propertyName);
-  if (writeMethod != null) {
-    writeMethod.setAccessible(true);
+  this.getterMethod=getterMethod;
+  getterMethod.setAccessible(true);
+  Class declaringClass=getterMethod.getDeclaringClass();
+  if (!ReflectionHelper.isGetterMethod(getterMethod)) {
+    throw new IllegalArgumentException("The getterMethod (" + getterMethod + ") is not a valid getter.");
+  }
+  propertyType=getterMethod.getReturnType();
+  propertyName=ReflectionHelper.getGetterPropertyName(getterMethod);
+  setterMethod=ReflectionHelper.getSetterMethod(declaringClass,getterMethod.getReturnType(),propertyName);
+  if (setterMethod != null) {
+    setterMethod.setAccessible(true);
   }
 }

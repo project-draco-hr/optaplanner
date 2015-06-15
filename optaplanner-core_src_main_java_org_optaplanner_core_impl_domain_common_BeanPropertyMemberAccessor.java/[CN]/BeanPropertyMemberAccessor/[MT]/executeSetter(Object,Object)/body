@@ -1,11 +1,11 @@
 {
   try {
-    writeMethod.invoke(bean,value);
+    setterMethod.invoke(bean,value);
   }
  catch (  IllegalAccessException e) {
-    throw new IllegalStateException("Cannot call property (" + propertyName + ") setter method ("+ writeMethod+ ") on bean of class ("+ bean.getClass()+ ") for value ("+ value+ ").",e);
+    throw new IllegalStateException("Cannot call property (" + propertyName + ") setterMethod ("+ setterMethod+ ") on bean of class ("+ bean.getClass()+ ") for value ("+ value+ ").",e);
   }
 catch (  InvocationTargetException e) {
-    throw new IllegalStateException("The property (" + propertyName + ") setter method ("+ writeMethod+ ") on bean of class ("+ bean.getClass()+ ") throws an exception for value ("+ value+ ").",e.getCause());
+    throw new IllegalStateException("The property (" + propertyName + ") setterMethod ("+ setterMethod+ ") on bean of class ("+ bean.getClass()+ ") throws an exception for value ("+ value+ ").",e.getCause());
   }
 }
