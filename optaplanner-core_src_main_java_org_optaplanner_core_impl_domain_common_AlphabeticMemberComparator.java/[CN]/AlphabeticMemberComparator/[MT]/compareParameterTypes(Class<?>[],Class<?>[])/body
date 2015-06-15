@@ -1,0 +1,12 @@
+{
+  if (aParameterTypes.length != bParameterTypes.length) {
+    return aParameterTypes.length > bParameterTypes.length ? 1 : -1;
+  }
+  for (int i=0; i < aParameterTypes.length; i++) {
+    int parameterNameCompareTo=aParameterTypes[i].getName().compareTo(bParameterTypes[i].getName());
+    if (parameterNameCompareTo != 0) {
+      return parameterNameCompareTo;
+    }
+  }
+  return 0;
+}

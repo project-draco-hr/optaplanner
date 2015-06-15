@@ -1,6 +1,8 @@
 {
   boolean noEntityPropertyAnnotation=true;
-  for (  Method method : solutionClass.getMethods()) {
+  List<Method> methodList=Arrays.asList(solutionClass.getMethods());
+  Collections.sort(methodList,new AlphabeticMemberComparator());
+  for (  Method method : methodList) {
     boolean entityPropertyAnnotated=method.isAnnotationPresent(PlanningEntityProperty.class);
     boolean entityCollectionPropertyAnnotated=method.isAnnotationPresent(PlanningEntityCollectionProperty.class);
     if (entityPropertyAnnotated && entityCollectionPropertyAnnotated) {

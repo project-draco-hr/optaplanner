@@ -1,5 +1,7 @@
 {
-  for (  Method method : solutionClass.getMethods()) {
+  List<Method> methodList=Arrays.asList(solutionClass.getMethods());
+  Collections.sort(methodList,new AlphabeticMemberComparator());
+  for (  Method method : methodList) {
     if (method.isAnnotationPresent(ValueRangeProvider.class)) {
       descriptorPolicy.addFromSolutionValueRangeProvider(method);
     }

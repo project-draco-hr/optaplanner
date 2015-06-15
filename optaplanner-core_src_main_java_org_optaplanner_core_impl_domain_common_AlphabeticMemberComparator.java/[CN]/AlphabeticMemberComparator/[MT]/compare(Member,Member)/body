@@ -1,0 +1,31 @@
+{
+  int compareTo=a.getName().compareTo(b.getName());
+  if (compareTo != 0) {
+    return compareTo;
+  }
+  if (a instanceof Method) {
+    if (!(b instanceof Method)) {
+      return 1;
+    }
+    int parameterNameCompareTo=compareParameterTypes(((Method)a).getParameterTypes(),((Method)b).getParameterTypes());
+    if (parameterNameCompareTo != 0) {
+      return parameterNameCompareTo;
+    }
+  }
+ else   if (b instanceof Method) {
+    return -1;
+  }
+  if (a instanceof Constructor) {
+    if (!(b instanceof Constructor)) {
+      return 1;
+    }
+    int parameterNameCompareTo=compareParameterTypes(((Constructor)a).getParameterTypes(),((Constructor)b).getParameterTypes());
+    if (parameterNameCompareTo != 0) {
+      return parameterNameCompareTo;
+    }
+  }
+ else   if (b instanceof Constructor) {
+    return -1;
+  }
+  return 0;
+}

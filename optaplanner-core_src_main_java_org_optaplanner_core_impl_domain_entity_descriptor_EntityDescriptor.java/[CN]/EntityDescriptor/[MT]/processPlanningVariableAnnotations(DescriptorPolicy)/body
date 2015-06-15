@@ -2,7 +2,9 @@
   declaredGenuineVariableDescriptorMap=new LinkedHashMap<String,GenuineVariableDescriptor>();
   declaredShadowVariableDescriptorMap=new LinkedHashMap<String,ShadowVariableDescriptor>();
   boolean noVariableAnnotation=true;
-  for (  Method method : entityClass.getDeclaredMethods()) {
+  List<Method> methodList=Arrays.asList(entityClass.getDeclaredMethods());
+  Collections.sort(methodList,new AlphabeticMemberComparator());
+  for (  Method method : methodList) {
     Class<? extends Annotation> variableAnnotationClass=extractVariableAnnotationClass(method);
     if (variableAnnotationClass != null) {
       noVariableAnnotation=false;

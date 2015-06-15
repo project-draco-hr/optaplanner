@@ -1,5 +1,7 @@
 {
-  for (  Method method : entityClass.getDeclaredMethods()) {
+  List<Method> methodList=Arrays.asList(entityClass.getDeclaredMethods());
+  Collections.sort(methodList,new AlphabeticMemberComparator());
+  for (  Method method : methodList) {
     if (method.isAnnotationPresent(ValueRangeProvider.class)) {
       descriptorPolicy.addFromEntityValueRangeProvider(method);
     }
