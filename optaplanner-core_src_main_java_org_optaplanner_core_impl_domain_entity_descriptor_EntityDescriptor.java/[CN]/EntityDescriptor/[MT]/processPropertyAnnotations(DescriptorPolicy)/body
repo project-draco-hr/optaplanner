@@ -1,53 +1,44 @@
 {
-  PropertyDescriptor[] propertyDescriptors=entityBeanInfo.getPropertyDescriptors();
-  declaredGenuineVariableDescriptorMap=new LinkedHashMap<String,GenuineVariableDescriptor>(propertyDescriptors.length);
-  declaredShadowVariableDescriptorMap=new LinkedHashMap<String,ShadowVariableDescriptor>(propertyDescriptors.length);
-  boolean noPlanningVariableAnnotation=true;
-  for (  PropertyDescriptor propertyDescriptor : propertyDescriptors) {
-    Method propertyGetter=propertyDescriptor.getReadMethod();
-    if (propertyGetter != null && propertyGetter.getDeclaringClass() == entityClass) {
-      Class<? extends Annotation> variableAnnotationClass=null;
-      for (      Class<? extends Annotation> detectedAnnotationClass : Arrays.asList(PlanningVariable.class,InverseRelationShadowVariable.class,AnchorShadowVariable.class,CustomShadowVariable.class)) {
-        if (propertyGetter.isAnnotationPresent(detectedAnnotationClass)) {
-          if (variableAnnotationClass != null) {
-            throw new IllegalStateException("The entityClass (" + entityClass + ") has a property ("+ propertyDescriptor.getName()+ ") that has both a "+ variableAnnotationClass.getSimpleName()+ " annotation and a "+ detectedAnnotationClass.getSimpleName()+ " annotation.");
-          }
-          variableAnnotationClass=detectedAnnotationClass;
-        }
+  declaredGenuineVariableDescriptorMap=new LinkedHashMap<String,GenuineVariableDescriptor>();
+  declaredShadowVariableDescriptorMap=new LinkedHashMap<String,ShadowVariableDescriptor>();
+  boolean noVariableAnnotation=true;
+  for (  Method method : entityClass.getDeclaredMethods()) {
+    Class<? extends Annotation> variableAnnotationClass=extractVariableAnnotationClass(method);
+    if (variableAnnotationClass != null) {
+      noVariableAnnotation=false;
+      if (!ReflectionHelper.isGetterMethod(method)) {
+        throw new IllegalStateException("The entityClass (" + entityClass + ")'s method ("+ method+ ") with a "+ variableAnnotationClass.getSimpleName()+ " annotation must be a valid getter method.\n"+ "  That annotation can only be used on a JavaBeans getter method or on a field.");
       }
-      if (variableAnnotationClass != null) {
-        noPlanningVariableAnnotation=false;
-        if (propertyDescriptor.getWriteMethod() == null) {
-          throw new IllegalStateException("The entityClass (" + entityClass + ") has a "+ variableAnnotationClass.getSimpleName()+ " annotated property ("+ propertyDescriptor.getName()+ ") that should have a setter.");
-        }
-        MemberAccessor memberAccessor=new BeanPropertyMemberAccessor(propertyDescriptor);
-        if (variableAnnotationClass.equals(PlanningVariable.class)) {
-          GenuineVariableDescriptor variableDescriptor=new GenuineVariableDescriptor(this,memberAccessor);
-          declaredGenuineVariableDescriptorMap.put(memberAccessor.getName(),variableDescriptor);
-          variableDescriptor.processAnnotations(descriptorPolicy);
-        }
- else         if (variableAnnotationClass.equals(InverseRelationShadowVariable.class)) {
-          ShadowVariableDescriptor variableDescriptor=new InverseRelationShadowVariableDescriptor(this,memberAccessor);
-          declaredShadowVariableDescriptorMap.put(memberAccessor.getName(),variableDescriptor);
-          variableDescriptor.processAnnotations(descriptorPolicy);
-        }
- else         if (variableAnnotationClass.equals(AnchorShadowVariable.class)) {
-          ShadowVariableDescriptor variableDescriptor=new AnchorShadowVariableDescriptor(this,memberAccessor);
-          declaredShadowVariableDescriptorMap.put(memberAccessor.getName(),variableDescriptor);
-          variableDescriptor.processAnnotations(descriptorPolicy);
-        }
- else         if (variableAnnotationClass.equals(CustomShadowVariable.class)) {
-          ShadowVariableDescriptor variableDescriptor=new CustomShadowVariableDescriptor(this,memberAccessor);
-          declaredShadowVariableDescriptorMap.put(memberAccessor.getName(),variableDescriptor);
-          variableDescriptor.processAnnotations(descriptorPolicy);
-        }
+      MemberAccessor memberAccessor=new BeanPropertyMemberAccessor(method);
+      if (!memberAccessor.supportSetter()) {
+        throw new IllegalStateException("The entityClass (" + entityClass + ") has a "+ variableAnnotationClass.getSimpleName()+ " annotated getter method ("+ method+ "), but lacks a setter for that property ("+ memberAccessor.getName()+ ").");
+      }
+      if (variableAnnotationClass.equals(PlanningVariable.class)) {
+        GenuineVariableDescriptor variableDescriptor=new GenuineVariableDescriptor(this,memberAccessor);
+        declaredGenuineVariableDescriptorMap.put(memberAccessor.getName(),variableDescriptor);
+        variableDescriptor.processAnnotations(descriptorPolicy);
+      }
+ else       if (variableAnnotationClass.equals(InverseRelationShadowVariable.class)) {
+        ShadowVariableDescriptor variableDescriptor=new InverseRelationShadowVariableDescriptor(this,memberAccessor);
+        declaredShadowVariableDescriptorMap.put(memberAccessor.getName(),variableDescriptor);
+        variableDescriptor.processAnnotations(descriptorPolicy);
+      }
+ else       if (variableAnnotationClass.equals(AnchorShadowVariable.class)) {
+        ShadowVariableDescriptor variableDescriptor=new AnchorShadowVariableDescriptor(this,memberAccessor);
+        declaredShadowVariableDescriptorMap.put(memberAccessor.getName(),variableDescriptor);
+        variableDescriptor.processAnnotations(descriptorPolicy);
+      }
+ else       if (variableAnnotationClass.equals(CustomShadowVariable.class)) {
+        ShadowVariableDescriptor variableDescriptor=new CustomShadowVariableDescriptor(this,memberAccessor);
+        declaredShadowVariableDescriptorMap.put(memberAccessor.getName(),variableDescriptor);
+        variableDescriptor.processAnnotations(descriptorPolicy);
+      }
  else {
-          throw new IllegalStateException("The variableAnnotationClass (" + variableAnnotationClass + ") is not implemented.");
-        }
+        throw new IllegalStateException("The variableAnnotationClass (" + variableAnnotationClass + ") is not implemented.");
       }
     }
   }
-  if (noPlanningVariableAnnotation) {
-    throw new IllegalStateException("The entityClass (" + entityClass + ") should have at least 1 getter with a "+ PlanningVariable.class.getSimpleName()+ " annotation or a shadow variable annotation.");
+  if (noVariableAnnotation) {
+    throw new IllegalStateException("The entityClass (" + entityClass + ") should have at least 1 getter method or 1 field with a "+ PlanningVariable.class.getSimpleName()+ " annotation or a shadow variable annotation.");
   }
 }

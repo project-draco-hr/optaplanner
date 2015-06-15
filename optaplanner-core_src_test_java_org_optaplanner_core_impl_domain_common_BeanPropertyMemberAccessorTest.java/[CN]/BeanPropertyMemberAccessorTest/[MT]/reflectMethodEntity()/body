@@ -1,5 +1,5 @@
 {
-  BeanPropertyMemberAccessor memberAccessor=new BeanPropertyMemberAccessor(new PropertyDescriptor("value",TestdataEntity.class));
+  BeanPropertyMemberAccessor memberAccessor=new BeanPropertyMemberAccessor(TestdataEntity.class.getMethod("getValue"));
   assertEquals("value",memberAccessor.getName());
   assertEquals(TestdataValue.class,memberAccessor.getType());
   assertEquals(true,memberAccessor.isAnnotationPresent(PlanningVariable.class));

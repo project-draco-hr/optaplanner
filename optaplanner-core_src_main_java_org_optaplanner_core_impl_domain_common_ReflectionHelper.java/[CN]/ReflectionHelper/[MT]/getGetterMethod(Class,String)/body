@@ -1,0 +1,18 @@
+{
+  String getterName=PROPERTY_ACCESSOR_PREFIX_GET + (propertyName.isEmpty() ? "" : propertyName.substring(0,1).toUpperCase() + propertyName.substring(1));
+  try {
+    return containingClass.getMethod(getterName);
+  }
+ catch (  NoSuchMethodException e) {
+  }
+  String isserName=PROPERTY_ACCESSOR_PREFIX_IS + (propertyName.isEmpty() ? "" : propertyName.substring(0,1).toUpperCase() + propertyName.substring(1));
+  try {
+    Method method=containingClass.getMethod(isserName);
+    if (method.getReturnType() == boolean.class) {
+      return method;
+    }
+  }
+ catch (  NoSuchMethodException e) {
+  }
+  return null;
+}

@@ -1,0 +1,11 @@
+{
+  this.readMethod=readMethod;
+  readMethod.setAccessible(true);
+  Class declaringClass=readMethod.getDeclaringClass();
+  propertyType=readMethod.getReturnType();
+  propertyName=ReflectionHelper.getGetterPropertyName(readMethod);
+  writeMethod=ReflectionHelper.getSetterMethod(declaringClass,readMethod.getReturnType(),propertyName);
+  if (writeMethod != null) {
+    writeMethod.setAccessible(true);
+  }
+}

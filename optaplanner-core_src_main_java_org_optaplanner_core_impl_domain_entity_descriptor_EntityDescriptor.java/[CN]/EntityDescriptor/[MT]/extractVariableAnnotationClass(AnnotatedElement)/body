@@ -1,0 +1,12 @@
+{
+  Class<? extends Annotation> variableAnnotationClass=null;
+  for (  Class<? extends Annotation> detectedAnnotationClass : VARIABLE_ANNOTATION_CLASSES) {
+    if (member.isAnnotationPresent(detectedAnnotationClass)) {
+      if (variableAnnotationClass != null) {
+        throw new IllegalStateException("The entityClass (" + entityClass + ") has a member ("+ member+ ") that has both a "+ variableAnnotationClass.getSimpleName()+ " annotation and a "+ detectedAnnotationClass.getSimpleName()+ " annotation.");
+      }
+      variableAnnotationClass=detectedAnnotationClass;
+    }
+  }
+  return variableAnnotationClass;
+}

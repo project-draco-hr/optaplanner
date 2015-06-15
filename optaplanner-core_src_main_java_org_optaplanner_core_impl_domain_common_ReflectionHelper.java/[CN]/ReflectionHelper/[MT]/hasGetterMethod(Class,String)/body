@@ -1,0 +1,3 @@
+{
+  return getGetterMethod(containingClass,propertyName) != null;
+}
