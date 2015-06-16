@@ -1,0 +1,4 @@
+{
+  String id=extractValueRangeProviderId(memberAccessor);
+  fromSolutionValueRangeProviderMap.put(id,memberAccessor);
+}

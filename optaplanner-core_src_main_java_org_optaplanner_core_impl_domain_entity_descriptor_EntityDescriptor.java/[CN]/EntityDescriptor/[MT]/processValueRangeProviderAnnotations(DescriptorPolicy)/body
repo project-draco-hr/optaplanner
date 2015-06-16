@@ -3,7 +3,9 @@
   Collections.sort(methodList,new AlphabeticMemberComparator());
   for (  Method method : methodList) {
     if (method.isAnnotationPresent(ValueRangeProvider.class)) {
-      descriptorPolicy.addFromEntityValueRangeProvider(method);
+      ReflectionHelper.assertReadMethod(method,ValueRangeProvider.class);
+      MemberAccessor memberAccessor=new MethodMemberAccessor(method);
+      descriptorPolicy.addFromEntityValueRangeProvider(memberAccessor);
     }
   }
 }

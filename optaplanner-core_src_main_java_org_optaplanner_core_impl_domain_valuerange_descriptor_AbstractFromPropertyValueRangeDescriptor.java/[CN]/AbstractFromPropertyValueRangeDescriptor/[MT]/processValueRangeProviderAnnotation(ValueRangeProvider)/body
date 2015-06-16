@@ -1,9 +1,9 @@
 {
   EntityDescriptor entityDescriptor=variableDescriptor.getEntityDescriptor();
-  Class<?> returnType=readMethodAccessor.getReturnType();
-  collectionWrapping=Collection.class.isAssignableFrom(returnType);
-  if (!collectionWrapping && !ValueRange.class.isAssignableFrom(returnType)) {
-    throw new IllegalArgumentException("The entityClass (" + entityDescriptor.getEntityClass() + ") has a "+ PlanningVariable.class.getSimpleName()+ " annotated property ("+ variableDescriptor.getVariableName()+ ") that refers to a "+ ValueRangeProvider.class.getSimpleName()+ " annotated method ("+ readMethodAccessor.getReadMethod()+ ") that does not return a "+ Collection.class.getSimpleName()+ " or a "+ ValueRange.class.getSimpleName()+ ".");
+  Class<?> type=memberAccessor.getType();
+  collectionWrapping=Collection.class.isAssignableFrom(type);
+  if (!collectionWrapping && !ValueRange.class.isAssignableFrom(type)) {
+    throw new IllegalArgumentException("The entityClass (" + entityDescriptor.getEntityClass() + ") has a "+ PlanningVariable.class.getSimpleName()+ " annotated property ("+ variableDescriptor.getVariableName()+ ") that refers to a "+ ValueRangeProvider.class.getSimpleName()+ " annotated member ("+ memberAccessor+ ") that does not return a "+ Collection.class.getSimpleName()+ " or a "+ ValueRange.class.getSimpleName()+ ".");
   }
-  countable=collectionWrapping || CountableValueRange.class.isAssignableFrom(returnType);
+  countable=collectionWrapping || CountableValueRange.class.isAssignableFrom(type);
 }

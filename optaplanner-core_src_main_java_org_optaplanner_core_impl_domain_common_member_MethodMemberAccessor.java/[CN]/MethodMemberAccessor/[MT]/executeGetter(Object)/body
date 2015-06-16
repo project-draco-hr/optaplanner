@@ -1,0 +1,11 @@
+{
+  try {
+    return readMethod.invoke(bean);
+  }
+ catch (  IllegalAccessException e) {
+    throw new IllegalStateException("Cannot call property (" + methodName + ") getterMethod ("+ readMethod+ ") on bean of class ("+ bean.getClass()+ ").",e);
+  }
+catch (  InvocationTargetException e) {
+    throw new IllegalStateException("The property (" + methodName + ") getterMethod ("+ readMethod+ ") on bean of class ("+ bean.getClass()+ ") throws an exception.",e.getCause());
+  }
+}

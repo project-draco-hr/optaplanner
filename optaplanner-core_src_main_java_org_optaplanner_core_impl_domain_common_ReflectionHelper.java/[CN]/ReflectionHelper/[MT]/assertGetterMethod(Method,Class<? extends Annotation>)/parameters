@@ -1,0 +1,2 @@
+Method getterMethod
+Class<? extends Annotation> annotationClass

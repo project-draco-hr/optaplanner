@@ -1,0 +1,10 @@
+{
+  MemberAccessor duplicate=fromSolutionValueRangeProviderMap.get(id);
+  if (duplicate != null) {
+    throw new IllegalStateException("2 members (" + duplicate + ", "+ memberAccessor+ ") with a "+ ValueRangeProvider.class.getSimpleName()+ " annotation must not have the same id ("+ id+ ").");
+  }
+  duplicate=fromEntityValueRangeProviderMap.get(id);
+  if (duplicate != null) {
+    throw new IllegalStateException("2 members (" + duplicate + ", "+ memberAccessor+ ") with a "+ ValueRangeProvider.class.getSimpleName()+ " annotation must not have the same id ("+ id+ ").");
+  }
+}

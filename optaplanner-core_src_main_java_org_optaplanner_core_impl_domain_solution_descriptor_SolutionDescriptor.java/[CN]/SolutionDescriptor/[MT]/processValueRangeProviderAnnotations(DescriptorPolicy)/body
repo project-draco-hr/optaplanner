@@ -1,9 +1,11 @@
 {
-  List<Method> methodList=Arrays.asList(solutionClass.getMethods());
+  List<Method> methodList=Arrays.asList(solutionClass.getDeclaredMethods());
   Collections.sort(methodList,new AlphabeticMemberComparator());
   for (  Method method : methodList) {
     if (method.isAnnotationPresent(ValueRangeProvider.class)) {
-      descriptorPolicy.addFromSolutionValueRangeProvider(method);
+      ReflectionHelper.assertReadMethod(method,ValueRangeProvider.class);
+      MemberAccessor memberAccessor=new MethodMemberAccessor(method);
+      descriptorPolicy.addFromSolutionValueRangeProvider(memberAccessor);
     }
   }
 }

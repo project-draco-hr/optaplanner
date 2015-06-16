@@ -1,0 +1,4 @@
+{
+  String id=extractValueRangeProviderId(memberAccessor);
+  fromEntityValueRangeProviderMap.put(id,memberAccessor);
+}

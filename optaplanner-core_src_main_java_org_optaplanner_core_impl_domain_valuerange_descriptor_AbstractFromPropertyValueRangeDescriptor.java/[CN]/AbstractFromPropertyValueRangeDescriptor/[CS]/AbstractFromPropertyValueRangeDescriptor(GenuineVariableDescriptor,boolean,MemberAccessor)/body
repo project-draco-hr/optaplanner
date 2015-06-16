@@ -1,0 +1,12 @@
+{
+  super(variableDescriptor,addNullInValueRange);
+  this.memberAccessor=memberAccessor;
+  ValueRangeProvider valueRangeProviderAnnotation=memberAccessor.getAnnotation(ValueRangeProvider.class);
+  if (valueRangeProviderAnnotation == null) {
+    throw new IllegalStateException("The member (" + memberAccessor + ") must have a valueRangeProviderAnnotation ("+ valueRangeProviderAnnotation+ ").");
+  }
+  processValueRangeProviderAnnotation(valueRangeProviderAnnotation);
+  if (addNullInValueRange && !countable) {
+    throw new IllegalStateException("The valueRangeDescriptor (" + this + ") is nullable, but not countable ("+ countable+ ").\n"+ "Maybe the member ("+ memberAccessor+ ") should return "+ CountableValueRange.class.getSimpleName()+ ".");
+  }
+}

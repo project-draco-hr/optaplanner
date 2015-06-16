@@ -18,9 +18,7 @@
     Class<? extends Annotation> variableAnnotationClass=extractVariableAnnotationClass(method);
     if (variableAnnotationClass != null) {
       noVariableAnnotation=false;
-      if (!ReflectionHelper.isGetterMethod(method)) {
-        throw new IllegalStateException("The entityClass (" + entityClass + ")'s method ("+ method+ ") with a "+ variableAnnotationClass.getSimpleName()+ " annotation must be a valid getter method.\n"+ "  That annotation can only be used on a JavaBeans getter method or on a field.");
-      }
+      ReflectionHelper.assertGetterMethod(method,variableAnnotationClass);
       MemberAccessor memberAccessor=new BeanPropertyMemberAccessor(method);
       if (!memberAccessor.supportSetter()) {
         throw new IllegalStateException("The entityClass (" + entityClass + ") has a "+ variableAnnotationClass.getSimpleName()+ " annotated getter method ("+ method+ "), but lacks a setter for that property ("+ memberAccessor.getName()+ ").");

@@ -1,0 +1,3 @@
+{
+  return "bean property " + propertyName + " on class "+ getterMethod.getDeclaringClass();
+}

@@ -1,7 +1,7 @@
 {
-  Object valueRangeObject=readMethodAccessor.read(bean);
+  Object valueRangeObject=memberAccessor.executeGetter(bean);
   if (valueRangeObject == null) {
-    throw new IllegalStateException("The @" + ValueRangeProvider.class.getSimpleName() + " annotated readMethod ("+ readMethodAccessor.getReadMethod()+ ") called on bean ("+ bean+ ") must not return a null valueRangeObject ("+ valueRangeObject+ ").");
+    throw new IllegalStateException("The @" + ValueRangeProvider.class.getSimpleName() + " annotated member ("+ memberAccessor+ ") called on bean ("+ bean+ ") must not return a null valueRangeObject ("+ valueRangeObject+ ").");
   }
   ValueRange<Object> valueRange;
   if (collectionWrapping) {
@@ -13,7 +13,7 @@
   }
   valueRange=doNullInValueRangeWrapping(valueRange);
   if (valueRange.isEmpty()) {
-    throw new IllegalStateException("The @" + ValueRangeProvider.class.getSimpleName() + " annotated readMethod ("+ readMethodAccessor.getReadMethod()+ ") called on bean ("+ bean+ ") must not return an empty valueRange ("+ valueRangeObject+ ").\n"+ "  If this a valid dataset, apply overconstrained planning as described in the documentation.");
+    throw new IllegalStateException("The @" + ValueRangeProvider.class.getSimpleName() + " annotated member ("+ memberAccessor+ ") called on bean ("+ bean+ ") must not return an empty valueRange ("+ valueRangeObject+ ").\n"+ "  If this a valid dataset, apply overconstrained planning as described in the documentation.");
   }
   return valueRange;
 }

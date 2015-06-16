@@ -1,3 +1,0 @@
-{
-  super(variableDescriptor,addNullInValueRange,readMethod);
-}

@@ -18,9 +18,7 @@
     boolean entityCollectionPropertyAnnotated=method.isAnnotationPresent(PlanningEntityCollectionProperty.class);
     if (entityPropertyAnnotated || entityCollectionPropertyAnnotated) {
       noEntityPropertyAnnotation=false;
-      if (!ReflectionHelper.isGetterMethod(method)) {
-        throw new IllegalStateException("The solutionClass (" + solutionClass + ")'s method ("+ method+ ") with a "+ PlanningEntityProperty.class.getSimpleName()+ " or "+ PlanningEntityCollectionProperty.class.getSimpleName()+ " annotation must be a valid getter method.\n"+ "  That annotation can only be used on a JavaBeans getter method or on a field.");
-      }
+      ReflectionHelper.assertGetterMethod(method,entityPropertyAnnotated ? PlanningEntityProperty.class : PlanningEntityCollectionProperty.class);
       MemberAccessor memberAccessor=new BeanPropertyMemberAccessor(method);
       registerEntityPropertyAccessor(entityPropertyAnnotated,entityCollectionPropertyAnnotated,memberAccessor);
     }

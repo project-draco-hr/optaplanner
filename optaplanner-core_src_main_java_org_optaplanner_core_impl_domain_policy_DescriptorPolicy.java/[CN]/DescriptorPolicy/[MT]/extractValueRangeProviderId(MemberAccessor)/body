@@ -1,0 +1,9 @@
+{
+  ValueRangeProvider annotation=memberAccessor.getAnnotation(ValueRangeProvider.class);
+  String id=annotation.id();
+  if (StringUtils.isEmpty(id)) {
+    throw new IllegalStateException("The " + ValueRangeProvider.class.getSimpleName() + " annotated member ("+ memberAccessor+ ")'s id ("+ id+ ") must not be empty.");
+  }
+  validateUniqueValueRangeProviderId(id,memberAccessor);
+  return id;
+}
