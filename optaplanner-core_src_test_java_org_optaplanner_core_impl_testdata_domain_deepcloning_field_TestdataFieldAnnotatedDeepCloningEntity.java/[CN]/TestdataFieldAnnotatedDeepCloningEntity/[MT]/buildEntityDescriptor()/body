@@ -1,0 +1,4 @@
+{
+  SolutionDescriptor solutionDescriptor=TestdataFieldAnnotatedDeepCloningSolution.buildSolutionDescriptor();
+  return solutionDescriptor.findEntityDescriptorOrFail(TestdataFieldAnnotatedDeepCloningEntity.class);
+}

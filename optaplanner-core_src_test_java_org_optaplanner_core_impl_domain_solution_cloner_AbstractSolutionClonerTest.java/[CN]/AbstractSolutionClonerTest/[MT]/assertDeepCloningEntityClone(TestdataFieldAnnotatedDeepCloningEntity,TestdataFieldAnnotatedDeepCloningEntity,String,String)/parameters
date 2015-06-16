@@ -1,0 +1,4 @@
+TestdataFieldAnnotatedDeepCloningEntity originalEntity
+TestdataFieldAnnotatedDeepCloningEntity cloneEntity
+String entityCode
+String valueCode
