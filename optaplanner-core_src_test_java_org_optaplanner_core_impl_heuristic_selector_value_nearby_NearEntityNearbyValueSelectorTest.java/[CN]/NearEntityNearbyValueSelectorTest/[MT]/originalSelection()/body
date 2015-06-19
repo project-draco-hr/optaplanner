@@ -1,0 +1,115 @@
+{
+  final TestdataEntity africa=new TestdataEntity("Africa");
+  final TestdataEntity europe=new TestdataEntity("Europe");
+  final TestdataEntity oceania=new TestdataEntity("Oceania");
+  final TestdataValue morocco=new TestdataValue("Morocco");
+  final TestdataValue spain=new TestdataValue("Spain");
+  final TestdataValue australia=new TestdataValue("Australia");
+  final TestdataValue brazil=new TestdataValue("Brazil");
+  GenuineVariableDescriptor variableDescriptor=TestdataEntity.buildVariableDescriptorForValue();
+  EntityIndependentValueSelector childValueSelector=SelectorTestUtils.mockEntityIndependentValueSelector(variableDescriptor,morocco,spain,australia,brazil);
+  NearbyDistanceMeter meter=new NearbyDistanceMeter<TestdataEntity,TestdataValue>(){
+    public double getNearbyDistance(    TestdataEntity origin,    TestdataValue destination){
+      if (origin == africa) {
+        if (destination == morocco) {
+          return 0.0;
+        }
+ else         if (destination == spain) {
+          return 1.0;
+        }
+ else         if (destination == australia) {
+          return 100.0;
+        }
+ else         if (destination == brazil) {
+          return 50.0;
+        }
+ else {
+          throw new IllegalStateException("The destination (" + destination + ") is not implemented.");
+        }
+      }
+ else       if (origin == europe) {
+        if (destination == morocco) {
+          return 1.0;
+        }
+ else         if (destination == spain) {
+          return 0.0;
+        }
+ else         if (destination == australia) {
+          return 101.0;
+        }
+ else         if (destination == brazil) {
+          return 51.0;
+        }
+ else {
+          throw new IllegalStateException("The destination (" + destination + ") is not implemented.");
+        }
+      }
+ else       if (origin == oceania) {
+        if (destination == morocco) {
+          return 100.0;
+        }
+ else         if (destination == spain) {
+          return 101.0;
+        }
+ else         if (destination == australia) {
+          return 0.0;
+        }
+ else         if (destination == brazil) {
+          return 60.0;
+        }
+ else {
+          throw new IllegalStateException("The destination (" + destination + ") is not implemented.");
+        }
+      }
+ else {
+        throw new IllegalStateException("The origin (" + origin + ") is not implemented.");
+      }
+    }
+  }
+;
+  EntitySelector entitySelector=SelectorTestUtils.mockEntitySelector(variableDescriptor.getEntityDescriptor(),africa,europe,oceania);
+  ManualEntityMimicRecorder entityMimicRecorder=new ManualEntityMimicRecorder(entitySelector);
+  NearEntityNearbyValueSelector valueSelector=new NearEntityNearbyValueSelector(childValueSelector,new MimicReplayingEntitySelector(entityMimicRecorder),meter,null,false);
+  DefaultSolverScope solverScope=mock(DefaultSolverScope.class);
+  valueSelector.solvingStarted(solverScope);
+  AbstractPhaseScope phaseScopeA=mock(AbstractPhaseScope.class);
+  when(phaseScopeA.getSolverScope()).thenReturn(solverScope);
+  valueSelector.phaseStarted(phaseScopeA);
+  AbstractStepScope stepScopeA1=mock(AbstractStepScope.class);
+  when(stepScopeA1.getPhaseScope()).thenReturn(phaseScopeA);
+  valueSelector.stepStarted(stepScopeA1);
+  entityMimicRecorder.setRecordedEntity(europe);
+  assertAllCodesOfValueSelectorForEntity(valueSelector,null,"Spain","Morocco","Brazil","Australia");
+  valueSelector.stepEnded(stepScopeA1);
+  AbstractStepScope stepScopeA2=mock(AbstractStepScope.class);
+  when(stepScopeA2.getPhaseScope()).thenReturn(phaseScopeA);
+  valueSelector.stepStarted(stepScopeA2);
+  entityMimicRecorder.setRecordedEntity(africa);
+  assertAllCodesOfValueSelectorForEntity(valueSelector,null,"Morocco","Spain","Brazil","Australia");
+  valueSelector.stepEnded(stepScopeA2);
+  valueSelector.phaseEnded(phaseScopeA);
+  AbstractPhaseScope phaseScopeB=mock(AbstractPhaseScope.class);
+  when(phaseScopeB.getSolverScope()).thenReturn(solverScope);
+  valueSelector.phaseStarted(phaseScopeB);
+  AbstractStepScope stepScopeB1=mock(AbstractStepScope.class);
+  when(stepScopeB1.getPhaseScope()).thenReturn(phaseScopeB);
+  valueSelector.stepStarted(stepScopeB1);
+  entityMimicRecorder.setRecordedEntity(africa);
+  assertAllCodesOfValueSelectorForEntity(valueSelector,null,"Morocco","Spain","Brazil","Australia");
+  valueSelector.stepEnded(stepScopeB1);
+  AbstractStepScope stepScopeB2=mock(AbstractStepScope.class);
+  when(stepScopeB2.getPhaseScope()).thenReturn(phaseScopeB);
+  valueSelector.stepStarted(stepScopeB2);
+  entityMimicRecorder.setRecordedEntity(oceania);
+  assertAllCodesOfValueSelectorForEntity(valueSelector,null,"Australia","Brazil","Morocco","Spain");
+  valueSelector.stepEnded(stepScopeB2);
+  AbstractStepScope stepScopeB3=mock(AbstractStepScope.class);
+  when(stepScopeB3.getPhaseScope()).thenReturn(phaseScopeB);
+  valueSelector.stepStarted(stepScopeB3);
+  entityMimicRecorder.setRecordedEntity(europe);
+  assertAllCodesOfValueSelectorForEntity(valueSelector,null,"Spain","Morocco","Brazil","Australia");
+  valueSelector.stepEnded(stepScopeB3);
+  valueSelector.phaseEnded(phaseScopeB);
+  valueSelector.solvingEnded(solverScope);
+  verifyPhaseLifecycle(childValueSelector,1,2,5);
+}

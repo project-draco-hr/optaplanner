@@ -1,3 +1,4 @@
 {
-  return originEntityIterator.hasNext() && nextNearbyIndex < childSize;
+  selectOrigin();
+  return originIsNotEmpty && nextNearbyIndex < childSize;
 }

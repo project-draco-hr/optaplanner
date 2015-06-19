@@ -1,0 +1,8 @@
+{
+  if (originSelected) {
+    return;
+  }
+  originIsNotEmpty=originEntityIterator.hasNext();
+  origin=originEntityIterator.next();
+  originSelected=true;
+}
