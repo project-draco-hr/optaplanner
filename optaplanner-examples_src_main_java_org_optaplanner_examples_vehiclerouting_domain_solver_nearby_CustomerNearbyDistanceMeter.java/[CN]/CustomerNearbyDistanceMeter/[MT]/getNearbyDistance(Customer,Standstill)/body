@@ -1,4 +1,4 @@
 {
-  int distance=origin.getDistanceTo(destination);
+  long distance=origin.getDistanceTo(destination);
   return distance;
 }

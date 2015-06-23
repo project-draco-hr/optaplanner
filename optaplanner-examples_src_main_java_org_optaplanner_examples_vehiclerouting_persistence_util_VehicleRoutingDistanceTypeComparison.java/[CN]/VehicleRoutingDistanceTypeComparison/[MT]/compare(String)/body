@@ -11,7 +11,7 @@
     logger.info("  Results for {}:",varFile.getName());
     VehicleRoutingSolution variablesSolution=(VehicleRoutingSolution)vehicleRoutingDao.readSolution(varFile);
     for (    File inputFile : files) {
-      HardSoftScore score;
+      HardSoftLongScore score;
       if (inputFile == varFile) {
         score=variablesSolution.getScore();
       }

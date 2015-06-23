@@ -2,25 +2,25 @@
   if (score == null) {
     return null;
   }
-  int distance=-score.getSoftScore();
+  long distance=-score.getSoftScore();
   if (distanceUnitOfMeasurement == null) {
     return numberFormat.format(((double)distance) / 1000.0);
   }
   if (distanceUnitOfMeasurement.equals("sec")) {
-    int hours=distance / 3600000;
-    int minutes=distance % 3600000 / 60000;
-    int seconds=distance % 60000 / 1000;
-    int milliseconds=distance % 1000;
+    long hours=distance / 3600000L;
+    long minutes=distance % 3600000L / 60000L;
+    long seconds=distance % 60000L / 1000L;
+    long milliseconds=distance % 1000L;
     return hours + "h " + minutes+ "m "+ seconds+ "s "+ milliseconds+ "ms";
   }
  else   if (distanceUnitOfMeasurement.equals("km")) {
-    int km=distance / 1000;
-    int meter=distance % 1000;
+    long km=distance / 1000L;
+    long meter=distance % 1000L;
     return km + "km " + meter+ "m";
   }
  else   if (distanceUnitOfMeasurement.equals("meter")) {
-    int km=distance / 1000;
-    int meter=distance % 1000;
+    long km=distance / 1000L;
+    long meter=distance % 1000L;
     return km + "km " + meter+ "m";
   }
  else {

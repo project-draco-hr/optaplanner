@@ -3,7 +3,7 @@
   for (  Location location : solution.getLocationList()) {
     translator.addCoordinates(location.getLatitude(),location.getLongitude());
   }
-  int maximumTimeWindowTime=determineMaximumTimeWindowTime(solution);
+  long maximumTimeWindowTime=determineMaximumTimeWindowTime(solution);
   double width=size.getWidth();
   double height=size.getHeight();
   translator.prepareFor(width,height - 10 - TEXT_SIZE);
@@ -54,7 +54,7 @@
   for (  Vehicle vehicle : solution.getVehicleList()) {
     g.setColor(TangoColorFactory.SEQUENCE_2[colorIndex]);
     Customer vehicleInfoCustomer=null;
-    int longestNonDepotDistance=-1;
+    long longestNonDepotDistance=-1L;
     int load=0;
     for (    Customer customer : solution.getCustomerList()) {
       if (customer.getPreviousStandstill() != null && customer.getVehicle() == vehicle) {
@@ -62,7 +62,7 @@
         Location previousLocation=customer.getPreviousStandstill().getLocation();
         Location location=customer.getLocation();
         translator.drawRoute(g,previousLocation.getLongitude(),previousLocation.getLatitude(),location.getLongitude(),location.getLatitude(),location instanceof AirLocation,false);
-        int distance=customer.getDistanceFromPreviousStandstill();
+        long distance=customer.getDistanceFromPreviousStandstill();
         if (customer.getPreviousStandstill() instanceof Customer) {
           if (longestNonDepotDistance < distance) {
             longestNonDepotDistance=distance;
@@ -111,7 +111,7 @@
     g.drawString(clickString,(int)width - 5 - g.getFontMetrics().stringWidth(clickString),(int)height - 5);
   }
   g.setColor(TangoColorFactory.ORANGE_3);
-  HardSoftScore score=solution.getScore();
+  HardSoftLongScore score=solution.getScore();
   if (score != null) {
     String distanceString;
     if (!score.isFeasible()) {

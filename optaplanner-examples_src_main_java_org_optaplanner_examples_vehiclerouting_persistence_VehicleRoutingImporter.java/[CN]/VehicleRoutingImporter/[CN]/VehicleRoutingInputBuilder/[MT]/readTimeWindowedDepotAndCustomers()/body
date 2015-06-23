@@ -15,9 +15,9 @@
     location.setLongitude(Double.parseDouble(lineTokens[2]));
     locationList.add(location);
     int demand=Integer.parseInt(lineTokens[3]);
-    int readyTime=Integer.parseInt(lineTokens[4]) * 1000;
-    int dueTime=Integer.parseInt(lineTokens[5]) * 1000;
-    int serviceDuration=Integer.parseInt(lineTokens[6]) * 1000;
+    long readyTime=Long.parseLong(lineTokens[4]) * 1000L;
+    long dueTime=Long.parseLong(lineTokens[5]) * 1000L;
+    long serviceDuration=Long.parseLong(lineTokens[6]) * 1000L;
     if (first) {
       depot=new TimeWindowedDepot();
       depot.setId(id);
@@ -39,7 +39,7 @@
       customer.setLocation(location);
       customer.setDemand(demand);
       customer.setReadyTime(readyTime);
-      int maximumDueTime=depot.getDueTime() - serviceDuration - location.getDistanceTo(depot.getLocation());
+      long maximumDueTime=depot.getDueTime() - serviceDuration - location.getDistanceTo(depot.getLocation());
       if (dueTime > maximumDueTime) {
         logger.warn("The customer ({})'s dueTime ({}) was automatically reduced" + " to maximumDueTime ({}) because of the depot's dueTime ({}).",customer,dueTime,maximumDueTime,depot.getDueTime());
         dueTime=maximumDueTime;

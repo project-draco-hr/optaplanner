@@ -1,8 +1,8 @@
 {
-  int maximumTimeWindowTime=0;
+  long maximumTimeWindowTime=0L;
   for (  Depot depot : solution.getDepotList()) {
     if (depot instanceof TimeWindowedDepot) {
-      int timeWindowTime=((TimeWindowedDepot)depot).getDueTime();
+      long timeWindowTime=((TimeWindowedDepot)depot).getDueTime();
       if (timeWindowTime > maximumTimeWindowTime) {
         maximumTimeWindowTime=timeWindowTime;
       }
@@ -10,7 +10,7 @@
   }
   for (  Customer customer : solution.getCustomerList()) {
     if (customer instanceof TimeWindowedCustomer) {
-      int timeWindowTime=((TimeWindowedCustomer)customer).getDueTime();
+      long timeWindowTime=((TimeWindowedCustomer)customer).getDueTime();
       if (timeWindowTime > maximumTimeWindowTime) {
         maximumTimeWindowTime=timeWindowTime;
       }

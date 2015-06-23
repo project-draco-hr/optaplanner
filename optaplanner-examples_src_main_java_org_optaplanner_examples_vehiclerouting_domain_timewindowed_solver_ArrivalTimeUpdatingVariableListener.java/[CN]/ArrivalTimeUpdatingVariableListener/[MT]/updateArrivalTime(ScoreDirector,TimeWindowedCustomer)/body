@@ -1,8 +1,8 @@
 {
   Standstill previousStandstill=sourceCustomer.getPreviousStandstill();
-  Integer departureTime=(previousStandstill instanceof TimeWindowedCustomer) ? ((TimeWindowedCustomer)previousStandstill).getDepartureTime() : null;
+  Long departureTime=(previousStandstill instanceof TimeWindowedCustomer) ? ((TimeWindowedCustomer)previousStandstill).getDepartureTime() : null;
   TimeWindowedCustomer shadowCustomer=sourceCustomer;
-  Integer arrivalTime=calculateArrivalTime(shadowCustomer,departureTime);
+  Long arrivalTime=calculateArrivalTime(shadowCustomer,departureTime);
   while (shadowCustomer != null && ObjectUtils.notEqual(shadowCustomer.getArrivalTime(),arrivalTime)) {
     scoreDirector.beforeVariableChanged(shadowCustomer,"arrivalTime");
     shadowCustomer.setArrivalTime(arrivalTime);

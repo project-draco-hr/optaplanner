@@ -5,8 +5,8 @@
   for (  Vehicle vehicle : vehicleList) {
     vehicleDemandMap.put(vehicle,0);
   }
-  hardScore=0;
-  softScore=0;
+  hardScore=0L;
+  softScore=0L;
   for (  Customer customer : solution.getCustomerList()) {
     insertPreviousStandstill(customer);
     insertVehicle(customer);

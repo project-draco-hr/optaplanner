@@ -1,4 +1,4 @@
 {
   double distance=getAirDistanceDoubleTo(location);
-  return (int)(distance * 1000.0 + 0.5);
+  return (long)(distance * 1000.0 + 0.5);
 }

@@ -6,8 +6,8 @@
   for (  Vehicle vehicle : vehicleList) {
     vehicleDemandMap.put(vehicle,0);
   }
-  int hardScore=0;
-  int softScore=0;
+  long hardScore=0L;
+  long softScore=0L;
   for (  Customer customer : customerList) {
     Standstill previousStandstill=customer.getPreviousStandstill();
     if (previousStandstill != null) {
@@ -19,8 +19,8 @@
       }
       if (timeWindowed) {
         TimeWindowedCustomer timeWindowedCustomer=(TimeWindowedCustomer)customer;
-        int dueTime=timeWindowedCustomer.getDueTime();
-        Integer arrivalTime=timeWindowedCustomer.getArrivalTime();
+        long dueTime=timeWindowedCustomer.getDueTime();
+        Long arrivalTime=timeWindowedCustomer.getArrivalTime();
         if (dueTime < arrivalTime) {
           hardScore-=(arrivalTime - dueTime);
         }
@@ -34,5 +34,5 @@
       hardScore-=(demand - capacity);
     }
   }
-  return HardSoftScore.valueOf(hardScore,softScore);
+  return HardSoftLongScore.valueOf(hardScore,softScore);
 }

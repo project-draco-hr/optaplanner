@@ -1,2 +1,2 @@
 TimeWindowedCustomer customer
-Integer previousDepartureTime
+Long previousDepartureTime

@@ -1,3 +1,3 @@
 Customer customer
 double depotAngle
-int depotRoundTripDistance
+long depotRoundTripDistance
