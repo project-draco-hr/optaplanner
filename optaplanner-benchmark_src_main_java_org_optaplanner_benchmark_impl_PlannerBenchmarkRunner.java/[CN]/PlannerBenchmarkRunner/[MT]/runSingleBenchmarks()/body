@@ -23,11 +23,11 @@
     }
 catch (    ExecutionException e) {
       Throwable cause=e.getCause();
-      logger.error("The singleBenchmarkRunner (" + singleBenchmarkRunner.getName() + ") failed.",cause);
+      singleBenchmarkRunnerExceptionLogger.warn("The singleBenchmarkRunner (" + singleBenchmarkRunner.getName() + ") failed.",cause);
       failureThrowable=cause;
     }
 catch (    IllegalStateException e) {
-      logger.error("The singleBenchmarkRunner (" + singleBenchmarkRunner.getName() + ") failed.",e);
+      singleBenchmarkRunnerExceptionLogger.warn("The singleBenchmarkRunner (" + singleBenchmarkRunner.getName() + ") failed.",e);
       failureThrowable=e;
     }
     if (failureThrowable == null) {

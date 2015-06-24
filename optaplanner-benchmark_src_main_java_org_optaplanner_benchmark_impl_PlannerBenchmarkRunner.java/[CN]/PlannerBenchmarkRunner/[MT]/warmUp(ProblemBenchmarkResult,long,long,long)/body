@@ -10,7 +10,7 @@
       solver.solve(problemBenchmarkResult.readPlanningProblem());
     }
  catch (    RuntimeException e) {
-      logger.error("The warmUp of singleBenchmark (" + singleBenchmarkResult.getName() + ") failed.",e);
+      singleBenchmarkRunnerExceptionLogger.warn("The warmUp of singleBenchmark (" + singleBenchmarkResult.getName() + ") failed.",e);
     }
     solverBenchmarkResult.getSolverConfig().setTerminationConfig(originalTerminationConfig);
     long timeSpent=System.currentTimeMillis() - startingTimeMillis;
