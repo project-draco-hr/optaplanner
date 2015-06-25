@@ -1,0 +1,7 @@
+{
+  SolutionDescriptor solutionDescriptor=TestdataMultiVarSolution.buildSolutionDescriptor();
+  ChangeMoveSelectorConfig moveSelectorConfig=new ChangeMoveSelectorConfig();
+  MoveSelector moveSelector=moveSelectorConfig.buildMoveSelector(buildHeuristicConfigPolicy(solutionDescriptor),SelectionCacheType.JUST_IN_TIME,SelectionOrder.RANDOM);
+  assertInstanceOf(CartesianProductMoveSelector.class,moveSelector);
+  assertEquals(3,((CartesianProductMoveSelector)moveSelector).getChildMoveSelectorList().size());
+}

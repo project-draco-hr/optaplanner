@@ -1,4 +1,8 @@
 {
+  MoveSelectorConfig unfoldedMoveSelectorConfig=buildUnfoldedMoveSelectorConfig(configPolicy);
+  if (unfoldedMoveSelectorConfig != null) {
+    return unfoldedMoveSelectorConfig.buildMoveSelector(configPolicy,minimumCacheType,inheritedSelectionOrder);
+  }
   SelectionCacheType resolvedCacheType=SelectionCacheType.resolve(cacheType,minimumCacheType);
   SelectionOrder resolvedSelectionOrder=SelectionOrder.resolve(selectionOrder,inheritedSelectionOrder);
   validateCacheTypeVersusSelectionOrder(resolvedCacheType,resolvedSelectionOrder);
