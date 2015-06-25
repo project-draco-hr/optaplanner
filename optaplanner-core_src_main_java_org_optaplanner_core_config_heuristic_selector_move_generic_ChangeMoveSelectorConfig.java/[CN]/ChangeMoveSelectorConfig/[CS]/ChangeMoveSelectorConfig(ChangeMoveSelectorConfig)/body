@@ -1,5 +1,0 @@
-{
-  if (inheritedConfig != null) {
-    inherit(inheritedConfig);
-  }
-}

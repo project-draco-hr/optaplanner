@@ -1,7 +1,7 @@
 {
   List<MoveSelectorConfig> moveSelectorConfigList=new ArrayList<MoveSelectorConfig>(variableDescriptorList.size());
   for (  GenuineVariableDescriptor variableDescriptor : variableDescriptorList) {
-    ChangeMoveSelectorConfig changeMoveSelectorConfig=new ChangeMoveSelectorConfig(this);
+    ChangeMoveSelectorConfig changeMoveSelectorConfig=new ChangeMoveSelectorConfig();
     EntitySelectorConfig childEntitySelectorConfig=new EntitySelectorConfig(entitySelectorConfig);
     if (childEntitySelectorConfig.getMimicSelectorRef() == null) {
       childEntitySelectorConfig.setEntityClass(variableDescriptor.getEntityDescriptor().getEntityClass());
@@ -12,5 +12,13 @@
     changeMoveSelectorConfig.setValueSelectorConfig(childValueSelectorConfig);
     moveSelectorConfigList.add(changeMoveSelectorConfig);
   }
-  return moveSelectorConfigList.size() == 1 ? moveSelectorConfigList.get(0) : new CartesianProductMoveSelectorConfig(moveSelectorConfigList);
+  MoveSelectorConfig unfoldedMoveSelectorConfig;
+  if (moveSelectorConfigList.size() == 1) {
+    unfoldedMoveSelectorConfig=moveSelectorConfigList.get(0);
+  }
+ else {
+    unfoldedMoveSelectorConfig=new UnionMoveSelectorConfig(moveSelectorConfigList);
+  }
+  unfoldedMoveSelectorConfig.inheritFolded(this);
+  return unfoldedMoveSelectorConfig;
 }

@@ -2,6 +2,6 @@
   SolutionDescriptor solutionDescriptor=TestdataMultiEntitySolution.buildSolutionDescriptor();
   ChangeMoveSelectorConfig moveSelectorConfig=new ChangeMoveSelectorConfig();
   MoveSelector moveSelector=moveSelectorConfig.buildMoveSelector(buildHeuristicConfigPolicy(solutionDescriptor),SelectionCacheType.JUST_IN_TIME,SelectionOrder.RANDOM);
-  assertInstanceOf(CartesianProductMoveSelector.class,moveSelector);
-  assertEquals(2,((CartesianProductMoveSelector)moveSelector).getChildMoveSelectorList().size());
+  assertInstanceOf(UnionMoveSelector.class,moveSelector);
+  assertEquals(2,((UnionMoveSelector)moveSelector).getChildMoveSelectorList().size());
 }
