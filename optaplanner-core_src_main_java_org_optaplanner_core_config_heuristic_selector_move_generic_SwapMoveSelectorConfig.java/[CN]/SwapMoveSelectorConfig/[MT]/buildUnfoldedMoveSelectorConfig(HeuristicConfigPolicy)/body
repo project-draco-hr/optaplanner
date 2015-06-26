@@ -1,0 +1,14 @@
+{
+  EntityDescriptor onlyEntityDescriptor=entitySelectorConfig == null ? null : entitySelectorConfig.extractEntityDescriptor(configPolicy);
+  if (secondaryEntitySelectorConfig != null) {
+    EntityDescriptor onlySecondaryEntityDescriptor=secondaryEntitySelectorConfig == null ? null : secondaryEntitySelectorConfig.extractEntityDescriptor(configPolicy);
+    if (onlyEntityDescriptor != onlySecondaryEntityDescriptor) {
+      throw new IllegalArgumentException("The entitySelector (" + entitySelectorConfig + ")'s entityDescriptor ("+ onlyEntityDescriptor+ ") and secondaryEntitySelectorConfig ("+ secondaryEntitySelectorConfig+ ")'s entityDescriptor ("+ onlySecondaryEntityDescriptor+ ") must have the same entity class.");
+    }
+  }
+  if (onlyEntityDescriptor != null) {
+    return null;
+  }
+  Collection<EntityDescriptor> entityDescriptors=configPolicy.getSolutionDescriptor().getGenuineEntityDescriptors();
+  return buildUnfoldedMoveSelectorConfig(entityDescriptors);
+}

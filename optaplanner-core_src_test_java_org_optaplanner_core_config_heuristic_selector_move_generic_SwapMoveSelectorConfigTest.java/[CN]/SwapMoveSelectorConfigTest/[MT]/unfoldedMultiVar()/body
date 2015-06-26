@@ -1,0 +1,6 @@
+{
+  SolutionDescriptor solutionDescriptor=TestdataMultiVarSolution.buildSolutionDescriptor();
+  SwapMoveSelectorConfig moveSelectorConfig=new SwapMoveSelectorConfig();
+  MoveSelector moveSelector=moveSelectorConfig.buildMoveSelector(buildHeuristicConfigPolicy(solutionDescriptor),SelectionCacheType.JUST_IN_TIME,SelectionOrder.RANDOM);
+  assertInstanceOf(SwapMoveSelector.class,moveSelector);
+}

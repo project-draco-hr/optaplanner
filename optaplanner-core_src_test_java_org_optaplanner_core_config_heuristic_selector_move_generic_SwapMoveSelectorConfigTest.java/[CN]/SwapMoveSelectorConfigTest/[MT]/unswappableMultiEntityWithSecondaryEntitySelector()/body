@@ -1,0 +1,7 @@
+{
+  SolutionDescriptor solutionDescriptor=TestdataMultiEntitySolution.buildSolutionDescriptor();
+  SwapMoveSelectorConfig moveSelectorConfig=new SwapMoveSelectorConfig();
+  moveSelectorConfig.setEntitySelectorConfig(new EntitySelectorConfig(TestdataLeadEntity.class));
+  moveSelectorConfig.setSecondaryEntitySelectorConfig(new EntitySelectorConfig(TestdataHerdEntity.class));
+  MoveSelector moveSelector=moveSelectorConfig.buildMoveSelector(buildHeuristicConfigPolicy(solutionDescriptor),SelectionCacheType.JUST_IN_TIME,SelectionOrder.RANDOM);
+}

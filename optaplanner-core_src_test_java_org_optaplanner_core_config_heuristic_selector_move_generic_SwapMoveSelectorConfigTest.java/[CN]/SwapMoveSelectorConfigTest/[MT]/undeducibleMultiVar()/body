@@ -1,0 +1,6 @@
+{
+  SolutionDescriptor solutionDescriptor=TestdataMultiVarSolution.buildSolutionDescriptor();
+  SwapMoveSelectorConfig moveSelectorConfig=new SwapMoveSelectorConfig();
+  moveSelectorConfig.setVariableNameIncludeList(Arrays.asList("nonExistingValue"));
+  MoveSelector moveSelector=moveSelectorConfig.buildMoveSelector(buildHeuristicConfigPolicy(solutionDescriptor),SelectionCacheType.JUST_IN_TIME,SelectionOrder.RANDOM);
+}

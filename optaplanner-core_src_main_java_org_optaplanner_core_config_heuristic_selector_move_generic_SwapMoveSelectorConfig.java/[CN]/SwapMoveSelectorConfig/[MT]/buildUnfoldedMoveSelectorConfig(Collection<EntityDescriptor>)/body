@@ -1,0 +1,29 @@
+{
+  List<MoveSelectorConfig> moveSelectorConfigList=new ArrayList<MoveSelectorConfig>(entityDescriptors.size());
+  for (  EntityDescriptor entityDescriptor : entityDescriptors) {
+    SwapMoveSelectorConfig childMoveSelectorConfig=new SwapMoveSelectorConfig();
+    EntitySelectorConfig childEntitySelectorConfig=new EntitySelectorConfig(entitySelectorConfig);
+    if (childEntitySelectorConfig.getMimicSelectorRef() == null) {
+      childEntitySelectorConfig.setEntityClass(entityDescriptor.getEntityClass());
+    }
+    childMoveSelectorConfig.setEntitySelectorConfig(childEntitySelectorConfig);
+    if (secondaryEntitySelectorConfig != null) {
+      EntitySelectorConfig childSecondaryEntitySelectorConfig=new EntitySelectorConfig(secondaryEntitySelectorConfig);
+      if (childSecondaryEntitySelectorConfig.getMimicSelectorRef() == null) {
+        childSecondaryEntitySelectorConfig.setEntityClass(entityDescriptor.getEntityClass());
+      }
+      childMoveSelectorConfig.setEntitySelectorConfig(childSecondaryEntitySelectorConfig);
+    }
+    childMoveSelectorConfig.setVariableNameIncludeList(variableNameIncludeList);
+    moveSelectorConfigList.add(childMoveSelectorConfig);
+  }
+  MoveSelectorConfig unfoldedMoveSelectorConfig;
+  if (moveSelectorConfigList.size() == 1) {
+    unfoldedMoveSelectorConfig=moveSelectorConfigList.get(0);
+  }
+ else {
+    unfoldedMoveSelectorConfig=new UnionMoveSelectorConfig(moveSelectorConfigList);
+  }
+  unfoldedMoveSelectorConfig.inheritFolded(this);
+  return unfoldedMoveSelectorConfig;
+}

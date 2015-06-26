@@ -1,0 +1,9 @@
+{
+  SolutionDescriptor solutionDescriptor=TestdataMultiEntitySolution.buildSolutionDescriptor();
+  SwapMoveSelectorConfig moveSelectorConfig=new SwapMoveSelectorConfig();
+  moveSelectorConfig.setEntitySelectorConfig(new EntitySelectorConfig());
+  moveSelectorConfig.setSecondaryEntitySelectorConfig(new EntitySelectorConfig());
+  MoveSelector moveSelector=moveSelectorConfig.buildMoveSelector(buildHeuristicConfigPolicy(solutionDescriptor),SelectionCacheType.JUST_IN_TIME,SelectionOrder.RANDOM);
+  assertInstanceOf(UnionMoveSelector.class,moveSelector);
+  assertEquals(2,((UnionMoveSelector)moveSelector).getChildMoveSelectorList().size());
+}
