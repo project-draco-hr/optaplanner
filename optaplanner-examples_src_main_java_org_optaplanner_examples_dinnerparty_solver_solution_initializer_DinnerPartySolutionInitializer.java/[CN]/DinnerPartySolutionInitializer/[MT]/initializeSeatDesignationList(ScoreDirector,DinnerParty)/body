@@ -1,23 +1,13 @@
 {
-  List<SeatDesignation> seatDesignationList=createSeatDesignationList(dinnerParty);
   List<Seat> undesignatedSeatList=new ArrayList<Seat>(dinnerParty.getSeatList());
-  for (  SeatDesignation seatDesignation : seatDesignationList) {
+  for (  SeatDesignation seatDesignation : dinnerParty.getSeatDesignationList()) {
     Score bestScore=SimpleScore.valueOf(Integer.MIN_VALUE);
     Seat bestSeat=null;
-    boolean added=false;
     for (    Seat seat : undesignatedSeatList) {
       if (seatDesignation.getGuest().getGender() == seat.getRequiredGender()) {
-        if (!added) {
-          scoreDirector.beforeEntityAdded(seatDesignation);
-          seatDesignation.setSeat(seat);
-          scoreDirector.afterEntityAdded(seatDesignation);
-          added=true;
-        }
- else {
-          scoreDirector.beforeVariableChanged(seatDesignation,"seat");
-          seatDesignation.setSeat(seat);
-          scoreDirector.afterVariableChanged(seatDesignation,"seat");
-        }
+        scoreDirector.beforeVariableChanged(seatDesignation,"seat");
+        seatDesignation.setSeat(seat);
+        scoreDirector.afterVariableChanged(seatDesignation,"seat");
         Score score=scoreDirector.calculateScore();
         if (score.compareTo(bestScore) > 0) {
           bestScore=score;
@@ -33,6 +23,4 @@
     scoreDirector.afterVariableChanged(seatDesignation,"seat");
     undesignatedSeatList.remove(bestSeat);
   }
-  Collections.sort(seatDesignationList,new PersistableIdComparator());
-  dinnerParty.setSeatDesignationList(seatDesignationList);
 }
