@@ -1,0 +1,4 @@
+{
+  List<Region> regionList=new ArrayList<Region>(0);
+  solution.setRegionList(regionList);
+}
