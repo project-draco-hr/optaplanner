@@ -1,0 +1,7 @@
+{
+  XSSFSheet sheet=workbook.getSheetAt(index);
+  if (!sheet.getSheetName().equals(name)) {
+    throw new IllegalArgumentException("The sheet (" + sheet.getSheetName() + ") at index ("+ index+ ") is expected to have another name ("+ name+ ")");
+  }
+  return sheet;
+}

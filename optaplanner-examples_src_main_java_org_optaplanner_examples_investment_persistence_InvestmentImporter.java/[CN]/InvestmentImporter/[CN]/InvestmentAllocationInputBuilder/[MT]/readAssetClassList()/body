@@ -1,34 +1,45 @@
 {
-  String headerLine=bufferedReader.readLine();
-  String[] headerTokens=splitBySemicolonSeparatedValue(headerLine);
-  String headerRegex="ID;Name;Expected return;Standard deviation(;\\d+)+";
-  if (!headerLine.trim().matches(headerRegex)) {
-    throw new IllegalArgumentException("Read line (" + headerLine + ") is expected to be a constant regex ("+ headerRegex+ ").");
-  }
+  Sheet sheet=readSheet(2,"AssetClasses");
+  Row groupHeaderRow=sheet.getRow(0);
+  assertCellConstant(groupHeaderRow.getCell(0),"Asset class");
+  assertCellConstant(groupHeaderRow.getCell(4),"Correlation");
+  Row headerRow=sheet.getRow(1);
+  assertCellConstant(headerRow.getCell(0),"ID");
+  assertCellConstant(headerRow.getCell(1),"Name");
+  assertCellConstant(headerRow.getCell(2),"Expected return");
+  assertCellConstant(headerRow.getCell(3),"Standard deviation");
   final int ASSET_CLASS_PROPERTIES_COUNT=4;
-  int assetClassListSize=headerTokens.length - ASSET_CLASS_PROPERTIES_COUNT;
+  int assetClassListSize=headerRow.getPhysicalNumberOfCells() - ASSET_CLASS_PROPERTIES_COUNT;
   List<AssetClass> assetClassList=new ArrayList<AssetClass>(assetClassListSize);
   Map<Long,AssetClass> idToAssetClassMap=new HashMap<Long,AssetClass>(assetClassListSize);
   for (int i=0; i < assetClassListSize; i++) {
     AssetClass assetClass=new AssetClass();
-    assetClass.setId(Long.parseLong(headerTokens[ASSET_CLASS_PROPERTIES_COUNT + i]));
+    assetClass.setId(readLongCell(headerRow.getCell(ASSET_CLASS_PROPERTIES_COUNT + i)));
     assetClassList.add(assetClass);
-    idToAssetClassMap.put(assetClass.getId(),assetClass);
+    AssetClass old=idToAssetClassMap.put(assetClass.getId(),assetClass);
+    if (old != null) {
+      throw new IllegalStateException("The assetClass id (" + assetClass.getId() + ") is not unique.");
+    }
   }
-  for (String line=bufferedReader.readLine(); line != null; line=bufferedReader.readLine()) {
-    String[] tokens=splitBySemicolonSeparatedValue(line,ASSET_CLASS_PROPERTIES_COUNT + assetClassListSize);
-    long id=Long.parseLong(tokens[0]);
+  for (  Row row : sheet) {
+    if (row.getRowNum() <= 1) {
+      continue;
+    }
+    if (row.getPhysicalNumberOfCells() != (ASSET_CLASS_PROPERTIES_COUNT + assetClassListSize)) {
+      throw new IllegalArgumentException("The row (" + row.getRowNum() + ") has "+ row.getPhysicalNumberOfCells()+ " cells, but is expected to have "+ (ASSET_CLASS_PROPERTIES_COUNT + assetClassListSize)+ " cells instead.");
+    }
+    long id=readLongCell(row.getCell(0));
     AssetClass assetClass=idToAssetClassMap.get(id);
     if (assetClass == null) {
-      throw new IllegalStateException("The assetClass line (" + line + ") has an assetClass id ("+ id+ ") that is not in the headerLine ("+ headerLine+ ")");
+      throw new IllegalStateException("The row (" + row.getRowNum() + ") has an assetClass id ("+ id+ ") that is not in the header.");
     }
-    assetClass.setName(tokens[1]);
-    assetClass.setExpectedReturnMillis(parsePercentageMillis(tokens[2]));
-    assetClass.setStandardDeviationRiskMillis(parsePercentageMillis(tokens[3]));
+    assetClass.setName(readStringCell(row.getCell(1)));
+    assetClass.setExpectedReturnMillis(parsePercentageMillis(readDoubleCell(row.getCell(2))));
+    assetClass.setStandardDeviationRiskMillis(parsePercentageMillis(readDoubleCell(row.getCell(3))));
     Map<AssetClass,Long> correlationMillisMap=new LinkedHashMap<AssetClass,Long>(assetClassListSize);
     for (int i=0; i < assetClassListSize; i++) {
       AssetClass other=assetClassList.get(i);
-      long correlationMillis=parsePercentageMillis(tokens[ASSET_CLASS_PROPERTIES_COUNT + i]);
+      long correlationMillis=parsePercentageMillis(readDoubleCell(row.getCell(ASSET_CLASS_PROPERTIES_COUNT + i)));
       correlationMillisMap.put(other,correlationMillis);
     }
     assetClass.setCorrelationMillisMap(correlationMillisMap);

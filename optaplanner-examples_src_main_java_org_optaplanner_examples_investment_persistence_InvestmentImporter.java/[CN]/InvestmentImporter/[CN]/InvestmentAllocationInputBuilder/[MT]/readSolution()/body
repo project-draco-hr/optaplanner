@@ -1,7 +1,7 @@
 {
   solution=new InvestmentSolution();
   solution.setId(0L);
-  readHeaders();
+  readParametrization();
   readRegionList();
   readAssetClassList();
   createAssetClassAllocationList();

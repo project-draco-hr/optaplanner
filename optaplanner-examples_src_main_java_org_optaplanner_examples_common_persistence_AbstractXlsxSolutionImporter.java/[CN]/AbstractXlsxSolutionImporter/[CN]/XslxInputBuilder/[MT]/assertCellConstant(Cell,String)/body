@@ -1,0 +1,5 @@
+{
+  if (!constant.equals(cell.getStringCellValue())) {
+    throw new IllegalArgumentException("The cell (" + cell.getRow().getRowNum() + ","+ cell.getColumnIndex()+ ") with value ("+ cell.getStringCellValue()+ ") is expected to have the constant ("+ constant+ ")");
+  }
+}

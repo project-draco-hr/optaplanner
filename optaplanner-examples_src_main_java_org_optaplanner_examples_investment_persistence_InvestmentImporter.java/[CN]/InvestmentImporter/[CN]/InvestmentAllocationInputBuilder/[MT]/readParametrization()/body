@@ -1,0 +1,8 @@
+{
+  Sheet sheet=readSheet(0,"Parametrization");
+  assertCellConstant(sheet.getRow(0).getCell(0),"Investment parametrization");
+  InvestmentParametrization parametrization=new InvestmentParametrization();
+  parametrization.setId(0L);
+  parametrization.setStandardDeviationMillisMaximum(parsePercentageMillis(readDoubleParameter(sheet.getRow(1),"Standard deviation maximum")));
+  solution.setParametrization(parametrization);
+}

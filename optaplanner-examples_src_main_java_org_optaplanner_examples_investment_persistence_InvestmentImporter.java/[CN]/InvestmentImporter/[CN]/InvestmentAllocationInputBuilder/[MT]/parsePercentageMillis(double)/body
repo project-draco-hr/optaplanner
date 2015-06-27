@@ -1,0 +1,3 @@
+{
+  return (long)(numericValue * 1000.0);
+}
