@@ -1,5 +1,22 @@
 {
   Sheet sheet=readSheet(1,"Regions");
-  List<Region> regionList=new ArrayList<Region>(0);
+  Row headerRow=sheet.getRow(0);
+  assertCellConstant(headerRow.getCell(0),"Name");
+  assertCellConstant(headerRow.getCell(1),"Quantity maximum");
+  List<Region> regionList=new ArrayList<Region>();
+  regionMap=new LinkedHashMap<String,Region>();
+  long id=0L;
+  for (  Row row : sheet) {
+    if (row.getRowNum() < 1) {
+      continue;
+    }
+    Region region=new Region();
+    region.setId(id);
+    id++;
+    region.setName(readStringCell(row.getCell(0)));
+    region.setQuantityMillisMaximum(parsePercentageMillis(readDoubleCell(row.getCell(1))));
+    regionList.add(region);
+    regionMap.put(region.getName(),region);
+  }
   solution.setRegionList(regionList);
 }
