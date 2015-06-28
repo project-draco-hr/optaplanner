@@ -6,6 +6,7 @@
   assetClassPanel.defineColumnHeaderByKey(HEADER_COLUMN_EXTRA_PROPERTY_1);
   assetClassPanel.defineColumnHeaderByKey(HEADER_COLUMN_EXTRA_PROPERTY_2);
   assetClassPanel.defineColumnHeaderByKey(HEADER_COLUMN_EXTRA_PROPERTY_3);
+  assetClassPanel.defineColumnHeaderByKey(HEADER_COLUMN_EXTRA_PROPERTY_4);
   for (  AssetClass assetClass : solution.getAssetClassList()) {
     assetClassPanel.defineColumnHeader(assetClass,footprintWidth);
   }
@@ -15,4 +16,10 @@
     assetClassPanel.defineRowHeader(assetClass);
   }
   assetClassPanel.defineRowHeaderByKey(TRAILING_HEADER_ROW);
+  regionPanel.defineColumnHeaderByKey(HEADER_COLUMN);
+  regionPanel.defineColumnHeaderByKey(HEADER_COLUMN_EXTRA_PROPERTY_1);
+  regionPanel.defineRowHeaderByKey(HEADER_ROW);
+  for (  Region region : solution.getRegionList()) {
+    regionPanel.defineRowHeader(region);
+  }
 }

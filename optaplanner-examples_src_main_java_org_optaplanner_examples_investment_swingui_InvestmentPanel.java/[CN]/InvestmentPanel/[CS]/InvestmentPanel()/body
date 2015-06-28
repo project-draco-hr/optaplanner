@@ -4,6 +4,8 @@
   JTabbedPane tabbedPane=new JTabbedPane();
   assetClassPanel=new TimeTablePanel<AssetClass,AssetClass>();
   tabbedPane.add("Asset classes",new JScrollPane(assetClassPanel));
+  regionPanel=new TimeTablePanel<Void,Region>();
+  tabbedPane.add("Regions",new JScrollPane(regionPanel));
   add(tabbedPane,BorderLayout.CENTER);
   setPreferredSize(PREFERRED_SCROLLABLE_VIEWPORT_SIZE);
 }

@@ -1,5 +1,6 @@
 {
   assetClassPanel.reset();
+  regionPanel.reset();
   InvestmentSolution solution=(InvestmentSolution)s;
   InvestmentParametrization parametrization=solution.getParametrization();
   ignoreChangeEvents=true;
