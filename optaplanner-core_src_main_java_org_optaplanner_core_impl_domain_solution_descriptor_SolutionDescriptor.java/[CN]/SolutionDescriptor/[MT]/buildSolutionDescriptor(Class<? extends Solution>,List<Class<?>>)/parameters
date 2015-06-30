@@ -1,0 +1,2 @@
+Class<? extends Solution> solutionClass
+List<Class<?>> entityClassList

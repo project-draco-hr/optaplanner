@@ -1,0 +1,5 @@
+{
+  Class<? extends Solution> solutionClass=null;
+  List<Class<?>> entityClassList=null;
+  return SolutionDescriptor.buildSolutionDescriptor(solutionClass,entityClassList);
+}

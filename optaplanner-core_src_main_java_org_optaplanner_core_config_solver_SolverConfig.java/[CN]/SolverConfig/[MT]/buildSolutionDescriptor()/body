@@ -1,18 +1,17 @@
 {
-  if (solutionClass == null) {
-    throw new IllegalArgumentException("Configure a <solutionClass> in the solver configuration.");
+  if (scanAnnotatedClassesConfig != null) {
+    if (solutionClass != null || entityClassList != null) {
+      throw new IllegalArgumentException("The solver configuration with scanAnnotatedClasses (" + scanAnnotatedClassesConfig + ") cannot also have a solutionClass ("+ solutionClass+ ") or an entityClass ("+ entityClassList+ ").\n"+ "  Please decide between automatic scanning or manual referencing.");
+    }
+    return scanAnnotatedClassesConfig.buildSolutionDescriptor();
   }
-  DescriptorPolicy descriptorPolicy=new DescriptorPolicy();
-  SolutionDescriptor solutionDescriptor=new SolutionDescriptor(solutionClass);
-  solutionDescriptor.processAnnotations(descriptorPolicy);
-  if (ConfigUtils.isEmptyCollection(entityClassList)) {
-    throw new IllegalArgumentException("Configure at least 1 <entityClass> in the solver configuration.");
+ else {
+    if (solutionClass == null) {
+      throw new IllegalArgumentException("The solver configuration must have a solutionClass (" + solutionClass + "), if it has no scanAnnotatedClasses ("+ scanAnnotatedClassesConfig+ ").");
+    }
+    if (ConfigUtils.isEmptyCollection(entityClassList)) {
+      throw new IllegalArgumentException("The solver configuration must have at least 1 entityClass (" + entityClassList + "), if it has no scanAnnotatedClasses ("+ scanAnnotatedClassesConfig+ ").");
+    }
+    return SolutionDescriptor.buildSolutionDescriptor(solutionClass,entityClassList);
   }
-  for (  Class<?> entityClass : entityClassList) {
-    EntityDescriptor entityDescriptor=new EntityDescriptor(solutionDescriptor,entityClass);
-    solutionDescriptor.addEntityDescriptor(entityDescriptor);
-    entityDescriptor.processAnnotations(descriptorPolicy);
-  }
-  solutionDescriptor.afterAnnotationsProcessed(descriptorPolicy);
-  return solutionDescriptor;
 }

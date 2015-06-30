@@ -1,3 +1,3 @@
 {
-  return TestdataUtils.buildSolutionDescriptor(TestdataDeepCloningSolution.class,TestdataDeepCloningEntity.class);
+  return SolutionDescriptor.buildSolutionDescriptor(TestdataDeepCloningSolution.class,TestdataDeepCloningEntity.class);
 }

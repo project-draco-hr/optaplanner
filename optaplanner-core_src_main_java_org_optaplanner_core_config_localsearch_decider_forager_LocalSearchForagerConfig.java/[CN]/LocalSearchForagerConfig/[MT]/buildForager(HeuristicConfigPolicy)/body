@@ -1,7 +1,7 @@
 {
   if (foragerClass != null) {
     if (pickEarlyType != null || acceptedCountLimit != null || finalistPodiumType != null) {
-      throw new IllegalArgumentException("The foragerConfig with foragerClass (" + foragerClass + ") must not also have a pickEarlyType ("+ pickEarlyType+ "), acceptedCountLimit ("+ acceptedCountLimit+ ") or finalistPodiumType ("+ finalistPodiumType+ ").");
+      throw new IllegalArgumentException("The forager with foragerClass (" + foragerClass + ") must not also have a pickEarlyType ("+ pickEarlyType+ "), acceptedCountLimit ("+ acceptedCountLimit+ ") or finalistPodiumType ("+ finalistPodiumType+ ").");
     }
     return ConfigUtils.newInstance(this,"foragerClass",foragerClass);
   }
