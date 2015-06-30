@@ -1,0 +1,18 @@
+{
+  Set<String> solutionClassNameSet=annotationIndex.get(PlanningSolution.class.getName());
+  if (ConfigUtils.isEmptyCollection(solutionClassNameSet)) {
+    throw new IllegalStateException("The scanAnnotatedClasses (" + this + ") did not find any classes with a "+ PlanningSolution.class.getSimpleName()+ " annotation.");
+  }
+ else   if (solutionClassNameSet.size() > 1) {
+    throw new IllegalStateException("The scanAnnotatedClasses (" + this + ") found multiple classes ("+ solutionClassNameSet+ ") with a "+ PlanningSolution.class.getSimpleName()+ " annotation.");
+  }
+  Class<? extends Solution> solutionClass;
+  String solutionClassName=solutionClassNameSet.iterator().next();
+  try {
+    solutionClass=(Class<? extends Solution>)Class.forName(solutionClassName);
+  }
+ catch (  ClassNotFoundException e) {
+    throw new IllegalStateException("The solution class (" + solutionClassName + ") with a "+ PlanningSolution.class.getSimpleName()+ " annotation could not be loaded by scanAnnotatedClasses ("+ this+ ").",e);
+  }
+  return solutionClass;
+}

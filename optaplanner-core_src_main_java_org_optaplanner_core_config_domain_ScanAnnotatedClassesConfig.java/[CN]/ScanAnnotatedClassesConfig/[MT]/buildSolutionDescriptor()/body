@@ -1,5 +1,21 @@
 {
-  Class<? extends Solution> solutionClass=null;
-  List<Class<?>> entityClassList=null;
+  AnnotationDB annotationDB=new AnnotationDB();
+  annotationDB.setScanClassAnnotations(true);
+  annotationDB.setScanFieldAnnotations(false);
+  annotationDB.setScanMethodAnnotations(false);
+  annotationDB.setScanParameterAnnotations(false);
+  if (!ConfigUtils.isEmptyCollection(packageIncludeList)) {
+    annotationDB.setScanPackages(packageIncludeList.toArray(new String[packageIncludeList.size()]));
+  }
+  URL[] urls=ClasspathUrlFinder.findClassPaths();
+  try {
+    annotationDB.scanArchives(urls);
+  }
+ catch (  IOException e) {
+    throw new IllegalStateException("The scanAnnotatedClasses (" + this + ") could not scan for annotated classes using urls ("+ urls+ ").",e);
+  }
+  Map<String,Set<String>> annotationIndex=annotationDB.getAnnotationIndex();
+  Class<? extends Solution> solutionClass=loadSolutionClass(annotationIndex);
+  List<Class<?>> entityClassList=loadEntityClassList(annotationIndex);
   return SolutionDescriptor.buildSolutionDescriptor(solutionClass,entityClassList);
 }
