@@ -1,0 +1,10 @@
+{
+  travelingSalesmanTour=new TravelingSalesmanTour();
+  travelingSalesmanTour.setId(0L);
+  travelingSalesmanTour.setName(FilenameUtils.getBaseName(inputFile.getName()));
+  floydSteinbergDithering();
+  createVisitList();
+  BigInteger possibleSolutionSize=factorial(travelingSalesmanTour.getLocationList().size() - 1);
+  logger.info("TravelingSalesmanTour {} has {} locations with a search space of {}.",getInputId(),travelingSalesmanTour.getLocationList().size(),getFlooredPossibleSolutionSize(possibleSolutionSize));
+  return travelingSalesmanTour;
+}

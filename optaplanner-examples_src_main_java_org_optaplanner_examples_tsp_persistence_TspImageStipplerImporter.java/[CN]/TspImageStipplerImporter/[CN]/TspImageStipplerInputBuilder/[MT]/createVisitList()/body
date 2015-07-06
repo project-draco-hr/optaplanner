@@ -1,0 +1,21 @@
+{
+  List<Location> locationList=travelingSalesmanTour.getLocationList();
+  List<Visit> visitList=new ArrayList<Visit>(locationList.size() - 1);
+  int count=0;
+  for (  Location location : locationList) {
+    if (count < 1) {
+      Domicile domicile=new Domicile();
+      domicile.setId(location.getId());
+      domicile.setLocation(location);
+      travelingSalesmanTour.setDomicile(domicile);
+    }
+ else {
+      Visit visit=new Visit();
+      visit.setId(location.getId());
+      visit.setLocation(location);
+      visitList.add(visit);
+    }
+    count++;
+  }
+  travelingSalesmanTour.setVisitList(visitList);
+}
