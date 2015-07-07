@@ -1,0 +1,6 @@
+{
+  for (int i=0; i < solution.getQueenList().size(); i++) {
+    solution.getQueenList().get(i).setRow(solution.getRowList().get(0));
+  }
+  return solution;
+}

@@ -1,0 +1,4 @@
+{
+  this.expectedCoordinates=expectedCoordinates;
+  this.acceptorConfig=acceptorConfig;
+}

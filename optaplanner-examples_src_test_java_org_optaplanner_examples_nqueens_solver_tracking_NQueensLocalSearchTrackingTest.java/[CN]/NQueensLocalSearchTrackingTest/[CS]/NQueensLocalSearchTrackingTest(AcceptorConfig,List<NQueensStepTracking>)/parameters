@@ -1,0 +1,2 @@
+AcceptorConfig acceptorConfig
+List<NQueensStepTracking> expectedCoordinates
