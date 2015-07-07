@@ -1,4 +1,5 @@
 {
   this.expectedCoordinates=expectedCoordinates;
+  this.localSearchForagerConfig=localSearchForagerConfig;
   this.acceptorConfig=acceptorConfig;
 }

@@ -1,2 +1,3 @@
 AcceptorConfig acceptorConfig
+LocalSearchForagerConfig localSearchForagerConfig
 List<NQueensStepTracking> expectedCoordinates
