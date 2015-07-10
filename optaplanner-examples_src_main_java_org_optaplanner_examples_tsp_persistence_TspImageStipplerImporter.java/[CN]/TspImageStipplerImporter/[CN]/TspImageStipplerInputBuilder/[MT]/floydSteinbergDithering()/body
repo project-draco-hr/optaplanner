@@ -15,7 +15,7 @@
       double originalGray=(r + g + b) / GRAY_MAXIMUM;
       double diffusedGray=originalGray + errorDiffusion[x][y];
       double error;
-      if (diffusedGray <= DITHERING_THRESHOLD) {
+      if (diffusedGray <= 0.5) {
         Location location=new AirLocation();
         location.setId(id);
         id++;
