@@ -1,21 +1,18 @@
 {
-  AnnotationDB annotationDB=new AnnotationDB();
-  annotationDB.setScanClassAnnotations(true);
-  annotationDB.setScanFieldAnnotations(false);
-  annotationDB.setScanMethodAnnotations(false);
-  annotationDB.setScanParameterAnnotations(false);
+  ConfigurationBuilder builder=new ConfigurationBuilder();
   if (!ConfigUtils.isEmptyCollection(packageIncludeList)) {
-    annotationDB.setScanPackages(packageIncludeList.toArray(new String[packageIncludeList.size()]));
+    FilterBuilder filterBuilder=new FilterBuilder();
+    for (    String packageInclude : packageIncludeList) {
+      builder.addUrls(ClasspathHelper.forPackage(packageInclude,(ClassLoader[])null));
+      filterBuilder.includePackage(packageInclude);
+    }
+    builder.filterInputsBy(filterBuilder);
   }
-  URL[] urls=ClasspathUrlFinder.findClassPaths();
-  try {
-    annotationDB.scanArchives(urls);
+ else {
+    builder.addUrls(ClasspathHelper.forClassLoader());
   }
- catch (  IOException e) {
-    throw new IllegalStateException("The scanAnnotatedClasses (" + this + ") could not scan for annotated classes using urls ("+ urls+ ").",e);
-  }
-  Map<String,Set<String>> annotationIndex=annotationDB.getAnnotationIndex();
-  Class<? extends Solution> solutionClass=loadSolutionClass(annotationIndex);
-  List<Class<?>> entityClassList=loadEntityClassList(annotationIndex);
+  Reflections reflections=new Reflections(builder);
+  Class<? extends Solution> solutionClass=loadSolutionClass(reflections);
+  List<Class<?>> entityClassList=loadEntityClassList(reflections);
   return SolutionDescriptor.buildSolutionDescriptor(solutionClass,entityClassList);
 }
