@@ -6,6 +6,35 @@
   if (squaredFemtos > squaredFemtosMaximum) {
     hardScore-=squaredFemtos - squaredFemtosMaximum;
   }
+  List<Region> regionList=solution.getRegionList();
+  Map<Region,Long> regionQuantityTotalMap=new HashMap<Region,Long>(regionList.size());
+  for (  Region region : regionList) {
+    regionQuantityTotalMap.put(region,0L);
+  }
+  List<Sector> sectorList=solution.getSectorList();
+  Map<Sector,Long> sectorQuantityTotalMap=new HashMap<Sector,Long>(sectorList.size());
+  for (  Sector sector : sectorList) {
+    sectorQuantityTotalMap.put(sector,0L);
+  }
+  for (  AssetClassAllocation allocation : solution.getAssetClassAllocationList()) {
+    Long quantityMillis=allocation.getQuantityMillis();
+    if (quantityMillis != null) {
+      regionQuantityTotalMap.put(allocation.getRegion(),regionQuantityTotalMap.get(allocation.getRegion()) + quantityMillis);
+      sectorQuantityTotalMap.put(allocation.getSector(),sectorQuantityTotalMap.get(allocation.getSector()) + quantityMillis);
+    }
+  }
+  for (  Region region : regionList) {
+    long available=region.getQuantityMillisMaximum() - regionQuantityTotalMap.get(region);
+    if (available < 0) {
+      hardScore+=available;
+    }
+  }
+  for (  Sector sector : sectorList) {
+    long available=sector.getQuantityMillisMaximum() - sectorQuantityTotalMap.get(sector);
+    if (available < 0) {
+      hardScore+=available;
+    }
+  }
   softScore+=solution.calculateExpectedReturnMicros();
   return HardSoftLongScore.valueOf(hardScore,softScore);
 }

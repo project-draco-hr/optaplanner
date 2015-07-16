@@ -6,5 +6,24 @@
   if (squaredStandardDeviationFemtos > squaredStandardDeviationFemtosMaximum) {
     hardScore-=squaredStandardDeviationFemtos - squaredStandardDeviationFemtosMaximum;
   }
+  Long quantityMillis=allocation.getQuantityMillis();
+  if (quantityMillis != null) {
+    Region region=allocation.getRegion();
+    long regionQuantityMaximum=region.getQuantityMillisMaximum();
+    long oldRegionQuantity=regionQuantityTotalMap.get(region);
+    long oldRegionAvailable=regionQuantityMaximum - oldRegionQuantity;
+    long newRegionQuantity=oldRegionQuantity + quantityMillis;
+    long newRegionAvailable=regionQuantityMaximum - newRegionQuantity;
+    hardScore+=Math.min(newRegionAvailable,0L) - Math.min(oldRegionAvailable,0L);
+    regionQuantityTotalMap.put(region,newRegionQuantity);
+    Sector sector=allocation.getSector();
+    long sectorQuantityMaximum=sector.getQuantityMillisMaximum();
+    long oldSectorQuantity=sectorQuantityTotalMap.get(sector);
+    long oldSectorAvailable=sectorQuantityMaximum - oldSectorQuantity;
+    long newSectorQuantity=oldSectorQuantity + quantityMillis;
+    long newSectorAvailable=sectorQuantityMaximum - newSectorQuantity;
+    hardScore+=Math.min(newSectorAvailable,0L) - Math.min(oldSectorAvailable,0L);
+    sectorQuantityTotalMap.put(sector,newSectorQuantity);
+  }
   softScore+=allocation.getQuantifiedExpectedReturnMicros();
 }
