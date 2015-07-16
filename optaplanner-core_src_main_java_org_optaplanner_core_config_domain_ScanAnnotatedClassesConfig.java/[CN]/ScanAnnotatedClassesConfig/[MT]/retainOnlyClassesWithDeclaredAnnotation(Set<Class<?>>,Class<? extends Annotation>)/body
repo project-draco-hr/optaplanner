@@ -1,0 +1,8 @@
+{
+  for (Iterator<Class<?>> it=classSet.iterator(); it.hasNext(); ) {
+    Class<?> clazz=it.next();
+    if (!clazz.isAnnotationPresent(annotation)) {
+      it.remove();
+    }
+  }
+}

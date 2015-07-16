@@ -1,5 +1,6 @@
 {
   Set<Class<?>> entityClassSet=reflections.getTypesAnnotatedWith(PlanningEntity.class);
+  retainOnlyClassesWithDeclaredAnnotation(entityClassSet,PlanningEntity.class);
   if (ConfigUtils.isEmptyCollection(entityClassSet)) {
     throw new IllegalStateException("The scanAnnotatedClasses (" + this + ") did not find any classes with a "+ PlanningEntity.class.getSimpleName()+ " annotation.");
   }

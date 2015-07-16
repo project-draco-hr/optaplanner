@@ -1,5 +1,6 @@
 {
   Set<Class<?>> solutionClassSet=reflections.getTypesAnnotatedWith(PlanningSolution.class);
+  retainOnlyClassesWithDeclaredAnnotation(solutionClassSet,PlanningSolution.class);
   if (ConfigUtils.isEmptyCollection(solutionClassSet)) {
     throw new IllegalStateException("The scanAnnotatedClasses (" + this + ") did not find any classes with a "+ PlanningSolution.class.getSimpleName()+ " annotation.");
   }
