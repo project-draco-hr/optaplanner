@@ -1,7 +1,9 @@
 {
   NumberAxis xAxis=new NumberAxis(xAxisLabel);
   if (useLogarithmicProblemScale(seriesList)) {
-    xAxis=new LogarithmicAxis(xAxis.getLabel() + " (logarithmic)");
+    LogarithmicAxis xLogAxis=new LogarithmicAxis(xAxis.getLabel() + " (logarithmic)");
+    xLogAxis.setAllowNegativesFlag(true);
+    xAxis=xLogAxis;
   }
   xAxis.setNumberFormatOverride(xAxisNumberFormat);
   NumberAxis yAxis=new NumberAxis(yAxisLabel);
