@@ -7,6 +7,6 @@
   panel.add(createExampleButton(new NurseRosteringApp()));
   panel.add(createExampleButton(new TravelingTournamentApp()));
   panel.add(createExampleButton(new CheapTimeApp()));
-  panel.add(new JPanel());
+  panel.add(createExampleButton(new InvestmentApp()));
   return panel;
 }
