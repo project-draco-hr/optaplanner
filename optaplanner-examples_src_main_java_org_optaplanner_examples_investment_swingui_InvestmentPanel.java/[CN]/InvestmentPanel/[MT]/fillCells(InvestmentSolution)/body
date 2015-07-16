@@ -46,15 +46,55 @@
   quantityTotalLabel.setForeground(TangoColorFactory.ORANGE_3);
   assetClassPanel.addCornerHeader(HEADER_COLUMN_EXTRA_PROPERTY_5,TRAILING_HEADER_ROW,quantityTotalLabel);
   regionPanel.addCornerHeader(HEADER_COLUMN,HEADER_ROW,createTableHeader(new JLabel("Region"),null));
-  regionPanel.addCornerHeader(HEADER_COLUMN_EXTRA_PROPERTY_1,HEADER_ROW,createTableHeader(new JLabel("Quantity maximum"),null));
-  for (  Region region : solution.getRegionList()) {
+  regionPanel.addCornerHeader(HEADER_COLUMN_EXTRA_PROPERTY_1,HEADER_ROW,createTableHeader(new JLabel("Quantity total"),null));
+  regionPanel.addCornerHeader(HEADER_COLUMN_EXTRA_PROPERTY_2,HEADER_ROW,createTableHeader(new JLabel("Quantity maximum"),null));
+  Map<Region,Long> regionTotalMap=solution.calculateRegionQuantityMillisTotalMap();
+  for (  final Region region : solution.getRegionList()) {
     regionPanel.addRowHeader(HEADER_COLUMN,region,new JLabel(region.getName()));
-    regionPanel.addRowHeader(HEADER_COLUMN_EXTRA_PROPERTY_1,region,new JLabel(region.getQuantityMaximumLabel(),SwingConstants.RIGHT));
+    long total=regionTotalMap.get(region);
+    JLabel totalLabel=new JLabel(InvestmentNumericUtil.formatMillisAsPercentage(total),SwingConstants.RIGHT);
+    if (total > region.getQuantityMillisMaximum()) {
+      totalLabel.setForeground(TangoColorFactory.SCARLET_3);
+    }
+    regionPanel.addRowHeader(HEADER_COLUMN_EXTRA_PROPERTY_1,region,totalLabel);
+    final JSpinner maximumField=new JSpinner(new SpinnerNumberModel((double)region.getQuantityMillisMaximum() / 1000.0,0.0,1.0,0.010));
+    maximumField.setEditor(new JSpinner.NumberEditor(maximumField,InvestmentNumericUtil.MILLIS_PERCENT_PATTERN));
+    regionPanel.addRowHeader(HEADER_COLUMN_EXTRA_PROPERTY_2,region,maximumField);
+    maximumField.addChangeListener(new ChangeListener(){
+      @Override public void stateChanged(      ChangeEvent e){
+        if (ignoreChangeEvents) {
+          return;
+        }
+        long quantityMillisMaximum=(long)(((Number)maximumField.getValue()).doubleValue() * 1000.0);
+        changeRegionQuantityMillisMaximum(region,quantityMillisMaximum);
+      }
+    }
+);
   }
   sectorPanel.addCornerHeader(HEADER_COLUMN,HEADER_ROW,createTableHeader(new JLabel("Sector"),null));
-  sectorPanel.addCornerHeader(HEADER_COLUMN_EXTRA_PROPERTY_1,HEADER_ROW,createTableHeader(new JLabel("Quantity maximum"),null));
-  for (  Sector sector : solution.getSectorList()) {
+  sectorPanel.addCornerHeader(HEADER_COLUMN_EXTRA_PROPERTY_1,HEADER_ROW,createTableHeader(new JLabel("Quantity total"),null));
+  sectorPanel.addCornerHeader(HEADER_COLUMN_EXTRA_PROPERTY_2,HEADER_ROW,createTableHeader(new JLabel("Quantity maximum"),null));
+  Map<Sector,Long> sectorTotalMap=solution.calculateSectorQuantityMillisTotalMap();
+  for (  final Sector sector : solution.getSectorList()) {
     sectorPanel.addRowHeader(HEADER_COLUMN,sector,new JLabel(sector.getName()));
-    sectorPanel.addRowHeader(HEADER_COLUMN_EXTRA_PROPERTY_1,sector,new JLabel(sector.getQuantityMaximumLabel(),SwingConstants.RIGHT));
+    long total=sectorTotalMap.get(sector);
+    JLabel totalLabel=new JLabel(InvestmentNumericUtil.formatMillisAsPercentage(total),SwingConstants.RIGHT);
+    if (total > sector.getQuantityMillisMaximum()) {
+      totalLabel.setForeground(TangoColorFactory.SCARLET_3);
+    }
+    sectorPanel.addRowHeader(HEADER_COLUMN_EXTRA_PROPERTY_1,sector,totalLabel);
+    final JSpinner maximumField=new JSpinner(new SpinnerNumberModel((double)sector.getQuantityMillisMaximum() / 1000.0,0.0,1.0,0.010));
+    maximumField.setEditor(new JSpinner.NumberEditor(maximumField,InvestmentNumericUtil.MILLIS_PERCENT_PATTERN));
+    sectorPanel.addRowHeader(HEADER_COLUMN_EXTRA_PROPERTY_2,sector,maximumField);
+    maximumField.addChangeListener(new ChangeListener(){
+      @Override public void stateChanged(      ChangeEvent e){
+        if (ignoreChangeEvents) {
+          return;
+        }
+        long quantityMillisMaximum=(long)(((Number)maximumField.getValue()).doubleValue() * 1000.0);
+        changeSectorQuantityMillisMaximum(sector,quantityMillisMaximum);
+      }
+    }
+);
   }
 }

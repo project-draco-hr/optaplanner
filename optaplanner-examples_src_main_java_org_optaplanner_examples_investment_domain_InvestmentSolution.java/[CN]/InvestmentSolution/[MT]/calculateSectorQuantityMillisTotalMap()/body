@@ -1,0 +1,13 @@
+{
+  Map<Sector,Long> totalMap=new HashMap<Sector,Long>(regionList.size());
+  for (  Sector sector : sectorList) {
+    totalMap.put(sector,0L);
+  }
+  for (  AssetClassAllocation allocation : assetClassAllocationList) {
+    Long quantityMillis=allocation.getQuantityMillis();
+    if (quantityMillis != null) {
+      totalMap.put(allocation.getSector(),totalMap.get(allocation.getSector()) + quantityMillis);
+    }
+  }
+  return totalMap;
+}
