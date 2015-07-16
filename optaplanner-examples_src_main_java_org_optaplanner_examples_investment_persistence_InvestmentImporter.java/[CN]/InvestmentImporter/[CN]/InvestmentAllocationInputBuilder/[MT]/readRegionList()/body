@@ -10,6 +10,9 @@
     if (row.getRowNum() < 1) {
       continue;
     }
+    if (row.getCell(0) == null && row.getCell(1) == null) {
+      continue;
+    }
     Region region=new Region();
     region.setId(id);
     id++;

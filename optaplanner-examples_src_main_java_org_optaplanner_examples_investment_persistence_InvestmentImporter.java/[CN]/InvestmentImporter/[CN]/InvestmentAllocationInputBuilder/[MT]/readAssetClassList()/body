@@ -27,6 +27,9 @@
     if (row.getRowNum() < 2) {
       continue;
     }
+    if (row.getCell(0) == null && row.getCell(1) == null && row.getCell(2) == null && row.getCell(3) == null && row.getCell(4) == null && row.getCell(5) == null) {
+      continue;
+    }
     if (row.getPhysicalNumberOfCells() != (ASSET_CLASS_PROPERTIES_COUNT + assetClassListSize)) {
       throw new IllegalArgumentException("The row (" + row.getRowNum() + ") has "+ row.getPhysicalNumberOfCells()+ " cells, but is expected to have "+ (ASSET_CLASS_PROPERTIES_COUNT + assetClassListSize)+ " cells instead.");
     }
