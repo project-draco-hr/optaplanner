@@ -1,0 +1,22 @@
+{
+  Sheet sheet=readSheet(2,"Sectors");
+  Row headerRow=sheet.getRow(0);
+  assertCellConstant(headerRow.getCell(0),"Name");
+  assertCellConstant(headerRow.getCell(1),"Quantity maximum");
+  List<Sector> sectorList=new ArrayList<Sector>();
+  sectorMap=new LinkedHashMap<String,Sector>();
+  long id=0L;
+  for (  Row row : sheet) {
+    if (row.getRowNum() < 1) {
+      continue;
+    }
+    Sector sector=new Sector();
+    sector.setId(id);
+    id++;
+    sector.setName(readStringCell(row.getCell(0)));
+    sector.setQuantityMillisMaximum(parsePercentageMillis(readDoubleCell(row.getCell(1))));
+    sectorList.add(sector);
+    sectorMap.put(sector.getName(),sector);
+  }
+  solution.setSectorList(sectorList);
+}

@@ -1,6 +1,6 @@
 {
-  Sheet sheet=readSheet(2,"AssetClasses");
-  final int ASSET_CLASS_PROPERTIES_COUNT=5;
+  Sheet sheet=readSheet(3,"AssetClasses");
+  final int ASSET_CLASS_PROPERTIES_COUNT=6;
   Row groupHeaderRow=sheet.getRow(0);
   assertCellConstant(groupHeaderRow.getCell(0),"Asset class");
   assertCellConstant(groupHeaderRow.getCell(ASSET_CLASS_PROPERTIES_COUNT),"Correlation");
@@ -8,8 +8,9 @@
   assertCellConstant(headerRow.getCell(0),"ID");
   assertCellConstant(headerRow.getCell(1),"Name");
   assertCellConstant(headerRow.getCell(2),"Region");
-  assertCellConstant(headerRow.getCell(3),"Expected return");
-  assertCellConstant(headerRow.getCell(4),"Standard deviation");
+  assertCellConstant(headerRow.getCell(3),"Sector");
+  assertCellConstant(headerRow.getCell(4),"Expected return");
+  assertCellConstant(headerRow.getCell(5),"Standard deviation");
   int assetClassListSize=headerRow.getPhysicalNumberOfCells() - ASSET_CLASS_PROPERTIES_COUNT;
   List<AssetClass> assetClassList=new ArrayList<AssetClass>(assetClassListSize);
   Map<Long,AssetClass> idToAssetClassMap=new HashMap<Long,AssetClass>(assetClassListSize);
@@ -41,8 +42,14 @@
       throw new IllegalStateException("The row (" + row.getRowNum() + ") has a region ("+ regionName+ ") that is not in the regions sheet.");
     }
     assetClass.setRegion(region);
-    assetClass.setExpectedReturnMillis(parsePercentageMillis(readDoubleCell(row.getCell(3))));
-    assetClass.setStandardDeviationRiskMillis(parsePercentageMillis(readDoubleCell(row.getCell(4))));
+    String sectorName=readStringCell(row.getCell(3));
+    Sector sector=sectorMap.get(sectorName);
+    if (sector == null) {
+      throw new IllegalStateException("The row (" + row.getRowNum() + ") has a sector ("+ sectorName+ ") that is not in the sectors sheet.");
+    }
+    assetClass.setSector(sector);
+    assetClass.setExpectedReturnMillis(parsePercentageMillis(readDoubleCell(row.getCell(4))));
+    assetClass.setStandardDeviationRiskMillis(parsePercentageMillis(readDoubleCell(row.getCell(5))));
     Map<AssetClass,Long> correlationMillisMap=new LinkedHashMap<AssetClass,Long>(assetClassListSize);
     for (int i=0; i < assetClassListSize; i++) {
       AssetClass other=assetClassList.get(i);

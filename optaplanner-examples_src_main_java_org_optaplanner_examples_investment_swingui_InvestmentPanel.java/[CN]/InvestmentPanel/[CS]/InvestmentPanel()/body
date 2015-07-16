@@ -6,6 +6,8 @@
   tabbedPane.add("Asset classes",new JScrollPane(assetClassPanel));
   regionPanel=new TimeTablePanel<Void,Region>();
   tabbedPane.add("Regions",new JScrollPane(regionPanel));
+  sectorPanel=new TimeTablePanel<Void,Sector>();
+  tabbedPane.add("Sectors",new JScrollPane(sectorPanel));
   add(tabbedPane,BorderLayout.CENTER);
   setPreferredSize(PREFERRED_SCROLLABLE_VIEWPORT_SIZE);
 }

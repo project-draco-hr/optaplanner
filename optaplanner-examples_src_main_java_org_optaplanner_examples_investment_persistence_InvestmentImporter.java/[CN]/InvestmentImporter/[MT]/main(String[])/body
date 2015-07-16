@@ -1,4 +1,5 @@
 {
   InvestmentImporter importer=new InvestmentImporter();
   importer.convert("irrinki_1.xlsx","irrinki_1.xml");
+  importer.convert("de_smet_1.xlsx","de_smet_1.xml");
 }
