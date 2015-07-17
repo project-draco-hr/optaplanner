@@ -7,7 +7,7 @@
       xValueListSize++;
     }
   }
-  if (xValueListSize <= 4) {
+  if (xValueListSize < LOG_SCALE_MIN_DATASETS_COUNT) {
     return false;
   }
   double threshold=0.2 * (xValueSet.last() - xValueSet.first());
