@@ -1,0 +1,3 @@
+{
+  lastStepSolution=(NQueens)phaseScope.getSolverScope().getBestSolution();
+}
