@@ -1,0 +1,4 @@
+{
+  File unsolvedDataFile=new File("data/investment/unsolved/irrinki_1.xml");
+  runSpeedTest(unsolvedDataFile,"0hard/74630soft");
+}

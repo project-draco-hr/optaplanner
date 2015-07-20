@@ -1,0 +1,3 @@
+{
+  return InvestmentApp.SOLVER_CONFIG;
+}
