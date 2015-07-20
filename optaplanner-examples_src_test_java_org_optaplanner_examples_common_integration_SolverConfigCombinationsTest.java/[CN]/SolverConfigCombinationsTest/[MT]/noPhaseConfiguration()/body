@@ -1,0 +1,10 @@
+{
+  SolverConfig config=SolverFactory.createFromXmlResource("org/optaplanner/examples/cloudbalancing/solver/cloudBalancingSolverConfig.xml").getSolverConfig();
+  config.getTerminationConfig().setBestScoreLimit("0hard/-5460soft");
+  DefaultSolver solver=(DefaultSolver)config.buildSolver();
+  PhaseTestListener listener=new PhaseTestListener();
+  solver.addPhaseLifecycleListener(listener);
+  Solution planningProblem=new CloudBalancingDao().readSolution(new File("data/cloudbalancing/unsolved/3computers-9processes.xml"));
+  solver.solve(planningProblem);
+  assertEquals(2,listener.getPhaseList().size());
+}

@@ -1,0 +1,21 @@
+{
+  SolverConfig config=SolverFactory.createFromXmlResource(NQueensApp.SOLVER_CONFIG).getSolverConfig();
+  NQueensGenerator generator=new NQueensGenerator();
+  NQueens planningProblem=NQueensSolutionInitializer.initialize(generator.createNQueens(N));
+  LocalSearchPhaseConfig localSearchPhaseConfig=new LocalSearchPhaseConfig();
+  localSearchPhaseConfig.setAcceptorConfig(acceptorConfig);
+  localSearchPhaseConfig.setForagerConfig(localSearchForagerConfig);
+  localSearchPhaseConfig.getForagerConfig().setBreakTieRandomly(false);
+  localSearchPhaseConfig.setMoveSelectorConfig(new ChangeMoveSelectorConfig());
+  localSearchPhaseConfig.getMoveSelectorConfig().setSelectionOrder(SelectionOrder.ORIGINAL);
+  localSearchPhaseConfig.setTerminationConfig(new TerminationConfig());
+  localSearchPhaseConfig.getTerminationConfig().setStepCountLimit(20);
+  config.getPhaseConfigList().set(1,localSearchPhaseConfig);
+  NQueensStepTracker listener=new NQueensStepTracker(NQueensSolutionInitializer.initialize(generator.createNQueens(N)));
+  DefaultSolver solver=(DefaultSolver)config.buildSolver();
+  solver.addPhaseLifecycleListener(listener);
+  solver.solve(planningProblem);
+  NQueens bestSolution=(NQueens)solver.getBestSolution();
+  assertNotNull(bestSolution);
+  assertTrackingList(expectedCoordinates,listener.getTrackingList());
+}

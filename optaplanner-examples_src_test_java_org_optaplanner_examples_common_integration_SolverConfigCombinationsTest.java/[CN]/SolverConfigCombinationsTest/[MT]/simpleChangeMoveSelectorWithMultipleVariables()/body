@@ -1,0 +1,10 @@
+{
+  SolverConfig config=SolverFactory.createFromXmlResource(CheapTimeApp.SOLVER_CONFIG).getSolverConfig();
+  PhaseConfig phaseConfig=config.getPhaseConfigList().get(1);
+  ((LocalSearchPhaseConfig)phaseConfig).setMoveSelectorConfig(new ChangeMoveSelectorConfig());
+  phaseConfig.setTerminationConfig(new TerminationConfig());
+  phaseConfig.getTerminationConfig().setStepCountLimit(2);
+  Solver solver=config.buildSolver();
+  Solution planningProblem=new CheapTimeDao().readSolution(new File("data/cheaptime/unsolved/sample01.xml"));
+  solver.solve(planningProblem);
+}
