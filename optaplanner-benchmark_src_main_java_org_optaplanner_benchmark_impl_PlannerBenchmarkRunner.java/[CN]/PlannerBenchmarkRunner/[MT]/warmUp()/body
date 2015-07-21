@@ -5,16 +5,21 @@
   logger.info("================================================================================");
   logger.info("Warm up started");
   logger.info("================================================================================");
-  long startingTimeMillis=System.currentTimeMillis();
   long timeLeft=plannerBenchmarkResult.getWarmUpTimeMillisSpentLimit();
-  List<ProblemBenchmarkResult> unifiedProblemBenchmarkResultList=plannerBenchmarkResult.getUnifiedProblemBenchmarkResultList();
-  Iterator<ProblemBenchmarkResult> it=unifiedProblemBenchmarkResultList.iterator();
+  long timeEnd=System.currentTimeMillis() + timeLeft;
+  Map<SingleBenchmarkRunner,Future<SingleBenchmarkRunner>> futureMap=new HashMap<SingleBenchmarkRunner,Future<SingleBenchmarkRunner>>();
+  Map<SolverBenchmarkResult,TerminationConfig> originalTerminationConfigMap=new HashMap<SolverBenchmarkResult,TerminationConfig>();
   while (timeLeft > 0L) {
-    if (!it.hasNext()) {
-      it=unifiedProblemBenchmarkResultList.iterator();
-    }
-    ProblemBenchmarkResult problemBenchmarkResult=it.next();
-    timeLeft=warmUp(problemBenchmarkResult,startingTimeMillis,plannerBenchmarkResult.getWarmUpTimeMillisSpentLimit(),timeLeft);
+    warmUpStarted(futureMap,originalTerminationConfigMap,timeLeft);
+    warmUp(futureMap,timeEnd);
+    timeLeft=timeEnd - System.currentTimeMillis();
+    futureMap.clear();
+  }
+  warmUpEnded(originalTerminationConfigMap);
+  warmUpExecutorService.shutdownNow();
+  List<Runnable> notFinishedWarmUpList=warmUpExecutorService.shutdownNow();
+  if (!notFinishedWarmUpList.isEmpty()) {
+    throw new IllegalStateException("Impossible state: notFinishedWarmUpList size (" + notFinishedWarmUpList + ").");
   }
   logger.info("================================================================================");
   logger.info("Warm up ended");

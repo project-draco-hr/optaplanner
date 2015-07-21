@@ -1,0 +1,31 @@
+{
+  for (  Map.Entry<SingleBenchmarkRunner,Future<SingleBenchmarkRunner>> futureEntry : futureMap.entrySet()) {
+    SingleBenchmarkRunner singleBenchmarkRunner=futureEntry.getKey();
+    Future<SingleBenchmarkRunner> future=futureEntry.getValue();
+    Throwable failureThrowable=null;
+    try {
+      long timeLeft=timeEnd - System.currentTimeMillis();
+      singleBenchmarkRunner=future.get(timeLeft,TimeUnit.MILLISECONDS);
+    }
+ catch (    InterruptedException e) {
+      singleBenchmarkRunnerExceptionLogger.error("The warm up singleBenchmarkRunner ({}) was interrupted.",singleBenchmarkRunner,e);
+      failureThrowable=e;
+    }
+catch (    ExecutionException e) {
+      Throwable cause=e.getCause();
+      singleBenchmarkRunnerExceptionLogger.warn("The warm up singleBenchmarkRunner ({}) failed.",singleBenchmarkRunner.getName(),cause);
+      failureThrowable=cause;
+    }
+catch (    TimeoutException e) {
+      singleBenchmarkRunnerExceptionLogger.debug("The warm up singleBenchmarkRunner ({}) timed out.",singleBenchmarkRunner);
+      singleBenchmarkRunner.terminateSolverEarly();
+      future.cancel(true);
+    }
+    if (failureThrowable != null) {
+      singleBenchmarkRunner.setFailureThrowable(failureThrowable);
+      if (firstFailureSingleBenchmarkRunner == null) {
+        firstFailureSingleBenchmarkRunner=singleBenchmarkRunner;
+      }
+    }
+  }
+}

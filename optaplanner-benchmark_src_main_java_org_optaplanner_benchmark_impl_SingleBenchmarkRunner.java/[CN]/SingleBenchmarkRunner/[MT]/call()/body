@@ -8,7 +8,7 @@
     singleBenchmarkResult.setUsedMemoryAfterInputSolution(runtime.totalMemory() - runtime.freeMemory());
   }
   logger.trace("Benchmark inputSolution has been read for singleBenchmarkResult ({}).",singleBenchmarkResult.getName());
-  Solver solver=singleBenchmarkResult.getSolverBenchmarkResult().getSolverConfig().buildSolver();
+  solver=singleBenchmarkResult.getSolverBenchmarkResult().getSolverConfig().buildSolver();
   for (  SingleStatistic singleStatistic : singleBenchmarkResult.getEffectiveSingleStatisticMap().values()) {
     singleStatistic.open(solver);
   }
