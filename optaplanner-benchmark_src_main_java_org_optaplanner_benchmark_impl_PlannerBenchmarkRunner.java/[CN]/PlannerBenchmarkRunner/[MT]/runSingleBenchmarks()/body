@@ -18,16 +18,16 @@
       }
     }
  catch (    InterruptedException e) {
-      logger.error("The singleBenchmarkRunner (" + singleBenchmarkRunner.getName() + ") was interrupted.",e);
+      singleBenchmarkRunnerExceptionLogger.error("The singleBenchmarkRunner ({}) was interrupted.",singleBenchmarkRunner,e);
       failureThrowable=e;
     }
 catch (    ExecutionException e) {
       Throwable cause=e.getCause();
-      singleBenchmarkRunnerExceptionLogger.warn("The singleBenchmarkRunner (" + singleBenchmarkRunner.getName() + ") failed.",cause);
+      singleBenchmarkRunnerExceptionLogger.warn("The singleBenchmarkRunner ({}) failed.",singleBenchmarkRunner,cause);
       failureThrowable=cause;
     }
 catch (    IllegalStateException e) {
-      singleBenchmarkRunnerExceptionLogger.warn("The singleBenchmarkRunner (" + singleBenchmarkRunner.getName() + ") failed.",e);
+      singleBenchmarkRunnerExceptionLogger.warn("The singleBenchmarkRunner ({}) failed.",singleBenchmarkRunner,e);
       failureThrowable=e;
     }
     if (failureThrowable == null) {

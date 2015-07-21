@@ -1,21 +1,22 @@
 {
-  if (plannerBenchmarkResult.getWarmUpTimeMillisSpentLimit() > 0L) {
-    logger.info("================================================================================");
-    logger.info("Warm up started");
-    logger.info("================================================================================");
-    long startingTimeMillis=System.currentTimeMillis();
-    long timeLeft=plannerBenchmarkResult.getWarmUpTimeMillisSpentLimit();
-    List<ProblemBenchmarkResult> unifiedProblemBenchmarkResultList=plannerBenchmarkResult.getUnifiedProblemBenchmarkResultList();
-    Iterator<ProblemBenchmarkResult> it=unifiedProblemBenchmarkResultList.iterator();
-    while (timeLeft > 0L) {
-      if (!it.hasNext()) {
-        it=unifiedProblemBenchmarkResultList.iterator();
-      }
-      ProblemBenchmarkResult problemBenchmarkResult=it.next();
-      timeLeft=warmUp(problemBenchmarkResult,startingTimeMillis,plannerBenchmarkResult.getWarmUpTimeMillisSpentLimit(),timeLeft);
-    }
-    logger.info("================================================================================");
-    logger.info("Warm up ended");
-    logger.info("================================================================================");
+  if (plannerBenchmarkResult.getWarmUpTimeMillisSpentLimit() <= 0L) {
+    return;
   }
+  logger.info("================================================================================");
+  logger.info("Warm up started");
+  logger.info("================================================================================");
+  long startingTimeMillis=System.currentTimeMillis();
+  long timeLeft=plannerBenchmarkResult.getWarmUpTimeMillisSpentLimit();
+  List<ProblemBenchmarkResult> unifiedProblemBenchmarkResultList=plannerBenchmarkResult.getUnifiedProblemBenchmarkResultList();
+  Iterator<ProblemBenchmarkResult> it=unifiedProblemBenchmarkResultList.iterator();
+  while (timeLeft > 0L) {
+    if (!it.hasNext()) {
+      it=unifiedProblemBenchmarkResultList.iterator();
+    }
+    ProblemBenchmarkResult problemBenchmarkResult=it.next();
+    timeLeft=warmUp(problemBenchmarkResult,startingTimeMillis,plannerBenchmarkResult.getWarmUpTimeMillisSpentLimit(),timeLeft);
+  }
+  logger.info("================================================================================");
+  logger.info("Warm up ended");
+  logger.info("================================================================================");
 }
