@@ -6,20 +6,24 @@
   logger.info("Warm up started");
   logger.info("================================================================================");
   long timeLeft=plannerBenchmarkResult.getWarmUpTimeMillisSpentLimit();
+  int solverBenchmarkCount=plannerBenchmarkResult.getSolverBenchmarkResultList().size();
+  long minimumCyclesCount=Math.round(Math.ceil(solverBenchmarkCount / (double)plannerBenchmarkResult.getParallelBenchmarkCount()));
+  long timeLeftPerSolverBenchmark;
   long timeEnd=System.currentTimeMillis() + timeLeft;
   Map<SingleBenchmarkRunner,Future<SingleBenchmarkRunner>> futureMap=new HashMap<SingleBenchmarkRunner,Future<SingleBenchmarkRunner>>();
-  Map<SolverBenchmarkResult,TerminationConfig> originalTerminationConfigMap=new HashMap<SolverBenchmarkResult,TerminationConfig>();
+  Map<SolverBenchmarkResult,TerminationConfig> originalTerminationConfigMap=new HashMap<SolverBenchmarkResult,TerminationConfig>(solverBenchmarkCount);
+  Map<SolverBenchmarkResult,Integer> singleBenchmarkResultIndexMap=new HashMap<SolverBenchmarkResult,Integer>(solverBenchmarkCount);
   while (timeLeft > 0L) {
-    warmUpStarted(futureMap,originalTerminationConfigMap,timeLeft);
-    warmUp(futureMap,timeEnd);
+    timeLeftPerSolverBenchmark=Math.round(Math.floor((timeLeft / (double)minimumCyclesCount)));
+    warmUpStarted(futureMap,originalTerminationConfigMap,singleBenchmarkResultIndexMap,timeLeftPerSolverBenchmark);
+    warmUp(futureMap);
     timeLeft=timeEnd - System.currentTimeMillis();
     futureMap.clear();
   }
   warmUpEnded(originalTerminationConfigMap);
-  warmUpExecutorService.shutdownNow();
   List<Runnable> notFinishedWarmUpList=warmUpExecutorService.shutdownNow();
   if (!notFinishedWarmUpList.isEmpty()) {
-    throw new IllegalStateException("Impossible state: notFinishedWarmUpList size (" + notFinishedWarmUpList + ").");
+    throw new IllegalStateException("Impossible state: notFinishedWarmUpList is non-empty (" + notFinishedWarmUpList + ").");
   }
   logger.info("================================================================================");
   logger.info("Warm up ended");

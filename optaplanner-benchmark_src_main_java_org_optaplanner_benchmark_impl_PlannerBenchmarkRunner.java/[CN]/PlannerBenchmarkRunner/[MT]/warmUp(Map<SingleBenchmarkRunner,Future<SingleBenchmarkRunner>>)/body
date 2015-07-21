@@ -4,8 +4,7 @@
     Future<SingleBenchmarkRunner> future=futureEntry.getValue();
     Throwable failureThrowable=null;
     try {
-      long timeLeft=timeEnd - System.currentTimeMillis();
-      singleBenchmarkRunner=future.get(timeLeft,TimeUnit.MILLISECONDS);
+      singleBenchmarkRunner=future.get();
     }
  catch (    InterruptedException e) {
       singleBenchmarkRunnerExceptionLogger.error("The warm up singleBenchmarkRunner ({}) was interrupted.",singleBenchmarkRunner,e);
@@ -15,11 +14,6 @@ catch (    ExecutionException e) {
       Throwable cause=e.getCause();
       singleBenchmarkRunnerExceptionLogger.warn("The warm up singleBenchmarkRunner ({}) failed.",singleBenchmarkRunner.getName(),cause);
       failureThrowable=cause;
-    }
-catch (    TimeoutException e) {
-      singleBenchmarkRunnerExceptionLogger.debug("The warm up singleBenchmarkRunner ({}) timed out.",singleBenchmarkRunner);
-      singleBenchmarkRunner.terminateSolverEarly();
-      future.cancel(true);
     }
     if (failureThrowable != null) {
       singleBenchmarkRunner.setFailureThrowable(failureThrowable);

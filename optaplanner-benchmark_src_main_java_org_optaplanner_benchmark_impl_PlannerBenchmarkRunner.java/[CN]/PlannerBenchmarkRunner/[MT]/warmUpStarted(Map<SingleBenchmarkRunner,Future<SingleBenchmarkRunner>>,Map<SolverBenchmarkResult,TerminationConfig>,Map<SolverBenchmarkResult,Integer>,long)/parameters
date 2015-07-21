@@ -1,3 +1,4 @@
 Map<SingleBenchmarkRunner,Future<SingleBenchmarkRunner>> futureMap
 Map<SolverBenchmarkResult,TerminationConfig> originalTerminationConfigMap
-long timeLeft
+Map<SolverBenchmarkResult,Integer> singleBenchmarkResultIndexMap
+long timeLeftPerSolverConfig

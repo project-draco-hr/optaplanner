@@ -1,2 +1,1 @@
 Map<SingleBenchmarkRunner,Future<SingleBenchmarkRunner>> futureMap
-long timeEnd
