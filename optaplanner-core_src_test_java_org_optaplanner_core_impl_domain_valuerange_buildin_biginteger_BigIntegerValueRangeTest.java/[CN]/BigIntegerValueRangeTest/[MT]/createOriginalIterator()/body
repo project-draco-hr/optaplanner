@@ -1,0 +1,9 @@
+{
+  assertAllElementsOfIterator(new BigIntegerValueRange(new BigInteger("0"),new BigInteger("4")).createOriginalIterator(),new BigInteger("0"),new BigInteger("1"),new BigInteger("2"),new BigInteger("3"));
+  assertAllElementsOfIterator(new BigIntegerValueRange(new BigInteger("100"),new BigInteger("104")).createOriginalIterator(),new BigInteger("100"),new BigInteger("101"),new BigInteger("102"),new BigInteger("103"));
+  assertAllElementsOfIterator(new BigIntegerValueRange(new BigInteger("-4"),new BigInteger("3")).createOriginalIterator(),new BigInteger("-4"),new BigInteger("-3"),new BigInteger("-2"),new BigInteger("-1"),new BigInteger("0"),new BigInteger("1"),new BigInteger("2"));
+  assertAllElementsOfIterator(new BigIntegerValueRange(new BigInteger("7"),new BigInteger("7")).createOriginalIterator());
+  assertAllElementsOfIterator(new BigIntegerValueRange(new BigInteger("0"),new BigInteger("10"),new BigInteger("2")).createOriginalIterator(),new BigInteger("0"),new BigInteger("2"),new BigInteger("4"),new BigInteger("6"),new BigInteger("8"));
+  assertAllElementsOfIterator(new BigIntegerValueRange(new BigInteger("-1"),new BigInteger("9"),new BigInteger("2")).createOriginalIterator(),new BigInteger("-1"),new BigInteger("1"),new BigInteger("3"),new BigInteger("5"),new BigInteger("7"));
+  assertAllElementsOfIterator(new BigIntegerValueRange(new BigInteger("100"),new BigInteger("120"),new BigInteger("5")).createOriginalIterator(),new BigInteger("100"),new BigInteger("105"),new BigInteger("110"),new BigInteger("115"));
+}

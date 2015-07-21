@@ -1,0 +1,8 @@
+{
+  if (upcoming.compareTo(to) >= 0) {
+    throw new NoSuchElementException();
+  }
+  BigInteger next=upcoming;
+  upcoming=upcoming.add(incrementUnit);
+  return next;
+}
