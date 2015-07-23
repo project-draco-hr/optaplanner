@@ -1,0 +1,15 @@
+{
+  assertEquals(true,new BigIntegerValueRange(new BigInteger("0"),new BigInteger("10")).contains(new BigInteger("3")));
+  assertEquals(false,new BigIntegerValueRange(new BigInteger("0"),new BigInteger("10")).contains(new BigInteger("10")));
+  assertEquals(false,new BigIntegerValueRange(new BigInteger("0"),new BigInteger("10")).contains(null));
+  assertEquals(true,new BigIntegerValueRange(new BigInteger("100"),new BigInteger("120")).contains(new BigInteger("100")));
+  assertEquals(false,new BigIntegerValueRange(new BigInteger("100"),new BigInteger("120")).contains(new BigInteger("99")));
+  assertEquals(true,new BigIntegerValueRange(new BigInteger("-5"),new BigInteger("25")).contains(new BigInteger("-4")));
+  assertEquals(false,new BigIntegerValueRange(new BigInteger("-5"),new BigInteger("25")).contains(new BigInteger("-20")));
+  assertEquals(true,new BigIntegerValueRange(new BigInteger("0"),new BigInteger("10"),new BigInteger("2")).contains(new BigInteger("2")));
+  assertEquals(false,new BigIntegerValueRange(new BigInteger("0"),new BigInteger("10"),new BigInteger("2")).contains(new BigInteger("3")));
+  assertEquals(true,new BigIntegerValueRange(new BigInteger("-1"),new BigInteger("9"),new BigInteger("2")).contains(new BigInteger("1")));
+  assertEquals(false,new BigIntegerValueRange(new BigInteger("-1"),new BigInteger("9"),new BigInteger("2")).contains(new BigInteger("2")));
+  assertEquals(true,new BigIntegerValueRange(new BigInteger("100"),new BigInteger("120"),new BigInteger("5")).contains(new BigInteger("115")));
+  assertEquals(false,new BigIntegerValueRange(new BigInteger("100"),new BigInteger("120"),new BigInteger("5")).contains(new BigInteger("114")));
+}

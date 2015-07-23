@@ -1,0 +1,9 @@
+{
+  assertEquals(new BigInteger("3"),new BigIntegerValueRange(new BigInteger("0"),new BigInteger("10")).get(3L));
+  assertEquals(new BigInteger("103"),new BigIntegerValueRange(new BigInteger("100"),new BigInteger("120")).get(3L));
+  assertEquals(new BigInteger("-4"),new BigIntegerValueRange(new BigInteger("-5"),new BigInteger("25")).get(1L));
+  assertEquals(new BigInteger("1"),new BigIntegerValueRange(new BigInteger("-5"),new BigInteger("25")).get(6L));
+  assertEquals(new BigInteger("6"),new BigIntegerValueRange(new BigInteger("0"),new BigInteger("10"),new BigInteger("2")).get(3L));
+  assertEquals(new BigInteger("5"),new BigIntegerValueRange(new BigInteger("-1"),new BigInteger("9"),new BigInteger("2")).get(3L));
+  assertEquals(new BigInteger("115"),new BigIntegerValueRange(new BigInteger("100"),new BigInteger("120"),new BigInteger("5")).get(3L));
+}

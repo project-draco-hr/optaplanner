@@ -1,0 +1,14 @@
+{
+  this.from=from;
+  this.to=to;
+  this.incrementUnit=incrementUnit;
+  if (to.compareTo(from) < 0) {
+    throw new IllegalArgumentException("The " + getClass().getSimpleName() + " cannot have a from ("+ from+ ") which is strictly higher than its to ("+ to+ ").");
+  }
+  if (incrementUnit.compareTo(BigInteger.ZERO) <= 0) {
+    throw new IllegalArgumentException("The " + getClass().getSimpleName() + " must have strictly positive incrementUnit ("+ incrementUnit+ ").");
+  }
+  if (!to.subtract(from).remainder(incrementUnit).equals(BigInteger.ZERO)) {
+    throw new IllegalArgumentException("The " + getClass().getSimpleName() + " 's incrementUnit ("+ incrementUnit+ ") must fit an integer number of times between from ("+ from+ ") and to ("+ to+ ").");
+  }
+}
