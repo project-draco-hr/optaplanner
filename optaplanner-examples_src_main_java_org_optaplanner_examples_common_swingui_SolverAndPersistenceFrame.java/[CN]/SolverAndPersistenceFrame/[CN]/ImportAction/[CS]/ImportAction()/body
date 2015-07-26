@@ -5,30 +5,37 @@
     return;
   }
   fileChooser=new JFileChooser(solutionBusiness.getImportDataDir());
-  FileFilter filter;
-  if (solutionBusiness.isImportFileDirectory()) {
-    filter=new FileFilter(){
-      public boolean accept(      File file){
-        return file.isDirectory();
+  boolean firstFilter=true;
+  for (  final AbstractSolutionImporter importer : solutionBusiness.getImporters()) {
+    FileFilter filter;
+    if (importer.isInputFileDirectory()) {
+      filter=new FileFilter(){
+        public boolean accept(        File file){
+          return file.isDirectory();
+        }
+        public String getDescription(){
+          return "Import directory";
+        }
       }
-      public String getDescription(){
-        return "Import directory";
-      }
-    }
 ;
-    fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-  }
+      fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+    }
  else {
-    filter=new FileFilter(){
-      public boolean accept(      File file){
-        return file.isDirectory() || solutionBusiness.acceptImportFile(file);
+      filter=new FileFilter(){
+        public boolean accept(        File file){
+          return file.isDirectory() || importer.acceptInputFile(file);
+        }
+        public String getDescription(){
+          return "Import files (*." + importer.getInputFileSuffix() + ")";
+        }
       }
-      public String getDescription(){
-        return "Import files (*." + solutionBusiness.getImportFileSuffix() + ")";
-      }
-    }
 ;
+    }
+    fileChooser.addChoosableFileFilter(filter);
+    if (firstFilter) {
+      fileChooser.setFileFilter(filter);
+      firstFilter=false;
+    }
   }
-  fileChooser.setFileFilter(filter);
   fileChooser.setDialogTitle(NAME);
 }

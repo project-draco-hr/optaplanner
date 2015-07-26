@@ -1,0 +1,8 @@
+{
+  for (  AbstractSolutionImporter importer : importers) {
+    if (importer.acceptInputFile(file)) {
+      return importer;
+    }
+  }
+  return importers[0];
+}

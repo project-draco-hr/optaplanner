@@ -1,3 +1,6 @@
 {
+  if (isInputFileDirectory()) {
+    return inputFile.isDirectory();
+  }
   return inputFile.getName().endsWith("." + getInputFileSuffix());
 }

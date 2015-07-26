@@ -1,9 +1,10 @@
 {
   int approved=fileChooser.showOpenDialog(SolverAndPersistenceFrame.this);
   if (approved == JFileChooser.APPROVE_OPTION) {
+    File file=fileChooser.getSelectedFile();
     setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
     try {
-      solutionBusiness.importSolution(fileChooser.getSelectedFile());
+      solutionBusiness.importSolution(file);
       setSolutionLoaded();
     }
   finally {

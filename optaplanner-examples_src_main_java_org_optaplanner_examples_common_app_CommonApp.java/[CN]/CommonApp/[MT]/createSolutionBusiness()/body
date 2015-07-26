@@ -1,7 +1,7 @@
 {
   SolutionBusiness solutionBusiness=new SolutionBusiness(this);
   solutionBusiness.setSolutionDao(createSolutionDao());
-  solutionBusiness.setImporter(createSolutionImporter());
+  solutionBusiness.setImporters(createSolutionImporters());
   solutionBusiness.setExporter(createSolutionExporter());
   solutionBusiness.updateDataDirs();
   solutionBusiness.setSolver(createSolver());
