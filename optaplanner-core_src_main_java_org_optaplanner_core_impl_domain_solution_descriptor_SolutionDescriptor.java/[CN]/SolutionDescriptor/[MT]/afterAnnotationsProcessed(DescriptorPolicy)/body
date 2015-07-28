@@ -5,6 +5,7 @@
   for (  EntityDescriptor entityDescriptor : entityDescriptorMap.values()) {
     entityDescriptor.linkShadowSources(descriptorPolicy);
   }
+  determineGlobalShadowOrder();
   if (logger.isTraceEnabled()) {
     logger.trace("    Model annotations parsed for Solution {}:",solutionClass.getSimpleName());
     for (    Map.Entry<Class<?>,EntityDescriptor> entry : entityDescriptorMap.entrySet()) {
