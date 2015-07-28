@@ -5,19 +5,25 @@
   logger.info("================================================================================");
   logger.info("Warm up started");
   logger.info("================================================================================");
-  long timeLeft=plannerBenchmarkResult.getWarmUpTimeMillisSpentLimit();
-  int solverBenchmarkCount=plannerBenchmarkResult.getSolverBenchmarkResultList().size();
-  long minimumCyclesCount=Math.round(Math.ceil(solverBenchmarkCount / (double)plannerBenchmarkResult.getParallelBenchmarkCount()));
-  long timeLeftPerSolverBenchmark;
-  long timeEnd=System.currentTimeMillis() + timeLeft;
-  Map<SingleBenchmarkRunner,Future<SingleBenchmarkRunner>> futureMap=new HashMap<SingleBenchmarkRunner,Future<SingleBenchmarkRunner>>();
-  Map<SolverBenchmarkResult,TerminationConfig> originalTerminationConfigMap=new HashMap<SolverBenchmarkResult,TerminationConfig>(solverBenchmarkCount);
-  Map<SolverBenchmarkResult,Integer> singleBenchmarkResultIndexMap=new HashMap<SolverBenchmarkResult,Integer>(solverBenchmarkCount);
-  while (timeLeft > 0L) {
-    timeLeftPerSolverBenchmark=Math.round(Math.floor((timeLeft / (double)minimumCyclesCount)));
-    warmUpStarted(futureMap,originalTerminationConfigMap,singleBenchmarkResultIndexMap,timeLeftPerSolverBenchmark);
-    warmUp(futureMap);
-    timeLeft=timeEnd - System.currentTimeMillis();
+  long timeLeftTotal=plannerBenchmarkResult.getWarmUpTimeMillisSpentLimit();
+  int parallelBenchmarkCount=plannerBenchmarkResult.getParallelBenchmarkCount();
+  int solverBenchmarkResultCount=plannerBenchmarkResult.getSolverBenchmarkResultList().size();
+  long cyclesCount=Math.round(Math.ceil(solverBenchmarkResultCount / (double)parallelBenchmarkCount));
+  long timeLeftPerCycle=Math.round(Math.floor((timeLeftTotal / (double)cyclesCount)));
+  ConcurrentMap<Future<SingleBenchmarkRunner>,SingleBenchmarkRunner> futureMap=new ConcurrentHashMap<Future<SingleBenchmarkRunner>,SingleBenchmarkRunner>(parallelBenchmarkCount);
+  Map<SolverBenchmarkResult,TerminationConfig> originalTerminationConfigMap=new HashMap<SolverBenchmarkResult,TerminationConfig>(solverBenchmarkResultCount);
+  ConcurrentMap<SolverBenchmarkResult,Integer> singleBenchmarkResultIndexMap=new ConcurrentHashMap<SolverBenchmarkResult,Integer>(solverBenchmarkResultCount);
+  warmUpStarted(originalTerminationConfigMap);
+  SolverBenchmarkResult[] solverBenchmarkResultCycleArray=new SolverBenchmarkResult[parallelBenchmarkCount];
+  int solverBenchmarkResultIndex=0;
+  for (int i=0; i < cyclesCount; i++) {
+    long timeCycleEnd=System.currentTimeMillis() + timeLeftPerCycle;
+    for (int j=0; j < parallelBenchmarkCount; j++) {
+      solverBenchmarkResultCycleArray[j]=plannerBenchmarkResult.getSolverBenchmarkResultList().get(solverBenchmarkResultIndex % solverBenchmarkResultCount);
+      solverBenchmarkResultIndex++;
+    }
+    warmUpPopulate(futureMap,singleBenchmarkResultIndexMap,solverBenchmarkResultCycleArray,timeLeftPerCycle);
+    warmUp(futureMap,singleBenchmarkResultIndexMap,timeCycleEnd);
     futureMap.clear();
   }
   warmUpEnded(originalTerminationConfigMap);

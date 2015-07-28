@@ -1,0 +1,3 @@
+Map<Future<SingleBenchmarkRunner>,SingleBenchmarkRunner> futureMap
+ConcurrentMap<SolverBenchmarkResult,Integer> singleBenchmarkResultIndexMap
+long timePhaseEnd
