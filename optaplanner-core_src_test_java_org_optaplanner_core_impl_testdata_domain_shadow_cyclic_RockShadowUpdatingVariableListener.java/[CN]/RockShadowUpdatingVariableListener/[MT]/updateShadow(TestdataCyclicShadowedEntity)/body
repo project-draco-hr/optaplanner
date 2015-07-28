@@ -1,0 +1,4 @@
+{
+  String scissors=entity.getScissorsShadow();
+  entity.setRockShadow("Rock beats (" + scissors + ")");
+}

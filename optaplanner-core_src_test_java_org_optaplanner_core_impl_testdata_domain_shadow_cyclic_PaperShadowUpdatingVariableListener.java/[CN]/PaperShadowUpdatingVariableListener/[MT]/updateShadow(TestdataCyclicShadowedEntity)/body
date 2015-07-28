@@ -1,0 +1,4 @@
+{
+  String rock=entity.getRockShadow();
+  entity.setPaperShadow("Paper beats (" + rock + ")");
+}

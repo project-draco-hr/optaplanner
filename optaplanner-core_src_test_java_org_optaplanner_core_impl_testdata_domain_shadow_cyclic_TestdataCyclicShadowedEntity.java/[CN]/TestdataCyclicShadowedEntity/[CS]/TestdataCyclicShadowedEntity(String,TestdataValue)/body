@@ -1,0 +1,4 @@
+{
+  this(code);
+  this.value=value;
+}

@@ -1,0 +1,4 @@
+{
+  SolutionDescriptor solutionDescriptor=TestdataCyclicShadowedSolution.buildSolutionDescriptor();
+  return solutionDescriptor.findEntityDescriptorOrFail(TestdataCyclicShadowedEntity.class);
+}
