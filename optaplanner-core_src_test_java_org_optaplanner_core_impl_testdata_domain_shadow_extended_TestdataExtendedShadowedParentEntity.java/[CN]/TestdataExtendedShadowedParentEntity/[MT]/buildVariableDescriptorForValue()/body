@@ -1,0 +1,5 @@
+{
+  SolutionDescriptor solutionDescriptor=TestdataExtendedShadowedSolution.buildSolutionDescriptor();
+  EntityDescriptor entityDescriptor=solutionDescriptor.findEntityDescriptorOrFail(TestdataExtendedShadowedParentEntity.class);
+  return entityDescriptor.getGenuineVariableDescriptor("value");
+}

@@ -1,0 +1,6 @@
+{
+  String secondShadow=entity.getSecondShadow();
+  scoreDirector.beforeVariableChanged(entity,"thirdShadow");
+  entity.setThirdShadow((secondShadow == null) ? null : secondShadow + "/thirdShadow");
+  scoreDirector.afterVariableChanged(entity,"thirdShadow");
+}

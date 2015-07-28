@@ -1,0 +1,36 @@
+{
+  GenuineVariableDescriptor variableDescriptor=TestdataExtendedShadowedParentEntity.buildVariableDescriptorForValue();
+  InnerScoreDirector scoreDirector=PlannerTestUtils.mockScoreDirector(variableDescriptor.getEntityDescriptor().getSolutionDescriptor());
+  TestdataValue val1=new TestdataValue("1");
+  TestdataValue val2=new TestdataValue("2");
+  TestdataValue val3=new TestdataValue("3");
+  TestdataExtendedShadowedParentEntity a=new TestdataExtendedShadowedParentEntity("a",null);
+  TestdataExtendedShadowedParentEntity b=new TestdataExtendedShadowedParentEntity("b",null);
+  TestdataExtendedShadowedChildEntity c=new TestdataExtendedShadowedChildEntity("c",null);
+  TestdataExtendedShadowedSolution solution=new TestdataExtendedShadowedSolution("solution");
+  solution.setEntityList(Arrays.asList(a,b,c));
+  solution.setValueList(Arrays.asList(val1,val2,val3));
+  scoreDirector.setWorkingSolution(solution);
+  scoreDirector.beforeVariableChanged(variableDescriptor,a);
+  a.setValue(val1);
+  scoreDirector.afterVariableChanged(variableDescriptor,a);
+  assertEquals("1/firstShadow",a.getFirstShadow());
+  assertEquals(null,a.getThirdShadow());
+  scoreDirector.beforeVariableChanged(variableDescriptor,a);
+  a.setValue(val3);
+  scoreDirector.afterVariableChanged(variableDescriptor,a);
+  assertEquals("3/firstShadow",a.getFirstShadow());
+  assertEquals(null,a.getThirdShadow());
+  scoreDirector.beforeVariableChanged(variableDescriptor,c);
+  c.setValue(val1);
+  scoreDirector.afterVariableChanged(variableDescriptor,c);
+  assertEquals("1/firstShadow",c.getFirstShadow());
+  assertEquals("1/firstShadow/secondShadow",c.getSecondShadow());
+  assertEquals("1/firstShadow/secondShadow/thirdShadow",c.getThirdShadow());
+  scoreDirector.beforeVariableChanged(variableDescriptor,c);
+  c.setValue(val3);
+  scoreDirector.afterVariableChanged(variableDescriptor,c);
+  assertEquals("3/firstShadow",c.getFirstShadow());
+  assertEquals("3/firstShadow/secondShadow",c.getSecondShadow());
+  assertEquals("3/firstShadow/secondShadow/thirdShadow",c.getThirdShadow());
+}

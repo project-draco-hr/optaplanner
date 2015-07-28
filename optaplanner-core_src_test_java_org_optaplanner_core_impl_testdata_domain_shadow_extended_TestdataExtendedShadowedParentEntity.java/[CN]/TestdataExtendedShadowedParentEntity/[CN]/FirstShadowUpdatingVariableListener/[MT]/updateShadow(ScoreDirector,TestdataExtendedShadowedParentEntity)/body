@@ -1,0 +1,6 @@
+{
+  TestdataValue value=entity.getValue();
+  scoreDirector.beforeVariableChanged(entity,"firstShadow");
+  entity.setFirstShadow((value == null) ? null : value.getCode() + "/firstShadow");
+  scoreDirector.afterVariableChanged(entity,"firstShadow");
+}

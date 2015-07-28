@@ -1,0 +1,3 @@
+{
+  return SolutionDescriptor.buildSolutionDescriptor(TestdataExtendedShadowedSolution.class,TestdataExtendedShadowedParentEntity.class,TestdataExtendedShadowedChildEntity.class);
+}
