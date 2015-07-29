@@ -1,6 +1,9 @@
 {
   Long oldLimit=calculateTimeMillisSpentLimit();
   if (oldLimit == null || timeMillisSpentLimit < oldLimit) {
-    overwriteTimeMillisSpentLimit(timeMillisSpentLimit);
+    millisecondsSpentLimit=timeMillisSpentLimit;
+    secondsSpentLimit=null;
+    minutesSpentLimit=null;
+    hoursSpentLimit=null;
   }
 }

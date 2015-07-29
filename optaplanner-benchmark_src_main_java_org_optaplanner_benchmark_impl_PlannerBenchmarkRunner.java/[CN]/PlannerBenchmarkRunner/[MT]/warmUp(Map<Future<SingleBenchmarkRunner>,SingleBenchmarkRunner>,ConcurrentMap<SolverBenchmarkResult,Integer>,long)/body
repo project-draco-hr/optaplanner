@@ -6,20 +6,21 @@
       future=warmUpExecutorCompletionService.take();
     }
  catch (    InterruptedException e) {
-      singleBenchmarkRunnerExceptionLogger.error("Waiting for a warm up singleBenchmarkRunner was interrupted.",e);
-      continue;
+      throw new IllegalStateException("Waiting for a warm up singleBenchmarkRunner was interrupted.",e);
     }
     Throwable failureThrowable=null;
-    SingleBenchmarkRunner singleBenchmarkRunner=futureMap.get(future);
+    SingleBenchmarkRunner singleBenchmarkRunner;
     try {
       singleBenchmarkRunner=future.get();
     }
  catch (    InterruptedException e) {
+      singleBenchmarkRunner=futureMap.get(future);
       singleBenchmarkRunnerExceptionLogger.error("The warm up singleBenchmarkRunner ({}) was interrupted.",singleBenchmarkRunner,e);
       failureThrowable=e;
     }
 catch (    ExecutionException e) {
       Throwable cause=e.getCause();
+      singleBenchmarkRunner=futureMap.get(future);
       singleBenchmarkRunnerExceptionLogger.warn("The warm up singleBenchmarkRunner ({}) failed.",singleBenchmarkRunner,cause);
       failureThrowable=cause;
     }
@@ -32,7 +33,8 @@ catch (    ExecutionException e) {
     SolverBenchmarkResult solverBenchmarkResult=singleBenchmarkRunner.getSingleBenchmarkResult().getSolverBenchmarkResult();
     long timeLeftInCycle=timePhaseEnd - System.currentTimeMillis();
     if (timeLeftInCycle > 0L) {
-      warmUpPopulate(futureMap,singleBenchmarkResultIndexMap,new SolverBenchmarkResult[]{solverBenchmarkResult},timeLeftInCycle);
+      SolverBenchmarkResult[] solverBenchmarkResultSingleton=new SolverBenchmarkResult[]{solverBenchmarkResult};
+      warmUpPopulate(futureMap,singleBenchmarkResultIndexMap,solverBenchmarkResultSingleton,timeLeftInCycle);
       tasksCount++;
     }
   }

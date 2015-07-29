@@ -1,6 +1,0 @@
-{
-  millisecondsSpentLimit=timeMillisSpentLimit;
-  secondsSpentLimit=null;
-  minutesSpentLimit=null;
-  hoursSpentLimit=null;
-}
