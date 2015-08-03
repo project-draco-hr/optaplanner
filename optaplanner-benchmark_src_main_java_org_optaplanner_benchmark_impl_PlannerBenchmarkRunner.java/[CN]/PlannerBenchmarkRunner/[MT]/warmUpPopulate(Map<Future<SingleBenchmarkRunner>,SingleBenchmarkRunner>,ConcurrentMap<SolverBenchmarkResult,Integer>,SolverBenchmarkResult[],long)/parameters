@@ -1,0 +1,4 @@
+Map<Future<SingleBenchmarkRunner>,SingleBenchmarkRunner> futureMap
+ConcurrentMap<SolverBenchmarkResult,Integer> singleBenchmarkResultIndexMap
+SolverBenchmarkResult[] solverBenchmarkResultArray
+long timeLeftPerSolverConfig
