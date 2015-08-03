@@ -1,0 +1,5 @@
+{
+  this(code);
+  this.primaryValue=primaryValue;
+  this.secondaryValue=secondaryValue;
+}

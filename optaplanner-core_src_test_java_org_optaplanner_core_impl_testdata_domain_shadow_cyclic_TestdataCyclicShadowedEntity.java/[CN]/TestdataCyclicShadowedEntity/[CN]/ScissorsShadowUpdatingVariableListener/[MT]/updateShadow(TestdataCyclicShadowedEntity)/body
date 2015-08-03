@@ -1,4 +1,0 @@
-{
-  String paper=entity.getPaperShadow();
-  entity.setScissorsShadow("Scissors beats (" + paper + ")");
-}

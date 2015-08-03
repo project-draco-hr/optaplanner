@@ -1,3 +1,6 @@
 {
+  if (refVariableDescriptor != null) {
+    throw new IllegalStateException("The shadowVariableDescriptor (" + this + ") references another shadowVariableDescriptor ("+ refVariableDescriptor+ ") so it cannot build a "+ VariableListener.class.getSimpleName()+ ".");
+  }
   return ConfigUtils.newInstance(this,"variableListenerClass",variableListenerClass);
 }

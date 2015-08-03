@@ -1,0 +1,6 @@
+{
+  String scissors=entity.getScissorsShadow();
+  scoreDirector.beforeVariableChanged(entity,"rockShadow");
+  entity.setRockShadow("Rock beats (" + scissors + ")");
+  scoreDirector.afterVariableChanged(entity,"rockShadow");
+}

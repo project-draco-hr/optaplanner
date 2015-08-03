@@ -1,0 +1,4 @@
+{
+  SolutionDescriptor solutionDescriptor=TestdataManyToManyShadowedSolution.buildSolutionDescriptor();
+  return solutionDescriptor.findEntityDescriptorOrFail(TestdataManyToManyShadowedEntity.class);
+}

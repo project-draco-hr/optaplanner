@@ -1,0 +1,20 @@
+{
+  TestdataValue primaryValue=entity.getPrimaryValue();
+  TestdataValue secondaryValue=entity.getSecondaryValue();
+  String composedValue;
+  String reverseComposedValue;
+  if (primaryValue == null || secondaryValue == null) {
+    composedValue=null;
+    reverseComposedValue=null;
+  }
+ else {
+    composedValue=primaryValue.getCode() + "-" + secondaryValue.getCode();
+    reverseComposedValue=secondaryValue.getCode() + "-" + primaryValue.getCode();
+  }
+  scoreDirector.beforeVariableChanged(entity,"composedCode");
+  entity.setComposedCode(composedValue);
+  scoreDirector.afterVariableChanged(entity,"composedCode");
+  scoreDirector.beforeVariableChanged(entity,"reverseComposedCode");
+  entity.setReverseComposedCode(reverseComposedValue);
+  scoreDirector.afterVariableChanged(entity,"reverseComposedCode");
+}

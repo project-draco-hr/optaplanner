@@ -1,0 +1,6 @@
+{
+  String paper=entity.getPaperShadow();
+  scoreDirector.beforeVariableChanged(entity,"scissorsShadow");
+  entity.setScissorsShadow("Scissors beats (" + paper + ")");
+  scoreDirector.afterVariableChanged(entity,"scissorsShadow");
+}
