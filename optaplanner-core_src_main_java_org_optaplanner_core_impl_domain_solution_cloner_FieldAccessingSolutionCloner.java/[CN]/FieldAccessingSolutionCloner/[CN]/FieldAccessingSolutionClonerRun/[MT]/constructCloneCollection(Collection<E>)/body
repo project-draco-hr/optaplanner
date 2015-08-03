@@ -10,7 +10,7 @@
       return new ArrayList<E>(originalCollection.size());
     }
   }
-  if (originalCollection instanceof Set) {
+ else   if (originalCollection instanceof Set) {
     if (originalCollection instanceof SortedSet) {
       Comparator<E> setComparator=((SortedSet)originalCollection).comparator();
       return new TreeSet<E>(setComparator);
