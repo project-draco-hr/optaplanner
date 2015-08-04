@@ -1,0 +1,5 @@
+{
+  for (  Integer scoreLevel : activationUnMatchListenerMap.keySet()) {
+    unMatch(scoreLevel);
+  }
+}

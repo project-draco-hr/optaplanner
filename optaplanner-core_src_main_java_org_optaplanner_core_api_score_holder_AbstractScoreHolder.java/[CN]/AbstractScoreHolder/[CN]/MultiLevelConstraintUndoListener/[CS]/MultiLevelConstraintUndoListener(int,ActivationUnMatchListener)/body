@@ -1,0 +1,4 @@
+{
+  this.activationUnMatchListenerMap=new HashMap<Integer,ActivationUnMatchListener>();
+  match(scoreLevel,activationUnMatchListener);
+}

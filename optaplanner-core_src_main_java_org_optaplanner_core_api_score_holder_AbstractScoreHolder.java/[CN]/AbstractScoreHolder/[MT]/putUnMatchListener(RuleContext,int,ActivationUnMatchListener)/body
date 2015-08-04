@@ -1,0 +1,13 @@
+{
+  AgendaItem agendaItem=(AgendaItem)kcontext.getMatch();
+  MultiLevelConstraintUndoListener multiLevelConstraintUndoListener;
+  if (agendaItem.getActivationUnMatchListener() != null) {
+    multiLevelConstraintUndoListener=(MultiLevelConstraintUndoListener)agendaItem.getActivationUnMatchListener();
+    multiLevelConstraintUndoListener.unMatch(scoreLevel);
+    multiLevelConstraintUndoListener.match(scoreLevel,abstractConstraintUndoListener);
+  }
+ else {
+    multiLevelConstraintUndoListener=new MultiLevelConstraintUndoListener(scoreLevel,abstractConstraintUndoListener);
+    agendaItem.setActivationUnMatchListener(multiLevelConstraintUndoListener);
+  }
+}
