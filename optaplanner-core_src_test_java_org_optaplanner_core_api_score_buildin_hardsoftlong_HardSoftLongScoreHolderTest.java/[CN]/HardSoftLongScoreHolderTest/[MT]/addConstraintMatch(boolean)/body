@@ -7,8 +7,14 @@
   RuleContext ruleContext3=createRuleContext("scoreRule3");
   scoreHolder.addSoftConstraintMatch(ruleContext3,-30L);
   scoreHolder.addSoftConstraintMatch(ruleContext3,-3L);
-  assertEquals(HardSoftLongScore.valueOf(-1000L,-3L),scoreHolder.extractScore());
+  scoreHolder.addHardConstraintMatch(ruleContext3,-300L);
+  scoreHolder.addHardConstraintMatch(ruleContext3,-400L);
+  RuleContext ruleContext4=createRuleContext("scoreRule4");
+  scoreHolder.addHardConstraintMatch(ruleContext4,-1);
+  scoreHolder.addSoftConstraintMatch(ruleContext4,-1);
+  callUnMatch(ruleContext4,1);
+  assertEquals(HardSoftLongScore.valueOf(-1401L,-3L),scoreHolder.extractScore());
   if (constraintMatchEnabled) {
-    assertEquals(3,scoreHolder.getConstraintMatchTotals().size());
+    assertEquals(6,scoreHolder.getConstraintMatchTotals().size());
   }
 }
