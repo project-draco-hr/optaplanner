@@ -1,12 +1,12 @@
 {
-  List<Score> aScoreList=a.getScoreList();
-  Collections.sort(aScoreList);
-  List<Score> bScoreList=b.getScoreList();
-  Collections.sort(bScoreList);
-  int aSize=aScoreList.size();
-  int bSize=bScoreList.size();
+  List<SingleBenchmarkResult> aSingleBenchmarkResultList=a.getSingleBenchmarkResultList();
+  List<SingleBenchmarkResult> bSingleBenchmarkResultList=b.getSingleBenchmarkResultList();
+  Collections.sort(aSingleBenchmarkResultList,singleBenchmarkComparator);
+  Collections.sort(bSingleBenchmarkResultList,singleBenchmarkComparator);
+  int aSize=aSingleBenchmarkResultList.size();
+  int bSize=bSingleBenchmarkResultList.size();
   for (int i=0; i < aSize && i < bSize; i++) {
-    int comparison=resilientScoreComparator.compare(aScoreList.get(i),bScoreList.get(i));
+    int comparison=singleBenchmarkComparator.compare(aSingleBenchmarkResultList.get(i),bSingleBenchmarkResultList.get(i));
     if (comparison != 0) {
       return comparison;
     }

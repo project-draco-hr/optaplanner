@@ -2,4 +2,5 @@
   this.solverBenchmarkResult=solverBenchmarkResult;
   this.betterCount=betterCount;
   this.equalCount=equalCount;
+  this.lowerCount=lowerCount;
 }

@@ -1,0 +1,2 @@
+int uninitializedVariableCount
+Score score

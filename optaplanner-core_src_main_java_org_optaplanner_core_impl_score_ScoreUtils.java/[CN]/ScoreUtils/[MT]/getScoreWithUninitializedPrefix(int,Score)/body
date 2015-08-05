@@ -1,0 +1,6 @@
+{
+  if (score == null) {
+    return null;
+  }
+  return uninitializedVariableCount == 0 ? score.toString() : uninitializedVariableCount + "uninitialized/" + score.toString();
+}
