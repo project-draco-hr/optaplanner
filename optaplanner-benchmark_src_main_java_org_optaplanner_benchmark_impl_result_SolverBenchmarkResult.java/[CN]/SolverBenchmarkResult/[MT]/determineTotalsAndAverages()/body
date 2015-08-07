@@ -6,11 +6,19 @@
   ScoreDifferencePercentage totalWorstScoreDifferencePercentage=null;
   long totalAverageCalculateCountPerSecond=0L;
   long totalTimeMillisSpent=0L;
+  uninitializedSolutionCount=0;
+  infeasibleScoreCount=0;
   for (  SingleBenchmarkResult singleBenchmarkResult : singleBenchmarkResultList) {
     if (singleBenchmarkResult.isFailure()) {
       failureCount++;
     }
  else {
+      if (!singleBenchmarkResult.isInitialized()) {
+        uninitializedSolutionCount++;
+      }
+ else       if (!singleBenchmarkResult.isScoreFeasible()) {
+        infeasibleScoreCount++;
+      }
       if (firstNonFailure) {
         totalScore=singleBenchmarkResult.getScore();
         totalWinningScoreDifference=singleBenchmarkResult.getWinningScoreDifference();
