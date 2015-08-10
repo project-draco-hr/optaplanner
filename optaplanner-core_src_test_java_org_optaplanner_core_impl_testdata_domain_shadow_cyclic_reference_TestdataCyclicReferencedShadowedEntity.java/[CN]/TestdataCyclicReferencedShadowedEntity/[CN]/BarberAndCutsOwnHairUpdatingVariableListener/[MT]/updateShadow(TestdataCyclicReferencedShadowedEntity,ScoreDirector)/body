@@ -1,0 +1,10 @@
+{
+  TestdataValue value=entity.getValue();
+  boolean barber=!entity.isCutsOwnHair();
+  scoreDirector.beforeVariableChanged(entity,"barber");
+  entity.setBarber(value != null && barber);
+  scoreDirector.afterVariableChanged(entity,"barber");
+  scoreDirector.beforeVariableChanged(entity,"cutsOwnHair");
+  entity.setCutsOwnHair(value != null && !barber);
+  scoreDirector.afterVariableChanged(entity,"cutsOwnHair");
+}

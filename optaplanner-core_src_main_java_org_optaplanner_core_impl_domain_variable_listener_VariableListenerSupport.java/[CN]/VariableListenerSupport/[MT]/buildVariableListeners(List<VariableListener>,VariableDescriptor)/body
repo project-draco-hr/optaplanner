@@ -1,5 +1,5 @@
 {
-  List<ShadowVariableDescriptor> shadowVariableDescriptorList=variableDescriptor.getShadowVariableDescriptorList();
+  List<ShadowVariableDescriptor> shadowVariableDescriptorList=variableDescriptor.getPrimaryShadowVariableDescriptorList();
   List<VariableListener> variableListenerList=new ArrayList<VariableListener>(shadowVariableDescriptorList.size());
   for (  ShadowVariableDescriptor shadowVariableDescriptor : shadowVariableDescriptorList) {
     VariableListener variableListener=shadowVariableDescriptor.buildVariableListener(scoreDirector);
