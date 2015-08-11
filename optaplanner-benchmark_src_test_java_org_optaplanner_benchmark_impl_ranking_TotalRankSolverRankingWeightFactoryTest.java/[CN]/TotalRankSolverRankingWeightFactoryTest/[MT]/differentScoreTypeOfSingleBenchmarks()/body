@@ -1,13 +1,13 @@
 {
-  addSingleBenchmark(aSingleBenchmarkResultList,-1000,-40,-1000);
-  addSingleBenchmark(aSingleBenchmarkResultList,-300,-40,-1000);
-  addSingleBenchmark(aSingleBenchmarkResultList,-40,-40,-1000);
+  addSingleBenchmark(aSingleBenchmarkResultList,-1000,-30,-1000);
+  addSingleBenchmark(aSingleBenchmarkResultList,-400,-30,-1000);
+  addSingleBenchmark(aSingleBenchmarkResultList,-30,-30,-1000);
   a.setSingleBenchmarkResultList(aSingleBenchmarkResultList);
   a.accumulateResults(benchmarkReport);
   solverBenchmarkResultList.add(a);
-  addSingleBenchmark(bSingleBenchmarkResultList,-2000,-30,-2000);
-  addSingleBenchmark(bSingleBenchmarkResultList,-200,-30,-2000);
-  addSingleBenchmark(bSingleBenchmarkResultList,-30,-30,-2000);
+  addSingleBenchmarkWithHardSoftLongScore(bSingleBenchmarkResultList,-1000,0,-30,0,-1000,-1000);
+  addSingleBenchmarkWithHardSoftLongScore(bSingleBenchmarkResultList,-400,0,-30,0,-1000,-1000);
+  addSingleBenchmarkWithHardSoftLongScore(bSingleBenchmarkResultList,-30,0,-30,0,-1000,-1000);
   b.setSingleBenchmarkResultList(bSingleBenchmarkResultList);
   b.accumulateResults(benchmarkReport);
   solverBenchmarkResultList.add(b);
@@ -16,6 +16,6 @@
   addProblemBenchmark(totalSingleBenchmarkResultList);
   Comparable aWeight=factory.createRankingWeight(solverBenchmarkResultList,a);
   Comparable bWeight=factory.createRankingWeight(solverBenchmarkResultList,b);
-  assertEquals(-1,aWeight.compareTo(bWeight));
-  assertEquals(1,bWeight.compareTo(aWeight));
+  assertEquals(0,aWeight.compareTo(bWeight));
+  assertEquals(0,bWeight.compareTo(aWeight));
 }

@@ -1,0 +1,30 @@
+{
+  SingleBenchmarkResult a0=addSingleBenchmark(aSingleBenchmarkResultList,-1000,-30,-1000);
+  SingleBenchmarkResult a1=addSingleBenchmark(aSingleBenchmarkResultList,-400,-30,-1000);
+  SingleBenchmarkResult a2=addSingleBenchmark(aSingleBenchmarkResultList,-30,-30,-1000);
+  a.setSingleBenchmarkResultList(aSingleBenchmarkResultList);
+  a.accumulateResults(benchmarkReport);
+  solverBenchmarkResultList.add(a);
+  SingleBenchmarkResult b0=addSingleBenchmark(bSingleBenchmarkResultList,-1000,-30,-1000);
+  SingleBenchmarkResult b1=addSingleBenchmark(bSingleBenchmarkResultList,-400,-30,-1000);
+  SingleBenchmarkResult b2=addSingleBenchmark(bSingleBenchmarkResultList,-30,-30,-1000);
+  b.setSingleBenchmarkResultList(bSingleBenchmarkResultList);
+  b.accumulateResults(benchmarkReport);
+  solverBenchmarkResultList.add(b);
+  addProblemBenchmark(Arrays.asList(a0,b0));
+  addProblemBenchmark(Arrays.asList(a1,b1));
+  addProblemBenchmark(Arrays.asList(a2,b2));
+  Comparable aWeight=factory.createRankingWeight(solverBenchmarkResultList,a);
+  Comparable bWeight=factory.createRankingWeight(solverBenchmarkResultList,b);
+  assertEquals(0,aWeight.compareTo(bWeight));
+  assertEquals(0,bWeight.compareTo(aWeight));
+  addProblemBenchmark(Arrays.asList(a1));
+  addProblemBenchmark(Arrays.asList(a2));
+  addProblemBenchmark(Arrays.asList(b0));
+  addProblemBenchmark(Arrays.asList(b2));
+  addProblemBenchmark(Arrays.asList(a0,b1));
+  aWeight=factory.createRankingWeight(solverBenchmarkResultList,a);
+  bWeight=factory.createRankingWeight(solverBenchmarkResultList,b);
+  assertEquals(-1,aWeight.compareTo(bWeight));
+  assertEquals(1,bWeight.compareTo(aWeight));
+}
