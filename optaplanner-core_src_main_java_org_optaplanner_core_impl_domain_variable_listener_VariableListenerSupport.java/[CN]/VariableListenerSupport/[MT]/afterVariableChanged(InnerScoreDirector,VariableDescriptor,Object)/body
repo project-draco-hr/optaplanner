@@ -1,5 +1,0 @@
-{
-  for (  VariableListener variableListener : variableListenerMap.get(variableDescriptor)) {
-    variableListener.afterVariableChanged(scoreDirector,entity);
-  }
-}

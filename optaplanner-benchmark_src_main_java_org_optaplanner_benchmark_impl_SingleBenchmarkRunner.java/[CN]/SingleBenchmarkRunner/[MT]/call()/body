@@ -17,7 +17,7 @@
   Solution outputSolution=solver.getBestSolution();
   DefaultSolverScope solverScope=((DefaultSolver)solver).getSolverScope();
   SolutionDescriptor solutionDescriptor=solverScope.getSolutionDescriptor();
-  problemBenchmarkResult.registerScale(solutionDescriptor.getEntityCount(outputSolution),solutionDescriptor.getVariableCount(outputSolution),solutionDescriptor.getProblemScale(outputSolution));
+  problemBenchmarkResult.registerScale(solutionDescriptor.getEntityCount(outputSolution),solutionDescriptor.getGenuineVariableCount(outputSolution),solutionDescriptor.getProblemScale(outputSolution));
   singleBenchmarkResult.setScore(outputSolution.getScore());
   singleBenchmarkResult.setUninitializedVariableCount(solverScope.getBestUninitializedVariableCount());
   singleBenchmarkResult.setTimeMillisSpent(timeMillisSpent);

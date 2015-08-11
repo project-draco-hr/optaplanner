@@ -1,0 +1,25 @@
+{
+  for (  Map.Entry<VariableListenerNotifiable,Set<VariableListenerNotification>> entry : notificationQueueMap.entrySet()) {
+    VariableListenerNotifiable notifiable=entry.getKey();
+    Set<VariableListenerNotification> notificationQueue=entry.getValue();
+    VariableListener variableListener=notifiable.getVariableListener();
+    for (Iterator<VariableListenerNotification> it=notificationQueue.iterator(); it.hasNext(); ) {
+      VariableListenerNotification notification=it.next();
+      Object entity=notification.getEntity();
+switch (notification.getType()) {
+case ENTITY_ADDED:
+        variableListener.afterEntityAdded(scoreDirector,entity);
+      break;
+case VARIABLE_CHANGED:
+    variableListener.afterVariableChanged(scoreDirector,entity);
+  break;
+case ENTITY_REMOVED:
+variableListener.afterEntityRemoved(scoreDirector,entity);
+break;
+default :
+throw new IllegalStateException("The variableListenerNotificationType (" + notification.getType() + ") is not implemented.");
+}
+it.remove();
+}
+}
+}

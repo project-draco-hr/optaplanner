@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof VariableListenerNotification) {
+    VariableListenerNotification other=(VariableListenerNotification)o;
+    return entity == other.entity && type == other.type;
+  }
+ else {
+    return false;
+  }
+}

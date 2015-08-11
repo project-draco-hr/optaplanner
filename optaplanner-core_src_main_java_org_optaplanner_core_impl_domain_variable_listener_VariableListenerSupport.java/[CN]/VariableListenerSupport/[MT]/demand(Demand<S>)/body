@@ -3,22 +3,19 @@
   if (supply == null) {
     supply=demand.createExternalizedSupply(scoreDirector);
     if (supply instanceof StatefulVariableListener) {
-      StatefulVariableListener statefulVariableListener=(StatefulVariableListener)supply;
-      statefulVariableListener.resetWorkingSolution(scoreDirector);
-      VariableDescriptor sourceVariableDescriptor=statefulVariableListener.getSourceVariableDescriptor();
-      List<VariableListener> variableListenerList=variableListenerMap.get(sourceVariableDescriptor);
-      if (variableListenerList == null) {
-        variableListenerList=new ArrayList<VariableListener>();
-        variableListenerMap.put(sourceVariableDescriptor,variableListenerList);
+      StatefulVariableListener variableListener=(StatefulVariableListener)supply;
+      variableListener.resetWorkingSolution(scoreDirector);
+      VariableDescriptor source=variableListener.getSourceVariableDescriptor();
+      VariableListenerNotifiable notifiable=new VariableListenerNotifiable(variableListener,nextGlobalOrder);
+      nextGlobalOrder++;
+      List<VariableListenerNotifiable> variableNotifiableList=sourceVariableToNotifiableMap.get(source);
+      variableNotifiableList.add(notifiable);
+      List<VariableListenerNotifiable> entityNotifiableList=sourceEntityToNotifiableMap.get(source.getEntityDescriptor());
+      if (!entityNotifiableList.contains(notifiable)) {
+        entityNotifiableList.add(notifiable);
       }
-      variableListenerList.add(statefulVariableListener);
-      EntityDescriptor entityDescriptor=sourceVariableDescriptor.getEntityDescriptor();
-      List<VariableListener> entityVariableListenerList=entityVariableListenerMap.get(entityDescriptor);
-      if (entityVariableListenerList == null) {
-        entityVariableListenerList=new ArrayList<VariableListener>();
-        entityVariableListenerMap.put(entityDescriptor,entityVariableListenerList);
-      }
-      entityVariableListenerList.add(statefulVariableListener);
+      Set<VariableListenerNotification> notificationQueue=new LinkedHashSet<VariableListenerNotification>();
+      notificationQueueMap.put(notifiable,notificationQueue);
     }
     supplyMap.put(demand,supply);
   }

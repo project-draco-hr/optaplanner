@@ -1,5 +1,0 @@
-{
-  for (  VariableListener variableListener : entityVariableListenerMap.get(entityDescriptor)) {
-    variableListener.beforeEntityRemoved(scoreDirector,entity);
-  }
-}

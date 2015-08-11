@@ -1,0 +1,4 @@
+{
+  this.variableListener=variableListener;
+  this.globalOrder=globalOrder;
+}

@@ -1,6 +1,6 @@
 {
   this.scoreDirector=scoreDirector;
-  variableListenerMap=new LinkedHashMap<VariableDescriptor,List<VariableListener>>();
-  entityVariableListenerMap=new LinkedHashMap<EntityDescriptor,List<VariableListener>>();
-  supplyMap=new LinkedHashMap<Demand,Supply>(variableListenerMap.size());
+  sourceVariableToNotifiableMap=new LinkedHashMap<VariableDescriptor,List<VariableListenerNotifiable>>();
+  sourceEntityToNotifiableMap=new LinkedHashMap<EntityDescriptor,List<VariableListenerNotifiable>>();
+  supplyMap=new LinkedHashMap<Demand,Supply>();
 }

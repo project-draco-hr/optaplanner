@@ -3,9 +3,9 @@
   Move move=moveNode.getMove();
   Move undoMove=move.createUndoMove(scoreDirector);
   moveNode.setUndoMove(undoMove);
-  move.doMove(scoreDirector);
+  scoreDirector.doMove(move);
   processMove(stepScope,moveNode);
-  undoMove.doMove(scoreDirector);
+  scoreDirector.doMove(undoMove);
   if (assertExpectedUndoMoveScore) {
     ExhaustiveSearchPhaseScope phaseScope=stepScope.getPhaseScope();
     if (stepScope.getStartingStepScore() != null) {

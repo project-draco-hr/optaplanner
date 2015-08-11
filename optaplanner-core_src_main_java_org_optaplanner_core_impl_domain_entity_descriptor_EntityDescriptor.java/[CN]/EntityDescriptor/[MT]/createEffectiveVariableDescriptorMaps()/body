@@ -7,4 +7,7 @@
   }
   effectiveGenuineVariableDescriptorMap.putAll(declaredGenuineVariableDescriptorMap);
   effectiveShadowVariableDescriptorMap.putAll(declaredShadowVariableDescriptorMap);
+  effectiveVariableDescriptorMap=new LinkedHashMap<String,VariableDescriptor>(effectiveGenuineVariableDescriptorMap.size() + effectiveShadowVariableDescriptorMap.size());
+  effectiveVariableDescriptorMap.putAll(effectiveGenuineVariableDescriptorMap);
+  effectiveVariableDescriptorMap.putAll(effectiveShadowVariableDescriptorMap);
 }

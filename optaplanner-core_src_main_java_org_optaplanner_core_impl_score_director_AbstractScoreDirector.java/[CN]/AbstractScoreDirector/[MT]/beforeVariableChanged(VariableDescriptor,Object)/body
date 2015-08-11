@@ -1,3 +1,3 @@
 {
-  variableListenerSupport.beforeVariableChanged(this,variableDescriptor,entity);
+  variableListenerSupport.beforeVariableChanged(variableDescriptor,entity);
 }

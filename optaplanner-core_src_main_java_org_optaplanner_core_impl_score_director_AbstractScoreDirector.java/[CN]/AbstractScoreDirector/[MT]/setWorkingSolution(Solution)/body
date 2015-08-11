@@ -1,5 +1,5 @@
 {
   this.workingSolution=workingSolution;
-  variableListenerSupport.resetWorkingSolution(this);
+  variableListenerSupport.resetWorkingSolution();
   setWorkingEntityListDirty();
 }

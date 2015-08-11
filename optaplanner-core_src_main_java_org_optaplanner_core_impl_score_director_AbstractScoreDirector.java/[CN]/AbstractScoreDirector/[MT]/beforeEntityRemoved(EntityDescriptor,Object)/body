@@ -1,3 +1,3 @@
 {
-  variableListenerSupport.beforeEntityRemoved(this,entityDescriptor,entity);
+  variableListenerSupport.beforeEntityRemoved(entityDescriptor,entity);
 }

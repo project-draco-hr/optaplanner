@@ -1,9 +1,0 @@
-{
-  long variableCount=0L;
-  for (Iterator<Object> it=extractAllEntitiesIterator(solution); it.hasNext(); ) {
-    Object entity=it.next();
-    EntityDescriptor entityDescriptor=findEntityDescriptorOrFail(entity.getClass());
-    variableCount+=entityDescriptor.getVariableCount();
-  }
-  return variableCount;
-}

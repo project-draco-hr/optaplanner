@@ -1,5 +1,5 @@
 {
-  variableListenerSupport.afterEntityAdded(this,entityDescriptor,entity);
+  variableListenerSupport.afterEntityAdded(entityDescriptor,entity);
   if (!allChangesWillBeUndoneBeforeStepEnds) {
     setWorkingEntityListDirty();
   }

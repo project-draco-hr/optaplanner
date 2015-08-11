@@ -1,7 +1,3 @@
 {
-  VariableDescriptor variableDescriptor=effectiveGenuineVariableDescriptorMap.get(variableName);
-  if (variableDescriptor == null) {
-    variableDescriptor=effectiveShadowVariableDescriptorMap.get(variableName);
-  }
-  return variableDescriptor;
+  return effectiveVariableDescriptorMap.get(variableName);
 }

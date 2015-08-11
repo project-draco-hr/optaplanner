@@ -1,0 +1,8 @@
+{
+  for (  VariableListenerNotifiable notifiable : notificationQueueMap.keySet()) {
+    VariableListener variableListener=notifiable.getVariableListener();
+    if (variableListener instanceof StatefulVariableListener) {
+      ((StatefulVariableListener)variableListener).clearWorkingSolution(scoreDirector);
+    }
+  }
+}
