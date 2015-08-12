@@ -1,0 +1,4 @@
+{
+  Class solverRankingClass=getSolverRankingClass();
+  return solverRankingClass == null ? null : solverRankingClass.getName();
+}
