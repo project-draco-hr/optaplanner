@@ -1,0 +1,8 @@
+{
+  ProblemBenchmarkResult problemBenchmarkResult=new ProblemBenchmarkResult(null);
+  problemBenchmarkResult.setSingleBenchmarkResultList(singleBenchmarkResultList);
+  for (  SingleBenchmarkResult singleBenchmarkResult : singleBenchmarkResultList) {
+    singleBenchmarkResult.setProblemBenchmarkResult(problemBenchmarkResult);
+  }
+  return problemBenchmarkResult;
+}

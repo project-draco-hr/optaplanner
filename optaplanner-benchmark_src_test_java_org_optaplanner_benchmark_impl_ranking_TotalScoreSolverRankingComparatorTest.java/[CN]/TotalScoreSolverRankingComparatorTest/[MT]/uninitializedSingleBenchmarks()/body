@@ -1,0 +1,29 @@
+{
+  SingleBenchmarkResult a0=addSingleBenchmark(aSingleBenchmarkResultList,-1000,-30,-1000);
+  addSingleBenchmark(aSingleBenchmarkResultList,-400,-30,-1000);
+  addSingleBenchmark(aSingleBenchmarkResultList,-30,-30,-1000);
+  a.setSingleBenchmarkResultList(aSingleBenchmarkResultList);
+  a.accumulateResults(benchmarkReport);
+  SingleBenchmarkResult b0=addSingleBenchmark(bSingleBenchmarkResultList,-1000,-30,-1000);
+  SingleBenchmarkResult b1=addSingleBenchmark(bSingleBenchmarkResultList,-400,-30,-1000);
+  addSingleBenchmark(bSingleBenchmarkResultList,-30,-30,-1000);
+  b.setSingleBenchmarkResultList(bSingleBenchmarkResultList);
+  b.accumulateResults(benchmarkReport);
+  assertEquals(0,comparator.compare(a,b));
+  assertEquals(0,comparator.compare(b,a));
+  a0.setUninitializedVariableCount(100);
+  b1.setUninitializedVariableCount(100);
+  a.accumulateResults(benchmarkReport);
+  b.accumulateResults(benchmarkReport);
+  assertEquals(-1,comparator.compare(a,b));
+  assertEquals(1,comparator.compare(b,a));
+  b0.setUninitializedVariableCount(100);
+  b.accumulateResults(benchmarkReport);
+  assertEquals(1,comparator.compare(a,b));
+  assertEquals(-1,comparator.compare(b,a));
+  b0.setUninitializedVariableCount(0);
+  b1.setUninitializedVariableCount(99);
+  b.accumulateResults(benchmarkReport);
+  assertEquals(-1,comparator.compare(a,b));
+  assertEquals(1,comparator.compare(b,a));
+}
