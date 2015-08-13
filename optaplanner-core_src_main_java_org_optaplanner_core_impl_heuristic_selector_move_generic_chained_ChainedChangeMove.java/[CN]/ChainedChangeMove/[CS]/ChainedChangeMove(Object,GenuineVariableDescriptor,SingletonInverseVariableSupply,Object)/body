@@ -1,3 +1,4 @@
 {
   super(entity,variableDescriptor,toPlanningValue);
+  this.inverseVariableSupply=inverseVariableSupply;
 }

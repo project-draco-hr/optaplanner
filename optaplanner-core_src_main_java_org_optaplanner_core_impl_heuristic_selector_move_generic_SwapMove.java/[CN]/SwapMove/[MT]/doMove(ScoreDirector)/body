@@ -1,5 +1,5 @@
 {
-  for (  GenuineVariableDescriptor variableDescriptor : variableDescriptors) {
+  for (  GenuineVariableDescriptor variableDescriptor : variableDescriptorList) {
     Object oldLeftValue=variableDescriptor.getValue(leftEntity);
     Object oldRightValue=variableDescriptor.getValue(rightEntity);
     if (!ObjectUtils.equals(oldLeftValue,oldRightValue)) {

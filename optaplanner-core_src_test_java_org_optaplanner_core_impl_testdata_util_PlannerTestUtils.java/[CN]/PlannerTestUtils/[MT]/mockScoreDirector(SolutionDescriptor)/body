@@ -8,5 +8,5 @@
   scoreDirectorFactory.setSolutionDescriptor(solutionDescriptor);
   scoreDirectorFactory.setScoreDefinition(new SimpleScoreDefinition());
   scoreDirectorFactory.setInitializingScoreTrend(InitializingScoreTrend.buildUniformTrend(InitializingScoreTrendLevel.ONLY_DOWN,1));
-  return scoreDirectorFactory.buildScoreDirector(false);
+  return mock(InnerScoreDirector.class,AdditionalAnswers.delegatesTo(scoreDirectorFactory.buildScoreDirector(false)));
 }

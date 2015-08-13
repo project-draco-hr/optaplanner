@@ -3,6 +3,6 @@
   EntitySelector leftEntitySelector=entitySelectorConfig_.buildEntitySelector(configPolicy,minimumCacheType,SelectionOrder.fromRandomSelectionBoolean(randomSelection));
   EntitySelectorConfig rightEntitySelectorConfig=defaultIfNull(secondaryEntitySelectorConfig,entitySelectorConfig_);
   EntitySelector rightEntitySelector=rightEntitySelectorConfig.buildEntitySelector(configPolicy,minimumCacheType,SelectionOrder.fromRandomSelectionBoolean(randomSelection));
-  Collection<GenuineVariableDescriptor> variableDescriptors=deduceVariableDescriptors(leftEntitySelector.getEntityDescriptor(),variableNameIncludeList);
-  return new SwapMoveSelector(leftEntitySelector,rightEntitySelector,variableDescriptors,randomSelection);
+  List<GenuineVariableDescriptor> variableDescriptorList=deduceVariableDescriptorList(leftEntitySelector.getEntityDescriptor(),variableNameIncludeList);
+  return new SwapMoveSelector(leftEntitySelector,rightEntitySelector,variableDescriptorList,randomSelection);
 }

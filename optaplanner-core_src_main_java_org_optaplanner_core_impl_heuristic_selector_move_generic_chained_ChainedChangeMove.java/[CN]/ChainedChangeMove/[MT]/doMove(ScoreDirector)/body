@@ -1,3 +1,12 @@
 {
-  ChainedMoveUtils.doChainedChange(scoreDirector,entity,variableDescriptor,toPlanningValue);
+  Object oldValue=variableDescriptor.getValue(entity);
+  Object oldTrailingEntity=inverseVariableSupply.getInverseSingleton(entity);
+  Object newTrailingEntity=toPlanningValue == null ? null : inverseVariableSupply.getInverseSingleton(toPlanningValue);
+  if (oldTrailingEntity != null) {
+    scoreDirector.changeVariableFacade(variableDescriptor,oldTrailingEntity,oldValue);
+  }
+  scoreDirector.changeVariableFacade(variableDescriptor,entity,toPlanningValue);
+  if (newTrailingEntity != null) {
+    scoreDirector.changeVariableFacade(variableDescriptor,newTrailingEntity,entity);
+  }
 }

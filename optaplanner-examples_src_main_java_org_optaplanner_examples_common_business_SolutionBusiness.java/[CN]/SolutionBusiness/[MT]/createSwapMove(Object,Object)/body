@@ -1,11 +1,24 @@
 {
-  SolutionDescriptor solutionDescriptor=((InnerScoreDirector)guiScoreDirector).getSolutionDescriptor();
+  InnerScoreDirector guiInnerScoreDirector=(InnerScoreDirector)this.guiScoreDirector;
+  SolutionDescriptor solutionDescriptor=guiInnerScoreDirector.getSolutionDescriptor();
   EntityDescriptor entityDescriptor=solutionDescriptor.findEntityDescriptor(leftEntity.getClass());
-  Collection<GenuineVariableDescriptor> variableDescriptors=entityDescriptor.getGenuineVariableDescriptors();
+  List<GenuineVariableDescriptor> variableDescriptorList=entityDescriptor.getGenuineVariableDescriptorList();
   if (entityDescriptor.hasAnyChainedGenuineVariables()) {
-    return new ChainedSwapMove(variableDescriptors,leftEntity,rightEntity);
+    List<SingletonInverseVariableSupply> inverseVariableSupplyList=new ArrayList<SingletonInverseVariableSupply>(variableDescriptorList.size());
+    SupplyManager supplyManager=guiInnerScoreDirector.getSupplyManager();
+    for (    GenuineVariableDescriptor variableDescriptor : variableDescriptorList) {
+      SingletonInverseVariableSupply inverseVariableSupply;
+      if (variableDescriptor.isChained()) {
+        inverseVariableSupply=supplyManager.demand(new SingletonInverseVariableDemand(variableDescriptor));
+      }
+ else {
+        inverseVariableSupply=null;
+      }
+      inverseVariableSupplyList.add(inverseVariableSupply);
+    }
+    return new ChainedSwapMove(variableDescriptorList,inverseVariableSupplyList,leftEntity,rightEntity);
   }
  else {
-    return new SwapMove(variableDescriptors,leftEntity,rightEntity);
+    return new SwapMove(variableDescriptorList,leftEntity,rightEntity);
   }
 }

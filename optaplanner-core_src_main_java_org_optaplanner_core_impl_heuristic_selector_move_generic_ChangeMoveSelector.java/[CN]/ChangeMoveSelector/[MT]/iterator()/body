@@ -4,7 +4,7 @@
     if (chained) {
       return new AbstractOriginalChangeIterator<Move>(entitySelector,valueSelector){
         @Override protected Move newChangeSelection(        Object entity,        Object toValue){
-          return new ChainedChangeMove(entity,variableDescriptor,toValue);
+          return new ChainedChangeMove(entity,variableDescriptor,inverseVariableSupply,toValue);
         }
       }
 ;
@@ -22,7 +22,7 @@
     if (chained) {
       return new AbstractRandomChangeIterator<Move>(entitySelector,valueSelector){
         @Override protected Move newChangeSelection(        Object entity,        Object toValue){
-          return new ChainedChangeMove(entity,variableDescriptor,toValue);
+          return new ChainedChangeMove(entity,variableDescriptor,inverseVariableSupply,toValue);
         }
       }
 ;

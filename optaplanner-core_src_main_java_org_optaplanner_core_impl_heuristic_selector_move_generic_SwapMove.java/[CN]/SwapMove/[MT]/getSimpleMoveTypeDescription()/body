@@ -1,8 +1,8 @@
 {
-  StringBuilder moveTypeDescription=new StringBuilder(20 * (variableDescriptors.size() + 1));
+  StringBuilder moveTypeDescription=new StringBuilder(20 * (variableDescriptorList.size() + 1));
   moveTypeDescription.append(getClass().getSimpleName()).append("(");
   String delimiter="";
-  for (  GenuineVariableDescriptor variableDescriptor : variableDescriptors) {
+  for (  GenuineVariableDescriptor variableDescriptor : variableDescriptorList) {
     moveTypeDescription.append(delimiter).append(variableDescriptor.getSimpleEntityAndVariableName());
     delimiter=", ";
   }

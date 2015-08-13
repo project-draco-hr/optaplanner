@@ -1,4 +1,4 @@
 {
   Object oldValue=variableDescriptor.getValue(entity);
-  return new ChainedChangeMove(entity,variableDescriptor,oldValue);
+  return new ChainedChangeMove(entity,variableDescriptor,inverseVariableSupply,oldValue);
 }

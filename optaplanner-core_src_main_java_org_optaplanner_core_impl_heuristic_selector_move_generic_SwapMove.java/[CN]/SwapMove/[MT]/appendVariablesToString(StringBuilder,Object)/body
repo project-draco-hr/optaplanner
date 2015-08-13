@@ -1,6 +1,6 @@
 {
   boolean first=true;
-  for (  GenuineVariableDescriptor variableDescriptor : variableDescriptors) {
+  for (  GenuineVariableDescriptor variableDescriptor : variableDescriptorList) {
     if (!first) {
       s.append(", ");
     }

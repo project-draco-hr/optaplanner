@@ -1,6 +1,6 @@
 {
   boolean movable=false;
-  for (  GenuineVariableDescriptor variableDescriptor : variableDescriptors) {
+  for (  GenuineVariableDescriptor variableDescriptor : variableDescriptorList) {
     Object leftValue=variableDescriptor.getValue(leftEntity);
     Object rightValue=variableDescriptor.getValue(rightEntity);
     if (!ObjectUtils.equals(leftValue,rightValue)) {

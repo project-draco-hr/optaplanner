@@ -1,6 +1,6 @@
 {
   EntitySelector entitySelector=SelectorTestUtils.mockEntitySelector(TestdataEntity.buildEntityDescriptor());
-  SwapMoveSelector moveSelector=new SwapMoveSelector(entitySelector,entitySelector,entitySelector.getEntityDescriptor().getGenuineVariableDescriptors(),false);
+  SwapMoveSelector moveSelector=new SwapMoveSelector(entitySelector,entitySelector,entitySelector.getEntityDescriptor().getGenuineVariableDescriptorList(),false);
   DefaultSolverScope solverScope=mock(DefaultSolverScope.class);
   moveSelector.solvingStarted(solverScope);
   AbstractPhaseScope phaseScopeA=mock(AbstractPhaseScope.class);

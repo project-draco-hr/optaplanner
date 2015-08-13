@@ -1,22 +1,40 @@
 {
-  for (  GenuineVariableDescriptor variableDescriptor : variableDescriptors) {
+  for (int i=0; i < variableDescriptorList.size(); i++) {
+    GenuineVariableDescriptor variableDescriptor=variableDescriptorList.get(i);
     Object oldLeftValue=variableDescriptor.getValue(leftEntity);
     Object oldRightValue=variableDescriptor.getValue(rightEntity);
     if (!ObjectUtils.equals(oldLeftValue,oldRightValue)) {
       if (!variableDescriptor.isChained()) {
-        scoreDirector.beforeVariableChanged(variableDescriptor,leftEntity);
-        variableDescriptor.setValue(leftEntity,oldRightValue);
-        scoreDirector.afterVariableChanged(variableDescriptor,leftEntity);
-        scoreDirector.beforeVariableChanged(variableDescriptor,rightEntity);
-        variableDescriptor.setValue(rightEntity,oldLeftValue);
-        scoreDirector.afterVariableChanged(variableDescriptor,rightEntity);
+        scoreDirector.changeVariableFacade(variableDescriptor,leftEntity,oldRightValue);
+        scoreDirector.changeVariableFacade(variableDescriptor,rightEntity,oldLeftValue);
       }
  else {
-        if (oldRightValue != leftEntity) {
-          ChainedMoveUtils.doChainedChange(scoreDirector,leftEntity,variableDescriptor,oldRightValue);
+        SingletonInverseVariableSupply inverseVariableSupply=inverseVariableSupplyList.get(i);
+        Object oldLeftTrailingEntity=inverseVariableSupply.getInverseSingleton(leftEntity);
+        Object oldRightTrailingEntity=inverseVariableSupply.getInverseSingleton(rightEntity);
+        if (oldRightValue == leftEntity) {
+          scoreDirector.changeVariableFacade(variableDescriptor,rightEntity,oldLeftValue);
+          scoreDirector.changeVariableFacade(variableDescriptor,leftEntity,rightEntity);
+          if (oldRightTrailingEntity != null) {
+            scoreDirector.changeVariableFacade(variableDescriptor,oldRightTrailingEntity,leftEntity);
+          }
         }
-        if (oldLeftValue != rightEntity) {
-          ChainedMoveUtils.doChainedChange(scoreDirector,rightEntity,variableDescriptor,oldLeftValue);
+ else         if (oldLeftValue == rightEntity) {
+          scoreDirector.changeVariableFacade(variableDescriptor,leftEntity,oldRightValue);
+          scoreDirector.changeVariableFacade(variableDescriptor,rightEntity,leftEntity);
+          if (oldLeftTrailingEntity != null) {
+            scoreDirector.changeVariableFacade(variableDescriptor,oldLeftTrailingEntity,rightEntity);
+          }
+        }
+ else {
+          scoreDirector.changeVariableFacade(variableDescriptor,leftEntity,oldRightValue);
+          scoreDirector.changeVariableFacade(variableDescriptor,rightEntity,oldLeftValue);
+          if (oldRightTrailingEntity != null) {
+            scoreDirector.changeVariableFacade(variableDescriptor,oldRightTrailingEntity,leftEntity);
+          }
+          if (oldLeftTrailingEntity != null) {
+            scoreDirector.changeVariableFacade(variableDescriptor,oldLeftTrailingEntity,rightEntity);
+          }
         }
       }
     }

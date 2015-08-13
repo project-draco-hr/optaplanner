@@ -2,6 +2,6 @@
   super.solvingStarted(solverScope);
   if (chained) {
     SupplyManager supplyManager=solverScope.getScoreDirector().getSupplyManager();
-    SingletonInverseVariableSupply inverseVariableSupply=supplyManager.demand(new SingletonInverseVariableDemand(valueSelector.getVariableDescriptor()));
+    inverseVariableSupply=supplyManager.demand(new SingletonInverseVariableDemand(valueSelector.getVariableDescriptor()));
   }
 }

@@ -1,7 +1,7 @@
 {
   this.leftEntitySelector=leftEntitySelector;
   this.rightEntitySelector=rightEntitySelector;
-  this.variableDescriptors=variableDescriptors;
+  this.variableDescriptorList=variableDescriptorList;
   this.randomSelection=randomSelection;
   EntityDescriptor leftEntityDescriptor=leftEntitySelector.getEntityDescriptor();
   EntityDescriptor rightEntityDescriptor=rightEntitySelector.getEntityDescriptor();
@@ -9,10 +9,10 @@
     throw new IllegalStateException("The selector (" + this + ") has a leftEntitySelector's entityClass ("+ leftEntityDescriptor.getEntityClass()+ ") which is not equal to the rightEntitySelector's entityClass ("+ rightEntityDescriptor.getEntityClass()+ ").");
   }
   boolean anyChained=false;
-  if (variableDescriptors.isEmpty()) {
-    throw new IllegalStateException("The selector (" + this + ")'s variableDescriptors ("+ variableDescriptors+ ") is empty.");
+  if (variableDescriptorList.isEmpty()) {
+    throw new IllegalStateException("The selector (" + this + ")'s variableDescriptors ("+ variableDescriptorList+ ") is empty.");
   }
-  for (  GenuineVariableDescriptor variableDescriptor : variableDescriptors) {
+  for (  GenuineVariableDescriptor variableDescriptor : variableDescriptorList) {
     if (!variableDescriptor.getEntityDescriptor().getEntityClass().isAssignableFrom(leftEntityDescriptor.getEntityClass())) {
       throw new IllegalStateException("The selector (" + this + ") has a variableDescriptor with a entityClass ("+ variableDescriptor.getEntityDescriptor().getEntityClass()+ ") which is not equal or a superclass to the leftEntitySelector's entityClass ("+ leftEntityDescriptor.getEntityClass()+ ").");
     }

@@ -1,4 +1,4 @@
 EntitySelector leftEntitySelector
 EntitySelector rightEntitySelector
-Collection<GenuineVariableDescriptor> variableDescriptors
+List<GenuineVariableDescriptor> variableDescriptorList
 boolean randomSelection

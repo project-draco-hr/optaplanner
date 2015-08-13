@@ -8,7 +8,7 @@
   TestdataEntityProvidingEntity c=new TestdataEntityProvidingEntity("c",Arrays.asList(v2,v3,v4),null);
   ScoreDirector scoreDirector=mock(ScoreDirector.class);
   EntityDescriptor entityDescriptor=TestdataEntityProvidingEntity.buildEntityDescriptor();
-  SwapMove abMove=new SwapMove(entityDescriptor.getGenuineVariableDescriptors(),a,b);
+  SwapMove abMove=new SwapMove(entityDescriptor.getGenuineVariableDescriptorList(),a,b);
   a.setValue(v1);
   b.setValue(v1);
   abMove.doMove(scoreDirector);
@@ -27,7 +27,7 @@
   abMove.doMove(scoreDirector);
   assertEquals(v2,a.getValue());
   assertEquals(v3,b.getValue());
-  SwapMove acMove=new SwapMove(entityDescriptor.getGenuineVariableDescriptors(),a,c);
+  SwapMove acMove=new SwapMove(entityDescriptor.getGenuineVariableDescriptorList(),a,c);
   a.setValue(v2);
   c.setValue(v2);
   acMove.doMove(scoreDirector);
@@ -46,7 +46,7 @@
   acMove.doMove(scoreDirector);
   assertEquals(v3,a.getValue());
   assertEquals(v4,c.getValue());
-  SwapMove bcMove=new SwapMove(entityDescriptor.getGenuineVariableDescriptors(),b,c);
+  SwapMove bcMove=new SwapMove(entityDescriptor.getGenuineVariableDescriptorList(),b,c);
   b.setValue(v2);
   c.setValue(v2);
   bcMove.doMove(scoreDirector);

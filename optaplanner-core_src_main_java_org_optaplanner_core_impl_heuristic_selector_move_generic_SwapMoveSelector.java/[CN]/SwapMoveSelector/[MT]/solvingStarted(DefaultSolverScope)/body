@@ -1,11 +1,17 @@
 {
   super.solvingStarted(solverScope);
   if (anyChained) {
+    inverseVariableSupplyList=new ArrayList<SingletonInverseVariableSupply>(variableDescriptorList.size());
     SupplyManager supplyManager=solverScope.getScoreDirector().getSupplyManager();
-    for (    GenuineVariableDescriptor variableDescriptor : variableDescriptors) {
+    for (    GenuineVariableDescriptor variableDescriptor : variableDescriptorList) {
+      SingletonInverseVariableSupply inverseVariableSupply;
       if (variableDescriptor.isChained()) {
-        SingletonInverseVariableSupply inverseVariableSupply=supplyManager.demand(new SingletonInverseVariableDemand(variableDescriptor));
+        inverseVariableSupply=supplyManager.demand(new SingletonInverseVariableDemand(variableDescriptor));
       }
+ else {
+        inverseVariableSupply=null;
+      }
+      inverseVariableSupplyList.add(inverseVariableSupply);
     }
   }
 }

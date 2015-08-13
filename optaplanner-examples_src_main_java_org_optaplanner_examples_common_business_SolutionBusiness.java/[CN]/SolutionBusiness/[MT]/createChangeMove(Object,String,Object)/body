@@ -1,8 +1,11 @@
 {
-  SolutionDescriptor solutionDescriptor=((InnerScoreDirector)guiScoreDirector).getSolutionDescriptor();
+  InnerScoreDirector guiInnerScoreDirector=(InnerScoreDirector)this.guiScoreDirector;
+  SolutionDescriptor solutionDescriptor=guiInnerScoreDirector.getSolutionDescriptor();
   GenuineVariableDescriptor variableDescriptor=solutionDescriptor.findGenuineVariableDescriptorOrFail(entity,variableName);
   if (variableDescriptor.isChained()) {
-    return new ChainedChangeMove(entity,variableDescriptor,toPlanningValue);
+    SupplyManager supplyManager=guiInnerScoreDirector.getSupplyManager();
+    SingletonInverseVariableSupply inverseVariableSupply=supplyManager.demand(new SingletonInverseVariableDemand(variableDescriptor));
+    return new ChainedChangeMove(entity,variableDescriptor,inverseVariableSupply,toPlanningValue);
   }
  else {
     return new ChangeMove(entity,variableDescriptor,toPlanningValue);

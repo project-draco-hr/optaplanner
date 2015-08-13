@@ -1,5 +1,5 @@
 {
-  StringBuilder s=new StringBuilder(variableDescriptors.size() * 16);
+  StringBuilder s=new StringBuilder(variableDescriptorList.size() * 16);
   s.append(leftEntity).append(" {");
   appendVariablesToString(s,leftEntity);
   s.append("} <-> ");

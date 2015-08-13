@@ -2,7 +2,9 @@
   TestdataChainedObject chainedObject=chainedObjects[0];
   for (int i=1; i < chainedObjects.length; i++) {
     TestdataChainedEntity chainedEntity=(TestdataChainedEntity)chainedObjects[i];
-    assertEquals("In expected chain (" + Arrays.toString(chainedObjects) + "), the entity ("+ chainedEntity+ ")'s chainedObject's value is",chainedObject,chainedEntity.getChainedObject());
+    if (!ObjectUtils.equals(chainedObject,chainedEntity.getChainedObject())) {
+      fail("Chain assertion failed for chainedEntity (" + chainedEntity + ").\n"+ "Expected: "+ chainedObject+ "\n"+ "Actual:   "+ chainedEntity.getChainedObject()+ "\n"+ "Expected chain: "+ Arrays.toString(chainedObjects)+ "\n"+ "Actual chain:   "+ Arrays.toString(ArrayUtils.subarray(chainedObjects,0,i))+ " ... ["+ chainedEntity.getChainedObject()+ ", "+ chainedEntity+ "] ...");
+    }
     chainedObject=chainedEntity;
   }
 }
