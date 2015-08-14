@@ -1,0 +1,3 @@
+{
+  return !variableDescriptor.isValueNoPotentialAnchor(rightValue) ? rightValue : anchorVariableSupply.getAnchor(rightValue);
+}

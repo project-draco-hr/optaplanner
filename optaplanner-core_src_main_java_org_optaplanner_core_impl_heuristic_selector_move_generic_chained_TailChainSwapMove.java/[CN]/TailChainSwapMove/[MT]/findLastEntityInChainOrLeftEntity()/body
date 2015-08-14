@@ -1,0 +1,11 @@
+{
+  Object entity=rightValue;
+  while (entity != leftEntity) {
+    Object nextEntity=inverseVariableSupply.getInverseSingleton(entity);
+    if (nextEntity == null) {
+      return entity;
+    }
+    entity=nextEntity;
+  }
+  return leftEntity;
+}

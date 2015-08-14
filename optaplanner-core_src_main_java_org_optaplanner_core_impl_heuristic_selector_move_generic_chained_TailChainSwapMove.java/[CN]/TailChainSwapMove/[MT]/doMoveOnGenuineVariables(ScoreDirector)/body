@@ -1,81 +1,32 @@
 {
   Object leftAnchor=anchorVariableSupply.getAnchor(leftEntity);
-  Object rightAnchor=!variableDescriptor.isValueNoPotentialAnchor(rightValue) ? rightValue : anchorVariableSupply.getAnchor(rightValue);
+  Object rightAnchor=determineRightAnchor();
   Object leftValue=variableDescriptor.getValue(leftEntity);
   Object rightEntity=inverseVariableSupply.getInverseSingleton(rightValue);
   if (leftAnchor != rightAnchor) {
-    scoreDirector.beforeVariableChanged(variableDescriptor,leftEntity);
+    scoreDirector.changeVariableFacade(variableDescriptor,leftEntity,rightValue);
     if (rightEntity != null) {
-      scoreDirector.beforeVariableChanged(variableDescriptor,rightEntity);
-    }
-    variableDescriptor.setValue(leftEntity,rightValue);
-    if (rightEntity != null) {
-      variableDescriptor.setValue(rightEntity,leftValue);
-    }
-    scoreDirector.afterVariableChanged(variableDescriptor,leftEntity);
-    if (rightEntity != null) {
-      scoreDirector.afterVariableChanged(variableDescriptor,rightEntity);
+      scoreDirector.changeVariableFacade(variableDescriptor,rightEntity,leftValue);
     }
   }
  else {
-    boolean rightValueIsLater=isRightValueLaterThanLeftEntity(leftAnchor);
-    if (!rightValueIsLater) {
+    Object lastEntityInChainOrLeftEntity=findLastEntityInChainOrLeftEntity();
+    if (lastEntityInChainOrLeftEntity == leftEntity) {
       Object leftNextEntity=inverseVariableSupply.getInverseSingleton(leftEntity);
-      scoreDirector.beforeVariableChanged(variableDescriptor,leftEntity);
-      variableDescriptor.setValue(leftEntity,rightValue);
+      scoreDirector.changeVariableFacade(variableDescriptor,leftEntity,rightValue);
+      reverseChain(scoreDirector,leftValue,leftEntity,rightEntity);
       if (leftNextEntity != null) {
-        scoreDirector.beforeVariableChanged(variableDescriptor,leftNextEntity);
-      }
-      Object entity=leftValue;
-      Object previousEntity=leftEntity;
-      while (previousEntity != rightEntity) {
-        Object value=variableDescriptor.getValue(entity);
-        scoreDirector.changeVariableFacade(variableDescriptor,entity,previousEntity);
-        previousEntity=entity;
-        entity=value;
-      }
-      scoreDirector.afterVariableChanged(variableDescriptor,leftEntity);
-      if (leftNextEntity != null) {
-        variableDescriptor.setValue(leftNextEntity,previousEntity);
-        scoreDirector.afterVariableChanged(variableDescriptor,leftNextEntity);
+        scoreDirector.changeVariableFacade(variableDescriptor,leftNextEntity,rightEntity);
       }
     }
  else {
+      Object lastEntityInChain=lastEntityInChainOrLeftEntity;
       Object leftNextEntity=inverseVariableSupply.getInverseSingleton(leftEntity);
-      scoreDirector.beforeVariableChanged(variableDescriptor,inverseVariableSupply.getInverseSingleton(leftAnchor));
-      Object lastEntity=rightValue;
-      while (true) {
-        Object next=inverseVariableSupply.getInverseSingleton(lastEntity);
-        if (next == null) {
-          break;
-        }
-        lastEntity=next;
-      }
-      Object entity=lastEntity;
-      Object previousEntity=leftAnchor;
-      while (entity != rightValue) {
-        Object value=variableDescriptor.getValue(entity);
-        scoreDirector.changeVariableFacade(variableDescriptor,entity,previousEntity);
-        previousEntity=entity;
-        entity=value;
-      }
-      if (leftNextEntity != null) {
-        scoreDirector.changeVariableFacade(variableDescriptor,leftNextEntity,previousEntity);
-      }
-      entity=leftEntity;
-      previousEntity=rightValue;
-      while (entity != leftAnchor) {
-        Object value=variableDescriptor.getValue(entity);
-        if (value == leftAnchor) {
-          variableDescriptor.setValue(entity,previousEntity);
-          scoreDirector.afterVariableChanged(variableDescriptor,entity);
-        }
- else {
-          scoreDirector.changeVariableFacade(variableDescriptor,entity,previousEntity);
-        }
-        previousEntity=entity;
-        entity=value;
-      }
+      Object entityAfterAnchor=inverseVariableSupply.getInverseSingleton(leftAnchor);
+      reverseChain(scoreDirector,leftValue,leftEntity,entityAfterAnchor);
+      scoreDirector.changeVariableFacade(variableDescriptor,leftEntity,rightValue);
+      reverseChain(scoreDirector,lastEntityInChain,leftAnchor,rightEntity);
+      scoreDirector.changeVariableFacade(variableDescriptor,leftNextEntity,rightEntity);
     }
   }
 }

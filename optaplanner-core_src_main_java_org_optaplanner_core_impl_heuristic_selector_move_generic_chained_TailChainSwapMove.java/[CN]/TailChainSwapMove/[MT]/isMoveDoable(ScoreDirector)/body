@@ -6,7 +6,7 @@
   }
   if (rightEntity == null) {
     Object leftAnchor=anchorVariableSupply.getAnchor(leftEntity);
-    Object rightAnchor=!variableDescriptor.isValueNoPotentialAnchor(rightValue) ? rightValue : anchorVariableSupply.getAnchor(rightValue);
+    Object rightAnchor=determineRightAnchor();
     if (leftAnchor == rightAnchor) {
       return false;
     }
