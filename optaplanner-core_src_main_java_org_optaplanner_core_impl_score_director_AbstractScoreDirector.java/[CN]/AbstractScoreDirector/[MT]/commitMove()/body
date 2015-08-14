@@ -1,4 +1,3 @@
 {
-  move.doMove(this);
   variableListenerSupport.triggerVariableListenersInNotificationQueues();
 }

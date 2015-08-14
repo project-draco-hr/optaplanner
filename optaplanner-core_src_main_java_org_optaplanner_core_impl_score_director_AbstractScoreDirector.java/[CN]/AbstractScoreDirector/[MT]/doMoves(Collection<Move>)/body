@@ -1,6 +1,0 @@
-{
-  for (  Move move : moves) {
-    move.doMove(this);
-  }
-  variableListenerSupport.triggerVariableListenersInNotificationQueues();
-}

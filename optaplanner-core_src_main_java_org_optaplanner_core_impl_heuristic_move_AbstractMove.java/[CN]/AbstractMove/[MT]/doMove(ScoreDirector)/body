@@ -1,0 +1,4 @@
+{
+  doMoveOnGenuineVariables(scoreDirector);
+  scoreDirector.commitMove();
+}

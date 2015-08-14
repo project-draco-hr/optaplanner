@@ -21,7 +21,9 @@
   Collections.reverse(newMoveList);
   restoreMoveList.addAll(newMoveList);
   ScoreDirector scoreDirector=phaseScope.getScoreDirector();
-  scoreDirector.doMoves(restoreMoveList);
+  for (  Move restoreMove : restoreMoveList) {
+    restoreMove.doMove(scoreDirector);
+  }
   phaseScope.getWorkingSolution().setScore(stepScope.getStartingStepScore());
   if (assertWorkingSolutionScoreFromScratch) {
     if (stepScope.getStartingStepScore() != null) {

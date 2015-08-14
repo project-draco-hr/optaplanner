@@ -1,7 +1,7 @@
 {
   LocalSearchPhaseScope phaseScope=stepScope.getPhaseScope();
   Move nextStep=stepScope.getStep();
-  stepScope.getScoreDirector().doMove(nextStep);
+  nextStep.doMove(stepScope.getScoreDirector());
   phaseScope.getWorkingSolution().setScore(stepScope.getScore());
   if (assertStepScoreFromScratch) {
     phaseScope.assertWorkingScoreFromScratch(stepScope.getScore(),nextStep);
