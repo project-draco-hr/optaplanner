@@ -1,0 +1,4 @@
+ScoreDirector scoreDirector
+Object entity
+Object previous
+Object toEntity

@@ -7,18 +7,14 @@
   TestdataChainedEntity a3=new TestdataChainedEntity("a3",a2);
   TestdataChainedEntity a4=new TestdataChainedEntity("a4",a3);
   TestdataChainedEntity a5=new TestdataChainedEntity("a5",a4);
-  TestdataChainedAnchor b0=new TestdataChainedAnchor("b0");
-  TestdataChainedEntity b1=new TestdataChainedEntity("b1",b0);
-  SingletonInverseVariableSupply inverseVariableSupply=SelectorTestUtils.mockSingletonInverseVariableSupply(new TestdataChainedEntity[]{a1,a2,a3,a4,a5,b1});
-  SubChainChangeMove move=new SubChainChangeMove(new SubChain(Arrays.<Object>asList(a2,a3,a4)),variableDescriptor,inverseVariableSupply,b0);
+  SingletonInverseVariableSupply inverseVariableSupply=SelectorTestUtils.mockSingletonInverseVariableSupply(new TestdataChainedEntity[]{a1,a2,a3,a4,a5});
+  SubChainChangeMove move=new SubChainChangeMove(new SubChain(Arrays.<Object>asList(a1,a2,a3)),variableDescriptor,inverseVariableSupply,a4);
   Move undoMove=move.createUndoMove(scoreDirector);
   move.doMove(scoreDirector);
-  SelectorTestUtils.assertChain(a0,a1,a5);
-  SelectorTestUtils.assertChain(b0,a2,a3,a4,b1);
-  verify(scoreDirector).changeVariableFacade(variableDescriptor,a5,a1);
-  verify(scoreDirector).changeVariableFacade(variableDescriptor,a2,b0);
-  verify(scoreDirector).changeVariableFacade(variableDescriptor,b1,a4);
+  SelectorTestUtils.assertChain(a0,a4,a1,a2,a3,a5);
+  verify(scoreDirector).changeVariableFacade(variableDescriptor,a4,a0);
+  verify(scoreDirector).changeVariableFacade(variableDescriptor,a1,a4);
+  verify(scoreDirector).changeVariableFacade(variableDescriptor,a5,a3);
   undoMove.doMove(scoreDirector);
   SelectorTestUtils.assertChain(a0,a1,a2,a3,a4,a5);
-  SelectorTestUtils.assertChain(b0,b1);
 }

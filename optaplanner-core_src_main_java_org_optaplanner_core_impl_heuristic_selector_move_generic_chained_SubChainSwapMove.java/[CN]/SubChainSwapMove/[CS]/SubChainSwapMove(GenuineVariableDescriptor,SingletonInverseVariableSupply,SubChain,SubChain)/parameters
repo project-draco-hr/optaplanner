@@ -1,0 +1,4 @@
+GenuineVariableDescriptor variableDescriptor
+SingletonInverseVariableSupply inverseVariableSupply
+SubChain leftSubChain
+SubChain rightSubChain

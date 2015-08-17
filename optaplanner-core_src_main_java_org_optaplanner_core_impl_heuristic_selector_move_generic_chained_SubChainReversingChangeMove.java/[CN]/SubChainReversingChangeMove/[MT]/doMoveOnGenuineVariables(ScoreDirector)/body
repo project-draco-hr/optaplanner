@@ -1,3 +1,26 @@
 {
-  ChainedMoveUtils.doReverseSubChainChange(scoreDirector,subChain,variableDescriptor,toPlanningValue);
+  Object firstEntity=subChain.getFirstEntity();
+  Object lastEntity=subChain.getLastEntity();
+  Object oldFirstValue=variableDescriptor.getValue(firstEntity);
+  Object oldTrailingLastEntity=inverseVariableSupply.getInverseSingleton(lastEntity);
+  Object newTrailingEntity=toPlanningValue == null ? null : inverseVariableSupply.getInverseSingleton(toPlanningValue);
+  boolean unmovedReverse=newTrailingEntity == firstEntity;
+  if (!unmovedReverse) {
+    if (oldTrailingLastEntity != null) {
+      scoreDirector.changeVariableFacade(variableDescriptor,oldTrailingLastEntity,oldFirstValue);
+    }
+  }
+  Object lastEntityValue=variableDescriptor.getValue(lastEntity);
+  scoreDirector.changeVariableFacade(variableDescriptor,lastEntity,toPlanningValue);
+  reverseChain(scoreDirector,lastEntity,lastEntityValue,firstEntity);
+  if (!unmovedReverse) {
+    if (newTrailingEntity != null) {
+      scoreDirector.changeVariableFacade(variableDescriptor,newTrailingEntity,firstEntity);
+    }
+  }
+ else {
+    if (oldTrailingLastEntity != null) {
+      scoreDirector.changeVariableFacade(variableDescriptor,oldTrailingLastEntity,firstEntity);
+    }
+  }
 }

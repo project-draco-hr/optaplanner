@@ -1,0 +1,6 @@
+{
+  this.subChain=subChain;
+  this.variableDescriptor=variableDescriptor;
+  this.inverseVariableSupply=inverseVariableSupply;
+  this.toPlanningValue=toPlanningValue;
+}

@@ -1,0 +1,6 @@
+{
+  this.variableDescriptor=variableDescriptor;
+  this.inverseVariableSupply=inverseVariableSupply;
+  this.leftSubChain=leftSubChain;
+  this.rightSubChain=rightSubChain;
+}

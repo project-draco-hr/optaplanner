@@ -15,9 +15,9 @@
     }
   }
   Object toValue=valueIterator.next();
-  Move upcomingSelection=new SubChainChangeMove(upcomingSubChain,valueSelector.getVariableDescriptor(),toValue);
+  Move upcomingSelection=new SubChainChangeMove(upcomingSubChain,valueSelector.getVariableDescriptor(),inverseVariableSupply,toValue);
   if (selectReversingMoveToo) {
-    nextReversingSelection=new SubChainReversingChangeMove(upcomingSubChain,valueSelector.getVariableDescriptor(),toValue);
+    nextReversingSelection=new SubChainReversingChangeMove(upcomingSubChain,valueSelector.getVariableDescriptor(),inverseVariableSupply,toValue);
   }
   return upcomingSelection;
 }

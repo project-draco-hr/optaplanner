@@ -1,5 +1,0 @@
-{
-  this.subChain=subChain;
-  this.variableDescriptor=variableDescriptor;
-  this.toPlanningValue=toPlanningValue;
-}

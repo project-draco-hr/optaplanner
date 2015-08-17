@@ -1,0 +1,8 @@
+{
+  while (entity != toEntity) {
+    Object value=variableDescriptor.getValue(previous);
+    scoreDirector.changeVariableFacade(variableDescriptor,previous,entity);
+    entity=previous;
+    previous=value;
+  }
+}

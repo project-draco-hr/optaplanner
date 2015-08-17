@@ -1,4 +1,4 @@
 {
   Object oldFirstValue=variableDescriptor.getValue(subChain.getFirstEntity());
-  return new SubChainChangeMove(subChain,variableDescriptor,oldFirstValue);
+  return new SubChainChangeMove(subChain,variableDescriptor,inverseVariableSupply,oldFirstValue);
 }
