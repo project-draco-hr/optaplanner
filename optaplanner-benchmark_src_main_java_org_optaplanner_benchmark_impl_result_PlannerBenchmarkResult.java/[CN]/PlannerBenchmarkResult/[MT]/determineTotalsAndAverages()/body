@@ -1,5 +1,6 @@
 {
   failureCount=0;
+  boolean environmentModeSet=false;
   long totalProblemScale=0L;
   int problemScaleCount=0;
   for (  ProblemBenchmarkResult problemBenchmarkResult : unifiedProblemBenchmarkResultList) {
@@ -14,6 +15,14 @@
   Score totalScore=null;
   int solverBenchmarkCount=0;
   for (  SolverBenchmarkResult solverBenchmarkResult : solverBenchmarkResultList) {
+    EnvironmentMode solverEnvironmentMode=solverBenchmarkResult.getEnvironmentMode();
+    if (!environmentModeSet && solverEnvironmentMode != null) {
+      environmentMode=solverEnvironmentMode;
+      environmentModeSet=true;
+    }
+ else     if (environmentModeSet && solverEnvironmentMode != environmentMode) {
+      environmentMode=null;
+    }
     Score score=solverBenchmarkResult.getAverageScore();
     if (score != null) {
       if (totalScore != null && !totalScore.isCompatibleArithmeticArgument(score)) {
