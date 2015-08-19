@@ -1,0 +1,6 @@
+{
+  if (solver instanceof DefaultSolver) {
+    return ((DefaultSolver)solver).getSolverScope().getBestScoreWithUninitializedPrefix();
+  }
+  return getScore().toString();
+}

@@ -1,9 +1,0 @@
-{
-  if (!(score instanceof FeasibilityScore)) {
-    return Color.BLACK;
-  }
- else {
-    FeasibilityScore<?> feasibilityScore=(FeasibilityScore<?>)score;
-    return feasibilityScore.isFeasible() ? TangoColorFactory.CHAMELEON_3 : TangoColorFactory.SCARLET_3;
-  }
-}
