@@ -1,4 +1,4 @@
 {
-  scoreField.setForeground(determineScoreFieldForeground(solution.getScore()));
-  scoreField.setText("Latest best score: " + solution.getScore());
+  scoreField.setForeground(determineScoreFieldForeground(solutionBusiness.getUninitializedVariableCount(),solution.getScore()));
+  scoreField.setText("Latest best score: " + solutionBusiness.getScoreWithUninitializedPrefix());
 }
