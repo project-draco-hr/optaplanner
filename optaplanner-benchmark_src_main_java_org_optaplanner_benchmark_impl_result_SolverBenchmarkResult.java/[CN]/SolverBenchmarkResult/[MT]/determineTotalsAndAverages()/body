@@ -7,7 +7,7 @@
   long totalAverageCalculateCountPerSecond=0L;
   long totalTimeMillisSpent=0L;
   uninitializedSolutionCount=0;
-  uninitializedVariableCountSum=0;
+  totalUninitializedVariableCount=0;
   infeasibleScoreCount=0;
   for (  SingleBenchmarkResult singleBenchmarkResult : singleBenchmarkResultList) {
     if (singleBenchmarkResult.isFailure()) {
@@ -16,7 +16,7 @@
  else {
       if (!singleBenchmarkResult.isInitialized()) {
         uninitializedSolutionCount++;
-        uninitializedVariableCountSum+=singleBenchmarkResult.getUninitializedVariableCount();
+        totalUninitializedVariableCount+=singleBenchmarkResult.getUninitializedVariableCount();
       }
  else       if (!singleBenchmarkResult.isScoreFeasible()) {
         infeasibleScoreCount++;
