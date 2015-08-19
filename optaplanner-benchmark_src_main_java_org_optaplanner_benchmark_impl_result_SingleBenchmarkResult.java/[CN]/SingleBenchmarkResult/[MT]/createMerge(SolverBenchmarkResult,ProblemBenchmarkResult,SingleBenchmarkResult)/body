@@ -13,7 +13,6 @@
   newResult.uninitializedVariableCount=oldResult.uninitializedVariableCount;
   newResult.timeMillisSpent=oldResult.timeMillisSpent;
   newResult.calculateCount=oldResult.calculateCount;
-  newResult.environmentMode=oldResult.environmentMode;
   solverBenchmarkResult.getSingleBenchmarkResultList().add(newResult);
   problemBenchmarkResult.getSingleBenchmarkResultList().add(newResult);
   return newResult;

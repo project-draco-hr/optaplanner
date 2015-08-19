@@ -1,0 +1,3 @@
+{
+  return defaultIfNull(environmentMode,EnvironmentMode.REPRODUCIBLE);
+}
