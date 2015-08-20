@@ -13,7 +13,16 @@
   averageProblemScale=problemScaleCount == 0 ? null : totalProblemScale / (long)problemScaleCount;
   Score totalScore=null;
   int solverBenchmarkCount=0;
+  boolean firstSolverBenchmarkResult=true;
   for (  SolverBenchmarkResult solverBenchmarkResult : solverBenchmarkResultList) {
+    EnvironmentMode solverEnvironmentMode=solverBenchmarkResult.getEnvironmentMode();
+    if (firstSolverBenchmarkResult && solverEnvironmentMode != null) {
+      environmentMode=solverEnvironmentMode;
+      firstSolverBenchmarkResult=false;
+    }
+ else     if (!firstSolverBenchmarkResult && solverEnvironmentMode != environmentMode) {
+      environmentMode=null;
+    }
     Score score=solverBenchmarkResult.getAverageScore();
     if (score != null) {
       if (totalScore != null && !totalScore.isCompatibleArithmeticArgument(score)) {

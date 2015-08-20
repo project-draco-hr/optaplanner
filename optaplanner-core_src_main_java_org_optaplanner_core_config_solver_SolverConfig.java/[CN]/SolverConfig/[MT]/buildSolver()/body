@@ -1,6 +1,6 @@
 {
   DefaultSolver solver=new DefaultSolver();
-  EnvironmentMode environmentMode_=defaultIfNull(environmentMode,EnvironmentMode.REPRODUCIBLE);
+  EnvironmentMode environmentMode_=determineEnvironmentMode();
   solver.setEnvironmentMode(environmentMode_);
   boolean daemon_=defaultIfNull(daemon,false);
   BasicPlumbingTermination basicPlumbingTermination=new BasicPlumbingTermination(daemon_);

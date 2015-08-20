@@ -16,6 +16,7 @@
         newResult.operatingSystem=oldResult.operatingSystem;
         newResult.parallelBenchmarkCount=oldResult.parallelBenchmarkCount;
         newResult.warmUpTimeMillisSpentLimit=oldResult.warmUpTimeMillisSpentLimit;
+        newResult.environmentMode=oldResult.environmentMode;
         newResult.solverBenchmarkResultList=new ArrayList<SolverBenchmarkResult>();
         newResult.unifiedProblemBenchmarkResultList=new ArrayList<ProblemBenchmarkResult>();
         newResult.startingTimestamp=null;
@@ -31,6 +32,7 @@
         newResult.operatingSystem=ConfigUtils.mergeProperty(newResult.operatingSystem,oldResult.operatingSystem);
         newResult.parallelBenchmarkCount=ConfigUtils.mergeProperty(newResult.parallelBenchmarkCount,oldResult.parallelBenchmarkCount);
         newResult.warmUpTimeMillisSpentLimit=ConfigUtils.mergeProperty(newResult.warmUpTimeMillisSpentLimit,oldResult.warmUpTimeMillisSpentLimit);
+        newResult.environmentMode=ConfigUtils.mergeProperty(newResult.environmentMode,oldResult.environmentMode);
       }
       mergeMap.put(oldResult,newResult);
     }

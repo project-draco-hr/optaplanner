@@ -1,0 +1,11 @@
+{
+  if (solverRankingComparator != null) {
+    return solverRankingComparator.getClass();
+  }
+ else   if (solverRankingWeightFactory != null) {
+    return solverRankingWeightFactory.getClass();
+  }
+ else {
+    return null;
+  }
+}
