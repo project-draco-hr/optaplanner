@@ -1,4 +1,0 @@
-{
-  SingletonInverseVariableSupply supply=variableListenerSupport.demand(new SingletonInverseVariableDemand(chainedVariableDescriptor));
-  return supply.getInverseSingleton(planningValue);
-}

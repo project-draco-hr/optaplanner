@@ -1,6 +1,6 @@
 {
   GenuineVariableDescriptor variableDescriptor=TestdataChainedEntity.buildVariableDescriptorForChainedObject();
-  InnerScoreDirector scoreDirector=mock(InnerScoreDirector.class);
+  InnerScoreDirector scoreDirector=PlannerTestUtils.mockScoreDirector(variableDescriptor.getEntityDescriptor().getSolutionDescriptor());
   TestdataChainedAnchor a0=new TestdataChainedAnchor("a0");
   TestdataChainedEntity a1=new TestdataChainedEntity("a1",a0);
   TestdataChainedEntity a2=new TestdataChainedEntity("a2",a1);
@@ -9,7 +9,10 @@
   TestdataChainedAnchor b0=new TestdataChainedAnchor("b0");
   TestdataChainedEntity b1=new TestdataChainedEntity("b1",b0);
   TestdataChainedEntity b2=new TestdataChainedEntity("b2",b1);
-  SelectorTestUtils.mockMethodGetTrailingEntity(scoreDirector,variableDescriptor,new TestdataChainedEntity[]{a1,a2,a3,a4,b1,b2});
+  TestdataChainedSolution solution=new TestdataChainedSolution("solution");
+  solution.setChainedAnchorList(Arrays.asList(a0,b0));
+  solution.setChainedEntityList(Arrays.asList(a1,a2,a3,a4,b1,b2));
+  scoreDirector.setWorkingSolution(solution);
   EntityIndependentValueSelector valueSelector=SelectorTestUtils.mockEntityIndependentValueSelector(variableDescriptor,a0,a1,a2,a3,a4,b0,b1,b2);
   DefaultSubChainSelector subChainSelector=new DefaultSubChainSelector(valueSelector,false,1,Integer.MAX_VALUE);
   DefaultSolverScope solverScope=mock(DefaultSolverScope.class);
@@ -23,9 +26,10 @@
   subChainSelector.stepStarted(stepScopeA1);
   assertAllCodesOfSubChainSelector(subChainSelector,"[a1]","[a1, a2]","[a1, a2, a3]","[a1, a2, a3, a4]","[a2]","[a2, a3]","[a2, a3, a4]","[a3]","[a3, a4]","[a4]","[b1]","[b1, b2]","[b2]");
   subChainSelector.stepEnded(stepScopeA1);
-  a4.setChainedObject(a2);
-  a3.setChainedObject(b1);
-  b2.setChainedObject(a3);
+  scoreDirector.changeVariableFacade(variableDescriptor,a4,a2);
+  scoreDirector.changeVariableFacade(variableDescriptor,a3,b1);
+  scoreDirector.changeVariableFacade(variableDescriptor,b2,a3);
+  scoreDirector.commitMove();
   AbstractStepScope stepScopeA2=mock(AbstractStepScope.class);
   when(stepScopeA2.getPhaseScope()).thenReturn(phaseScopeA);
   subChainSelector.stepStarted(stepScopeA2);

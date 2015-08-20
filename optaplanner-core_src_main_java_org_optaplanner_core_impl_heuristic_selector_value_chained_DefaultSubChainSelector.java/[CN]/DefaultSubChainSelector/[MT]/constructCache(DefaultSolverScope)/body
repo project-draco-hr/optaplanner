@@ -15,10 +15,10 @@
   int anchorChainInitialCapacity=((int)valueSize / anchorList.size()) + 1;
   for (  Object anchor : anchorList) {
     List<Object> anchorChain=new ArrayList<Object>(anchorChainInitialCapacity);
-    Object trailingEntity=scoreDirector.getTrailingEntity(variableDescriptor,anchor);
+    Object trailingEntity=inverseVariableSupply.getInverseSingleton(anchor);
     while (trailingEntity != null) {
       anchorChain.add(trailingEntity);
-      trailingEntity=scoreDirector.getTrailingEntity(variableDescriptor,trailingEntity);
+      trailingEntity=inverseVariableSupply.getInverseSingleton(trailingEntity);
     }
     if (anchorChain.size() >= minimumSubChainSize) {
       anchorTrailingChainList.add(new SubChain(anchorChain));

@@ -1,0 +1,6 @@
+{
+  super.solvingEnded(solverScope);
+  if (chained) {
+    inverseVariableSupply=null;
+  }
+}

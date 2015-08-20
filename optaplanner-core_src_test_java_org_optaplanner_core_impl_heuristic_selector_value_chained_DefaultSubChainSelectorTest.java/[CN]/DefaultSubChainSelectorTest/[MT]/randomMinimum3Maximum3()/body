@@ -1,12 +1,15 @@
 {
   GenuineVariableDescriptor variableDescriptor=TestdataChainedEntity.buildVariableDescriptorForChainedObject();
-  InnerScoreDirector scoreDirector=mock(InnerScoreDirector.class);
+  InnerScoreDirector scoreDirector=PlannerTestUtils.mockScoreDirector(variableDescriptor.getEntityDescriptor().getSolutionDescriptor());
   TestdataChainedAnchor a0=new TestdataChainedAnchor("a0");
   TestdataChainedEntity a1=new TestdataChainedEntity("a1",a0);
   TestdataChainedEntity a2=new TestdataChainedEntity("a2",a1);
   TestdataChainedEntity a3=new TestdataChainedEntity("a3",a2);
   TestdataChainedEntity a4=new TestdataChainedEntity("a4",a3);
-  SelectorTestUtils.mockMethodGetTrailingEntity(scoreDirector,variableDescriptor,new TestdataChainedEntity[]{a1,a2,a3,a4});
+  TestdataChainedSolution solution=new TestdataChainedSolution("solution");
+  solution.setChainedAnchorList(Arrays.asList(a0));
+  solution.setChainedEntityList(Arrays.asList(a1,a2,a3,a4));
+  scoreDirector.setWorkingSolution(solution);
   EntityIndependentValueSelector valueSelector=SelectorTestUtils.mockEntityIndependentValueSelector(variableDescriptor,a0,a1,a2,a3,a4);
   DefaultSubChainSelector subChainSelector=new DefaultSubChainSelector(valueSelector,true,3,3);
   DefaultSolverScope solverScope=mock(DefaultSolverScope.class);
