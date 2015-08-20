@@ -1,0 +1,6 @@
+{
+  if (getCsvFile().exists() && pointList == null) {
+    initPointList();
+    readCsvStatisticFile();
+  }
+}
