@@ -1,14 +1,13 @@
 {
   InnerScoreDirector scoreDirector=solverScope.getScoreDirector();
   GenuineVariableDescriptor variableDescriptor=valueSelector.getVariableDescriptor();
-  Class<?> entityClass=variableDescriptor.getEntityDescriptor().getEntityClass();
   long valueSize=valueSelector.getSize();
   if (valueSize > (long)Integer.MAX_VALUE) {
     throw new IllegalStateException("The selector (" + this + ") has a valueSelector ("+ valueSelector+ ") with valueSize ("+ valueSize+ ") which is higher than Integer.MAX_VALUE.");
   }
   List<Object> anchorList=new LinkedList<Object>();
   for (  Object value : valueSelector) {
-    if (!entityClass.isAssignableFrom(value.getClass())) {
+    if (variableDescriptor.isValuePotentialAnchor(value)) {
       anchorList.add(value);
     }
   }

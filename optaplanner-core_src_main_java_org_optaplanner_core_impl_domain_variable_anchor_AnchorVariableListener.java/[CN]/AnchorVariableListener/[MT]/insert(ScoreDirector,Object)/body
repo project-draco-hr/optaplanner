@@ -4,11 +4,11 @@
   if (previousEntity == null) {
     anchor=null;
   }
- else   if (previousVariableDescriptor.isValueNoPotentialAnchor(previousEntity)) {
-    anchor=anchorShadowVariableDescriptor.getValue(previousEntity);
+ else   if (previousVariableDescriptor.isValuePotentialAnchor(previousEntity)) {
+    anchor=previousEntity;
   }
  else {
-    anchor=previousEntity;
+    anchor=anchorShadowVariableDescriptor.getValue(previousEntity);
   }
   Object nextEntity=entity;
   while (nextEntity != null && anchorShadowVariableDescriptor.getValue(nextEntity) != anchor) {
