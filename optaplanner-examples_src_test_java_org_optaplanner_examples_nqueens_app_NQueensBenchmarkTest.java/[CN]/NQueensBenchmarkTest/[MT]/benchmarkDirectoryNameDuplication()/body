@@ -1,0 +1,7 @@
+{
+  PlannerBenchmarkFactory plannerBenchmarkFactory=buildPlannerBenchmarkFactory(new File("data/nqueens/unsolved/4queens.xml"));
+  PlannerBenchmarkRunner plannerBenchmarkRunner=(PlannerBenchmarkRunner)plannerBenchmarkFactory.buildPlannerBenchmark();
+  plannerBenchmarkRunner.benchmarkingStarted();
+  plannerBenchmarkRunner.getPlannerBenchmarkResult().initBenchmarkReportDirectory(plannerBenchmarkFactory.getPlannerBenchmarkConfig().getBenchmarkDirectory());
+  plannerBenchmarkRunner.getPlannerBenchmarkResult().initBenchmarkReportDirectory(plannerBenchmarkFactory.getPlannerBenchmarkConfig().getBenchmarkDirectory());
+}
