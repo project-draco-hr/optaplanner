@@ -1,5 +1,0 @@
-{
-  AgendaItem agendaItem=(AgendaItem)ruleContext.getMatch();
-  AbstractScoreHolder.MultiLevelConstraintUndoListener multiLevelConstraintUndoListener=(AbstractScoreHolder.MultiLevelConstraintUndoListener)agendaItem.getActivationUnMatchListener();
-  multiLevelConstraintUndoListener.unMatch(scoreLevel);
-}

@@ -3,5 +3,5 @@
     constraintUndoListener.constraintMatchTotal=findDoubleConstraintMatchTotal(kcontext,scoreLevel);
     constraintUndoListener.constraintMatch=constraintUndoListener.constraintMatchTotal.addConstraintMatch(kcontext,weight);
   }
-  putUnMatchListener(kcontext,scoreLevel,constraintUndoListener);
+  putConstraintUndoListener(kcontext,scoreLevel,constraintUndoListener);
 }

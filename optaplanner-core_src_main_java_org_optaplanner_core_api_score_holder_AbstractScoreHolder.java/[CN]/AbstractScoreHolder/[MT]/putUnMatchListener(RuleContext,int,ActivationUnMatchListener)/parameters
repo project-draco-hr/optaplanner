@@ -1,3 +1,0 @@
-RuleContext kcontext
-int scoreLevel
-ActivationUnMatchListener abstractConstraintUndoListener

@@ -1,6 +1,0 @@
-{
-  if (activationUnMatchListenerMap.containsKey(scoreLevel)) {
-    activationUnMatchListenerMap.get(scoreLevel).unMatch(null,null);
-    activationUnMatchListenerMap.remove(scoreLevel);
-  }
-}

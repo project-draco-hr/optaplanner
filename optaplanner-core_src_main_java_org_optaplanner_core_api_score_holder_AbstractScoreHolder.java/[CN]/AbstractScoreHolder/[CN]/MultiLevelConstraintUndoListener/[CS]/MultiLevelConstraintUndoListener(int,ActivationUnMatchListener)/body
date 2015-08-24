@@ -1,4 +1,4 @@
 {
-  this.activationUnMatchListenerMap=new HashMap<Integer,ActivationUnMatchListener>();
-  match(scoreLevel,activationUnMatchListener);
+  scoreLevelToConstraintUndoListenerMap=new HashMap<Integer,ActivationUnMatchListener>(2);
+  scoreLevelToConstraintUndoListenerMap.put(scoreLevel,constraintUndoListener);
 }
