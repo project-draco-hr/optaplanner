@@ -1,0 +1,6 @@
+{
+  for (  ConstraintUndoListener constraintUndoListener : scoreLevelToConstraintUndoListenerMap.values()) {
+    constraintUndoListener.unMatch();
+  }
+  scoreLevelToConstraintUndoListenerMap.clear();
+}

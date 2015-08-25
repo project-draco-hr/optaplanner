@@ -1,0 +1,6 @@
+{
+  ConstraintUndoListener oldConstraintUndoListener=scoreLevelToConstraintUndoListenerMap.put(scoreLevel,constraintUndoListener);
+  if (oldConstraintUndoListener != null) {
+    oldConstraintUndoListener.unMatch();
+  }
+}
