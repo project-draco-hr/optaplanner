@@ -15,14 +15,30 @@
     if (problemBenchmarkResult.hasAnySuccess()) {
       for (      ProblemStatistic problemStatistic : problemBenchmarkResult.getProblemStatisticList()) {
         for (        SingleStatistic singleStatistic : problemStatistic.getSingleStatisticList()) {
-          singleStatistic.unhibernatePointList();
+          try {
+            singleStatistic.unhibernatePointList();
+          }
+ catch (          IllegalStateException ise) {
+            if (!plannerBenchmarkResult.getAggregation()) {
+              throw ise;
+            }
+            logger.trace("This is expected, aggregator doesn't copy CSV files. Could not read CSV file " + "( {} ) of single statistic ( {} ).",singleStatistic.getCsvFile().getAbsolutePath(),singleStatistic);
+          }
         }
         problemStatistic.writeGraphFiles(this);
       }
       for (      SingleBenchmarkResult singleBenchmarkResult : problemBenchmarkResult.getSingleBenchmarkResultList()) {
         if (singleBenchmarkResult.isSuccess()) {
           for (          PureSingleStatistic pureSingleStatistic : singleBenchmarkResult.getPureSingleStatisticList()) {
-            pureSingleStatistic.unhibernatePointList();
+            try {
+              pureSingleStatistic.unhibernatePointList();
+            }
+ catch (            IllegalStateException ise) {
+              if (!plannerBenchmarkResult.getAggregation()) {
+                throw ise;
+              }
+              logger.trace("This is expected, aggregator doesn't copy CSV files. Could not read CSV file " + "( {} ) of pure single statistic ( {} ).",pureSingleStatistic.getCsvFile().getAbsolutePath(),pureSingleStatistic);
+            }
             pureSingleStatistic.writeGraphFiles(this);
           }
         }

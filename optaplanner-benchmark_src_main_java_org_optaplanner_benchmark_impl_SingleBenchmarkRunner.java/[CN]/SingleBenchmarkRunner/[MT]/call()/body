@@ -11,7 +11,7 @@
   Solver solver=singleBenchmarkResult.getSolverBenchmarkResult().getSolverConfig().buildSolver();
   for (  SingleStatistic singleStatistic : singleBenchmarkResult.getEffectiveSingleStatisticMap().values()) {
     singleStatistic.open(solver);
-    singleStatistic.unhibernatePointList();
+    singleStatistic.initPointList();
   }
   solver.solve(inputSolution);
   long timeMillisSpent=solver.getTimeMillisSpent();
