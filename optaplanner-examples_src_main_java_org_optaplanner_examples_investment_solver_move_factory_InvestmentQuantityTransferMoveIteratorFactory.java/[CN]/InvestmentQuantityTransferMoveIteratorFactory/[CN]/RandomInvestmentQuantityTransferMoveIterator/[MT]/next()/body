@@ -8,6 +8,5 @@
   if (toAllocation == fromAllocation) {
     toAllocation=allocationList.get(allocationList.size() - 1);
   }
-  ;
   return new InvestmentQuantityTransferMove(fromAllocation,toAllocation,transferMillis);
 }
