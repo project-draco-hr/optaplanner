@@ -29,7 +29,7 @@
   scoreDirector.changeVariableFacade(variableDescriptor,a4,a2);
   scoreDirector.changeVariableFacade(variableDescriptor,a3,b1);
   scoreDirector.changeVariableFacade(variableDescriptor,b2,a3);
-  scoreDirector.commitMove();
+  scoreDirector.triggerVariableListeners();
   AbstractStepScope stepScopeA2=mock(AbstractStepScope.class);
   when(stepScopeA2.getPhaseScope()).thenReturn(phaseScopeA);
   subChainSelector.stepStarted(stepScopeA2);

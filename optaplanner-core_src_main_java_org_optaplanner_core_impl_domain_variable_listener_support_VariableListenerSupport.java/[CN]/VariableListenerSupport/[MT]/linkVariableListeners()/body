@@ -1,5 +1,6 @@
 {
   notificationQueueMap=new TreeMap<VariableListenerNotifiable,Set<VariableListenerNotification>>();
+  notificationQueuesAreEmpty=true;
   for (  EntityDescriptor entityDescriptor : scoreDirector.getSolutionDescriptor().getEntityDescriptors()) {
     for (    VariableDescriptor variableDescriptor : entityDescriptor.getDeclaredVariableDescriptors()) {
       List<VariableListenerNotifiable> variableNotifiableList=new ArrayList<VariableListenerNotifiable>();

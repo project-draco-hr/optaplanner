@@ -27,6 +27,7 @@ newVisit.setLocation(newLocation);
 scoreDirector.beforeEntityAdded(newVisit);
 tour.getVisitList().add(newVisit);
 scoreDirector.afterEntityAdded(newVisit);
+scoreDirector.triggerVariableListeners();
 }
 }
 );

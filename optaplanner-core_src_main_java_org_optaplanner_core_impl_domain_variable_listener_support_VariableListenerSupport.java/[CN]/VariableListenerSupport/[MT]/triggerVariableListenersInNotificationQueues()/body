@@ -22,4 +22,5 @@ throw new IllegalStateException("The variableListenerNotificationType (" + notif
 it.remove();
 }
 }
+notificationQueuesAreEmpty=true;
 }

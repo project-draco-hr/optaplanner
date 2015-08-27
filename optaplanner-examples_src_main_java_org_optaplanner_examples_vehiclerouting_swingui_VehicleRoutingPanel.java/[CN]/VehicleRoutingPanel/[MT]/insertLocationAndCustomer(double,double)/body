@@ -28,6 +28,7 @@ Customer newCustomer=createCustomer(solution,newLocation);
 scoreDirector.beforeEntityAdded(newCustomer);
 solution.getCustomerList().add(newCustomer);
 scoreDirector.afterEntityAdded(newCustomer);
+scoreDirector.triggerVariableListeners();
 }
 }
 );

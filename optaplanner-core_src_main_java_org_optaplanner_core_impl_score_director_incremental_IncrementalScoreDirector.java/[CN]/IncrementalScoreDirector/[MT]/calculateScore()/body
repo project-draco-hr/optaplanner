@@ -1,4 +1,5 @@
 {
+  variableListenerSupport.assertNotificationQueuesAreEmpty();
   Score score=incrementalScoreCalculator.calculateScore();
   setCalculatedScore(score);
   return score;

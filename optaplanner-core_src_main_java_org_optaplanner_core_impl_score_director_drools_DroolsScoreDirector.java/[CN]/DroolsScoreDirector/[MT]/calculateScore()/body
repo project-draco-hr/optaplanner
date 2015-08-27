@@ -1,4 +1,5 @@
 {
+  variableListenerSupport.assertNotificationQueuesAreEmpty();
   kieSession.fireAllRules();
   Score score=workingScoreHolder.extractScore();
   setCalculatedScore(score);

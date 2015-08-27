@@ -3,4 +3,5 @@
   scoreDirector.beforeEntityAdded(process);
   cloudBalance.getProcessList().add(process);
   scoreDirector.afterEntityAdded(process);
+  scoreDirector.triggerVariableListeners();
 }

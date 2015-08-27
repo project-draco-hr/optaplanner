@@ -1,0 +1,5 @@
+{
+  if (!notificationQueuesAreEmpty) {
+    throw new IllegalStateException("The notificationQueues might not be empty (" + notificationQueuesAreEmpty + ") so any shadow variables might be stale so score calculation is unreliable.\n"+ "Maybe a "+ ScoreDirector.class.getSimpleName()+ ".before*() method was called"+ " without calling "+ ScoreDirector.class.getSimpleName()+ ".triggerVariableListeners(),"+ " before calling "+ ScoreDirector.class.getSimpleName()+ ".calculateScore().");
+  }
+}

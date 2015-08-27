@@ -1,4 +1,4 @@
 {
   doMoveOnGenuineVariables(scoreDirector);
-  scoreDirector.commitMove();
+  scoreDirector.triggerVariableListeners();
 }

@@ -15,6 +15,7 @@
           scoreDirector.afterVariableChanged(processAssignment,"machine");
         }
       }
+      scoreDirector.triggerVariableListeners();
       machineReassignment.setMachineList(new ArrayList<MrMachine>(machineReassignment.getMachineList()));
       for (Iterator<MrMachine> it=machineReassignment.getMachineList().iterator(); it.hasNext(); ) {
         MrMachine workingMachine=it.next();

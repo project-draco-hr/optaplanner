@@ -8,6 +8,7 @@
         scoreDirector.beforeVariableChanged(seatDesignation,"seat");
         seatDesignation.setSeat(seat);
         scoreDirector.afterVariableChanged(seatDesignation,"seat");
+        scoreDirector.triggerVariableListeners();
         Score score=scoreDirector.calculateScore();
         if (score.compareTo(bestScore) > 0) {
           bestScore=score;
@@ -21,6 +22,7 @@
     scoreDirector.beforeVariableChanged(seatDesignation,"seat");
     seatDesignation.setSeat(bestSeat);
     scoreDirector.afterVariableChanged(seatDesignation,"seat");
+    scoreDirector.triggerVariableListeners();
     undesignatedSeatList.remove(bestSeat);
   }
 }

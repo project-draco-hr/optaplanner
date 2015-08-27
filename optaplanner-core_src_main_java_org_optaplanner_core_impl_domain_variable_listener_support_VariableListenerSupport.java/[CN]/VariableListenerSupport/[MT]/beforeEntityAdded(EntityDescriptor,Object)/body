@@ -7,4 +7,5 @@
       notifiable.getVariableListener().beforeEntityAdded(scoreDirector,entity);
     }
   }
+  notificationQueuesAreEmpty=false;
 }

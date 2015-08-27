@@ -7,4 +7,5 @@
       notifiable.getVariableListener().beforeVariableChanged(scoreDirector,entity);
     }
   }
+  notificationQueuesAreEmpty=false;
 }
