@@ -1,6 +1,7 @@
 {
   Score undoScore=calculateScore();
   if (!undoScore.equals(beforeMoveScore)) {
+    logger.trace("        Corruption detected. Diagnosing...");
     String undoMoveString="Undo(" + move + ")";
     getScoreDirector().assertWorkingScoreFromScratch(undoScore,undoMoveString);
     getScoreDirector().assertShadowVariablesAreNotStale(undoScore,undoMoveString);
