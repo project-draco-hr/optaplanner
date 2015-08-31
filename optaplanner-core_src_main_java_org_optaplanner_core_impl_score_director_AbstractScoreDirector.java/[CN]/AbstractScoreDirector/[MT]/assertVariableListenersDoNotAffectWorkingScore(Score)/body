@@ -1,7 +1,0 @@
-{
-  variableListenerSupport.triggerAllVariableListeners();
-  Score workingScore=calculateScore();
-  if (!expectedWorkingScore.equals(workingScore)) {
-    throw new IllegalStateException("VariableListener corruption: the expectedWorkingScore (" + expectedWorkingScore + ") is not the workingScore  ("+ workingScore+ ") after all VariableListeners were triggered without changes to the genuine variables.\n"+ "A VariableListener probably changed a shadow variable,"+ " despite that the genuine variable didn't change,"+ " which means the shadow variable's original value is probably wrong.");
-  }
-}

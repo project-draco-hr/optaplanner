@@ -15,7 +15,7 @@
   if (assertInitialScoreFromScratch) {
     scoreDirector.assertWorkingScoreFromScratch(score,"Initial score calculated");
   }
-  if (assertVariableListenersDoNotAffectInitialScore) {
-    scoreDirector.assertVariableListenersDoNotAffectWorkingScore(score);
+  if (assertShadowVariablesAreNotStale) {
+    scoreDirector.assertShadowVariablesAreNotStale(score,"Initial score calculated");
   }
 }

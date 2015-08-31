@@ -5,7 +5,7 @@
     bestSolutionRecaller.setAssertBestScoreIsUnmodified(true);
   }
   if (environmentMode == EnvironmentMode.FULL_ASSERT) {
-    bestSolutionRecaller.setAssertVariableListenersDoNotAffectInitialScore(true);
+    bestSolutionRecaller.setAssertShadowVariablesAreNotStale(true);
   }
   return bestSolutionRecaller;
 }
