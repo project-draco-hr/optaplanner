@@ -1,0 +1,14 @@
+{
+  if (a == null && b == null) {
+    return null;
+  }
+ else   if (a == null && b != null) {
+    return b;
+  }
+ else   if (a != null && b == null) {
+    return a;
+  }
+ else {
+    return ConfigUtils.mergeProperty(a,b);
+  }
+}
