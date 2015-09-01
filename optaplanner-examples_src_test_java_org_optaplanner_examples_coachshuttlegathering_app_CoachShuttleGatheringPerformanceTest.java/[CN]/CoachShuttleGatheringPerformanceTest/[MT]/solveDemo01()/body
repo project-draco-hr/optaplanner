@@ -1,0 +1,4 @@
+{
+  File unsolvedDataFile=new File("data/coachshuttlegathering/unsolved/demo01.xml");
+  runSpeedTest(unsolvedDataFile,"0hard/-389030soft");
+}
