@@ -5,21 +5,23 @@
     transportTimeToHub=null;
   }
  else {
-    StopOrHub next=sourceStop.getNextStop();
-    if (next == null) {
-      next=bus.getDestination();
-      if (next instanceof BusStop && ((BusStop)next).getBus() instanceof Shuttle) {
+    StopOrHub destination=bus.getDestination();
+    if (destination instanceof BusStop && ((BusStop)destination).getBus() instanceof Shuttle) {
+      transportTimeToHub=null;
+    }
+ else {
+      StopOrHub next=sourceStop.getNextStop();
+      if (next != null) {
+        transportTimeToHub=next.getTransportTimeToHub();
+      }
+ else       if (destination != null) {
+        transportTimeToHub=destination.getTransportTimeToHub();
+        next=destination;
+      }
+ else {
         transportTimeToHub=null;
       }
- else {
-        transportTimeToHub=(next == null) ? null : next.getTransportTimeToHub();
-      }
-    }
- else {
-      transportTimeToHub=next.getTransportTimeToHub();
-    }
-    if (transportTimeToHub != null) {
-      transportTimeToHub+=bus.getDurationFromTo(sourceStop.getLocation(),next.getLocation());
+      transportTimeToHub=addTransportTime(transportTimeToHub,sourceStop,next);
     }
   }
   updateTransportTime(scoreDirector,sourceStop,bus,transportTimeToHub);

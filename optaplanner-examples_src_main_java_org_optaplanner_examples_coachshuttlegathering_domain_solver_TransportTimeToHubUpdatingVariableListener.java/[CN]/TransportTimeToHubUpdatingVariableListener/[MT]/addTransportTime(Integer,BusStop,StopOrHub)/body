@@ -1,0 +1,6 @@
+{
+  if (transportTimeToHub == null) {
+    return null;
+  }
+  return transportTimeToHub + fromStop.getBus().getDurationFromTo(fromStop.getLocation(),toStop.getLocation());
+}

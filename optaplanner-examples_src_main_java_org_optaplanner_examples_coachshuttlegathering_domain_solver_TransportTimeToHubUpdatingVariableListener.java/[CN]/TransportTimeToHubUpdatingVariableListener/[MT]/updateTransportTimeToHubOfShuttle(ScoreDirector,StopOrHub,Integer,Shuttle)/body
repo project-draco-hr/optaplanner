@@ -1,14 +1,12 @@
 {
+  if (shuttle.getNextStop() == null) {
+    return;
+  }
   BusStop lastStop=null;
   for (BusStop stop=shuttle.getNextStop(); stop != null; stop=stop.getNextStop()) {
     lastStop=stop;
   }
-  if (lastStop == null) {
-    return;
-  }
   Integer transportTimeToHub=parentTransportTimeToHub;
-  if (transportTimeToHub != null) {
-    transportTimeToHub+=shuttle.getDurationFromTo(lastStop.getLocation(),parentStop.getLocation());
-  }
+  transportTimeToHub=addTransportTime(transportTimeToHub,lastStop,parentStop);
   updateTransportTime(scoreDirector,lastStop,shuttle,transportTimeToHub);
 }
