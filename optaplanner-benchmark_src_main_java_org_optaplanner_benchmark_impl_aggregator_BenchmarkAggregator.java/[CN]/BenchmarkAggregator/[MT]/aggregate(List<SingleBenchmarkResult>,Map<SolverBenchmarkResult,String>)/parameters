@@ -1,2 +1,2 @@
 List<SingleBenchmarkResult> singleBenchmarkResultList
-Map<SolverBenchmarkResult,String> solverBenchamkarkResultNameMap
+Map<SolverBenchmarkResult,String> solverBenchmarkResultNameMap

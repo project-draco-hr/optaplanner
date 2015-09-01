@@ -18,8 +18,8 @@
       singleStatistic.readCsvStatisticFile();
     }
   }
-  if (solverBenchamkarkResultNameMap != null) {
-    for (    Entry<SolverBenchmarkResult,String> results : solverBenchamkarkResultNameMap.entrySet()) {
+  if (solverBenchmarkResultNameMap != null) {
+    for (    Entry<SolverBenchmarkResult,String> results : solverBenchmarkResultNameMap.entrySet()) {
       if (!results.getKey().getName().equals(results.getValue())) {
         results.getKey().setName(results.getValue());
       }
