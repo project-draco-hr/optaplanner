@@ -1,0 +1,4 @@
+{
+  this.terminationConfig=terminationConfig;
+  this.pureSingleStatisticMap=new HashMap<SingleBenchmarkResult,List<PureSingleStatistic>>();
+}

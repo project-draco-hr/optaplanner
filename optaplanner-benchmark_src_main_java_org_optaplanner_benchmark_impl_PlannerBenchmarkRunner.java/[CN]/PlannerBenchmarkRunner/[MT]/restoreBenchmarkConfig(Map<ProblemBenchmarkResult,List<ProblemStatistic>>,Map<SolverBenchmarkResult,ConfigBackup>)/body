@@ -1,0 +1,13 @@
+{
+  for (  SolverBenchmarkResult solverBenchmarkResult : plannerBenchmarkResult.getSolverBenchmarkResultList()) {
+    ConfigBackup configBackup=configBackupMap.get(solverBenchmarkResult);
+    TerminationConfig originalTerminationConfig=configBackup.getTerminationConfig();
+    solverBenchmarkResult.getSolverConfig().setTerminationConfig(originalTerminationConfig);
+    for (    SingleBenchmarkResult singleBenchmarkResult : solverBenchmarkResult.getSingleBenchmarkResultList()) {
+      singleBenchmarkResult.setPureSingleStatisticList(configBackup.getPureSingleStatisticMap().get(singleBenchmarkResult));
+      ProblemBenchmarkResult problemBenchmarkResult=singleBenchmarkResult.getProblemBenchmarkResult();
+      problemBenchmarkResult.setProblemStatisticList(originalProblemStatisticMap.get(problemBenchmarkResult));
+      singleBenchmarkResult.initSingleStatisticMap();
+    }
+  }
+}
