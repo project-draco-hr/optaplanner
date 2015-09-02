@@ -1,0 +1,16 @@
+{
+  if (divisor == 0) {
+    throw new ArithmeticException("Cannot divide by zero: " + dividend + "/"+ divisor);
+  }
+  int correction;
+  if (dividend % divisor == 0) {
+    correction=0;
+  }
+ else   if (Long.signum(dividend) * Long.signum(divisor) < 0) {
+    correction=-1;
+  }
+ else {
+    correction=0;
+  }
+  return (dividend / divisor) + correction;
+}

@@ -1,0 +1,4 @@
+{
+  long result=Math.round(Math.ceil(dividend / (double)divisor));
+  assertEquals("CeilDiv: " + dividend + "/"+ divisor+ "="+ result,result,ceilDivide(dividend,divisor));
+}
