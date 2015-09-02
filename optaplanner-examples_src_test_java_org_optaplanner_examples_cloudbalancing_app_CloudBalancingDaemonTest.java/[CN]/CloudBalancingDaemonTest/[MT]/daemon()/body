@@ -21,6 +21,7 @@
     solverThread.join();
   }
  catch (  InterruptedException e) {
-    throw new IllegalStateException("SolverThread did not die.",e);
+    Thread.currentThread().interrupt();
+    throw new IllegalStateException("SolverThread did not die yet due to an interruption.",e);
   }
 }

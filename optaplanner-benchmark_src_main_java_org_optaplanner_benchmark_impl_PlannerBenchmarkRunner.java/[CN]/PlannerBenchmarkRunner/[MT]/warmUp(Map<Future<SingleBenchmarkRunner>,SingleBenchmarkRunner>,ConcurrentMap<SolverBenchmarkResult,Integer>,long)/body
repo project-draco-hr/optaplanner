@@ -6,6 +6,7 @@
       future=warmUpExecutorCompletionService.take();
     }
  catch (    InterruptedException e) {
+      Thread.currentThread().interrupt();
       throw new IllegalStateException("Waiting for a warm up singleBenchmarkRunner was interrupted.",e);
     }
     Throwable failureThrowable=null;
@@ -14,6 +15,7 @@
       singleBenchmarkRunner=future.get();
     }
  catch (    InterruptedException e) {
+      Thread.currentThread().interrupt();
       singleBenchmarkRunner=futureMap.get(future);
       singleBenchmarkRunnerExceptionLogger.error("The warm up singleBenchmarkRunner ({}) was interrupted.",singleBenchmarkRunner,e);
       failureThrowable=e;
