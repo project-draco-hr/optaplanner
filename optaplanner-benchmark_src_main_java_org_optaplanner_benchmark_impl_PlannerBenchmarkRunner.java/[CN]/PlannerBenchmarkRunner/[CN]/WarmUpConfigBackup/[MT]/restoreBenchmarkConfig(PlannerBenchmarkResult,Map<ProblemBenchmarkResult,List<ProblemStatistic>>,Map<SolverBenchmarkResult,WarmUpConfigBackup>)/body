@@ -1,0 +1,15 @@
+{
+  for (  SolverBenchmarkResult solverBenchmarkResult : plannerBenchmarkResult.getSolverBenchmarkResultList()) {
+    WarmUpConfigBackup warmUpConfigBackup=warmUpConfigBackupMap.get(solverBenchmarkResult);
+    TerminationConfig originalTerminationConfig=warmUpConfigBackup.getTerminationConfig();
+    solverBenchmarkResult.getSolverConfig().setTerminationConfig(originalTerminationConfig);
+    for (    SingleBenchmarkResult singleBenchmarkResult : solverBenchmarkResult.getSingleBenchmarkResultList()) {
+      singleBenchmarkResult.setPureSingleStatisticList(warmUpConfigBackup.getPureSingleStatisticMap().get(singleBenchmarkResult));
+      ProblemBenchmarkResult problemBenchmarkResult=singleBenchmarkResult.getProblemBenchmarkResult();
+      if (problemBenchmarkResult.getProblemStatisticList() == null || problemBenchmarkResult.getProblemStatisticList().size() <= 0) {
+        problemBenchmarkResult.setProblemStatisticList(originalProblemStatisticMap.get(problemBenchmarkResult));
+      }
+      singleBenchmarkResult.initSingleStatisticMap();
+    }
+  }
+}

@@ -1,6 +1,0 @@
-{
-  for (  SolverBenchmarkResult solverBenchmarkResult : plannerBenchmarkResult.getSolverBenchmarkResultList()) {
-    TerminationConfig originalTerminationConfig=originalTerminationConfigMap.get(solverBenchmarkResult);
-    solverBenchmarkResult.getSolverConfig().setTerminationConfig(originalTerminationConfig);
-  }
-}
