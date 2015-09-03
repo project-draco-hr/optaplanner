@@ -1,3 +1,3 @@
 {
-  return problemBenchmarkResult.toString() + "_" + problemStatisticType.toString();
+  return problemBenchmarkResult + "_" + problemStatisticType;
 }
