@@ -1,2 +1,0 @@
-Map<ProblemBenchmarkResult,List<ProblemStatistic>> originalProblemStatisticMap
-Map<SolverBenchmarkResult,ConfigBackup> configBackupMap

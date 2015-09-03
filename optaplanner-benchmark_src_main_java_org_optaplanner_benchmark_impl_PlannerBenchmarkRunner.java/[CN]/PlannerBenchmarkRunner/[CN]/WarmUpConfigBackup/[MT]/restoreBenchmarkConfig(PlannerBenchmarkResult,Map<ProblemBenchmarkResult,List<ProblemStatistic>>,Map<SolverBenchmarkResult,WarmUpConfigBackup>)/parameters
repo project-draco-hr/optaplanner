@@ -1,0 +1,3 @@
+PlannerBenchmarkResult plannerBenchmarkResult
+Map<ProblemBenchmarkResult,List<ProblemStatistic>> originalProblemStatisticMap
+Map<SolverBenchmarkResult,WarmUpConfigBackup> warmUpConfigBackupMap

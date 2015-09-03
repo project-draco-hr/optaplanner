@@ -12,7 +12,7 @@
   long timeLeftPerCycle=Math.round(Math.floor((timeLeftTotal / (double)cyclesCount)));
   Map<ProblemBenchmarkResult,List<ProblemStatistic>> originalProblemStatisticMap=new HashMap<ProblemBenchmarkResult,List<ProblemStatistic>>(plannerBenchmarkResult.getUnifiedProblemBenchmarkResultList().size());
   ConcurrentMap<SolverBenchmarkResult,Integer> singleBenchmarkResultIndexMap=new ConcurrentHashMap<SolverBenchmarkResult,Integer>(solverBenchmarkResultCount);
-  Map<SolverBenchmarkResult,ConfigBackup> configBackupMap=backupBenchmarkConfig(originalProblemStatisticMap);
+  Map<SolverBenchmarkResult,WarmUpConfigBackup> warmUpConfigBackupMap=WarmUpConfigBackup.backupBenchmarkConfig(plannerBenchmarkResult,originalProblemStatisticMap);
   SolverBenchmarkResult[] solverBenchmarkResultCycle=new SolverBenchmarkResult[parallelBenchmarkCount];
   int solverBenchmarkResultIndex=0;
   for (int i=0; i < cyclesCount; i++) {
@@ -25,7 +25,7 @@
     warmUpPopulate(futureMap,singleBenchmarkResultIndexMap,solverBenchmarkResultCycle,timeLeftPerCycle);
     warmUp(futureMap,singleBenchmarkResultIndexMap,timeCycleEnd);
   }
-  restoreBenchmarkConfig(originalProblemStatisticMap,configBackupMap);
+  WarmUpConfigBackup.restoreBenchmarkConfig(plannerBenchmarkResult,originalProblemStatisticMap,warmUpConfigBackupMap);
   List<Runnable> notFinishedWarmUpList=warmUpExecutorService.shutdownNow();
   if (!notFinishedWarmUpList.isEmpty()) {
     throw new IllegalStateException("Impossible state: notFinishedWarmUpList (" + notFinishedWarmUpList + ") is not empty.");

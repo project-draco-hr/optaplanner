@@ -1,10 +1,10 @@
 {
   for (  SolverBenchmarkResult solverBenchmarkResult : plannerBenchmarkResult.getSolverBenchmarkResultList()) {
-    ConfigBackup configBackup=configBackupMap.get(solverBenchmarkResult);
-    TerminationConfig originalTerminationConfig=configBackup.getTerminationConfig();
+    WarmUpConfigBackup warmUpConfigBackup=warmUpConfigBackupMap.get(solverBenchmarkResult);
+    TerminationConfig originalTerminationConfig=warmUpConfigBackup.getTerminationConfig();
     solverBenchmarkResult.getSolverConfig().setTerminationConfig(originalTerminationConfig);
     for (    SingleBenchmarkResult singleBenchmarkResult : solverBenchmarkResult.getSingleBenchmarkResultList()) {
-      singleBenchmarkResult.setPureSingleStatisticList(configBackup.getPureSingleStatisticMap().get(singleBenchmarkResult));
+      singleBenchmarkResult.setPureSingleStatisticList(warmUpConfigBackup.getPureSingleStatisticMap().get(singleBenchmarkResult));
       ProblemBenchmarkResult problemBenchmarkResult=singleBenchmarkResult.getProblemBenchmarkResult();
       if (problemBenchmarkResult.getProblemStatisticList() == null || problemBenchmarkResult.getProblemStatisticList().size() <= 0) {
         problemBenchmarkResult.setProblemStatisticList(originalProblemStatisticMap.get(problemBenchmarkResult));
