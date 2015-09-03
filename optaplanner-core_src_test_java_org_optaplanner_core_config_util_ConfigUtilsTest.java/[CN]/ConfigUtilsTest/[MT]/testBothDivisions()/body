@@ -1,0 +1,12 @@
+{
+  int a=20;
+  int b=2;
+  int[] signs={-1,1};
+  for (  int signB : signs) {
+    for (    int signA : signs) {
+      for (int deltaA=-1; deltaA <= 1; deltaA++) {
+        checkBothDivisions(signA * a + deltaA,signB * b);
+      }
+    }
+  }
+}

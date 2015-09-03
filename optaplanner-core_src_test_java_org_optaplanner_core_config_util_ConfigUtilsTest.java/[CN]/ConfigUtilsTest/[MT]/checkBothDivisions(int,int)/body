@@ -1,0 +1,4 @@
+{
+  checkCeilDivision(dividend,divisor);
+  checkFloorDivision(dividend,divisor);
+}

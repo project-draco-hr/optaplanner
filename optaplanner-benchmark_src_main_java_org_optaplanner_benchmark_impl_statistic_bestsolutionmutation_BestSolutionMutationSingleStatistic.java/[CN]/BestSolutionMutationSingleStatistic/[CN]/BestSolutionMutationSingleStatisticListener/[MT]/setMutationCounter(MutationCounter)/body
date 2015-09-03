@@ -1,6 +1,6 @@
 {
   if (this.mutationCounter != null) {
-    throw new IllegalStateException("Impossible state: mutationCounter (" + mutationCounter + ") is not null.");
+    throw new IllegalStateException("Impossible state: mutationCounter (" + this.mutationCounter + ") is not null.");
   }
   this.mutationCounter=mutationCounter;
 }

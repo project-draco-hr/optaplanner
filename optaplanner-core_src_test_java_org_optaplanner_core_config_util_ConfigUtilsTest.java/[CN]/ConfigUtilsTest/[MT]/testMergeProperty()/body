@@ -1,0 +1,13 @@
+{
+  Integer a=null;
+  Integer b=null;
+  assertEquals(null,mergeProperty(a,b));
+  a=Integer.valueOf(1);
+  assertEquals(null,mergeProperty(a,b));
+  b=Integer.valueOf(10);
+  assertEquals(null,mergeProperty(a,b));
+  b=Integer.valueOf(1);
+  assertEquals(Integer.valueOf(1),mergeProperty(a,b));
+  a=null;
+  assertEquals(null,mergeProperty(a,b));
+}
