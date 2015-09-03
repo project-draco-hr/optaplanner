@@ -6,7 +6,20 @@
   }
   newResult.initSingleStatisticMap();
   for (  SingleStatistic singleStatistic : newResult.effectiveSingleStatisticMap.values()) {
-    singleStatistic.setPointList(oldResult.getSingleStatistic(singleStatistic.getStatisticType()).getPointList());
+    SingleStatistic oldSingleStatistic=oldResult.getSingleStatistic(singleStatistic.getStatisticType());
+    if (!oldSingleStatistic.getCsvFile().exists()) {
+      if (oldResult.isFailure()) {
+        singleStatistic.initPointList();
+        logger.debug("Old result ( {} ) is a failure, skipping merge of it's single statistic ( {} ).",oldResult,oldSingleStatistic);
+        continue;
+      }
+ else {
+        throw new IllegalStateException("Could not find old result's ( " + oldResult + " ) single statistic's ( "+ oldSingleStatistic+ " ) CSV file.");
+      }
+    }
+    oldSingleStatistic.unhibernatePointList();
+    singleStatistic.setPointList(oldSingleStatistic.getPointList());
+    oldSingleStatistic.hibernatePointList();
   }
   newResult.succeeded=oldResult.succeeded;
   newResult.score=oldResult.score;
