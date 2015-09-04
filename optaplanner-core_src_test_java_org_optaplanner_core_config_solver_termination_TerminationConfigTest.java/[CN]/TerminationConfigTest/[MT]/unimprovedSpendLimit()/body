@@ -1,0 +1,10 @@
+{
+  TerminationConfig terminationConfig=new TerminationConfig();
+  terminationConfig.setUnimprovedMillisecondsSpentLimit(5L);
+  terminationConfig.setUnimprovedSecondsSpentLimit(4L);
+  terminationConfig.setUnimprovedMinutesSpentLimit(3L);
+  terminationConfig.setUnimprovedHoursSpentLimit(2L);
+  Termination termination=terminationConfig.buildTermination(mock(HeuristicConfigPolicy.class));
+  assertInstanceOf(UnimprovedTimeMillisSpentTermination.class,termination);
+  assertEquals(7384005L,((UnimprovedTimeMillisSpentTermination)termination).getUnimprovedTimeMillisSpentLimit());
+}
