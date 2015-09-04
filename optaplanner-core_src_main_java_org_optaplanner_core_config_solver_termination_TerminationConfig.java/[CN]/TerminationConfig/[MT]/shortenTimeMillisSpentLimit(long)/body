@@ -5,5 +5,6 @@
     secondsSpentLimit=null;
     minutesSpentLimit=null;
     hoursSpentLimit=null;
+    daysSpentLimit=null;
   }
 }

@@ -1,5 +1,5 @@
 {
-  if (millisecondsSpentLimit == null && secondsSpentLimit == null && minutesSpentLimit == null && hoursSpentLimit == null) {
+  if (millisecondsSpentLimit == null && secondsSpentLimit == null && minutesSpentLimit == null && hoursSpentLimit == null && daysSpentLimit == null) {
     return null;
   }
   long timeMillisSpentLimit=0L;
@@ -26,6 +26,12 @@
       throw new IllegalArgumentException("The termination hoursSpentLimit (" + hoursSpentLimit + ") cannot be negative.");
     }
     timeMillisSpentLimit+=hoursSpentLimit * 3600000L;
+  }
+  if (daysSpentLimit != null) {
+    if (daysSpentLimit < 0L) {
+      throw new IllegalArgumentException("The termination daysSpentLimit (" + daysSpentLimit + ") cannot be negative.");
+    }
+    timeMillisSpentLimit+=daysSpentLimit * 86400000L;
   }
   return timeMillisSpentLimit;
 }

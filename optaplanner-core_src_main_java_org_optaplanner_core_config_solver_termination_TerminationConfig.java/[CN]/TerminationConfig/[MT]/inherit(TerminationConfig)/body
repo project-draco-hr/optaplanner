@@ -5,10 +5,12 @@
   secondsSpentLimit=ConfigUtils.inheritOverwritableProperty(secondsSpentLimit,inheritedConfig.getSecondsSpentLimit());
   minutesSpentLimit=ConfigUtils.inheritOverwritableProperty(minutesSpentLimit,inheritedConfig.getMinutesSpentLimit());
   hoursSpentLimit=ConfigUtils.inheritOverwritableProperty(hoursSpentLimit,inheritedConfig.getHoursSpentLimit());
+  daysSpentLimit=ConfigUtils.inheritOverwritableProperty(daysSpentLimit,inheritedConfig.getDaysSpentLimit());
   unimprovedMillisecondsSpentLimit=ConfigUtils.inheritOverwritableProperty(unimprovedMillisecondsSpentLimit,inheritedConfig.getUnimprovedMillisecondsSpentLimit());
   unimprovedSecondsSpentLimit=ConfigUtils.inheritOverwritableProperty(unimprovedSecondsSpentLimit,inheritedConfig.getUnimprovedSecondsSpentLimit());
   unimprovedMinutesSpentLimit=ConfigUtils.inheritOverwritableProperty(unimprovedMinutesSpentLimit,inheritedConfig.getUnimprovedMinutesSpentLimit());
   unimprovedHoursSpentLimit=ConfigUtils.inheritOverwritableProperty(unimprovedHoursSpentLimit,inheritedConfig.getUnimprovedHoursSpentLimit());
+  unimprovedDaysSpentLimit=ConfigUtils.inheritOverwritableProperty(unimprovedDaysSpentLimit,inheritedConfig.getUnimprovedDaysSpentLimit());
   bestScoreLimit=ConfigUtils.inheritOverwritableProperty(bestScoreLimit,inheritedConfig.getBestScoreLimit());
   bestScoreFeasible=ConfigUtils.inheritOverwritableProperty(bestScoreFeasible,inheritedConfig.getBestScoreFeasible());
   stepCountLimit=ConfigUtils.inheritOverwritableProperty(stepCountLimit,inheritedConfig.getStepCountLimit());

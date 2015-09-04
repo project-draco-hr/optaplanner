@@ -27,5 +27,11 @@
     }
     unimprovedTimeMillisSpentLimit+=unimprovedHoursSpentLimit * 3600000L;
   }
+  if (unimprovedDaysSpentLimit != null) {
+    if (unimprovedDaysSpentLimit < 0L) {
+      throw new IllegalArgumentException("The termination unimprovedDaysSpentLimit (" + unimprovedDaysSpentLimit + ") cannot be negative.");
+    }
+    unimprovedTimeMillisSpentLimit+=unimprovedDaysSpentLimit * 86400000L;
+  }
   return unimprovedTimeMillisSpentLimit;
 }
