@@ -1,0 +1,14 @@
+{
+  int failureCount=0;
+  long totalUsedMemoryAfterInputSolution=0L;
+  int usedMemoryAfterInputSolutionCount=0;
+  List<SubSingleBenchmarkResult> successResultList=new ArrayList<SubSingleBenchmarkResult>(subSingleBenchmarkResultList);
+  for (Iterator<SubSingleBenchmarkResult> it=successResultList.iterator(); it.hasNext(); ) {
+    SubSingleBenchmarkResult subSingleBenchmarkResult=it.next();
+    if (subSingleBenchmarkResult.isFailure()) {
+      failureCount++;
+      it.remove();
+    }
+  }
+  determineRanking(successResultList);
+}

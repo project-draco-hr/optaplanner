@@ -1,0 +1,8 @@
+{
+  super(solverProblemBenchmarkResult,ProblemStatisticType.MEMORY_USE);
+  if (timeMillisThresholdInterval <= 0L) {
+    throw new IllegalArgumentException("The timeMillisThresholdInterval (" + timeMillisThresholdInterval + ") must be bigger than 0.");
+  }
+  this.timeMillisThresholdInterval=timeMillisThresholdInterval;
+  listener=new MemoryUseSingleStatisticListener();
+}

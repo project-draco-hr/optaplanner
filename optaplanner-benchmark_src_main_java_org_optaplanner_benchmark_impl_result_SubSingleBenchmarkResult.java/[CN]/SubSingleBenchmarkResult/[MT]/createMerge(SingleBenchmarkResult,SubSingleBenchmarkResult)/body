@@ -1,0 +1,31 @@
+{
+  SubSingleBenchmarkResult newResult=new SubSingleBenchmarkResult(singleBenchmarkResult,oldResult.getSubSingleBenchmarkIndex());
+  newResult.subPureSingleStatisticList=new ArrayList<PureSingleStatistic>(oldResult.subPureSingleStatisticList.size());
+  for (  PureSingleStatistic oldSingleStatistic : oldResult.subPureSingleStatisticList) {
+    newResult.subPureSingleStatisticList.add(oldSingleStatistic.getStatisticType().buildPureSingleStatistic(newResult));
+  }
+  newResult.initSingleStatisticMap();
+  for (  SingleStatistic singleStatistic : newResult.effectiveSingleStatisticMap.values()) {
+    SingleStatistic oldSingleStatistic=oldResult.getSingleStatistic(singleStatistic.getStatisticType());
+    if (!oldSingleStatistic.getCsvFile().exists()) {
+      if (oldResult.isFailure()) {
+        singleStatistic.initPointList();
+        logger.debug("Old result ( {} ) is a failure, skipping merge of it's single statistic ( {} ).",oldResult,oldSingleStatistic);
+        continue;
+      }
+ else {
+        throw new IllegalStateException("Could not find old result's ( " + oldResult + " ) single statistic's ( "+ oldSingleStatistic+ " ) CSV file.");
+      }
+    }
+    oldSingleStatistic.unhibernatePointList();
+    singleStatistic.setPointList(oldSingleStatistic.getPointList());
+    oldSingleStatistic.hibernatePointList();
+  }
+  newResult.succeeded=oldResult.succeeded;
+  newResult.score=oldResult.score;
+  newResult.uninitializedVariableCount=oldResult.uninitializedVariableCount;
+  newResult.timeMillisSpent=oldResult.timeMillisSpent;
+  newResult.calculateCount=oldResult.calculateCount;
+  singleBenchmarkResult.getSubSingleBenchmarkResultList().add(newResult);
+  return newResult;
+}

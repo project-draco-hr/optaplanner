@@ -1,0 +1,4 @@
+{
+  File subSingleReportDirectory=getReportDirectory();
+  subSingleReportDirectory.mkdirs();
+}

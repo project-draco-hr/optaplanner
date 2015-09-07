@@ -1,0 +1,8 @@
+{
+  super(solverProblemBenchmarkResult,ProblemStatisticType.CALCULATE_COUNT_PER_SECOND);
+  if (timeMillisThresholdInterval <= 0L) {
+    throw new IllegalArgumentException("The timeMillisThresholdInterval (" + timeMillisThresholdInterval + ") must be bigger than 0.");
+  }
+  this.timeMillisThresholdInterval=timeMillisThresholdInterval;
+  listener=new CalculateCountSingleStatisticListener();
+}

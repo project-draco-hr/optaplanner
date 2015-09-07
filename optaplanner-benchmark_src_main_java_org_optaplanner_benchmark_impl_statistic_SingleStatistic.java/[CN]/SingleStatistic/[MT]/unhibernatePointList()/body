@@ -1,9 +1,9 @@
 {
   if (!getCsvFile().exists()) {
-    throw new IllegalStateException("The csvFile ( " + getCsvFile() + " ) of the statistic ( "+ getStatisticType()+ " ) of the single benchmark ( "+ singleBenchmarkResult+ " ) doesn't exist.");
+    throw new IllegalStateException("The csvFile ( " + getCsvFile() + " ) of the statistic ( "+ getStatisticType()+ " ) of the single benchmark ( "+ solverProblemBenchmarkResult+ " ) doesn't exist.");
   }
  else   if (pointList != null) {
-    throw new IllegalStateException("The pointList ( " + pointList + " ) of the statistic ( "+ getStatisticType()+ " ) of the single benchmark ( "+ singleBenchmarkResult+ " ) should be null when unhibernating.");
+    throw new IllegalStateException("The pointList ( " + pointList + " ) of the statistic ( "+ getStatisticType()+ " ) of the single benchmark ( "+ solverProblemBenchmarkResult+ " ) should be null when unhibernating.");
   }
   initPointList();
   readCsvStatisticFile();

@@ -1,0 +1,3 @@
+{
+  return new CompareToBuilder().append(b.isFailure(),a.isFailure()).append(b.getUninitializedVariableCount(),a.getUninitializedVariableCount()).append(a.getScore(),b.getScore(),resilientScoreComparator).toComparison();
+}

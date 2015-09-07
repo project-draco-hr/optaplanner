@@ -1,0 +1,4 @@
+{
+  this.singleBenchmarkResult=singleBenchmarkResult;
+  this.subSingleBenchmarkIndex=subSingleBenchmarkIndex;
+}

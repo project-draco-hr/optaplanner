@@ -1,0 +1,3 @@
+{
+  return singleBenchmarkResult.getReportDirectoryPath() + File.separator + subSingleBenchmarkIndex;
+}

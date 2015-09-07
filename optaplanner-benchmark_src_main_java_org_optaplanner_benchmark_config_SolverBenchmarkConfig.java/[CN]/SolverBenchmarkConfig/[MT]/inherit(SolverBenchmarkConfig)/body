@@ -11,4 +11,7 @@
  else   if (inheritedConfig.getProblemBenchmarksConfig() != null) {
     problemBenchmarksConfig.inherit(inheritedConfig.getProblemBenchmarksConfig());
   }
+  if (subSingleCount == null) {
+    subSingleCount=ObjectUtils.defaultIfNull(inheritedConfig.getSubSingleCount(),1);
+  }
 }

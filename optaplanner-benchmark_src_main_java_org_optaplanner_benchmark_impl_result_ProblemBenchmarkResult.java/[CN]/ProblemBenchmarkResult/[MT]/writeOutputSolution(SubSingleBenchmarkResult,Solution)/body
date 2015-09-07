@@ -1,0 +1,8 @@
+{
+  if (!writeOutputSolutionEnabled) {
+    return;
+  }
+  String filename=getName() + "." + solutionFileIO.getOutputFileExtension();
+  File outputSolutionFile=new File(subSingleBenchmarkResult.getReportDirectory(),filename);
+  solutionFileIO.write(outputSolution,outputSolutionFile);
+}

@@ -1,3 +1,3 @@
 {
-  return singleBenchmarkResult.getSingleReportDirectoryPath() + "/" + getStatisticType().name()+ ".csv";
+  return solverProblemBenchmarkResult.getReportDirectoryPath() + File.separator + getStatisticType().name()+ ".csv";
 }

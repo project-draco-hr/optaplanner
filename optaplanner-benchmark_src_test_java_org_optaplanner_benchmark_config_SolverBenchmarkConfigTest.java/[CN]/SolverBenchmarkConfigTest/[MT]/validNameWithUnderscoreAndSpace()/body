@@ -1,5 +1,6 @@
 {
   SolverBenchmarkConfig config=new SolverBenchmarkConfig();
   config.setName("Valid_name with space_and_underscore");
+  config.setSubSingleCount(1);
   config.validate();
 }

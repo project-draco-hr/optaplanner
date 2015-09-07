@@ -1,4 +1,8 @@
 {
-  File singleReportDirectory=getSingleReportDirectory();
+  File singleReportDirectory=getReportDirectory();
   singleReportDirectory.mkdirs();
+  for (  SubSingleBenchmarkResult subSingleBenchmarkResult : subSingleBenchmarkResultList) {
+    File subSingleReportDirectory=subSingleBenchmarkResult.getReportDirectory();
+    subSingleReportDirectory.mkdirs();
+  }
 }

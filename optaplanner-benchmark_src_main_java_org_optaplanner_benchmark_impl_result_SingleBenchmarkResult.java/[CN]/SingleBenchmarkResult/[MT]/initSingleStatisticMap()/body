@@ -1,10 +1,6 @@
 {
-  effectiveSingleStatisticMap=new HashMap<StatisticType,SingleStatistic>(problemBenchmarkResult.getProblemStatisticList().size());
-  for (  ProblemStatistic problemStatistic : problemBenchmarkResult.getProblemStatisticList()) {
-    SingleStatistic singleStatistic=problemStatistic.createSingleStatistic(this);
-    effectiveSingleStatisticMap.put(singleStatistic.getStatisticType(),singleStatistic);
-  }
-  for (  PureSingleStatistic pureSingleStatistic : pureSingleStatisticList) {
-    effectiveSingleStatisticMap.put(pureSingleStatistic.getStatisticType(),pureSingleStatistic);
+  for (  SubSingleBenchmarkResult subSingleBenchmarkResult : subSingleBenchmarkResultList) {
+    subSingleBenchmarkResult.setSubPureSingleStatisticList(pureSingleStatisticList);
+    subSingleBenchmarkResult.initSingleStatisticMap();
   }
 }

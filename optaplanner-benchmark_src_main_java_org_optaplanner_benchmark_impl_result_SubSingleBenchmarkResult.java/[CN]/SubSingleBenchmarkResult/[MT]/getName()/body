@@ -1,0 +1,3 @@
+{
+  return singleBenchmarkResult.getName() + "_" + subSingleBenchmarkIndex;
+}
