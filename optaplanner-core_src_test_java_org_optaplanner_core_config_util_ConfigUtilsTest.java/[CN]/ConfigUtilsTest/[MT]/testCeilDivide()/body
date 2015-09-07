@@ -1,0 +1,14 @@
+{
+  assertEquals(10,ceilDivide(19,2));
+  assertEquals(10,ceilDivide(20,2));
+  assertEquals(11,ceilDivide(21,2));
+  assertEquals(-9,ceilDivide(19,-2));
+  assertEquals(-10,ceilDivide(20,-2));
+  assertEquals(-10,ceilDivide(21,-2));
+  assertEquals(-9,ceilDivide(-19,2));
+  assertEquals(-10,ceilDivide(-20,2));
+  assertEquals(-10,ceilDivide(-21,2));
+  assertEquals(10,ceilDivide(-19,-2));
+  assertEquals(10,ceilDivide(-20,-2));
+  assertEquals(11,ceilDivide(-21,-2));
+}
