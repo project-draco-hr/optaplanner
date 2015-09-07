@@ -19,6 +19,6 @@
   }
  while (!benchmarkReportDirectory.mkdir());
   for (  ProblemBenchmarkResult problemBenchmarkResult : unifiedProblemBenchmarkResultList) {
-    problemBenchmarkResult.makeDirs(benchmarkReportDirectory);
+    problemBenchmarkResult.makeDirs();
   }
 }
