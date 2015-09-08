@@ -1,4 +1,0 @@
-{
-  long result=Math.round(Math.floor(dividend / (double)divisor));
-  assertEquals("FloorDiv: " + dividend + "/"+ divisor+ "="+ result,result,floorDivide(dividend,divisor));
-}
