@@ -4,7 +4,7 @@
   for (  PureSingleStatistic oldSingleStatistic : oldResult.subPureSingleStatisticList) {
     newResult.subPureSingleStatisticList.add(oldSingleStatistic.getStatisticType().buildPureSingleStatistic(newResult));
   }
-  newResult.initSingleStatisticMap();
+  newResult.initSubSingleStatisticMap();
   for (  SingleStatistic singleStatistic : newResult.effectiveSingleStatisticMap.values()) {
     SingleStatistic oldSingleStatistic=oldResult.getSingleStatistic(singleStatistic.getStatisticType());
     if (!oldSingleStatistic.getCsvFile().exists()) {

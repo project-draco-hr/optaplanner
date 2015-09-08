@@ -13,7 +13,9 @@
   }
   Date startingTimestamp=new Date();
   for (  SingleBenchmarkResult singleBenchmarkResult : singleBenchmarkResultList) {
-    singleBenchmarkResult.initSingleStatisticMap();
+    for (    SubSingleBenchmarkResult subSingleBenchmarkResult : singleBenchmarkResult.getSubSingleBenchmarkResultList()) {
+      subSingleBenchmarkResult.initSubSingleStatisticMap();
+    }
   }
   if (solverBenchmarkResultNameMap != null) {
     for (    Entry<SolverBenchmarkResult,String> results : solverBenchmarkResultNameMap.entrySet()) {

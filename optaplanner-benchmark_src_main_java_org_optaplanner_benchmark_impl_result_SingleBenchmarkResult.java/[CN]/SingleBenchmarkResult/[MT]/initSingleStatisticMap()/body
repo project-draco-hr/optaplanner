@@ -1,6 +1,3 @@
 {
-  for (  SubSingleBenchmarkResult subSingleBenchmarkResult : subSingleBenchmarkResultList) {
-    subSingleBenchmarkResult.setSubPureSingleStatisticList(pureSingleStatisticList);
-    subSingleBenchmarkResult.initSingleStatisticMap();
-  }
+  effectiveSingleStatisticMap=new HashMap<StatisticType,SingleStatistic>(pureSingleStatisticList.size() + problemBenchmarkResult.getProblemStatisticList().size());
 }

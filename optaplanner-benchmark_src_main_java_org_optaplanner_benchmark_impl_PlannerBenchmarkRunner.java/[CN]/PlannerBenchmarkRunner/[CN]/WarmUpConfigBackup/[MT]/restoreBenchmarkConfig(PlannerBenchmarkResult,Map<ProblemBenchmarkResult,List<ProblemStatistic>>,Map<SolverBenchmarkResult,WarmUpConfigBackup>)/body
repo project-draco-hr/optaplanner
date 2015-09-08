@@ -9,7 +9,10 @@
       if (problemBenchmarkResult.getProblemStatisticList() == null || problemBenchmarkResult.getProblemStatisticList().size() <= 0) {
         problemBenchmarkResult.setProblemStatisticList(originalProblemStatisticMap.get(problemBenchmarkResult));
       }
-      singleBenchmarkResult.initSingleStatisticMap();
+      for (      SubSingleBenchmarkResult subSingleBenchmarkResult : singleBenchmarkResult.getSubSingleBenchmarkResultList()) {
+        subSingleBenchmarkResult.setSubPureSingleStatisticList(singleBenchmarkResult.getPureSingleStatisticList());
+        subSingleBenchmarkResult.initSubSingleStatisticMap();
+      }
     }
   }
 }

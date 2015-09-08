@@ -19,7 +19,10 @@
         }
       }
       singleBenchmarkResult.getProblemBenchmarkResult().setProblemStatisticList(Collections.<ProblemStatistic>emptyList());
-      singleBenchmarkResult.initSingleStatisticMap();
+      for (      SubSingleBenchmarkResult subSingleBenchmarkResult : singleBenchmarkResult.getSubSingleBenchmarkResultList()) {
+        subSingleBenchmarkResult.setSubPureSingleStatisticList(singleBenchmarkResult.getPureSingleStatisticList());
+        subSingleBenchmarkResult.initSubSingleStatisticMap();
+      }
     }
     WarmUpConfigBackup warmUpConfigBackupPutResult=warmUpConfigBackupMap.put(solverBenchmarkResult,warmUpConfigBackup);
     if (warmUpConfigBackupPutResult != null) {
