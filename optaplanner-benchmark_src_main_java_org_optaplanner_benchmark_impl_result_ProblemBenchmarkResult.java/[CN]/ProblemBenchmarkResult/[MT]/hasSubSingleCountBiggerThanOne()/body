@@ -1,0 +1,13 @@
+{
+  if (hasNonDefaultSubSingleCount != null) {
+    return hasNonDefaultSubSingleCount;
+  }
+  for (  SingleBenchmarkResult singleBenchmarkResult : singleBenchmarkResultList) {
+    if (singleBenchmarkResult.getSolverBenchmarkResult().getSubSingleCount() > 1) {
+      hasNonDefaultSubSingleCount=true;
+      return hasNonDefaultSubSingleCount;
+    }
+  }
+  hasNonDefaultSubSingleCount=false;
+  return hasNonDefaultSubSingleCount;
+}
