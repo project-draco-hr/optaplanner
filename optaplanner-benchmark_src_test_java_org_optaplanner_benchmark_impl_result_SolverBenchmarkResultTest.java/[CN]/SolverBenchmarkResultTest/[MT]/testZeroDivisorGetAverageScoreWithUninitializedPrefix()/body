@@ -3,5 +3,6 @@
   when(solverBenchmarkResult.getSingleBenchmarkResultList()).thenReturn(Collections.<SingleBenchmarkResult>emptyList());
   when(solverBenchmarkResult.getAverageScore()).thenReturn(HardSoftScore.valueOf(-10,-100));
   when(solverBenchmarkResult.getTotalUninitializedVariableCount()).thenReturn(0);
+  when(solverBenchmarkResult.getFailureCount()).thenReturn(0);
   solverBenchmarkResult.getAverageScoreWithUninitializedPrefix();
 }
