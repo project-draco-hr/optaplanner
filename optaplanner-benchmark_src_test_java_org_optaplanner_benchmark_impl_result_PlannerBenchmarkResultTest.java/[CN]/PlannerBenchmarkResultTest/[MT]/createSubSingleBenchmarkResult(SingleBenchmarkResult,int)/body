@@ -1,0 +1,6 @@
+{
+  SubSingleBenchmarkResult subSingleBenchmarkResult=new SubSingleBenchmarkResult(parent,subSingleIndex);
+  subSingleBenchmarkResult.setSubPureSingleStatisticList(Collections.<PureSingleStatistic>emptyList());
+  parent.getSubSingleBenchmarkResultList().add(subSingleBenchmarkResult);
+  return subSingleBenchmarkResult;
+}

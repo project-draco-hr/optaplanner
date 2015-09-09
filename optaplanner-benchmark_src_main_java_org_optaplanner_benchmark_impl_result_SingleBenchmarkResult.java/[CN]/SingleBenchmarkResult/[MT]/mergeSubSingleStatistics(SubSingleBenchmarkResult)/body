@@ -1,5 +1,5 @@
 {
-  if (median.getEffectiveSingleStatisticMap() != null) {
+  if (median.getEffectiveSingleStatisticMap() != null && !median.isFailure()) {
     for (    SingleStatistic singleStatistic : median.getEffectiveSingleStatisticMap().values()) {
       singleStatistic.unhibernatePointList();
       singleStatistic.setSolverProblemBenchmarkResult(this);
