@@ -29,6 +29,10 @@
   }
   newResult.medianScore=oldResult.medianScore;
   newResult.medianUninitializedVariableCount=oldResult.medianUninitializedVariableCount;
+  newResult.worstScore=oldResult.worstScore;
+  newResult.worstUninitializedVariableCount=oldResult.worstUninitializedVariableCount;
+  newResult.bestScore=oldResult.bestScore;
+  newResult.bestUninitializedVariableCount=oldResult.bestUninitializedVariableCount;
   solverBenchmarkResult.getSingleBenchmarkResultList().add(newResult);
   problemBenchmarkResult.getSingleBenchmarkResultList().add(newResult);
   return newResult;

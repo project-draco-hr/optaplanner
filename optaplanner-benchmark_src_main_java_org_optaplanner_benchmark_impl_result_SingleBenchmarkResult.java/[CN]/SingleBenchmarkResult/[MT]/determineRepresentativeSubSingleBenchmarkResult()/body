@@ -1,6 +1,17 @@
 {
-  SubSingleBenchmarkResult[] subSingleBenchmarkResults=new SubSingleBenchmarkResult[subSingleBenchmarkResultList.size()];
-  SubSingleBenchmarkResult median=ObjectUtils.median(new SubSingleBenchmarkRankingComparator(),subSingleBenchmarkResultList.toArray(subSingleBenchmarkResults));
+  if (subSingleBenchmarkResultList == null || subSingleBenchmarkResultList.isEmpty()) {
+    throw new IllegalStateException("Cannot get representative subSingleBenchmarkResult from empty subSingleBenchmarkResultList.");
+  }
+  List<SubSingleBenchmarkResult> subSingleBenchmarkResultListCopy=new ArrayList<SubSingleBenchmarkResult>(subSingleBenchmarkResultList);
+  Collections.sort(subSingleBenchmarkResultListCopy,new Comparator<SubSingleBenchmarkResult>(){
+    @Override public int compare(    SubSingleBenchmarkResult o1,    SubSingleBenchmarkResult o2){
+      return new CompareToBuilder().append(o1.isFailure(),o2.isFailure()).append(o1.getRanking(),o2.getRanking()).toComparison();
+    }
+  }
+);
+  SubSingleBenchmarkResult best=subSingleBenchmarkResultListCopy.get(0);
+  SubSingleBenchmarkResult worst=subSingleBenchmarkResultListCopy.get(subSingleBenchmarkResultListCopy.size() - 1);
+  SubSingleBenchmarkResult median=subSingleBenchmarkResultListCopy.get(ConfigUtils.ceilDivide(subSingleBenchmarkResultListCopy.size() - 1,2));
   usedMemoryAfterInputSolution=median.getUsedMemoryAfterInputSolution();
   timeMillisSpent=median.getTimeMillisSpent();
   calculateCount=median.getCalculateCount();
@@ -8,5 +19,9 @@
   worstScoreDifferencePercentage=median.getWorstScoreDifferencePercentage();
   medianUninitializedVariableCount=median.getUninitializedVariableCount();
   medianScore=median.getScore();
+  worstUninitializedVariableCount=worst.getUninitializedVariableCount();
+  worstScore=worst.getScore();
+  bestUninitializedVariableCount=best.getUninitializedVariableCount();
+  bestScore=best.getScore();
   return median;
 }

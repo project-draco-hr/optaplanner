@@ -1,0 +1,6 @@
+{
+  if (worstUninitializedVariableCount == null) {
+    return null;
+  }
+  return ScoreUtils.getScoreWithUninitializedPrefix(worstUninitializedVariableCount,worstScore);
+}
