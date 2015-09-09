@@ -1,12 +1,12 @@
 {
   SubSingleBenchmarkResult[] subSingleBenchmarkResults=new SubSingleBenchmarkResult[subSingleBenchmarkResultList.size()];
   SubSingleBenchmarkResult median=ObjectUtils.median(new SubSingleBenchmarkRankingComparator(),subSingleBenchmarkResultList.toArray(subSingleBenchmarkResults));
-  this.usedMemoryAfterInputSolution=median.getUsedMemoryAfterInputSolution();
-  this.timeMillisSpent=median.getTimeMillisSpent();
-  this.calculateCount=median.getCalculateCount();
-  this.winningScoreDifference=median.getWinningScoreDifference();
-  this.worstScoreDifferencePercentage=median.getWorstScoreDifferencePercentage();
-  this.uninitializedVariableCount=median.getUninitializedVariableCount();
-  this.score=median.getScore();
+  usedMemoryAfterInputSolution=median.getUsedMemoryAfterInputSolution();
+  timeMillisSpent=median.getTimeMillisSpent();
+  calculateCount=median.getCalculateCount();
+  winningScoreDifference=median.getWinningScoreDifference();
+  worstScoreDifferencePercentage=median.getWorstScoreDifferencePercentage();
+  medianUninitializedVariableCount=median.getUninitializedVariableCount();
+  medianScore=median.getScore();
   return median;
 }

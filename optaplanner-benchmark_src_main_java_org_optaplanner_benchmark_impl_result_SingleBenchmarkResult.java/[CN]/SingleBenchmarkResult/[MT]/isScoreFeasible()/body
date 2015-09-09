@@ -1,6 +1,6 @@
 {
-  if (score instanceof FeasibilityScore) {
-    return ((FeasibilityScore)score).isFeasible();
+  if (averageScore instanceof FeasibilityScore) {
+    return ((FeasibilityScore)averageScore).isFeasible();
   }
  else {
     return true;

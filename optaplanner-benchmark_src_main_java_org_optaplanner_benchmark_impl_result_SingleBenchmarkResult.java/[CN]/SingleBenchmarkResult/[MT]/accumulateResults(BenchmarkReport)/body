@@ -1,7 +1,10 @@
 {
-  if (this.score == null) {
+  for (  SubSingleBenchmarkResult subSingleBenchmarkResult : subSingleBenchmarkResultList) {
+    subSingleBenchmarkResult.accumulateResults(benchmarkReport);
+  }
+  determineTotalsAndAveragesAndRanking();
+  if (!solverBenchmarkResult.getPlannerBenchmarkResult().getAggregation()) {
     SubSingleBenchmarkResult median=determineRepresentativeSubSingleBenchmarkResult();
     mergeSubSingleStatistics(median);
   }
-  determineTotalsAndAveragesAndRanking();
 }

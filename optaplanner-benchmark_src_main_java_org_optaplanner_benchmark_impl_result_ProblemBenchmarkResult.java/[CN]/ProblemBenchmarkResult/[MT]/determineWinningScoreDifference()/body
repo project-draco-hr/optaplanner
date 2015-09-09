@@ -3,7 +3,7 @@
     if (singleBenchmarkResult.isFailure()) {
       continue;
     }
-    singleBenchmarkResult.setWinningScoreDifference(singleBenchmarkResult.getScore().subtract(winningSingleBenchmarkResult.getScore()));
-    singleBenchmarkResult.setWorstScoreDifferencePercentage(ScoreDifferencePercentage.calculateScoreDifferencePercentage(worstSingleBenchmarkResult.getScore(),singleBenchmarkResult.getScore()));
+    singleBenchmarkResult.setWinningScoreDifference(singleBenchmarkResult.getAverageScore().subtract(winningSingleBenchmarkResult.getAverageScore()));
+    singleBenchmarkResult.setWorstScoreDifferencePercentage(ScoreDifferencePercentage.calculateScoreDifferencePercentage(worstSingleBenchmarkResult.getAverageScore(),singleBenchmarkResult.getAverageScore()));
   }
 }

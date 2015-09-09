@@ -4,6 +4,11 @@
   for (  PureSingleStatistic oldSingleStatistic : oldResult.pureSingleStatisticList) {
     newResult.pureSingleStatisticList.add(oldSingleStatistic.getStatisticType().buildPureSingleStatistic(newResult));
   }
+  newResult.subSingleBenchmarkResultList=new ArrayList<SubSingleBenchmarkResult>(oldResult.getSubSingleBenchmarkResultList().size());
+  for (  SubSingleBenchmarkResult oldSubResult : oldResult.subSingleBenchmarkResultList) {
+    SubSingleBenchmarkResult newSubResult=SubSingleBenchmarkResult.createMerge(newResult,oldSubResult);
+    newResult.subSingleBenchmarkResultList.add(newSubResult);
+  }
   newResult.initSingleStatisticMap();
   for (  SingleStatistic singleStatistic : newResult.effectiveSingleStatisticMap.values()) {
     SingleStatistic oldSingleStatistic=oldResult.getSingleStatistic(singleStatistic.getStatisticType());

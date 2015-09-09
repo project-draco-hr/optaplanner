@@ -31,6 +31,7 @@
   }
   if (!firstNonFailure) {
     averageScore=totalScore.divide(getSuccessCount());
+    averageUninitializedVariableCount=ConfigUtils.ceilDivide(totalUninitializedVariableCount,getSuccessCount());
   }
   determineRanking(successResultList);
 }

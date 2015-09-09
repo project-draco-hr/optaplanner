@@ -3,10 +3,10 @@
   HardSoftLongScore scoreObject=HardSoftLongScore.valueOf(hardScore,softScore);
   HardSoftLongScore bestScoreObject=HardSoftLongScore.valueOf(hardBestScore,softBestScore);
   HardSoftLongScore worstScoreObject=HardSoftLongScore.valueOf(hardWorstScore,softWorstScore);
-  singleBenchmarkResult.setScore(scoreObject);
+  singleBenchmarkResult.setAverageScore(scoreObject);
   singleBenchmarkResult.setWinningScoreDifference(scoreObject.subtract(bestScoreObject));
   singleBenchmarkResult.setWorstScoreDifferencePercentage(ScoreDifferencePercentage.calculateScoreDifferencePercentage(worstScoreObject,scoreObject));
-  singleBenchmarkResult.setUninitializedVariableCount(0);
+  singleBenchmarkResult.setAverageUninitializedVariableCount(0);
   singleBenchmarkResultList.add(singleBenchmarkResult);
   return singleBenchmarkResult;
 }

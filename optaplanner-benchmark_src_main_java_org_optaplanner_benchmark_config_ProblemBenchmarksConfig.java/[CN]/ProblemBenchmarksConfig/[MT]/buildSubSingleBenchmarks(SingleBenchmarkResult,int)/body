@@ -1,0 +1,8 @@
+{
+  List<SubSingleBenchmarkResult> subSingleBenchmarkResultList=new ArrayList<SubSingleBenchmarkResult>(count);
+  for (int i=0; i < count; i++) {
+    SubSingleBenchmarkResult subSingleBenchmarkResult=new SubSingleBenchmarkResult(parent,i);
+    subSingleBenchmarkResultList.add(subSingleBenchmarkResult);
+  }
+  parent.setSubSingleBenchmarkResultList(subSingleBenchmarkResultList);
+}

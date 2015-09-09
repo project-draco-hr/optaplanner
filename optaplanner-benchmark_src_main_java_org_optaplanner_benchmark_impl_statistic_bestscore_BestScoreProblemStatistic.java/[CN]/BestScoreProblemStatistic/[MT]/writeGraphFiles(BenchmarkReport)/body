@@ -17,7 +17,7 @@
         }
       }
       long timeMillisSpent=singleBenchmarkResult.getTimeMillisSpent();
-      double[] bestScoreLevels=ScoreUtils.extractLevelDoubles(singleBenchmarkResult.getScore());
+      double[] bestScoreLevels=ScoreUtils.extractLevelDoubles(singleBenchmarkResult.getAverageScore());
       for (int i=0; i < bestScoreLevels.length && i < BenchmarkReport.CHARTED_SCORE_LEVEL_SIZE; i++) {
         if (i >= seriesList.size()) {
           seriesList.add(new XYSeries(singleBenchmarkResult.getSolverBenchmarkResult().getNameWithFavoriteSuffix()));

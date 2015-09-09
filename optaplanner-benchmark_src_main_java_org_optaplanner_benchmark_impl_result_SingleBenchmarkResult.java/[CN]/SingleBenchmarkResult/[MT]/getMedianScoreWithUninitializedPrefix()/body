@@ -1,0 +1,3 @@
+{
+  return ScoreUtils.getScoreWithUninitializedPrefix(medianUninitializedVariableCount,medianScore);
+}
