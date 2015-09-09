@@ -23,6 +23,7 @@
         subSingleBenchmarkResult.setSubPureSingleStatisticList(singleBenchmarkResult.getPureSingleStatisticList());
         subSingleBenchmarkResult.initSubSingleStatisticMap();
       }
+      singleBenchmarkResult.initSingleStatisticMap();
     }
     WarmUpConfigBackup warmUpConfigBackupPutResult=warmUpConfigBackupMap.put(solverBenchmarkResult,warmUpConfigBackup);
     if (warmUpConfigBackupPutResult != null) {

@@ -16,6 +16,7 @@
     for (    SubSingleBenchmarkResult subSingleBenchmarkResult : singleBenchmarkResult.getSubSingleBenchmarkResultList()) {
       subSingleBenchmarkResult.initSubSingleStatisticMap();
     }
+    singleBenchmarkResult.initSingleStatisticMap();
   }
   if (solverBenchmarkResultNameMap != null) {
     for (    Entry<SolverBenchmarkResult,String> results : solverBenchmarkResultNameMap.entrySet()) {

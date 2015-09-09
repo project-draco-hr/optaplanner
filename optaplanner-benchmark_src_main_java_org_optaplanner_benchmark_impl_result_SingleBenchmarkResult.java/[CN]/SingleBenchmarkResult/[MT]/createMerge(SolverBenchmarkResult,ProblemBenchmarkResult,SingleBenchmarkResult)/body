@@ -21,11 +21,6 @@
     singleStatistic.setPointList(oldSingleStatistic.getPointList());
     oldSingleStatistic.hibernatePointList();
   }
-  newResult.succeeded=oldResult.succeeded;
-  newResult.score=oldResult.score;
-  newResult.uninitializedVariableCount=oldResult.uninitializedVariableCount;
-  newResult.timeMillisSpent=oldResult.timeMillisSpent;
-  newResult.calculateCount=oldResult.calculateCount;
   solverBenchmarkResult.getSingleBenchmarkResultList().add(newResult);
   problemBenchmarkResult.getSingleBenchmarkResultList().add(newResult);
   return newResult;

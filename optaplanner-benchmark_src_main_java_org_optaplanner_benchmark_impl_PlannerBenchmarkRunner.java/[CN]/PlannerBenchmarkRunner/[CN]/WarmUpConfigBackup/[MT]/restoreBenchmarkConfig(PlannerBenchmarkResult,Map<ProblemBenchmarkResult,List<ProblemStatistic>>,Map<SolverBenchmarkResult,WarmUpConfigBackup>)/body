@@ -13,6 +13,7 @@
         subSingleBenchmarkResult.setSubPureSingleStatisticList(singleBenchmarkResult.getPureSingleStatisticList());
         subSingleBenchmarkResult.initSubSingleStatisticMap();
       }
+      singleBenchmarkResult.initSingleStatisticMap();
     }
   }
 }

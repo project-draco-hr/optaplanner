@@ -1,20 +1,7 @@
 {
-  determineTotalsAndAveragesAndRanking();
-  SubSingleBenchmarkResult[] subSingleBenchmarkResults=new SubSingleBenchmarkResult[subSingleBenchmarkResultList.size()];
-  SubSingleBenchmarkResult median=ObjectUtils.median(new SubSingleBenchmarkRankingComparator(),subSingleBenchmarkResultList.toArray(subSingleBenchmarkResults));
-  this.pureSingleStatisticList=median.getSubPureSingleStatisticList();
-  this.effectiveSingleStatisticMap=median.getEffectiveSingleStatisticMap();
-  this.usedMemoryAfterInputSolution=median.getUsedMemoryAfterInputSolution();
-  this.succeeded=median.getSucceeded();
-  this.uninitializedVariableCount=median.getUninitializedVariableCount();
-  this.score=median.getScore();
-  this.timeMillisSpent=median.getTimeMillisSpent();
-  this.calculateCount=median.getCalculateCount();
-  this.winningScoreDifference=median.getWinningScoreDifference();
-  this.worstScoreDifferencePercentage=median.getWorstScoreDifferencePercentage();
-  for (  SingleStatistic singleStatistic : median.getEffectiveSingleStatisticMap().values()) {
-    singleStatistic.unhibernatePointList();
-    singleStatistic.setSolverProblemBenchmarkResult(this);
-    singleStatistic.hibernatePointList();
+  if (this.score == null) {
+    SubSingleBenchmarkResult median=determineRepresentativeSubSingleBenchmarkResult();
+    mergeSubSingleStatistics(median);
   }
+  determineTotalsAndAveragesAndRanking();
 }

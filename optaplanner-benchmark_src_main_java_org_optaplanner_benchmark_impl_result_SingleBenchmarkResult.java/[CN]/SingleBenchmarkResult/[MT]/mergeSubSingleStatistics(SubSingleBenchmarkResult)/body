@@ -1,0 +1,9 @@
+{
+  if (median.getEffectiveSingleStatisticMap() != null) {
+    for (    SingleStatistic singleStatistic : median.getEffectiveSingleStatisticMap().values()) {
+      singleStatistic.unhibernatePointList();
+      singleStatistic.setSolverProblemBenchmarkResult(this);
+      singleStatistic.hibernatePointList();
+    }
+  }
+}
