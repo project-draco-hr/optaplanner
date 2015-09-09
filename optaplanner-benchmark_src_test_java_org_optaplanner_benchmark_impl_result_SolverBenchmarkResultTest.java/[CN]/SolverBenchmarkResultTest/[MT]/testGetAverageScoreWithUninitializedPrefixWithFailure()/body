@@ -9,4 +9,6 @@
   assertEquals("2uninitialized/-10hard/-100soft",solverBenchmarkResult.getAverageScoreWithUninitializedPrefix());
   when(solverBenchmarkResult.getFailureCount()).thenReturn(0);
   assertEquals("1uninitialized/-10hard/-100soft",solverBenchmarkResult.getAverageScoreWithUninitializedPrefix());
+  when(solverBenchmarkResult.getFailureCount()).thenReturn(2);
+  assertEquals(null,solverBenchmarkResult.getAverageScoreWithUninitializedPrefix());
 }

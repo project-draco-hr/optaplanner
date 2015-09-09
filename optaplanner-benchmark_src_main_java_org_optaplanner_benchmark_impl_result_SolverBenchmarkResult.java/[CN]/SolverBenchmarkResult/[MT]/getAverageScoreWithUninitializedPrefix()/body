@@ -1,3 +1,6 @@
 {
+  if (getSuccessCount() == 0) {
+    return null;
+  }
   return ScoreUtils.getScoreWithUninitializedPrefix(ConfigUtils.ceilDivide(getTotalUninitializedVariableCount(),getSuccessCount()),getAverageScore());
 }
