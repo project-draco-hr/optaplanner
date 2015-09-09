@@ -1,0 +1,22 @@
+{
+  if (standardDeviationDoubles == null) {
+    return null;
+  }
+  StringBuilder standardDeviationString=new StringBuilder(standardDeviationDoubles.length * 9);
+  boolean first=true;
+  for (  double standardDeviationDouble : standardDeviationDoubles) {
+    if (first) {
+      first=false;
+    }
+ else {
+      standardDeviationString.append("/");
+    }
+    String abbreviated=Double.toString(standardDeviationDouble);
+    int dotIndex=abbreviated.lastIndexOf('.');
+    if (dotIndex >= 0 && dotIndex + 3 < abbreviated.length()) {
+      abbreviated=abbreviated.substring(0,dotIndex + 3);
+    }
+    standardDeviationString.append(abbreviated);
+  }
+  return standardDeviationString.toString();
+}
