@@ -13,19 +13,20 @@
     KieResources kieResources=kieServices.getResources();
     KieFileSystem kieFileSystem=kieServices.newKieFileSystem();
     if (!ConfigUtils.isEmptyCollection(scoreDrlList)) {
+      ClassLoader actualClassLoader=(classLoader != null) ? classLoader : getClass().getClassLoader();
       for (      String scoreDrl : scoreDrlList) {
         if (scoreDrl == null) {
           throw new IllegalArgumentException("The scoreDrl (" + scoreDrl + ") cannot be null.");
         }
-        URL scoreDrlURL=getClass().getClassLoader().getResource(scoreDrl);
+        URL scoreDrlURL=actualClassLoader.getResource(scoreDrl);
         if (scoreDrlURL == null) {
-          String errorMessage="The scoreDrl (" + scoreDrl + ") does not exist as a classpath resource.";
+          String errorMessage="The scoreDrl (" + scoreDrl + ") does not exist as a classpath resource"+ " in the classLoader ("+ actualClassLoader+ ").";
           if (scoreDrl.startsWith("/")) {
             errorMessage+="\nAs from 6.1, a classpath resource should not start with a slash (/)." + " A scoreDrl now adheres to ClassLoader.getResource(String)." + " Remove the leading slash from the scoreDrl if you're upgrading from 6.0.";
           }
           throw new IllegalArgumentException(errorMessage);
         }
-        kieFileSystem.write(kieResources.newClassPathResource(scoreDrl,"UTF-8"));
+        kieFileSystem.write(kieResources.newClassPathResource(scoreDrl,"UTF-8",classLoader));
       }
     }
     if (!ConfigUtils.isEmptyCollection(scoreDrlFileList)) {

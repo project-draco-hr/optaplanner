@@ -1,5 +1,3 @@
 {
-  XStreamXmlSolverFactory solverFactory=new XStreamXmlSolverFactory();
-  solverFactory.configure(in);
-  return solverFactory;
+  return new XStreamXmlSolverFactory().configure(in);
 }

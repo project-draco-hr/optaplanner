@@ -1,0 +1,6 @@
+{
+  ClassLoader classLoader=mockDivertingClassLoader();
+  SolverFactory solverFactory=SolverFactory.createFromXmlResource("divertThroughClassLoader/org/optaplanner/core/api/solver/classloaderTestdataSolverConfig.xml",classLoader);
+  Solver solver=solverFactory.buildSolver();
+  assertNotNull(solver);
+}

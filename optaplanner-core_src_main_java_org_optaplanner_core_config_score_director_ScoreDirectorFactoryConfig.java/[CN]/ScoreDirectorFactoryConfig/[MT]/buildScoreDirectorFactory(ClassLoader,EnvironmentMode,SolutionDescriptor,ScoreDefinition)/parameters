@@ -1,3 +1,4 @@
+ClassLoader classLoader
 EnvironmentMode environmentMode
 SolutionDescriptor solutionDescriptor
 ScoreDefinition scoreDefinition

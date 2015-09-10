@@ -1,22 +1,3 @@
 {
-  DefaultSolver solver=new DefaultSolver();
-  EnvironmentMode environmentMode_=determineEnvironmentMode();
-  solver.setEnvironmentMode(environmentMode_);
-  boolean daemon_=defaultIfNull(daemon,false);
-  BasicPlumbingTermination basicPlumbingTermination=new BasicPlumbingTermination(daemon_);
-  solver.setBasicPlumbingTermination(basicPlumbingTermination);
-  solver.setRandomFactory(buildRandomFactory(environmentMode_));
-  SolutionDescriptor solutionDescriptor=buildSolutionDescriptor();
-  ScoreDirectorFactoryConfig scoreDirectorFactoryConfig_=scoreDirectorFactoryConfig == null ? new ScoreDirectorFactoryConfig() : scoreDirectorFactoryConfig;
-  InnerScoreDirectorFactory scoreDirectorFactory=scoreDirectorFactoryConfig_.buildScoreDirectorFactory(environmentMode_,solutionDescriptor);
-  solver.setConstraintMatchEnabledPreference(environmentMode_.isAsserted());
-  solver.setScoreDirectorFactory(scoreDirectorFactory);
-  HeuristicConfigPolicy configPolicy=new HeuristicConfigPolicy(environmentMode_,scoreDirectorFactory);
-  TerminationConfig terminationConfig_=terminationConfig == null ? new TerminationConfig() : terminationConfig;
-  Termination termination=terminationConfig_.buildTermination(configPolicy,basicPlumbingTermination);
-  solver.setTermination(termination);
-  BestSolutionRecaller bestSolutionRecaller=buildBestSolutionRecaller(environmentMode_);
-  solver.setBestSolutionRecaller(bestSolutionRecaller);
-  solver.setPhaseList(buildPhaseList(configPolicy,bestSolutionRecaller,termination));
-  return solver;
+  return buildSolver(null);
 }

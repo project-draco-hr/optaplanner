@@ -1,0 +1,5 @@
+{
+  SolverFactory solverFactory=SolverFactory.createFromXmlResource("org/optaplanner/core/api/solver/testdataSolverConfig.xml");
+  Solver solver=solverFactory.buildSolver();
+  assertNotNull(solver);
+}
