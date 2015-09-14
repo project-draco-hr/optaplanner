@@ -1,5 +1,5 @@
 {
-  this.classLoader=classLoader;
+  super(classLoader);
   xStream=buildXStream();
   if (classLoader != null) {
     xStream.setClassLoader(classLoader);

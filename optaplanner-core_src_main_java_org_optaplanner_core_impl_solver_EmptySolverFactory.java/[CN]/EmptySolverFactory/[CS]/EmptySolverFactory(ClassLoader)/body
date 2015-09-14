@@ -1,0 +1,4 @@
+{
+  super(classLoader);
+  solverConfig=new SolverConfig();
+}

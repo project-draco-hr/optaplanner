@@ -1,5 +1,6 @@
 {
-  SolverConfig solverConfig=new SolverConfig();
+  SolverFactory solverFactory=SolverFactory.createEmpty();
+  SolverConfig solverConfig=solverFactory.getSolverConfig();
   solverConfig.setSolutionClass(NQueens.class);
   solverConfig.setEntityClassList(Collections.<Class<?>>singletonList(Queen.class));
   ScoreDirectorFactoryConfig scoreDirectorFactoryConfig=new ScoreDirectorFactoryConfig();
@@ -22,5 +23,5 @@
   localSearchPhaseConfig.setAcceptorConfig(acceptorConfig);
   phaseConfigList.add(localSearchPhaseConfig);
   solverConfig.setPhaseConfigList(phaseConfigList);
-  return solverConfig.buildSolver();
+  return solverFactory.buildSolver();
 }
