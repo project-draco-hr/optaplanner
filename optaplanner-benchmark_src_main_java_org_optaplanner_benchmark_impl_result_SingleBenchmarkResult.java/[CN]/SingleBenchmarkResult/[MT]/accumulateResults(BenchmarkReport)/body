@@ -3,7 +3,7 @@
     subSingleBenchmarkResult.accumulateResults(benchmarkReport);
   }
   determineTotalsAndAveragesAndRanking();
-  determineStandardDeviation();
+  standardDeviationDoubles=StatsUtil.determineStandardDeviationDoubles(subSingleBenchmarkResultList,averageScore,getSuccessCount());
   if (!solverBenchmarkResult.getPlannerBenchmarkResult().getAggregation()) {
     SubSingleBenchmarkResult median=determineRepresentativeSubSingleBenchmarkResult();
     mergeSubSingleStatistics(median);

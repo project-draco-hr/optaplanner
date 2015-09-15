@@ -1,9 +1,15 @@
 {
-  if (median.getEffectiveSingleStatisticMap() != null && !median.isFailure()) {
-    for (    SingleStatistic singleStatistic : median.getEffectiveSingleStatisticMap().values()) {
-      singleStatistic.unhibernatePointList();
-      singleStatistic.setSolverProblemBenchmarkResult(this);
-      singleStatistic.hibernatePointList();
-    }
+  if (!median.isSuccess()) {
+    logger.debug("The median SubSingleBenchmarkResult ({}) is not a success, not copying it's single statistics" + "to parent SingleBenchmarkResult's ({}) directory.",median,this);
+    return;
+  }
+  if (median.getEffectiveSingleStatisticMap() == null) {
+    logger.debug("The median SubSingleBenchmarkResult ({}) does not have any single statistics," + "nothing to copy to parent SingleBenchmarkResult ({}) directory.",median,this);
+    return;
+  }
+  for (  SingleStatistic singleStatistic : median.getEffectiveSingleStatisticMap().values()) {
+    singleStatistic.unhibernatePointList();
+    singleStatistic.setSolverProblemBenchmarkResult(this);
+    singleStatistic.hibernatePointList();
   }
 }
