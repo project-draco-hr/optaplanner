@@ -1,0 +1,4 @@
+{
+  File file=findPomFile();
+  return ShrinkWrap.create(MavenImporter.class).loadPomFromFile(file).importBuildOutput().as(WebArchive.class);
+}
