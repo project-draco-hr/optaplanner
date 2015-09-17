@@ -1,0 +1,3 @@
+{
+  assertArrayEquals(new String[]{"hard score","medium score","soft score"},new HardMediumSoftLongScoreDefinition().getLevelLabels());
+}

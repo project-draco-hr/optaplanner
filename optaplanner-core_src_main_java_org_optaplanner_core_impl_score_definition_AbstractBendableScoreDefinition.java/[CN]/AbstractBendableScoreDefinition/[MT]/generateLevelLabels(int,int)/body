@@ -1,0 +1,14 @@
+{
+  String[] levelLabels=new String[hardLevelsSize + softLevelsSize];
+  for (int i=0; i < levelLabels.length; i++) {
+    String labelPrefix;
+    if (i < hardLevelsSize) {
+      labelPrefix="hard " + i;
+    }
+ else {
+      labelPrefix="soft " + (i - hardLevelsSize);
+    }
+    levelLabels[i]=labelPrefix + " score";
+  }
+  return levelLabels;
+}

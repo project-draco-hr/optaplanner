@@ -1,1 +1,1 @@
-AbstractFeasibilityScoreDefinition<BendableLongScore>
+AbstractBendableScoreDefinition<BendableLongScore>

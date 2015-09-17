@@ -1,0 +1,3 @@
+{
+  assertArrayEquals(new String[]{"score"},new SimpleLongScoreDefinition().getLevelLabels());
+}

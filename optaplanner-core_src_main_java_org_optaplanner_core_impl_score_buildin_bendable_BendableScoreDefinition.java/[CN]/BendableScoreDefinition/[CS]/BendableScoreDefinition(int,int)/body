@@ -1,4 +1,3 @@
 {
-  this.hardLevelsSize=hardLevelsSize;
-  this.softLevelsSize=softLevelsSize;
+  super(hardLevelsSize,softLevelsSize);
 }

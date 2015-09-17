@@ -1,0 +1,5 @@
+{
+  super(generateLevelLabels(hardLevelsSize,softLevelsSize));
+  this.hardLevelsSize=hardLevelsSize;
+  this.softLevelsSize=softLevelsSize;
+}
