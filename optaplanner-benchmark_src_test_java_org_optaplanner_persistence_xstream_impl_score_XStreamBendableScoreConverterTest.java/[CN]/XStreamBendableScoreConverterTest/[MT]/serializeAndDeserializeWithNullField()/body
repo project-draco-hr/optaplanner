@@ -1,7 +1,7 @@
 {
-  XStreamBendableScoreConverterTestObject input=new XStreamBendableScoreConverterTestObject(null);
-  PlannerTestUtils.serializeAndDeserializeWithAll(input,new PlannerTestUtils.OutputAsserter<XStreamBendableScoreConverterTestObject>(){
-    public void assertOutput(    XStreamBendableScoreConverterTestObject output){
+  TestXStreamObject input=new TestXStreamObject(null);
+  PlannerTestUtils.serializeAndDeserializeWithAll(input,new PlannerTestUtils.OutputAsserter<TestXStreamObject>(){
+    public void assertOutput(    TestXStreamObject output){
       assertEquals(null,output.getScore());
     }
   }

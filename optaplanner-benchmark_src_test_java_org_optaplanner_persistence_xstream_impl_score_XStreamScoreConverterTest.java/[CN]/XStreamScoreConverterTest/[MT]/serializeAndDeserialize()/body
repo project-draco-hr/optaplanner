@@ -1,8 +1,9 @@
 {
-  XStreamScoreConverterTestObject input=new XStreamScoreConverterTestObject(SimpleScore.valueOf(123));
-  PlannerTestUtils.serializeAndDeserializeWithAll(input,new PlannerTestUtils.OutputAsserter<XStreamScoreConverterTestObject>(){
-    public void assertOutput(    XStreamScoreConverterTestObject output){
-      assertEquals(123,output.getScore().getScore());
+  TestXStreamObject input=new TestXStreamObject(HardSoftScore.valueOf(1200,34));
+  assertXStreamXml("<TestXStreamObject>\\s*<score>1200hard/34soft</score>\\s*</TestXStreamObject>",input);
+  PlannerTestUtils.serializeAndDeserializeWithAll(input,new PlannerTestUtils.OutputAsserter<TestXStreamObject>(){
+    public void assertOutput(    TestXStreamObject output){
+      assertEquals(HardSoftScore.valueOf(1200,34),output.getScore());
     }
   }
 );

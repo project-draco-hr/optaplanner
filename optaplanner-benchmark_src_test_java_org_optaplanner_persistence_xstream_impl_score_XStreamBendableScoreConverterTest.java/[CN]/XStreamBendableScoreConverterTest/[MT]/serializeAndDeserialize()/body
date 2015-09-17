@@ -1,7 +1,8 @@
 {
-  XStreamBendableScoreConverterTestObject input=new XStreamBendableScoreConverterTestObject(BendableScore.valueOf(new int[]{-5},new int[]{-300,-4000}));
-  PlannerTestUtils.serializeAndDeserializeWithAll(input,new PlannerTestUtils.OutputAsserter<XStreamBendableScoreConverterTestObject>(){
-    public void assertOutput(    XStreamBendableScoreConverterTestObject output){
+  TestXStreamObject input=new TestXStreamObject(BendableScore.valueOf(new int[]{-5},new int[]{-300,-4000}));
+  XStreamScoreConverterTest.assertXStreamXml("<TestXStreamObject>\\s*<score>-5/-300/-4000</score>\\s*</TestXStreamObject>",input);
+  PlannerTestUtils.serializeAndDeserializeWithAll(input,new PlannerTestUtils.OutputAsserter<TestXStreamObject>(){
+    public void assertOutput(    TestXStreamObject output){
       BendableScore score=output.getScore();
       assertEquals(1,score.getHardLevelsSize());
       assertEquals(-5,score.getHardScore(0));
