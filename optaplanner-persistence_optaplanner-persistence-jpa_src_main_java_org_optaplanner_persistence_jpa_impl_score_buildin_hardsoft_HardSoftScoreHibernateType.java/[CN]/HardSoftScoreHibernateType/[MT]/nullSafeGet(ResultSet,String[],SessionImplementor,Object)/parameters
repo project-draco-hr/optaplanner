@@ -1,0 +1,4 @@
+ResultSet resultSet
+String[] names
+SessionImplementor session
+Object owner

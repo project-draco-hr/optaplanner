@@ -1,0 +1,14 @@
+{
+  if (o == null) {
+    return null;
+  }
+  HardSoftScore score=(HardSoftScore)o;
+switch (propertyIndex) {
+case 0:
+    return score.getHardScore();
+case 1:
+  return score.getSoftScore();
+default :
+throw new IllegalArgumentException("The propertyIndex (" + propertyIndex + ") must be lower than the levelsSize ("+ scoreDefinition.getLevelsSize()+ ") for score ("+ score+ ").");
+}
+}

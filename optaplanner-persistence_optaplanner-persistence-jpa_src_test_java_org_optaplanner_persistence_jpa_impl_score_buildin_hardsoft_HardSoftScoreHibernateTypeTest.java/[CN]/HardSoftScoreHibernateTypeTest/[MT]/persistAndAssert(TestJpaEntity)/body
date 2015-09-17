@@ -1,0 +1,10 @@
+{
+  EntityManager entityManager=entityManagerFactory.createEntityManager();
+  EntityTransaction transaction=entityManager.getTransaction();
+  transaction.begin();
+  entityManager.persist(jpaEntity);
+  transaction.commit();
+  Long id=jpaEntity.getId();
+  assertNotNull(id);
+  return id;
+}

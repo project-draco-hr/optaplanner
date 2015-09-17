@@ -1,0 +1,4 @@
+Class<E> jpaEntityClass
+Long id
+S oldScore
+S newScore

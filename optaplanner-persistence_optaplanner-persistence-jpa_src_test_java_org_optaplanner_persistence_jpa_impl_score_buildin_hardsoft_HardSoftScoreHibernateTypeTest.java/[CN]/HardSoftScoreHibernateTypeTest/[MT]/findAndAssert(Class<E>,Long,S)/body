@@ -1,0 +1,8 @@
+{
+  EntityManager entityManager=entityManagerFactory.createEntityManager();
+  EntityTransaction transaction=entityManager.getTransaction();
+  transaction.begin();
+  E jpaEntity=entityManager.find(jpaEntityClass,id);
+  assertEquals(score,jpaEntity.getScore());
+  transaction.commit();
+}
