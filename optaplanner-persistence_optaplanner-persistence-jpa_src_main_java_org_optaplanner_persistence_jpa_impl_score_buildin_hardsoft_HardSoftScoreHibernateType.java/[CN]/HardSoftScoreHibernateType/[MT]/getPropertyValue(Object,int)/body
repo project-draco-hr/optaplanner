@@ -9,6 +9,6 @@ case 0:
 case 1:
   return score.getSoftScore();
 default :
-throw new IllegalArgumentException("The propertyIndex (" + propertyIndex + ") must be lower than the levelsSize ("+ scoreDefinition.getLevelsSize()+ ") for score ("+ score+ ").");
+throw new IllegalArgumentException("The propertyIndex (" + propertyIndex + ") must be lower than the levelsSize for score ("+ score+ ").");
 }
 }
