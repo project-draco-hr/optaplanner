@@ -1,9 +1,0 @@
-{
-  TestXStreamObject input=new TestXStreamObject(null);
-  PlannerTestUtils.serializeAndDeserializeWithAll(input,new PlannerTestUtils.OutputAsserter<TestXStreamObject>(){
-    public void assertOutput(    TestXStreamObject output){
-      assertEquals(null,output.getScore());
-    }
-  }
-);
-}

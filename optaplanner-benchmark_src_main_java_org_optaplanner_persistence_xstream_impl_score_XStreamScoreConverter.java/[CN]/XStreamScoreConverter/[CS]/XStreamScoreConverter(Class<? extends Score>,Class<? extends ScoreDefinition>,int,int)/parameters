@@ -1,0 +1,4 @@
+Class<? extends Score> scoreClass
+Class<? extends ScoreDefinition> scoreDefinitionClass
+int hardLevelsSize
+int softLevelsSize

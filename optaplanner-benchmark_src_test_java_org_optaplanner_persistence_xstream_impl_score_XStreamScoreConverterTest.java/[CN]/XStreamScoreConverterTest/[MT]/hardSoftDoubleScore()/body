@@ -1,0 +1,5 @@
+{
+  testXStreaming(null,new TestHardSoftDoubleScoreWrapper(null));
+  HardSoftDoubleScore score=HardSoftDoubleScore.valueOf(1200.0021,34.4300);
+  testXStreaming(score,new TestHardSoftDoubleScoreWrapper(score));
+}

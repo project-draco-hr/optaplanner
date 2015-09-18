@@ -1,0 +1,7 @@
+{
+  XStream xStream=new XStream();
+  xStream.setMode(XStream.ID_REFERENCES);
+  xStream.processAnnotations(input.getClass());
+  String xmlString=xStream.toXML(input);
+  return (T)xStream.fromXML(xmlString);
+}

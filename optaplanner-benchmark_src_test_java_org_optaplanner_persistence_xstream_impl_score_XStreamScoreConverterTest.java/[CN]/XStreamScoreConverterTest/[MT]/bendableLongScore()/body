@@ -1,0 +1,5 @@
+{
+  testXStreaming(null,new TestBendableLongScoreWrapper(null));
+  BendableLongScore score=BendableLongScore.valueOf(new long[]{1000L,200L},new long[]{34L});
+  testXStreaming(score,new TestBendableLongScoreWrapper(score));
+}

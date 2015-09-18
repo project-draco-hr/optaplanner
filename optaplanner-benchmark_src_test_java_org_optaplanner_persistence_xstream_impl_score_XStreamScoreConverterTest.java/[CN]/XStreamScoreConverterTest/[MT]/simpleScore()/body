@@ -1,0 +1,5 @@
+{
+  testXStreaming(null,new TestSimpleScoreWrapper(null));
+  SimpleScore score=SimpleScore.valueOf(1234);
+  testXStreaming(score,new TestSimpleScoreWrapper(score));
+}

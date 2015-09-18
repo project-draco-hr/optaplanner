@@ -1,0 +1,5 @@
+{
+  testXStreaming(null,new TestSimpleLongScoreWrapper(null));
+  SimpleLongScore score=SimpleLongScore.valueOf(1234L);
+  testXStreaming(score,new TestSimpleLongScoreWrapper(score));
+}

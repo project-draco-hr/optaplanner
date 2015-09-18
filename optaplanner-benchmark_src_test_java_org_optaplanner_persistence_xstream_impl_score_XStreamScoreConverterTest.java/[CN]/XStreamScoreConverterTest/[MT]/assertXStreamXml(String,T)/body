@@ -1,0 +1,9 @@
+{
+  XStream xStream=new XStream();
+  xStream.setMode(XStream.NO_REFERENCES);
+  xStream.processAnnotations(input.getClass());
+  String xml=xStream.toXML(input);
+  if (!xml.matches(regex)) {
+    fail("Regular expression match failed.\nExpected regular expression: " + regex + "\nActual: "+ xml);
+  }
+}

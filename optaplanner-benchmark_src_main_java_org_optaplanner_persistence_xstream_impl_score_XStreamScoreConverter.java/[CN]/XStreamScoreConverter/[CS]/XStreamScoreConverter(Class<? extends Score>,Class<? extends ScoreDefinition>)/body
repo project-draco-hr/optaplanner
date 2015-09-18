@@ -1,6 +1,6 @@
 {
   if (AbstractBendableScoreDefinition.class.isAssignableFrom(scoreDefinitionClass)) {
-    throw new IllegalArgumentException(XStreamScoreConverter.class + " is not compatible with scoreClass (" + scoreClass+ "), use "+ XStreamBendableScoreConverter.class.getSimpleName()+ " instead.");
+    throw new IllegalArgumentException("This constructor is not compatible with scoreClass (" + scoreClass + "), use the other constructor with 2 int parameters instead.");
   }
   try {
     scoreDefinition=scoreDefinitionClass.newInstance();
