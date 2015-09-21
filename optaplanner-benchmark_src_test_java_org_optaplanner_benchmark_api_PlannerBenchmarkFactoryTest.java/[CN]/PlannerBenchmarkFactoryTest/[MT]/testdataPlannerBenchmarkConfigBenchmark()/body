@@ -1,0 +1,9 @@
+{
+  PlannerBenchmarkFactory plannerBenchmarkFactory=PlannerBenchmarkFactory.createFromXmlResource("org/optaplanner/benchmark/api/testdataPlannerBenchmarkConfig.xml");
+  File tempDir=Files.createTempDir();
+  plannerBenchmarkFactory.getPlannerBenchmarkConfig().setBenchmarkDirectory(tempDir);
+  PlannerBenchmark plannerBenchmark=plannerBenchmarkFactory.buildPlannerBenchmark();
+  assertNotNull(plannerBenchmark);
+  plannerBenchmark.benchmark();
+  tempDir.delete();
+}
