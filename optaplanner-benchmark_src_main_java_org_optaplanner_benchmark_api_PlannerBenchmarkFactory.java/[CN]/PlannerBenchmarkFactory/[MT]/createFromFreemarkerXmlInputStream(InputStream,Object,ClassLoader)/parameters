@@ -1,0 +1,3 @@
+InputStream templateIn
+Object model
+ClassLoader classLoader

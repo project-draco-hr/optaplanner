@@ -1,0 +1,8 @@
+{
+  this.classLoader=classLoader;
+  xStream=XStreamXmlSolverFactory.buildXStream();
+  xStream.processAnnotations(PlannerBenchmarkConfig.class);
+  if (classLoader != null) {
+    xStream.setClassLoader(classLoader);
+  }
+}

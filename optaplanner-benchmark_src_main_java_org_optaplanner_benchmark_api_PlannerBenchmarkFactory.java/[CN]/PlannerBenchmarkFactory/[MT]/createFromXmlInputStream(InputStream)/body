@@ -1,5 +1,3 @@
 {
-  XStreamXmlPlannerBenchmarkFactory plannerBenchmarkFactory=new XStreamXmlPlannerBenchmarkFactory();
-  plannerBenchmarkFactory.configure(in);
-  return plannerBenchmarkFactory;
+  return new XStreamXmlPlannerBenchmarkFactory().configure(in);
 }

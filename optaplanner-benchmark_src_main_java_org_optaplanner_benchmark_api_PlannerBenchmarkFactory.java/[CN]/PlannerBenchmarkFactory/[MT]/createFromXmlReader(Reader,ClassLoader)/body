@@ -1,0 +1,3 @@
+{
+  return new XStreamXmlPlannerBenchmarkFactory(classLoader).configure(reader);
+}
