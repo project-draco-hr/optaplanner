@@ -3,7 +3,7 @@
   for (  ProblemBenchmarkResult problemBenchmarkResult : plannerBenchmarkResult.getUnifiedProblemBenchmarkResultList()) {
     for (    SingleBenchmarkResult singleBenchmarkResult : problemBenchmarkResult.getSingleBenchmarkResultList()) {
       for (      SubSingleBenchmarkResult subSingleBenchmarkResult : singleBenchmarkResult.getSubSingleBenchmarkResultList()) {
-        SubSingleBenchmarkRunner subSingleBenchmarkRunner=new SubSingleBenchmarkRunner(subSingleBenchmarkResult);
+        SubSingleBenchmarkRunner subSingleBenchmarkRunner=new SubSingleBenchmarkRunner(subSingleBenchmarkResult,classLoader);
         Future<SubSingleBenchmarkRunner> future=executorService.submit(subSingleBenchmarkRunner);
         futureMap.put(subSingleBenchmarkRunner,future);
       }

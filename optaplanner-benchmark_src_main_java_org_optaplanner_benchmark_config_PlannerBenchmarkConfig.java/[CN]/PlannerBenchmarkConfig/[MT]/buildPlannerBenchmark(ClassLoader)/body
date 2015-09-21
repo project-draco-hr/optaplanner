@@ -1,0 +1,21 @@
+{
+  ClassLoader actualClassLoader=classLoader != null ? classLoader : getClass().getClassLoader();
+  validate();
+  generateSolverBenchmarkConfigNames();
+  List<SolverBenchmarkConfig> effectiveSolverBenchmarkConfigList=buildEffectiveSolverBenchmarkConfigList();
+  PlannerBenchmarkResult plannerBenchmarkResult=new PlannerBenchmarkResult();
+  plannerBenchmarkResult.setName(name);
+  plannerBenchmarkResult.setAggregation(false);
+  PlannerBenchmarkRunner plannerBenchmarkRunner=new PlannerBenchmarkRunner(plannerBenchmarkResult,actualClassLoader);
+  plannerBenchmarkRunner.setBenchmarkDirectory(benchmarkDirectory);
+  plannerBenchmarkResult.setParallelBenchmarkCount(resolveParallelBenchmarkCount());
+  plannerBenchmarkResult.setWarmUpTimeMillisSpentLimit(calculateWarmUpTimeMillisSpentLimit());
+  BenchmarkReportConfig benchmarkReportConfig_=benchmarkReportConfig == null ? new BenchmarkReportConfig() : benchmarkReportConfig;
+  plannerBenchmarkRunner.setBenchmarkReport(benchmarkReportConfig_.buildBenchmarkReport(plannerBenchmarkResult));
+  plannerBenchmarkResult.setUnifiedProblemBenchmarkResultList(new ArrayList<ProblemBenchmarkResult>());
+  plannerBenchmarkResult.setSolverBenchmarkResultList(new ArrayList<SolverBenchmarkResult>(effectiveSolverBenchmarkConfigList.size()));
+  for (  SolverBenchmarkConfig solverBenchmarkConfig : effectiveSolverBenchmarkConfigList) {
+    solverBenchmarkConfig.buildSolverBenchmark(plannerBenchmarkResult);
+  }
+  return plannerBenchmarkRunner;
+}

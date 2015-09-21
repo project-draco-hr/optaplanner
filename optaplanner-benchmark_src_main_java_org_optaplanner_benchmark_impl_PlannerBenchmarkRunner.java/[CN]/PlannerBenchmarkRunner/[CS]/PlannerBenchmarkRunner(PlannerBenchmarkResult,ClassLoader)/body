@@ -1,0 +1,4 @@
+{
+  this.plannerBenchmarkResult=plannerBenchmarkResult;
+  this.classLoader=classLoader != null ? classLoader : getClass().getClassLoader();
+}
