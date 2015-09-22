@@ -7,9 +7,9 @@
     logger.debug("The median SubSingleBenchmarkResult (index: {}) does not have any single statistics, " + "nothing to copy to parent SingleBenchmarkResult ({}) directory. If this is an aggregation, " + "this is expected.",median.getSubSingleBenchmarkIndex(),this);
     return;
   }
-  for (  SingleStatistic singleStatistic : median.getEffectiveSingleStatisticMap().values()) {
-    singleStatistic.unhibernatePointList();
-    singleStatistic.setSolverProblemBenchmarkResult(this);
-    singleStatistic.hibernatePointList();
+  for (  SubSingleStatistic subSingleStatistic : median.getEffectiveSingleStatisticMap().values()) {
+    subSingleStatistic.unhibernatePointList();
+    subSingleStatistic.setSolverProblemBenchmarkResult(this);
+    subSingleStatistic.hibernatePointList();
   }
 }

@@ -12,7 +12,7 @@
     XYSeries series=new XYSeries(singleBenchmarkResult.getSolverBenchmarkResult().getNameWithFavoriteSuffix());
     XYItemRenderer renderer=new XYLineAndShapeRenderer();
     if (singleBenchmarkResult.isSuccess()) {
-      CalculateCountSingleStatistic singleStatistic=(CalculateCountSingleStatistic)singleBenchmarkResult.getSingleStatistic(problemStatisticType);
+      CalculateCountSubSingleStatistic singleStatistic=(CalculateCountSubSingleStatistic)singleBenchmarkResult.getSingleStatistic(problemStatisticType);
       for (      CalculateCountStatisticPoint point : singleStatistic.getPointList()) {
         long timeMillisSpent=point.getTimeMillisSpent();
         long calculateCountPerSecond=point.getCalculateCountPerSecond();

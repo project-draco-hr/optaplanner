@@ -13,7 +13,7 @@
     XYSeries selectedSeries=new XYSeries(singleBenchmarkResult.getSolverBenchmarkResult().getNameWithFavoriteSuffix() + " selected");
     XYItemRenderer renderer=new XYLineAndShapeRenderer(true,false);
     if (singleBenchmarkResult.isSuccess()) {
-      MoveCountPerStepSingleStatistic singleStatistic=(MoveCountPerStepSingleStatistic)singleBenchmarkResult.getSingleStatistic(problemStatisticType);
+      MoveCountPerStepSubSingleStatistic singleStatistic=(MoveCountPerStepSubSingleStatistic)singleBenchmarkResult.getSingleStatistic(problemStatisticType);
       for (      MoveCountPerStepStatisticPoint point : singleStatistic.getPointList()) {
         long timeMillisSpent=point.getTimeMillisSpent();
         long acceptedMoveCount=point.getMoveCountPerStepMeasurement().getAcceptedMoveCount();

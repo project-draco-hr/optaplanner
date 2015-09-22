@@ -1,7 +1,7 @@
 {
   SingleBenchmarkResult newResult=new SingleBenchmarkResult(solverBenchmarkResult,problemBenchmarkResult);
-  newResult.pureSingleStatisticList=new ArrayList<PureSingleStatistic>(oldResult.pureSingleStatisticList.size());
-  for (  PureSingleStatistic oldSingleStatistic : oldResult.pureSingleStatisticList) {
+  newResult.pureSingleStatisticList=new ArrayList<PureSubSingleStatistic>(oldResult.pureSingleStatisticList.size());
+  for (  PureSubSingleStatistic oldSingleStatistic : oldResult.pureSingleStatisticList) {
     newResult.pureSingleStatisticList.add(oldSingleStatistic.getStatisticType().buildPureSingleStatistic(newResult));
   }
   newResult.subSingleBenchmarkResultList=new ArrayList<SubSingleBenchmarkResult>(oldResult.getSubSingleBenchmarkResultList().size());
@@ -11,21 +11,21 @@
     subSingleBenchmarkIndex++;
   }
   newResult.initSingleStatisticMap();
-  for (  SingleStatistic singleStatistic : newResult.effectiveSingleStatisticMap.values()) {
-    SingleStatistic oldSingleStatistic=oldResult.getSingleStatistic(singleStatistic.getStatisticType());
-    if (!oldSingleStatistic.getCsvFile().exists()) {
+  for (  SubSingleStatistic subSingleStatistic : newResult.effectiveSingleStatisticMap.values()) {
+    SubSingleStatistic oldSubSingleStatistic=oldResult.getSingleStatistic(subSingleStatistic.getStatisticType());
+    if (!oldSubSingleStatistic.getCsvFile().exists()) {
       if (oldResult.isFailure()) {
-        singleStatistic.initPointList();
-        logger.debug("Old result ({}) is a failure, skipping merge of it's single statistic ({}).",oldResult,oldSingleStatistic);
+        subSingleStatistic.initPointList();
+        logger.debug("Old result ({}) is a failure, skipping merge of it's single statistic ({}).",oldResult,oldSubSingleStatistic);
         continue;
       }
  else {
-        throw new IllegalStateException("Could not find old result's ( " + oldResult + " ) single statistic's ( "+ oldSingleStatistic+ " ) CSV file.");
+        throw new IllegalStateException("Could not find old result's ( " + oldResult + " ) single statistic's ( "+ oldSubSingleStatistic+ " ) CSV file.");
       }
     }
-    oldSingleStatistic.unhibernatePointList();
-    singleStatistic.setPointList(oldSingleStatistic.getPointList());
-    oldSingleStatistic.hibernatePointList();
+    oldSubSingleStatistic.unhibernatePointList();
+    subSingleStatistic.setPointList(oldSubSingleStatistic.getPointList());
+    oldSubSingleStatistic.hibernatePointList();
   }
   newResult.medianScore=oldResult.medianScore;
   newResult.medianUninitializedVariableCount=oldResult.medianUninitializedVariableCount;

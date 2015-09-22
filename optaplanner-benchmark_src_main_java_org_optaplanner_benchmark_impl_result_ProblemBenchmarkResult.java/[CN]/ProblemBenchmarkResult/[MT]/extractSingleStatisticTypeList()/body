@@ -1,7 +1,7 @@
 {
   Set<SingleStatisticType> singleStatisticTypeSet=new LinkedHashSet<SingleStatisticType>();
   for (  SingleBenchmarkResult singleBenchmarkResult : singleBenchmarkResultList) {
-    for (    PureSingleStatistic pureSingleStatistic : singleBenchmarkResult.getPureSingleStatisticList()) {
+    for (    PureSubSingleStatistic pureSingleStatistic : singleBenchmarkResult.getPureSingleStatisticList()) {
       singleStatisticTypeSet.add(pureSingleStatistic.getStatisticType());
     }
   }

@@ -1,9 +1,9 @@
 {
   SingleBenchmarkResult singleBenchmarkResult=new SingleBenchmarkResult(solverBenchmarkResult,problemBenchmarkResult);
   buildSubSingleBenchmarks(singleBenchmarkResult,solverBenchmarkResult.getSubSingleCount());
-  singleBenchmarkResult.setPureSingleStatisticList(new ArrayList<PureSingleStatistic>(singleStatisticTypeList == null ? 0 : singleStatisticTypeList.size()));
+  singleBenchmarkResult.setPureSingleStatisticList(new ArrayList<PureSubSingleStatistic>(singleStatisticTypeList == null ? 0 : singleStatisticTypeList.size()));
   for (  SubSingleBenchmarkResult subSingleBenchmarkResult : singleBenchmarkResult.getSubSingleBenchmarkResultList()) {
-    subSingleBenchmarkResult.setSubPureSingleStatisticList(new ArrayList<PureSingleStatistic>(singleStatisticTypeList == null ? 0 : singleStatisticTypeList.size()));
+    subSingleBenchmarkResult.setSubPureSingleStatisticList(new ArrayList<PureSubSingleStatistic>(singleStatisticTypeList == null ? 0 : singleStatisticTypeList.size()));
   }
   if (singleStatisticTypeList != null) {
     for (    SingleStatisticType singleStatisticType : singleStatisticTypeList) {

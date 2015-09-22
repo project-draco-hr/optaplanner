@@ -5,7 +5,7 @@
     List<XYSeries> seriesList=new ArrayList<XYSeries>(BenchmarkReport.CHARTED_SCORE_LEVEL_SIZE);
     XYItemRenderer renderer=new XYStepRenderer();
     if (singleBenchmarkResult.isSuccess()) {
-      StepScoreSingleStatistic singleStatistic=(StepScoreSingleStatistic)singleBenchmarkResult.getSingleStatistic(problemStatisticType);
+      StepScoreSubSingleStatistic singleStatistic=(StepScoreSubSingleStatistic)singleBenchmarkResult.getSingleStatistic(problemStatisticType);
       for (      StepScoreStatisticPoint point : singleStatistic.getPointList()) {
         long timeMillisSpent=point.getTimeMillisSpent();
         double[] levelValues=ScoreUtils.extractLevelDoubles(point.getScore());

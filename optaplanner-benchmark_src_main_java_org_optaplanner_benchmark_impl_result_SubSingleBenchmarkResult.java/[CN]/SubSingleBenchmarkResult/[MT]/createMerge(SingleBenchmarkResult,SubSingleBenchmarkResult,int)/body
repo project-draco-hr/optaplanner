@@ -1,25 +1,25 @@
 {
   SubSingleBenchmarkResult newResult=new SubSingleBenchmarkResult(singleBenchmarkResult,subSingleBenchmarkIndex);
-  newResult.subPureSingleStatisticList=new ArrayList<PureSingleStatistic>(oldResult.subPureSingleStatisticList.size());
-  for (  PureSingleStatistic oldSingleStatistic : oldResult.subPureSingleStatisticList) {
+  newResult.subPureSingleStatisticList=new ArrayList<PureSubSingleStatistic>(oldResult.subPureSingleStatisticList.size());
+  for (  PureSubSingleStatistic oldSingleStatistic : oldResult.subPureSingleStatisticList) {
     newResult.subPureSingleStatisticList.add(oldSingleStatistic.getStatisticType().buildPureSingleStatistic(newResult));
   }
   newResult.initSubSingleStatisticMap();
-  for (  SingleStatistic singleStatistic : newResult.effectiveSingleStatisticMap.values()) {
-    SingleStatistic oldSingleStatistic=oldResult.getSingleStatistic(singleStatistic.getStatisticType());
-    if (!oldSingleStatistic.getCsvFile().exists()) {
+  for (  SubSingleStatistic subSingleStatistic : newResult.effectiveSingleStatisticMap.values()) {
+    SubSingleStatistic oldSubSingleStatistic=oldResult.getSingleStatistic(subSingleStatistic.getStatisticType());
+    if (!oldSubSingleStatistic.getCsvFile().exists()) {
       if (oldResult.isFailure()) {
-        singleStatistic.initPointList();
-        logger.debug("Old result ({}) is a failure, skipping merge of it's single statistic ({}).",oldResult,oldSingleStatistic);
+        subSingleStatistic.initPointList();
+        logger.debug("Old result ({}) is a failure, skipping merge of it's single statistic ({}).",oldResult,oldSubSingleStatistic);
         continue;
       }
  else {
-        throw new IllegalStateException("Could not find old result's ( " + oldResult + " ) single statistic's ( "+ oldSingleStatistic+ " ) CSV file.");
+        throw new IllegalStateException("Could not find old result's ( " + oldResult + " ) single statistic's ( "+ oldSubSingleStatistic+ " ) CSV file.");
       }
     }
-    oldSingleStatistic.unhibernatePointList();
-    singleStatistic.setPointList(oldSingleStatistic.getPointList());
-    oldSingleStatistic.hibernatePointList();
+    oldSubSingleStatistic.unhibernatePointList();
+    subSingleStatistic.setPointList(oldSubSingleStatistic.getPointList());
+    oldSubSingleStatistic.hibernatePointList();
   }
   newResult.succeeded=oldResult.succeeded;
   newResult.score=oldResult.score;

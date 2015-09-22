@@ -9,9 +9,9 @@
   }
   logger.trace("Benchmark inputSolution has been read for subSingleBenchmarkResult ({}).",subSingleBenchmarkResult);
   Solver solver=subSingleBenchmarkResult.getSolverBenchmarkResult().getSolverConfig().buildSolver();
-  for (  SingleStatistic singleStatistic : subSingleBenchmarkResult.getEffectiveSingleStatisticMap().values()) {
-    singleStatistic.open(solver);
-    singleStatistic.initPointList();
+  for (  SubSingleStatistic subSingleStatistic : subSingleBenchmarkResult.getEffectiveSingleStatisticMap().values()) {
+    subSingleStatistic.open(solver);
+    subSingleStatistic.initPointList();
   }
   solver.solve(inputSolution);
   long timeMillisSpent=solver.getTimeMillisSpent();
@@ -23,9 +23,9 @@
   subSingleBenchmarkResult.setUninitializedVariableCount(solverScope.getBestUninitializedVariableCount());
   subSingleBenchmarkResult.setTimeMillisSpent(timeMillisSpent);
   subSingleBenchmarkResult.setCalculateCount(solverScope.getCalculateCount());
-  for (  SingleStatistic singleStatistic : subSingleBenchmarkResult.getEffectiveSingleStatisticMap().values()) {
-    singleStatistic.close(solver);
-    singleStatistic.hibernatePointList();
+  for (  SubSingleStatistic subSingleStatistic : subSingleBenchmarkResult.getEffectiveSingleStatisticMap().values()) {
+    subSingleStatistic.close(solver);
+    subSingleStatistic.hibernatePointList();
   }
   problemBenchmarkResult.writeOutputSolution(subSingleBenchmarkResult,outputSolution);
   MDC.remove(NAME_MDC);

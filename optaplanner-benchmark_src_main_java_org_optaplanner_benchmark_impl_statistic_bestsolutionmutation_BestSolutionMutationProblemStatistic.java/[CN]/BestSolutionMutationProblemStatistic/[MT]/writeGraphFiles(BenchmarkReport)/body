@@ -5,7 +5,7 @@
     XYIntervalSeries series=new XYIntervalSeries(singleBenchmarkResult.getSolverBenchmarkResult().getNameWithFavoriteSuffix());
     XYItemRenderer renderer=new YIntervalRenderer();
     if (singleBenchmarkResult.isSuccess()) {
-      BestSolutionMutationSingleStatistic singleStatistic=(BestSolutionMutationSingleStatistic)singleBenchmarkResult.getSingleStatistic(problemStatisticType);
+      BestSolutionMutationSubSingleStatistic singleStatistic=(BestSolutionMutationSubSingleStatistic)singleBenchmarkResult.getSingleStatistic(problemStatisticType);
       for (      BestSolutionMutationStatisticPoint point : singleStatistic.getPointList()) {
         long timeMillisSpent=point.getTimeMillisSpent();
         long mutationCount=point.getMutationCount();
