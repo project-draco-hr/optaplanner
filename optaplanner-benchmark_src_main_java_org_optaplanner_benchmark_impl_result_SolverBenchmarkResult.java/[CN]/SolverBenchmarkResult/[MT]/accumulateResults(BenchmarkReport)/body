@@ -1,4 +1,4 @@
 {
   determineTotalsAndAverages();
-  standardDeviationDoubles=StatsUtil.determineStandardDeviationDoubles(singleBenchmarkResultList,averageScore,getSuccessCount());
+  standardDeviationDoubles=StatisticUtils.determineStandardDeviationDoubles(singleBenchmarkResultList,averageScore,getSuccessCount());
 }
