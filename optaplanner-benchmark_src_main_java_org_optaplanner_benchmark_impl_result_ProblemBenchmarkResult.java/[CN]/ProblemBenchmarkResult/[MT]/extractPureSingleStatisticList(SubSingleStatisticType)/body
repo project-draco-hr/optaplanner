@@ -2,7 +2,7 @@
   List<PureSubSingleStatistic> pureSingleStatisticList=new ArrayList<PureSubSingleStatistic>(singleBenchmarkResultList.size());
   for (  SingleBenchmarkResult singleBenchmarkResult : singleBenchmarkResultList) {
     for (    PureSubSingleStatistic pureSingleStatistic : singleBenchmarkResult.getPureSingleStatisticList()) {
-      if (pureSingleStatistic.getStatisticType() == singleStatisticType) {
+      if (pureSingleStatistic.getStatisticType() == subSingleStatisticType) {
         pureSingleStatisticList.add(pureSingleStatistic);
       }
     }

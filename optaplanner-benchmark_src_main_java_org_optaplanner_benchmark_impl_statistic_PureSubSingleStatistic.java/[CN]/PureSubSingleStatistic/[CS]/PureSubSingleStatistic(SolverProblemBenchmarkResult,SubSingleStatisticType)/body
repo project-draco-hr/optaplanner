@@ -1,0 +1,4 @@
+{
+  super(solverProblemBenchmarkResult);
+  this.subSingleStatisticType=subSingleStatisticType;
+}
