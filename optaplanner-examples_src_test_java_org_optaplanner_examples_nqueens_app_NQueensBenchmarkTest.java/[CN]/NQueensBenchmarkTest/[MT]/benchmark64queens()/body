@@ -1,6 +1,6 @@
 {
   PlannerBenchmarkFactory plannerBenchmarkFactory=buildPlannerBenchmarkFactory(new File("data/nqueens/unsolved/64queens.xml"));
-  plannerBenchmarkFactory.getPlannerBenchmarkConfig().getInheritedSolverBenchmarkConfig().getProblemBenchmarksConfig().setSubSingleStatisticTypeList(buildAllSingleStatisticTypeList());
+  plannerBenchmarkFactory.getPlannerBenchmarkConfig().getInheritedSolverBenchmarkConfig().getProblemBenchmarksConfig().setSubSingleStatisticTypeList(buildAllSubSingleStatisticTypeList());
   plannerBenchmarkFactory.getPlannerBenchmarkConfig().getInheritedSolverBenchmarkConfig().getProblemBenchmarksConfig().setProblemStatisticTypeList(buildAllProblemStatisticTypeList());
   plannerBenchmarkFactory.getPlannerBenchmarkConfig().setParallelBenchmarkCount("AUTO");
   PlannerBenchmark plannerBenchmark=plannerBenchmarkFactory.buildPlannerBenchmark();

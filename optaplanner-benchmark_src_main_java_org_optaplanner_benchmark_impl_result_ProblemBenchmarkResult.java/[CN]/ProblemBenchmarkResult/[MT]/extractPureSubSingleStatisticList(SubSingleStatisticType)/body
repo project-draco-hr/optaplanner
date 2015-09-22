@@ -1,0 +1,11 @@
+{
+  List<PureSubSingleStatistic> pureSubSingleStatisticList=new ArrayList<PureSubSingleStatistic>(singleBenchmarkResultList.size());
+  for (  SingleBenchmarkResult singleBenchmarkResult : singleBenchmarkResultList) {
+    for (    PureSubSingleStatistic pureSubSingleStatistic : singleBenchmarkResult.getPureSubSingleStatisticList()) {
+      if (pureSubSingleStatistic.getStatisticType() == subSingleStatisticType) {
+        pureSubSingleStatisticList.add(pureSubSingleStatistic);
+      }
+    }
+  }
+  return pureSubSingleStatisticList;
+}

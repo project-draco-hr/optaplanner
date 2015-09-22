@@ -4,12 +4,12 @@
     TerminationConfig originalTerminationConfig=solverBenchmarkResult.getSolverConfig().getTerminationConfig();
     WarmUpConfigBackup warmUpConfigBackup=new WarmUpConfigBackup(originalTerminationConfig);
     for (    SingleBenchmarkResult singleBenchmarkResult : solverBenchmarkResult.getSingleBenchmarkResultList()) {
-      List<PureSubSingleStatistic> originalPureSingleStatisticList=singleBenchmarkResult.getPureSingleStatisticList();
-      List<PureSubSingleStatistic> singleBenchmarkStatisticPutResult=warmUpConfigBackup.getPureSingleStatisticMap().put(singleBenchmarkResult,originalPureSingleStatisticList);
+      List<PureSubSingleStatistic> originalPureSubSingleStatisticList=singleBenchmarkResult.getPureSubSingleStatisticList();
+      List<PureSubSingleStatistic> singleBenchmarkStatisticPutResult=warmUpConfigBackup.getPureSubSingleStatisticMap().put(singleBenchmarkResult,originalPureSubSingleStatisticList);
       if (singleBenchmarkStatisticPutResult != null) {
         throw new IllegalStateException("SingleBenchmarkStatisticMap of WarmUpConfigBackup ( " + warmUpConfigBackup + " ) already contained key ( "+ singleBenchmarkResult+ " ) with value ( "+ singleBenchmarkStatisticPutResult+ " ).");
       }
-      singleBenchmarkResult.setPureSingleStatisticList(Collections.<PureSubSingleStatistic>emptyList());
+      singleBenchmarkResult.setPureSubSingleStatisticList(Collections.<PureSubSingleStatistic>emptyList());
       ProblemBenchmarkResult problemBenchmarkResult=singleBenchmarkResult.getProblemBenchmarkResult();
       List<ProblemStatistic> originalProblemStatisticList=problemBenchmarkResult.getProblemStatisticList();
       if (!originalProblemStatisticMap.containsKey(problemBenchmarkResult)) {
@@ -20,10 +20,10 @@
       }
       singleBenchmarkResult.getProblemBenchmarkResult().setProblemStatisticList(Collections.<ProblemStatistic>emptyList());
       for (      SubSingleBenchmarkResult subSingleBenchmarkResult : singleBenchmarkResult.getSubSingleBenchmarkResultList()) {
-        subSingleBenchmarkResult.setSubPureSingleStatisticList(singleBenchmarkResult.getPureSingleStatisticList());
+        subSingleBenchmarkResult.setSubPureSubSingleStatisticList(singleBenchmarkResult.getPureSubSingleStatisticList());
         subSingleBenchmarkResult.initSubSingleStatisticMap();
       }
-      singleBenchmarkResult.initSingleStatisticMap();
+      singleBenchmarkResult.initSubSingleStatisticMap();
     }
     WarmUpConfigBackup warmUpConfigBackupPutResult=warmUpConfigBackupMap.put(solverBenchmarkResult,warmUpConfigBackup);
     if (warmUpConfigBackupPutResult != null) {

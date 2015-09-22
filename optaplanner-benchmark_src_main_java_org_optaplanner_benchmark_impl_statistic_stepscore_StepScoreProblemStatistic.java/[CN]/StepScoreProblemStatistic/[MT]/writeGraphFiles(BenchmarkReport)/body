@@ -5,8 +5,8 @@
     List<XYSeries> seriesList=new ArrayList<XYSeries>(BenchmarkReport.CHARTED_SCORE_LEVEL_SIZE);
     XYItemRenderer renderer=new XYStepRenderer();
     if (singleBenchmarkResult.isSuccess()) {
-      StepScoreSubSingleStatistic singleStatistic=(StepScoreSubSingleStatistic)singleBenchmarkResult.getSingleStatistic(problemStatisticType);
-      for (      StepScoreStatisticPoint point : singleStatistic.getPointList()) {
+      StepScoreSubSingleStatistic subSingleStatistic=(StepScoreSubSingleStatistic)singleBenchmarkResult.getSubSingleStatistic(problemStatisticType);
+      for (      StepScoreStatisticPoint point : subSingleStatistic.getPointList()) {
         long timeMillisSpent=point.getTimeMillisSpent();
         double[] levelValues=ScoreUtils.extractLevelDoubles(point.getScore());
         for (int i=0; i < levelValues.length && i < BenchmarkReport.CHARTED_SCORE_LEVEL_SIZE; i++) {
@@ -16,7 +16,7 @@
           seriesList.get(i).add(timeMillisSpent,levelValues[i]);
         }
       }
-      if (singleStatistic.getPointList().size() <= 1) {
+      if (subSingleStatistic.getPointList().size() <= 1) {
         renderer=new StandardXYItemRenderer(StandardXYItemRenderer.SHAPES_AND_LINES);
       }
     }

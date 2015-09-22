@@ -9,7 +9,7 @@
   }
   logger.trace("Benchmark inputSolution has been read for subSingleBenchmarkResult ({}).",subSingleBenchmarkResult);
   Solver solver=subSingleBenchmarkResult.getSolverBenchmarkResult().getSolverConfig().buildSolver();
-  for (  SubSingleStatistic subSingleStatistic : subSingleBenchmarkResult.getEffectiveSingleStatisticMap().values()) {
+  for (  SubSingleStatistic subSingleStatistic : subSingleBenchmarkResult.getEffectiveSubSingleStatisticMap().values()) {
     subSingleStatistic.open(solver);
     subSingleStatistic.initPointList();
   }
@@ -23,7 +23,7 @@
   subSingleBenchmarkResult.setUninitializedVariableCount(solverScope.getBestUninitializedVariableCount());
   subSingleBenchmarkResult.setTimeMillisSpent(timeMillisSpent);
   subSingleBenchmarkResult.setCalculateCount(solverScope.getCalculateCount());
-  for (  SubSingleStatistic subSingleStatistic : subSingleBenchmarkResult.getEffectiveSingleStatisticMap().values()) {
+  for (  SubSingleStatistic subSingleStatistic : subSingleBenchmarkResult.getEffectiveSubSingleStatisticMap().values()) {
     subSingleStatistic.close(solver);
     subSingleStatistic.hibernatePointList();
   }

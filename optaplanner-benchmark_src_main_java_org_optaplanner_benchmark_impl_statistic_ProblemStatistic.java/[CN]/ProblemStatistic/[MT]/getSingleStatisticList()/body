@@ -1,8 +1,0 @@
-{
-  List<SingleBenchmarkResult> singleBenchmarkResultList=problemBenchmarkResult.getSingleBenchmarkResultList();
-  List<SubSingleStatistic> subSingleStatisticList=new ArrayList<SubSingleStatistic>(singleBenchmarkResultList.size());
-  for (  SingleBenchmarkResult singleBenchmarkResult : singleBenchmarkResultList) {
-    subSingleStatisticList.add(singleBenchmarkResult.getEffectiveSingleStatisticMap().get(problemStatisticType));
-  }
-  return subSingleStatisticList;
-}

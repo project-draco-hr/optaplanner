@@ -1,20 +1,20 @@
 {
   SubSingleBenchmarkResult newResult=new SubSingleBenchmarkResult(singleBenchmarkResult,subSingleBenchmarkIndex);
-  newResult.subPureSingleStatisticList=new ArrayList<PureSubSingleStatistic>(oldResult.subPureSingleStatisticList.size());
-  for (  PureSubSingleStatistic oldSingleStatistic : oldResult.subPureSingleStatisticList) {
-    newResult.subPureSingleStatisticList.add(oldSingleStatistic.getStatisticType().buildPureSingleStatistic(newResult));
+  newResult.subPureSubSingleStatisticList=new ArrayList<PureSubSingleStatistic>(oldResult.subPureSubSingleStatisticList.size());
+  for (  PureSubSingleStatistic oldSubSingleStatistic : oldResult.subPureSubSingleStatisticList) {
+    newResult.subPureSubSingleStatisticList.add(oldSubSingleStatistic.getStatisticType().buildPureSubSingleStatistic(newResult));
   }
   newResult.initSubSingleStatisticMap();
-  for (  SubSingleStatistic subSingleStatistic : newResult.effectiveSingleStatisticMap.values()) {
-    SubSingleStatistic oldSubSingleStatistic=oldResult.getSingleStatistic(subSingleStatistic.getStatisticType());
+  for (  SubSingleStatistic subSingleStatistic : newResult.effectiveSubSingleStatisticMap.values()) {
+    SubSingleStatistic oldSubSingleStatistic=oldResult.getSubSingleStatistic(subSingleStatistic.getStatisticType());
     if (!oldSubSingleStatistic.getCsvFile().exists()) {
       if (oldResult.isFailure()) {
         subSingleStatistic.initPointList();
-        logger.debug("Old result ({}) is a failure, skipping merge of it's single statistic ({}).",oldResult,oldSubSingleStatistic);
+        logger.debug("Old result ({}) is a failure, skipping merge of it's sub single statistic ({}).",oldResult,oldSubSingleStatistic);
         continue;
       }
  else {
-        throw new IllegalStateException("Could not find old result's ( " + oldResult + " ) single statistic's ( "+ oldSubSingleStatistic+ " ) CSV file.");
+        throw new IllegalStateException("Could not find old result's ( " + oldResult + " ) sub single statistic's ( "+ oldSubSingleStatistic+ " ) CSV file.");
       }
     }
     oldSubSingleStatistic.unhibernatePointList();

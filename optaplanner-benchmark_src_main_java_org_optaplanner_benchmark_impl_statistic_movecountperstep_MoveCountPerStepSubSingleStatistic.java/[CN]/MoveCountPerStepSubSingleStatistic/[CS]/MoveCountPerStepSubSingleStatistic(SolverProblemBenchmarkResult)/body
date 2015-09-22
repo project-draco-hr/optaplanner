@@ -1,4 +1,4 @@
 {
   super(solverProblemBenchmarkResult,ProblemStatisticType.MOVE_COUNT_PER_STEP);
-  listener=new MoveCountPerStepSingleStatisticListener();
+  listener=new MoveCountPerStepSubSingleStatisticListener();
 }

@@ -4,16 +4,16 @@
     TerminationConfig originalTerminationConfig=warmUpConfigBackup.getTerminationConfig();
     solverBenchmarkResult.getSolverConfig().setTerminationConfig(originalTerminationConfig);
     for (    SingleBenchmarkResult singleBenchmarkResult : solverBenchmarkResult.getSingleBenchmarkResultList()) {
-      singleBenchmarkResult.setPureSingleStatisticList(warmUpConfigBackup.getPureSingleStatisticMap().get(singleBenchmarkResult));
+      singleBenchmarkResult.setPureSubSingleStatisticList(warmUpConfigBackup.getPureSubSingleStatisticMap().get(singleBenchmarkResult));
       ProblemBenchmarkResult problemBenchmarkResult=singleBenchmarkResult.getProblemBenchmarkResult();
       if (problemBenchmarkResult.getProblemStatisticList() == null || problemBenchmarkResult.getProblemStatisticList().size() <= 0) {
         problemBenchmarkResult.setProblemStatisticList(originalProblemStatisticMap.get(problemBenchmarkResult));
       }
       for (      SubSingleBenchmarkResult subSingleBenchmarkResult : singleBenchmarkResult.getSubSingleBenchmarkResultList()) {
-        subSingleBenchmarkResult.setSubPureSingleStatisticList(singleBenchmarkResult.getPureSingleStatisticList());
+        subSingleBenchmarkResult.setSubPureSubSingleStatisticList(singleBenchmarkResult.getPureSubSingleStatisticList());
         subSingleBenchmarkResult.initSubSingleStatisticMap();
       }
-      singleBenchmarkResult.initSingleStatisticMap();
+      singleBenchmarkResult.initSubSingleStatisticMap();
     }
   }
 }

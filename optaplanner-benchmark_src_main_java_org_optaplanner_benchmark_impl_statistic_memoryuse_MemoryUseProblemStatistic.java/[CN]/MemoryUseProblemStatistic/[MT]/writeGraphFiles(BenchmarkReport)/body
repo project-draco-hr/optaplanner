@@ -11,8 +11,8 @@
     XYSeries usedSeries=new XYSeries(singleBenchmarkResult.getSolverBenchmarkResult().getNameWithFavoriteSuffix() + " used");
     XYItemRenderer renderer=new XYLineAndShapeRenderer();
     if (singleBenchmarkResult.isSuccess()) {
-      MemoryUseSubSingleStatistic singleStatistic=(MemoryUseSubSingleStatistic)singleBenchmarkResult.getSingleStatistic(problemStatisticType);
-      for (      MemoryUseStatisticPoint point : singleStatistic.getPointList()) {
+      MemoryUseSubSingleStatistic subSingleStatistic=(MemoryUseSubSingleStatistic)singleBenchmarkResult.getSubSingleStatistic(problemStatisticType);
+      for (      MemoryUseStatisticPoint point : subSingleStatistic.getPointList()) {
         long timeMillisSpent=point.getTimeMillisSpent();
         MemoryUseMeasurement memoryUseMeasurement=point.getMemoryUseMeasurement();
         usedSeries.add(timeMillisSpent,memoryUseMeasurement.getUsedMemory());

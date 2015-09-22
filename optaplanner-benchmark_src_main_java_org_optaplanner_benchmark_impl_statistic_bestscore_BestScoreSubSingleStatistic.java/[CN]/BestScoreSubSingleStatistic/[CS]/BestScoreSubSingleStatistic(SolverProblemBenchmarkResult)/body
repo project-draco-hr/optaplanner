@@ -1,4 +1,4 @@
 {
   super(solverProblemBenchmarkResult,ProblemStatisticType.BEST_SCORE);
-  listener=new BestScoreSingleStatisticListener();
+  listener=new BestScoreSubSingleStatisticListener();
 }
