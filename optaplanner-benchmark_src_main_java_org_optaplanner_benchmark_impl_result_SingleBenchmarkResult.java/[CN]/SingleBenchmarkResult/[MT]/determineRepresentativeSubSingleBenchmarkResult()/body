@@ -9,19 +9,12 @@
     }
   }
 );
-  SubSingleBenchmarkResult best=subSingleBenchmarkResultListCopy.get(0);
-  SubSingleBenchmarkResult worst=subSingleBenchmarkResultListCopy.get(subSingleBenchmarkResultListCopy.size() - 1);
-  SubSingleBenchmarkResult median=subSingleBenchmarkResultListCopy.get(ConfigUtils.ceilDivide(subSingleBenchmarkResultListCopy.size() - 1,2));
+  best=subSingleBenchmarkResultListCopy.get(0);
+  worst=subSingleBenchmarkResultListCopy.get(subSingleBenchmarkResultListCopy.size() - 1);
+  median=subSingleBenchmarkResultListCopy.get(ConfigUtils.ceilDivide(subSingleBenchmarkResultListCopy.size() - 1,2));
   usedMemoryAfterInputSolution=median.getUsedMemoryAfterInputSolution();
   timeMillisSpent=median.getTimeMillisSpent();
   calculateCount=median.getCalculateCount();
   winningScoreDifference=median.getWinningScoreDifference();
   worstScoreDifferencePercentage=median.getWorstScoreDifferencePercentage();
-  medianUninitializedVariableCount=median.getUninitializedVariableCount();
-  medianScore=median.getScore();
-  worstUninitializedVariableCount=worst.getUninitializedVariableCount();
-  worstScore=worst.getScore();
-  bestUninitializedVariableCount=best.getUninitializedVariableCount();
-  bestScore=best.getScore();
-  return median;
 }

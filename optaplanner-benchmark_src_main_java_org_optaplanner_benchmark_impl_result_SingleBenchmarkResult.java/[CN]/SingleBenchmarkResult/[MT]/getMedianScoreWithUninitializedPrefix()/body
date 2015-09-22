@@ -1,6 +1,0 @@
-{
-  if (medianUninitializedVariableCount == null) {
-    return null;
-  }
-  return ScoreUtils.getScoreWithUninitializedPrefix(medianUninitializedVariableCount,medianScore);
-}

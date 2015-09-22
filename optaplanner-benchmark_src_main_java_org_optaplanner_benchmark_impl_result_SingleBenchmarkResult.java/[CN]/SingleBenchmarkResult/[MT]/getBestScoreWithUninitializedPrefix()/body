@@ -1,6 +1,0 @@
-{
-  if (bestUninitializedVariableCount == null) {
-    return null;
-  }
-  return ScoreUtils.getScoreWithUninitializedPrefix(bestUninitializedVariableCount,bestScore);
-}
