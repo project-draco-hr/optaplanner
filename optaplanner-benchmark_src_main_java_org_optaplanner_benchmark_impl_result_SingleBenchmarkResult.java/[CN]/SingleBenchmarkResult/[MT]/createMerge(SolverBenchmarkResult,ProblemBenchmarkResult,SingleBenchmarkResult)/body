@@ -16,7 +16,7 @@
     if (!oldSingleStatistic.getCsvFile().exists()) {
       if (oldResult.isFailure()) {
         singleStatistic.initPointList();
-        logger.debug("Old result ( {} ) is a failure, skipping merge of it's single statistic ( {} ).",oldResult,oldSingleStatistic);
+        logger.debug("Old result ({}) is a failure, skipping merge of it's single statistic ({}).",oldResult,oldSingleStatistic);
         continue;
       }
  else {
