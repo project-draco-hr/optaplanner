@@ -5,7 +5,7 @@
   if (!name.trim().equals(name)) {
     throw new IllegalStateException("The solverBenchmark name (" + name + ") is invalid because it starts or ends with whitespace.");
   }
-  if (subSingleCount == null || subSingleCount < 1) {
+  if (subSingleCount != null && subSingleCount < 1) {
     throw new IllegalStateException("The solverBenchmark name (" + name + ") is invalid because the subSingleCount ("+ subSingleCount+ ") must be greater than 1.");
   }
 }

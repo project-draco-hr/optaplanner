@@ -2,7 +2,7 @@
   validate();
   SolverBenchmarkResult solverBenchmarkResult=new SolverBenchmarkResult(plannerBenchmark);
   solverBenchmarkResult.setName(name);
-  solverBenchmarkResult.setSubSingleCount(subSingleCount);
+  solverBenchmarkResult.setSubSingleCount(ConfigUtils.inheritOverwritableProperty(subSingleCount,1));
   solverBenchmarkResult.setSolverConfig(solverConfig);
   solverBenchmarkResult.setSingleBenchmarkResultList(new ArrayList<SingleBenchmarkResult>());
   ProblemBenchmarksConfig problemBenchmarksConfig_=problemBenchmarksConfig == null ? new ProblemBenchmarksConfig() : problemBenchmarksConfig;
