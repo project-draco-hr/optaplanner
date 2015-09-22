@@ -1,0 +1,3 @@
+{
+  return maximumSubSingleCount != null ? maximumSubSingleCount > 1 : false;
+}

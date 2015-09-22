@@ -1,5 +1,6 @@
 {
   failureCount=0;
+  maximumSubSingleCount=0;
   long totalUsedMemoryAfterInputSolution=0L;
   int usedMemoryAfterInputSolutionCount=0;
   List<SingleBenchmarkResult> successResultList=new ArrayList<SingleBenchmarkResult>(singleBenchmarkResultList);
@@ -10,6 +11,10 @@
       it.remove();
     }
  else {
+      int subSingleCount=singleBenchmarkResult.getSubSingleBenchmarkResultList().size();
+      if (subSingleCount > maximumSubSingleCount) {
+        maximumSubSingleCount=subSingleCount;
+      }
       if (singleBenchmarkResult.getUsedMemoryAfterInputSolution() != null) {
         totalUsedMemoryAfterInputSolution+=singleBenchmarkResult.getUsedMemoryAfterInputSolution();
         usedMemoryAfterInputSolutionCount++;
