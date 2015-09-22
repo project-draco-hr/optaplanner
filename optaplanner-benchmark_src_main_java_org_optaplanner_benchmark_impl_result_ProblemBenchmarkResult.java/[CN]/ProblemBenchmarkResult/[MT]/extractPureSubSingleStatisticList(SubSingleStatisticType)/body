@@ -1,7 +1,7 @@
 {
   List<PureSubSingleStatistic> pureSubSingleStatisticList=new ArrayList<PureSubSingleStatistic>(singleBenchmarkResultList.size());
   for (  SingleBenchmarkResult singleBenchmarkResult : singleBenchmarkResultList) {
-    for (    PureSubSingleStatistic pureSubSingleStatistic : singleBenchmarkResult.getPureSubSingleStatisticList()) {
+    for (    PureSubSingleStatistic pureSubSingleStatistic : singleBenchmarkResult.getMedian().getPureSubSingleStatisticList()) {
       if (pureSubSingleStatistic.getStatisticType() == subSingleStatisticType) {
         pureSubSingleStatisticList.add(pureSubSingleStatistic);
       }

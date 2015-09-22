@@ -4,12 +4,14 @@
     TerminationConfig originalTerminationConfig=solverBenchmarkResult.getSolverConfig().getTerminationConfig();
     WarmUpConfigBackup warmUpConfigBackup=new WarmUpConfigBackup(originalTerminationConfig);
     for (    SingleBenchmarkResult singleBenchmarkResult : solverBenchmarkResult.getSingleBenchmarkResultList()) {
-      List<PureSubSingleStatistic> originalPureSubSingleStatisticList=singleBenchmarkResult.getPureSubSingleStatisticList();
+      if (singleBenchmarkResult.getSubSingleBenchmarkResultList().isEmpty()) {
+        continue;
+      }
+      List<PureSubSingleStatistic> originalPureSubSingleStatisticList=singleBenchmarkResult.getSubSingleBenchmarkResultList().get(0).getPureSubSingleStatisticList();
       List<PureSubSingleStatistic> singleBenchmarkStatisticPutResult=warmUpConfigBackup.getPureSubSingleStatisticMap().put(singleBenchmarkResult,originalPureSubSingleStatisticList);
       if (singleBenchmarkStatisticPutResult != null) {
         throw new IllegalStateException("SingleBenchmarkStatisticMap of WarmUpConfigBackup ( " + warmUpConfigBackup + " ) already contained key ( "+ singleBenchmarkResult+ " ) with value ( "+ singleBenchmarkStatisticPutResult+ " ).");
       }
-      singleBenchmarkResult.setPureSubSingleStatisticList(Collections.<PureSubSingleStatistic>emptyList());
       ProblemBenchmarkResult problemBenchmarkResult=singleBenchmarkResult.getProblemBenchmarkResult();
       List<ProblemStatistic> originalProblemStatisticList=problemBenchmarkResult.getProblemStatisticList();
       if (!originalProblemStatisticMap.containsKey(problemBenchmarkResult)) {
@@ -20,7 +22,7 @@
       }
       singleBenchmarkResult.getProblemBenchmarkResult().setProblemStatisticList(Collections.<ProblemStatistic>emptyList());
       for (      SubSingleBenchmarkResult subSingleBenchmarkResult : singleBenchmarkResult.getSubSingleBenchmarkResultList()) {
-        subSingleBenchmarkResult.setSubPureSubSingleStatisticList(singleBenchmarkResult.getPureSubSingleStatisticList());
+        subSingleBenchmarkResult.setPureSubSingleStatisticList(Collections.<PureSubSingleStatistic>emptyList());
         subSingleBenchmarkResult.initSubSingleStatisticMap();
       }
       singleBenchmarkResult.initSubSingleStatisticMap();

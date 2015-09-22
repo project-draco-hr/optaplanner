@@ -3,7 +3,7 @@
     return true;
   }
   for (  SingleBenchmarkResult singleBenchmarkResult : singleBenchmarkResultList) {
-    if (singleBenchmarkResult.getPureSubSingleStatisticList().size() > 0) {
+    if (singleBenchmarkResult.getMedian().getPureSubSingleStatisticList().size() > 0) {
       return true;
     }
   }

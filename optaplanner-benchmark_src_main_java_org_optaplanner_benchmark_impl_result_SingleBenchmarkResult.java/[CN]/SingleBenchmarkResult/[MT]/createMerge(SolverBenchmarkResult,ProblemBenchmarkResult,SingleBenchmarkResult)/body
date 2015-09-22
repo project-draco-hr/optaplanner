@@ -1,9 +1,5 @@
 {
   SingleBenchmarkResult newResult=new SingleBenchmarkResult(solverBenchmarkResult,problemBenchmarkResult);
-  newResult.pureSubSingleStatisticList=new ArrayList<PureSubSingleStatistic>(oldResult.pureSubSingleStatisticList.size());
-  for (  PureSubSingleStatistic oldSubSingleStatistic : oldResult.pureSubSingleStatisticList) {
-    newResult.pureSubSingleStatisticList.add(oldSubSingleStatistic.getStatisticType().buildPureSubSingleStatistic(newResult));
-  }
   newResult.subSingleBenchmarkResultList=new ArrayList<SubSingleBenchmarkResult>(oldResult.getSubSingleBenchmarkResultList().size());
   int subSingleBenchmarkIndex=0;
   for (  SubSingleBenchmarkResult oldSubResult : oldResult.subSingleBenchmarkResultList) {
@@ -11,22 +7,6 @@
     subSingleBenchmarkIndex++;
   }
   newResult.initSubSingleStatisticMap();
-  for (  SubSingleStatistic subSingleStatistic : newResult.effectiveSubSingleStatisticMap.values()) {
-    SubSingleStatistic oldSubSingleStatistic=oldResult.getSubSingleStatistic(subSingleStatistic.getStatisticType());
-    if (!oldSubSingleStatistic.getCsvFile().exists()) {
-      if (oldResult.isFailure()) {
-        subSingleStatistic.initPointList();
-        logger.debug("Old result ({}) is a failure, skipping merge of it's sub single statistic ({}).",oldResult,oldSubSingleStatistic);
-        continue;
-      }
- else {
-        throw new IllegalStateException("Could not find old result's ( " + oldResult + " ) sub single statistic's ( "+ oldSubSingleStatistic+ " ) CSV file.");
-      }
-    }
-    oldSubSingleStatistic.unhibernatePointList();
-    subSingleStatistic.setPointList(oldSubSingleStatistic.getPointList());
-    oldSubSingleStatistic.hibernatePointList();
-  }
   newResult.medianScore=oldResult.medianScore;
   newResult.medianUninitializedVariableCount=oldResult.medianUninitializedVariableCount;
   newResult.worstScore=oldResult.worstScore;
