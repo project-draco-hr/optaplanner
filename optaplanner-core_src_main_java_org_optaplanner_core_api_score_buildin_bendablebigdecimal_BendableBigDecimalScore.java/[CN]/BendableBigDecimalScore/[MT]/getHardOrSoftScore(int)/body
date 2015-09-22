@@ -1,0 +1,8 @@
+{
+  if (index < hardScores.length) {
+    return hardScores[index];
+  }
+ else {
+    return softScores[index - hardScores.length];
+  }
+}

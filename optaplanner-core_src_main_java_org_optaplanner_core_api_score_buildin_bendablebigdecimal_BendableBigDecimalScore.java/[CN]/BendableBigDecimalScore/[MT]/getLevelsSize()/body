@@ -1,0 +1,3 @@
+{
+  return hardScores.length + softScores.length;
+}

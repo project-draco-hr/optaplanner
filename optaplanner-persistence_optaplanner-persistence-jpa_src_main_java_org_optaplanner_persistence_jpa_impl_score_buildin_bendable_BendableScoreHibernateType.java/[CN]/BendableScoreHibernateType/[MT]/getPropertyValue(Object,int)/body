@@ -1,0 +1,10 @@
+{
+  if (o == null) {
+    return null;
+  }
+  BendableScore score=(BendableScore)o;
+  if (propertyIndex >= scoreDefinition.getLevelsSize()) {
+    throw new IllegalArgumentException("The propertyIndex (" + propertyIndex + ") must be lower than the levelsSize for score ("+ score+ ").");
+  }
+  return score.getHardOrSoftScore(propertyIndex);
+}

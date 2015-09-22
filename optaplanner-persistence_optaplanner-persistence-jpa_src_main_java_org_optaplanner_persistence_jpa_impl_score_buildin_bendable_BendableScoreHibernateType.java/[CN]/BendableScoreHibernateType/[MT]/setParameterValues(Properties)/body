@@ -1,0 +1,5 @@
+{
+  int hardLevelsSize=extractIntParameter(parameterMap,"hardLevelsSize");
+  int softLevelsSize=extractIntParameter(parameterMap,"softLevelsSize");
+  scoreDefinition=new BendableScoreDefinition(hardLevelsSize,softLevelsSize);
+}

@@ -1,0 +1,7 @@
+{
+  Type[] propertyTypes=new Type[scoreDefinition.getLevelsSize()];
+  for (int i=0; i < propertyTypes.length; i++) {
+    propertyTypes[i]=IntegerType.INSTANCE;
+  }
+  return propertyTypes;
+}

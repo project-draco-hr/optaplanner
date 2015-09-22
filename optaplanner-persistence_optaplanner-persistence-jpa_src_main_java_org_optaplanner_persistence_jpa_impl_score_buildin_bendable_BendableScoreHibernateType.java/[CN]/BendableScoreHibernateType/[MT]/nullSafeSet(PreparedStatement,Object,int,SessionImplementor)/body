@@ -1,0 +1,13 @@
+{
+  int levelsSize=scoreDefinition.getLevelsSize();
+  if (value == null) {
+    for (int i=0; i < levelsSize; i++) {
+      statement.setNull(parameterIndex + i,StandardBasicTypes.INTEGER.sqlType());
+    }
+    return;
+  }
+  BendableScore score=(BendableScore)value;
+  for (int i=0; i < levelsSize; i++) {
+    statement.setInt(parameterIndex + i,score.getHardOrSoftScore(i));
+  }
+}

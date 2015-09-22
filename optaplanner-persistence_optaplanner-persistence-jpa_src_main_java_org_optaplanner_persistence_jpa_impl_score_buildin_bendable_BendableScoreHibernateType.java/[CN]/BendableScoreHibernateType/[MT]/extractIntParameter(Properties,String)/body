@@ -1,0 +1,12 @@
+{
+  String valueString=(String)parameterMap.get(parameterName);
+  if (valueString == null) {
+    throw new IllegalArgumentException("The parameter " + parameterName + " ("+ valueString+ ") is missing for "+ getClass().getSimpleName()+ ".");
+  }
+  try {
+    return Integer.parseInt(valueString);
+  }
+ catch (  NumberFormatException e) {
+    throw new IllegalArgumentException("The parameter " + parameterName + " ("+ valueString+ ") is not a valid integer for "+ getClass().getSimpleName()+ ".");
+  }
+}
