@@ -1,4 +1,0 @@
-{
-  super(solverProblemBenchmarkResult,ProblemStatisticType.BEST_SOLUTION_MUTATION);
-  listener=new BestSolutionMutationSubSingleStatisticListener();
-}

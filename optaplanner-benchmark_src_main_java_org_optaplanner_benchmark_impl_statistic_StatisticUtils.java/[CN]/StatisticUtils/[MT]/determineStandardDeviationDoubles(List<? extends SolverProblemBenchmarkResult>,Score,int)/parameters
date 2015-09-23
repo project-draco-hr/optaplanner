@@ -1,3 +1,0 @@
-List<? extends SolverProblemBenchmarkResult> solverProblemBenchmarkResultList
-Score averageScore
-int successCount

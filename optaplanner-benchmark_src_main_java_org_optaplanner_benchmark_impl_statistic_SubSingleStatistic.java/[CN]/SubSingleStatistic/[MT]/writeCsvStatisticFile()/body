@@ -7,7 +7,7 @@
     for (    StatisticPoint point : getPointList()) {
       writer.append(point.toCsvLine()).append("\n");
     }
-    if (solverProblemBenchmarkResult.isFailure()) {
+    if (benchmarkResult.isFailure()) {
       writer.append("Failed\n");
     }
   }

@@ -1,4 +1,0 @@
-{
-  super(solverProblemBenchmarkResult,ProblemStatisticType.STEP_SCORE);
-  listener=new StepScoreSubSingleStatisticListener();
-}
