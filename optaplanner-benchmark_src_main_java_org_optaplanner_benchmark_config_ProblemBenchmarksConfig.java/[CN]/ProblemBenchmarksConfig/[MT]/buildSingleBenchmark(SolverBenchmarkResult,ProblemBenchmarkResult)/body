@@ -2,12 +2,12 @@
   SingleBenchmarkResult singleBenchmarkResult=new SingleBenchmarkResult(solverBenchmarkResult,problemBenchmarkResult);
   buildSubSingleBenchmarks(singleBenchmarkResult,solverBenchmarkResult.getSubSingleCount());
   for (  SubSingleBenchmarkResult subSingleBenchmarkResult : singleBenchmarkResult.getSubSingleBenchmarkResultList()) {
-    subSingleBenchmarkResult.setPureSubSingleStatisticList(new ArrayList<PureSubSingleStatistic>(subSingleStatisticTypeList == null ? 0 : subSingleStatisticTypeList.size()));
+    subSingleBenchmarkResult.setPureSubSingleStatisticList(new ArrayList<PureSubSingleStatistic>(singleStatisticTypeList == null ? 0 : singleStatisticTypeList.size()));
   }
-  if (subSingleStatisticTypeList != null) {
-    for (    SubSingleStatisticType subSingleStatisticType : subSingleStatisticTypeList) {
+  if (singleStatisticTypeList != null) {
+    for (    SingleStatisticType singleStatisticType : singleStatisticTypeList) {
       for (      SubSingleBenchmarkResult subSingleBenchmarkResult : singleBenchmarkResult.getSubSingleBenchmarkResultList()) {
-        subSingleBenchmarkResult.getPureSubSingleStatisticList().add(subSingleStatisticType.buildPureSubSingleStatistic(subSingleBenchmarkResult));
+        subSingleBenchmarkResult.getPureSubSingleStatisticList().add(singleStatisticType.buildPureSubSingleStatistic(subSingleBenchmarkResult));
       }
     }
   }

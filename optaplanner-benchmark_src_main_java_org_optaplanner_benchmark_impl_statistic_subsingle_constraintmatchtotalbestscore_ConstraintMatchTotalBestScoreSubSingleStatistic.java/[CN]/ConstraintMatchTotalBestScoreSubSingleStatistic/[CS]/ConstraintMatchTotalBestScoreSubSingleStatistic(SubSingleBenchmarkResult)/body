@@ -1,4 +1,4 @@
 {
-  super(subSingleBenchmarkResult,SubSingleStatisticType.CONSTRAINT_MATCH_TOTAL_BEST_SCORE);
+  super(subSingleBenchmarkResult,SingleStatisticType.CONSTRAINT_MATCH_TOTAL_BEST_SCORE);
   listener=new ConstraintMatchTotalBestScoreSubSingleStatisticListener();
 }

@@ -4,5 +4,5 @@
   writeOutputSolutionEnabled=ConfigUtils.inheritOverwritableProperty(writeOutputSolutionEnabled,inheritedConfig.getWriteOutputSolutionEnabled());
   inputSolutionFileList=ConfigUtils.inheritMergeableListProperty(inputSolutionFileList,inheritedConfig.getInputSolutionFileList());
   problemStatisticTypeList=ConfigUtils.inheritMergeableListProperty(problemStatisticTypeList,inheritedConfig.getProblemStatisticTypeList());
-  subSingleStatisticTypeList=ConfigUtils.inheritMergeableListProperty(subSingleStatisticTypeList,inheritedConfig.getSubSingleStatisticTypeList());
+  singleStatisticTypeList=ConfigUtils.inheritMergeableListProperty(singleStatisticTypeList,inheritedConfig.getSingleStatisticTypeList());
 }

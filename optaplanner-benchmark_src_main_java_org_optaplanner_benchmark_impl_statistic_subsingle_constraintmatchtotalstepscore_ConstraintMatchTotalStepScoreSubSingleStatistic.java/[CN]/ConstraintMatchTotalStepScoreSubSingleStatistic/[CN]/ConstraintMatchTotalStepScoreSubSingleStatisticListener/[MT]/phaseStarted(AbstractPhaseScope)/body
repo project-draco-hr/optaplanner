@@ -2,6 +2,6 @@
   InnerScoreDirector scoreDirector=phaseScope.getScoreDirector();
   constraintMatchEnabled=scoreDirector.isConstraintMatchEnabled();
   if (!constraintMatchEnabled) {
-    logger.warn("The subSingleStatistic ({}) cannot function properly" + " because ConstraintMatches are not supported on the ScoreDirector.",subSingleStatisticType);
+    logger.warn("The subSingleStatistic ({}) cannot function properly" + " because ConstraintMatches are not supported on the ScoreDirector.",singleStatisticType);
   }
 }
