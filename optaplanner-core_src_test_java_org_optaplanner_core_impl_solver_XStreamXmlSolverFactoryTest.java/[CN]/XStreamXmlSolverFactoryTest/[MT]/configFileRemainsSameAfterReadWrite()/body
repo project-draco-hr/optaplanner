@@ -1,6 +1,6 @@
 {
   String solverConfigResource="testdataSolverConfigXStream.xml";
-  String originalXml=PlannerTestUtils.readResourceToString(getClass(),solverConfigResource);
+  String originalXml=IOUtils.toString(getClass().getResourceAsStream(solverConfigResource),"UTF-8");
   InputStream originalConfigInputStream=getClass().getResourceAsStream(solverConfigResource);
   XStreamXmlSolverFactory solverFactory=new XStreamXmlSolverFactory().configure(originalConfigInputStream);
   SolverConfig solverConfig=solverFactory.getSolverConfig();
