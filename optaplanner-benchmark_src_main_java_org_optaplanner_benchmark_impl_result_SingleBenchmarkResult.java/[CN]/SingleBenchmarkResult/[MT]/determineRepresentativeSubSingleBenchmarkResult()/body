@@ -5,7 +5,7 @@
   List<SubSingleBenchmarkResult> subSingleBenchmarkResultListCopy=new ArrayList<SubSingleBenchmarkResult>(subSingleBenchmarkResultList);
   Collections.sort(subSingleBenchmarkResultListCopy,new Comparator<SubSingleBenchmarkResult>(){
     @Override public int compare(    SubSingleBenchmarkResult o1,    SubSingleBenchmarkResult o2){
-      return new CompareToBuilder().append(o1.isFailure(),o2.isFailure()).append(o1.getRanking(),o2.getRanking()).toComparison();
+      return new CompareToBuilder().append(o1.hasAnyFailure(),o2.hasAnyFailure()).append(o1.getRanking(),o2.getRanking()).toComparison();
     }
   }
 );

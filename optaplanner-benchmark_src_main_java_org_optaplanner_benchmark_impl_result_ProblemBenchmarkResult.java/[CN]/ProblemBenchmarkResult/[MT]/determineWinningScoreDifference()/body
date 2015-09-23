@@ -1,6 +1,6 @@
 {
   for (  SingleBenchmarkResult singleBenchmarkResult : singleBenchmarkResultList) {
-    if (singleBenchmarkResult.isFailure()) {
+    if (singleBenchmarkResult.hasAnyFailure()) {
       continue;
     }
     singleBenchmarkResult.setWinningScoreDifference(singleBenchmarkResult.getAverageScore().subtract(winningSingleBenchmarkResult.getAverageScore()));

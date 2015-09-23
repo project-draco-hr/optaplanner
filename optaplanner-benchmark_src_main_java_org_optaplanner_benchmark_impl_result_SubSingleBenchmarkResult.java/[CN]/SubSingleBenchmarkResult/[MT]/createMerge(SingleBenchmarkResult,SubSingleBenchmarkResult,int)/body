@@ -8,7 +8,7 @@
   for (  SubSingleStatistic subSingleStatistic : newResult.effectiveSubSingleStatisticMap.values()) {
     SubSingleStatistic oldSubSingleStatistic=oldResult.getSubSingleStatistic(subSingleStatistic.getStatisticType());
     if (!oldSubSingleStatistic.getCsvFile().exists()) {
-      if (oldResult.isFailure()) {
+      if (oldResult.hasAnyFailure()) {
         subSingleStatistic.initPointList();
         logger.debug("Old result ({}) is a failure, skipping merge of it's sub single statistic ({}).",oldResult,oldSubSingleStatistic);
         continue;

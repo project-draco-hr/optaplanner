@@ -7,8 +7,8 @@
   }
   double[] differenceSquaredTotalDoubles=null;
   for (  BenchmarkResult benchmarkResult : solverProblemBenchmarkResultList) {
-    if (benchmarkResult.isSuccess()) {
-      Score difference=benchmarkResult.getScore().subtract(averageScore);
+    if (benchmarkResult.hasAnySuccess()) {
+      Score difference=benchmarkResult.getAverageScore().subtract(averageScore);
       double[] differenceDoubles=ScoreUtils.extractLevelDoubles(difference);
       if (differenceSquaredTotalDoubles == null) {
         differenceSquaredTotalDoubles=new double[differenceDoubles.length];

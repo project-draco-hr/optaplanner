@@ -8,7 +8,7 @@
         differenceCount[i]=0;
       }
       for (      SingleBenchmarkResult singleBenchmarkResult : problemBenchmarkResult.getSingleBenchmarkResultList()) {
-        if (singleBenchmarkResult.isSuccess()) {
+        if (singleBenchmarkResult.hasAnySuccess()) {
           double[] scoreLevels=ScoreUtils.extractLevelDoubles(singleBenchmarkResult.getAverageScore());
           for (int i=0; i < scoreLevels.length; i++) {
             if (scoreLevels[i] != winningScoreLevels[i]) {

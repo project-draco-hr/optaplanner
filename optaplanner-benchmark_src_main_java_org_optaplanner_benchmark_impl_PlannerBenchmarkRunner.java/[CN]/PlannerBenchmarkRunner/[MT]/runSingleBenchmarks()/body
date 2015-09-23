@@ -15,7 +15,7 @@
     Throwable failureThrowable=null;
     try {
       subSingleBenchmarkRunner=future.get();
-      if (subSingleBenchmarkRunner.getSubSingleBenchmarkResult().getScore() == null) {
+      if (subSingleBenchmarkRunner.getSubSingleBenchmarkResult().getAverageScore() == null) {
         throw new IllegalStateException("Score is null. TODO fix PLANNER-46.");
       }
     }

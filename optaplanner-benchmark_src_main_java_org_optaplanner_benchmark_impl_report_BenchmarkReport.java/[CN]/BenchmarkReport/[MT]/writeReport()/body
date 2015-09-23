@@ -36,7 +36,7 @@
         problemStatistic.writeGraphFiles(this);
       }
       for (      SingleBenchmarkResult singleBenchmarkResult : problemBenchmarkResult.getSingleBenchmarkResultList()) {
-        if (singleBenchmarkResult.isSuccess()) {
+        if (singleBenchmarkResult.hasAnySuccess()) {
           for (          PureSubSingleStatistic pureSubSingleStatistic : singleBenchmarkResult.getMedian().getPureSubSingleStatisticList()) {
             pureSubSingleStatistic.writeGraphFiles(this);
           }

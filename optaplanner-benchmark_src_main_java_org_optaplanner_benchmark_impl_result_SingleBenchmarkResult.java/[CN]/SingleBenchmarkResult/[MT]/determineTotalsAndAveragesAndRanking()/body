@@ -8,7 +8,7 @@
   List<SubSingleBenchmarkResult> successResultList=new ArrayList<SubSingleBenchmarkResult>(subSingleBenchmarkResultList);
   for (Iterator<SubSingleBenchmarkResult> it=successResultList.iterator(); it.hasNext(); ) {
     SubSingleBenchmarkResult subSingleBenchmarkResult=it.next();
-    if (subSingleBenchmarkResult.isFailure()) {
+    if (subSingleBenchmarkResult.hasAnyFailure()) {
       failureCount++;
       it.remove();
     }
@@ -21,11 +21,11 @@
         infeasibleScoreCount++;
       }
       if (firstNonFailure) {
-        totalScore=subSingleBenchmarkResult.getScore();
+        totalScore=subSingleBenchmarkResult.getAverageScore();
         firstNonFailure=false;
       }
  else {
-        totalScore=totalScore.add(subSingleBenchmarkResult.getScore());
+        totalScore=totalScore.add(subSingleBenchmarkResult.getAverageScore());
       }
     }
   }

@@ -4,7 +4,7 @@
     String solverLabel=solverBenchmarkResult.getNameWithFavoriteSuffix();
     XYSeries series=new XYSeries(solverLabel);
     for (    SingleBenchmarkResult singleBenchmarkResult : solverBenchmarkResult.getSingleBenchmarkResultList()) {
-      if (singleBenchmarkResult.isSuccess()) {
+      if (singleBenchmarkResult.hasAnySuccess()) {
         long problemScale=singleBenchmarkResult.getProblemBenchmarkResult().getProblemScale();
         long averageCalculateCountPerSecond=singleBenchmarkResult.getAverageCalculateCountPerSecond();
         series.add((Long)problemScale,(Long)averageCalculateCountPerSecond);

@@ -5,7 +5,7 @@
     throw new IllegalStateException("The pointList with size (" + pointList.size() + ") should be empty.");
   }
   if (!csvFile.exists()) {
-    if (benchmarkResult.isFailure()) {
+    if (benchmarkResult.hasAnyFailure()) {
       pointList=Collections.emptyList();
       return;
     }
@@ -23,7 +23,7 @@
     Map<String,String> stringDuplicationRemovalMap=new HashMap<String,String>(1024);
     for (line=reader.readLine(); line != null && !line.isEmpty(); line=reader.readLine()) {
       if (line.equals("Failed")) {
-        if (benchmarkResult.isFailure()) {
+        if (benchmarkResult.hasAnyFailure()) {
           continue;
         }
         throw new IllegalStateException("SubSingleStatistic ( " + this + " ) failed even though the "+ "corresponding SingleBenchmarkResult ( "+ benchmarkResult+ " ) is a success.");

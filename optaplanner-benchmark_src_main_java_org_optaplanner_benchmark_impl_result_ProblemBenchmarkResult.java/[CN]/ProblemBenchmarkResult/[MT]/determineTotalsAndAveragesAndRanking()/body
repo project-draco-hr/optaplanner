@@ -6,7 +6,7 @@
   List<SingleBenchmarkResult> successResultList=new ArrayList<SingleBenchmarkResult>(singleBenchmarkResultList);
   for (Iterator<SingleBenchmarkResult> it=successResultList.iterator(); it.hasNext(); ) {
     SingleBenchmarkResult singleBenchmarkResult=it.next();
-    if (singleBenchmarkResult.isFailure()) {
+    if (singleBenchmarkResult.hasAnyFailure()) {
       failureCount++;
       it.remove();
     }
