@@ -6,7 +6,6 @@
     SubSingleBenchmarkResult.createMerge(newResult,oldSubResult,subSingleBenchmarkIndex);
     subSingleBenchmarkIndex++;
   }
-  newResult.initSubSingleStatisticMap();
   newResult.median=oldResult.median;
   newResult.best=oldResult.best;
   newResult.worst=oldResult.worst;

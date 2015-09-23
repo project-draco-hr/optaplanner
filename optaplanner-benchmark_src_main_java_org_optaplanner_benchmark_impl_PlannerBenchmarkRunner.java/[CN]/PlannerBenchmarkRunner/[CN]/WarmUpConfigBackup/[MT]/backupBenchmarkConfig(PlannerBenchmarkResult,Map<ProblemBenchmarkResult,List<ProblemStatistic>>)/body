@@ -4,13 +4,12 @@
     TerminationConfig originalTerminationConfig=solverBenchmarkResult.getSolverConfig().getTerminationConfig();
     WarmUpConfigBackup warmUpConfigBackup=new WarmUpConfigBackup(originalTerminationConfig);
     for (    SingleBenchmarkResult singleBenchmarkResult : solverBenchmarkResult.getSingleBenchmarkResultList()) {
-      if (singleBenchmarkResult.getSubSingleBenchmarkResultList().isEmpty()) {
-        continue;
-      }
-      List<PureSubSingleStatistic> originalPureSubSingleStatisticList=singleBenchmarkResult.getSubSingleBenchmarkResultList().get(0).getPureSubSingleStatisticList();
-      List<PureSubSingleStatistic> singleBenchmarkStatisticPutResult=warmUpConfigBackup.getPureSubSingleStatisticMap().put(singleBenchmarkResult,originalPureSubSingleStatisticList);
-      if (singleBenchmarkStatisticPutResult != null) {
-        throw new IllegalStateException("SingleBenchmarkStatisticMap of WarmUpConfigBackup ( " + warmUpConfigBackup + " ) already contained key ( "+ singleBenchmarkResult+ " ) with value ( "+ singleBenchmarkStatisticPutResult+ " ).");
+      for (      SubSingleBenchmarkResult subSingleBenchmarkResult : singleBenchmarkResult.getSubSingleBenchmarkResultList()) {
+        List<PureSubSingleStatistic> originalPureSubSingleStatisticList=subSingleBenchmarkResult.getPureSubSingleStatisticList();
+        List<PureSubSingleStatistic> subSingleBenchmarkStatisticPutResult=warmUpConfigBackup.getPureSubSingleStatisticMap().put(subSingleBenchmarkResult,originalPureSubSingleStatisticList);
+        if (subSingleBenchmarkStatisticPutResult != null) {
+          throw new IllegalStateException("SubSingleBenchmarkStatisticMap of WarmUpConfigBackup ( " + warmUpConfigBackup + " ) already contained key ( "+ subSingleBenchmarkResult+ " ) with value ( "+ subSingleBenchmarkStatisticPutResult+ " ).");
+        }
       }
       ProblemBenchmarkResult problemBenchmarkResult=singleBenchmarkResult.getProblemBenchmarkResult();
       List<ProblemStatistic> originalProblemStatisticList=problemBenchmarkResult.getProblemStatisticList();
@@ -25,7 +24,6 @@
         subSingleBenchmarkResult.setPureSubSingleStatisticList(Collections.<PureSubSingleStatistic>emptyList());
         subSingleBenchmarkResult.initSubSingleStatisticMap();
       }
-      singleBenchmarkResult.initSubSingleStatisticMap();
     }
     WarmUpConfigBackup warmUpConfigBackupPutResult=warmUpConfigBackupMap.put(solverBenchmarkResult,warmUpConfigBackup);
     if (warmUpConfigBackupPutResult != null) {

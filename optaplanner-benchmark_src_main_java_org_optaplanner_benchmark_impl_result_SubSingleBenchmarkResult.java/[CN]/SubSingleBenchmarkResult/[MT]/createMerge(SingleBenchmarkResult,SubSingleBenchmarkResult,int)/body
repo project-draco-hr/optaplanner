@@ -5,11 +5,11 @@
     newResult.pureSubSingleStatisticList.add(oldSubSingleStatistic.getStatisticType().buildPureSubSingleStatistic(newResult));
   }
   newResult.initSubSingleStatisticMap();
-  for (  SubSingleStatistic subSingleStatistic : newResult.effectiveSubSingleStatisticMap.values()) {
-    SubSingleStatistic oldSubSingleStatistic=oldResult.getSubSingleStatistic(subSingleStatistic.getStatisticType());
+  for (  SubSingleStatistic newSubSingleStatistic : newResult.effectiveSubSingleStatisticMap.values()) {
+    SubSingleStatistic oldSubSingleStatistic=oldResult.getSubSingleStatistic(newSubSingleStatistic.getStatisticType());
     if (!oldSubSingleStatistic.getCsvFile().exists()) {
       if (oldResult.hasAnyFailure()) {
-        subSingleStatistic.initPointList();
+        newSubSingleStatistic.initPointList();
         logger.debug("Old result ({}) is a failure, skipping merge of it's sub single statistic ({}).",oldResult,oldSubSingleStatistic);
         continue;
       }
@@ -18,7 +18,7 @@
       }
     }
     oldSubSingleStatistic.unhibernatePointList();
-    subSingleStatistic.setPointList(oldSubSingleStatistic.getPointList());
+    newSubSingleStatistic.setPointList(oldSubSingleStatistic.getPointList());
     oldSubSingleStatistic.hibernatePointList();
   }
   newResult.succeeded=oldResult.succeeded;

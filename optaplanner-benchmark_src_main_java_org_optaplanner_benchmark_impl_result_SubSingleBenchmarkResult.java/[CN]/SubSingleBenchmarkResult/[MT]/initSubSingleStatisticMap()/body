@@ -6,6 +6,6 @@
     effectiveSubSingleStatisticMap.put(subSingleStatistic.getStatisticType(),subSingleStatistic);
   }
   for (  PureSubSingleStatistic pureSubSingleStatistic : pureSubSingleStatisticList) {
-    effectiveSubSingleStatisticMap.put(pureSubSingleStatistic.getStatisticType(),pureSubSingleStatistic.getStatisticType().buildPureSubSingleStatistic(this));
+    effectiveSubSingleStatisticMap.put(pureSubSingleStatistic.getStatisticType(),pureSubSingleStatistic);
   }
 }
