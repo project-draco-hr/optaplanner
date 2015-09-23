@@ -1,0 +1,10 @@
+{
+  for (Enumeration keys=UIManager.getDefaults().keys(); keys.hasMoreElements(); ) {
+    Object key=keys.nextElement();
+    Object value=UIManager.get(key);
+    if (value != null && value instanceof FontUIResource) {
+      FontUIResource fontUIResource=(FontUIResource)value;
+      UIManager.put(key,fontUIResource.deriveFont(fontUIResource.getSize() * multiplier));
+    }
+  }
+}
