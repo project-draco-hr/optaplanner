@@ -1,4 +1,0 @@
-{
-  super(benchmarkResult,SubSingleStatisticType.PICKED_MOVE_TYPE_BEST_SCORE_DIFF);
-  listener=new PickedMoveTypeBestScoreDiffSubSingleStatisticListener();
-}

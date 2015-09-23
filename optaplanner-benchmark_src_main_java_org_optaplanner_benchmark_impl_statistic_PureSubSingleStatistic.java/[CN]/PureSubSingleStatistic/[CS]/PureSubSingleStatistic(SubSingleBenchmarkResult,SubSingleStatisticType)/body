@@ -1,0 +1,4 @@
+{
+  super(subSingleBenchmarkResult);
+  this.subSingleStatisticType=subSingleStatisticType;
+}

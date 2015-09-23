@@ -1,4 +1,0 @@
-{
-  super(benchmarkResult,SubSingleStatisticType.CONSTRAINT_MATCH_TOTAL_STEP_SCORE);
-  listener=new ConstraintMatchTotalStepScoreSubSingleStatisticListener();
-}

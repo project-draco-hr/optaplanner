@@ -6,7 +6,7 @@
     throw new IllegalArgumentException("Average score ( " + averageScore + " ) cannot be null.");
   }
   double[] differenceSquaredTotalDoubles=null;
-  for (  BenchmarkResult benchmarkResult : solverProblemBenchmarkResultList) {
+  for (  BenchmarkResult benchmarkResult : benchmarkResultList) {
     if (benchmarkResult.hasAnySuccess()) {
       Score difference=benchmarkResult.getAverageScore().subtract(averageScore);
       double[] differenceDoubles=ScoreUtils.extractLevelDoubles(difference);

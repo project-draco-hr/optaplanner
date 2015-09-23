@@ -1,11 +1,11 @@
 {
   File csvFile=getCsvFile();
-  ScoreDefinition scoreDefinition=benchmarkResult.getSolverBenchmarkResult().getSolverConfig().getScoreDirectorFactoryConfig().buildScoreDefinition();
+  ScoreDefinition scoreDefinition=subSingleBenchmarkResult.getSingleBenchmarkResult().getSolverBenchmarkResult().getSolverConfig().getScoreDirectorFactoryConfig().buildScoreDefinition();
   if (!pointList.isEmpty()) {
     throw new IllegalStateException("The pointList with size (" + pointList.size() + ") should be empty.");
   }
   if (!csvFile.exists()) {
-    if (benchmarkResult.hasAnyFailure()) {
+    if (subSingleBenchmarkResult.hasAnyFailure()) {
       pointList=Collections.emptyList();
       return;
     }
@@ -23,10 +23,10 @@
     Map<String,String> stringDuplicationRemovalMap=new HashMap<String,String>(1024);
     for (line=reader.readLine(); line != null && !line.isEmpty(); line=reader.readLine()) {
       if (line.equals("Failed")) {
-        if (benchmarkResult.hasAnyFailure()) {
+        if (subSingleBenchmarkResult.hasAnyFailure()) {
           continue;
         }
-        throw new IllegalStateException("SubSingleStatistic ( " + this + " ) failed even though the "+ "corresponding SingleBenchmarkResult ( "+ benchmarkResult+ " ) is a success.");
+        throw new IllegalStateException("SubSingleStatistic ( " + this + " ) failed even though the "+ "corresponding SinglesubSingleBenchmarkResult ( "+ subSingleBenchmarkResult+ " ) is a success.");
       }
       List<String> csvLine=StatisticPoint.parseCsvLine(line);
       for (ListIterator<String> it=csvLine.listIterator(); it.hasNext(); ) {

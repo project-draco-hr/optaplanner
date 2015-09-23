@@ -1,4 +1,0 @@
-{
-  super(benchmarkResult);
-  this.problemStatisticType=problemStatisticType;
-}

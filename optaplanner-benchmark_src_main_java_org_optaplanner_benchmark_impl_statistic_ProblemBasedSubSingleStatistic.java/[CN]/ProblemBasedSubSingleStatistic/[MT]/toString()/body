@@ -1,3 +1,3 @@
 {
-  return benchmarkResult + "_" + problemStatisticType;
+  return subSingleBenchmarkResult + "_" + problemStatisticType;
 }

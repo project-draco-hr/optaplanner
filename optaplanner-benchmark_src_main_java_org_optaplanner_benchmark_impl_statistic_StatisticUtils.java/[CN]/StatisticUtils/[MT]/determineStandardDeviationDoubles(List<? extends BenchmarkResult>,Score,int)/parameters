@@ -1,3 +1,3 @@
-List<? extends BenchmarkResult> solverProblemBenchmarkResultList
+List<? extends BenchmarkResult> benchmarkResultList
 Score averageScore
 int successCount
