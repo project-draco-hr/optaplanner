@@ -7,7 +7,7 @@
   }
   double[] differenceSquaredTotalDoubles=null;
   for (  BenchmarkResult benchmarkResult : benchmarkResultList) {
-    if (benchmarkResult.hasAnySuccess()) {
+    if (benchmarkResult.hasAllSuccess()) {
       Score difference=benchmarkResult.getAverageScore().subtract(averageScore);
       double[] differenceDoubles=ScoreUtils.extractLevelDoubles(difference);
       if (differenceSquaredTotalDoubles == null) {

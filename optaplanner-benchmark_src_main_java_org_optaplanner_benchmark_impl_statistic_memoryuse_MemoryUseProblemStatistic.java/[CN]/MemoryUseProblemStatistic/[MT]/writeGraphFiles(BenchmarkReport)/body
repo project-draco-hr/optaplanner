@@ -10,7 +10,7 @@
   for (  SingleBenchmarkResult singleBenchmarkResult : problemBenchmarkResult.getSingleBenchmarkResultList()) {
     XYSeries usedSeries=new XYSeries(singleBenchmarkResult.getSolverBenchmarkResult().getNameWithFavoriteSuffix() + " used");
     XYItemRenderer renderer=new XYLineAndShapeRenderer();
-    if (singleBenchmarkResult.hasAnySuccess()) {
+    if (singleBenchmarkResult.hasAllSuccess()) {
       MemoryUseSubSingleStatistic subSingleStatistic=(MemoryUseSubSingleStatistic)singleBenchmarkResult.getSubSingleStatistic(problemStatisticType);
       for (      MemoryUseStatisticPoint point : subSingleStatistic.getPointList()) {
         long timeMillisSpent=point.getTimeMillisSpent();

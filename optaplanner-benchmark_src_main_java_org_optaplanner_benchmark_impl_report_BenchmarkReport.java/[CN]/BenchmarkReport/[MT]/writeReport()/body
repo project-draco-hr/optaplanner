@@ -16,7 +16,7 @@
   for (  ProblemBenchmarkResult problemBenchmarkResult : plannerBenchmarkResult.getUnifiedProblemBenchmarkResultList()) {
     for (    SingleBenchmarkResult singleBenchmarkResult : problemBenchmarkResult.getSingleBenchmarkResultList()) {
       for (      SubSingleBenchmarkResult subSingleBenchmarkResult : singleBenchmarkResult.getSubSingleBenchmarkResultList()) {
-        if (!subSingleBenchmarkResult.hasAnySuccess()) {
+        if (!subSingleBenchmarkResult.hasAllSuccess()) {
           continue;
         }
         for (        SubSingleStatistic subSingleStatistic : subSingleBenchmarkResult.getEffectiveSubSingleStatisticMap().values()) {
@@ -39,7 +39,7 @@
         problemStatistic.writeGraphFiles(this);
       }
       for (      SingleBenchmarkResult singleBenchmarkResult : problemBenchmarkResult.getSingleBenchmarkResultList()) {
-        if (singleBenchmarkResult.hasAnySuccess()) {
+        if (singleBenchmarkResult.hasAllSuccess()) {
           for (          PureSubSingleStatistic pureSubSingleStatistic : singleBenchmarkResult.getMedian().getPureSubSingleStatisticList()) {
             pureSubSingleStatistic.writeGraphFiles(this);
           }
@@ -50,7 +50,7 @@
   for (  ProblemBenchmarkResult problemBenchmarkResult : plannerBenchmarkResult.getUnifiedProblemBenchmarkResultList()) {
     for (    SingleBenchmarkResult singleBenchmarkResult : problemBenchmarkResult.getSingleBenchmarkResultList()) {
       for (      SubSingleBenchmarkResult subSingleBenchmarkResult : singleBenchmarkResult.getSubSingleBenchmarkResultList()) {
-        if (!subSingleBenchmarkResult.hasAnySuccess()) {
+        if (!subSingleBenchmarkResult.hasAllSuccess()) {
           continue;
         }
         for (        SubSingleStatistic subSingleStatistic : subSingleBenchmarkResult.getEffectiveSubSingleStatisticMap().values()) {

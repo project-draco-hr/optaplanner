@@ -1,3 +1,3 @@
 {
-  return new File(problemBenchmarkResult.getProblemReportDirectory(),getResultDirectoryPath());
+  return new File(problemBenchmarkResult.getProblemReportDirectory(),getResultDirectoryName());
 }
