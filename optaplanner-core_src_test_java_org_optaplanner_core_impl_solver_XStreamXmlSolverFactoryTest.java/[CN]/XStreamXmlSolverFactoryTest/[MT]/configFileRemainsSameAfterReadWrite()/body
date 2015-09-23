@@ -1,9 +1,11 @@
 {
-  File originalConfigFile=new File("src/test/resources/org/optaplanner/core/impl/solver/testdataSolverConfigXStream.xml");
-  XStreamXmlSolverFactory solverFactory=new XStreamXmlSolverFactory().configure(originalConfigFile);
+  String solverConfigResource="testdataSolverConfigXStream.xml";
+  String originalXml=PlannerTestUtils.readResourceToString(getClass(),solverConfigResource);
+  InputStream originalConfigInputStream=getClass().getResourceAsStream(solverConfigResource);
+  XStreamXmlSolverFactory solverFactory=new XStreamXmlSolverFactory().configure(originalConfigInputStream);
   SolverConfig solverConfig=solverFactory.getSolverConfig();
   solverConfig.buildSolver(getClass().getClassLoader());
   String savedXml=solverFactory.getXStream().toXML(solverConfig);
-  String originalXml=FileUtils.readFileToString(originalConfigFile);
   assertEquals(originalXml,savedXml);
+  originalConfigInputStream.close();
 }

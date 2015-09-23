@@ -1,9 +1,10 @@
 {
-  File originalConfigFile=new File("src/test/resources/org/optaplanner/benchmark/impl/testdataPlannerBenchmarkConfigXStreamInherited.xml");
-  XStreamXmlPlannerBenchmarkFactory plannerBenchmarkFactory=new XStreamXmlPlannerBenchmarkFactory().configure(originalConfigFile);
+  String plannerBenchmarkConfigResource="testdataPlannerBenchmarkConfigXStreamInherited.xml";
+  String originalXml=PlannerTestUtils.readResourceToString(getClass(),plannerBenchmarkConfigResource);
+  InputStream originalConfigInputStream=getClass().getResourceAsStream(plannerBenchmarkConfigResource);
+  XStreamXmlPlannerBenchmarkFactory plannerBenchmarkFactory=new XStreamXmlPlannerBenchmarkFactory().configure(originalConfigInputStream);
   PlannerBenchmarkConfig benchmarkConfig=plannerBenchmarkFactory.getPlannerBenchmarkConfig();
   benchmarkConfig.buildPlannerBenchmark();
   String savedXml=plannerBenchmarkFactory.getXStream().toXML(benchmarkConfig);
-  String originalXml=FileUtils.readFileToString(originalConfigFile);
   assertEquals(originalXml,savedXml);
 }
