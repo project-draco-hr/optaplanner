@@ -3,7 +3,7 @@
     return null;
   }
   if (averageScore == null) {
-    throw new IllegalArgumentException("Average score ( " + averageScore + " ) cannot be null.");
+    throw new IllegalArgumentException("Average score (" + averageScore + ") cannot be null.");
   }
   double[] differenceSquaredTotalDoubles=null;
   for (  BenchmarkResult benchmarkResult : benchmarkResultList) {
