@@ -1,0 +1,5 @@
+{
+  Long id=persistAndAssert(new TestJpaEntity(null));
+  findAssertAndChangeScore(TestJpaEntity.class,id,null,SimpleBigDecimalScore.valueOf(new BigDecimal("-10.01000")));
+  findAndAssert(TestJpaEntity.class,id,SimpleBigDecimalScore.valueOf(new BigDecimal("-10.01000")));
+}

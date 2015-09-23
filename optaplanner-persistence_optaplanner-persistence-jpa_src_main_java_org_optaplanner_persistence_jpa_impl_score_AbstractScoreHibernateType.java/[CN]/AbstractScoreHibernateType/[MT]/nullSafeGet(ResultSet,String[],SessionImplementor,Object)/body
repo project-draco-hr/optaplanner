@@ -1,0 +1,24 @@
+{
+  if (resultSet == null) {
+    return null;
+  }
+  int levelsSize=scoreDefinition.getLevelsSize();
+  Number[] levelNumbers=new Number[levelsSize];
+  int nullCount=0;
+  for (int i=0; i < levelsSize; i++) {
+    Number levelNumber=(Number)type.nullSafeGet(resultSet,names[i],session,owner);
+    if (levelNumber == null) {
+      nullCount++;
+    }
+ else {
+      levelNumbers[i]=levelNumber;
+    }
+  }
+  if (nullCount == levelsSize) {
+    return null;
+  }
+ else   if (nullCount != 0) {
+    throw new IllegalStateException("The nullCount (" + nullCount + ") must be 0 or levelsSize ("+ levelsSize+ ") for "+ getClass().getSimpleName()+ ".");
+  }
+  return scoreDefinition.fromLevelNumbers(levelNumbers);
+}

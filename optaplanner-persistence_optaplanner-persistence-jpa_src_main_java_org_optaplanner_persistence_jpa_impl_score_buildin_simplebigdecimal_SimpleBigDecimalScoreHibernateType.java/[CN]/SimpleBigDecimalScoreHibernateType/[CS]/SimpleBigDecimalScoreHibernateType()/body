@@ -1,0 +1,4 @@
+{
+  scoreDefinition=new SimpleBigDecimalScoreDefinition();
+  type=StandardBasicTypes.BIG_DECIMAL;
+}

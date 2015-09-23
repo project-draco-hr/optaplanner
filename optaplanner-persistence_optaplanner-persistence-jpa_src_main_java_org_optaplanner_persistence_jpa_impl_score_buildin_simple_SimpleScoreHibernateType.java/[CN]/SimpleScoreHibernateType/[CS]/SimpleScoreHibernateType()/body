@@ -1,0 +1,4 @@
+{
+  scoreDefinition=new SimpleScoreDefinition();
+  type=StandardBasicTypes.INTEGER;
+}

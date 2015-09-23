@@ -1,0 +1,11 @@
+{
+  if (o == null) {
+    return null;
+  }
+  Score score=(Score)o;
+  Number[] levelNumbers=score.toLevelNumbers();
+  if (propertyIndex >= scoreDefinition.getLevelsSize()) {
+    throw new IllegalArgumentException("The propertyIndex (" + propertyIndex + ") must be lower than the levelsSize for score ("+ score+ ").");
+  }
+  return levelNumbers[propertyIndex];
+}

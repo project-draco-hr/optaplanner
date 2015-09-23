@@ -1,0 +1,6 @@
+{
+  int hardLevelsSize=extractIntParameter(parameterMap,"hardLevelsSize");
+  int softLevelsSize=extractIntParameter(parameterMap,"softLevelsSize");
+  scoreDefinition=new BendableBigDecimalScoreDefinition(hardLevelsSize,softLevelsSize);
+  type=StandardBasicTypes.BIG_DECIMAL;
+}

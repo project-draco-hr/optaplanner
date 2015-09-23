@@ -1,0 +1,4 @@
+{
+  scoreDefinition=new HardSoftScoreDefinition();
+  type=StandardBasicTypes.INTEGER;
+}

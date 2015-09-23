@@ -1,0 +1,31 @@
+{
+  int levelsSize=scoreDefinition.getLevelsSize();
+  if (value == null) {
+    for (int i=0; i < levelsSize; i++) {
+      statement.setNull(parameterIndex + i,type.sqlType());
+    }
+    return;
+  }
+  Score score=(Score)value;
+  Number[] levelNumbers=score.toLevelNumbers();
+  if (levelNumbers.length != levelsSize) {
+    throw new IllegalStateException("The levelNumbers length (" + levelNumbers.length + ") for score ("+ score+ ") must be equal to the levelsSize ("+ levelsSize+ ") for "+ getClass().getSimpleName()+ ".");
+  }
+  for (int i=0; i < levelsSize; i++) {
+    if (type == IntegerType.INSTANCE) {
+      statement.setInt(parameterIndex + i,(Integer)levelNumbers[i]);
+    }
+ else     if (type == LongType.INSTANCE) {
+      statement.setLong(parameterIndex + i,(Long)levelNumbers[i]);
+    }
+ else     if (type == DoubleType.INSTANCE) {
+      statement.setDouble(parameterIndex + i,(Double)levelNumbers[i]);
+    }
+ else     if (type == BigDecimalType.INSTANCE) {
+      statement.setBigDecimal(parameterIndex + i,(BigDecimal)levelNumbers[i]);
+    }
+ else {
+      throw new IllegalStateException("The type (" + type + ") is not yet supported.");
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  Long id=persistAndAssert(new TestJpaEntity(null));
+  findAssertAndChangeScore(TestJpaEntity.class,id,null,BendableLongScore.valueOf(new long[]{10000L,2000L,300L},new long[]{40L,5L}));
+  findAndAssert(TestJpaEntity.class,id,BendableLongScore.valueOf(new long[]{10000L,2000L,300L},new long[]{40L,5L}));
+}

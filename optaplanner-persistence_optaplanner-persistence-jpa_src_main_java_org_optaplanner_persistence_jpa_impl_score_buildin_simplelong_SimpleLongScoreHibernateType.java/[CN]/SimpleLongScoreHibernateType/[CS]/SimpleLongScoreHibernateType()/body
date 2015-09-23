@@ -1,0 +1,4 @@
+{
+  scoreDefinition=new SimpleLongScoreDefinition();
+  type=StandardBasicTypes.LONG;
+}

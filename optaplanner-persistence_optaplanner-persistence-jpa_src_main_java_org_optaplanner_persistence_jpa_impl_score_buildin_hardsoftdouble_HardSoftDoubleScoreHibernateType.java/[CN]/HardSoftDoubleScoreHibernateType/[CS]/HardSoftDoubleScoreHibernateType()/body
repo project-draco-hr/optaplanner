@@ -1,0 +1,4 @@
+{
+  scoreDefinition=new HardSoftDoubleScoreDefinition();
+  type=StandardBasicTypes.DOUBLE;
+}

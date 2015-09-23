@@ -1,0 +1,4 @@
+{
+  scoreDefinition=new HardMediumSoftScoreDefinition();
+  type=StandardBasicTypes.INTEGER;
+}
