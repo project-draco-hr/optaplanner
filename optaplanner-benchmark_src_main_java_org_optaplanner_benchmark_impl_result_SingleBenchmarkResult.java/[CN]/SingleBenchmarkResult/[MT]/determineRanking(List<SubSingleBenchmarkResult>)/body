@@ -1,0 +1,16 @@
+{
+  Comparator subSingleBenchmarkRankingComparator=new SubSingleBenchmarkRankingComparator();
+  Collections.sort(rankedSubSingleBenchmarkResultList,Collections.reverseOrder(subSingleBenchmarkRankingComparator));
+  int ranking=0;
+  SubSingleBenchmarkResult previousSubSingleBenchmarkResult=null;
+  int previousSameRankingCount=0;
+  for (  SubSingleBenchmarkResult subSingleBenchmarkResult : rankedSubSingleBenchmarkResultList) {
+    if (previousSubSingleBenchmarkResult != null && subSingleBenchmarkRankingComparator.compare(previousSubSingleBenchmarkResult,subSingleBenchmarkResult) != 0) {
+      ranking+=previousSameRankingCount;
+      previousSameRankingCount=0;
+    }
+    subSingleBenchmarkResult.setRanking(ranking);
+    previousSubSingleBenchmarkResult=subSingleBenchmarkResult;
+    previousSameRankingCount++;
+  }
+}

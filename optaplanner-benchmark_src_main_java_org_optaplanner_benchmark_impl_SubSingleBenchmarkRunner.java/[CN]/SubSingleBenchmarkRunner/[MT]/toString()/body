@@ -1,0 +1,3 @@
+{
+  return subSingleBenchmarkResult.toString();
+}

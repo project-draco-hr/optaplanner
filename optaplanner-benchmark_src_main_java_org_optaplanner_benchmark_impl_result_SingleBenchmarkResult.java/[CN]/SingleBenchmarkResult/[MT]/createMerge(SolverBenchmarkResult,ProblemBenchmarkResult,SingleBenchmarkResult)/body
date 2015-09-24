@@ -1,31 +1,14 @@
 {
   SingleBenchmarkResult newResult=new SingleBenchmarkResult(solverBenchmarkResult,problemBenchmarkResult);
-  newResult.pureSingleStatisticList=new ArrayList<PureSingleStatistic>(oldResult.pureSingleStatisticList.size());
-  for (  PureSingleStatistic oldSingleStatistic : oldResult.pureSingleStatisticList) {
-    newResult.pureSingleStatisticList.add(oldSingleStatistic.getStatisticType().buildPureSingleStatistic(newResult));
+  newResult.subSingleBenchmarkResultList=new ArrayList<SubSingleBenchmarkResult>(oldResult.getSubSingleBenchmarkResultList().size());
+  int subSingleBenchmarkIndex=0;
+  for (  SubSingleBenchmarkResult oldSubResult : oldResult.subSingleBenchmarkResultList) {
+    SubSingleBenchmarkResult.createMerge(newResult,oldSubResult,subSingleBenchmarkIndex);
+    subSingleBenchmarkIndex++;
   }
-  newResult.initSingleStatisticMap();
-  for (  SingleStatistic singleStatistic : newResult.effectiveSingleStatisticMap.values()) {
-    SingleStatistic oldSingleStatistic=oldResult.getSingleStatistic(singleStatistic.getStatisticType());
-    if (!oldSingleStatistic.getCsvFile().exists()) {
-      if (oldResult.isFailure()) {
-        singleStatistic.initPointList();
-        logger.debug("Old result ( {} ) is a failure, skipping merge of it's single statistic ( {} ).",oldResult,oldSingleStatistic);
-        continue;
-      }
- else {
-        throw new IllegalStateException("Could not find old result's ( " + oldResult + " ) single statistic's ( "+ oldSingleStatistic+ " ) CSV file.");
-      }
-    }
-    oldSingleStatistic.unhibernatePointList();
-    singleStatistic.setPointList(oldSingleStatistic.getPointList());
-    oldSingleStatistic.hibernatePointList();
-  }
-  newResult.succeeded=oldResult.succeeded;
-  newResult.score=oldResult.score;
-  newResult.uninitializedVariableCount=oldResult.uninitializedVariableCount;
-  newResult.timeMillisSpent=oldResult.timeMillisSpent;
-  newResult.calculateCount=oldResult.calculateCount;
+  newResult.median=oldResult.median;
+  newResult.best=oldResult.best;
+  newResult.worst=oldResult.worst;
   solverBenchmarkResult.getSingleBenchmarkResultList().add(newResult);
   problemBenchmarkResult.getSingleBenchmarkResultList().add(newResult);
   return newResult;

@@ -1,7 +1,0 @@
-{
-  InnerScoreDirector scoreDirector=phaseScope.getScoreDirector();
-  constraintMatchEnabled=scoreDirector.isConstraintMatchEnabled();
-  if (!constraintMatchEnabled) {
-    logger.warn("The singleStatistic ({}) cannot function properly" + " because ConstraintMatches are not supported on the ScoreDirector.",singleStatisticType);
-  }
-}

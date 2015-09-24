@@ -13,7 +13,10 @@
   }
   Date startingTimestamp=new Date();
   for (  SingleBenchmarkResult singleBenchmarkResult : singleBenchmarkResultList) {
-    singleBenchmarkResult.initSingleStatisticMap();
+    for (    SubSingleBenchmarkResult subSingleBenchmarkResult : singleBenchmarkResult.getSubSingleBenchmarkResultList()) {
+      subSingleBenchmarkResult.setSingleBenchmarkResult(singleBenchmarkResult);
+    }
+    singleBenchmarkResult.initSubSingleStatisticMaps();
   }
   if (solverBenchmarkResultNameMap != null) {
     for (    Entry<SolverBenchmarkResult,String> results : solverBenchmarkResultNameMap.entrySet()) {

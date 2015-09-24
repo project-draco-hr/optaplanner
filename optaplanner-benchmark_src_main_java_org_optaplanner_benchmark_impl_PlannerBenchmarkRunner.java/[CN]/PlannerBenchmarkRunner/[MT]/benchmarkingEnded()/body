@@ -11,6 +11,6 @@
   }
  else {
     logger.info("Benchmarking failed: time spent ({}), failureCount ({}), statistic html overview ({}).",plannerBenchmarkResult.getBenchmarkTimeMillisSpent(),plannerBenchmarkResult.getFailureCount(),benchmarkReport.getHtmlOverviewFile().getAbsolutePath());
-    throw new PlannerBenchmarkException("Benchmarking failed: failureCount (" + plannerBenchmarkResult.getFailureCount() + ")."+ " The exception of the firstFailureSingleBenchmarkRunner ("+ firstFailureSingleBenchmarkRunner.getName()+ ") is chained.",firstFailureSingleBenchmarkRunner.getFailureThrowable());
+    throw new PlannerBenchmarkException("Benchmarking failed: failureCount (" + plannerBenchmarkResult.getFailureCount() + ")."+ " The exception of the firstFailureSingleBenchmarkRunner ("+ firstFailureSubSingleBenchmarkRunner.getName()+ ") is chained.",firstFailureSubSingleBenchmarkRunner.getFailureThrowable());
   }
 }

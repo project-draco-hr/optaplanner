@@ -1,7 +1,0 @@
-{
-  File problemReportDirectory=getProblemReportDirectory();
-  problemReportDirectory.mkdirs();
-  for (  SingleBenchmarkResult singleBenchmarkResult : singleBenchmarkResultList) {
-    singleBenchmarkResult.makeDirs(problemReportDirectory);
-  }
-}

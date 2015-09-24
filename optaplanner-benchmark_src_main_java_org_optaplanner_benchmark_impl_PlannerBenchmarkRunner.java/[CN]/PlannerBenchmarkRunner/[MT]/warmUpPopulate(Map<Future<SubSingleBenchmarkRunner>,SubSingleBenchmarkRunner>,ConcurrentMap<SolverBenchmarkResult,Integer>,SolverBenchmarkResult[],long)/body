@@ -1,0 +1,15 @@
+{
+  for (  SolverBenchmarkResult solverBenchmarkResult : solverBenchmarkResultArray) {
+    TerminationConfig originalTerminationConfig=solverBenchmarkResult.getSolverConfig().getTerminationConfig();
+    TerminationConfig tmpTerminationConfig=originalTerminationConfig == null ? new TerminationConfig() : originalTerminationConfig.clone();
+    tmpTerminationConfig.shortenTimeMillisSpentLimit(timeLeftPerSolverConfig);
+    solverBenchmarkResult.getSolverConfig().setTerminationConfig(tmpTerminationConfig);
+    Integer singleBenchmarkResultIndex=singleBenchmarkResultIndexMap.get(solverBenchmarkResult);
+    singleBenchmarkResultIndex=(singleBenchmarkResultIndex == null) ? 0 : singleBenchmarkResultIndex % solverBenchmarkResult.getSingleBenchmarkResultList().size();
+    SingleBenchmarkResult singleBenchmarkResult=solverBenchmarkResult.getSingleBenchmarkResultList().get(singleBenchmarkResultIndex);
+    SubSingleBenchmarkRunner subSingleBenchmarkRunner=new SubSingleBenchmarkRunner(singleBenchmarkResult.getSubSingleBenchmarkResultList().get(0));
+    Future<SubSingleBenchmarkRunner> future=warmUpExecutorCompletionService.submit(subSingleBenchmarkRunner);
+    futureMap.put(future,subSingleBenchmarkRunner);
+    singleBenchmarkResultIndexMap.put(solverBenchmarkResult,singleBenchmarkResultIndex + 1);
+  }
+}

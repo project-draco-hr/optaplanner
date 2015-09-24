@@ -1,0 +1,5 @@
+{
+  File chartFile=new File(subSingleBenchmarkResult.getResultDirectory(),fileNameBase + ".png");
+  GraphSupport.writeChartToImageFile(chart,chartFile);
+  return chartFile;
+}

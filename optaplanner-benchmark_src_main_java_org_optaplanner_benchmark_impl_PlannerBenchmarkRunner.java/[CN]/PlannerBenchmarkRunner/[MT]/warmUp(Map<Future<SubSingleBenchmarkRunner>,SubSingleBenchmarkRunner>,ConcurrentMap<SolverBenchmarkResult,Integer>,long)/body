@@ -1,0 +1,43 @@
+{
+  int tasksCount=futureMap.size();
+  for (int i=0; i < tasksCount; i++) {
+    Future<SubSingleBenchmarkRunner> future;
+    try {
+      future=warmUpExecutorCompletionService.take();
+    }
+ catch (    InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new IllegalStateException("Waiting for a warm up singleBenchmarkRunner was interrupted.",e);
+    }
+    Throwable failureThrowable=null;
+    SubSingleBenchmarkRunner subSingleBenchmarkRunner;
+    try {
+      subSingleBenchmarkRunner=future.get();
+    }
+ catch (    InterruptedException e) {
+      Thread.currentThread().interrupt();
+      subSingleBenchmarkRunner=futureMap.get(future);
+      singleBenchmarkRunnerExceptionLogger.error("The warm up singleBenchmarkRunner ({}) was interrupted.",subSingleBenchmarkRunner,e);
+      failureThrowable=e;
+    }
+catch (    ExecutionException e) {
+      Throwable cause=e.getCause();
+      subSingleBenchmarkRunner=futureMap.get(future);
+      singleBenchmarkRunnerExceptionLogger.warn("The warm up singleBenchmarkRunner ({}) failed.",subSingleBenchmarkRunner,cause);
+      failureThrowable=cause;
+    }
+    if (failureThrowable != null) {
+      subSingleBenchmarkRunner.setFailureThrowable(failureThrowable);
+      if (firstFailureSubSingleBenchmarkRunner == null) {
+        firstFailureSubSingleBenchmarkRunner=subSingleBenchmarkRunner;
+      }
+    }
+    SolverBenchmarkResult solverBenchmarkResult=subSingleBenchmarkRunner.getSubSingleBenchmarkResult().getSingleBenchmarkResult().getSolverBenchmarkResult();
+    long timeLeftInCycle=timePhaseEnd - System.currentTimeMillis();
+    if (timeLeftInCycle > 0L) {
+      SolverBenchmarkResult[] solverBenchmarkResultSingleton=new SolverBenchmarkResult[]{solverBenchmarkResult};
+      warmUpPopulate(futureMap,singleBenchmarkResultIndexMap,solverBenchmarkResultSingleton,timeLeftInCycle);
+      tasksCount++;
+    }
+  }
+}

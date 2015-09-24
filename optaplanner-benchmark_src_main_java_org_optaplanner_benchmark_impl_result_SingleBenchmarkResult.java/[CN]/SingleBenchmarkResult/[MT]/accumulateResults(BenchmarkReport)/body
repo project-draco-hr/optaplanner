@@ -1,2 +1,8 @@
 {
+  for (  SubSingleBenchmarkResult subSingleBenchmarkResult : subSingleBenchmarkResultList) {
+    subSingleBenchmarkResult.accumulateResults(benchmarkReport);
+  }
+  determineTotalsAndAveragesAndRanking();
+  standardDeviationDoubles=StatisticUtils.determineStandardDeviationDoubles(subSingleBenchmarkResultList,averageScore,getSuccessCount());
+  determineRepresentativeSubSingleBenchmarkResult();
 }

@@ -1,4 +1,5 @@
 {
+  logger.info("Generating benchmark report...");
   summaryDirectory=new File(plannerBenchmarkResult.getBenchmarkReportDirectory(),"summary");
   summaryDirectory.mkdir();
   plannerBenchmarkResult.accumulateResults(this);
@@ -11,49 +12,53 @@
   writeTimeSpentSummaryChart();
   writeTimeSpentScalabilitySummaryChart();
   writeBestScorePerTimeSpentSummaryChart();
+  writeSubSingleBenchmarkScoreCharts();
   for (  ProblemBenchmarkResult problemBenchmarkResult : plannerBenchmarkResult.getUnifiedProblemBenchmarkResultList()) {
-    if (problemBenchmarkResult.hasAnySuccess()) {
-      for (      ProblemStatistic problemStatistic : problemBenchmarkResult.getProblemStatisticList()) {
-        for (        SingleStatistic singleStatistic : problemStatistic.getSingleStatisticList()) {
+    for (    SingleBenchmarkResult singleBenchmarkResult : problemBenchmarkResult.getSingleBenchmarkResultList()) {
+      for (      SubSingleBenchmarkResult subSingleBenchmarkResult : singleBenchmarkResult.getSubSingleBenchmarkResultList()) {
+        if (!subSingleBenchmarkResult.hasAllSuccess()) {
+          continue;
+        }
+        for (        SubSingleStatistic subSingleStatistic : subSingleBenchmarkResult.getEffectiveSubSingleStatisticMap().values()) {
           try {
-            singleStatistic.unhibernatePointList();
+            subSingleStatistic.unhibernatePointList();
           }
  catch (          IllegalStateException e) {
             if (!plannerBenchmarkResult.getAggregation()) {
-              throw new IllegalStateException("Failed to unhibernate point list of SingleStatistic ( " + singleStatistic + " ) of ProblemStatistic ( "+ problemStatistic+ " ).",e);
+              throw new IllegalStateException("Failed to unhibernate point list of SubSingleStatistic (" + subSingleStatistic + ") of SubSingleBenchmark ("+ subSingleBenchmarkResult+ ").",e);
             }
-            logger.trace("This is expected, aggregator doesn't copy CSV files. Could not read CSV file " + "( {} ) of single statistic ( {} ).",singleStatistic.getCsvFile().getAbsolutePath(),singleStatistic);
-          }
-        }
-        problemStatistic.writeGraphFiles(this);
-        for (        SingleStatistic singleStatistic : problemStatistic.getSingleStatisticList()) {
-          if (plannerBenchmarkResult.getAggregation()) {
-            singleStatistic.setPointList(null);
-          }
- else {
-            singleStatistic.hibernatePointList();
+            logger.trace("This is expected, aggregator doesn't copy CSV files. Could not read CSV file " + "({}) of sub single statistic ({}).",subSingleStatistic.getCsvFile().getAbsolutePath(),subSingleStatistic);
           }
         }
       }
+    }
+  }
+  for (  ProblemBenchmarkResult problemBenchmarkResult : plannerBenchmarkResult.getUnifiedProblemBenchmarkResultList()) {
+    if (problemBenchmarkResult.hasAnySuccess()) {
+      for (      ProblemStatistic problemStatistic : problemBenchmarkResult.getProblemStatisticList()) {
+        problemStatistic.writeGraphFiles(this);
+      }
       for (      SingleBenchmarkResult singleBenchmarkResult : problemBenchmarkResult.getSingleBenchmarkResultList()) {
-        if (singleBenchmarkResult.isSuccess()) {
-          for (          PureSingleStatistic pureSingleStatistic : singleBenchmarkResult.getPureSingleStatisticList()) {
-            try {
-              pureSingleStatistic.unhibernatePointList();
-            }
- catch (            IllegalStateException e) {
-              if (!plannerBenchmarkResult.getAggregation()) {
-                throw new IllegalStateException("Failed to unhibernate point list of " + "PureSingleStatistic ( " + pureSingleStatistic + " ).",e);
-              }
-              logger.trace("This is expected, aggregator doesn't copy CSV files. Could not read CSV file " + "( {} ) of pure single statistic ( {} ).",pureSingleStatistic.getCsvFile().getAbsolutePath(),pureSingleStatistic);
-            }
-            pureSingleStatistic.writeGraphFiles(this);
-            if (plannerBenchmarkResult.getAggregation()) {
-              pureSingleStatistic.setPointList(null);
-            }
+        if (singleBenchmarkResult.hasAllSuccess()) {
+          for (          PureSubSingleStatistic pureSubSingleStatistic : singleBenchmarkResult.getMedian().getPureSubSingleStatisticList()) {
+            pureSubSingleStatistic.writeGraphFiles(this);
+          }
+        }
+      }
+    }
+  }
+  for (  ProblemBenchmarkResult problemBenchmarkResult : plannerBenchmarkResult.getUnifiedProblemBenchmarkResultList()) {
+    for (    SingleBenchmarkResult singleBenchmarkResult : problemBenchmarkResult.getSingleBenchmarkResultList()) {
+      for (      SubSingleBenchmarkResult subSingleBenchmarkResult : singleBenchmarkResult.getSubSingleBenchmarkResultList()) {
+        if (!subSingleBenchmarkResult.hasAllSuccess()) {
+          continue;
+        }
+        for (        SubSingleStatistic subSingleStatistic : subSingleBenchmarkResult.getEffectiveSubSingleStatisticMap().values()) {
+          if (plannerBenchmarkResult.getAggregation()) {
+            subSingleStatistic.setPointList(null);
+          }
  else {
-              pureSingleStatistic.hibernatePointList();
-            }
+            subSingleStatistic.hibernatePointList();
           }
         }
       }

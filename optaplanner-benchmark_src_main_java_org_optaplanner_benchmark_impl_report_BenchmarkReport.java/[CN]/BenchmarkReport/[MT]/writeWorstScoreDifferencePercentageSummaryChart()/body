@@ -4,7 +4,7 @@
     String solverLabel=solverBenchmarkResult.getNameWithFavoriteSuffix();
     for (    SingleBenchmarkResult singleBenchmarkResult : solverBenchmarkResult.getSingleBenchmarkResultList()) {
       String planningProblemLabel=singleBenchmarkResult.getProblemBenchmarkResult().getName();
-      if (singleBenchmarkResult.isSuccess()) {
+      if (singleBenchmarkResult.hasAllSuccess()) {
         double[] levelValues=singleBenchmarkResult.getWorstScoreDifferencePercentage().getPercentageLevels();
         for (int i=0; i < levelValues.length && i < CHARTED_SCORE_LEVEL_SIZE; i++) {
           if (i >= datasetList.size()) {

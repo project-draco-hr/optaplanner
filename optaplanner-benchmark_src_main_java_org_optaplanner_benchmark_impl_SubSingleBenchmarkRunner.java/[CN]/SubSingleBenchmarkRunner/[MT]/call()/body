@@ -1,0 +1,33 @@
+{
+  MDC.put(NAME_MDC,subSingleBenchmarkResult.getName());
+  Runtime runtime=Runtime.getRuntime();
+  ProblemBenchmarkResult problemBenchmarkResult=subSingleBenchmarkResult.getSingleBenchmarkResult().getProblemBenchmarkResult();
+  Solution inputSolution=problemBenchmarkResult.readPlanningProblem();
+  if (!problemBenchmarkResult.getPlannerBenchmarkResult().hasMultipleParallelBenchmarks()) {
+    runtime.gc();
+    subSingleBenchmarkResult.setUsedMemoryAfterInputSolution(runtime.totalMemory() - runtime.freeMemory());
+  }
+  logger.trace("Benchmark inputSolution has been read for subSingleBenchmarkResult ({}).",subSingleBenchmarkResult);
+  Solver solver=subSingleBenchmarkResult.getSingleBenchmarkResult().getSolverBenchmarkResult().getSolverConfig().buildSolver();
+  for (  SubSingleStatistic subSingleStatistic : subSingleBenchmarkResult.getEffectiveSubSingleStatisticMap().values()) {
+    subSingleStatistic.open(solver);
+    subSingleStatistic.initPointList();
+  }
+  solver.solve(inputSolution);
+  long timeMillisSpent=solver.getTimeMillisSpent();
+  Solution outputSolution=solver.getBestSolution();
+  DefaultSolverScope solverScope=((DefaultSolver)solver).getSolverScope();
+  SolutionDescriptor solutionDescriptor=solverScope.getSolutionDescriptor();
+  problemBenchmarkResult.registerScale(solutionDescriptor.getEntityCount(outputSolution),solutionDescriptor.getGenuineVariableCount(outputSolution),solutionDescriptor.getProblemScale(outputSolution));
+  subSingleBenchmarkResult.setScore(outputSolution.getScore());
+  subSingleBenchmarkResult.setUninitializedVariableCount(solverScope.getBestUninitializedVariableCount());
+  subSingleBenchmarkResult.setTimeMillisSpent(timeMillisSpent);
+  subSingleBenchmarkResult.setCalculateCount(solverScope.getCalculateCount());
+  for (  SubSingleStatistic subSingleStatistic : subSingleBenchmarkResult.getEffectiveSubSingleStatisticMap().values()) {
+    subSingleStatistic.close(solver);
+    subSingleStatistic.hibernatePointList();
+  }
+  problemBenchmarkResult.writeOutputSolution(subSingleBenchmarkResult,outputSolution);
+  MDC.remove(NAME_MDC);
+  return this;
+}

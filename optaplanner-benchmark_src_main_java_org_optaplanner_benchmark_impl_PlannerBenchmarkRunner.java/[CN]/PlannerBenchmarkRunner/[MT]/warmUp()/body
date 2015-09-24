@@ -21,7 +21,7 @@
       solverBenchmarkResultCycle[j]=plannerBenchmarkResult.getSolverBenchmarkResultList().get(solverBenchmarkResultIndex % solverBenchmarkResultCount);
       solverBenchmarkResultIndex++;
     }
-    ConcurrentMap<Future<SingleBenchmarkRunner>,SingleBenchmarkRunner> futureMap=new ConcurrentHashMap<Future<SingleBenchmarkRunner>,SingleBenchmarkRunner>(parallelBenchmarkCount);
+    ConcurrentMap<Future<SubSingleBenchmarkRunner>,SubSingleBenchmarkRunner> futureMap=new ConcurrentHashMap<Future<SubSingleBenchmarkRunner>,SubSingleBenchmarkRunner>(parallelBenchmarkCount);
     warmUpPopulate(futureMap,singleBenchmarkResultIndexMap,solverBenchmarkResultCycle,timeLeftPerCycle);
     warmUp(futureMap,singleBenchmarkResultIndexMap,timeCycleEnd);
   }

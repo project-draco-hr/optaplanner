@@ -13,6 +13,7 @@
         nameCount++;
       }
       nameCountMap.put(oldResult.name,nameCount);
+      newResult.subSingleCount=oldResult.subSingleCount;
       newResult.solverConfig=oldResult.solverConfig;
       newResult.singleBenchmarkResultList=new ArrayList<SingleBenchmarkResult>(oldResult.singleBenchmarkResultList.size());
       mergeMap.put(oldResult,newResult);

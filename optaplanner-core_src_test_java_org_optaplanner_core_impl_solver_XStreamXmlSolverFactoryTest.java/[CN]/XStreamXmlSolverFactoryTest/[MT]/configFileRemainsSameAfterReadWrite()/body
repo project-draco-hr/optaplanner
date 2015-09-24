@@ -1,0 +1,11 @@
+{
+  String solverConfigResource="testdataSolverConfigXStream.xml";
+  String originalXml=IOUtils.toString(getClass().getResourceAsStream(solverConfigResource),"UTF-8");
+  InputStream originalConfigInputStream=getClass().getResourceAsStream(solverConfigResource);
+  XStreamXmlSolverFactory solverFactory=new XStreamXmlSolverFactory().configure(originalConfigInputStream);
+  SolverConfig solverConfig=solverFactory.getSolverConfig();
+  solverConfig.buildSolver(getClass().getClassLoader());
+  String savedXml=solverFactory.getXStream().toXML(solverConfig);
+  assertEquals(originalXml,savedXml);
+  originalConfigInputStream.close();
+}

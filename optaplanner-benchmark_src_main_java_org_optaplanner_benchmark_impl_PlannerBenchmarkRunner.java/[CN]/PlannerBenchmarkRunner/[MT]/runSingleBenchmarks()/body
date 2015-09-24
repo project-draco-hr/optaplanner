@@ -1,44 +1,46 @@
 {
-  Map<SingleBenchmarkRunner,Future<SingleBenchmarkRunner>> futureMap=new HashMap<SingleBenchmarkRunner,Future<SingleBenchmarkRunner>>();
+  Map<SubSingleBenchmarkRunner,Future<SubSingleBenchmarkRunner>> futureMap=new HashMap<SubSingleBenchmarkRunner,Future<SubSingleBenchmarkRunner>>();
   for (  ProblemBenchmarkResult problemBenchmarkResult : plannerBenchmarkResult.getUnifiedProblemBenchmarkResultList()) {
     for (    SingleBenchmarkResult singleBenchmarkResult : problemBenchmarkResult.getSingleBenchmarkResultList()) {
-      SingleBenchmarkRunner singleBenchmarkRunner=new SingleBenchmarkRunner(singleBenchmarkResult);
-      Future<SingleBenchmarkRunner> future=executorService.submit(singleBenchmarkRunner);
-      futureMap.put(singleBenchmarkRunner,future);
+      for (      SubSingleBenchmarkResult subSingleBenchmarkResult : singleBenchmarkResult.getSubSingleBenchmarkResultList()) {
+        SubSingleBenchmarkRunner subSingleBenchmarkRunner=new SubSingleBenchmarkRunner(subSingleBenchmarkResult);
+        Future<SubSingleBenchmarkRunner> future=executorService.submit(subSingleBenchmarkRunner);
+        futureMap.put(subSingleBenchmarkRunner,future);
+      }
     }
   }
-  for (  Map.Entry<SingleBenchmarkRunner,Future<SingleBenchmarkRunner>> futureEntry : futureMap.entrySet()) {
-    SingleBenchmarkRunner singleBenchmarkRunner=futureEntry.getKey();
-    Future<SingleBenchmarkRunner> future=futureEntry.getValue();
+  for (  Map.Entry<SubSingleBenchmarkRunner,Future<SubSingleBenchmarkRunner>> futureEntry : futureMap.entrySet()) {
+    SubSingleBenchmarkRunner subSingleBenchmarkRunner=futureEntry.getKey();
+    Future<SubSingleBenchmarkRunner> future=futureEntry.getValue();
     Throwable failureThrowable=null;
     try {
-      singleBenchmarkRunner=future.get();
-      if (singleBenchmarkRunner.getSingleBenchmarkResult().getScore() == null) {
+      subSingleBenchmarkRunner=future.get();
+      if (subSingleBenchmarkRunner.getSubSingleBenchmarkResult().getAverageScore() == null) {
         throw new IllegalStateException("Score is null. TODO fix PLANNER-46.");
       }
     }
  catch (    InterruptedException e) {
       Thread.currentThread().interrupt();
-      singleBenchmarkRunnerExceptionLogger.error("The singleBenchmarkRunner ({}) was interrupted.",singleBenchmarkRunner,e);
+      singleBenchmarkRunnerExceptionLogger.error("The subSingleBenchmarkRunner ({}) was interrupted.",subSingleBenchmarkRunner,e);
       failureThrowable=e;
     }
 catch (    ExecutionException e) {
       Throwable cause=e.getCause();
-      singleBenchmarkRunnerExceptionLogger.warn("The singleBenchmarkRunner ({}) failed.",singleBenchmarkRunner,cause);
+      singleBenchmarkRunnerExceptionLogger.warn("The subSingleBenchmarkRunner ({}) failed.",subSingleBenchmarkRunner,cause);
       failureThrowable=cause;
     }
 catch (    IllegalStateException e) {
-      singleBenchmarkRunnerExceptionLogger.warn("The singleBenchmarkRunner ({}) failed.",singleBenchmarkRunner,e);
+      singleBenchmarkRunnerExceptionLogger.warn("The subSingleBenchmarkRunner ({}) failed.",subSingleBenchmarkRunner,e);
       failureThrowable=e;
     }
     if (failureThrowable == null) {
-      singleBenchmarkRunner.getSingleBenchmarkResult().setSucceeded(true);
+      subSingleBenchmarkRunner.getSubSingleBenchmarkResult().setSucceeded(true);
     }
  else {
-      singleBenchmarkRunner.getSingleBenchmarkResult().setSucceeded(false);
-      singleBenchmarkRunner.setFailureThrowable(failureThrowable);
-      if (firstFailureSingleBenchmarkRunner == null) {
-        firstFailureSingleBenchmarkRunner=singleBenchmarkRunner;
+      subSingleBenchmarkRunner.getSubSingleBenchmarkResult().setSucceeded(false);
+      subSingleBenchmarkRunner.setFailureThrowable(failureThrowable);
+      if (firstFailureSubSingleBenchmarkRunner == null) {
+        firstFailureSubSingleBenchmarkRunner=subSingleBenchmarkRunner;
       }
     }
   }

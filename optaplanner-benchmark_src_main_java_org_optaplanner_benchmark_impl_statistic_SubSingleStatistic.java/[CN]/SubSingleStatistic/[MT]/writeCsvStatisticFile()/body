@@ -1,0 +1,20 @@
+{
+  File csvFile=getCsvFile();
+  Writer writer=null;
+  try {
+    writer=new OutputStreamWriter(new FileOutputStream(csvFile),"UTF-8");
+    writer.append(getCsvHeader()).append("\n");
+    for (    StatisticPoint point : getPointList()) {
+      writer.append(point.toCsvLine()).append("\n");
+    }
+    if (subSingleBenchmarkResult.hasAnyFailure()) {
+      writer.append("Failed\n");
+    }
+  }
+ catch (  IOException e) {
+    throw new IllegalArgumentException("Failed writing csvFile (" + csvFile + ").",e);
+  }
+ finally {
+    IOUtils.closeQuietly(writer);
+  }
+}

@@ -1,3 +1,0 @@
-{
-  return singleBenchmarkResult.getSingleReportDirectoryPath() + "/" + getStatisticType().name()+ ".csv";
-}

@@ -1,0 +1,37 @@
+{
+  failureCount=0;
+  boolean firstNonFailure=true;
+  totalScore=null;
+  uninitializedSolutionCount=0;
+  totalUninitializedVariableCount=0;
+  infeasibleScoreCount=0;
+  List<SubSingleBenchmarkResult> successResultList=new ArrayList<SubSingleBenchmarkResult>(subSingleBenchmarkResultList);
+  for (Iterator<SubSingleBenchmarkResult> it=successResultList.iterator(); it.hasNext(); ) {
+    SubSingleBenchmarkResult subSingleBenchmarkResult=it.next();
+    if (subSingleBenchmarkResult.hasAnyFailure()) {
+      failureCount++;
+      it.remove();
+    }
+ else {
+      if (!subSingleBenchmarkResult.isInitialized()) {
+        uninitializedSolutionCount++;
+        totalUninitializedVariableCount+=subSingleBenchmarkResult.getUninitializedVariableCount();
+      }
+ else       if (!subSingleBenchmarkResult.isScoreFeasible()) {
+        infeasibleScoreCount++;
+      }
+      if (firstNonFailure) {
+        totalScore=subSingleBenchmarkResult.getAverageScore();
+        firstNonFailure=false;
+      }
+ else {
+        totalScore=totalScore.add(subSingleBenchmarkResult.getAverageScore());
+      }
+    }
+  }
+  if (!firstNonFailure) {
+    averageScore=totalScore.divide(getSuccessCount());
+    averageUninitializedVariableCount=ConfigUtils.ceilDivide(totalUninitializedVariableCount,getSuccessCount());
+  }
+  determineRanking(successResultList);
+}

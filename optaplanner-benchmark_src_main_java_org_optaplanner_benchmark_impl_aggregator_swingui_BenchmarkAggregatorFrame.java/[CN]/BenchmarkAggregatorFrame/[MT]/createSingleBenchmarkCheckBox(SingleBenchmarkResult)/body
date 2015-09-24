@@ -1,5 +1,5 @@
 {
   String singleCheckBoxName=singleBenchmarkResult.getName() + " (" + singleBenchmarkResult.getRanking()+ ")";
-  String singleBenchmarkDetail=String.format("Score: %s%n" + "Used memory: %s%n" + "Time spent: %s",singleBenchmarkResult.getScore(),toEmptyStringIfNull(singleBenchmarkResult.getUsedMemoryAfterInputSolution()),millisecondsSpentNumberFormat.format(singleBenchmarkResult.getTimeMillisSpent()));
+  String singleBenchmarkDetail=String.format("Score: %s%n" + "Used memory: %s%n" + "Time spent: %s",singleBenchmarkResult.getAverageScore(),toEmptyStringIfNull(singleBenchmarkResult.getUsedMemoryAfterInputSolution()),millisecondsSpentNumberFormat.format(singleBenchmarkResult.getTimeMillisSpent()));
   return new MixedCheckBox(singleCheckBoxName,singleBenchmarkDetail,singleBenchmarkResult);
 }

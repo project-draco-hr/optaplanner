@@ -1,4 +1,0 @@
-{
-  File singleReportDirectory=getSingleReportDirectory();
-  singleReportDirectory.mkdirs();
-}

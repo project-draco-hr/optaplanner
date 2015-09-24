@@ -37,6 +37,7 @@
   p2ProblemA.setSingleBenchmarkResultList(Collections.<SingleBenchmarkResult>emptyList());
   p2ProblemA.setSingleBenchmarkResultList(new ArrayList<SingleBenchmarkResult>());
   SingleBenchmarkResult p1SolverXProblemA=createSingleBenchmarkResult(p1SolverX,p1ProblemA,-1);
+  createSubSingleBenchmarkResult(p1SolverXProblemA,1);
   SingleBenchmarkResult p1SolverXProblemB=createSingleBenchmarkResult(p1SolverX,p1ProblemB,-20);
   SingleBenchmarkResult p1SolverYProblemA=createSingleBenchmarkResult(p1SolverY,p1ProblemA,-300);
   SingleBenchmarkResult p1SolverYProblemB=createSingleBenchmarkResult(p1SolverY,p1ProblemB,-4000);

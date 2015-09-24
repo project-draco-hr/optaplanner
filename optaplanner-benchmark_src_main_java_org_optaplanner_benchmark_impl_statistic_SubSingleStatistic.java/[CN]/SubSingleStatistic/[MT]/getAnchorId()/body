@@ -1,0 +1,3 @@
+{
+  return ReportHelper.escapeHtmlId(subSingleBenchmarkResult.getName() + "_" + getStatisticType().name());
+}

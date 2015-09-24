@@ -1,0 +1,10 @@
+{
+  String plannerBenchmarkConfigResource="testdataPlannerBenchmarkConfigXStreamInherited.xml";
+  String originalXml=IOUtils.toString(getClass().getResourceAsStream(plannerBenchmarkConfigResource),"UTF-8");
+  InputStream originalConfigInputStream=getClass().getResourceAsStream(plannerBenchmarkConfigResource);
+  XStreamXmlPlannerBenchmarkFactory plannerBenchmarkFactory=new XStreamXmlPlannerBenchmarkFactory().configure(originalConfigInputStream);
+  PlannerBenchmarkConfig benchmarkConfig=plannerBenchmarkFactory.getPlannerBenchmarkConfig();
+  benchmarkConfig.buildPlannerBenchmark();
+  String savedXml=plannerBenchmarkFactory.getXStream().toXML(benchmarkConfig);
+  assertEquals(originalXml,savedXml);
+}

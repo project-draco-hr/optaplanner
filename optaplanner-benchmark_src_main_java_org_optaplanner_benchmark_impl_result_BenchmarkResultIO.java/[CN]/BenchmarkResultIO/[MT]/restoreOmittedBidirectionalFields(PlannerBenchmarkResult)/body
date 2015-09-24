@@ -15,11 +15,15 @@
     solverBenchmarkResult.setPlannerBenchmarkResult(plannerBenchmarkResult);
     for (    SingleBenchmarkResult singleBenchmarkResult : solverBenchmarkResult.getSingleBenchmarkResultList()) {
       singleBenchmarkResult.setSolverBenchmarkResult(solverBenchmarkResult);
-      if (singleBenchmarkResult.getPureSingleStatisticList() == null) {
-        singleBenchmarkResult.setPureSingleStatisticList(new ArrayList<PureSingleStatistic>(0));
+      for (      SubSingleBenchmarkResult subSingleBenchmarkResult : singleBenchmarkResult.getSubSingleBenchmarkResultList()) {
+        if (subSingleBenchmarkResult.getPureSubSingleStatisticList() == null) {
+          subSingleBenchmarkResult.setPureSubSingleStatisticList(new ArrayList<PureSubSingleStatistic>(0));
+        }
       }
-      for (      PureSingleStatistic pureSingleStatistic : singleBenchmarkResult.getPureSingleStatisticList()) {
-        pureSingleStatistic.setSingleBenchmarkResult(singleBenchmarkResult);
+      for (      SubSingleBenchmarkResult subSingleBenchmarkResult : singleBenchmarkResult.getSubSingleBenchmarkResultList()) {
+        for (        PureSubSingleStatistic pureSubSingleStatistic : subSingleBenchmarkResult.getPureSubSingleStatisticList()) {
+          pureSubSingleStatistic.setSubSingleBenchmarkResult(subSingleBenchmarkResult);
+        }
       }
     }
   }

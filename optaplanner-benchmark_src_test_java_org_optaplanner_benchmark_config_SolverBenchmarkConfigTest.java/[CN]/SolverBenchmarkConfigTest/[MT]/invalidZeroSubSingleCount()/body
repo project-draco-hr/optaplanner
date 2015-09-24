@@ -1,0 +1,6 @@
+{
+  SolverBenchmarkConfig config=new SolverBenchmarkConfig();
+  config.setName("name");
+  config.setSubSingleCount(0);
+  config.validate();
+}

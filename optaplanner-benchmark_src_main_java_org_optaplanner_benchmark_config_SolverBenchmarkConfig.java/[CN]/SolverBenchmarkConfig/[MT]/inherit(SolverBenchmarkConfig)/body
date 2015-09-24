@@ -11,4 +11,5 @@
  else   if (inheritedConfig.getProblemBenchmarksConfig() != null) {
     problemBenchmarksConfig.inherit(inheritedConfig.getProblemBenchmarksConfig());
   }
+  subSingleCount=ConfigUtils.inheritOverwritableProperty(subSingleCount,inheritedConfig.getSubSingleCount());
 }
