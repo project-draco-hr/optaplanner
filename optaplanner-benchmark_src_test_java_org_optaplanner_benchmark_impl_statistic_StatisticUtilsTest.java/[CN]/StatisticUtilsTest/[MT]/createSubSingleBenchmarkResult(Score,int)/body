@@ -1,0 +1,6 @@
+{
+  SubSingleBenchmarkResult subSingleBenchmarkResult=spy(new SubSingleBenchmarkResult(null,index));
+  when(subSingleBenchmarkResult.getAverageScore()).thenReturn(score);
+  when(subSingleBenchmarkResult.hasAllSuccess()).thenReturn(true);
+  return subSingleBenchmarkResult;
+}
