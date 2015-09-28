@@ -1,11 +1,6 @@
 {
   super.inherit(inheritedConfig);
-  if (valueSelectorConfig == null) {
-    valueSelectorConfig=inheritedConfig.getValueSelectorConfig();
-  }
- else   if (inheritedConfig.getValueSelectorConfig() != null) {
-    valueSelectorConfig.inherit(inheritedConfig.getValueSelectorConfig());
-  }
+  valueSelectorConfig=ConfigUtils.inheritConfig(valueSelectorConfig,inheritedConfig.getValueSelectorConfig());
   minimumSubChainSize=ConfigUtils.inheritOverwritableProperty(minimumSubChainSize,inheritedConfig.getMinimumSubChainSize());
   maximumSubChainSize=ConfigUtils.inheritOverwritableProperty(maximumSubChainSize,inheritedConfig.getMaximumSubChainSize());
 }

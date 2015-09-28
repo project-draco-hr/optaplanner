@@ -15,5 +15,5 @@
   bestScoreFeasible=ConfigUtils.inheritOverwritableProperty(bestScoreFeasible,inheritedConfig.getBestScoreFeasible());
   stepCountLimit=ConfigUtils.inheritOverwritableProperty(stepCountLimit,inheritedConfig.getStepCountLimit());
   unimprovedStepCountLimit=ConfigUtils.inheritOverwritableProperty(unimprovedStepCountLimit,inheritedConfig.getUnimprovedStepCountLimit());
-  terminationConfigList=ConfigUtils.inheritMergeableListProperty(terminationConfigList,inheritedConfig.getTerminationConfigList());
+  terminationConfigList=ConfigUtils.inheritMergeableListConfig(terminationConfigList,inheritedConfig.getTerminationConfigList());
 }

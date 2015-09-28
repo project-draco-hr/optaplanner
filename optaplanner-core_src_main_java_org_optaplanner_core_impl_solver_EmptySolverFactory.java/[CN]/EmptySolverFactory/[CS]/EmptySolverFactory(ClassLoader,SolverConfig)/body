@@ -1,0 +1,4 @@
+{
+  super(classLoader);
+  this.solverConfig=solverConfig;
+}

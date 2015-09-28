@@ -4,10 +4,5 @@
   entitySorterManner=ConfigUtils.inheritOverwritableProperty(entitySorterManner,inheritedConfig.getEntitySorterManner());
   valueSorterManner=ConfigUtils.inheritOverwritableProperty(valueSorterManner,inheritedConfig.getValueSorterManner());
   setEntityPlacerConfig(ConfigUtils.inheritOverwritableProperty(getEntityPlacerConfig(),inheritedConfig.getEntityPlacerConfig()));
-  if (foragerConfig == null) {
-    foragerConfig=inheritedConfig.getForagerConfig();
-  }
- else   if (inheritedConfig.getForagerConfig() != null) {
-    foragerConfig.inherit(inheritedConfig.getForagerConfig());
-  }
+  foragerConfig=ConfigUtils.inheritConfig(foragerConfig,inheritedConfig.getForagerConfig());
 }

@@ -1,0 +1,15 @@
+{
+  if (inheritedList != null) {
+    List<C> mergedList=new ArrayList<C>(inheritedList.size() + (originalList == null ? 0 : originalList.size()));
+    for (    C inherited : inheritedList) {
+      C copy=inherited.newInstance();
+      copy.inherit(inherited);
+      mergedList.add(copy);
+    }
+    if (originalList != null) {
+      mergedList.addAll(originalList);
+    }
+    originalList=mergedList;
+  }
+  return originalList;
+}

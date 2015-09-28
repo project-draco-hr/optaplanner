@@ -4,16 +4,6 @@
   nodeExplorationType=ConfigUtils.inheritOverwritableProperty(nodeExplorationType,inheritedConfig.getNodeExplorationType());
   entitySorterManner=ConfigUtils.inheritOverwritableProperty(entitySorterManner,inheritedConfig.getEntitySorterManner());
   valueSorterManner=ConfigUtils.inheritOverwritableProperty(valueSorterManner,inheritedConfig.getValueSorterManner());
-  if (entitySelectorConfig == null) {
-    entitySelectorConfig=inheritedConfig.getEntitySelectorConfig();
-  }
- else   if (inheritedConfig.getEntitySelectorConfig() != null) {
-    entitySelectorConfig.inherit(inheritedConfig.getEntitySelectorConfig());
-  }
-  if (moveSelectorConfig == null) {
-    moveSelectorConfig=inheritedConfig.getMoveSelectorConfig();
-  }
- else   if (inheritedConfig.getMoveSelectorConfig() != null) {
-    moveSelectorConfig.inherit(inheritedConfig.getMoveSelectorConfig());
-  }
+  entitySelectorConfig=ConfigUtils.inheritConfig(entitySelectorConfig,inheritedConfig.getEntitySelectorConfig());
+  moveSelectorConfig=ConfigUtils.inheritConfig(moveSelectorConfig,inheritedConfig.getMoveSelectorConfig());
 }

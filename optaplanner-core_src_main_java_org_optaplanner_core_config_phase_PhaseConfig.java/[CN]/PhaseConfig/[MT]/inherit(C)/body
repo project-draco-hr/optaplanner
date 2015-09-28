@@ -1,0 +1,3 @@
+{
+  terminationConfig=ConfigUtils.inheritConfig(terminationConfig,inheritedConfig.getTerminationConfig());
+}

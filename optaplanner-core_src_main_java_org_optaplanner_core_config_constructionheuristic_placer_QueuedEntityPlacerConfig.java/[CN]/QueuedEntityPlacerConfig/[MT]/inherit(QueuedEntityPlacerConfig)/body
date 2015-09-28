@@ -1,10 +1,5 @@
 {
   super.inherit(inheritedConfig);
-  if (entitySelectorConfig == null) {
-    entitySelectorConfig=inheritedConfig.getEntitySelectorConfig();
-  }
- else   if (inheritedConfig.getEntitySelectorConfig() != null) {
-    entitySelectorConfig.inherit(inheritedConfig.getEntitySelectorConfig());
-  }
-  moveSelectorConfigList=ConfigUtils.inheritMergeableListProperty(moveSelectorConfigList,inheritedConfig.getMoveSelectorConfigList());
+  entitySelectorConfig=ConfigUtils.inheritConfig(entitySelectorConfig,inheritedConfig.getEntitySelectorConfig());
+  moveSelectorConfigList=ConfigUtils.inheritMergeableListConfig(moveSelectorConfigList,inheritedConfig.getMoveSelectorConfigList());
 }

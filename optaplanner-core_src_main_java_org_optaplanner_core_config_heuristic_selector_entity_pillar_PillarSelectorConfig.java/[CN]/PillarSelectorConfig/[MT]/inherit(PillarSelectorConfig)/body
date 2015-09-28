@@ -1,11 +1,6 @@
 {
   super.inherit(inheritedConfig);
-  if (entitySelectorConfig == null) {
-    entitySelectorConfig=inheritedConfig.getEntitySelectorConfig();
-  }
- else   if (inheritedConfig.getEntitySelectorConfig() != null) {
-    entitySelectorConfig.inherit(inheritedConfig.getEntitySelectorConfig());
-  }
+  entitySelectorConfig=ConfigUtils.inheritConfig(entitySelectorConfig,inheritedConfig.getEntitySelectorConfig());
   subPillarEnabled=ConfigUtils.inheritOverwritableProperty(subPillarEnabled,inheritedConfig.getSubPillarEnabled());
   minimumSubPillarSize=ConfigUtils.inheritOverwritableProperty(minimumSubPillarSize,inheritedConfig.getMinimumSubPillarSize());
   maximumSubPillarSize=ConfigUtils.inheritOverwritableProperty(maximumSubPillarSize,inheritedConfig.getMaximumSubPillarSize());

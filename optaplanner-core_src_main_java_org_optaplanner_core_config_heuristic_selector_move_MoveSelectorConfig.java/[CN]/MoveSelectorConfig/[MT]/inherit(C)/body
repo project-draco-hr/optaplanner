@@ -1,0 +1,4 @@
+{
+  super.inherit(inheritedConfig);
+  inheritCommon(inheritedConfig);
+}

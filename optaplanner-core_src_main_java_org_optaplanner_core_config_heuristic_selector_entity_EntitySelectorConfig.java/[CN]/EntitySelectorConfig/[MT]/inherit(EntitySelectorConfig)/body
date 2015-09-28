@@ -3,12 +3,7 @@
   id=ConfigUtils.inheritOverwritableProperty(id,inheritedConfig.getId());
   mimicSelectorRef=ConfigUtils.inheritOverwritableProperty(mimicSelectorRef,inheritedConfig.getMimicSelectorRef());
   entityClass=ConfigUtils.inheritOverwritableProperty(entityClass,inheritedConfig.getEntityClass());
-  if (nearbySelectionConfig == null) {
-    nearbySelectionConfig=inheritedConfig.getNearbySelectionConfig();
-  }
- else   if (inheritedConfig.getNearbySelectionConfig() != null) {
-    nearbySelectionConfig.inherit(inheritedConfig.getNearbySelectionConfig());
-  }
+  nearbySelectionConfig=ConfigUtils.inheritConfig(nearbySelectionConfig,inheritedConfig.getNearbySelectionConfig());
   cacheType=ConfigUtils.inheritOverwritableProperty(cacheType,inheritedConfig.getCacheType());
   selectionOrder=ConfigUtils.inheritOverwritableProperty(selectionOrder,inheritedConfig.getSelectionOrder());
   filterClassList=ConfigUtils.inheritOverwritableProperty(filterClassList,inheritedConfig.getFilterClassList());

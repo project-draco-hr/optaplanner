@@ -2,16 +2,6 @@
   super.inherit(inheritedConfig);
   localSearchType=ConfigUtils.inheritOverwritableProperty(localSearchType,inheritedConfig.getLocalSearchType());
   setMoveSelectorConfig(ConfigUtils.inheritOverwritableProperty(getMoveSelectorConfig(),inheritedConfig.getMoveSelectorConfig()));
-  if (acceptorConfig == null) {
-    acceptorConfig=inheritedConfig.getAcceptorConfig();
-  }
- else   if (inheritedConfig.getAcceptorConfig() != null) {
-    acceptorConfig.inherit(inheritedConfig.getAcceptorConfig());
-  }
-  if (foragerConfig == null) {
-    foragerConfig=inheritedConfig.getForagerConfig();
-  }
- else   if (inheritedConfig.getForagerConfig() != null) {
-    foragerConfig.inherit(inheritedConfig.getForagerConfig());
-  }
+  acceptorConfig=ConfigUtils.inheritConfig(acceptorConfig,inheritedConfig.getAcceptorConfig());
+  foragerConfig=ConfigUtils.inheritConfig(foragerConfig,inheritedConfig.getForagerConfig());
 }

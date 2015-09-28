@@ -4,7 +4,7 @@
   SelectionOrder defaultSelectionOrder=SelectionOrder.RANDOM;
   if (ConfigUtils.isEmptyCollection(moveSelectorConfigList)) {
     UnionMoveSelectorConfig unionMoveSelectorConfig=new UnionMoveSelectorConfig();
-    unionMoveSelectorConfig.setMoveSelectorConfigList(Arrays.asList(new ChangeMoveSelectorConfig(),new SwapMoveSelectorConfig()));
+    unionMoveSelectorConfig.setMoveSelectorConfigList(Arrays.<MoveSelectorConfig>asList(new ChangeMoveSelectorConfig(),new SwapMoveSelectorConfig()));
     moveSelector=unionMoveSelectorConfig.buildMoveSelector(configPolicy,defaultCacheType,defaultSelectionOrder);
   }
  else   if (moveSelectorConfigList.size() == 1) {

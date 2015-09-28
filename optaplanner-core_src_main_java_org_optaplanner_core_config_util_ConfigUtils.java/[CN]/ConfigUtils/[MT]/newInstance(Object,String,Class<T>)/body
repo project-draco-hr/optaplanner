@@ -3,9 +3,9 @@
     return clazz.newInstance();
   }
  catch (  InstantiationException e) {
-    throw new IllegalArgumentException("The " + bean.getClass().getSimpleName() + "'s "+ propertyName+ " ("+ clazz.getName()+ ") does not have a public no-arg constructor",e);
+    throw new IllegalArgumentException("The " + bean.getClass().getSimpleName() + "'s "+ propertyName+ " ("+ clazz.getName()+ ") does not have a public no-arg constructor.",e);
   }
 catch (  IllegalAccessException e) {
-    throw new IllegalArgumentException("The " + bean.getClass().getSimpleName() + "'s "+ propertyName+ " ("+ clazz.getName()+ ") does not have a public no-arg constructor",e);
+    throw new IllegalArgumentException("The " + bean.getClass().getSimpleName() + "'s "+ propertyName+ " ("+ clazz.getName()+ ") does not have a public no-arg constructor.",e);
   }
 }

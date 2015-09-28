@@ -1,16 +1,6 @@
 {
   super.inherit(inheritedConfig);
-  if (entitySelectorConfig == null) {
-    entitySelectorConfig=inheritedConfig.getEntitySelectorConfig();
-  }
- else   if (inheritedConfig.getEntitySelectorConfig() != null) {
-    entitySelectorConfig.inherit(inheritedConfig.getEntitySelectorConfig());
-  }
-  if (secondaryEntitySelectorConfig == null) {
-    secondaryEntitySelectorConfig=inheritedConfig.getSecondaryEntitySelectorConfig();
-  }
- else   if (inheritedConfig.getSecondaryEntitySelectorConfig() != null) {
-    secondaryEntitySelectorConfig.inherit(inheritedConfig.getSecondaryEntitySelectorConfig());
-  }
+  entitySelectorConfig=ConfigUtils.inheritConfig(entitySelectorConfig,inheritedConfig.getEntitySelectorConfig());
+  secondaryEntitySelectorConfig=ConfigUtils.inheritConfig(secondaryEntitySelectorConfig,inheritedConfig.getSecondaryEntitySelectorConfig());
   variableNameIncludeList=ConfigUtils.inheritMergeableListProperty(variableNameIncludeList,inheritedConfig.getVariableNameIncludeList());
 }

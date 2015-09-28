@@ -1,0 +1,9 @@
+{
+  if (inherited != null) {
+    if (original == null) {
+      original=inherited.newInstance();
+    }
+    original.inherit(inherited);
+  }
+  return original;
+}
