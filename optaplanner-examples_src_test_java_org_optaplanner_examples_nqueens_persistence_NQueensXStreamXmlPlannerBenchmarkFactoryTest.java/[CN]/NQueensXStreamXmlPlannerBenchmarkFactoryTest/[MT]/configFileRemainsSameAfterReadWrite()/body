@@ -1,5 +1,5 @@
 {
-  String plannerBenchmarkConfigResource="testdataPlannerBenchmarkConfigXStream.xml";
+  String plannerBenchmarkConfigResource="nqueensSimpleBenchmarkConfig.xml";
   String originalXml=IOUtils.toString(getClass().getResourceAsStream(plannerBenchmarkConfigResource),"UTF-8");
   InputStream originalConfigInputStream=getClass().getResourceAsStream(plannerBenchmarkConfigResource);
   XStreamXmlPlannerBenchmarkFactory plannerBenchmarkFactory=new XStreamXmlPlannerBenchmarkFactory().configure(originalConfigInputStream);
