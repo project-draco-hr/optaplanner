@@ -3,6 +3,8 @@
     return null;
   }
   StringBuilder standardDeviationString=new StringBuilder(standardDeviationDoubles.length * 9);
+  DecimalFormat exponentialFormat=new DecimalFormat("0.0#E0");
+  DecimalFormat decimalFormat=new DecimalFormat("0.0#");
   boolean first=true;
   for (  double standardDeviationDouble : standardDeviationDoubles) {
     if (first) {
@@ -11,10 +13,12 @@
  else {
       standardDeviationString.append("/");
     }
-    String abbreviated=Double.toString(standardDeviationDouble);
-    int dotIndex=abbreviated.lastIndexOf('.');
-    if (dotIndex >= 0 && dotIndex + 3 < abbreviated.length()) {
-      abbreviated=abbreviated.substring(0,dotIndex + 3);
+    String abbreviated;
+    if (0.001 <= standardDeviationDouble && standardDeviationDouble <= 10000000.0) {
+      abbreviated=decimalFormat.format(standardDeviationDouble);
+    }
+ else {
+      abbreviated=exponentialFormat.format(standardDeviationDouble);
     }
     standardDeviationString.append(abbreviated);
   }

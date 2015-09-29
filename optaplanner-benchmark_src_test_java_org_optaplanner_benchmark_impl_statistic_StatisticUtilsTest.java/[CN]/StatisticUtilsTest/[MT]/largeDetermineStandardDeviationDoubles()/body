@@ -1,0 +1,12 @@
+{
+  long[] subSingleBenchmarkScores=new long[]{-19289560268L,-19345935795L,-19715516752L,-19589259253L,-19390707618L,-19641410518L};
+  List<SubSingleBenchmarkResult> subSingleBenchmarkResultList=new ArrayList<SubSingleBenchmarkResult>(6);
+  SimpleLongScore averageScore=SimpleLongScore.valueOf(0);
+  for (int i=0; i < subSingleBenchmarkScores.length; i++) {
+    SimpleLongScore current=SimpleLongScore.valueOf(subSingleBenchmarkScores[i]);
+    subSingleBenchmarkResultList.add(createSubSingleBenchmarkResult(current,i));
+    averageScore=averageScore.add(current);
+  }
+  averageScore=averageScore.divide(subSingleBenchmarkScores.length);
+  assertArrayEquals(new double[]{160338212.294},StatisticUtils.determineStandardDeviationDoubles(subSingleBenchmarkResultList,averageScore,subSingleBenchmarkResultList.size()),DELTA);
+}
