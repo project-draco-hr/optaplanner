@@ -8,5 +8,5 @@
     averageScore=averageScore.add(current);
   }
   averageScore=averageScore.divide(subSingleBenchmarkScores.length);
-  assertArrayEquals(new double[]{160338212.294d},StatisticUtils.determineStandardDeviationDoubles(subSingleBenchmarkResultList,averageScore,subSingleBenchmarkResultList.size()),DELTA);
+  assertArrayEquals(new double[]{160338212.294},StatisticUtils.determineStandardDeviationDoubles(subSingleBenchmarkResultList,averageScore,subSingleBenchmarkResultList.size()),DELTA);
 }
