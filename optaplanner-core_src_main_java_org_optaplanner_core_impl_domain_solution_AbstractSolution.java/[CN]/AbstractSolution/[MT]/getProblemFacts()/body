@@ -1,3 +1,6 @@
 {
-  throw new UnsupportedOperationException("TODO PLANNER-461");
+  List<Object> factList=new ArrayList<Object>();
+  Class<? extends AbstractSolution> instanceClass=getClass();
+  addProblemFactsFromClass(factList,instanceClass);
+  return factList;
 }

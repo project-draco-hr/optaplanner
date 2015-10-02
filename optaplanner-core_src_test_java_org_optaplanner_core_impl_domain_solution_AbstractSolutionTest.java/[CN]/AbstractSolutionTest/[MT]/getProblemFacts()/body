@@ -1,0 +1,17 @@
+{
+  TestdataAbstractSolutionBasedSolution solution=new TestdataAbstractSolutionBasedSolution();
+  TestdataValue singleValue=new TestdataValue("sv1");
+  solution.setSingleValue(singleValue);
+  TestdataValue v1=new TestdataValue("v1");
+  TestdataValue v2=new TestdataValue("v2");
+  TestdataValue v3=new TestdataValue("v3");
+  List<TestdataValue> valueList=Arrays.asList(v1,v2,v3);
+  solution.setValueList(valueList);
+  List<TestdataEntity> entityList=Arrays.asList(new TestdataEntity("e1"),new TestdataEntity("e2"),new TestdataEntity("e3"));
+  solution.setEntityList(entityList);
+  TestdataEntity singleEntity=new TestdataEntity("se1");
+  solution.setSingleEntity(singleEntity);
+  SimpleScore score=SimpleScore.valueOf(-10);
+  solution.setScore(score);
+  assertCollectionContainsExactly((Collection<Object>)solution.getProblemFacts(),singleValue,v1,v2,v3);
+}

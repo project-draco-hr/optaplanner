@@ -1,0 +1,10 @@
+{
+  if (field.isAnnotationPresent(PlanningEntityProperty.class) || field.isAnnotationPresent(PlanningEntityCollectionProperty.class)) {
+    return true;
+  }
+  Method getterMethod=ReflectionHelper.getGetterMethod(fieldInstanceClass,field.getName());
+  if (getterMethod != null && (getterMethod.isAnnotationPresent(PlanningEntityProperty.class) || getterMethod.isAnnotationPresent(PlanningEntityCollectionProperty.class))) {
+    return true;
+  }
+  return false;
+}

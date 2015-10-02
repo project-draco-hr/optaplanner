@@ -1,4 +1,4 @@
 {
-  assertEquals(elements.length,collection.size());
   assertCollectionContains(collection,elements);
+  assertEquals(elements.length,collection.size());
 }

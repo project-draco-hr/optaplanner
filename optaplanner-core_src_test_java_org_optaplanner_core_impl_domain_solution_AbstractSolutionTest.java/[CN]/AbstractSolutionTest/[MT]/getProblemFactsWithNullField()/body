@@ -1,0 +1,13 @@
+{
+  TestdataAbstractSolutionBasedSolution solution=new TestdataAbstractSolutionBasedSolution();
+  solution.setSingleValue(null);
+  TestdataValue v1=new TestdataValue("v1");
+  TestdataValue v2=new TestdataValue("v2");
+  TestdataValue v3=new TestdataValue("v3");
+  List<TestdataValue> valueList=Arrays.asList(v1,v2,v3);
+  solution.setValueList(valueList);
+  solution.setEntityList(null);
+  solution.setSingleEntity(null);
+  solution.setScore(null);
+  assertCollectionContainsExactly((Collection<Object>)solution.getProblemFacts(),v1,v2,v3);
+}
