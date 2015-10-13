@@ -1,6 +1,6 @@
 {
   Solver solver=buildSolver();
-  CloudBalance cloudBalance=buildPlanningProblem();
+  CloudBalance cloudBalance=buildPlanningProblem(4,12);
   SolverThread solverThread=new SolverThread(solver,cloudBalance);
   solverThread.start();
   waitForNextStage();
@@ -10,6 +10,7 @@
     solver.addProblemFactChange(new AddProcessChange(process));
   }
   waitForNextStage();
+  assertEquals(8,((CloudBalance)solver.getBestSolution()).getProcessList().size());
   Thread.sleep(1000);
   while (!notYetAddedProcessQueue.isEmpty()) {
     CloudProcess process=notYetAddedProcessQueue.poll();
@@ -24,4 +25,6 @@
     Thread.currentThread().interrupt();
     throw new IllegalStateException("SolverThread did not die yet due to an interruption.",e);
   }
+  assertEquals(true,solver.isEveryProblemFactChangeProcessed());
+  assertEquals(12,((CloudBalance)solver.getBestSolution()).getProcessList().size());
 }
