@@ -1,0 +1,3 @@
+{
+  return createFromFreemarkerXmlInputStream(templateIn,null,classLoader);
+}

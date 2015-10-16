@@ -1,0 +1,6 @@
+{
+  ClassLoader classLoader=new DivertingClassLoader(getClass().getClassLoader());
+  PlannerBenchmarkFactory plannerBenchmarkFactory=PlannerBenchmarkFactory.createFromXmlResource("divertThroughClassLoader/org/optaplanner/benchmark/api/classloaderTestdataPlannerBenchmarkConfig.xml",classLoader);
+  PlannerBenchmark plannerBenchmark=plannerBenchmarkFactory.buildPlannerBenchmark();
+  assertNotNull(plannerBenchmark);
+}
