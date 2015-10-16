@@ -2,4 +2,5 @@
   PlannerBenchmarkFactory plannerBenchmarkFactory=PlannerBenchmarkFactory.createFromXmlResource("org/optaplanner/benchmark/api/nonExistingPlannerBenchmarkConfig.xml");
   PlannerBenchmark plannerBenchmark=plannerBenchmarkFactory.buildPlannerBenchmark();
   assertNotNull(plannerBenchmark);
+  plannerBenchmark.benchmark();
 }

@@ -1,0 +1,6 @@
+{
+  File benchmarkTestDir=new File("target/benchmarkTest/");
+  benchmarkTestDir.mkdirs();
+  new File(benchmarkTestDir,"input.xml").createNewFile();
+  new File(benchmarkTestDir,"output/").mkdir();
+}

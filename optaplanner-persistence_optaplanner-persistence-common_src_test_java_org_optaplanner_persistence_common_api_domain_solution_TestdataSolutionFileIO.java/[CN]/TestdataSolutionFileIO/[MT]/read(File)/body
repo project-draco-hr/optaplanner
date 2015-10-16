@@ -1,0 +1,6 @@
+{
+  TestdataSolution solution=new TestdataSolution("s1");
+  solution.setValueList(Arrays.asList(new TestdataValue("v1")));
+  solution.setEntityList(Arrays.asList(new TestdataEntity("e1")));
+  return solution;
+}

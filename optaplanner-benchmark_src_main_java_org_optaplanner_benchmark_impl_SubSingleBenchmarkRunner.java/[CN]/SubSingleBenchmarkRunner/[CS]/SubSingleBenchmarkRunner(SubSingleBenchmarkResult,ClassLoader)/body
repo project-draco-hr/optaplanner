@@ -1,4 +1,4 @@
 {
   this.subSingleBenchmarkResult=subSingleBenchmarkResult;
-  this.classLoader=classLoader != null ? classLoader : getClass().getClassLoader();
+  this.classLoader=classLoader;
 }
