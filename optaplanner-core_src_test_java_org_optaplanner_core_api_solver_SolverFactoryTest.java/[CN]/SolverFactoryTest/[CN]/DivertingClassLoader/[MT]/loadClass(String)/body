@@ -1,0 +1,6 @@
+{
+  if (className.startsWith(divertedPrefix + ".")) {
+    className=className.substring(divertedPrefix.length() + 1);
+  }
+  return super.loadClass(className);
+}

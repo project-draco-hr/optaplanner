@@ -1,0 +1,6 @@
+{
+  if (resourceName.startsWith(divertedPrefix + "/")) {
+    resourceName=resourceName.substring(divertedPrefix.length() + 1);
+  }
+  return super.getResourceAsStream(resourceName);
+}
