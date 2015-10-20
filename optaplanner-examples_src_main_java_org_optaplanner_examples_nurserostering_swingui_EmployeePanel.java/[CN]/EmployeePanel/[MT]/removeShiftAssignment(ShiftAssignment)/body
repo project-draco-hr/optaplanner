@@ -1,6 +1,0 @@
-{
-  JPanel shiftPanel=shiftPanelMap.get(shiftAssignment.getShift());
-  JButton shiftAssignmentButton=shiftAssignmentButtonMap.remove(shiftAssignment);
-  shiftPanel.remove(shiftAssignmentButton);
-  shiftPanel.repaint();
-}

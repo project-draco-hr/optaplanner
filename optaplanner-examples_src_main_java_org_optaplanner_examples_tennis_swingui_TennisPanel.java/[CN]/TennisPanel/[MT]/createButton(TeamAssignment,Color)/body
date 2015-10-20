@@ -1,6 +1,5 @@
 {
-  JButton button=new JButton(new TeamAssignmentAction(teamAssignment));
-  button.setMargin(new Insets(0,0,0,0));
+  JButton button=SwingUtils.makeSmallButton(new JButton(new TeamAssignmentAction(teamAssignment)));
   button.setBackground(color);
   if (teamAssignment.isLocked()) {
     button.setIcon(CommonIcons.LOCKED_ICON);

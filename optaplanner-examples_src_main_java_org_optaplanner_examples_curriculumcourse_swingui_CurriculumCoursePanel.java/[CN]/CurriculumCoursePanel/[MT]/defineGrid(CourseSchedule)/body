@@ -1,6 +1,5 @@
 {
-  JButton footprint=new JButton("LinLetGre1-0");
-  footprint.setMargin(new Insets(0,0,0,0));
+  JButton footprint=SwingUtils.makeSmallButton(new JButton("LinLetGre1-0"));
   int footprintWidth=footprint.getPreferredSize().width;
   roomsPanel.defineColumnHeaderByKey(HEADER_COLUMN_GROUP1);
   roomsPanel.defineColumnHeaderByKey(HEADER_COLUMN);

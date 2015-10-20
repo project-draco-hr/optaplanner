@@ -1,7 +1,7 @@
 {
   JPanel headerPanel=new JPanel(new GridLayout(0,5));
   JPanel addPanel=new JPanel(new GridLayout());
-  JButton addComputerButton=new JButton(addCloudComputerIcon);
+  JButton addComputerButton=SwingUtils.makeSmallButton(new JButton(addCloudComputerIcon));
   addComputerButton.setToolTipText("Add computer");
   addComputerButton.addActionListener(new ActionListener(){
     public void actionPerformed(    ActionEvent e){
@@ -14,9 +14,8 @@
     }
   }
 );
-  addComputerButton.setMargin(new Insets(0,0,0,0));
   addPanel.add(addComputerButton);
-  JButton addProcessButton=new JButton(addCloudProcessIcon);
+  JButton addProcessButton=SwingUtils.makeSmallButton(new JButton(addCloudProcessIcon));
   addProcessButton.setToolTipText("Add process");
   addProcessButton.addActionListener(new ActionListener(){
     public void actionPerformed(    ActionEvent e){
@@ -28,7 +27,6 @@
     }
   }
 );
-  addProcessButton.setMargin(new Insets(0,0,0,0));
   addPanel.add(addProcessButton);
   JPanel cornerPanel=new JPanel(new BorderLayout());
   cornerPanel.add(addPanel,BorderLayout.EAST);

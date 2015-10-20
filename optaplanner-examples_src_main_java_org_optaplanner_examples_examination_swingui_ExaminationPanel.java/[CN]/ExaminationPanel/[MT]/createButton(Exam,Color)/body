@@ -1,6 +1,5 @@
 {
-  JButton button=new JButton(new ExamAction(exam));
-  button.setMargin(new Insets(0,0,0,0));
+  JButton button=SwingUtils.makeSmallButton(new JButton(new ExamAction(exam)));
   button.setBackground(color);
   if (exam instanceof FollowingExam) {
     button.setForeground(TangoColorFactory.ALUMINIUM_5);

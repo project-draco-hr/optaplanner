@@ -1,6 +1,5 @@
 {
-  JButton button=new JButton(new MatchAction(match,label));
-  button.setMargin(new Insets(0,0,0,0));
+  JButton button=SwingUtils.makeSmallButton(new JButton(new MatchAction(match,label)));
   button.setBackground(color);
   return button;
 }

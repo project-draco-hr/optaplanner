@@ -1,6 +1,5 @@
 {
-  JButton footprint=new JButton("99999999");
-  footprint.setMargin(new Insets(0,0,0,0));
+  JButton footprint=SwingUtils.makeSmallButton(new JButton("99999999"));
   int footprintWidth=footprint.getPreferredSize().width;
   assetClassPanel.defineColumnHeaderByKey(HEADER_COLUMN);
   assetClassPanel.defineColumnHeaderByKey(HEADER_COLUMN_EXTRA_PROPERTY_1);

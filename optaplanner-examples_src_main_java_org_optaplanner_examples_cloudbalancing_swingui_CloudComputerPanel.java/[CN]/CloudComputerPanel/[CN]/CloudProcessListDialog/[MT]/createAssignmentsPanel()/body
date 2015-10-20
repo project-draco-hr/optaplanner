@@ -8,7 +8,7 @@
     processLabel.setForeground(TangoColorFactory.SEQUENCE_1[colorIndex]);
     labelAndDeletePanel.add(processLabel,BorderLayout.CENTER);
     JPanel deletePanel=new JPanel(new BorderLayout());
-    JButton deleteButton=new JButton(cloudBalancingPanel.getDeleteCloudProcessIcon());
+    JButton deleteButton=SwingUtils.makeSmallButton(new JButton(cloudBalancingPanel.getDeleteCloudProcessIcon()));
     deleteButton.setToolTipText("Delete");
     deleteButton.addActionListener(new ActionListener(){
       public void actionPerformed(      ActionEvent e){
@@ -17,7 +17,6 @@
       }
     }
 );
-    deleteButton.setMargin(new Insets(0,0,0,0));
     deletePanel.add(deleteButton,BorderLayout.NORTH);
     labelAndDeletePanel.add(deletePanel,BorderLayout.EAST);
     assignmentsPanel.add(labelAndDeletePanel);

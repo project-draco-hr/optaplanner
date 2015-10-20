@@ -1,9 +1,8 @@
 {
   Shift shift=shiftAssignment.getShift();
   JPanel shiftPanel=shiftPanelMap.get(shift);
-  JButton shiftAssignmentButton=new JButton(new ShiftAssignmentAction(shiftAssignment));
+  JButton shiftAssignmentButton=SwingUtils.makeSmallButton(new JButton(new ShiftAssignmentAction(shiftAssignment)));
   shiftAssignmentButton.setEnabled(shiftPanel.isEnabled());
-  shiftAssignmentButton.setMargin(new Insets(0,0,0,0));
   if (employee != null) {
     if (employee.getDayOffRequestMap().containsKey(shift.getShiftDate()) || employee.getShiftOffRequestMap().containsKey(shift)) {
       shiftAssignmentButton.setForeground(TangoColorFactory.SCARLET_1);

@@ -1,6 +1,5 @@
 {
-  JButton footprint=new JButton("Patient9999");
-  footprint.setMargin(new Insets(0,0,0,0));
+  JButton footprint=SwingUtils.makeSmallButton(new JButton("Patient9999"));
   int footprintWidth=footprint.getPreferredSize().width;
   timeTablePanel.defineColumnHeaderByKey(HEADER_COLUMN_GROUP2);
   timeTablePanel.defineColumnHeaderByKey(HEADER_COLUMN_GROUP1);

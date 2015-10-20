@@ -1,6 +1,5 @@
 {
-  JButton footprint=new JButton("MMMMM");
-  footprint.setMargin(new Insets(0,0,0,0));
+  JButton footprint=SwingUtils.makeSmallButton(new JButton("MMMMM"));
   int footprintWidth=footprint.getPreferredSize().width;
   teamsPanel.defineColumnHeaderByKey(HEADER_COLUMN);
   for (  Team team : travelingTournament.getTeamList()) {
