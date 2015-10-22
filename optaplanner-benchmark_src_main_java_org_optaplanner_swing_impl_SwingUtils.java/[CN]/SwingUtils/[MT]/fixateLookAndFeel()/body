@@ -1,0 +1,4 @@
+{
+  configureNimbusToTangoColors();
+  configureLookAndFeel("Nimbus");
+}

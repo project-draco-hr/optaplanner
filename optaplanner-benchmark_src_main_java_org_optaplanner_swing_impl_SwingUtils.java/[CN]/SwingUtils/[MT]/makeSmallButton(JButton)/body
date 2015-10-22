@@ -1,0 +1,5 @@
+{
+  button.setMargin(new Insets(0,0,0,0));
+  button.putClientProperty("Nimbus.Overrides",smallButtonUIDefaults);
+  return button;
+}
