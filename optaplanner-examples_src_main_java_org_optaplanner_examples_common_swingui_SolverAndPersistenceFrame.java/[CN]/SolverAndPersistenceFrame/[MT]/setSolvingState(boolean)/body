@@ -13,10 +13,15 @@
   solveButton.setVisible(!solving);
   terminateSolvingEarlyAction.setEnabled(solving);
   terminateSolvingEarlyButton.setVisible(solving);
+  if (solving) {
+    terminateSolvingEarlyButton.requestFocus();
+  }
+ else {
+    solveButton.requestFocus();
+  }
   solutionPanel.setEnabled(!solving);
   progressBar.setIndeterminate(solving);
   progressBar.setStringPainted(solving);
   progressBar.setString(solving ? "Solving..." : null);
   showConstraintMatchesDialogAction.setEnabled(!solving);
-  solutionPanel.setSolvingState(solving);
 }

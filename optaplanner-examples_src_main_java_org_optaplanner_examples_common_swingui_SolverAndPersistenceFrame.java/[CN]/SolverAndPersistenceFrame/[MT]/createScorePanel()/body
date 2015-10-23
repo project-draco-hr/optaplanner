@@ -1,5 +1,5 @@
 {
-  JPanel scorePanel=new JPanel(new BorderLayout());
+  JPanel scorePanel=new JPanel(new BorderLayout(5,0));
   scorePanel.setBorder(BorderFactory.createEtchedBorder());
   showConstraintMatchesDialogAction=new ShowConstraintMatchesDialogAction();
   showConstraintMatchesDialogAction.setEnabled(false);

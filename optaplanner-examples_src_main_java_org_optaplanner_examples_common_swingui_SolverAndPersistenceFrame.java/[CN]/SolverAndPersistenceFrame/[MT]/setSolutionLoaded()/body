@@ -1,9 +1,6 @@
 {
   setTitle(solutionBusiness.getAppName() + " - " + solutionBusiness.getSolutionFileName());
   ((CardLayout)middlePanel.getLayout()).show(middlePanel,"solutionPanel");
-  solveAction.setEnabled(true);
-  saveAction.setEnabled(true);
-  exportAction.setEnabled(solutionBusiness.hasExporter());
-  showConstraintMatchesDialogAction.setEnabled(true);
+  setSolvingState(false);
   resetScreen();
 }
