@@ -1,13 +1,4 @@
 {
-  if (isSelected) {
-    setBackground(list.getSelectionBackground());
-    setForeground(list.getSelectionForeground());
-  }
- else {
-    setBackground(list.getBackground());
-    setForeground(list.getForeground());
-  }
-  setFont(list.getFont());
-  setText((value == null) ? "" : ((Labeled)value).getLabel());
-  return this;
+  String label=(value == null) ? "" : ((Labeled)value).getLabel();
+  return originalListCellRenderer.getListCellRendererComponent(list,label,index,isSelected,cellHasFocus);
 }

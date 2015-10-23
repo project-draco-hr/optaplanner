@@ -3,7 +3,7 @@
   messagePanel.add(new JLabel("Move to row: "),BorderLayout.WEST);
   List<Row> rowList=getNQueens().getRowList();
   JComboBox rowListField=new JComboBox(rowList.toArray(new Object[rowList.size() + 1]));
-  rowListField.setRenderer(new LabeledComboBoxRenderer());
+  LabeledComboBoxRenderer.applyToComboBox(rowListField);
   rowListField.setSelectedItem(queen.getRow());
   messagePanel.add(rowListField,BorderLayout.CENTER);
   int result=JOptionPane.showConfirmDialog(NQueensPanel.this.getRootPane(),messagePanel,"Queen in column " + queen.getColumn().getIndex(),JOptionPane.OK_CANCEL_OPTION);

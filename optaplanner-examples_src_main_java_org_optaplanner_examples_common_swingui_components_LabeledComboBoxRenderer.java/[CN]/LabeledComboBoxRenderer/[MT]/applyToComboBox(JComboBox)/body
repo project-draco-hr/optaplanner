@@ -1,0 +1,3 @@
+{
+  comboBox.setRenderer(new LabeledComboBoxRenderer(comboBox.getRenderer()));
+}

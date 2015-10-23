@@ -1,7 +1,7 @@
 {
   List<Day> dayList=getTravelingTournament().getDayList();
   JComboBox dayListField=new JComboBox(dayList.toArray(new Object[dayList.size() + 1]));
-  dayListField.setRenderer(new LabeledComboBoxRenderer());
+  LabeledComboBoxRenderer.applyToComboBox(dayListField);
   dayListField.setSelectedItem(match.getDay());
   int result=JOptionPane.showConfirmDialog(TravelingTournamentPanel.this.getRootPane(),dayListField,"Select day",JOptionPane.OK_CANCEL_OPTION);
   if (result == JOptionPane.OK_OPTION) {
