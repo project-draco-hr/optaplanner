@@ -1,0 +1,6 @@
+{
+  RegisterBuiltin.register(ResteasyProviderFactory.getInstance());
+  VehicleRoutingRestService vehicleRoutingRestService=ProxyFactory.create(VehicleRoutingRestService.class,baseUrl.toExternalForm() + "rest");
+  JsonVehicleRoutingSolution solution=vehicleRoutingRestService.getSolution();
+  assertNotNull(solution);
+}
