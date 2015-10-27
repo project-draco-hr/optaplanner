@@ -1,5 +1,6 @@
 {
   this.scoreDirector=scoreDirector;
+  notifiableList=new ArrayList<VariableListenerNotifiable>();
   sourceVariableToNotifiableMap=new LinkedHashMap<VariableDescriptor,List<VariableListenerNotifiable>>();
   sourceEntityToNotifiableMap=new LinkedHashMap<EntityDescriptor,List<VariableListenerNotifiable>>();
   supplyMap=new LinkedHashMap<Demand,Supply>();

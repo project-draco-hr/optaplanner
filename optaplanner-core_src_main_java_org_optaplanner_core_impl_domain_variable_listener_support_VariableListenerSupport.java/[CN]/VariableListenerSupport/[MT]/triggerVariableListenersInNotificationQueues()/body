@@ -1,7 +1,6 @@
 {
-  for (  Map.Entry<VariableListenerNotifiable,Set<VariableListenerNotification>> entry : notificationQueueMap.entrySet()) {
-    VariableListenerNotifiable notifiable=entry.getKey();
-    Set<VariableListenerNotification> notificationQueue=entry.getValue();
+  for (  VariableListenerNotifiable notifiable : notifiableList) {
+    Set<VariableListenerNotification> notificationQueue=notifiable.getNotificationQueue();
     VariableListener variableListener=notifiable.getVariableListener();
     for (Iterator<VariableListenerNotification> it=notificationQueue.iterator(); it.hasNext(); ) {
       VariableListenerNotification notification=it.next();

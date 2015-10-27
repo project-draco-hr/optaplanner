@@ -1,4 +1,5 @@
 {
   this.variableListener=variableListener;
   this.globalOrder=globalOrder;
+  notificationQueue=new LinkedHashSet<VariableListenerNotification>();
 }

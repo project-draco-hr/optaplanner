@@ -14,8 +14,7 @@
       if (!entityNotifiableList.contains(notifiable)) {
         entityNotifiableList.add(notifiable);
       }
-      Set<VariableListenerNotification> notificationQueue=new LinkedHashSet<VariableListenerNotification>();
-      notificationQueueMap.put(notifiable,notificationQueue);
+      notifiableList.add(notifiable);
     }
     supplyMap.put(demand,supply);
   }
