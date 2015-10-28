@@ -1,5 +1,9 @@
 {
-  Desktop desktop=Desktop.getDesktop();
+  Desktop desktop=Desktop.isDesktopSupported() ? Desktop.getDesktop() : null;
+  if (desktop == null || !desktop.isSupported(Desktop.Action.BROWSE)) {
+    JOptionPane.showMessageDialog(null,"Cannot open a browser automatically." + "\nPlease open this url manually:\n" + uri.toString(),"Cannot open browser",JOptionPane.INFORMATION_MESSAGE);
+    return;
+  }
   try {
     desktop.browse(uri);
   }

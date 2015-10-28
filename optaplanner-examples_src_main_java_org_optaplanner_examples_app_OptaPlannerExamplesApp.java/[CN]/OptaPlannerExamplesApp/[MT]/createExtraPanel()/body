@@ -1,5 +1,6 @@
 {
   JPanel extraPanel=new JPanel(new GridLayout(0,1,5,5));
+  extraPanel.add(new JPanel());
   webExamplesDialog=new WebExamplesDialog();
   Action webExamplesAction=new AbstractAction("Show web examples"){
     @Override public void actionPerformed(    ActionEvent event){
@@ -9,8 +10,7 @@
   }
 ;
   extraPanel.add(new JButton(webExamplesAction));
-  extraPanel.add(new JPanel());
-  Action homepageAction=new OpenBrowserAction("Homepage","http://www.optaplanner.org");
+  Action homepageAction=new OpenBrowserAction("www.optaplanner.org","http://www.optaplanner.org");
   extraPanel.add(new JButton(homepageAction));
   Action documentationAction=new OpenBrowserAction("Documentation","http://www.optaplanner.org/learn/documentation.html");
   extraPanel.add(new JButton(documentationAction));
