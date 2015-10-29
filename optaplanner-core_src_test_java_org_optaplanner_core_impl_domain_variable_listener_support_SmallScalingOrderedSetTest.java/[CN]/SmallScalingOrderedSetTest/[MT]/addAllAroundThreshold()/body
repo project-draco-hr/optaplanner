@@ -1,0 +1,34 @@
+{
+  SmallScalingOrderedSet<String> set=new SmallScalingOrderedSet<String>();
+  assertTrue(set.addAll(Arrays.asList("s1","s2","s3")));
+  assertEquals(3,set.size());
+  assertTrue(set.addAll(Arrays.asList("s1","s3","s4","s5")));
+  assertFalse(set.addAll(Arrays.asList("s1","s2","s4")));
+  assertEquals(5,set.size());
+  assertTrue(set.contains("s1"));
+  assertTrue(set.contains("s2"));
+  assertTrue(set.contains("s3"));
+  assertTrue(set.contains("s4"));
+  assertTrue(set.contains("s5"));
+  for (int i=0; i < SmallScalingOrderedSet.LIST_SIZE_THRESHOLD - 7; i++) {
+    set.add("filler " + i);
+  }
+  assertEquals(SmallScalingOrderedSet.LIST_SIZE_THRESHOLD - 2,set.size());
+  assertTrue(set.addAll(Arrays.asList("s6","s7","s2","s3","s8","s9")));
+  assertEquals(SmallScalingOrderedSet.LIST_SIZE_THRESHOLD + 2,set.size());
+  assertTrue(set.remove("s1"));
+  assertTrue(set.remove("s5"));
+  assertEquals(SmallScalingOrderedSet.LIST_SIZE_THRESHOLD,set.size());
+  assertTrue(set.addAll(Arrays.asList("s1","s2","s10")));
+  assertEquals(SmallScalingOrderedSet.LIST_SIZE_THRESHOLD + 2,set.size());
+  assertTrue(set.contains("s1"));
+  assertTrue(set.contains("s2"));
+  assertTrue(set.contains("s3"));
+  assertTrue(set.contains("s4"));
+  assertFalse(set.contains("s5"));
+  assertTrue(set.contains("s6"));
+  assertTrue(set.contains("s7"));
+  assertTrue(set.contains("s8"));
+  assertTrue(set.contains("s9"));
+  assertTrue(set.contains("s10"));
+}
