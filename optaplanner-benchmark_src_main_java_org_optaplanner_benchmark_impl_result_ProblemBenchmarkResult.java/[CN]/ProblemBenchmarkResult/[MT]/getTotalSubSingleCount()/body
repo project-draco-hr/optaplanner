@@ -1,0 +1,7 @@
+{
+  int totalSubSingleCount=0;
+  for (  SingleBenchmarkResult singleBenchmarkResult : singleBenchmarkResultList) {
+    totalSubSingleCount+=singleBenchmarkResult.getTotalSubSingleCount();
+  }
+  return totalSubSingleCount;
+}
