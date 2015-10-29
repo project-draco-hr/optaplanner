@@ -1,0 +1,10 @@
+{
+  if (belowThreshold) {
+    list.clear();
+  }
+ else {
+    list=new ArrayList<E>(LIST_SIZE_THRESHOLD);
+    set=null;
+    belowThreshold=true;
+  }
+}

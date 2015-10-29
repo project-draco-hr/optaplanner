@@ -1,0 +1,3 @@
+{
+  return belowThreshold ? list.contains(o) : set.contains(o);
+}

@@ -1,0 +1,3 @@
+{
+  return belowThreshold ? list.toArray(a) : set.toArray(a);
+}

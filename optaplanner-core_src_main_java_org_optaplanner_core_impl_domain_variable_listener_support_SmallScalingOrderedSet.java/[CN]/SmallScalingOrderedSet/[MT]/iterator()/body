@@ -1,0 +1,15 @@
+{
+  final Iterator<E> childIterator=belowThreshold ? list.iterator() : set.iterator();
+  return new Iterator<E>(){
+    @Override public boolean hasNext(){
+      return childIterator.hasNext();
+    }
+    @Override public E next(){
+      return childIterator.next();
+    }
+    @Override public void remove(){
+      throw new UnsupportedOperationException();
+    }
+  }
+;
+}

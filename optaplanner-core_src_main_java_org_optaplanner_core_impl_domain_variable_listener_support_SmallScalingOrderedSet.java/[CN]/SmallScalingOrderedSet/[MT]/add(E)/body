@@ -1,0 +1,20 @@
+{
+  if (belowThreshold) {
+    int newSize=list.size() + 1;
+    if (newSize > LIST_SIZE_THRESHOLD) {
+      set=new LinkedHashSet<E>(list);
+      list=null;
+      belowThreshold=false;
+      return set.add(e);
+    }
+ else {
+      if (list.contains(e)) {
+        return false;
+      }
+      return list.add(e);
+    }
+  }
+ else {
+    return set.add(e);
+  }
+}

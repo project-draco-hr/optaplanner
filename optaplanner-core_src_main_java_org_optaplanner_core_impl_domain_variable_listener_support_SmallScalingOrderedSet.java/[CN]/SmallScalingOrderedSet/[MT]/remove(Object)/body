@@ -1,0 +1,18 @@
+{
+  if (belowThreshold) {
+    return list.remove(o);
+  }
+ else {
+    int newSize=set.size() - 1;
+    if (newSize <= LIST_SIZE_THRESHOLD) {
+      set.remove(o);
+      list=new ArrayList<E>(set);
+      set=null;
+      belowThreshold=true;
+      return true;
+    }
+ else {
+      return set.remove(o);
+    }
+  }
+}
