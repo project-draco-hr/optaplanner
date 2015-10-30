@@ -1,0 +1,10 @@
+{
+  int maximumSubSingleCount=0;
+  for (  ProblemBenchmarkResult problemBenchmarkResult : unifiedProblemBenchmarkResultList) {
+    int problemMaximumSubSingleCount=problemBenchmarkResult.getMaximumSubSingleCount();
+    if (problemMaximumSubSingleCount > maximumSubSingleCount) {
+      maximumSubSingleCount=problemMaximumSubSingleCount;
+    }
+  }
+  return maximumSubSingleCount;
+}
