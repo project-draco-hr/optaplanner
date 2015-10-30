@@ -4,10 +4,11 @@
   summaryDirectory.mkdir();
   plannerBenchmarkResult.accumulateResults(this);
   fillWarningList();
-  writeBestScoreSummaryCharts();
+  writeBestScoreSummaryChart();
   writeBestScoreScalabilitySummaryChart();
   writeWinningScoreDifferenceSummaryChart();
   writeWorstScoreDifferencePercentageSummaryChart();
+  writeBestScoreDistributionSummaryChart();
   writeAverageCalculateCountPerSecondSummaryChart();
   writeTimeSpentSummaryChart();
   writeTimeSpentScalabilitySummaryChart();

@@ -1,0 +1,12 @@
+{
+  CategoryAxis xAxis=new CategoryAxis("Data");
+  NumberAxis yAxis=new NumberAxis(yAxisLabel);
+  yAxis.setNumberFormatOverride(yAxisNumberFormat);
+  BoxAndWhiskerRenderer renderer=new BoxAndWhiskerRenderer();
+  renderer.setItemMargin(0.10);
+  renderer.setMeanVisible(false);
+  renderer.setUseOutlinePaintForWhiskers(true);
+  CategoryPlot plot=new CategoryPlot(dataset,xAxis,yAxis,renderer);
+  plot.setOrientation(PlotOrientation.VERTICAL);
+  return plot;
+}

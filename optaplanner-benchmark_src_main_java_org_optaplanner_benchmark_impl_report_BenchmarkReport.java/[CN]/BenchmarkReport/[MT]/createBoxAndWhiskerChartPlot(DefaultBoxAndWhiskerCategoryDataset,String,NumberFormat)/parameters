@@ -1,0 +1,3 @@
+DefaultBoxAndWhiskerCategoryDataset dataset
+String yAxisLabel
+NumberFormat yAxisNumberFormat
