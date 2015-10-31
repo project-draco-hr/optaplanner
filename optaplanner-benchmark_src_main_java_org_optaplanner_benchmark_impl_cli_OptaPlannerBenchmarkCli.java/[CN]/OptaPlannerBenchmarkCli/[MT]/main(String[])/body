@@ -1,0 +1,22 @@
+{
+  if (args.length != 2) {
+    System.err.println("Usage: OptaPlannerBenchmarkCli benchmarkConfigFile benchmarkDirectory");
+    System.exit(1);
+  }
+  File benchmarkConfigFile=new File(args[0]);
+  if (!benchmarkConfigFile.exists()) {
+    System.err.println("The benchmarkConfigFile (" + benchmarkConfigFile + ") does not exist.");
+    System.exit(1);
+  }
+  File benchmarkDirectory=new File(args[1]);
+  PlannerBenchmarkFactory plannerBenchmarkFactory;
+  if (benchmarkConfigFile.getName().endsWith(".ftl")) {
+    plannerBenchmarkFactory=PlannerBenchmarkFactory.createFromFreemarkerXmlFile(benchmarkConfigFile);
+  }
+ else {
+    plannerBenchmarkFactory=PlannerBenchmarkFactory.createFromXmlFile(benchmarkConfigFile);
+  }
+  plannerBenchmarkFactory.getPlannerBenchmarkConfig().setBenchmarkDirectory(benchmarkDirectory);
+  PlannerBenchmark plannerBenchmark=plannerBenchmarkFactory.buildPlannerBenchmark();
+  plannerBenchmark.benchmark();
+}
