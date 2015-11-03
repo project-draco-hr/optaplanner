@@ -1,0 +1,7 @@
+{
+  if (environmentMode == null || environmentMode.isReproducible()) {
+    if (randomFactoryClass == null && randomSeed == null) {
+      randomSeed=subSingleIndex;
+    }
+  }
+}
