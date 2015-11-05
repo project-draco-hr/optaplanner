@@ -1,0 +1,4 @@
+{
+  long calculateCount=scoreDirector.getCalculateCount();
+  return calculateCount >= calculateCountLimit;
+}

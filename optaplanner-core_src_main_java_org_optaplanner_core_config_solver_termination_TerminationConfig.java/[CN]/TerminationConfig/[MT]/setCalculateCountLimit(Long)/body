@@ -1,0 +1,3 @@
+{
+  this.calculateCountLimit=calculateCountLimit;
+}

@@ -1,0 +1,6 @@
+{
+  this.calculateCountLimit=calculateCountLimit;
+  if (calculateCountLimit < 0L) {
+    throw new IllegalArgumentException("The calculateCountLimit (" + calculateCountLimit + ") cannot be negative.");
+  }
+}

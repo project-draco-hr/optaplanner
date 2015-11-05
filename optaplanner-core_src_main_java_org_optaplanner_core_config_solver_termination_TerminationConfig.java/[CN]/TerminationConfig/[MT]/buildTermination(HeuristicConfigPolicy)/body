@@ -39,6 +39,9 @@
   if (stepCountLimit != null) {
     terminationList.add(new StepCountTermination(stepCountLimit));
   }
+  if (calculateCountLimit != null) {
+    terminationList.add(new CalculateCountTermination(calculateCountLimit));
+  }
   if (unimprovedStepCountLimit != null) {
     terminationList.add(new UnimprovedStepCountTermination(unimprovedStepCountLimit));
   }
