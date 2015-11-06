@@ -1,0 +1,18 @@
+{
+  bufferedReader.mark(1024);
+  boolean valid=true;
+  String line=bufferedReader.readLine();
+  if (line == null) {
+    valid=false;
+  }
+ else {
+    String value=line.trim();
+    if (!value.matches(constantRegex)) {
+      valid=false;
+    }
+  }
+  if (!valid) {
+    bufferedReader.reset();
+  }
+  return valid;
+}

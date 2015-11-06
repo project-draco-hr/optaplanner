@@ -1,0 +1,26 @@
+{
+  boolean enabled=readOptionalConstantLine("TOUR_SECTION");
+  if (!enabled) {
+    return;
+  }
+  long domicileId=readLongValue();
+  Domicile domicile=travelingSalesmanTour.getDomicile();
+  if (!domicile.getId().equals(domicileId)) {
+    throw new IllegalStateException("The domicileId (" + domicileId + ") is not the domicile's id ("+ domicile.getId()+ ").");
+  }
+  int visitListSize=travelingSalesmanTour.getVisitList().size();
+  Map<Long,Visit> idToVisitMap=new HashMap<Long,Visit>(visitListSize);
+  for (  Visit visit : travelingSalesmanTour.getVisitList()) {
+    idToVisitMap.put(visit.getId(),visit);
+  }
+  Standstill previousStandstill=domicile;
+  for (int i=0; i < visitListSize; i++) {
+    long visitId=readLongValue();
+    Visit visit=idToVisitMap.get(visitId);
+    if (visit == null) {
+      throw new IllegalStateException("The visitId (" + visitId + ") is does not exist.");
+    }
+    visit.setPreviousStandstill(previousStandstill);
+    previousStandstill=visit;
+  }
+}
