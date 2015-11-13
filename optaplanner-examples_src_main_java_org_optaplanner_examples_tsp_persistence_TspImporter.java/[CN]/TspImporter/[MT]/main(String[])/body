@@ -1,3 +1,6 @@
 {
-  new TspImporter().convertAll();
+  TspImporter importer=new TspImporter();
+  importer.convert("other/air/europe40.tsp","europe40.xml");
+  importer.convert("cook/air/dj38.tsp","dj38.xml");
+  importer.convert("cook/air/lu980.tsp","lu980.xml");
 }

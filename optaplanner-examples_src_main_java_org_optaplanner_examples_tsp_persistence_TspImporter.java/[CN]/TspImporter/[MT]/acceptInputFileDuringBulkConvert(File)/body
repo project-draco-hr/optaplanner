@@ -1,3 +1,0 @@
-{
-  return !Arrays.asList("ch71009.tsp").contains(inputFile.getName());
-}
