@@ -1,17 +1,12 @@
 {
   readConstantLine("DEPOT_SECTION");
-  depotList=new ArrayList<Depot>(customerListSize);
+  int depotCount=0;
   long id=readLongValue();
   while (id != -1) {
-    Depot depot=new Depot();
-    depot.setId(id);
-    Location location=locationMap.get(id);
-    if (location == null) {
-      throw new IllegalArgumentException("The depot with id (" + id + ") has no location ("+ location+ ").");
-    }
-    depot.setLocation(location);
-    depotList.add(depot);
+    depotCount++;
     id=readLongValue();
   }
-  solution.setDepotList(depotList);
+  if (depotCount != depotList.size()) {
+    throw new IllegalStateException("The number of demands with 0 demand (" + depotList.size() + ") differs from the number of depots ("+ depotCount+ ").");
+  }
 }

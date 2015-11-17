@@ -1,22 +1,49 @@
 {
   readConstantLine("DEMAND_SECTION");
+  depotList=new ArrayList<Depot>(customerListSize);
   List<Customer> customerList=new ArrayList<Customer>(customerListSize);
   for (int i=0; i < customerListSize; i++) {
     String line=bufferedReader.readLine();
-    String[] lineTokens=splitBySpacesOrTabs(line.trim(),2);
-    Customer customer=new Customer();
+    String[] lineTokens=splitBySpacesOrTabs(line.trim(),timewindowed ? 5 : 2);
     long id=Long.parseLong(lineTokens[0]);
-    customer.setId(id);
-    Location location=locationMap.get(id);
-    if (location == null) {
-      throw new IllegalArgumentException("The customer with id (" + id + ") has no location ("+ location+ ").");
-    }
-    customer.setLocation(location);
     int demand=Integer.parseInt(lineTokens[1]);
-    customer.setDemand(demand);
-    if (demand != 0) {
+    if (demand == 0) {
+      Depot depot=timewindowed ? new TimeWindowedDepot() : new Depot();
+      depot.setId(id);
+      Location location=locationMap.get(id);
+      if (location == null) {
+        throw new IllegalArgumentException("The depot with id (" + id + ") has no location ("+ location+ ").");
+      }
+      depot.setLocation(location);
+      if (timewindowed) {
+        TimeWindowedDepot timeWindowedDepot=(TimeWindowedDepot)depot;
+        timeWindowedDepot.setReadyTime(Long.parseLong(lineTokens[2]));
+        timeWindowedDepot.setDueTime(Long.parseLong(lineTokens[3]));
+        long serviceDuration=Long.parseLong(lineTokens[4]);
+        if (serviceDuration != 0L) {
+          throw new IllegalArgumentException("The depot with id (" + id + ") has a serviceDuration ("+ serviceDuration+ ") that is not 0.");
+        }
+      }
+      depotList.add(depot);
+    }
+ else {
+      Customer customer=timewindowed ? new TimeWindowedCustomer() : new Customer();
+      customer.setId(id);
+      Location location=locationMap.get(id);
+      if (location == null) {
+        throw new IllegalArgumentException("The customer with id (" + id + ") has no location ("+ location+ ").");
+      }
+      customer.setLocation(location);
+      customer.setDemand(demand);
+      if (timewindowed) {
+        TimeWindowedCustomer timeWindowedCustomer=(TimeWindowedCustomer)customer;
+        timeWindowedCustomer.setReadyTime(Long.parseLong(lineTokens[2]));
+        timeWindowedCustomer.setDueTime(Long.parseLong(lineTokens[3]));
+        timeWindowedCustomer.setServiceDuration(Long.parseLong(lineTokens[4]));
+      }
       customerList.add(customer);
     }
   }
   solution.setCustomerList(customerList);
+  solution.setDepotList(depotList);
 }

@@ -1,0 +1,6 @@
+{
+  boolean valid=true;
+  while (valid) {
+    valid=readOptionalConstantLine(constantRegex);
+  }
+}
