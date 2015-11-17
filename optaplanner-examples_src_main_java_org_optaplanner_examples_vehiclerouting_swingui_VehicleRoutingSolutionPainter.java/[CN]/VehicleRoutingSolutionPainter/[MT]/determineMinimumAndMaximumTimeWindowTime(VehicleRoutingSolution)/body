@@ -1,0 +1,30 @@
+{
+  minimumTimeWindowTime=Long.MAX_VALUE;
+  maximumTimeWindowTime=Long.MIN_VALUE;
+  for (  Depot depot : solution.getDepotList()) {
+    if (depot instanceof TimeWindowedDepot) {
+      TimeWindowedDepot timeWindowedDepot=(TimeWindowedDepot)depot;
+      long readyTime=timeWindowedDepot.getReadyTime();
+      if (readyTime < minimumTimeWindowTime) {
+        minimumTimeWindowTime=readyTime;
+      }
+      long dueTime=timeWindowedDepot.getDueTime();
+      if (dueTime > maximumTimeWindowTime) {
+        maximumTimeWindowTime=dueTime;
+      }
+    }
+  }
+  for (  Customer customer : solution.getCustomerList()) {
+    if (customer instanceof TimeWindowedCustomer) {
+      TimeWindowedCustomer timeWindowedCustomer=(TimeWindowedCustomer)customer;
+      long readyTime=timeWindowedCustomer.getReadyTime();
+      if (readyTime < minimumTimeWindowTime) {
+        minimumTimeWindowTime=readyTime;
+      }
+      long dueTime=timeWindowedCustomer.getDueTime();
+      if (dueTime > maximumTimeWindowTime) {
+        maximumTimeWindowTime=dueTime;
+      }
+    }
+  }
+}

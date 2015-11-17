@@ -3,7 +3,7 @@
   for (  Location location : solution.getLocationList()) {
     translator.addCoordinates(location.getLatitude(),location.getLongitude());
   }
-  long maximumTimeWindowTime=determineMaximumTimeWindowTime(solution);
+  determineMinimumAndMaximumTimeWindowTime(solution);
   double width=size.getWidth();
   double height=size.getHeight();
   translator.prepareFor(width,height - 10 - TEXT_SIZE);
@@ -24,7 +24,7 @@
       int circleX=x - (TIME_WINDOW_DIAMETER / 2);
       int circleY=y + 5;
       g.drawOval(circleX,circleY,TIME_WINDOW_DIAMETER,TIME_WINDOW_DIAMETER);
-      g.fillArc(circleX,circleY,TIME_WINDOW_DIAMETER,TIME_WINDOW_DIAMETER,90 - calculateTimeWindowDegree(maximumTimeWindowTime,timeWindowedCustomer.getReadyTime()),calculateTimeWindowDegree(maximumTimeWindowTime,timeWindowedCustomer.getReadyTime()) - calculateTimeWindowDegree(maximumTimeWindowTime,timeWindowedCustomer.getDueTime()));
+      g.fillArc(circleX,circleY,TIME_WINDOW_DIAMETER,TIME_WINDOW_DIAMETER,90 - calculateTimeWindowDegree(timeWindowedCustomer.getReadyTime()),calculateTimeWindowDegree(timeWindowedCustomer.getReadyTime()) - calculateTimeWindowDegree(timeWindowedCustomer.getDueTime()));
       if (timeWindowedCustomer.getArrivalTime() != null) {
         if (timeWindowedCustomer.isArrivalAfterDueTime()) {
           g.setColor(TangoColorFactory.SCARLET_2);
@@ -37,7 +37,7 @@
         }
         g.setStroke(TangoColorFactory.THICK_STROKE);
         int circleCenterY=y + 5 + TIME_WINDOW_DIAMETER / 2;
-        int angle=calculateTimeWindowDegree(maximumTimeWindowTime,timeWindowedCustomer.getArrivalTime());
+        int angle=calculateTimeWindowDegree(timeWindowedCustomer.getArrivalTime());
         g.drawLine(x,circleCenterY,x + (int)(Math.sin(Math.toRadians(angle)) * (TIME_WINDOW_DIAMETER / 2 + 3)),circleCenterY - (int)(Math.cos(Math.toRadians(angle)) * (TIME_WINDOW_DIAMETER / 2 + 3)));
         g.setStroke(TangoColorFactory.NORMAL_STROKE);
       }
