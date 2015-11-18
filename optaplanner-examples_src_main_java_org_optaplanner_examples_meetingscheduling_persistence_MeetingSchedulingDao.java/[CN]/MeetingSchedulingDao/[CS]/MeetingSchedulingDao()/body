@@ -1,0 +1,3 @@
+{
+  super("meetingscheduling",MeetingSchedule.class);
+}

@@ -1,0 +1,4 @@
+{
+  int minutes=startingMinuteOfDay * GRAIN_LENGTH_IN_MINUTES;
+  return dayOfYear + "-JAN " + (minutes / 60)+ ":"+ (minutes % 60);
+}
