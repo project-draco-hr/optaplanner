@@ -9,7 +9,7 @@
     process.setRequiredMemory(requiredMemory);
     int requiredNetworkBandwidth=generateRandom(MAXIMUM_REQUIRED_NETWORK_BANDWIDTH);
     process.setRequiredNetworkBandwidth(requiredNetworkBandwidth);
-    logger.trace("Created CloudProcess with requiredCpuPower ({}), requiredMemory({})," + " requiredNetworkBandwidth({}).",requiredCpuPower,requiredMemory,requiredNetworkBandwidth);
+    logger.trace("Created CloudProcess with requiredCpuPower ({}), requiredMemory ({})," + " requiredNetworkBandwidth ({}).",requiredCpuPower,requiredMemory,requiredNetworkBandwidth);
     processList.add(process);
   }
   cloudBalance.setProcessList(processList);

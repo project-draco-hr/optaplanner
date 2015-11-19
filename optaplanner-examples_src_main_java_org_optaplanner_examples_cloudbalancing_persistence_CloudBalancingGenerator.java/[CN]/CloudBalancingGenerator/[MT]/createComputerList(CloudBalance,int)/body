@@ -10,8 +10,8 @@
     int networkBandwidthPricesIndex=distortIndex(cpuPowerPricesIndex,NETWORK_BANDWIDTH_PRICES.length);
     computer.setNetworkBandwidth(NETWORK_BANDWIDTH_PRICES[networkBandwidthPricesIndex].getHardwareValue());
     int cost=CPU_POWER_PRICES[cpuPowerPricesIndex].getCost() + MEMORY_PRICES[memoryPricesIndex].getCost() + NETWORK_BANDWIDTH_PRICES[networkBandwidthPricesIndex].getCost();
-    logger.trace("Created computer with cpuPowerPricesIndex ({}), memoryPricesIndex({})," + " networkBandwidthPricesIndex({}).",cpuPowerPricesIndex,memoryPricesIndex,networkBandwidthPricesIndex);
     computer.setCost(cost);
+    logger.trace("Created computer with cpuPowerPricesIndex ({}), memoryPricesIndex ({})," + " networkBandwidthPricesIndex ({}).",cpuPowerPricesIndex,memoryPricesIndex,networkBandwidthPricesIndex);
     computerList.add(computer);
   }
   cloudBalance.setComputerList(computerList);
