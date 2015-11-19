@@ -1,0 +1,11 @@
+{
+  random=new Random(37);
+  MeetingSchedule meetingSchedule=new MeetingSchedule();
+  meetingSchedule.setId(0L);
+  createMeetingList(meetingSchedule,meetingListSize);
+  createRoomList(meetingSchedule,roomListSize);
+  int timeGrainListSize=meetingSchedule.getTimeGrainList().size();
+  BigInteger possibleSolutionSize=BigInteger.valueOf(timeGrainListSize * roomListSize).pow(meetingSchedule.getMeetingAssignmentList().size());
+  logger.info("MeetingSchedule {} has {} meetings, {} timeGrains and {} rooms with a search space of {}.",fileName,meetingListSize,timeGrainListSize,roomListSize,AbstractSolutionImporter.getFlooredPossibleSolutionSize(possibleSolutionSize));
+  return meetingSchedule;
+}

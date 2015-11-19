@@ -1,0 +1,19 @@
+{
+  if (partOptions.length != 4) {
+    throw new IllegalStateException("The partOptions length (" + partOptions.length + ") is invalid.");
+  }
+  final int partLength=partOptions[0].length;
+  for (int i=0; i < partOptions.length; i++) {
+    if (partOptions[i].length != partLength) {
+      throw new IllegalStateException("The partOptions[" + i + "] length ("+ partOptions[i].length+ ") is not the same as the partOptions[0] length ("+ partLength+ ").");
+    }
+  }
+  if (index > (int)Math.pow(partLength,partOptions.length)) {
+    throw new IllegalStateException("The index (" + index + ") is invalid.");
+  }
+  int firstIndex=index % partLength;
+  int secondIndex=(firstIndex + (index % (int)Math.pow(partLength,3) / (int)Math.pow(partLength,2))) % partLength;
+  int thirdIndex=(secondIndex + (index % (int)Math.pow(partLength,2) / (int)partLength)) % partLength;
+  int fourthIndex=(thirdIndex + (index / (int)Math.pow(partLength,3))) % partLength;
+  return partOptions[0][firstIndex] + " " + partOptions[1][secondIndex]+ " "+ partOptions[2][thirdIndex]+ " "+ partOptions[3][fourthIndex];
+}

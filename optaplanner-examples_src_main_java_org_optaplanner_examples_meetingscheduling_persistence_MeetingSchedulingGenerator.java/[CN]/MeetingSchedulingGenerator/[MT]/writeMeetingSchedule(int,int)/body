@@ -1,0 +1,6 @@
+{
+  String fileName=determineFileName(meetingListSize,roomListSize);
+  File outputFile=new File(outputDir,fileName + ".xml");
+  MeetingSchedule meetingSchedule=createMeetingSchedule(fileName,meetingListSize,roomListSize);
+  solutionDao.writeSolution(meetingSchedule,outputFile);
+}

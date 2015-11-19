@@ -1,0 +1,14 @@
+{
+  List<Meeting> meetingList=new ArrayList<Meeting>(meetingListSize);
+  for (int i=0; i < meetingListSize; i++) {
+    Meeting meeting=new Meeting();
+    meeting.setId((long)i);
+    String topic=generateStringFromPartOptions(topicPartOptions,i);
+    meeting.setTopic(topic);
+    int durationInGrains=durationInGrainsOptions[random.nextInt(durationInGrainsOptions.length)];
+    meeting.setDurationInGrains(durationInGrains);
+    logger.trace("Created meeting with topic ({}), durationInGrains ({}).",topic,durationInGrains);
+    meetingList.add(meeting);
+  }
+  meetingSchedule.setMeetingList(meetingList);
+}

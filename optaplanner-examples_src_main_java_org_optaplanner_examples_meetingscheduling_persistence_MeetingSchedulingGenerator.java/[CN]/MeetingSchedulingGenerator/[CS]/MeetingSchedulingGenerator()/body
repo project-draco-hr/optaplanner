@@ -1,0 +1,4 @@
+{
+  solutionDao=new MeetingSchedulingDao();
+  outputDir=new File(solutionDao.getDataDir(),"unsolved");
+}

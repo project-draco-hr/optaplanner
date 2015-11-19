@@ -1,0 +1,16 @@
+{
+  List<Room> roomList=new ArrayList<Room>(roomListSize);
+  for (int i=0; i < roomListSize; i++) {
+    Room room=new Room();
+    room.setId((long)i);
+    int roomsPerFloor=20;
+    String code="R " + ((i / roomsPerFloor * 100) + (i % roomsPerFloor) + 1);
+    room.setCode(code);
+    int capacityOptionsSubsetSize=personsPerMeetingOptions.length * 3 / 4;
+    int capacity=personsPerMeetingOptions[personsPerMeetingOptions.length - (i % capacityOptionsSubsetSize) - 1];
+    room.setCapacity(capacity);
+    logger.trace("Created room with code ({}), capacity ({}).",code,capacity);
+    roomList.add(room);
+  }
+  meetingSchedule.setRoomList(roomList);
+}

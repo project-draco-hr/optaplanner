@@ -1,0 +1,7 @@
+{
+  writeMeetingSchedule(50,5);
+  writeMeetingSchedule(100,5);
+  writeMeetingSchedule(200,5);
+  writeMeetingSchedule(400,5);
+  writeMeetingSchedule(800,5);
+}
