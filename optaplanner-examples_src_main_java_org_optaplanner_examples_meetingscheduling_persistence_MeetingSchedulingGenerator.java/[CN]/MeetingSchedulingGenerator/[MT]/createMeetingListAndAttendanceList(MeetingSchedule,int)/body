@@ -1,0 +1,40 @@
+{
+  List<Meeting> meetingList=new ArrayList<Meeting>(meetingListSize);
+  List<Attendance> globalAttendanceList=new ArrayList<Attendance>();
+  long attendanceId=0L;
+  for (int i=0; i < meetingListSize; i++) {
+    Meeting meeting=new Meeting();
+    meeting.setId((long)i);
+    String topic=generateStringFromPartOptions(topicPartOptions,i);
+    meeting.setTopic(topic);
+    int durationInGrains=durationInGrainsOptions[random.nextInt(durationInGrainsOptions.length)];
+    meeting.setDurationInGrains(durationInGrains);
+    int attendanceListSize=personsPerMeetingOptions[random.nextInt(personsPerMeetingOptions.length)];
+    int requiredAttendanceListSize=Math.max(2,random.nextInt(attendanceListSize + 1));
+    List<RequiredAttendance> requiredAttendanceList=new ArrayList<RequiredAttendance>(requiredAttendanceListSize);
+    for (int j=0; j < requiredAttendanceListSize; j++) {
+      RequiredAttendance attendance=new RequiredAttendance();
+      attendance.setId(attendanceId);
+      attendanceId++;
+      attendance.setMeeting(meeting);
+      requiredAttendanceList.add(attendance);
+      globalAttendanceList.add(attendance);
+    }
+    meeting.setRequiredAttendanceList(requiredAttendanceList);
+    int preferredAttendanceListSize=attendanceListSize - requiredAttendanceListSize;
+    List<PreferredAttendance> preferredAttendanceList=new ArrayList<PreferredAttendance>(preferredAttendanceListSize);
+    for (int j=0; j < preferredAttendanceListSize; j++) {
+      PreferredAttendance attendance=new PreferredAttendance();
+      attendance.setId(attendanceId);
+      attendanceId++;
+      attendance.setMeeting(meeting);
+      preferredAttendanceList.add(attendance);
+      globalAttendanceList.add(attendance);
+    }
+    meeting.setPreferredAttendanceList(preferredAttendanceList);
+    logger.trace("Created meeting with topic ({}), durationInGrains ({})," + " requiredAttendanceListSize ({}), preferredAttendanceListSize ({}).",topic,durationInGrains,requiredAttendanceListSize,preferredAttendanceListSize);
+    meetingList.add(meeting);
+  }
+  meetingSchedule.setMeetingList(meetingList);
+  meetingSchedule.setAttendanceList(globalAttendanceList);
+}

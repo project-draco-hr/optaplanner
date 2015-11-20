@@ -1,0 +1,15 @@
+{
+  for (  Meeting meeting : meetingSchedule.getMeetingList()) {
+    List<Person> availablePersonList=new ArrayList<Person>(meetingSchedule.getPersonList());
+    int attendanceListSize=meeting.getRequiredAttendanceList().size() + meeting.getPreferredAttendanceList().size();
+    if (availablePersonList.size() < attendanceListSize) {
+      throw new IllegalStateException("The availablePersonList size (" + availablePersonList.size() + ") is less than the attendanceListSize ("+ attendanceListSize+ ").");
+    }
+    for (    RequiredAttendance requiredAttendance : meeting.getRequiredAttendanceList()) {
+      requiredAttendance.setPerson(availablePersonList.remove(random.nextInt(availablePersonList.size())));
+    }
+    for (    PreferredAttendance preferredAttendance : meeting.getPreferredAttendanceList()) {
+      preferredAttendance.setPerson(availablePersonList.remove(random.nextInt(availablePersonList.size())));
+    }
+  }
+}
