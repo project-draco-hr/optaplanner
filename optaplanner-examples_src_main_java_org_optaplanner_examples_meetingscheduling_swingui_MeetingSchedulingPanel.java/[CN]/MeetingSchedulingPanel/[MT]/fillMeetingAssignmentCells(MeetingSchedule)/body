@@ -1,0 +1,12 @@
+{
+  TangoColorFactory tangoColorFactory=new TangoColorFactory();
+  for (  MeetingAssignment meetingAssignment : meetingSchedule.getMeetingAssignmentList()) {
+    Color color=tangoColorFactory.pickColor(meetingAssignment.getMeeting());
+    TimeGrain startingTimeGrain=meetingAssignment.getStartingTimeGrain();
+    TimeGrain lastTimeGrain=startingTimeGrain == null ? null : meetingSchedule.getTimeGrainList().get(startingTimeGrain.getGrainIndex() + meetingAssignment.getMeeting().getDurationInGrains());
+    roomsPanel.addCell(meetingAssignment.getRoom(),startingTimeGrain,meetingAssignment.getRoom(),lastTimeGrain,createButton(meetingAssignment,color));
+    for (    RequiredAttendance requiredAttendance : meetingAssignment.getMeeting().getRequiredAttendanceList()) {
+      personsPanel.addCell(requiredAttendance.getPerson(),startingTimeGrain,requiredAttendance.getPerson(),lastTimeGrain,createButton(meetingAssignment,color));
+    }
+  }
+}

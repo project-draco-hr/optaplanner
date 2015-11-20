@@ -4,12 +4,12 @@
     Room room=new Room();
     room.setId((long)i);
     int roomsPerFloor=20;
-    String code="R " + ((i / roomsPerFloor * 100) + (i % roomsPerFloor) + 1);
-    room.setCode(code);
+    String name="R " + ((i / roomsPerFloor * 100) + (i % roomsPerFloor) + 1);
+    room.setName(name);
     int capacityOptionsSubsetSize=personsPerMeetingOptions.length * 3 / 4;
     int capacity=personsPerMeetingOptions[personsPerMeetingOptions.length - (i % capacityOptionsSubsetSize) - 1];
     room.setCapacity(capacity);
-    logger.trace("Created room with code ({}), capacity ({}).",code,capacity);
+    logger.trace("Created room with name ({}), capacity ({}).",name,capacity);
     roomList.add(room);
   }
   meetingSchedule.setRoomList(roomList);

@@ -1,0 +1,10 @@
+{
+  roomsPanel.addCornerHeader(HEADER_COLUMN_GROUP1,HEADER_ROW,createTableHeader(new JLabel("Day")));
+  roomsPanel.addCornerHeader(HEADER_COLUMN,HEADER_ROW,createTableHeader(new JLabel("Time")));
+  fillRoomCells(meetingSchedule);
+  personsPanel.addCornerHeader(HEADER_COLUMN_GROUP1,HEADER_ROW,createTableHeader(new JLabel("Day")));
+  personsPanel.addCornerHeader(HEADER_COLUMN,HEADER_ROW,createTableHeader(new JLabel("Time")));
+  fillTeacherCells(meetingSchedule);
+  fillTimeUnitCells(meetingSchedule);
+  fillMeetingAssignmentCells(meetingSchedule);
+}

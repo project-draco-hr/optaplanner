@@ -1,0 +1,5 @@
+{
+  JButton button=SwingUtils.makeSmallButton(new JButton(new MeetingAssignmentAction(meetingAssignment)));
+  button.setBackground(color);
+  return button;
+}

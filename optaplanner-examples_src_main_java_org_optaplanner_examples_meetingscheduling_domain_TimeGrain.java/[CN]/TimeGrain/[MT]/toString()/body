@@ -1,3 +1,3 @@
 {
-  return grainIndex + "(" + getDateString()+ ")";
+  return grainIndex + "(" + getTimeDateString()+ ")";
 }

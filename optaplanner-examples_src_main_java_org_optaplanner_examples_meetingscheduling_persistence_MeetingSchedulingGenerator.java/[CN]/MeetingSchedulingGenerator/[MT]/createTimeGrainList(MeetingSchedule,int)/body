@@ -5,7 +5,7 @@
     timeGrain.setId((long)i);
     int grainIndex=i;
     timeGrain.setGrainIndex(grainIndex);
-    int dayOfYear=i / startingMinuteOfDayOptions.length;
+    int dayOfYear=(i / startingMinuteOfDayOptions.length) + 1;
     timeGrain.setDayOfYear(dayOfYear);
     int startingMinuteOfDay=startingMinuteOfDayOptions[i % startingMinuteOfDayOptions.length];
     timeGrain.setStartingMinuteOfDay(startingMinuteOfDay);

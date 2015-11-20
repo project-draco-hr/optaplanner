@@ -1,0 +1,4 @@
+{
+  super(meetingAssignment.getLabel());
+  this.meetingAssignment=meetingAssignment;
+}

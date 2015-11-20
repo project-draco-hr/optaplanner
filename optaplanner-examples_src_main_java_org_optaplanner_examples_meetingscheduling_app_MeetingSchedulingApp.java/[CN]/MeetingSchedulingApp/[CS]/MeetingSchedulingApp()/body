@@ -1,0 +1,3 @@
+{
+  super("Meeting scheduling","Assign meetings a starting time and a room.",MeetingSchedulingPanel.LOGO_PATH);
+}

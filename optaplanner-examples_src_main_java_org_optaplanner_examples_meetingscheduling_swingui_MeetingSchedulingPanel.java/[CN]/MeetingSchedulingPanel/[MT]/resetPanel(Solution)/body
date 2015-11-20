@@ -1,0 +1,8 @@
+{
+  roomsPanel.reset();
+  personsPanel.reset();
+  MeetingSchedule meetingSchedule=(MeetingSchedule)solution;
+  defineGrid(meetingSchedule);
+  fillCells(meetingSchedule);
+  repaint();
+}

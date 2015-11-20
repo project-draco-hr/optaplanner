@@ -1,0 +1,6 @@
+{
+  for (  Room room : meetingSchedule.getRoomList()) {
+    roomsPanel.addColumnHeader(room,HEADER_ROW,createTableHeader(new JLabel(room.getLabel(),SwingConstants.CENTER)));
+  }
+  roomsPanel.addColumnHeader(null,HEADER_ROW,createTableHeader(new JLabel("Unassigned",SwingConstants.CENTER)));
+}
