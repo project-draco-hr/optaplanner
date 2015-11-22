@@ -1,0 +1,5 @@
+{
+  for (  Person person : meetingSchedule.getPersonList()) {
+    personsPanel.addRowHeader(HEADER_COLUMN,person,createTableHeader(new JLabel(person.getLabel(),SwingConstants.CENTER)));
+  }
+}

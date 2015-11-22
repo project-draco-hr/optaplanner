@@ -1,23 +1,19 @@
 {
-  JButton footprint=SwingUtils.makeSmallButton(new JButton("AAAAA BB CC DDDDD"));
-  int footprintWidth=footprint.getPreferredSize().width;
-  roomsPanel.defineColumnHeaderByKey(HEADER_COLUMN_GROUP1);
   roomsPanel.defineColumnHeaderByKey(HEADER_COLUMN);
-  for (  Room room : meetingSchedule.getRoomList()) {
-    roomsPanel.defineColumnHeader(room,footprintWidth);
-  }
-  roomsPanel.defineColumnHeader(null,footprintWidth);
-  personsPanel.defineColumnHeaderByKey(HEADER_COLUMN_GROUP1);
   personsPanel.defineColumnHeaderByKey(HEADER_COLUMN);
-  for (  Person person : meetingSchedule.getPersonList()) {
-    personsPanel.defineColumnHeader(person,footprintWidth);
-  }
-  roomsPanel.defineRowHeaderByKey(HEADER_ROW);
-  personsPanel.defineRowHeaderByKey(HEADER_ROW);
   for (  TimeGrain timeGrain : meetingSchedule.getTimeGrainList()) {
-    roomsPanel.defineRowHeader(timeGrain);
-    personsPanel.defineRowHeader(timeGrain);
+    roomsPanel.defineColumnHeader(timeGrain);
+    personsPanel.defineColumnHeader(timeGrain);
+  }
+  roomsPanel.defineColumnHeader(null);
+  personsPanel.defineColumnHeader(null);
+  roomsPanel.defineRowHeaderByKey(HEADER_ROW);
+  for (  Room room : meetingSchedule.getRoomList()) {
+    roomsPanel.defineRowHeader(room);
   }
   roomsPanel.defineRowHeader(null);
-  personsPanel.defineRowHeader(null);
+  personsPanel.defineRowHeaderByKey(HEADER_ROW);
+  for (  Person person : meetingSchedule.getPersonList()) {
+    personsPanel.defineRowHeader(person);
+  }
 }

@@ -1,0 +1,8 @@
+{
+  for (  TimeGrain timeGrain : meetingSchedule.getTimeGrainList()) {
+    roomsPanel.addColumnHeader(timeGrain,HEADER_ROW,createTableHeader(new JLabel(timeGrain.getLabel())));
+    personsPanel.addColumnHeader(timeGrain,HEADER_ROW,createTableHeader(new JLabel(timeGrain.getLabel())));
+  }
+  roomsPanel.addColumnHeader(null,HEADER_ROW,createTableHeader(new JLabel("Unassigned")));
+  personsPanel.addColumnHeader(null,HEADER_ROW,createTableHeader(new JLabel("Unassigned")));
+}
