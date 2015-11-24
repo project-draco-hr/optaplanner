@@ -1,5 +1,6 @@
 {
   roomsPanel.defineColumnHeaderByKey(HEADER_COLUMN);
+  personsPanel.defineColumnHeaderByKey(HEADER_COLUMN_GROUP1);
   personsPanel.defineColumnHeaderByKey(HEADER_COLUMN);
   for (  TimeGrain timeGrain : meetingSchedule.getTimeGrainList()) {
     roomsPanel.defineColumnHeader(timeGrain);
@@ -14,6 +15,7 @@
   roomsPanel.defineRowHeader(null);
   personsPanel.defineRowHeaderByKey(HEADER_ROW);
   for (  Person person : meetingSchedule.getPersonList()) {
-    personsPanel.defineRowHeader(person);
+    personsPanel.defineRowHeader(Pair.of(person,Boolean.TRUE));
+    personsPanel.defineRowHeader(Pair.of(person,Boolean.FALSE));
   }
 }

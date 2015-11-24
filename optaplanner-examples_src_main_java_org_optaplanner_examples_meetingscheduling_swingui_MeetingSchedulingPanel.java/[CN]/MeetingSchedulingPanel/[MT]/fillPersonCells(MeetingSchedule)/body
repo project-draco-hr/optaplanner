@@ -1,5 +1,7 @@
 {
   for (  Person person : meetingSchedule.getPersonList()) {
-    personsPanel.addRowHeader(HEADER_COLUMN,person,createTableHeader(new JLabel(person.getLabel(),SwingConstants.CENTER)));
+    personsPanel.addRowHeader(HEADER_COLUMN_GROUP1,Pair.of(person,Boolean.TRUE),HEADER_COLUMN_GROUP1,Pair.of(person,Boolean.FALSE),createTableHeader(new JLabel(person.getLabel(),SwingConstants.CENTER)));
+    personsPanel.addRowHeader(HEADER_COLUMN,Pair.of(person,Boolean.TRUE),createTableHeader(new JLabel("Required",SwingConstants.CENTER)));
+    personsPanel.addRowHeader(HEADER_COLUMN,Pair.of(person,Boolean.FALSE),createTableHeader(new JLabel("Preferred",SwingConstants.CENTER)));
   }
 }

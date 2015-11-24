@@ -3,7 +3,7 @@
   JTabbedPane tabbedPane=new JTabbedPane();
   roomsPanel=new TimeTablePanel<TimeGrain,Room>();
   tabbedPane.add("Rooms",new JScrollPane(roomsPanel));
-  personsPanel=new TimeTablePanel<TimeGrain,Person>();
+  personsPanel=new TimeTablePanel<TimeGrain,Pair<Person,Boolean>>();
   tabbedPane.add("Persons",new JScrollPane(personsPanel));
   add(tabbedPane,BorderLayout.CENTER);
   setPreferredSize(PREFERRED_SCROLLABLE_VIEWPORT_SIZE);
