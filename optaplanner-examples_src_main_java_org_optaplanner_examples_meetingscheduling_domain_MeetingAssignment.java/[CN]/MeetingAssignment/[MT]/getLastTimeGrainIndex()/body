@@ -1,0 +1,6 @@
+{
+  if (startingTimeGrain == null) {
+    return null;
+  }
+  return startingTimeGrain.getGrainIndex() + meeting.getDurationInGrains() - 1;
+}

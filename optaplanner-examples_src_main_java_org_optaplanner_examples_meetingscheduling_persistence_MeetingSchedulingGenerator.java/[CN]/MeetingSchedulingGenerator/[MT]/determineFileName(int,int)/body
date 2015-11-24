@@ -1,3 +1,0 @@
-{
-  return meetingListSize + "meetings-" + roomListSize+ "rooms";
-}

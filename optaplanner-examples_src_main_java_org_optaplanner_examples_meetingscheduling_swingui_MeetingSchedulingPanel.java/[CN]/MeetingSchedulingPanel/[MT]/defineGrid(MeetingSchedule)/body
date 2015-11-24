@@ -6,6 +6,8 @@
     roomsPanel.defineColumnHeader(timeGrain);
     personsPanel.defineColumnHeader(timeGrain);
   }
+  roomsPanel.defineColumnHeader(OVERTIME_TIME_GRAIN);
+  personsPanel.defineColumnHeader(OVERTIME_TIME_GRAIN);
   roomsPanel.defineColumnHeader(null);
   personsPanel.defineColumnHeader(null);
   roomsPanel.defineRowHeaderByKey(HEADER_ROW);

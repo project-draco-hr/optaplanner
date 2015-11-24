@@ -1,0 +1,6 @@
+{
+  if (startingTimeGrain == null) {
+    return null;
+  }
+  return startingTimeGrain.getDateTimeString() + " + " + meeting.getDurationString();
+}

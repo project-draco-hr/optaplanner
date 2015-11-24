@@ -1,0 +1,5 @@
+{
+  setGrainIndex(-1);
+  setDayOfYear(-1);
+  setStartingMinuteOfDay(-1);
+}

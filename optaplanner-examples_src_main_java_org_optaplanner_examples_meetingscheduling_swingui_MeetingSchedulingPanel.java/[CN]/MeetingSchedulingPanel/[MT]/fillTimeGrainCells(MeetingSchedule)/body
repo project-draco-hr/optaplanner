@@ -3,6 +3,8 @@
     roomsPanel.addColumnHeader(timeGrain,HEADER_ROW,createTableHeader(new JLabel(timeGrain.getLabel())));
     personsPanel.addColumnHeader(timeGrain,HEADER_ROW,createTableHeader(new JLabel(timeGrain.getLabel())));
   }
+  roomsPanel.addColumnHeader(OVERTIME_TIME_GRAIN,HEADER_ROW,createTableHeader(new JLabel("Overtime")));
+  personsPanel.addColumnHeader(OVERTIME_TIME_GRAIN,HEADER_ROW,createTableHeader(new JLabel("Overtime")));
   roomsPanel.addColumnHeader(null,HEADER_ROW,createTableHeader(new JLabel("Unassigned")));
   personsPanel.addColumnHeader(null,HEADER_ROW,createTableHeader(new JLabel("Unassigned")));
 }

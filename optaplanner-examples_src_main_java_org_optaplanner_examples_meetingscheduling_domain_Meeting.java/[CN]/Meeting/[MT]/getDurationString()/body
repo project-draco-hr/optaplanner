@@ -1,0 +1,3 @@
+{
+  return (durationInGrains * TimeGrain.GRAIN_LENGTH_IN_MINUTES) + " minutes";
+}

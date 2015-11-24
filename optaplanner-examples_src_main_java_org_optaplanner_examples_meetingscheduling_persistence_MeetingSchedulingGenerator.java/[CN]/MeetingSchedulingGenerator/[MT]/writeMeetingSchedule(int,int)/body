@@ -1,6 +1,7 @@
 {
-  String fileName=determineFileName(meetingListSize,roomListSize);
+  int timeGrainListSize=meetingListSize * durationInGrainsOptions[durationInGrainsOptions.length - 1] / roomListSize;
+  String fileName=determineFileName(meetingListSize,timeGrainListSize,roomListSize);
   File outputFile=new File(outputDir,fileName + ".xml");
-  MeetingSchedule meetingSchedule=createMeetingSchedule(fileName,meetingListSize,roomListSize);
+  MeetingSchedule meetingSchedule=createMeetingSchedule(fileName,meetingListSize,timeGrainListSize,roomListSize);
   solutionDao.writeSolution(meetingSchedule,outputFile);
 }

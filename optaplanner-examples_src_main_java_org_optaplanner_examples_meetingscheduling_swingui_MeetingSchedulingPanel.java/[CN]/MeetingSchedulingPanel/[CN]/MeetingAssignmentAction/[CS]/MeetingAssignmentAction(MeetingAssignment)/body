@@ -1,4 +1,5 @@
 {
   super(meetingAssignment.getLabel());
+  putValue(SHORT_DESCRIPTION,"<html>Topic: " + meetingAssignment.getMeeting().getTopic() + "<br/>"+ "Date and time: "+ defaultIfNull(meetingAssignment.getDurationDateTimeString(),"unassigned")+ "<br/>"+ "Room: "+ defaultIfNull(meetingAssignment.getRoom(),"unassigned")+ "</html>");
   this.meetingAssignment=meetingAssignment;
 }

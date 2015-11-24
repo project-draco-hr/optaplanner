@@ -3,7 +3,6 @@
   MeetingSchedule meetingSchedule=new MeetingSchedule();
   meetingSchedule.setId(0L);
   createMeetingListAndAttendanceList(meetingSchedule,meetingListSize);
-  int timeGrainListSize=meetingListSize * durationInGrainsOptions[durationInGrainsOptions.length - 1] / roomListSize;
   createTimeGrainList(meetingSchedule,timeGrainListSize);
   createRoomList(meetingSchedule,roomListSize);
   createPersonList(meetingSchedule);

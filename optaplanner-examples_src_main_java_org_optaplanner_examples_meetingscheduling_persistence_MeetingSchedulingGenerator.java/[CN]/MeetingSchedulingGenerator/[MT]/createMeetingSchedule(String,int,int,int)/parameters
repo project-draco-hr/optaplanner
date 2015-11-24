@@ -1,3 +1,4 @@
 String fileName
 int meetingListSize
+int timeGrainListSize
 int roomListSize
