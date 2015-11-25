@@ -3,13 +3,8 @@
   if (value == null) {
     return;
   }
-  Set<Object> inverseEntitySet=inverseEntitySetMap.get(value);
-  if (inverseEntitySet == null) {
-    inverseEntitySet=Collections.newSetFromMap(new IdentityHashMap<Object,Boolean>());
-    inverseEntitySetMap.put(value,inverseEntitySet);
-  }
-  boolean addSucceeded=inverseEntitySet.add(entity);
-  if (!addSucceeded) {
-    throw new IllegalStateException("The supply (" + this + ") is corrupted,"+ " because the entity ("+ entity+ ") for sourceVariable ("+ sourceVariableDescriptor.getVariableName()+ ") cannot be inserted: it was already inserted.");
+  Object oldInverseEntity=inverseEntityMap.put(value,entity);
+  if (oldInverseEntity != null) {
+    throw new IllegalStateException("The supply (" + this + ") is corrupted,"+ " because the entity ("+ entity+ ") for sourceVariable ("+ sourceVariableDescriptor.getVariableName()+ ") cannot be inserted: another entity ("+ oldInverseEntity+ ") already has that value ("+ value+ ").");
   }
 }
