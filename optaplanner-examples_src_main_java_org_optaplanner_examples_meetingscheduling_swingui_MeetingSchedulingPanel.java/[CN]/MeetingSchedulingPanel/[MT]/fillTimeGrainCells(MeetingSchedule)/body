@@ -1,5 +1,16 @@
 {
+  Map<Day,TimeGrain> firstTimeGrainMap=new HashMap<Day,TimeGrain>(meetingSchedule.getDayList().size());
+  Map<Day,TimeGrain> lastTimeGrainMap=new HashMap<Day,TimeGrain>(meetingSchedule.getDayList().size());
   for (  TimeGrain timeGrain : meetingSchedule.getTimeGrainList()) {
+    Day day=timeGrain.getDay();
+    TimeGrain firstTimeGrain=firstTimeGrainMap.get(day);
+    if (firstTimeGrain == null || firstTimeGrain.getGrainIndex() > timeGrain.getGrainIndex()) {
+      firstTimeGrainMap.put(day,timeGrain);
+    }
+    TimeGrain lastTimeGrain=lastTimeGrainMap.get(day);
+    if (lastTimeGrain == null || lastTimeGrain.getGrainIndex() < timeGrain.getGrainIndex()) {
+      lastTimeGrainMap.put(day,timeGrain);
+    }
     roomsPanel.addColumnHeader(timeGrain,HEADER_ROW,createTableHeader(new JLabel(timeGrain.getLabel())));
     personsPanel.addColumnHeader(timeGrain,HEADER_ROW,createTableHeader(new JLabel(timeGrain.getLabel())));
   }
@@ -7,4 +18,10 @@
   personsPanel.addColumnHeader(OVERTIME_TIME_GRAIN,HEADER_ROW,createTableHeader(new JLabel("Overtime")));
   roomsPanel.addColumnHeader(null,HEADER_ROW,createTableHeader(new JLabel("Unassigned")));
   personsPanel.addColumnHeader(null,HEADER_ROW,createTableHeader(new JLabel("Unassigned")));
+  for (  Day day : meetingSchedule.getDayList()) {
+    TimeGrain firstTimeGrain=firstTimeGrainMap.get(day);
+    TimeGrain lastTimeGrain=lastTimeGrainMap.get(day);
+    roomsPanel.addColumnHeader(firstTimeGrain,HEADER_ROW_GROUP1,lastTimeGrain,HEADER_ROW_GROUP1,createTableHeader(new JLabel(day.getLabel())));
+    personsPanel.addColumnHeader(firstTimeGrain,HEADER_ROW_GROUP1,lastTimeGrain,HEADER_ROW_GROUP1,createTableHeader(new JLabel(day.getLabel())));
+  }
 }

@@ -2,7 +2,7 @@
   roomsPanel.addCornerHeader(HEADER_COLUMN,HEADER_ROW,createTableHeader(new JLabel("Room")));
   fillRoomCells(meetingSchedule);
   personsPanel.addCornerHeader(HEADER_COLUMN_GROUP1,HEADER_ROW,createTableHeader(new JLabel("Person")));
-  personsPanel.addCornerHeader(HEADER_COLUMN,HEADER_ROW,createTableHeader(new JLabel("Attendence")));
+  personsPanel.addCornerHeader(HEADER_COLUMN,HEADER_ROW,createTableHeader(new JLabel("Attendance")));
   fillPersonCells(meetingSchedule);
   fillTimeGrainCells(meetingSchedule);
   fillMeetingAssignmentCells(meetingSchedule);

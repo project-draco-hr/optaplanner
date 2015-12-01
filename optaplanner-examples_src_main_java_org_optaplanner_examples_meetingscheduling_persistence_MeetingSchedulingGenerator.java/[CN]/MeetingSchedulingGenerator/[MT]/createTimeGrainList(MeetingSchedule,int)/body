@@ -1,4 +1,7 @@
 {
+  List<Day> dayList=new ArrayList<Day>(timeGrainListSize);
+  long dayId=0;
+  Day day=null;
   List<TimeGrain> timeGrainList=new ArrayList<TimeGrain>(timeGrainListSize);
   for (int i=0; i < timeGrainListSize; i++) {
     TimeGrain timeGrain=new TimeGrain();
@@ -6,11 +9,19 @@
     int grainIndex=i;
     timeGrain.setGrainIndex(grainIndex);
     int dayOfYear=(i / startingMinuteOfDayOptions.length) + 1;
-    timeGrain.setDayOfYear(dayOfYear);
+    if (day == null || day.getDayOfYear() != dayOfYear) {
+      day=new Day();
+      day.setId(dayId);
+      day.setDayOfYear(dayOfYear);
+      dayId++;
+      dayList.add(day);
+    }
+    timeGrain.setDay(day);
     int startingMinuteOfDay=startingMinuteOfDayOptions[i % startingMinuteOfDayOptions.length];
     timeGrain.setStartingMinuteOfDay(startingMinuteOfDay);
     logger.trace("Created timeGrain with grainIndex ({}), dayOfYear ({}), startingMinuteOfDay ({}).",grainIndex,dayOfYear,startingMinuteOfDay);
     timeGrainList.add(timeGrain);
   }
+  meetingSchedule.setDayList(dayList);
   meetingSchedule.setTimeGrainList(timeGrainList);
 }

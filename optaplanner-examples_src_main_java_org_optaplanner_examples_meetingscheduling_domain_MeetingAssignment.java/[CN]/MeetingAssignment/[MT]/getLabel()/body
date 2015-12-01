@@ -1,3 +1,4 @@
 {
-  return meeting.getLabel();
+  int wrapLength=Math.max(8 * meeting.getDurationInGrains(),16);
+  return "<html><center>" + WordUtils.wrap(meeting.getTopic(),wrapLength,"<br/>",false) + "</center></html>";
 }

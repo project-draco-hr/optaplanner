@@ -10,11 +10,13 @@
   personsPanel.defineColumnHeader(OVERTIME_TIME_GRAIN);
   roomsPanel.defineColumnHeader(null);
   personsPanel.defineColumnHeader(null);
+  roomsPanel.defineRowHeaderByKey(HEADER_ROW_GROUP1);
   roomsPanel.defineRowHeaderByKey(HEADER_ROW);
   for (  Room room : meetingSchedule.getRoomList()) {
     roomsPanel.defineRowHeader(room);
   }
   roomsPanel.defineRowHeader(null);
+  personsPanel.defineRowHeaderByKey(HEADER_ROW_GROUP1);
   personsPanel.defineRowHeaderByKey(HEADER_ROW);
   for (  Person person : meetingSchedule.getPersonList()) {
     personsPanel.defineRowHeader(Pair.of(person,Boolean.TRUE));
