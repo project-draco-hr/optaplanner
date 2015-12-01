@@ -1,5 +1,5 @@
 {
-  JPanel panel=new JPanel(new GridLayout(5,1,5,5));
+  JPanel panel=new JPanel(new GridLayout(0,1,5,5));
   TitledBorder titledBorder=BorderFactory.createTitledBorder("Basic examples");
   titledBorder.setTitleColor(TangoColorFactory.CHAMELEON_3);
   panel.setBorder(BorderFactory.createCompoundBorder(titledBorder,BorderFactory.createEmptyBorder(5,5,5,5)));
@@ -8,5 +8,6 @@
   panel.add(createExampleButton(new TspApp()));
   panel.add(createExampleButton(new DinnerPartyApp()));
   panel.add(createExampleButton(new TennisApp()));
+  panel.add(createExampleButton(new MeetingSchedulingApp()));
   return panel;
 }

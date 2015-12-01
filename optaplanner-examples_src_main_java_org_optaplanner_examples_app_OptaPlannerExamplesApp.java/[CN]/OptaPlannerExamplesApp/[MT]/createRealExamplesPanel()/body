@@ -1,5 +1,5 @@
 {
-  JPanel panel=new JPanel(new GridLayout(5,1,5,5));
+  JPanel panel=new JPanel(new GridLayout(0,1,5,5));
   TitledBorder titledBorder=BorderFactory.createTitledBorder("Real examples");
   titledBorder.setTitleColor(TangoColorFactory.BUTTER_3);
   panel.setBorder(BorderFactory.createCompoundBorder(titledBorder,BorderFactory.createEmptyBorder(5,5,5,5)));
