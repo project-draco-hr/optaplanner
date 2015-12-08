@@ -4,7 +4,7 @@
     valueSelectorConfig_=new ValueSelectorConfig();
     Class<?> entityClass=entityDescriptor.getEntityClass();
     GenuineVariableDescriptor variableDescriptor=deduceVariableDescriptor(entityDescriptor,null);
-    valueSelectorConfig_.setId(entityClass.getName());
+    valueSelectorConfig_.setId(entityClass.getName() + "." + variableDescriptor.getVariableName());
     valueSelectorConfig_.setVariableName(variableDescriptor.getVariableName());
     if (configPolicy.getValueSorterManner().hasSorter(variableDescriptor)) {
       valueSelectorConfig_.setCacheType(SelectionCacheType.PHASE);
