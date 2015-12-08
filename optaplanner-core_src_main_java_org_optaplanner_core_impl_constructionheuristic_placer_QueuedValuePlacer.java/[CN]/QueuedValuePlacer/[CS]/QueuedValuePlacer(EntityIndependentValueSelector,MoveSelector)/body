@@ -1,0 +1,6 @@
+{
+  this.valueSelector=valueSelector;
+  this.moveSelector=moveSelector;
+  phaseLifecycleSupport.addEventListener(valueSelector);
+  phaseLifecycleSupport.addEventListener(moveSelector);
+}

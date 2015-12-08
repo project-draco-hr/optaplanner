@@ -1,0 +1,4 @@
+{
+  this.valueMimicRecorder=valueMimicRecorder;
+  valueMimicRecorder.addMimicReplayingValueSelector(this);
+}

@@ -1,5 +1,5 @@
 {
-  EntityDescriptor entityDescriptor=deduceEntityDescriptor(configPolicy.getSolutionDescriptor());
+  EntityDescriptor entityDescriptor=deduceEntityDescriptor(configPolicy.getSolutionDescriptor(),null);
   EntitySelectorConfig entitySelectorConfig=buildEntitySelectorConfig(configPolicy,entityDescriptor);
   Collection<GenuineVariableDescriptor> variableDescriptors=entityDescriptor.getGenuineVariableDescriptors();
   List<MoveSelectorConfig> subMoveSelectorConfigList=new ArrayList<MoveSelectorConfig>(variableDescriptors.size());

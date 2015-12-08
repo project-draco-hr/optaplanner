@@ -1,4 +1,7 @@
 {
+  if (mimicSelectorRef != null) {
+    return buildMimicReplaying(configPolicy);
+  }
   entityDescriptor=downcastEntityDescriptor(configPolicy,entityDescriptor);
   GenuineVariableDescriptor variableDescriptor=deduceVariableDescriptor(entityDescriptor,variableName);
   SelectionCacheType resolvedCacheType=SelectionCacheType.resolve(cacheType,minimumCacheType);
@@ -22,5 +25,6 @@
   valueSelector=applySelectedLimit(resolvedCacheType,resolvedSelectionOrder,valueSelector);
   valueSelector=applyReinitializeVariableFiltering(configPolicy,valueSelector);
   valueSelector=applyDowncasting(configPolicy,valueSelector);
+  valueSelector=applyMimicRecording(configPolicy,valueSelector);
   return valueSelector;
 }

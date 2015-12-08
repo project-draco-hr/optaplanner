@@ -1,0 +1,6 @@
+{
+  super.inherit(inheritedConfig);
+  entityClass=ConfigUtils.inheritOverwritableProperty(entityClass,inheritedConfig.getEntityClass());
+  valueSelectorConfig=ConfigUtils.inheritConfig(valueSelectorConfig,inheritedConfig.getValueSelectorConfig());
+  setMoveSelectorConfig(ConfigUtils.inheritOverwritableProperty(getMoveSelectorConfig(),inheritedConfig.getMoveSelectorConfig()));
+}

@@ -1,0 +1,6 @@
+{
+  ValueMimicRecorder put=valueMimicRecorderMap.put(id,mimicRecordingValueSelector);
+  if (put != null) {
+    throw new IllegalStateException("Multiple " + ValueMimicRecorder.class.getSimpleName() + "s (usually "+ ValueSelector.class.getSimpleName()+ "s) have the same id ("+ id+ ").");
+  }
+}

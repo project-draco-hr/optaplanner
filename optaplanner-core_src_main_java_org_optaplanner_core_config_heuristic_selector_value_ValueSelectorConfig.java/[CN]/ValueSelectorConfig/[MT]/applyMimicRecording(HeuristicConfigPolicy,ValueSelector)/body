@@ -1,0 +1,14 @@
+{
+  if (id != null) {
+    if (id.isEmpty()) {
+      throw new IllegalArgumentException("The valueSelectorConfig (" + this + ") has an empty id ("+ id+ ").");
+    }
+    if (!(valueSelector instanceof EntityIndependentValueSelector)) {
+      throw new IllegalArgumentException("The valueSelectorConfig (" + this + ") with id ("+ id+ ") needs to be based on an EntityIndependentValueSelector ("+ valueSelector+ ")."+ " Check your @"+ ValueRangeProvider.class.getSimpleName()+ " annotations.");
+    }
+    MimicRecordingValueSelector mimicRecordingValueSelector=new MimicRecordingValueSelector((EntityIndependentValueSelector)valueSelector);
+    configPolicy.addValueMimicRecorder(id,mimicRecordingValueSelector);
+    valueSelector=mimicRecordingValueSelector;
+  }
+  return valueSelector;
+}

@@ -7,6 +7,9 @@
     }
     return variableDescriptor;
   }
+ else   if (mimicSelectorRef != null) {
+    return configPolicy.getValueMimicRecorder(mimicSelectorRef).getVariableDescriptor();
+  }
  else {
     return null;
   }

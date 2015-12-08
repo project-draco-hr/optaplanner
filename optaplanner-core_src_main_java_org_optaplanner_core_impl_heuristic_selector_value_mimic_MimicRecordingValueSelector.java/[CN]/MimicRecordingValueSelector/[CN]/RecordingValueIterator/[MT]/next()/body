@@ -1,0 +1,7 @@
+{
+  Object next=childValueIterator.next();
+  for (  MimicReplayingValueSelector replayingValueSelector : replayingValueSelectorList) {
+    replayingValueSelector.recordedNext(next);
+  }
+  return next;
+}

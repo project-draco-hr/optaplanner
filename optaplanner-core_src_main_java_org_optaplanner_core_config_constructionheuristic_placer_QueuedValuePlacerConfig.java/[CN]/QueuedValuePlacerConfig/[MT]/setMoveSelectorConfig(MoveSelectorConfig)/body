@@ -1,0 +1,3 @@
+{
+  this.moveSelectorConfigList=moveSelectorConfig == null ? null : Collections.singletonList(moveSelectorConfig);
+}

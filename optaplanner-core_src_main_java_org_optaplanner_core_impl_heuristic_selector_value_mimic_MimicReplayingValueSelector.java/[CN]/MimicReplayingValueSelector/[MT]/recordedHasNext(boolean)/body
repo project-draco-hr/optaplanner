@@ -1,0 +1,7 @@
+{
+  hasRecordingCreated=true;
+  hasRecording=hasNext;
+  recordingCreated=false;
+  recording=null;
+  recordingAlreadyReturned=false;
+}

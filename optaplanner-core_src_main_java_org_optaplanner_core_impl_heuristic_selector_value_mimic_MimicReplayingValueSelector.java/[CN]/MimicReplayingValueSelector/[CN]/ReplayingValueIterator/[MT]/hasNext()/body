@@ -1,0 +1,6 @@
+{
+  if (!hasRecordingCreated) {
+    throw new IllegalStateException("Replay must occur after record." + " The recordingValueSelector (" + valueMimicRecorder + ")'s hasNext() has not been called yet. ");
+  }
+  return hasRecording && !recordingAlreadyReturned;
+}

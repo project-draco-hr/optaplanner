@@ -1,0 +1,7 @@
+{
+  boolean hasNext=childValueIterator.hasNext();
+  for (  MimicReplayingValueSelector replayingValueSelector : replayingValueSelectorList) {
+    replayingValueSelector.recordedHasNext(hasNext);
+  }
+  return hasNext;
+}

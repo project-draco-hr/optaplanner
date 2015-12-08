@@ -1,0 +1,21 @@
+{
+  List<GenuineVariableDescriptor> variableDescriptorList=entityDescriptor.getGenuineVariableDescriptorList();
+  if (variableNameIncludeList == null) {
+    return variableDescriptorList;
+  }
+  List<GenuineVariableDescriptor> resolvedVariableDescriptorList=new ArrayList<GenuineVariableDescriptor>(variableDescriptorList.size());
+  for (  String variableNameInclude : variableNameIncludeList) {
+    boolean found=false;
+    for (    GenuineVariableDescriptor variableDescriptor : variableDescriptorList) {
+      if (variableDescriptor.getVariableName().equals(variableNameInclude)) {
+        resolvedVariableDescriptorList.add(variableDescriptor);
+        found=true;
+        break;
+      }
+    }
+    if (!found) {
+      throw new IllegalArgumentException("The config (" + this + ") has a variableNameInclude ("+ variableNameInclude+ ") which does not exist in the entity ("+ entityDescriptor.getEntityClass()+ ")'s variableDescriptorList ("+ variableDescriptorList+ ").");
+    }
+  }
+  return resolvedVariableDescriptorList;
+}

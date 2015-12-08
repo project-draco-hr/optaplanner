@@ -1,0 +1,5 @@
+{
+  this.childValueSelector=childValueSelector;
+  phaseLifecycleSupport.addEventListener(childValueSelector);
+  replayingValueSelectorList=new ArrayList<MimicReplayingValueSelector>();
+}

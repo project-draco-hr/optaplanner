@@ -1,0 +1,10 @@
+{
+  if (!recordingCreated) {
+    throw new IllegalStateException("Replay must occur after record." + " The recordingValueSelector (" + valueMimicRecorder + ")'s next() has not been called yet. ");
+  }
+  if (recordingAlreadyReturned) {
+    throw new NoSuchElementException("The recordingAlreadyReturned (" + recordingAlreadyReturned + ") is impossible. Check if hasNext() returns true before this call.");
+  }
+  recordingAlreadyReturned=true;
+  return recording;
+}

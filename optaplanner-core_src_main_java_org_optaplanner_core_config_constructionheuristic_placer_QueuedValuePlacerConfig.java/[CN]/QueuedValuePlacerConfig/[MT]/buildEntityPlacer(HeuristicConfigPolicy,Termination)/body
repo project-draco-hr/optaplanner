@@ -1,0 +1,20 @@
+{
+  EntityDescriptor entityDescriptor=deduceEntityDescriptor(configPolicy.getSolutionDescriptor(),entityClass);
+  ValueSelectorConfig valueSelectorConfig_=buildValueSelectorConfig(configPolicy,entityDescriptor);
+  ValueSelector valueSelector=valueSelectorConfig_.buildValueSelector(configPolicy,entityDescriptor,SelectionCacheType.PHASE,SelectionOrder.ORIGINAL);
+  MoveSelectorConfig moveSelectorConfig;
+  if (ConfigUtils.isEmptyCollection(moveSelectorConfigList)) {
+    moveSelectorConfig=buildChangeMoveSelectorConfig(configPolicy,valueSelectorConfig_.getId(),valueSelector.getVariableDescriptor());
+  }
+ else   if (moveSelectorConfigList.size() == 1) {
+    moveSelectorConfig=moveSelectorConfigList.get(0);
+  }
+ else {
+    throw new IllegalArgumentException("The moveSelectorConfigList (" + moveSelectorConfigList + ") must be a singleton or empty. Use a single "+ UnionMoveSelectorConfig.class+ " or "+ CartesianProductMoveSelectorConfig.class+ " element to nest multiple MoveSelectors.");
+  }
+  MoveSelector moveSelector=moveSelectorConfig.buildMoveSelector(configPolicy,SelectionCacheType.JUST_IN_TIME,SelectionOrder.ORIGINAL);
+  if (!(valueSelector instanceof EntityIndependentValueSelector)) {
+    throw new IllegalArgumentException("The queuedValuePlacer (" + this + ") needs to be based on an EntityIndependentValueSelector ("+ valueSelector+ ")."+ " Check your @"+ ValueRangeProvider.class.getSimpleName()+ " annotations.");
+  }
+  return new QueuedValuePlacer((EntityIndependentValueSelector)valueSelector,moveSelector);
+}

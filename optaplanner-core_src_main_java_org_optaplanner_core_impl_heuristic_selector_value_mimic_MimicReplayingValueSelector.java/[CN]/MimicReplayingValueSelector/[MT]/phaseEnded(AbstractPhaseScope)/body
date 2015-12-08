@@ -1,0 +1,7 @@
+{
+  super.phaseEnded(phaseScope);
+  hasRecordingCreated=false;
+  hasRecording=false;
+  recordingCreated=false;
+  recording=null;
+}

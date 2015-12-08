@@ -1,5 +1,5 @@
 {
-  if (id != null || entityClass != null || cacheType != null || selectionOrder != null || filterClassList != null || sorterManner != null || sorterComparatorClass != null || sorterWeightFactoryClass != null || sorterOrder != null || sorterClass != null || probabilityWeightFactoryClass != null) {
+  if (id != null || entityClass != null || cacheType != null || selectionOrder != null || nearbySelectionConfig != null || filterClassList != null || sorterManner != null || sorterComparatorClass != null || sorterWeightFactoryClass != null || sorterOrder != null || sorterClass != null || probabilityWeightFactoryClass != null || selectedCountLimit != null) {
     throw new IllegalArgumentException("The entitySelectorConfig (" + this + ") with mimicSelectorRef ("+ mimicSelectorRef+ ") has another property that is not null.");
   }
   EntityMimicRecorder entityMimicRecorder=configPolicy.getEntityMimicRecorder(mimicSelectorRef);
