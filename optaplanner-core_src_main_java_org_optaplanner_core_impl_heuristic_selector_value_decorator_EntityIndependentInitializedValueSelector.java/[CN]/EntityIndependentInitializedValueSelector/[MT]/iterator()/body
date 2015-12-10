@@ -1,0 +1,3 @@
+{
+  return new JustInTimeInitializedValueIterator(null,((EntityIndependentValueSelector)childValueSelector).iterator(),determineBailOutSize());
+}

@@ -1,6 +1,6 @@
 {
   Object next;
-  long attemptsBeforeBailOut=bailOutEnabled ? determineBailOutSize(entity) : 0L;
+  long attemptsBeforeBailOut=bailOutSize;
   do {
     if (!childValueIterator.hasNext()) {
       return noUpcomingSelection();

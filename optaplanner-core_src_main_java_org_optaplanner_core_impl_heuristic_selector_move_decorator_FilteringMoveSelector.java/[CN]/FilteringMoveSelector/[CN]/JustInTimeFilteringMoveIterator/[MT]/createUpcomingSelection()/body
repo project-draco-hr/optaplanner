@@ -1,6 +1,6 @@
 {
   Move next;
-  long attemptsBeforeBailOut=bailOutEnabled ? determineBailOutSize() : 0L;
+  long attemptsBeforeBailOut=bailOutSize;
   do {
     if (!childMoveIterator.hasNext()) {
       return noUpcomingSelection();

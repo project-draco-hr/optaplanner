@@ -1,0 +1,3 @@
+Object entity
+Iterator<Object> childValueIterator
+long bailOutSize

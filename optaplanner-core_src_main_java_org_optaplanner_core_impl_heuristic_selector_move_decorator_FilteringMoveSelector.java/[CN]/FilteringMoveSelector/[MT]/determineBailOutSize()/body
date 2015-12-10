@@ -1,3 +1,6 @@
 {
+  if (!bailOutEnabled) {
+    return -1L;
+  }
   return childMoveSelector.getSize() * 10L;
 }

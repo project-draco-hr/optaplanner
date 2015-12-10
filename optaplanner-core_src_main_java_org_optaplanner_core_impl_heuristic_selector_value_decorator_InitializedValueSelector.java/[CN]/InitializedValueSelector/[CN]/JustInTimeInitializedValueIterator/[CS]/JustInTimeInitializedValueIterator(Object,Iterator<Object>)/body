@@ -1,4 +1,3 @@
 {
-  this.entity=entity;
-  this.childValueIterator=childValueIterator;
+  this(entity,childValueIterator,determineBailOutSize(entity));
 }
