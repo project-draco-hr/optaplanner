@@ -1,11 +1,14 @@
 {
-  Iterator<Move> moveIterator=null;
-  while (moveIterator == null || !moveIterator.hasNext()) {
+  if (!valueIterator.hasNext()) {
+    valueIterator=valueSelector.iterator();
     if (!valueIterator.hasNext()) {
       return noUpcomingSelection();
     }
-    valueIterator.next();
-    moveIterator=moveSelector.iterator();
+  }
+  valueIterator.next();
+  Iterator<Move> moveIterator=moveSelector.iterator();
+  if (!moveIterator.hasNext()) {
+    return noUpcomingSelection();
   }
   return new Placement(moveIterator);
 }

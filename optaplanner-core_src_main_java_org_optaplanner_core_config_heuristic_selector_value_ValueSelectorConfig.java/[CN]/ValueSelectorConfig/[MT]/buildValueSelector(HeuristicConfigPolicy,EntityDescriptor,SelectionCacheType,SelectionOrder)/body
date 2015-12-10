@@ -1,6 +1,9 @@
 {
   if (mimicSelectorRef != null) {
-    return buildMimicReplaying(configPolicy);
+    ValueSelector valueSelector=buildMimicReplaying(configPolicy);
+    valueSelector=applyReinitializeVariableFiltering(configPolicy,valueSelector);
+    valueSelector=applyDowncasting(configPolicy,valueSelector);
+    return valueSelector;
   }
   entityDescriptor=downcastEntityDescriptor(configPolicy,entityDescriptor);
   GenuineVariableDescriptor variableDescriptor=deduceVariableDescriptor(entityDescriptor,variableName);
@@ -23,8 +26,8 @@
   valueSelector=applyShuffling(resolvedCacheType,resolvedSelectionOrder,valueSelector);
   valueSelector=applyCaching(resolvedCacheType,resolvedSelectionOrder,valueSelector);
   valueSelector=applySelectedLimit(resolvedCacheType,resolvedSelectionOrder,valueSelector);
+  valueSelector=applyMimicRecording(configPolicy,valueSelector);
   valueSelector=applyReinitializeVariableFiltering(configPolicy,valueSelector);
   valueSelector=applyDowncasting(configPolicy,valueSelector);
-  valueSelector=applyMimicRecording(configPolicy,valueSelector);
   return valueSelector;
 }

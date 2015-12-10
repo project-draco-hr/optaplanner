@@ -1,4 +1,7 @@
 {
   this.valueMimicRecorder=valueMimicRecorder;
   valueMimicRecorder.addMimicReplayingValueSelector(this);
+  if (!valueMimicRecorder.getVariableDescriptor().getValueRangeDescriptor().isEntityIndependent()) {
+    throw new IllegalArgumentException("The current implementation support only an entityIndependent variable (" + valueMimicRecorder.getVariableDescriptor() + ").");
+  }
 }

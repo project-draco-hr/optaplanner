@@ -1,3 +1,0 @@
-{
-  return ((EntityIndependentValueSelector)childValueSelector).iterator();
-}

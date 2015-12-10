@@ -1,7 +1,10 @@
 {
   EntityDescriptor entityDescriptor=deduceEntityDescriptor(configPolicy.getSolutionDescriptor(),entityClass);
+  boolean reinitializeVariableFilterEnabled=configPolicy.isReinitializeVariableFilterEnabled();
+  configPolicy.setReinitializeVariableFilterEnabled(false);
   ValueSelectorConfig valueSelectorConfig_=buildValueSelectorConfig(configPolicy,entityDescriptor);
   ValueSelector valueSelector=valueSelectorConfig_.buildValueSelector(configPolicy,entityDescriptor,SelectionCacheType.PHASE,SelectionOrder.ORIGINAL);
+  configPolicy.setReinitializeVariableFilterEnabled(reinitializeVariableFilterEnabled);
   MoveSelectorConfig moveSelectorConfig;
   if (ConfigUtils.isEmptyCollection(moveSelectorConfigList)) {
     moveSelectorConfig=buildChangeMoveSelectorConfig(configPolicy,valueSelectorConfig_.getId(),valueSelector.getVariableDescriptor());
