@@ -1,4 +1,5 @@
 {
   GenuineVariableDescriptor variableDescriptor=mockVariableDescriptor(entityClass,variableName);
+  when(variableDescriptor.isValueRangeEntityIndependent()).thenReturn(true);
   return mockEntityIndependentValueSelector(variableDescriptor,values);
 }

@@ -1,0 +1,29 @@
+{
+  Iterator<Object> recordingIterator=recordingValueSelector.iterator();
+  assertNotNull(recordingIterator);
+  Iterator<Object> replayingIterator=replayingValueSelector.iterator();
+  assertNotNull(replayingIterator);
+  assertEquals(true,recordingIterator.hasNext());
+  assertEquals(true,replayingIterator.hasNext());
+  assertCode("v1",recordingIterator.next());
+  assertCode("v1",replayingIterator.next());
+  assertEquals(true,recordingIterator.hasNext());
+  assertEquals(true,replayingIterator.hasNext());
+  assertCode("v2",recordingIterator.next());
+  assertCode("v2",replayingIterator.next());
+  assertEquals(false,replayingIterator.hasNext());
+  assertEquals(true,recordingIterator.hasNext());
+  assertEquals(true,replayingIterator.hasNext());
+  assertEquals(true,replayingIterator.hasNext());
+  assertCode("v3",recordingIterator.next());
+  assertCode("v3",replayingIterator.next());
+  assertEquals(false,recordingIterator.hasNext());
+  assertEquals(false,replayingIterator.hasNext());
+  assertEquals(false,replayingIterator.hasNext());
+  assertEquals(true,recordingValueSelector.isCountable());
+  assertEquals(true,replayingValueSelector.isCountable());
+  assertEquals(false,recordingValueSelector.isNeverEnding());
+  assertEquals(false,replayingValueSelector.isNeverEnding());
+  assertEquals(3L,recordingValueSelector.getSize());
+  assertEquals(3L,replayingValueSelector.getSize());
+}

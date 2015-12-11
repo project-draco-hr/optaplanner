@@ -1,0 +1,11 @@
+{
+  Iterator<Move> iterator=placement.iterator();
+  assertNotNull(iterator);
+  for (  String entityCode : entityCodes) {
+    assertTrue(iterator.hasNext());
+    ChangeMove move=(ChangeMove)iterator.next();
+    assertCode(entityCode,move.getEntity());
+    assertCode(valueCode,move.getToPlanningValue());
+  }
+  assertFalse(iterator.hasNext());
+}
