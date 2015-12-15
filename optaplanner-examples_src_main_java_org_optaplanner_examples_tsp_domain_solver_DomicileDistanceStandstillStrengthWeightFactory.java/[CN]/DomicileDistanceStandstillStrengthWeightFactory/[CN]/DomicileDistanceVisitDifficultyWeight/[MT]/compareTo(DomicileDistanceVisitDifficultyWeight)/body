@@ -1,0 +1,3 @@
+{
+  return new CompareToBuilder().append(other.domicileRoundTripDistance,domicileRoundTripDistance).append(standstill.getLocation().getLatitude(),other.standstill.getLocation().getLatitude()).append(standstill.getLocation().getLongitude(),other.standstill.getLocation().getLongitude()).toComparison();
+}

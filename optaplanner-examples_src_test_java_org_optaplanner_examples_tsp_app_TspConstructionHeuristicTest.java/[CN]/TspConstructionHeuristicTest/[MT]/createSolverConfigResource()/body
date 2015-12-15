@@ -1,0 +1,3 @@
+{
+  return TspApp.SOLVER_CONFIG;
+}

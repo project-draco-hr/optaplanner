@@ -1,0 +1,3 @@
+{
+  return buildParameters(new TspDao(),"europe40.xml");
+}
