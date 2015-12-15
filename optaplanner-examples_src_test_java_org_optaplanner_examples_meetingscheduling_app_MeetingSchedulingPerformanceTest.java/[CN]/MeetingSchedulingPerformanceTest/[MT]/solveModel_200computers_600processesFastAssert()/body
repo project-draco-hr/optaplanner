@@ -1,0 +1,4 @@
+{
+  File unsolvedDataFile=new File("data/meetingscheduling/unsolved/50meetings-160timegrains-5rooms.xml");
+  runSpeedTest(unsolvedDataFile,"-29hard/-70medium/-3399soft",EnvironmentMode.FAST_ASSERT);
+}
