@@ -1,0 +1,6 @@
+{
+  if (room == null) {
+    return 0;
+  }
+  return room.getCapacity();
+}
