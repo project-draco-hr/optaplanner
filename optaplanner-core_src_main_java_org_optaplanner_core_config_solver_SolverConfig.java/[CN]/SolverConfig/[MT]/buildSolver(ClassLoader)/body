@@ -1,5 +1,5 @@
 {
-  DefaultSolver solver=new DefaultSolver();
+  DefaultSolver<Solution_> solver=new DefaultSolver<Solution_>();
   EnvironmentMode environmentMode_=determineEnvironmentMode();
   solver.setEnvironmentMode(environmentMode_);
   boolean daemon_=defaultIfNull(daemon,false);

@@ -1,1 +1,1 @@
-AbstractEventSupport<SolverEventListener>
+AbstractEventSupport<SolverEventListener<Solution_>>
