@@ -1,5 +1,5 @@
 {
-  for (  Solver solver : sessionSolverMap.values()) {
+  for (  Solver<VehicleRoutingSolution> solver : sessionSolverMap.values()) {
     solver.terminateEarly();
   }
   executor.shutdown();

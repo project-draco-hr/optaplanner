@@ -1,5 +1,5 @@
 {
-  SolverFactory solverFactory=SolverFactory.createFromXmlResource("org/optaplanner/core/api/solver/nonExistingSolverConfig.xml");
-  Solver solver=solverFactory.buildSolver();
+  SolverFactory<TestdataSolution> solverFactory=SolverFactory.createFromXmlResource("org/optaplanner/core/api/solver/nonExistingSolverConfig.xml");
+  Solver<TestdataSolution> solver=solverFactory.buildSolver();
   assertNotNull(solver);
 }

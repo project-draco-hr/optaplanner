@@ -1,3 +1,3 @@
 {
-  super("Exam timetabling","Official competition name: ITC 2007 track1 - Examination timetabling\n\n" + "Assign exams to timeslots and rooms.",ExaminationPanel.LOGO_PATH);
+  super("Exam timetabling","Official competition name: ITC 2007 track1 - Examination timetabling\n\n" + "Assign exams to timeslots and rooms.",SOLVER_CONFIG,ExaminationPanel.LOGO_PATH);
 }

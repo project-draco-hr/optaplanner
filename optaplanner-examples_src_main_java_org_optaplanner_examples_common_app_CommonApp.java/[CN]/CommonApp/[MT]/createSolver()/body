@@ -1,0 +1,4 @@
+{
+  SolverFactory<Solution_> solverFactory=SolverFactory.createFromXmlResource(solverConfig);
+  return solverFactory.buildSolver();
+}

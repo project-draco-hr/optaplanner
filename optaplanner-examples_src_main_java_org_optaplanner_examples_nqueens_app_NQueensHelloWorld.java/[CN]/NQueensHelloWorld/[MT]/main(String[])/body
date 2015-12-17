@@ -1,8 +1,7 @@
 {
-  SolverFactory solverFactory=SolverFactory.createFromXmlResource("org/optaplanner/examples/nqueens/solver/nqueensSolverConfig.xml");
-  Solver solver=solverFactory.buildSolver();
+  SolverFactory<NQueens> solverFactory=SolverFactory.createFromXmlResource("org/optaplanner/examples/nqueens/solver/nqueensSolverConfig.xml");
+  Solver<NQueens> solver=solverFactory.buildSolver();
   NQueens unsolved8Queens=new NQueensGenerator().createNQueens(8);
-  solver.solve(unsolved8Queens);
-  NQueens solved8Queens=(NQueens)solver.getBestSolution();
+  NQueens solved8Queens=solver.solve(unsolved8Queens);
   System.out.println("\nSolved 8 queens:\n" + toDisplayString(solved8Queens));
 }

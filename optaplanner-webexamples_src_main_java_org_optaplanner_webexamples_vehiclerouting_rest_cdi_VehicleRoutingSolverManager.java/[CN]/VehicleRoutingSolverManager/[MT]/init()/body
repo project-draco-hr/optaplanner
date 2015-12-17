@@ -5,5 +5,5 @@
   solverFactory.getSolverConfig().setTerminationConfig(terminationConfig);
   executor=Executors.newFixedThreadPool(2);
   sessionSolutionMap=new ConcurrentHashMap<String,VehicleRoutingSolution>();
-  sessionSolverMap=new ConcurrentHashMap<String,Solver>();
+  sessionSolverMap=new ConcurrentHashMap<String,Solver<VehicleRoutingSolution>>();
 }

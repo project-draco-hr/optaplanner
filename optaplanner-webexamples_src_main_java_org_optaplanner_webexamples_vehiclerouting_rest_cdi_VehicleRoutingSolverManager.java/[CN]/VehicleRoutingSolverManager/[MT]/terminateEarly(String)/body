@@ -1,5 +1,5 @@
 {
-  Solver solver=sessionSolverMap.remove(sessionId);
+  Solver<VehicleRoutingSolution> solver=sessionSolverMap.remove(sessionId);
   if (solver != null) {
     solver.terminateEarly();
     return true;

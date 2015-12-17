@@ -1,3 +1,3 @@
 {
-  super("Cloud balancing","Assign processes to computers.\n\n" + "Each computer must have enough hardware to run all of its processes.\n" + "Each used computer inflicts a maintenance cost.",CloudBalancingPanel.LOGO_PATH);
+  super("Cloud balancing","Assign processes to computers.\n\n" + "Each computer must have enough hardware to run all of its processes.\n" + "Each used computer inflicts a maintenance cost.",SOLVER_CONFIG,CloudBalancingPanel.LOGO_PATH);
 }

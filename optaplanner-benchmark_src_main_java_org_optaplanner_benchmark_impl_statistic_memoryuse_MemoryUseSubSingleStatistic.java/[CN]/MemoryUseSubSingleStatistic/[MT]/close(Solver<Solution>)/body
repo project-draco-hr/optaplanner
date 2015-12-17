@@ -1,0 +1,3 @@
+{
+  ((DefaultSolver<Solution>)solver).removePhaseLifecycleListener(listener);
+}

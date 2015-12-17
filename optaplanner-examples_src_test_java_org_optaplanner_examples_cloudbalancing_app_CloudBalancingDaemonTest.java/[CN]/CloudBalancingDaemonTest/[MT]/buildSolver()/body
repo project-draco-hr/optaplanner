@@ -1,5 +1,5 @@
 {
-  SolverFactory solverFactory=SolverFactory.createFromXmlResource("org/optaplanner/examples/cloudbalancing/solver/cloudBalancingSolverConfig.xml");
+  SolverFactory<CloudBalance> solverFactory=SolverFactory.createFromXmlResource("org/optaplanner/examples/cloudbalancing/solver/cloudBalancingSolverConfig.xml");
   solverFactory.getSolverConfig().setDaemon(true);
   TerminationConfig terminationConfig=new TerminationConfig();
   terminationConfig.setBestScoreFeasible(true);

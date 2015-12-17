@@ -1,3 +1,3 @@
 {
-  super("Employee rostering","Official competition name: INRC2010 - Nurse rostering\n\n" + "Assign shifts to employees.",NurseRosteringPanel.LOGO_PATH);
+  super("Employee rostering","Official competition name: INRC2010 - Nurse rostering\n\n" + "Assign shifts to employees.",SOLVER_CONFIG,NurseRosteringPanel.LOGO_PATH);
 }

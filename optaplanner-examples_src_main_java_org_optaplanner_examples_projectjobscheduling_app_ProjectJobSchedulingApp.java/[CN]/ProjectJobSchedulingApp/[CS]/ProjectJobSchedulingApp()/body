@@ -1,3 +1,3 @@
 {
-  super("Project job scheduling","Official competition name:" + " multi-mode resource-constrained multi-project scheduling problem (MRCMPSP)\n\n" + "Schedule all jobs in time and execution mode.\n\n"+ "Minimize project delays.",ProjectJobSchedulingPanel.LOGO_PATH);
+  super("Project job scheduling","Official competition name:" + " multi-mode resource-constrained multi-project scheduling problem (MRCMPSP)\n\n" + "Schedule all jobs in time and execution mode.\n\n"+ "Minimize project delays.",SOLVER_CONFIG,ProjectJobSchedulingPanel.LOGO_PATH);
 }

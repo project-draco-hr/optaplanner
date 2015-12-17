@@ -1,14 +1,14 @@
 {
-  SolverFactory solverFactoryTemplate=SolverFactory.createFromXmlResource("org/optaplanner/core/api/solver/testdataSolverConfig.xml");
+  SolverFactory<TestdataSolution> solverFactoryTemplate=SolverFactory.createFromXmlResource("org/optaplanner/core/api/solver/testdataSolverConfig.xml");
   solverFactoryTemplate.getSolverConfig().setTerminationConfig(new TerminationConfig());
-  SolverFactory solverFactory1=solverFactoryTemplate.cloneSolverFactory();
-  SolverFactory solverFactory2=solverFactoryTemplate.cloneSolverFactory();
+  SolverFactory<TestdataSolution> solverFactory1=solverFactoryTemplate.cloneSolverFactory();
+  SolverFactory<TestdataSolution> solverFactory2=solverFactoryTemplate.cloneSolverFactory();
   assertNotSame(solverFactory1,solverFactory2);
   solverFactory1.getSolverConfig().getTerminationConfig().setMinutesSpentLimit(1L);
   solverFactory2.getSolverConfig().getTerminationConfig().setMinutesSpentLimit(2L);
   assertEquals((Long)1L,solverFactory1.getSolverConfig().getTerminationConfig().getMinutesSpentLimit());
   assertEquals((Long)2L,solverFactory2.getSolverConfig().getTerminationConfig().getMinutesSpentLimit());
-  Solver solver1=solverFactory1.buildSolver();
-  Solver solver2=solverFactory2.buildSolver();
+  Solver<TestdataSolution> solver1=solverFactory1.buildSolver();
+  Solver<TestdataSolution> solver2=solverFactory2.buildSolver();
   assertNotSame(solver1,solver2);
 }

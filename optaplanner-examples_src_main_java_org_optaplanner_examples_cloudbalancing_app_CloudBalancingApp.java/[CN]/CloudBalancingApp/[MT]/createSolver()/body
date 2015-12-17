@@ -1,4 +1,4 @@
 {
-  SolverFactory solverFactory=SolverFactory.createFromXmlResource(SOLVER_CONFIG);
+  SolverFactory<CloudBalance> solverFactory=SolverFactory.createFromXmlResource(SOLVER_CONFIG);
   return solverFactory.buildSolver();
 }

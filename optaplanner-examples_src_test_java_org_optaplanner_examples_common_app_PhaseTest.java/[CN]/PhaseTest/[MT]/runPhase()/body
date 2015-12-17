@@ -1,8 +1,7 @@
 {
-  SolverFactory solverFactory=buildSolverFactory();
+  SolverFactory<Solution> solverFactory=buildSolverFactory();
   Solution planningProblem=readPlanningProblem();
-  Solver solver=solverFactory.buildSolver();
-  solver.solve(planningProblem);
-  Solution bestSolution=solver.getBestSolution();
+  Solver<Solution> solver=solverFactory.buildSolver();
+  Solution bestSolution=solver.solve(planningProblem);
   assertSolution(bestSolution);
 }

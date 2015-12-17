@@ -1,5 +1,5 @@
 {
   setSolvingState(true);
-  Solution planningProblem=solutionBusiness.getSolution();
+  Solution_ planningProblem=solutionBusiness.getSolution();
   new SolveWorker(planningProblem).execute();
 }

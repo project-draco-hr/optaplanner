@@ -1,6 +1,0 @@
-{
-  Solution planningProblem=solutionDao.readSolution(unsolvedDataFile);
-  Solver solver=solverFactory.buildSolver();
-  solver.solve(planningProblem);
-  return solver;
-}

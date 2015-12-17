@@ -1,5 +1,7 @@
 {
-  SolverFactory solverFactory=buildSolverFactory(bestScoreLimitString,environmentMode);
-  Solver solver=solve(solverFactory,unsolvedDataFile);
-  assertBestSolution(solver,bestScoreLimitString);
+  SolverFactory<Solution> solverFactory=buildSolverFactory(bestScoreLimitString,environmentMode);
+  Solution planningProblem=solutionDao.readSolution(unsolvedDataFile);
+  Solver<Solution> solver=solverFactory.buildSolver();
+  Solution bestSolution=solver.solve(planningProblem);
+  assertBestSolution(solver,bestSolution,bestScoreLimitString);
 }

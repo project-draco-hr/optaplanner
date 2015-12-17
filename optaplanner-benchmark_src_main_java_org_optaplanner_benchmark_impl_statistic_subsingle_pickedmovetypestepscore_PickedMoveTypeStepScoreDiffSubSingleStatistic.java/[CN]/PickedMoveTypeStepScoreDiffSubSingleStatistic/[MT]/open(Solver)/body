@@ -1,3 +1,0 @@
-{
-  ((DefaultSolver)solver).addPhaseLifecycleListener(listener);
-}

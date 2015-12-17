@@ -1,3 +1,3 @@
 {
-  super("N queens","Place queens on a chessboard.\n\n" + "No 2 queens must be able to attack each other.",NQueensPanel.LOGO_PATH);
+  super("N queens","Place queens on a chessboard.\n\n" + "No 2 queens must be able to attack each other.",SOLVER_CONFIG,NQueensPanel.LOGO_PATH);
 }

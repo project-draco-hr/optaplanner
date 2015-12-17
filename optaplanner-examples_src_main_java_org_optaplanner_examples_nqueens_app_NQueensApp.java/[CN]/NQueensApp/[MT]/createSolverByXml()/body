@@ -1,4 +1,4 @@
 {
-  SolverFactory solverFactory=SolverFactory.createFromXmlResource(SOLVER_CONFIG);
+  SolverFactory<NQueens> solverFactory=SolverFactory.createFromXmlResource(SOLVER_CONFIG);
   return solverFactory.buildSolver();
 }

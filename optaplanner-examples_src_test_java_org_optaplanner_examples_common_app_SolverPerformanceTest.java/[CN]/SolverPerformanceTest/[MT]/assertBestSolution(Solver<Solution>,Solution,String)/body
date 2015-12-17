@@ -1,0 +1,7 @@
+{
+  assertNotNull(bestSolution);
+  Score bestScore=bestSolution.getScore();
+  InnerScoreDirectorFactory scoreDirectorFactory=(InnerScoreDirectorFactory)solver.getScoreDirectorFactory();
+  Score bestScoreLimit=scoreDirectorFactory.getScoreDefinition().parseScore(bestScoreLimitString);
+  assertTrue("The bestScore (" + bestScore + ") must be at least bestScoreLimit ("+ bestScoreLimit+ ").",bestScore.compareTo(bestScoreLimit) >= 0);
+}

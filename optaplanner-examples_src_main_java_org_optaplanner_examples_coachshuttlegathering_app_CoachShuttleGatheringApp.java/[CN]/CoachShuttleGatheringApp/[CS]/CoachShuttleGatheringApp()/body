@@ -1,3 +1,3 @@
 {
-  super("Coach shuttle gathering","Transport passengers to a hub by using coaches and shuttles.",CoachShuttleGatheringPanel.LOGO_PATH);
+  super("Coach shuttle gathering","Transport passengers to a hub by using coaches and shuttles.",SOLVER_CONFIG,CoachShuttleGatheringPanel.LOGO_PATH);
 }

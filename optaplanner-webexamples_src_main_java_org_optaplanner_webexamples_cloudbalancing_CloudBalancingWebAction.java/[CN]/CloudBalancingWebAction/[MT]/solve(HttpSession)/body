@@ -1,5 +1,5 @@
 {
-  final Solver solver=(Solver)session.getAttribute(CloudBalancingSessionAttributeName.SOLVER);
+  final Solver<CloudBalance> solver=(Solver<CloudBalance>)session.getAttribute(CloudBalancingSessionAttributeName.SOLVER);
   final CloudBalance unsolvedSolution=(CloudBalance)session.getAttribute(CloudBalancingSessionAttributeName.SHOWN_SOLUTION);
   solver.addEventListener(new SolverEventListener<CloudBalance>(){
     public void bestSolutionChanged(    BestSolutionChangedEvent<CloudBalance> event){

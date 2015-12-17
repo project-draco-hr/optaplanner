@@ -1,5 +1,5 @@
 {
-  SolverFactory solverFactory=SolverFactory.createEmpty();
+  SolverFactory<NQueens> solverFactory=SolverFactory.createEmpty();
   SolverConfig solverConfig=solverFactory.getSolverConfig();
   solverConfig.setSolutionClass(NQueens.class);
   solverConfig.setEntityClassList(Collections.<Class<?>>singletonList(Queen.class));

@@ -1,8 +1,8 @@
 {
-  final Solver solver=solverFactory.buildSolver();
-  solver.addEventListener(new SolverEventListener(){
-    @Override public void bestSolutionChanged(    BestSolutionChangedEvent event){
-      VehicleRoutingSolution bestSolution=(VehicleRoutingSolution)event.getNewBestSolution();
+  final Solver<VehicleRoutingSolution> solver=solverFactory.buildSolver();
+  solver.addEventListener(new SolverEventListener<VehicleRoutingSolution>(){
+    @Override public void bestSolutionChanged(    BestSolutionChangedEvent<VehicleRoutingSolution> event){
+      VehicleRoutingSolution bestSolution=event.getNewBestSolution();
 synchronized (VehicleRoutingSolverManager.this) {
         sessionSolutionMap.put(sessionId,bestSolution);
       }
@@ -16,8 +16,7 @@ synchronized (VehicleRoutingSolverManager.this) {
   final VehicleRoutingSolution solution=retrieveOrCreateSolution(sessionId);
   executor.submit(new Runnable(){
     @Override public void run(){
-      solver.solve(solution);
-      VehicleRoutingSolution bestSolution=(VehicleRoutingSolution)solver.getBestSolution();
+      VehicleRoutingSolution bestSolution=solver.solve(solution);
 synchronized (VehicleRoutingSolverManager.this) {
         sessionSolutionMap.put(sessionId,bestSolution);
         sessionSolverMap.remove(sessionId);

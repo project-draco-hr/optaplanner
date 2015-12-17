@@ -1,5 +1,5 @@
 {
-  final Solver solver=(Solver)session.getAttribute(CloudBalancingSessionAttributeName.SOLVER);
+  final Solver<CloudBalance> solver=(Solver<CloudBalance>)session.getAttribute(CloudBalancingSessionAttributeName.SOLVER);
   if (solver != null) {
     solver.terminateEarly();
     session.setAttribute(CloudBalancingSessionAttributeName.SOLVER,null);
