@@ -28,6 +28,7 @@
     if (refVariableDescriptor.isRef()) {
       throw new IllegalArgumentException("The entityClass (" + entityDescriptor.getEntityClass() + ") has a "+ CustomShadowVariable.class.getSimpleName()+ " annotated property ("+ variableMemberAccessor.getName()+ ") with refVariable ("+ refVariableDescriptor+ ") that must not be a reference too.");
     }
+    refVariableDescriptor.registerSinkVariableDescriptor(this);
   }
  else {
     CustomShadowVariable.Source[] sources=shadowVariableAnnotation.sources();
@@ -49,7 +50,7 @@
       if (sourceVariableDescriptor == null) {
         throw new IllegalArgumentException("The entityClass (" + entityDescriptor.getEntityClass() + ") has a "+ CustomShadowVariable.class.getSimpleName()+ " annotated property ("+ variableMemberAccessor.getName()+ ") with sourceVariableName ("+ sourceVariableName+ ") which is not a valid planning variable on entityClass ("+ sourceEntityDescriptor.getEntityClass()+ ").\n"+ entityDescriptor.buildInvalidVariableNameExceptionMessage(sourceVariableName));
       }
-      sourceVariableDescriptor.registerShadowVariableDescriptor(this);
+      sourceVariableDescriptor.registerSinkVariableDescriptor(this);
       sourceVariableDescriptorList.add(sourceVariableDescriptor);
     }
   }

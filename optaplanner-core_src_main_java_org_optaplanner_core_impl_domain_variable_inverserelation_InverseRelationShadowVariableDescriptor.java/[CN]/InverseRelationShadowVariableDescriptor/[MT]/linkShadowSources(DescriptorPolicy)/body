@@ -43,5 +43,5 @@
       throw new IllegalArgumentException("The entityClass (" + entityDescriptor.getEntityClass() + ") has a "+ InverseRelationShadowVariable.class.getSimpleName()+ " annotated property ("+ variableMemberAccessor.getName()+ ") which does returns a "+ Collection.class.getSimpleName()+ " with sourceVariableName ("+ sourceVariableName+ ") which is chained. A chained variable supports only a singleton inverse.");
     }
   }
-  sourceVariableDescriptor.registerShadowVariableDescriptor(this);
+  sourceVariableDescriptor.registerSinkVariableDescriptor(this);
 }

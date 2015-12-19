@@ -1,0 +1,3 @@
+{
+  SolutionDescriptor solutionDescriptor=TestdataSevenNonCyclicShadowedSolution.buildSolutionDescriptor();
+}

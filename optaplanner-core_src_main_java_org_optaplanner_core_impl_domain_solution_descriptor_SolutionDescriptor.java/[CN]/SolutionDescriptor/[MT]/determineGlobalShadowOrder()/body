@@ -1,34 +1,54 @@
 {
-  List<ShadowVariableDescriptor> orderedShadowList=new LinkedList<ShadowVariableDescriptor>();
-  for (  EntityDescriptor entityDescriptor : entityDescriptorMap.values()) {
-    for (    ShadowVariableDescriptor shadow : entityDescriptor.getDeclaredShadowVariableDescriptors()) {
-      Integer insertionIndex=null;
-      for (ListIterator<ShadowVariableDescriptor> it=orderedShadowList.listIterator(); it.hasNext(); ) {
-        int index=it.nextIndex();
-        ShadowVariableDescriptor orderedShadow=it.next();
-        if (insertionIndex == null) {
-          if (orderedShadow.getSourceVariableDescriptorList().contains(shadow)) {
-            insertionIndex=index;
-          }
-        }
-        if (insertionIndex != null) {
-          if (shadow.getSourceVariableDescriptorList().contains(orderedShadow)) {
-            ShadowVariableDescriptor otherOrderedShadow=orderedShadowList.get(insertionIndex);
-            throw new IllegalStateException("There is a cyclic shadow variable path" + " because the shadowVariable (" + shadow.getSimpleEntityAndVariableName() + ") must be earlier than ("+ otherOrderedShadow.getSimpleEntityAndVariableName()+ ") but later than ("+ orderedShadow.getSimpleEntityAndVariableName()+ ").");
-          }
-        }
+  Comparator<Pair<ShadowVariableDescriptor,Integer>> comparator=new Comparator<Pair<ShadowVariableDescriptor,Integer>>(){
+    @Override public int compare(    Pair<ShadowVariableDescriptor,Integer> a,    Pair<ShadowVariableDescriptor,Integer> b){
+      int aSourceSize=a.getValue();
+      int bSourceSize=b.getValue();
+      if (aSourceSize > bSourceSize) {
+        return 1;
       }
-      if (insertionIndex != null) {
-        orderedShadowList.add(insertionIndex,shadow);
+ else       if (aSourceSize < bSourceSize) {
+        return -1;
       }
  else {
-        orderedShadowList.add(shadow);
+        return 0;
       }
     }
   }
-  for (ListIterator<ShadowVariableDescriptor> it=orderedShadowList.listIterator(); it.hasNext(); ) {
-    int index=it.nextIndex();
-    ShadowVariableDescriptor orderedShadow=it.next();
-    orderedShadow.setGlobalShadowOrder(index);
+;
+  List<Pair<ShadowVariableDescriptor,Integer>> pairList=new ArrayList<Pair<ShadowVariableDescriptor,Integer>>();
+  Map<ShadowVariableDescriptor,Pair<ShadowVariableDescriptor,Integer>> shadowToPairMap=new HashMap<ShadowVariableDescriptor,Pair<ShadowVariableDescriptor,Integer>>();
+  for (  EntityDescriptor entityDescriptor : entityDescriptorMap.values()) {
+    for (    ShadowVariableDescriptor shadow : entityDescriptor.getDeclaredShadowVariableDescriptors()) {
+      int sourceSize=shadow.getSourceVariableDescriptorList().size();
+      Pair<ShadowVariableDescriptor,Integer> pair=MutablePair.of(shadow,sourceSize);
+      pairList.add(pair);
+      shadowToPairMap.put(shadow,pair);
+    }
+  }
+  for (  EntityDescriptor entityDescriptor : entityDescriptorMap.values()) {
+    for (    GenuineVariableDescriptor genuine : entityDescriptor.getDeclaredGenuineVariableDescriptors()) {
+      for (      ShadowVariableDescriptor sink : genuine.getSinkVariableDescriptorList()) {
+        Pair<ShadowVariableDescriptor,Integer> sinkPair=shadowToPairMap.get(sink);
+        sinkPair.setValue(sinkPair.getValue() - 1);
+      }
+    }
+  }
+  int globalShadowOrder=0;
+  while (!pairList.isEmpty()) {
+    Collections.sort(pairList,comparator);
+    Pair<ShadowVariableDescriptor,Integer> pair=pairList.remove(0);
+    ShadowVariableDescriptor shadow=pair.getKey();
+    if (pair.getValue() != 0) {
+      if (pair.getValue() < 0) {
+        throw new IllegalStateException("Impossible state because the shadowVariable (" + shadow.getSimpleEntityAndVariableName() + ") can not be used more as a sink than it has sources.");
+      }
+      throw new IllegalStateException("There is a cyclic shadow variable path" + " that involves the shadowVariable (" + shadow.getSimpleEntityAndVariableName() + ") because it must be later than its sources ("+ shadow.getSourceVariableDescriptorList()+ ") and also earlier than its sinks ("+ shadow.getSinkVariableDescriptorList()+ ").");
+    }
+    for (    ShadowVariableDescriptor sink : shadow.getSinkVariableDescriptorList()) {
+      Pair<ShadowVariableDescriptor,Integer> sinkPair=shadowToPairMap.get(sink);
+      sinkPair.setValue(sinkPair.getValue() - 1);
+    }
+    shadow.setGlobalShadowOrder(globalShadowOrder);
+    globalShadowOrder++;
   }
 }

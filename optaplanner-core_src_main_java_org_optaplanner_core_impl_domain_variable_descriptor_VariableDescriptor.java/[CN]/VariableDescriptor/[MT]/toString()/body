@@ -1,3 +1,0 @@
-{
-  return getClass().getSimpleName() + "(" + variableName+ " of "+ entityDescriptor.getEntityClass().getName()+ ")";
-}

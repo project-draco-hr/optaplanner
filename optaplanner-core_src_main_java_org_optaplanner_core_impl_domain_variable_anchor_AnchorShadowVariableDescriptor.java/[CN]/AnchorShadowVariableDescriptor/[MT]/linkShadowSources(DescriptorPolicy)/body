@@ -8,5 +8,5 @@
   if (!(sourceVariableDescriptor instanceof GenuineVariableDescriptor) || !((GenuineVariableDescriptor)sourceVariableDescriptor).isChained()) {
     throw new IllegalArgumentException("The entityClass (" + entityDescriptor.getEntityClass() + ") has a "+ AnchorShadowVariable.class.getSimpleName()+ " annotated property ("+ variableMemberAccessor.getName()+ ") with sourceVariableName ("+ sourceVariableName+ ") which is not chained.");
   }
-  sourceVariableDescriptor.registerShadowVariableDescriptor(this);
+  sourceVariableDescriptor.registerSinkVariableDescriptor(this);
 }

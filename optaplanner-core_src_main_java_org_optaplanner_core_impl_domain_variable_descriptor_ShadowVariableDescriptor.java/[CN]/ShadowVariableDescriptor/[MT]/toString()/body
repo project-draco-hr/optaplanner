@@ -1,0 +1,3 @@
+{
+  return getSimpleEntityAndVariableName() + " shadow";
+}

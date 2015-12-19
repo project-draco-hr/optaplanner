@@ -1,0 +1,4 @@
+{
+  SolutionDescriptor solutionDescriptor=TestdataSevenNonCyclicShadowedSolution.buildSolutionDescriptor();
+  return solutionDescriptor.findEntityDescriptorOrFail(TestdataSevenNonCyclicShadowedEntity.class);
+}
