@@ -1,6 +1,6 @@
 {
   EntitySelector childEntitySelector=SelectorTestUtils.mockEntitySelector(TestdataEntity.class,new TestdataEntity("jan"),new TestdataEntity("feb"),new TestdataEntity("mar"),new TestdataEntity("apr"),new TestdataEntity("may"),new TestdataEntity("jun"));
-  SelectionSorter<TestdataEntity> sorter=new SelectionSorter<TestdataEntity>(){
+  SelectionSorter<TestdataSolution,TestdataEntity> sorter=new SelectionSorter<TestdataSolution,TestdataEntity>(){
     public void sort(    ScoreDirector scoreDirector,    List<TestdataEntity> selectionList){
       Collections.sort(selectionList,new Comparator<TestdataEntity>(){
         public int compare(        TestdataEntity a,        TestdataEntity b){

@@ -1,8 +1,0 @@
-{
-  Integer first=(Integer)o;
-  Integer second=(Integer)o2;
-  if (first.intValue() == second.intValue()) {
-    return 0;
-  }
-  return first > second ? 1 : -1;
-}

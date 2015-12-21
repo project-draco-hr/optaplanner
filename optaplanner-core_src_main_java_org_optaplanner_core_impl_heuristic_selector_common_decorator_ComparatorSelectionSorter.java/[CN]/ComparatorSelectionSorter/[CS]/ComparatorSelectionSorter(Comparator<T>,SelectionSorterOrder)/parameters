@@ -1,2 +1,2 @@
-Comparator<Object> comparator
+Comparator<T> comparator
 SelectionSorterOrder selectionSorterOrder

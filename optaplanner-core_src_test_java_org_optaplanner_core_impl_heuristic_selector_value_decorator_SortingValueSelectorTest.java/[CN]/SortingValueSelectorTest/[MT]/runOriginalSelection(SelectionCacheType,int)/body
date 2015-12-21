@@ -1,6 +1,6 @@
 {
   EntityIndependentValueSelector childValueSelector=SelectorTestUtils.mockEntityIndependentValueSelector(TestdataEntity.class,"value",new TestdataValue("jan"),new TestdataValue("feb"),new TestdataValue("mar"),new TestdataValue("apr"),new TestdataValue("may"),new TestdataValue("jun"));
-  SelectionSorter<TestdataValue> sorter=new SelectionSorter<TestdataValue>(){
+  SelectionSorter<TestdataSolution,TestdataValue> sorter=new SelectionSorter<TestdataSolution,TestdataValue>(){
     public void sort(    ScoreDirector scoreDirector,    List<TestdataValue> selectionList){
       Collections.sort(selectionList,new Comparator<TestdataValue>(){
         public int compare(        TestdataValue a,        TestdataValue b){

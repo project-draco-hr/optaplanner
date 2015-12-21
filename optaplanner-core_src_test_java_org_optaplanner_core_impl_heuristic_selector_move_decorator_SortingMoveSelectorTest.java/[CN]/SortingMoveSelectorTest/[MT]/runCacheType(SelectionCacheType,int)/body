@@ -1,6 +1,6 @@
 {
   MoveSelector childMoveSelector=SelectorTestUtils.mockMoveSelector(DummyMove.class,new DummyMove("jan"),new DummyMove("feb"),new DummyMove("mar"),new DummyMove("apr"),new DummyMove("may"),new DummyMove("jun"));
-  SelectionSorter<DummyMove> sorter=new SelectionSorter<DummyMove>(){
+  SelectionSorter<TestdataSolution,DummyMove> sorter=new SelectionSorter<TestdataSolution,DummyMove>(){
     public void sort(    ScoreDirector scoreDirector,    List<DummyMove> selectionList){
       Collections.sort(selectionList,new Comparator<DummyMove>(){
         public int compare(        DummyMove a,        DummyMove b){

@@ -1,2 +1,2 @@
 ScoreDirector scoreDirector
-List<Object> selectionList
+List<T> selectionList

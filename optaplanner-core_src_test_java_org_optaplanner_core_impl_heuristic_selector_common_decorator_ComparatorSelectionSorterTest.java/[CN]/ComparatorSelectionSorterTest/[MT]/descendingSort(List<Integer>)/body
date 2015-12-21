@@ -1,0 +1,12 @@
+{
+  Integer tmp=list.get(0);
+  for (  Integer aList : list) {
+    if (tmp >= aList) {
+      tmp=aList;
+    }
+ else {
+      return false;
+    }
+  }
+  return true;
+}
