@@ -1,0 +1,5 @@
+{
+  if (customPropertyMap.size() != 0) {
+    throw new IllegalArgumentException("The customPropertyMap's size (" + customPropertyMap.size() + ") is not 0.");
+  }
+}

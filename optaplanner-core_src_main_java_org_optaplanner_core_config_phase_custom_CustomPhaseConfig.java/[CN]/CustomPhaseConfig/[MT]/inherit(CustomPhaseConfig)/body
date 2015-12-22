@@ -1,5 +1,6 @@
 {
   super.inherit(inheritedConfig);
   customPhaseCommandClassList=ConfigUtils.inheritMergeableListProperty(customPhaseCommandClassList,inheritedConfig.getCustomPhaseCommandClassList());
+  customProperties=ConfigUtils.inheritMergeableMapProperty(customProperties,inheritedConfig.getCustomProperties());
   forceUpdateBestSolution=ConfigUtils.inheritOverwritableProperty(forceUpdateBestSolution,inheritedConfig.getForceUpdateBestSolution());
 }
