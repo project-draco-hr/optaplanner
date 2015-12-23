@@ -4,34 +4,23 @@
   if (originSize > (long)Integer.MAX_VALUE) {
     throw new IllegalStateException("The originEntitySelector (" + originEntitySelector + ") has an entitySize ("+ originSize+ ") which is higher than Integer.MAX_VALUE.");
   }
-  originToDestinationsMap=new HashMap<Object,Object[]>((int)originSize);
   long childSize=childEntitySelector.getSize();
   if (childSize > (long)Integer.MAX_VALUE) {
     throw new IllegalStateException("The childEntitySelector (" + childEntitySelector + ") has an entitySize ("+ childSize+ ") which is higher than Integer.MAX_VALUE.");
   }
+  int destinationSize=(int)childSize;
+  if (randomSelection) {
+    int overallSizeMaximum=nearbyRandom.getOverallSizeMaximum();
+    if (discardNearbyIndexZero) {
+      overallSizeMaximum++;
+    }
+    if (destinationSize > overallSizeMaximum) {
+      destinationSize=overallSizeMaximum;
+    }
+  }
+  nearbyDistanceMatrix=new NearbyDistanceMatrix(nearbyDistanceMeter,(int)originSize);
   for (Iterator originIt=originEntitySelector.endingIterator(); originIt.hasNext(); ) {
     final Object origin=originIt.next();
-    Object[] destinations=new Object[(int)childSize];
-    int i=0;
-    for (Iterator childIt=childEntitySelector.endingIterator(); childIt.hasNext(); i++) {
-      destinations[i]=childIt.next();
-    }
-    Arrays.sort(destinations,new Comparator<Object>(){
-      @Override public int compare(      Object a,      Object b){
-        double aDistance=nearbyDistanceMeter.getNearbyDistance(origin,a);
-        double bDistance=nearbyDistanceMeter.getNearbyDistance(origin,b);
-        if (aDistance < bDistance) {
-          return -1;
-        }
- else         if (aDistance > bDistance) {
-          return 1;
-        }
- else {
-          return 0;
-        }
-      }
-    }
-);
-    originToDestinationsMap.put(origin,destinations);
+    nearbyDistanceMatrix.addAllDestinations(origin,childEntitySelector.endingIterator(),destinationSize);
   }
 }

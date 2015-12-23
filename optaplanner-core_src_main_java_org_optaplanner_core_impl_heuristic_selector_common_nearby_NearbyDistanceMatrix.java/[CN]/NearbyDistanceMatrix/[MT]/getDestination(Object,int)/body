@@ -1,0 +1,4 @@
+{
+  Object[] destinations=originToDestinationsMap.get(origin);
+  return destinations[nearbyIndex];
+}

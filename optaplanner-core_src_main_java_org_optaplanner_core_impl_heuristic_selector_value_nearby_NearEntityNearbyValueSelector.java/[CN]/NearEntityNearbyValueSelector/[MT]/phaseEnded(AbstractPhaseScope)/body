@@ -1,4 +1,4 @@
 {
   super.phaseEnded(phaseScope);
-  originToDestinationsMap=null;
+  nearbyDistanceMatrix=null;
 }

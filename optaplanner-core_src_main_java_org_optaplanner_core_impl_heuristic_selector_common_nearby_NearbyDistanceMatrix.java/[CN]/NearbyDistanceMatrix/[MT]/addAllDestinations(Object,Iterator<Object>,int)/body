@@ -1,0 +1,33 @@
+{
+  Object[] destinations=new Object[destinationSize];
+  double[] distances=new double[destinationSize];
+  int size=0;
+  Double highestDistance=Double.MAX_VALUE;
+  while (destinationIterator.hasNext()) {
+    Object destination=destinationIterator.next();
+    double distance=nearbyDistanceMeter.getNearbyDistance(origin,destination);
+    if (distance < highestDistance || size < destinationSize) {
+      int insertIndex=Arrays.binarySearch(distances,0,size,distance);
+      if (insertIndex < 0) {
+        insertIndex=-insertIndex - 1;
+      }
+ else {
+        while (insertIndex < size && distances[insertIndex] == distance) {
+          insertIndex++;
+        }
+      }
+      if (size < destinationSize) {
+        size++;
+      }
+      System.arraycopy(destinations,insertIndex,destinations,insertIndex + 1,size - insertIndex - 1);
+      System.arraycopy(distances,insertIndex,distances,insertIndex + 1,size - insertIndex - 1);
+      destinations[insertIndex]=destination;
+      distances[insertIndex]=distance;
+      highestDistance=distances[size - 1];
+    }
+  }
+  if (size != destinationSize) {
+    throw new IllegalStateException("The destinationIterator's size (" + size + ") differs from the expected destinationSize ("+ destinationSize+ ").");
+  }
+  originToDestinationsMap.put(origin,destinations);
+}

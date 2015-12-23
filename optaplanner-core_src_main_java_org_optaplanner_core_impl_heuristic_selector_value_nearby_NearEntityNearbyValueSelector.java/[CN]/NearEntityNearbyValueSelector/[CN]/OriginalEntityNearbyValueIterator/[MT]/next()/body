@@ -1,7 +1,6 @@
 {
   selectOrigin();
-  Object[] destinations=originToDestinationsMap.get(origin);
-  Object next=destinations[nextNearbyIndex];
+  Object next=nearbyDistanceMatrix.getDestination(origin,nextNearbyIndex);
   nextNearbyIndex++;
   return next;
 }

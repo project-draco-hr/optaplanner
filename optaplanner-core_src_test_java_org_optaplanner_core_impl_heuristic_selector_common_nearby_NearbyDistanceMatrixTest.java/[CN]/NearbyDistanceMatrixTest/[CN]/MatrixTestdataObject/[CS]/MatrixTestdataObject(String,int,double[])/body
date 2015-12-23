@@ -1,0 +1,5 @@
+{
+  super(code);
+  this.index=index;
+  this.distances=distances;
+}
