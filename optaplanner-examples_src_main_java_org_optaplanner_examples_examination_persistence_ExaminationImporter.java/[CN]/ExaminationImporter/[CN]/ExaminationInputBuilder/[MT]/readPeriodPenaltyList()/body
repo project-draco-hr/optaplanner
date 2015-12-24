@@ -98,7 +98,7 @@ throw new IllegalStateException("The periodPenalty (" + indirectPeriodPenalty + 
 for (Map.Entry<Topic,Set<Topic>> entry : afterMap.entrySet()) {
 Topic leftTopic=entry.getKey();
 Set<Topic> afterLeftSet=entry.getValue();
-Queue<Topic> queue=new LinkedList<Topic>();
+Queue<Topic> queue=new ArrayDeque<Topic>();
 for (Topic topic : afterMap.get(leftTopic)) {
 queue.add(topic);
 queue.addAll(coincidenceMap.get(topic));

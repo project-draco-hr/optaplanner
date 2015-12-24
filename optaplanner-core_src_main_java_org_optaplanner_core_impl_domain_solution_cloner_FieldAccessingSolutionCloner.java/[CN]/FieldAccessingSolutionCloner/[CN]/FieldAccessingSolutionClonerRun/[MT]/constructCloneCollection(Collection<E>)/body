@@ -25,6 +25,9 @@
       return new LinkedHashSet<E>(originalCollection.size());
     }
   }
+ else   if (originalCollection instanceof Deque) {
+    return new ArrayDeque<E>(originalCollection.size());
+  }
  else {
     return new ArrayList<E>(originalCollection.size());
   }

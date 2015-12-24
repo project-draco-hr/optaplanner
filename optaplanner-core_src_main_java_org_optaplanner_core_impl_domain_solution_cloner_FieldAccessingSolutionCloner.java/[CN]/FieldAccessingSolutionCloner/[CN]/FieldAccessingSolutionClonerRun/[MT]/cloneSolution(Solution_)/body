@@ -1,6 +1,7 @@
 {
-  unprocessedQueue=new LinkedList<Unprocessed>();
-  originalToCloneMap=new IdentityHashMap<Object,Object>(solutionDescriptor.getEntityCount(originalSolution) + 1);
+  int entityCount=solutionDescriptor.getEntityCount(originalSolution);
+  unprocessedQueue=new ArrayDeque<Unprocessed>(entityCount + 1);
+  originalToCloneMap=new IdentityHashMap<Object,Object>(entityCount + 1);
   Solution_ cloneSolution=clone(originalSolution);
   processQueue();
   validateCloneSolution(originalSolution,cloneSolution);

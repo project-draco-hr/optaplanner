@@ -1,6 +1,6 @@
 {
   if (originalMap instanceof SortedMap) {
-    Comparator setComparator=((SortedMap)originalMap).comparator();
+    Comparator<K> setComparator=((SortedMap)originalMap).comparator();
     return new TreeMap<K,V>(setComparator);
   }
  else   if (originalMap instanceof LinkedHashMap) {
