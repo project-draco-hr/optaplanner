@@ -2,6 +2,9 @@
   EntitySelectorConfig entitySelectorConfig_=entitySelectorConfig == null ? new EntitySelectorConfig() : entitySelectorConfig;
   EntitySelector entitySelector=entitySelectorConfig_.buildEntitySelector(configPolicy,minimumCacheType,SelectionOrder.fromRandomSelectionBoolean(randomSelection));
   ValueSelectorConfig valueSelectorConfig_=valueSelectorConfig == null ? new ValueSelectorConfig() : valueSelectorConfig;
-  ValueSelector valueSelector=valueSelectorConfig_.buildValueSelector(configPolicy,entitySelector.getEntityDescriptor(),minimumCacheType,SelectionOrder.fromRandomSelectionBoolean(randomSelection));
-  return new KOptMoveSelector(entitySelector,valueSelector,randomSelection);
+  ValueSelector[] valueSelectors=new ValueSelector[K - 1];
+  for (int i=0; i < valueSelectors.length; i++) {
+    valueSelectors[i]=valueSelectorConfig_.buildValueSelector(configPolicy,entitySelector.getEntityDescriptor(),minimumCacheType,SelectionOrder.fromRandomSelectionBoolean(randomSelection));
+  }
+  return new KOptMoveSelector(entitySelector,valueSelectors,randomSelection);
 }

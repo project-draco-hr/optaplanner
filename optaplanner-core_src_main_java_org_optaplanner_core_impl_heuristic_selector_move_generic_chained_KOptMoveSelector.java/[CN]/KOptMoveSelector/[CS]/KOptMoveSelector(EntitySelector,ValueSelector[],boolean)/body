@@ -1,11 +1,11 @@
 {
   this.entitySelector=entitySelector;
-  this.valueSelector=valueSelector;
+  this.valueSelectors=valueSelectors;
   this.randomSelection=randomSelection;
   if (!randomSelection) {
     throw new UnsupportedOperationException("Non randomSelection (such as original selection) is not yet supported on " + KOptMoveSelector.class.getSimpleName() + ".");
   }
-  GenuineVariableDescriptor variableDescriptor=valueSelector.getVariableDescriptor();
+  variableDescriptor=valueSelectors[0].getVariableDescriptor();
   if (!variableDescriptor.isChained()) {
     throw new IllegalStateException("The selector (" + this + ")'s valueSelector's  variableDescriptor ("+ variableDescriptor+ ") must be chained ("+ variableDescriptor.isChained()+ ").");
   }
@@ -13,5 +13,10 @@
     throw new IllegalStateException("The selector (" + this + ") has a valueSelector with a entityClass ("+ variableDescriptor.getEntityDescriptor().getEntityClass()+ ") which is not equal or a superclass to the entitySelector's entityClass ("+ entitySelector.getEntityDescriptor().getEntityClass()+ ").");
   }
   phaseLifecycleSupport.addEventListener(entitySelector);
-  phaseLifecycleSupport.addEventListener(valueSelector);
+  for (  ValueSelector valueSelector : valueSelectors) {
+    if (valueSelector.getVariableDescriptor() != variableDescriptor) {
+      throw new IllegalStateException("The selector (" + this + ") has a valueSelector with a variableDescriptor ("+ valueSelector.getVariableDescriptor()+ ") that differs from the first variableDescriptor ("+ variableDescriptor+ ").");
+    }
+    phaseLifecycleSupport.addEventListener(valueSelector);
+  }
 }

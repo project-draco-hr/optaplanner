@@ -1,3 +1,3 @@
 {
-  return getClass().getSimpleName() + "(" + entitySelector+ ", "+ valueSelector+ ")";
+  return getClass().getSimpleName() + "(" + entitySelector+ ", "+ Arrays.toString(valueSelectors)+ ")";
 }

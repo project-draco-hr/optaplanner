@@ -1,3 +1,3 @@
 EntitySelector entitySelector
-ValueSelector valueSelector
+ValueSelector[] valueSelectors
 boolean randomSelection

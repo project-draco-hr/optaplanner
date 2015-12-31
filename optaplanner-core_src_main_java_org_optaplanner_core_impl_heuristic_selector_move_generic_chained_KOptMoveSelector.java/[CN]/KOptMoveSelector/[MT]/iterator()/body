@@ -1,25 +1,21 @@
 {
-  final GenuineVariableDescriptor variableDescriptor=valueSelector.getVariableDescriptor();
   if (!randomSelection) {
     throw new UnsupportedOperationException("Non randomSelection (such as original selection) is not yet supported on " + KOptMoveSelector.class.getSimpleName() + ".");
   }
  else {
-    if (!entitySelector.isNeverEnding() || !valueSelector.isNeverEnding()) {
-      throw new UnsupportedOperationException();
-    }
     final Iterator<Object> entityIterator=entitySelector.iterator();
-    final Iterator<Object> valueIterator=((EntityIndependentValueSelector)valueSelector).iterator();
     return new UpcomingSelectionIterator<Move>(){
       @Override protected Move createUpcomingSelection(){
         if (!entityIterator.hasNext()) {
           return noUpcomingSelection();
         }
         Object entity=entityIterator.next();
-        if (!valueIterator.hasNext()) {
-          return noUpcomingSelection();
-        }
-        Object[] values=new Object[K - 1];
-        for (int i=0; i < values.length; i++) {
+        Object[] values=new Object[valueSelectors.length];
+        for (int i=0; i < valueSelectors.length; i++) {
+          Iterator<Object> valueIterator=valueSelectors[i].iterator(entity);
+          if (!valueIterator.hasNext()) {
+            return noUpcomingSelection();
+          }
           values[i]=valueIterator.next();
         }
         return new KOptMove(variableDescriptor,inverseVariableSupply,anchorVariableSupply,entity,values);

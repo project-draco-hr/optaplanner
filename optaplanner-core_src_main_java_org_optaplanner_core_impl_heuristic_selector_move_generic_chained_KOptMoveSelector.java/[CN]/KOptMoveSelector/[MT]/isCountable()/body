@@ -1,3 +1,11 @@
 {
-  return entitySelector.isCountable() && valueSelector.isCountable();
+  if (!entitySelector.isCountable()) {
+    return false;
+  }
+  for (  ValueSelector valueSelector : valueSelectors) {
+    if (!valueSelector.isCountable()) {
+      return false;
+    }
+  }
+  return true;
 }

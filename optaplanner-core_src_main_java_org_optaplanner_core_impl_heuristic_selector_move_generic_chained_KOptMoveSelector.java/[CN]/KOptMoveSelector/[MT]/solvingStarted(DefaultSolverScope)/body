@@ -1,7 +1,6 @@
 {
   super.solvingStarted(solverScope);
   SupplyManager supplyManager=solverScope.getScoreDirector().getSupplyManager();
-  GenuineVariableDescriptor variableDescriptor=valueSelector.getVariableDescriptor();
   inverseVariableSupply=supplyManager.demand(new SingletonInverseVariableDemand(variableDescriptor));
   anchorVariableSupply=supplyManager.demand(new AnchorVariableDemand(variableDescriptor));
 }

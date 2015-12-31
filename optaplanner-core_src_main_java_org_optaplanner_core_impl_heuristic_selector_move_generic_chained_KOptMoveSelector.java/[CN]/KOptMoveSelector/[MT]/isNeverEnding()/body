@@ -1,3 +1,11 @@
 {
-  return randomSelection || entitySelector.isNeverEnding() || valueSelector.isNeverEnding();
+  if (randomSelection || entitySelector.isNeverEnding()) {
+    return true;
+  }
+  for (  ValueSelector valueSelector : valueSelectors) {
+    if (valueSelector.isNeverEnding()) {
+      return true;
+    }
+  }
+  return false;
 }
