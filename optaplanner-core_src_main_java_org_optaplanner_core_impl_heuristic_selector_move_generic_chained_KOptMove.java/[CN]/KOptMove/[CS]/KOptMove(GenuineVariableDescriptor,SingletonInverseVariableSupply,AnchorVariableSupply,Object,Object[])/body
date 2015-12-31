@@ -1,0 +1,7 @@
+{
+  this.variableDescriptor=variableDescriptor;
+  this.inverseVariableSupply=inverseVariableSupply;
+  this.anchorVariableSupply=anchorVariableSupply;
+  this.entity=entity;
+  this.values=values;
+}

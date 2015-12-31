@@ -1,0 +1,17 @@
+{
+  this.entitySelector=entitySelector;
+  this.valueSelector=valueSelector;
+  this.randomSelection=randomSelection;
+  if (!randomSelection) {
+    throw new UnsupportedOperationException("Non randomSelection (such as original selection) is not yet supported on " + KOptMoveSelector.class.getSimpleName() + ".");
+  }
+  GenuineVariableDescriptor variableDescriptor=valueSelector.getVariableDescriptor();
+  if (!variableDescriptor.isChained()) {
+    throw new IllegalStateException("The selector (" + this + ")'s valueSelector's  variableDescriptor ("+ variableDescriptor+ ") must be chained ("+ variableDescriptor.isChained()+ ").");
+  }
+  if (!variableDescriptor.getEntityDescriptor().getEntityClass().isAssignableFrom(entitySelector.getEntityDescriptor().getEntityClass())) {
+    throw new IllegalStateException("The selector (" + this + ") has a valueSelector with a entityClass ("+ variableDescriptor.getEntityDescriptor().getEntityClass()+ ") which is not equal or a superclass to the entitySelector's entityClass ("+ entitySelector.getEntityDescriptor().getEntityClass()+ ").");
+  }
+  phaseLifecycleSupport.addEventListener(entitySelector);
+  phaseLifecycleSupport.addEventListener(valueSelector);
+}

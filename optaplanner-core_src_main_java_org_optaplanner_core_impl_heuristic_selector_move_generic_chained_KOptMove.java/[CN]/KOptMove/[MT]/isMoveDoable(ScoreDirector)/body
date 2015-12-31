@@ -1,0 +1,16 @@
+{
+  Object firstAnchor=anchorVariableSupply.getAnchor(entity);
+  Object formerAnchor=firstAnchor;
+  for (int i=0; i < values.length; i++) {
+    Object value=values[i];
+    Object anchor=variableDescriptor.isValuePotentialAnchor(value) ? value : anchorVariableSupply.getAnchor(value);
+    if (anchor == formerAnchor) {
+      return false;
+    }
+    formerAnchor=anchor;
+  }
+  if (firstAnchor == formerAnchor) {
+    return false;
+  }
+  return true;
+}

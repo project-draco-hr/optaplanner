@@ -1,0 +1,5 @@
+{
+  super.inherit(inheritedConfig);
+  entitySelectorConfig=ConfigUtils.inheritConfig(entitySelectorConfig,inheritedConfig.getEntitySelectorConfig());
+  valueSelectorConfig=ConfigUtils.inheritConfig(valueSelectorConfig,inheritedConfig.getValueSelectorConfig());
+}

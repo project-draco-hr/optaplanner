@@ -1,0 +1,12 @@
+{
+  if (this == o) {
+    return true;
+  }
+ else   if (o instanceof KOptMove) {
+    KOptMove other=(KOptMove)o;
+    return new EqualsBuilder().append(entity,other.entity).append(values,other.values).isEquals();
+  }
+ else {
+    return false;
+  }
+}

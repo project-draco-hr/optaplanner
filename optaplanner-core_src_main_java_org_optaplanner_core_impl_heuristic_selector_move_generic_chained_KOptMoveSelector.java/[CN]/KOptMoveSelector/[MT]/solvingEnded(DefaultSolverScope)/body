@@ -1,0 +1,5 @@
+{
+  super.solvingEnded(solverScope);
+  inverseVariableSupply=null;
+  anchorVariableSupply=null;
+}

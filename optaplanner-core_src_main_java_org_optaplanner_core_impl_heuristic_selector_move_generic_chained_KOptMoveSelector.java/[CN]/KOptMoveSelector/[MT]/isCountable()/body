@@ -1,0 +1,3 @@
+{
+  return entitySelector.isCountable() && valueSelector.isCountable();
+}

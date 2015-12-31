@@ -1,0 +1,5 @@
+GenuineVariableDescriptor variableDescriptor
+SingletonInverseVariableSupply inverseVariableSupply
+AnchorVariableSupply anchorVariableSupply
+Object entity
+Object[] values

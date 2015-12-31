@@ -1,0 +1,8 @@
+{
+  Object[] undoValues=new Object[values.length];
+  undoValues[0]=variableDescriptor.getValue(entity);
+  for (int i=1; i < values.length; i++) {
+    undoValues[i]=values[values.length - i];
+  }
+  return new KOptMove(variableDescriptor,inverseVariableSupply,anchorVariableSupply,entity,undoValues);
+}
