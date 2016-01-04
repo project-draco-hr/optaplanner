@@ -1,0 +1,13 @@
+{
+  if (a == b) {
+    return 0;
+  }
+  Object afterA=inverseVariableSupply.getInverseSingleton(a);
+  while (afterA != null) {
+    if (afterA == b) {
+      return 1;
+    }
+    afterA=inverseVariableSupply.getInverseSingleton(afterA);
+  }
+  return -1;
+}

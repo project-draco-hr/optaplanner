@@ -1,15 +1,17 @@
 {
   Object firstAnchor=anchorVariableSupply.getAnchor(entity);
+  Object firstValue=variableDescriptor.getValue(entity);
   Object formerAnchor=firstAnchor;
-  for (int i=0; i < values.length; i++) {
-    Object value=values[i];
+  Object formerValue=firstValue;
+  for (  Object value : values) {
     Object anchor=variableDescriptor.isValuePotentialAnchor(value) ? value : anchorVariableSupply.getAnchor(value);
-    if (anchor == formerAnchor) {
+    if (anchor == formerAnchor && compareValuesInSameChain(formerValue,value) >= 0) {
       return false;
     }
     formerAnchor=anchor;
+    formerValue=value;
   }
-  if (firstAnchor == formerAnchor) {
+  if (firstAnchor == formerAnchor && compareValuesInSameChain(formerValue,firstValue) >= 0) {
     return false;
   }
   return true;
