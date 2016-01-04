@@ -1,0 +1,23 @@
+{
+  GenuineVariableDescriptor variableDescriptor=TestdataChainedEntity.buildVariableDescriptorForChainedObject();
+  SolutionDescriptor solutionDescriptor=variableDescriptor.getEntityDescriptor().getSolutionDescriptor();
+  InnerScoreDirector scoreDirector=PlannerTestUtils.mockScoreDirector(solutionDescriptor);
+  TestdataChainedAnchor a0=new TestdataChainedAnchor("a0");
+  TestdataChainedEntity a1=new TestdataChainedEntity("a1",a0);
+  TestdataChainedEntity a2=new TestdataChainedEntity("a2",a1);
+  TestdataChainedEntity a3=new TestdataChainedEntity("a3",a2);
+  TestdataChainedAnchor b0=new TestdataChainedAnchor("b0");
+  TestdataChainedEntity b1=new TestdataChainedEntity("b1",b0);
+  TestdataChainedEntity b2=new TestdataChainedEntity("b2",b1);
+  TestdataChainedAnchor c0=new TestdataChainedAnchor("c0");
+  TestdataChainedEntity c1=new TestdataChainedEntity("c1",c0);
+  TestdataChainedEntity c2=new TestdataChainedEntity("c2",c1);
+  TestdataChainedSolution solution=new TestdataChainedSolution("solution");
+  solution.setChainedAnchorList(Arrays.asList(a0,b0,c0));
+  solution.setChainedEntityList(Arrays.asList(a1,a2,a3,b1,b2,c1,c2));
+  scoreDirector.setWorkingSolution(solution);
+  SingletonInverseVariableSupply inverseVariableSupply=scoreDirector.getSupplyManager().demand(new SingletonInverseVariableDemand(variableDescriptor));
+  AnchorVariableSupply anchorVariableSupply=scoreDirector.getSupplyManager().demand(new AnchorVariableDemand(variableDescriptor));
+  assertEquals("a2 {a1} -kOpt-> b1 {b0} -kOpt-> c2 {c1}",new KOptMove(variableDescriptor,inverseVariableSupply,anchorVariableSupply,a2,new Object[]{b0,c1}).toString());
+  assertEquals("a2 {a1} -kOpt-> null {b2} -kOpt-> null {c2}",new KOptMove(variableDescriptor,inverseVariableSupply,anchorVariableSupply,a2,new Object[]{b2,c2}).toString());
+}
