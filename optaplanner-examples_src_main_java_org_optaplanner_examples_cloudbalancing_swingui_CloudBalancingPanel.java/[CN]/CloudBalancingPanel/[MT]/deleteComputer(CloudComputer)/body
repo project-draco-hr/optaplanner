@@ -17,7 +17,7 @@
         if (ObjectUtils.equals(workingComputer,computer)) {
           scoreDirector.beforeProblemFactRemoved(workingComputer);
           it.remove();
-          scoreDirector.beforeProblemFactRemoved(workingComputer);
+          scoreDirector.afterProblemFactRemoved(workingComputer);
           break;
         }
       }

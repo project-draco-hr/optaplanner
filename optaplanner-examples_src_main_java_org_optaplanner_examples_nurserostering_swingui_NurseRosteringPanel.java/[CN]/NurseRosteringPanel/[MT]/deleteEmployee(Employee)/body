@@ -17,7 +17,7 @@
         if (ObjectUtils.equals(workingEmployee,employee)) {
           scoreDirector.beforeProblemFactRemoved(workingEmployee);
           it.remove();
-          scoreDirector.beforeProblemFactRemoved(employee);
+          scoreDirector.afterProblemFactRemoved(employee);
           break;
         }
       }
