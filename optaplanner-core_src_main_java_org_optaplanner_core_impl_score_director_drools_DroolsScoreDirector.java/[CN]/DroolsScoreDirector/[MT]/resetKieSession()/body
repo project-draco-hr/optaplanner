@@ -2,7 +2,7 @@
   if (kieSession != null) {
     kieSession.dispose();
   }
-  kieSession=getKieBase().newKieSession();
+  kieSession=scoreDirectorFactory.newKieSession();
   workingScoreHolder=getScoreDefinition().buildScoreHolder(constraintMatchEnabledPreference);
   kieSession.setGlobal(GLOBAL_SCORE_HOLDER_KEY,workingScoreHolder);
   Collection<Object> workingFacts=getWorkingFacts();
