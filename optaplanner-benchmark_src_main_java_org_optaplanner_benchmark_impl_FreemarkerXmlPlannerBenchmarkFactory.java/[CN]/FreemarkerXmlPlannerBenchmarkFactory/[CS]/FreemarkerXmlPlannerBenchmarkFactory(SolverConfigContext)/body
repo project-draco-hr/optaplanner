@@ -1,0 +1,4 @@
+{
+  this.solverConfigContext=solverConfigContext;
+  xmlPlannerBenchmarkFactory=new XStreamXmlPlannerBenchmarkFactory(solverConfigContext);
+}

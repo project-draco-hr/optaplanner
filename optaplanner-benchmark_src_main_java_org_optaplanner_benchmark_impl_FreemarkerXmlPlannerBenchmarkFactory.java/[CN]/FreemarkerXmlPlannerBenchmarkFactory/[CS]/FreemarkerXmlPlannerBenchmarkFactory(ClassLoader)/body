@@ -1,4 +1,0 @@
-{
-  this.classLoader=classLoader;
-  xmlPlannerBenchmarkFactory=new XStreamXmlPlannerBenchmarkFactory(classLoader);
-}

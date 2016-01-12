@@ -13,7 +13,7 @@
     solverConfig=new SolverConfig(solverConfig);
     solverConfig.offerRandomSeedFromSubSingleIndex((long)subSingleBenchmarkResult.getSubSingleBenchmarkIndex());
   }
-  Solver<Solution> solver=solverConfig.buildSolver(classLoader);
+  Solver<Solution> solver=solverConfig.buildSolver(solverConfigContext);
   for (  SubSingleStatistic subSingleStatistic : subSingleBenchmarkResult.getEffectiveSubSingleStatisticMap().values()) {
     subSingleStatistic.open(solver);
     subSingleStatistic.initPointList();

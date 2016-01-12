@@ -5,7 +5,7 @@
   PlannerBenchmarkResult plannerBenchmarkResult=new PlannerBenchmarkResult();
   plannerBenchmarkResult.setName(name);
   plannerBenchmarkResult.setAggregation(false);
-  PlannerBenchmarkRunner plannerBenchmarkRunner=new PlannerBenchmarkRunner(plannerBenchmarkResult,classLoader);
+  PlannerBenchmarkRunner plannerBenchmarkRunner=new PlannerBenchmarkRunner(plannerBenchmarkResult,solverConfigContext);
   plannerBenchmarkRunner.setBenchmarkDirectory(benchmarkDirectory);
   plannerBenchmarkResult.setParallelBenchmarkCount(resolveParallelBenchmarkCount());
   plannerBenchmarkResult.setWarmUpTimeMillisSpentLimit(calculateWarmUpTimeMillisSpentLimit());

@@ -1,4 +1,4 @@
 {
   this.subSingleBenchmarkResult=subSingleBenchmarkResult;
-  this.classLoader=classLoader;
+  this.solverConfigContext=solverConfigContext;
 }

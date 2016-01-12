@@ -1,4 +1,4 @@
 {
   this.plannerBenchmarkResult=plannerBenchmarkResult;
-  this.classLoader=classLoader;
+  this.solverConfigContext=solverConfigContext;
 }

@@ -1,2 +1,2 @@
 SubSingleBenchmarkResult subSingleBenchmarkResult
-ClassLoader classLoader
+SolverConfigContext solverConfigContext
