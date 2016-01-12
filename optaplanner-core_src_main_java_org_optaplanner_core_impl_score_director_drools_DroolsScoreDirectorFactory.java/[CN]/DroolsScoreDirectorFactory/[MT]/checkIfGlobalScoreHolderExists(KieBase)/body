@@ -1,0 +1,14 @@
+{
+  boolean hasGlobalScoreHolder=false;
+  for (  KiePackage kiePackage : kieBase.getKiePackages()) {
+    for (    Global global : kiePackage.getGlobalVariables()) {
+      if (DroolsScoreDirector.GLOBAL_SCORE_HOLDER_KEY.equals(global.getName())) {
+        hasGlobalScoreHolder=true;
+        break;
+      }
+    }
+  }
+  if (!hasGlobalScoreHolder) {
+    throw new IllegalArgumentException("The kieBase with kiePackages (" + kieBase.getKiePackages() + ") has no global field called "+ DroolsScoreDirector.GLOBAL_SCORE_HOLDER_KEY+ ".\n"+ "Check if the rule files are found and if the global field is spelled correctly.");
+  }
+}

@@ -1,0 +1,4 @@
+{
+  super(solverConfigContext);
+  solverConfig=new SolverConfig();
+}

@@ -1,5 +1,5 @@
 {
-  ClassLoader actualClassLoader=(classLoader != null) ? classLoader : getClass().getClassLoader();
+  ClassLoader actualClassLoader=solverConfigContext.determineActualClassLoader();
   InputStream in=actualClassLoader.getResourceAsStream(solverConfigResource);
   if (in == null) {
     String errorMessage="The solverConfigResource (" + solverConfigResource + ") does not exist as a classpath resource in the classLoader ("+ actualClassLoader+ ").";

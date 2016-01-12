@@ -1,0 +1,7 @@
+{
+  super(solverConfigContext);
+  xStream=buildXStream();
+  if (solverConfigContext.getClassLoader() != null) {
+    xStream.setClassLoader(solverConfigContext.getClassLoader());
+  }
+}

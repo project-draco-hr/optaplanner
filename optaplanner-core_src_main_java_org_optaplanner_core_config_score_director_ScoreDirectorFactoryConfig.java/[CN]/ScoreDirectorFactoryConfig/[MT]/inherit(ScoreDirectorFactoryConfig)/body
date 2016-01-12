@@ -7,6 +7,7 @@
   }
   easyScoreCalculatorClass=ConfigUtils.inheritOverwritableProperty(easyScoreCalculatorClass,inheritedConfig.getEasyScoreCalculatorClass());
   incrementalScoreCalculatorClass=ConfigUtils.inheritOverwritableProperty(incrementalScoreCalculatorClass,inheritedConfig.getIncrementalScoreCalculatorClass());
+  ksessionName=ConfigUtils.inheritOverwritableProperty(ksessionName,inheritedConfig.getKsessionName());
   kieBase=ConfigUtils.inheritOverwritableProperty(kieBase,inheritedConfig.getKieBase());
   scoreDrlList=ConfigUtils.inheritMergeableListProperty(scoreDrlList,inheritedConfig.getScoreDrlList());
   scoreDrlFileList=ConfigUtils.inheritMergeableListProperty(scoreDrlFileList,inheritedConfig.getScoreDrlFileList());

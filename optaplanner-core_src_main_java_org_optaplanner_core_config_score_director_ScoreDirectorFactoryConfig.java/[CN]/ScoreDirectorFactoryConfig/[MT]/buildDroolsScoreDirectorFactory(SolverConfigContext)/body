@@ -1,0 +1,84 @@
+{
+  KieContainer kieContainer=configContext.getKieContainer();
+  if (kieContainer != null || ksessionName != null) {
+    if (kieContainer == null) {
+      throw new IllegalArgumentException("If ksessionName (" + ksessionName + ") is not null, then the kieContainer ("+ kieContainer+ ") must not be null.");
+    }
+    if (!ConfigUtils.isEmptyCollection(scoreDrlList) || !ConfigUtils.isEmptyCollection(scoreDrlFileList)) {
+      throw new IllegalArgumentException("If kieContainer or ksessionName (" + ksessionName + ") is not null, then the scoreDrlList ("+ scoreDrlList+ ") and the scoreDrlFileList ("+ scoreDrlFileList+ ") must be empty.");
+    }
+    if (kieBase != null) {
+      throw new IllegalArgumentException("If kieContainer or ksessionName (" + ksessionName + ") is not null, then the kieBase must be null.");
+    }
+    if (kieBaseConfigurationProperties != null) {
+      throw new IllegalArgumentException("If kieContainer or ksessionName (" + ksessionName + ") is not null, then the kieBaseConfigurationProperties ("+ kieBaseConfigurationProperties+ ") must be null.");
+    }
+    return new DroolsScoreDirectorFactory(kieContainer,ksessionName);
+  }
+ else   if (kieBase != null) {
+    if (!ConfigUtils.isEmptyCollection(scoreDrlList) || !ConfigUtils.isEmptyCollection(scoreDrlFileList)) {
+      throw new IllegalArgumentException("If kieBase is not null, then the scoreDrlList (" + scoreDrlList + ") and the scoreDrlFileList ("+ scoreDrlFileList+ ") must be empty.");
+    }
+    if (kieBaseConfigurationProperties != null) {
+      throw new IllegalArgumentException("If kieBase is not null, then the kieBaseConfigurationProperties (" + kieBaseConfigurationProperties + ") must be null.");
+    }
+    return new LegacyDroolsScoreDirectorFactory(kieBase);
+  }
+ else   if (!ConfigUtils.isEmptyCollection(scoreDrlList) || !ConfigUtils.isEmptyCollection(scoreDrlFileList)) {
+    KieServices kieServices=KieServices.Factory.get();
+    KieResources kieResources=kieServices.getResources();
+    KieFileSystem kieFileSystem=kieServices.newKieFileSystem();
+    if (!ConfigUtils.isEmptyCollection(scoreDrlList)) {
+      ClassLoader actualClassLoader=configContext.determineActualClassLoader();
+      for (      String scoreDrl : scoreDrlList) {
+        if (scoreDrl == null) {
+          throw new IllegalArgumentException("The scoreDrl (" + scoreDrl + ") cannot be null.");
+        }
+        URL scoreDrlURL=actualClassLoader.getResource(scoreDrl);
+        if (scoreDrlURL == null) {
+          String errorMessage="The scoreDrl (" + scoreDrl + ") does not exist as a classpath resource"+ " in the classLoader ("+ actualClassLoader+ ").";
+          if (scoreDrl.startsWith("/")) {
+            errorMessage+="\nAs from 6.1, a classpath resource should not start with a slash (/)." + " A scoreDrl now adheres to ClassLoader.getResource(String)." + " Remove the leading slash from the scoreDrl if you're upgrading from 6.0.";
+          }
+          throw new IllegalArgumentException(errorMessage);
+        }
+        kieFileSystem.write(kieResources.newClassPathResource(scoreDrl,"UTF-8",actualClassLoader));
+      }
+    }
+    if (!ConfigUtils.isEmptyCollection(scoreDrlFileList)) {
+      for (      File scoreDrlFile : scoreDrlFileList) {
+        if (scoreDrlFile == null) {
+          throw new IllegalArgumentException("The scoreDrlFile (" + scoreDrlFile + ") cannot be null.");
+        }
+        if (!scoreDrlFile.exists()) {
+          throw new IllegalArgumentException("The scoreDrlFile (" + scoreDrlFile + ") does not exist.");
+        }
+        kieFileSystem.write(kieResources.newFileSystemResource(scoreDrlFile,"UTF-8"));
+      }
+    }
+    KieBuilder kieBuilder=kieServices.newKieBuilder(kieFileSystem);
+    kieBuilder.buildAll();
+    Results results=kieBuilder.getResults();
+    if (results.hasMessages(Message.Level.ERROR)) {
+      throw new IllegalStateException("There are errors in a score DRL:\n" + results.toString());
+    }
+ else     if (results.hasMessages(Message.Level.WARNING)) {
+      logger.warn("There are warning in a score DRL:\n" + results.toString());
+    }
+    kieContainer=kieServices.newKieContainer(kieBuilder.getKieModule().getReleaseId());
+    KieBaseConfiguration kieBaseConfiguration=kieServices.newKieBaseConfiguration();
+    if (kieBaseConfigurationProperties != null) {
+      for (      Map.Entry<String,String> entry : kieBaseConfigurationProperties.entrySet()) {
+        kieBaseConfiguration.setProperty(entry.getKey(),entry.getValue());
+      }
+    }
+    KieBase kieBase=kieContainer.newKieBase(kieBaseConfiguration);
+    return new LegacyDroolsScoreDirectorFactory(kieBase);
+  }
+ else {
+    if (kieBaseConfigurationProperties != null) {
+      throw new IllegalArgumentException("If kieBaseConfigurationProperties (" + kieBaseConfigurationProperties + ") is not null, the scoreDrlList ("+ scoreDrlList+ ") and the scoreDrlFileList ("+ scoreDrlFileList+ ") must not be empty.");
+    }
+    return null;
+  }
+}

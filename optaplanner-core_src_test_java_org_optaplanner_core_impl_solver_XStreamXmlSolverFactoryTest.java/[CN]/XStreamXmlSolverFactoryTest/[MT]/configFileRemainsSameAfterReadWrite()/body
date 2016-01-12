@@ -4,7 +4,9 @@
   InputStream originalConfigInputStream=getClass().getResourceAsStream(solverConfigResource);
   XStreamXmlSolverFactory solverFactory=new XStreamXmlSolverFactory().configure(originalConfigInputStream);
   SolverConfig solverConfig=solverFactory.getSolverConfig();
-  solverConfig.buildSolver(getClass().getClassLoader());
+  SolverConfigContext configContext=new SolverConfigContext();
+  configContext.setClassLoader(getClass().getClassLoader());
+  solverConfig.buildSolver(configContext);
   String savedXml=solverFactory.getXStream().toXML(solverConfig);
   assertEquals(originalXml,savedXml);
   originalConfigInputStream.close();

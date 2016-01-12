@@ -1,0 +1,7 @@
+{
+  super(solverConfigContext);
+  this.solverConfig=solverConfig;
+  if (solverConfig == null) {
+    throw new IllegalArgumentException("The solverConfig (" + solverConfig + ") cannot be null.");
+  }
+}

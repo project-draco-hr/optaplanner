@@ -1,0 +1,16 @@
+{
+  this.kieContainer=kieContainer;
+  this.ksessionName=ksessionName;
+  KieSessionModel kieSessionModel=kieContainer.getKieSessionModel(ksessionName);
+  if (kieSessionModel == null) {
+    if (ksessionName == null) {
+      throw new IllegalArgumentException("The kieContainer does not have a default ksession" + " and the ksessionName (" + ksessionName + ") is not specified.");
+    }
+ else {
+      throw new IllegalArgumentException("The kieContainer does not contain a ksessionName (" + ksessionName + ") with that name.");
+    }
+  }
+  String kbaseName=kieSessionModel.getKieBaseModel().getName();
+  KieBase kieBase=kieContainer.newKieBase(kbaseName,null);
+  checkIfGlobalScoreHolderExists(kieBase);
+}
