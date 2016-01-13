@@ -1,0 +1,3 @@
+String persistenceUnitName
+String dataSourceName
+boolean testMarshalling

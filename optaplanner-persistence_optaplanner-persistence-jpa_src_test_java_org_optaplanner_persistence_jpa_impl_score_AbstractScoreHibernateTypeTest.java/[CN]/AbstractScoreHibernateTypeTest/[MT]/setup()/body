@@ -1,3 +1,0 @@
-{
-  entityManagerFactory=Persistence.createEntityManagerFactory("optaplanner-persistence-jpa-test");
-}

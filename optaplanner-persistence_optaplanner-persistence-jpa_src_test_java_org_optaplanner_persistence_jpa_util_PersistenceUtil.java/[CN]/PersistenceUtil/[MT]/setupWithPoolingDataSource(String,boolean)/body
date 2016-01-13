@@ -1,0 +1,3 @@
+{
+  return setupWithPoolingDataSource(persistenceUnitName,"jdbc/testDS1",testMarshalling);
+}

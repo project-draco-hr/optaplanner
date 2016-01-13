@@ -1,0 +1,3 @@
+{
+  return setupPoolingDataSource(dsProps,"jdbc/testDS1");
+}

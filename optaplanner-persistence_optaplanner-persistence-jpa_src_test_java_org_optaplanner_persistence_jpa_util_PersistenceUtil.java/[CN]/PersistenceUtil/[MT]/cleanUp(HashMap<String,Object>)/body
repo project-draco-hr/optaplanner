@@ -1,0 +1,28 @@
+{
+  if (context != null) {
+    BitronixTransactionManager txm=TransactionManagerServices.getTransactionManager();
+    if (txm != null) {
+      txm.shutdown();
+    }
+    Object emfObject=context.remove(ENTITY_MANAGER_FACTORY);
+    if (emfObject != null) {
+      try {
+        EntityManagerFactory emf=(EntityManagerFactory)emfObject;
+        emf.close();
+      }
+ catch (      Throwable t) {
+        t.printStackTrace();
+      }
+    }
+    Object ds1Object=context.remove(DATASOURCE);
+    if (ds1Object != null) {
+      try {
+        PoolingDataSource ds1=(PoolingDataSource)ds1Object;
+        ds1.close();
+      }
+ catch (      Throwable t) {
+        t.printStackTrace();
+      }
+    }
+  }
+}

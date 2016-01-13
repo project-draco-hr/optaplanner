@@ -1,0 +1,12 @@
+{
+  if (defaultProperties == null) {
+    String[] keyArr={"serverName","portNumber","databaseName","url","user","password","driverClassName","className","maxPoolSize","allowLocalTransactions"};
+    String[] defaultPropArr={"","","","jdbc:h2:tcp://localhost/JPAOptaplannerTest","sa","","org.h2.Driver","bitronix.tm.resource.jdbc.lrc.LrcXADataSource","16","true"};
+    Assert.assertTrue("Unequal number of keys for default properties",keyArr.length == defaultPropArr.length);
+    defaultProperties=new Properties();
+    for (int i=0; i < keyArr.length; ++i) {
+      defaultProperties.put(keyArr[i],defaultPropArr[i]);
+    }
+  }
+  return defaultProperties;
+}

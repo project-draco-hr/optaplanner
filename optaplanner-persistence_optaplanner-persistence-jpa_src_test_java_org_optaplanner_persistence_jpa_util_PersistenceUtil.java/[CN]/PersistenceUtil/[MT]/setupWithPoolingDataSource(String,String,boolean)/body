@@ -1,0 +1,16 @@
+{
+  HashMap<String,Object> context=new HashMap<String,Object>();
+  Properties dsProps=getDatasourceProperties();
+  String jdbcUrl=dsProps.getProperty("url");
+  String driverClass=dsProps.getProperty("driverClassName");
+  PoolingDataSource ds1=setupPoolingDataSource(dsProps,dataSourceName);
+  if (driverClass.startsWith("org.h2")) {
+    jdbcUrl+="tcp://localhost/target/optaplanner-persistence-jpa-test";
+    ds1.getDriverProperties().setProperty("url",jdbcUrl);
+  }
+  ds1.init();
+  context.put(DATASOURCE,ds1);
+  EntityManagerFactory emf=Persistence.createEntityManagerFactory(persistenceUnitName);
+  context.put(ENTITY_MANAGER_FACTORY,emf);
+  return context;
+}
