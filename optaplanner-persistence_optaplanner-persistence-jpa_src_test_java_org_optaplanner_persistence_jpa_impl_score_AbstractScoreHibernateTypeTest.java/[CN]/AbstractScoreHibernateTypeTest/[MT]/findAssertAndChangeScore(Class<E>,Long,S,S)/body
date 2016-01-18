@@ -1,10 +1,16 @@
 {
-  EntityManager entityManager=entityManagerFactory.createEntityManager();
-  EntityTransaction transaction=entityManager.getTransaction();
-  transaction.begin();
-  E jpaEntity=entityManager.find(jpaEntityClass,id);
-  assertEquals(oldScore,jpaEntity.getScore());
-  jpaEntity.setScore(newScore);
-  jpaEntity=entityManager.merge(jpaEntity);
-  transaction.commit();
+  try {
+    transactionManager.begin();
+    EntityManager em=entityManagerFactory.createEntityManager();
+    E jpaEntity=em.find(jpaEntityClass,id);
+    em.persist(jpaEntity);
+    assertEquals(oldScore,jpaEntity.getScore());
+    jpaEntity.setScore(newScore);
+    jpaEntity=em.merge(jpaEntity);
+    transactionManager.commit();
+  }
+ catch (  Exception ex) {
+    ex.printStackTrace();
+    throw new RuntimeException(ex.getMessage(),ex);
+  }
 }

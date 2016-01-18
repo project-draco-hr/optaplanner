@@ -1,4 +1,5 @@
 {
   context=PersistenceUtil.setupWithPoolingDataSource(PersistenceUtil.ENTITY_MANAGER_FACTORY);
   entityManagerFactory=(EntityManagerFactory)context.get(PersistenceUtil.ENTITY_MANAGER_FACTORY);
+  transactionManager=(TransactionManager)context.get(PersistenceUtil.TRANSACTION_MANAGER);
 }

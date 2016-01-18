@@ -1,9 +1,14 @@
 {
-  EntityManager entityManager=entityManagerFactory.createEntityManager();
-  EntityTransaction transaction=entityManager.getTransaction();
-  transaction.begin();
-  entityManager.persist(jpaEntity);
-  transaction.commit();
+  try {
+    transactionManager.begin();
+    EntityManager em=entityManagerFactory.createEntityManager();
+    em.persist(jpaEntity);
+    transactionManager.commit();
+  }
+ catch (  Exception ex) {
+    ex.printStackTrace();
+    throw new RuntimeException(ex.getMessage(),ex);
+  }
   Long id=jpaEntity.getId();
   assertNotNull(id);
   return id;

@@ -12,5 +12,6 @@
   context.put(DATASOURCE,ds1);
   EntityManagerFactory emf=Persistence.createEntityManagerFactory(persistenceUnitName);
   context.put(ENTITY_MANAGER_FACTORY,emf);
+  context.put(TRANSACTION_MANAGER,TransactionManagerServices.getTransactionManager());
   return context;
 }
