@@ -1,4 +1,5 @@
 {
+  configContext.validate();
   DefaultSolver<Solution_> solver=new DefaultSolver<Solution_>();
   EnvironmentMode environmentMode_=determineEnvironmentMode();
   solver.setEnvironmentMode(environmentMode_);

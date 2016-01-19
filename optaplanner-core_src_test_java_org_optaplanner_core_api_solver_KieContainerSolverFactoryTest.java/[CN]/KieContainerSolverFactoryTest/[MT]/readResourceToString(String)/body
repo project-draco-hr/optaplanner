@@ -1,0 +1,4 @@
+{
+  URL url=Resources.getResource(resourceString);
+  return Resources.toString(url,Charset.forName("UTF-8"));
+}

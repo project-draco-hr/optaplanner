@@ -1,3 +1,9 @@
 {
-  return (classLoader != null) ? classLoader : getClass().getClassLoader();
+  if (classLoader != null) {
+    return classLoader;
+  }
+ else   if (kieContainer != null) {
+    return kieContainer.getClassLoader();
+  }
+  return getClass().getClassLoader();
 }

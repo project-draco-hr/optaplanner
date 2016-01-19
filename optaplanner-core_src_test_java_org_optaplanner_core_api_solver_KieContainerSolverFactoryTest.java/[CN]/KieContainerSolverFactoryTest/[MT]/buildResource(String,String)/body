@@ -1,0 +1,6 @@
+{
+  String content=readResourceToString(resourceString);
+  Resource resource=kieServices.getResources().newReaderResource(new StringReader(content),"UTF-8");
+  resource.setTargetPath(targetPath);
+  return resource;
+}

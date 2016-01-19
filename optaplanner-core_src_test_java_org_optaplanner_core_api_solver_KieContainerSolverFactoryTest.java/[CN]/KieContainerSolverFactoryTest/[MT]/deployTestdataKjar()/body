@@ -1,0 +1,8 @@
+{
+  kieServices=KieServices.Factory.get();
+  releaseId=kieServices.newReleaseId("org.optaplanner","optaplanner-testdata-kjar","1.0.0");
+  Resource scoreRules=buildResource("org/optaplanner/core/api/solver/kieContainerTestdataScoreRules.drl","testdata/kjar/scoreRules.drl");
+  Resource solverConfig=buildResource("org/optaplanner/core/api/solver/kieContainerTestdataSolverConfig.xml","testdata/kjar/solverConfig.solver");
+  String kmodule=readResourceToString("org/optaplanner/core/api/solver/kieContainerKmodule.xml");
+  createAndDeployJar(kieServices,kmodule,releaseId,scoreRules,solverConfig);
+}
