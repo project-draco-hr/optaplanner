@@ -1,0 +1,4 @@
+{
+  KieContainer kieContainer=KieServices.Factory.get().getKieClasspathContainer();
+  return new XStreamXmlSolverFactory<Solution_>(new SolverConfigContext(kieContainer)).configure(solverConfigResource);
+}
