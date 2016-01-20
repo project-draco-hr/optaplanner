@@ -1,5 +1,5 @@
 {
-  HashMap<String,Object> context=new HashMap<String,Object>();
+  Map<String,Object> context=new HashMap<String,Object>();
   Properties dsProps=getDatasourceProperties();
   String jdbcUrl=dsProps.getProperty("url");
   String driverClass=dsProps.getProperty("driverClassName");
