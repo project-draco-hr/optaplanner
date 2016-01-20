@@ -1,0 +1,4 @@
+{
+  KieContainer kieContainer=KieServices.Factory.get().newKieContainer(releaseId);
+  return createFromKieContainerXmlResource(kieContainer,solverConfigResource);
+}
