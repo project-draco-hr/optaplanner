@@ -5,5 +5,5 @@
       typeList.add(type);
     }
   }
-  return buildParameters(solutionDao,typeList.toArray(new ConstructionHeuristicType[]{}),unsolvedFileNames);
+  return buildParameters(solutionDao,typeList.toArray(new ConstructionHeuristicType[0]),unsolvedFileNames);
 }

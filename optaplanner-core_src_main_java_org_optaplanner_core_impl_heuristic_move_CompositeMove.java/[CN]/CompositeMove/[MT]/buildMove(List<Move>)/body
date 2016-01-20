@@ -1,7 +1,7 @@
 {
   int size=moveList.size();
   if (size > 1) {
-    return new CompositeMove(moveList.toArray(new Move[moveList.size()]));
+    return new CompositeMove(moveList.toArray(new Move[0]));
   }
  else   if (size == 1) {
     return moveList.get(0);

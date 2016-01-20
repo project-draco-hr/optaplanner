@@ -4,7 +4,7 @@
   List<TaskAssignment> basePillar=positive ? positivePillarList.get(listIndex) : negativePillarList.get(listIndex - positivePillarList.size());
   int basePillarSize=basePillar.size();
   int subPillarSize=workingRandom.nextInt(basePillarSize);
-  TaskAssignment[] sandboxPillar=basePillar.toArray(new TaskAssignment[basePillar.size()]);
+  TaskAssignment[] sandboxPillar=basePillar.toArray(new TaskAssignment[0]);
   List<TaskAssignment> subPillar=new ArrayList<TaskAssignment>(subPillarSize);
   int minimumAbsDiff=Integer.MAX_VALUE;
   for (int i=0; i < subPillarSize; i++) {
