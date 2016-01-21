@@ -3,8 +3,12 @@
     return null;
   }
   StringBuilder standardDeviationString=new StringBuilder(standardDeviationDoubles.length * 9);
+  DecimalFormatSymbols decimalFormatSymbols=DecimalFormatSymbols.getInstance();
+  decimalFormatSymbols.setDecimalSeparator('.');
   DecimalFormat exponentialFormat=new DecimalFormat("0.0#E0");
+  exponentialFormat.setDecimalFormatSymbols(decimalFormatSymbols);
   DecimalFormat decimalFormat=new DecimalFormat("0.0#");
+  decimalFormat.setDecimalFormatSymbols(decimalFormatSymbols);
   boolean first=true;
   for (  double standardDeviationDouble : standardDeviationDoubles) {
     if (first) {
