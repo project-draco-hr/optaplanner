@@ -2,6 +2,12 @@
   this.solverConfigContext=solverConfigContext;
   xStream=XStreamXmlSolverFactory.buildXStream();
   xStream.processAnnotations(PlannerBenchmarkConfig.class);
+  xStream.registerConverter(new FileConverter(){
+    @Override public String toString(    Object obj){
+      return FilenameUtils.separatorsToUnix(((File)obj).getPath());
+    }
+  }
+);
   if (solverConfigContext.getClassLoader() != null) {
     xStream.setClassLoader(solverConfigContext.getClassLoader());
   }
