@@ -1,0 +1,6 @@
+{
+  InputStream originalConfigInputStream=getClass().getResourceAsStream(plannerBenchmarkConfigResource);
+  XStreamXmlPlannerBenchmarkFactory plannerBenchmarkFactory=new XStreamXmlPlannerBenchmarkFactory().configure(originalConfigInputStream);
+  plannerBenchmarkFactory.getXStream().setMode(XStream.NO_REFERENCES);
+  return plannerBenchmarkFactory;
+}
