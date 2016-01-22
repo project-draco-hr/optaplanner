@@ -3,8 +3,9 @@
     return null;
   }
   StringBuilder standardDeviationString=new StringBuilder(standardDeviationDoubles.length * 9);
-  DecimalFormat exponentialFormat=new DecimalFormat("0.0#E0");
-  DecimalFormat decimalFormat=new DecimalFormat("0.0#");
+  DecimalFormatSymbols decimalFormatSymbols=new DecimalFormatSymbols(Locale.US);
+  DecimalFormat exponentialFormat=new DecimalFormat("0.0#E0",decimalFormatSymbols);
+  DecimalFormat decimalFormat=new DecimalFormat("0.0#",decimalFormatSymbols);
   boolean first=true;
   for (  double standardDeviationDouble : standardDeviationDoubles) {
     if (first) {
