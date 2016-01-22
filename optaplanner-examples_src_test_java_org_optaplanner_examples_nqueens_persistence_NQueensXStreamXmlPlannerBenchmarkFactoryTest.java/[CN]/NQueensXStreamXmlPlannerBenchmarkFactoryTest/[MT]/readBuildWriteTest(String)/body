@@ -1,0 +1,5 @@
+{
+  XStreamXmlPlannerBenchmarkFactory plannerBenchmarkFactory=createXStreamXmlPlannerBenchmarkFactory(plannerBenchmarkConfigResource);
+  plannerBenchmarkFactory.getPlannerBenchmarkConfig().buildPlannerBenchmark();
+  compareOutputToOriginal(plannerBenchmarkFactory,plannerBenchmarkConfigResource);
+}
