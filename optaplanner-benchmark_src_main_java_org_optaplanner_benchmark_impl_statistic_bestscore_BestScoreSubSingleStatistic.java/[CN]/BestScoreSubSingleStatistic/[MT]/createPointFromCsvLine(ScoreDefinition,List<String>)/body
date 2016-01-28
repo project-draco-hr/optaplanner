@@ -1,3 +1,3 @@
 {
-  return new BestScoreStatisticPoint(Long.valueOf(csvLine.get(0)),scoreDefinition.parseScore(csvLine.get(1)));
+  return new BestScoreStatisticPoint(Long.parseLong(csvLine.get(0)),scoreDefinition.parseScore(csvLine.get(1)));
 }
