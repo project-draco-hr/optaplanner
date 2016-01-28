@@ -2,7 +2,7 @@
   if (original instanceof Collection) {
     return (C)cloneCollection(Collection.class,(Collection)original);
   }
- else   if (original instanceof Collection) {
+ else   if (original instanceof Map) {
     return (C)cloneMap(Map.class,(Map)original);
   }
   if (retrieveDeepCloneDecisionForActualValueClass(original.getClass())) {
