@@ -7,7 +7,7 @@
   BasicPlumbingTermination basicPlumbingTermination=new BasicPlumbingTermination(daemon_);
   solver.setBasicPlumbingTermination(basicPlumbingTermination);
   solver.setRandomFactory(buildRandomFactory(environmentMode_));
-  SolutionDescriptor solutionDescriptor=buildSolutionDescriptor();
+  SolutionDescriptor solutionDescriptor=buildSolutionDescriptor(configContext);
   ScoreDirectorFactoryConfig scoreDirectorFactoryConfig_=scoreDirectorFactoryConfig == null ? new ScoreDirectorFactoryConfig() : scoreDirectorFactoryConfig;
   InnerScoreDirectorFactory scoreDirectorFactory=scoreDirectorFactoryConfig_.buildScoreDirectorFactory(configContext,environmentMode_,solutionDescriptor);
   solver.setConstraintMatchEnabledPreference(environmentMode_.isAsserted());

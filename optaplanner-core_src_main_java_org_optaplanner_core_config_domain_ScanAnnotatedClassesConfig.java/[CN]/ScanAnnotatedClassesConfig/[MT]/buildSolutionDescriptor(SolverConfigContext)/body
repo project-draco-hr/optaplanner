@@ -1,15 +1,16 @@
 {
+  ClassLoader actualClassLoader=configContext.determineActualClassLoader();
   ConfigurationBuilder builder=new ConfigurationBuilder();
   if (!ConfigUtils.isEmptyCollection(packageIncludeList)) {
     FilterBuilder filterBuilder=new FilterBuilder();
     for (    String packageInclude : packageIncludeList) {
-      builder.addUrls(ClasspathHelper.forPackage(packageInclude,(ClassLoader[])null));
+      builder.addUrls(ClasspathHelper.forPackage(packageInclude,actualClassLoader));
       filterBuilder.includePackage(packageInclude);
     }
     builder.filterInputsBy(filterBuilder);
   }
  else {
-    builder.addUrls(ClasspathHelper.forPackage(""));
+    builder.addUrls(ClasspathHelper.forPackage("",actualClassLoader));
   }
   Reflections reflections=new Reflections(builder);
   Class<? extends Solution> solutionClass=loadSolutionClass(reflections);

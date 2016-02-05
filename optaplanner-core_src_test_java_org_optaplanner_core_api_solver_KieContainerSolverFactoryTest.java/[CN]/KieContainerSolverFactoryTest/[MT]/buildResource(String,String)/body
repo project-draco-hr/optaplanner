@@ -2,5 +2,8 @@
   String content=readResourceToString(resourceString);
   Resource resource=kieServices.getResources().newReaderResource(new StringReader(content),"UTF-8");
   resource.setTargetPath(targetPath);
+  if (resourceString.endsWith(".java")) {
+    resource.setResourceType(ResourceType.JAVA);
+  }
   return resource;
 }

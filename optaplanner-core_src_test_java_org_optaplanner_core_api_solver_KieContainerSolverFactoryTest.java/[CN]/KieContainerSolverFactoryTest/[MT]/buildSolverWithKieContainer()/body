@@ -1,6 +1,6 @@
 {
   KieContainer kieContainer=kieServices.newKieContainer(releaseId);
-  SolverFactory<TestdataSolution> solverFactory=SolverFactory.createFromKieContainerXmlResource(kieContainer,"testdata/kjar/solverConfig.solver");
+  SolverFactory<TestdataSolution> solverFactory=SolverFactory.createFromKieContainerXmlResource(kieContainer,"testdata/kjar/kieContainerTestdataSolverConfig.solver");
   Solver<TestdataSolution> solver=solverFactory.buildSolver();
   assertNotNull(solver);
 }

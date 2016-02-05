@@ -1,0 +1,3 @@
+{
+  return SolutionDescriptor.buildSolutionDescriptor(ClassloadedTestdataSolution.class,ClassloadedTestdataEntity.class);
+}
