@@ -1,7 +1,6 @@
 {
   super(solverConfigContext);
   xStream=buildXStream();
-  if (solverConfigContext.getClassLoader() != null) {
-    xStream.setClassLoader(solverConfigContext.getClassLoader());
-  }
+  ClassLoader actualClassLoader=solverConfigContext.determineActualClassLoader();
+  xStream.setClassLoader(actualClassLoader);
 }
