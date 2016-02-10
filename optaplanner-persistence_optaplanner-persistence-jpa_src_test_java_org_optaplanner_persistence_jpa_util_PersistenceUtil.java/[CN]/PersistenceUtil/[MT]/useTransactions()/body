@@ -1,8 +1,0 @@
-{
-  boolean useTransactions=false;
-  String databaseDriverClassName=getDatasourceProperties().getProperty("driverClassName");
-  if (databaseDriverClassName.startsWith("org.postgresql")) {
-    useTransactions=true;
-  }
-  return useTransactions;
-}

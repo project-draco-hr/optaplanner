@@ -1,5 +1,5 @@
 {
-  context=PersistenceUtil.setupWithPoolingDataSource(PersistenceUtil.ENTITY_MANAGER_FACTORY);
+  context=PersistenceUtil.setupWithPoolingDataSource("optaplanner-persistence-jpa-test");
   entityManagerFactory=(EntityManagerFactory)context.get(PersistenceUtil.ENTITY_MANAGER_FACTORY);
   transactionManager=(TransactionManager)context.get(PersistenceUtil.TRANSACTION_MANAGER);
 }

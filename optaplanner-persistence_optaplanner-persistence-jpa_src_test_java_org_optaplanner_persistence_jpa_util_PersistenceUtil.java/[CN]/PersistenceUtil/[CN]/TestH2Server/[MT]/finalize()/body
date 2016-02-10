@@ -1,7 +1,0 @@
-{
-  if (realH2Server != null) {
-    realH2Server.stop();
-  }
-  DeleteDbFiles.execute("","JPAOptaplannerTest",true);
-  super.finalize();
-}
