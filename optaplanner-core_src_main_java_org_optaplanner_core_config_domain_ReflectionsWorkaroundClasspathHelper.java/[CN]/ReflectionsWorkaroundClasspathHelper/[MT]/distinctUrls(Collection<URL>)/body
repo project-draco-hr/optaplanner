@@ -1,0 +1,7 @@
+{
+  Map<String,URL> distinct=new HashMap<String,URL>(urls.size());
+  for (  URL url : urls) {
+    distinct.put(url.toExternalForm(),url);
+  }
+  return distinct.values();
+}

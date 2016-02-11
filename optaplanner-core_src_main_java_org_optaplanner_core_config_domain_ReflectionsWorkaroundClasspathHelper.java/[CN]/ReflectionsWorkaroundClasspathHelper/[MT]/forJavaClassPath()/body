@@ -1,0 +1,17 @@
+{
+  Collection<URL> urls=new ArrayList<URL>();
+  String javaClassPath=System.getProperty("java.class.path");
+  if (javaClassPath != null) {
+    for (    String path : javaClassPath.split(File.pathSeparator)) {
+      try {
+        urls.add(new File(path).toURI().toURL());
+      }
+ catch (      Exception e) {
+        if (Reflections.log != null) {
+          Reflections.log.warn("Could not get URL",e);
+        }
+      }
+    }
+  }
+  return distinctUrls(urls);
+}

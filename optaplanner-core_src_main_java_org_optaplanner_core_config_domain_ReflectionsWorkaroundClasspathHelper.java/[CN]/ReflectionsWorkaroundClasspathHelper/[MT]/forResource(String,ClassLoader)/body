@@ -1,0 +1,26 @@
+{
+  final List<URL> result=new ArrayList<URL>();
+  final ClassLoader[] loaders=classLoaders(classLoaders);
+  for (  ClassLoader classLoader : loaders) {
+    try {
+      final Enumeration<URL> urls=classLoader.getResources(resourceName);
+      while (urls.hasMoreElements()) {
+        final URL url=urls.nextElement();
+        int index=url.toExternalForm().lastIndexOf(resourceName);
+        if (index != -1) {
+          String newUrlString=url.toExternalForm().substring(0,index);
+          result.add(new URL(url,newUrlString));
+        }
+ else {
+          result.add(url);
+        }
+      }
+    }
+ catch (    IOException e) {
+      if (Reflections.log != null) {
+        Reflections.log.error("error getting resources for " + resourceName,e);
+      }
+    }
+  }
+  return distinctUrls(result);
+}

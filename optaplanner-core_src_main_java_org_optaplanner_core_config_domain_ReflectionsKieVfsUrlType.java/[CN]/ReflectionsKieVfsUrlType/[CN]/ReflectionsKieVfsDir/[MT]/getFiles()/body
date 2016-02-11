@@ -1,0 +1,27 @@
+{
+  List<Vfs.File> vfsFileList=new ArrayList<Vfs.File>();
+  Deque<Resource> resourceDeque=new ArrayDeque<>();
+  Collection<? extends Resource> mainMembers=kieFolder.getMembers();
+  if (mainMembers != null) {
+    resourceDeque.addAll(mainMembers);
+  }
+  while (!resourceDeque.isEmpty()) {
+    Resource resource=resourceDeque.pop();
+    if (resource instanceof File) {
+      File file=(File)resource;
+      if (file.getName().endsWith(".class")) {
+        vfsFileList.add(new ReflectionsKieVfsFile(file));
+      }
+    }
+ else     if (resource instanceof Folder) {
+      Collection<? extends Resource> members=((Folder)resource).getMembers();
+      if (members != null) {
+        resourceDeque.addAll(members);
+      }
+    }
+ else {
+      throw new IllegalStateException("Unsupported resource class (" + resource.getClass() + ") for resource ("+ resource+ ").");
+    }
+  }
+  return vfsFileList;
+}

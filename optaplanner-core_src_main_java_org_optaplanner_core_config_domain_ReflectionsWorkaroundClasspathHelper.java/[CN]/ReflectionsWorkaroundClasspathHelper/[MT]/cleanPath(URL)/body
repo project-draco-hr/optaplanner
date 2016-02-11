@@ -1,0 +1,18 @@
+{
+  String path=url.getPath();
+  try {
+    path=URLDecoder.decode(path,"UTF-8");
+  }
+ catch (  UnsupportedEncodingException e) {
+  }
+  if (path.startsWith("jar:")) {
+    path=path.substring("jar:".length());
+  }
+  if (path.startsWith("file:")) {
+    path=path.substring("file:".length());
+  }
+  if (path.endsWith("!/")) {
+    path=path.substring(0,path.lastIndexOf("!/")) + "/";
+  }
+  return path;
+}

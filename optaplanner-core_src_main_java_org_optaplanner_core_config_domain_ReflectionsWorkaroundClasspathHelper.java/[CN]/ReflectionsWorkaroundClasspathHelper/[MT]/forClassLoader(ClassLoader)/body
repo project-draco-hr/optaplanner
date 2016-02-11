@@ -1,0 +1,16 @@
+{
+  final Collection<URL> result=new ArrayList<URL>();
+  final ClassLoader[] loaders=classLoaders(classLoaders);
+  for (  ClassLoader classLoader : loaders) {
+    while (classLoader != null) {
+      if (classLoader instanceof URLClassLoader) {
+        URL[] urls=((URLClassLoader)classLoader).getURLs();
+        if (urls != null) {
+          result.addAll(Sets.<URL>newHashSet(urls));
+        }
+      }
+      classLoader=classLoader.getParent();
+    }
+  }
+  return distinctUrls(result);
+}

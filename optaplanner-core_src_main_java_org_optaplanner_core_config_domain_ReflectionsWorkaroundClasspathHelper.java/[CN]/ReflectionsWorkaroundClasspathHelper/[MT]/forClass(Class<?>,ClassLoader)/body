@@ -1,0 +1,19 @@
+{
+  final ClassLoader[] loaders=classLoaders(classLoaders);
+  final String resourceName=aClass.getName().replace(".","/") + ".class";
+  for (  ClassLoader classLoader : loaders) {
+    try {
+      final URL url=classLoader.getResource(resourceName);
+      if (url != null) {
+        final String normalizedUrl=url.toExternalForm().substring(0,url.toExternalForm().lastIndexOf(aClass.getPackage().getName().replace(".","/")));
+        return new URL(normalizedUrl);
+      }
+    }
+ catch (    MalformedURLException e) {
+      if (Reflections.log != null) {
+        Reflections.log.warn("Could not get URL",e);
+      }
+    }
+  }
+  return null;
+}

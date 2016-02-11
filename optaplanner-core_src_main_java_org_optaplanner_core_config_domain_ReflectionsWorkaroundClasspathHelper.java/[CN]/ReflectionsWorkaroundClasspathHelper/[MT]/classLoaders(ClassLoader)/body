@@ -1,0 +1,9 @@
+{
+  if (classLoaders != null && classLoaders.length != 0) {
+    return classLoaders;
+  }
+ else {
+    ClassLoader contextClassLoader=contextClassLoader(), staticClassLoader=staticClassLoader();
+    return contextClassLoader != null ? staticClassLoader != null && contextClassLoader != staticClassLoader ? new ClassLoader[]{contextClassLoader,staticClassLoader} : new ClassLoader[]{contextClassLoader} : new ClassLoader[]{};
+  }
+}
