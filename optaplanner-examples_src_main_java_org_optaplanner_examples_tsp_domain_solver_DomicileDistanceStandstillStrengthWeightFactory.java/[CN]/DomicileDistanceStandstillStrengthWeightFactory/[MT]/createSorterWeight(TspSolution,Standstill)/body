@@ -1,0 +1,5 @@
+{
+  Domicile domicile=tspSolution.getDomicile();
+  long domicileRoundTripDistance=domicile.getDistanceTo(standstill) + standstill.getDistanceTo(domicile);
+  return new DomicileDistanceVisitDifficultyWeight(standstill,domicileRoundTripDistance);
+}

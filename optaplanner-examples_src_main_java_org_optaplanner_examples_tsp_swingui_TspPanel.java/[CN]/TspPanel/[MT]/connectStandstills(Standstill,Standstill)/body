@@ -1,8 +1,8 @@
 {
   if (targetStandstill instanceof Domicile) {
-    TravelingSalesmanTour tour=getTravelingSalesmanTour();
-    Standstill lastStandstill=tour.getDomicile();
-    for (Visit nextVisit=findNextVisit(tour,lastStandstill); nextVisit != null; nextVisit=findNextVisit(tour,lastStandstill)) {
+    TspSolution tspSolution=getTspSolution();
+    Standstill lastStandstill=tspSolution.getDomicile();
+    for (Visit nextVisit=findNextVisit(tspSolution,lastStandstill); nextVisit != null; nextVisit=findNextVisit(tspSolution,lastStandstill)) {
       lastStandstill=nextVisit;
     }
     targetStandstill=sourceStandstill;

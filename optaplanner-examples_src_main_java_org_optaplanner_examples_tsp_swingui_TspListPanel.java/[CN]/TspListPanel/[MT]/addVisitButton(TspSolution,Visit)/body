@@ -1,0 +1,16 @@
+{
+  JPanel visitPanel=new JPanel(new GridLayout(1,2));
+  JButton button=new JButton(new VisitAction(visit));
+  visitPanel.add(button);
+  String distanceLabelString;
+  if (visit.getPreviousStandstill() == null) {
+    distanceLabelString="Unassigned";
+  }
+ else {
+    distanceLabelString=visit.getDistanceFromPreviousStandstill() + " " + tspSolution.getDistanceUnitOfMeasurement();
+  }
+  JLabel distanceLabel=new JLabel(distanceLabelString);
+  distanceLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+  visitPanel.add(distanceLabel);
+  add(visitPanel);
+}

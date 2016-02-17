@@ -1,0 +1,3 @@
+{
+  return (TspSolution)solutionBusiness.getSolution();
+}

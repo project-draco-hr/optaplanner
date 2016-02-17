@@ -1,5 +1,5 @@
 {
-  TravelingSalesmanTour travelingSalesmanTour=(TravelingSalesmanTour)solution;
-  tspWorldPanel.updatePanel(travelingSalesmanTour);
-  tspListPanel.updatePanel(travelingSalesmanTour);
+  TspSolution tspSolution=(TspSolution)solution;
+  tspWorldPanel.updatePanel(tspSolution);
+  tspListPanel.updatePanel(tspSolution);
 }

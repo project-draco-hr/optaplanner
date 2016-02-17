@@ -1,1 +1,1 @@
-AbstractIncrementalScoreCalculator<TravelingSalesmanTour>
+AbstractIncrementalScoreCalculator<TspSolution>

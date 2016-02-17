@@ -2,9 +2,9 @@
   this.tspPanel=tspPanel;
   addComponentListener(new ComponentAdapter(){
     @Override public void componentResized(    ComponentEvent e){
-      TravelingSalesmanTour travelingSalesmanTour=TspWorldPanel.this.tspPanel.getTravelingSalesmanTour();
-      if (travelingSalesmanTour != null) {
-        resetPanel(travelingSalesmanTour);
+      TspSolution tspSolution=TspWorldPanel.this.tspPanel.getTspSolution();
+      if (tspSolution != null) {
+        resetPanel(tspSolution);
       }
     }
   }
@@ -16,9 +16,9 @@
         double latitude=translator.translateYToLatitude(e.getY());
         if (e.getButton() == MouseEvent.BUTTON1) {
           dragSourceStandstill=TspWorldPanel.this.tspPanel.findNearestStandstill(new AirLocation(-1L,latitude,longitude));
-          TravelingSalesmanTour tour=TspWorldPanel.this.tspPanel.getTravelingSalesmanTour();
-          dragTargetStandstill=tour.getDomicile();
-          resetPanel(tour);
+          TspSolution tspSolution=TspWorldPanel.this.tspPanel.getTspSolution();
+          dragTargetStandstill=tspSolution.getDomicile();
+          resetPanel(tspSolution);
         }
  else         if (e.getButton() == MouseEvent.BUTTON2 || e.getButton() == MouseEvent.BUTTON3) {
           TspWorldPanel.this.tspPanel.insertLocationAndVisit(longitude,latitude);
@@ -31,11 +31,11 @@
           double longitude=translator.translateXToLongitude(e.getX());
           double latitude=translator.translateYToLatitude(e.getY());
           dragTargetStandstill=TspWorldPanel.this.tspPanel.findNearestStandstill(new AirLocation(-1L,latitude,longitude));
-          TravelingSalesmanTour tour=TspWorldPanel.this.tspPanel.getTravelingSalesmanTour();
+          TspSolution tspSolution=TspWorldPanel.this.tspPanel.getTspSolution();
           if (dragSourceStandstill == dragTargetStandstill) {
-            dragTargetStandstill=tour.getDomicile();
+            dragTargetStandstill=tspSolution.getDomicile();
           }
-          resetPanel(tour);
+          resetPanel(tspSolution);
         }
       }
     }
@@ -45,9 +45,9 @@
           double longitude=translator.translateXToLongitude(e.getX());
           double latitude=translator.translateYToLatitude(e.getY());
           dragTargetStandstill=TspWorldPanel.this.tspPanel.findNearestStandstill(new AirLocation(-1L,latitude,longitude));
-          TravelingSalesmanTour tour=TspWorldPanel.this.tspPanel.getTravelingSalesmanTour();
+          TspSolution tspSolution=TspWorldPanel.this.tspPanel.getTspSolution();
           if (dragSourceStandstill == dragTargetStandstill) {
-            dragTargetStandstill=tour.getDomicile();
+            dragTargetStandstill=tspSolution.getDomicile();
           }
           Standstill sourceStandstill=TspWorldPanel.this.dragSourceStandstill;
           Standstill targetStandstill=TspWorldPanel.this.dragTargetStandstill;

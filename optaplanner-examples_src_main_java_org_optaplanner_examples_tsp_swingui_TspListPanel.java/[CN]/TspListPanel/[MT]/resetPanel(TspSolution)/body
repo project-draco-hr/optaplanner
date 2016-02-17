@@ -1,0 +1,37 @@
+{
+  removeAll();
+  if (tspSolution.getVisitList().size() > 1000) {
+    JLabel tooBigLabel=new JLabel("The dataset is too big to show.");
+    add(tooBigLabel);
+    return;
+  }
+  Domicile domicile=tspSolution.getDomicile();
+  add(new JLabel(domicile.getLocation().toString()));
+  Map<Standstill,Visit> nextVisitMap=new LinkedHashMap<Standstill,Visit>();
+  List<Visit> unassignedVisitList=new ArrayList<Visit>();
+  for (  Visit visit : tspSolution.getVisitList()) {
+    if (visit.getPreviousStandstill() != null) {
+      nextVisitMap.put(visit.getPreviousStandstill(),visit);
+    }
+ else {
+      unassignedVisitList.add(visit);
+    }
+  }
+  Visit lastVisit=null;
+  for (Visit visit=nextVisitMap.get(domicile); visit != null; visit=nextVisitMap.get(visit)) {
+    addVisitButton(tspSolution,visit);
+    lastVisit=visit;
+  }
+  if (lastVisit != null) {
+    JPanel backToDomicilePanel=new JPanel(new GridLayout(1,2));
+    backToDomicilePanel.add(new JLabel("Back to " + domicile.getLocation()));
+    JLabel distanceLabel=new JLabel(lastVisit.getDistanceTo(domicile) + " " + tspSolution.getDistanceUnitOfMeasurement());
+    distanceLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+    backToDomicilePanel.add(distanceLabel);
+    add(backToDomicilePanel);
+  }
+  add(new JLabel("Unassigned"));
+  for (  Visit visit : unassignedVisitList) {
+    addVisitButton(tspSolution,visit);
+  }
+}

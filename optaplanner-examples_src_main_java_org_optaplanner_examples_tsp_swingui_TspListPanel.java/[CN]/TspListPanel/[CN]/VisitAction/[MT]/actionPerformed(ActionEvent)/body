@@ -1,10 +1,10 @@
 {
-  TravelingSalesmanTour travelingSalesmanTour=tspPanel.getTravelingSalesmanTour();
+  TspSolution tspSolution=tspPanel.getTspSolution();
   JComboBox previousStandstillListField=new JComboBox();
-  for (  Standstill previousStandstill : travelingSalesmanTour.getVisitList()) {
+  for (  Standstill previousStandstill : tspSolution.getVisitList()) {
     previousStandstillListField.addItem(previousStandstill);
   }
-  previousStandstillListField.addItem(travelingSalesmanTour.getDomicile());
+  previousStandstillListField.addItem(tspSolution.getDomicile());
   previousStandstillListField.setSelectedItem(visit.getPreviousStandstill());
   int result=JOptionPane.showConfirmDialog(TspListPanel.this.getRootPane(),previousStandstillListField,"Visit " + visit.getLocation() + " after",JOptionPane.OK_CANCEL_OPTION);
   if (result == JOptionPane.OK_OPTION) {

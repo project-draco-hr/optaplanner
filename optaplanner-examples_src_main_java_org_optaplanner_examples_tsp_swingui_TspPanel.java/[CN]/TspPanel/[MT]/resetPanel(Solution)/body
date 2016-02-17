@@ -1,6 +1,6 @@
 {
-  TravelingSalesmanTour travelingSalesmanTour=(TravelingSalesmanTour)solution;
-  tspWorldPanel.resetPanel(travelingSalesmanTour);
-  tspListPanel.resetPanel(travelingSalesmanTour);
+  TspSolution tspSolution=(TspSolution)solution;
+  tspWorldPanel.resetPanel(tspSolution);
+  tspListPanel.resetPanel(tspSolution);
   resetNextLocationId();
 }

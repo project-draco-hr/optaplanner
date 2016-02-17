@@ -1,5 +1,0 @@
-{
-  Domicile domicile=tour.getDomicile();
-  long domicileRoundTripDistance=domicile.getDistanceTo(standstill) + standstill.getDistanceTo(domicile);
-  return new DomicileDistanceVisitDifficultyWeight(standstill,domicileRoundTripDistance);
-}

@@ -1,17 +1,17 @@
 {
-  travelingSalesmanTour=new TravelingSalesmanTour();
-  travelingSalesmanTour.setId(0L);
+  tspSolution=new TspSolution();
+  tspSolution.setId(0L);
   String firstLine=readStringValue();
   if (firstLine.matches("\\s*NAME\\s*:.*")) {
-    travelingSalesmanTour.setName(removePrefixSuffixFromLine(firstLine,"\\s*NAME\\s*:",""));
+    tspSolution.setName(removePrefixSuffixFromLine(firstLine,"\\s*NAME\\s*:",""));
     readTspLibFormat();
   }
  else {
-    travelingSalesmanTour.setName(FilenameUtils.getBaseName(inputFile.getName()));
+    tspSolution.setName(FilenameUtils.getBaseName(inputFile.getName()));
     locationListSize=Integer.parseInt(firstLine.trim());
     readCourseraFormat();
   }
-  BigInteger possibleSolutionSize=factorial(travelingSalesmanTour.getLocationList().size() - 1);
-  logger.info("TravelingSalesmanTour {} has {} locations with a search space of {}.",getInputId(),travelingSalesmanTour.getLocationList().size(),getFlooredPossibleSolutionSize(possibleSolutionSize));
-  return travelingSalesmanTour;
+  BigInteger possibleSolutionSize=factorial(tspSolution.getLocationList().size() - 1);
+  logger.info("TspSolution {} has {} locations with a search space of {}.",getInputId(),tspSolution.getLocationList().size(),getFlooredPossibleSolutionSize(possibleSolutionSize));
+  return tspSolution;
 }

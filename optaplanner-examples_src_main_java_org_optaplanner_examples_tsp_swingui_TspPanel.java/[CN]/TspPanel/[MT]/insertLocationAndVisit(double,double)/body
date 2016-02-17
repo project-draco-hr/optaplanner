@@ -1,6 +1,6 @@
 {
   final Location newLocation;
-switch (getTravelingSalesmanTour().getDistanceType()) {
+switch (getTspSolution().getDistanceType()) {
 case AIR_DISTANCE:
     newLocation=new AirLocation();
   break;
@@ -8,7 +8,7 @@ case ROAD_DISTANCE:
 logger.warn("Adding locations for a road distance dataset is not supported.");
 return;
 default :
-throw new IllegalStateException("The distanceType (" + getTravelingSalesmanTour().getDistanceType() + ") is not implemented.");
+throw new IllegalStateException("The distanceType (" + getTspSolution().getDistanceType() + ") is not implemented.");
 }
 newLocation.setId(nextLocationId);
 nextLocationId++;
@@ -17,15 +17,15 @@ newLocation.setLatitude(latitude);
 logger.info("Scheduling insertion of newLocation ({}).",newLocation);
 doProblemFactChange(new ProblemFactChange(){
 public void doChange(ScoreDirector scoreDirector){
-TravelingSalesmanTour tour=(TravelingSalesmanTour)scoreDirector.getWorkingSolution();
+TspSolution tspSolution=(TspSolution)scoreDirector.getWorkingSolution();
 scoreDirector.beforeProblemFactAdded(newLocation);
-tour.getLocationList().add(newLocation);
+tspSolution.getLocationList().add(newLocation);
 scoreDirector.afterProblemFactAdded(newLocation);
 Visit newVisit=new Visit();
 newVisit.setId(newLocation.getId());
 newVisit.setLocation(newLocation);
 scoreDirector.beforeEntityAdded(newVisit);
-tour.getVisitList().add(newVisit);
+tspSolution.getVisitList().add(newVisit);
 scoreDirector.afterEntityAdded(newVisit);
 scoreDirector.triggerVariableListeners();
 }

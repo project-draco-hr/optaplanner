@@ -3,10 +3,10 @@
   locationListSize=readIntegerValue("DIMENSION *:");
   String edgeWeightType=readStringValue("EDGE_WEIGHT_TYPE *:");
   if (edgeWeightType.equalsIgnoreCase("EUC_2D")) {
-    travelingSalesmanTour.setDistanceType(DistanceType.AIR_DISTANCE);
+    tspSolution.setDistanceType(DistanceType.AIR_DISTANCE);
   }
  else   if (edgeWeightType.equalsIgnoreCase("EXPLICIT")) {
-    travelingSalesmanTour.setDistanceType(DistanceType.ROAD_DISTANCE);
+    tspSolution.setDistanceType(DistanceType.ROAD_DISTANCE);
     String edgeWeightFormat=readStringValue("EDGE_WEIGHT_FORMAT *:");
     if (!edgeWeightFormat.equalsIgnoreCase("FULL_MATRIX")) {
       throw new IllegalArgumentException("The edgeWeightFormat (" + edgeWeightFormat + ") is not supported.");
@@ -15,5 +15,5 @@
  else {
     throw new IllegalArgumentException("The edgeWeightType (" + edgeWeightType + ") is not supported.");
   }
-  travelingSalesmanTour.setDistanceUnitOfMeasurement(readOptionalStringValue("EDGE_WEIGHT_UNIT_OF_MEASUREMENT *:","distance"));
+  tspSolution.setDistanceUnitOfMeasurement(readOptionalStringValue("EDGE_WEIGHT_UNIT_OF_MEASUREMENT *:","distance"));
 }

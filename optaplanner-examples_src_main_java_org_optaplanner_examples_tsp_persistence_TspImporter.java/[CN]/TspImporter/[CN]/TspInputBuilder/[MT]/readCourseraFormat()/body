@@ -11,6 +11,6 @@
     location.setLongitude(Double.parseDouble(lineTokens[1]));
     locationList.add(location);
   }
-  travelingSalesmanTour.setLocationList(locationList);
+  tspSolution.setLocationList(locationList);
   createVisitList();
 }

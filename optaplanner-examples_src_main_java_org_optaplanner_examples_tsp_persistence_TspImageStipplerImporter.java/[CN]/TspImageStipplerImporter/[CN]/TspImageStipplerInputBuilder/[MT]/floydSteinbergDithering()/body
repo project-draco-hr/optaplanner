@@ -1,6 +1,6 @@
 {
-  travelingSalesmanTour.setDistanceType(DistanceType.AIR_DISTANCE);
-  travelingSalesmanTour.setDistanceUnitOfMeasurement("distance");
+  tspSolution.setDistanceType(DistanceType.AIR_DISTANCE);
+  tspSolution.setDistanceUnitOfMeasurement("distance");
   int width=image.getWidth();
   int height=image.getHeight();
   double[][] errorDiffusion=new double[width][height];
@@ -41,5 +41,5 @@
       }
     }
   }
-  travelingSalesmanTour.setLocationList(locationList);
+  tspSolution.setLocationList(locationList);
 }

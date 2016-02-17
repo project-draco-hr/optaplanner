@@ -1,8 +1,8 @@
 {
-  TravelingSalesmanTour tour=getTravelingSalesmanTour();
-  Standstill standstill=tour.getDomicile();
+  TspSolution tspSolution=getTspSolution();
+  Standstill standstill=tspSolution.getDomicile();
   double minimumAirDistance=standstill.getLocation().getAirDistanceDoubleTo(clickLocation);
-  for (  Visit selectedVisit : tour.getVisitList()) {
+  for (  Visit selectedVisit : tspSolution.getVisitList()) {
     double airDistance=selectedVisit.getLocation().getAirDistanceDoubleTo(clickLocation);
     if (airDistance < minimumAirDistance) {
       standstill=selectedVisit;

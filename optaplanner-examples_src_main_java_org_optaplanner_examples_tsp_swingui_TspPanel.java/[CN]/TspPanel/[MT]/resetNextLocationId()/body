@@ -1,6 +1,6 @@
 {
   long highestLocationId=0L;
-  for (  Location location : getTravelingSalesmanTour().getLocationList()) {
+  for (  Location location : getTspSolution().getLocationList()) {
     if (highestLocationId < location.getId().longValue()) {
       highestLocationId=location.getId();
     }

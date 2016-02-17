@@ -1,0 +1,7 @@
+{
+  domicile=tspSolution.getDomicile();
+  score=0L;
+  for (  Visit visit : tspSolution.getVisitList()) {
+    insert(visit);
+  }
+}
