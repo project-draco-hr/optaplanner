@@ -1,6 +1,6 @@
 {
   JPanel listFieldsPanel=new JPanel(new GridLayout(2,1));
-  List<Bed> bedList=getPatientAdmissionSchedule().getBedList();
+  List<Bed> bedList=getSolution().getBedList();
   JComboBox bedListField=new JComboBox(bedList.toArray(new Object[bedList.size() + 1]));
   LabeledComboBoxRenderer.applyToComboBox(bedListField);
   bedListField.setSelectedItem(bedDesignation.getBed());

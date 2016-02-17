@@ -1,0 +1,27 @@
+{
+  maximumComputerCpuPower=0;
+  maximumComputerMemory=0;
+  maximumComputerNetworkBandwidth=0;
+  for (  CloudComputer computer : cloudBalance.getComputerList()) {
+    if (computer.getCpuPower() > maximumComputerCpuPower) {
+      maximumComputerCpuPower=computer.getCpuPower();
+    }
+    if (computer.getMemory() > maximumComputerMemory) {
+      maximumComputerMemory=computer.getMemory();
+    }
+    if (computer.getNetworkBandwidth() > maximumComputerNetworkBandwidth) {
+      maximumComputerNetworkBandwidth=computer.getNetworkBandwidth();
+    }
+  }
+  for (  CloudComputerPanel computerPanel : computerToPanelMap.values()) {
+    if (computerPanel.getComputer() != null) {
+      computersPanel.remove(computerPanel);
+    }
+  }
+  computerToPanelMap.clear();
+  computersPanel.removeAll();
+  unassignedPanel=new CloudComputerPanel(this,null);
+  computersPanel.add(unassignedPanel);
+  computerToPanelMap.put(null,unassignedPanel);
+  updatePanel(cloudBalance);
+}

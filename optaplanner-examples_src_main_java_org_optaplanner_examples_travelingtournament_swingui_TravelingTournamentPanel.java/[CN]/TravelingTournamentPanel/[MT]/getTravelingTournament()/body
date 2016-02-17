@@ -1,3 +1,0 @@
-{
-  return (TravelingTournament)solutionBusiness.getSolution();
-}

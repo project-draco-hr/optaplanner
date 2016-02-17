@@ -1,0 +1,28 @@
+{
+  Set<CloudComputer> deadCloudComputerSet=new LinkedHashSet<CloudComputer>(computerToPanelMap.keySet());
+  deadCloudComputerSet.remove(null);
+  for (  CloudComputer computer : cloudBalance.getComputerList()) {
+    deadCloudComputerSet.remove(computer);
+    CloudComputerPanel computerPanel=computerToPanelMap.get(computer);
+    if (computerPanel == null) {
+      computerPanel=new CloudComputerPanel(this,computer);
+      computersPanel.add(computerPanel);
+      computerToPanelMap.put(computer,computerPanel);
+    }
+    computerPanel.clearProcesses();
+  }
+  unassignedPanel.clearProcesses();
+  for (  CloudProcess process : cloudBalance.getProcessList()) {
+    CloudComputer computer=process.getComputer();
+    CloudComputerPanel computerPanel=computerToPanelMap.get(computer);
+    computerPanel.addProcess(process);
+  }
+  for (  CloudComputer deadComputer : deadCloudComputerSet) {
+    CloudComputerPanel deadComputerPanel=computerToPanelMap.remove(deadComputer);
+    computersPanel.remove(deadComputerPanel);
+  }
+  for (  CloudComputerPanel computerPanel : computerToPanelMap.values()) {
+    computerPanel.update();
+  }
+  computersPanel.validate();
+}

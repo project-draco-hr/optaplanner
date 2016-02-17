@@ -1,7 +1,7 @@
 {
   JPanel listFieldsPanel=new JPanel(new GridLayout(1,2));
   listFieldsPanel.add(new JLabel("Computer:"));
-  List<CloudComputer> computerList=getCloudBalance().getComputerList();
+  List<CloudComputer> computerList=getSolution().getComputerList();
   JComboBox computerListField=new JComboBox(computerList.toArray(new Object[computerList.size() + 1]));
   LabeledComboBoxRenderer.applyToComboBox(computerListField);
   computerListField.setSelectedItem(process.getComputer());

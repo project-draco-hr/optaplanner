@@ -1,5 +1,0 @@
-{
-  TspSolution tspSolution=(TspSolution)solution;
-  tspWorldPanel.updatePanel(tspSolution);
-  tspListPanel.updatePanel(tspSolution);
-}

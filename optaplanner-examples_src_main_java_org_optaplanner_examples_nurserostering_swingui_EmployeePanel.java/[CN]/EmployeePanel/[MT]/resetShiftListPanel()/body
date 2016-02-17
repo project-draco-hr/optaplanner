@@ -17,7 +17,7 @@
       }
     }
     shiftDatePanel.setBackground(backgroundColor);
-    boolean inPlanningWindow=nurseRosteringPanel.getNurseRoster().getNurseRosterParametrization().isInPlanningWindow(shiftDate);
+    boolean inPlanningWindow=nurseRosteringPanel.getSolution().getNurseRosterParametrization().isInPlanningWindow(shiftDate);
     shiftDatePanel.setEnabled(inPlanningWindow);
     shiftDatePanel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(inPlanningWindow ? TangoColorFactory.ALUMINIUM_6 : TangoColorFactory.ALUMINIUM_3),BorderFactory.createEmptyBorder(2,2,2,2)));
     shiftDatePanelMap.put(shiftDate,shiftDatePanel);

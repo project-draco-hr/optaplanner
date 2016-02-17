@@ -1,0 +1,5 @@
+{
+  removeAll();
+  ChartPanel chartPanel=new ChartPanel(createChart(schedule));
+  add(chartPanel,BorderLayout.CENTER);
+}

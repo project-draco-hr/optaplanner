@@ -1,7 +1,7 @@
 {
   JPanel listFieldsPanel=new JPanel(new GridLayout(2,2));
   listFieldsPanel.add(new JLabel("Team:"));
-  List<Team> teamList=getTennisSolution().getTeamList();
+  List<Team> teamList=getSolution().getTeamList();
   JComboBox teamListField=new JComboBox(teamList.toArray(new Object[teamList.size() + 1]));
   LabeledComboBoxRenderer.applyToComboBox(teamListField);
   teamListField.setSelectedItem(teamAssignment.getTeam());

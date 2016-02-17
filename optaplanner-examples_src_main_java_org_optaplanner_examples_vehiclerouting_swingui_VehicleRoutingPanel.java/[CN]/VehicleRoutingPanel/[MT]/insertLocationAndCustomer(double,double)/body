@@ -1,6 +1,6 @@
 {
   final Location newLocation;
-switch (getVehicleRoutingSolution().getDistanceType()) {
+switch (getSolution().getDistanceType()) {
 case AIR_DISTANCE:
     newLocation=new AirLocation();
   break;
@@ -11,7 +11,7 @@ case SEGMENTED_ROAD_DISTANCE:
 logger.warn("Adding locations for a segmented road distance dataset is not supported.");
 return;
 default :
-throw new IllegalStateException("The distanceType (" + getVehicleRoutingSolution().getDistanceType() + ") is not implemented.");
+throw new IllegalStateException("The distanceType (" + getSolution().getDistanceType() + ") is not implemented.");
 }
 newLocation.setId(nextLocationId);
 nextLocationId++;

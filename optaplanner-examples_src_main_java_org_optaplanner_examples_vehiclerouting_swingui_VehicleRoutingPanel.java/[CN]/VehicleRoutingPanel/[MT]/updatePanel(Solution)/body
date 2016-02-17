@@ -1,4 +1,0 @@
-{
-  VehicleRoutingSolution solution=(VehicleRoutingSolution)solutionObject;
-  vehicleRoutingWorldPanel.updatePanel(solution);
-}

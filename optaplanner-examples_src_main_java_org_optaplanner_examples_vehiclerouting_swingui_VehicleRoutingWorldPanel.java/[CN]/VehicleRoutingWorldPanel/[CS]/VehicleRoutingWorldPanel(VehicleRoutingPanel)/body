@@ -3,7 +3,7 @@
   solutionPainter=new VehicleRoutingSolutionPainter();
   addComponentListener(new ComponentAdapter(){
     @Override public void componentResized(    ComponentEvent e){
-      VehicleRoutingSolution solution=VehicleRoutingWorldPanel.this.vehicleRoutingPanel.getVehicleRoutingSolution();
+      VehicleRoutingSolution solution=VehicleRoutingWorldPanel.this.vehicleRoutingPanel.getSolution();
       if (solution != null) {
         resetPanel(solution);
       }

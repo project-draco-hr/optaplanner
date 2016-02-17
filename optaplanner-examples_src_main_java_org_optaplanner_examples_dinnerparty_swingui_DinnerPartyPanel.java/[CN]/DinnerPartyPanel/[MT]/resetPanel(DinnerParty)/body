@@ -1,0 +1,48 @@
+{
+  removeAll();
+  TangoColorFactory tangoColorFactory=new TangoColorFactory();
+  gridLayout.setColumns((int)Math.ceil(Math.sqrt(dinnerParty.getTableList().size())));
+  Map<Seat,SeatPanel> seatPanelMap=new HashMap<Seat,SeatPanel>(dinnerParty.getSeatList().size());
+  SeatPanel unassignedPanel=new SeatPanel(null);
+  seatPanelMap.put(null,unassignedPanel);
+  for (  Table table : dinnerParty.getTableList()) {
+    int edgeLength=(int)Math.ceil(((double)(table.getSeatList().size() + 4)) / 4.0);
+    JPanel tablePanel=new JPanel(new GridLayout(0,edgeLength));
+    tablePanel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(5,5,5,5),BorderFactory.createTitledBorder("Table " + table.getTableIndex())));
+    add(tablePanel);
+    for (int y=0; y < edgeLength; y++) {
+      for (int x=0; x < edgeLength; x++) {
+        int index;
+        if (y == 0) {
+          index=x;
+        }
+ else         if (x == (edgeLength - 1)) {
+          index=(edgeLength - 1) + y;
+        }
+ else         if (y == (edgeLength - 1)) {
+          index=2 * (edgeLength - 1) + (edgeLength - 1 - x);
+        }
+ else         if (x == 0) {
+          index=3 * (edgeLength - 1) + (edgeLength - 1 - y);
+        }
+ else {
+          index=Integer.MAX_VALUE;
+        }
+        if (index < table.getSeatList().size()) {
+          Seat seat=table.getSeatList().get(index);
+          SeatPanel seatPanel=new SeatPanel(seat);
+          tablePanel.add(seatPanel);
+          seatPanelMap.put(seat,seatPanel);
+        }
+ else {
+          tablePanel.add(new JPanel());
+        }
+      }
+    }
+  }
+  for (  SeatDesignation seatDesignation : dinnerParty.getSeatDesignationList()) {
+    SeatPanel seatPanel=seatPanelMap.get(seatDesignation.getSeat());
+    seatPanel.setBackground(tangoColorFactory.pickColor(seatDesignation.getGuestJobType()));
+    seatPanel.setSeatDesignation(seatDesignation);
+  }
+}

@@ -1,5 +1,5 @@
 {
-  List<SeatDesignation> seatDesignationList=getDinnerParty().getSeatDesignationList();
+  List<SeatDesignation> seatDesignationList=getSolution().getSeatDesignationList();
   JComboBox seatDesignationListField=new JComboBox(seatDesignationList.toArray(new Object[seatDesignationList.size() + 1]));
   LabeledComboBoxRenderer.applyToComboBox(seatDesignationListField);
   seatDesignationListField.setSelectedItem(seatDesignation);

@@ -1,4 +1,0 @@
-{
-  CoachShuttleGatheringSolution solution=(CoachShuttleGatheringSolution)s;
-  coachShuttleGatheringWorldPanel.updatePanel(solution);
-}

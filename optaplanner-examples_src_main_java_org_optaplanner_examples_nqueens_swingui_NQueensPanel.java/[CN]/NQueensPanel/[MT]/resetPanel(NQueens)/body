@@ -1,0 +1,37 @@
+{
+  removeAll();
+  repaint();
+  int n=nQueens.getN();
+  if (n > 100) {
+    JLabel tooBigToShowLabel=new JLabel("The dataset is too big to show.");
+    tooBigToShowLabel.setForeground(Color.WHITE);
+    add(tooBigToShowLabel);
+    return;
+  }
+  List<Queen> queenList=nQueens.getQueenList();
+  setLayout(new GridLayout(n,n));
+  for (int row=0; row < n; row++) {
+    for (int column=0; column < n; column++) {
+      Queen queen=queenList.get(column);
+      if (queen.getColumn().getIndex() != column) {
+        throw new IllegalStateException("The queenList is not in the expected order.");
+      }
+      String toolTipText="<html>Row " + row + "<br/>Column "+ column+ "</html>";
+      if (queen.getRow() != null && queen.getRow().getIndex() == row) {
+        JButton button=new JButton(new QueenAction(queen));
+        button.setMinimumSize(new Dimension(20,20));
+        button.setPreferredSize(new Dimension(20,20));
+        button.setToolTipText(toolTipText);
+        add(button);
+      }
+ else {
+        JPanel panel=new JPanel();
+        panel.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createLineBorder(TangoColorFactory.ALUMINIUM_6),BorderFactory.createEmptyBorder(5,5,5,5)));
+        Color background=(((row + column) % 2) == 0) ? Color.WHITE : TangoColorFactory.ALUMINIUM_3;
+        panel.setBackground(background);
+        panel.setToolTipText(toolTipText);
+        add(panel);
+      }
+    }
+  }
+}

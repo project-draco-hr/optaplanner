@@ -1,5 +1,5 @@
 {
-  List<Employee> employeeList=nurseRosteringPanel.getNurseRoster().getEmployeeList();
+  List<Employee> employeeList=nurseRosteringPanel.getSolution().getEmployeeList();
   JComboBox employeeListField=new JComboBox(employeeList.toArray(new Object[employeeList.size() + 1]));
   LabeledComboBoxRenderer.applyToComboBox(employeeListField);
   employeeListField.setSelectedItem(shiftAssignment.getEmployee());

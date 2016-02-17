@@ -2,7 +2,7 @@
   this.tspPanel=tspPanel;
   addComponentListener(new ComponentAdapter(){
     @Override public void componentResized(    ComponentEvent e){
-      TspSolution tspSolution=TspWorldPanel.this.tspPanel.getTspSolution();
+      TspSolution tspSolution=TspWorldPanel.this.tspPanel.getSolution();
       if (tspSolution != null) {
         resetPanel(tspSolution);
       }
@@ -16,7 +16,7 @@
         double latitude=translator.translateYToLatitude(e.getY());
         if (e.getButton() == MouseEvent.BUTTON1) {
           dragSourceStandstill=TspWorldPanel.this.tspPanel.findNearestStandstill(new AirLocation(-1L,latitude,longitude));
-          TspSolution tspSolution=TspWorldPanel.this.tspPanel.getTspSolution();
+          TspSolution tspSolution=TspWorldPanel.this.tspPanel.getSolution();
           dragTargetStandstill=tspSolution.getDomicile();
           resetPanel(tspSolution);
         }
@@ -31,7 +31,7 @@
           double longitude=translator.translateXToLongitude(e.getX());
           double latitude=translator.translateYToLatitude(e.getY());
           dragTargetStandstill=TspWorldPanel.this.tspPanel.findNearestStandstill(new AirLocation(-1L,latitude,longitude));
-          TspSolution tspSolution=TspWorldPanel.this.tspPanel.getTspSolution();
+          TspSolution tspSolution=TspWorldPanel.this.tspPanel.getSolution();
           if (dragSourceStandstill == dragTargetStandstill) {
             dragTargetStandstill=tspSolution.getDomicile();
           }
@@ -45,7 +45,7 @@
           double longitude=translator.translateXToLongitude(e.getX());
           double latitude=translator.translateYToLatitude(e.getY());
           dragTargetStandstill=TspWorldPanel.this.tspPanel.findNearestStandstill(new AirLocation(-1L,latitude,longitude));
-          TspSolution tspSolution=TspWorldPanel.this.tspPanel.getTspSolution();
+          TspSolution tspSolution=TspWorldPanel.this.tspPanel.getSolution();
           if (dragSourceStandstill == dragTargetStandstill) {
             dragTargetStandstill=tspSolution.getDomicile();
           }

@@ -1,5 +1,5 @@
 {
-  Solution solution=solutionBusiness.getSolution();
+  Solution_ solution=solutionBusiness.getSolution();
   if (refreshScreenDuringSolvingCheckBox.isSelected()) {
     solutionPanel.updatePanel(solution);
     validate();

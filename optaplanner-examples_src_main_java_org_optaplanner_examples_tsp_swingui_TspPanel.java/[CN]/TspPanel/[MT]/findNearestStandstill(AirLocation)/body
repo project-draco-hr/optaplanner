@@ -1,5 +1,5 @@
 {
-  TspSolution tspSolution=getTspSolution();
+  TspSolution tspSolution=getSolution();
   Standstill standstill=tspSolution.getDomicile();
   double minimumAirDistance=standstill.getLocation().getAirDistanceDoubleTo(clickLocation);
   for (  Visit selectedVisit : tspSolution.getVisitList()) {

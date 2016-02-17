@@ -1,8 +1,0 @@
-{
-  timeTablePanel.reset();
-  equipmentTangoColorFactory=new TangoColorFactory();
-  PatientAdmissionSchedule patientAdmissionSchedule=(PatientAdmissionSchedule)solution;
-  defineGrid(patientAdmissionSchedule);
-  fillCells(patientAdmissionSchedule);
-  repaint();
-}

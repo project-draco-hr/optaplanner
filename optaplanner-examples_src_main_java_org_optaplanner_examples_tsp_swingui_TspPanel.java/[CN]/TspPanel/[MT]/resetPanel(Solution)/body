@@ -1,6 +1,0 @@
-{
-  TspSolution tspSolution=(TspSolution)solution;
-  tspWorldPanel.resetPanel(tspSolution);
-  tspListPanel.resetPanel(tspSolution);
-  resetNextLocationId();
-}

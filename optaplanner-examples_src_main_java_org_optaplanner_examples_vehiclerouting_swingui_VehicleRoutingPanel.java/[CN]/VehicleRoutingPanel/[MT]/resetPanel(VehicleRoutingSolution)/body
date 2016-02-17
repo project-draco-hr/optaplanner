@@ -1,0 +1,4 @@
+{
+  vehicleRoutingWorldPanel.resetPanel(solution);
+  resetNextLocationId();
+}

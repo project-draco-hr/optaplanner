@@ -1,0 +1,41 @@
+{
+  List<MrResource> resourceList=machineReassignment.getResourceList();
+  unassignedPanel.setResourceList(resourceList);
+  if (machineReassignment.getMachineList().size() > 1000) {
+    if (tooBigLabel == null) {
+      tooBigLabel=new JLabel("The dataset is too big to show.");
+      machineListPanel.add(tooBigLabel);
+    }
+  }
+ else {
+    if (tooBigLabel != null) {
+      machineListPanel.remove(tooBigLabel);
+      tooBigLabel=null;
+    }
+    Set<MrMachine> deadMachineSet=new LinkedHashSet<MrMachine>(machineToPanelMap.keySet());
+    deadMachineSet.remove(null);
+    for (    MrMachine machine : machineReassignment.getMachineList()) {
+      deadMachineSet.remove(machine);
+      MrMachinePanel machinePanel=machineToPanelMap.get(machine);
+      if (machinePanel == null) {
+        machinePanel=new MrMachinePanel(this,resourceList,machine);
+        machineListPanel.add(machinePanel);
+        machineToPanelMap.put(machine,machinePanel);
+      }
+      machinePanel.clearProcessAssignments();
+    }
+    unassignedPanel.clearProcessAssignments();
+    for (    MrProcessAssignment processAssignment : machineReassignment.getProcessAssignmentList()) {
+      MrMachine machine=processAssignment.getMachine();
+      MrMachinePanel machinePanel=machineToPanelMap.get(machine);
+      machinePanel.addProcessAssignment(processAssignment);
+    }
+    for (    MrMachine deadMachine : deadMachineSet) {
+      MrMachinePanel deadMachinePanel=machineToPanelMap.remove(deadMachine);
+      machineListPanel.remove(deadMachinePanel);
+    }
+    for (    MrMachinePanel machinePanel : machineToPanelMap.values()) {
+      machinePanel.update();
+    }
+  }
+}

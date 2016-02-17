@@ -1,0 +1,7 @@
+{
+  teamsPanel.reset();
+  tangoColorFactory=new TangoColorFactory();
+  defineGrid(travelingTournament);
+  fillCells(travelingTournament);
+  repaint();
+}

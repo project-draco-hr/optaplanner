@@ -1,6 +1,6 @@
 {
   final Location newLocation;
-switch (getTspSolution().getDistanceType()) {
+switch (getSolution().getDistanceType()) {
 case AIR_DISTANCE:
     newLocation=new AirLocation();
   break;
@@ -8,7 +8,7 @@ case ROAD_DISTANCE:
 logger.warn("Adding locations for a road distance dataset is not supported.");
 return;
 default :
-throw new IllegalStateException("The distanceType (" + getTspSolution().getDistanceType() + ") is not implemented.");
+throw new IllegalStateException("The distanceType (" + getSolution().getDistanceType() + ") is not implemented.");
 }
 newLocation.setId(nextLocationId);
 nextLocationId++;

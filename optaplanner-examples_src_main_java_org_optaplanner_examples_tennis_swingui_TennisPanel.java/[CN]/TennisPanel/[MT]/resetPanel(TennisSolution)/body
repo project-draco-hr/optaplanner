@@ -1,0 +1,7 @@
+{
+  datesPanel.reset();
+  confrontationsPanel.reset();
+  defineGrid(tennisSolution);
+  fillCells(tennisSolution);
+  repaint();
+}

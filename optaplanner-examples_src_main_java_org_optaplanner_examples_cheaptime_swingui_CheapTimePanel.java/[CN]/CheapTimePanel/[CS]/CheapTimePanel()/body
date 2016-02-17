@@ -4,7 +4,7 @@
   groupByMachineCheckBox.setHorizontalAlignment(SwingConstants.RIGHT);
   groupByMachineCheckBox.addActionListener(new ActionListener(){
     @Override public void actionPerformed(    ActionEvent e){
-      updatePanel(solutionBusiness.getSolution());
+      updatePanel(getSolution());
       validate();
     }
   }

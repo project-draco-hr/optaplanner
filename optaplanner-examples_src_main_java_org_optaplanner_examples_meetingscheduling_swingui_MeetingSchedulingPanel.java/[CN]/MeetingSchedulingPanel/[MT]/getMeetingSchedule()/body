@@ -1,3 +1,0 @@
-{
-  return (MeetingSchedule)solutionBusiness.getSolution();
-}

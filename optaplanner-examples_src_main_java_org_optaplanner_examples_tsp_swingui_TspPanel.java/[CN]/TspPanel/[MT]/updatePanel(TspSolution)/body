@@ -1,0 +1,4 @@
+{
+  tspWorldPanel.updatePanel(tspSolution);
+  tspListPanel.updatePanel(tspSolution);
+}

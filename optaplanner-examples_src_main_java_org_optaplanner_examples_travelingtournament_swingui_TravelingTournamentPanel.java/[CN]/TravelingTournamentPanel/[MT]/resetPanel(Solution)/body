@@ -1,8 +1,0 @@
-{
-  teamsPanel.reset();
-  TravelingTournament travelingTournament=(TravelingTournament)solution;
-  tangoColorFactory=new TangoColorFactory();
-  defineGrid(travelingTournament);
-  fillCells(travelingTournament);
-  repaint();
-}

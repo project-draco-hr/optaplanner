@@ -2,7 +2,7 @@
   this.coachShuttleGatheringPanel=coachShuttleGatheringPanel;
   addComponentListener(new ComponentAdapter(){
     @Override public void componentResized(    ComponentEvent e){
-      CoachShuttleGatheringSolution solution=CoachShuttleGatheringWorldPanel.this.coachShuttleGatheringPanel.getCoachShuttleGatheringSolution();
+      CoachShuttleGatheringSolution solution=CoachShuttleGatheringWorldPanel.this.coachShuttleGatheringPanel.getSolution();
       if (solution != null) {
         resetPanel(solution);
       }

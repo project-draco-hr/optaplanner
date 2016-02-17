@@ -1,3 +1,0 @@
-{
-  return (NQueens)solutionBusiness.getSolution();
-}

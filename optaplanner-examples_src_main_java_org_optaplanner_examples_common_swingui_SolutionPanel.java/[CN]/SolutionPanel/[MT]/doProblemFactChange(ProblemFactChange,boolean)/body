@@ -1,6 +1,6 @@
 {
   solutionBusiness.doProblemFactChange(problemFactChange);
-  Solution solution=solutionBusiness.getSolution();
+  Solution_ solution=getSolution();
   if (reset) {
     resetPanel(solution);
   }

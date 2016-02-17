@@ -1,5 +1,5 @@
 {
-  List<Day> dayList=getTravelingTournament().getDayList();
+  List<Day> dayList=getSolution().getDayList();
   JComboBox dayListField=new JComboBox(dayList.toArray(new Object[dayList.size() + 1]));
   LabeledComboBoxRenderer.applyToComboBox(dayListField);
   dayListField.setSelectedItem(match.getDay());

@@ -1,0 +1,7 @@
+{
+  roomsPanel.reset();
+  personsPanel.reset();
+  defineGrid(meetingSchedule);
+  fillCells(meetingSchedule);
+  repaint();
+}

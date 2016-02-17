@@ -1,3 +1,0 @@
-{
-  return (DinnerParty)solutionBusiness.getSolution();
-}

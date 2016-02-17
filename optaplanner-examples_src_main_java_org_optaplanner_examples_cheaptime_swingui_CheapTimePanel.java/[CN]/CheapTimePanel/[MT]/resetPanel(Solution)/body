@@ -1,6 +1,0 @@
-{
-  removeAll();
-  add(groupByMachineCheckBox,BorderLayout.NORTH);
-  ChartPanel chartPanel=new ChartPanel(createChart((CheapTimeSolution)solution));
-  add(chartPanel,BorderLayout.CENTER);
-}

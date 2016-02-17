@@ -1,5 +1,0 @@
-{
-  VehicleRoutingSolution solution=(VehicleRoutingSolution)solutionObject;
-  vehicleRoutingWorldPanel.resetPanel(solution);
-  resetNextLocationId();
-}

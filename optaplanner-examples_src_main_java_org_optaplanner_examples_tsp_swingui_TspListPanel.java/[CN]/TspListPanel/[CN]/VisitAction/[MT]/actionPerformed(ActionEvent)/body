@@ -1,5 +1,5 @@
 {
-  TspSolution tspSolution=tspPanel.getTspSolution();
+  TspSolution tspSolution=tspPanel.getSolution();
   JComboBox previousStandstillListField=new JComboBox();
   for (  Standstill previousStandstill : tspSolution.getVisitList()) {
     previousStandstillListField.addItem(previousStandstill);

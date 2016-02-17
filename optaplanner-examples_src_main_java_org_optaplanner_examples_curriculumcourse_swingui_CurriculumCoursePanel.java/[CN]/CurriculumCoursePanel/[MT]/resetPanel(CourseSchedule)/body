@@ -1,0 +1,8 @@
+{
+  roomsPanel.reset();
+  teachersPanel.reset();
+  curriculaPanel.reset();
+  defineGrid(courseSchedule);
+  fillCells(courseSchedule);
+  repaint();
+}

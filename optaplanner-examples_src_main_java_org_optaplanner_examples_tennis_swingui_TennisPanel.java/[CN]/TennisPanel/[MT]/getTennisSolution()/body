@@ -1,3 +1,0 @@
-{
-  return (TennisSolution)solutionBusiness.getSolution();
-}

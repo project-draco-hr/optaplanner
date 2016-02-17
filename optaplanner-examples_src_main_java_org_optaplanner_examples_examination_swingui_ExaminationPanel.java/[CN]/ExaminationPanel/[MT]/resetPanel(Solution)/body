@@ -1,9 +1,0 @@
-{
-  roomsPanel.reset();
-  Examination examination=(Examination)solution;
-  refreshMaximums(examination);
-  defineGrid(examination);
-  fillCells(examination);
-  institutionParametrizationEditAction.setEnabled(true);
-  repaint();
-}

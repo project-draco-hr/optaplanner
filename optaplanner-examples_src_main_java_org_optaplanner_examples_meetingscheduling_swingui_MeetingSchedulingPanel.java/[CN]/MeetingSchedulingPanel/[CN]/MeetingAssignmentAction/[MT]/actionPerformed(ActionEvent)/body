@@ -1,2 +1,3 @@
 {
+  JOptionPane.showMessageDialog(MeetingSchedulingPanel.this.getTopLevelAncestor(),"The GUI does not support this action yet.","Unsupported in GUI",JOptionPane.ERROR_MESSAGE);
 }

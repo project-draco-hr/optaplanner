@@ -1,5 +1,5 @@
 {
-  List<MrMachine> machineList=getMachineReassignment().getMachineList();
+  List<MrMachine> machineList=getSolution().getMachineList();
   JComboBox machineListField=new JComboBox(machineList.toArray(new Object[machineList.size() + 1]));
   LabeledComboBoxRenderer.applyToComboBox(machineListField);
   machineListField.setSelectedItem(processAssignment.getMachine());

@@ -1,0 +1,3 @@
+{
+  vehicleRoutingWorldPanel.updatePanel(solution);
+}

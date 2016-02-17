@@ -1,6 +1,6 @@
 {
   if (targetStandstill instanceof Domicile) {
-    TspSolution tspSolution=getTspSolution();
+    TspSolution tspSolution=getSolution();
     Standstill lastStandstill=tspSolution.getDomicile();
     for (Visit nextVisit=findNextVisit(tspSolution,lastStandstill); nextVisit != null; nextVisit=findNextVisit(tspSolution,lastStandstill)) {
       lastStandstill=nextVisit;
