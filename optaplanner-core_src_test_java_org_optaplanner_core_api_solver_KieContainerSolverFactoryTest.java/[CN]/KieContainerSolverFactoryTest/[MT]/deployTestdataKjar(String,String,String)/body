@@ -1,0 +1,11 @@
+{
+  ReleaseId releaseId=kieServices.newReleaseId("org.optaplanner.core.test",artifactid,"1.0.0");
+  String kmodule=readResourceToString(kmodulePath);
+  Resource valueClass=buildResource("org/optaplanner/core/impl/testdata/domain/classloaded/ClassloadedTestdataValue.java","testdata/kjar/ClassloadedTestdataValue.java");
+  Resource entityClass=buildResource("org/optaplanner/core/impl/testdata/domain/classloaded/ClassloadedTestdataEntity.java","testdata/kjar/ClassloadedTestdataEntity.java");
+  Resource solutionClass=buildResource("org/optaplanner/core/impl/testdata/domain/classloaded/ClassloadedTestdataSolution.java","testdata/kjar/ClassloadedTestdataSolution.java");
+  Resource scoreRules=buildResource("org/optaplanner/core/api/solver/kieContainerTestdataScoreRules.drl","testdata/kjar/scoreRules.drl");
+  Resource solverConfig=buildResource(solverConfigPath,"testdata/kjar/solverConfig.solver");
+  createAndDeployJar(kieServices,kmodule,releaseId,valueClass,entityClass,solutionClass,scoreRules,solverConfig);
+  return releaseId;
+}

@@ -1,0 +1,6 @@
+{
+  ReleaseId releaseId=deployTestdataKjar("buildSolverWithDefaultKsessionKmodule","org/optaplanner/core/api/solver/kieContainerDefaultKsessionKmodule.xml","org/optaplanner/core/api/solver/kieContainerDefaultKsessionTestdataSolverConfig.xml");
+  SolverFactory<TestdataSolution> solverFactory=SolverFactory.createFromKieContainerXmlResource(releaseId,"testdata/kjar/solverConfig.solver");
+  Solver<TestdataSolution> solver=solverFactory.buildSolver();
+  assertNotNull(solver);
+}

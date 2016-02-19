@@ -1,6 +1,7 @@
 {
+  ReleaseId releaseId=deployTestdataKjar("buildSolverWithKieContainer","org/optaplanner/core/api/solver/kieContainerNamedKsessionKmodule.xml","org/optaplanner/core/api/solver/kieContainerNamedKsessionTestdataSolverConfig.xml");
   KieContainer kieContainer=kieServices.newKieContainer(releaseId);
-  SolverFactory<TestdataSolution> solverFactory=SolverFactory.createFromKieContainerXmlResource(kieContainer,"testdata/kjar/kieContainerTestdataSolverConfig.solver");
+  SolverFactory<TestdataSolution> solverFactory=SolverFactory.createFromKieContainerXmlResource(kieContainer,"testdata/kjar/solverConfig.solver");
   Solver<TestdataSolution> solver=solverFactory.buildSolver();
   assertNotNull(solver);
 }
