@@ -1,3 +1,7 @@
 {
+  if (Thread.currentThread().isInterrupted()) {
+    logger.info("The solver thread got interrupted, so this solver is terminating early.");
+    terminatedEarly=true;
+  }
   return terminatedEarly || !problemFactChangeQueue.isEmpty();
 }
