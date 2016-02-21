@@ -1,0 +1,5 @@
+{
+  hardScore=Integer.MIN_VALUE;
+  mediumScore=Integer.MIN_VALUE;
+  softScore=Integer.MIN_VALUE;
+}

@@ -1,0 +1,4 @@
+{
+  hardScore=Long.MIN_VALUE;
+  softScore=Long.MIN_VALUE;
+}
