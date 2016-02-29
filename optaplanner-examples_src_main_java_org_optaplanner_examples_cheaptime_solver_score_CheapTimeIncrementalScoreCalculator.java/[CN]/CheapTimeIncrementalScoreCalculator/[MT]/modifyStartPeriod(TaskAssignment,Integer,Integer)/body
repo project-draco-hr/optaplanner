@@ -1,5 +1,5 @@
 {
-  if (ObjectUtils.equals(oldStartPeriod,newStartPeriod)) {
+  if (Objects.equals(oldStartPeriod,newStartPeriod)) {
     return;
   }
   Task task=taskAssignment.getTask();

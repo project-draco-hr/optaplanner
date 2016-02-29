@@ -4,7 +4,7 @@
     int endDate=predecessorAllocation.getEndDate();
     doneDate=Math.max(doneDate,endDate);
   }
-  if (ObjectUtils.equals(doneDate,allocation.getPredecessorsDoneDate())) {
+  if (Objects.equals(doneDate,allocation.getPredecessorsDoneDate())) {
     return false;
   }
   scoreDirector.beforeVariableChanged(allocation,"predecessorsDoneDate");

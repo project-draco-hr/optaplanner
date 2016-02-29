@@ -3,7 +3,7 @@
     GenuineVariableDescriptor variableDescriptor=variableDescriptorList.get(i);
     Object oldLeftValue=variableDescriptor.getValue(leftEntity);
     Object oldRightValue=variableDescriptor.getValue(rightEntity);
-    if (!ObjectUtils.equals(oldLeftValue,oldRightValue)) {
+    if (!Objects.equals(oldLeftValue,oldRightValue)) {
       if (!variableDescriptor.isChained()) {
         scoreDirector.changeVariableFacade(variableDescriptor,leftEntity,oldRightValue);
         scoreDirector.changeVariableFacade(variableDescriptor,rightEntity,oldLeftValue);

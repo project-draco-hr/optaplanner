@@ -22,7 +22,7 @@
       }
  else {
         newResult=fileToNewResultMap.get(oldResult.inputSolutionFile);
-        if (!ObjectUtils.equals(oldResult.name,newResult.name)) {
+        if (!Objects.equals(oldResult.name,newResult.name)) {
           throw new IllegalStateException("The oldResult (" + oldResult + ") and newResult ("+ newResult+ ") should have the same name, because they have the same inputSolutionFile ("+ oldResult.inputSolutionFile+ ").");
         }
         for (Iterator<ProblemStatistic> it=newResult.problemStatisticList.iterator(); it.hasNext(); ) {

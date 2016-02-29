@@ -2,7 +2,7 @@
   for (  GenuineVariableDescriptor variableDescriptor : variableDescriptors) {
     Object oldLeftValue=variableDescriptor.getValue(leftPillar.get(0));
     Object oldRightValue=variableDescriptor.getValue(rightPillar.get(0));
-    if (!ObjectUtils.equals(oldLeftValue,oldRightValue)) {
+    if (!Objects.equals(oldLeftValue,oldRightValue)) {
       for (      Object leftEntity : leftPillar) {
         scoreDirector.beforeVariableChanged(variableDescriptor,leftEntity);
         variableDescriptor.setValue(leftEntity,oldRightValue);

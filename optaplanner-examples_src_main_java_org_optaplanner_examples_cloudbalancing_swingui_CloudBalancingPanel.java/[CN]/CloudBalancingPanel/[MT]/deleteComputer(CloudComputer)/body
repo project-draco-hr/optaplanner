@@ -4,7 +4,7 @@
     public void doChange(    ScoreDirector scoreDirector){
       CloudBalance cloudBalance=(CloudBalance)scoreDirector.getWorkingSolution();
       for (      CloudProcess process : cloudBalance.getProcessList()) {
-        if (ObjectUtils.equals(process.getComputer(),computer)) {
+        if (Objects.equals(process.getComputer(),computer)) {
           scoreDirector.beforeVariableChanged(process,"computer");
           process.setComputer(null);
           scoreDirector.afterVariableChanged(process,"computer");
@@ -14,7 +14,7 @@
       cloudBalance.setComputerList(new ArrayList<CloudComputer>(cloudBalance.getComputerList()));
       for (Iterator<CloudComputer> it=cloudBalance.getComputerList().iterator(); it.hasNext(); ) {
         CloudComputer workingComputer=it.next();
-        if (ObjectUtils.equals(workingComputer,computer)) {
+        if (Objects.equals(workingComputer,computer)) {
           scoreDirector.beforeProblemFactRemoved(workingComputer);
           it.remove();
           scoreDirector.afterProblemFactRemoved(workingComputer);

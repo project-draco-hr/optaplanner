@@ -1,6 +1,6 @@
 {
   Object oldValue=variableDescriptor.getValue(pillar.get(0));
-  if (ObjectUtils.equals(oldValue,toPlanningValue)) {
+  if (Objects.equals(oldValue,toPlanningValue)) {
     return false;
   }
   if (!variableDescriptor.isValueRangeEntityIndependent()) {

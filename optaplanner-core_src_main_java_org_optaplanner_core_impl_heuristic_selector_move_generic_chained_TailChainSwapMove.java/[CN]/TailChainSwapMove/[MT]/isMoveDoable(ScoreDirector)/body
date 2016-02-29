@@ -1,7 +1,7 @@
 {
   Object leftValue=variableDescriptor.getValue(leftEntity);
   Object rightEntity=inverseVariableSupply.getInverseSingleton(rightValue);
-  if (ObjectUtils.equals(leftValue,rightValue) || ObjectUtils.equals(leftEntity,rightValue) || ObjectUtils.equals(rightEntity,leftValue)) {
+  if (Objects.equals(leftValue,rightValue) || Objects.equals(leftEntity,rightValue) || Objects.equals(rightEntity,leftValue)) {
     return false;
   }
   if (rightEntity == null) {

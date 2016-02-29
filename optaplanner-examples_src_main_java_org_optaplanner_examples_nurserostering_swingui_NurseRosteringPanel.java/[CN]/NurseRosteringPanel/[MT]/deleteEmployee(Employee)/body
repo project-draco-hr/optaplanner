@@ -4,7 +4,7 @@
     public void doChange(    ScoreDirector scoreDirector){
       NurseRoster nurseRoster=(NurseRoster)scoreDirector.getWorkingSolution();
       for (      ShiftAssignment shiftAssignment : nurseRoster.getShiftAssignmentList()) {
-        if (ObjectUtils.equals(shiftAssignment.getEmployee(),employee)) {
+        if (Objects.equals(shiftAssignment.getEmployee(),employee)) {
           scoreDirector.beforeVariableChanged(shiftAssignment,"employee");
           shiftAssignment.setEmployee(null);
           scoreDirector.afterVariableChanged(shiftAssignment,"employee");
@@ -14,7 +14,7 @@
       nurseRoster.setEmployeeList(new ArrayList<Employee>(nurseRoster.getEmployeeList()));
       for (Iterator<Employee> it=nurseRoster.getEmployeeList().iterator(); it.hasNext(); ) {
         Employee workingEmployee=it.next();
-        if (ObjectUtils.equals(workingEmployee,employee)) {
+        if (Objects.equals(workingEmployee,employee)) {
           scoreDirector.beforeProblemFactRemoved(workingEmployee);
           it.remove();
           scoreDirector.afterProblemFactRemoved(employee);

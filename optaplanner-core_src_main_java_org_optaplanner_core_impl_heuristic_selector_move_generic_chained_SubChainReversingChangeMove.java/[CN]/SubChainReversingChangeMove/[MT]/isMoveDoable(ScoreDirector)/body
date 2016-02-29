@@ -3,5 +3,5 @@
     return false;
   }
   Object oldFirstValue=variableDescriptor.getValue(subChain.getFirstEntity());
-  return !ObjectUtils.equals(oldFirstValue,toPlanningValue);
+  return !Objects.equals(oldFirstValue,toPlanningValue);
 }

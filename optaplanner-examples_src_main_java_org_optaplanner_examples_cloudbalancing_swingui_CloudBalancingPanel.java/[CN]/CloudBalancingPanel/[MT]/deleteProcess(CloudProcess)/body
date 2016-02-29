@@ -5,7 +5,7 @@
       CloudBalance cloudBalance=(CloudBalance)scoreDirector.getWorkingSolution();
       for (Iterator<CloudProcess> it=cloudBalance.getProcessList().iterator(); it.hasNext(); ) {
         CloudProcess workingProcess=it.next();
-        if (ObjectUtils.equals(workingProcess,process)) {
+        if (Objects.equals(workingProcess,process)) {
           scoreDirector.beforeEntityRemoved(workingProcess);
           it.remove();
           scoreDirector.afterEntityRemoved(workingProcess);

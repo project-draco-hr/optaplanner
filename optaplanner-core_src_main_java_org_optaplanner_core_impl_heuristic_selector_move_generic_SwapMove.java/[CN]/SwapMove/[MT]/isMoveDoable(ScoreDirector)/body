@@ -3,7 +3,7 @@
   for (  GenuineVariableDescriptor variableDescriptor : variableDescriptorList) {
     Object leftValue=variableDescriptor.getValue(leftEntity);
     Object rightValue=variableDescriptor.getValue(rightEntity);
-    if (!ObjectUtils.equals(leftValue,rightValue)) {
+    if (!Objects.equals(leftValue,rightValue)) {
       movable=true;
       if (!variableDescriptor.isValueRangeEntityIndependent()) {
         ValueRangeDescriptor valueRangeDescriptor=variableDescriptor.getValueRangeDescriptor();

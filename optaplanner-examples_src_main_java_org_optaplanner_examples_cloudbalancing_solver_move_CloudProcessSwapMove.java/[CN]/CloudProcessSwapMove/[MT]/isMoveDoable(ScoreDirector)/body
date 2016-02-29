@@ -1,3 +1,3 @@
 {
-  return !ObjectUtils.equals(leftCloudProcess.getComputer(),rightCloudProcess.getComputer());
+  return !Objects.equals(leftCloudProcess.getComputer(),rightCloudProcess.getComputer());
 }

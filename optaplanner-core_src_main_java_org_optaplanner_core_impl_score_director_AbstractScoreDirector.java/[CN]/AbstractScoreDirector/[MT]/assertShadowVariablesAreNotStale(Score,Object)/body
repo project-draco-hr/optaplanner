@@ -21,7 +21,7 @@
     for (    ShadowVariableDescriptor shadowVariableDescriptor : shadowVariableDescriptors) {
       Object newValue=shadowVariableDescriptor.getValue(entity);
       Object originalValue=shadowVariableValuesMap.get(shadowVariableDescriptor);
-      if (!ObjectUtils.equals(originalValue,newValue)) {
+      if (!Objects.equals(originalValue,newValue)) {
         throw new IllegalStateException(VariableListener.class.getSimpleName() + " corruption:" + " the entity ("+ entity+ ")'s shadow variable ("+ shadowVariableDescriptor.getSimpleEntityAndVariableName()+ ")'s corrupted value ("+ originalValue+ ") changed to uncorrupted value ("+ newValue+ ") after all "+ VariableListener.class.getSimpleName()+ "s were triggered without changes to the genuine variables.\n"+ "Probably the "+ VariableListener.class.getSimpleName()+ " class for that shadow variable ("+ shadowVariableDescriptor.getSimpleEntityAndVariableName()+ ") forgot to update it when one of its sources changed"+ " after completedAction ("+ completedAction+ ").");
       }
     }

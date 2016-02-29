@@ -2,7 +2,7 @@
   SolutionDescriptor solutionDescriptor=getSolutionDescriptor();
   Solution cloneSolution=solutionDescriptor.getSolutionCloner().cloneSolution(originalSolution);
   if (scoreDirectorFactory.isAssertClonedSolution()) {
-    if (!ObjectUtils.equals(originalSolution.getScore(),cloneSolution.getScore())) {
+    if (!Objects.equals(originalSolution.getScore(),cloneSolution.getScore())) {
       throw new IllegalStateException("Cloning corruption: " + "the original's score (" + originalSolution.getScore() + ") is different from the clone's score ("+ cloneSolution.getScore()+ ").\n"+ "Check the "+ SolutionCloner.class.getSimpleName()+ ".");
     }
     List<Object> originalEntityList=solutionDescriptor.getEntityList(originalSolution);
