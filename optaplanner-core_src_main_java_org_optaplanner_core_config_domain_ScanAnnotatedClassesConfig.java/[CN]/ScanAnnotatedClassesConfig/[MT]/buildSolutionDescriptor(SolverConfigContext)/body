@@ -14,13 +14,16 @@
   if (!ConfigUtils.isEmptyCollection(packageIncludeList)) {
     FilterBuilder filterBuilder=new FilterBuilder();
     for (    String packageInclude : packageIncludeList) {
+      if (StringUtils.isEmpty(packageInclude)) {
+        throw new IllegalArgumentException("The scanAnnotatedClasses (" + this + ") has a packageInclude ("+ packageInclude+ ") that is empty or null. Remove it or fill it in.");
+      }
       builder.addUrls(ReflectionsWorkaroundClasspathHelper.forPackage(packageInclude,classLoaders));
       filterBuilder.includePackage(packageInclude);
     }
     builder.filterInputsBy(filterBuilder);
   }
  else {
-    builder.addUrls(ReflectionsWorkaroundClasspathHelper.forPackage("",classLoaders));
+    builder.addUrls(ReflectionsWorkaroundClasspathHelper.forClassLoader(classLoaders));
   }
   builder.setClassLoaders(classLoaders);
   Reflections reflections=new Reflections(builder);
