@@ -23,7 +23,7 @@
     builder.filterInputsBy(filterBuilder);
   }
  else {
-    builder.addUrls(ReflectionsWorkaroundClasspathHelper.forClassLoader(classLoaders));
+    builder.addUrls(ReflectionsWorkaroundClasspathHelper.forPackage("",classLoaders));
   }
   builder.setClassLoaders(classLoaders);
   Reflections reflections=new Reflections(builder);
