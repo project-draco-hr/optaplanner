@@ -1,0 +1,7 @@
+{
+  Affinity affinity=affinityMap.get(customer);
+  if (affinity == null) {
+    affinity=Affinity.NONE;
+  }
+  return affinity;
+}

@@ -1,0 +1,8 @@
+{
+  List<Object> facts=new ArrayList<Object>();
+  facts.addAll(skillList);
+  facts.addAll(employeeList);
+  facts.addAll(taskTypeList);
+  facts.addAll(customerList);
+  return facts;
+}

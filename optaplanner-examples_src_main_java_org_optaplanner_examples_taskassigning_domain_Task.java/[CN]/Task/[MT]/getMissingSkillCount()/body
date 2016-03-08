@@ -1,0 +1,12 @@
+{
+  if (employee == null) {
+    return 0;
+  }
+  int count=0;
+  for (  Skill skill : taskType.getRequiredSkillList()) {
+    if (!employee.getSkillSet().contains(skill)) {
+      count++;
+    }
+  }
+  return count;
+}

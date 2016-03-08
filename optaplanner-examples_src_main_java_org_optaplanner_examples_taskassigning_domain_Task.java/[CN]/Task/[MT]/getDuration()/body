@@ -1,0 +1,4 @@
+{
+  Affinity affinity=(employee == null) ? Affinity.NONE : employee.getAffinity(customer);
+  return taskType.getBaseDuration() * affinity.getDurationMultiplier();
+}
