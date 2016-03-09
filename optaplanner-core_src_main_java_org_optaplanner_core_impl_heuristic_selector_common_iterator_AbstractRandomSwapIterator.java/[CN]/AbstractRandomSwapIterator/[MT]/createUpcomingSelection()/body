@@ -1,10 +1,16 @@
 {
   if (!leftSubSelectionIterator.hasNext()) {
     leftSubSelectionIterator=leftSubSelector.iterator();
+    if (!leftSubSelectionIterator.hasNext()) {
+      return noUpcomingSelection();
+    }
   }
   SubS leftSubSelection=leftSubSelectionIterator.next();
   if (!rightSubSelectionIterator.hasNext()) {
     rightSubSelectionIterator=rightSubSelector.iterator();
+    if (!rightSubSelectionIterator.hasNext()) {
+      return noUpcomingSelection();
+    }
   }
   SubS rightSubSelection=rightSubSelectionIterator.next();
   return newSwapSelection(leftSubSelection,rightSubSelection);

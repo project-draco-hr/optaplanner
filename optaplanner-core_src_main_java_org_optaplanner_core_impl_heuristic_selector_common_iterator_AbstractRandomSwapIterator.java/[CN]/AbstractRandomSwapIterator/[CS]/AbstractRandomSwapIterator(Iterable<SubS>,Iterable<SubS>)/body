@@ -3,8 +3,4 @@
   this.rightSubSelector=rightSubSelector;
   leftSubSelectionIterator=this.leftSubSelector.iterator();
   rightSubSelectionIterator=this.rightSubSelector.iterator();
-  if (!leftSubSelectionIterator.hasNext() || !rightSubSelectionIterator.hasNext()) {
-    upcomingSelection=noUpcomingSelection();
-    upcomingCreated=true;
-  }
 }
