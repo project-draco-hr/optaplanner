@@ -3,8 +3,8 @@
   TestdataValue v2=new TestdataValue("2");
   TestdataValue v3=new TestdataValue("3");
   TestdataEntityProvidingEntity a=new TestdataEntityProvidingEntity("a",Arrays.asList(v1,v2,v3),null);
-  EntityDescriptor entityDescriptor=TestdataEntityProvidingEntity.buildEntityDescriptor();
   ScoreDirector scoreDirector=mock(ScoreDirector.class);
-  SwapMove nullMove=new SwapMove(entityDescriptor.getGenuineVariableDescriptorList(),a,null);
-  nullMove.isMoveDoable(scoreDirector);
+  EntityDescriptor entityDescriptor=TestdataEntityProvidingEntity.buildEntityDescriptor();
+  SwapMove anullMove=new SwapMove(entityDescriptor.getGenuineVariableDescriptorList(),a,null);
+  anullMove.isMoveDoable(scoreDirector);
 }
