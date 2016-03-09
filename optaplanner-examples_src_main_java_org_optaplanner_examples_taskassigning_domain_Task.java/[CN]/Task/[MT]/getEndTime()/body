@@ -1,0 +1,6 @@
+{
+  if (startTime == null) {
+    return null;
+  }
+  return startTime + getDuration();
+}

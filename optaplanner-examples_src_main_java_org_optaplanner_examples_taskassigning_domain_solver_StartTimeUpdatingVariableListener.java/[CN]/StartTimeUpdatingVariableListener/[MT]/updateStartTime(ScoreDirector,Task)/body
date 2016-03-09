@@ -1,0 +1,11 @@
+{
+  Integer startTime=sourceTask.getPreviousTaskOrEmployee().getEndTime();
+  Task shadowTask=sourceTask;
+  while (shadowTask != null && !Objects.equals(shadowTask.getStartTime(),startTime)) {
+    scoreDirector.beforeVariableChanged(shadowTask,"startTime");
+    shadowTask.setStartTime(startTime);
+    scoreDirector.afterVariableChanged(shadowTask,"startTime");
+    shadowTask=shadowTask.getNextTask();
+    startTime=shadowTask.getEndTime();
+  }
+}

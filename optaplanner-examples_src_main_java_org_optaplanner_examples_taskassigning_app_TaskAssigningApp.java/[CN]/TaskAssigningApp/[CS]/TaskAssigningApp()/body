@@ -1,0 +1,3 @@
+{
+  super("Task assigning","Assign tasks to employees in a sequence.",SOLVER_CONFIG,TaskAssigningPanel.LOGO_PATH);
+}

@@ -1,0 +1,4 @@
+{
+  prepareSwingEnvironment();
+  new TaskAssigningApp().init();
+}
