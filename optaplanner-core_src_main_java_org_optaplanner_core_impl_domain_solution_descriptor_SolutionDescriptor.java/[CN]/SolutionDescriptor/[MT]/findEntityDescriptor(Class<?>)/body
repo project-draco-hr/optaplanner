@@ -1,5 +1,5 @@
 {
-  EntityDescriptor entityDescriptor=lowestEntityDescriptorCache.get(entitySubclass);
+  EntityDescriptor<Solution_> entityDescriptor=lowestEntityDescriptorCache.get(entitySubclass);
   if (entityDescriptor == null) {
     for (    Class<?> entityClass : reversedEntityClassList) {
       if (entityClass.isAssignableFrom(entitySubclass)) {

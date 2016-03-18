@@ -1,0 +1,7 @@
+{
+  Class<? extends Annotation> entityPropertyAnnotationClass=extractEntityPropertyAnnotationClass(field);
+  if (entityPropertyAnnotationClass != null) {
+    MemberAccessor memberAccessor=new FieldMemberAccessor(field);
+    registerPropertyAccessor(entityPropertyAnnotationClass,memberAccessor);
+  }
+}

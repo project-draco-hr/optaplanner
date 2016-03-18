@@ -1,0 +1,7 @@
+{
+  Class<? extends Annotation> factPropertyAnnotationClass=extractFactPropertyAnnotationClass(field);
+  if (factPropertyAnnotationClass != null) {
+    MemberAccessor memberAccessor=new FieldMemberAccessor(field);
+    registerFactPropertyAccessor(factPropertyAnnotationClass,memberAccessor);
+  }
+}

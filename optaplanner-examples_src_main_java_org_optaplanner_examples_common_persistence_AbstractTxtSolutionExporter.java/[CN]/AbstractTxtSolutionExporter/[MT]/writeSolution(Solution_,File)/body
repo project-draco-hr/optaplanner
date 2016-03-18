@@ -1,0 +1,12 @@
+{
+  try (BufferedWriter writer=new BufferedWriter(new OutputStreamWriter(new FileOutputStream(outputFile),"UTF-8"))){
+    TxtOutputBuilder<Solution_> txtOutputBuilder=createTxtOutputBuilder();
+    txtOutputBuilder.setBufferedWriter(writer);
+    txtOutputBuilder.setSolution(solution);
+    txtOutputBuilder.writeSolution();
+    logger.info("Exported: {}",outputFile);
+  }
+ catch (  IOException e) {
+    throw new IllegalArgumentException("Could not write the file (" + outputFile.getName() + ").",e);
+  }
+}

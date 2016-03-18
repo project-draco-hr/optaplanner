@@ -1,0 +1,22 @@
+{
+  SolutionDescriptor<Solution_> solutionDescriptor=getSolutionDescriptor();
+  Score originalScore=solutionDescriptor.getScore(originalSolution);
+  Solution_ cloneSolution=solutionDescriptor.getSolutionCloner().cloneSolution(originalSolution);
+  Score cloneScore=solutionDescriptor.getScore(cloneSolution);
+  if (scoreDirectorFactory.isAssertClonedSolution()) {
+    if (!Objects.equals(originalScore,cloneScore)) {
+      throw new IllegalStateException("Cloning corruption: " + "the original's score (" + originalScore + ") is different from the clone's score ("+ cloneScore+ ").\n"+ "Check the "+ SolutionCloner.class.getSimpleName()+ ".");
+    }
+    List<Object> originalEntityList=solutionDescriptor.getEntityList(originalSolution);
+    Map<Object,Object> originalEntityMap=new IdentityHashMap<Object,Object>(originalEntityList.size());
+    for (    Object originalEntity : originalEntityList) {
+      originalEntityMap.put(originalEntity,null);
+    }
+    for (    Object cloneEntity : solutionDescriptor.getEntityList(cloneSolution)) {
+      if (originalEntityMap.containsKey(cloneEntity)) {
+        throw new IllegalStateException("Cloning corruption: " + "the same entity (" + cloneEntity + ") is present in both the original and the clone.\n"+ "So when a planning variable in the original solution changes, "+ "the cloned solution will change too.\n"+ "Check the "+ SolutionCloner.class.getSimpleName()+ ".");
+      }
+    }
+  }
+  return cloneSolution;
+}

@@ -1,0 +1,3 @@
+DefaultSolverScope<Solution_> solverScope
+Solution_ solution
+int uninitializedVariableCount

@@ -1,8 +1,0 @@
-{
-  List<Object> facts=new ArrayList<Object>();
-  facts.add(parametrization);
-  facts.addAll(regionList);
-  facts.addAll(sectorList);
-  facts.addAll(assetClassList);
-  return facts;
-}

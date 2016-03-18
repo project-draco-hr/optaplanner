@@ -1,12 +1,14 @@
 {
   XYPlot plot=createPlot(benchmarkReport);
   int seriesIndex=0;
-  for (  SingleBenchmarkResult singleBenchmarkResult : problemBenchmarkResult.getSingleBenchmarkResultList()) {
+  List<SingleBenchmarkResult> results=problemBenchmarkResult.getSingleBenchmarkResultList();
+  for (  SingleBenchmarkResult singleBenchmarkResult : results) {
     XYIntervalSeries series=new XYIntervalSeries(singleBenchmarkResult.getSolverBenchmarkResult().getNameWithFavoriteSuffix());
     XYItemRenderer renderer=new YIntervalRenderer();
     if (singleBenchmarkResult.hasAllSuccess()) {
       BestSolutionMutationSubSingleStatistic subSingleStatistic=(BestSolutionMutationSubSingleStatistic)singleBenchmarkResult.getSubSingleStatistic(problemStatisticType);
-      for (      BestSolutionMutationStatisticPoint point : subSingleStatistic.getPointList()) {
+      List<BestSolutionMutationStatisticPoint> points=subSingleStatistic.getPointList();
+      for (      BestSolutionMutationStatisticPoint point : points) {
         long timeMillisSpent=point.getTimeMillisSpent();
         long mutationCount=point.getMutationCount();
         double yValue=mutationCount;

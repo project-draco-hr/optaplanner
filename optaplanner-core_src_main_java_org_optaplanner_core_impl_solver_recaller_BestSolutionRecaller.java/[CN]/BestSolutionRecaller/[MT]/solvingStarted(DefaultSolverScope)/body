@@ -1,11 +1,11 @@
 {
-  InnerScoreDirector scoreDirector=solverScope.getScoreDirector();
+  InnerScoreDirector<Solution_> scoreDirector=solverScope.getScoreDirector();
   int uninitializedVariableCount=scoreDirector.countWorkingSolutionUninitializedVariables();
   solverScope.setBestUninitializedVariableCount(uninitializedVariableCount);
   Score score=scoreDirector.calculateScore();
   solverScope.setBestScore(score);
   solverScope.setBestSolutionTimeMillis(System.currentTimeMillis());
-  solverScope.getBestSolution().setScore(score);
+  solverScope.getSolutionDescriptor().setScore(solverScope.getBestSolution(),score);
   if (uninitializedVariableCount == 0) {
     solverScope.setStartingInitializedScore(score);
   }

@@ -1,8 +1,8 @@
 {
-  ConstructionHeuristicPhaseScope phaseScope=new ConstructionHeuristicPhaseScope(solverScope);
+  ConstructionHeuristicPhaseScope<Solution_> phaseScope=new ConstructionHeuristicPhaseScope<>(solverScope);
   phaseStarted(phaseScope);
   for (  Placement placement : entityPlacer) {
-    ConstructionHeuristicStepScope stepScope=new ConstructionHeuristicStepScope(phaseScope);
+    ConstructionHeuristicStepScope<Solution_> stepScope=new ConstructionHeuristicStepScope<>(phaseScope);
     stepStarted(stepScope);
     decider.decideNextStep(stepScope,placement);
     if (stepScope.getStep() == null) {

@@ -1,4 +1,4 @@
 {
-  Solution solution=readSolution(inputFile);
+  Solution_ solution=readSolution(inputFile);
   solutionDao.writeSolution(solution,outputFile);
 }

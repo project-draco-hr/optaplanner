@@ -1,0 +1,8 @@
+{
+  Class<? extends Annotation> factPropertyAnnotationClass=extractFactPropertyAnnotationClass(method);
+  if (factPropertyAnnotationClass != null) {
+    ReflectionHelper.assertGetterMethod(method,factPropertyAnnotationClass);
+    MemberAccessor memberAccessor=new BeanPropertyMemberAccessor(method);
+    registerFactPropertyAccessor(factPropertyAnnotationClass,memberAccessor);
+  }
+}

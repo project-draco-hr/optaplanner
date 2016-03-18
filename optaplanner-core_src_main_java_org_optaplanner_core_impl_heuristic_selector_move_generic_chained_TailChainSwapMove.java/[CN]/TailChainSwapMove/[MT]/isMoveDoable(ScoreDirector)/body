@@ -12,8 +12,8 @@
     }
   }
   if (!variableDescriptor.isValueRangeEntityIndependent()) {
-    ValueRangeDescriptor valueRangeDescriptor=variableDescriptor.getValueRangeDescriptor();
-    Solution workingSolution=scoreDirector.getWorkingSolution();
+    ValueRangeDescriptor<Solution_> valueRangeDescriptor=variableDescriptor.getValueRangeDescriptor();
+    Solution_ workingSolution=(Solution_)scoreDirector.getWorkingSolution();
     if (rightEntity != null) {
       ValueRange rightValueRange=valueRangeDescriptor.extractValueRange(workingSolution,rightEntity);
       if (!rightValueRange.contains(leftValue)) {

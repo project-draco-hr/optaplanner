@@ -1,0 +1,20 @@
+{
+  int mutationCount=0;
+  for (  EntityDescriptor<Solution_> entityDescriptor : solutionDescriptor.getGenuineEntityDescriptors()) {
+    List<Object> aEntities=entityDescriptor.extractEntities(a);
+    List<Object> bEntities=entityDescriptor.extractEntities(b);
+    for (Iterator aIt=aEntities.iterator(), bIt=bEntities.iterator(); aIt.hasNext() && bIt.hasNext(); ) {
+      Object aEntity=aIt.next();
+      Object bEntity=bIt.next();
+      for (      GenuineVariableDescriptor variableDescriptor : entityDescriptor.getGenuineVariableDescriptors()) {
+        if (variableDescriptor.getValue(aEntity) != variableDescriptor.getValue(bEntity)) {
+          mutationCount++;
+        }
+      }
+    }
+    if (aEntities.size() != bEntities.size()) {
+      mutationCount+=Math.abs(aEntities.size() - bEntities.size()) * entityDescriptor.getGenuineVariableDescriptors().size();
+    }
+  }
+  return mutationCount;
+}

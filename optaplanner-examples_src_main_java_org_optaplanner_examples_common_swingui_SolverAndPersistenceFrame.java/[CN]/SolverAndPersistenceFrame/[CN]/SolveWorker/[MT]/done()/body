@@ -1,6 +1,6 @@
 {
   try {
-    Solution bestSolution=get();
+    Solution_ bestSolution=get();
     solutionBusiness.setSolution(bestSolution);
   }
  catch (  InterruptedException e) {

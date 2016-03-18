@@ -3,16 +3,7 @@
     Constructor<C> constructor=retrieveCachedConstructor(clazz);
     return constructor.newInstance();
   }
- catch (  InvocationTargetException e) {
-    throw new IllegalStateException("The class (" + clazz + ") should have a no-arg constructor to create a clone.",e);
-  }
-catch (  NoSuchMethodException e) {
-    throw new IllegalStateException("The class (" + clazz + ") should have a no-arg constructor to create a clone.",e);
-  }
-catch (  InstantiationException e) {
-    throw new IllegalStateException("The class (" + clazz + ") should have a no-arg constructor to create a clone.",e);
-  }
-catch (  IllegalAccessException e) {
+ catch (  ReflectiveOperationException e) {
     throw new IllegalStateException("The class (" + clazz + ") should have a no-arg constructor to create a clone.",e);
   }
 }

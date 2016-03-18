@@ -1,5 +1,5 @@
 {
-  SolverFactory<Solution> solverFactory=SolverFactory.createFromXmlResource(createSolverConfigResource());
+  SolverFactory<Solution_> solverFactory=SolverFactory.createFromXmlResource(createSolverConfigResource());
   TerminationConfig terminationConfig=new TerminationConfig();
   solverFactory.getSolverConfig().setTerminationConfig(terminationConfig);
   return solverFactory;

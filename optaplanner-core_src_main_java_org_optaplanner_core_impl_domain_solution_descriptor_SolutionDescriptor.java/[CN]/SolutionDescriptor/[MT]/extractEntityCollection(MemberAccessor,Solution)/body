@@ -1,7 +1,0 @@
-{
-  Collection<Object> entityCollection=(Collection<Object>)entityCollectionMemberAccessor.executeGetter(solution);
-  if (entityCollection == null) {
-    throw new IllegalArgumentException("The solutionClass (" + solutionClass + ")'s entityCollectionProperty ("+ entityCollectionMemberAccessor.getName()+ ") should never return null.");
-  }
-  return entityCollection;
-}

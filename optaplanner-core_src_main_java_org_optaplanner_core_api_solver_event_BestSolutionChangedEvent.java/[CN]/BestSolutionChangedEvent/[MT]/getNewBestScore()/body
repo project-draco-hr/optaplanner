@@ -1,0 +1,3 @@
+{
+  return this.solver.getSolverScope().getSolutionDescriptor().getScore(this.getNewBestSolution());
+}

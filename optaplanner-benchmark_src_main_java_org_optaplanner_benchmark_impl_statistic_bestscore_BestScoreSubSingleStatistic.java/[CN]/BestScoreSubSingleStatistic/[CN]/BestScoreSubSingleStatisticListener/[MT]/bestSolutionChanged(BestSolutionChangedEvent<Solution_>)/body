@@ -1,0 +1,3 @@
+{
+  pointList.add(new BestScoreStatisticPoint(event.getTimeMillisSpent(),event.getNewBestScore()));
+}

@@ -1,0 +1,7 @@
+{
+  ConstructionHeuristicPhaseScope<Solution_> phaseScope=mock(ConstructionHeuristicPhaseScope.class);
+  when(phaseScope.getSolverScope()).thenReturn(solverScope);
+  ConstructionHeuristicStepScope<Solution_> stepScope=mock(ConstructionHeuristicStepScope.class);
+  when(stepScope.getPhaseScope()).thenReturn(phaseScope);
+  return stepScope;
+}

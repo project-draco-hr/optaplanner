@@ -1,3 +1,0 @@
-{
-  return buildParameters(solutionDao,ConstructionHeuristicType.values(),unsolvedFileNames);
-}

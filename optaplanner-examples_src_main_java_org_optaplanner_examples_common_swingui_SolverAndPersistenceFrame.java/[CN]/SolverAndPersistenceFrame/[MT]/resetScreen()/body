@@ -1,6 +1,7 @@
 {
   Solution_ solution=solutionBusiness.getSolution();
+  Score score=solutionBusiness.getScore();
   solutionPanel.resetPanel(solution);
   validate();
-  refreshScoreField(solution);
+  refreshScoreField(score);
 }

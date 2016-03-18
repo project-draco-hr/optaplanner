@@ -2,7 +2,7 @@
   BufferedReader bufferedReader=null;
   try {
     bufferedReader=new BufferedReader(new InputStreamReader(inputURL.openStream(),"UTF-8"));
-    TxtInputBuilder txtInputBuilder=createTxtInputBuilder();
+    TxtInputBuilder<Solution_> txtInputBuilder=createTxtInputBuilder();
     txtInputBuilder.setInputFile(new File(inputURL.getFile()));
     txtInputBuilder.setBufferedReader(bufferedReader);
     try {

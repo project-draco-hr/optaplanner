@@ -1,0 +1,10 @@
+{
+  this.solutionClass=solutionClass;
+  factPropertyAccessorMap=new LinkedHashMap<>();
+  factCollectionPropertyAccessorMap=new LinkedHashMap<>();
+  entityPropertyAccessorMap=new LinkedHashMap<>();
+  entityCollectionPropertyAccessorMap=new LinkedHashMap<>();
+  entityDescriptorMap=new LinkedHashMap<>();
+  reversedEntityClassList=new ArrayList<>();
+  lowestEntityDescriptorCache=new HashMap<>();
+}

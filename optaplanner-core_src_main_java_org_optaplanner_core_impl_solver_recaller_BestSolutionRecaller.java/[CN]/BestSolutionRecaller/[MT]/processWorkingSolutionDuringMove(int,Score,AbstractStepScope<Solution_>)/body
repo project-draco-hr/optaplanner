@@ -1,0 +1,24 @@
+{
+  AbstractPhaseScope<Solution_> phaseScope=stepScope.getPhaseScope();
+  DefaultSolverScope<Solution_> solverScope=phaseScope.getSolverScope();
+  int bestUninitializedVariableCount=solverScope.getBestUninitializedVariableCount();
+  Score bestScore=solverScope.getBestScore();
+  boolean bestScoreImproved;
+  if (uninitializedVariableCount == bestUninitializedVariableCount) {
+    bestScoreImproved=score.compareTo(bestScore) > 0;
+  }
+ else {
+    bestScoreImproved=uninitializedVariableCount < bestUninitializedVariableCount;
+  }
+  if (bestScoreImproved) {
+    stepScope.setBestScoreImproved(bestScoreImproved);
+  }
+  if (bestScoreImproved) {
+    phaseScope.setBestSolutionStepIndex(stepScope.getStepIndex());
+    Solution_ newBestSolution=solverScope.getScoreDirector().cloneWorkingSolution();
+    updateBestSolution(solverScope,newBestSolution,uninitializedVariableCount);
+  }
+ else   if (assertBestScoreIsUnmodified) {
+    solverScope.assertScoreFromScratch(solverScope.getBestSolution());
+  }
+}

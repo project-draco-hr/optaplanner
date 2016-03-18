@@ -3,7 +3,7 @@
   if (ArrayUtils.isEmpty(valueRangeProviderRefs)) {
     throw new IllegalArgumentException("The entityClass (" + entityDescriptor.getEntityClass() + ") has a "+ PlanningVariable.class.getSimpleName()+ " annotated property ("+ variableMemberAccessor.getName()+ ") that has no valueRangeProviderRefs ("+ Arrays.toString(valueRangeProviderRefs)+ ").");
   }
-  List<ValueRangeDescriptor> valueRangeDescriptorList=new ArrayList<ValueRangeDescriptor>(valueRangeProviderRefs.length);
+  List<ValueRangeDescriptor<Solution_>> valueRangeDescriptorList=new ArrayList<>(valueRangeProviderRefs.length);
   boolean addNullInValueRange=nullable && valueRangeProviderRefs.length == 1;
   for (  String valueRangeProviderRef : valueRangeProviderRefs) {
     valueRangeDescriptorList.add(buildValueRangeDescriptor(descriptorPolicy,valueRangeProviderRef,addNullInValueRange));
@@ -12,6 +12,6 @@
     valueRangeDescriptor=valueRangeDescriptorList.get(0);
   }
  else {
-    valueRangeDescriptor=new CompositeValueRangeDescriptor(this,nullable,valueRangeDescriptorList);
+    valueRangeDescriptor=new CompositeValueRangeDescriptor<>(this,nullable,valueRangeDescriptorList);
   }
 }

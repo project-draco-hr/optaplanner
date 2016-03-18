@@ -1,9 +1,0 @@
-{
-  super.phaseEnded(phaseScope);
-  Solution newBestSolution=phaseScope.getScoreDirector().cloneWorkingSolution();
-  int newBestUninitializedVariableCount=phaseScope.getSolutionDescriptor().countUninitializedVariables(newBestSolution);
-  bestSolutionRecaller.updateBestSolution(phaseScope.getSolverScope(),newBestSolution,newBestUninitializedVariableCount);
-  entityPlacer.phaseEnded(phaseScope);
-  decider.phaseEnded(phaseScope);
-  logger.info("Construction Heuristic phase ({}) ended: step total ({}), time spent ({}), best score ({}).",phaseIndex,phaseScope.getNextStepIndex(),phaseScope.calculateSolverTimeMillisSpent(),phaseScope.getBestScore());
-}

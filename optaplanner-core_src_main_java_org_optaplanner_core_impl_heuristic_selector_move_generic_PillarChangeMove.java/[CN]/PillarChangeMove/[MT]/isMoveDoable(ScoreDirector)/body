@@ -4,8 +4,8 @@
     return false;
   }
   if (!variableDescriptor.isValueRangeEntityIndependent()) {
-    ValueRangeDescriptor valueRangeDescriptor=variableDescriptor.getValueRangeDescriptor();
-    Solution workingSolution=scoreDirector.getWorkingSolution();
+    ValueRangeDescriptor<Solution_> valueRangeDescriptor=variableDescriptor.getValueRangeDescriptor();
+    Solution_ workingSolution=(Solution_)scoreDirector.getWorkingSolution();
     for (    Object entity : pillar) {
       ValueRange rightValueRange=valueRangeDescriptor.extractValueRange(workingSolution,entity);
       if (!rightValueRange.contains(toPlanningValue)) {

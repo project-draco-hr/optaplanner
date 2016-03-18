@@ -3,12 +3,12 @@
   Object rightAnchor=determineRightAnchor();
   Object leftValue=variableDescriptor.getValue(leftEntity);
   if (leftAnchor != rightAnchor) {
-    return new TailChainSwapMove(variableDescriptor,inverseVariableSupply,anchorVariableSupply,leftEntity,leftValue);
+    return new TailChainSwapMove<>(variableDescriptor,inverseVariableSupply,anchorVariableSupply,leftEntity,leftValue);
   }
  else {
     Object rightEntity=inverseVariableSupply.getInverseSingleton(rightValue);
     if (rightEntity != null) {
-      return new TailChainSwapMove(variableDescriptor,inverseVariableSupply,anchorVariableSupply,rightEntity,rightValue);
+      return new TailChainSwapMove<>(variableDescriptor,inverseVariableSupply,anchorVariableSupply,rightEntity,rightValue);
     }
  else {
       throw new IllegalStateException("Impossible state, because isMoveDoable() should not return true.");

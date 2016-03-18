@@ -1,0 +1,14 @@
+{
+  List<Object> entityList=new ArrayList<Object>();
+  for (  MemberAccessor entityMemberAccessor : entityPropertyAccessorMap.values()) {
+    Object entity=extract(entityMemberAccessor,solution);
+    if (entity != null) {
+      entityList.add(entity);
+    }
+  }
+  for (  MemberAccessor entityCollectionMemberAccessor : entityCollectionPropertyAccessorMap.values()) {
+    Collection<Object> entityCollection=extractCollection(entityCollectionMemberAccessor,solution);
+    entityList.addAll(entityCollection);
+  }
+  return entityList;
+}

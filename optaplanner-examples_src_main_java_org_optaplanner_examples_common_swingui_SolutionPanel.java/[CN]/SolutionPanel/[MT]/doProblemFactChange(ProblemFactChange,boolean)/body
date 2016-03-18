@@ -1,6 +1,7 @@
 {
   solutionBusiness.doProblemFactChange(problemFactChange);
   Solution_ solution=getSolution();
+  Score score=solutionBusiness.getScore();
   if (reset) {
     resetPanel(solution);
   }
@@ -8,5 +9,5 @@
     updatePanel(solution);
   }
   validate();
-  solverAndPersistenceFrame.refreshScoreField(solution);
+  solverAndPersistenceFrame.refreshScoreField(score);
 }

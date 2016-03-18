@@ -1,9 +1,0 @@
-{
-  List<Object> facts=new ArrayList<Object>();
-  facts.addAll(projectList);
-  facts.addAll(jobList);
-  facts.addAll(executionModeList);
-  facts.addAll(resourceList);
-  facts.addAll(resourceRequirementList);
-  return facts;
-}

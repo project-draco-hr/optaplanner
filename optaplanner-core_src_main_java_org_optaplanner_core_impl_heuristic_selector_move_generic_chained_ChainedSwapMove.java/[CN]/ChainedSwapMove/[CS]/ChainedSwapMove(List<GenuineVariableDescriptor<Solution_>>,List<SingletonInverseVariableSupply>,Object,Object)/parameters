@@ -1,0 +1,4 @@
+List<GenuineVariableDescriptor<Solution_>> variableDescriptorList
+List<SingletonInverseVariableSupply> inverseVariableSupplyList
+Object leftEntity
+Object rightEntity

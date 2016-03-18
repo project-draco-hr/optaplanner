@@ -1,0 +1,3 @@
+SolutionDao<Solution_> solutionDao
+Enum_[] types
+String unsolvedFileNames

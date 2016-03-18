@@ -1,0 +1,3 @@
+GenuineVariableDescriptor<Solution_> variableDescriptor
+boolean addNullInValueRange
+MemberAccessor memberAccessor

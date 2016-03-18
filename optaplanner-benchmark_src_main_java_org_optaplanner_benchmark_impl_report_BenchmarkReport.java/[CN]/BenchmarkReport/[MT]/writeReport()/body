@@ -14,7 +14,8 @@
   writeTimeSpentScalabilitySummaryChart();
   writeBestScorePerTimeSpentSummaryChart();
   for (  ProblemBenchmarkResult problemBenchmarkResult : plannerBenchmarkResult.getUnifiedProblemBenchmarkResultList()) {
-    for (    SingleBenchmarkResult singleBenchmarkResult : problemBenchmarkResult.getSingleBenchmarkResultList()) {
+    List<SingleBenchmarkResult> results=problemBenchmarkResult.getSingleBenchmarkResultList();
+    for (    SingleBenchmarkResult singleBenchmarkResult : results) {
       for (      SubSingleBenchmarkResult subSingleBenchmarkResult : singleBenchmarkResult.getSubSingleBenchmarkResultList()) {
         if (!subSingleBenchmarkResult.hasAllSuccess()) {
           continue;
@@ -35,10 +36,12 @@
   }
   for (  ProblemBenchmarkResult problemBenchmarkResult : plannerBenchmarkResult.getUnifiedProblemBenchmarkResultList()) {
     if (problemBenchmarkResult.hasAnySuccess()) {
-      for (      ProblemStatistic problemStatistic : problemBenchmarkResult.getProblemStatisticList()) {
+      List<ProblemStatistic> statistics=problemBenchmarkResult.getProblemStatisticList();
+      for (      ProblemStatistic problemStatistic : statistics) {
         problemStatistic.writeGraphFiles(this);
       }
-      for (      SingleBenchmarkResult singleBenchmarkResult : problemBenchmarkResult.getSingleBenchmarkResultList()) {
+      List<SingleBenchmarkResult> results=problemBenchmarkResult.getSingleBenchmarkResultList();
+      for (      SingleBenchmarkResult singleBenchmarkResult : results) {
         if (singleBenchmarkResult.hasAllSuccess()) {
           for (          PureSubSingleStatistic pureSubSingleStatistic : singleBenchmarkResult.getMedian().getPureSubSingleStatisticList()) {
             pureSubSingleStatistic.writeGraphFiles(this);
@@ -48,7 +51,8 @@
     }
   }
   for (  ProblemBenchmarkResult problemBenchmarkResult : plannerBenchmarkResult.getUnifiedProblemBenchmarkResultList()) {
-    for (    SingleBenchmarkResult singleBenchmarkResult : problemBenchmarkResult.getSingleBenchmarkResultList()) {
+    List<SingleBenchmarkResult> results=problemBenchmarkResult.getSingleBenchmarkResultList();
+    for (    SingleBenchmarkResult singleBenchmarkResult : results) {
       for (      SubSingleBenchmarkResult subSingleBenchmarkResult : singleBenchmarkResult.getSubSingleBenchmarkResultList()) {
         if (!subSingleBenchmarkResult.hasAllSuccess()) {
           continue;

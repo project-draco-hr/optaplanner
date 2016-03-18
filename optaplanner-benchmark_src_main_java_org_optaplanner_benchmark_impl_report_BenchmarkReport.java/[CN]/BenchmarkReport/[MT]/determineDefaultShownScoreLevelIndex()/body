@@ -7,7 +7,8 @@
       for (int i=0; i < differenceCount.length; i++) {
         differenceCount[i]=0;
       }
-      for (      SingleBenchmarkResult singleBenchmarkResult : problemBenchmarkResult.getSingleBenchmarkResultList()) {
+      List<SingleBenchmarkResult> results=problemBenchmarkResult.getSingleBenchmarkResultList();
+      for (      SingleBenchmarkResult singleBenchmarkResult : results) {
         if (singleBenchmarkResult.hasAllSuccess()) {
           double[] scoreLevels=ScoreUtils.extractLevelDoubles(singleBenchmarkResult.getAverageScore());
           for (int i=0; i < scoreLevels.length; i++) {

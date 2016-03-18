@@ -8,10 +8,10 @@
   }
  else {
     if (PlanningCloneable.class.isAssignableFrom(solutionClass)) {
-      solutionCloner=new PlanningCloneableSolutionCloner();
+      solutionCloner=new PlanningCloneableSolutionCloner<>();
     }
  else {
-      solutionCloner=new FieldAccessingSolutionCloner(this);
+      solutionCloner=new FieldAccessingSolutionCloner<>(this);
     }
   }
 }

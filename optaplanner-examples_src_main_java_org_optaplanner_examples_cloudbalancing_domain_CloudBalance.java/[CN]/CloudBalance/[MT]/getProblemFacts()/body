@@ -1,5 +1,0 @@
-{
-  List<Object> facts=new ArrayList<Object>();
-  facts.addAll(computerList);
-  return facts;
-}

@@ -1,0 +1,3 @@
+{
+  scoreAccessor.executeSetter(solution,score);
+}

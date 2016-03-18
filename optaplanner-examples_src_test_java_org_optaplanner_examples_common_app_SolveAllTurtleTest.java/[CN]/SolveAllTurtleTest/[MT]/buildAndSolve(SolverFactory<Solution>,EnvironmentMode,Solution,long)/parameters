@@ -1,4 +1,0 @@
-SolverFactory<Solution> solverFactory
-EnvironmentMode environmentMode
-Solution planningProblem
-long maximumMinutesSpent

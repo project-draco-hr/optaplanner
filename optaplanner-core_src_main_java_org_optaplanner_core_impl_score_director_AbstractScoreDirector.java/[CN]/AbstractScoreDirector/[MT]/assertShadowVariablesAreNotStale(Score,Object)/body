@@ -1,11 +1,11 @@
 {
-  SolutionDescriptor solutionDescriptor=getSolutionDescriptor();
-  Map<Object,Map<ShadowVariableDescriptor,Object>> entityToShadowVariableValuesMap=new IdentityHashMap<Object,Map<ShadowVariableDescriptor,Object>>();
+  SolutionDescriptor<Solution_> solutionDescriptor=getSolutionDescriptor();
+  Map<Object,Map<ShadowVariableDescriptor,Object>> entityToShadowVariableValuesMap=new IdentityHashMap<>();
   for (Iterator<Object> it=solutionDescriptor.extractAllEntitiesIterator(workingSolution); it.hasNext(); ) {
     Object entity=it.next();
-    EntityDescriptor entityDescriptor=solutionDescriptor.findEntityDescriptorOrFail(entity.getClass());
+    EntityDescriptor<Solution_> entityDescriptor=solutionDescriptor.findEntityDescriptorOrFail(entity.getClass());
     Collection<ShadowVariableDescriptor> shadowVariableDescriptors=entityDescriptor.getShadowVariableDescriptors();
-    Map<ShadowVariableDescriptor,Object> shadowVariableValuesMap=new HashMap<ShadowVariableDescriptor,Object>(shadowVariableDescriptors.size());
+    Map<ShadowVariableDescriptor,Object> shadowVariableValuesMap=new HashMap<>(shadowVariableDescriptors.size());
     for (    ShadowVariableDescriptor shadowVariableDescriptor : shadowVariableDescriptors) {
       Object value=shadowVariableDescriptor.getValue(entity);
       shadowVariableValuesMap.put(shadowVariableDescriptor,value);
@@ -15,7 +15,7 @@
   variableListenerSupport.triggerAllVariableListeners();
   for (Iterator<Object> it=solutionDescriptor.extractAllEntitiesIterator(workingSolution); it.hasNext(); ) {
     Object entity=it.next();
-    EntityDescriptor entityDescriptor=solutionDescriptor.findEntityDescriptorOrFail(entity.getClass());
+    EntityDescriptor<Solution_> entityDescriptor=solutionDescriptor.findEntityDescriptorOrFail(entity.getClass());
     Collection<ShadowVariableDescriptor> shadowVariableDescriptors=entityDescriptor.getShadowVariableDescriptors();
     Map<ShadowVariableDescriptor,Object> shadowVariableValuesMap=entityToShadowVariableValuesMap.get(entity);
     for (    ShadowVariableDescriptor shadowVariableDescriptor : shadowVariableDescriptors) {

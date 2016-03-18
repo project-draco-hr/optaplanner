@@ -1,7 +1,0 @@
-{
-  List<Object> facts=new ArrayList<Object>();
-  facts.addAll(teamList);
-  facts.addAll(dayList);
-  facts.addAll(unavailabilityPenaltyList);
-  return facts;
-}

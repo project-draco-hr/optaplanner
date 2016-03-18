@@ -1,13 +1,13 @@
 {
-  effectiveGenuineVariableDescriptorMap=new LinkedHashMap<String,GenuineVariableDescriptor>(declaredGenuineVariableDescriptorMap.size());
-  effectiveShadowVariableDescriptorMap=new LinkedHashMap<String,ShadowVariableDescriptor>(declaredShadowVariableDescriptorMap.size());
-  for (  EntityDescriptor inheritedEntityDescriptor : inheritedEntityDescriptorList) {
+  effectiveGenuineVariableDescriptorMap=new LinkedHashMap<>(declaredGenuineVariableDescriptorMap.size());
+  effectiveShadowVariableDescriptorMap=new LinkedHashMap<>(declaredShadowVariableDescriptorMap.size());
+  for (  EntityDescriptor<Solution_> inheritedEntityDescriptor : inheritedEntityDescriptorList) {
     effectiveGenuineVariableDescriptorMap.putAll(inheritedEntityDescriptor.getGenuineVariableDescriptorMap());
     effectiveShadowVariableDescriptorMap.putAll(inheritedEntityDescriptor.getShadowVariableDescriptorMap());
   }
   effectiveGenuineVariableDescriptorMap.putAll(declaredGenuineVariableDescriptorMap);
   effectiveShadowVariableDescriptorMap.putAll(declaredShadowVariableDescriptorMap);
-  effectiveVariableDescriptorMap=new LinkedHashMap<String,VariableDescriptor>(effectiveGenuineVariableDescriptorMap.size() + effectiveShadowVariableDescriptorMap.size());
+  effectiveVariableDescriptorMap=new LinkedHashMap<>(effectiveGenuineVariableDescriptorMap.size() + effectiveShadowVariableDescriptorMap.size());
   effectiveVariableDescriptorMap.putAll(effectiveGenuineVariableDescriptorMap);
   effectiveVariableDescriptorMap.putAll(effectiveShadowVariableDescriptorMap);
 }

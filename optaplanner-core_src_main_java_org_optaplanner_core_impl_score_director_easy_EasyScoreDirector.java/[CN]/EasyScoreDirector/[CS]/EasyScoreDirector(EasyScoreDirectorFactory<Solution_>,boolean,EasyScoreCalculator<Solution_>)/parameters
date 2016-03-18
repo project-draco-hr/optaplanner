@@ -1,0 +1,3 @@
+EasyScoreDirectorFactory<Solution_> scoreDirectorFactory
+boolean constraintMatchEnabledPreference
+EasyScoreCalculator<Solution_> easyScoreCalculator

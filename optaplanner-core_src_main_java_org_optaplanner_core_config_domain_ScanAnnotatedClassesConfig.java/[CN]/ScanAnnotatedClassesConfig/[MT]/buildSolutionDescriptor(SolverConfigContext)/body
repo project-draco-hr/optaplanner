@@ -27,7 +27,7 @@
   }
   builder.setClassLoaders(classLoaders);
   Reflections reflections=new Reflections(builder);
-  Class<? extends Solution> solutionClass=loadSolutionClass(reflections);
+  Class<Solution_> solutionClass=loadSolutionClass(reflections);
   List<Class<?>> entityClassList=loadEntityClassList(reflections);
   return SolutionDescriptor.buildSolutionDescriptor(solutionClass,entityClassList);
 }

@@ -1,0 +1,8 @@
+{
+  Class<? extends Annotation> scoreAnnotationClass=extractScoreAnnotationClass(method);
+  if (scoreAnnotationClass != null) {
+    ReflectionHelper.assertGetterMethod(method,scoreAnnotationClass);
+    MemberAccessor memberAccessor=new BeanPropertyMemberAccessor(method);
+    registerScoreAccessor(memberAccessor);
+  }
+}

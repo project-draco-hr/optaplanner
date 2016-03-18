@@ -1,0 +1,3 @@
+int uninitializedVariableCount
+Score score
+AbstractStepScope<Solution_> stepScope

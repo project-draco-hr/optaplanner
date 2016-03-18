@@ -1,9 +1,9 @@
 {
-  SolverFactory<Solution> solverFactory=SolverFactory.createFromXmlResource(createSolverConfigResource());
+  SolverFactory<Solution_> solverFactory=SolverFactory.createFromXmlResource(createSolverConfigResource());
   SolverConfig solverConfig=solverFactory.getSolverConfig();
   solverConfig.setTerminationConfig(new TerminationConfig());
   ConstructionHeuristicPhaseConfig constructionHeuristicPhaseConfig=new ConstructionHeuristicPhaseConfig();
   constructionHeuristicPhaseConfig.setConstructionHeuristicType(constructionHeuristicType);
-  solverConfig.setPhaseConfigList(Arrays.<PhaseConfig>asList(constructionHeuristicPhaseConfig));
+  solverConfig.setPhaseConfigList(Arrays.asList(constructionHeuristicPhaseConfig));
   return solverFactory;
 }

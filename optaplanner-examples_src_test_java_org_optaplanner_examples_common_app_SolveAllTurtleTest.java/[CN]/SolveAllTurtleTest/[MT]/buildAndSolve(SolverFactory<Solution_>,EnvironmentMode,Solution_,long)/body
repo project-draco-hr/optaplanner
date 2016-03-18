@@ -1,0 +1,17 @@
+{
+  SolverConfig solverConfig=solverFactory.getSolverConfig();
+  solverConfig.getTerminationConfig().setMinutesSpentLimit(maximumMinutesSpent);
+  solverConfig.setEnvironmentMode(environmentMode);
+  Class<? extends EasyScoreCalculator> easyScoreCalculatorClass=overwritingEasyScoreCalculatorClass();
+  if (easyScoreCalculatorClass != null && environmentMode.isAsserted()) {
+    ScoreDirectorFactoryConfig assertionScoreDirectorFactoryConfig=new ScoreDirectorFactoryConfig();
+    assertionScoreDirectorFactoryConfig.setEasyScoreCalculatorClass(easyScoreCalculatorClass);
+    solverConfig.getScoreDirectorFactoryConfig().setAssertionScoreDirectorFactory(assertionScoreDirectorFactoryConfig);
+  }
+  Solver<Solution_> solver=solverFactory.buildSolver();
+  Solution_ bestSolution=solver.solve(planningProblem);
+  if (bestSolution == null) {
+    bestSolution=planningProblem;
+  }
+  return bestSolution;
+}

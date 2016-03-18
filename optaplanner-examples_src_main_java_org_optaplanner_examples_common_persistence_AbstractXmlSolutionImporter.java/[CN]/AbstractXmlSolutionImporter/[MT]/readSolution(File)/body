@@ -1,15 +1,14 @@
 {
-  Solution solution;
-  InputStream in=null;
-  try {
-    in=new FileInputStream(inputFile);
+  try (InputStream in=new BufferedInputStream(new FileInputStream(inputFile))){
     SAXBuilder builder=new SAXBuilder(false);
     Document document=builder.build(in);
-    XmlInputBuilder xmlInputBuilder=createXmlInputBuilder();
+    XmlInputBuilder<Solution_> xmlInputBuilder=createXmlInputBuilder();
     xmlInputBuilder.setInputFile(inputFile);
     xmlInputBuilder.setDocument(document);
     try {
-      solution=xmlInputBuilder.readSolution();
+      Solution_ solution=xmlInputBuilder.readSolution();
+      logger.info("Imported: {}",inputFile);
+      return solution;
     }
  catch (    IllegalArgumentException e) {
       throw new IllegalArgumentException("Exception in inputFile (" + inputFile + ")",e);
@@ -24,9 +23,4 @@ catch (    IllegalStateException e) {
 catch (  JDOMException e) {
     throw new IllegalArgumentException("Could not parse the XML file (" + inputFile.getName() + ").",e);
   }
- finally {
-    IOUtils.closeQuietly(in);
-  }
-  logger.info("Imported: {}",inputFile);
-  return solution;
 }

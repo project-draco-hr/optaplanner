@@ -1,12 +1,12 @@
 {
-  SolutionDescriptor solutionDescriptor=TestdataChainedSolution.buildSolutionDescriptor();
-  InnerScoreDirector scoreDirector=mock(InnerScoreDirector.class);
+  SolutionDescriptor<TestdataChainedSolution> solutionDescriptor=TestdataChainedSolution.buildSolutionDescriptor();
+  InnerScoreDirector<TestdataChainedSolution> scoreDirector=mock(InnerScoreDirector.class);
   when(scoreDirector.getSolutionDescriptor()).thenReturn(solutionDescriptor);
   TestdataChainedSolution solution=new TestdataChainedSolution();
   solution.setChainedEntityList(Collections.<TestdataChainedEntity>emptyList());
   when(scoreDirector.getWorkingSolution()).thenReturn(solution);
   when(scoreDirector.getSupplyManager()).thenReturn(mock(SupplyManager.class));
-  VariableListenerSupport variableListenerSupport=new VariableListenerSupport(scoreDirector);
+  VariableListenerSupport<TestdataChainedSolution> variableListenerSupport=new VariableListenerSupport<>(scoreDirector);
   variableListenerSupport.linkVariableListeners();
   VariableDescriptor variableDescriptor=solutionDescriptor.getEntityDescriptorStrict(TestdataChainedEntity.class).getVariableDescriptor("chainedObject");
   SingletonInverseVariableSupply supply1=variableListenerSupport.demand(new SingletonInverseVariableDemand(variableDescriptor));

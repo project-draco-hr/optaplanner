@@ -4,8 +4,10 @@
   when(phaseScope.getLastCompletedStepScope()).thenReturn(lastCompletedStepScope);
   ExhaustiveSearchStepScope stepScope=mock(ExhaustiveSearchStepScope.class);
   when(stepScope.getPhaseScope()).thenReturn(phaseScope);
-  Solution workingSolution=mock(Solution.class);
+  AbstractSolution workingSolution=mock(AbstractSolution.class);
   when(phaseScope.getWorkingSolution()).thenReturn(workingSolution);
+  SolutionDescriptor sd=mock(SolutionDescriptor.class);
+  when(phaseScope.getSolutionDescriptor()).thenReturn(sd);
   ExhaustiveSearchLayer layer0=new ExhaustiveSearchLayer(0,mock(Object.class),100);
   ExhaustiveSearchLayer layer1=new ExhaustiveSearchLayer(1,mock(Object.class),99);
   ExhaustiveSearchLayer layer2=new ExhaustiveSearchLayer(2,mock(Object.class),98);

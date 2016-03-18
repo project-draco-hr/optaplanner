@@ -1,0 +1,6 @@
+{
+  if (field.isAnnotationPresent(ValueRangeProvider.class)) {
+    MemberAccessor memberAccessor=new FieldMemberAccessor(field);
+    descriptorPolicy.addFromSolutionValueRangeProvider(memberAccessor);
+  }
+}

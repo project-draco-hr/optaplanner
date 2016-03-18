@@ -1,0 +1,5 @@
+{
+  int uninitializedVariableCount=solutionBusiness.getUninitializedVariableCount();
+  scoreField.setForeground(determineScoreFieldForeground(uninitializedVariableCount,score));
+  scoreField.setText("Latest best score: " + ScoreUtils.getScoreWithUninitializedPrefix(uninitializedVariableCount,score));
+}

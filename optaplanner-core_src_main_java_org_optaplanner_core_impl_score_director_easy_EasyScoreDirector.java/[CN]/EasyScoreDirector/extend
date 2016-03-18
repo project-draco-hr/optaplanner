@@ -1,1 +1,1 @@
-AbstractScoreDirector<EasyScoreDirectorFactory>
+AbstractScoreDirector<Solution_,EasyScoreDirectorFactory<Solution_>>

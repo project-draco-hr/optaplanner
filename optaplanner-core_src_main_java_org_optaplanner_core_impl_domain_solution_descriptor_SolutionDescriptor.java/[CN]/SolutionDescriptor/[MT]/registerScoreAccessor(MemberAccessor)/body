@@ -1,0 +1,12 @@
+{
+  if (scoreAccessor != null) {
+    throw new IllegalStateException("The solutionClass (" + solutionClass + ") has a "+ PlanningScore.class.getSimpleName()+ " annotated member ("+ memberAccessor+ ") that is duplicated by another member ("+ scoreAccessor+ ").\n"+ "  Verify that the annotation is not defined on both the field and its getter.");
+  }
+ else   if (!Score.class.isAssignableFrom(memberAccessor.getType())) {
+    throw new IllegalStateException("The solutionClass (" + solutionClass + ") has a "+ PlanningScore.class.getSimpleName()+ " annotated member ("+ memberAccessor+ ") that does not return a subtype of Score.");
+  }
+ else   if (!memberAccessor.supportSetter()) {
+    throw new IllegalStateException("The solutionClass (" + solutionClass + ") has a "+ PlanningScore.class.getSimpleName()+ " annotated member ("+ memberAccessor+ ") that has no equivalent setter.");
+  }
+  scoreAccessor=memberAccessor;
+}

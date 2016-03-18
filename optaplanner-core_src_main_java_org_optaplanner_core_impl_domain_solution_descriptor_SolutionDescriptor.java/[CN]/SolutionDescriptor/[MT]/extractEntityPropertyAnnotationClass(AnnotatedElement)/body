@@ -1,12 +1,3 @@
 {
-  Class<? extends Annotation> annotationClass=null;
-  for (  Class<? extends Annotation> detectedAnnotationClass : Arrays.asList(PlanningEntityProperty.class,PlanningEntityCollectionProperty.class)) {
-    if (member.isAnnotationPresent(detectedAnnotationClass)) {
-      if (annotationClass != null) {
-        throw new IllegalStateException("The solutionClass (" + solutionClass + ") has a member ("+ member+ ") that has both a "+ annotationClass.getSimpleName()+ " annotation and a "+ detectedAnnotationClass.getSimpleName()+ " annotation.");
-      }
-      annotationClass=detectedAnnotationClass;
-    }
-  }
-  return annotationClass;
+  return extractAnnotationClass(member,PlanningEntityProperty.class,PlanningEntityCollectionProperty.class);
 }

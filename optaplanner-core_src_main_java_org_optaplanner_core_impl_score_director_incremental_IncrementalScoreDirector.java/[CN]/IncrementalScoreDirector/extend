@@ -1,1 +1,1 @@
-AbstractScoreDirector<IncrementalScoreDirectorFactory>
+AbstractScoreDirector<Solution_,IncrementalScoreDirectorFactory<Solution_>>

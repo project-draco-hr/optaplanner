@@ -1,0 +1,14 @@
+{
+  super.stepEnded(stepScope);
+  boolean bestScoreImproved=stepScope.getBestScoreImproved();
+  if (forceUpdateBestSolution && !bestScoreImproved) {
+    DefaultSolverScope<Solution_> solverScope=stepScope.getPhaseScope().getSolverScope();
+    Solution_ newBestSolution=solverScope.getScoreDirector().cloneWorkingSolution();
+    bestSolutionRecaller.updateBestSolution(solverScope,newBestSolution,stepScope.getUninitializedVariableCount());
+  }
+  CustomPhaseScope<Solution_> phaseScope=stepScope.getPhaseScope();
+  if (logger.isDebugEnabled()) {
+    long timeMillisSpent=phaseScope.calculateSolverTimeMillisSpent();
+    logger.debug("    Custom step ({}), time spent ({}), score ({}), {} best score ({}).",stepScope.getStepIndex(),timeMillisSpent,stepScope.getScore(),bestScoreImproved ? "new" : (forceUpdateBestSolution ? "forced" : "   "),phaseScope.getBestScoreWithUninitializedPrefix());
+  }
+}

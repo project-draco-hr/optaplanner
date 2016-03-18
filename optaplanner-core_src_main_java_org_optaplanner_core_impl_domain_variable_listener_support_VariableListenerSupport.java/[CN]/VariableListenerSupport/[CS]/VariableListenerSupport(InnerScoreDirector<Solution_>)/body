@@ -1,0 +1,7 @@
+{
+  this.scoreDirector=scoreDirector;
+  notifiableList=new ArrayList<>();
+  sourceVariableToNotifiableMap=new LinkedHashMap<>();
+  sourceEntityToNotifiableMap=new LinkedHashMap<>();
+  supplyMap=new LinkedHashMap<>();
+}

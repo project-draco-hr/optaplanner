@@ -1,6 +1,0 @@
-{
-  InnerScoreDirectorFactory scoreDirectorFactory=(InnerScoreDirectorFactory)solver.getScoreDirectorFactory();
-  SolutionDescriptor solutionDescriptor=scoreDirectorFactory.getSolutionDescriptor();
-  listener.setMutationCounter(new MutationCounter(solutionDescriptor));
-  solver.addEventListener(listener);
-}

@@ -1,7 +1,7 @@
 {
   checkRunTurtleTests();
-  SolverFactory<Solution> solverFactory=buildSolverFactory();
-  Solution planningProblem=readPlanningProblem();
+  SolverFactory<Solution_> solverFactory=buildSolverFactory();
+  Solution_ planningProblem=readPlanningProblem();
   planningProblem=buildAndSolve(solverFactory,EnvironmentMode.NON_INTRUSIVE_FULL_ASSERT,planningProblem,2L);
   planningProblem=buildAndSolve(solverFactory,EnvironmentMode.FAST_ASSERT,planningProblem,5L);
   planningProblem=buildAndSolve(solverFactory,EnvironmentMode.NON_INTRUSIVE_FULL_ASSERT,planningProblem,3L);

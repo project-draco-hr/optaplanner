@@ -10,7 +10,7 @@
   for (  File inputFile : inputFiles) {
     String inputFileName=inputFile.getName();
     if (inputFileName.endsWith("." + getInputFileSuffix())) {
-      Solution solution=solutionDao.readSolution(inputFile);
+      Solution_ solution=solutionDao.readSolution(inputFile);
       String outputFileName=inputFileName.substring(0,inputFileName.length() - getInputFileSuffix().length()) + getOutputFileSuffix();
       File outputFile=new File(outputDir,outputFileName);
       writeSolution(solution,outputFile);

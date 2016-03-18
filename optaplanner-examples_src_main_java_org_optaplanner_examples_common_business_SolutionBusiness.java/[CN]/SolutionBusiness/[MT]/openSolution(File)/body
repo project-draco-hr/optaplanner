@@ -1,5 +1,5 @@
 {
-  Solution solution=solutionDao.readSolution(file);
+  Solution_ solution=solutionDao.readSolution(file);
   solutionFileName=file.getName();
   guiScoreDirector.setWorkingSolution(solution);
 }

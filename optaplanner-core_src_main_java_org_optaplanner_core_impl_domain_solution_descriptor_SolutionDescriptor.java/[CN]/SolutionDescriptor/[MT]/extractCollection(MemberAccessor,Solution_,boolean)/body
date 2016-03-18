@@ -1,0 +1,8 @@
+{
+  Collection<Object> entityCollection=(Collection<Object>)collectionMemberAccessor.executeGetter(solution);
+  if (entityCollection == null) {
+    String descr=isFact ? "factCollectionProperty" : "entityCollectionProperty";
+    throw new IllegalArgumentException("The solutionClass (" + solutionClass + ")'s "+ descr+ " ("+ collectionMemberAccessor.getName()+ ") should never return null.");
+  }
+  return entityCollection;
+}

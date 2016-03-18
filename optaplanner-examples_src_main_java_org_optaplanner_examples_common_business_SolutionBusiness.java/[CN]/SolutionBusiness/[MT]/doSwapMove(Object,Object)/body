@@ -1,4 +1,4 @@
 {
-  SwapMove move=createSwapMove(leftEntity,rightEntity);
+  SwapMove<Solution_> move=createSwapMove(leftEntity,rightEntity);
   doMove(move);
 }

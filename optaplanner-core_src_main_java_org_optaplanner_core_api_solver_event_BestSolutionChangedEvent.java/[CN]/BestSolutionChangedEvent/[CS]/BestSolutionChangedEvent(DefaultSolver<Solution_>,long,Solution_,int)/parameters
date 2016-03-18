@@ -1,0 +1,4 @@
+DefaultSolver<Solution_> solver
+long timeMillisSpent
+Solution_ newBestSolution
+int newUninitializedVariableCount

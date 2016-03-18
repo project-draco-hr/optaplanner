@@ -1,0 +1,2 @@
+SolutionDao<Solution_> solutionDao
+String unsolvedFileNames

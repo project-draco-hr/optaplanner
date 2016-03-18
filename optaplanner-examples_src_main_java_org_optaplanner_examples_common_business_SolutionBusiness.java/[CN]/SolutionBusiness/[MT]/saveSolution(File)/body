@@ -1,4 +1,4 @@
 {
-  Solution solution=guiScoreDirector.getWorkingSolution();
+  Solution_ solution=guiScoreDirector.getWorkingSolution();
   solutionDao.writeSolution(solution,file);
 }

@@ -1,8 +1,0 @@
-{
-  this.solutionClass=solutionClass;
-  entityPropertyAccessorMap=new LinkedHashMap<String,MemberAccessor>();
-  entityCollectionPropertyAccessorMap=new LinkedHashMap<String,MemberAccessor>();
-  entityDescriptorMap=new LinkedHashMap<Class<?>,EntityDescriptor>();
-  reversedEntityClassList=new ArrayList<Class<?>>();
-  lowestEntityDescriptorCache=new HashMap<Class<?>,EntityDescriptor>();
-}

@@ -1,4 +1,4 @@
 {
   super.phaseStarted(phaseScope);
-  workingSolution=phaseScope.getWorkingSolution();
+  workingSolution=(Solution_)phaseScope.getWorkingSolution();
 }

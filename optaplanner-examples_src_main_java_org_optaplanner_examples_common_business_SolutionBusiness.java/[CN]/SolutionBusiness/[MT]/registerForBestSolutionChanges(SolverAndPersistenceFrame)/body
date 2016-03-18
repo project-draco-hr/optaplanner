@@ -1,17 +1,2 @@
 {
-  solver.addEventListener(new SolverEventListener<Solution_>(){
-    public void bestSolutionChanged(    BestSolutionChangedEvent<Solution_> event){
-      if (solver.isEveryProblemFactChangeProcessed()) {
-        final Solution_ latestBestSolution=event.getNewBestSolution();
-        SwingUtilities.invokeLater(new Runnable(){
-          public void run(){
-            guiScoreDirector.setWorkingSolution(latestBestSolution);
-            solverAndPersistenceFrame.bestSolutionChanged();
-          }
-        }
-);
-      }
-    }
-  }
-);
 }

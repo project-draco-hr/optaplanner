@@ -1,0 +1,18 @@
+{
+  try (OutputStream out=new BufferedOutputStream(new FileOutputStream(outputFile))){
+    Document document=new Document();
+    XmlOutputBuilder<Solution_> xmlOutputBuilder=createXmlOutputBuilder();
+    xmlOutputBuilder.setDocument(document);
+    xmlOutputBuilder.setSolution(solution);
+    xmlOutputBuilder.writeSolution();
+    XMLOutputter outputter=new XMLOutputter(Format.getPrettyFormat());
+    outputter.output(document,out);
+    logger.info("Exported: {}",outputFile);
+  }
+ catch (  IOException e) {
+    throw new IllegalArgumentException("Could not write the file (" + outputFile.getName() + ").",e);
+  }
+catch (  JDOMException e) {
+    throw new IllegalArgumentException("Could not format the XML file (" + outputFile.getName() + ").",e);
+  }
+}

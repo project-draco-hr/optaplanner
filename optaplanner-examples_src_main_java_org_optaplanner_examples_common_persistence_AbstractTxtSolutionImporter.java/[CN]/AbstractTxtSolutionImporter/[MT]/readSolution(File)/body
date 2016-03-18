@@ -1,13 +1,12 @@
 {
-  Solution solution;
-  BufferedReader bufferedReader=null;
-  try {
-    bufferedReader=new BufferedReader(new InputStreamReader(new FileInputStream(inputFile),"UTF-8"));
-    TxtInputBuilder txtInputBuilder=createTxtInputBuilder();
+  try (BufferedReader reader=new BufferedReader(new InputStreamReader(new FileInputStream(inputFile),"UTF-8"))){
+    TxtInputBuilder<Solution_> txtInputBuilder=createTxtInputBuilder();
     txtInputBuilder.setInputFile(inputFile);
-    txtInputBuilder.setBufferedReader(bufferedReader);
+    txtInputBuilder.setBufferedReader(reader);
     try {
-      solution=txtInputBuilder.readSolution();
+      Solution_ solution=txtInputBuilder.readSolution();
+      logger.info("Imported: {}",inputFile);
+      return solution;
     }
  catch (    IllegalArgumentException e) {
       throw new IllegalArgumentException("Exception in inputFile (" + inputFile + ")",e);
@@ -19,9 +18,4 @@ catch (    IllegalStateException e) {
  catch (  IOException e) {
     throw new IllegalArgumentException("Could not read the file (" + inputFile.getName() + ").",e);
   }
- finally {
-    IOUtils.closeQuietly(bufferedReader);
-  }
-  logger.info("Imported: {}",inputFile);
-  return solution;
 }

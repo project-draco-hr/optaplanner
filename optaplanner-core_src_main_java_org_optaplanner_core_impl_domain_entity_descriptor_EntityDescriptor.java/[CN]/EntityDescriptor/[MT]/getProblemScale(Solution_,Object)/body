@@ -1,0 +1,7 @@
+{
+  long problemScale=1L;
+  for (  GenuineVariableDescriptor<Solution_> variableDescriptor : effectiveGenuineVariableDescriptorMap.values()) {
+    problemScale*=variableDescriptor.getValueCount(solution,entity);
+  }
+  return problemScale;
+}

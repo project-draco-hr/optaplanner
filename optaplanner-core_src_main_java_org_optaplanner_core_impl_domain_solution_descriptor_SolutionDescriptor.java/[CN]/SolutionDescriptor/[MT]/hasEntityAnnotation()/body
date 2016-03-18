@@ -1,0 +1,3 @@
+{
+  return !(this.entityCollectionPropertyAccessorMap.isEmpty() && this.entityPropertyAccessorMap.isEmpty());
+}

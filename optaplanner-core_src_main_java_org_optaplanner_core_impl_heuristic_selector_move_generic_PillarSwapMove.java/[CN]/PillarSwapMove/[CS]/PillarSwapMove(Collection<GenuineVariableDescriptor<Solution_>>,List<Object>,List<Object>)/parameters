@@ -1,0 +1,3 @@
+Collection<GenuineVariableDescriptor<Solution_>> variableDescriptors
+List<Object> leftPillar
+List<Object> rightPillar

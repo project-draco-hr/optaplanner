@@ -1,7 +1,0 @@
-{
-  List<CountableValueRange<?>> childValueRangeList=new ArrayList<CountableValueRange<?>>(childValueRangeDescriptorList.size());
-  for (  ValueRangeDescriptor valueRangeDescriptor : childValueRangeDescriptorList) {
-    childValueRangeList.add((CountableValueRange)valueRangeDescriptor.extractValueRange(solution,entity));
-  }
-  return doNullInValueRangeWrapping(new CompositeCountableValueRange(childValueRangeList));
-}

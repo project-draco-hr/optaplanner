@@ -1,6 +1,6 @@
 {
   int count=0;
-  for (  GenuineVariableDescriptor variableDescriptor : effectiveGenuineVariableDescriptorMap.values()) {
+  for (  GenuineVariableDescriptor<Solution_> variableDescriptor : effectiveGenuineVariableDescriptorMap.values()) {
     if (!variableDescriptor.isInitialized(entity)) {
       count++;
     }

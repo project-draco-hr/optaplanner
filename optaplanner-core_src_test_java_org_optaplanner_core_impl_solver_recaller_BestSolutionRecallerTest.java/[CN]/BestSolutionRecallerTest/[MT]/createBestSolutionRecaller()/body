@@ -1,0 +1,5 @@
+{
+  BestSolutionRecaller<Solution_> recaller=new BestSolutionRecaller<>();
+  recaller.setSolverEventSupport(mock(SolverEventSupport.class));
+  return recaller;
+}

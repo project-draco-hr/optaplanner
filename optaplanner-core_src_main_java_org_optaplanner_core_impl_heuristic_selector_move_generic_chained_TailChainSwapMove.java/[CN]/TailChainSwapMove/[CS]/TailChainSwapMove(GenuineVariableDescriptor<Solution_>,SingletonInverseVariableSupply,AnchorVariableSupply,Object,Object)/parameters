@@ -1,0 +1,5 @@
+GenuineVariableDescriptor<Solution_> variableDescriptor
+SingletonInverseVariableSupply inverseVariableSupply
+AnchorVariableSupply anchorVariableSupply
+Object leftEntity
+Object rightValue

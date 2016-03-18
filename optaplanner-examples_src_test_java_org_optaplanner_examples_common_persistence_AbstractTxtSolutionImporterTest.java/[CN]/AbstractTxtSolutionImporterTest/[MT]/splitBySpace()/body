@@ -1,6 +1,6 @@
 {
   AbstractTxtSolutionImporter.TxtInputBuilder inputBuilder=new AbstractTxtSolutionImporter.TxtInputBuilder(){
-    @Override public Solution readSolution() throws IOException {
+    @Override public Solution_ readSolution() throws IOException {
       return null;
     }
   }

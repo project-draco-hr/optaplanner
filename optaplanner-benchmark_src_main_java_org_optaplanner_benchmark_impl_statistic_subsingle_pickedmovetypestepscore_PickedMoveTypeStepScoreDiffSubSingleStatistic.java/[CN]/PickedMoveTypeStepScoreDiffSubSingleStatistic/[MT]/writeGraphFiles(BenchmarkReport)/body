@@ -1,6 +1,7 @@
 {
   List<Map<String,XYIntervalSeries>> moveTypeToSeriesMapList=new ArrayList<Map<String,XYIntervalSeries>>(BenchmarkReport.CHARTED_SCORE_LEVEL_SIZE);
-  for (  PickedMoveTypeStepScoreDiffStatisticPoint point : getPointList()) {
+  List<PickedMoveTypeStepScoreDiffStatisticPoint> points=getPointList();
+  for (  PickedMoveTypeStepScoreDiffStatisticPoint point : points) {
     long timeMillisSpent=point.getTimeMillisSpent();
     String moveType=point.getMoveType();
     double[] levelValues=ScoreUtils.extractLevelDoubles(point.getStepScoreDiff());

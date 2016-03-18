@@ -1,9 +1,9 @@
 {
-  SolverFactory<Solution> solverFactory=SolverFactory.createFromXmlResource(createSolverConfigResource());
+  SolverFactory<Solution_> solverFactory=SolverFactory.createFromXmlResource(createSolverConfigResource());
   SolverConfig solverConfig=solverFactory.getSolverConfig();
   solverConfig.setTerminationConfig(new TerminationConfig());
   ExhaustiveSearchPhaseConfig exhaustiveSearchPhaseConfig=new ExhaustiveSearchPhaseConfig();
   exhaustiveSearchPhaseConfig.setExhaustiveSearchType(exhaustiveSearchType);
-  solverConfig.setPhaseConfigList(Arrays.<PhaseConfig>asList(exhaustiveSearchPhaseConfig));
+  solverConfig.setPhaseConfigList(Arrays.asList(exhaustiveSearchPhaseConfig));
   return solverFactory;
 }

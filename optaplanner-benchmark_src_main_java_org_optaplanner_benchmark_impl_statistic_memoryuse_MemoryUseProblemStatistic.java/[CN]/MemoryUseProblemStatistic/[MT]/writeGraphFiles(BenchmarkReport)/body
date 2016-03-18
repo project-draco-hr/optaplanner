@@ -7,12 +7,14 @@
   XYPlot plot=new XYPlot(null,xAxis,yAxis,null);
   plot.setOrientation(PlotOrientation.VERTICAL);
   int seriesIndex=0;
-  for (  SingleBenchmarkResult singleBenchmarkResult : problemBenchmarkResult.getSingleBenchmarkResultList()) {
+  List<SingleBenchmarkResult> results=problemBenchmarkResult.getSingleBenchmarkResultList();
+  for (  SingleBenchmarkResult singleBenchmarkResult : results) {
     XYSeries usedSeries=new XYSeries(singleBenchmarkResult.getSolverBenchmarkResult().getNameWithFavoriteSuffix() + " used");
     XYItemRenderer renderer=new XYLineAndShapeRenderer();
     if (singleBenchmarkResult.hasAllSuccess()) {
       MemoryUseSubSingleStatistic subSingleStatistic=(MemoryUseSubSingleStatistic)singleBenchmarkResult.getSubSingleStatistic(problemStatisticType);
-      for (      MemoryUseStatisticPoint point : subSingleStatistic.getPointList()) {
+      List<MemoryUseStatisticPoint> points=subSingleStatistic.getPointList();
+      for (      MemoryUseStatisticPoint point : points) {
         long timeMillisSpent=point.getTimeMillisSpent();
         MemoryUseMeasurement memoryUseMeasurement=point.getMemoryUseMeasurement();
         usedSeries.add(timeMillisSpent,memoryUseMeasurement.getUsedMemory());

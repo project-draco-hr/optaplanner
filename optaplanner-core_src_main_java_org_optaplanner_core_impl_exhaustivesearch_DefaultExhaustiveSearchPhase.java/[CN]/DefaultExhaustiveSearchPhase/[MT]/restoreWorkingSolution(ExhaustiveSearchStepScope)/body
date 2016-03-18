@@ -24,7 +24,7 @@
   for (  Move restoreMove : restoreMoveList) {
     restoreMove.doMove(scoreDirector);
   }
-  phaseScope.getWorkingSolution().setScore(stepScope.getStartingStepScore());
+  phaseScope.getSolutionDescriptor().setScore(phaseScope.getWorkingSolution(),stepScope.getStartingStepScore());
   if (assertWorkingSolutionScoreFromScratch) {
     if (stepScope.getStartingStepScore() != null) {
       phaseScope.assertWorkingScoreFromScratch(stepScope.getStartingStepScore(),restoreMoveList);

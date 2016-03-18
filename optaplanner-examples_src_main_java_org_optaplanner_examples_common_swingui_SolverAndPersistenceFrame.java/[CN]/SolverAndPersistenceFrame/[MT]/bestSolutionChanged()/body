@@ -1,8 +1,9 @@
 {
   Solution_ solution=solutionBusiness.getSolution();
+  Score score=solutionBusiness.getScore();
   if (refreshScreenDuringSolvingCheckBox.isSelected()) {
     solutionPanel.updatePanel(solution);
     validate();
   }
-  refreshScoreField(solution);
+  refreshScoreField(score);
 }

@@ -1,0 +1,8 @@
+{
+  DefaultSolverScope<Solution_> solverScope=new DefaultSolverScope<>();
+  InnerScoreDirector<Solution_> scoreDirector=mock(InnerScoreDirector.class);
+  SolutionDescriptor<Solution_> solutionDescriptor=mock(SolutionDescriptor.class);
+  when(scoreDirector.getSolutionDescriptor()).thenReturn(solutionDescriptor);
+  solverScope.setScoreDirector(scoreDirector);
+  return solverScope;
+}

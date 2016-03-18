@@ -1,0 +1,13 @@
+{
+  Score score=solverScope.getSolutionDescriptor().getScore(solution);
+  if (uninitializedVariableCount == 0) {
+    if (!solverScope.isBestSolutionInitialized()) {
+      solverScope.setStartingInitializedScore(score);
+    }
+  }
+  solverScope.setBestUninitializedVariableCount(uninitializedVariableCount);
+  solverScope.setBestSolution(solution);
+  solverScope.setBestScore(score);
+  solverScope.setBestSolutionTimeMillis(System.currentTimeMillis());
+  solverEventSupport.fireBestSolutionChanged(solution,uninitializedVariableCount);
+}

@@ -1,9 +1,0 @@
-{
-  List<ConstructionHeuristicType> typeList=new ArrayList<ConstructionHeuristicType>();
-  for (  ConstructionHeuristicType type : ConstructionHeuristicType.values()) {
-    if (type != ConstructionHeuristicType.ALLOCATE_TO_VALUE_FROM_QUEUE) {
-      typeList.add(type);
-    }
-  }
-  return buildParameters(solutionDao,typeList.toArray(new ConstructionHeuristicType[0]),unsolvedFileNames);
-}

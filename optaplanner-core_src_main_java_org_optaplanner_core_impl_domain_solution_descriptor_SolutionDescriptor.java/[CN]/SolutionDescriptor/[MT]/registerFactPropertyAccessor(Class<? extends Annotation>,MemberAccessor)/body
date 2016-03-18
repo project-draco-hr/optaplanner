@@ -1,0 +1,3 @@
+{
+  registerPropertyAccessor(factPropertyAnnotationClass,memberAccessor,factPropertyAccessorMap,factCollectionPropertyAccessorMap,PlanningFactProperty.class,PlanningFactCollectionProperty.class);
+}

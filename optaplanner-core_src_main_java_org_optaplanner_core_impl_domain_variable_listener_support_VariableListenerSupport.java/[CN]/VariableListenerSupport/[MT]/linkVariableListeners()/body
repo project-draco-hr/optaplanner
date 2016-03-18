@@ -1,6 +1,6 @@
 {
   notificationQueuesAreEmpty=true;
-  for (  EntityDescriptor entityDescriptor : scoreDirector.getSolutionDescriptor().getEntityDescriptors()) {
+  for (  EntityDescriptor<Solution_> entityDescriptor : scoreDirector.getSolutionDescriptor().getEntityDescriptors()) {
     for (    VariableDescriptor variableDescriptor : entityDescriptor.getDeclaredVariableDescriptors()) {
       List<VariableListenerNotifiable> variableNotifiableList=new ArrayList<VariableListenerNotifiable>();
       sourceVariableToNotifiableMap.put(variableDescriptor,variableNotifiableList);
@@ -8,7 +8,7 @@
     List<VariableListenerNotifiable> entityNotifiableList=new ArrayList<VariableListenerNotifiable>();
     sourceEntityToNotifiableMap.put(entityDescriptor,entityNotifiableList);
   }
-  for (  EntityDescriptor entityDescriptor : scoreDirector.getSolutionDescriptor().getEntityDescriptors()) {
+  for (  EntityDescriptor<Solution_> entityDescriptor : scoreDirector.getSolutionDescriptor().getEntityDescriptors()) {
     for (    ShadowVariableDescriptor shadowVariableDescriptor : entityDescriptor.getDeclaredShadowVariableDescriptors()) {
       if (shadowVariableDescriptor.hasVariableListener(scoreDirector)) {
         VariableListener variableListener=shadowVariableDescriptor.buildVariableListener(scoreDirector);

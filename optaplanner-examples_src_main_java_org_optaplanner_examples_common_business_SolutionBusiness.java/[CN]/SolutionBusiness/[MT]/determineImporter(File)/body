@@ -1,5 +1,5 @@
 {
-  for (  AbstractSolutionImporter importer : importers) {
+  for (  AbstractSolutionImporter<Solution_> importer : importers) {
     if (importer.acceptInputFile(file)) {
       return importer;
     }

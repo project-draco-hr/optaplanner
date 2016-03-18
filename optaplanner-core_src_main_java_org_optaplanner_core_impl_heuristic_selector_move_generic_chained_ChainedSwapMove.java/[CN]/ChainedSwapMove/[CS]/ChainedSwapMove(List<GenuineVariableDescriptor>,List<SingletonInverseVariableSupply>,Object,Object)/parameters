@@ -1,4 +1,0 @@
-List<GenuineVariableDescriptor> variableDescriptorList
-List<SingletonInverseVariableSupply> inverseVariableSupplyList
-Object leftEntity
-Object rightEntity

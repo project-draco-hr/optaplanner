@@ -1,6 +1,6 @@
 {
-  AbstractSolutionImporter importer=determineImporter(file);
-  Solution solution=importer.readSolution(file);
+  AbstractSolutionImporter<Solution_> importer=determineImporter(file);
+  Solution_ solution=importer.readSolution(file);
   solutionFileName=file.getName();
   guiScoreDirector.setWorkingSolution(solution);
 }

@@ -12,5 +12,5 @@
     restartSolver=checkProblemFactChanges();
   }
   outerSolvingEnded(solverScope);
-  return (Solution_)solverScope.getBestSolution();
+  return solverScope.getBestSolution();
 }

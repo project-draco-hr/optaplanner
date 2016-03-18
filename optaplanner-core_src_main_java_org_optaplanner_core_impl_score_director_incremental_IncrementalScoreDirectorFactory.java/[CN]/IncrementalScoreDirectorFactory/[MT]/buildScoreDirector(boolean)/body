@@ -1,4 +1,4 @@
 {
-  IncrementalScoreCalculator incrementalScoreCalculator=ConfigUtils.newInstance(this,"incrementalScoreCalculatorClass",incrementalScoreCalculatorClass);
-  return new IncrementalScoreDirector(this,constraintMatchEnabledPreference,incrementalScoreCalculator);
+  IncrementalScoreCalculator<Solution_> incrementalScoreCalculator=ConfigUtils.newInstance(this,"incrementalScoreCalculatorClass",incrementalScoreCalculatorClass);
+  return new IncrementalScoreDirector<>(this,constraintMatchEnabledPreference,incrementalScoreCalculator);
 }

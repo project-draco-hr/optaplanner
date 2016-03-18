@@ -1,0 +1,3 @@
+Solver<Solution_> solver
+Solution_ bestSolution
+String bestScoreLimitString

@@ -1,5 +1,0 @@
-{
-  SolverConfigContext configContext=new SolverConfigContext();
-  configContext.setClassLoader(classLoader);
-  return buildSolver(configContext);
-}

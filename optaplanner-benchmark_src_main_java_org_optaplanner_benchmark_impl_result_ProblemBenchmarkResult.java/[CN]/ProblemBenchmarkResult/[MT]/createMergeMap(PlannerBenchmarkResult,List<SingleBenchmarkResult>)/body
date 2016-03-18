@@ -10,7 +10,8 @@
         newResult.name=oldResult.name;
         newResult.inputSolutionFile=oldResult.inputSolutionFile;
         newResult.problemStatisticList=new ArrayList<ProblemStatistic>(oldResult.problemStatisticList.size());
-        for (        ProblemStatistic oldProblemStatistic : oldResult.problemStatisticList) {
+        List<ProblemStatistic> statistics=oldResult.problemStatisticList;
+        for (        ProblemStatistic oldProblemStatistic : statistics) {
           newResult.problemStatisticList.add(oldProblemStatistic.getProblemStatisticType().buildProblemStatistic(newResult));
         }
         newResult.singleBenchmarkResultList=new ArrayList<SingleBenchmarkResult>(oldResult.singleBenchmarkResultList.size());

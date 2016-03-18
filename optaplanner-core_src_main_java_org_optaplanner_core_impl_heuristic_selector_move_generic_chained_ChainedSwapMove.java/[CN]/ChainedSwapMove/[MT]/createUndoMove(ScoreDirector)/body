@@ -1,3 +1,3 @@
 {
-  return new ChainedSwapMove(variableDescriptorList,inverseVariableSupplyList,rightEntity,leftEntity);
+  return new ChainedSwapMove<>(variableDescriptorList,inverseVariableSupplyList,rightEntity,leftEntity);
 }

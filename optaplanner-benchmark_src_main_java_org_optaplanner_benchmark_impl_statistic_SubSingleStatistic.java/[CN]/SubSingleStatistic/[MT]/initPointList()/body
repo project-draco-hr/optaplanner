@@ -1,3 +1,3 @@
 {
-  pointList=new ArrayList<P>();
+  pointList=new ArrayList<StatisticPoint_>();
 }

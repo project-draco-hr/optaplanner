@@ -1,0 +1,3 @@
+{
+  return SolutionDescriptor.buildSolutionDescriptor(TestdataEntityWithInvalidFactPropertyGetter.class,TestdataEntityProvidingEntity.class);
+}

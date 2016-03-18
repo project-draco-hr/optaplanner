@@ -1,0 +1,6 @@
+{
+  if (planningProblem == null) {
+    throw new IllegalArgumentException("The planningProblem (" + planningProblem + ") must not be null.");
+  }
+  return solve((Solution_)planningProblem);
+}

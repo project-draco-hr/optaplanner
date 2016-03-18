@@ -1,0 +1,14 @@
+{
+  List<Iterator<Object>> iteratorList=new ArrayList<Iterator<Object>>(entityPropertyAccessorMap.size() + entityCollectionPropertyAccessorMap.size());
+  for (  MemberAccessor entityMemberAccessor : entityPropertyAccessorMap.values()) {
+    Object entity=extract(entityMemberAccessor,solution);
+    if (entity != null) {
+      iteratorList.add(Collections.singletonList(entity).iterator());
+    }
+  }
+  for (  MemberAccessor entityCollectionMemberAccessor : entityCollectionPropertyAccessorMap.values()) {
+    Collection<Object> entityCollection=extractCollection(entityCollectionMemberAccessor,solution);
+    iteratorList.add(entityCollection.iterator());
+  }
+  return Iterators.concat(iteratorList.iterator());
+}

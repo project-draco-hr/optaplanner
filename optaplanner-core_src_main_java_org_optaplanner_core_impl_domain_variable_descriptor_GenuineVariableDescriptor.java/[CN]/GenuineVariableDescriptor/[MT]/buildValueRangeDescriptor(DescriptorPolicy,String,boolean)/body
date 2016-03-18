@@ -1,11 +1,11 @@
 {
   if (descriptorPolicy.hasFromSolutionValueRangeProvider(valueRangeProviderRef)) {
     MemberAccessor memberAccessor=descriptorPolicy.getFromSolutionValueRangeProvider(valueRangeProviderRef);
-    return new FromSolutionPropertyValueRangeDescriptor(this,addNullInValueRange,memberAccessor);
+    return new FromSolutionPropertyValueRangeDescriptor<>(this,addNullInValueRange,memberAccessor);
   }
  else   if (descriptorPolicy.hasFromEntityValueRangeProvider(valueRangeProviderRef)) {
     MemberAccessor memberAccessor=descriptorPolicy.getFromEntityValueRangeProvider(valueRangeProviderRef);
-    return new FromEntityPropertyValueRangeDescriptor(this,addNullInValueRange,memberAccessor);
+    return new FromEntityPropertyValueRangeDescriptor<>(this,addNullInValueRange,memberAccessor);
   }
  else {
     Collection<String> providerIds=descriptorPolicy.getValueRangeProviderIds();

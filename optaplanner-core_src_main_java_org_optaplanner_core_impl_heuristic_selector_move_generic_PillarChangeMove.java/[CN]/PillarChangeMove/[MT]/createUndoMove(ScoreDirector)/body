@@ -1,4 +1,4 @@
 {
   Object oldValue=variableDescriptor.getValue(pillar.get(0));
-  return new PillarChangeMove(pillar,variableDescriptor,oldValue);
+  return new PillarChangeMove<>(pillar,variableDescriptor,oldValue);
 }

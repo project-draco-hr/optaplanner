@@ -1,8 +1,8 @@
 {
-  SolutionDescriptor solutionDescriptor=scoreDirector.getSolutionDescriptor();
+  SolutionDescriptor<Solution_> solutionDescriptor=scoreDirector.getSolutionDescriptor();
   List<Object> entityList=scoreDirector.getWorkingEntityList();
   for (  Object entity : entityList) {
-    EntityDescriptor entityDescriptor=solutionDescriptor.findEntityDescriptorOrFail(entity.getClass());
+    EntityDescriptor<Solution_> entityDescriptor=solutionDescriptor.findEntityDescriptorOrFail(entity.getClass());
     for (    GenuineVariableDescriptor variableDescriptor : entityDescriptor.getGenuineVariableDescriptors()) {
       beforeVariableChanged(variableDescriptor,entity);
       afterVariableChanged(variableDescriptor,entity);

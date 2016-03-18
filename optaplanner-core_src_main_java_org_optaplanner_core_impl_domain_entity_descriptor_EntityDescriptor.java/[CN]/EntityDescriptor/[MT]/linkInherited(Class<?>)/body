@@ -1,5 +1,5 @@
 {
-  EntityDescriptor superEntityDescriptor=solutionDescriptor.getEntityDescriptorStrict(investigateClass);
+  EntityDescriptor<Solution_> superEntityDescriptor=solutionDescriptor.getEntityDescriptorStrict(investigateClass);
   if (superEntityDescriptor != null) {
     inheritedEntityDescriptorList.add(superEntityDescriptor);
   }
