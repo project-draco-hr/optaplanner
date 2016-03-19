@@ -1,0 +1,13 @@
+{
+  if (partValuesList.isEmpty()) {
+    partValuesLength=partValues.length;
+  }
+ else {
+    if (partValues.length != partValuesLength) {
+      throw new IllegalStateException("The partValues length (" + partValues.length + ") is not the same as the partValuesLength ("+ partValuesLength+ ") of the others.");
+    }
+  }
+  partValuesList.add(partValues);
+  indexLimit=(int)Math.pow(partValuesLength,partValuesList.size());
+  return this;
+}

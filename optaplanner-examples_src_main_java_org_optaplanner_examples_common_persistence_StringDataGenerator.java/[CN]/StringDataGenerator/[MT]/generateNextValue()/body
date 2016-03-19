@@ -1,0 +1,27 @@
+{
+  if (index >= indexLimit) {
+    throw new IllegalStateException("No more elements: the index (" + index + ") is too high.");
+  }
+  int listSize=partValuesList.size();
+  StringBuilder result=new StringBuilder(listSize * 80);
+  if (listSize >= halfSequenceMap.length) {
+    throw new IllegalStateException("A listSize (" + listSize + ") is not yet supported.");
+  }
+  int[] halfSequence=halfSequenceMap[listSize];
+  int[] chosens=new int[listSize];
+  int previousChosen=0;
+  for (int i=0; i < listSize; i++) {
+    int chosen=(previousChosen + (index % (int)Math.pow(partValuesLength,halfSequence[i] + 1) / (int)Math.pow(partValuesLength,halfSequence[i]))) % partValuesLength;
+    chosens[i]=chosen;
+    previousChosen=chosen;
+  }
+  for (int i=0; i < listSize; i++) {
+    if (i > 0) {
+      result.append(" ");
+    }
+    String[] partValues=partValuesList.get(i);
+    result.append(partValues[chosens[i]]);
+  }
+  index++;
+  return result.toString();
+}

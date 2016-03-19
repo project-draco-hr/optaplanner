@@ -5,7 +5,7 @@
   for (int i=0; i < meetingListSize; i++) {
     Meeting meeting=new Meeting();
     meeting.setId((long)i);
-    String topic=generateStringFromPartOptions(topicPartOptions,i);
+    String topic=topicGenerator.generateNextValue();
     meeting.setTopic(topic);
     int durationInGrains=durationInGrainsOptions[random.nextInt(durationInGrainsOptions.length)];
     meeting.setDurationInGrains(durationInGrains);

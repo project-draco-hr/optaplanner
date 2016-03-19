@@ -1,5 +1,7 @@
 {
   random=new Random(37);
+  topicGenerator.reset();
+  fullNameGenerator.reset();
   MeetingSchedule meetingSchedule=new MeetingSchedule();
   meetingSchedule.setId(0L);
   createMeetingListAndAttendanceList(meetingSchedule,meetingListSize);

@@ -1,0 +1,17 @@
+{
+  StringDataGenerator generator=new StringDataGenerator();
+  generator.addPart("a","b","c","d");
+  generator.addPart("h","i","j","k");
+  assertEquals("a h",generator.generateNextValue());
+  assertEquals("b i",generator.generateNextValue());
+  assertEquals("c j",generator.generateNextValue());
+  assertEquals("d k",generator.generateNextValue());
+  assertEquals("a i",generator.generateNextValue());
+  assertEquals("b j",generator.generateNextValue());
+  assertEquals("c k",generator.generateNextValue());
+  assertEquals("d h",generator.generateNextValue());
+  assertEquals("a j",generator.generateNextValue());
+  assertEquals("b k",generator.generateNextValue());
+  assertEquals("c h",generator.generateNextValue());
+  assertEquals("d i",generator.generateNextValue());
+}
