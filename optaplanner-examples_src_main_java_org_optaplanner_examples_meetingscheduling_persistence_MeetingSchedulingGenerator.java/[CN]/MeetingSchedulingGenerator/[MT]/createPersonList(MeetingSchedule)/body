@@ -9,7 +9,6 @@
     Person person=new Person();
     person.setId((long)i);
     String fullName=fullNameGenerator.generateNextValue();
-    System.out.println(fullName);
     person.setFullName(fullName);
     logger.trace("Created person with fullName ({}).",fullName);
     personList.add(person);
