@@ -3,9 +3,9 @@
   int equalCount=0;
   int lowerCount=0;
   List<SingleBenchmarkResult> singleBenchmarkResultList=solverBenchmarkResult.getSingleBenchmarkResultList();
-  for (  SingleBenchmarkResult single : solverBenchmarkResult.getSingleBenchmarkResultList()) {
-    List<SingleBenchmarkResult> results=single.getProblemBenchmarkResult().getSingleBenchmarkResultList();
-    for (    SingleBenchmarkResult otherSingle : results) {
+  for (  SingleBenchmarkResult single : singleBenchmarkResultList) {
+    List<SingleBenchmarkResult> otherSingleList=single.getProblemBenchmarkResult().getSingleBenchmarkResultList();
+    for (    SingleBenchmarkResult otherSingle : otherSingleList) {
       if (single == otherSingle) {
         continue;
       }
