@@ -1,5 +1,5 @@
 {
-  for (  Visit visit : tspSolution.getVisitList()) {
+  for (  Visit visit : solution.getVisitList()) {
     if (visit.getPreviousStandstill() == standstill) {
       return visit;
     }

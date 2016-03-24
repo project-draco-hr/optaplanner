@@ -1,5 +1,5 @@
 {
-  for (  Lecture lecture : schedule.getLectureList()) {
+  for (  Lecture lecture : solution.getLectureList()) {
     bufferedWriter.write(lecture.getCourse().getCode() + " r" + lecture.getRoom().getCode()+ " "+ lecture.getPeriod().getDay().getDayIndex()+ " "+ lecture.getPeriod().getTimeslot().getTimeslotIndex()+ "\r\n");
   }
 }
