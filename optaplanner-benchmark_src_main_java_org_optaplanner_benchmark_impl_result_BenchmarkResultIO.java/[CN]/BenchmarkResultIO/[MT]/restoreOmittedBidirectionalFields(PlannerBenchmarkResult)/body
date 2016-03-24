@@ -1,2 +1,30 @@
 {
+  for (  ProblemBenchmarkResult<Object> problemBenchmarkResult : plannerBenchmarkResult.getUnifiedProblemBenchmarkResultList()) {
+    problemBenchmarkResult.setPlannerBenchmarkResult(plannerBenchmarkResult);
+    if (problemBenchmarkResult.getProblemStatisticList() == null) {
+      problemBenchmarkResult.setProblemStatisticList(new ArrayList<ProblemStatistic>(0));
+    }
+    for (    ProblemStatistic problemStatistic : problemBenchmarkResult.getProblemStatisticList()) {
+      problemStatistic.setProblemBenchmarkResult(problemBenchmarkResult);
+    }
+    for (    SingleBenchmarkResult singleBenchmarkResult : problemBenchmarkResult.getSingleBenchmarkResultList()) {
+      singleBenchmarkResult.setProblemBenchmarkResult(problemBenchmarkResult);
+    }
+  }
+  for (  SolverBenchmarkResult solverBenchmarkResult : plannerBenchmarkResult.getSolverBenchmarkResultList()) {
+    solverBenchmarkResult.setPlannerBenchmarkResult(plannerBenchmarkResult);
+    for (    SingleBenchmarkResult singleBenchmarkResult : solverBenchmarkResult.getSingleBenchmarkResultList()) {
+      singleBenchmarkResult.setSolverBenchmarkResult(solverBenchmarkResult);
+      for (      SubSingleBenchmarkResult subSingleBenchmarkResult : singleBenchmarkResult.getSubSingleBenchmarkResultList()) {
+        if (subSingleBenchmarkResult.getPureSubSingleStatisticList() == null) {
+          subSingleBenchmarkResult.setPureSubSingleStatisticList(new ArrayList<PureSubSingleStatistic>(0));
+        }
+      }
+      for (      SubSingleBenchmarkResult subSingleBenchmarkResult : singleBenchmarkResult.getSubSingleBenchmarkResultList()) {
+        for (        PureSubSingleStatistic pureSubSingleStatistic : subSingleBenchmarkResult.getPureSubSingleStatisticList()) {
+          pureSubSingleStatistic.setSubSingleBenchmarkResult(subSingleBenchmarkResult);
+        }
+      }
+    }
+  }
 }

@@ -13,9 +13,8 @@
   writeTimeSpentSummaryChart();
   writeTimeSpentScalabilitySummaryChart();
   writeBestScorePerTimeSpentSummaryChart();
-  for (  ProblemBenchmarkResult problemBenchmarkResult : plannerBenchmarkResult.getUnifiedProblemBenchmarkResultList()) {
-    List<SingleBenchmarkResult> results=problemBenchmarkResult.getSingleBenchmarkResultList();
-    for (    SingleBenchmarkResult singleBenchmarkResult : results) {
+  for (  ProblemBenchmarkResult<Object> problemBenchmarkResult : plannerBenchmarkResult.getUnifiedProblemBenchmarkResultList()) {
+    for (    SingleBenchmarkResult singleBenchmarkResult : problemBenchmarkResult.getSingleBenchmarkResultList()) {
       for (      SubSingleBenchmarkResult subSingleBenchmarkResult : singleBenchmarkResult.getSubSingleBenchmarkResultList()) {
         if (!subSingleBenchmarkResult.hasAllSuccess()) {
           continue;
@@ -34,14 +33,12 @@
       }
     }
   }
-  for (  ProblemBenchmarkResult problemBenchmarkResult : plannerBenchmarkResult.getUnifiedProblemBenchmarkResultList()) {
+  for (  ProblemBenchmarkResult<Object> problemBenchmarkResult : plannerBenchmarkResult.getUnifiedProblemBenchmarkResultList()) {
     if (problemBenchmarkResult.hasAnySuccess()) {
-      List<ProblemStatistic> statistics=problemBenchmarkResult.getProblemStatisticList();
-      for (      ProblemStatistic problemStatistic : statistics) {
+      for (      ProblemStatistic problemStatistic : problemBenchmarkResult.getProblemStatisticList()) {
         problemStatistic.writeGraphFiles(this);
       }
-      List<SingleBenchmarkResult> results=problemBenchmarkResult.getSingleBenchmarkResultList();
-      for (      SingleBenchmarkResult singleBenchmarkResult : results) {
+      for (      SingleBenchmarkResult singleBenchmarkResult : problemBenchmarkResult.getSingleBenchmarkResultList()) {
         if (singleBenchmarkResult.hasAllSuccess()) {
           for (          PureSubSingleStatistic pureSubSingleStatistic : singleBenchmarkResult.getMedian().getPureSubSingleStatisticList()) {
             pureSubSingleStatistic.writeGraphFiles(this);
@@ -50,9 +47,8 @@
       }
     }
   }
-  for (  ProblemBenchmarkResult problemBenchmarkResult : plannerBenchmarkResult.getUnifiedProblemBenchmarkResultList()) {
-    List<SingleBenchmarkResult> results=problemBenchmarkResult.getSingleBenchmarkResultList();
-    for (    SingleBenchmarkResult singleBenchmarkResult : results) {
+  for (  ProblemBenchmarkResult<Object> problemBenchmarkResult : plannerBenchmarkResult.getUnifiedProblemBenchmarkResultList()) {
+    for (    SingleBenchmarkResult singleBenchmarkResult : problemBenchmarkResult.getSingleBenchmarkResultList()) {
       for (      SubSingleBenchmarkResult subSingleBenchmarkResult : singleBenchmarkResult.getSubSingleBenchmarkResultList()) {
         if (!subSingleBenchmarkResult.hasAllSuccess()) {
           continue;

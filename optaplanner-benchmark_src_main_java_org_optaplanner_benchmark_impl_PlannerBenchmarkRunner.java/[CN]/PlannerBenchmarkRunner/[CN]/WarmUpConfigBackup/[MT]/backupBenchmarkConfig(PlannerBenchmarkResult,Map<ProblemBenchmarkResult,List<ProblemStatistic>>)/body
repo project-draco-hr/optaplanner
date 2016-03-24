@@ -12,13 +12,7 @@
         }
       }
       ProblemBenchmarkResult problemBenchmarkResult=singleBenchmarkResult.getProblemBenchmarkResult();
-      List<ProblemStatistic> originalProblemStatisticList=problemBenchmarkResult.getProblemStatisticList();
-      if (!originalProblemStatisticMap.containsKey(problemBenchmarkResult)) {
-        List<ProblemStatistic> problemStatisticPutResult=originalProblemStatisticMap.put(problemBenchmarkResult,originalProblemStatisticList);
-        if (problemStatisticPutResult != null) {
-          throw new IllegalStateException("OriginalProblemStatisticMap already contained key (" + problemBenchmarkResult + ") with value ("+ problemStatisticPutResult+ ").");
-        }
-      }
+      originalProblemStatisticMap.putIfAbsent(problemBenchmarkResult,problemBenchmarkResult.getProblemStatisticList());
       singleBenchmarkResult.getProblemBenchmarkResult().setProblemStatisticList(Collections.<ProblemStatistic>emptyList());
       for (      SubSingleBenchmarkResult subSingleBenchmarkResult : singleBenchmarkResult.getSubSingleBenchmarkResultList()) {
         subSingleBenchmarkResult.setPureSubSingleStatisticList(Collections.<PureSubSingleStatistic>emptyList());
