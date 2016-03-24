@@ -4,4 +4,5 @@
   Solver<Solution_> solver=solverFactory.buildSolver();
   Solution_ bestSolution=solver.solve(planningProblem);
   assertSolution(bestSolution);
+  assertNotNull(solver.getBestScore());
 }

@@ -8,7 +8,5 @@
     }
     return buildParameters(solutionDao,typeList.toArray(new ConstructionHeuristicType[0]),unsolvedFileNames);
   }
- else {
-    return buildParameters(solutionDao,ConstructionHeuristicType.values(),unsolvedFileNames);
-  }
+  return buildParameters(solutionDao,ConstructionHeuristicType.values(),unsolvedFileNames);
 }
