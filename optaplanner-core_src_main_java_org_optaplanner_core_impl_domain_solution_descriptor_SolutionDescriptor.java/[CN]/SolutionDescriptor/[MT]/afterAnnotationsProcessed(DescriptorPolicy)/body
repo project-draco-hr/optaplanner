@@ -15,6 +15,5 @@
         logger.trace("            Variable {} ({})",variableDescriptor.getVariableName(),variableDescriptor instanceof GenuineVariableDescriptor ? "genuine" : "shadow");
       }
     }
-    ;
   }
 }
