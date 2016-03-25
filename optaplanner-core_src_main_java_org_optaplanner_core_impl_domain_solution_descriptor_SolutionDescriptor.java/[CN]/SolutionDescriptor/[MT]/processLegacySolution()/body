@@ -1,12 +1,12 @@
 {
   boolean hasFactAnnotation=!(this.factCollectionPropertyAccessorMap.isEmpty() && this.factPropertyAccessorMap.isEmpty());
   if (hasFactAnnotation) {
-    throw new IllegalStateException("The solutionClass (" + solutionClass + ") must not have any PlanningFactProperty or PlanningFactCollectionProperty annotations when "+ "implementing the legacy Solution interface.");
+    throw new IllegalStateException("The solutionClass (" + solutionClass + ") must not have any ProblemFactProperty or ProblemFactCollectionProperty annotations when "+ "implementing the legacy Solution interface.");
   }
  else {
     try {
       Method getProblemFactsMethod=solutionClass.getMethod("getProblemFacts");
-      registerFactPropertyAccessor(PlanningFactCollectionProperty.class,new MethodMemberAccessor(getProblemFactsMethod));
+      registerFactPropertyAccessor(ProblemFactCollectionProperty.class,new MethodMemberAccessor(getProblemFactsMethod));
     }
  catch (    NoSuchMethodException e) {
       throw new IllegalStateException("Impossible thing just happened. Implementation of Solution " + "interface does not implement all of its methods.");

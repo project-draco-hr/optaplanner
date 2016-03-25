@@ -1,3 +1,3 @@
 {
-  return extractAnnotationClass(member,PlanningFactProperty.class,PlanningFactCollectionProperty.class);
+  return extractAnnotationClass(member,ProblemFactProperty.class,ProblemFactCollectionProperty.class);
 }
