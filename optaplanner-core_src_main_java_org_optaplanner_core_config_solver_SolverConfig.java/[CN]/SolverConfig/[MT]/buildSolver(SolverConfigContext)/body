@@ -1,6 +1,6 @@
 {
   configContext.validate();
-  DefaultSolver<Solution_> solver=new DefaultSolver<>();
+  DefaultSolver solver=new DefaultSolver();
   EnvironmentMode environmentMode_=determineEnvironmentMode();
   solver.setEnvironmentMode(environmentMode_);
   boolean daemon_=defaultIfNull(daemon,false);
@@ -16,7 +16,7 @@
   TerminationConfig terminationConfig_=terminationConfig == null ? new TerminationConfig() : terminationConfig;
   Termination termination=terminationConfig_.buildTermination(configPolicy,basicPlumbingTermination);
   solver.setTermination(termination);
-  BestSolutionRecaller<Solution_> bestSolutionRecaller=buildBestSolutionRecaller(environmentMode_);
+  BestSolutionRecaller bestSolutionRecaller=buildBestSolutionRecaller(environmentMode_);
   solver.setBestSolutionRecaller(bestSolutionRecaller);
   solver.setPhaseList(buildPhaseList(configPolicy,bestSolutionRecaller,termination));
   return solver;

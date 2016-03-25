@@ -7,6 +7,6 @@
  else   if (solutionClassSet.size() > 1) {
     throw new IllegalStateException("The scanAnnotatedClasses (" + this + ") found multiple classes ("+ solutionClassSet+ ") with a "+ PlanningSolution.class.getSimpleName()+ " annotation.");
   }
-  Class<Solution_> solutionClass=(Class<Solution_>)solutionClassSet.iterator().next();
+  Class<?> solutionClass=solutionClassSet.iterator().next();
   return solutionClass;
 }
