@@ -1,3 +1,7 @@
 {
-  throw new UnsupportedOperationException();
+  Set<TestdataValue> valueSet=new HashSet<>();
+  for (  TestdataEntityProvidingEntity entity : entityList) {
+    valueSet.addAll(entity.getValueRange());
+  }
+  return valueSet;
 }

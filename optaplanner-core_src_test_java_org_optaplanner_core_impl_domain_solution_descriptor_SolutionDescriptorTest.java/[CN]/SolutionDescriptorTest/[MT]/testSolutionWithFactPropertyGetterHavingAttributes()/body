@@ -1,4 +1,0 @@
-{
-  SolutionDescriptor<TestdataEntityWithInvalidFactPropertyGetter> descriptor=new SolutionDescriptor<>(TestdataEntityWithInvalidFactPropertyGetter.class);
-  descriptor.processAnnotations(null);
-}
