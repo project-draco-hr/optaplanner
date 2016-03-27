@@ -1,0 +1,34 @@
+{
+  InnerScoreDirector scoreDirector=stepScope.getScoreDirector();
+  scoreDirector.setAllChangesWillBeUndoneBeforeStepEnds(true);
+  int moveIndex=0;
+  for (  Move move : moveSelector) {
+    LocalSearchMoveScope<Solution_> moveScope=new LocalSearchMoveScope<>(stepScope);
+    moveScope.setMoveIndex(moveIndex);
+    moveIndex++;
+    moveScope.setMove(move);
+    if (!move.isMoveDoable(scoreDirector)) {
+      logger.trace("        Move index ({}) not doable, ignoring move ({}).",moveScope.getMoveIndex(),move);
+    }
+ else {
+      doMove(moveScope);
+      if (forager.isQuitEarly()) {
+        break;
+      }
+    }
+    if (termination.isPhaseTerminated(stepScope.getPhaseScope())) {
+      break;
+    }
+  }
+  scoreDirector.setAllChangesWillBeUndoneBeforeStepEnds(false);
+  LocalSearchMoveScope<Solution_> pickedMoveScope=forager.pickMove(stepScope);
+  if (pickedMoveScope != null) {
+    Move step=pickedMoveScope.getMove();
+    stepScope.setStep(step);
+    if (logger.isDebugEnabled()) {
+      stepScope.setStepString(step.toString());
+    }
+    stepScope.setUndoStep(pickedMoveScope.getUndoMove());
+    stepScope.setScore(pickedMoveScope.getScore());
+  }
+}
