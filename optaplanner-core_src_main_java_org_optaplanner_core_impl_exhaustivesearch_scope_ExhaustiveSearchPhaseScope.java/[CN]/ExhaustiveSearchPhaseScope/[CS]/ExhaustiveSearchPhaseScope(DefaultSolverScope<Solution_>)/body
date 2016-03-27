@@ -1,0 +1,4 @@
+{
+  super(solverScope);
+  lastCompletedStepScope=new ExhaustiveSearchStepScope<>(this,-1);
+}

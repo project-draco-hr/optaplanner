@@ -1,0 +1,4 @@
+{
+  MachineReassignment machineReassignment=scoreDirector.getWorkingSolution();
+  initializeProcessAssignmentList(scoreDirector,machineReassignment);
+}

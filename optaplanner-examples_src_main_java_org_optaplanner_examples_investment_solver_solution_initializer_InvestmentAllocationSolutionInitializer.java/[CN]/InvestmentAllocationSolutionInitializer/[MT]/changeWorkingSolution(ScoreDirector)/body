@@ -1,4 +1,0 @@
-{
-  InvestmentSolution solution=(InvestmentSolution)scoreDirector.getWorkingSolution();
-  distributeQuantityEvenly(scoreDirector,solution);
-}

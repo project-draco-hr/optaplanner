@@ -1,7 +1,7 @@
 {
   if (easyScoreCalculatorClass != null) {
-    EasyScoreCalculator easyScoreCalculator=ConfigUtils.newInstance(this,"easyScoreCalculatorClass",easyScoreCalculatorClass);
-    return new EasyScoreDirectorFactory(easyScoreCalculator);
+    EasyScoreCalculator<Solution_> easyScoreCalculator=ConfigUtils.newInstance(this,"easyScoreCalculatorClass",easyScoreCalculatorClass);
+    return new EasyScoreDirectorFactory<>(easyScoreCalculator);
   }
  else {
     return null;

@@ -1,0 +1,5 @@
+{
+  if (stepScope instanceof LocalSearchStepScope) {
+    localSearchStepEnded((LocalSearchStepScope<Solution_>)stepScope);
+  }
+}

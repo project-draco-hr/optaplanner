@@ -1,1 +1,1 @@
-AbstractEventSupport<PhaseLifecycleListener>
+AbstractEventSupport<PhaseLifecycleListener<Solution_>>

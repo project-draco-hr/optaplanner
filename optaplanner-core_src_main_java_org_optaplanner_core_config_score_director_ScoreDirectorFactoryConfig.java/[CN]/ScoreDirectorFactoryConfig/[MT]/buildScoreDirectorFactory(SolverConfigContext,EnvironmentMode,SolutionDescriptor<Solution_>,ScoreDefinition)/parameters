@@ -1,0 +1,4 @@
+SolverConfigContext configContext
+EnvironmentMode environmentMode
+SolutionDescriptor<Solution_> solutionDescriptor
+ScoreDefinition scoreDefinition

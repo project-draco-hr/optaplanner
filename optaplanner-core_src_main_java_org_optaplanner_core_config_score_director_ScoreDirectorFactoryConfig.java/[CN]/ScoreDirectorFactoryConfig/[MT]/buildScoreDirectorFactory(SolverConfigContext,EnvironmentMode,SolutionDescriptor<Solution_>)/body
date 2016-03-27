@@ -1,0 +1,8 @@
+{
+  ScoreDefinition scoreDefinition=buildScoreDefinition();
+  Class<? extends Score> scoreClass=solutionDescriptor.extractScoreClass();
+  if (!scoreClass.isAssignableFrom(scoreDefinition.getScoreClass())) {
+    throw new IllegalArgumentException("The scoreClass (" + scoreClass + ") of solutionClass ("+ solutionDescriptor.getSolutionClass()+ ") is not the same or a superclass as the scoreDefinition's scoreClass ("+ scoreDefinition.getScoreClass()+ ").");
+  }
+  return buildScoreDirectorFactory(configContext,environmentMode,solutionDescriptor,scoreDefinition);
+}

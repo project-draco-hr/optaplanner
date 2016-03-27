@@ -1,10 +1,10 @@
 {
-  ConstructionHeuristicPhaseScope phaseScope=mock(ConstructionHeuristicPhaseScope.class);
-  ConstructionHeuristicStepScope lastCompletedStepScope=mock(ConstructionHeuristicStepScope.class);
+  ConstructionHeuristicPhaseScope<Solution_> phaseScope=mock(ConstructionHeuristicPhaseScope.class);
+  ConstructionHeuristicStepScope<Solution_> lastCompletedStepScope=mock(ConstructionHeuristicStepScope.class);
   when(lastCompletedStepScope.getPhaseScope()).thenReturn(phaseScope);
   when(lastCompletedStepScope.getScore()).thenReturn(lastStepScore);
   when(phaseScope.getLastCompletedStepScope()).thenReturn(lastCompletedStepScope);
-  ConstructionHeuristicStepScope stepScope=mock(ConstructionHeuristicStepScope.class);
+  ConstructionHeuristicStepScope<Solution_> stepScope=mock(ConstructionHeuristicStepScope.class);
   when(stepScope.getPhaseScope()).thenReturn(phaseScope);
   return stepScope;
 }

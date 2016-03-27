@@ -1,6 +1,6 @@
 {
   this.scoreDirectorFactory=scoreDirectorFactory;
   this.constraintMatchEnabledPreference=constraintMatchEnabledPreference;
-  variableListenerSupport=new VariableListenerSupport(this);
+  variableListenerSupport=new VariableListenerSupport<>(this);
   variableListenerSupport.linkVariableListeners();
 }

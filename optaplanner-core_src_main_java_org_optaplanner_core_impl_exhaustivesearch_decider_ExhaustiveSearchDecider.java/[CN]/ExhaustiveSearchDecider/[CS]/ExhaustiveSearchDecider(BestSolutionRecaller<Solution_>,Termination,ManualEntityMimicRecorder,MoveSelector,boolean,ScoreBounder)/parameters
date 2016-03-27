@@ -1,0 +1,6 @@
+BestSolutionRecaller<Solution_> bestSolutionRecaller
+Termination termination
+ManualEntityMimicRecorder manualEntityMimicRecorder
+MoveSelector moveSelector
+boolean scoreBounderEnabled
+ScoreBounder scoreBounder

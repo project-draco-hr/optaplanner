@@ -1,0 +1,4 @@
+{
+  DinnerParty dinnerParty=scoreDirector.getWorkingSolution();
+  initializeSeatDesignationList(scoreDirector,dinnerParty);
+}

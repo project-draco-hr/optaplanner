@@ -1,4 +1,4 @@
 {
   super(solverScope);
-  lastCompletedStepScope=new CustomStepScope(this,-1);
+  lastCompletedStepScope=new CustomStepScope<>(this,-1);
 }

@@ -1,9 +1,0 @@
-{
-  super.stepEnded(stepScope);
-  decider.stepEnded(stepScope);
-  if (logger.isDebugEnabled()) {
-    ExhaustiveSearchPhaseScope phaseScope=stepScope.getPhaseScope();
-    long timeMillisSpent=phaseScope.calculateSolverTimeMillisSpent();
-    logger.debug("    ES step ({}), time spent ({}), treeId ({}), {} best score ({}), selected move count ({}).",stepScope.getStepIndex(),timeMillisSpent,stepScope.getTreeId(),(stepScope.getBestScoreImproved() ? "new" : "   "),phaseScope.getBestScoreWithUninitializedPrefix(),stepScope.getSelectedMoveCount());
-  }
-}

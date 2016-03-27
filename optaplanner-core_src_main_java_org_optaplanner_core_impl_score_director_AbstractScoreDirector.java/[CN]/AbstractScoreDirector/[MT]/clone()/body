@@ -1,5 +1,5 @@
 {
-  AbstractScoreDirector clone=(AbstractScoreDirector)scoreDirectorFactory.buildScoreDirector(constraintMatchEnabledPreference);
+  AbstractScoreDirector<Solution_,Factory_> clone=(AbstractScoreDirector<Solution_,Factory_>)scoreDirectorFactory.buildScoreDirector(constraintMatchEnabledPreference);
   clone.setWorkingSolution(cloneWorkingSolution());
   return clone;
 }

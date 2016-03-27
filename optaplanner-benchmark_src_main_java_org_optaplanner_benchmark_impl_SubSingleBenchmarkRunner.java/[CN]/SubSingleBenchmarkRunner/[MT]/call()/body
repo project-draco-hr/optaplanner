@@ -8,9 +8,9 @@
     subSingleBenchmarkResult.setUsedMemoryAfterInputSolution(runtime.totalMemory() - runtime.freeMemory());
   }
   logger.trace("Benchmark inputSolution has been read for subSingleBenchmarkResult ({}).",subSingleBenchmarkResult);
-  SolverConfig<Solution_> solverConfig=subSingleBenchmarkResult.getSingleBenchmarkResult().getSolverBenchmarkResult().getSolverConfig();
+  SolverConfig solverConfig=subSingleBenchmarkResult.getSingleBenchmarkResult().getSolverBenchmarkResult().getSolverConfig();
   if (subSingleBenchmarkResult.getSingleBenchmarkResult().getSubSingleCount() > 1) {
-    solverConfig=new SolverConfig<>(solverConfig);
+    solverConfig=new SolverConfig(solverConfig);
     solverConfig.offerRandomSeedFromSubSingleIndex((long)subSingleBenchmarkResult.getSubSingleBenchmarkIndex());
   }
   Solver<Solution_> solver=solverConfig.buildSolver(solverConfigContext);
