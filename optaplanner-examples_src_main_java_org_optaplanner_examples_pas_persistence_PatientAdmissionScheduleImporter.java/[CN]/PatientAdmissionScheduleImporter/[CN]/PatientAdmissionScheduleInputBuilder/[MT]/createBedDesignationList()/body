@@ -1,6 +1,6 @@
 {
   List<AdmissionPart> admissionPartList=patientAdmissionSchedule.getAdmissionPartList();
-  List<BedDesignation> bedDesignationList=new ArrayList<BedDesignation>(admissionPartList.size());
+  List<BedDesignation> bedDesignationList=new ArrayList<>(admissionPartList.size());
   long id=0L;
   for (  AdmissionPart admissionPart : admissionPartList) {
     BedDesignation bedDesignation=new BedDesignation();

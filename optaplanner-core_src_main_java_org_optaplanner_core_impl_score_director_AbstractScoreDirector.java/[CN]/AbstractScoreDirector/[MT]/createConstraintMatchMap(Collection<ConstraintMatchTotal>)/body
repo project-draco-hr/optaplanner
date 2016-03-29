@@ -1,5 +1,5 @@
 {
-  Map<List<Object>,ConstraintMatch> constraintMatchMap=new LinkedHashMap<List<Object>,ConstraintMatch>(constraintMatchTotals.size() * 16);
+  Map<List<Object>,ConstraintMatch> constraintMatchMap=new LinkedHashMap<>(constraintMatchTotals.size() * 16);
   for (  ConstraintMatchTotal constraintMatchTotal : constraintMatchTotals) {
     for (    ConstraintMatch constraintMatch : constraintMatchTotal.getConstraintMatchSet()) {
       ConstraintMatch previousConstraintMatch=constraintMatchMap.put(Arrays.<Object>asList(constraintMatchTotal.getConstraintPackage(),constraintMatchTotal.getConstraintName(),constraintMatchTotal.getScoreLevel(),constraintMatch.getJustificationList(),constraintMatch.getWeightAsNumber()),constraintMatch);

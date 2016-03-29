@@ -4,7 +4,7 @@
     attendanceListSize+=meeting.getRequiredAttendanceList().size() + meeting.getPreferredAttendanceList().size();
   }
   int personListSize=attendanceListSize * meetingSchedule.getRoomList().size() * 3 / (4 * meetingSchedule.getMeetingList().size());
-  List<Person> personList=new ArrayList<Person>(personListSize);
+  List<Person> personList=new ArrayList<>(personListSize);
   for (int i=0; i < personListSize; i++) {
     Person person=new Person();
     person.setId((long)i);

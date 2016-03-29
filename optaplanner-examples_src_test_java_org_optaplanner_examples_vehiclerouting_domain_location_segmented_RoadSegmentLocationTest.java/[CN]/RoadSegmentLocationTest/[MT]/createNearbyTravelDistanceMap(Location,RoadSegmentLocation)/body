@@ -1,5 +1,5 @@
 {
-  Map<RoadSegmentLocation,Double> map=new LinkedHashMap<RoadSegmentLocation,Double>(toLocations.length);
+  Map<RoadSegmentLocation,Double> map=new LinkedHashMap<>(toLocations.length);
   for (  RoadSegmentLocation toLocation : toLocations) {
     map.put(toLocation,fromLocation.getAirDistanceDoubleTo(toLocation));
   }

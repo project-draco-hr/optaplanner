@@ -1,6 +1,6 @@
 {
   List<Shift> shiftList=nurseRoster.getShiftList();
-  List<ShiftAssignment> shiftAssignmentList=new ArrayList<ShiftAssignment>(shiftList.size());
+  List<ShiftAssignment> shiftAssignmentList=new ArrayList<>(shiftList.size());
   long id=0L;
   for (  Shift shift : shiftList) {
     for (int i=0; i < shift.getRequiredEmployeeSize(); i++) {

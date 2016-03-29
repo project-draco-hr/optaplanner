@@ -3,19 +3,19 @@
   if (entitySize > (long)Integer.MAX_VALUE) {
     throw new IllegalStateException("The selector (" + this + ") has an entitySelector ("+ entitySelector+ ") with entitySize ("+ entitySize+ ") which is higher than Integer.MAX_VALUE.");
   }
-  Map<List<Object>,List<Object>> valueStateToPillarMap=new LinkedHashMap<List<Object>,List<Object>>((int)entitySize);
+  Map<List<Object>,List<Object>> valueStateToPillarMap=new LinkedHashMap<>((int)entitySize);
   for (  Object entity : entitySelector) {
-    List<Object> valueState=new ArrayList<Object>(variableDescriptors.size());
+    List<Object> valueState=new ArrayList<>(variableDescriptors.size());
     for (    GenuineVariableDescriptor variableDescriptor : variableDescriptors) {
       Object value=variableDescriptor.getValue(entity);
       valueState.add(value);
     }
     List<Object> pillar=valueStateToPillarMap.get(valueState);
     if (pillar == null) {
-      pillar=new ArrayList<Object>();
+      pillar=new ArrayList<>();
       valueStateToPillarMap.put(valueState,pillar);
     }
     pillar.add(entity);
   }
-  cachedBasePillarList=new ArrayList<List<Object>>(valueStateToPillarMap.values());
+  cachedBasePillarList=new ArrayList<>(valueStateToPillarMap.values());
 }

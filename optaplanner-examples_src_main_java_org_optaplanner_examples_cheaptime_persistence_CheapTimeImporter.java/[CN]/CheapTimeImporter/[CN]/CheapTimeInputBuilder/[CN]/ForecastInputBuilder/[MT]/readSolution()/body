@@ -1,7 +1,7 @@
 {
   int periodListSize=readIntegerValue();
   long periodDurationPerHour=CheapTimeCostCalculator.divideTwoMicros(CheapTimeCostCalculator.toMicroCost(1440),CheapTimeCostCalculator.toMicroCost(periodListSize * 60L));
-  List<PeriodPowerPrice> periodPowerPriceList=new ArrayList<PeriodPowerPrice>(periodListSize);
+  List<PeriodPowerPrice> periodPowerPriceList=new ArrayList<>(periodListSize);
   for (int i=0; i < periodListSize; i++) {
     String[] lineTokens=splitBySpacesOrTabs(readStringValue(),2);
     PeriodPowerPrice periodPowerPrice=new PeriodPowerPrice();

@@ -1,6 +1,6 @@
 {
   List<Topic> topicList=examination.getTopicList();
-  List<RoomPenalty> roomPenaltyList=new ArrayList<RoomPenalty>();
+  List<RoomPenalty> roomPenaltyList=new ArrayList<>();
   String line=bufferedReader.readLine();
   int id=0;
   while (!line.equals("[InstitutionalWeightings]")) {

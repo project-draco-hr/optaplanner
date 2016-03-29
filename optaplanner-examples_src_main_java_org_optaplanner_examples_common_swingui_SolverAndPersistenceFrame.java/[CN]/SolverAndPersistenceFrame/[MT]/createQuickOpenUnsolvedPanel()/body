@@ -1,6 +1,6 @@
 {
   quickOpenUnsolvedPanel=new JPanel();
-  quickOpenUnsolvedActionList=new ArrayList<Action>();
+  quickOpenUnsolvedActionList=new ArrayList<>();
   List<File> unsolvedFileList=solutionBusiness.getUnsolvedFileList();
   return createQuickOpenPanel(quickOpenUnsolvedPanel,"Unsolved dataset",quickOpenUnsolvedActionList,unsolvedFileList);
 }

@@ -15,7 +15,7 @@
     }
   }
 ;
-  Set<TestdataValue> valueSet=new TreeSet<TestdataValue>(valueComparator);
+  Set<TestdataValue> valueSet=new TreeSet<>(valueComparator);
   valueSet.addAll(Arrays.asList(val1,val2,val3));
   original.setValueSet(valueSet);
   Comparator<TestdataSetBasedEntity> entityComparator=new Comparator<TestdataSetBasedEntity>(){
@@ -24,7 +24,7 @@
     }
   }
 ;
-  Set<TestdataSetBasedEntity> originalEntitySet=new TreeSet<TestdataSetBasedEntity>(entityComparator);
+  Set<TestdataSetBasedEntity> originalEntitySet=new TreeSet<>(entityComparator);
   originalEntitySet.addAll(Arrays.asList(a,b,c,d));
   original.setEntitySet(originalEntitySet);
   TestdataSetBasedSolution clone=cloner.cloneSolution(original);

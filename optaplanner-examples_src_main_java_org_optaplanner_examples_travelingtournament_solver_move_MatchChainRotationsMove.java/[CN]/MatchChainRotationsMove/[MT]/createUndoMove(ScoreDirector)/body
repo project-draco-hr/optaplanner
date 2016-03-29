@@ -1,7 +1,7 @@
 {
-  List<Match> inverseFirstMatchList=new ArrayList<Match>(firstMatchList);
+  List<Match> inverseFirstMatchList=new ArrayList<>(firstMatchList);
   Collections.reverse(inverseFirstMatchList);
-  List<Match> inverseSecondMatchList=new ArrayList<Match>(secondMatchList);
+  List<Match> inverseSecondMatchList=new ArrayList<>(secondMatchList);
   Collections.reverse(inverseSecondMatchList);
   return new MatchChainRotationsMove(inverseFirstMatchList,inverseSecondMatchList);
 }

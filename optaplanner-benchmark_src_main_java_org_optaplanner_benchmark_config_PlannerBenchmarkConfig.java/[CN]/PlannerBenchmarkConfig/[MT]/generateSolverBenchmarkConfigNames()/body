@@ -1,7 +1,7 @@
 {
   if (solverBenchmarkConfigList != null) {
-    Set<String> nameSet=new HashSet<String>(solverBenchmarkConfigList.size());
-    Set<SolverBenchmarkConfig> noNameBenchmarkConfigSet=new LinkedHashSet<SolverBenchmarkConfig>(solverBenchmarkConfigList.size());
+    Set<String> nameSet=new HashSet<>(solverBenchmarkConfigList.size());
+    Set<SolverBenchmarkConfig> noNameBenchmarkConfigSet=new LinkedHashSet<>(solverBenchmarkConfigList.size());
     for (    SolverBenchmarkConfig solverBenchmarkConfig : solverBenchmarkConfigList) {
       if (solverBenchmarkConfig.getName() != null) {
         boolean unique=nameSet.add(solverBenchmarkConfig.getName());

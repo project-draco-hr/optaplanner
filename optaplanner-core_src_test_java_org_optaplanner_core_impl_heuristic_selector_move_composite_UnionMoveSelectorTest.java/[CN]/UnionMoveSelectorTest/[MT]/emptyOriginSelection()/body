@@ -1,5 +1,5 @@
 {
-  ArrayList<MoveSelector> childMoveSelectorList=new ArrayList<MoveSelector>();
+  ArrayList<MoveSelector> childMoveSelectorList=new ArrayList<>();
   childMoveSelectorList.add(SelectorTestUtils.mockMoveSelector(DummyMove.class));
   childMoveSelectorList.add(SelectorTestUtils.mockMoveSelector(DummyMove.class));
   UnionMoveSelector moveSelector=new UnionMoveSelector(childMoveSelectorList,false);

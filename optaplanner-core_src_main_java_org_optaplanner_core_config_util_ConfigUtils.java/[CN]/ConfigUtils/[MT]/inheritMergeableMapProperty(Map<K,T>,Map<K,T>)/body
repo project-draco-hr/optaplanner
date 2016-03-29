@@ -6,7 +6,7 @@
     return inheritedMap;
   }
  else {
-    Map<K,T> mergedMap=new LinkedHashMap<K,T>(inheritedMap);
+    Map<K,T> mergedMap=new LinkedHashMap<>(inheritedMap);
     mergedMap.putAll(originalMap);
     return mergedMap;
   }

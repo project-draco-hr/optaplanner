@@ -1,5 +1,5 @@
 {
-  List<Integer> startPeriodList=new ArrayList<Integer>(pillar.size());
+  List<Integer> startPeriodList=new ArrayList<>(pillar.size());
   for (  TaskAssignment taskAssignment : pillar) {
     startPeriodList.add(taskAssignment.getStartPeriod());
   }

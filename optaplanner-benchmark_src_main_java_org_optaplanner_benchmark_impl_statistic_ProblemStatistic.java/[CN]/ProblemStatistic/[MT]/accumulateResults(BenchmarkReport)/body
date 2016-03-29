@@ -1,4 +1,4 @@
 {
-  warningList=new ArrayList<String>();
+  warningList=new ArrayList<>();
   fillWarningList();
 }

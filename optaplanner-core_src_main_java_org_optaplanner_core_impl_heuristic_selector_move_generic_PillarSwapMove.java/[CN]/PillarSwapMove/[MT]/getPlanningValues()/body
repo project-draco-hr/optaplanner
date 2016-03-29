@@ -1,5 +1,5 @@
 {
-  List<Object> values=new ArrayList<Object>(variableDescriptors.size() * 2);
+  List<Object> values=new ArrayList<>(variableDescriptors.size() * 2);
   for (  GenuineVariableDescriptor variableDescriptor : variableDescriptors) {
     values.add(variableDescriptor.getValue(leftPillar.get(0)));
     values.add(variableDescriptor.getValue(rightPillar.get(0)));

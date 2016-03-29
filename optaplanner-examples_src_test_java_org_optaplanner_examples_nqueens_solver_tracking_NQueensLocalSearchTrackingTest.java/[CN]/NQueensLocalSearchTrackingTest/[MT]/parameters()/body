@@ -1,5 +1,5 @@
 {
-  Collection<Object[]> params=new ArrayList<Object[]>();
+  Collection<Object[]> params=new ArrayList<>();
   AcceptorConfig acceptorConfig=new AcceptorConfig();
   LocalSearchForagerConfig localSearchForagerConfig=new LocalSearchForagerConfig();
   localSearchForagerConfig.setAcceptedCountLimit(N * N);

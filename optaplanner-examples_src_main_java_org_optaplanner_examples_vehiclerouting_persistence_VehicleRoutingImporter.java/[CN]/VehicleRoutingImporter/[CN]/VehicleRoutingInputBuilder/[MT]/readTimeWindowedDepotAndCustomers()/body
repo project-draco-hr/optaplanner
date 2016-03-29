@@ -1,10 +1,10 @@
 {
   String line=bufferedReader.readLine();
   int locationListSizeEstimation=25;
-  List<Location> locationList=new ArrayList<Location>(locationListSizeEstimation);
-  depotList=new ArrayList<Depot>(1);
+  List<Location> locationList=new ArrayList<>(locationListSizeEstimation);
+  depotList=new ArrayList<>(1);
   TimeWindowedDepot depot=null;
-  List<Customer> customerList=new ArrayList<Customer>(locationListSizeEstimation);
+  List<Customer> customerList=new ArrayList<>(locationListSizeEstimation);
   boolean first=true;
   while (line != null && !line.trim().isEmpty()) {
     String[] lineTokens=splitBySpacesOrTabs(line.trim(),7);

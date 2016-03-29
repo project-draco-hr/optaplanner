@@ -1,7 +1,7 @@
 {
   readConstantLine("ROOMPROPERTIES:");
-  List<Equipment> equipmentList=new ArrayList<Equipment>(equipmentListSize);
-  indexToEquipmentMap=new HashMap<Integer,Equipment>(equipmentListSize);
+  List<Equipment> equipmentList=new ArrayList<>(equipmentListSize);
+  indexToEquipmentMap=new HashMap<>(equipmentListSize);
   for (int i=0; i < equipmentListSize; i++) {
     String line=bufferedReader.readLine();
     String[] lineTokens=splitBySpace(line,2);

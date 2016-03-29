@@ -1,10 +1,10 @@
 {
   this.machine=machine;
   List<MrMachineCapacity> machineCapacityList=machine.getMachineCapacityList();
-  machineCapacityScorePartList=new ArrayList<MrMachineCapacityScorePart>(machineCapacityList.size());
+  machineCapacityScorePartList=new ArrayList<>(machineCapacityList.size());
   for (  MrMachineCapacity machineCapacity : machineCapacityList) {
     machineCapacityScorePartList.add(new MrMachineCapacityScorePart(machineCapacity));
   }
-  serviceBag=new HashMap<MrService,Integer>(10);
+  serviceBag=new HashMap<>(10);
   doBalancePenaltyCosts();
 }

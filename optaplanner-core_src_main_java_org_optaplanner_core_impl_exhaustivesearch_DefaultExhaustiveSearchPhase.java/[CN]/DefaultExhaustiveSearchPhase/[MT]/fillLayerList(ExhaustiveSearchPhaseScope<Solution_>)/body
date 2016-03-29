@@ -5,7 +5,7 @@
   if (entitySize > (long)Integer.MAX_VALUE) {
     throw new IllegalStateException("The entitySelector (" + entitySelector + ") has an entitySize ("+ entitySize+ ") which is higher than Integer.MAX_VALUE.");
   }
-  List<ExhaustiveSearchLayer> layerList=new ArrayList<ExhaustiveSearchLayer>((int)entitySize);
+  List<ExhaustiveSearchLayer> layerList=new ArrayList<>((int)entitySize);
   int depth=0;
   InnerScoreDirector scoreDirector=phaseScope.getScoreDirector();
   int uninitializedVariableCount=phaseScope.getSolutionDescriptor().countReinitializableVariables(scoreDirector,phaseScope.getWorkingSolution());

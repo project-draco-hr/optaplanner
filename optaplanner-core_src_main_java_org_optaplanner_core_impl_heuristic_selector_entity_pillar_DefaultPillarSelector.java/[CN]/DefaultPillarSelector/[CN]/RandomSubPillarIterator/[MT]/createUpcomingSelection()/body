@@ -5,7 +5,7 @@
   int max=(maximumSubPillarSize > basePillarSize) ? basePillarSize : maximumSubPillarSize;
   int subPillarSize=min + workingRandom.nextInt(max - min + 1);
   Object[] sandboxPillar=basePillar.toArray();
-  List<Object> subPillar=new ArrayList<Object>(subPillarSize);
+  List<Object> subPillar=new ArrayList<>(subPillarSize);
   for (int i=0; i < subPillarSize; i++) {
     int index=i + workingRandom.nextInt(basePillarSize - i);
     subPillar.add(sandboxPillar[index]);

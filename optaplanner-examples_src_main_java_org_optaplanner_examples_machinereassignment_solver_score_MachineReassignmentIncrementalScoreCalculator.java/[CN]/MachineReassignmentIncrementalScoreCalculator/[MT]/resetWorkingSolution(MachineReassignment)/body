@@ -4,15 +4,15 @@
   softScore=0L;
   globalPenaltyInfo=machineReassignment.getGlobalPenaltyInfo();
   List<MrService> serviceList=machineReassignment.getServiceList();
-  serviceScorePartMap=new HashMap<MrService,MrServiceScorePart>(serviceList.size());
+  serviceScorePartMap=new HashMap<>(serviceList.size());
   for (  MrService service : serviceList) {
     serviceScorePartMap.put(service,new MrServiceScorePart(service));
   }
-  movedProcessCountToServiceCount=new HashMap<Integer,Integer>(serviceList.size());
+  movedProcessCountToServiceCount=new HashMap<>(serviceList.size());
   movedProcessCountToServiceCount.put(0,serviceList.size());
   serviceMoveCost=0;
   List<MrMachine> machineList=machineReassignment.getMachineList();
-  machineScorePartMap=new HashMap<MrMachine,MrMachineScorePart>(machineList.size());
+  machineScorePartMap=new HashMap<>(machineList.size());
   for (  MrMachine machine : machineList) {
     machineScorePartMap.put(machine,new MrMachineScorePart(machine));
   }

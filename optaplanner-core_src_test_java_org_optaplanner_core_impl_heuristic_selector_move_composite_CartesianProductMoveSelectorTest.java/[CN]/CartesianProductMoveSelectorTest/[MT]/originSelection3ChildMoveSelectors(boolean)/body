@@ -1,5 +1,5 @@
 {
-  ArrayList<MoveSelector> childMoveSelectorList=new ArrayList<MoveSelector>();
+  ArrayList<MoveSelector> childMoveSelectorList=new ArrayList<>();
   childMoveSelectorList.add(SelectorTestUtils.mockMoveSelector(DummyMove.class,new DummyMove("a1"),new DummyMove("a2")));
   childMoveSelectorList.add(SelectorTestUtils.mockMoveSelector(DummyMove.class,new DummyMove("b1"),new DummyMove("b2")));
   childMoveSelectorList.add(SelectorTestUtils.mockMoveSelector(DummyMove.class,new DummyMove("c1"),new DummyMove("c2")));

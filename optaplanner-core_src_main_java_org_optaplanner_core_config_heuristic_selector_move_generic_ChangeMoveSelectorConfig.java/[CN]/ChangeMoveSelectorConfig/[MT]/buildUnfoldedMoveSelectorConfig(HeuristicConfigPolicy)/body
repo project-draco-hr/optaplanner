@@ -7,7 +7,7 @@
  else {
     entityDescriptors=configPolicy.getSolutionDescriptor().getGenuineEntityDescriptors();
   }
-  List<GenuineVariableDescriptor> variableDescriptorList=new ArrayList<GenuineVariableDescriptor>();
+  List<GenuineVariableDescriptor> variableDescriptorList=new ArrayList<>();
   for (  EntityDescriptor entityDescriptor : entityDescriptors) {
     GenuineVariableDescriptor onlyVariableDescriptor=valueSelectorConfig == null ? null : valueSelectorConfig.extractVariableDescriptor(configPolicy,entityDescriptor);
     if (onlyVariableDescriptor != null) {

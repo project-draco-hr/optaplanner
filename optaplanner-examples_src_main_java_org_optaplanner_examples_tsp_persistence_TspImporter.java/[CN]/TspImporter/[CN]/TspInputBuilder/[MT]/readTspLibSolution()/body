@@ -9,7 +9,7 @@
     throw new IllegalStateException("The domicileId (" + domicileId + ") is not the domicile's id ("+ domicile.getId()+ ").");
   }
   int visitListSize=tspSolution.getVisitList().size();
-  Map<Long,Visit> idToVisitMap=new HashMap<Long,Visit>(visitListSize);
+  Map<Long,Visit> idToVisitMap=new HashMap<>(visitListSize);
   for (  Visit visit : tspSolution.getVisitList()) {
     idToVisitMap.put(visit.getId(),visit);
   }

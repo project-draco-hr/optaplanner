@@ -1,7 +1,7 @@
 {
   List<Topic> topicList=examination.getTopicList();
-  List<Exam> examList=new ArrayList<Exam>(topicList.size());
-  Map<Topic,LeadingExam> leadingTopicToExamMap=new HashMap<Topic,LeadingExam>(topicList.size());
+  List<Exam> examList=new ArrayList<>(topicList.size());
+  Map<Topic,LeadingExam> leadingTopicToExamMap=new HashMap<>(topicList.size());
   for (  Topic topic : topicList) {
     Exam exam;
     Topic leadingTopic=topic;
@@ -12,7 +12,7 @@
     }
     if (leadingTopic == topic) {
       LeadingExam leadingExam=new LeadingExam();
-      leadingExam.setFollowingExamList(new ArrayList<FollowingExam>(10));
+      leadingExam.setFollowingExamList(new ArrayList<>(10));
       leadingTopicToExamMap.put(topic,leadingExam);
       exam=leadingExam;
     }

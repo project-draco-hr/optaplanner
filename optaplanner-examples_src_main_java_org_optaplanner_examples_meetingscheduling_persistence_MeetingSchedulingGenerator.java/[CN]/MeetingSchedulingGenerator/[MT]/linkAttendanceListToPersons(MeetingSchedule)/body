@@ -1,6 +1,6 @@
 {
   for (  Meeting meeting : meetingSchedule.getMeetingList()) {
-    List<Person> availablePersonList=new ArrayList<Person>(meetingSchedule.getPersonList());
+    List<Person> availablePersonList=new ArrayList<>(meetingSchedule.getPersonList());
     int attendanceListSize=meeting.getRequiredAttendanceList().size() + meeting.getPreferredAttendanceList().size();
     if (availablePersonList.size() < attendanceListSize) {
       throw new IllegalStateException("The availablePersonList size (" + availablePersonList.size() + ") is less than the attendanceListSize ("+ attendanceListSize+ ").");

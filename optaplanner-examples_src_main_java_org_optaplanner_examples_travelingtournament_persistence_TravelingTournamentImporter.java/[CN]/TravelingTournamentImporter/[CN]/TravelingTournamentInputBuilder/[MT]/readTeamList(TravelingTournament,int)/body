@@ -1,10 +1,10 @@
 {
-  List<Team> teamList=new ArrayList<Team>();
+  List<Team> teamList=new ArrayList<>();
   for (int i=0; i < n; i++) {
     Team team=new Team();
     team.setId((long)i);
     team.setName(bufferedReader.readLine());
-    team.setDistanceToTeamMap(new HashMap<Team,Integer>());
+    team.setDistanceToTeamMap(new HashMap<>());
     teamList.add(team);
   }
   travelingTournament.setTeamList(teamList);

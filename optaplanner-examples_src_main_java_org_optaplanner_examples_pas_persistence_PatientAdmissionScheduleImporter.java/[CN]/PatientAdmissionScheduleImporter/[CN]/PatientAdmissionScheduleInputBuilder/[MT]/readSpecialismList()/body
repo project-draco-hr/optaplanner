@@ -1,7 +1,7 @@
 {
   readConstantLine("SPECIALISMS:");
-  List<Specialism> specialismList=new ArrayList<Specialism>(specialismListSize);
-  idToSpecialismMap=new HashMap<Long,Specialism>(specialismListSize);
+  List<Specialism> specialismList=new ArrayList<>(specialismListSize);
+  idToSpecialismMap=new HashMap<>(specialismListSize);
   for (int i=0; i < specialismListSize; i++) {
     String line=bufferedReader.readLine();
     String[] lineTokens=splitBySpace(line,2);

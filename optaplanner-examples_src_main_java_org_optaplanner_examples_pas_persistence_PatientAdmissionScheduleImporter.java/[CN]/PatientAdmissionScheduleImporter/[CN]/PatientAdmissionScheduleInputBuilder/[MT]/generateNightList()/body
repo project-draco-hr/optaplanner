@@ -1,6 +1,6 @@
 {
-  List<Night> nightList=new ArrayList<Night>(nightListSize);
-  indexToNightMap=new HashMap<Integer,Night>(nightListSize);
+  List<Night> nightList=new ArrayList<>(nightListSize);
+  indexToNightMap=new HashMap<>(nightListSize);
   long nightId=0L;
   for (int i=0; i < nightListSize; i++) {
     Night night=new Night();

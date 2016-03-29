@@ -4,9 +4,9 @@
     Map<Team,Match> firstDayTeamMap=dayTeamMap.get(firstDay);
     for (ListIterator<Day> secondDayIt=dayList.listIterator(firstDayIt.nextIndex()); secondDayIt.hasNext(); ) {
       Day secondDay=secondDayIt.next();
-      List<Match> clonedFirstDayMatchList=new ArrayList<Match>(firstDayTeamMap.values());
+      List<Match> clonedFirstDayMatchList=new ArrayList<>(firstDayTeamMap.values());
       while (!clonedFirstDayMatchList.isEmpty()) {
-        List<Match> rotateList=new ArrayList<Match>(4);
+        List<Match> rotateList=new ArrayList<>(4);
         Match startMatch=clonedFirstDayMatchList.remove(0);
         boolean otherInFirst=false;
         rotateList.add(startMatch);

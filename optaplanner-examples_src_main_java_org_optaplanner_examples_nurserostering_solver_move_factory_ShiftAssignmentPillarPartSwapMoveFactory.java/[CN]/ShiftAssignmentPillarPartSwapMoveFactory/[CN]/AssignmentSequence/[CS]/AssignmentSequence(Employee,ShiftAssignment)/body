@@ -1,6 +1,6 @@
 {
   this.employee=employee;
-  shiftAssignmentList=new ArrayList<ShiftAssignment>();
+  shiftAssignmentList=new ArrayList<>();
   shiftAssignmentList.add(shiftAssignment);
   firstDayIndex=shiftAssignment.getShiftDateDayIndex();
   lastDayIndex=firstDayIndex;

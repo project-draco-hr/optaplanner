@@ -1,5 +1,5 @@
 {
-  List<Move> moveList=new ArrayList<Move>(moveIteratorList.size());
+  List<Move> moveList=new ArrayList<>(moveIteratorList.size());
   for (int i=0; i < moveIteratorList.size(); i++) {
     Iterator<Move> moveIterator=moveIteratorList.get(i);
     boolean skip=false;

@@ -1,5 +1,5 @@
 {
-  moveIteratorList=new ArrayList<Iterator<Move>>(childMoveSelectorList.size());
+  moveIteratorList=new ArrayList<>(childMoveSelectorList.size());
   empty=null;
   for (  MoveSelector moveSelector : childMoveSelectorList) {
     moveIteratorList.add(moveSelector.iterator());

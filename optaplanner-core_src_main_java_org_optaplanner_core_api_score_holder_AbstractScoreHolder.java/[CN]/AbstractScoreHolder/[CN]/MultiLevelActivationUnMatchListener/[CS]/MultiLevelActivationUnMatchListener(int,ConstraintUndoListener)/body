@@ -1,4 +1,4 @@
 {
-  scoreLevelToConstraintUndoListenerMap=new HashMap<Integer,ConstraintUndoListener>(INITIAL_MAP_CAPACITY);
+  scoreLevelToConstraintUndoListenerMap=new HashMap<>(INITIAL_MAP_CAPACITY);
   scoreLevelToConstraintUndoListenerMap.put(scoreLevel,constraintUndoListener);
 }

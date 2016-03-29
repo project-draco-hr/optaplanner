@@ -1,6 +1,6 @@
 {
   if (hasFiltering()) {
-    List<SelectionFilter> filterList=new ArrayList<SelectionFilter>(filterClassList.size());
+    List<SelectionFilter> filterList=new ArrayList<>(filterClassList.size());
     for (    Class<? extends SelectionFilter> filterClass : filterClassList) {
       filterList.add(ConfigUtils.newInstance(this,"filterClass",filterClass));
     }

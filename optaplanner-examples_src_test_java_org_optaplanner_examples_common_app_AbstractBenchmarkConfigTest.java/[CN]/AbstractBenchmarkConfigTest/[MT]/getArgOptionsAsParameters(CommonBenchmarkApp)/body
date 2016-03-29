@@ -1,5 +1,5 @@
 {
-  List<Object[]> filesAsParameters=new ArrayList<Object[]>();
+  List<Object[]> filesAsParameters=new ArrayList<>();
   for (  CommonBenchmarkApp.ArgOption argOption : benchmarkApp.getArgOptions()) {
     filesAsParameters.add(new Object[]{argOption});
   }

@@ -1,6 +1,6 @@
 {
   CloudBalance cloudBalance=new CloudBalancingGenerator().createCloudBalance(computerListSize,processListSize);
   notYetAddedProcessQueue.addAll(cloudBalance.getProcessList());
-  cloudBalance.setProcessList(new ArrayList<CloudProcess>(notYetAddedProcessQueue.size()));
+  cloudBalance.setProcessList(new ArrayList<>(notYetAddedProcessQueue.size()));
   return cloudBalance;
 }

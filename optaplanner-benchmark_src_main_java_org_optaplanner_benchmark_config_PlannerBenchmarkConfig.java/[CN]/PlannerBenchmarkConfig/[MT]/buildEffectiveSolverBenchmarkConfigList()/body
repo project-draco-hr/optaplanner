@@ -1,5 +1,5 @@
 {
-  List<SolverBenchmarkConfig> effectiveSolverBenchmarkConfigList=new ArrayList<SolverBenchmarkConfig>(0);
+  List<SolverBenchmarkConfig> effectiveSolverBenchmarkConfigList=new ArrayList<>(0);
   if (solverBenchmarkConfigList != null) {
     effectiveSolverBenchmarkConfigList.addAll(solverBenchmarkConfigList);
   }

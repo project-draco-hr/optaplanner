@@ -1,28 +1,28 @@
 {
-  coincidenceMap=new LinkedHashMap<Topic,Set<Topic>>();
-  exclusionMap=new LinkedHashMap<Topic,Set<Topic>>();
-  afterMap=new LinkedHashMap<Topic,Set<Topic>>();
-  Map<Integer,Student> studentMap=new HashMap<Integer,Student>();
+  coincidenceMap=new LinkedHashMap<>();
+  exclusionMap=new LinkedHashMap<>();
+  afterMap=new LinkedHashMap<>();
+  Map<Integer,Student> studentMap=new HashMap<>();
   int examSize=readHeaderWithNumber("Exams");
-  List<Topic> topicList=new ArrayList<Topic>(examSize);
+  List<Topic> topicList=new ArrayList<>(examSize);
   for (int i=0; i < examSize; i++) {
     Topic topic=new Topic();
     topic.setId((long)i);
     String line=bufferedReader.readLine();
     String[] lineTokens=line.split(SPLIT_REGEX);
     topic.setDuration(Integer.parseInt(lineTokens[0]));
-    List<Student> topicStudentList=new ArrayList<Student>(lineTokens.length - 1);
+    List<Student> topicStudentList=new ArrayList<>(lineTokens.length - 1);
     for (int j=1; j < lineTokens.length; j++) {
       topicStudentList.add(findOrCreateStudent(studentMap,Integer.parseInt(lineTokens[j])));
     }
     topic.setStudentList(topicStudentList);
     topic.setFrontLoadLarge(false);
     topicList.add(topic);
-    coincidenceMap.put(topic,new HashSet<Topic>());
-    exclusionMap.put(topic,new HashSet<Topic>());
-    afterMap.put(topic,new HashSet<Topic>());
+    coincidenceMap.put(topic,new HashSet<>());
+    exclusionMap.put(topic,new HashSet<>());
+    afterMap.put(topic,new HashSet<>());
   }
   examination.setTopicList(topicList);
-  List<Student> studentList=new ArrayList<Student>(studentMap.values());
+  List<Student> studentList=new ArrayList<>(studentMap.values());
   examination.setStudentList(studentList);
 }

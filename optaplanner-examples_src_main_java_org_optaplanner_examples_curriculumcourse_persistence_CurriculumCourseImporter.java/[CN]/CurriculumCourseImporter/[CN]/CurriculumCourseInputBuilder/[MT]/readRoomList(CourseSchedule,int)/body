@@ -1,7 +1,7 @@
 {
   readEmptyLine();
   readConstantLine("ROOMS:");
-  List<Room> roomList=new ArrayList<Room>(roomListSize);
+  List<Room> roomList=new ArrayList<>(roomListSize);
   for (int i=0; i < roomListSize; i++) {
     Room room=new Room();
     room.setId((long)i);

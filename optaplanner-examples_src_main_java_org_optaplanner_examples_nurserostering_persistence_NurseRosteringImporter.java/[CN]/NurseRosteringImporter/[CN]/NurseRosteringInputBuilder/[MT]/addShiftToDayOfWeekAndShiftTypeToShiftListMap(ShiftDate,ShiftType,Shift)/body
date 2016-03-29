@@ -2,7 +2,7 @@
   List<Object> key=Arrays.<Object>asList(shiftDate.getDayOfWeek(),shiftType);
   List<Shift> dayOfWeekAndShiftTypeToShiftList=dayOfWeekAndShiftTypeToShiftListMap.get(key);
   if (dayOfWeekAndShiftTypeToShiftList == null) {
-    dayOfWeekAndShiftTypeToShiftList=new ArrayList<Shift>((shiftDateMap.size() + 6) / 7);
+    dayOfWeekAndShiftTypeToShiftList=new ArrayList<>((shiftDateMap.size() + 6) / 7);
     dayOfWeekAndShiftTypeToShiftListMap.put(key,dayOfWeekAndShiftTypeToShiftList);
   }
   dayOfWeekAndShiftTypeToShiftList.add(shift);

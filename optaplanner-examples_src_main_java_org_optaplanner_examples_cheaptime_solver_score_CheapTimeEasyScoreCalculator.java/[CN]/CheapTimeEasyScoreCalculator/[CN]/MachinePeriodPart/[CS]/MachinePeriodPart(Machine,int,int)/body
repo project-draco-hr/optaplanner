@@ -2,7 +2,7 @@
   this.machine=machine;
   this.period=period;
   active=false;
-  resourceAvailableList=new ArrayList<Integer>(resourceListSize);
+  resourceAvailableList=new ArrayList<>(resourceListSize);
   for (int i=0; i < resourceListSize; i++) {
     resourceAvailableList.add(machine.getMachineCapacityList().get(i).getCapacity());
   }

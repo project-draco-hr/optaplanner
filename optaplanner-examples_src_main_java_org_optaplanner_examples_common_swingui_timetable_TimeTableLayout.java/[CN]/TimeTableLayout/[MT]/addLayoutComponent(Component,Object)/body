@@ -11,7 +11,7 @@
   spanMap.put(component,span);
   span.topLeftCell=cells.get(c.getX()).get(c.getY());
   span.bottomRightCell=cells.get(c.getXEnd() - 1).get(c.getYEnd() - 1);
-  Set<Integer> occupiedCollisionIndexes=new HashSet<Integer>();
+  Set<Integer> occupiedCollisionIndexes=new HashSet<>();
   for (int i=c.getX(); i < c.getXEnd(); i++) {
     for (int j=c.getY(); j < c.getYEnd(); j++) {
       Cell cell=cells.get(i).get(j);

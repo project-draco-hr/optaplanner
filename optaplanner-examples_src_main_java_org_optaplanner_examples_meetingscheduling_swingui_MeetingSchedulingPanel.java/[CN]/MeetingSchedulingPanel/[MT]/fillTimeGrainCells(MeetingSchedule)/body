@@ -1,6 +1,6 @@
 {
-  Map<Day,TimeGrain> firstTimeGrainMap=new HashMap<Day,TimeGrain>(meetingSchedule.getDayList().size());
-  Map<Day,TimeGrain> lastTimeGrainMap=new HashMap<Day,TimeGrain>(meetingSchedule.getDayList().size());
+  Map<Day,TimeGrain> firstTimeGrainMap=new HashMap<>(meetingSchedule.getDayList().size());
+  Map<Day,TimeGrain> lastTimeGrainMap=new HashMap<>(meetingSchedule.getDayList().size());
   for (  TimeGrain timeGrain : meetingSchedule.getTimeGrainList()) {
     Day day=timeGrain.getDay();
     TimeGrain firstTimeGrain=firstTimeGrainMap.get(day);

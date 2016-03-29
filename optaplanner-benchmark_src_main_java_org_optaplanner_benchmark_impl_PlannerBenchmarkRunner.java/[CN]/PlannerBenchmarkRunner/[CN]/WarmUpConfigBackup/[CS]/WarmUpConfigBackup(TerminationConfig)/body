@@ -1,4 +1,4 @@
 {
   this.terminationConfig=terminationConfig;
-  this.pureSubSingleStatisticMap=new HashMap<SubSingleBenchmarkResult,List<PureSubSingleStatistic>>();
+  this.pureSubSingleStatisticMap=new HashMap<>();
 }

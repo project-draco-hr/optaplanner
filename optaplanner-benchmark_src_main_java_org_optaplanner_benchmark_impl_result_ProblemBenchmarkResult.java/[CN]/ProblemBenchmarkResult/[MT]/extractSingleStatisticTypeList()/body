@@ -1,5 +1,5 @@
 {
-  Set<SingleStatisticType> singleStatisticTypeSet=new LinkedHashSet<SingleStatisticType>();
+  Set<SingleStatisticType> singleStatisticTypeSet=new LinkedHashSet<>();
   for (  SingleBenchmarkResult singleBenchmarkResult : singleBenchmarkResultList) {
     for (    PureSubSingleStatistic pureSubSingleStatistic : singleBenchmarkResult.getMedian().getPureSubSingleStatisticList()) {
       singleStatisticTypeSet.add(pureSubSingleStatistic.getStatisticType());

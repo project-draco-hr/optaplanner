@@ -1,15 +1,15 @@
 {
   if (originalMap instanceof SortedMap) {
     Comparator<K> setComparator=((SortedMap)originalMap).comparator();
-    return new TreeMap<K,V>(setComparator);
+    return new TreeMap<>(setComparator);
   }
  else   if (originalMap instanceof LinkedHashMap) {
-    return new LinkedHashMap<K,V>(originalMap.size());
+    return new LinkedHashMap<>(originalMap.size());
   }
  else   if (originalMap instanceof HashMap) {
-    return new HashMap<K,V>(originalMap.size());
+    return new HashMap<>(originalMap.size());
   }
  else {
-    return new LinkedHashMap<K,V>(originalMap.size());
+    return new LinkedHashMap<>(originalMap.size());
   }
 }

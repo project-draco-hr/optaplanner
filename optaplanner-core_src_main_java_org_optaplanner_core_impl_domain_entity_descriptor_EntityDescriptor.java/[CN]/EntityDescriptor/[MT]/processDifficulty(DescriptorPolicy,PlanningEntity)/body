@@ -16,6 +16,6 @@
   }
   if (difficultyWeightFactoryClass != null) {
     SelectionSorterWeightFactory<Solution_,Object> difficultyWeightFactory=ConfigUtils.newInstance(this,"difficultyWeightFactoryClass",difficultyWeightFactoryClass);
-    decreasingDifficultySorter=new WeightFactorySelectionSorter<Solution_,Object>(difficultyWeightFactory,SelectionSorterOrder.DESCENDING);
+    decreasingDifficultySorter=new WeightFactorySelectionSorter<>(difficultyWeightFactory,SelectionSorterOrder.DESCENDING);
   }
 }

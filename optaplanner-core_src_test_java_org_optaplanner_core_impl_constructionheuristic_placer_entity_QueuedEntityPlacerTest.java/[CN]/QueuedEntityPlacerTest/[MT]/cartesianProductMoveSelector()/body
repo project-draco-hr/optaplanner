@@ -3,7 +3,7 @@
   MimicRecordingEntitySelector recordingEntitySelector=new MimicRecordingEntitySelector(entitySelector);
   ValueSelector primaryValueSelector=SelectorTestUtils.mockValueSelector(TestdataMultiVarEntity.class,"primaryValue",new TestdataValue("1"),new TestdataValue("2"),new TestdataValue("3"));
   ValueSelector secondaryValueSelector=SelectorTestUtils.mockValueSelector(TestdataMultiVarEntity.class,"secondaryValue",new TestdataValue("8"),new TestdataValue("9"));
-  List<MoveSelector> moveSelectorList=new ArrayList<MoveSelector>(2);
+  List<MoveSelector> moveSelectorList=new ArrayList<>(2);
   moveSelectorList.add(new ChangeMoveSelector(new MimicReplayingEntitySelector(recordingEntitySelector),primaryValueSelector,false));
   moveSelectorList.add(new ChangeMoveSelector(new MimicReplayingEntitySelector(recordingEntitySelector),secondaryValueSelector,false));
   MoveSelector moveSelector=new CartesianProductMoveSelector(moveSelectorList,true,false);

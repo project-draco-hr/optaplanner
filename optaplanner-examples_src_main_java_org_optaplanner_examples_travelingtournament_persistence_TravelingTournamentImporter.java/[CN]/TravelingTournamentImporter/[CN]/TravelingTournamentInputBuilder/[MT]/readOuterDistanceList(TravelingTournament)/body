@@ -1,9 +1,9 @@
 {
-  List<List<Integer>> outerDistanceList=new ArrayList<List<Integer>>();
+  List<List<Integer>> outerDistanceList=new ArrayList<>();
   String line=bufferedReader.readLine();
   while (line != null && !line.replaceAll("\\s+","").equals("")) {
     StringTokenizer tokenizer=new StringTokenizer(line.replaceAll("\\s+"," ").trim());
-    List<Integer> innerDistanceList=new ArrayList<Integer>();
+    List<Integer> innerDistanceList=new ArrayList<>();
     while (tokenizer.hasMoreTokens()) {
       int distance=Integer.parseInt(tokenizer.nextToken());
       innerDistanceList.add(distance);

@@ -1,9 +1,9 @@
 {
   setLayout(new BorderLayout());
   JTabbedPane tabbedPane=new JTabbedPane();
-  datesPanel=new TimeTablePanel<Day,Team>();
+  datesPanel=new TimeTablePanel<>();
   tabbedPane.add("Dates",new JScrollPane(datesPanel));
-  confrontationsPanel=new TimeTablePanel<Team,Team>();
+  confrontationsPanel=new TimeTablePanel<>();
   tabbedPane.add("Confrontations",new JScrollPane(confrontationsPanel));
   add(tabbedPane,BorderLayout.CENTER);
   setPreferredSize(PREFERRED_SCROLLABLE_VIEWPORT_SIZE);

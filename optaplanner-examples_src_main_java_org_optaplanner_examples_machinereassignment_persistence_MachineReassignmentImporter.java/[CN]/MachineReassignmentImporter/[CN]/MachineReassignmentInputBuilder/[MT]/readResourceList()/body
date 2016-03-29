@@ -1,6 +1,6 @@
 {
   resourceListSize=readIntegerValue();
-  resourceList=new ArrayList<MrResource>(resourceListSize);
+  resourceList=new ArrayList<>(resourceListSize);
   long resourceId=0L;
   for (int i=0; i < resourceListSize; i++) {
     String line=readStringValue();

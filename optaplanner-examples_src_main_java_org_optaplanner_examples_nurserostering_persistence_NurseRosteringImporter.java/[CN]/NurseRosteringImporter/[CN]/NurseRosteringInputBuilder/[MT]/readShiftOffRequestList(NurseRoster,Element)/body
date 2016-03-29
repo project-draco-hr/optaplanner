@@ -5,7 +5,7 @@
   }
  else {
     List<Element> shiftOffElementList=(List<Element>)shiftOffRequestsElement.getChildren();
-    shiftOffRequestList=new ArrayList<ShiftOffRequest>(shiftOffElementList.size());
+    shiftOffRequestList=new ArrayList<>(shiftOffElementList.size());
     long id=0L;
     for (    Element element : shiftOffElementList) {
       assertElementName(element,"ShiftOff");

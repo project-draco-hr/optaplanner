@@ -1,7 +1,7 @@
 {
   readConstantLine("BEDS:");
-  List<Bed> bedList=new ArrayList<Bed>(bedListSize);
-  Map<Room,Integer> roomToLastIndexInRoomMap=new HashMap<Room,Integer>(roomListSize);
+  List<Bed> bedList=new ArrayList<>(bedListSize);
+  Map<Room,Integer> roomToLastIndexInRoomMap=new HashMap<>(roomListSize);
   for (int i=0; i < bedListSize; i++) {
     String line=bufferedReader.readLine();
     String[] lineTokens=splitBySpace(line,2);

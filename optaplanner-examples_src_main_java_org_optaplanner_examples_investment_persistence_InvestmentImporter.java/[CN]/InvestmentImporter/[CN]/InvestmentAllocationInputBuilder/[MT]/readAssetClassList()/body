@@ -12,8 +12,8 @@
   assertCellConstant(headerRow.getCell(4),"Expected return");
   assertCellConstant(headerRow.getCell(5),"Standard deviation");
   int assetClassListSize=headerRow.getPhysicalNumberOfCells() - ASSET_CLASS_PROPERTIES_COUNT;
-  List<AssetClass> assetClassList=new ArrayList<AssetClass>(assetClassListSize);
-  Map<Long,AssetClass> idToAssetClassMap=new HashMap<Long,AssetClass>(assetClassListSize);
+  List<AssetClass> assetClassList=new ArrayList<>(assetClassListSize);
+  Map<Long,AssetClass> idToAssetClassMap=new HashMap<>(assetClassListSize);
   for (int i=0; i < assetClassListSize; i++) {
     AssetClass assetClass=new AssetClass();
     assetClass.setId(readLongCell(headerRow.getCell(ASSET_CLASS_PROPERTIES_COUNT + i)));
@@ -53,7 +53,7 @@
     assetClass.setSector(sector);
     assetClass.setExpectedReturnMillis(parsePercentageMillis(readDoubleCell(row.getCell(4))));
     assetClass.setStandardDeviationRiskMillis(parsePercentageMillis(readDoubleCell(row.getCell(5))));
-    Map<AssetClass,Long> correlationMillisMap=new LinkedHashMap<AssetClass,Long>(assetClassListSize);
+    Map<AssetClass,Long> correlationMillisMap=new LinkedHashMap<>(assetClassListSize);
     for (int i=0; i < assetClassListSize; i++) {
       AssetClass other=assetClassList.get(i);
       long correlationMillis=parsePercentageMillis(readDoubleCell(row.getCell(ASSET_CLASS_PROPERTIES_COUNT + i)));

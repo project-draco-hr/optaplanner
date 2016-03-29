@@ -2,7 +2,7 @@
   if (belowThreshold) {
     int newSize=list.size() + 1;
     if (newSize > LIST_SIZE_THRESHOLD) {
-      set=new LinkedHashSet<E>(list);
+      set=new LinkedHashSet<>(list);
       list=null;
       belowThreshold=false;
       return set.add(e);

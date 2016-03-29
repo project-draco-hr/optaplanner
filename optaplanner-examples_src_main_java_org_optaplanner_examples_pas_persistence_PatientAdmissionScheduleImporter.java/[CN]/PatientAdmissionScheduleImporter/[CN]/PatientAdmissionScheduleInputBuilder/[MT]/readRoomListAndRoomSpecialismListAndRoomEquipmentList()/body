@@ -1,9 +1,9 @@
 {
   readConstantLine("ROOMS:");
-  List<Room> roomList=new ArrayList<Room>(roomListSize);
-  idToRoomMap=new HashMap<Long,Room>(roomListSize);
-  List<RoomSpecialism> roomSpecialismList=new ArrayList<RoomSpecialism>(roomListSize * 5);
-  List<RoomEquipment> roomEquipmentList=new ArrayList<RoomEquipment>(roomListSize * 2);
+  List<Room> roomList=new ArrayList<>(roomListSize);
+  idToRoomMap=new HashMap<>(roomListSize);
+  List<RoomSpecialism> roomSpecialismList=new ArrayList<>(roomListSize * 5);
+  List<RoomEquipment> roomEquipmentList=new ArrayList<>(roomListSize * 2);
   long roomSpecialismId=0L;
   long roomEquipmentId=0L;
   for (int i=0; i < roomListSize; i++) {
@@ -17,7 +17,7 @@
     Department department=idToDepartmentMap.get(Long.parseLong(lineTokens[2]));
     room.setDepartment(department);
     room.setGenderLimitation(GenderLimitation.valueOfCode(lineTokens[3]));
-    room.setBedList(new ArrayList<Bed>());
+    room.setBedList(new ArrayList<>());
     roomList.add(room);
     idToRoomMap.put(room.getId(),room);
     department.getRoomList().add(room);
@@ -25,7 +25,7 @@
     if (roomSpecialismTokens.length % 2 != 0) {
       throw new IllegalArgumentException("Read line (" + line + ") is expected to contain even number of tokens ("+ roomSpecialismTokens.length+ ") after 4th pipeline (|) separated by a space ( ).");
     }
-    List<RoomSpecialism> roomSpecialismListOfRoom=new ArrayList<RoomSpecialism>(roomSpecialismTokens.length / 2);
+    List<RoomSpecialism> roomSpecialismListOfRoom=new ArrayList<>(roomSpecialismTokens.length / 2);
     for (int j=0; j < roomSpecialismTokens.length; j+=2) {
       int priority=Integer.parseInt(roomSpecialismTokens[j]);
       long specialismId=Long.parseLong(roomSpecialismTokens[j + 1]);
@@ -45,7 +45,7 @@
       }
     }
     room.setRoomSpecialismList(roomSpecialismListOfRoom);
-    List<RoomEquipment> roomEquipmentListOfRoom=new ArrayList<RoomEquipment>(equipmentListSize);
+    List<RoomEquipment> roomEquipmentListOfRoom=new ArrayList<>(equipmentListSize);
     String[] roomEquipmentTokens=splitBySpace(lineTokens[5]);
     if (roomEquipmentTokens.length != equipmentListSize) {
       throw new IllegalArgumentException("Read line (" + line + ") is expected to contain equal number of tokens ("+ roomEquipmentTokens.length+ ") as equipmentListSize ("+ equipmentListSize+ ") after 5th pipeline (|).");

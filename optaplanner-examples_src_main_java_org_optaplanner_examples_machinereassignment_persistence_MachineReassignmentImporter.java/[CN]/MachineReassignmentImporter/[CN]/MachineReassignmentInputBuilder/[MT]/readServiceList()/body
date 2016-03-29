@@ -1,11 +1,11 @@
 {
   int serviceListSize=readIntegerValue();
-  serviceList=new ArrayList<MrService>(serviceListSize);
+  serviceList=new ArrayList<>(serviceListSize);
   long serviceId=0L;
   for (int i=0; i < serviceListSize; i++) {
     MrService service=new MrService();
     service.setId(serviceId);
-    service.setFromDependencyServiceList(new ArrayList<MrService>(5));
+    service.setFromDependencyServiceList(new ArrayList<>(5));
     serviceList.add(service);
     serviceId++;
   }
@@ -15,7 +15,7 @@
     String[] lineTokens=splitBySpace(line);
     service.setLocationSpread(Integer.parseInt(lineTokens[0]));
     int serviceDependencyListSize=Integer.parseInt(lineTokens[1]);
-    List<MrService> toDependencyServiceList=new ArrayList<MrService>(serviceDependencyListSize);
+    List<MrService> toDependencyServiceList=new ArrayList<>(serviceDependencyListSize);
     for (int j=0; j < serviceDependencyListSize; j++) {
       int toServiceIndex=Integer.parseInt(lineTokens[2 + j]);
       if (toServiceIndex >= serviceList.size()) {

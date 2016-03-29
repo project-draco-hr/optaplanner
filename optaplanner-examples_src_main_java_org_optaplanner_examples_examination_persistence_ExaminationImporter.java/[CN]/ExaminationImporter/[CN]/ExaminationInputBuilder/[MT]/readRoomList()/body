@@ -1,6 +1,6 @@
 {
   int roomSize=readHeaderWithNumber("Rooms");
-  List<Room> roomList=new ArrayList<Room>(roomSize);
+  List<Room> roomList=new ArrayList<>(roomSize);
   for (int i=0; i < roomSize; i++) {
     Room room=new Room();
     room.setId((long)i);

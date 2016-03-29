@@ -3,7 +3,7 @@
   maximumSubSingleCount=0;
   long totalUsedMemoryAfterInputSolution=0L;
   int usedMemoryAfterInputSolutionCount=0;
-  List<SingleBenchmarkResult> successResultList=new ArrayList<SingleBenchmarkResult>(singleBenchmarkResultList);
+  List<SingleBenchmarkResult> successResultList=new ArrayList<>(singleBenchmarkResultList);
   for (Iterator<SingleBenchmarkResult> it=successResultList.iterator(); it.hasNext(); ) {
     SingleBenchmarkResult singleBenchmarkResult=it.next();
     if (singleBenchmarkResult.hasAnyFailure()) {

@@ -4,7 +4,7 @@
   }
   WeekendDefinition weekendDefinition=(employee == null) ? WeekendDefinition.SATURDAY_SUNDAY : employee.getContract().getWeekendDefinition();
   shiftDateListPanel=new JPanel(new GridLayout(1,0));
-  shiftDatePanelMap=new LinkedHashMap<ShiftDate,JPanel>(shiftDateList.size());
+  shiftDatePanelMap=new LinkedHashMap<>(shiftDateList.size());
   for (  ShiftDate shiftDate : shiftDateList) {
     JPanel shiftDatePanel=new JPanel(new GridLayout(1,0));
     Color backgroundColor=weekendDefinition.isWeekend(shiftDate.getDayOfWeek()) ? TangoColorFactory.ALUMINIUM_2 : shiftDatePanel.getBackground();
@@ -33,7 +33,7 @@
       shiftDateListPanel.add(shiftDatePanel);
     }
   }
-  shiftPanelMap=new LinkedHashMap<Shift,JPanel>(shiftList.size());
+  shiftPanelMap=new LinkedHashMap<>(shiftList.size());
   for (  Shift shift : shiftList) {
     JPanel shiftDatePanel=shiftDatePanelMap.get(shift.getShiftDate());
     JPanel shiftPanel=new JPanel();

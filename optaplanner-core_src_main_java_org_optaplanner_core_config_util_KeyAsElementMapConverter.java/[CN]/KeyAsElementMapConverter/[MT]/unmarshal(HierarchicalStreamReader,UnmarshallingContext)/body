@@ -1,5 +1,5 @@
 {
-  Map<String,String> map=new LinkedHashMap<String,String>();
+  Map<String,String> map=new LinkedHashMap<>();
   while (reader.hasMoreChildren()) {
     reader.moveDown();
     map.put(reader.getNodeName(),reader.getValue());

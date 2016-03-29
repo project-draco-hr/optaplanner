@@ -1,5 +1,5 @@
 {
-  warningList=new ArrayList<String>();
+  warningList=new ArrayList<>();
   String javaVmName=System.getProperty("java.vm.name");
   if (javaVmName != null && javaVmName.contains("Client VM")) {
     warningList.add("The Java VM (" + javaVmName + ") is the Client VM."+ " Consider starting the java process with the argument \"-server\" to get better results.");

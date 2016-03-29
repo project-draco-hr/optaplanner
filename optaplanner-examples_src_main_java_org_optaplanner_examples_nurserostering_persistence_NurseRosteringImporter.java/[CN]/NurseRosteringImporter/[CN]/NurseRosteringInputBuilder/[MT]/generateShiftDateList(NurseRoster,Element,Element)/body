@@ -39,8 +39,8 @@
     }
   }
   int shiftDateSize=maxDayIndex + 1;
-  List<ShiftDate> shiftDateList=new ArrayList<ShiftDate>(shiftDateSize);
-  shiftDateMap=new HashMap<String,ShiftDate>(shiftDateSize);
+  List<ShiftDate> shiftDateList=new ArrayList<>(shiftDateSize);
+  shiftDateMap=new HashMap<>(shiftDateSize);
   long id=0L;
   int dayIndex=0;
   calendar.setTime(startDate);
@@ -51,7 +51,7 @@
     String dateString=dateFormat.format(calendar.getTime());
     shiftDate.setDateString(dateString);
     shiftDate.setDayOfWeek(DayOfWeek.valueOfCalendar(calendar.get(Calendar.DAY_OF_WEEK)));
-    shiftDate.setShiftList(new ArrayList<Shift>());
+    shiftDate.setShiftList(new ArrayList<>());
     shiftDateList.add(shiftDate);
     shiftDateMap.put(dateString,shiftDate);
     id++;

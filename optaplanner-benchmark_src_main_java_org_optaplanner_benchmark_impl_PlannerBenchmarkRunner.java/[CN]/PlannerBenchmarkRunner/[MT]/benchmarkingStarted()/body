@@ -11,7 +11,7 @@
   initBenchmarkDirectoryAndSubdirs();
   plannerBenchmarkResult.initSystemProperties();
   warmUpExecutorService=Executors.newFixedThreadPool(plannerBenchmarkResult.getParallelBenchmarkCount());
-  warmUpExecutorCompletionService=new ExecutorCompletionService<SubSingleBenchmarkRunner>(warmUpExecutorService);
+  warmUpExecutorCompletionService=new ExecutorCompletionService<>(warmUpExecutorService);
   executorService=Executors.newFixedThreadPool(plannerBenchmarkResult.getParallelBenchmarkCount());
   benchmarkResultIO=new BenchmarkResultIO();
   logger.info("Benchmarking started: parallelBenchmarkCount ({})" + " for problemCount ({}), solverCount ({}), totalSubSingleCount ({}).",plannerBenchmarkResult.getParallelBenchmarkCount(),plannerBenchmarkResult.getUnifiedProblemBenchmarkResultList().size(),solverBenchmarkResultList.size(),plannerBenchmarkResult.getTotalSubSingleCount());

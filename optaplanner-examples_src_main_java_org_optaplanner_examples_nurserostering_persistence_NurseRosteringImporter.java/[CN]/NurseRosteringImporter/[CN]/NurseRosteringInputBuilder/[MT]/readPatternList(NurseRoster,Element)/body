@@ -5,8 +5,8 @@
   }
  else {
     List<Element> patternElementList=(List<Element>)patternsElement.getChildren();
-    patternList=new ArrayList<Pattern>(patternElementList.size());
-    patternMap=new HashMap<String,Pattern>(patternElementList.size());
+    patternList=new ArrayList<>(patternElementList.size());
+    patternMap=new HashMap<>(patternElementList.size());
     long id=0L;
     long patternEntryId=0L;
     for (    Element element : patternElementList) {

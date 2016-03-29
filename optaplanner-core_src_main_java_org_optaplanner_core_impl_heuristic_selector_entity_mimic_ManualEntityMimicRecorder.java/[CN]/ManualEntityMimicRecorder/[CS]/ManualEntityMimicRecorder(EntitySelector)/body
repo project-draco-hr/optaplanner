@@ -1,4 +1,4 @@
 {
   this.sourceEntitySelector=sourceEntitySelector;
-  replayingEntitySelectorList=new ArrayList<MimicReplayingEntitySelector>();
+  replayingEntitySelectorList=new ArrayList<>();
 }

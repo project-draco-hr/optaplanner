@@ -1,5 +1,5 @@
 {
-  List<MoveSelector> moveSelectorList=new ArrayList<MoveSelector>(moveSelectorConfigList.size());
+  List<MoveSelector> moveSelectorList=new ArrayList<>(moveSelectorConfigList.size());
   for (  MoveSelectorConfig moveSelectorConfig : moveSelectorConfigList) {
     moveSelectorList.add(moveSelectorConfig.buildMoveSelector(configPolicy,minimumCacheType,SelectionOrder.fromRandomSelectionBoolean(randomSelection)));
   }
@@ -11,7 +11,7 @@
     selectorProbabilityWeightFactory=ConfigUtils.newInstance(this,"selectorProbabilityWeightFactoryClass",selectorProbabilityWeightFactoryClass);
   }
  else   if (randomSelection) {
-    Map<MoveSelector,Double> fixedProbabilityWeightMap=new HashMap<MoveSelector,Double>(moveSelectorConfigList.size());
+    Map<MoveSelector,Double> fixedProbabilityWeightMap=new HashMap<>(moveSelectorConfigList.size());
     for (int i=0; i < moveSelectorConfigList.size(); i++) {
       MoveSelectorConfig moveSelectorConfig=moveSelectorConfigList.get(i);
       MoveSelector moveSelector=moveSelectorList.get(i);

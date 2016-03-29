@@ -1,7 +1,7 @@
 {
-  Map<String,Course> courseMap=new HashMap<String,Course>(courseListSize);
-  Map<String,Teacher> teacherMap=new HashMap<String,Teacher>();
-  List<Course> courseList=new ArrayList<Course>(courseListSize);
+  Map<String,Course> courseMap=new HashMap<>(courseListSize);
+  Map<String,Teacher> teacherMap=new HashMap<>();
+  List<Course> courseList=new ArrayList<>(courseListSize);
   readEmptyLine();
   readConstantLine("COURSES:");
   for (int i=0; i < courseListSize; i++) {
@@ -13,13 +13,13 @@
     course.setTeacher(findOrCreateTeacher(teacherMap,lineTokens[1]));
     course.setLectureSize(Integer.parseInt(lineTokens[2]));
     course.setMinWorkingDaySize(Integer.parseInt(lineTokens[3]));
-    course.setCurriculumList(new ArrayList<Curriculum>());
+    course.setCurriculumList(new ArrayList<>());
     course.setStudentSize(Integer.parseInt(lineTokens[4]));
     courseList.add(course);
     courseMap.put(course.getCode(),course);
   }
   schedule.setCourseList(courseList);
-  List<Teacher> teacherList=new ArrayList<Teacher>(teacherMap.values());
+  List<Teacher> teacherList=new ArrayList<>(teacherMap.values());
   schedule.setTeacherList(teacherList);
   return courseMap;
 }

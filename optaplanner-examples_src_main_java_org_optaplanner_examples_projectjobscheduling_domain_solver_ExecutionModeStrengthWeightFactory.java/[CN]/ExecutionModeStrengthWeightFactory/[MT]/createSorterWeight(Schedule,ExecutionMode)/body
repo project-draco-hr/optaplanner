@@ -1,5 +1,5 @@
 {
-  Map<Resource,Integer> requirementTotalMap=new HashMap<Resource,Integer>(executionMode.getResourceRequirementList().size());
+  Map<Resource,Integer> requirementTotalMap=new HashMap<>(executionMode.getResourceRequirementList().size());
   for (  ResourceRequirement resourceRequirement : executionMode.getResourceRequirementList()) {
     requirementTotalMap.put(resourceRequirement.getResource(),0);
   }

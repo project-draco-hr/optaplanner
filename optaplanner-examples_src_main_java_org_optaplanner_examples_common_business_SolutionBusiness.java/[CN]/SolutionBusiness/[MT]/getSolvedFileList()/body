@@ -1,5 +1,5 @@
 {
-  List<File> fileList=new ArrayList<File>(FileUtils.listFiles(solvedDataDir,new String[]{solutionDao.getFileExtension()},true));
+  List<File> fileList=new ArrayList<>(FileUtils.listFiles(solvedDataDir,new String[]{solutionDao.getFileExtension()},true));
   Collections.sort(fileList,FILE_COMPARATOR);
   return fileList;
 }

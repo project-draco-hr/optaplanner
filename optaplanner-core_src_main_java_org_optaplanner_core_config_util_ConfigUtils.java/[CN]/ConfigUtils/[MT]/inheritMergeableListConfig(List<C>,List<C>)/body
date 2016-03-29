@@ -1,6 +1,6 @@
 {
   if (inheritedList != null) {
-    List<C> mergedList=new ArrayList<C>(inheritedList.size() + (originalList == null ? 0 : originalList.size()));
+    List<C> mergedList=new ArrayList<>(inheritedList.size() + (originalList == null ? 0 : originalList.size()));
     for (    C inherited : inheritedList) {
       C copy=inherited.newInstance();
       copy.inherit(inherited);

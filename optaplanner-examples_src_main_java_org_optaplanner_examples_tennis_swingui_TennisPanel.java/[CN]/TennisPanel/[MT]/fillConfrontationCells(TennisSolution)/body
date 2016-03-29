@@ -1,14 +1,14 @@
 {
   List<Team> teamList=tennisSolution.getTeamList();
   List<Day> dayList=tennisSolution.getDayList();
-  Map<Day,List<TeamAssignment>> dayToTeamAssignmentListMap=new HashMap<Day,List<TeamAssignment>>(dayList.size());
+  Map<Day,List<TeamAssignment>> dayToTeamAssignmentListMap=new HashMap<>(dayList.size());
   for (  Day day : dayList) {
-    dayToTeamAssignmentListMap.put(day,new ArrayList<TeamAssignment>());
+    dayToTeamAssignmentListMap.put(day,new ArrayList<>());
   }
   for (  TeamAssignment teamAssignment : tennisSolution.getTeamAssignmentList()) {
     dayToTeamAssignmentListMap.get(teamAssignment.getDay()).add(teamAssignment);
   }
-  Map<List<Team>,Integer> teamPairToConfrontationCountMap=new HashMap<List<Team>,Integer>();
+  Map<List<Team>,Integer> teamPairToConfrontationCountMap=new HashMap<>();
   for (  Team left : teamList) {
     for (    Team right : teamList) {
       if (left != right) {

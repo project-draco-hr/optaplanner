@@ -1,7 +1,7 @@
 {
   File file=new File(inputFile.getParentFile(),"DistanceTimesCoordinates.csv");
-  latLongToLocationMap=new HashMap<List<Double>,RoadLocation>();
-  List<RoadLocation> locationList=new ArrayList<RoadLocation>();
+  latLongToLocationMap=new HashMap<>();
+  List<RoadLocation> locationList=new ArrayList<>();
   long locationId=0L;
   BufferedReader subBufferedReader=null;
   try {
@@ -29,7 +29,7 @@
   }
   solution.setLocationList(locationList);
   for (  RoadLocation sourceLocation : locationList) {
-    LinkedHashMap<RoadLocation,RoadLocationArc> travelDistanceMap=new LinkedHashMap<RoadLocation,RoadLocationArc>(locationList.size());
+    LinkedHashMap<RoadLocation,RoadLocationArc> travelDistanceMap=new LinkedHashMap<>(locationList.size());
     for (    RoadLocation targetLocation : locationList) {
       travelDistanceMap.put(targetLocation,new RoadLocationArc());
     }

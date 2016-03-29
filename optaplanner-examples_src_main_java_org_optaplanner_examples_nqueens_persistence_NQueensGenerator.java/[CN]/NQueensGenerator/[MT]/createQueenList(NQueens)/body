@@ -1,6 +1,6 @@
 {
   int n=nQueens.getN();
-  List<Queen> queenList=new ArrayList<Queen>(n);
+  List<Queen> queenList=new ArrayList<>(n);
   long id=0;
   for (  Column column : nQueens.getColumnList()) {
     Queen queen=new Queen();

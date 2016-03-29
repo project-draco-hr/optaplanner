@@ -1,5 +1,5 @@
 {
-  Set<CloudComputer> deadCloudComputerSet=new LinkedHashSet<CloudComputer>(computerToPanelMap.keySet());
+  Set<CloudComputer> deadCloudComputerSet=new LinkedHashSet<>(computerToPanelMap.keySet());
   deadCloudComputerSet.remove(null);
   for (  CloudComputer computer : cloudBalance.getComputerList()) {
     deadCloudComputerSet.remove(computer);

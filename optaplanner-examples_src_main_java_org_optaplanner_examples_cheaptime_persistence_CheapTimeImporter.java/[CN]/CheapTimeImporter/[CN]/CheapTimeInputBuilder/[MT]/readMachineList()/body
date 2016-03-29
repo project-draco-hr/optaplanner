@@ -1,7 +1,7 @@
 {
   int machineListSize=readIntegerValue();
-  List<Machine> machineList=new ArrayList<Machine>(machineListSize);
-  List<MachineCapacity> machineCapacityList=new ArrayList<MachineCapacity>(machineListSize * resourceListSize);
+  List<Machine> machineList=new ArrayList<>(machineListSize);
+  List<MachineCapacity> machineCapacityList=new ArrayList<>(machineListSize * resourceListSize);
   long machineCapacityId=0L;
   for (int i=0; i < machineListSize; i++) {
     Machine machine=new Machine();
@@ -11,7 +11,7 @@
     machine.setPowerConsumptionMicros(CheapTimeCostCalculator.parseMicroCost(machineLineTokens[1]));
     machine.setSpinUpDownCostMicros(CheapTimeCostCalculator.parseMicroCost(machineLineTokens[2]) + CheapTimeCostCalculator.parseMicroCost(machineLineTokens[3]));
     String[] capacityLineTokens=splitBySpacesOrTabs(readStringValue(),resourceListSize);
-    List<MachineCapacity> machineCapacityListOfMachine=new ArrayList<MachineCapacity>(resourceListSize);
+    List<MachineCapacity> machineCapacityListOfMachine=new ArrayList<>(resourceListSize);
     for (int j=0; j < resourceListSize; j++) {
       MachineCapacity machineCapacity=new MachineCapacity();
       machineCapacity.setId(machineCapacityId);

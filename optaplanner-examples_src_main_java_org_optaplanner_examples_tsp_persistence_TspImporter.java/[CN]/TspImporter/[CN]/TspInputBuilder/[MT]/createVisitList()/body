@@ -1,6 +1,6 @@
 {
   List<Location> locationList=tspSolution.getLocationList();
-  List<Visit> visitList=new ArrayList<Visit>(locationList.size() - 1);
+  List<Visit> visitList=new ArrayList<>(locationList.size() - 1);
   int count=0;
   for (  Location location : locationList) {
     if (count < 1) {

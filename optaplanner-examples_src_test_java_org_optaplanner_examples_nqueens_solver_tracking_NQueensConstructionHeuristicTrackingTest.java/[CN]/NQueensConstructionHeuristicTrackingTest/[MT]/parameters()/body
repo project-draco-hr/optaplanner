@@ -1,5 +1,5 @@
 {
-  Collection<Object[]> params=new ArrayList<Object[]>();
+  Collection<Object[]> params=new ArrayList<>();
   params.add(new Object[]{ConstructionHeuristicType.FIRST_FIT,null,null,Arrays.asList(new NQueensStepTracking(0,0),new NQueensStepTracking(1,2),new NQueensStepTracking(2,4),new NQueensStepTracking(3,1),new NQueensStepTracking(4,3),new NQueensStepTracking(5,0),new NQueensStepTracking(6,2),new NQueensStepTracking(7,4))});
   params.add(new Object[]{ConstructionHeuristicType.FIRST_FIT_DECREASING,null,null,Arrays.asList(new NQueensStepTracking(4,0),new NQueensStepTracking(3,2),new NQueensStepTracking(5,3),new NQueensStepTracking(2,4),new NQueensStepTracking(6,1),new NQueensStepTracking(1,1),new NQueensStepTracking(7,4),new NQueensStepTracking(0,3))});
   params.add(new Object[]{ConstructionHeuristicType.WEAKEST_FIT,null,null,Arrays.asList(new NQueensStepTracking(0,3),new NQueensStepTracking(1,5),new NQueensStepTracking(2,2),new NQueensStepTracking(3,4),new NQueensStepTracking(4,1),new NQueensStepTracking(5,7),new NQueensStepTracking(6,4),new NQueensStepTracking(7,6))});

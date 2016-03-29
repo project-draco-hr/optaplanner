@@ -1,7 +1,7 @@
 {
   readConstantLine("PRECEDENCE RELATIONS:");
   readConstantLine("jobnr\\. +\\#modes +\\#successors +successors");
-  List<Job> jobList=new ArrayList<Job>(jobListSize);
+  List<Job> jobList=new ArrayList<>(jobListSize);
   for (int i=0; i < jobListSize; i++) {
     Job job=new Job();
     job.setId(jobId);
@@ -30,7 +30,7 @@
       throw new IllegalArgumentException("The tokens (" + Arrays.toString(tokens) + ") index 0 should be "+ (i + 1)+ ".");
     }
     int executionModeListSize=Integer.parseInt(tokens[1]);
-    List<ExecutionMode> executionModeList=new ArrayList<ExecutionMode>(executionModeListSize);
+    List<ExecutionMode> executionModeList=new ArrayList<>(executionModeListSize);
     for (int j=0; j < executionModeListSize; j++) {
       ExecutionMode executionMode=new ExecutionMode();
       executionMode.setId(executionModeId);
@@ -44,7 +44,7 @@
     if (tokens.length != 3 + successorJobListSize) {
       throw new IllegalArgumentException("The tokens (" + Arrays.toString(tokens) + ") should be "+ (3 + successorJobListSize)+ " in length.");
     }
-    List<Job> successorJobList=new ArrayList<Job>(successorJobListSize);
+    List<Job> successorJobList=new ArrayList<>(successorJobListSize);
     for (int j=0; j < successorJobListSize; j++) {
       int successorIndex=Integer.parseInt(tokens[3 + j]);
       Job successorJob=project.getJobList().get(successorIndex - 1);

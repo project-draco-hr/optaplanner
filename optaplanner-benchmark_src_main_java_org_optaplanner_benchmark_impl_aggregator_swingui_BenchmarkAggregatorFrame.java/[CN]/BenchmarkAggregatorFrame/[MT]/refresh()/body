@@ -1,8 +1,8 @@
 {
   initPlannerBenchmarkResultList();
-  solverBenchmarkResultNameMapping=new HashMap<SolverBenchmarkResult,String>();
-  resultCheckBoxMapping=new LinkedHashMap<SingleBenchmarkResult,DefaultMutableTreeNode>();
-  checkBoxTree.setSelectedSingleBenchmarkNodes(new HashSet<DefaultMutableTreeNode>());
+  solverBenchmarkResultNameMapping=new HashMap<>();
+  resultCheckBoxMapping=new LinkedHashMap<>();
+  checkBoxTree.setSelectedSingleBenchmarkNodes(new HashSet<>());
   DefaultMutableTreeNode newCheckBoxRootNode=initBenchmarkHierarchy(true);
   DefaultTreeModel treeModel=new DefaultTreeModel(newCheckBoxRootNode);
   checkBoxTree.setModel(treeModel);

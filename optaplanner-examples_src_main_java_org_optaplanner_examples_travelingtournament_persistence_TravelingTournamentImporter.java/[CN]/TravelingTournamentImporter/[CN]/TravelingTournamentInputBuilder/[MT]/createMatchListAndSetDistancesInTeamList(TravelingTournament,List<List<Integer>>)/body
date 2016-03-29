@@ -1,6 +1,6 @@
 {
   List<Team> teamList=travelingTournament.getTeamList();
-  List<Match> matchList=new ArrayList<Match>();
+  List<Match> matchList=new ArrayList<>();
   int i=0;
   long matchId=0;
   for (  Team homeTeam : teamList) {

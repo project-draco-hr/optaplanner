@@ -1,6 +1,6 @@
 {
   List<Meeting> meetingList=meetingSchedule.getMeetingList();
-  List<MeetingAssignment> meetingAssignmentList=new ArrayList<MeetingAssignment>(meetingList.size());
+  List<MeetingAssignment> meetingAssignmentList=new ArrayList<>(meetingList.size());
   for (  Meeting meeting : meetingList) {
     MeetingAssignment meetingAssignment=new MeetingAssignment();
     meetingAssignment.setId(meeting.getId());

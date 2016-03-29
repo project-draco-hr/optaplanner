@@ -6,6 +6,6 @@
   int index=columns.size();
   Column column=new Column(index,autoWidth,baseWidth);
   columns.add(column);
-  cells.add(new ArrayList<Cell>());
+  cells.add(new ArrayList<>());
   return index;
 }

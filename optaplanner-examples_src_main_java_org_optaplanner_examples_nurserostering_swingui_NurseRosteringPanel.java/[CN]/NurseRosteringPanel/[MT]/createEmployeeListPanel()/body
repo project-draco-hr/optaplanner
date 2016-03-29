@@ -3,6 +3,6 @@
   employeeListPanel.setLayout(new BoxLayout(employeeListPanel,BoxLayout.Y_AXIS));
   unassignedPanel=new EmployeePanel(this,Collections.<ShiftDate>emptyList(),Collections.<Shift>emptyList(),null);
   employeeListPanel.add(unassignedPanel);
-  employeeToPanelMap=new LinkedHashMap<Employee,EmployeePanel>();
+  employeeToPanelMap=new LinkedHashMap<>();
   employeeToPanelMap.put(null,unassignedPanel);
 }

@@ -1,12 +1,12 @@
 {
   int machineListSize=readIntegerValue();
-  List<MrNeighborhood> neighborhoodList=new ArrayList<MrNeighborhood>(machineListSize);
-  Map<Long,MrNeighborhood> idToNeighborhoodMap=new HashMap<Long,MrNeighborhood>(machineListSize);
-  List<MrLocation> locationList=new ArrayList<MrLocation>(machineListSize);
-  Map<Long,MrLocation> idToLocationMap=new HashMap<Long,MrLocation>(machineListSize);
-  machineList=new ArrayList<MrMachine>(machineListSize);
+  List<MrNeighborhood> neighborhoodList=new ArrayList<>(machineListSize);
+  Map<Long,MrNeighborhood> idToNeighborhoodMap=new HashMap<>(machineListSize);
+  List<MrLocation> locationList=new ArrayList<>(machineListSize);
+  Map<Long,MrLocation> idToLocationMap=new HashMap<>(machineListSize);
+  machineList=new ArrayList<>(machineListSize);
   long machineId=0L;
-  List<MrMachineCapacity> machineCapacityList=new ArrayList<MrMachineCapacity>(machineListSize * resourceListSize);
+  List<MrMachineCapacity> machineCapacityList=new ArrayList<>(machineListSize * resourceListSize);
   long machineCapacityId=0L;
   for (int i=0; i < machineListSize; i++) {
     MrMachine machine=new MrMachine();
@@ -37,7 +37,7 @@
       idToLocationMap.put(locationId,location);
     }
     machine.setLocation(location);
-    List<MrMachineCapacity> machineCapacityListOfMachine=new ArrayList<MrMachineCapacity>(resourceListSize);
+    List<MrMachineCapacity> machineCapacityListOfMachine=new ArrayList<>(resourceListSize);
     for (int j=0; j < resourceListSize; j++) {
       MrMachineCapacity machineCapacity=new MrMachineCapacity();
       machineCapacity.setId(machineCapacityId);
@@ -50,7 +50,7 @@
       machineCapacityId++;
     }
     machine.setMachineCapacityList(machineCapacityListOfMachine);
-    Map<MrMachine,Integer> machineMoveCostMap=new HashMap<MrMachine,Integer>(machineListSize);
+    Map<MrMachine,Integer> machineMoveCostMap=new HashMap<>(machineListSize);
     for (int j=0; j < machineListSize; j++) {
       MrMachine toMachine=machineList.get(j);
       int moveCost=Integer.parseInt(lineTokens[moveCostOffset + j]);

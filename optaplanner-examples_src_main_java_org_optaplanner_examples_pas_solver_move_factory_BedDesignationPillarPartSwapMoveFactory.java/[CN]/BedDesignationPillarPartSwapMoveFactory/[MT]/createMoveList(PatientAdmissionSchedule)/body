@@ -1,9 +1,9 @@
 {
-  Map<Bed,List<BedDesignation>> bedToBedDesignationList=new HashMap<Bed,List<BedDesignation>>(patientAdmissionSchedule.getBedList().size());
+  Map<Bed,List<BedDesignation>> bedToBedDesignationList=new HashMap<>(patientAdmissionSchedule.getBedList().size());
   for (  BedDesignation bedDesignation : patientAdmissionSchedule.getBedDesignationList()) {
     List<BedDesignation> bedDesignationListPerBed=bedToBedDesignationList.get(bedDesignation.getBed());
     if (bedDesignationListPerBed == null) {
-      bedDesignationListPerBed=new ArrayList<BedDesignation>(patientAdmissionSchedule.getNightList().size());
+      bedDesignationListPerBed=new ArrayList<>(patientAdmissionSchedule.getNightList().size());
       bedToBedDesignationList.put(bedDesignation.getBed(),bedDesignationListPerBed);
     }
     bedDesignationListPerBed.add(bedDesignation);
@@ -17,7 +17,7 @@
 );
   }
   List<Bed> bedList=patientAdmissionSchedule.getBedList();
-  List<Move> moveList=new ArrayList<Move>();
+  List<Move> moveList=new ArrayList<>();
   for (ListIterator<Bed> leftBedIt=bedList.listIterator(); leftBedIt.hasNext(); ) {
     Bed leftBed=leftBedIt.next();
     for (ListIterator<Bed> rightBedIt=bedList.listIterator(leftBedIt.nextIndex()); rightBedIt.hasNext(); ) {
@@ -33,7 +33,7 @@
       LowestFirstNightBedDesignationIterator lowestIt=new LowestFirstNightBedDesignationIterator(leftBedDesignationList,rightBedDesignationList);
       while (lowestIt.hasNext()) {
         BedDesignation pillarPartBedDesignation=lowestIt.next();
-        List<Move> moveListByPillarPartDuo=new ArrayList<Move>(leftBedDesignationList.size() + rightBedDesignationList.size());
+        List<Move> moveListByPillarPartDuo=new ArrayList<>(leftBedDesignationList.size() + rightBedDesignationList.size());
         int lastNightIndex=pillarPartBedDesignation.getAdmissionPart().getLastNight().getIndex();
         Bed otherBed;
         int leftMinimumFirstNightIndex=Integer.MIN_VALUE;

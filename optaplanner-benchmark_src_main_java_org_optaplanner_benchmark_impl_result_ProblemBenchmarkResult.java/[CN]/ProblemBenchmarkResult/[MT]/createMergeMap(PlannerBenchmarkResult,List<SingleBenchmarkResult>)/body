@@ -1,19 +1,19 @@
 {
-  Map<ProblemBenchmarkResult,ProblemBenchmarkResult> mergeMap=new IdentityHashMap<ProblemBenchmarkResult,ProblemBenchmarkResult>();
-  Map<File,ProblemBenchmarkResult> fileToNewResultMap=new HashMap<File,ProblemBenchmarkResult>();
+  Map<ProblemBenchmarkResult,ProblemBenchmarkResult> mergeMap=new IdentityHashMap<>();
+  Map<File,ProblemBenchmarkResult> fileToNewResultMap=new HashMap<>();
   for (  SingleBenchmarkResult singleBenchmarkResult : singleBenchmarkResultList) {
     ProblemBenchmarkResult<Solution_> oldResult=singleBenchmarkResult.getProblemBenchmarkResult();
     if (!mergeMap.containsKey(oldResult)) {
       ProblemBenchmarkResult<Solution_> newResult;
       if (!fileToNewResultMap.containsKey(oldResult.inputSolutionFile)) {
-        newResult=new ProblemBenchmarkResult<Solution_>(newPlannerBenchmarkResult);
+        newResult=new ProblemBenchmarkResult<>(newPlannerBenchmarkResult);
         newResult.name=oldResult.name;
         newResult.inputSolutionFile=oldResult.inputSolutionFile;
-        newResult.problemStatisticList=new ArrayList<ProblemStatistic>(oldResult.problemStatisticList.size());
+        newResult.problemStatisticList=new ArrayList<>(oldResult.problemStatisticList.size());
         for (        ProblemStatistic oldProblemStatistic : oldResult.problemStatisticList) {
           newResult.problemStatisticList.add(oldProblemStatistic.getProblemStatisticType().buildProblemStatistic(newResult));
         }
-        newResult.singleBenchmarkResultList=new ArrayList<SingleBenchmarkResult>(oldResult.singleBenchmarkResultList.size());
+        newResult.singleBenchmarkResultList=new ArrayList<>(oldResult.singleBenchmarkResultList.size());
         newResult.entityCount=oldResult.entityCount;
         newResult.variableCount=oldResult.variableCount;
         newResult.problemScale=oldResult.problemScale;

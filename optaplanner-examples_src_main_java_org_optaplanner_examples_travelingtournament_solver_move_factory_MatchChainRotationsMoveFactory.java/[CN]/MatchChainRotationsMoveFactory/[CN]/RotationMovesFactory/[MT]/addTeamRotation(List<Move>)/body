@@ -4,10 +4,10 @@
     Map<Day,Match> firstTeamDayMap=teamDayMap.get(firstTeam);
     for (ListIterator<Team> secondTeamIt=teamList.listIterator(firstTeamIt.nextIndex()); secondTeamIt.hasNext(); ) {
       Team secondTeam=secondTeamIt.next();
-      List<Match> clonedFirstTeamMatchList=new ArrayList<Match>(firstTeamDayMap.values());
+      List<Match> clonedFirstTeamMatchList=new ArrayList<>(firstTeamDayMap.values());
       while (!clonedFirstTeamMatchList.isEmpty()) {
-        List<Match> firstRotateList=new ArrayList<Match>();
-        List<Match> secondRotateList=new ArrayList<Match>();
+        List<Match> firstRotateList=new ArrayList<>();
+        List<Match> secondRotateList=new ArrayList<>();
         Match firstStartMatch=clonedFirstTeamMatchList.remove(0);
         Team firstStartTeam=getOtherTeam(firstStartMatch,firstTeam);
         Day startDay=firstStartMatch.getDay();
@@ -18,7 +18,7 @@
         }
         firstRotateList.add(0,firstStartMatch);
         secondRotateList.add(secondStartMatch);
-        Map<Team,Match> visitedTeamMap=new HashMap<Team,Match>();
+        Map<Team,Match> visitedTeamMap=new HashMap<>();
         Team teamToFind=getOtherTeam(secondStartMatch,secondTeam);
         while (!teamToFind.equals(firstStartTeam)) {
           Match firstRepairMatch=homeTeamAwayTeamMap.get(firstTeamIsHomeTeam ? firstTeam : teamToFind).get(firstTeamIsHomeTeam ? teamToFind : firstTeam);
@@ -27,13 +27,13 @@
               Match shortcutMatch=visitedTeamMap.get(teamToFind);
               int shortcutSize=firstRotateList.indexOf(shortcutMatch) + 1;
               int reverseShortcutSize=firstRotateList.size() - shortcutSize;
-              List<Match> firstShortcutRotateList=new ArrayList<Match>(firstRotateList.subList(0,shortcutSize));
+              List<Match> firstShortcutRotateList=new ArrayList<>(firstRotateList.subList(0,shortcutSize));
               for (              Match match : firstShortcutRotateList) {
                 visitedTeamMap.remove(getOtherTeam(match,firstTeam));
               }
-              List<Match> secondShortcutRotateList=new ArrayList<Match>(secondRotateList.subList(reverseShortcutSize,secondRotateList.size()));
-              firstRotateList=new ArrayList<Match>(firstRotateList.subList(shortcutSize,firstRotateList.size()));
-              secondRotateList=new ArrayList<Match>(secondRotateList.subList(0,reverseShortcutSize));
+              List<Match> secondShortcutRotateList=new ArrayList<>(secondRotateList.subList(reverseShortcutSize,secondRotateList.size()));
+              firstRotateList=new ArrayList<>(firstRotateList.subList(shortcutSize,firstRotateList.size()));
+              secondRotateList=new ArrayList<>(secondRotateList.subList(0,reverseShortcutSize));
               addTeamRotateMove(moveList,firstShortcutRotateList,secondShortcutRotateList);
             }
             firstTeamIsHomeTeam=!firstTeamIsHomeTeam;

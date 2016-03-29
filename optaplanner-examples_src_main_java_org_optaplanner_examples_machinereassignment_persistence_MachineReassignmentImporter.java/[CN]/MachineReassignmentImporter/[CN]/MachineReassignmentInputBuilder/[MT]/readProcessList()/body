@@ -1,6 +1,6 @@
 {
   processListSize=readIntegerValue();
-  processList=new ArrayList<MrProcess>(processListSize);
+  processList=new ArrayList<>(processListSize);
   long processId=0L;
   long processRequirementId=0L;
   for (int i=0; i < processListSize; i++) {
@@ -14,7 +14,7 @@
     }
     MrService service=serviceList.get(serviceIndex);
     process.setService(service);
-    List<MrProcessRequirement> processRequirementList=new ArrayList<MrProcessRequirement>(resourceListSize);
+    List<MrProcessRequirement> processRequirementList=new ArrayList<>(resourceListSize);
     for (int j=0; j < resourceListSize; j++) {
       MrProcessRequirement processRequirement=new MrProcessRequirement();
       processRequirement.setId(processRequirementId);

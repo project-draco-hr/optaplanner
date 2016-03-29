@@ -1,5 +1,5 @@
 {
-  Map<SolverBenchmarkResult,WarmUpConfigBackup> warmUpConfigBackupMap=new HashMap<SolverBenchmarkResult,WarmUpConfigBackup>(plannerBenchmarkResult.getSolverBenchmarkResultList().size());
+  Map<SolverBenchmarkResult,WarmUpConfigBackup> warmUpConfigBackupMap=new HashMap<>(plannerBenchmarkResult.getSolverBenchmarkResultList().size());
   for (  SolverBenchmarkResult solverBenchmarkResult : plannerBenchmarkResult.getSolverBenchmarkResultList()) {
     TerminationConfig originalTerminationConfig=solverBenchmarkResult.getSolverConfig().getTerminationConfig();
     WarmUpConfigBackup warmUpConfigBackup=new WarmUpConfigBackup(originalTerminationConfig);

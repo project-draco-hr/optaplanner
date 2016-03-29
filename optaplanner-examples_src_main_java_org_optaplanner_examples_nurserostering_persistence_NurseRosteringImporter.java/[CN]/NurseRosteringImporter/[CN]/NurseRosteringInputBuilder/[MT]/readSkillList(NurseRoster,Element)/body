@@ -5,8 +5,8 @@
   }
  else {
     List<Element> skillElementList=(List<Element>)skillsElement.getChildren();
-    skillList=new ArrayList<Skill>(skillElementList.size());
-    skillMap=new HashMap<String,Skill>(skillElementList.size());
+    skillList=new ArrayList<>(skillElementList.size());
+    skillMap=new HashMap<>(skillElementList.size());
     long id=0L;
     for (    Element element : skillElementList) {
       assertElementName(element,"Skill");

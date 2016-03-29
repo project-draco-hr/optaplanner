@@ -2,7 +2,7 @@
   List<Field> fieldList=fieldListCache.get(clazz);
   if (fieldList == null) {
     Field[] fields=clazz.getDeclaredFields();
-    fieldList=new ArrayList<Field>(fields.length);
+    fieldList=new ArrayList<>(fields.length);
     for (    Field field : fields) {
       if (!Modifier.isStatic(field.getModifiers())) {
         field.setAccessible(true);

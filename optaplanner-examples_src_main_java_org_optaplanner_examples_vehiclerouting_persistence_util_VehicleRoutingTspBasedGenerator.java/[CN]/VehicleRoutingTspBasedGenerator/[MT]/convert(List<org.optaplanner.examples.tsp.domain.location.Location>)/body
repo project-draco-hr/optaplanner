@@ -1,5 +1,5 @@
 {
-  List<Location> locationList=new ArrayList<Location>(tspLocationList.size());
+  List<Location> locationList=new ArrayList<>(tspLocationList.size());
   for (  org.optaplanner.examples.tsp.domain.location.Location tspLocation : tspLocationList) {
     Location location;
     if (tspLocation instanceof org.optaplanner.examples.tsp.domain.location.AirLocation) {
@@ -19,7 +19,7 @@
   for (  org.optaplanner.examples.tsp.domain.location.Location tspLocation : tspLocationList) {
     if (tspLocation instanceof org.optaplanner.examples.tsp.domain.location.RoadLocation) {
       RoadLocation location=(RoadLocation)locationList.get(tspLocationList.indexOf(tspLocation));
-      Map<RoadLocation,Double> travelDistanceMap=new LinkedHashMap<RoadLocation,Double>(tspLocationList.size());
+      Map<RoadLocation,Double> travelDistanceMap=new LinkedHashMap<>(tspLocationList.size());
       Map<org.optaplanner.examples.tsp.domain.location.RoadLocation,Double> tspTravelDistanceMap=((org.optaplanner.examples.tsp.domain.location.RoadLocation)tspLocation).getTravelDistanceMap();
       for (      Map.Entry<org.optaplanner.examples.tsp.domain.location.RoadLocation,Double> entry : tspTravelDistanceMap.entrySet()) {
         travelDistanceMap.put((RoadLocation)locationList.get(tspLocationList.indexOf(entry.getKey())),entry.getValue());

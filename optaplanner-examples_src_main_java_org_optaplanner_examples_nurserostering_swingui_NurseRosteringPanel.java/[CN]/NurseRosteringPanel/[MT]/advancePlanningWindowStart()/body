@@ -21,7 +21,7 @@
       newShiftDate.setDateString(oldLastShiftDate.determineNextDateString());
       newShiftDate.setDayOfWeek(oldLastShiftDate.getDayOfWeek().determineNextDayOfWeek());
       List<Shift> refShiftList=planningWindowStart.getShiftList();
-      List<Shift> newShiftList=new ArrayList<Shift>(refShiftList.size());
+      List<Shift> newShiftList=new ArrayList<>(refShiftList.size());
       newShiftDate.setShiftList(newShiftList);
       nurseRoster.getShiftDateList().add(newShiftDate);
       scoreDirector.afterProblemFactAdded(newShiftDate);

@@ -2,7 +2,7 @@
   removeAll();
   TangoColorFactory tangoColorFactory=new TangoColorFactory();
   gridLayout.setColumns((int)Math.ceil(Math.sqrt(dinnerParty.getTableList().size())));
-  Map<Seat,SeatPanel> seatPanelMap=new HashMap<Seat,SeatPanel>(dinnerParty.getSeatList().size());
+  Map<Seat,SeatPanel> seatPanelMap=new HashMap<>(dinnerParty.getSeatList().size());
   SeatPanel unassignedPanel=new SeatPanel(null);
   seatPanelMap.put(null,unassignedPanel);
   for (  Table table : dinnerParty.getTableList()) {

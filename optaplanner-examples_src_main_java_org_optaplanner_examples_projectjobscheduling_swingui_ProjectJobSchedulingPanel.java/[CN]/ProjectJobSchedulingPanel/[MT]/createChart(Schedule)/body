@@ -1,6 +1,6 @@
 {
   YIntervalSeriesCollection seriesCollection=new YIntervalSeriesCollection();
-  Map<Project,YIntervalSeries> projectSeriesMap=new LinkedHashMap<Project,YIntervalSeries>(schedule.getProjectList().size());
+  Map<Project,YIntervalSeries> projectSeriesMap=new LinkedHashMap<>(schedule.getProjectList().size());
   YIntervalRenderer renderer=new YIntervalRenderer();
   int maximumEndDate=0;
   int seriesIndex=0;

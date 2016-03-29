@@ -1,6 +1,6 @@
 {
   resourceListSize=readIntegerValue();
-  List<Resource> resourceList=new ArrayList<Resource>(resourceListSize);
+  List<Resource> resourceList=new ArrayList<>(resourceListSize);
   for (int i=0; i < resourceListSize; i++) {
     Resource resource=new Resource();
     resource.setId((long)i);

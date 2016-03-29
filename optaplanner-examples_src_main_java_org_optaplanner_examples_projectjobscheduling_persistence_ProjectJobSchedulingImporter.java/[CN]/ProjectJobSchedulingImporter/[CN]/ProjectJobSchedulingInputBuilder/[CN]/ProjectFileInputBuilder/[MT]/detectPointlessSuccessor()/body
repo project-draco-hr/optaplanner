@@ -1,8 +1,8 @@
 {
   for (  Job baseJob : project.getJobList()) {
-    Set<Job> baseSuccessorJobSet=new HashSet<Job>(baseJob.getSuccessorJobList());
-    Set<Job> checkedSuccessorSet=new HashSet<Job>(project.getJobList().size());
-    Queue<Job> uncheckedSuccessorQueue=new ArrayDeque<Job>(project.getJobList().size());
+    Set<Job> baseSuccessorJobSet=new HashSet<>(baseJob.getSuccessorJobList());
+    Set<Job> checkedSuccessorSet=new HashSet<>(project.getJobList().size());
+    Queue<Job> uncheckedSuccessorQueue=new ArrayDeque<>(project.getJobList().size());
     for (    Job baseSuccessorJob : baseJob.getSuccessorJobList()) {
       uncheckedSuccessorQueue.addAll(baseSuccessorJob.getSuccessorJobList());
     }

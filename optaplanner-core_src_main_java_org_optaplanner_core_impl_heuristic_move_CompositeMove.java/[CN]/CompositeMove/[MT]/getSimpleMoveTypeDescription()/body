@@ -1,5 +1,5 @@
 {
-  Set<String> childMoveTypeDescriptionSet=new TreeSet<String>();
+  Set<String> childMoveTypeDescriptionSet=new TreeSet<>();
   for (  Move move : moves) {
     childMoveTypeDescriptionSet.add(move.getSimpleMoveTypeDescription());
   }

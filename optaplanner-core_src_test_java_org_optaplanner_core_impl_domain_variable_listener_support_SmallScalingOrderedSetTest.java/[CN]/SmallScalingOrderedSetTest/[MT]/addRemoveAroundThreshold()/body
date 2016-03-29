@@ -1,5 +1,5 @@
 {
-  SmallScalingOrderedSet<String> set=new SmallScalingOrderedSet<String>();
+  SmallScalingOrderedSet<String> set=new SmallScalingOrderedSet<>();
   assertTrue(set.add("s1"));
   assertFalse(set.add("s1"));
   assertTrue(set.add("s2"));

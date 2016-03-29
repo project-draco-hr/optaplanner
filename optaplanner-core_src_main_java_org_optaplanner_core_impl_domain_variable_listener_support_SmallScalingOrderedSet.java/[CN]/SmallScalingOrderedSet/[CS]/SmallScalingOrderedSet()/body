@@ -1,5 +1,5 @@
 {
   belowThreshold=true;
-  list=new ArrayList<E>(LIST_SIZE_THRESHOLD);
+  list=new ArrayList<>(LIST_SIZE_THRESHOLD);
   set=null;
 }

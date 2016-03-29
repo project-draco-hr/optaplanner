@@ -1,6 +1,6 @@
 {
-  assertEquals(5,new NullableCountableValueRange<Integer>(new ListValueRange<Integer>(Arrays.asList(0,2,5,10))).get(2L).intValue());
-  assertEquals(null,new NullableCountableValueRange<Integer>(new ListValueRange<Integer>(Arrays.asList(0,2,5,10))).get(4L));
-  assertEquals("c",new NullableCountableValueRange<String>(new ListValueRange<String>(Arrays.asList("b","z","a","c","g","d"))).get(3L));
-  assertEquals(null,new NullableCountableValueRange<String>(new ListValueRange<String>(Arrays.asList("b","z","a","c","g","d"))).get(6L));
+  assertEquals(5,new NullableCountableValueRange<>(new ListValueRange<>(Arrays.asList(0,2,5,10))).get(2L).intValue());
+  assertEquals(null,new NullableCountableValueRange<>(new ListValueRange<>(Arrays.asList(0,2,5,10))).get(4L));
+  assertEquals("c",new NullableCountableValueRange<>(new ListValueRange<>(Arrays.asList("b","z","a","c","g","d"))).get(3L));
+  assertEquals(null,new NullableCountableValueRange<>(new ListValueRange<>(Arrays.asList("b","z","a","c","g","d"))).get(6L));
 }

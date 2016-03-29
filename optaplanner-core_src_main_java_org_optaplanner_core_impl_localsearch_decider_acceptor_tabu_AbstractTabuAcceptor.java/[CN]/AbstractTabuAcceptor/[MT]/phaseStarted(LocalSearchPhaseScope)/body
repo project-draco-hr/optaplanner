@@ -4,6 +4,6 @@
   workingTabuSize=tabuSizeStrategy == null ? 0 : tabuSizeStrategy.determineTabuSize(lastCompletedStepScope);
   workingFadingTabuSize=fadingTabuSizeStrategy == null ? 0 : fadingTabuSizeStrategy.determineTabuSize(lastCompletedStepScope);
   int totalTabuListSize=workingTabuSize + workingFadingTabuSize;
-  tabuToStepIndexMap=new HashMap<Object,Integer>(totalTabuListSize);
-  tabuSequenceList=new LinkedList<Object>();
+  tabuToStepIndexMap=new HashMap<>(totalTabuListSize);
+  tabuSequenceList=new LinkedList<>();
 }

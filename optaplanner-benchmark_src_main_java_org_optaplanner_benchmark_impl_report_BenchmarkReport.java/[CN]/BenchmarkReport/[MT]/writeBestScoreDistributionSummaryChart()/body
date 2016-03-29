@@ -1,16 +1,16 @@
 {
-  List<DefaultBoxAndWhiskerCategoryDataset> datasetList=new ArrayList<DefaultBoxAndWhiskerCategoryDataset>(CHARTED_SCORE_LEVEL_SIZE);
+  List<DefaultBoxAndWhiskerCategoryDataset> datasetList=new ArrayList<>(CHARTED_SCORE_LEVEL_SIZE);
   for (  SolverBenchmarkResult solverBenchmarkResult : plannerBenchmarkResult.getSolverBenchmarkResultList()) {
     String solverLabel=solverBenchmarkResult.getNameWithFavoriteSuffix();
     for (    SingleBenchmarkResult singleBenchmarkResult : solverBenchmarkResult.getSingleBenchmarkResultList()) {
       String planningProblemLabel=singleBenchmarkResult.getProblemBenchmarkResult().getName();
       if (singleBenchmarkResult.hasAllSuccess()) {
-        List<List<Double>> distributionLevelList=new ArrayList<List<Double>>(CHARTED_SCORE_LEVEL_SIZE);
+        List<List<Double>> distributionLevelList=new ArrayList<>(CHARTED_SCORE_LEVEL_SIZE);
         for (        SubSingleBenchmarkResult subSingleBenchmarkResult : singleBenchmarkResult.getSubSingleBenchmarkResultList()) {
           double[] levelValues=ScoreUtils.extractLevelDoubles(subSingleBenchmarkResult.getAverageScore());
           for (int i=0; i < levelValues.length && i < CHARTED_SCORE_LEVEL_SIZE; i++) {
             if (i >= distributionLevelList.size()) {
-              distributionLevelList.add(new ArrayList<Double>(singleBenchmarkResult.getSubSingleCount()));
+              distributionLevelList.add(new ArrayList<>(singleBenchmarkResult.getSubSingleCount()));
             }
             distributionLevelList.get(i).add(levelValues[i]);
           }
@@ -24,7 +24,7 @@
       }
     }
   }
-  bestScoreDistributionSummaryChartFileList=new ArrayList<File>(datasetList.size());
+  bestScoreDistributionSummaryChartFileList=new ArrayList<>(datasetList.size());
   int scoreLevelIndex=0;
   for (  DefaultBoxAndWhiskerCategoryDataset dataset : datasetList) {
     CategoryPlot plot=createBoxAndWhiskerChartPlot(dataset,"Score level " + scoreLevelIndex,NumberFormat.getInstance(locale));

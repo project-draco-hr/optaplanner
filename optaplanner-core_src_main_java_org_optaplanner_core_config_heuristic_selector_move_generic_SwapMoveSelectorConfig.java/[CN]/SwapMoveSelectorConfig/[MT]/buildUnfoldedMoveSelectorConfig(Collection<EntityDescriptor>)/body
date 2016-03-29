@@ -1,5 +1,5 @@
 {
-  List<MoveSelectorConfig> moveSelectorConfigList=new ArrayList<MoveSelectorConfig>(entityDescriptors.size());
+  List<MoveSelectorConfig> moveSelectorConfigList=new ArrayList<>(entityDescriptors.size());
   for (  EntityDescriptor entityDescriptor : entityDescriptors) {
     SwapMoveSelectorConfig childMoveSelectorConfig=new SwapMoveSelectorConfig();
     EntitySelectorConfig childEntitySelectorConfig=new EntitySelectorConfig(entitySelectorConfig);

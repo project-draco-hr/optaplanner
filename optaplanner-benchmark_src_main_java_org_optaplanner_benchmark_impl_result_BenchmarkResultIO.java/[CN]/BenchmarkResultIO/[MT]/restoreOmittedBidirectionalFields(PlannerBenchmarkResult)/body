@@ -2,7 +2,7 @@
   for (  ProblemBenchmarkResult<Object> problemBenchmarkResult : plannerBenchmarkResult.getUnifiedProblemBenchmarkResultList()) {
     problemBenchmarkResult.setPlannerBenchmarkResult(plannerBenchmarkResult);
     if (problemBenchmarkResult.getProblemStatisticList() == null) {
-      problemBenchmarkResult.setProblemStatisticList(new ArrayList<ProblemStatistic>(0));
+      problemBenchmarkResult.setProblemStatisticList(new ArrayList<>(0));
     }
     for (    ProblemStatistic problemStatistic : problemBenchmarkResult.getProblemStatisticList()) {
       problemStatistic.setProblemBenchmarkResult(problemBenchmarkResult);
@@ -17,7 +17,7 @@
       singleBenchmarkResult.setSolverBenchmarkResult(solverBenchmarkResult);
       for (      SubSingleBenchmarkResult subSingleBenchmarkResult : singleBenchmarkResult.getSubSingleBenchmarkResultList()) {
         if (subSingleBenchmarkResult.getPureSubSingleStatisticList() == null) {
-          subSingleBenchmarkResult.setPureSubSingleStatisticList(new ArrayList<PureSubSingleStatistic>(0));
+          subSingleBenchmarkResult.setPureSubSingleStatisticList(new ArrayList<>(0));
         }
       }
       for (      SubSingleBenchmarkResult subSingleBenchmarkResult : singleBenchmarkResult.getSubSingleBenchmarkResultList()) {

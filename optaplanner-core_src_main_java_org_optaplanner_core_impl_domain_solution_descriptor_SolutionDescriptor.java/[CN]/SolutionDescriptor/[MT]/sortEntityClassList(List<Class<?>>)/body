@@ -1,5 +1,5 @@
 {
-  List<Class<?>> sortedEntityClassList=new ArrayList<Class<?>>(entityClassList.size());
+  List<Class<?>> sortedEntityClassList=new ArrayList<>(entityClassList.size());
   for (  Class<?> entityClass : entityClassList) {
     boolean added=false;
     for (int i=0; i < sortedEntityClassList.size(); i++) {

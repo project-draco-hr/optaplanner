@@ -3,7 +3,7 @@
   solverBenchmarkResult.getSingleBenchmarkResultList().add(singleBenchmarkResult);
   problemBenchmarkResult.getSingleBenchmarkResultList().add(singleBenchmarkResult);
   singleBenchmarkResult.setAverageScore(SimpleScore.valueOf(score));
-  singleBenchmarkResult.setSubSingleBenchmarkResultList(new ArrayList<SubSingleBenchmarkResult>(1));
+  singleBenchmarkResult.setSubSingleBenchmarkResultList(new ArrayList<>(1));
   createSubSingleBenchmarkResult(singleBenchmarkResult,0);
   return singleBenchmarkResult;
 }

@@ -1,5 +1,5 @@
 {
-  Set<Object> entities=new LinkedHashSet<Object>(moves.length * 2);
+  Set<Object> entities=new LinkedHashSet<>(moves.length * 2);
   for (  Move move : moves) {
     entities.addAll(move.getPlanningEntities());
   }

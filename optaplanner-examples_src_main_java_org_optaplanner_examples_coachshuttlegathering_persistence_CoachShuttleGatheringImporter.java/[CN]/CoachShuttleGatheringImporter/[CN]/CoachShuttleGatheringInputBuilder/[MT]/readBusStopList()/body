@@ -1,5 +1,5 @@
 {
-  List<BusStop> busStopList=new ArrayList<BusStop>();
+  List<BusStop> busStopList=new ArrayList<>();
   bufferedReader.readLine();
   for (String line=bufferedReader.readLine(); line != null; line=bufferedReader.readLine()) {
     if (line.isEmpty()) {
@@ -34,7 +34,7 @@
       for (      Coach coach : solution.getCoachList()) {
         coach.setDestination(hub);
       }
-      ArrayList<Shuttle> transferShuttleList=new ArrayList<Shuttle>(solution.getShuttleList().size());
+      ArrayList<Shuttle> transferShuttleList=new ArrayList<>(solution.getShuttleList().size());
       for (      Shuttle shuttle : solution.getShuttleList()) {
         shuttle.setDestination(hub);
         transferShuttleList.add(shuttle);
@@ -56,7 +56,7 @@
       busStop.setLocation(location);
       busStop.setPassengerQuantity(Integer.parseInt(lineTokens[6]));
       busStop.setTransportTimeLimit(Integer.parseInt(lineTokens[7]));
-      busStop.setTransferShuttleList(new ArrayList<Shuttle>(solution.getShuttleList().size()));
+      busStop.setTransferShuttleList(new ArrayList<>(solution.getShuttleList().size()));
       busStopList.add(busStop);
     }
  else {

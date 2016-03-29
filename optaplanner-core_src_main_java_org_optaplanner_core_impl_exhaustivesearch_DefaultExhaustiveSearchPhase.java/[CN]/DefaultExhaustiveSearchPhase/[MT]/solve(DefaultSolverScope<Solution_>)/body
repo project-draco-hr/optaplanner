@@ -1,5 +1,5 @@
 {
-  SortedSet<ExhaustiveSearchNode> expandableNodeQueue=new TreeSet<ExhaustiveSearchNode>(nodeComparator);
+  SortedSet<ExhaustiveSearchNode> expandableNodeQueue=new TreeSet<>(nodeComparator);
   ExhaustiveSearchPhaseScope<Solution_> phaseScope=new ExhaustiveSearchPhaseScope<>(solverScope);
   phaseScope.setExpandableNodeQueue(expandableNodeQueue);
   phaseStarted(phaseScope);

@@ -1,6 +1,6 @@
 {
   if (addNullInValueRange) {
-    valueRange=new NullableCountableValueRange<T>((CountableValueRange)valueRange);
+    valueRange=new NullableCountableValueRange<>((CountableValueRange)valueRange);
   }
   return valueRange;
 }

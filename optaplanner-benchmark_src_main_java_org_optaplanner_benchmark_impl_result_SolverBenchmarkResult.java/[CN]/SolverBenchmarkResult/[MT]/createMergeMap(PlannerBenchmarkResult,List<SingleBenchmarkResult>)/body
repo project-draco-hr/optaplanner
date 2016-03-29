@@ -1,6 +1,6 @@
 {
-  Map<SolverBenchmarkResult,SolverBenchmarkResult> mergeMap=new IdentityHashMap<SolverBenchmarkResult,SolverBenchmarkResult>();
-  Map<String,Integer> nameCountMap=new HashMap<String,Integer>();
+  Map<SolverBenchmarkResult,SolverBenchmarkResult> mergeMap=new IdentityHashMap<>();
+  Map<String,Integer> nameCountMap=new HashMap<>();
   for (  SingleBenchmarkResult singleBenchmarkResult : singleBenchmarkResultList) {
     SolverBenchmarkResult oldResult=singleBenchmarkResult.getSolverBenchmarkResult();
     if (!mergeMap.containsKey(oldResult)) {
@@ -15,7 +15,7 @@
       nameCountMap.put(oldResult.name,nameCount);
       newResult.subSingleCount=oldResult.subSingleCount;
       newResult.solverConfig=oldResult.solverConfig;
-      newResult.singleBenchmarkResultList=new ArrayList<SingleBenchmarkResult>(oldResult.singleBenchmarkResultList.size());
+      newResult.singleBenchmarkResultList=new ArrayList<>(oldResult.singleBenchmarkResultList.size());
       mergeMap.put(oldResult,newResult);
       newPlannerBenchmarkResult.getSolverBenchmarkResultList().add(newResult);
     }

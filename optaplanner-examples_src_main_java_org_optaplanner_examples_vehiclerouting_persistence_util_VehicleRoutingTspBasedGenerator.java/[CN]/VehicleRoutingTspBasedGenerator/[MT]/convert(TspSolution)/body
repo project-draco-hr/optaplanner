@@ -15,7 +15,7 @@
   vehicle.setDepot(depot);
   vehicle.setCapacity(locationList.size() * 10);
   vehicleRoutingSolution.setVehicleList(Collections.singletonList(vehicle));
-  List<Customer> customerList=new ArrayList<Customer>(locationList.size());
+  List<Customer> customerList=new ArrayList<>(locationList.size());
   for (  org.optaplanner.examples.vehiclerouting.domain.location.Location location : locationList.subList(1,locationList.size())) {
     Customer customer=new Customer();
     customer.setId(location.getId());

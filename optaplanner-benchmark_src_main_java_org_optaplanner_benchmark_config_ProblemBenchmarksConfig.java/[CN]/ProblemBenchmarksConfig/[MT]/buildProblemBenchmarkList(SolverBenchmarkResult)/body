@@ -2,7 +2,7 @@
   validate(solverBenchmarkResult);
   PlannerBenchmarkResult plannerBenchmarkResult=solverBenchmarkResult.getPlannerBenchmarkResult();
   SolutionFileIO solutionFileIO=buildSolutionFileIO();
-  List<ProblemBenchmarkResult> problemBenchmarkResultList=new ArrayList<ProblemBenchmarkResult>(inputSolutionFileList.size());
+  List<ProblemBenchmarkResult> problemBenchmarkResultList=new ArrayList<>(inputSolutionFileList.size());
   List<ProblemBenchmarkResult> unifiedProblemBenchmarkResultList=plannerBenchmarkResult.getUnifiedProblemBenchmarkResultList();
   for (  File inputSolutionFile : inputSolutionFileList) {
     if (!inputSolutionFile.exists()) {

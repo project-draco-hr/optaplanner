@@ -1,5 +1,5 @@
 {
   this.variableListener=variableListener;
   this.globalOrder=globalOrder;
-  notificationQueue=new SmallScalingOrderedSet<VariableListenerNotification>();
+  notificationQueue=new SmallScalingOrderedSet<>();
 }

@@ -1,5 +1,5 @@
 {
-  Map<Team,Integer> teamToDayCountMap=new HashMap<Team,Integer>(tennisSolution.getTeamList().size());
+  Map<Team,Integer> teamToDayCountMap=new HashMap<>(tennisSolution.getTeamList().size());
   for (  Team team : tennisSolution.getTeamList()) {
     teamToDayCountMap.put(team,0);
   }

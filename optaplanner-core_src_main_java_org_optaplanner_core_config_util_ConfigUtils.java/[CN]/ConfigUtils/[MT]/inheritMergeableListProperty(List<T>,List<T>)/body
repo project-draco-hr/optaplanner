@@ -3,10 +3,10 @@
     return originalList;
   }
  else   if (originalList == null) {
-    return new ArrayList<T>(inheritedList);
+    return new ArrayList<>(inheritedList);
   }
  else {
-    List<T> mergedList=new ArrayList<T>(inheritedList);
+    List<T> mergedList=new ArrayList<>(inheritedList);
     mergedList.addAll(originalList);
     return mergedList;
   }

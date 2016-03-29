@@ -1,11 +1,11 @@
 {
-  ArrayList<MoveSelector> childMoveSelectorList=new ArrayList<MoveSelector>();
-  Map<MoveSelector,Double> fixedProbabilityWeightMap=new HashMap<MoveSelector,Double>();
+  ArrayList<MoveSelector> childMoveSelectorList=new ArrayList<>();
+  Map<MoveSelector,Double> fixedProbabilityWeightMap=new HashMap<>();
   childMoveSelectorList.add(SelectorTestUtils.mockMoveSelector(DummyMove.class));
   fixedProbabilityWeightMap.put(childMoveSelectorList.get(0),1000.0);
   childMoveSelectorList.add(SelectorTestUtils.mockMoveSelector(DummyMove.class));
   fixedProbabilityWeightMap.put(childMoveSelectorList.get(1),20.0);
-  UnionMoveSelector moveSelector=new UnionMoveSelector(childMoveSelectorList,true,new FixedSelectorProbabilityWeightFactory<MoveSelector>(fixedProbabilityWeightMap));
+  UnionMoveSelector moveSelector=new UnionMoveSelector(childMoveSelectorList,true,new FixedSelectorProbabilityWeightFactory<>(fixedProbabilityWeightMap));
   Random workingRandom=mock(Random.class);
   when(workingRandom.nextDouble()).thenReturn(1.0);
   DefaultSolverScope solverScope=mock(DefaultSolverScope.class);

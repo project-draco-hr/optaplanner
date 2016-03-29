@@ -1,12 +1,12 @@
 {
   int contractLineTypeListSize=ContractLineType.values().length;
   List<Element> contractElementList=(List<Element>)contractsElement.getChildren();
-  List<Contract> contractList=new ArrayList<Contract>(contractElementList.size());
-  contractMap=new HashMap<String,Contract>(contractElementList.size());
+  List<Contract> contractList=new ArrayList<>(contractElementList.size());
+  contractMap=new HashMap<>(contractElementList.size());
   long id=0L;
-  List<ContractLine> contractLineList=new ArrayList<ContractLine>(contractElementList.size() * contractLineTypeListSize);
+  List<ContractLine> contractLineList=new ArrayList<>(contractElementList.size() * contractLineTypeListSize);
   long contractLineId=0L;
-  List<PatternContractLine> patternContractLineList=new ArrayList<PatternContractLine>(contractElementList.size() * 3);
+  List<PatternContractLine> patternContractLineList=new ArrayList<>(contractElementList.size() * 3);
   long patternContractLineId=0L;
   for (  Element element : contractElementList) {
     assertElementName(element,"Contract");
@@ -14,7 +14,7 @@
     contract.setId(id);
     contract.setCode(element.getAttribute("ID").getValue());
     contract.setDescription(element.getChild("Description").getText());
-    List<ContractLine> contractLineListOfContract=new ArrayList<ContractLine>(contractLineTypeListSize);
+    List<ContractLine> contractLineListOfContract=new ArrayList<>(contractLineTypeListSize);
     contractLineId=readBooleanContractLine(contract,contractLineList,contractLineListOfContract,contractLineId,element.getChild("SingleAssignmentPerDay"),ContractLineType.SINGLE_ASSIGNMENT_PER_DAY);
     contractLineId=readMinMaxContractLine(contract,contractLineList,contractLineListOfContract,contractLineId,element.getChild("MinNumAssignments"),element.getChild("MaxNumAssignments"),ContractLineType.TOTAL_ASSIGNMENTS);
     contractLineId=readMinMaxContractLine(contract,contractLineList,contractLineListOfContract,contractLineId,element.getChild("MinConsecutiveWorkingDays"),element.getChild("MaxConsecutiveWorkingDays"),ContractLineType.CONSECUTIVE_WORKING_DAYS);

@@ -1,13 +1,13 @@
 {
-  dayTeamMap=new HashMap<Day,Map<Team,Match>>(dayList.size());
+  dayTeamMap=new HashMap<>(dayList.size());
   for (  Day day : dayList) {
-    dayTeamMap.put(day,new LinkedHashMap<Team,Match>(teamList.size()));
+    dayTeamMap.put(day,new LinkedHashMap<>(teamList.size()));
   }
-  teamDayMap=new HashMap<Team,Map<Day,Match>>(teamList.size());
-  homeTeamAwayTeamMap=new HashMap<Team,Map<Team,Match>>(teamList.size());
+  teamDayMap=new HashMap<>(teamList.size());
+  homeTeamAwayTeamMap=new HashMap<>(teamList.size());
   for (  Team team : teamList) {
-    teamDayMap.put(team,new LinkedHashMap<Day,Match>(dayList.size()));
-    homeTeamAwayTeamMap.put(team,new LinkedHashMap<Team,Match>(teamList.size() - 1));
+    teamDayMap.put(team,new LinkedHashMap<>(dayList.size()));
+    homeTeamAwayTeamMap.put(team,new LinkedHashMap<>(teamList.size() - 1));
   }
   for (  Match match : matchList) {
     Map<Team,Match> subTeamMap=dayTeamMap.get(match.getDay());

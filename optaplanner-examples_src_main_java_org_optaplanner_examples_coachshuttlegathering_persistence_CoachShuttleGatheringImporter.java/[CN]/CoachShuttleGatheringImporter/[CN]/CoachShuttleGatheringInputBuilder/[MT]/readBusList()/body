@@ -1,7 +1,7 @@
 {
   File file=new File(inputFile.getParentFile(),"Fleet.csv");
-  List<Coach> coachList=new ArrayList<Coach>();
-  List<Shuttle> shuttleList=new ArrayList<Shuttle>();
+  List<Coach> coachList=new ArrayList<>();
+  List<Shuttle> shuttleList=new ArrayList<>();
   BufferedReader subBufferedReader=null;
   try {
     subBufferedReader=new BufferedReader(new InputStreamReader(new FileInputStream(file),"UTF-8"));

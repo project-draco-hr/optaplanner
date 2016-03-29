@@ -1,9 +1,9 @@
 {
   List<ShiftType> shiftTypeList=nurseRoster.getShiftTypeList();
   int shiftListSize=shiftDateMap.size() * shiftTypeList.size();
-  List<Shift> shiftList=new ArrayList<Shift>(shiftListSize);
-  dateAndShiftTypeToShiftMap=new HashMap<List<String>,Shift>(shiftListSize);
-  dayOfWeekAndShiftTypeToShiftListMap=new HashMap<List<Object>,List<Shift>>(7 * shiftTypeList.size());
+  List<Shift> shiftList=new ArrayList<>(shiftListSize);
+  dateAndShiftTypeToShiftMap=new HashMap<>(shiftListSize);
+  dayOfWeekAndShiftTypeToShiftListMap=new HashMap<>(7 * shiftTypeList.size());
   long id=0L;
   int index=0;
   for (  ShiftDate shiftDate : nurseRoster.getShiftDateList()) {

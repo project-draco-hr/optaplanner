@@ -1,5 +1,5 @@
 {
-  Collection<URL> urls=new ArrayList<URL>();
+  Collection<URL> urls=new ArrayList<>();
   String javaClassPath=System.getProperty("java.class.path");
   if (javaClassPath != null) {
     for (    String path : javaClassPath.split(File.pathSeparator)) {

@@ -1,5 +1,5 @@
 {
-  Queue<Allocation> uncheckedSuccessorQueue=new ArrayDeque<Allocation>();
+  Queue<Allocation> uncheckedSuccessorQueue=new ArrayDeque<>();
   uncheckedSuccessorQueue.addAll(originalAllocation.getSuccessorAllocationList());
   while (!uncheckedSuccessorQueue.isEmpty()) {
     Allocation allocation=uncheckedSuccessorQueue.remove();

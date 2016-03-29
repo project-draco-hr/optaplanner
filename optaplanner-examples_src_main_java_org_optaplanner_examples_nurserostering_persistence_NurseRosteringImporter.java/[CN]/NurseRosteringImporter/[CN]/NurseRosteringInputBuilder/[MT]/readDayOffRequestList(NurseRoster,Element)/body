@@ -5,7 +5,7 @@
   }
  else {
     List<Element> dayOffElementList=(List<Element>)dayOffRequestsElement.getChildren();
-    dayOffRequestList=new ArrayList<DayOffRequest>(dayOffElementList.size());
+    dayOffRequestList=new ArrayList<>(dayOffElementList.size());
     long id=0L;
     for (    Element element : dayOffElementList) {
       assertElementName(element,"DayOff");

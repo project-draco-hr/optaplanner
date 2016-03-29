@@ -1,5 +1,5 @@
 {
-  List<Move> moveList=new ArrayList<Move>();
+  List<Move> moveList=new ArrayList<>();
   RotationMovesFactory rotationMovesFactory=new RotationMovesFactory(travelingTournament);
   rotationMovesFactory.addDayRotation(moveList);
   rotationMovesFactory.addTeamRotation(moveList);

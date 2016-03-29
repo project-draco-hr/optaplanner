@@ -56,7 +56,7 @@
   for (int i=0; i < serviceMoveCost; i++) {
     serviceMoveCostMatchTotal.addConstraintMatch(Arrays.<Object>asList(i),-globalPenaltyInfo.getServiceMoveCostWeight());
   }
-  List<ConstraintMatchTotal> constraintMatchTotalList=new ArrayList<ConstraintMatchTotal>(4);
+  List<ConstraintMatchTotal> constraintMatchTotalList=new ArrayList<>(4);
   constraintMatchTotalList.add(maximumCapacityMatchTotal);
   constraintMatchTotalList.add(serviceConflictMatchTotal);
   constraintMatchTotalList.add(serviceLocationSpreadMatchTotal);

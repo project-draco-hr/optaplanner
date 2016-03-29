@@ -1,6 +1,6 @@
 {
   List<BedDesignation> bedDesignationList=patientAdmissionSchedule.getBedDesignationList();
-  List<Move> moveList=new ArrayList<Move>();
+  List<Move> moveList=new ArrayList<>();
   for (ListIterator<BedDesignation> leftIt=bedDesignationList.listIterator(); leftIt.hasNext(); ) {
     BedDesignation leftBedDesignation=leftIt.next();
     for (ListIterator<BedDesignation> rightIt=bedDesignationList.listIterator(leftIt.nextIndex()); rightIt.hasNext(); ) {

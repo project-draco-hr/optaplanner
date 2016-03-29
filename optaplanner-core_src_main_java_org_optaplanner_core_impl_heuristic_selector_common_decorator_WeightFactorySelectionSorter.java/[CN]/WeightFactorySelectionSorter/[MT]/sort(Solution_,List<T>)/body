@@ -1,5 +1,5 @@
 {
-  SortedMap<Comparable,T> selectionMap=new TreeMap<Comparable,T>(appliedWeightComparator);
+  SortedMap<Comparable,T> selectionMap=new TreeMap<>(appliedWeightComparator);
   for (  T selection : selectionList) {
     Comparable difficultyWeight=selectionSorterWeightFactory.createSorterWeight(solution,selection);
     T previous=selectionMap.put(difficultyWeight,selection);

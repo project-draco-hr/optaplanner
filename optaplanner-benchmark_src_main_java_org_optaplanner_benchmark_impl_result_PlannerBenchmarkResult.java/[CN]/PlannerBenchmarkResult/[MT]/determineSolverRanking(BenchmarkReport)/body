@@ -1,5 +1,5 @@
 {
-  List<SolverBenchmarkResult> rankableSolverBenchmarkResultList=new ArrayList<SolverBenchmarkResult>(solverBenchmarkResultList);
+  List<SolverBenchmarkResult> rankableSolverBenchmarkResultList=new ArrayList<>(solverBenchmarkResultList);
   for (Iterator<SolverBenchmarkResult> it=rankableSolverBenchmarkResultList.iterator(); it.hasNext(); ) {
     SolverBenchmarkResult solverBenchmarkResult=it.next();
     if (solverBenchmarkResult.hasAnyFailure()) {

@@ -2,8 +2,8 @@
   ExhaustiveSearchPhaseScope<Solution_> phaseScope=stepScope.getPhaseScope();
   ExhaustiveSearchNode oldNode=phaseScope.getLastCompletedStepScope().getExpandingNode();
   ExhaustiveSearchNode newNode=stepScope.getExpandingNode();
-  List<Move> oldMoveList=new ArrayList<Move>(oldNode.getDepth());
-  List<Move> newMoveList=new ArrayList<Move>(newNode.getDepth());
+  List<Move> oldMoveList=new ArrayList<>(oldNode.getDepth());
+  List<Move> newMoveList=new ArrayList<>(newNode.getDepth());
   while (oldNode != newNode) {
     int oldDepth=oldNode.getDepth();
     int newDepth=newNode.getDepth();
@@ -16,7 +16,7 @@
       oldNode=oldNode.getParent();
     }
   }
-  List<Move> restoreMoveList=new ArrayList<Move>(oldMoveList.size() + newMoveList.size());
+  List<Move> restoreMoveList=new ArrayList<>(oldMoveList.size() + newMoveList.size());
   restoreMoveList.addAll(oldMoveList);
   Collections.reverse(newMoveList);
   restoreMoveList.addAll(newMoveList);

@@ -3,8 +3,8 @@
   Row headerRow=sheet.getRow(0);
   assertCellConstant(headerRow.getCell(0),"Name");
   assertCellConstant(headerRow.getCell(1),"Quantity maximum");
-  List<Sector> sectorList=new ArrayList<Sector>();
-  sectorMap=new LinkedHashMap<String,Sector>();
+  List<Sector> sectorList=new ArrayList<>();
+  sectorMap=new LinkedHashMap<>();
   long id=0L;
   for (  Row row : sheet) {
     if (row.getRowNum() < 1) {

@@ -1,5 +1,5 @@
 {
   super(constraintPackage,constraintName,scoreLevel);
-  constraintMatchSet=new LinkedHashSet<BigDecimalConstraintMatch>();
+  constraintMatchSet=new LinkedHashSet<>();
   weightTotal=BigDecimal.ZERO;
 }

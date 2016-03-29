@@ -1,5 +1,5 @@
 {
-  List<Object> allValueList=new ArrayList<Object>(values.length + 1);
+  List<Object> allValueList=new ArrayList<>(values.length + 1);
   allValueList.add(variableDescriptor.getValue(entity));
   Collections.addAll(allValueList,values);
   return allValueList;

@@ -1,5 +1,5 @@
 {
-  final Collection<URL> result=new ArrayList<URL>();
+  final Collection<URL> result=new ArrayList<>();
   final ClassLoader[] loaders=classLoaders(classLoaders);
   for (  ClassLoader classLoader : loaders) {
     while (classLoader != null) {

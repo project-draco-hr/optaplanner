@@ -4,6 +4,6 @@
   terminationConfig.setMinutesSpentLimit(2L);
   solverFactory.getSolverConfig().setTerminationConfig(terminationConfig);
   executor=Executors.newFixedThreadPool(2);
-  sessionSolutionMap=new ConcurrentHashMap<String,VehicleRoutingSolution>();
-  sessionSolverMap=new ConcurrentHashMap<String,Solver<VehicleRoutingSolution>>();
+  sessionSolutionMap=new ConcurrentHashMap<>();
+  sessionSolverMap=new ConcurrentHashMap<>();
 }

@@ -1,6 +1,6 @@
 {
   List<AssetClass> assetClassList=solution.getAssetClassList();
-  List<AssetClassAllocation> assetClassAllocationList=new ArrayList<AssetClassAllocation>(assetClassList.size());
+  List<AssetClassAllocation> assetClassAllocationList=new ArrayList<>(assetClassList.size());
   for (  AssetClass assetClass : assetClassList) {
     AssetClassAllocation allocation=new AssetClassAllocation();
     allocation.setId(assetClass.getId());

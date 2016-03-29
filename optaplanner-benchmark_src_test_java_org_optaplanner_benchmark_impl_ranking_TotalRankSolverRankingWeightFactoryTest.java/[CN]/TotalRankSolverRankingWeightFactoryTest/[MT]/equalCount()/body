@@ -12,14 +12,14 @@
   b.accumulateResults(benchmarkReport);
   solverBenchmarkResultList.add(b);
   SolverBenchmarkResult c=new SolverBenchmarkResult(null);
-  List<SingleBenchmarkResult> cSingleBenchmarkResultList=new ArrayList<SingleBenchmarkResult>();
+  List<SingleBenchmarkResult> cSingleBenchmarkResultList=new ArrayList<>();
   addSingleBenchmark(cSingleBenchmarkResultList,-5000,-10,-5000);
   addSingleBenchmark(cSingleBenchmarkResultList,-100,-10,-5000);
   addSingleBenchmark(cSingleBenchmarkResultList,-10,-10,-5000);
   c.setSingleBenchmarkResultList(cSingleBenchmarkResultList);
   c.accumulateResults(benchmarkReport);
   solverBenchmarkResultList.add(c);
-  List<SingleBenchmarkResult> totalSingleBenchmarkResultList=new ArrayList<SingleBenchmarkResult>(aSingleBenchmarkResultList);
+  List<SingleBenchmarkResult> totalSingleBenchmarkResultList=new ArrayList<>(aSingleBenchmarkResultList);
   totalSingleBenchmarkResultList.addAll(bSingleBenchmarkResultList);
   totalSingleBenchmarkResultList.addAll(cSingleBenchmarkResultList);
   addProblemBenchmark(totalSingleBenchmarkResultList);

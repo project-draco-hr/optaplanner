@@ -1,6 +1,6 @@
 {
   SubSingleBenchmarkResult newResult=new SubSingleBenchmarkResult(singleBenchmarkResult,subSingleBenchmarkIndex);
-  newResult.pureSubSingleStatisticList=new ArrayList<PureSubSingleStatistic>(oldResult.pureSubSingleStatisticList.size());
+  newResult.pureSubSingleStatisticList=new ArrayList<>(oldResult.pureSubSingleStatisticList.size());
   for (  PureSubSingleStatistic oldSubSingleStatistic : oldResult.pureSubSingleStatisticList) {
     newResult.pureSubSingleStatisticList.add(oldSubSingleStatistic.getStatisticType().buildPureSubSingleStatistic(newResult));
   }

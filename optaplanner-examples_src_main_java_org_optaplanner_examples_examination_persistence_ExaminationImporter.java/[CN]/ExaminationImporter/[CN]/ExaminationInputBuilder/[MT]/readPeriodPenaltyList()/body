@@ -1,7 +1,7 @@
 {
   readConstantLine("\\[PeriodHardConstraints\\]");
   List<Topic> topicList=examination.getTopicList();
-  List<PeriodPenalty> periodPenaltyList=new ArrayList<PeriodPenalty>();
+  List<PeriodPenalty> periodPenaltyList=new ArrayList<>();
   String line=bufferedReader.readLine();
   int id=0;
   while (!line.equals("[RoomHardConstraints]")) {
@@ -77,8 +77,8 @@ line=bufferedReader.readLine();
 for (Map.Entry<Topic,Set<Topic>> entry : coincidenceMap.entrySet()) {
 Topic leftTopic=entry.getKey();
 Set<Topic> middleTopicSet=entry.getValue();
-for (Topic middleTopic : new ArrayList<Topic>(middleTopicSet)) {
-for (Topic rightTopic : new ArrayList<Topic>(coincidenceMap.get(middleTopic))) {
+for (Topic middleTopic : new ArrayList<>(middleTopicSet)) {
+for (Topic rightTopic : new ArrayList<>(coincidenceMap.get(middleTopic))) {
 if (rightTopic != leftTopic && !middleTopicSet.contains(rightTopic)) {
 PeriodPenalty indirectPeriodPenalty=new PeriodPenalty();
 indirectPeriodPenalty.setId((long)id);
@@ -98,7 +98,7 @@ throw new IllegalStateException("The periodPenalty (" + indirectPeriodPenalty + 
 for (Map.Entry<Topic,Set<Topic>> entry : afterMap.entrySet()) {
 Topic leftTopic=entry.getKey();
 Set<Topic> afterLeftSet=entry.getValue();
-Queue<Topic> queue=new ArrayDeque<Topic>();
+Queue<Topic> queue=new ArrayDeque<>();
 for (Topic topic : afterMap.get(leftTopic)) {
 queue.add(topic);
 queue.addAll(coincidenceMap.get(topic));

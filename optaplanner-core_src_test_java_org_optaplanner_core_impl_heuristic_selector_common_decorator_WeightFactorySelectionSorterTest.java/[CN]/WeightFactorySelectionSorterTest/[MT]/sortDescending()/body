@@ -5,9 +5,9 @@
     }
   }
 ;
-  WeightFactorySelectionSorter<TestdataSolution,TestdataEntity> selectionSorter=new WeightFactorySelectionSorter<TestdataSolution,TestdataEntity>(weightFactory,SelectionSorterOrder.DESCENDING);
+  WeightFactorySelectionSorter<TestdataSolution,TestdataEntity> selectionSorter=new WeightFactorySelectionSorter<>(weightFactory,SelectionSorterOrder.DESCENDING);
   ScoreDirector scoreDirector=mock(ScoreDirector.class);
-  List<TestdataEntity> selectionList=new ArrayList<TestdataEntity>();
+  List<TestdataEntity> selectionList=new ArrayList<>();
   selectionList.add(new TestdataEntity("C"));
   selectionList.add(new TestdataEntity("A"));
   selectionList.add(new TestdataEntity("D"));

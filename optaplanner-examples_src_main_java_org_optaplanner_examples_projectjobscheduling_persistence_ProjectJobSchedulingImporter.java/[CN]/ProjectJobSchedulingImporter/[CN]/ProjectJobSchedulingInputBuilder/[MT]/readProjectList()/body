@@ -1,7 +1,7 @@
 {
   projectListSize=readIntegerValue();
-  List<Project> projectList=new ArrayList<Project>(projectListSize);
-  projectFileMap=new LinkedHashMap<Project,File>(projectListSize);
+  List<Project> projectList=new ArrayList<>(projectListSize);
+  projectFileMap=new LinkedHashMap<>(projectListSize);
   for (int i=0; i < projectListSize; i++) {
     Project project=new Project();
     project.setId(projectId);
@@ -16,6 +16,6 @@
     projectId++;
   }
   schedule.setProjectList(projectList);
-  schedule.setJobList(new ArrayList<Job>(projectListSize * 10));
-  schedule.setExecutionModeList(new ArrayList<ExecutionMode>(projectListSize * 10 * 5));
+  schedule.setJobList(new ArrayList<>(projectListSize * 10));
+  schedule.setExecutionModeList(new ArrayList<>(projectListSize * 10 * 5));
 }

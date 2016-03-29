@@ -1,6 +1,6 @@
 {
   PlannerBenchmarkResult newResult=null;
-  Map<PlannerBenchmarkResult,PlannerBenchmarkResult> mergeMap=new IdentityHashMap<PlannerBenchmarkResult,PlannerBenchmarkResult>();
+  Map<PlannerBenchmarkResult,PlannerBenchmarkResult> mergeMap=new IdentityHashMap<>();
   for (  SingleBenchmarkResult singleBenchmarkResult : singleBenchmarkResultList) {
     PlannerBenchmarkResult oldResult=singleBenchmarkResult.getSolverBenchmarkResult().getPlannerBenchmarkResult();
     if (!mergeMap.containsKey(oldResult)) {
@@ -17,8 +17,8 @@
         newResult.parallelBenchmarkCount=oldResult.parallelBenchmarkCount;
         newResult.warmUpTimeMillisSpentLimit=oldResult.warmUpTimeMillisSpentLimit;
         newResult.environmentMode=oldResult.environmentMode;
-        newResult.solverBenchmarkResultList=new ArrayList<SolverBenchmarkResult>();
-        newResult.unifiedProblemBenchmarkResultList=new ArrayList<ProblemBenchmarkResult>();
+        newResult.solverBenchmarkResultList=new ArrayList<>();
+        newResult.unifiedProblemBenchmarkResultList=new ArrayList<>();
         newResult.startingTimestamp=null;
         newResult.benchmarkTimeMillisSpent=null;
       }

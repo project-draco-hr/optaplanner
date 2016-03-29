@@ -1,10 +1,10 @@
 {
   DistanceType distanceType=solution.getDistanceType();
   List<HubSegmentLocation> hubLocationList=null;
-  locationMap=new LinkedHashMap<Long,Location>(customerListSize);
+  locationMap=new LinkedHashMap<>(customerListSize);
   if (distanceType == DistanceType.SEGMENTED_ROAD_DISTANCE) {
     int hubListSize=readIntegerValue("HUBS *:");
-    hubLocationList=new ArrayList<HubSegmentLocation>(hubListSize);
+    hubLocationList=new ArrayList<>(hubListSize);
     readConstantLine("HUB_COORD_SECTION");
     for (int i=0; i < hubListSize; i++) {
       String line=bufferedReader.readLine();
@@ -20,7 +20,7 @@
       locationMap.put(location.getId(),location);
     }
   }
-  List<Location> customerLocationList=new ArrayList<Location>(customerListSize);
+  List<Location> customerLocationList=new ArrayList<>(customerListSize);
   readConstantLine("NODE_COORD_SECTION");
   for (int i=0; i < customerListSize; i++) {
     String line=bufferedReader.readLine();
@@ -52,7 +52,7 @@ if (distanceType == DistanceType.ROAD_DISTANCE) {
 readConstantLine("EDGE_WEIGHT_SECTION");
 for (int i=0; i < customerListSize; i++) {
 RoadLocation location=(RoadLocation)customerLocationList.get(i);
-Map<RoadLocation,Double> travelDistanceMap=new LinkedHashMap<RoadLocation,Double>(customerListSize);
+Map<RoadLocation,Double> travelDistanceMap=new LinkedHashMap<>(customerListSize);
 String line=bufferedReader.readLine();
 String[] lineTokens=splitBySpacesOrTabs(line.trim(),customerListSize);
 for (int j=0; j < customerListSize; j++) {
@@ -84,8 +84,8 @@ Location location=locationMap.get(id);
 if (location == null) {
 throw new IllegalArgumentException("The location with id (" + id + ") of line ("+ line+ ") does not exist.");
 }
-Map<HubSegmentLocation,Double> hubTravelDistanceMap=new LinkedHashMap<HubSegmentLocation,Double>(lineTokens.length / 2);
-Map<RoadSegmentLocation,Double> nearbyTravelDistanceMap=new LinkedHashMap<RoadSegmentLocation,Double>(lineTokens.length / 2);
+Map<HubSegmentLocation,Double> hubTravelDistanceMap=new LinkedHashMap<>(lineTokens.length / 2);
+Map<RoadSegmentLocation,Double> nearbyTravelDistanceMap=new LinkedHashMap<>(lineTokens.length / 2);
 for (int j=1; j < lineTokens.length; j+=2) {
 Location otherLocation=locationMap.get(Long.parseLong(lineTokens[j]));
 double travelDistance=Double.parseDouble(lineTokens[j + 1]);
@@ -110,7 +110,7 @@ roadSegmentLocation.setNearbyTravelDistanceMap(nearbyTravelDistanceMap);
 }
 List<Location> locationList;
 if (distanceType == DistanceType.SEGMENTED_ROAD_DISTANCE) {
-locationList=new ArrayList<Location>(hubLocationList.size() + customerListSize);
+locationList=new ArrayList<>(hubLocationList.size() + customerListSize);
 locationList.addAll(hubLocationList);
 locationList.addAll(customerLocationList);
 }

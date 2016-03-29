@@ -1,5 +1,5 @@
 {
-  Map<Sector,Long> totalMap=new HashMap<Sector,Long>(regionList.size());
+  Map<Sector,Long> totalMap=new HashMap<>(regionList.size());
   for (  Sector sector : sectorList) {
     totalMap.put(sector,0L);
   }

@@ -1,5 +1,5 @@
 {
-  assertEquals(5,new ListValueRange<Integer>(Arrays.asList(0,2,5,10)).get(2L).intValue());
-  assertEquals(-120,new ListValueRange<Integer>(Arrays.asList(100,-120)).get(1L).intValue());
-  assertEquals("c",new ListValueRange<String>(Arrays.asList("b","z","a","c","g","d")).get(3L));
+  assertEquals(5,new ListValueRange<>(Arrays.asList(0,2,5,10)).get(2L).intValue());
+  assertEquals(-120,new ListValueRange<>(Arrays.asList(100,-120)).get(1L).intValue());
+  assertEquals("c",new ListValueRange<>(Arrays.asList("b","z","a","c","g","d")).get(3L));
 }

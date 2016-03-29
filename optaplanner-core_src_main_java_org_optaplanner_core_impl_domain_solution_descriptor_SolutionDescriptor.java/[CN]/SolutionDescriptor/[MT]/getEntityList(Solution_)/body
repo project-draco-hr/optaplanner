@@ -1,5 +1,5 @@
 {
-  List<Object> entityList=new ArrayList<Object>();
+  List<Object> entityList=new ArrayList<>();
   for (  MemberAccessor entityMemberAccessor : entityPropertyAccessorMap.values()) {
     Object entity=extract(entityMemberAccessor,solution);
     if (entity != null) {

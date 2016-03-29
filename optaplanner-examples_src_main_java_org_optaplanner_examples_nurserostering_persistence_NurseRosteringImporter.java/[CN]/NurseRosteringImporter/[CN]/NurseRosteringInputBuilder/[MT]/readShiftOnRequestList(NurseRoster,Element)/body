@@ -5,7 +5,7 @@
   }
  else {
     List<Element> shiftOnElementList=(List<Element>)shiftOnRequestsElement.getChildren();
-    shiftOnRequestList=new ArrayList<ShiftOnRequest>(shiftOnElementList.size());
+    shiftOnRequestList=new ArrayList<>(shiftOnElementList.size());
     long id=0L;
     for (    Element element : shiftOnElementList) {
       assertElementName(element,"ShiftOn");

@@ -5,7 +5,7 @@
   problemBenchmarkResult.setSolutionFileIO(solutionFileIO);
   problemBenchmarkResult.setWriteOutputSolutionEnabled(writeOutputSolutionEnabled == null ? false : writeOutputSolutionEnabled);
   problemBenchmarkResult.setInputSolutionFile(inputSolutionFile);
-  List<ProblemStatistic> problemStatisticList=new ArrayList<ProblemStatistic>(problemStatisticTypeList == null ? 0 : problemStatisticTypeList.size());
+  List<ProblemStatistic> problemStatisticList=new ArrayList<>(problemStatisticTypeList == null ? 0 : problemStatisticTypeList.size());
   if (problemStatisticTypeList != null) {
     for (    ProblemStatisticType problemStatisticType : problemStatisticTypeList) {
       problemStatisticList.add(problemStatisticType.buildProblemStatistic(problemBenchmarkResult));

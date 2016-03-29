@@ -1,7 +1,7 @@
 {
-  Map<MachineCapacity,List<Integer>> availableMap=new LinkedHashMap<MachineCapacity,List<Integer>>(solution.getMachineCapacityList().size());
+  Map<MachineCapacity,List<Integer>> availableMap=new LinkedHashMap<>(solution.getMachineCapacityList().size());
   for (  MachineCapacity machineCapacity : solution.getMachineCapacityList()) {
-    List<Integer> machineAvailableList=new ArrayList<Integer>(solution.getGlobalPeriodRangeTo());
+    List<Integer> machineAvailableList=new ArrayList<>(solution.getGlobalPeriodRangeTo());
     for (int period=0; period < solution.getGlobalPeriodRangeTo(); period++) {
       machineAvailableList.add(machineCapacity.getCapacity());
     }

@@ -1,6 +1,6 @@
 {
   List<Course> courseList=schedule.getCourseList();
-  List<Lecture> lectureList=new ArrayList<Lecture>(courseList.size());
+  List<Lecture> lectureList=new ArrayList<>(courseList.size());
   long id=0L;
   for (  Course course : courseList) {
     for (int i=0; i < course.getLectureSize(); i++) {

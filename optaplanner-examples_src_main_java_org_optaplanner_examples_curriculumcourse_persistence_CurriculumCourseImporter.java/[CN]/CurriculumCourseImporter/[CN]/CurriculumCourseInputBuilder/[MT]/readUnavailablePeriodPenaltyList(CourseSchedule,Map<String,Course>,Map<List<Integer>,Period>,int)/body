@@ -1,7 +1,7 @@
 {
   readEmptyLine();
   readConstantLine("UNAVAILABILITY_CONSTRAINTS:");
-  List<UnavailablePeriodPenalty> penaltyList=new ArrayList<UnavailablePeriodPenalty>(unavailablePeriodPenaltyListSize);
+  List<UnavailablePeriodPenalty> penaltyList=new ArrayList<>(unavailablePeriodPenaltyListSize);
   for (int i=0; i < unavailablePeriodPenaltyListSize; i++) {
     UnavailablePeriodPenalty penalty=new UnavailablePeriodPenalty();
     penalty.setId((long)i);

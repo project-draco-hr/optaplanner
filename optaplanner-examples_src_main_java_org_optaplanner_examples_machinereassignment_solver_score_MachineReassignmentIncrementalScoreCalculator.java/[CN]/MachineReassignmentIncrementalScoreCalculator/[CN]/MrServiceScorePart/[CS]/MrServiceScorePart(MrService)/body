@@ -1,9 +1,9 @@
 {
   this.service=service;
-  locationBag=new HashMap<MrLocation,Integer>(machineReassignment.getLocationList().size());
+  locationBag=new HashMap<>(machineReassignment.getLocationList().size());
   hardScore-=service.getLocationSpread();
   List<MrNeighborhood> neighborhoodList=machineReassignment.getNeighborhoodList();
-  neighborhoodBag=new HashMap<MrNeighborhood,Integer>(neighborhoodList.size());
+  neighborhoodBag=new HashMap<>(neighborhoodList.size());
   for (  MrNeighborhood neighborhood : neighborhoodList) {
     neighborhoodBag.put(neighborhood,0);
   }

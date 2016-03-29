@@ -1,5 +1,5 @@
 {
-  List<CloudComputer> computerList=new ArrayList<CloudComputer>(computerListSize);
+  List<CloudComputer> computerList=new ArrayList<>(computerListSize);
   for (int i=0; i < computerListSize; i++) {
     CloudComputer computer=new CloudComputer();
     computer.setId((long)i);

@@ -5,7 +5,7 @@
   int basePillarSize=basePillar.size();
   int subPillarSize=workingRandom.nextInt(basePillarSize);
   TaskAssignment[] sandboxPillar=basePillar.toArray(new TaskAssignment[0]);
-  List<TaskAssignment> subPillar=new ArrayList<TaskAssignment>(subPillarSize);
+  List<TaskAssignment> subPillar=new ArrayList<>(subPillarSize);
   int minimumAbsDiff=Integer.MAX_VALUE;
   for (int i=0; i < subPillarSize; i++) {
     int index=i + workingRandom.nextInt(basePillarSize - i);

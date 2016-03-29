@@ -1,5 +1,5 @@
 {
-  benchmarkArgumentMap=new LinkedHashMap<String,ArgOption>(argOptions.length);
+  benchmarkArgumentMap=new LinkedHashMap<>(argOptions.length);
   for (  ArgOption argOption : argOptions) {
     benchmarkArgumentMap.put(argOption.getName(),argOption);
   }

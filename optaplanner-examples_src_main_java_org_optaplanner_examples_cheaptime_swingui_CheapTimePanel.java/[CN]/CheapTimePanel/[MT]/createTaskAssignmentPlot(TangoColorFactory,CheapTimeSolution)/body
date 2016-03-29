@@ -1,6 +1,6 @@
 {
   OHLCSeriesCollection seriesCollection=new OHLCSeriesCollection();
-  Map<Machine,OHLCSeries> machineSeriesMap=new LinkedHashMap<Machine,OHLCSeries>(solution.getMachineList().size());
+  Map<Machine,OHLCSeries> machineSeriesMap=new LinkedHashMap<>(solution.getMachineList().size());
   HighLowRenderer renderer=new HighLowRenderer();
   renderer.setTickLength(0.0);
   int seriesIndex=0;
@@ -18,7 +18,7 @@
     renderer.setSeriesPaint(seriesIndex,tangoColorFactory.pickColor(machine));
     seriesIndex++;
   }
-  List<TaskAssignment> taskAssignmentList=new ArrayList<TaskAssignment>(solution.getTaskAssignmentList());
+  List<TaskAssignment> taskAssignmentList=new ArrayList<>(solution.getTaskAssignmentList());
   Collections.sort(taskAssignmentList,groupByMachineCheckBox.isSelected() ? groupByMachineTaskAssignmentComparator : stableTaskAssignmentComparator);
   int pixelIndex=0;
   for (  TaskAssignment taskAssignment : taskAssignmentList) {

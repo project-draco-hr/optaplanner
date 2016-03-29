@@ -1,16 +1,16 @@
 {
   int periodListSize=dayListSize * timeslotListSize;
-  Map<List<Integer>,Period> periodMap=new HashMap<List<Integer>,Period>(periodListSize);
-  List<Day> dayList=new ArrayList<Day>(dayListSize);
+  Map<List<Integer>,Period> periodMap=new HashMap<>(periodListSize);
+  List<Day> dayList=new ArrayList<>(dayListSize);
   for (int i=0; i < dayListSize; i++) {
     Day day=new Day();
     day.setId((long)i);
     day.setDayIndex(i);
-    day.setPeriodList(new ArrayList<Period>(timeslotListSize));
+    day.setPeriodList(new ArrayList<>(timeslotListSize));
     dayList.add(day);
   }
   schedule.setDayList(dayList);
-  List<Timeslot> timeslotList=new ArrayList<Timeslot>(timeslotListSize);
+  List<Timeslot> timeslotList=new ArrayList<>(timeslotListSize);
   for (int i=0; i < timeslotListSize; i++) {
     Timeslot timeslot=new Timeslot();
     timeslot.setId((long)i);
@@ -18,7 +18,7 @@
     timeslotList.add(timeslot);
   }
   schedule.setTimeslotList(timeslotList);
-  List<Period> periodList=new ArrayList<Period>(periodListSize);
+  List<Period> periodList=new ArrayList<>(periodListSize);
   for (int i=0; i < dayListSize; i++) {
     Day day=dayList.get(i);
     for (int j=0; j < timeslotListSize; j++) {

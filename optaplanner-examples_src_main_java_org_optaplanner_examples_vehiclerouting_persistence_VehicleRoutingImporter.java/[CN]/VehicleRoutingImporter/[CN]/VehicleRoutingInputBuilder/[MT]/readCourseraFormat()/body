@@ -1,10 +1,10 @@
 {
   solution.setDistanceType(DistanceType.AIR_DISTANCE);
   solution.setDistanceUnitOfMeasurement("distance");
-  List<Location> locationList=new ArrayList<Location>(customerListSize);
-  depotList=new ArrayList<Depot>(1);
-  List<Customer> customerList=new ArrayList<Customer>(customerListSize);
-  locationMap=new LinkedHashMap<Long,Location>(customerListSize);
+  List<Location> locationList=new ArrayList<>(customerListSize);
+  depotList=new ArrayList<>(1);
+  List<Customer> customerList=new ArrayList<>(customerListSize);
+  locationMap=new LinkedHashMap<>(customerListSize);
   for (int i=0; i < customerListSize; i++) {
     String line=bufferedReader.readLine();
     String[] lineTokens=splitBySpacesOrTabs(line.trim(),3,4);

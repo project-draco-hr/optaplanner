@@ -1,10 +1,10 @@
 {
   List<Element> shiftTypeElementList=(List<Element>)shiftTypesElement.getChildren();
-  List<ShiftType> shiftTypeList=new ArrayList<ShiftType>(shiftTypeElementList.size());
-  shiftTypeMap=new HashMap<String,ShiftType>(shiftTypeElementList.size());
+  List<ShiftType> shiftTypeList=new ArrayList<>(shiftTypeElementList.size());
+  shiftTypeMap=new HashMap<>(shiftTypeElementList.size());
   long id=0L;
   int index=0;
-  List<ShiftTypeSkillRequirement> shiftTypeSkillRequirementList=new ArrayList<ShiftTypeSkillRequirement>(shiftTypeElementList.size() * 2);
+  List<ShiftTypeSkillRequirement> shiftTypeSkillRequirementList=new ArrayList<>(shiftTypeElementList.size() * 2);
   long shiftTypeSkillRequirementId=0L;
   for (  Element element : shiftTypeElementList) {
     assertElementName(element,"Shift");

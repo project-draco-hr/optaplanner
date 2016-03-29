@@ -1,8 +1,8 @@
 {
-  columns=new ArrayList<Column>();
-  rows=new ArrayList<Row>();
-  cells=new ArrayList<List<Cell>>();
-  spanMap=new HashMap<Component,ComponentSpan>();
+  columns=new ArrayList<>();
+  rows=new ArrayList<>();
+  cells=new ArrayList<>();
+  spanMap=new HashMap<>();
   stale=false;
   totalColumnWidth=0;
   totalRowHeight=0;

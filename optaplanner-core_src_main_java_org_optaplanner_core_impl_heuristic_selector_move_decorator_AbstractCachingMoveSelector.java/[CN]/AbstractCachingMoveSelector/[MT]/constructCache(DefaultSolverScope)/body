@@ -3,7 +3,7 @@
   if (childSize > (long)Integer.MAX_VALUE) {
     throw new IllegalStateException("The selector (" + this + ") has a childMoveSelector ("+ childMoveSelector+ ") with childSize ("+ childSize+ ") which is higher than Integer.MAX_VALUE.");
   }
-  cachedMoveList=new ArrayList<Move>((int)childSize);
+  cachedMoveList=new ArrayList<>((int)childSize);
   Iterators.addAll(cachedMoveList,childMoveSelector.iterator());
   logger.trace("    Created cachedMoveList: size ({}), moveSelector ({}).",cachedMoveList.size(),this);
 }

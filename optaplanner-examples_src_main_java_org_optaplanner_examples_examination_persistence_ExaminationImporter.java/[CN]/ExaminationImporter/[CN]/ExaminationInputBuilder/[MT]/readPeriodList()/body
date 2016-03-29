@@ -1,6 +1,6 @@
 {
   int periodSize=readHeaderWithNumber("Periods");
-  List<Period> periodList=new ArrayList<Period>(periodSize);
+  List<Period> periodList=new ArrayList<>(periodSize);
   Calendar calendar=Calendar.getInstance();
   final DateFormat DATE_FORMAT=new SimpleDateFormat("dd:MM:yyyy HH:mm:ss");
   int referenceDayOfYear=-1;

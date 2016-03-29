@@ -1,8 +1,8 @@
 {
-  List<XYPlot> plotList=new ArrayList<XYPlot>(BenchmarkReport.CHARTED_SCORE_LEVEL_SIZE);
+  List<XYPlot> plotList=new ArrayList<>(BenchmarkReport.CHARTED_SCORE_LEVEL_SIZE);
   int seriesIndex=0;
   for (  SingleBenchmarkResult singleBenchmarkResult : problemBenchmarkResult.getSingleBenchmarkResultList()) {
-    List<XYSeries> seriesList=new ArrayList<XYSeries>(BenchmarkReport.CHARTED_SCORE_LEVEL_SIZE);
+    List<XYSeries> seriesList=new ArrayList<>(BenchmarkReport.CHARTED_SCORE_LEVEL_SIZE);
     XYItemRenderer renderer=new XYStepRenderer();
     if (singleBenchmarkResult.hasAllSuccess()) {
       BestScoreSubSingleStatistic subSingleStatistic=(BestScoreSubSingleStatistic)singleBenchmarkResult.getSubSingleStatistic(problemStatisticType);
@@ -41,7 +41,7 @@
     }
     seriesIndex++;
   }
-  graphFileList=new ArrayList<File>(plotList.size());
+  graphFileList=new ArrayList<>(plotList.size());
   for (int scoreLevelIndex=0; scoreLevelIndex < plotList.size(); scoreLevelIndex++) {
     JFreeChart chart=new JFreeChart(problemBenchmarkResult.getName() + " best score level " + scoreLevelIndex+ " statistic",JFreeChart.DEFAULT_TITLE_FONT,plotList.get(scoreLevelIndex),true);
     graphFileList.add(writeChartToImageFile(chart,problemBenchmarkResult.getName() + "BestScoreStatisticLevel" + scoreLevelIndex));

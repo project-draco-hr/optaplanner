@@ -1,7 +1,7 @@
 {
   int taskListSize=readIntegerValue();
-  List<Task> taskList=new ArrayList<Task>(taskListSize);
-  List<TaskRequirement> taskRequirementList=new ArrayList<TaskRequirement>(taskListSize * resourceListSize);
+  List<Task> taskList=new ArrayList<>(taskListSize);
+  List<TaskRequirement> taskRequirementList=new ArrayList<>(taskListSize * resourceListSize);
   long taskRequirementId=0L;
   for (int i=0; i < taskListSize; i++) {
     String[] taskLineTokens=splitBySpacesOrTabs(readStringValue(),5);
@@ -24,7 +24,7 @@
     task.setPowerConsumptionMicros(CheapTimeCostCalculator.parseMicroCost(taskLineTokens[4]));
     task.setStartPeriodRangeTo(latestEnd - duration + 1);
     String[] usageLineTokens=splitBySpacesOrTabs(readStringValue(),resourceListSize);
-    List<TaskRequirement> taskRequirementListOfTask=new ArrayList<TaskRequirement>(resourceListSize);
+    List<TaskRequirement> taskRequirementListOfTask=new ArrayList<>(resourceListSize);
     for (int j=0; j < resourceListSize; j++) {
       TaskRequirement taskRequirement=new TaskRequirement();
       taskRequirement.setId(taskRequirementId);

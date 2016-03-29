@@ -1,5 +1,5 @@
 {
-  NavigableSet<Double> xValueSet=new TreeSet<Double>();
+  NavigableSet<Double> xValueSet=new TreeSet<>();
   int xValueListSize=0;
   for (  XYSeries series : seriesList) {
     for (    XYDataItem dataItem : (List<XYDataItem>)series.getItems()) {

@@ -10,7 +10,7 @@
   if (doublyConstrainedResourceSize != 0) {
     throw new IllegalArgumentException("The doublyConstrainedResourceSize (" + doublyConstrainedResourceSize + ") should always be 0.");
   }
-  List<LocalResource> localResourceList=new ArrayList<LocalResource>(globalResourceListSize + renewableLocalResourceSize + nonrenewableLocalResourceSize);
+  List<LocalResource> localResourceList=new ArrayList<>(globalResourceListSize + renewableLocalResourceSize + nonrenewableLocalResourceSize);
   for (int i=0; i < renewableLocalResourceSize; i++) {
     LocalResource localResource=new LocalResource();
     localResource.setId(resourceId);

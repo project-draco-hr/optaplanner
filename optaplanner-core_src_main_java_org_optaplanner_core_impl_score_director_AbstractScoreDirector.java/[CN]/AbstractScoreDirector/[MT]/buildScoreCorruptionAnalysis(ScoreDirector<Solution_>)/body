@@ -5,7 +5,7 @@
   Collection<ConstraintMatchTotal> corruptedConstraintMatchTotals=getConstraintMatchTotals();
   Collection<ConstraintMatchTotal> uncorruptedConstraintMatchTotals=uncorruptedScoreDirector.getConstraintMatchTotals();
   Map<List<Object>,ConstraintMatch> corruptedMap=createConstraintMatchMap(corruptedConstraintMatchTotals);
-  Map<List<Object>,ConstraintMatch> excessMap=new LinkedHashMap<List<Object>,ConstraintMatch>(corruptedMap);
+  Map<List<Object>,ConstraintMatch> excessMap=new LinkedHashMap<>(corruptedMap);
   Map<List<Object>,ConstraintMatch> missingMap=createConstraintMatchMap(uncorruptedConstraintMatchTotals);
   excessMap.keySet().removeAll(missingMap.keySet());
   missingMap.keySet().removeAll(corruptedMap.keySet());

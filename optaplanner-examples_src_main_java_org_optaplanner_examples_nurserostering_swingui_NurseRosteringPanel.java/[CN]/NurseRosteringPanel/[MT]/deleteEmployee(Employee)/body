@@ -11,7 +11,7 @@
         }
       }
       scoreDirector.triggerVariableListeners();
-      nurseRoster.setEmployeeList(new ArrayList<Employee>(nurseRoster.getEmployeeList()));
+      nurseRoster.setEmployeeList(new ArrayList<>(nurseRoster.getEmployeeList()));
       for (Iterator<Employee> it=nurseRoster.getEmployeeList().iterator(); it.hasNext(); ) {
         Employee workingEmployee=it.next();
         if (Objects.equals(workingEmployee,employee)) {

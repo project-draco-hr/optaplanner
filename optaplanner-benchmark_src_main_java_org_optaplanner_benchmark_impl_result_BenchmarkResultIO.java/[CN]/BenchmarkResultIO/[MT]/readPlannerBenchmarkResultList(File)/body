@@ -7,7 +7,7 @@
   }
   File[] benchmarkReportDirectories=benchmarkDirectory.listFiles((FileFilter)DirectoryFileFilter.INSTANCE);
   Arrays.sort(benchmarkReportDirectories);
-  List<PlannerBenchmarkResult> plannerBenchmarkResultList=new ArrayList<PlannerBenchmarkResult>(benchmarkReportDirectories.length);
+  List<PlannerBenchmarkResult> plannerBenchmarkResultList=new ArrayList<>(benchmarkReportDirectories.length);
   for (  File benchmarkReportDirectory : benchmarkReportDirectories) {
     File plannerBenchmarkResultFile=new File(benchmarkReportDirectory,PLANNER_BENCHMARK_RESULT_FILENAME);
     if (plannerBenchmarkResultFile.exists()) {

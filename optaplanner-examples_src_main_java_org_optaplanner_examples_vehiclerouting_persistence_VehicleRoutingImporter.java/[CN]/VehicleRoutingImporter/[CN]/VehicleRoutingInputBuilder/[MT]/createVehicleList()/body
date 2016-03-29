@@ -1,5 +1,5 @@
 {
-  List<Vehicle> vehicleList=new ArrayList<Vehicle>(vehicleListSize);
+  List<Vehicle> vehicleList=new ArrayList<>(vehicleListSize);
   long id=0;
   for (int i=0; i < vehicleListSize; i++) {
     Vehicle vehicle=new Vehicle();

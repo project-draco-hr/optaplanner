@@ -1,5 +1,5 @@
 {
   computersPanel=new JPanel(new GridLayout(0,1));
-  computerToPanelMap=new LinkedHashMap<CloudComputer,CloudComputerPanel>();
+  computerToPanelMap=new LinkedHashMap<>();
   return computersPanel;
 }

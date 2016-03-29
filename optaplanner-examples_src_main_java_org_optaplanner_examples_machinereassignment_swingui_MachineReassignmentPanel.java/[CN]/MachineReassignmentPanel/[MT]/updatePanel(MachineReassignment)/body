@@ -12,7 +12,7 @@
       machineListPanel.remove(tooBigLabel);
       tooBigLabel=null;
     }
-    Set<MrMachine> deadMachineSet=new LinkedHashSet<MrMachine>(machineToPanelMap.keySet());
+    Set<MrMachine> deadMachineSet=new LinkedHashSet<>(machineToPanelMap.keySet());
     deadMachineSet.remove(null);
     for (    MrMachine machine : machineReassignment.getMachineList()) {
       deadMachineSet.remove(machine);

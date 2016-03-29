@@ -16,7 +16,7 @@
         }
       }
       scoreDirector.triggerVariableListeners();
-      machineReassignment.setMachineList(new ArrayList<MrMachine>(machineReassignment.getMachineList()));
+      machineReassignment.setMachineList(new ArrayList<>(machineReassignment.getMachineList()));
       for (Iterator<MrMachine> it=machineReassignment.getMachineList().iterator(); it.hasNext(); ) {
         MrMachine workingMachine=it.next();
         if (Objects.equals(workingMachine,machine)) {

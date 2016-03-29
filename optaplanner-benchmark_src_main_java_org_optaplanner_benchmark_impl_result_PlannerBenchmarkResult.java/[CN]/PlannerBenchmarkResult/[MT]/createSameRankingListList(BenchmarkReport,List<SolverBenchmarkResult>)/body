@@ -1,5 +1,5 @@
 {
-  List<List<SolverBenchmarkResult>> sameRankingListList=new ArrayList<List<SolverBenchmarkResult>>(rankableSolverBenchmarkResultList.size());
+  List<List<SolverBenchmarkResult>> sameRankingListList=new ArrayList<>(rankableSolverBenchmarkResultList.size());
   if (benchmarkReport.getSolverRankingComparator() != null) {
     Comparator<SolverBenchmarkResult> comparator=Collections.reverseOrder(benchmarkReport.getSolverRankingComparator());
     Collections.sort(rankableSolverBenchmarkResultList,comparator);
@@ -7,7 +7,7 @@
     SolverBenchmarkResult previousSolverBenchmarkResult=null;
     for (    SolverBenchmarkResult solverBenchmarkResult : rankableSolverBenchmarkResultList) {
       if (previousSolverBenchmarkResult == null || comparator.compare(previousSolverBenchmarkResult,solverBenchmarkResult) != 0) {
-        sameRankingList=new ArrayList<SolverBenchmarkResult>();
+        sameRankingList=new ArrayList<>();
         sameRankingListList.add(sameRankingList);
       }
       sameRankingList.add(solverBenchmarkResult);
@@ -15,12 +15,12 @@
     }
   }
  else   if (benchmarkReport.getSolverRankingWeightFactory() != null) {
-    SortedMap<Comparable,List<SolverBenchmarkResult>> rankedMap=new TreeMap<Comparable,List<SolverBenchmarkResult>>(Collections.reverseOrder());
+    SortedMap<Comparable,List<SolverBenchmarkResult>> rankedMap=new TreeMap<>(Collections.reverseOrder());
     for (    SolverBenchmarkResult solverBenchmarkResult : rankableSolverBenchmarkResultList) {
       Comparable rankingWeight=benchmarkReport.getSolverRankingWeightFactory().createRankingWeight(rankableSolverBenchmarkResultList,solverBenchmarkResult);
       List<SolverBenchmarkResult> sameRankingList=rankedMap.get(rankingWeight);
       if (sameRankingList == null) {
-        sameRankingList=new ArrayList<SolverBenchmarkResult>();
+        sameRankingList=new ArrayList<>();
         rankedMap.put(rankingWeight,sameRankingList);
       }
       sameRankingList.add(solverBenchmarkResult);

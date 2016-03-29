@@ -1,5 +1,5 @@
 {
-  List<Object> values=new ArrayList<Object>(2);
+  List<Object> values=new ArrayList<>(2);
   values.add(variableDescriptor.getValue(leftSubChain.getFirstEntity()));
   values.add(variableDescriptor.getValue(rightSubChain.getFirstEntity()));
   return values;

@@ -11,7 +11,7 @@
   b.setSingleBenchmarkResultList(bSingleBenchmarkResultList);
   b.accumulateResults(benchmarkReport);
   solverBenchmarkResultList.add(b);
-  List<SingleBenchmarkResult> totalSingleBenchmarkResultList=new ArrayList<SingleBenchmarkResult>(aSingleBenchmarkResultList);
+  List<SingleBenchmarkResult> totalSingleBenchmarkResultList=new ArrayList<>(aSingleBenchmarkResultList);
   totalSingleBenchmarkResultList.addAll(bSingleBenchmarkResultList);
   addProblemBenchmark(totalSingleBenchmarkResultList);
   Comparable aWeight=factory.createRankingWeight(solverBenchmarkResultList,a);

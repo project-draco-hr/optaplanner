@@ -1,6 +1,6 @@
 {
-  List<Meeting> meetingList=new ArrayList<Meeting>(meetingListSize);
-  List<Attendance> globalAttendanceList=new ArrayList<Attendance>();
+  List<Meeting> meetingList=new ArrayList<>(meetingListSize);
+  List<Attendance> globalAttendanceList=new ArrayList<>();
   long attendanceId=0L;
   for (int i=0; i < meetingListSize; i++) {
     Meeting meeting=new Meeting();
@@ -11,7 +11,7 @@
     meeting.setDurationInGrains(durationInGrains);
     int attendanceListSize=personsPerMeetingOptions[random.nextInt(personsPerMeetingOptions.length)];
     int requiredAttendanceListSize=Math.max(2,random.nextInt(attendanceListSize + 1));
-    List<RequiredAttendance> requiredAttendanceList=new ArrayList<RequiredAttendance>(requiredAttendanceListSize);
+    List<RequiredAttendance> requiredAttendanceList=new ArrayList<>(requiredAttendanceListSize);
     for (int j=0; j < requiredAttendanceListSize; j++) {
       RequiredAttendance attendance=new RequiredAttendance();
       attendance.setId(attendanceId);
@@ -22,7 +22,7 @@
     }
     meeting.setRequiredAttendanceList(requiredAttendanceList);
     int preferredAttendanceListSize=attendanceListSize - requiredAttendanceListSize;
-    List<PreferredAttendance> preferredAttendanceList=new ArrayList<PreferredAttendance>(preferredAttendanceListSize);
+    List<PreferredAttendance> preferredAttendanceList=new ArrayList<>(preferredAttendanceListSize);
     for (int j=0; j < preferredAttendanceListSize; j++) {
       PreferredAttendance attendance=new PreferredAttendance();
       attendance.setId(attendanceId);

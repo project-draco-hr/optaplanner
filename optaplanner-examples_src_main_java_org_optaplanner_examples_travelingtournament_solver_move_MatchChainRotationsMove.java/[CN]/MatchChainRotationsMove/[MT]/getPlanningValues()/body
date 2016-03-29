@@ -1,5 +1,5 @@
 {
-  List<Day> values=new ArrayList<Day>(firstMatchList.size() + secondMatchList.size());
+  List<Day> values=new ArrayList<>(firstMatchList.size() + secondMatchList.size());
   for (  Match match : firstMatchList) {
     values.add(match.getDay());
   }

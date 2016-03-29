@@ -7,7 +7,7 @@
   freemarkerCfg.setLocale(locale);
   freemarkerCfg.setClassForTemplateLoading(BenchmarkReport.class,"");
   String templateFilename="benchmarkReport.html.ftl";
-  Map<String,Object> model=new HashMap<String,Object>();
+  Map<String,Object> model=new HashMap<>();
   model.put("benchmarkReport",this);
   model.put("reportHelper",new ReportHelper());
   Writer writer=null;

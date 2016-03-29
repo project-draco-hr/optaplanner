@@ -1,13 +1,13 @@
 {
   int tableListSize=readIntegerValue("Tables:");
   int seatsPerTable=readIntegerValue("SeatsPerTable:");
-  List<Table> tableList=new ArrayList<Table>(tableListSize);
-  List<Seat> seatList=new ArrayList<Seat>(tableListSize * seatsPerTable);
+  List<Table> tableList=new ArrayList<>(tableListSize);
+  List<Seat> seatList=new ArrayList<>(tableListSize * seatsPerTable);
   for (int i=0; i < tableListSize; i++) {
     Table table=new Table();
     table.setId((long)i);
     table.setTableIndex(i);
-    List<Seat> tableSeatList=new ArrayList<Seat>(seatsPerTable);
+    List<Seat> tableSeatList=new ArrayList<>(seatsPerTable);
     Seat firstSeat=null;
     Seat previousSeat=null;
     for (int j=0; j < seatsPerTable; j++) {

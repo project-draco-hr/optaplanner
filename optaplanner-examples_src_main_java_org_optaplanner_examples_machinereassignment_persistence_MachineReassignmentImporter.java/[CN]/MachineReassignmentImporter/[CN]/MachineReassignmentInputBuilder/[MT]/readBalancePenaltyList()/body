@@ -1,6 +1,6 @@
 {
   int balancePenaltyListSize=readIntegerValue();
-  List<MrBalancePenalty> balancePenaltyList=new ArrayList<MrBalancePenalty>(balancePenaltyListSize);
+  List<MrBalancePenalty> balancePenaltyList=new ArrayList<>(balancePenaltyListSize);
   long balancePenaltyId=0L;
   for (int i=0; i < balancePenaltyListSize; i++) {
     String line=readStringValue();

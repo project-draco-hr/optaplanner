@@ -1,6 +1,6 @@
 {
   List<Guest> guestList=dinnerParty.getGuestList();
-  List<SeatDesignation> seatDesignationList=new ArrayList<SeatDesignation>(guestList.size());
+  List<SeatDesignation> seatDesignationList=new ArrayList<>(guestList.size());
   long id=0L;
   for (  Guest guest : guestList) {
     SeatDesignation seatDesignation=new SeatDesignation();

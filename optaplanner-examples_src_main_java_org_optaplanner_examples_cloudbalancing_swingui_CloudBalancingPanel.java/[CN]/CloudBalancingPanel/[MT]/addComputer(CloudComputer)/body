@@ -10,7 +10,7 @@
         }
       }
       computer.setId(nextComputerId);
-      cloudBalance.setComputerList(new ArrayList<CloudComputer>(cloudBalance.getComputerList()));
+      cloudBalance.setComputerList(new ArrayList<>(cloudBalance.getComputerList()));
       scoreDirector.beforeProblemFactAdded(computer);
       cloudBalance.getComputerList().add(computer);
       scoreDirector.afterProblemFactAdded(computer);

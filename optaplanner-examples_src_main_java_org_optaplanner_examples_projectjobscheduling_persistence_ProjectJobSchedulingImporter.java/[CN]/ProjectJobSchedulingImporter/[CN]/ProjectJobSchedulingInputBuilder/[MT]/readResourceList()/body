@@ -1,7 +1,7 @@
 {
   resourceListSize=readIntegerValue();
   String[] tokens=splitBySpacesOrTabs(readStringValue(),resourceListSize);
-  List<Resource> resourceList=new ArrayList<Resource>(resourceListSize * projectListSize * 10);
+  List<Resource> resourceList=new ArrayList<>(resourceListSize * projectListSize * 10);
   for (int i=0; i < resourceListSize; i++) {
     int capacity=Integer.parseInt(tokens[i]);
     if (capacity != -1) {
@@ -14,5 +14,5 @@
   }
   globalResourceListSize=resourceList.size();
   schedule.setResourceList(resourceList);
-  schedule.setResourceRequirementList(new ArrayList<ResourceRequirement>(projectListSize * 10 * 5* resourceListSize));
+  schedule.setResourceRequirementList(new ArrayList<>(projectListSize * 10 * 5* resourceListSize));
 }

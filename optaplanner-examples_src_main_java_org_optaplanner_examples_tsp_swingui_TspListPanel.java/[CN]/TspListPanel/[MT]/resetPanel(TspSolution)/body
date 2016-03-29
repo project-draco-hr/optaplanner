@@ -7,8 +7,8 @@
   }
   Domicile domicile=tspSolution.getDomicile();
   add(new JLabel(domicile.getLocation().toString()));
-  Map<Standstill,Visit> nextVisitMap=new LinkedHashMap<Standstill,Visit>();
-  List<Visit> unassignedVisitList=new ArrayList<Visit>();
+  Map<Standstill,Visit> nextVisitMap=new LinkedHashMap<>();
+  List<Visit> unassignedVisitList=new ArrayList<>();
   for (  Visit visit : tspSolution.getVisitList()) {
     if (visit.getPreviousStandstill() != null) {
       nextVisitMap.put(visit.getPreviousStandstill(),visit);

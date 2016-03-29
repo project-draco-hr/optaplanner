@@ -1,7 +1,7 @@
 {
   readEmptyLine();
   readConstantLine("CURRICULA:");
-  List<Curriculum> curriculumList=new ArrayList<Curriculum>(curriculumListSize);
+  List<Curriculum> curriculumList=new ArrayList<>(curriculumListSize);
   for (int i=0; i < curriculumListSize; i++) {
     Curriculum curriculum=new Curriculum();
     curriculum.setId((long)i);

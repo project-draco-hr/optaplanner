@@ -1,9 +1,9 @@
 {
   readConstantLine("PATIENTS:");
-  List<Patient> patientList=new ArrayList<Patient>(patientListSize);
-  List<AdmissionPart> admissionPartList=new ArrayList<AdmissionPart>(patientListSize);
-  List<RequiredPatientEquipment> requiredPatientEquipmentList=new ArrayList<RequiredPatientEquipment>(patientListSize * equipmentListSize);
-  List<PreferredPatientEquipment> preferredPatientEquipmentList=new ArrayList<PreferredPatientEquipment>(patientListSize * equipmentListSize);
+  List<Patient> patientList=new ArrayList<>(patientListSize);
+  List<AdmissionPart> admissionPartList=new ArrayList<>(patientListSize);
+  List<RequiredPatientEquipment> requiredPatientEquipmentList=new ArrayList<>(patientListSize * equipmentListSize);
+  List<PreferredPatientEquipment> preferredPatientEquipmentList=new ArrayList<>(patientListSize * equipmentListSize);
   long admissionPartId=0L;
   long requiredPatientEquipmentId=0L;
   long preferredPatientEquipmentId=0L;
@@ -74,7 +74,7 @@
     if (requiredPatientEquipmentTokens.length != equipmentListSize) {
       throw new IllegalArgumentException("Read line (" + line + ") is expected to contain equal number of tokens ("+ requiredPatientEquipmentTokens.length+ ") as equipmentListSize ("+ equipmentListSize+ ") after 4th pipeline (|).");
     }
-    List<RequiredPatientEquipment> requiredPatientEquipmentOfPatientList=new ArrayList<RequiredPatientEquipment>(equipmentListSize);
+    List<RequiredPatientEquipment> requiredPatientEquipmentOfPatientList=new ArrayList<>(equipmentListSize);
     for (int j=0; j < requiredPatientEquipmentTokens.length; j++) {
       int hasEquipment=Integer.parseInt(requiredPatientEquipmentTokens[j]);
       if (hasEquipment == 1) {
@@ -95,7 +95,7 @@
     if (preferredPatientEquipmentTokens.length != equipmentListSize) {
       throw new IllegalArgumentException("Read line (" + line + ") is expected to contain equal number of tokens ("+ preferredPatientEquipmentTokens.length+ ") as equipmentListSize ("+ equipmentListSize+ ") after 5th pipeline (|).");
     }
-    List<PreferredPatientEquipment> preferredPatientEquipmentOfPatientList=new ArrayList<PreferredPatientEquipment>(equipmentListSize);
+    List<PreferredPatientEquipment> preferredPatientEquipmentOfPatientList=new ArrayList<>(equipmentListSize);
     for (int j=0; j < preferredPatientEquipmentTokens.length; j++) {
       int hasEquipment=Integer.parseInt(preferredPatientEquipmentTokens[j]);
       if (hasEquipment == 1) {

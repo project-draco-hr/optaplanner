@@ -1,9 +1,9 @@
 {
   List<Element> employeeElementList=(List<Element>)employeesElement.getChildren();
-  List<Employee> employeeList=new ArrayList<Employee>(employeeElementList.size());
-  employeeMap=new HashMap<String,Employee>(employeeElementList.size());
+  List<Employee> employeeList=new ArrayList<>(employeeElementList.size());
+  employeeMap=new HashMap<>(employeeElementList.size());
   long id=0L;
-  List<SkillProficiency> skillProficiencyList=new ArrayList<SkillProficiency>(employeeElementList.size() * 2);
+  List<SkillProficiency> skillProficiencyList=new ArrayList<>(employeeElementList.size() * 2);
   long skillProficiencyId=0L;
   for (  Element element : employeeElementList) {
     assertElementName(element,"Employee");
@@ -18,10 +18,10 @@
     }
     employee.setContract(contract);
     int estimatedRequestSize=(shiftDateMap.size() / employeeElementList.size()) + 1;
-    employee.setDayOffRequestMap(new HashMap<ShiftDate,DayOffRequest>(estimatedRequestSize));
-    employee.setDayOnRequestMap(new HashMap<ShiftDate,DayOnRequest>(estimatedRequestSize));
-    employee.setShiftOffRequestMap(new HashMap<Shift,ShiftOffRequest>(estimatedRequestSize));
-    employee.setShiftOnRequestMap(new HashMap<Shift,ShiftOnRequest>(estimatedRequestSize));
+    employee.setDayOffRequestMap(new HashMap<>(estimatedRequestSize));
+    employee.setDayOnRequestMap(new HashMap<>(estimatedRequestSize));
+    employee.setShiftOffRequestMap(new HashMap<>(estimatedRequestSize));
+    employee.setShiftOnRequestMap(new HashMap<>(estimatedRequestSize));
     Element skillsElement=element.getChild("Skills");
     if (skillsElement != null) {
       List<Element> skillElementList=(List<Element>)skillsElement.getChildren();

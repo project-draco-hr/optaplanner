@@ -1,7 +1,7 @@
 {
   assertTrue(emptyFirst || emptySecond);
   MoveSelector nonEmptyChildMoveSelector=SelectorTestUtils.mockMoveSelector(DummyMove.class,new DummyMove("a1"),new DummyMove("a2"),new DummyMove("a3"));
-  ArrayList<MoveSelector> childMoveSelectorList=new ArrayList<MoveSelector>();
+  ArrayList<MoveSelector> childMoveSelectorList=new ArrayList<>();
   childMoveSelectorList.add(emptyFirst ? SelectorTestUtils.mockMoveSelector(DummyMove.class) : nonEmptyChildMoveSelector);
   childMoveSelectorList.add(emptySecond ? SelectorTestUtils.mockMoveSelector(DummyMove.class) : nonEmptyChildMoveSelector);
   CartesianProductMoveSelector moveSelector=new CartesianProductMoveSelector(childMoveSelectorList,ignoreEmptyChildIterators,false);

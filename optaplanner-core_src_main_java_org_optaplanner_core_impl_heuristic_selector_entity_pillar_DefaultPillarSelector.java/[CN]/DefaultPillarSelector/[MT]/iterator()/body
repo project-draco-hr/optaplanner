@@ -9,7 +9,7 @@
   }
  else {
     if (!subPillarEnabled) {
-      return new CachedListRandomIterator<List<Object>>(cachedBasePillarList,workingRandom);
+      return new CachedListRandomIterator<>(cachedBasePillarList,workingRandom);
     }
  else {
       return new RandomSubPillarIterator();

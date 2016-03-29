@@ -1,8 +1,8 @@
 {
   readConstantLine("DEPARTMENTS:");
-  List<Department> departmentList=new ArrayList<Department>(departmentListSize);
-  idToDepartmentMap=new HashMap<Long,Department>(departmentListSize);
-  List<DepartmentSpecialism> departmentSpecialismList=new ArrayList<DepartmentSpecialism>(departmentListSize * 5);
+  List<Department> departmentList=new ArrayList<>(departmentListSize);
+  idToDepartmentMap=new HashMap<>(departmentListSize);
+  List<DepartmentSpecialism> departmentSpecialismList=new ArrayList<>(departmentListSize * 5);
   long departmentSpecialismId=0L;
   for (int i=0; i < departmentListSize; i++) {
     String line=bufferedReader.readLine();
@@ -11,7 +11,7 @@
     Department department=new Department();
     department.setId(Long.parseLong(departmentTokens[0]));
     department.setName(departmentTokens[1]);
-    department.setRoomList(new ArrayList<Room>());
+    department.setRoomList(new ArrayList<>());
     int minimumAge=Integer.parseInt(departmentTokens[2]);
     if (minimumAge != 0) {
       department.setMinimumAge(Integer.valueOf(minimumAge));

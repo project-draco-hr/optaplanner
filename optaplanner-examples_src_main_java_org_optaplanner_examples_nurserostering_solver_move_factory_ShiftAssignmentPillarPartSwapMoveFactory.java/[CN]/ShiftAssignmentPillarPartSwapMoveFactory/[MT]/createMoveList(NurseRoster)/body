@@ -1,16 +1,16 @@
 {
   List<Employee> employeeList=nurseRoster.getEmployeeList();
-  List<ShiftAssignment> shiftAssignmentList=new ArrayList<ShiftAssignment>(nurseRoster.getShiftAssignmentList());
+  List<ShiftAssignment> shiftAssignmentList=new ArrayList<>(nurseRoster.getShiftAssignmentList());
   for (Iterator<ShiftAssignment> it=shiftAssignmentList.iterator(); it.hasNext(); ) {
     ShiftAssignment shiftAssignment=it.next();
     if (!filter.accept(nurseRoster,shiftAssignment)) {
       it.remove();
     }
   }
-  Map<Employee,List<AssignmentSequence>> employeeToAssignmentSequenceListMap=new HashMap<Employee,List<AssignmentSequence>>(employeeList.size());
+  Map<Employee,List<AssignmentSequence>> employeeToAssignmentSequenceListMap=new HashMap<>(employeeList.size());
   int assignmentSequenceCapacity=nurseRoster.getShiftDateList().size() + 1 / 2;
   for (  Employee employee : employeeList) {
-    employeeToAssignmentSequenceListMap.put(employee,new ArrayList<AssignmentSequence>(assignmentSequenceCapacity));
+    employeeToAssignmentSequenceListMap.put(employee,new ArrayList<>(assignmentSequenceCapacity));
   }
   for (  ShiftAssignment shiftAssignment : shiftAssignmentList) {
     Employee employee=shiftAssignment.getEmployee();
@@ -30,7 +30,7 @@
       }
     }
   }
-  List<Move> moveList=new ArrayList<Move>();
+  List<Move> moveList=new ArrayList<>();
   for (ListIterator<Employee> leftEmployeeIt=employeeList.listIterator(); leftEmployeeIt.hasNext(); ) {
     Employee leftEmployee=leftEmployeeIt.next();
     List<AssignmentSequence> leftAssignmentSequenceList=employeeToAssignmentSequenceListMap.get(leftEmployee);
@@ -40,7 +40,7 @@
       LowestDayIndexAssignmentSequenceIterator lowestIt=new LowestDayIndexAssignmentSequenceIterator(leftAssignmentSequenceList,rightAssignmentSequenceList);
       while (lowestIt.hasNext()) {
         AssignmentSequence pillarPartAssignmentSequence=lowestIt.next();
-        List<Move> moveListByPillarPartDuo=new ArrayList<Move>(leftAssignmentSequenceList.size() + rightAssignmentSequenceList.size());
+        List<Move> moveListByPillarPartDuo=new ArrayList<>(leftAssignmentSequenceList.size() + rightAssignmentSequenceList.size());
         int lastDayIndex=pillarPartAssignmentSequence.getLastDayIndex();
         Employee otherEmployee;
         int leftMinimumFirstDayIndex=Integer.MIN_VALUE;

@@ -8,7 +8,7 @@
   List<String> aShadowVariableList=Arrays.asList("shadow a1","shadow a2");
   a.setShadowVariableList(aShadowVariableList);
   TestdataDeepCloningEntity b=new TestdataDeepCloningEntity("b",val1);
-  Map<String,String> bShadowVariableMap=new HashMap<String,String>();
+  Map<String,String> bShadowVariableMap=new HashMap<>();
   bShadowVariableMap.put("shadow key b1","shadow value b1");
   bShadowVariableMap.put("shadow key b2","shadow value b2");
   b.setShadowVariableMap(bShadowVariableMap);

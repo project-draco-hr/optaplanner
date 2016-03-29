@@ -1,8 +1,8 @@
 {
-  assertEquals(true,new NullableCountableValueRange<Integer>(new ListValueRange<Integer>(Arrays.asList(0,2,5,10))).contains(5));
-  assertEquals(false,new NullableCountableValueRange<Integer>(new ListValueRange<Integer>(Arrays.asList(0,2,5,10))).contains(4));
-  assertEquals(true,new NullableCountableValueRange<Integer>(new ListValueRange<Integer>(Arrays.asList(0,2,5,10))).contains(null));
-  assertEquals(true,new NullableCountableValueRange<String>(new ListValueRange<String>(Arrays.asList("b","z","a"))).contains("a"));
-  assertEquals(false,new NullableCountableValueRange<String>(new ListValueRange<String>(Arrays.asList("b","z","a"))).contains("n"));
-  assertEquals(true,new NullableCountableValueRange<String>(new ListValueRange<String>(Arrays.asList("b","z","a"))).contains(null));
+  assertEquals(true,new NullableCountableValueRange<>(new ListValueRange<>(Arrays.asList(0,2,5,10))).contains(5));
+  assertEquals(false,new NullableCountableValueRange<>(new ListValueRange<>(Arrays.asList(0,2,5,10))).contains(4));
+  assertEquals(true,new NullableCountableValueRange<>(new ListValueRange<>(Arrays.asList(0,2,5,10))).contains(null));
+  assertEquals(true,new NullableCountableValueRange<>(new ListValueRange<>(Arrays.asList("b","z","a"))).contains("a"));
+  assertEquals(false,new NullableCountableValueRange<>(new ListValueRange<>(Arrays.asList("b","z","a"))).contains("n"));
+  assertEquals(true,new NullableCountableValueRange<>(new ListValueRange<>(Arrays.asList("b","z","a"))).contains(null));
 }

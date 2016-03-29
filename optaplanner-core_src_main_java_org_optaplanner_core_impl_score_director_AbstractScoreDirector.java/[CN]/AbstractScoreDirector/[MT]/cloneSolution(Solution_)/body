@@ -8,7 +8,7 @@
       throw new IllegalStateException("Cloning corruption: " + "the original's score (" + originalScore + ") is different from the clone's score ("+ cloneScore+ ").\n"+ "Check the "+ SolutionCloner.class.getSimpleName()+ ".");
     }
     List<Object> originalEntityList=solutionDescriptor.getEntityList(originalSolution);
-    Map<Object,Object> originalEntityMap=new IdentityHashMap<Object,Object>(originalEntityList.size());
+    Map<Object,Object> originalEntityMap=new IdentityHashMap<>(originalEntityList.size());
     for (    Object originalEntity : originalEntityList) {
       originalEntityMap.put(originalEntity,null);
     }

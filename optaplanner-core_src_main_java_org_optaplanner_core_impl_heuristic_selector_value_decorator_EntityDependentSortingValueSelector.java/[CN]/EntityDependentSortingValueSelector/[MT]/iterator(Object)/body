@@ -3,7 +3,7 @@
   if (childSize > (long)Integer.MAX_VALUE) {
     throw new IllegalStateException("The selector (" + this + ") has a childValueSelector ("+ childValueSelector+ ") with childSize ("+ childSize+ ") which is higher than Integer.MAX_VALUE.");
   }
-  List<Object> cachedValueList=new ArrayList<Object>((int)childSize);
+  List<Object> cachedValueList=new ArrayList<>((int)childSize);
   Iterators.addAll(cachedValueList,childValueSelector.iterator(entity));
   logger.trace("    Created cachedValueList: size ({}), valueSelector ({}).",cachedValueList.size(),this);
   sorter.sort(scoreDirector,cachedValueList);

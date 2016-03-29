@@ -11,8 +11,8 @@
   plannerBenchmarkResult.setWarmUpTimeMillisSpentLimit(calculateWarmUpTimeMillisSpentLimit());
   BenchmarkReportConfig benchmarkReportConfig_=benchmarkReportConfig == null ? new BenchmarkReportConfig() : benchmarkReportConfig;
   plannerBenchmarkRunner.setBenchmarkReport(benchmarkReportConfig_.buildBenchmarkReport(plannerBenchmarkResult));
-  plannerBenchmarkResult.setUnifiedProblemBenchmarkResultList(new ArrayList<ProblemBenchmarkResult>());
-  plannerBenchmarkResult.setSolverBenchmarkResultList(new ArrayList<SolverBenchmarkResult>(effectiveSolverBenchmarkConfigList.size()));
+  plannerBenchmarkResult.setUnifiedProblemBenchmarkResultList(new ArrayList<>());
+  plannerBenchmarkResult.setSolverBenchmarkResultList(new ArrayList<>(effectiveSolverBenchmarkConfigList.size()));
   for (  SolverBenchmarkConfig solverBenchmarkConfig : effectiveSolverBenchmarkConfigList) {
     solverBenchmarkConfig.buildSolverBenchmark(plannerBenchmarkResult);
   }

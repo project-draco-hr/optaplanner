@@ -1,5 +1,5 @@
 {
-  List<Object> entities=new ArrayList<Object>(leftPillar.size() + rightPillar.size());
+  List<Object> entities=new ArrayList<>(leftPillar.size() + rightPillar.size());
   entities.addAll(leftPillar);
   entities.addAll(rightPillar);
   return entities;

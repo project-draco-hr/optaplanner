@@ -2,6 +2,6 @@
   machineListPanel=new JPanel(new GridLayout(0,1));
   unassignedPanel=new MrMachinePanel(this,Collections.<MrResource>emptyList(),null);
   machineListPanel.add(unassignedPanel);
-  machineToPanelMap=new LinkedHashMap<MrMachine,MrMachinePanel>();
+  machineToPanelMap=new LinkedHashMap<>();
   machineToPanelMap.put(null,unassignedPanel);
 }

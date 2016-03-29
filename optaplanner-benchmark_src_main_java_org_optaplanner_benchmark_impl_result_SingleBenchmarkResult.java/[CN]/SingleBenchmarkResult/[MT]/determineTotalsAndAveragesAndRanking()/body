@@ -5,7 +5,7 @@
   uninitializedSolutionCount=0;
   totalUninitializedVariableCount=0;
   infeasibleScoreCount=0;
-  List<SubSingleBenchmarkResult> successResultList=new ArrayList<SubSingleBenchmarkResult>(subSingleBenchmarkResultList);
+  List<SubSingleBenchmarkResult> successResultList=new ArrayList<>(subSingleBenchmarkResultList);
   for (Iterator<SubSingleBenchmarkResult> it=successResultList.iterator(); it.hasNext(); ) {
     SubSingleBenchmarkResult subSingleBenchmarkResult=it.next();
     if (subSingleBenchmarkResult.hasAnyFailure()) {

@@ -1,7 +1,7 @@
 {
-  assertEquals(4L,new ListValueRange<Integer>(Arrays.asList(0,2,5,10)).getSize());
-  assertEquals(5L,new ListValueRange<Integer>(Arrays.asList(100,120,5,7,8)).getSize());
-  assertEquals(3L,new ListValueRange<Integer>(Arrays.asList(-15,25,0)).getSize());
-  assertEquals(3L,new ListValueRange<String>(Arrays.asList("b","z","a")).getSize());
-  assertEquals(0L,new ListValueRange<String>(Collections.<String>emptyList()).getSize());
+  assertEquals(4L,new ListValueRange<>(Arrays.asList(0,2,5,10)).getSize());
+  assertEquals(5L,new ListValueRange<>(Arrays.asList(100,120,5,7,8)).getSize());
+  assertEquals(3L,new ListValueRange<>(Arrays.asList(-15,25,0)).getSize());
+  assertEquals(3L,new ListValueRange<>(Arrays.asList("b","z","a")).getSize());
+  assertEquals(0L,new ListValueRange<>(Collections.<String>emptyList()).getSize());
 }
