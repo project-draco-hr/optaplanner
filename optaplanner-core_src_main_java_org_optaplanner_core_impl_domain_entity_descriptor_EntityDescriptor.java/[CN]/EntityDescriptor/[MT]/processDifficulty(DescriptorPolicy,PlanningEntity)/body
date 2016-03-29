@@ -12,10 +12,10 @@
   }
   if (difficultyComparatorClass != null) {
     Comparator<Object> difficultyComparator=ConfigUtils.newInstance(this,"difficultyComparatorClass",difficultyComparatorClass);
-    decreasingDifficultySorter=new ComparatorSelectionSorter(difficultyComparator,SelectionSorterOrder.DESCENDING);
+    decreasingDifficultySorter=new ComparatorSelectionSorter<Solution_,Object>(difficultyComparator,SelectionSorterOrder.DESCENDING);
   }
   if (difficultyWeightFactoryClass != null) {
-    SelectionSorterWeightFactory difficultyWeightFactory=ConfigUtils.newInstance(this,"difficultyWeightFactoryClass",difficultyWeightFactoryClass);
-    decreasingDifficultySorter=new WeightFactorySelectionSorter(difficultyWeightFactory,SelectionSorterOrder.DESCENDING);
+    SelectionSorterWeightFactory<Solution_,Object> difficultyWeightFactory=ConfigUtils.newInstance(this,"difficultyWeightFactoryClass",difficultyWeightFactoryClass);
+    decreasingDifficultySorter=new WeightFactorySelectionSorter<Solution_,Object>(difficultyWeightFactory,SelectionSorterOrder.DESCENDING);
   }
 }

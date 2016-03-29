@@ -1,5 +1,5 @@
 {
-  for (  GenuineVariableDescriptor variableDescriptor : effectiveGenuineVariableDescriptorMap.values()) {
+  for (  GenuineVariableDescriptor<Solution_> variableDescriptor : effectiveGenuineVariableDescriptorMap.values()) {
     if (!variableDescriptor.isChained()) {
       return true;
     }

@@ -1,6 +1,6 @@
 {
   if (refVariableDescriptor != null) {
-    return Collections.<VariableDescriptor>singletonList(refVariableDescriptor);
+    return Collections.singletonList(refVariableDescriptor);
   }
   return sourceVariableDescriptorList;
 }

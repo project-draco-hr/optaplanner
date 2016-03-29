@@ -1,5 +1,5 @@
 {
-  Collection<VariableDescriptor> variableDescriptors=new ArrayList<VariableDescriptor>(declaredGenuineVariableDescriptorMap.size() + declaredShadowVariableDescriptorMap.size());
+  Collection<VariableDescriptor<Solution_>> variableDescriptors=new ArrayList<>(declaredGenuineVariableDescriptorMap.size() + declaredShadowVariableDescriptorMap.size());
   variableDescriptors.addAll(declaredGenuineVariableDescriptorMap.values());
   variableDescriptors.addAll(declaredShadowVariableDescriptorMap.values());
   return variableDescriptors;

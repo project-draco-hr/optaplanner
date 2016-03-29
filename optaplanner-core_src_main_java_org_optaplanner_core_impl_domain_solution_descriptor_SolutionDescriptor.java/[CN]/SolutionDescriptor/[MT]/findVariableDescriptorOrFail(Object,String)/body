@@ -1,6 +1,6 @@
 {
-  EntityDescriptor entityDescriptor=findEntityDescriptorOrFail(entity.getClass());
-  VariableDescriptor variableDescriptor=entityDescriptor.getVariableDescriptor(variableName);
+  EntityDescriptor<Solution_> entityDescriptor=findEntityDescriptorOrFail(entity.getClass());
+  VariableDescriptor<Solution_> variableDescriptor=entityDescriptor.getVariableDescriptor(variableName);
   if (variableDescriptor == null) {
     throw new IllegalArgumentException(entityDescriptor.buildInvalidVariableNameExceptionMessage(variableName));
   }

@@ -1,5 +1,5 @@
 {
-  for (  ShadowVariableDescriptor shadowVariableDescriptor : declaredShadowVariableDescriptorMap.values()) {
+  for (  ShadowVariableDescriptor<Solution_> shadowVariableDescriptor : declaredShadowVariableDescriptorMap.values()) {
     shadowVariableDescriptor.linkShadowSources(descriptorPolicy);
   }
 }

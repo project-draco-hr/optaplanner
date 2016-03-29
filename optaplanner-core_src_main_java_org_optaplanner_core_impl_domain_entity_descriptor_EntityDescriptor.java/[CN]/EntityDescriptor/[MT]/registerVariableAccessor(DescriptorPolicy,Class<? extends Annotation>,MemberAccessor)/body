@@ -1,7 +1,7 @@
 {
   String memberName=memberAccessor.getName();
   if (declaredGenuineVariableDescriptorMap.containsKey(memberName) || declaredShadowVariableDescriptorMap.containsKey(memberName)) {
-    VariableDescriptor duplicate=declaredGenuineVariableDescriptorMap.get(memberName);
+    VariableDescriptor<Solution_> duplicate=declaredGenuineVariableDescriptorMap.get(memberName);
     if (duplicate == null) {
       duplicate=declaredShadowVariableDescriptorMap.get(memberName);
     }
@@ -13,17 +13,17 @@
     variableDescriptor.processAnnotations(descriptorPolicy);
   }
  else   if (variableAnnotationClass.equals(InverseRelationShadowVariable.class)) {
-    ShadowVariableDescriptor variableDescriptor=new InverseRelationShadowVariableDescriptor(this,memberAccessor);
+    ShadowVariableDescriptor<Solution_> variableDescriptor=new InverseRelationShadowVariableDescriptor<>(this,memberAccessor);
     declaredShadowVariableDescriptorMap.put(memberName,variableDescriptor);
     variableDescriptor.processAnnotations(descriptorPolicy);
   }
  else   if (variableAnnotationClass.equals(AnchorShadowVariable.class)) {
-    ShadowVariableDescriptor variableDescriptor=new AnchorShadowVariableDescriptor(this,memberAccessor);
+    ShadowVariableDescriptor<Solution_> variableDescriptor=new AnchorShadowVariableDescriptor<>(this,memberAccessor);
     declaredShadowVariableDescriptorMap.put(memberName,variableDescriptor);
     variableDescriptor.processAnnotations(descriptorPolicy);
   }
  else   if (variableAnnotationClass.equals(CustomShadowVariable.class)) {
-    ShadowVariableDescriptor variableDescriptor=new CustomShadowVariableDescriptor(this,memberAccessor);
+    ShadowVariableDescriptor<Solution_> variableDescriptor=new CustomShadowVariableDescriptor<>(this,memberAccessor);
     declaredShadowVariableDescriptorMap.put(memberName,variableDescriptor);
     variableDescriptor.processAnnotations(descriptorPolicy);
   }

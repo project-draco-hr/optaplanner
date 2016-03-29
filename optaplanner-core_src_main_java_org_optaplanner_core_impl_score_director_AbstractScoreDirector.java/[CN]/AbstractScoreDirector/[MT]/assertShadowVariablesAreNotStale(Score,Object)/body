@@ -4,7 +4,7 @@
   for (Iterator<Object> it=solutionDescriptor.extractAllEntitiesIterator(workingSolution); it.hasNext(); ) {
     Object entity=it.next();
     EntityDescriptor<Solution_> entityDescriptor=solutionDescriptor.findEntityDescriptorOrFail(entity.getClass());
-    Collection<ShadowVariableDescriptor> shadowVariableDescriptors=entityDescriptor.getShadowVariableDescriptors();
+    Collection<ShadowVariableDescriptor<Solution_>> shadowVariableDescriptors=entityDescriptor.getShadowVariableDescriptors();
     Map<ShadowVariableDescriptor,Object> shadowVariableValuesMap=new HashMap<>(shadowVariableDescriptors.size());
     for (    ShadowVariableDescriptor shadowVariableDescriptor : shadowVariableDescriptors) {
       Object value=shadowVariableDescriptor.getValue(entity);
@@ -16,7 +16,7 @@
   for (Iterator<Object> it=solutionDescriptor.extractAllEntitiesIterator(workingSolution); it.hasNext(); ) {
     Object entity=it.next();
     EntityDescriptor<Solution_> entityDescriptor=solutionDescriptor.findEntityDescriptorOrFail(entity.getClass());
-    Collection<ShadowVariableDescriptor> shadowVariableDescriptors=entityDescriptor.getShadowVariableDescriptors();
+    Collection<ShadowVariableDescriptor<Solution_>> shadowVariableDescriptors=entityDescriptor.getShadowVariableDescriptors();
     Map<ShadowVariableDescriptor,Object> shadowVariableValuesMap=entityToShadowVariableValuesMap.get(entity);
     for (    ShadowVariableDescriptor shadowVariableDescriptor : shadowVariableDescriptors) {
       Object newValue=shadowVariableDescriptor.getValue(entity);

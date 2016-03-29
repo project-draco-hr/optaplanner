@@ -2,7 +2,7 @@
   int count=0;
   for (Iterator<Object> it=extractAllEntitiesIterator(solution); it.hasNext(); ) {
     Object entity=it.next();
-    EntityDescriptor entityDescriptor=findEntityDescriptorOrFail(entity.getClass());
+    EntityDescriptor<Solution_> entityDescriptor=findEntityDescriptorOrFail(entity.getClass());
     count+=entityDescriptor.countReinitializableVariables(scoreDirector,entity);
   }
   return count;

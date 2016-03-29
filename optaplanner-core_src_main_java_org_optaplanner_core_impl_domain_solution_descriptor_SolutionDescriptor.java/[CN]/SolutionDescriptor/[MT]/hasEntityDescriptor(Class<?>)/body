@@ -1,4 +1,4 @@
 {
-  EntityDescriptor entityDescriptor=findEntityDescriptor(entitySubclass);
+  EntityDescriptor<Solution_> entityDescriptor=findEntityDescriptor(entitySubclass);
   return entityDescriptor != null;
 }

@@ -12,6 +12,6 @@
     if (ConfigUtils.isEmptyCollection(entityClassList)) {
       throw new IllegalArgumentException("The solver configuration must have at least 1 entityClass (" + entityClassList + "), if it has no scanAnnotatedClasses ("+ scanAnnotatedClassesConfig+ ").");
     }
-    return SolutionDescriptor.buildSolutionDescriptor(solutionClass,entityClassList);
+    return SolutionDescriptor.buildSolutionDescriptor((Class<Solution_>)solutionClass,entityClassList);
   }
 }

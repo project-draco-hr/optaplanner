@@ -2,7 +2,7 @@
   super(variableDescriptor,addNullInValueRange);
   this.childValueRangeDescriptorList=childValueRangeDescriptorList;
   entityIndependent=true;
-  for (  ValueRangeDescriptor valueRangeDescriptor : childValueRangeDescriptorList) {
+  for (  ValueRangeDescriptor<Solution_> valueRangeDescriptor : childValueRangeDescriptorList) {
     if (!valueRangeDescriptor.isCountable()) {
       throw new IllegalStateException("The valueRangeDescriptor (" + this + ") has a childValueRangeDescriptor ("+ valueRangeDescriptor+ ") with countable ("+ valueRangeDescriptor.isCountable()+ ").");
     }

@@ -23,7 +23,7 @@
     masterClass=variablePropertyType;
     singleton=true;
   }
-  EntityDescriptor sourceEntityDescriptor=getEntityDescriptor().getSolutionDescriptor().findEntityDescriptor(masterClass);
+  EntityDescriptor<Solution_> sourceEntityDescriptor=getEntityDescriptor().getSolutionDescriptor().findEntityDescriptor(masterClass);
   if (sourceEntityDescriptor == null) {
     throw new IllegalArgumentException("The entityClass (" + entityDescriptor.getEntityClass() + ") has a "+ InverseRelationShadowVariable.class.getSimpleName()+ " annotated property ("+ variableMemberAccessor.getName()+ ") with a masterClass ("+ masterClass+ ") which is not a valid planning entity.");
   }

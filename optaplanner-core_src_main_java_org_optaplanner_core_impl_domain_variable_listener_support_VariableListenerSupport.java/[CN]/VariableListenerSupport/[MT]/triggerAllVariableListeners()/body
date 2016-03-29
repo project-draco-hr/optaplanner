@@ -3,7 +3,7 @@
   List<Object> entityList=scoreDirector.getWorkingEntityList();
   for (  Object entity : entityList) {
     EntityDescriptor<Solution_> entityDescriptor=solutionDescriptor.findEntityDescriptorOrFail(entity.getClass());
-    for (    GenuineVariableDescriptor variableDescriptor : entityDescriptor.getGenuineVariableDescriptors()) {
+    for (    GenuineVariableDescriptor<Solution_> variableDescriptor : entityDescriptor.getGenuineVariableDescriptors()) {
       beforeVariableChanged(variableDescriptor,entity);
       afterVariableChanged(variableDescriptor,entity);
     }

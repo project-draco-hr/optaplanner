@@ -9,7 +9,7 @@
     sourceEntityToNotifiableMap.put(entityDescriptor,entityNotifiableList);
   }
   for (  EntityDescriptor<Solution_> entityDescriptor : scoreDirector.getSolutionDescriptor().getEntityDescriptors()) {
-    for (    ShadowVariableDescriptor shadowVariableDescriptor : entityDescriptor.getDeclaredShadowVariableDescriptors()) {
+    for (    ShadowVariableDescriptor<Solution_> shadowVariableDescriptor : entityDescriptor.getDeclaredShadowVariableDescriptors()) {
       if (shadowVariableDescriptor.hasVariableListener(scoreDirector)) {
         VariableListener variableListener=shadowVariableDescriptor.buildVariableListener(scoreDirector);
         supplyMap.put(shadowVariableDescriptor.getProvidedDemand(),variableListener);
@@ -18,7 +18,7 @@
           nextGlobalOrder=globalOrder + 1;
         }
         VariableListenerNotifiable notifiable=new VariableListenerNotifiable(variableListener,globalOrder);
-        for (        VariableDescriptor source : shadowVariableDescriptor.getSourceVariableDescriptorList()) {
+        for (        VariableDescriptor<Solution_> source : shadowVariableDescriptor.getSourceVariableDescriptorList()) {
           List<VariableListenerNotifiable> variableNotifiableList=sourceVariableToNotifiableMap.get(source);
           variableNotifiableList.add(notifiable);
           List<VariableListenerNotifiable> entityNotifiableList=sourceEntityToNotifiableMap.get(source.getEntityDescriptor());
