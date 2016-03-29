@@ -13,5 +13,5 @@
   solution.setSingleEntity(singleEntity);
   SimpleScore score=SimpleScore.valueOf(-10);
   solution.setScore(score);
-  assertCollectionContainsExactly((Collection<Object>)solution.getProblemFacts(),singleValue,v1,v2,v3);
+  assertCollectionContainsExactly(solution.getProblemFactList(),singleValue,v1,v2,v3);
 }

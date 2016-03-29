@@ -9,5 +9,5 @@
   solution.setEntityList(null);
   solution.setSingleEntity(null);
   solution.setScore(null);
-  assertCollectionContainsExactly((Collection<Object>)solution.getProblemFacts(),v1,v2,v3);
+  assertCollectionContainsExactly(solution.getProblemFactList(),v1,v2,v3);
 }

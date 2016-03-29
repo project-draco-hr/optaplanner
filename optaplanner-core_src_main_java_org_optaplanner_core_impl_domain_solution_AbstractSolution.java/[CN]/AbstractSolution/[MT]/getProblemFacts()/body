@@ -1,4 +1,0 @@
-{
-  Class<? extends AbstractSolution> instanceClass=getClass();
-  return getProblemFactsFromClass(instanceClass);
-}

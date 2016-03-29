@@ -1,7 +1,6 @@
 {
-  Collection<Object> factList=new ArrayList<>();
   if (instanceClass.equals(AbstractSolution.class)) {
-    return factList;
+    return;
   }
   for (  Field field : instanceClass.getDeclaredFields()) {
     field.setAccessible(true);
@@ -29,7 +28,6 @@
   }
   Class<?> superclass=instanceClass.getSuperclass();
   if (superclass != null) {
-    factList.addAll(getProblemFactsFromClass(superclass));
+    addProblemFactsFromClass(factList,superclass);
   }
-  return factList;
 }
