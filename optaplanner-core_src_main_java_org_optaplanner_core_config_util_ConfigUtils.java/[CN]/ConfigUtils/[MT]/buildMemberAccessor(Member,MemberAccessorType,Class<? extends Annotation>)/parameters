@@ -1,0 +1,3 @@
+Member member
+MemberAccessorType memberAccessorType
+Class<? extends Annotation> annotationClass

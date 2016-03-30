@@ -1,3 +1,0 @@
-{
-  return extractAnnotationClass(member,ProblemFactProperty.class,ProblemFactCollectionProperty.class);
-}

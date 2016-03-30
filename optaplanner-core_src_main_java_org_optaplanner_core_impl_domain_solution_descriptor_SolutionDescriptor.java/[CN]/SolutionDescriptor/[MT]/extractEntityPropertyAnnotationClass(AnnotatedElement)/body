@@ -1,3 +1,0 @@
-{
-  return extractAnnotationClass(member,PlanningEntityProperty.class,PlanningEntityCollectionProperty.class);
-}

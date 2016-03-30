@@ -1,7 +1,0 @@
-{
-  Class<? extends Annotation> scoreAnnotationClass=extractScoreAnnotationClass(field);
-  if (scoreAnnotationClass != null) {
-    MemberAccessor memberAccessor=new FieldMemberAccessor(field);
-    registerScoreAccessor(memberAccessor);
-  }
-}

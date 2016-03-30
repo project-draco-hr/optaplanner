@@ -1,0 +1,5 @@
+{
+  Stream<Field> fieldStream=Stream.of(clazz.getDeclaredFields()).sorted(new AlphabeticMemberComparator());
+  Stream<Method> methodStream=Stream.of(clazz.getDeclaredMethods()).sorted(new AlphabeticMemberComparator());
+  return Stream.<Member>concat(fieldStream,methodStream).collect(Collectors.toList());
+}

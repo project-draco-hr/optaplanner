@@ -1,0 +1,6 @@
+{
+  if (((AnnotatedElement)member).isAnnotationPresent(ValueRangeProvider.class)) {
+    MemberAccessor memberAccessor=ConfigUtils.buildMemberAccessor(member,FIELD_OR_READ_METHOD,ValueRangeProvider.class);
+    descriptorPolicy.addFromSolutionValueRangeProvider(memberAccessor);
+  }
+}

@@ -1,3 +1,0 @@
-{
-  return extractAnnotationClass(member,PlanningScore.class);
-}

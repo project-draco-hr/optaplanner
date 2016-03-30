@@ -1,0 +1,7 @@
+{
+  Class<? extends Annotation> entityPropertyAnnotationClass=ConfigUtils.extractAnnotationClass(member,PlanningEntityProperty.class,PlanningEntityCollectionProperty.class);
+  if (entityPropertyAnnotationClass != null) {
+    MemberAccessor memberAccessor=ConfigUtils.buildMemberAccessor(member,FIELD_OR_GETTER_METHOD,entityPropertyAnnotationClass);
+    registerPlanningEntityPropertyAccessor(entityPropertyAnnotationClass,memberAccessor);
+  }
+}

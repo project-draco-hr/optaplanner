@@ -19,7 +19,7 @@
   }
   try {
     Method getScoreMethod=solutionClass.getMethod("getScore");
-    registerScoreAccessor(new BeanPropertyMemberAccessor(getScoreMethod));
+    scoreMemberAccessor=new BeanPropertyMemberAccessor(getScoreMethod);
   }
  catch (  NoSuchMethodException e) {
     throw new IllegalStateException("Impossible situation: the solutionClass (" + solutionClass + ") which implements the legacy interface "+ Solution.class.getSimpleName()+ ", lacks its getScore() method.",e);

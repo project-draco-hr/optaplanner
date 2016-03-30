@@ -1,7 +1,0 @@
-{
-  if (method.isAnnotationPresent(ValueRangeProvider.class)) {
-    ReflectionHelper.assertReadMethod(method,ValueRangeProvider.class);
-    MemberAccessor memberAccessor=new MethodMemberAccessor(method);
-    descriptorPolicy.addFromSolutionValueRangeProvider(memberAccessor);
-  }
-}

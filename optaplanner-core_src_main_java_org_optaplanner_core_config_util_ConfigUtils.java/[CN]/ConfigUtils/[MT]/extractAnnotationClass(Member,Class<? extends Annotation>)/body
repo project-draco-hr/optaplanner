@@ -1,0 +1,12 @@
+{
+  Class<? extends Annotation> annotationClass=null;
+  for (  Class<? extends Annotation> detectedAnnotationClass : annotations) {
+    if (((AnnotatedElement)member).isAnnotationPresent(detectedAnnotationClass)) {
+      if (annotationClass != null) {
+        throw new IllegalStateException("The class (" + member.getDeclaringClass() + ") has a member ("+ member+ ") that has both a "+ annotationClass.getSimpleName()+ " annotation and a "+ detectedAnnotationClass.getSimpleName()+ " annotation.");
+      }
+      annotationClass=detectedAnnotationClass;
+    }
+  }
+  return annotationClass;
+}

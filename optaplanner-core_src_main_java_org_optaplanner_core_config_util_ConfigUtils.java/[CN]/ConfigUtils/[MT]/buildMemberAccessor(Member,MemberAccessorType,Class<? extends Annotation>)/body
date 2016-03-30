@@ -1,0 +1,30 @@
+{
+  if (member instanceof Field) {
+    Field field=(Field)member;
+    return new FieldMemberAccessor(field);
+  }
+ else   if (member instanceof Method) {
+    Method method=(Method)member;
+    MemberAccessor memberAccessor;
+switch (memberAccessorType) {
+case FIELD_OR_READ_METHOD:
+      ReflectionHelper.assertReadMethod(method,annotationClass);
+    memberAccessor=new MethodMemberAccessor(method);
+  break;
+case FIELD_OR_GETTER_METHOD:
+case FIELD_OR_GETTER_METHOD_WITH_SETTER:
+ReflectionHelper.assertGetterMethod(method,annotationClass);
+memberAccessor=new BeanPropertyMemberAccessor(method);
+break;
+default :
+throw new IllegalStateException("The memberAccessorType (" + memberAccessorType + ") is not implemented.");
+}
+if (memberAccessorType == MemberAccessorType.FIELD_OR_GETTER_METHOD_WITH_SETTER && !memberAccessor.supportSetter()) {
+throw new IllegalStateException("The class (" + method.getDeclaringClass() + ") has a "+ annotationClass.getSimpleName()+ " annotated getter method ("+ method+ "), but lacks a setter for that property ("+ memberAccessor.getName()+ ").");
+}
+return memberAccessor;
+}
+ else {
+throw new IllegalStateException("Impossible state: the member (" + member + ")'s type is not a "+ Field.class.getSimpleName()+ " or a "+ Method.class.getSimpleName()+ ".");
+}
+}
