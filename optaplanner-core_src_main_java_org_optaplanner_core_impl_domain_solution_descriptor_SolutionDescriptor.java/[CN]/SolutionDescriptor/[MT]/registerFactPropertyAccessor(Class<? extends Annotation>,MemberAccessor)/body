@@ -1,3 +1,0 @@
-{
-  registerPropertyAccessor(factPropertyAnnotationClass,memberAccessor,factPropertyAccessorMap,factCollectionPropertyAccessorMap,ProblemFactProperty.class,ProblemFactCollectionProperty.class);
-}

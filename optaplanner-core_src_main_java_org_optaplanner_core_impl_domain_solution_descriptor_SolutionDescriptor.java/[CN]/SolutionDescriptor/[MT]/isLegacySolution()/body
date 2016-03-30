@@ -1,3 +1,0 @@
-{
-  return Solution.class.isAssignableFrom(solutionClass);
-}

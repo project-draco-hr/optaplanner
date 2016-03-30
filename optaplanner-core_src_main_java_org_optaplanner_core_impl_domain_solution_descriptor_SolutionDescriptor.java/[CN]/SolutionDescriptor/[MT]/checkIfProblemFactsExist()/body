@@ -1,0 +1,5 @@
+{
+  if (problemFactCollectionMemberAccessorMap.isEmpty() && problemFactMemberAccessorMap.isEmpty()) {
+    throw new IllegalStateException("The solutionClass (" + solutionClass + ") must have at least 1 member with a "+ ProblemFactCollectionProperty.class.getSimpleName()+ " annotation or a "+ ProblemFactProperty.class.getSimpleName()+ " annotation"+ " when used with Drools score calculation.");
+  }
+}

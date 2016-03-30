@@ -1,6 +1,6 @@
 {
   Class<? extends Annotation> annotationClass=null;
-  for (  Class<? extends Annotation> detectedAnnotationClass : Arrays.asList(annotations)) {
+  for (  Class<? extends Annotation> detectedAnnotationClass : annotations) {
     if (member.isAnnotationPresent(detectedAnnotationClass)) {
       if (annotationClass != null) {
         throw new IllegalStateException("The solutionClass (" + solutionClass + ") has a member ("+ member+ ") that has both a "+ annotationClass.getSimpleName()+ " annotation and a "+ detectedAnnotationClass.getSimpleName()+ " annotation.");

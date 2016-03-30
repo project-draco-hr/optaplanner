@@ -1,5 +1,5 @@
 {
-  for (  MemberAccessor memberAccessor : solutionDescriptor.getEntityPropertyAccessorMap().values()) {
+  for (  MemberAccessor memberAccessor : solutionDescriptor.getEntityMemberAccessorMap().values()) {
     Object originalProperty=memberAccessor.executeGetter(originalSolution);
     if (originalProperty != null) {
       Object cloneProperty=memberAccessor.executeGetter(cloneSolution);
@@ -8,7 +8,7 @@
       }
     }
   }
-  for (  MemberAccessor memberAccessor : solutionDescriptor.getEntityCollectionPropertyAccessorMap().values()) {
+  for (  MemberAccessor memberAccessor : solutionDescriptor.getEntityCollectionMemberAccessorMap().values()) {
     Object originalProperty=memberAccessor.executeGetter(originalSolution);
     if (originalProperty != null) {
       Object cloneProperty=memberAccessor.executeGetter(cloneSolution);

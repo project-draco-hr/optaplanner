@@ -1,13 +1,13 @@
 {
   int entityCount=0;
-  for (  MemberAccessor entityMemberAccessor : entityPropertyAccessorMap.values()) {
-    Object entity=extract(entityMemberAccessor,solution);
+  for (  MemberAccessor entityMemberAccessor : entityMemberAccessorMap.values()) {
+    Object entity=extractMemberObject(entityMemberAccessor,solution);
     if (entity != null) {
       entityCount++;
     }
   }
-  for (  MemberAccessor entityCollectionMemberAccessor : entityCollectionPropertyAccessorMap.values()) {
-    Collection<Object> entityCollection=extractCollection(entityCollectionMemberAccessor,solution);
+  for (  MemberAccessor entityCollectionMemberAccessor : entityCollectionMemberAccessorMap.values()) {
+    Collection<Object> entityCollection=extractMemberCollection(entityCollectionMemberAccessor,solution);
     entityCount+=entityCollection.size();
   }
   return entityCount;

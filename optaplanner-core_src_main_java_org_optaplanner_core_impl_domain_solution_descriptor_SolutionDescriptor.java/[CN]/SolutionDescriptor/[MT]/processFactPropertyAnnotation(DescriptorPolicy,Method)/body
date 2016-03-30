@@ -3,6 +3,6 @@
   if (factPropertyAnnotationClass != null) {
     ReflectionHelper.assertGetterMethod(method,factPropertyAnnotationClass);
     MemberAccessor memberAccessor=new BeanPropertyMemberAccessor(method);
-    registerFactPropertyAccessor(factPropertyAnnotationClass,memberAccessor);
+    registerProblemFactPropertyAccessor(factPropertyAnnotationClass,memberAccessor);
   }
 }

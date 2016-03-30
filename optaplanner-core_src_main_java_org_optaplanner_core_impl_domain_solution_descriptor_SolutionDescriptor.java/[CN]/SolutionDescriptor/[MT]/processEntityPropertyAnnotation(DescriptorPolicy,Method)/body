@@ -3,6 +3,6 @@
   if (entityPropertyAnnotationClass != null) {
     ReflectionHelper.assertGetterMethod(method,entityPropertyAnnotationClass);
     MemberAccessor memberAccessor=new BeanPropertyMemberAccessor(method);
-    registerPropertyAccessor(entityPropertyAnnotationClass,memberAccessor);
+    registerPlanningEntityPropertyAccessor(entityPropertyAnnotationClass,memberAccessor);
   }
 }
