@@ -1,0 +1,4 @@
+{
+  assertMapContainsKeys(map,keys);
+  assertEquals(keys.length,map.size());
+}

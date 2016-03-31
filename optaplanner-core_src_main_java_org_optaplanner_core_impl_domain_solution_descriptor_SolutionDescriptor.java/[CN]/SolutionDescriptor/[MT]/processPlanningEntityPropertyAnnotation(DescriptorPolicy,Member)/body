@@ -1,7 +1,16 @@
 {
-  Class<? extends Annotation> entityPropertyAnnotationClass=ConfigUtils.extractAnnotationClass(member,PlanningEntityProperty.class,PlanningEntityCollectionProperty.class);
-  if (entityPropertyAnnotationClass != null) {
-    MemberAccessor memberAccessor=ConfigUtils.buildMemberAccessor(member,FIELD_OR_GETTER_METHOD,entityPropertyAnnotationClass);
-    registerPlanningEntityPropertyAccessor(entityPropertyAnnotationClass,memberAccessor);
+  Class<? extends Annotation> annotationClass=ConfigUtils.extractAnnotationClass(member,PlanningEntityProperty.class,PlanningEntityCollectionProperty.class);
+  if (annotationClass != null) {
+    MemberAccessor memberAccessor=ConfigUtils.buildMemberAccessor(member,FIELD_OR_GETTER_METHOD,annotationClass);
+    assertUnexistingProblemFactOrPlanningEntityProperty(memberAccessor,annotationClass);
+    if (annotationClass == PlanningEntityProperty.class) {
+      entityMemberAccessorMap.put(memberAccessor.getName(),memberAccessor);
+    }
+ else     if (annotationClass == PlanningEntityCollectionProperty.class) {
+      if (!Collection.class.isAssignableFrom(memberAccessor.getType())) {
+        throw new IllegalStateException("The solutionClass (" + solutionClass + ") has a "+ PlanningEntityCollectionProperty.class.getSimpleName()+ " annotated member ("+ member+ ") that does not return a "+ Collection.class.getSimpleName()+ ".");
+      }
+      entityCollectionMemberAccessorMap.put(memberAccessor.getName(),memberAccessor);
+    }
   }
 }

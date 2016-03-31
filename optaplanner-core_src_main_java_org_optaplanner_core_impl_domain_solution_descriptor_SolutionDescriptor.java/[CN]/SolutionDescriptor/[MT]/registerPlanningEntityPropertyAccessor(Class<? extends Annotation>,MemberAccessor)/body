@@ -1,3 +1,0 @@
-{
-  registerPropertyAccessor(entityPropertyAnnotationClass,memberAccessor,entityMemberAccessorMap,entityCollectionMemberAccessorMap,PlanningEntityProperty.class,PlanningEntityCollectionProperty.class);
-}

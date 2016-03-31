@@ -1,0 +1,11 @@
+{
+  SolverFactory<Solution_> solverFactory=SolverFactory.createEmpty();
+  SolverConfig solverConfig=solverFactory.getSolverConfig();
+  solverConfig.setSolutionClass(solutionClass);
+  solverConfig.setEntityClassList(Arrays.asList(entityClasses));
+  ScoreDirectorFactoryConfig scoreDirectorFactoryConfig=new ScoreDirectorFactoryConfig();
+  scoreDirectorFactoryConfig.setScoreDefinitionType(ScoreDefinitionType.SIMPLE);
+  scoreDirectorFactoryConfig.setEasyScoreCalculatorClass(DummySimpleScoreEasyScoreCalculator.class);
+  solverConfig.setScoreDirectorFactoryConfig(scoreDirectorFactoryConfig);
+  return solverFactory;
+}

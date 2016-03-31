@@ -9,7 +9,8 @@
   }
   try {
     Method getProblemFactsMethod=solutionClass.getMethod("getProblemFacts");
-    registerProblemFactPropertyAccessor(ProblemFactCollectionProperty.class,new MethodMemberAccessor(getProblemFactsMethod));
+    MemberAccessor problemFactsMemberAccessor=new BeanPropertyMemberAccessor(getProblemFactsMethod);
+    problemFactCollectionMemberAccessorMap.put(problemFactsMemberAccessor.getName(),problemFactsMemberAccessor);
   }
  catch (  NoSuchMethodException e) {
     throw new IllegalStateException("Impossible situation: the solutionClass (" + solutionClass + ") which implements the legacy interface "+ Solution.class.getSimpleName()+ ", lacks its getProblemFacts() method.",e);

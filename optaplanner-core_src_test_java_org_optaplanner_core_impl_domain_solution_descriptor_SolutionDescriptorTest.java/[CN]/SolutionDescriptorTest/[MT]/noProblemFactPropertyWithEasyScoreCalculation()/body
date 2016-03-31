@@ -1,0 +1,4 @@
+{
+  SolverFactory<TestdataNoProblemFactPropertySolution> solverFactory=PlannerTestUtils.buildSolverFactoryWithEasyScoreDirector(TestdataNoProblemFactPropertySolution.class,TestdataEntity.class);
+  solverFactory.buildSolver();
+}

@@ -1,0 +1,3 @@
+{
+  return SolutionDescriptor.buildSolutionDescriptor(TestdataProblemFactCollectionPropertyWithArgumentSolution.class,TestdataEntity.class);
+}

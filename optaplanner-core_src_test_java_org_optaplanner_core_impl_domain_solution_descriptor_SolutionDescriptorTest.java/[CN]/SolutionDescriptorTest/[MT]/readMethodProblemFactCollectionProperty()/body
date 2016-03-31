@@ -1,0 +1,5 @@
+{
+  SolutionDescriptor<TestdataReadMethodProblemFactCollectionPropertySolution> solutionDescriptor=TestdataReadMethodProblemFactCollectionPropertySolution.buildSolutionDescriptor();
+  assertMapContainsKeysExactly(solutionDescriptor.getProblemFactMemberAccessorMap());
+  assertMapContainsKeysExactly(solutionDescriptor.getProblemFactCollectionMemberAccessorMap(),"valueList","createProblemFacts");
+}

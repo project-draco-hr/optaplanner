@@ -1,6 +1,0 @@
-Class<? extends Annotation> annotationClass
-MemberAccessor memberAccessor
-Map<String,MemberAccessor> propertyAccessorMap
-Map<String,MemberAccessor> collectionPropertyAccessorMap
-Class<? extends Annotation> propertyAnnotationClass
-Class<? extends Annotation> collectionPropertyAnnotationClass

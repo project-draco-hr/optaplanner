@@ -1,7 +1,16 @@
 {
-  Class<? extends Annotation> factPropertyAnnotationClass=ConfigUtils.extractAnnotationClass(member,ProblemFactProperty.class,ProblemFactCollectionProperty.class);
-  if (factPropertyAnnotationClass != null) {
-    MemberAccessor memberAccessor=ConfigUtils.buildMemberAccessor(member,FIELD_OR_READ_METHOD,factPropertyAnnotationClass);
-    registerProblemFactPropertyAccessor(factPropertyAnnotationClass,memberAccessor);
+  Class<? extends Annotation> annotationClass=ConfigUtils.extractAnnotationClass(member,ProblemFactProperty.class,ProblemFactCollectionProperty.class);
+  if (annotationClass != null) {
+    MemberAccessor memberAccessor=ConfigUtils.buildMemberAccessor(member,FIELD_OR_READ_METHOD,annotationClass);
+    assertUnexistingProblemFactOrPlanningEntityProperty(memberAccessor,annotationClass);
+    if (annotationClass == ProblemFactProperty.class) {
+      problemFactMemberAccessorMap.put(memberAccessor.getName(),memberAccessor);
+    }
+ else     if (annotationClass == ProblemFactCollectionProperty.class) {
+      if (!Collection.class.isAssignableFrom(memberAccessor.getType())) {
+        throw new IllegalStateException("The solutionClass (" + solutionClass + ") has a "+ ProblemFactCollectionProperty.class.getSimpleName()+ " annotated member ("+ member+ ") that does not return a "+ Collection.class.getSimpleName()+ ".");
+      }
+      problemFactCollectionMemberAccessorMap.put(memberAccessor.getName(),memberAccessor);
+    }
   }
 }

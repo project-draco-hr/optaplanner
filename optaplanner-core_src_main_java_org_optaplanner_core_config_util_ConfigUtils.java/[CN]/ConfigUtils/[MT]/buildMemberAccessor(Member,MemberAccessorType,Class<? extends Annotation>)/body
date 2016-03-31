@@ -8,12 +8,17 @@
     MemberAccessor memberAccessor;
 switch (memberAccessorType) {
 case FIELD_OR_READ_METHOD:
-      ReflectionHelper.assertReadMethod(method,annotationClass);
-    memberAccessor=new MethodMemberAccessor(method);
-  break;
+      if (ReflectionHelper.isGetterMethod(method)) {
+        memberAccessor=new BeanPropertyMemberAccessor(method);
+      }
+ else {
+        ReflectionHelper.assertReadMethod(method,annotationClass);
+        memberAccessor=new MethodMemberAccessor(method);
+      }
+    break;
 case FIELD_OR_GETTER_METHOD:
 case FIELD_OR_GETTER_METHOD_WITH_SETTER:
-ReflectionHelper.assertGetterMethod(method,annotationClass);
+  ReflectionHelper.assertGetterMethod(method,annotationClass);
 memberAccessor=new BeanPropertyMemberAccessor(method);
 break;
 default :
