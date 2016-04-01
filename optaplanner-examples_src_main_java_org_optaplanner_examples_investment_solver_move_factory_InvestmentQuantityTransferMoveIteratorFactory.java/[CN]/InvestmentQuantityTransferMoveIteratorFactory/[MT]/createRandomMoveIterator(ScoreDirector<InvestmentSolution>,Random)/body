@@ -1,5 +1,5 @@
 {
-  InvestmentSolution solution=(InvestmentSolution)scoreDirector.getWorkingSolution();
+  InvestmentSolution solution=scoreDirector.getWorkingSolution();
   List<AssetClassAllocation> allocationList=solution.getAssetClassAllocationList();
   NavigableMap<Long,AssetClassAllocation> quantityMillisIncrementToAllocationMap=new TreeMap<>();
   long quantityIncrementMillis=0L;

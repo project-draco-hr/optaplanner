@@ -1,5 +1,5 @@
 {
-  CheapTimeSolution cheapTimeSolution=(CheapTimeSolution)scoreDirector.getWorkingSolution();
+  CheapTimeSolution cheapTimeSolution=scoreDirector.getWorkingSolution();
   Map<Machine,List<TaskAssignment>> positivePillarMap=new LinkedHashMap<>(cheapTimeSolution.getGlobalPeriodRangeTo());
   Map<Machine,List<TaskAssignment>> negativePillarMap=new LinkedHashMap<>(cheapTimeSolution.getGlobalPeriodRangeTo());
   List<TaskAssignment> taskAssignmentList=cheapTimeSolution.getTaskAssignmentList();
