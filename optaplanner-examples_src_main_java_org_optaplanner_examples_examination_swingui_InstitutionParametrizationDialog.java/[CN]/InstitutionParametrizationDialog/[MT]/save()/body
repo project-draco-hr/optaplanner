@@ -1,28 +1,2 @@
 {
-  final int twoInARowPenalty=(Integer)twoInARowPenaltyField.getValue();
-  final int twoInADayPenalty=(Integer)twoInADayPenaltyField.getValue();
-  final int periodSpreadLength=(Integer)periodSpreadLengthField.getValue();
-  final int periodSpreadPenalty=(Integer)periodSpreadPenaltyField.getValue();
-  final int mixedDurationPenalty=(Integer)mixedDurationPenaltyField.getValue();
-  final int frontLoadLargeTopicSize=(Integer)frontLoadLargeTopicSizeField.getValue();
-  final int frontLoadLastPeriodSize=(Integer)frontLoadLastPeriodSizeField.getValue();
-  final int frontLoadPenalty=(Integer)frontLoadPenaltyField.getValue();
-  setVisible(false);
-  examinationPanel.doProblemFactChange(new ProblemFactChange(){
-    public void doChange(    ScoreDirector scoreDirector){
-      Examination examination=(Examination)scoreDirector.getWorkingSolution();
-      InstitutionParametrization institutionParametrization=examination.getInstitutionParametrization();
-      scoreDirector.beforeProblemFactChanged(institutionParametrization);
-      institutionParametrization.setTwoInARowPenalty(twoInARowPenalty);
-      institutionParametrization.setTwoInADayPenalty(twoInADayPenalty);
-      institutionParametrization.setPeriodSpreadLength(periodSpreadLength);
-      institutionParametrization.setPeriodSpreadPenalty(periodSpreadPenalty);
-      institutionParametrization.setMixedDurationPenalty(mixedDurationPenalty);
-      institutionParametrization.setFrontLoadLargeTopicSize(frontLoadLargeTopicSize);
-      institutionParametrization.setFrontLoadLastPeriodSize(frontLoadLastPeriodSize);
-      institutionParametrization.setFrontLoadPenalty(frontLoadPenalty);
-      scoreDirector.afterProblemFactChanged(institutionParametrization);
-    }
-  }
-,true);
 }

@@ -1,19 +1,2 @@
 {
-  logger.info("Scheduling delete of process ({}).",process);
-  doProblemFactChange(new ProblemFactChange(){
-    public void doChange(    ScoreDirector scoreDirector){
-      CloudBalance cloudBalance=(CloudBalance)scoreDirector.getWorkingSolution();
-      for (Iterator<CloudProcess> it=cloudBalance.getProcessList().iterator(); it.hasNext(); ) {
-        CloudProcess workingProcess=it.next();
-        if (Objects.equals(workingProcess,process)) {
-          scoreDirector.beforeEntityRemoved(workingProcess);
-          it.remove();
-          scoreDirector.afterEntityRemoved(workingProcess);
-          break;
-        }
-      }
-      scoreDirector.triggerVariableListeners();
-    }
-  }
-);
 }

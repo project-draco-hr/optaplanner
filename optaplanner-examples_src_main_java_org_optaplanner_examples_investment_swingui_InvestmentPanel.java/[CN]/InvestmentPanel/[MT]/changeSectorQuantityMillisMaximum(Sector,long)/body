@@ -1,16 +1,2 @@
 {
-  doProblemFactChange(new ProblemFactChange(){
-    public void doChange(    ScoreDirector scoreDirector){
-      InvestmentSolution solution=(InvestmentSolution)scoreDirector.getWorkingSolution();
-      for (      Sector workingSector : solution.getSectorList()) {
-        if (sector.getId().equals(workingSector.getId())) {
-          scoreDirector.beforeProblemFactChanged(workingSector);
-          workingSector.setQuantityMillisMaximum(quantityMillisMaximum);
-          scoreDirector.afterProblemFactChanged(workingSector);
-          break;
-        }
-      }
-    }
-  }
-,true);
 }

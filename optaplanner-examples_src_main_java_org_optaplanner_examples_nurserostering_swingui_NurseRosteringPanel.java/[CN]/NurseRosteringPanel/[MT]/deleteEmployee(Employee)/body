@@ -1,27 +1,2 @@
 {
-  logger.info("Scheduling delete of employee ({}).",employee);
-  doProblemFactChange(new ProblemFactChange(){
-    public void doChange(    ScoreDirector scoreDirector){
-      NurseRoster nurseRoster=(NurseRoster)scoreDirector.getWorkingSolution();
-      for (      ShiftAssignment shiftAssignment : nurseRoster.getShiftAssignmentList()) {
-        if (Objects.equals(shiftAssignment.getEmployee(),employee)) {
-          scoreDirector.beforeVariableChanged(shiftAssignment,"employee");
-          shiftAssignment.setEmployee(null);
-          scoreDirector.afterVariableChanged(shiftAssignment,"employee");
-        }
-      }
-      scoreDirector.triggerVariableListeners();
-      nurseRoster.setEmployeeList(new ArrayList<>(nurseRoster.getEmployeeList()));
-      for (Iterator<Employee> it=nurseRoster.getEmployeeList().iterator(); it.hasNext(); ) {
-        Employee workingEmployee=it.next();
-        if (Objects.equals(workingEmployee,employee)) {
-          scoreDirector.beforeProblemFactRemoved(workingEmployee);
-          it.remove();
-          scoreDirector.afterProblemFactRemoved(employee);
-          break;
-        }
-      }
-    }
-  }
-);
 }

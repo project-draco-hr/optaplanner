@@ -8,7 +8,7 @@
     solverScope.setWorkingSolutionFromBestSolution();
     Score score=null;
     int stepIndex=0;
-    ProblemFactChange problemFactChange=problemFactChangeQueue.poll();
+    ProblemFactChange<Solution_> problemFactChange=problemFactChangeQueue.poll();
     while (problemFactChange != null) {
       score=doProblemFactChange(problemFactChange,stepIndex);
       stepIndex++;

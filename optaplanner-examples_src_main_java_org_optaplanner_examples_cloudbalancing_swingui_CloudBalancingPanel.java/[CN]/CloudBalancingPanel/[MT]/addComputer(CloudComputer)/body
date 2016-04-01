@@ -1,20 +1,2 @@
 {
-  logger.info("Scheduling addition of computer ({}).",computer);
-  doProblemFactChange(new ProblemFactChange(){
-    public void doChange(    ScoreDirector scoreDirector){
-      CloudBalance cloudBalance=(CloudBalance)scoreDirector.getWorkingSolution();
-      long nextComputerId=0L;
-      for (      CloudComputer otherComputer : cloudBalance.getComputerList()) {
-        if (nextComputerId <= otherComputer.getId()) {
-          nextComputerId=otherComputer.getId() + 1L;
-        }
-      }
-      computer.setId(nextComputerId);
-      cloudBalance.setComputerList(new ArrayList<>(cloudBalance.getComputerList()));
-      scoreDirector.beforeProblemFactAdded(computer);
-      cloudBalance.getComputerList().add(computer);
-      scoreDirector.afterProblemFactAdded(computer);
-    }
-  }
-);
 }

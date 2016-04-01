@@ -1,16 +1,2 @@
 {
-  doProblemFactChange(new ProblemFactChange(){
-    public void doChange(    ScoreDirector scoreDirector){
-      InvestmentSolution solution=(InvestmentSolution)scoreDirector.getWorkingSolution();
-      for (      Region workingRegion : solution.getRegionList()) {
-        if (region.getId().equals(workingRegion.getId())) {
-          scoreDirector.beforeProblemFactChanged(workingRegion);
-          workingRegion.setQuantityMillisMaximum(quantityMillisMaximum);
-          scoreDirector.afterProblemFactChanged(workingRegion);
-          break;
-        }
-      }
-    }
-  }
-,true);
 }

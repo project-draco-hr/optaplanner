@@ -1,20 +1,2 @@
 {
-  logger.info("Scheduling addition of process ({}).",process);
-  doProblemFactChange(new ProblemFactChange(){
-    public void doChange(    ScoreDirector scoreDirector){
-      CloudBalance cloudBalance=(CloudBalance)scoreDirector.getWorkingSolution();
-      long nextProcessId=0L;
-      for (      CloudProcess otherProcess : cloudBalance.getProcessList()) {
-        if (nextProcessId <= otherProcess.getId()) {
-          nextProcessId=otherProcess.getId() + 1L;
-        }
-      }
-      process.setId(nextProcessId);
-      scoreDirector.beforeEntityAdded(process);
-      cloudBalance.getProcessList().add(process);
-      scoreDirector.afterEntityAdded(process);
-      scoreDirector.triggerVariableListeners();
-    }
-  }
-);
 }

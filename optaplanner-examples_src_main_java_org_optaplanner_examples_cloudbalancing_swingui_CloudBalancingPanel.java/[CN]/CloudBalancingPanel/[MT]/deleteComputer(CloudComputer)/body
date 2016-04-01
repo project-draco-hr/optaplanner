@@ -1,27 +1,2 @@
 {
-  logger.info("Scheduling delete of computer ({}).",computer);
-  doProblemFactChange(new ProblemFactChange(){
-    public void doChange(    ScoreDirector scoreDirector){
-      CloudBalance cloudBalance=(CloudBalance)scoreDirector.getWorkingSolution();
-      for (      CloudProcess process : cloudBalance.getProcessList()) {
-        if (Objects.equals(process.getComputer(),computer)) {
-          scoreDirector.beforeVariableChanged(process,"computer");
-          process.setComputer(null);
-          scoreDirector.afterVariableChanged(process,"computer");
-        }
-      }
-      scoreDirector.triggerVariableListeners();
-      cloudBalance.setComputerList(new ArrayList<>(cloudBalance.getComputerList()));
-      for (Iterator<CloudComputer> it=cloudBalance.getComputerList().iterator(); it.hasNext(); ) {
-        CloudComputer workingComputer=it.next();
-        if (Objects.equals(workingComputer,computer)) {
-          scoreDirector.beforeProblemFactRemoved(workingComputer);
-          it.remove();
-          scoreDirector.afterProblemFactRemoved(workingComputer);
-          break;
-        }
-      }
-    }
-  }
-);
 }
