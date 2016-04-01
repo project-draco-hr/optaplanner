@@ -1,4 +1,0 @@
-{
-  NurseRoster nurseRoster=(NurseRoster)scoreDirector.getWorkingSolution();
-  return accept(nurseRoster,shiftAssignment);
-}

@@ -1,0 +1,19 @@
+{
+  MachineReassignment machineReassignment=scoreDirector.getWorkingSolution();
+  MrMachine machine=processAssignment.getMachine();
+  long[] usage=new long[machineReassignment.getResourceList().size()];
+  for (  MrProcessAssignment someProcessAssignment : machineReassignment.getProcessAssignmentList()) {
+    if (someProcessAssignment.getMachine() == machine) {
+      MrProcess process=someProcessAssignment.getProcess();
+      for (      MrResource resource : machineReassignment.getResourceList()) {
+        usage[resource.getIndex()]+=process.getUsage(resource);
+      }
+    }
+  }
+  double sum=0.0;
+  for (  MrResource resource : machineReassignment.getResourceList()) {
+    double available=(double)(machine.getMachineCapacity(resource).getSafetyCapacity() - usage[resource.getIndex()]);
+    sum+=(available * available);
+  }
+  return sum + 1.0;
+}
