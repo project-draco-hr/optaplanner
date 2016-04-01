@@ -21,7 +21,7 @@
     Customer varNext=varCustomer.getNextCustomer();
     inputCustomer.setNextCustomer(varNext == null ? null : inputCustomerMap.get(varNext.getId()));
   }
-  ScoreDirector scoreDirector=scoreDirectorFactory.buildScoreDirector();
+  ScoreDirector<VehicleRoutingSolution> scoreDirector=scoreDirectorFactory.buildScoreDirector();
   scoreDirector.setWorkingSolution(inputSolution);
   scoreDirector.calculateScore();
 }

@@ -1,5 +1,5 @@
 {
   vehicleRoutingDao=new VehicleRoutingDao();
-  SolverFactory solverFactory=SolverFactory.createFromXmlResource(VehicleRoutingApp.SOLVER_CONFIG);
+  SolverFactory<VehicleRoutingSolution> solverFactory=SolverFactory.createFromXmlResource(VehicleRoutingApp.SOLVER_CONFIG);
   scoreDirectorFactory=solverFactory.buildSolver().getScoreDirectorFactory();
 }
