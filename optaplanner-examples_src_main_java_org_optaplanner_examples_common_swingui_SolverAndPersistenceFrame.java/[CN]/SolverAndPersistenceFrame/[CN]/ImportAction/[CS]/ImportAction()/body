@@ -10,10 +10,10 @@
     FileFilter filter;
     if (importer.isInputFileDirectory()) {
       filter=new FileFilter(){
-        public boolean accept(        File file){
+        @Override public boolean accept(        File file){
           return file.isDirectory();
         }
-        public String getDescription(){
+        @Override public String getDescription(){
           return "Import directory";
         }
       }
@@ -22,10 +22,10 @@
     }
  else {
       filter=new FileFilter(){
-        public boolean accept(        File file){
+        @Override public boolean accept(        File file){
           return file.isDirectory() || importer.acceptInputFile(file);
         }
-        public String getDescription(){
+        @Override public String getDescription(){
           return "Import files (*." + importer.getInputFileSuffix() + ")";
         }
       }

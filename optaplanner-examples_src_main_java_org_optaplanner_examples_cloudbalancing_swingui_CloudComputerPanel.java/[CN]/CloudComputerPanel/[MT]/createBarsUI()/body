@@ -13,7 +13,7 @@
   networkBandwidthBar.setEnabled(false);
   add(networkBandwidthBar);
   detailsButton=new JButton(new AbstractAction("Details"){
-    public void actionPerformed(    ActionEvent e){
+    @Override public void actionPerformed(    ActionEvent e){
       CloudProcessListDialog processListDialog=new CloudProcessListDialog();
       processListDialog.setLocationRelativeTo(getRootPane());
       processListDialog.setVisible(true);

@@ -35,7 +35,7 @@
     JScrollPane detailScrollPane=new JScrollPane(detailTextArea);
     bottomPanel.add(detailScrollPane,BorderLayout.CENTER);
     table.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
-      public void valueChanged(      ListSelectionEvent event){
+      @Override public void valueChanged(      ListSelectionEvent event){
         int selectedRow=table.getSelectedRow();
         if (selectedRow < 0) {
           detailTextArea.setText("");

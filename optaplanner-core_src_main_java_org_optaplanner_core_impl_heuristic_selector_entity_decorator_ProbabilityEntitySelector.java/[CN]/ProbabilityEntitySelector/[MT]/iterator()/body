@@ -1,14 +1,14 @@
 {
   return new Iterator<Object>(){
-    public boolean hasNext(){
+    @Override public boolean hasNext(){
       return true;
     }
-    public Object next(){
+    @Override public Object next(){
       double randomOffset=RandomUtils.nextDouble(workingRandom,probabilityWeightTotal);
       Map.Entry<Double,Object> entry=cachedEntityMap.floorEntry(randomOffset);
       return entry.getValue();
     }
-    public void remove(){
+    @Override public void remove(){
       throw new UnsupportedOperationException("The optional operation remove() is not supported.");
     }
   }

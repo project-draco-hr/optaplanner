@@ -1,7 +1,7 @@
 {
   softScore+=weight;
   registerDoubleConstraintMatch(kcontext,1,weight,new DoubleConstraintUndoListener(){
-    public void undo(){
+    @Override public void undo(){
       softScore-=weight;
     }
   }

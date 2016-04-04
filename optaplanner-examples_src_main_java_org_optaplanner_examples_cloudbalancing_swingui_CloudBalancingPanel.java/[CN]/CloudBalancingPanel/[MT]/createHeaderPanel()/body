@@ -4,7 +4,7 @@
   JButton addComputerButton=SwingUtils.makeSmallButton(new JButton(addCloudComputerIcon));
   addComputerButton.setToolTipText("Add computer");
   addComputerButton.addActionListener(new ActionListener(){
-    public void actionPerformed(    ActionEvent e){
+    @Override public void actionPerformed(    ActionEvent e){
       CloudComputer computer=new CloudComputer();
       computer.setCpuPower(12);
       computer.setMemory(32);
@@ -18,7 +18,7 @@
   JButton addProcessButton=SwingUtils.makeSmallButton(new JButton(addCloudProcessIcon));
   addProcessButton.setToolTipText("Add process");
   addProcessButton.addActionListener(new ActionListener(){
-    public void actionPerformed(    ActionEvent e){
+    @Override public void actionPerformed(    ActionEvent e){
       CloudProcess process=new CloudProcess();
       process.setRequiredCpuPower(3);
       process.setRequiredMemory(8);

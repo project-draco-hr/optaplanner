@@ -1,7 +1,7 @@
 {
   SimpleLongScore input=SimpleLongScore.valueOf(123L);
   PlannerTestUtils.serializeAndDeserializeWithAll(input,new PlannerTestUtils.OutputAsserter<SimpleLongScore>(){
-    public void assertOutput(    SimpleLongScore output){
+    @Override public void assertOutput(    SimpleLongScore output){
       assertEquals(123L,output.getScore());
     }
   }

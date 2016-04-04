@@ -1,7 +1,7 @@
 {
   hardScores[hardLevel]=hardScores[hardLevel].add(weight);
   registerBigDecimalConstraintMatch(kcontext,hardLevel,weight,new BigDecimalConstraintUndoListener(){
-    public void undo(){
+    @Override public void undo(){
       hardScores[hardLevel]=hardScores[hardLevel].subtract(weight);
     }
   }

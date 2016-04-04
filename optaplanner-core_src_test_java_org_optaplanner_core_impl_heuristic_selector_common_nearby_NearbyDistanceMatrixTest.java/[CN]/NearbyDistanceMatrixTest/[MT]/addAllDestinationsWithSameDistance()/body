@@ -5,7 +5,7 @@
   final MatrixTestdataObject d=new MatrixTestdataObject("d",3,new double[]{1.0,1.0,3.0,0.0});
   List<Object> entityList=Arrays.<Object>asList(a,b,c,d);
   NearbyDistanceMeter<MatrixTestdataObject,MatrixTestdataObject> meter=new NearbyDistanceMeter<MatrixTestdataObject,MatrixTestdataObject>(){
-    public double getNearbyDistance(    MatrixTestdataObject origin,    MatrixTestdataObject destination){
+    @Override public double getNearbyDistance(    MatrixTestdataObject origin,    MatrixTestdataObject destination){
       return origin.distances[destination.index];
     }
   }

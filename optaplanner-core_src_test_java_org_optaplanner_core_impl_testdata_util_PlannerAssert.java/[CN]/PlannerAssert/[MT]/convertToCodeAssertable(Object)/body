@@ -7,7 +7,7 @@
     ChangeMove changeMove=(ChangeMove)o;
     final String code=convertToCodeAssertable(changeMove.getEntity()).getCode() + "->" + convertToCodeAssertable(changeMove.getToPlanningValue()).getCode();
     return new CodeAssertable(){
-      public String getCode(){
+      @Override public String getCode(){
         return code;
       }
     }
@@ -17,7 +17,7 @@
     SwapMove swapMove=(SwapMove)o;
     final String code=convertToCodeAssertable(swapMove.getLeftEntity()).getCode() + "<->" + convertToCodeAssertable(swapMove.getRightEntity()).getCode();
     return new CodeAssertable(){
-      public String getCode(){
+      @Override public String getCode(){
         return code;
       }
     }
@@ -31,7 +31,7 @@
     }
     final String code=codeBuilder.substring(1);
     return new CodeAssertable(){
-      public String getCode(){
+      @Override public String getCode(){
         return code;
       }
     }
@@ -53,7 +53,7 @@
     codeBuilder.append("]");
     final String code=codeBuilder.toString();
     return new CodeAssertable(){
-      public String getCode(){
+      @Override public String getCode(){
         return code;
       }
     }
@@ -63,7 +63,7 @@
     SubChain subChain=(SubChain)o;
     final String code=convertToCodeAssertable(subChain.getEntityList()).getCode();
     return new CodeAssertable(){
-      public String getCode(){
+      @Override public String getCode(){
         return code;
       }
     }

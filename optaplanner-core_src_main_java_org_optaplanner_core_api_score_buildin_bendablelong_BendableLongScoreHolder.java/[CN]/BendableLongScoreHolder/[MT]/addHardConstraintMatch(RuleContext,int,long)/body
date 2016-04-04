@@ -1,7 +1,7 @@
 {
   hardScores[hardLevel]+=weight;
   registerLongConstraintMatch(kcontext,hardLevel,weight,new LongConstraintUndoListener(){
-    public void undo(){
+    @Override public void undo(){
       hardScores[hardLevel]-=weight;
     }
   }

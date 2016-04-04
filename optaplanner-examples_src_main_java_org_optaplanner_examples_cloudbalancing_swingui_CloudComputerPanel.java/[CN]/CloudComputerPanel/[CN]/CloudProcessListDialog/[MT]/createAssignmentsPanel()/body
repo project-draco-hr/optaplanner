@@ -11,7 +11,7 @@
     JButton deleteButton=SwingUtils.makeSmallButton(new JButton(cloudBalancingPanel.getDeleteCloudProcessIcon()));
     deleteButton.setToolTipText("Delete");
     deleteButton.addActionListener(new ActionListener(){
-      public void actionPerformed(      ActionEvent e){
+      @Override public void actionPerformed(      ActionEvent e){
         cloudBalancingPanel.deleteProcess(process);
         CloudProcessListDialog.this.dispose();
       }

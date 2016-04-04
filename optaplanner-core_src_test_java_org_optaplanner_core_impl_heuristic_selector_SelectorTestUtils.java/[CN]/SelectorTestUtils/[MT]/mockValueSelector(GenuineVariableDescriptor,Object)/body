@@ -3,7 +3,7 @@
   when(valueSelector.getVariableDescriptor()).thenReturn(variableDescriptor);
   final List<Object> valueList=Arrays.<Object>asList(values);
   when(valueSelector.iterator(any())).thenAnswer(new Answer<Iterator<Object>>(){
-    public Iterator<Object> answer(    InvocationOnMock invocation) throws Throwable {
+    @Override public Iterator<Object> answer(    InvocationOnMock invocation) throws Throwable {
       return valueList.iterator();
     }
   }

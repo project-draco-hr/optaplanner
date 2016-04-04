@@ -1,14 +1,14 @@
 {
   return new Iterator<Move>(){
-    public boolean hasNext(){
+    @Override public boolean hasNext(){
       return true;
     }
-    public Move next(){
+    @Override public Move next(){
       double randomOffset=RandomUtils.nextDouble(workingRandom,probabilityWeightTotal);
       Map.Entry<Double,Move> entry=cachedMoveMap.floorEntry(randomOffset);
       return entry.getValue();
     }
-    public void remove(){
+    @Override public void remove(){
       throw new UnsupportedOperationException("The optional operation remove() is not supported.");
     }
   }

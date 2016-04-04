@@ -22,7 +22,7 @@
     room.getBedList().add(bed);
   }
   Collections.sort(bedList,new Comparator<Bed>(){
-    public int compare(    Bed a,    Bed b){
+    @Override public int compare(    Bed a,    Bed b){
       return new CompareToBuilder().append(a.getRoom().getDepartment().getId(),b.getRoom().getDepartment().getId()).append(a.getRoom().getId(),b.getRoom().getId()).append(a.getIndexInRoom(),b.getIndexInRoom()).append(a.getId(),b.getId()).toComparison();
     }
   }

@@ -10,7 +10,7 @@
   }
   for (  List<BedDesignation> bedDesignationListPerBed : bedToBedDesignationList.values()) {
     Collections.sort(bedDesignationListPerBed,new Comparator<BedDesignation>(){
-      public int compare(      BedDesignation a,      BedDesignation b){
+      @Override public int compare(      BedDesignation a,      BedDesignation b){
         return new CompareToBuilder().append(a.getAdmissionPart().getFirstNight(),b.getAdmissionPart().getFirstNight()).append(a.getAdmissionPart().getLastNight(),b.getAdmissionPart().getLastNight()).append(a.getAdmissionPart(),b.getAdmissionPart()).toComparison();
       }
     }

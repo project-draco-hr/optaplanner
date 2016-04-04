@@ -1,7 +1,7 @@
 {
   softScores[softLevel]+=weight;
   registerIntConstraintMatch(kcontext,getHardLevelsSize() + softLevel,weight,new IntConstraintUndoListener(){
-    public void undo(){
+    @Override public void undo(){
       softScores[softLevel]-=weight;
     }
   }

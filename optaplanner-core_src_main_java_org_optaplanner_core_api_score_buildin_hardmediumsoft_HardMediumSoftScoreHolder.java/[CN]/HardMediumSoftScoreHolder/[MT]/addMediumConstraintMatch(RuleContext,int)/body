@@ -1,7 +1,7 @@
 {
   mediumScore+=weight;
   registerIntConstraintMatch(kcontext,1,weight,new IntConstraintUndoListener(){
-    public void undo(){
+    @Override public void undo(){
       mediumScore-=weight;
     }
   }

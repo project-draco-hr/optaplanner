@@ -1,7 +1,7 @@
 {
   softScore=(softScore == null) ? weight : softScore.add(weight);
   registerBigDecimalConstraintMatch(kcontext,1,weight,new BigDecimalConstraintUndoListener(){
-    public void undo(){
+    @Override public void undo(){
       softScore=softScore.subtract(weight);
     }
   }

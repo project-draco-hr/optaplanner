@@ -9,7 +9,7 @@
   GenuineVariableDescriptor variableDescriptor=TestdataEntity.buildVariableDescriptorForValue();
   EntityIndependentValueSelector childValueSelector=SelectorTestUtils.mockEntityIndependentValueSelector(variableDescriptor,morocco,spain,australia,brazil);
   NearbyDistanceMeter meter=new NearbyDistanceMeter<TestdataEntity,TestdataValue>(){
-    public double getNearbyDistance(    TestdataEntity origin,    TestdataValue destination){
+    @Override public double getNearbyDistance(    TestdataEntity origin,    TestdataValue destination){
       if (origin == africa) {
         if (destination == morocco) {
           return 0.0;

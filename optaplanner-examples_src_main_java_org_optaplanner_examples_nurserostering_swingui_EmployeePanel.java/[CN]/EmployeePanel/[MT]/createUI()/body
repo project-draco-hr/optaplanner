@@ -11,7 +11,7 @@
     deleteButton=SwingUtils.makeSmallButton(new JButton(nurseRosteringPanel.getDeleteEmployeeIcon()));
     deleteButton.setToolTipText("Delete");
     deleteButton.addActionListener(new ActionListener(){
-      public void actionPerformed(      ActionEvent e){
+      @Override public void actionPerformed(      ActionEvent e){
         nurseRosteringPanel.deleteEmployee(employee);
       }
     }

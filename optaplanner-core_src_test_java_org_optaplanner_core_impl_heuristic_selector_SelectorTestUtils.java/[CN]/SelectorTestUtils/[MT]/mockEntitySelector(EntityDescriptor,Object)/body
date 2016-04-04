@@ -3,13 +3,13 @@
   when(entitySelector.getEntityDescriptor()).thenReturn(entityDescriptor);
   final List<Object> entityList=Arrays.<Object>asList(entities);
   when(entitySelector.iterator()).thenAnswer(new Answer<Iterator<Object>>(){
-    public Iterator<Object> answer(    InvocationOnMock invocation) throws Throwable {
+    @Override public Iterator<Object> answer(    InvocationOnMock invocation) throws Throwable {
       return entityList.iterator();
     }
   }
 );
   when(entitySelector.listIterator()).thenAnswer(new Answer<ListIterator<Object>>(){
-    public ListIterator<Object> answer(    InvocationOnMock invocation) throws Throwable {
+    @Override public ListIterator<Object> answer(    InvocationOnMock invocation) throws Throwable {
       return entityList.listIterator();
     }
   }
@@ -17,14 +17,14 @@
   for (int i=0; i < entityList.size(); i++) {
     final int index=i;
     when(entitySelector.listIterator(index)).thenAnswer(new Answer<ListIterator<Object>>(){
-      public ListIterator<Object> answer(      InvocationOnMock invocation) throws Throwable {
+      @Override public ListIterator<Object> answer(      InvocationOnMock invocation) throws Throwable {
         return entityList.listIterator(index);
       }
     }
 );
   }
   when(entitySelector.endingIterator()).thenAnswer(new Answer<Iterator<Object>>(){
-    public Iterator<Object> answer(    InvocationOnMock invocation) throws Throwable {
+    @Override public Iterator<Object> answer(    InvocationOnMock invocation) throws Throwable {
       return entityList.iterator();
     }
   }

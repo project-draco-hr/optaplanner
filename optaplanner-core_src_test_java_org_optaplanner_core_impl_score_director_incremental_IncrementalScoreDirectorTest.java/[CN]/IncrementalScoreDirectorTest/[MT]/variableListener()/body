@@ -19,7 +19,7 @@
   when(scoreDirectorFactory.getSolutionDescriptor()).thenReturn(solutionDescriptor);
   IncrementalScoreCalculator incrementalScoreCalculator=mock(IncrementalScoreCalculator.class);
   IncrementalScoreDirector scoreDirector=new IncrementalScoreDirector(scoreDirectorFactory,false,incrementalScoreCalculator){
-    public Score calculateScore(){
+    @Override public Score calculateScore(){
       return SimpleScore.valueOf(-100);
     }
   }

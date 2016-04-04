@@ -1,7 +1,7 @@
 {
   HardSoftScore input=HardSoftScore.valueOf(-12,3400);
   PlannerTestUtils.serializeAndDeserializeWithAll(input,new PlannerTestUtils.OutputAsserter<HardSoftScore>(){
-    public void assertOutput(    HardSoftScore output){
+    @Override public void assertOutput(    HardSoftScore output){
       assertEquals(-12,output.getHardScore());
       assertEquals(3400,output.getSoftScore());
     }

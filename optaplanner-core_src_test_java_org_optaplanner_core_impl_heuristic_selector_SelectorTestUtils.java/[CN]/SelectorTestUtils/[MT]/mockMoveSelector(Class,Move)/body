@@ -2,7 +2,7 @@
   MoveSelector moveSelector=mock(MoveSelector.class);
   final List<Move> moveList=Arrays.<Move>asList(moves);
   when(moveSelector.iterator()).thenAnswer(new Answer<Iterator<Move>>(){
-    public Iterator<Move> answer(    InvocationOnMock invocation) throws Throwable {
+    @Override public Iterator<Move> answer(    InvocationOnMock invocation) throws Throwable {
       return moveList.iterator();
     }
   }

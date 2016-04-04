@@ -68,7 +68,7 @@
     room.setRoomEquipmentList(roomEquipmentListOfRoom);
   }
   Collections.sort(roomList,new Comparator<Room>(){
-    public int compare(    Room a,    Room b){
+    @Override public int compare(    Room a,    Room b){
       return new CompareToBuilder().append(a.getDepartment().getId(),b.getDepartment().getId()).append(a.getId(),b.getId()).toComparison();
     }
   }

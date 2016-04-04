@@ -5,13 +5,13 @@
     Object entity=entry.getKey();
     final List<Object> valueList=(List<Object>)entry.getValue();
     when(valueSelector.getSize(entity)).thenAnswer(new Answer<Long>(){
-      public Long answer(      InvocationOnMock invocation){
+      @Override public Long answer(      InvocationOnMock invocation){
         return (long)valueList.size();
       }
     }
 );
     when(valueSelector.iterator(entity)).thenAnswer(new Answer<Iterator<Object>>(){
-      public Iterator<Object> answer(      InvocationOnMock invocation){
+      @Override public Iterator<Object> answer(      InvocationOnMock invocation){
         return valueList.iterator();
       }
     }
