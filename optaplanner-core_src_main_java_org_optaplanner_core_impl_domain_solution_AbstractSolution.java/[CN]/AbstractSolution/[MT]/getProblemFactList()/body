@@ -1,5 +1,5 @@
 {
-  List<Object> factList=new ArrayList<>();
-  addProblemFactsFromClass(factList,getClass());
-  return factList;
+  List<Object> problemFactList=new ArrayList<>();
+  addProblemFactsFromClass(problemFactList,getClass());
+  return problemFactList;
 }

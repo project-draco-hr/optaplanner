@@ -1,0 +1,13 @@
+{
+  if (!bottomClass.isAnnotationPresent(annotation)) {
+    return Collections.emptyList();
+  }
+  List<Class<?>> lineageClassList=new ArrayList<>();
+  lineageClassList.add(bottomClass);
+  Class<?> superclass=bottomClass.getSuperclass();
+  lineageClassList.addAll(getAllAnnotatedLineageClasses(superclass,annotation));
+  for (  Class<?> superInterface : bottomClass.getInterfaces()) {
+    lineageClassList.addAll(getAllAnnotatedLineageClasses(superInterface,annotation));
+  }
+  return lineageClassList;
+}

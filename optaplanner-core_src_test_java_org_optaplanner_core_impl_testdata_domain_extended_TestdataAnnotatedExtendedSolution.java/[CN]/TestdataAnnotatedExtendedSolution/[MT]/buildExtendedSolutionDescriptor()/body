@@ -1,0 +1,3 @@
+{
+  return SolutionDescriptor.buildSolutionDescriptor(TestdataAnnotatedExtendedSolution.class,TestdataEntity.class,TestdataAnnotatedExtendedEntity.class);
+}

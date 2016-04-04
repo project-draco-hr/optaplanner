@@ -1,11 +1,13 @@
 {
   processSolutionAnnotations(descriptorPolicy);
-  List<Member> memberList=ConfigUtils.getDeclaredMembers(solutionClass);
-  for (  Member member : memberList) {
-    processValueRangeProviderAnnotation(descriptorPolicy,member);
-    processProblemFactPropertyAnnotation(descriptorPolicy,member);
-    processPlanningEntityPropertyAnnotation(descriptorPolicy,member);
-    processScoreAnnotation(descriptorPolicy,member);
+  for (  Class<?> lineageClass : ConfigUtils.getAllAnnotatedLineageClasses(solutionClass,PlanningSolution.class)) {
+    List<Member> memberList=ConfigUtils.getDeclaredMembers(lineageClass);
+    for (    Member member : memberList) {
+      processValueRangeProviderAnnotation(descriptorPolicy,member);
+      processProblemFactPropertyAnnotation(descriptorPolicy,member);
+      processPlanningEntityPropertyAnnotation(descriptorPolicy,member);
+      processScoreAnnotation(descriptorPolicy,member);
+    }
   }
   if (entityCollectionMemberAccessorMap.isEmpty() && entityMemberAccessorMap.isEmpty()) {
     throw new IllegalStateException("The solutionClass (" + solutionClass + ") must have at least 1 member with a "+ PlanningEntityCollectionProperty.class.getSimpleName()+ " annotation or a "+ PlanningEntityProperty.class.getSimpleName()+ " annotation.");

@@ -1,0 +1,2 @@
+Class<?> bottomClass
+Class<? extends Annotation> annotation

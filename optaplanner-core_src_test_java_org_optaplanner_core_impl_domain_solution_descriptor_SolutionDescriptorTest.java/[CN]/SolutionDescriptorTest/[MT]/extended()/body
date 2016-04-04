@@ -1,0 +1,7 @@
+{
+  SolutionDescriptor<TestdataAnnotatedExtendedSolution> solutionDescriptor=TestdataAnnotatedExtendedSolution.buildExtendedSolutionDescriptor();
+  assertMapContainsKeysExactly(solutionDescriptor.getProblemFactMemberAccessorMap());
+  assertMapContainsKeysExactly(solutionDescriptor.getProblemFactCollectionMemberAccessorMap(),"valueList","subValueList");
+  assertMapContainsKeysExactly(solutionDescriptor.getEntityMemberAccessorMap());
+  assertMapContainsKeysExactly(solutionDescriptor.getEntityCollectionMemberAccessorMap(),"entityList","subEntityList");
+}
