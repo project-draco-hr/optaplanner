@@ -1,0 +1,7 @@
+{
+  SolutionDescriptor<TestdataLegacySolution> solutionDescriptor=TestdataLegacySolution.buildSolutionDescriptor();
+  assertMapContainsKeysExactly(solutionDescriptor.getProblemFactMemberAccessorMap());
+  assertMapContainsKeysExactly(solutionDescriptor.getProblemFactCollectionMemberAccessorMap(),"problemFacts");
+  assertMapContainsKeysExactly(solutionDescriptor.getEntityMemberAccessorMap());
+  assertMapContainsKeysExactly(solutionDescriptor.getEntityCollectionMemberAccessorMap(),"entityList");
+}
