@@ -1,0 +1,4 @@
+{
+  assertEquals(true,new BooleanValueRange().contains(Boolean.FALSE));
+  assertEquals(true,new BooleanValueRange().contains(Boolean.TRUE));
+}

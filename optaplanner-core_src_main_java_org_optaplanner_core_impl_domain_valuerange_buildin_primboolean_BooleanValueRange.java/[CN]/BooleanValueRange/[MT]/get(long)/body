@@ -1,0 +1,6 @@
+{
+  if (index < 0L || index >= 2L) {
+    throw new IndexOutOfBoundsException("The index (" + index + ") must be >= 0 and < 2.");
+  }
+  return index == 0L ? Boolean.FALSE : Boolean.TRUE;
+}

@@ -1,0 +1,13 @@
+{
+  if (!hasNext) {
+    throw new NoSuchElementException();
+  }
+  Boolean next=upcoming;
+  if (upcoming) {
+    hasNext=false;
+  }
+ else {
+    upcoming=Boolean.TRUE;
+  }
+  return next;
+}

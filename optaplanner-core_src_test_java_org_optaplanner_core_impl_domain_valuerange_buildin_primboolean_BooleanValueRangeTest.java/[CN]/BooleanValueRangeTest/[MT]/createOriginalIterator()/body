@@ -1,0 +1,3 @@
+{
+  assertAllElementsOfIterator(new BooleanValueRange().createOriginalIterator(),Boolean.FALSE,Boolean.TRUE);
+}

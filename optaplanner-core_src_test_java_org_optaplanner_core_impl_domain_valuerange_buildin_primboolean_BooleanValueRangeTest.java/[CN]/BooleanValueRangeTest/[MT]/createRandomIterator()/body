@@ -1,0 +1,5 @@
+{
+  Random workingRandom=mock(Random.class);
+  when(workingRandom.nextBoolean()).thenReturn(true,true,false,true);
+  assertElementsOfIterator(new BooleanValueRange().createRandomIterator(workingRandom),Boolean.TRUE,Boolean.TRUE,Boolean.FALSE,Boolean.TRUE);
+}
