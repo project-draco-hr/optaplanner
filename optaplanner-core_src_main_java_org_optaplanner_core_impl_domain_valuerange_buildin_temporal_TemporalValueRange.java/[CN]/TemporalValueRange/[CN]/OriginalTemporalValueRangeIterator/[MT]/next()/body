@@ -1,8 +1,8 @@
 {
-  if (upcoming.until(to,incrementUnit) < 0) {
+  if (upcoming.until(to,incrementUnitType) < 0) {
     throw new NoSuchElementException();
   }
   Temporal next=upcoming;
-  upcoming=upcoming.plus(incrementAmount,incrementUnit);
+  upcoming=upcoming.plus(incrementUnitAmount,incrementUnitType);
   return next;
 }

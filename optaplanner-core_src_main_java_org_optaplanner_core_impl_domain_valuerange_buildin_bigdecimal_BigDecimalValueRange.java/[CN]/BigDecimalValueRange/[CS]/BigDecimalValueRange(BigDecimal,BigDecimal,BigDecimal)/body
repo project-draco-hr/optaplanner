@@ -2,7 +2,7 @@
   this.from=from;
   this.to=to;
   this.incrementUnit=incrementUnit;
-  scale=from.scale();
+  int scale=from.scale();
   if (scale != to.scale()) {
     throw new IllegalArgumentException("The " + getClass().getSimpleName() + " cannot have a to ("+ to+ ") scale ("+ to.scale()+ ") which is different than its from ("+ from+ ") scale ("+ scale+ ").");
   }

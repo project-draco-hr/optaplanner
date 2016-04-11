@@ -1,10 +1,10 @@
 {
-  if (value == null || !value.isSupported(incrementUnit)) {
+  if (value == null || !value.isSupported(incrementUnitType)) {
     return false;
   }
   for (long i=0; i < getSize(); i++) {
-    Temporal temp=get(i);
-    if (value.equals(temp)) {
+    Temporal temporal=get(i);
+    if (value.equals(temporal)) {
       return true;
     }
   }

@@ -1,18 +1,22 @@
 {
   this.from=from;
   this.to=to;
-  this.incrementAmount=incrementAmount;
-  this.incrementUnit=incrementUnit;
-  if (from == null || to == null || incrementUnit == null) {
-    throw new IllegalArgumentException("The " + getClass().getSimpleName() + " must have from ("+ from+ "),  to ("+ to+ "), incrementUnit ("+ incrementUnit+ ") which are not null.");
+  this.incrementUnitAmount=incrementUnitAmount;
+  this.incrementUnitType=incrementUnitType;
+  if (from == null || to == null || incrementUnitType == null) {
+    throw new IllegalArgumentException("The " + getClass().getSimpleName() + " must have a from ("+ from+ "),  to ("+ to+ ") and incrementUnitType ("+ incrementUnitType+ ") that are not null.");
   }
-  if (incrementAmount <= 0) {
-    throw new IllegalArgumentException("The " + getClass().getSimpleName() + " must have strictly positive incrementAmount ("+ incrementAmount+ ").");
+  if (incrementUnitAmount <= 0) {
+    throw new IllegalArgumentException("The " + getClass().getSimpleName() + " must have strictly positive incrementUnitAmount ("+ incrementUnitAmount+ ").");
   }
-  if (!from.isSupported(incrementUnit) || !to.isSupported(incrementUnit)) {
-    throw new IllegalArgumentException("The " + getClass().getSimpleName() + " must have a incrementUnit which is supported by from/to ("+ incrementUnit+ ").");
+  if (!from.isSupported(incrementUnitType) || !to.isSupported(incrementUnitType)) {
+    throw new IllegalArgumentException("The " + getClass().getSimpleName() + " must have a incrementUnitType ("+ incrementUnitType+ ") that is supported by its from ("+ from+ ") and to ("+ to+ ").");
   }
-  if (from.until(to,incrementUnit) < 0) {
+  long space=from.until(to,incrementUnitType);
+  if (space < 0) {
     throw new IllegalArgumentException("The " + getClass().getSimpleName() + " cannot have a from ("+ from+ ") which is strictly higher than its to ("+ to+ ").");
+  }
+  if (space % incrementUnitAmount > 0) {
+    throw new IllegalArgumentException("The " + getClass().getSimpleName() + " 's incrementUnitAmount ("+ incrementUnitAmount+ ") must fit an integer number of times in the space ("+ space+ ") between from ("+ from+ ") and to ("+ to+ ").");
   }
 }

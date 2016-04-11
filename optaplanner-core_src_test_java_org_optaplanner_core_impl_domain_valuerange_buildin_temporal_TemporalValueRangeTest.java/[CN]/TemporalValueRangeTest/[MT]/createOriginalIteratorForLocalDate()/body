@@ -9,10 +9,4 @@
   from=LocalDate.of(1999,9,3);
   to=LocalDate.of(2004,3,12);
   assertAllElementsOfIterator(new TemporalValueRange(from,to,1,ChronoUnit.YEARS).createOriginalIterator(),LocalDate.of(1999,9,3),LocalDate.of(2000,9,3),LocalDate.of(2001,9,3),LocalDate.of(2002,9,3));
-  LocalDateTime fromTime=LocalDateTime.of(2016,7,1,4,5,12);
-  LocalDateTime toTime=LocalDateTime.of(2016,7,3,12,12,17);
-  assertAllElementsOfIterator(new TemporalValueRange(fromTime,toTime,1,ChronoUnit.DAYS).createOriginalIterator(),LocalDateTime.of(2016,7,1,4,5,12),LocalDateTime.of(2016,7,2,4,5,12));
-  fromTime=LocalDateTime.of(2016,7,1,23,5,12);
-  toTime=LocalDateTime.of(2016,7,2,5,12,17);
-  assertAllElementsOfIterator(new TemporalValueRange(fromTime,toTime,1,ChronoUnit.HOURS).createOriginalIterator(),LocalDateTime.of(2016,7,1,23,5,12),LocalDateTime.of(2016,7,2,0,5,12),LocalDateTime.of(2016,7,2,1,5,12),LocalDateTime.of(2016,7,2,2,5,12),LocalDateTime.of(2016,7,2,3,5,12),LocalDateTime.of(2016,7,2,4,5,12));
 }
