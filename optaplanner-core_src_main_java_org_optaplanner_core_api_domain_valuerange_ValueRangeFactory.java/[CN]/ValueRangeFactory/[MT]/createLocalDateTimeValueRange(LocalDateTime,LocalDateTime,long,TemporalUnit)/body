@@ -1,0 +1,3 @@
+{
+  return createTemporalValueRange(from,to,incrementUnitAmount,incrementUnitType);
+}

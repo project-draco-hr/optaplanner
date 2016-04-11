@@ -3,7 +3,7 @@
     return false;
   }
   for (long i=0; i < getSize(); i++) {
-    Temporal temporal=get(i);
+    Temporal_ temporal=get(i);
     if (value.equals(temporal)) {
       return true;
     }

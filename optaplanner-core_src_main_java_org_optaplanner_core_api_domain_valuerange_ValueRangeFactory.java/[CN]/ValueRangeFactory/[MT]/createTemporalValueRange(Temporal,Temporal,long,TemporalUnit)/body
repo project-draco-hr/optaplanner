@@ -1,3 +1,0 @@
-{
-  return new TemporalValueRange(from,to,incrementUnitAmount,incrementUnitType);
-}

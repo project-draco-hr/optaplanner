@@ -2,7 +2,7 @@
   if (upcoming.until(to,incrementUnitType) <= 0) {
     throw new NoSuchElementException();
   }
-  Temporal next=upcoming;
-  upcoming=upcoming.plus(incrementUnitAmount,incrementUnitType);
+  Temporal_ next=upcoming;
+  upcoming=(Temporal_)upcoming.plus(incrementUnitAmount,incrementUnitType);
   return next;
 }
