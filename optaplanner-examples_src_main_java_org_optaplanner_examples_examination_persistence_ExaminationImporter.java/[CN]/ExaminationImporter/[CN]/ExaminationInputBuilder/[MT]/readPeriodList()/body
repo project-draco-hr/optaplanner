@@ -1,10 +1,8 @@
 {
   int periodSize=readHeaderWithNumber("Periods");
   List<Period> periodList=new ArrayList<>(periodSize);
-  Calendar calendar=Calendar.getInstance();
-  final DateFormat DATE_FORMAT=new SimpleDateFormat("dd:MM:yyyy HH:mm:ss");
-  int referenceDayOfYear=-1;
-  int referenceYear=-1;
+  DateTimeFormatter DATE_FORMAT=DateTimeFormatter.ofPattern("dd:MM:yyyy HH:mm:ss",Locale.UK);
+  LocalDateTime referenceDateTime=null;
   for (int i=0; i < periodSize; i++) {
     Period period=new Period();
     period.setId((long)i);
@@ -16,25 +14,17 @@
     String startDateTimeString=lineTokens[0] + " " + lineTokens[1];
     period.setStartDateTimeString(startDateTimeString);
     period.setPeriodIndex(i);
-    int dayOfYear;
-    int year;
+    LocalDateTime dateTime;
     try {
-      calendar.setTime(DATE_FORMAT.parse(startDateTimeString));
-      calendar.get(Calendar.DAY_OF_YEAR);
-      dayOfYear=calendar.get(Calendar.DAY_OF_YEAR);
-      year=calendar.get(Calendar.YEAR);
+      dateTime=LocalDateTime.parse(startDateTimeString,DATE_FORMAT);
     }
- catch (    ParseException e) {
+ catch (    DateTimeParseException e) {
       throw new IllegalArgumentException("Illegal startDateTimeString (" + startDateTimeString + ").",e);
     }
-    if (referenceDayOfYear < 0) {
-      referenceDayOfYear=dayOfYear;
-      referenceYear=year;
+    if (referenceDateTime == null) {
+      referenceDateTime=dateTime;
     }
-    if (year != referenceYear) {
-      throw new IllegalStateException("Not yet implemented to handle periods spread over different years...");
-    }
-    int dayIndex=dayOfYear - referenceDayOfYear;
+    int dayIndex=(int)ChronoUnit.DAYS.between(referenceDateTime,dateTime);
     if (dayIndex < 0) {
       throw new IllegalStateException("The periods should be in ascending order.");
     }
