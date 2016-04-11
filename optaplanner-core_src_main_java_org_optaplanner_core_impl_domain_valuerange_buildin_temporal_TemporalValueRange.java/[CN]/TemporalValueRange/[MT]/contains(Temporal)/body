@@ -1,0 +1,12 @@
+{
+  if (value == null || !value.isSupported(incrementUnit)) {
+    return false;
+  }
+  for (long i=0; i < getSize(); i++) {
+    Temporal temp=get(i);
+    if (value.equals(temp)) {
+      return true;
+    }
+  }
+  return false;
+}

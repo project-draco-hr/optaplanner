@@ -1,0 +1,6 @@
+{
+  if (index >= getSize() || index < 0) {
+    throw new IndexOutOfBoundsException();
+  }
+  return from.plus(index * incrementAmount,incrementUnit);
+}
