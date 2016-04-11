@@ -1,0 +1,5 @@
+{
+  SolutionDescriptor solutionDescriptor=TestdataValueRangeSolution.buildSolutionDescriptor();
+  EntityDescriptor entityDescriptor=solutionDescriptor.findEntityDescriptorOrFail(TestdataValueRangeEntity.class);
+  return entityDescriptor.getGenuineVariableDescriptor("value");
+}

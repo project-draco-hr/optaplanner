@@ -1,0 +1,3 @@
+{
+  return ValueRangeFactory.createTemporalValueRange(LocalDate.of(2000,1,1),LocalDate.of(2000,1,4),1,ChronoUnit.DAYS);
+}
