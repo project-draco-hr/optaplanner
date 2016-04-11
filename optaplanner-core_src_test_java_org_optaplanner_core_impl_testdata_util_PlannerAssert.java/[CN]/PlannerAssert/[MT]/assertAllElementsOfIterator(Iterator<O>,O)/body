@@ -1,4 +1,10 @@
 {
   assertElementsOfIterator(iterator,elements);
   assertFalse(iterator.hasNext());
+  try {
+    iterator.next();
+    fail("The iterator with hasNext() (" + false + ") is expected to throw a "+ NoSuchElementException.class.getSimpleName()+ " when calling next().");
+  }
+ catch (  NoSuchElementException e) {
+  }
 }

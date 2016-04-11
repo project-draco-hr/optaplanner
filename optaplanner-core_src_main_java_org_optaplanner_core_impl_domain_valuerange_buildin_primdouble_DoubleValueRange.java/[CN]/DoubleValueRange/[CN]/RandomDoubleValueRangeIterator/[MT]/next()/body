@@ -1,4 +1,7 @@
 {
+  if (to == from) {
+    throw new NoSuchElementException();
+  }
   double diff=to - from;
   double next=from + diff * workingRandom.nextDouble();
   if (next >= to) {

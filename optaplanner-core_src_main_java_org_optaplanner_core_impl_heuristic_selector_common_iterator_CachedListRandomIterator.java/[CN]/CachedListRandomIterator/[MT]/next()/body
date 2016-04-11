@@ -1,4 +1,7 @@
 {
+  if (empty) {
+    throw new NoSuchElementException();
+  }
   int index=workingRandom.nextInt(cachedList.size());
   return cachedList.get(index);
 }
