@@ -3,9 +3,9 @@
   LocalDate from=LocalDate.of(2016,7,1);
   LocalDate to=LocalDate.of(2016,7,11);
   when(workingRandom.nextInt(anyInt())).thenReturn(3,0);
-  assertElementsOfIterator(new TemporalValueRange(from,to,1,ChronoUnit.DAYS).createRandomIterator(workingRandom),LocalDate.of(2016,7,4));
+  assertElementsOfIterator(new TemporalValueRange<>(from,to,1,ChronoUnit.DAYS).createRandomIterator(workingRandom),LocalDate.of(2016,7,4));
   when(workingRandom.nextInt(anyInt())).thenReturn(0,0);
-  assertElementsOfIterator(new TemporalValueRange(from,to,1,ChronoUnit.DAYS).createRandomIterator(workingRandom),LocalDate.of(2016,7,1));
+  assertElementsOfIterator(new TemporalValueRange<>(from,to,1,ChronoUnit.DAYS).createRandomIterator(workingRandom),LocalDate.of(2016,7,1));
   when(workingRandom.nextInt(anyInt())).thenReturn(1,0);
-  assertElementsOfIterator(new TemporalValueRange(from,to,5,ChronoUnit.DAYS).createRandomIterator(workingRandom),LocalDate.of(2016,7,6));
+  assertElementsOfIterator(new TemporalValueRange<>(from,to,5,ChronoUnit.DAYS).createRandomIterator(workingRandom),LocalDate.of(2016,7,6));
 }

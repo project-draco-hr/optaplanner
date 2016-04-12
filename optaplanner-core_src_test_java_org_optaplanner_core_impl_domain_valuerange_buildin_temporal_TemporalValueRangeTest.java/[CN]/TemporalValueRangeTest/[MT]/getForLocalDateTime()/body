@@ -1,19 +1,19 @@
 {
   LocalDateTime fromTime=LocalDateTime.of(2016,1,1,1,1,1);
   LocalDateTime toTime=LocalDateTime.of(2016,7,7,7,7,7);
-  assertEquals(LocalDateTime.of(2016,1,1,1,1,1),new TemporalValueRange(fromTime,toTime,1,ChronoUnit.SECONDS).get(0));
-  assertEquals(LocalDateTime.of(2016,1,1,1,1,1),new TemporalValueRange(fromTime,toTime,1,ChronoUnit.MINUTES).get(0));
-  assertEquals(LocalDateTime.of(2016,1,1,1,1,1),new TemporalValueRange(fromTime,toTime,1,ChronoUnit.HOURS).get(0));
-  assertEquals(LocalDateTime.of(2016,1,1,1,1,1),new TemporalValueRange(fromTime,toTime,1,ChronoUnit.DAYS).get(0));
-  assertEquals(LocalDateTime.of(2016,1,1,1,1,1),new TemporalValueRange(fromTime,toTime,1,ChronoUnit.MONTHS).get(0));
-  assertEquals(LocalDateTime.of(2016,1,1,1,1,2),new TemporalValueRange(fromTime,toTime,1,ChronoUnit.SECONDS).get(1));
-  assertEquals(LocalDateTime.of(2016,1,1,1,2,1),new TemporalValueRange(fromTime,toTime,1,ChronoUnit.MINUTES).get(1));
-  assertEquals(LocalDateTime.of(2016,1,1,2,1,1),new TemporalValueRange(fromTime,toTime,1,ChronoUnit.HOURS).get(1));
-  assertEquals(LocalDateTime.of(2016,1,2,1,1,1),new TemporalValueRange(fromTime,toTime,1,ChronoUnit.DAYS).get(1));
-  assertEquals(LocalDateTime.of(2016,2,1,1,1,1),new TemporalValueRange(fromTime,toTime,1,ChronoUnit.MONTHS).get(1));
-  assertEquals(LocalDateTime.of(2016,6,1,1,1,1),new TemporalValueRange(fromTime,toTime,1,ChronoUnit.MONTHS).get(5));
-  assertEquals(LocalDateTime.of(2016,7,6,1,1,1),new TemporalValueRange(fromTime,toTime,1,ChronoUnit.DAYS).get(187));
-  assertEquals(LocalDateTime.of(2016,7,7,6,1,1),new TemporalValueRange(fromTime,toTime,1,ChronoUnit.HOURS).get(4517));
-  assertEquals(LocalDateTime.of(2016,7,7,7,6,1),new TemporalValueRange(fromTime,toTime,1,ChronoUnit.MINUTES).get(271085));
-  assertEquals(LocalDateTime.of(2016,7,7,7,7,6),new TemporalValueRange(fromTime,toTime,1,ChronoUnit.SECONDS).get(16265165));
+  assertEquals(LocalDateTime.of(2016,1,1,1,1,1),new TemporalValueRange<>(fromTime,toTime,1,ChronoUnit.SECONDS).get(0));
+  assertEquals(LocalDateTime.of(2016,1,1,1,1,1),new TemporalValueRange<>(fromTime,toTime,1,ChronoUnit.MINUTES).get(0));
+  assertEquals(LocalDateTime.of(2016,1,1,1,1,1),new TemporalValueRange<>(fromTime,toTime,1,ChronoUnit.HOURS).get(0));
+  assertEquals(LocalDateTime.of(2016,1,1,1,1,1),new TemporalValueRange<>(fromTime,toTime,1,ChronoUnit.DAYS).get(0));
+  assertEquals(LocalDateTime.of(2016,1,1,1,1,1),new TemporalValueRange<>(fromTime,toTime,1,ChronoUnit.MONTHS).get(0));
+  assertEquals(LocalDateTime.of(2016,1,1,1,1,2),new TemporalValueRange<>(fromTime,toTime,1,ChronoUnit.SECONDS).get(1));
+  assertEquals(LocalDateTime.of(2016,1,1,1,2,1),new TemporalValueRange<>(fromTime,toTime,1,ChronoUnit.MINUTES).get(1));
+  assertEquals(LocalDateTime.of(2016,1,1,2,1,1),new TemporalValueRange<>(fromTime,toTime,1,ChronoUnit.HOURS).get(1));
+  assertEquals(LocalDateTime.of(2016,1,2,1,1,1),new TemporalValueRange<>(fromTime,toTime,1,ChronoUnit.DAYS).get(1));
+  assertEquals(LocalDateTime.of(2016,2,1,1,1,1),new TemporalValueRange<>(fromTime,toTime,1,ChronoUnit.MONTHS).get(1));
+  assertEquals(LocalDateTime.of(2016,6,1,1,1,1),new TemporalValueRange<>(fromTime,toTime,1,ChronoUnit.MONTHS).get(5));
+  assertEquals(LocalDateTime.of(2016,7,6,1,1,1),new TemporalValueRange<>(fromTime,toTime,1,ChronoUnit.DAYS).get(187));
+  assertEquals(LocalDateTime.of(2016,7,7,6,1,1),new TemporalValueRange<>(fromTime,toTime,1,ChronoUnit.HOURS).get(4517));
+  assertEquals(LocalDateTime.of(2016,7,7,7,6,1),new TemporalValueRange<>(fromTime,toTime,1,ChronoUnit.MINUTES).get(271085));
+  assertEquals(LocalDateTime.of(2016,7,7,7,7,6),new TemporalValueRange<>(fromTime,toTime,1,ChronoUnit.SECONDS).get(16265165));
 }

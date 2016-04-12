@@ -1,16 +1,16 @@
 {
   LocalDateTime fromTime=LocalDateTime.of(2016,7,7,7,7,7);
   LocalDateTime toTime=LocalDateTime.of(2016,7,7,7,7,8);
-  assertEquals(0L,new TemporalValueRange(fromTime,toTime,1,ChronoUnit.MONTHS).getSize());
-  assertEquals(0L,new TemporalValueRange(fromTime,toTime,1,ChronoUnit.DAYS).getSize());
-  assertEquals(0L,new TemporalValueRange(fromTime,toTime,1,ChronoUnit.HOURS).getSize());
-  assertEquals(0L,new TemporalValueRange(fromTime,toTime,1,ChronoUnit.MINUTES).getSize());
-  assertEquals(1L,new TemporalValueRange(fromTime,toTime,1,ChronoUnit.SECONDS).getSize());
+  assertEquals(0L,new TemporalValueRange<>(fromTime,toTime,1,ChronoUnit.MONTHS).getSize());
+  assertEquals(0L,new TemporalValueRange<>(fromTime,toTime,1,ChronoUnit.DAYS).getSize());
+  assertEquals(0L,new TemporalValueRange<>(fromTime,toTime,1,ChronoUnit.HOURS).getSize());
+  assertEquals(0L,new TemporalValueRange<>(fromTime,toTime,1,ChronoUnit.MINUTES).getSize());
+  assertEquals(1L,new TemporalValueRange<>(fromTime,toTime,1,ChronoUnit.SECONDS).getSize());
   fromTime=LocalDateTime.of(2016,7,7,7,7,7);
   toTime=LocalDateTime.of(2016,12,12,12,12,12);
-  assertEquals(5L,new TemporalValueRange(fromTime,toTime,1,ChronoUnit.MONTHS).getSize());
-  assertEquals(158L,new TemporalValueRange(fromTime,toTime,1,ChronoUnit.DAYS).getSize());
-  assertEquals(3797L,new TemporalValueRange(fromTime,toTime,1,ChronoUnit.HOURS).getSize());
-  assertEquals(227825L,new TemporalValueRange(fromTime,toTime,1,ChronoUnit.MINUTES).getSize());
-  assertEquals(13669505L,new TemporalValueRange(fromTime,toTime,1,ChronoUnit.SECONDS).getSize());
+  assertEquals(5L,new TemporalValueRange<>(fromTime,toTime,1,ChronoUnit.MONTHS).getSize());
+  assertEquals(158L,new TemporalValueRange<>(fromTime,toTime,1,ChronoUnit.DAYS).getSize());
+  assertEquals(3797L,new TemporalValueRange<>(fromTime,toTime,1,ChronoUnit.HOURS).getSize());
+  assertEquals(227825L,new TemporalValueRange<>(fromTime,toTime,1,ChronoUnit.MINUTES).getSize());
+  assertEquals(13669505L,new TemporalValueRange<>(fromTime,toTime,1,ChronoUnit.SECONDS).getSize());
 }
