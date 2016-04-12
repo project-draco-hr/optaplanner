@@ -1,3 +1,3 @@
 {
-  assertEquals(scoreDefinitionHSS.createScore(-5432109876L,-9876543210L,-3456789012L),scoreDefinitionHSS.parseScore("-5432109876/-9876543210/-3456789012"));
+  assertEquals(scoreDefinitionHSS.createScore(-5432109876L,-9876543210L,-3456789012L),scoreDefinitionHSS.parseScore("[-5432109876]hard/[-9876543210/-3456789012]soft"));
 }

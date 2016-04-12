@@ -1,4 +1,4 @@
 {
   File unsolvedDataFile=new File("data/projectjobscheduling/unsolved/A-4.xml");
-  runSpeedTest(unsolvedDataFile,"0/-193/-92",EnvironmentMode.FAST_ASSERT);
+  runSpeedTest(unsolvedDataFile,"[0]hard/[-193/-92]soft",EnvironmentMode.FAST_ASSERT);
 }

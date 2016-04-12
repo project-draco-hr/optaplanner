@@ -1,0 +1,3 @@
+{
+  assertEquals("[-5432109876]hard/[-9876543210/-3456789012]soft",scoreDefinitionHSS.createScore(-5432109876L,-9876543210L,-3456789012L).toString());
+}

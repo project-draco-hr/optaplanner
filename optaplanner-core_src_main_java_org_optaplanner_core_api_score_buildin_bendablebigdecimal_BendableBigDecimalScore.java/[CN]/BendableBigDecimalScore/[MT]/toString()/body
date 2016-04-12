@@ -1,5 +1,6 @@
 {
-  StringBuilder s=new StringBuilder(((hardScores.length + softScores.length) * 4) + 1);
+  StringBuilder s=new StringBuilder(((hardScores.length + softScores.length) * 4) + 13);
+  s.append("[");
   boolean first=true;
   for (  BigDecimal hardScore : hardScores) {
     if (first) {
@@ -10,6 +11,8 @@
     }
     s.append(hardScore);
   }
+  s.append("]hard/[");
+  first=true;
   for (  BigDecimal softScore : softScores) {
     if (first) {
       first=false;
@@ -19,5 +22,6 @@
     }
     s.append(softScore);
   }
+  s.append("]soft");
   return s.toString();
 }

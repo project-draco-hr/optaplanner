@@ -8,7 +8,12 @@
  else {
       scorePattern.append("/");
     }
-    scorePattern.append("999");
+    if (bendable) {
+      scorePattern.append("[999/.../999]");
+    }
+ else {
+      scorePattern.append("999");
+    }
     scorePattern.append(levelSuffix);
   }
   return scorePattern.toString();

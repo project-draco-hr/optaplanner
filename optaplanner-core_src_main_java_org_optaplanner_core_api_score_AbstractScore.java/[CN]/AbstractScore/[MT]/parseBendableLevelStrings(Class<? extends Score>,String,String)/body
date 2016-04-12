@@ -1,0 +1,24 @@
+{
+  String[][] levelStrings=new String[levelSuffixes.length][];
+  int startIndex=0;
+  for (int i=0; i < levelSuffixes.length; i++) {
+    String levelSuffix=levelSuffixes[i];
+    int endIndex=scoreString.indexOf(levelSuffix,startIndex);
+    if (endIndex < 0) {
+      throw new IllegalArgumentException("The scoreString (" + scoreString + ") for the scoreClass ("+ scoreClass.getSimpleName()+ ") doesn't follow the correct pattern ("+ buildScorePattern(true,levelSuffixes)+ "):"+ " the levelSuffix ("+ levelSuffix+ ") isn't in the scoreSubstring ("+ scoreString.substring(startIndex)+ ").");
+    }
+    String scoreSubString=scoreString.substring(startIndex,endIndex);
+    if (!scoreSubString.startsWith("[") || !scoreSubString.endsWith("]")) {
+      throw new IllegalArgumentException("The scoreString (" + scoreString + ") for the scoreClass ("+ scoreClass.getSimpleName()+ ") doesn't follow the correct pattern ("+ buildScorePattern(true,levelSuffixes)+ "):"+ " the scoreSubString ("+ scoreSubString+ ") does not start and end with \"[\" and \"]\".");
+    }
+    if (scoreSubString.equals("[]")) {
+      levelStrings[i]=new String[0];
+    }
+ else {
+      String[] scoreTokens=scoreSubString.substring(1,scoreSubString.length() - 1).split("/");
+      levelStrings[i]=scoreTokens;
+    }
+    startIndex=endIndex + levelSuffix.length() + "/".length();
+  }
+  return levelStrings;
+}

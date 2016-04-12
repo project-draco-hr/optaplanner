@@ -1,0 +1,12 @@
+{
+  String[][] levelStrings=parseBendableLevelStrings(BendableBigDecimalScore.class,scoreString,HARD_LABEL,SOFT_LABEL);
+  BigDecimal[] hardScores=new BigDecimal[levelStrings[0].length];
+  for (int i=0; i < hardScores.length; i++) {
+    hardScores[i]=parseLevelAsBigDecimal(BendableBigDecimalScore.class,scoreString,levelStrings[0][i]);
+  }
+  BigDecimal[] softScores=new BigDecimal[levelStrings[1].length];
+  for (int i=0; i < softScores.length; i++) {
+    softScores[i]=parseLevelAsBigDecimal(BendableBigDecimalScore.class,scoreString,levelStrings[1][i]);
+  }
+  return valueOf(hardScores,softScores);
+}
