@@ -6,11 +6,5 @@
   if (fromSpace < 0 || value.until(to,incrementUnitType) <= 0) {
     return false;
   }
-  for (long i=0; i < getSize(); i++) {
-    Temporal_ temporal=get(i);
-    if (value.equals(temporal)) {
-      return true;
-    }
-  }
-  return false;
+  return fromSpace % incrementUnitAmount == 0 && value.equals(from.plus(fromSpace,incrementUnitType));
 }
