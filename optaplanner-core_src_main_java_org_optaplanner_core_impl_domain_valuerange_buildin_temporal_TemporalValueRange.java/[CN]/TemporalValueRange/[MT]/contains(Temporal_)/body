@@ -2,6 +2,10 @@
   if (value == null || !value.isSupported(incrementUnitType)) {
     return false;
   }
+  long fromSpace=from.until(value,incrementUnitType);
+  if (fromSpace < 0 || value.until(to,incrementUnitType) <= 0) {
+    return false;
+  }
   for (long i=0; i < getSize(); i++) {
     Temporal_ temporal=get(i);
     if (value.equals(temporal)) {
