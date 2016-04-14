@@ -12,11 +12,19 @@
   if (!from.isSupported(incrementUnitType) || !to.isSupported(incrementUnitType)) {
     throw new IllegalArgumentException("The " + getClass().getSimpleName() + " must have a incrementUnitType ("+ incrementUnitType+ ") that is supported by its from ("+ from+ ") and to ("+ to+ ").");
   }
-  long space=from.until(to,incrementUnitType);
-  if (space < 0) {
+  Comparable<Temporal_> comparableFrom=(Comparable<Temporal_>)from;
+  if (comparableFrom.compareTo(to) > 0) {
     throw new IllegalArgumentException("The " + getClass().getSimpleName() + " cannot have a from ("+ from+ ") which is strictly higher than its to ("+ to+ ").");
+  }
+  long space=from.until(to,incrementUnitType);
+  if (to.equals(from.plus(space + 1,incrementUnitType))) {
+    space++;
   }
   if (space % incrementUnitAmount > 0) {
     throw new IllegalArgumentException("The " + getClass().getSimpleName() + " 's incrementUnitAmount ("+ incrementUnitAmount+ ") must fit an integer number of times in the space ("+ space+ ") between from ("+ from+ ") and to ("+ to+ ").");
   }
+  if (!to.equals(from.plus(space,incrementUnitType))) {
+    throw new IllegalArgumentException("The " + getClass().getSimpleName() + " 's incrementUnitType ("+ incrementUnitType+ ") must fit an integer number of times in the space ("+ space+ ") between from ("+ from+ ") and to ("+ to+ ").\n"+ "The to ("+ to+ ") is not the expected to ("+ from.plus(space,incrementUnitType)+ ").");
+  }
+  size=space / incrementUnitAmount;
 }

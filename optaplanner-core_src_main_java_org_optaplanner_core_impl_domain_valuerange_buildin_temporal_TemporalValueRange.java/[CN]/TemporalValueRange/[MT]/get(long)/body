@@ -1,5 +1,5 @@
 {
-  if (index >= getSize() || index < 0) {
+  if (index >= size || index < 0) {
     throw new IndexOutOfBoundsException();
   }
   return (Temporal_)from.plus(index * incrementUnitAmount,incrementUnitType);

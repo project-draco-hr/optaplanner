@@ -2,9 +2,13 @@
   if (value == null || !value.isSupported(incrementUnitType)) {
     return false;
   }
-  long fromSpace=from.until(value,incrementUnitType);
-  if (fromSpace < 0 || value.until(to,incrementUnitType) <= 0) {
+  Comparable<Temporal_> comparableValue=(Comparable<Temporal_>)value;
+  if (comparableValue.compareTo(from) < 0 || comparableValue.compareTo(to) >= 0) {
     return false;
+  }
+  long fromSpace=from.until(value,incrementUnitType);
+  if (value.equals(from.plus(fromSpace + 1,incrementUnitType))) {
+    fromSpace++;
   }
   return fromSpace % incrementUnitAmount == 0 && value.equals(from.plus(fromSpace,incrementUnitType));
 }
