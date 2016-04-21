@@ -1,0 +1,6 @@
+String fileName
+int taskListSize
+int skillListSize
+int employeeListSize
+int taskTypeListSize
+int customerListSize

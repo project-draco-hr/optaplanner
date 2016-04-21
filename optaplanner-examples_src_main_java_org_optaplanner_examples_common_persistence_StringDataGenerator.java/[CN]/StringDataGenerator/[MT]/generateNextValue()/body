@@ -17,7 +17,7 @@
   }
   for (int i=0; i < listSize; i++) {
     if (i > 0) {
-      result.append(" ");
+      result.append(delimiter);
     }
     String[] partValues=partValuesList.get(i);
     result.append(partValues[chosens[i]]);

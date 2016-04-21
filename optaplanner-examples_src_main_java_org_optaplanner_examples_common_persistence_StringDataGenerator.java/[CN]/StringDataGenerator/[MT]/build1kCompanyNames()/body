@@ -1,0 +1,3 @@
+{
+  return new StringDataGenerator().addPart("Steel","Paper","Stone","Wood","Water","Food","Oil","Car","Power","Computer").addPart("Inc","Corp","Limited","Express","Telco","Mobile","Soft","Mart","Bank","Labs").addPart("US","UK","JP","DE","FR","BE","NL","BR","IN","ES");
+}

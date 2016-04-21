@@ -1,0 +1,4 @@
+{
+  solutionDao=new TaskAssigningDao();
+  outputDir=new File(solutionDao.getDataDir(),"unsolved");
+}

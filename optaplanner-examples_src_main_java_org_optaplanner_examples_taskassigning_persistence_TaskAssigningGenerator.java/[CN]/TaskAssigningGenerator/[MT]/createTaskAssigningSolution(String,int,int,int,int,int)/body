@@ -1,0 +1,17 @@
+{
+  random=new Random(37);
+  skillNameGenerator.reset();
+  taskTypeNameGenerator.reset();
+  customerNameGenerator.reset();
+  employeeNameGenerator.reset();
+  TaskAssigningSolution solution=new TaskAssigningSolution();
+  solution.setId(0L);
+  createSkillList(solution,skillListSize);
+  createCustomerList(solution,customerListSize);
+  createEmployeeList(solution,employeeListSize);
+  createTaskTypeList(solution,taskTypeListSize);
+  createTaskList(solution,taskListSize);
+  BigInteger possibleSolutionSize=AbstractSolutionImporter.InputBuilder.factorial(taskListSize + employeeListSize - 1).divide(AbstractSolutionImporter.InputBuilder.factorial(employeeListSize - 1));
+  logger.info("TaskAssigningSolution {} has {} tasks, {} skills, {} employees, {} task types and {} customers with a search space of {}.",fileName,taskListSize,skillListSize,employeeListSize,taskTypeListSize,customerListSize,AbstractSolutionImporter.getFlooredPossibleSolutionSize(possibleSolutionSize));
+  return solution;
+}

@@ -1,0 +1,3 @@
+{
+  new TaskAssigningGenerator().generate();
+}

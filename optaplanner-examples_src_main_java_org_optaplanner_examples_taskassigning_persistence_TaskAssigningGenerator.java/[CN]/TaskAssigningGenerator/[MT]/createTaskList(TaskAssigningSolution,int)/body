@@ -1,0 +1,24 @@
+{
+  List<Task> taskList=new ArrayList<>(taskListSize);
+  List<TaskType> taskTypeList=solution.getTaskTypeList();
+  List<Customer> customerList=solution.getCustomerList();
+  Map<TaskType,Integer> maxIndexInTaskTypeMap=new HashMap<>(taskTypeList.size());
+  for (int i=0; i < taskListSize; i++) {
+    Task task=new Task();
+    task.setId((long)i);
+    TaskType taskType=taskTypeList.get(random.nextInt(taskTypeList.size()));
+    task.setTaskType(taskType);
+    Integer indexInTaskType=maxIndexInTaskTypeMap.get(taskType);
+    if (indexInTaskType == null) {
+      indexInTaskType=1;
+    }
+ else {
+      indexInTaskType++;
+    }
+    task.setIndexInTaskType(indexInTaskType);
+    maxIndexInTaskTypeMap.put(taskType,indexInTaskType);
+    task.setCustomer(customerList.get(random.nextInt(customerList.size())));
+    taskList.add(task);
+  }
+  solution.setTaskList(taskList);
+}

@@ -1,0 +1,31 @@
+{
+  List<Skill> skillList=solution.getSkillList();
+  List<Customer> customerList=solution.getCustomerList();
+  Affinity[] affinities=Affinity.values();
+  List<Employee> employeeList=new ArrayList<>(employeeListSize);
+  int skillListIndex=0;
+  for (int i=0; i < employeeListSize; i++) {
+    Employee employee=new Employee();
+    employee.setId((long)i);
+    String fullName=employeeNameGenerator.generateNextValue();
+    employee.setFullName(fullName);
+    int skillSetSize=SKILL_SET_SIZE_MINIMUM + random.nextInt(SKILL_SET_SIZE_MAXIMUM - SKILL_SET_SIZE_MINIMUM);
+    if (skillSetSize > skillList.size()) {
+      skillSetSize=skillList.size();
+    }
+    Set<Skill> skillSet=new LinkedHashSet<>(skillSetSize);
+    for (int j=0; j < skillSetSize; j++) {
+      skillSet.add(skillList.get(skillListIndex));
+      skillListIndex=(skillListIndex + 1) % skillList.size();
+    }
+    employee.setSkillSet(skillSet);
+    Map<Customer,Affinity> affinityMap=new LinkedHashMap<>(customerList.size());
+    for (    Customer customer : customerList) {
+      affinityMap.put(customer,affinities[random.nextInt(affinities.length)]);
+    }
+    employee.setAffinityMap(affinityMap);
+    logger.trace("Created employee with fullName ({}).",fullName);
+    employeeList.add(employee);
+  }
+  solution.setEmployeeList(employeeList);
+}

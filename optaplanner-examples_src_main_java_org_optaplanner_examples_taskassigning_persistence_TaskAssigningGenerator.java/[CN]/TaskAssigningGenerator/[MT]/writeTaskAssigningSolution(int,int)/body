@@ -1,0 +1,9 @@
+{
+  int skillListSize=SKILL_SET_SIZE_MAXIMUM + (int)Math.log(employeeListSize);
+  int taskTypeListSize=taskListSize / 5;
+  int customerListSize=Math.min(taskTypeListSize,employeeListSize * 3);
+  String fileName=determineFileName(taskListSize,employeeListSize);
+  File outputFile=new File(outputDir,fileName + ".xml");
+  TaskAssigningSolution solution=createTaskAssigningSolution(fileName,taskListSize,skillListSize,employeeListSize,taskTypeListSize,customerListSize);
+  solutionDao.writeSolution(solution,outputFile);
+}

@@ -1,0 +1,12 @@
+{
+  List<Skill> skillList=new ArrayList<>(skillListSize);
+  for (int i=0; i < skillListSize; i++) {
+    Skill skill=new Skill();
+    skill.setId((long)i);
+    String customerName=customerNameGenerator.generateNextValue();
+    skill.setName(customerName);
+    logger.trace("Created skill with customerName ({}).",customerName);
+    skillList.add(skill);
+  }
+  solution.setSkillList(skillList);
+}
