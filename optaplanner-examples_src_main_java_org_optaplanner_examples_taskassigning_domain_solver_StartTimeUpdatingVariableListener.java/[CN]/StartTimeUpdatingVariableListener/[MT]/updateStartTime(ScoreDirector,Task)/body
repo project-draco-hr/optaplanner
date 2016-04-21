@@ -1,5 +1,6 @@
 {
-  Integer startTime=sourceTask.getPreviousTaskOrEmployee().getEndTime();
+  TaskOrEmployee previous=sourceTask.getPreviousTaskOrEmployee();
+  Integer startTime=previous == null ? null : previous.getEndTime();
   Task shadowTask=sourceTask;
   while (shadowTask != null && !Objects.equals(shadowTask.getStartTime(),startTime)) {
     scoreDirector.beforeVariableChanged(shadowTask,"startTime");
