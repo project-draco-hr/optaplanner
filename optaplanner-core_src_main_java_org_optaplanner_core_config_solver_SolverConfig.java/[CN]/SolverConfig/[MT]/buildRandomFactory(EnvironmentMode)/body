@@ -9,7 +9,7 @@
  else {
     RandomType randomType_=defaultIfNull(randomType,RandomType.JDK);
     Long randomSeed_=randomSeed;
-    if (randomSeed == null && environmentMode_ != EnvironmentMode.PRODUCTION) {
+    if (randomSeed == null && environmentMode_ != EnvironmentMode.NON_REPRODUCIBLE) {
       randomSeed_=DEFAULT_RANDOM_SEED;
     }
     randomFactory=new DefaultRandomFactory(randomType_,randomSeed_);

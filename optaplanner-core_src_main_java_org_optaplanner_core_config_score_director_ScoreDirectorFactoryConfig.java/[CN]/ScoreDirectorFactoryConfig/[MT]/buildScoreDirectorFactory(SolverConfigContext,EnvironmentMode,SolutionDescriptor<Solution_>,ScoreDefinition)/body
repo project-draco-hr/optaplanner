@@ -36,7 +36,7 @@
     if (environmentMode.compareTo(EnvironmentMode.FAST_ASSERT) > 0) {
       throw new IllegalArgumentException("A non-null assertionScoreDirectorFactory (" + assertionScoreDirectorFactory + ") requires an environmentMode ("+ environmentMode+ ") of "+ EnvironmentMode.FAST_ASSERT+ " or lower.");
     }
-    scoreDirectorFactory.setAssertionScoreDirectorFactory(assertionScoreDirectorFactory.buildScoreDirectorFactory(configContext,EnvironmentMode.PRODUCTION,solutionDescriptor,scoreDefinition));
+    scoreDirectorFactory.setAssertionScoreDirectorFactory(assertionScoreDirectorFactory.buildScoreDirectorFactory(configContext,EnvironmentMode.NON_REPRODUCIBLE,solutionDescriptor,scoreDefinition));
   }
   scoreDirectorFactory.setInitializingScoreTrend(InitializingScoreTrend.parseTrend(initializingScoreTrend == null ? InitializingScoreTrendLevel.ANY.name() : initializingScoreTrend,scoreDefinition.getLevelsSize()));
   if (environmentMode.isNonIntrusiveFullAsserted()) {

@@ -1,3 +1,6 @@
 {
+  if (environmentMode == EnvironmentMode.PRODUCTION) {
+    environmentMode=EnvironmentMode.NON_REPRODUCIBLE;
+  }
   return defaultIfNull(environmentMode,EnvironmentMode.REPRODUCIBLE);
 }
