@@ -1,4 +1,6 @@
 {
   writeTaskAssigningSolution(50,5);
   writeTaskAssigningSolution(100,5);
+  writeTaskAssigningSolution(500,20);
+  writeTaskAssigningSolution(1000,20);
 }

@@ -10,16 +10,16 @@
     employeeLabel.setToolTipText(employee.getToolText());
     employeeLabel.setLocation(0,employeeIndex * ROW_HEIGHT);
     employeeLabel.setSize(HEADER_COLUMN_WIDTH,ROW_HEIGHT);
+    employeeLabel.setBorder(BorderFactory.createLineBorder(Color.black,1));
     add(employeeLabel);
     employeeIndexMap.put(employee,employeeIndex);
     employeeIndex++;
   }
   int unassignedIndex=employeeList.size();
   for (  Task task : taskAssigningSolution.getTaskList()) {
-    JLabel taskLabel=new JLabel(task.getLabel(),SwingConstants.CENTER);
-    taskLabel.setOpaque(true);
-    taskLabel.setToolTipText(task.getToolText());
-    taskLabel.setBackground(tangoColorFactory.pickColor(task));
+    TaskPanel taskPanel=new TaskPanel(task);
+    taskPanel.setToolTipText(task.getToolText());
+    taskPanel.setBackground(tangoColorFactory.pickColor(task.getTaskType()));
     int x;
     int y;
     if (task.getEmployee() != null) {
@@ -31,9 +31,8 @@
       y=unassignedIndex * ROW_HEIGHT;
       unassignedIndex++;
     }
-    taskLabel.setLocation(x,y);
-    taskLabel.setSize(task.getDuration(),ROW_HEIGHT);
-    add(taskLabel);
+    taskPanel.setLocation(x,y);
+    add(taskPanel);
   }
   repaint();
 }
