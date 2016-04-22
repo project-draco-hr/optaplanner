@@ -26,9 +26,12 @@
   EnvironmentMode environmentMode=phaseConfigPolicy.getEnvironmentMode();
   if (environmentMode.isNonIntrusiveFullAsserted()) {
     phase.setAssertWorkingSolutionScoreFromScratch(true);
+    phase.setAssertStepScoreFromScratch(true);
   }
   if (environmentMode.isIntrusiveFastAsserted()) {
     phase.setAssertExpectedWorkingSolutionScore(true);
+    phase.setAssertExpectedStepScore(true);
+    phase.setAssertShadowVariablesAreNotStaleAfterStep(true);
   }
   return phase;
 }

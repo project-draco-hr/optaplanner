@@ -1,0 +1,13 @@
+{
+  AbstractPhaseScope<Solution_> phaseScope=stepScope.getPhaseScope();
+  phaseScope.getSolutionDescriptor().setScore(phaseScope.getWorkingSolution(),stepScope.getScore());
+  if (assertStepScoreFromScratch) {
+    phaseScope.assertWorkingScoreFromScratch(stepScope.getScore(),completedAction);
+  }
+  if (assertExpectedStepScore) {
+    phaseScope.assertExpectedWorkingScore(stepScope.getScore(),completedAction);
+  }
+  if (assertShadowVariablesAreNotStaleAfterStep) {
+    phaseScope.assertShadowVariablesAreNotStale(stepScope.getScore(),completedAction);
+  }
+}

@@ -1,0 +1,3 @@
+{
+  solverScope.assertShadowVariablesAreNotStale(workingScore,completedAction);
+}
