@@ -1,3 +1,3 @@
 {
-  return "<html><center>" + taskType + "-"+ indexInTaskType+ "<br/>"+ taskType.getTitle()+ "<br/>"+ customer.getName()+ "</center></html>";
+  return taskType.getCode() + "-" + indexInTaskType+ ": "+ taskType.getTitle();
 }

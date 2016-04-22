@@ -1,0 +1,39 @@
+{
+  removeAll();
+  TangoColorFactory tangoColorFactory=new TangoColorFactory();
+  List<Employee> employeeList=taskAssigningSolution.getEmployeeList();
+  Map<Employee,Integer> employeeIndexMap=new HashMap<>(employeeList.size());
+  int employeeIndex=0;
+  for (  Employee employee : employeeList) {
+    JLabel employeeLabel=new JLabel(employee.getLabel(),SwingConstants.LEFT);
+    employeeLabel.setOpaque(true);
+    employeeLabel.setToolTipText(employee.getToolText());
+    employeeLabel.setLocation(0,employeeIndex * ROW_HEIGHT);
+    employeeLabel.setSize(HEADER_COLUMN_WIDTH,ROW_HEIGHT);
+    add(employeeLabel);
+    employeeIndexMap.put(employee,employeeIndex);
+    employeeIndex++;
+  }
+  int unassignedIndex=employeeList.size();
+  for (  Task task : taskAssigningSolution.getTaskList()) {
+    JLabel taskLabel=new JLabel(task.getLabel(),SwingConstants.CENTER);
+    taskLabel.setOpaque(true);
+    taskLabel.setToolTipText(task.getToolText());
+    taskLabel.setBackground(tangoColorFactory.pickColor(task));
+    int x;
+    int y;
+    if (task.getEmployee() != null) {
+      x=HEADER_COLUMN_WIDTH + task.getStartTime();
+      y=employeeIndexMap.get(task.getEmployee()) * ROW_HEIGHT;
+    }
+ else {
+      x=HEADER_COLUMN_WIDTH;
+      y=unassignedIndex * ROW_HEIGHT;
+      unassignedIndex++;
+    }
+    taskLabel.setLocation(x,y);
+    taskLabel.setSize(task.getDuration(),ROW_HEIGHT);
+    add(taskLabel);
+  }
+  repaint();
+}

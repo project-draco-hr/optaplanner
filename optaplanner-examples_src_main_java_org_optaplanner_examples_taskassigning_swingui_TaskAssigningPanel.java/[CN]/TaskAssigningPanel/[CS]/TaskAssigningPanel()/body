@@ -1,2 +1,5 @@
 {
+  setLayout(new BorderLayout());
+  taskOverviewPanel=new TaskOverviewPanel();
+  add(taskOverviewPanel,BorderLayout.CENTER);
 }

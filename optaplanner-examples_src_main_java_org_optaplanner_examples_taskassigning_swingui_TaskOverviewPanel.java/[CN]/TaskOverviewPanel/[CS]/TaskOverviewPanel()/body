@@ -1,0 +1,4 @@
+{
+  setLayout(null);
+  setBackground(Color.WHITE);
+}

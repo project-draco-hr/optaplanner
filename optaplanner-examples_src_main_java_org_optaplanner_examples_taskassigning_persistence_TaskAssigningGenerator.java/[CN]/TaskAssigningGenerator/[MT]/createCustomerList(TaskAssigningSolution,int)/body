@@ -3,9 +3,9 @@
   for (int i=0; i < customerListSize; i++) {
     Customer customer=new Customer();
     customer.setId((long)i);
-    String skillName=skillNameGenerator.generateNextValue();
-    customer.setName(skillName);
-    logger.trace("Created skill with skillName ({}).",skillName);
+    String customerName=customerNameGenerator.generateNextValue();
+    customer.setName(customerName);
+    logger.trace("Created skill with customerName ({}).",customerName);
     customerList.add(customer);
   }
   solution.setCustomerList(customerList);
