@@ -1,5 +1,4 @@
 {
-  ConstructionHeuristicPhaseScope<Solution_> phaseScope=stepScope.getPhaseScope();
   Move nextStep=stepScope.getStep();
   nextStep.doMove(stepScope.getScoreDirector());
   predictWorkingStepScore(stepScope,nextStep);

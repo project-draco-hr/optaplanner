@@ -1,0 +1,8 @@
+{
+  if (singleton) {
+    return SingletonInverseVariableListener.class;
+  }
+ else {
+    return CollectionInverseVariableListener.class;
+  }
+}
