@@ -8,9 +8,9 @@
     JLabel employeeLabel=new JLabel(employee.getLabel(),SwingConstants.LEFT);
     employeeLabel.setOpaque(true);
     employeeLabel.setToolTipText(employee.getToolText());
-    employeeLabel.setLocation(0,employeeIndex * ROW_HEIGHT);
+    employeeLabel.setLocation(0,HEADER_ROW_HEIGHT + employeeIndex * ROW_HEIGHT);
     employeeLabel.setSize(HEADER_COLUMN_WIDTH,ROW_HEIGHT);
-    employeeLabel.setBorder(BorderFactory.createLineBorder(Color.black,1));
+    employeeLabel.setBorder(BorderFactory.createLineBorder(Color.BLACK,1));
     add(employeeLabel);
     employeeIndexMap.put(employee,employeeIndex);
     employeeIndex++;
@@ -25,7 +25,7 @@
     int y;
     if (task.getEmployee() != null) {
       x=HEADER_COLUMN_WIDTH + task.getStartTime();
-      y=employeeIndexMap.get(task.getEmployee()) * ROW_HEIGHT;
+      y=HEADER_ROW_HEIGHT + employeeIndexMap.get(task.getEmployee()) * ROW_HEIGHT;
     }
  else {
       x=HEADER_COLUMN_WIDTH;
@@ -38,7 +38,20 @@
     taskPanel.setLocation(x,y);
     add(taskPanel);
   }
-  Dimension size=new Dimension(panelWidth,unassignedIndex * ROW_HEIGHT);
+  for (int x=HEADER_COLUMN_WIDTH; x < panelWidth; x+=TIME_COLUMN_WIDTH) {
+    int minutes=(8 * 60 + (x - HEADER_COLUMN_WIDTH)) % (24 * 60);
+    int hours=minutes / 60;
+    minutes%=60;
+    JLabel timeLabel=new JLabel((hours < 10 ? "0" : "") + hours + ":"+ (minutes < 10 ? "0" : "")+ minutes);
+    timeLabel.setBorder(BorderFactory.createLineBorder(Color.BLACK,1));
+    timeLabel.setLocation(x,0);
+    timeLabel.setSize(TIME_COLUMN_WIDTH,ROW_HEIGHT);
+    add(timeLabel);
+  }
+  if ((panelWidth - HEADER_COLUMN_WIDTH) % TIME_COLUMN_WIDTH != 0) {
+    panelWidth=panelWidth - ((panelWidth - HEADER_COLUMN_WIDTH) % TIME_COLUMN_WIDTH) + TIME_COLUMN_WIDTH;
+  }
+  Dimension size=new Dimension(panelWidth,HEADER_ROW_HEIGHT + unassignedIndex * ROW_HEIGHT);
   setSize(size);
   setPreferredSize(size);
   repaint();
