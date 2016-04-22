@@ -1,5 +1,5 @@
 {
   setLayout(new BorderLayout());
   taskOverviewPanel=new TaskOverviewPanel();
-  add(taskOverviewPanel,BorderLayout.CENTER);
+  add(new JScrollPane(taskOverviewPanel),BorderLayout.CENTER);
 }

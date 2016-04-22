@@ -15,6 +15,7 @@
     employeeIndexMap.put(employee,employeeIndex);
     employeeIndex++;
   }
+  int panelWidth=HEADER_COLUMN_WIDTH;
   int unassignedIndex=employeeList.size();
   for (  Task task : taskAssigningSolution.getTaskList()) {
     TaskPanel taskPanel=new TaskPanel(task);
@@ -31,8 +32,14 @@
       y=unassignedIndex * ROW_HEIGHT;
       unassignedIndex++;
     }
+    if (x + taskPanel.getWidth() > panelWidth) {
+      panelWidth=x + taskPanel.getWidth();
+    }
     taskPanel.setLocation(x,y);
     add(taskPanel);
   }
+  Dimension size=new Dimension(panelWidth,unassignedIndex * ROW_HEIGHT);
+  setSize(size);
+  setPreferredSize(size);
   repaint();
 }

@@ -1,4 +1,4 @@
 {
   setLayout(null);
-  setBackground(Color.WHITE);
+  setMinimumSize(new Dimension(HEADER_COLUMN_WIDTH * 2,ROW_HEIGHT * 8));
 }
