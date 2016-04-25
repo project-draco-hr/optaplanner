@@ -5,4 +5,5 @@
   previousProducedDuration=0;
   producingRandom=new Random(0);
   taskOverviewPanel.resetPanel(taskAssigningSolution);
+  taskOverviewPanel.setConsumedDuration(consumedDurationInSeconds / 60);
 }
