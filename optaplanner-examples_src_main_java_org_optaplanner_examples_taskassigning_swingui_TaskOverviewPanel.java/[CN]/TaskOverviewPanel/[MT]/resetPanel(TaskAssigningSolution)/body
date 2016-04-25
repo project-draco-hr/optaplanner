@@ -29,7 +29,7 @@
     }
  else {
       x=HEADER_COLUMN_WIDTH;
-      y=unassignedIndex * ROW_HEIGHT;
+      y=HEADER_ROW_HEIGHT + unassignedIndex * ROW_HEIGHT;
       unassignedIndex++;
     }
     if (x + taskPanel.getWidth() > panelWidth) {

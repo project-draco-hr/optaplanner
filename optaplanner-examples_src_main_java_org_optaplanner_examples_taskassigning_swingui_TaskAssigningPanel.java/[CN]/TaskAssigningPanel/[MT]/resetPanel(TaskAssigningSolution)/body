@@ -1,3 +1,8 @@
 {
+  consumedDurationInSeconds=0;
+  previousConsumedDuration=0;
+  producedDurationInSeconds=0;
+  previousProducedDuration=0;
+  producingRandom=new Random(0);
   taskOverviewPanel.resetPanel(taskAssigningSolution);
 }

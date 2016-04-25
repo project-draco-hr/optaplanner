@@ -10,4 +10,5 @@
   titleLabel.setLocation(0,ROW_HEIGHT / 2);
   titleLabel.setSize(task.getDuration(),ROW_HEIGHT / 2);
   add(titleLabel);
+  setBorder(BorderFactory.createLineBorder(task.isLocked() ? TangoColorFactory.ALUMINIUM_4 : Color.BLACK));
 }
