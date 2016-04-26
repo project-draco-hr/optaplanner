@@ -1,0 +1,6 @@
+{
+  if (!bailOutEnabled) {
+    return -1L;
+  }
+  return childValueSelector.getSize(entity) * 10L;
+}

@@ -1,0 +1,19 @@
+{
+  Object next;
+  long attemptsBeforeBailOut=bailOutSize;
+  do {
+    if (!childValueIterator.hasNext()) {
+      return noUpcomingSelection();
+    }
+    if (bailOutEnabled) {
+      if (attemptsBeforeBailOut <= 0L) {
+        logger.warn("Bailing out of neverEnding selector ({}) to avoid infinite loop.",FilteringValueSelector.this);
+        return noUpcomingSelection();
+      }
+      attemptsBeforeBailOut--;
+    }
+    next=childValueIterator.next();
+  }
+ while (!accept(scoreDirector,next));
+  return next;
+}

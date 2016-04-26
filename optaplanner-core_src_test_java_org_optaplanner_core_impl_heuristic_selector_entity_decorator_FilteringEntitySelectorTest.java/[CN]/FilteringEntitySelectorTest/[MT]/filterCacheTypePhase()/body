@@ -1,0 +1,3 @@
+{
+  filter(SelectionCacheType.PHASE,2);
+}

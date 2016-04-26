@@ -1,0 +1,3 @@
+{
+  filter(SelectionCacheType.SOLVER,1);
+}

@@ -1,0 +1,13 @@
+{
+  GenuineVariableDescriptor variableDescriptor=valueSelector.getVariableDescriptor();
+  if (hasFiltering(variableDescriptor)) {
+    List<SelectionFilter> filterList=new ArrayList<>(filterClassList == null ? 1 : filterClassList.size() + 1);
+    if (filterClassList != null) {
+      for (      Class<? extends SelectionFilter> filterClass : filterClassList) {
+        filterList.add(ConfigUtils.newInstance(this,"filterClass",filterClass));
+      }
+    }
+    valueSelector=FilteringValueSelector.create(valueSelector,filterList);
+  }
+  return valueSelector;
+}

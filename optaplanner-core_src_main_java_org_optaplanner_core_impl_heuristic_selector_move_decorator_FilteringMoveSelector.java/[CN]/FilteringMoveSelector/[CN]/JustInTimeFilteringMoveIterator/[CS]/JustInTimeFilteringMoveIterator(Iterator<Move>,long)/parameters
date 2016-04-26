@@ -1,0 +1,2 @@
+Iterator<Move> childMoveIterator
+long bailOutSize

@@ -1,0 +1,6 @@
+{
+  this.childValueSelector=childValueSelector;
+  this.filterList=filterList;
+  bailOutEnabled=childValueSelector.isNeverEnding();
+  phaseLifecycleSupport.addEventListener(childValueSelector);
+}

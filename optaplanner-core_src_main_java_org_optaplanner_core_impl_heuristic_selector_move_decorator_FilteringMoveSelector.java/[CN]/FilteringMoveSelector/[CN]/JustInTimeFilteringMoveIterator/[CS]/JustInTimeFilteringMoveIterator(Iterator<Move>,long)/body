@@ -1,0 +1,4 @@
+{
+  this.childMoveIterator=childMoveIterator;
+  this.bailOutSize=bailOutSize;
+}

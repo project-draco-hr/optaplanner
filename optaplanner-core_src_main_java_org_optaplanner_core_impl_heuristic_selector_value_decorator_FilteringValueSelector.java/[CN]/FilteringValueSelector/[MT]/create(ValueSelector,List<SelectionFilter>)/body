@@ -1,0 +1,8 @@
+{
+  if (valueSelector instanceof EntityIndependentValueSelector) {
+    return new EntityIndependentFilteringValueSelector((EntityIndependentValueSelector)valueSelector,filterList);
+  }
+ else {
+    return new FilteringValueSelector(valueSelector,filterList);
+  }
+}

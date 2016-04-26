@@ -1,11 +1,6 @@
 {
   if (configPolicy.isInitializedChainedValueFilterEnabled() && variableDescriptor.isChained()) {
-    if (valueSelector instanceof EntityIndependentValueSelector) {
-      valueSelector=new EntityIndependentInitializedValueSelector((EntityIndependentValueSelector)valueSelector);
-    }
- else {
-      valueSelector=new InitializedValueSelector(valueSelector);
-    }
+    valueSelector=InitializedValueSelector.create(valueSelector);
   }
   return valueSelector;
 }

@@ -1,0 +1,3 @@
+{
+  filter(SelectionCacheType.STEP,5);
+}

@@ -1,0 +1,8 @@
+{
+  if (valueSelector instanceof EntityIndependentValueSelector) {
+    return new EntityIndependentInitializedValueSelector((EntityIndependentValueSelector)valueSelector);
+  }
+ else {
+    return new InitializedValueSelector(valueSelector);
+  }
+}

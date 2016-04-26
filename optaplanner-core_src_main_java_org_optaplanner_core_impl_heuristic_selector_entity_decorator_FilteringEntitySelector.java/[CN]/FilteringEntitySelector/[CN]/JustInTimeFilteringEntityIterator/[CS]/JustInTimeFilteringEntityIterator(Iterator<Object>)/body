@@ -1,4 +1,0 @@
-{
-  this.childEntityIterator=childEntityIterator;
-  this.bailOutSize=determineBailOutSize();
-}

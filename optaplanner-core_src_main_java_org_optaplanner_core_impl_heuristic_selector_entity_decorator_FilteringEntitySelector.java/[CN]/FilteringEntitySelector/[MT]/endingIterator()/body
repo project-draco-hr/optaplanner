@@ -1,3 +1,3 @@
 {
-  return new JustInTimeFilteringEntityIterator(childEntitySelector.endingIterator());
+  return new JustInTimeFilteringEntityIterator(childEntitySelector.endingIterator(),determineBailOutSize());
 }

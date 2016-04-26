@@ -1,3 +1,0 @@
-{
-  runCacheType(SelectionCacheType.JUST_IN_TIME,5);
-}

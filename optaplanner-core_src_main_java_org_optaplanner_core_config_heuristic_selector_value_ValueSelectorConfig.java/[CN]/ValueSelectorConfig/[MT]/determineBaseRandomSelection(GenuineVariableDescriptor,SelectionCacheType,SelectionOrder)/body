@@ -7,7 +7,7 @@ case SHUFFLED:
 case PROBABILISTIC:
   return false;
 case RANDOM:
-return resolvedCacheType.isNotCached() || (isBaseInherentlyCached(variableDescriptor) && !hasFiltering());
+return resolvedCacheType.isNotCached() || (isBaseInherentlyCached(variableDescriptor) && !hasFiltering(variableDescriptor));
 default :
 throw new IllegalStateException("The selectionOrder (" + resolvedSelectionOrder + ") is not implemented.");
 }

@@ -20,6 +20,7 @@
   if (nearbySelectionConfig != null) {
     valueSelector=nearbySelectionConfig.applyNearbyValueSelector(configPolicy,minimumCacheType,resolvedCacheType,resolvedSelectionOrder,valueSelector);
   }
+  valueSelector=applyFiltering(resolvedCacheType,resolvedSelectionOrder,valueSelector);
   valueSelector=applyInitializedChainedValueFilter(configPolicy,variableDescriptor,resolvedCacheType,resolvedSelectionOrder,valueSelector);
   valueSelector=applySorting(resolvedCacheType,resolvedSelectionOrder,valueSelector);
   valueSelector=applyProbability(resolvedCacheType,resolvedSelectionOrder,valueSelector);
