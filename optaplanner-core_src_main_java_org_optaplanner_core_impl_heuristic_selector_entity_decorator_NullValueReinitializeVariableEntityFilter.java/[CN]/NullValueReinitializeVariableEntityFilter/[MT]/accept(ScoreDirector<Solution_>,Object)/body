@@ -1,4 +1,4 @@
 {
-  Object value=variableDescriptor.getValue(selection);
+  Object value=variableDescriptor.getValue(entity);
   return value == null;
 }
