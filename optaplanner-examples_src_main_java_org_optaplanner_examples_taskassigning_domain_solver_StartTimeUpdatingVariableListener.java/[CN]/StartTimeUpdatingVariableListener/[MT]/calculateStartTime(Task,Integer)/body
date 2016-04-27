@@ -1,0 +1,6 @@
+{
+  if (task == null || previousEndTime == null) {
+    return null;
+  }
+  return Math.max(task.getReadyTime(),previousEndTime);
+}
