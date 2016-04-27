@@ -7,6 +7,9 @@
         filterList.add(ConfigUtils.newInstance(this,"filterClass",filterClass));
       }
     }
+    if (variableDescriptor.hasMovableChainedTrailingValueFilter()) {
+      filterList.add(variableDescriptor.getMovableChainedTrailingValueFilter());
+    }
     valueSelector=FilteringValueSelector.create(valueSelector,filterList);
   }
   return valueSelector;

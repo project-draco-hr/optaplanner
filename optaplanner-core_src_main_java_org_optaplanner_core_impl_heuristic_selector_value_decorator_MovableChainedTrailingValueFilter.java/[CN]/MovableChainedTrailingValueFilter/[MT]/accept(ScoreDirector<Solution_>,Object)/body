@@ -1,0 +1,12 @@
+{
+  if (value == null) {
+    return true;
+  }
+  SingletonInverseVariableSupply supply=retrieveSingletonInverseVariableSupply(scoreDirector);
+  Object trailingEntity=supply.getInverseSingleton(value);
+  EntityDescriptor<Solution_> entityDescriptor=variableDescriptor.getEntityDescriptor();
+  if (trailingEntity == null || !entityDescriptor.matchesEntity(trailingEntity)) {
+    return true;
+  }
+  return entityDescriptor.getMovableEntitySelectionFilter().accept(scoreDirector,trailingEntity);
+}
