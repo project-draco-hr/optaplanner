@@ -1,0 +1,4 @@
+{
+  SolutionDescriptor solutionDescriptor=TestdataImmovableSolution.buildSolutionDescriptor();
+  return solutionDescriptor.findEntityDescriptorOrFail(TestdataImmovableEntity.class);
+}

@@ -1,0 +1,3 @@
+{
+  return SolutionDescriptor.buildSolutionDescriptor(TestdataImmovableSolution.class,TestdataImmovableEntity.class);
+}

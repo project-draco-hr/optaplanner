@@ -1,0 +1,4 @@
+{
+  EntityDescriptor entityDescriptor=TestdataImmovableEntity.buildEntityDescriptor();
+  assertNotNull(entityDescriptor.getMovableEntitySelectionFilter());
+}
