@@ -1,5 +1,5 @@
 {
-  this.genderIcon=determineRoomGenderIcon(room.getGenderLimitation());
+  genderIcon=determineRoomGenderIcon(room.getGenderLimitation());
   List<RoomEquipment> equipmentList=room.getRoomEquipmentList();
   equipmentColorList=new ArrayList<>(equipmentList.size());
   for (  RoomEquipment equipment : equipmentList) {

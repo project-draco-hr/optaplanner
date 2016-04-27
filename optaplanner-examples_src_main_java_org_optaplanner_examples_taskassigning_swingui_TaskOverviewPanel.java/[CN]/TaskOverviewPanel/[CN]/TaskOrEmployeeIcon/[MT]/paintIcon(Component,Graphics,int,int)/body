@@ -1,0 +1,18 @@
+{
+  int innerX=x;
+  for (  Color skillColor : skillColorList) {
+    g.setColor(skillColor);
+    g.fillRect(innerX + 1,y + 1,SKILL_ICON_WIDTH - 2,SKILL_ICON_HEIGHT - 2);
+    g.setColor(TangoColorFactory.ALUMINIUM_5);
+    g.drawRect(innerX + 1,y + 1,SKILL_ICON_WIDTH - 2,SKILL_ICON_HEIGHT - 2);
+    innerX+=SKILL_ICON_WIDTH;
+  }
+  innerX+=CUSTOMER_SKILL_GAP;
+  if (customerColor != null) {
+    g.setColor(customerColor);
+    g.fillOval(innerX + 1,y + 4,CUSTOMER_ICON_WIDTH - 2,CUSTOMER_ICON_HEIGHT - 8);
+    g.setColor(TangoColorFactory.ALUMINIUM_5);
+    g.drawOval(innerX + 1,y + 4,CUSTOMER_ICON_WIDTH - 2,CUSTOMER_ICON_HEIGHT - 8);
+    innerX+=CUSTOMER_ICON_WIDTH;
+  }
+}

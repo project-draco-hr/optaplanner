@@ -1,0 +1,8 @@
+{
+  customerColor=customerColorFactory.pickColor(task.getCustomer());
+  List<Skill> skillList=task.getTaskType().getRequiredSkillList();
+  skillColorList=new ArrayList<>(skillList.size());
+  for (  Skill skill : skillList) {
+    skillColorList.add(skillColorFactory.pickColor(skill));
+  }
+}

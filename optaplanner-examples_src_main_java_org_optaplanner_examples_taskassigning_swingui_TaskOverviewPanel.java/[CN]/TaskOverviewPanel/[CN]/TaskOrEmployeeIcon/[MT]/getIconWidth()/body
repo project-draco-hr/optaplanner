@@ -1,0 +1,3 @@
+{
+  return skillColorList.size() * SKILL_ICON_WIDTH + (customerColor == null ? 0 : CUSTOMER_ICON_WIDTH + CUSTOMER_SKILL_GAP);
+}

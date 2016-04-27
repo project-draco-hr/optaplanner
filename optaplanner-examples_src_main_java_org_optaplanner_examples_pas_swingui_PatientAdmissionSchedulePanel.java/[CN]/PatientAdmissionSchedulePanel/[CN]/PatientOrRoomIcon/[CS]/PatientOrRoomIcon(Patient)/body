@@ -1,5 +1,5 @@
 {
-  this.genderIcon=determinePatientGenderIcon(patient.getGender());
+  genderIcon=determinePatientGenderIcon(patient.getGender());
   List<RequiredPatientEquipment> equipmentList=patient.getRequiredPatientEquipmentList();
   equipmentColorList=new ArrayList<>(equipmentList.size());
   for (  RequiredPatientEquipment equipment : equipmentList) {

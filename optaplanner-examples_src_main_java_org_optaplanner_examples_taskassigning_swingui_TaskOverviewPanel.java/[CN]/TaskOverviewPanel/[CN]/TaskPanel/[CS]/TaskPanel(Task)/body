@@ -1,8 +1,9 @@
 {
   this.task=task;
   setLayout(null);
+  setBackground(task.isLocked() ? TangoColorFactory.ALUMINIUM_3 : TangoColorFactory.ALUMINIUM_1);
   setSize(task.getDuration(),ROW_HEIGHT);
-  JLabel codeLabel=new JLabel(task.getCode(),SwingConstants.CENTER);
+  JLabel codeLabel=new JLabel(task.getCode(),new TaskOrEmployeeIcon(task),SwingConstants.CENTER);
   codeLabel.setLocation(0,0);
   codeLabel.setSize(task.getDuration(),ROW_HEIGHT / 2);
   add(codeLabel);
@@ -10,5 +11,5 @@
   titleLabel.setLocation(0,ROW_HEIGHT / 2);
   titleLabel.setSize(task.getDuration(),ROW_HEIGHT / 2);
   add(titleLabel);
-  setBorder(BorderFactory.createLineBorder(task.isLocked() ? TangoColorFactory.ALUMINIUM_4 : Color.BLACK));
+  setBorder(BorderFactory.createLineBorder(Color.BLACK));
 }

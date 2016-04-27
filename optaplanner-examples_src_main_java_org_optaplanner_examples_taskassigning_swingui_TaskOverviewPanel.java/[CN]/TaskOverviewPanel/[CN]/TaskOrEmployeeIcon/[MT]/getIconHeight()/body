@@ -1,0 +1,3 @@
+{
+  return Math.max(SKILL_ICON_HEIGHT,CUSTOMER_ICON_HEIGHT);
+}

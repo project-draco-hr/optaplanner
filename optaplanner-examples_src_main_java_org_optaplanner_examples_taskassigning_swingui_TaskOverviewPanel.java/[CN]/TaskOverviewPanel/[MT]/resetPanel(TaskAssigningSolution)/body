@@ -1,11 +1,12 @@
 {
   removeAll();
-  TangoColorFactory tangoColorFactory=new TangoColorFactory();
+  customerColorFactory=new TangoColorFactory();
+  skillColorFactory=new TangoColorFactory();
   List<Employee> employeeList=taskAssigningSolution.getEmployeeList();
   Map<Employee,Integer> employeeIndexMap=new HashMap<>(employeeList.size());
   int employeeIndex=0;
   for (  Employee employee : employeeList) {
-    JLabel employeeLabel=new JLabel(employee.getLabel(),SwingConstants.LEFT);
+    JLabel employeeLabel=new JLabel(employee.getLabel(),new TaskOrEmployeeIcon(employee),SwingConstants.LEFT);
     employeeLabel.setOpaque(true);
     employeeLabel.setToolTipText(employee.getToolText());
     employeeLabel.setLocation(0,HEADER_ROW_HEIGHT + employeeIndex * ROW_HEIGHT);
@@ -20,7 +21,6 @@
   for (  Task task : taskAssigningSolution.getTaskList()) {
     TaskPanel taskPanel=new TaskPanel(task);
     taskPanel.setToolTipText(task.getToolText());
-    taskPanel.setBackground(tangoColorFactory.pickColor(task.getTaskType()));
     int x;
     int y;
     if (task.getEmployee() != null) {

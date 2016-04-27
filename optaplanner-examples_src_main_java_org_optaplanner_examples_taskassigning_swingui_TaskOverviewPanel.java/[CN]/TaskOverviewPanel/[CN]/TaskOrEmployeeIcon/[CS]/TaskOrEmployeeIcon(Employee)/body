@@ -1,0 +1,8 @@
+{
+  customerColor=null;
+  Set<Skill> skillSet=employee.getSkillSet();
+  skillColorList=new ArrayList<>(skillSet.size());
+  for (  Skill skill : skillSet) {
+    skillColorList.add(skillColorFactory.pickColor(skill));
+  }
+}
