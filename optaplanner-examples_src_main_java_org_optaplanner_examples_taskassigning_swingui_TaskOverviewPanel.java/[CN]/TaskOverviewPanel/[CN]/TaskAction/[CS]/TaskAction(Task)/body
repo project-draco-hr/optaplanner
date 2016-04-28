@@ -1,0 +1,5 @@
+{
+  super(task.getCode(),new TaskOrEmployeeIcon(task));
+  this.task=task;
+  putValue(SHORT_DESCRIPTION,task.getToolText());
+}

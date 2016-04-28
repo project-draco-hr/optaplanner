@@ -19,8 +19,7 @@
   int panelWidth=HEADER_COLUMN_WIDTH;
   int unassignedIndex=employeeList.size();
   for (  Task task : taskAssigningSolution.getTaskList()) {
-    TaskPanel taskPanel=new TaskPanel(task);
-    taskPanel.setToolTipText(task.getToolText());
+    JButton taskButton=createTaskButton(task);
     int x;
     int y;
     if (task.getEmployee() != null) {
@@ -32,11 +31,11 @@
       y=HEADER_ROW_HEIGHT + unassignedIndex * ROW_HEIGHT;
       unassignedIndex++;
     }
-    if (x + taskPanel.getWidth() > panelWidth) {
-      panelWidth=x + taskPanel.getWidth();
+    if (x + taskButton.getWidth() > panelWidth) {
+      panelWidth=x + taskButton.getWidth();
     }
-    taskPanel.setLocation(x,y);
-    add(taskPanel);
+    taskButton.setLocation(x,y);
+    add(taskButton);
   }
   for (int x=HEADER_COLUMN_WIDTH; x < panelWidth; x+=TIME_COLUMN_WIDTH) {
     int minutes=(8 * 60 + (x - HEADER_COLUMN_WIDTH)) % (24 * 60);

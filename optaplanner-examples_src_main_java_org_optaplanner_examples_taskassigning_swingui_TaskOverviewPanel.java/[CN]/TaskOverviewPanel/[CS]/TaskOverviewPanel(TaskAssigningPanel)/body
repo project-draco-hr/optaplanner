@@ -1,4 +1,5 @@
 {
+  this.taskAssigningPanel=taskAssigningPanel;
   affinityIcons=new ImageIcon[]{new ImageIcon(getClass().getResource("affinityNone.png")),new ImageIcon(getClass().getResource("affinityLow.png")),new ImageIcon(getClass().getResource("affinityMedium.png")),new ImageIcon(getClass().getResource("affinityHigh.png"))};
   priorityIcons=new ImageIcon[]{new ImageIcon(getClass().getResource("priorityMinor.png")),new ImageIcon(getClass().getResource("priorityMajor.png")),new ImageIcon(getClass().getResource("priorityCritical.png"))};
   setLayout(null);
