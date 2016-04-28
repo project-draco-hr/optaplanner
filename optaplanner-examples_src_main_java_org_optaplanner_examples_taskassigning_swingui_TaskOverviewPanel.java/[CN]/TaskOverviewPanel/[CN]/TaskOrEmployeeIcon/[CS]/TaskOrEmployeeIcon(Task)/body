@@ -5,4 +5,5 @@
   for (  Skill skill : skillList) {
     skillColorList.add(skillColorFactory.pickColor(skill));
   }
+  priorityIcon=priorityIcons[task.getPriority().ordinal()];
 }

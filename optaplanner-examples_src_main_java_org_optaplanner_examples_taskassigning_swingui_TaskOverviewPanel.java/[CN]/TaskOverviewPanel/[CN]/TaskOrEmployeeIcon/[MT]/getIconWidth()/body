@@ -1,3 +1,10 @@
 {
-  return skillColorList.size() * SKILL_ICON_WIDTH + (customerColor == null ? 0 : CUSTOMER_ICON_WIDTH + CUSTOMER_SKILL_GAP);
+  int width=skillColorList.size() * SKILL_ICON_WIDTH;
+  if (customerColor != null) {
+    width+=GAP + CUSTOMER_ICON_WIDTH;
+  }
+  if (priorityIcon != null) {
+    width+=GAP + priorityIcon.getIconWidth();
+  }
+  return width;
 }

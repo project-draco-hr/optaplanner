@@ -1,3 +1,10 @@
 {
-  return Math.max(SKILL_ICON_HEIGHT,CUSTOMER_ICON_HEIGHT);
+  int height=SKILL_ICON_HEIGHT;
+  if (CUSTOMER_ICON_HEIGHT > height) {
+    height=CUSTOMER_ICON_HEIGHT;
+  }
+  if (priorityIcon != null && priorityIcon.getIconHeight() > height) {
+    height=priorityIcon.getIconHeight();
+  }
+  return height;
 }

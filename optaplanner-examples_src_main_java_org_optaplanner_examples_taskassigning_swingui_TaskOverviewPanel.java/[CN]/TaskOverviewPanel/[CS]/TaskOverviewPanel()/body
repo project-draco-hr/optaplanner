@@ -1,4 +1,5 @@
 {
+  priorityIcons=new ImageIcon[]{new ImageIcon(getClass().getResource("priorityMinor.png")),new ImageIcon(getClass().getResource("priorityMajor.png")),new ImageIcon(getClass().getResource("priorityCritical.png"))};
   setLayout(null);
   setMinimumSize(new Dimension(HEADER_COLUMN_WIDTH * 2,ROW_HEIGHT * 8));
 }
