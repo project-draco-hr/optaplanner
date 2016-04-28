@@ -3,7 +3,7 @@
   List<Customer> customerList=solution.getCustomerList();
   Priority[] priorities=Priority.values();
   List<Task> taskList=new ArrayList<>(taskListSize);
-  Map<TaskType,Integer> maxIndexInTaskTypeMap=new HashMap<>(taskTypeList.size());
+  Map<TaskType,Integer> maxIndexInTaskTypeMap=new LinkedHashMap<>(taskTypeList.size());
   for (int i=0; i < taskListSize; i++) {
     Task task=new Task();
     task.setId((long)i);

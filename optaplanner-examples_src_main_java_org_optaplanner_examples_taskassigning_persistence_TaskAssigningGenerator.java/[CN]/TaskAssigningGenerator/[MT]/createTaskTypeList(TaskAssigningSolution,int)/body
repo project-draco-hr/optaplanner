@@ -1,7 +1,7 @@
 {
   List<Employee> employeeList=solution.getEmployeeList();
   List<TaskType> taskTypeList=new ArrayList<>(taskTypeListSize);
-  Set<String> codeSet=new HashSet<>(taskTypeListSize);
+  Set<String> codeSet=new LinkedHashSet<>(taskTypeListSize);
   for (int i=0; i < taskTypeListSize; i++) {
     TaskType taskType=new TaskType();
     taskType.setId((long)i);
@@ -15,7 +15,7 @@
     taskType.setBaseDuration(BASE_DURATION_MINIMUM + random.nextInt(BASE_DURATION_MAXIMUM - BASE_DURATION_MINIMUM));
     Employee randomEmployee=employeeList.get(random.nextInt(employeeList.size()));
     ArrayList<Skill> randomSkillList=new ArrayList<>(randomEmployee.getSkillSet());
-    Collections.shuffle(randomSkillList);
+    Collections.shuffle(randomSkillList,random);
     int requiredSkillListSize=1 + random.nextInt(randomSkillList.size() - 1);
     taskType.setRequiredSkillList(new ArrayList<>(randomSkillList.subList(0,requiredSkillListSize)));
     logger.trace("Created taskType with title ({}).",title);
