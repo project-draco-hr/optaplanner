@@ -1,9 +1,9 @@
 {
-  customerColor=customerColorFactory.pickColor(task.getCustomer());
+  priorityIcon=priorityIcons[task.getPriority().ordinal()];
   List<Skill> skillList=task.getTaskType().getRequiredSkillList();
   skillColorList=new ArrayList<>(skillList.size());
   for (  Skill skill : skillList) {
     skillColorList.add(skillColorFactory.pickColor(skill));
   }
-  priorityIcon=priorityIcons[task.getPriority().ordinal()];
+  affinityIcon=affinityIcons[task.getAffinity().ordinal()];
 }

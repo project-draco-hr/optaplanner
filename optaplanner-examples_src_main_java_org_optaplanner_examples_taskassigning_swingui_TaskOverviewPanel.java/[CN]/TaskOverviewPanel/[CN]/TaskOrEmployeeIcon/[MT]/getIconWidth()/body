@@ -1,10 +1,11 @@
 {
-  int width=skillColorList.size() * SKILL_ICON_WIDTH;
-  if (customerColor != null) {
-    width+=GAP + CUSTOMER_ICON_WIDTH;
-  }
+  int width=0;
   if (priorityIcon != null) {
-    width+=GAP + priorityIcon.getIconWidth();
+    width+=priorityIcon.getIconWidth();
+  }
+  width+=skillColorList.size() * SKILL_ICON_WIDTH;
+  if (affinityIcon != null) {
+    width+=affinityIcon.getIconWidth();
   }
   return width;
 }

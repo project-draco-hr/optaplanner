@@ -1,10 +1,10 @@
 {
   int height=SKILL_ICON_HEIGHT;
-  if (CUSTOMER_ICON_HEIGHT > height) {
-    height=CUSTOMER_ICON_HEIGHT;
-  }
   if (priorityIcon != null && priorityIcon.getIconHeight() > height) {
     height=priorityIcon.getIconHeight();
+  }
+  if (affinityIcon != null && affinityIcon.getIconHeight() > height) {
+    height=affinityIcon.getIconHeight();
   }
   return height;
 }

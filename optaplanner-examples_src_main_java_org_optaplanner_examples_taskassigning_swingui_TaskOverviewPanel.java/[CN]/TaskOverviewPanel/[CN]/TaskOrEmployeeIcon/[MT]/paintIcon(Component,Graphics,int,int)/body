@@ -1,5 +1,9 @@
 {
   int innerX=x;
+  if (priorityIcon != null) {
+    priorityIcon.paintIcon(c,g,innerX,y);
+    innerX+=priorityIcon.getIconWidth();
+  }
   for (  Color skillColor : skillColorList) {
     g.setColor(skillColor);
     g.fillRect(innerX + 1,y + 1,SKILL_ICON_WIDTH - 2,SKILL_ICON_HEIGHT - 2);
@@ -7,17 +11,8 @@
     g.drawRect(innerX + 1,y + 1,SKILL_ICON_WIDTH - 2,SKILL_ICON_HEIGHT - 2);
     innerX+=SKILL_ICON_WIDTH;
   }
-  if (customerColor != null) {
-    innerX+=GAP;
-    g.setColor(customerColor);
-    g.fillOval(innerX + 1,y + 4,CUSTOMER_ICON_WIDTH - 2,CUSTOMER_ICON_HEIGHT - 8);
-    g.setColor(TangoColorFactory.ALUMINIUM_5);
-    g.drawOval(innerX + 1,y + 4,CUSTOMER_ICON_WIDTH - 2,CUSTOMER_ICON_HEIGHT - 8);
-    innerX+=CUSTOMER_ICON_WIDTH;
-  }
-  if (priorityIcon != null) {
-    innerX+=GAP;
-    priorityIcon.paintIcon(c,g,innerX,y);
-    innerX+=priorityIcon.getIconWidth();
+  if (affinityIcon != null) {
+    affinityIcon.paintIcon(c,g,innerX,y);
+    innerX+=affinityIcon.getIconWidth();
   }
 }
