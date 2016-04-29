@@ -1,1 +1,1 @@
-AbstractScore<BendableBigDecimalScore>
+AbstractBendableScore<BendableBigDecimalScore>
