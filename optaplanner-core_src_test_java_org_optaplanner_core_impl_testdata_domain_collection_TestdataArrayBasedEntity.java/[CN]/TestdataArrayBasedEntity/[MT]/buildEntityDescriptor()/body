@@ -1,0 +1,4 @@
+{
+  SolutionDescriptor solutionDescriptor=TestdataArrayBasedSolution.buildSolutionDescriptor();
+  return solutionDescriptor.findEntityDescriptorOrFail(TestdataArrayBasedEntity.class);
+}

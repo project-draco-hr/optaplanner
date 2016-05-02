@@ -5,7 +5,11 @@
   }
   ValueRange<Object> valueRange;
   if (collectionWrapping) {
-    List<Object> list=transformToList((Collection<Object>)valueRangeObject);
+    List<Object> list=transformCollectionToList((Collection<Object>)valueRangeObject);
+    valueRange=new ListValueRange<>(list);
+  }
+ else   if (arrayWrapping) {
+    List<Object> list=transformArrayToList(valueRangeObject);
     valueRange=new ListValueRange<>(list);
   }
  else {

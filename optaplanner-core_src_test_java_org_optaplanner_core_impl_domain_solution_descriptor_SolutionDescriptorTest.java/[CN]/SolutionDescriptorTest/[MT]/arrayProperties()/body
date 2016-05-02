@@ -1,0 +1,7 @@
+{
+  SolutionDescriptor<TestdataArrayBasedSolution> solutionDescriptor=TestdataArrayBasedSolution.buildSolutionDescriptor();
+  assertMapContainsKeysExactly(solutionDescriptor.getProblemFactMemberAccessorMap());
+  assertMapContainsKeysExactly(solutionDescriptor.getProblemFactCollectionMemberAccessorMap(),"values");
+  assertMapContainsKeysExactly(solutionDescriptor.getEntityMemberAccessorMap());
+  assertMapContainsKeysExactly(solutionDescriptor.getEntityCollectionMemberAccessorMap(),"entities");
+}
