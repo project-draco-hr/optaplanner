@@ -1,0 +1,6 @@
+{
+  List<String> memberNames=new ArrayList<>(entityMemberAccessorMap.size() + entityCollectionMemberAccessorMap.size());
+  memberNames.addAll(entityMemberAccessorMap.keySet());
+  memberNames.addAll(entityCollectionMemberAccessorMap.keySet());
+  return memberNames;
+}
