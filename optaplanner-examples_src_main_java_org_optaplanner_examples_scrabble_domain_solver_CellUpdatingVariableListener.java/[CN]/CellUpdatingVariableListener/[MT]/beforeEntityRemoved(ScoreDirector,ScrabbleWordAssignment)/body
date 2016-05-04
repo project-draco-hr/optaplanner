@@ -1,3 +1,3 @@
 {
-  retractWord((ScrabbleSolution)scoreDirector.getWorkingSolution(),wordAssignment);
+  retractWord(scoreDirector,wordAssignment);
 }

@@ -3,4 +3,10 @@
   if (!added) {
     throw new IllegalStateException("The wordAssignment (" + wordAssignment + ") is already in the cell ("+ this+ ").");
   }
+  Integer characterCount=characterCountMap.get(c);
+  if (characterCount == null) {
+    characterCount=0;
+  }
+  characterCount++;
+  characterCountMap.put(c,characterCount);
 }

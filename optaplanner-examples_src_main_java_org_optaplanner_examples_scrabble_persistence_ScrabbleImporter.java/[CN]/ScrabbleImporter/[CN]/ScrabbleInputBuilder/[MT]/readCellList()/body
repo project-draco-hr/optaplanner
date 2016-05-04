@@ -11,6 +11,7 @@
       cell.setX(x);
       cell.setY(y);
       cell.setWordSet(new LinkedHashSet<>());
+      cell.setCharacterCountMap(new LinkedHashMap<>());
       cellList.add(cell);
     }
   }

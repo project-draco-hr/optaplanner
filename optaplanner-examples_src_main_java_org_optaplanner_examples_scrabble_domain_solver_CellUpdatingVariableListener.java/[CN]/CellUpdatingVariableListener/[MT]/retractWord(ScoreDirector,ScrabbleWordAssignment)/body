@@ -1,4 +1,5 @@
 {
+  ScrabbleSolution solution=(ScrabbleSolution)scoreDirector.getWorkingSolution();
   ScrabbleCell startCell=wordAssignment.getStartCell();
   ScrabbleWordDirection direction=wordAssignment.getDirection();
   if (startCell != null && direction != null) {
@@ -6,7 +7,12 @@
     int y=startCell.getY();
     String word=wordAssignment.getWord();
     for (int i=0; i < word.length(); i++) {
-      solution.getCell(x,y).insertWordAssignment(wordAssignment,word.charAt(i));
+      ScrabbleCell cell=solution.getCell(x,y);
+      scoreDirector.beforeVariableChanged(cell,"wordSet");
+      scoreDirector.beforeVariableChanged(cell,"characterCountMap");
+      cell.retractWordAssignment(wordAssignment,word.charAt(i));
+      scoreDirector.afterVariableChanged(cell,"wordSet");
+      scoreDirector.afterVariableChanged(cell,"characterCountMap");
 switch (direction) {
 case HORIZONTAL:
         x++;
