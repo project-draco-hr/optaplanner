@@ -1,0 +1,5 @@
+{
+  for (int x=0; x < solution.getGridWidth(); x++) {
+    gridPanel.addColumnHeader(x,HEADER_ROW,createTableHeader(new JLabel(Integer.toString(x),SwingConstants.CENTER)));
+  }
+}

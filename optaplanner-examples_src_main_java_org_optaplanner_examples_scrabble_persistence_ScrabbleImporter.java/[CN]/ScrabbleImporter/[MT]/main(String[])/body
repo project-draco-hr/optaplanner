@@ -1,0 +1,4 @@
+{
+  ScrabbleImporter importer=new ScrabbleImporter();
+  importer.convert("jbossProjects.txt","jbossProjects.xml");
+}

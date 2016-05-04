@@ -1,0 +1,3 @@
+{
+  super("Scrabble compacter","Assign words to a scrabble board as compact as possible.",SOLVER_CONFIG,ScrabblePanel.LOGO_PATH);
+}

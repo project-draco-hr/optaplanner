@@ -1,0 +1,13 @@
+{
+  JButton footprint=SwingUtils.makeSmallButton(new JButton("99"));
+  int footprintWidth=footprint.getPreferredSize().width;
+  gridPanel.defineColumnHeaderByKey(HEADER_COLUMN);
+  for (int x=0; x < solution.getGridWidth(); x++) {
+    gridPanel.defineColumnHeader(x,footprintWidth);
+  }
+  gridPanel.defineRowHeaderByKey(HEADER_ROW);
+  for (int y=0; y < solution.getGridHeight(); y++) {
+    gridPanel.defineRowHeader(y);
+  }
+  gridPanel.defineRowHeader(null);
+}

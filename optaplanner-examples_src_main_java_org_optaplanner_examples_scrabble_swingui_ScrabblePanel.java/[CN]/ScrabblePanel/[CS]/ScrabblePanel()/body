@@ -1,0 +1,8 @@
+{
+  setLayout(new BorderLayout());
+  JTabbedPane tabbedPane=new JTabbedPane();
+  gridPanel=new TimeTablePanel<>();
+  tabbedPane.add("Grid",new JScrollPane(gridPanel));
+  add(tabbedPane,BorderLayout.CENTER);
+  setPreferredSize(PREFERRED_SCROLLABLE_VIEWPORT_SIZE);
+}

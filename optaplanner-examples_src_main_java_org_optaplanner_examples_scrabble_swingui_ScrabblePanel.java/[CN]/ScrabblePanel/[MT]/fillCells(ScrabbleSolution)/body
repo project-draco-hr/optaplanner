@@ -1,0 +1,5 @@
+{
+  fillXCells(solution);
+  fillYCells(solution);
+  fillTeamAssignmentCells(solution);
+}

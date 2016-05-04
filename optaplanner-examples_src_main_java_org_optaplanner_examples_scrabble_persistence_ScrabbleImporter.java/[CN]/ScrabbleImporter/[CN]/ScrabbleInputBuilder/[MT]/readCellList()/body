@@ -1,0 +1,18 @@
+{
+  int gridWidth=readIntegerValue("gridWidth:");
+  solution.setGridWidth(gridWidth);
+  int gridHeight=readIntegerValue("gridHeight:");
+  solution.setGridHeight(gridHeight);
+  List<ScrabbleCell> cellList=new ArrayList<>(gridWidth * gridHeight);
+  for (int x=0; x < gridWidth; x++) {
+    for (int y=0; y < gridHeight; y++) {
+      ScrabbleCell cell=new ScrabbleCell();
+      cell.setId((long)(y * gridWidth + x));
+      cell.setX(x);
+      cell.setY(y);
+      cell.setWordSet(new LinkedHashSet<>());
+      cellList.add(cell);
+    }
+  }
+  solution.setCellList(cellList);
+}

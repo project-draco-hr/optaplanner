@@ -1,0 +1,6 @@
+{
+  gridPanel.reset();
+  defineGrid(solution);
+  fillCells(solution);
+  repaint();
+}

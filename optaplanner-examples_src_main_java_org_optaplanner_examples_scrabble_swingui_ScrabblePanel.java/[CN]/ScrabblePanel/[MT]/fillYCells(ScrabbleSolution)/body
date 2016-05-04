@@ -1,0 +1,6 @@
+{
+  for (int y=0; y < solution.getGridHeight(); y++) {
+    gridPanel.addRowHeader(HEADER_COLUMN,y,createTableHeader(new JLabel(Integer.toString(y))));
+  }
+  gridPanel.addRowHeader(HEADER_COLUMN,null,createTableHeader(new JLabel("Unassigned")));
+}

@@ -1,0 +1,10 @@
+{
+  solution=new ScrabbleSolution();
+  solution.setId(0L);
+  locale=Locale.forLanguageTag(readStringValue("locale:"));
+  readCellList();
+  readWordList();
+  BigInteger possibleSolutionSize=BigInteger.valueOf(solution.getCellList().size()).pow(solution.getWordList().size());
+  logger.info("ScrabbleSolution {} has {} words and {} cells with a search space of {}.",getInputId(),solution.getWordList().size(),solution.getCellList().size(),getFlooredPossibleSolutionSize(possibleSolutionSize));
+  return solution;
+}
