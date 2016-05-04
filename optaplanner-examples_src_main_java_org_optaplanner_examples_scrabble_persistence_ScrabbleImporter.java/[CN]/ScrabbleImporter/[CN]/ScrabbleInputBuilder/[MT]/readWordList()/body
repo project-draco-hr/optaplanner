@@ -1,16 +1,16 @@
 {
   readConstantLine("# Words");
-  List<ScrabbleWord> wordList=new ArrayList<>();
+  List<ScrabbleWordAssignment> wordList=new ArrayList<>();
   String line=bufferedReader.readLine();
   long wordId=0L;
   while (line != null) {
-    String wordString=readStringValue();
-    if (!wordString.isEmpty()) {
-      ScrabbleWord word=new ScrabbleWord();
-      word.setId(wordId);
+    String word=readStringValue();
+    if (!word.isEmpty()) {
+      ScrabbleWordAssignment wordAssignment=new ScrabbleWordAssignment();
+      wordAssignment.setId(wordId);
       wordId++;
-      word.setWord(wordString.toUpperCase(locale));
-      wordList.add(word);
+      wordAssignment.setWord(word.toUpperCase(locale));
+      wordList.add(wordAssignment);
     }
     line=bufferedReader.readLine();
   }

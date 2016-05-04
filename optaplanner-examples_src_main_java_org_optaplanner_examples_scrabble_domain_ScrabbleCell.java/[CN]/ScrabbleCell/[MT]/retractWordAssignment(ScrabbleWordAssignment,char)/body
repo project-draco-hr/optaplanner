@@ -1,0 +1,6 @@
+{
+  boolean removed=wordSet.remove(wordAssignment);
+  if (!removed) {
+    throw new IllegalStateException("The wordAssignment (" + wordAssignment + ") is not in the cell ("+ this+ ").");
+  }
+}

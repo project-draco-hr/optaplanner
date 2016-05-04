@@ -1,0 +1,6 @@
+{
+  boolean added=wordSet.add(wordAssignment);
+  if (!added) {
+    throw new IllegalStateException("The wordAssignment (" + wordAssignment + ") is already in the cell ("+ this+ ").");
+  }
+}

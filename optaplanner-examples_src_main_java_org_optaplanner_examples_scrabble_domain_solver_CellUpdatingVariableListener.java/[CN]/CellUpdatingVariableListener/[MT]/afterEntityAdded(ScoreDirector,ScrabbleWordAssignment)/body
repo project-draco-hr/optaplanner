@@ -1,0 +1,3 @@
+{
+  insertWord((ScrabbleSolution)scoreDirector.getWorkingSolution(),wordAssignment);
+}
