@@ -1,0 +1,13 @@
+{
+  if (direction == null || startCell == null) {
+    return false;
+  }
+switch (direction) {
+case HORIZONTAL:
+    return startCell.getX() + word.length() > solution.getGridWidth();
+case VERTICAL:
+  return startCell.getY() + word.length() > solution.getGridHeight();
+default :
+throw new IllegalStateException("The direction (" + direction + ") is not implemented.");
+}
+}

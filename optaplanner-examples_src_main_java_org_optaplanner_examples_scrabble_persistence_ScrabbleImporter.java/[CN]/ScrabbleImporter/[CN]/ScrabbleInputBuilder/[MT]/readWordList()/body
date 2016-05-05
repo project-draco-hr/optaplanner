@@ -9,6 +9,7 @@
       ScrabbleWordAssignment wordAssignment=new ScrabbleWordAssignment();
       wordAssignment.setId(wordId);
       wordId++;
+      wordAssignment.setSolution(solution);
       wordAssignment.setWord(" " + word.toUpperCase(locale) + " ");
       wordList.add(wordAssignment);
     }
