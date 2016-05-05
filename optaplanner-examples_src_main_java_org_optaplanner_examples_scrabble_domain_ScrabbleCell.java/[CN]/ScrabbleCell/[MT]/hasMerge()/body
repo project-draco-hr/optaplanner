@@ -1,0 +1,6 @@
+{
+  if (characterCountMap.containsKey(' ')) {
+    return false;
+  }
+  return wordSet.size() > 1;
+}
