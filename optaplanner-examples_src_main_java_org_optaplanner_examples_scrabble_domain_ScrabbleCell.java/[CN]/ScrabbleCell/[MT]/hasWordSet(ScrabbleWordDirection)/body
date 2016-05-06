@@ -1,0 +1,8 @@
+{
+  for (  ScrabbleWordAssignment wordAssignment : wordSet) {
+    if (wordAssignment.getDirection() == direction) {
+      return true;
+    }
+  }
+  return false;
+}
