@@ -1,0 +1,3 @@
+{
+  return getSolutionFilesAsParameters(new TaskAssigningDao());
+}

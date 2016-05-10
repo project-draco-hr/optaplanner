@@ -1,0 +1,4 @@
+{
+  File unsolvedDataFile=new File("data/taskassigning/unsolved/50tasks-5employees.xml");
+  runSpeedTest(unsolvedDataFile,"[0]hard/[-3988/-10452712/-15713/-21195]soft",EnvironmentMode.FAST_ASSERT);
+}
