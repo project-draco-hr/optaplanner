@@ -2,8 +2,7 @@
   if (value == null || !value.isSupported(incrementUnitType)) {
     return false;
   }
-  Comparable<Temporal_> comparableValue=(Comparable<Temporal_>)value;
-  if (comparableValue.compareTo(from) < 0 || comparableValue.compareTo(to) >= 0) {
+  if (value.compareTo(from) < 0 || value.compareTo(to) >= 0) {
     return false;
   }
   long fromSpace=from.until(value,incrementUnitType);
