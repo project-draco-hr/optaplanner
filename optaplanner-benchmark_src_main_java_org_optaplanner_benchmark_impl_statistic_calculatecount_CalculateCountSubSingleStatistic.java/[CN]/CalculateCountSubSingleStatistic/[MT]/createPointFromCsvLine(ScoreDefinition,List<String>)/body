@@ -1,3 +1,0 @@
-{
-  return new CalculateCountStatisticPoint(Long.parseLong(csvLine.get(0)),Long.parseLong(csvLine.get(1)));
-}

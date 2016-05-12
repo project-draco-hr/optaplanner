@@ -1,7 +1,5 @@
 {
   solverScope.getScoreDirector().dispose();
-  long timeMillisSpent=getTimeMillisSpent();
-  long averageCalculateCountPerSecond=solverScope.getCalculateCount() * 1000L / (timeMillisSpent == 0L ? 1L : timeMillisSpent);
-  logger.info("Solving ended: time spent ({}), best score ({}), average calculate count per second ({})," + " environment mode ({}).",timeMillisSpent,solverScope.getBestScoreWithUninitializedPrefix(),averageCalculateCountPerSecond,environmentMode.name());
+  logger.info("Solving ended: time spent ({}), best score ({}), score calculation speed ({}/sec)," + " environment mode ({}).",solverScope.getTimeMillisSpent(),solverScope.getBestScoreWithUninitializedPrefix(),solverScope.getScoreCalculationSpeed(),environmentMode.name());
   solving.set(false);
 }

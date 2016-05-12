@@ -1,4 +1,5 @@
 {
+  phaseScope.startingNow();
   phaseScope.reset();
   bestSolutionRecaller.phaseStarted(phaseScope);
   termination.phaseStarted(phaseScope);

@@ -14,7 +14,7 @@
   median=subSingleBenchmarkResultListCopy.get(ConfigUtils.ceilDivide(subSingleBenchmarkResultListCopy.size() - 1,2));
   usedMemoryAfterInputSolution=median.getUsedMemoryAfterInputSolution();
   timeMillisSpent=median.getTimeMillisSpent();
-  calculateCount=median.getCalculateCount();
+  scoreCalculationCount=median.getScoreCalculationCount();
   winningScoreDifference=median.getWinningScoreDifference();
   worstScoreDifferencePercentage=median.getWorstScoreDifferencePercentage();
 }

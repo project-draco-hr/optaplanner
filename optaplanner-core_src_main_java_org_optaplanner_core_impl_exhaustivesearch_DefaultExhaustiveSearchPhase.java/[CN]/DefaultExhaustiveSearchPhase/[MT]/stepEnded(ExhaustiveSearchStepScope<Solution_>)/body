@@ -3,7 +3,6 @@
   decider.stepEnded(stepScope);
   if (logger.isDebugEnabled()) {
     ExhaustiveSearchPhaseScope<Solution_> phaseScope=stepScope.getPhaseScope();
-    long timeMillisSpent=phaseScope.calculateSolverTimeMillisSpent();
-    logger.debug("    ES step ({}), time spent ({}), treeId ({}), {} best score ({}), selected move count ({}).",stepScope.getStepIndex(),timeMillisSpent,stepScope.getTreeId(),(stepScope.getBestScoreImproved() ? "new" : "   "),phaseScope.getBestScoreWithUninitializedPrefix(),stepScope.getSelectedMoveCount());
+    logger.debug("    ES step ({}), time spent ({}), treeId ({}), {} best score ({}), selected move count ({}).",stepScope.getStepIndex(),phaseScope.calculateSolverTimeMillisSpentUpToNow(),stepScope.getTreeId(),(stepScope.getBestScoreImproved() ? "new" : "   "),phaseScope.getBestScoreWithUninitializedPrefix(),stepScope.getSelectedMoveCount());
   }
 }

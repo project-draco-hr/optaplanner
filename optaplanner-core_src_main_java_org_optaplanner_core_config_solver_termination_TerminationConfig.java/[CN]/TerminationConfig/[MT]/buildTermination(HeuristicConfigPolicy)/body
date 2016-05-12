@@ -40,7 +40,14 @@
     terminationList.add(new StepCountTermination(stepCountLimit));
   }
   if (calculateCountLimit != null) {
-    terminationList.add(new CalculateCountTermination(calculateCountLimit));
+    logger.info("Deprecated use of calculateCountLimit ({}) in solver configuration.",calculateCountLimit);
+    if (scoreCalculationCountLimit != null) {
+      throw new IllegalStateException("The calculateCountLimit (" + calculateCountLimit + ") and scoreCalculationCountLimit ("+ scoreCalculationCountLimit+ ") cannot be used together.");
+    }
+    terminationList.add(new ScoreCalculationCountTermination(calculateCountLimit));
+  }
+  if (scoreCalculationCountLimit != null) {
+    terminationList.add(new ScoreCalculationCountTermination(scoreCalculationCountLimit));
   }
   if (unimprovedStepCountLimit != null) {
     terminationList.add(new UnimprovedStepCountTermination(unimprovedStepCountLimit));

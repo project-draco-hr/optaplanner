@@ -1,0 +1,3 @@
+{
+  return ScoreCalculationSpeedStatisticPoint.buildCsvLine("timeMillisSpent","scoreCalculationSpeed");
+}

@@ -2,5 +2,6 @@
   super.phaseEnded(phaseScope);
   entitySelector.phaseEnded(phaseScope);
   decider.phaseEnded(phaseScope);
-  logger.info("Exhaustive Search phase ({}) ended: step total ({}), time spent ({}), best score ({}).",phaseIndex,phaseScope.getNextStepIndex(),phaseScope.calculateSolverTimeMillisSpent(),phaseScope.getBestScore());
+  phaseScope.endingNow();
+  logger.info("Exhaustive Search phase ({}) ended: time spent ({}), best score ({})," + " score calculation speed ({}/sec), step total ({}).",phaseIndex,phaseScope.calculateSolverTimeMillisSpentUpToNow(),phaseScope.getBestScore(),phaseScope.getPhaseScoreCalculationSpeed(),phaseScope.getNextStepIndex());
 }

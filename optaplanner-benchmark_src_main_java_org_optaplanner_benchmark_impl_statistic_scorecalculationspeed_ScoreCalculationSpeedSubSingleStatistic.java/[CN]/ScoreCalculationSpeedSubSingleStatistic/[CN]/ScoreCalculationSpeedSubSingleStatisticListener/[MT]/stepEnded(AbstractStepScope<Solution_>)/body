@@ -1,0 +1,20 @@
+{
+  long timeMillisSpent=stepScope.getPhaseScope().calculateSolverTimeMillisSpentUpToNow();
+  if (timeMillisSpent >= nextTimeMillisThreshold) {
+    DefaultSolverScope<Solution_> solverScope=stepScope.getPhaseScope().getSolverScope();
+    long calculationCount=solverScope.getScoreCalculationCount();
+    long calculationCountInterval=calculationCount - lastCalculationCount;
+    long timeMillisSpentInterval=timeMillisSpent - lastTimeMillisSpent;
+    if (timeMillisSpentInterval == 0L) {
+      timeMillisSpentInterval=1L;
+    }
+    long scoreCalculationSpeed=calculationCountInterval * 1000L / timeMillisSpentInterval;
+    pointList.add(new ScoreCalculationSpeedStatisticPoint(timeMillisSpent,scoreCalculationSpeed));
+    lastCalculationCount=calculationCount;
+    lastTimeMillisSpent=timeMillisSpent;
+    nextTimeMillisThreshold+=timeMillisThresholdInterval;
+    if (nextTimeMillisThreshold < timeMillisSpent) {
+      nextTimeMillisThreshold=timeMillisSpent;
+    }
+  }
+}

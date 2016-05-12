@@ -25,7 +25,7 @@
   newResult.score=oldResult.score;
   newResult.uninitializedVariableCount=oldResult.uninitializedVariableCount;
   newResult.timeMillisSpent=oldResult.timeMillisSpent;
-  newResult.calculateCount=oldResult.calculateCount;
+  newResult.scoreCalculationCount=oldResult.scoreCalculationCount;
   singleBenchmarkResult.getSubSingleBenchmarkResultList().add(newResult);
   return newResult;
 }

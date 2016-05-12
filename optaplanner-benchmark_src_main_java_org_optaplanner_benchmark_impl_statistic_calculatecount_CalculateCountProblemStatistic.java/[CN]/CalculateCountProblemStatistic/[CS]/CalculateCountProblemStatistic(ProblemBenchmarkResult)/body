@@ -1,3 +1,0 @@
-{
-  super(problemBenchmarkResult,ProblemStatisticType.CALCULATE_COUNT_PER_SECOND);
-}

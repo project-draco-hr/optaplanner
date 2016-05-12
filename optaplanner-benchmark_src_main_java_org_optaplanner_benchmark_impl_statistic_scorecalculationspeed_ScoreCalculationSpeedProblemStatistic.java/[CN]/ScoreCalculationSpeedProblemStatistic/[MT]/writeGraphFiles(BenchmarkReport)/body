@@ -1,0 +1,32 @@
+{
+  Locale locale=benchmarkReport.getLocale();
+  NumberAxis xAxis=new NumberAxis("Time spent");
+  xAxis.setNumberFormatOverride(new MillisecondsSpentNumberFormat(locale));
+  NumberAxis yAxis=new NumberAxis("Score calculation speed per second");
+  yAxis.setNumberFormatOverride(NumberFormat.getInstance(locale));
+  yAxis.setAutoRangeIncludesZero(false);
+  XYPlot plot=new XYPlot(null,xAxis,yAxis,null);
+  plot.setOrientation(PlotOrientation.VERTICAL);
+  int seriesIndex=0;
+  for (  SingleBenchmarkResult singleBenchmarkResult : problemBenchmarkResult.getSingleBenchmarkResultList()) {
+    XYSeries series=new XYSeries(singleBenchmarkResult.getSolverBenchmarkResult().getNameWithFavoriteSuffix());
+    XYItemRenderer renderer=new XYLineAndShapeRenderer();
+    if (singleBenchmarkResult.hasAllSuccess()) {
+      ScoreCalculationSpeedSubSingleStatistic subSingleStatistic=(ScoreCalculationSpeedSubSingleStatistic)singleBenchmarkResult.getSubSingleStatistic(problemStatisticType);
+      List<ScoreCalculationSpeedStatisticPoint> points=subSingleStatistic.getPointList();
+      for (      ScoreCalculationSpeedStatisticPoint point : points) {
+        long timeMillisSpent=point.getTimeMillisSpent();
+        long scoreCalculationSpeed=point.getScoreCalculationSpeed();
+        series.add(timeMillisSpent,scoreCalculationSpeed);
+      }
+    }
+    plot.setDataset(seriesIndex,new XYSeriesCollection(series));
+    if (singleBenchmarkResult.getSolverBenchmarkResult().isFavorite()) {
+      renderer.setSeriesStroke(0,new BasicStroke(2.0f));
+    }
+    plot.setRenderer(seriesIndex,renderer);
+    seriesIndex++;
+  }
+  JFreeChart chart=new JFreeChart(problemBenchmarkResult.getName() + " score calculation speed statistic",JFreeChart.DEFAULT_TITLE_FONT,plot,true);
+  graphFile=writeChartToImageFile(chart,problemBenchmarkResult.getName() + "ScoreCalculationSpeedStatistic");
+}

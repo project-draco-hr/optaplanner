@@ -1,0 +1,4 @@
+{
+  long timeMillisSpent=getTimeMillisSpent();
+  return getScoreCalculationCount() * 1000L / (timeMillisSpent == 0L ? 1L : timeMillisSpent);
+}

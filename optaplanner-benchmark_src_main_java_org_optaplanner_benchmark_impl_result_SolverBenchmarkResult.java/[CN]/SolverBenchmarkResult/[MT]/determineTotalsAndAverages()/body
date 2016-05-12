@@ -4,7 +4,7 @@
   totalScore=null;
   totalWinningScoreDifference=null;
   ScoreDifferencePercentage totalWorstScoreDifferencePercentage=null;
-  long totalAverageCalculateCountPerSecond=0L;
+  long totalScoreCalculationSpeed=0L;
   long totalTimeMillisSpent=0L;
   uninitializedSolutionCount=0;
   totalUninitializedVariableCount=0;
@@ -25,7 +25,7 @@
         totalScore=singleBenchmarkResult.getAverageScore();
         totalWinningScoreDifference=singleBenchmarkResult.getWinningScoreDifference();
         totalWorstScoreDifferencePercentage=singleBenchmarkResult.getWorstScoreDifferencePercentage();
-        totalAverageCalculateCountPerSecond=singleBenchmarkResult.getAverageCalculateCountPerSecond();
+        totalScoreCalculationSpeed=singleBenchmarkResult.getScoreCalculationSpeed();
         totalTimeMillisSpent=singleBenchmarkResult.getTimeMillisSpent();
         firstNonFailure=false;
       }
@@ -33,7 +33,7 @@
         totalScore=totalScore.add(singleBenchmarkResult.getAverageScore());
         totalWinningScoreDifference=totalWinningScoreDifference.add(singleBenchmarkResult.getWinningScoreDifference());
         totalWorstScoreDifferencePercentage=totalWorstScoreDifferencePercentage.add(singleBenchmarkResult.getWorstScoreDifferencePercentage());
-        totalAverageCalculateCountPerSecond+=singleBenchmarkResult.getAverageCalculateCountPerSecond();
+        totalScoreCalculationSpeed+=singleBenchmarkResult.getScoreCalculationSpeed();
         totalTimeMillisSpent+=singleBenchmarkResult.getTimeMillisSpent();
       }
     }
@@ -42,7 +42,7 @@
     int successCount=getSuccessCount();
     averageScore=totalScore.divide(successCount);
     averageWorstScoreDifferencePercentage=totalWorstScoreDifferencePercentage.divide((double)successCount);
-    averageAverageCalculateCountPerSecond=totalAverageCalculateCountPerSecond / (long)successCount;
+    averageScoreCalculationSpeed=totalScoreCalculationSpeed / (long)successCount;
     averageTimeMillisSpent=totalTimeMillisSpent / (long)successCount;
   }
 }

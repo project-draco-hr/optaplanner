@@ -16,5 +16,6 @@
   stepCountLimit=ConfigUtils.inheritOverwritableProperty(stepCountLimit,inheritedConfig.getStepCountLimit());
   unimprovedStepCountLimit=ConfigUtils.inheritOverwritableProperty(unimprovedStepCountLimit,inheritedConfig.getUnimprovedStepCountLimit());
   calculateCountLimit=ConfigUtils.inheritOverwritableProperty(calculateCountLimit,inheritedConfig.getCalculateCountLimit());
+  scoreCalculationCountLimit=ConfigUtils.inheritOverwritableProperty(scoreCalculationCountLimit,inheritedConfig.getScoreCalculationCountLimit());
   terminationConfigList=ConfigUtils.inheritMergeableListConfig(terminationConfigList,inheritedConfig.getTerminationConfigList());
 }

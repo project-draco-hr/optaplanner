@@ -1,4 +1,4 @@
 {
   getSolutionDescriptor().setScore(workingSolution,score);
-  calculateCount++;
+  calculationCount++;
 }

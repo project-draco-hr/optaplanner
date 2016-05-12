@@ -1,0 +1,3 @@
+{
+  this.calculationCount=0L;
+}

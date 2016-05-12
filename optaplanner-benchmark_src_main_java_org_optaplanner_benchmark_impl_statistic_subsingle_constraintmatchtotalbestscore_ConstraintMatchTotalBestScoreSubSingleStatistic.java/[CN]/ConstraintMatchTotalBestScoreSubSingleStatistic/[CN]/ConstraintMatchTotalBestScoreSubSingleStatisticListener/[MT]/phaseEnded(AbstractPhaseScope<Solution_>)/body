@@ -1,7 +1,7 @@
 {
   if (phaseScope instanceof LocalSearchPhaseScope) {
     if (constraintMatchEnabled && !pointList.isEmpty()) {
-      long timeMillisSpent=phaseScope.calculateSolverTimeMillisSpent();
+      long timeMillisSpent=phaseScope.calculateSolverTimeMillisSpentUpToNow();
       ConstraintMatchTotalBestScoreStatisticPoint previousPoint=pointList.get(pointList.size() - 1);
       pointList.add(new ConstraintMatchTotalBestScoreStatisticPoint(timeMillisSpent,previousPoint.getConstraintPackage(),previousPoint.getConstraintName(),previousPoint.getScoreLevel(),previousPoint.getConstraintMatchCount(),previousPoint.getWeightTotal()));
     }

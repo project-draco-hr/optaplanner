@@ -1,0 +1,4 @@
+{
+  long timeMillisSpent=getPhaseTimeMillisSpent();
+  return getPhaseScoreCalculationCount() * 1000L / (timeMillisSpent == 0L ? 1L : timeMillisSpent);
+}

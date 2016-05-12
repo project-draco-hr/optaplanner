@@ -1,0 +1,24 @@
+{
+  Termination termination=new ScoreCalculationCountTermination(1000L);
+  AbstractPhaseScope phaseScope=mock(AbstractPhaseScope.class);
+  InnerScoreDirector scoreDirector=mock(InnerScoreDirector.class);
+  when(phaseScope.getScoreDirector()).thenReturn(scoreDirector);
+  when(scoreDirector.getCalculationCount()).thenReturn(0L);
+  assertEquals(false,termination.isPhaseTerminated(phaseScope));
+  assertEquals(0.0,termination.calculatePhaseTimeGradient(phaseScope),0.0);
+  when(scoreDirector.getCalculationCount()).thenReturn(100L);
+  assertEquals(false,termination.isPhaseTerminated(phaseScope));
+  assertEquals(0.1,termination.calculatePhaseTimeGradient(phaseScope),0.0);
+  when(scoreDirector.getCalculationCount()).thenReturn(500L);
+  assertEquals(false,termination.isPhaseTerminated(phaseScope));
+  assertEquals(0.5,termination.calculatePhaseTimeGradient(phaseScope),0.0);
+  when(scoreDirector.getCalculationCount()).thenReturn(700L);
+  assertEquals(false,termination.isPhaseTerminated(phaseScope));
+  assertEquals(0.7,termination.calculatePhaseTimeGradient(phaseScope),0.0);
+  when(scoreDirector.getCalculationCount()).thenReturn(1000L);
+  assertEquals(true,termination.isPhaseTerminated(phaseScope));
+  assertEquals(1.0,termination.calculatePhaseTimeGradient(phaseScope),0.0);
+  when(scoreDirector.getCalculationCount()).thenReturn(1200L);
+  assertEquals(true,termination.isPhaseTerminated(phaseScope));
+  assertEquals(1.0,termination.calculatePhaseTimeGradient(phaseScope),0.0);
+}

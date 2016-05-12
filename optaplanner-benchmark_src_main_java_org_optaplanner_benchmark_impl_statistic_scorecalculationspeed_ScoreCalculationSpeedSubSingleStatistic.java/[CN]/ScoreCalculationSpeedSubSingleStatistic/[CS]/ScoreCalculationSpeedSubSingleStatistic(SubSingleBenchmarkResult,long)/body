@@ -1,0 +1,8 @@
+{
+  super(benchmarkResult,ProblemStatisticType.SCORE_CALCULATION_SPEED);
+  if (timeMillisThresholdInterval <= 0L) {
+    throw new IllegalArgumentException("The timeMillisThresholdInterval (" + timeMillisThresholdInterval + ") must be bigger than 0.");
+  }
+  this.timeMillisThresholdInterval=timeMillisThresholdInterval;
+  listener=new ScoreCalculationSpeedSubSingleStatisticListener();
+}

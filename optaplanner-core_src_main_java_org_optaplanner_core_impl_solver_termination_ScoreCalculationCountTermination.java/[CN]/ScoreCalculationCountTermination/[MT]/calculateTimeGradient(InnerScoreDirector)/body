@@ -1,0 +1,5 @@
+{
+  long scoreCalculationCount=scoreDirector.getCalculationCount();
+  double timeGradient=((double)scoreCalculationCount) / ((double)scoreCalculationCountLimit);
+  return Math.min(timeGradient,1.0);
+}

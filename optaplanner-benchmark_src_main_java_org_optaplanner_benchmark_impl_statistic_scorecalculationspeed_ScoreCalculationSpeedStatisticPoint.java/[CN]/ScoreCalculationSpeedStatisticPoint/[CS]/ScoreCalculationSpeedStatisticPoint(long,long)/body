@@ -1,0 +1,4 @@
+{
+  this.timeMillisSpent=timeMillisSpent;
+  this.scoreCalculationSpeed=scoreCalculationSpeed;
+}

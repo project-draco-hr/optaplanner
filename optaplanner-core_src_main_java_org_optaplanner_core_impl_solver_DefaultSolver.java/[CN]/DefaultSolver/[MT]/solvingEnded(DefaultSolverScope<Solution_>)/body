@@ -3,5 +3,5 @@
     phase.solvingEnded(solverScope);
   }
   bestSolutionRecaller.solvingEnded(solverScope);
-  solverScope.setEndingSystemTimeMillis(System.currentTimeMillis());
+  solverScope.endingNow();
 }

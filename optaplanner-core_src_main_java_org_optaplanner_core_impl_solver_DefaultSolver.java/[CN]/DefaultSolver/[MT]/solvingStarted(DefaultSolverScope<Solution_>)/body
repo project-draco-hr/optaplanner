@@ -1,7 +1,6 @@
 {
-  solverScope.setStartingSystemTimeMillis(System.currentTimeMillis());
-  solverScope.setEndingSystemTimeMillis(null);
-  solverScope.getScoreDirector().resetCalculateCount();
+  solverScope.startingNow();
+  solverScope.getScoreDirector().resetCalculationCount();
   solverScope.setWorkingSolutionFromBestSolution();
   bestSolutionRecaller.solvingStarted(solverScope);
   for (  Phase phase : phaseList) {
@@ -9,5 +8,5 @@
   }
   int startingSolverCount=solverScope.getStartingSolverCount() + 1;
   solverScope.setStartingSolverCount(startingSolverCount);
-  logger.info("Solving {}: time spent ({}), best score ({}), environment mode ({}), random ({}).",(startingSolverCount == 1 ? "started" : "restarted"),solverScope.calculateTimeMillisSpent(),solverScope.getBestScoreWithUninitializedPrefix(),environmentMode.name(),(randomFactory != null ? randomFactory : "not fixed"));
+  logger.info("Solving {}: time spent ({}), best score ({}), environment mode ({}), random ({}).",(startingSolverCount == 1 ? "started" : "restarted"),solverScope.calculateTimeMillisSpentUpToNow(),solverScope.getBestScoreWithUninitializedPrefix(),environmentMode.name(),(randomFactory != null ? randomFactory : "not fixed"));
 }

@@ -1,0 +1,6 @@
+{
+  this.scoreCalculationCountLimit=scoreCalculationCountLimit;
+  if (scoreCalculationCountLimit < 0L) {
+    throw new IllegalArgumentException("The scoreCalculationCountLimit (" + scoreCalculationCountLimit + ") cannot be negative.");
+  }
+}

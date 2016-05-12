@@ -1,0 +1,3 @@
+{
+  super(problemBenchmarkResult,ProblemStatisticType.SCORE_CALCULATION_SPEED);
+}

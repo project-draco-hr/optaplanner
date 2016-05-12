@@ -1,0 +1,4 @@
+{
+  endingSystemTimeMillis=System.currentTimeMillis();
+  endingScoreCalculationCount=getScoreDirector().getCalculationCount();
+}

@@ -8,10 +8,10 @@
     decider.decideNextStep(stepScope);
     if (stepScope.getStep() == null) {
       if (termination.isPhaseTerminated(phaseScope)) {
-        logger.trace("    Step index ({}), time spent ({}) terminated without picking a nextStep.",stepScope.getStepIndex(),stepScope.getPhaseScope().calculateSolverTimeMillisSpent());
+        logger.trace("    Step index ({}), time spent ({}) terminated without picking a nextStep.",stepScope.getStepIndex(),stepScope.getPhaseScope().calculateSolverTimeMillisSpentUpToNow());
       }
  else       if (stepScope.getSelectedMoveCount() == 0L) {
-        logger.warn("    No doable selected move at step index ({}), time spent ({})." + " Terminating phase early.",stepScope.getStepIndex(),stepScope.getPhaseScope().calculateSolverTimeMillisSpent());
+        logger.warn("    No doable selected move at step index ({}), time spent ({})." + " Terminating phase early.",stepScope.getStepIndex(),stepScope.getPhaseScope().calculateSolverTimeMillisSpentUpToNow());
       }
  else {
         throw new IllegalStateException("The step index (" + stepScope.getStepIndex() + ") has accepted/selected move count ("+ stepScope.getAcceptedMoveCount()+ "/"+ stepScope.getSelectedMoveCount()+ ") but failed to pick a nextStep ("+ stepScope.getStep()+ ").");

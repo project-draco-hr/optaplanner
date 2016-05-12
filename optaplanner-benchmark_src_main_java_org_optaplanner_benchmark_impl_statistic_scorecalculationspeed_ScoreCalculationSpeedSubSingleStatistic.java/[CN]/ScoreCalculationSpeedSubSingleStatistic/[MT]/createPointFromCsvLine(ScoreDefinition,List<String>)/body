@@ -1,0 +1,3 @@
+{
+  return new ScoreCalculationSpeedStatisticPoint(Long.parseLong(csvLine.get(0)),Long.parseLong(csvLine.get(1)));
+}

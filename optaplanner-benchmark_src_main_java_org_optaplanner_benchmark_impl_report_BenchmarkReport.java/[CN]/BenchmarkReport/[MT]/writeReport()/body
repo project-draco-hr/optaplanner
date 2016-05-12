@@ -9,7 +9,7 @@
   writeWinningScoreDifferenceSummaryChart();
   writeWorstScoreDifferencePercentageSummaryChart();
   writeBestScoreDistributionSummaryChart();
-  writeAverageCalculateCountPerSecondSummaryChart();
+  writeScoreCalculationSpeedSummaryChart();
   writeTimeSpentSummaryChart();
   writeTimeSpentScalabilitySummaryChart();
   writeBestScorePerTimeSpentSummaryChart();
