@@ -1,0 +1,3 @@
+{
+  SolutionDescriptor<TestdataGenericSolution> solutionDescriptor=TestdataGenericSolution.buildSolutionDescriptor();
+}

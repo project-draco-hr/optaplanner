@@ -1,0 +1,4 @@
+String code
+List<TestdataGenericValue<T>> valueList
+List<TestdataGenericValue<Map<T,TestdataGenericValue<T>>>> complexGenericValueList
+List<TestdataGenericEntity<T>> entityList

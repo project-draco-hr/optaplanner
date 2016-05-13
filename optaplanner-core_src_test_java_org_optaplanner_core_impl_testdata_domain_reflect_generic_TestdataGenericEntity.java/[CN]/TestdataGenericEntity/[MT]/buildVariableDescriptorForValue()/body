@@ -1,0 +1,5 @@
+{
+  SolutionDescriptor solutionDescriptor=TestdataGenericSolution.buildSolutionDescriptor();
+  EntityDescriptor entityDescriptor=solutionDescriptor.findEntityDescriptorOrFail(TestdataGenericEntity.class);
+  return entityDescriptor.getGenuineVariableDescriptor("value");
+}

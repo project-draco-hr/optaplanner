@@ -1,0 +1,6 @@
+{
+  super(code);
+  this.valueList=valueList;
+  this.complexGenericValueList=complexGenericValueList;
+  this.entityList=entityList;
+}
