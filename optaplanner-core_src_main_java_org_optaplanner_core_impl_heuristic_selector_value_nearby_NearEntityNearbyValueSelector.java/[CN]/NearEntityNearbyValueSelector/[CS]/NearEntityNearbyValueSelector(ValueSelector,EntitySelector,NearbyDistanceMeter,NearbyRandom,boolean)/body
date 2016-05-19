@@ -7,9 +7,7 @@
   if (randomSelection && nearbyRandom == null) {
     throw new IllegalArgumentException("The valueSelector (" + this + ") with randomSelection ("+ randomSelection+ ") has no nearbyRandom ("+ nearbyRandom+ ").");
   }
-  if (!childValueSelector.getVariableDescriptor().getVariablePropertyType().isAssignableFrom(originEntitySelector.getEntityDescriptor().getEntityClass())) {
-    throw new IllegalArgumentException("The valueSelector (" + this + ") has a variable property type ("+ childValueSelector.getVariableDescriptor().getVariablePropertyType()+ ") which is not a superclass of the originEntitySelector's entityClass ("+ originEntitySelector.getEntityDescriptor().getEntityClass()+ ").");
-  }
+  discardNearbyIndexZero=childValueSelector.getVariableDescriptor().getVariablePropertyType().isAssignableFrom(originEntitySelector.getEntityDescriptor().getEntityClass());
   phaseLifecycleSupport.addEventListener(childValueSelector);
   phaseLifecycleSupport.addEventListener(originEntitySelector);
 }
