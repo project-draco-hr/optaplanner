@@ -9,19 +9,7 @@
     jpaEntity=em.merge(jpaEntity);
     transactionManager.commit();
   }
- catch (  NotSupportedException e) {
-    throw new RuntimeException("Transaction failed.",e);
-  }
-catch (  SystemException e) {
-    throw new RuntimeException("Transaction failed.",e);
-  }
-catch (  RollbackException e) {
-    throw new RuntimeException("Transaction failed.",e);
-  }
-catch (  HeuristicMixedException e) {
-    throw new RuntimeException("Transaction failed.",e);
-  }
-catch (  HeuristicRollbackException e) {
+ catch (  NotSupportedException|SystemException|RollbackException|HeuristicRollbackException|HeuristicMixedException e) {
     throw new RuntimeException("Transaction failed.",e);
   }
 }
