@@ -1,3 +1,4 @@
 {
-  assertEquals(HardMediumSoftScore.valueOf(21,280,-8000),HardMediumSoftScore.valueOf(20,-20,-4000).subtract(HardMediumSoftScore.valueOf(-1,-300,4000)));
+  assertEquals(HardMediumSoftScore.valueOfInitialized(21,280,-8000),HardMediumSoftScore.valueOfInitialized(20,-20,-4000).subtract(HardMediumSoftScore.valueOfInitialized(-1,-300,4000)));
+  assertEquals(HardMediumSoftScore.valueOf(-63,21,280,-8000),HardMediumSoftScore.valueOf(-70,20,-20,-4000).subtract(HardMediumSoftScore.valueOf(-7,-1,-300,4000)));
 }

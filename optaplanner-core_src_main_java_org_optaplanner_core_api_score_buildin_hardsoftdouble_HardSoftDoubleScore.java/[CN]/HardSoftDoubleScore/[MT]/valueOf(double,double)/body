@@ -1,3 +1,0 @@
-{
-  return new HardSoftDoubleScore(hardScore,softScore);
-}

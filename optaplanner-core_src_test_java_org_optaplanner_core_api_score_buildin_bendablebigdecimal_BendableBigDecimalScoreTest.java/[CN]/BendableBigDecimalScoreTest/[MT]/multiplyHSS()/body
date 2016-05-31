@@ -1,0 +1,3 @@
+{
+  assertEquals(scoreDefinitionHSS.createScore(-14,new BigDecimal("8.6"),new BigDecimal("-10.4"),new BigDecimal("-12.2")),scoreDefinitionHSS.createScore(-7,new BigDecimal("4.3"),new BigDecimal("-5.2"),new BigDecimal("-6.1")).multiply(2.0));
+}

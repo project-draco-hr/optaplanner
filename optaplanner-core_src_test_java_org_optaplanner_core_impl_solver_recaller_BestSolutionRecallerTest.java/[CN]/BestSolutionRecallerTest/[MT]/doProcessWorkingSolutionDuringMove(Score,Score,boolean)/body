@@ -1,0 +1,21 @@
+{
+  DefaultSolverScope<AbstractSolution> solverScope=createSolverScope();
+  AbstractSolution originalBestSolution=mock(AbstractSolution.class);
+  when(solverScope.getScoreDirector().getSolutionDescriptor().getScore(originalBestSolution)).thenReturn(originalBestScore);
+  solverScope.setBestSolution(originalBestSolution);
+  solverScope.setBestScore(originalBestScore);
+  ConstructionHeuristicStepScope<AbstractSolution> stepScope=setupConstrunctionHeuristics(solverScope);
+  AbstractSolution moveSolution=mock(AbstractSolution.class);
+  when(solverScope.getScoreDirector().getSolutionDescriptor().getScore(moveSolution)).thenReturn(moveScore);
+  when(solverScope.getScoreDirector().cloneWorkingSolution()).thenReturn(moveSolution);
+  BestSolutionRecaller<AbstractSolution> recaller=createBestSolutionRecaller();
+  recaller.processWorkingSolutionDuringMove(moveScore,stepScope);
+  if (moveImprovesBestSolution) {
+    assertEquals(moveSolution,solverScope.getBestSolution());
+    assertEquals(moveScore,solverScope.getBestScore());
+  }
+ else {
+    assertEquals(originalBestSolution,solverScope.getBestSolution());
+    assertEquals(originalBestScore,solverScope.getBestScore());
+  }
+}

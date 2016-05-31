@@ -1,3 +1,6 @@
 {
+  if (variableDescriptor instanceof GenuineVariableDescriptor && !((GenuineVariableDescriptor)variableDescriptor).isInitialized(entity)) {
+    workingInitScore--;
+  }
   variableListenerSupport.afterVariableChanged(variableDescriptor,entity);
 }

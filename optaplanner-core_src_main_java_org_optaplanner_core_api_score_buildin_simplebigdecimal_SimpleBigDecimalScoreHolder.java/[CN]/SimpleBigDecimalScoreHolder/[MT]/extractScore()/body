@@ -1,3 +1,0 @@
-{
-  return SimpleBigDecimalScore.valueOf(score == null ? BigDecimal.ZERO : score);
-}

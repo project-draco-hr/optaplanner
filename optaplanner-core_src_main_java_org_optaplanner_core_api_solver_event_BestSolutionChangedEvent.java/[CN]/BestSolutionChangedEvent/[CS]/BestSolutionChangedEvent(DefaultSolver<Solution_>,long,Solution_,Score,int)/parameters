@@ -1,5 +1,0 @@
-DefaultSolver<Solution_> solver
-long timeMillisSpent
-Solution_ newBestSolution
-Score newBestScore
-int newUninitializedVariableCount

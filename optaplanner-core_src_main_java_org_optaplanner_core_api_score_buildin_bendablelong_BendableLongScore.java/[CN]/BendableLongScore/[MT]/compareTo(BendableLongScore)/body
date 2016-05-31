@@ -1,23 +1,16 @@
 {
   validateCompatible(other);
+  if (initScore != other.getInitScore()) {
+    return initScore < other.getInitScore() ? -1 : 1;
+  }
   for (int i=0; i < hardScores.length; i++) {
     if (hardScores[i] != other.getHardScore(i)) {
-      if (hardScores[i] < other.getHardScore(i)) {
-        return -1;
-      }
- else {
-        return 1;
-      }
+      return hardScores[i] < other.getHardScore(i) ? -1 : 1;
     }
   }
   for (int i=0; i < softScores.length; i++) {
     if (softScores[i] != other.getSoftScore(i)) {
-      if (softScores[i] < other.getSoftScore(i)) {
-        return -1;
-      }
- else {
-        return 1;
-      }
+      return softScores[i] < other.getSoftScore(i) ? -1 : 1;
     }
   }
   return 0;

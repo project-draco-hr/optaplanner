@@ -1,4 +1,4 @@
 {
-  assertEquals(SimpleLongScore.valueOf(-5L),SimpleLongScore.valueOf(5L).negate());
-  assertEquals(SimpleLongScore.valueOf(5L),SimpleLongScore.valueOf(-5L).negate());
+  assertEquals(SimpleLongScore.valueOfInitialized(-5L),SimpleLongScore.valueOfInitialized(5L).negate());
+  assertEquals(SimpleLongScore.valueOfInitialized(5L),SimpleLongScore.valueOfInitialized(-5L).negate());
 }

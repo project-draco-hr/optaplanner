@@ -1,4 +1,4 @@
 {
-  assertEquals(HardMediumSoftScore.valueOf(-3,4,-5),HardMediumSoftScore.valueOf(3,-4,5).negate());
-  assertEquals(HardMediumSoftScore.valueOf(3,-4,5),HardMediumSoftScore.valueOf(-3,4,-5).negate());
+  assertEquals(HardMediumSoftScore.valueOfInitialized(-3,4,-5),HardMediumSoftScore.valueOfInitialized(3,-4,5).negate());
+  assertEquals(HardMediumSoftScore.valueOfInitialized(3,-4,5),HardMediumSoftScore.valueOfInitialized(-3,4,-5).negate());
 }

@@ -1,0 +1,3 @@
+{
+  return new BendableBigDecimalScore(initScore,Arrays.copyOf(hardScores,hardScores.length),Arrays.copyOf(softScores,softScores.length));
+}

@@ -1,0 +1,3 @@
+int initScore
+BigDecimal[] hardScores
+BigDecimal[] softScores

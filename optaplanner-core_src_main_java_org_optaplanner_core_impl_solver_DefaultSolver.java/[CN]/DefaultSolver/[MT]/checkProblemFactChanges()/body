@@ -16,9 +16,8 @@
     }
     basicPlumbingTermination.endProblemFactChangesProcessing();
     Solution_ newBestSolution=solverScope.getScoreDirector().cloneWorkingSolution();
-    int newBestUninitializedVariableCount=solverScope.getSolutionDescriptor().countUninitializedVariables(newBestSolution);
-    bestSolutionRecaller.updateBestSolution(solverScope,newBestSolution,newBestUninitializedVariableCount);
-    logger.info("Real-time problem fact changes done: step total ({}), new {} best score ({}).",stepIndex,(newBestUninitializedVariableCount <= 0 ? "initialized" : "uninitialized"),score);
+    bestSolutionRecaller.updateBestSolution(solverScope,newBestSolution);
+    logger.info("Real-time problem fact changes done: step total ({}), new best score ({}).",stepIndex,score);
     return true;
   }
 }

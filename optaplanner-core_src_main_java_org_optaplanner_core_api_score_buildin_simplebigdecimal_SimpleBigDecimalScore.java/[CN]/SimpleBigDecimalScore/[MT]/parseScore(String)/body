@@ -1,3 +1,6 @@
 {
-  return valueOf(parseLevelAsBigDecimal(SimpleBigDecimalScore.class,scoreString,scoreString));
+  String[] scoreTokens=parseScoreTokens(SimpleBigDecimalScore.class,scoreString,"");
+  int initScore=parseInitScore(SimpleBigDecimalScore.class,scoreString,scoreTokens[0]);
+  BigDecimal score=parseLevelAsBigDecimal(SimpleBigDecimalScore.class,scoreString,scoreTokens[1]);
+  return valueOf(initScore,score);
 }

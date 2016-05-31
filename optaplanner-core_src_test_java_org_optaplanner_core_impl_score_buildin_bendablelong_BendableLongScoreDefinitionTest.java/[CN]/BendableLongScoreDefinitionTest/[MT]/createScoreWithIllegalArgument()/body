@@ -1,4 +1,4 @@
 {
   BendableLongScoreDefinition bendableLongScoreDefinition=new BendableLongScoreDefinition(2,3);
-  bendableLongScoreDefinition.createScore(1,2,3);
+  bendableLongScoreDefinition.createScoreInitialized(1,2,3);
 }

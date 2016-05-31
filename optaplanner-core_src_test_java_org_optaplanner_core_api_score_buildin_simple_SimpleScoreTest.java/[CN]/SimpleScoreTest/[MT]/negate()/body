@@ -1,4 +1,4 @@
 {
-  assertEquals(SimpleScore.valueOf(-5),SimpleScore.valueOf(5).negate());
-  assertEquals(SimpleScore.valueOf(5),SimpleScore.valueOf(-5).negate());
+  assertEquals(SimpleScore.valueOfInitialized(-5),SimpleScore.valueOfInitialized(5).negate());
+  assertEquals(SimpleScore.valueOfInitialized(5),SimpleScore.valueOfInitialized(-5).negate());
 }

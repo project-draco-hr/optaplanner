@@ -1,16 +1,5 @@
 {
-  DefaultSolverScope<AbstractSolution> solverScope=new DefaultSolverScope<>();
-  ConstructionHeuristicStepScope<AbstractSolution> stepScope=setupConstrunctionHeuristics(solverScope);
-  AbstractSolution solution=mock(AbstractSolution.class);
-  Score score2=SimpleScore.parseScore("0");
-  when(solution.getScore()).thenReturn(score2);
-  solverScope.setBestScore(score2);
-  solverScope.setBestSolution(solution);
-  Score score=SimpleScore.parseScore("-1");
-  solverScope.setBestUninitializedVariableCount(0);
-  BestSolutionRecaller<AbstractSolution> recaller=createBestSolutionRecaller();
-  recaller.processWorkingSolutionDuringMove(0,score,stepScope);
-  assertEquals(solution,solverScope.getBestSolution());
-  assertEquals(0,((SimpleScore)solverScope.getBestScore()).getScore());
-  assertEquals(0,solverScope.getBestUninitializedVariableCount());
+  Score bestScore=SimpleScore.valueOfInitialized(0);
+  Score moveScore=SimpleScore.valueOfInitialized(-1);
+  doProcessWorkingSolutionDuringMove(bestScore,moveScore,false);
 }

@@ -1,3 +1,4 @@
 {
-  assertEquals(SimpleLongScore.valueOf(-147L),SimpleLongScore.parseScore("-147"));
+  assertEquals(SimpleLongScore.valueOfInitialized(-147L),SimpleLongScore.parseScore("-147"));
+  assertEquals(SimpleLongScore.valueOf(-7,-147L),SimpleLongScore.parseScore("-7init/-147"));
 }

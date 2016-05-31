@@ -1,3 +1,4 @@
 {
-  assertEquals(SimpleScore.valueOf(19),SimpleScore.valueOf(20).add(SimpleScore.valueOf(-1)));
+  assertEquals(SimpleScore.valueOfInitialized(19),SimpleScore.valueOfInitialized(20).add(SimpleScore.valueOfInitialized(-1)));
+  assertEquals(SimpleScore.valueOf(-77,19),SimpleScore.valueOf(-70,20).add(SimpleScore.valueOf(-7,-1)));
 }

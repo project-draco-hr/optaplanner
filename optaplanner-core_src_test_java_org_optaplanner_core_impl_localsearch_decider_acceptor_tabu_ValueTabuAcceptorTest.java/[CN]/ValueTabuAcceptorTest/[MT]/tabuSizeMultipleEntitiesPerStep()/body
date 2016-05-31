@@ -8,7 +8,7 @@
   TestdataValue v3=new TestdataValue("v3");
   TestdataValue v4=new TestdataValue("v4");
   DefaultSolverScope solverScope=new DefaultSolverScope();
-  solverScope.setBestScore(SimpleScore.valueOf(0));
+  solverScope.setBestScore(SimpleScore.valueOfInitialized(0));
   LocalSearchPhaseScope phaseScope=new LocalSearchPhaseScope(solverScope);
   acceptor.phaseStarted(phaseScope);
   LocalSearchStepScope stepScope0=new LocalSearchStepScope(phaseScope);

@@ -1,10 +1,2 @@
 {
-  SolutionDescriptor solutionDescriptor=TestdataSolution.buildSolutionDescriptor();
-  EasyScoreCalculator scoreCalculator=mock(EasyScoreCalculator.class);
-  when(scoreCalculator.calculateScore(any(TestdataSolution.class))).thenReturn(SimpleScore.valueOf(-10));
-  EasyScoreDirectorFactory directorFactory=new EasyScoreDirectorFactory(scoreCalculator);
-  directorFactory.setSolutionDescriptor(solutionDescriptor);
-  EasyScoreDirector director=directorFactory.buildScoreDirector(false);
-  director.setWorkingSolution(new TestdataSolution());
-  assertEquals(SimpleScore.valueOf(-10),director.calculateScore());
 }

@@ -1,3 +1,3 @@
 {
-  return new HardMediumSoftLongScore((long)Math.floor(hardScore / divisor),(long)Math.floor(mediumScore / divisor),(long)Math.floor(softScore / divisor));
+  return new HardMediumSoftLongScore((int)Math.floor(initScore / divisor),(long)Math.floor(hardScore / divisor),(long)Math.floor(mediumScore / divisor),(long)Math.floor(softScore / divisor));
 }

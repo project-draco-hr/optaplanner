@@ -7,6 +7,9 @@
     if (getHardLevelsSize() != other.getHardLevelsSize() || getSoftLevelsSize() != other.getSoftLevelsSize()) {
       return false;
     }
+    if (initScore != other.getInitScore()) {
+      return false;
+    }
     for (int i=0; i < hardScores.length; i++) {
       if (hardScores[i] != other.getHardScore(i)) {
         return false;

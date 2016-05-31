@@ -1,0 +1,2 @@
+T input
+Consumer<T> outputAsserter

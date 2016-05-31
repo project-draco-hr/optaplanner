@@ -1,4 +1,7 @@
 {
+  if (initScore < 0) {
+    return false;
+  }
   for (  BigDecimal hardScore : hardScores) {
     int comparison=hardScore.compareTo(BigDecimal.ZERO);
     if (comparison > 0) {

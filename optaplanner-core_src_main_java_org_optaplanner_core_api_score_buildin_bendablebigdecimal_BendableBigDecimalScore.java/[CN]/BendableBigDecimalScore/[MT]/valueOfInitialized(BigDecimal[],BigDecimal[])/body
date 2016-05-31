@@ -1,0 +1,3 @@
+{
+  return new BendableBigDecimalScore(0,hardScores,softScores);
+}

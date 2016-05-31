@@ -1,4 +1,4 @@
 {
   InitializingScoreTrendLevel[] trendLevels=initializingScoreTrend.getTrendLevels();
-  return SimpleScore.valueOf(trendLevels[0] == InitializingScoreTrendLevel.ONLY_DOWN ? score.getScore() : Integer.MAX_VALUE);
+  return SimpleScore.valueOf(0,trendLevels[0] == InitializingScoreTrendLevel.ONLY_DOWN ? score.getScore() : Integer.MAX_VALUE);
 }

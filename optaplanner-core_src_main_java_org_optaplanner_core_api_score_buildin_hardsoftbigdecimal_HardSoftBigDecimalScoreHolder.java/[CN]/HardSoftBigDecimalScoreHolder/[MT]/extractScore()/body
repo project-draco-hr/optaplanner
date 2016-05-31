@@ -1,3 +1,0 @@
-{
-  return HardSoftBigDecimalScore.valueOf(hardScore == null ? BigDecimal.ZERO : hardScore,softScore == null ? BigDecimal.ZERO : softScore);
-}

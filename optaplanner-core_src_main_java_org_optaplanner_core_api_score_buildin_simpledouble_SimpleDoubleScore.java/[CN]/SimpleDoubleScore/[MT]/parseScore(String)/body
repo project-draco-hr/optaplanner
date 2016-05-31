@@ -1,3 +1,6 @@
 {
-  return valueOf(parseLevelAsDouble(SimpleDoubleScore.class,scoreString,scoreString));
+  String[] scoreTokens=parseScoreTokens(SimpleDoubleScore.class,scoreString,"");
+  int initScore=parseInitScore(SimpleDoubleScore.class,scoreString,scoreTokens[0]);
+  double score=parseLevelAsDouble(SimpleDoubleScore.class,scoreString,scoreTokens[1]);
+  return valueOf(initScore,score);
 }

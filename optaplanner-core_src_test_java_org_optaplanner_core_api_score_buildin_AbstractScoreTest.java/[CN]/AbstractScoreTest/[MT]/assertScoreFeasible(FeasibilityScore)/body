@@ -1,5 +1,5 @@
 {
   for (  FeasibilityScore score : scores) {
-    assertEquals(true,score.isFeasible());
+    assertEquals(score + " should be feasible.",true,score.isFeasible());
   }
 }

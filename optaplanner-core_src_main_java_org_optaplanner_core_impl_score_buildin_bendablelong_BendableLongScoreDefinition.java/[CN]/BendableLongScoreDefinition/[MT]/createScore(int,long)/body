@@ -1,0 +1,7 @@
+{
+  int levelsSize=hardLevelsSize + softLevelsSize;
+  if (scores.length != levelsSize) {
+    throw new IllegalArgumentException("The scores (" + Arrays.toString(scores) + ")'s length ("+ scores.length+ ") is not levelsSize ("+ levelsSize+ ").");
+  }
+  return BendableLongScore.valueOf(initScore,Arrays.copyOfRange(scores,0,hardLevelsSize),Arrays.copyOfRange(scores,hardLevelsSize,levelsSize));
+}

@@ -1,22 +1,15 @@
 {
   AbstractPhaseScope<Solution_> phaseScope=stepScope.getPhaseScope();
-  int uninitializedVariableCount=stepScope.getUninitializedVariableCount();
   Score score=stepScope.getScore();
   DefaultSolverScope<Solution_> solverScope=phaseScope.getSolverScope();
-  int bestUninitializedVariableCount=solverScope.getBestUninitializedVariableCount();
   Score bestScore=solverScope.getBestScore();
   boolean bestScoreImproved;
-  if (uninitializedVariableCount == bestUninitializedVariableCount) {
-    bestScoreImproved=score.compareTo(bestScore) > 0;
-  }
- else {
-    bestScoreImproved=uninitializedVariableCount < bestUninitializedVariableCount;
-  }
+  bestScoreImproved=score.compareTo(bestScore) > 0;
   stepScope.setBestScoreImproved(bestScoreImproved);
   if (bestScoreImproved) {
     phaseScope.setBestSolutionStepIndex(stepScope.getStepIndex());
     Solution_ newBestSolution=stepScope.createOrGetClonedSolution();
-    updateBestSolution(solverScope,newBestSolution,uninitializedVariableCount);
+    updateBestSolution(solverScope,newBestSolution);
   }
  else   if (assertBestScoreIsUnmodified) {
     solverScope.assertScoreFromScratch(solverScope.getBestSolution());

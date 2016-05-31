@@ -1,3 +1,3 @@
 {
-  return new SimpleDoubleScore(-score);
+  return new SimpleDoubleScore(-initScore,-score);
 }

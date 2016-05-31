@@ -1,3 +1,3 @@
 {
-  return isTerminated(phaseScope.isBestSolutionInitialized(),phaseScope.getBestScore());
+  return isTerminated(phaseScope.getBestScore());
 }

@@ -1,3 +1,4 @@
 {
-  assertEquals(SimpleDoubleScore.valueOf(21.0),SimpleDoubleScore.valueOf(20.0).subtract(SimpleDoubleScore.valueOf(-1.0)));
+  assertEquals(SimpleDoubleScore.valueOfInitialized(21.0),SimpleDoubleScore.valueOfInitialized(20.0).subtract(SimpleDoubleScore.valueOfInitialized(-1.0)));
+  assertEquals(SimpleDoubleScore.valueOf(-63,21.0),SimpleDoubleScore.valueOf(-70,20.0).subtract(SimpleDoubleScore.valueOf(-7,-1.0)));
 }

@@ -1,6 +1,0 @@
-{
-  if (bestUninitializedVariableCount < 0) {
-    throw new IllegalArgumentException("The bestUninitializedVariableCount (" + bestUninitializedVariableCount + ") cannot be negative.");
-  }
-  this.bestUninitializedVariableCount=bestUninitializedVariableCount;
-}

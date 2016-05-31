@@ -1,3 +1,4 @@
 {
-  assertEquals(SimpleDoubleScore.valueOf(-147.2),SimpleDoubleScore.parseScore("-147.2"));
+  assertEquals(SimpleDoubleScore.valueOfInitialized(-147.2),SimpleDoubleScore.parseScore("-147.2"));
+  assertEquals(SimpleDoubleScore.valueOf(-7,-147.2),SimpleDoubleScore.parseScore("-7init/-147.2"));
 }

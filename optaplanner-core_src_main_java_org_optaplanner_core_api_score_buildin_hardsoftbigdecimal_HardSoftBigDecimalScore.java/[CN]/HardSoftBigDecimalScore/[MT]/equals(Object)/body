@@ -4,7 +4,7 @@
   }
  else   if (o instanceof HardSoftBigDecimalScore) {
     HardSoftBigDecimalScore other=(HardSoftBigDecimalScore)o;
-    return hardScore.equals(other.getHardScore()) && softScore.equals(other.getSoftScore());
+    return initScore == other.getInitScore() && hardScore.equals(other.getHardScore()) && softScore.equals(other.getSoftScore());
   }
  else {
     return false;

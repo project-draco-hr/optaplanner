@@ -1,3 +1,4 @@
 {
-  assertEquals(HardSoftBigDecimalScore.valueOf(new BigDecimal("21"),new BigDecimal("280")),HardSoftBigDecimalScore.valueOf(new BigDecimal("20"),new BigDecimal("-20")).subtract(HardSoftBigDecimalScore.valueOf(new BigDecimal("-1"),new BigDecimal("-300"))));
+  assertEquals(HardSoftBigDecimalScore.valueOfInitialized(new BigDecimal("21"),new BigDecimal("280")),HardSoftBigDecimalScore.valueOfInitialized(new BigDecimal("20"),new BigDecimal("-20")).subtract(HardSoftBigDecimalScore.valueOfInitialized(new BigDecimal("-1"),new BigDecimal("-300"))));
+  assertEquals(HardSoftBigDecimalScore.valueOf(-63,new BigDecimal("21"),new BigDecimal("280")),HardSoftBigDecimalScore.valueOf(-70,new BigDecimal("20"),new BigDecimal("-20")).subtract(HardSoftBigDecimalScore.valueOf(-7,new BigDecimal("-1"),new BigDecimal("-300"))));
 }

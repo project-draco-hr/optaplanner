@@ -1,4 +1,4 @@
 {
-  assertEquals(scoreDefinitionHHSSS.createScore(-3,4,-5,0,0),scoreDefinitionHHSSS.createScore(3,-4,5,0,0).negate());
-  assertEquals(scoreDefinitionHHSSS.createScore(3,-4,5,0,0),scoreDefinitionHHSSS.createScore(-3,4,-5,0,0).negate());
+  assertEquals(scoreDefinitionHHSSS.createScoreInitialized(-3,4,-5,0,0),scoreDefinitionHHSSS.createScoreInitialized(3,-4,5,0,0).negate());
+  assertEquals(scoreDefinitionHHSSS.createScoreInitialized(3,-4,5,0,0),scoreDefinitionHHSSS.createScoreInitialized(-3,4,-5,0,0).negate());
 }

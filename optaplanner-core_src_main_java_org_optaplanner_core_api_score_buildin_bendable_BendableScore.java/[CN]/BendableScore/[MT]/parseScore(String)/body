@@ -1,12 +1,13 @@
 {
-  String[][] levelStrings=parseBendableLevelStrings(BendableScore.class,scoreString,HARD_LABEL,SOFT_LABEL);
-  int[] hardScores=new int[levelStrings[0].length];
+  String[][] scoreTokens=parseBendableScoreTokens(BendableScore.class,scoreString);
+  int initScore=parseInitScore(BendableScore.class,scoreString,scoreTokens[0][0]);
+  int[] hardScores=new int[scoreTokens[1].length];
   for (int i=0; i < hardScores.length; i++) {
-    hardScores[i]=parseLevelAsInt(BendableScore.class,scoreString,levelStrings[0][i]);
+    hardScores[i]=parseLevelAsInt(BendableScore.class,scoreString,scoreTokens[1][i]);
   }
-  int[] softScores=new int[levelStrings[1].length];
+  int[] softScores=new int[scoreTokens[2].length];
   for (int i=0; i < softScores.length; i++) {
-    softScores[i]=parseLevelAsInt(BendableScore.class,scoreString,levelStrings[1][i]);
+    softScores[i]=parseLevelAsInt(BendableScore.class,scoreString,scoreTokens[2][i]);
   }
-  return valueOf(hardScores,softScores);
+  return valueOf(initScore,hardScores,softScores);
 }

@@ -1,3 +1,3 @@
 {
-  return new SimpleLongScore(score + augment.getScore());
+  return new SimpleLongScore(initScore + augment.getInitScore(),score + augment.getScore());
 }

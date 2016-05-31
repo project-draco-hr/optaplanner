@@ -1,3 +1,0 @@
-{
-  return HardSoftDoubleScore.valueOf(hardScore,softScore);
-}

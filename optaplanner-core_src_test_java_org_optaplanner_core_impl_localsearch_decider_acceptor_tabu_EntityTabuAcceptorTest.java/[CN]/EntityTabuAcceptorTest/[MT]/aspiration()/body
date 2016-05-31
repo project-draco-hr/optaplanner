@@ -5,7 +5,7 @@
   TestdataEntity e0=new TestdataEntity("e0");
   TestdataEntity e1=new TestdataEntity("e1");
   DefaultSolverScope solverScope=new DefaultSolverScope();
-  solverScope.setBestScore(SimpleScore.valueOf(-100));
+  solverScope.setBestScore(SimpleScore.valueOfInitialized(-100));
   LocalSearchPhaseScope phaseScope=new LocalSearchPhaseScope(solverScope);
   acceptor.phaseStarted(phaseScope);
   LocalSearchStepScope stepScope0=new LocalSearchStepScope(phaseScope);

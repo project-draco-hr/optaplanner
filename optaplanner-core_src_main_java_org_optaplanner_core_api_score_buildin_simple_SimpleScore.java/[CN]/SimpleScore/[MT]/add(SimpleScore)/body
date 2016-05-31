@@ -1,3 +1,3 @@
 {
-  return new SimpleScore(score + augment.getScore());
+  return new SimpleScore(initScore + augment.getInitScore(),score + augment.getScore());
 }

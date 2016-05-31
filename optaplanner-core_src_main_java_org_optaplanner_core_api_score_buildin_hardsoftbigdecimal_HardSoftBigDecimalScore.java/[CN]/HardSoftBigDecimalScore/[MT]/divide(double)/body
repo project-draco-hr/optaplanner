@@ -1,4 +1,4 @@
 {
   BigDecimal divisorBigDecimal=BigDecimal.valueOf(divisor);
-  return new HardSoftBigDecimalScore(hardScore.divide(divisorBigDecimal,hardScore.scale(),RoundingMode.FLOOR),softScore.divide(divisorBigDecimal,softScore.scale(),RoundingMode.FLOOR));
+  return new HardSoftBigDecimalScore((int)Math.floor(initScore / divisor),hardScore.divide(divisorBigDecimal,hardScore.scale(),RoundingMode.FLOOR),softScore.divide(divisorBigDecimal,softScore.scale(),RoundingMode.FLOOR));
 }

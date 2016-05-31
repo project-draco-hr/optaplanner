@@ -1,3 +1,5 @@
 {
-  assertScoresEqualsAndHashCode(SimpleScore.valueOf(-10),SimpleScore.valueOf(-10));
+  assertScoresEqualsAndHashCode(SimpleScore.valueOfInitialized(-10),SimpleScore.valueOfInitialized(-10),SimpleScore.valueOf(0,-10));
+  assertScoresEqualsAndHashCode(SimpleScore.valueOf(-7,-10),SimpleScore.valueOf(-7,-10));
+  assertScoresNotEquals(SimpleScore.valueOfInitialized(-10),SimpleScore.valueOfInitialized(-30),SimpleScore.valueOf(-7,-10));
 }

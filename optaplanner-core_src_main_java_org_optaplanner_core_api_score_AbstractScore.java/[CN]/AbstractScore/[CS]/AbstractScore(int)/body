@@ -1,0 +1,6 @@
+{
+  this.initScore=initScore;
+  if (initScore > 0) {
+    throw new IllegalArgumentException("The initScore (" + initScore + ") cannot be positive.");
+  }
+}

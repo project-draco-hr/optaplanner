@@ -7,7 +7,7 @@
     scores[i]=i;
   }
   BendableScoreDefinition bendableScoreDefinition=new BendableScoreDefinition(hardLevelSize,softLevelSize);
-  BendableScore bendableScore=bendableScoreDefinition.createScore(scores);
+  BendableScore bendableScore=bendableScoreDefinition.createScoreInitialized(scores);
   assertEquals(hardLevelSize,bendableScore.getHardLevelsSize());
   assertEquals(softLevelSize,bendableScore.getSoftLevelsSize());
   for (int i=0; i < levelSize; i++) {

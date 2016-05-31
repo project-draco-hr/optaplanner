@@ -1,4 +1,7 @@
 {
+  if (initScore < 0) {
+    return false;
+  }
   for (  long hardScore : hardScores) {
     if (hardScore > 0) {
       return true;

@@ -1,4 +1,4 @@
 {
-  assertScoreNotFeasible(HardSoftDoubleScore.valueOf(-5.0,-300.0),HardSoftDoubleScore.valueOf(-5.0,4000.0),HardSoftDoubleScore.valueOf(-0.007,4000.0));
-  assertScoreFeasible(HardSoftDoubleScore.valueOf(0.0,-300.007),HardSoftDoubleScore.valueOf(0.0,-300.0),HardSoftDoubleScore.valueOf(2.0,-300.0));
+  assertScoreNotFeasible(HardSoftDoubleScore.valueOfInitialized(-5.0,-300.0),HardSoftDoubleScore.valueOfInitialized(-5.0,4000.0),HardSoftDoubleScore.valueOfInitialized(-0.007,4000.0),HardSoftDoubleScore.valueOf(-7,-5.0,-300.0),HardSoftDoubleScore.valueOf(-7,0.0,-300.0));
+  assertScoreFeasible(HardSoftDoubleScore.valueOfInitialized(0.0,-300.007),HardSoftDoubleScore.valueOfInitialized(0.0,-300.0),HardSoftDoubleScore.valueOfInitialized(2.0,-300.0),HardSoftDoubleScore.valueOf(0,0.0,-300.0));
 }

@@ -1,4 +1,5 @@
 {
+  workingInitScore-=entityDescriptor.countUninitializedVariables(entity);
   variableListenerSupport.afterEntityAdded(entityDescriptor,entity);
   if (!allChangesWillBeUndoneBeforeStepEnds) {
     setWorkingEntityListDirty();

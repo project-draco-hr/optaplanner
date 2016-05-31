@@ -1,3 +1,5 @@
 {
+  workingSolution=null;
+  workingInitScore=null;
   variableListenerSupport.clearWorkingSolution();
 }

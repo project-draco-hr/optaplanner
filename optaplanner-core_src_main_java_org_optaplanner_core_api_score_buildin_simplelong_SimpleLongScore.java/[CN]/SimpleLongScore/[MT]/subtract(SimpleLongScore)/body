@@ -1,3 +1,3 @@
 {
-  return new SimpleLongScore(score - subtrahend.getScore());
+  return new SimpleLongScore(initScore - subtrahend.getInitScore(),score - subtrahend.getScore());
 }

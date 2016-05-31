@@ -1,0 +1,4 @@
+{
+  assertEquals("-147hard/-258medium/-369soft",HardMediumSoftLongScore.valueOfInitialized(-147L,-258L,-369L).toString());
+  assertEquals("-7init/-147hard/-258medium/-369soft",HardMediumSoftLongScore.valueOf(-7,-147L,-258L,-369L).toString());
+}

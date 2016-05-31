@@ -1,3 +1,5 @@
 {
-  assertScoresEqualsAndHashCode(scoreDefinitionHSS.createScore(-10,-20,-30),scoreDefinitionHSS.createScore(-10,-20,-30));
+  assertScoresEqualsAndHashCode(scoreDefinitionHSS.createScoreInitialized(-10,-200,-3000),scoreDefinitionHSS.createScoreInitialized(-10,-200,-3000),scoreDefinitionHSS.createScore(0,-10,-200,-3000));
+  assertScoresEqualsAndHashCode(scoreDefinitionHSS.createScore(-7,-10,-200,-3000),scoreDefinitionHSS.createScore(-7,-10,-200,-3000));
+  assertScoresNotEquals(scoreDefinitionHSS.createScoreInitialized(-10,-200,-3000),scoreDefinitionHSS.createScoreInitialized(-30,-200,-3000),scoreDefinitionHSS.createScoreInitialized(-10,-400,-3000),scoreDefinitionHSS.createScoreInitialized(-10,-400,-5000),scoreDefinitionHSS.createScore(-7,-10,-200,-3000));
 }

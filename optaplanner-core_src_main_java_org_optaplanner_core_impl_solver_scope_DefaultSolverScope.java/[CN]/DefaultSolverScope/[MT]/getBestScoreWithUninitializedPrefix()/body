@@ -1,3 +1,0 @@
-{
-  return ScoreUtils.getScoreWithUninitializedPrefix(bestUninitializedVariableCount,bestScore);
-}

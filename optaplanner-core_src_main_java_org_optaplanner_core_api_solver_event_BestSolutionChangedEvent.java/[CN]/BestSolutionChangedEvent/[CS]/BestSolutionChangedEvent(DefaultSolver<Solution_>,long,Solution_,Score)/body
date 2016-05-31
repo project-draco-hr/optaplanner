@@ -1,0 +1,7 @@
+{
+  super(solver);
+  this.solver=solver;
+  this.timeMillisSpent=timeMillisSpent;
+  this.newBestSolution=newBestSolution;
+  this.newBestScore=newBestScore;
+}

@@ -8,5 +8,5 @@
   for (int i=0; i < softLevelsSize; i++) {
     softScores[i]=(trendLevels[hardLevelsSize + i] == InitializingScoreTrendLevel.ONLY_DOWN) ? score.getSoftScore(i) : Long.MAX_VALUE;
   }
-  return BendableLongScore.valueOf(hardScores,softScores);
+  return BendableLongScore.valueOf(0,hardScores,softScores);
 }

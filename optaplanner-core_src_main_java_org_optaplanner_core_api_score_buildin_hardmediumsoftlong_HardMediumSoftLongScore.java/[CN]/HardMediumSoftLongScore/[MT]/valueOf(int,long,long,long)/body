@@ -1,0 +1,3 @@
+{
+  return new HardMediumSoftLongScore(initScore,hardScore,mediumScore,softScore);
+}

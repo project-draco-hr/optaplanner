@@ -1,4 +1,4 @@
 {
-  assertScoreNotFeasible(HardSoftBigDecimalScore.valueOf(new BigDecimal("-5"),new BigDecimal("-300")),HardSoftBigDecimalScore.valueOf(new BigDecimal("-5"),new BigDecimal("4000")),HardSoftBigDecimalScore.valueOf(new BigDecimal("-0.007"),new BigDecimal("4000")));
-  assertScoreFeasible(HardSoftBigDecimalScore.valueOf(new BigDecimal("0"),new BigDecimal("-300.007")),HardSoftBigDecimalScore.valueOf(new BigDecimal("0"),new BigDecimal("-300")),HardSoftBigDecimalScore.valueOf(new BigDecimal("2"),new BigDecimal("-300")));
+  assertScoreNotFeasible(HardSoftBigDecimalScore.valueOfInitialized(new BigDecimal("-5"),new BigDecimal("-300")),HardSoftBigDecimalScore.valueOfInitialized(new BigDecimal("-5"),new BigDecimal("4000")),HardSoftBigDecimalScore.valueOfInitialized(new BigDecimal("-0.007"),new BigDecimal("4000")),HardSoftBigDecimalScore.valueOf(-7,new BigDecimal("-5"),new BigDecimal("-300")),HardSoftBigDecimalScore.valueOf(-7,new BigDecimal("0"),new BigDecimal("-300")));
+  assertScoreFeasible(HardSoftBigDecimalScore.valueOfInitialized(new BigDecimal("0"),new BigDecimal("-300.007")),HardSoftBigDecimalScore.valueOfInitialized(new BigDecimal("0"),new BigDecimal("-300")),HardSoftBigDecimalScore.valueOfInitialized(new BigDecimal("2"),new BigDecimal("-300")),HardSoftBigDecimalScore.valueOf(0,new BigDecimal("0"),new BigDecimal("-300")));
 }

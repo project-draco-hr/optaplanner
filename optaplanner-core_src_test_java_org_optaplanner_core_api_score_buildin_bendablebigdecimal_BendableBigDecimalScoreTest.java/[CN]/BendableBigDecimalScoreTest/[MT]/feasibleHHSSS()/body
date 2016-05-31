@@ -1,4 +1,4 @@
 {
-  assertScoreNotFeasible(scoreDefinitionHHSSS.createScore(MINUS_FIVE,ZERO,MINUS_300,MINUS_4000,MINUS_5000),scoreDefinitionHHSSS.createScore(ZERO,MINUS_FIVE,MINUS_300,MINUS_4000,MINUS_5000));
-  assertScoreFeasible(scoreDefinitionHHSSS.createScore(ZERO,ZERO,MINUS_300,MINUS_4000,MINUS_5000),scoreDefinitionHHSSS.createScore(ZERO,TWO,MINUS_300,MINUS_4000,MINUS_5000),scoreDefinitionHHSSS.createScore(TWO,ZERO,MINUS_300,MINUS_4000,MINUS_5000));
+  assertScoreNotFeasible(scoreDefinitionHHSSS.createScoreInitialized(MINUS_FIVE,ZERO,MINUS_300,MINUS_4000,MINUS_5000),scoreDefinitionHHSSS.createScoreInitialized(ZERO,MINUS_FIVE,MINUS_300,MINUS_4000,MINUS_5000));
+  assertScoreFeasible(scoreDefinitionHHSSS.createScoreInitialized(ZERO,ZERO,MINUS_300,MINUS_4000,MINUS_5000),scoreDefinitionHHSSS.createScoreInitialized(ZERO,TWO,MINUS_300,MINUS_4000,MINUS_5000),scoreDefinitionHHSSS.createScoreInitialized(TWO,ZERO,MINUS_300,MINUS_4000,MINUS_5000));
 }

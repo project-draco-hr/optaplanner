@@ -2,8 +2,8 @@
   TestdataAbstractSolutionBasedSolution solution=new TestdataAbstractSolutionBasedSolution();
   solution.setScore(null);
   assertEquals(null,solution.getScore());
-  solution.setScore(SimpleScore.valueOf(-10));
-  assertEquals(SimpleScore.valueOf(-10),solution.getScore());
-  solution.setScore(SimpleScore.valueOf(-2));
-  assertEquals(SimpleScore.valueOf(-2),solution.getScore());
+  solution.setScore(SimpleScore.valueOfInitialized(-10));
+  assertEquals(SimpleScore.valueOfInitialized(-10),solution.getScore());
+  solution.setScore(SimpleScore.valueOfInitialized(-2));
+  assertEquals(SimpleScore.valueOfInitialized(-2),solution.getScore());
 }

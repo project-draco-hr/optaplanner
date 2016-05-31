@@ -1,5 +1,6 @@
 {
-  assertEquals(HardSoftBigDecimalScore.valueOf(new BigDecimal("6.0"),new BigDecimal("-6.0")),HardSoftBigDecimalScore.valueOf(new BigDecimal("5.0"),new BigDecimal("-5.0")).multiply(1.2));
-  assertEquals(HardSoftBigDecimalScore.valueOf(new BigDecimal("1.2"),new BigDecimal("-1.2")),HardSoftBigDecimalScore.valueOf(new BigDecimal("1.0"),new BigDecimal("-1.0")).multiply(1.2));
-  assertEquals(HardSoftBigDecimalScore.valueOf(new BigDecimal("4.8"),new BigDecimal("-4.8")),HardSoftBigDecimalScore.valueOf(new BigDecimal("4.0"),new BigDecimal("-4.0")).multiply(1.2));
+  assertEquals(HardSoftBigDecimalScore.valueOfInitialized(new BigDecimal("6.0"),new BigDecimal("-6.0")),HardSoftBigDecimalScore.valueOfInitialized(new BigDecimal("5.0"),new BigDecimal("-5.0")).multiply(1.2));
+  assertEquals(HardSoftBigDecimalScore.valueOfInitialized(new BigDecimal("1.2"),new BigDecimal("-1.2")),HardSoftBigDecimalScore.valueOfInitialized(new BigDecimal("1.0"),new BigDecimal("-1.0")).multiply(1.2));
+  assertEquals(HardSoftBigDecimalScore.valueOfInitialized(new BigDecimal("4.8"),new BigDecimal("-4.8")),HardSoftBigDecimalScore.valueOfInitialized(new BigDecimal("4.0"),new BigDecimal("-4.0")).multiply(1.2));
+  assertEquals(HardSoftBigDecimalScore.valueOf(-14,new BigDecimal("8.6"),new BigDecimal("-10.4")),HardSoftBigDecimalScore.valueOf(-7,new BigDecimal("4.3"),new BigDecimal("-5.2")).multiply(2.0));
 }

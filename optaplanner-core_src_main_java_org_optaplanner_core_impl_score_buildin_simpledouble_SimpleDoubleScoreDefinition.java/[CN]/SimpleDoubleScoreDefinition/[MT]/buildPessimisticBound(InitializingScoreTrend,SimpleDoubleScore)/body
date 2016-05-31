@@ -1,4 +1,4 @@
 {
   InitializingScoreTrendLevel[] trendLevels=initializingScoreTrend.getTrendLevels();
-  return SimpleDoubleScore.valueOf(trendLevels[0] == InitializingScoreTrendLevel.ONLY_UP ? score.getScore() : Double.NEGATIVE_INFINITY);
+  return SimpleDoubleScore.valueOf(0,trendLevels[0] == InitializingScoreTrendLevel.ONLY_UP ? score.getScore() : Double.NEGATIVE_INFINITY);
 }

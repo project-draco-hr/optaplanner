@@ -1,0 +1,4 @@
+{
+  assertEquals(scoreDefinitionHSS.createScoreInitialized(-5432109876L,-9876543210L,-3456789012L),scoreDefinitionHSS.createScoreInitialized(-5432109876L,-9876543210L,-3456789012L).toInitializedScore());
+  assertEquals(scoreDefinitionHSS.createScoreInitialized(-5432109876L,-9876543210L,-3456789012L),scoreDefinitionHSS.createScore(-7,-5432109876L,-9876543210L,-3456789012L).toInitializedScore());
+}

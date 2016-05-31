@@ -1,5 +1,6 @@
 {
-  assertEquals(HardSoftLongScore.valueOf(6L,-6L),HardSoftLongScore.valueOf(5L,-5L).multiply(1.2));
-  assertEquals(HardSoftLongScore.valueOf(1L,-2L),HardSoftLongScore.valueOf(1L,-1L).multiply(1.2));
-  assertEquals(HardSoftLongScore.valueOf(4L,-5L),HardSoftLongScore.valueOf(4L,-4L).multiply(1.2));
+  assertEquals(HardSoftLongScore.valueOfInitialized(6L,-6L),HardSoftLongScore.valueOfInitialized(5L,-5L).multiply(1.2));
+  assertEquals(HardSoftLongScore.valueOfInitialized(1L,-2L),HardSoftLongScore.valueOfInitialized(1L,-1L).multiply(1.2));
+  assertEquals(HardSoftLongScore.valueOfInitialized(4L,-5L),HardSoftLongScore.valueOfInitialized(4L,-4L).multiply(1.2));
+  assertEquals(HardSoftLongScore.valueOf(-14,8L,-10L),HardSoftLongScore.valueOf(-7,4L,-5L).multiply(2.0));
 }

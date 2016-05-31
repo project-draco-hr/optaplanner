@@ -1,3 +1,4 @@
 {
-  assertEquals(SimpleLongScore.valueOf(19L),SimpleLongScore.valueOf(20L).add(SimpleLongScore.valueOf(-1L)));
+  assertEquals(SimpleLongScore.valueOfInitialized(19L),SimpleLongScore.valueOfInitialized(20L).add(SimpleLongScore.valueOfInitialized(-1L)));
+  assertEquals(SimpleLongScore.valueOf(-77,19L),SimpleLongScore.valueOf(-70,20L).add(SimpleLongScore.valueOf(-7,-1L)));
 }

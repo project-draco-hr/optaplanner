@@ -1,0 +1,3 @@
+{
+  return SimpleScore.valueOf(initScore,0);
+}

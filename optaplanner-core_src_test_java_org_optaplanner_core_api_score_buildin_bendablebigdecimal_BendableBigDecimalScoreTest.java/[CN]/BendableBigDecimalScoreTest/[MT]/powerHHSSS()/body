@@ -1,4 +1,4 @@
 {
-  assertEquals(scoreDefinitionHHSSS.createScore(NINE,PLUS_16,PLUS_25,ZERO,ZERO),scoreDefinitionHHSSS.createScore(THREE,MINUS_FOUR,FIVE,ZERO,ZERO).power(2.0));
-  assertEquals(scoreDefinitionHHSSS.createScore(THREE,FOUR,FIVE,ZERO,ZERO),scoreDefinitionHHSSS.createScore(NINE,PLUS_16,PLUS_25,ZERO,ZERO).power(0.5));
+  assertEquals(scoreDefinitionHHSSS.createScoreInitialized(NINE,PLUS_16,PLUS_25,ZERO,ZERO),scoreDefinitionHHSSS.createScoreInitialized(THREE,MINUS_FOUR,FIVE,ZERO,ZERO).power(2.0));
+  assertEquals(scoreDefinitionHHSSS.createScoreInitialized(THREE,FOUR,FIVE,ZERO,ZERO),scoreDefinitionHHSSS.createScoreInitialized(NINE,PLUS_16,PLUS_25,ZERO,ZERO).power(0.5));
 }

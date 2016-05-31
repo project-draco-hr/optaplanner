@@ -1,6 +1,0 @@
-{
-  this.depth=depth;
-  this.entity=entity;
-  this.uninitializedVariableCount=uninitializedVariableCount;
-  nextBreadth=0L;
-}

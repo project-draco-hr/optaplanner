@@ -1,3 +1,4 @@
 {
-  assertEquals(HardMediumSoftLongScore.valueOf(21L,280L,-8000L),HardMediumSoftLongScore.valueOf(20L,-20L,-4000L).subtract(HardMediumSoftLongScore.valueOf(-1L,-300L,4000L)));
+  assertEquals(HardMediumSoftLongScore.valueOfInitialized(21L,280L,-8000L),HardMediumSoftLongScore.valueOfInitialized(20L,-20L,-4000L).subtract(HardMediumSoftLongScore.valueOfInitialized(-1L,-300L,4000L)));
+  assertEquals(HardMediumSoftLongScore.valueOf(-63,21L,280L,-8000L),HardMediumSoftLongScore.valueOf(-70,20L,-20L,-4000L).subtract(HardMediumSoftLongScore.valueOf(-7,-1L,-300L,4000L)));
 }

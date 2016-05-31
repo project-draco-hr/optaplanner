@@ -1,0 +1,3 @@
+Score originalBestScore
+Score moveScore
+boolean moveImprovesBestSolution

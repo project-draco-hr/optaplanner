@@ -1,3 +1,3 @@
 {
-  assertEquals(scoreDefinitionHHSSS.createScore(21,280,-8000,0,0),scoreDefinitionHHSSS.createScore(20,-20,-4000,0,0).subtract(scoreDefinitionHHSSS.createScore(-1,-300,4000,0,0)));
+  assertEquals(scoreDefinitionHHSSS.createScoreInitialized(21,280,-8000,0,0),scoreDefinitionHHSSS.createScoreInitialized(20,-20,-4000,0,0).subtract(scoreDefinitionHHSSS.createScoreInitialized(-1,-300,4000,0,0)));
 }

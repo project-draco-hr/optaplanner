@@ -4,7 +4,7 @@
   }
  else   if (o instanceof SimpleBigDecimalScore) {
     SimpleBigDecimalScore other=(SimpleBigDecimalScore)o;
-    return score.equals(other.getScore());
+    return initScore == other.getInitScore() && score.equals(other.getScore());
   }
  else {
     return false;

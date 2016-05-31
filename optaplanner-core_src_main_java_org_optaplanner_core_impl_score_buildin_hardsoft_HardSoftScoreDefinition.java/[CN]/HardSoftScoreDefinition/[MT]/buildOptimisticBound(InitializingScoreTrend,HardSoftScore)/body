@@ -1,4 +1,4 @@
 {
   InitializingScoreTrendLevel[] trendLevels=initializingScoreTrend.getTrendLevels();
-  return HardSoftScore.valueOf(trendLevels[0] == InitializingScoreTrendLevel.ONLY_DOWN ? score.getHardScore() : Integer.MAX_VALUE,trendLevels[1] == InitializingScoreTrendLevel.ONLY_DOWN ? score.getSoftScore() : Integer.MAX_VALUE);
+  return HardSoftScore.valueOf(0,trendLevels[0] == InitializingScoreTrendLevel.ONLY_DOWN ? score.getHardScore() : Integer.MAX_VALUE,trendLevels[1] == InitializingScoreTrendLevel.ONLY_DOWN ? score.getSoftScore() : Integer.MAX_VALUE);
 }

@@ -1,5 +1,6 @@
 {
-  assertEquals(SimpleDoubleScore.valueOf(5.0),SimpleDoubleScore.valueOf(25.0).divide(5.0));
-  assertEquals(SimpleDoubleScore.valueOf(4.2),SimpleDoubleScore.valueOf(21.0).divide(5.0));
-  assertEquals(SimpleDoubleScore.valueOf(4.8),SimpleDoubleScore.valueOf(24.0).divide(5.0));
+  assertEquals(SimpleDoubleScore.valueOfInitialized(5.0),SimpleDoubleScore.valueOfInitialized(25.0).divide(5.0));
+  assertEquals(SimpleDoubleScore.valueOfInitialized(4.2),SimpleDoubleScore.valueOfInitialized(21.0).divide(5.0));
+  assertEquals(SimpleDoubleScore.valueOfInitialized(4.8),SimpleDoubleScore.valueOfInitialized(24.0).divide(5.0));
+  assertEquals(SimpleDoubleScore.valueOf(-7,4.3),SimpleDoubleScore.valueOf(-14,8.6).divide(2.0));
 }

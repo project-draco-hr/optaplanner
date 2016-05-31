@@ -10,5 +10,5 @@
     BigDecimal softScore=softScores[i];
     newSoftScores[i]=softScore.pow(actualExponent.intValue()).setScale(softScore.scale());
   }
-  return new BendableBigDecimalScore(newHardScores,newSoftScores);
+  return new BendableBigDecimalScore((int)Math.floor(Math.pow(initScore,exponent)),newHardScores,newSoftScores);
 }

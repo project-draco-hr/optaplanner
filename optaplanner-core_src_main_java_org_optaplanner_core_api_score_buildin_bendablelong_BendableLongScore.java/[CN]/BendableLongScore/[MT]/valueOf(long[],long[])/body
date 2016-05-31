@@ -1,3 +1,0 @@
-{
-  return new BendableLongScore(hardScores,softScores);
-}

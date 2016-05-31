@@ -1,19 +1,19 @@
 {
   ScoreDefinition scoreDefinition=mock(ScoreDefinition.class);
   when(scoreDefinition.getLevelsSize()).thenReturn(2);
-  BestScoreTermination termination=new BestScoreTermination(scoreDefinition,HardSoftScore.valueOf(-10,-300),new double[]{0.75});
-  assertEquals(0.6,termination.calculateTimeGradient(HardSoftScore.valueOf(-20,-400),HardSoftScore.valueOf(-10,-300),HardSoftScore.valueOf(-14,-340)),0.0);
-  assertEquals(0.75,termination.calculateTimeGradient(HardSoftScore.valueOf(-20,-400),HardSoftScore.valueOf(-10,-300),HardSoftScore.valueOf(-10,-400)),0.0);
-  assertEquals(0.25,termination.calculateTimeGradient(HardSoftScore.valueOf(-20,-400),HardSoftScore.valueOf(-10,-300),HardSoftScore.valueOf(-20,-300)),0.0);
-  assertEquals(0.75,termination.calculateTimeGradient(HardSoftScore.valueOf(-20,-400),HardSoftScore.valueOf(-10,-300),HardSoftScore.valueOf(-10,-900)),0.0);
-  assertEquals(0.0,termination.calculateTimeGradient(HardSoftScore.valueOf(-20,-400),HardSoftScore.valueOf(-10,-300),HardSoftScore.valueOf(-90,-300)),0.0);
-  assertEquals(1.0,termination.calculateTimeGradient(HardSoftScore.valueOf(-10,-300),HardSoftScore.valueOf(-10,-300),HardSoftScore.valueOf(-10,-300)),0.0);
-  assertEquals(0.0,termination.calculateTimeGradient(HardSoftScore.valueOf(-20,-400),HardSoftScore.valueOf(-10,-300),HardSoftScore.valueOf(-20,-400)),0.0);
-  assertEquals(1.0,termination.calculateTimeGradient(HardSoftScore.valueOf(-20,-400),HardSoftScore.valueOf(-10,-300),HardSoftScore.valueOf(-10,-300)),0.0);
-  assertEquals(0.75 + (0.6 * 0.25),termination.calculateTimeGradient(HardSoftScore.valueOf(-10,-400),HardSoftScore.valueOf(-10,-300),HardSoftScore.valueOf(-10,-340)),0.0);
-  assertEquals(0.0,termination.calculateTimeGradient(HardSoftScore.valueOf(-10,-400),HardSoftScore.valueOf(-10,-300),HardSoftScore.valueOf(-20,-340)),0.0);
-  assertEquals(1.0,termination.calculateTimeGradient(HardSoftScore.valueOf(-10,-400),HardSoftScore.valueOf(-10,-300),HardSoftScore.valueOf(-0,-340)),0.0);
-  assertEquals((0.6 * 0.75) + 0.25,termination.calculateTimeGradient(HardSoftScore.valueOf(-20,-300),HardSoftScore.valueOf(-10,-300),HardSoftScore.valueOf(-14,-300)),0.0);
-  assertEquals(0.6 * 0.75,termination.calculateTimeGradient(HardSoftScore.valueOf(-20,-300),HardSoftScore.valueOf(-10,-300),HardSoftScore.valueOf(-14,-400)),0.0);
-  assertEquals((0.6 * 0.75) + 0.25,termination.calculateTimeGradient(HardSoftScore.valueOf(-20,-300),HardSoftScore.valueOf(-10,-300),HardSoftScore.valueOf(-14,-0)),0.0);
+  BestScoreTermination termination=new BestScoreTermination(scoreDefinition,HardSoftScore.valueOfInitialized(-10,-300),new double[]{0.75});
+  assertEquals(0.6,termination.calculateTimeGradient(HardSoftScore.valueOfInitialized(-20,-400),HardSoftScore.valueOfInitialized(-10,-300),HardSoftScore.valueOfInitialized(-14,-340)),0.0);
+  assertEquals(0.75,termination.calculateTimeGradient(HardSoftScore.valueOfInitialized(-20,-400),HardSoftScore.valueOfInitialized(-10,-300),HardSoftScore.valueOfInitialized(-10,-400)),0.0);
+  assertEquals(0.25,termination.calculateTimeGradient(HardSoftScore.valueOfInitialized(-20,-400),HardSoftScore.valueOfInitialized(-10,-300),HardSoftScore.valueOfInitialized(-20,-300)),0.0);
+  assertEquals(0.75,termination.calculateTimeGradient(HardSoftScore.valueOfInitialized(-20,-400),HardSoftScore.valueOfInitialized(-10,-300),HardSoftScore.valueOfInitialized(-10,-900)),0.0);
+  assertEquals(0.0,termination.calculateTimeGradient(HardSoftScore.valueOfInitialized(-20,-400),HardSoftScore.valueOfInitialized(-10,-300),HardSoftScore.valueOfInitialized(-90,-300)),0.0);
+  assertEquals(1.0,termination.calculateTimeGradient(HardSoftScore.valueOfInitialized(-10,-300),HardSoftScore.valueOfInitialized(-10,-300),HardSoftScore.valueOfInitialized(-10,-300)),0.0);
+  assertEquals(0.0,termination.calculateTimeGradient(HardSoftScore.valueOfInitialized(-20,-400),HardSoftScore.valueOfInitialized(-10,-300),HardSoftScore.valueOfInitialized(-20,-400)),0.0);
+  assertEquals(1.0,termination.calculateTimeGradient(HardSoftScore.valueOfInitialized(-20,-400),HardSoftScore.valueOfInitialized(-10,-300),HardSoftScore.valueOfInitialized(-10,-300)),0.0);
+  assertEquals(0.75 + (0.6 * 0.25),termination.calculateTimeGradient(HardSoftScore.valueOfInitialized(-10,-400),HardSoftScore.valueOfInitialized(-10,-300),HardSoftScore.valueOfInitialized(-10,-340)),0.0);
+  assertEquals(0.0,termination.calculateTimeGradient(HardSoftScore.valueOfInitialized(-10,-400),HardSoftScore.valueOfInitialized(-10,-300),HardSoftScore.valueOfInitialized(-20,-340)),0.0);
+  assertEquals(1.0,termination.calculateTimeGradient(HardSoftScore.valueOfInitialized(-10,-400),HardSoftScore.valueOfInitialized(-10,-300),HardSoftScore.valueOfInitialized(-0,-340)),0.0);
+  assertEquals((0.6 * 0.75) + 0.25,termination.calculateTimeGradient(HardSoftScore.valueOfInitialized(-20,-300),HardSoftScore.valueOfInitialized(-10,-300),HardSoftScore.valueOfInitialized(-14,-300)),0.0);
+  assertEquals(0.6 * 0.75,termination.calculateTimeGradient(HardSoftScore.valueOfInitialized(-20,-300),HardSoftScore.valueOfInitialized(-10,-300),HardSoftScore.valueOfInitialized(-14,-400)),0.0);
+  assertEquals((0.6 * 0.75) + 0.25,termination.calculateTimeGradient(HardSoftScore.valueOfInitialized(-20,-300),HardSoftScore.valueOfInitialized(-10,-300),HardSoftScore.valueOfInitialized(-14,-0)),0.0);
 }

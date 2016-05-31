@@ -1,7 +1,7 @@
 {
   variableListenerSupport.assertNotificationQueuesAreEmpty();
   kieSession.fireAllRules();
-  Score score=workingScoreHolder.extractScore();
+  Score score=workingScoreHolder.extractScore(workingInitScore);
   setCalculatedScore(score);
   return score;
 }

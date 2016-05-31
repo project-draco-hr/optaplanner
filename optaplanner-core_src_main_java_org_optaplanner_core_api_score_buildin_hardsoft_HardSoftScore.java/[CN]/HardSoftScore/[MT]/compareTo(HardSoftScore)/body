@@ -1,21 +1,11 @@
 {
-  if (hardScore != other.getHardScore()) {
-    if (hardScore < other.getHardScore()) {
-      return -1;
-    }
- else {
-      return 1;
-    }
+  if (initScore != other.getInitScore()) {
+    return initScore < other.getInitScore() ? -1 : 1;
+  }
+ else   if (hardScore != other.getHardScore()) {
+    return hardScore < other.getHardScore() ? -1 : 1;
   }
  else {
-    if (softScore < other.getSoftScore()) {
-      return -1;
-    }
- else     if (softScore > other.getSoftScore()) {
-      return 1;
-    }
- else {
-      return 0;
-    }
+    return Integer.compare(softScore,other.getSoftScore());
   }
 }

@@ -1,11 +1,11 @@
 {
   ScoreDefinition scoreDefinition=mock(ScoreDefinition.class);
   when(scoreDefinition.getLevelsSize()).thenReturn(1);
-  BestScoreTermination termination=new BestScoreTermination(scoreDefinition,SimpleBigDecimalScore.valueOf(new BigDecimal("10.00")),new double[]{});
-  assertEquals(0.0,termination.calculateTimeGradient(SimpleBigDecimalScore.valueOf(new BigDecimal("0.00")),SimpleBigDecimalScore.valueOf(new BigDecimal("10.00")),SimpleBigDecimalScore.valueOf(new BigDecimal("0.00"))),0.0);
-  assertEquals(0.6,termination.calculateTimeGradient(SimpleBigDecimalScore.valueOf(new BigDecimal("0.00")),SimpleBigDecimalScore.valueOf(new BigDecimal("10.00")),SimpleBigDecimalScore.valueOf(new BigDecimal("6.00"))),0.0);
-  assertEquals(1.0,termination.calculateTimeGradient(SimpleBigDecimalScore.valueOf(new BigDecimal("0.00")),SimpleBigDecimalScore.valueOf(new BigDecimal("10.00")),SimpleBigDecimalScore.valueOf(new BigDecimal("10.00"))),0.0);
-  assertEquals(1.0,termination.calculateTimeGradient(SimpleBigDecimalScore.valueOf(new BigDecimal("0.00")),SimpleBigDecimalScore.valueOf(new BigDecimal("10.00")),SimpleBigDecimalScore.valueOf(new BigDecimal("11.00"))),0.0);
-  assertEquals(0.25,termination.calculateTimeGradient(SimpleBigDecimalScore.valueOf(new BigDecimal("-10.00")),SimpleBigDecimalScore.valueOf(new BigDecimal("30.00")),SimpleBigDecimalScore.valueOf(new BigDecimal("0.00"))),0.0);
-  assertEquals(0.33333,termination.calculateTimeGradient(SimpleBigDecimalScore.valueOf(new BigDecimal("10.00")),SimpleBigDecimalScore.valueOf(new BigDecimal("40.00")),SimpleBigDecimalScore.valueOf(new BigDecimal("20.00"))),0.00001);
+  BestScoreTermination termination=new BestScoreTermination(scoreDefinition,SimpleBigDecimalScore.valueOfInitialized(new BigDecimal("10.00")),new double[]{});
+  assertEquals(0.0,termination.calculateTimeGradient(SimpleBigDecimalScore.valueOfInitialized(new BigDecimal("0.00")),SimpleBigDecimalScore.valueOfInitialized(new BigDecimal("10.00")),SimpleBigDecimalScore.valueOfInitialized(new BigDecimal("0.00"))),0.0);
+  assertEquals(0.6,termination.calculateTimeGradient(SimpleBigDecimalScore.valueOfInitialized(new BigDecimal("0.00")),SimpleBigDecimalScore.valueOfInitialized(new BigDecimal("10.00")),SimpleBigDecimalScore.valueOfInitialized(new BigDecimal("6.00"))),0.0);
+  assertEquals(1.0,termination.calculateTimeGradient(SimpleBigDecimalScore.valueOfInitialized(new BigDecimal("0.00")),SimpleBigDecimalScore.valueOfInitialized(new BigDecimal("10.00")),SimpleBigDecimalScore.valueOfInitialized(new BigDecimal("10.00"))),0.0);
+  assertEquals(1.0,termination.calculateTimeGradient(SimpleBigDecimalScore.valueOfInitialized(new BigDecimal("0.00")),SimpleBigDecimalScore.valueOfInitialized(new BigDecimal("10.00")),SimpleBigDecimalScore.valueOfInitialized(new BigDecimal("11.00"))),0.0);
+  assertEquals(0.25,termination.calculateTimeGradient(SimpleBigDecimalScore.valueOfInitialized(new BigDecimal("-10.00")),SimpleBigDecimalScore.valueOfInitialized(new BigDecimal("30.00")),SimpleBigDecimalScore.valueOfInitialized(new BigDecimal("0.00"))),0.0);
+  assertEquals(0.33333,termination.calculateTimeGradient(SimpleBigDecimalScore.valueOfInitialized(new BigDecimal("10.00")),SimpleBigDecimalScore.valueOfInitialized(new BigDecimal("40.00")),SimpleBigDecimalScore.valueOfInitialized(new BigDecimal("20.00"))),0.00001);
 }

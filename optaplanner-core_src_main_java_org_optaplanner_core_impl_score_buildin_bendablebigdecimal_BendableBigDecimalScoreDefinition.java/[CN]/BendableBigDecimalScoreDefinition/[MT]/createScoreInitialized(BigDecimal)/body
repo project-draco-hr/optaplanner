@@ -1,0 +1,3 @@
+{
+  return createScore(0,scores);
+}

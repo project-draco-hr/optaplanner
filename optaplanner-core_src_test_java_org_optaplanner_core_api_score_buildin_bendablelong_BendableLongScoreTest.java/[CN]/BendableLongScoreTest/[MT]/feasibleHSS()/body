@@ -1,4 +1,4 @@
 {
-  assertScoreNotFeasible(scoreDefinitionHSS.createScore(-5,-300,-9876543210L));
-  assertScoreFeasible(scoreDefinitionHSS.createScore(0,-300,-9876543210L),scoreDefinitionHSS.createScore(2,-300,-9876543210L));
+  assertScoreNotFeasible(scoreDefinitionHSS.createScoreInitialized(-5L,-300L,-9876543210L),scoreDefinitionHSS.createScore(-7,-5L,-300L,-9876543210L),scoreDefinitionHSS.createScore(-7,0L,-300L,-9876543210L));
+  assertScoreFeasible(scoreDefinitionHSS.createScoreInitialized(0L,-300L,-9876543210L),scoreDefinitionHSS.createScoreInitialized(2L,-300L,-9876543210L),scoreDefinitionHSS.createScore(0,0L,-300L,-9876543210L));
 }

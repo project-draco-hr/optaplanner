@@ -1,4 +1,4 @@
 {
-  assertEquals(HardSoftDoubleScore.valueOf(-4.0,1.5),HardSoftDoubleScore.valueOf(4.0,-1.5).negate());
-  assertEquals(HardSoftDoubleScore.valueOf(4.0,-1.5),HardSoftDoubleScore.valueOf(-4.0,1.5).negate());
+  assertEquals(HardSoftDoubleScore.valueOfInitialized(-4.0,1.5),HardSoftDoubleScore.valueOfInitialized(4.0,-1.5).negate());
+  assertEquals(HardSoftDoubleScore.valueOfInitialized(4.0,-1.5),HardSoftDoubleScore.valueOfInitialized(-4.0,1.5).negate());
 }

@@ -1,4 +1,4 @@
 {
-  assertEquals(HardSoftLongScore.valueOf(-4L,5L),HardSoftLongScore.valueOf(4L,-5L).negate());
-  assertEquals(HardSoftLongScore.valueOf(4L,-5L),HardSoftLongScore.valueOf(-4L,5L).negate());
+  assertEquals(HardSoftLongScore.valueOfInitialized(-4L,5L),HardSoftLongScore.valueOfInitialized(4L,-5L).negate());
+  assertEquals(HardSoftLongScore.valueOfInitialized(4L,-5L),HardSoftLongScore.valueOfInitialized(-4L,5L).negate());
 }

@@ -1,6 +1,5 @@
 {
   ExhaustiveSearchPhaseScope<Solution_> phaseScope=stepScope.getPhaseScope();
-  int uninitializedVariableCount=moveNode.getUninitializedVariableCount();
   boolean lastLayer=moveNode.isLastLayer();
   if (!scoreBounderEnabled) {
     if (lastLayer) {
@@ -9,7 +8,7 @@
       if (assertMoveScoreFromScratch) {
         phaseScope.assertWorkingScoreFromScratch(score,moveNode.getMove());
       }
-      bestSolutionRecaller.processWorkingSolutionDuringMove(uninitializedVariableCount,score,stepScope);
+      bestSolutionRecaller.processWorkingSolutionDuringMove(score,stepScope);
     }
  else {
       phaseScope.addExpandableNode(moveNode);
@@ -23,7 +22,7 @@
     }
     if (lastLayer) {
       phaseScope.registerPessimisticBound(score);
-      bestSolutionRecaller.processWorkingSolutionDuringMove(uninitializedVariableCount,score,stepScope);
+      bestSolutionRecaller.processWorkingSolutionDuringMove(score,stepScope);
     }
  else {
       InnerScoreDirector scoreDirector=phaseScope.getScoreDirector();

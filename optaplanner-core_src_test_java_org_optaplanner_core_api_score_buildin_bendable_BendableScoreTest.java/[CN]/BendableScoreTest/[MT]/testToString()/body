@@ -1,5 +1,6 @@
 {
-  assertEquals("[-147]hard/[-258/-369]soft",scoreDefinitionHSS.createScore(-147,-258,-369).toString());
-  assertEquals("[-147/-258/-369]hard/[]soft",scoreDefinitionHHH.createScore(-147,-258,-369).toString());
-  assertEquals("[]hard/[-147/-258/-369]soft",scoreDefinitionSSS.createScore(-147,-258,-369).toString());
+  assertEquals("[-147]hard/[-258/-369]soft",scoreDefinitionHSS.createScoreInitialized(-147,-258,-369).toString());
+  assertEquals("[-147/-258/-369]hard/[]soft",scoreDefinitionHHH.createScoreInitialized(-147,-258,-369).toString());
+  assertEquals("[]hard/[-147/-258/-369]soft",scoreDefinitionSSS.createScoreInitialized(-147,-258,-369).toString());
+  assertEquals("-7init/[]hard/[-147/-258/-369]soft",scoreDefinitionSSS.createScore(-7,-147,-258,-369).toString());
 }

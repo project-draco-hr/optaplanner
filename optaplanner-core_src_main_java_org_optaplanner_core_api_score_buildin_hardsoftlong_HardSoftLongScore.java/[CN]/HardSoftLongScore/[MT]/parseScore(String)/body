@@ -1,6 +1,7 @@
 {
-  String[] levelStrings=parseLevelStrings(HardSoftLongScore.class,scoreString,HARD_LABEL,SOFT_LABEL);
-  long hardScore=parseLevelAsLong(HardSoftLongScore.class,scoreString,levelStrings[0]);
-  long softScore=parseLevelAsLong(HardSoftLongScore.class,scoreString,levelStrings[1]);
-  return valueOf(hardScore,softScore);
+  String[] scoreTokens=parseScoreTokens(HardSoftLongScore.class,scoreString,HARD_LABEL,SOFT_LABEL);
+  int initScore=parseInitScore(HardSoftLongScore.class,scoreString,scoreTokens[0]);
+  long hardScore=parseLevelAsLong(HardSoftLongScore.class,scoreString,scoreTokens[1]);
+  long softScore=parseLevelAsLong(HardSoftLongScore.class,scoreString,scoreTokens[2]);
+  return valueOf(initScore,hardScore,softScore);
 }

@@ -7,5 +7,5 @@
   for (int i=0; i < newSoftScores.length; i++) {
     newSoftScores[i]=(long)Math.floor(Math.pow(softScores[i],exponent));
   }
-  return new BendableLongScore(newHardScores,newSoftScores);
+  return new BendableLongScore((int)Math.floor(Math.pow(initScore,exponent)),newHardScores,newSoftScores);
 }

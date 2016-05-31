@@ -1,3 +1,4 @@
 {
-  assertEquals(SimpleBigDecimalScore.valueOf(new BigDecimal("25.0")),SimpleBigDecimalScore.valueOf(new BigDecimal("5.0")).power(2.0));
+  assertEquals(SimpleBigDecimalScore.valueOfInitialized(new BigDecimal("25.0")),SimpleBigDecimalScore.valueOfInitialized(new BigDecimal("5.0")).power(2.0));
+  assertEquals(SimpleBigDecimalScore.valueOf(-343,new BigDecimal("125.0")),SimpleBigDecimalScore.valueOf(-7,new BigDecimal("5.0")).power(3.0));
 }

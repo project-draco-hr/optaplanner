@@ -1,4 +1,4 @@
 {
-  assertScoreNotFeasible(HardMediumSoftLongScore.valueOf(-5L,-300L,-4000L));
-  assertScoreFeasible(HardMediumSoftLongScore.valueOf(0L,-300L,-4000L),HardMediumSoftLongScore.valueOf(2L,-300L,-4000L));
+  assertScoreNotFeasible(HardMediumSoftLongScore.valueOfInitialized(-5L,-300L,-4000L),HardMediumSoftLongScore.valueOf(-7,-5L,-300L,-4000L),HardMediumSoftLongScore.valueOf(-7,0L,-300L,-4000L));
+  assertScoreFeasible(HardMediumSoftLongScore.valueOfInitialized(0L,-300L,-4000L),HardMediumSoftLongScore.valueOfInitialized(2L,-300L,-4000L),HardMediumSoftLongScore.valueOf(0,0L,-300L,-4000L));
 }

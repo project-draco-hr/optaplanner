@@ -1,5 +1,6 @@
 {
   SimpleLongScoreDefinition scoreDefinition=new SimpleLongScoreDefinition();
-  SimpleLongScore optimisticBound=scoreDefinition.buildOptimisticBound(InitializingScoreTrend.buildUniformTrend(InitializingScoreTrendLevel.ONLY_UP,1),SimpleLongScore.valueOf(-1L));
+  SimpleLongScore optimisticBound=scoreDefinition.buildOptimisticBound(InitializingScoreTrend.buildUniformTrend(InitializingScoreTrendLevel.ONLY_UP,1),SimpleLongScore.valueOfInitialized(-1L));
+  assertEquals(0,optimisticBound.getInitScore());
   assertEquals(Long.MAX_VALUE,optimisticBound.getScore());
 }

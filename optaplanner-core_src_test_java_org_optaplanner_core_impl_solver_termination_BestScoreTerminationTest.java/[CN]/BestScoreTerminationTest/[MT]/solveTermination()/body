@@ -1,27 +1,27 @@
 {
   ScoreDefinition scoreDefinition=mock(ScoreDefinition.class);
   when(scoreDefinition.getLevelsSize()).thenReturn(1);
-  Termination termination=new BestScoreTermination(scoreDefinition,SimpleScore.valueOf(-1000),new double[]{});
+  Termination termination=new BestScoreTermination(scoreDefinition,SimpleScore.valueOfInitialized(-1000),new double[]{});
   DefaultSolverScope solverScope=mock(DefaultSolverScope.class);
   when(solverScope.getScoreDefinition()).thenReturn(new SimpleScoreDefinition());
   when(solverScope.isBestSolutionInitialized()).thenReturn(true);
-  when(solverScope.getStartingInitializedScore()).thenReturn(SimpleScore.valueOf(-1100));
-  when(solverScope.getBestScore()).thenReturn(SimpleScore.valueOf(-1100));
+  when(solverScope.getStartingInitializedScore()).thenReturn(SimpleScore.valueOfInitialized(-1100));
+  when(solverScope.getBestScore()).thenReturn(SimpleScore.valueOfInitialized(-1100));
   assertEquals(false,termination.isSolverTerminated(solverScope));
   assertEquals(0.0,termination.calculateSolverTimeGradient(solverScope),0.0);
-  when(solverScope.getBestScore()).thenReturn(SimpleScore.valueOf(-1100));
+  when(solverScope.getBestScore()).thenReturn(SimpleScore.valueOfInitialized(-1100));
   assertEquals(false,termination.isSolverTerminated(solverScope));
   assertEquals(0.0,termination.calculateSolverTimeGradient(solverScope),0.0);
-  when(solverScope.getBestScore()).thenReturn(SimpleScore.valueOf(-1040));
+  when(solverScope.getBestScore()).thenReturn(SimpleScore.valueOfInitialized(-1040));
   assertEquals(false,termination.isSolverTerminated(solverScope));
   assertEquals(0.6,termination.calculateSolverTimeGradient(solverScope),0.0);
-  when(solverScope.getBestScore()).thenReturn(SimpleScore.valueOf(-1040));
+  when(solverScope.getBestScore()).thenReturn(SimpleScore.valueOfInitialized(-1040));
   assertEquals(false,termination.isSolverTerminated(solverScope));
   assertEquals(0.6,termination.calculateSolverTimeGradient(solverScope),0.0);
-  when(solverScope.getBestScore()).thenReturn(SimpleScore.valueOf(-1000));
+  when(solverScope.getBestScore()).thenReturn(SimpleScore.valueOfInitialized(-1000));
   assertEquals(true,termination.isSolverTerminated(solverScope));
   assertEquals(1.0,termination.calculateSolverTimeGradient(solverScope),0.0);
-  when(solverScope.getBestScore()).thenReturn(SimpleScore.valueOf(-900));
+  when(solverScope.getBestScore()).thenReturn(SimpleScore.valueOfInitialized(-900));
   assertEquals(true,termination.isSolverTerminated(solverScope));
   assertEquals(1.0,termination.calculateSolverTimeGradient(solverScope),0.0);
 }

@@ -1,3 +1,3 @@
 {
-  return isTerminated(solverScope.isBestSolutionInitialized(),solverScope.getBestScore());
+  return isTerminated(solverScope.getBestScore());
 }

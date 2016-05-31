@@ -1,3 +1,3 @@
 {
-  return new HardSoftDoubleScore(hardScore + augment.getHardScore(),softScore + augment.getSoftScore());
+  return new HardSoftDoubleScore(initScore + augment.getInitScore(),hardScore + augment.getHardScore(),softScore + augment.getSoftScore());
 }

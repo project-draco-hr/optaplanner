@@ -1,4 +1,5 @@
 {
-  assertEquals(SimpleLongScore.valueOf(25L),SimpleLongScore.valueOf(5L).power(2.0));
-  assertEquals(SimpleLongScore.valueOf(5L),SimpleLongScore.valueOf(25L).power(0.5));
+  assertEquals(SimpleLongScore.valueOfInitialized(25L),SimpleLongScore.valueOfInitialized(5L).power(2.0));
+  assertEquals(SimpleLongScore.valueOfInitialized(5L),SimpleLongScore.valueOfInitialized(25L).power(0.5));
+  assertEquals(SimpleLongScore.valueOf(-343,125L),SimpleLongScore.valueOf(-7,5L).power(3.0));
 }

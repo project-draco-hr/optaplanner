@@ -1,3 +1,4 @@
 {
-  assertEquals(scoreDefinitionHSS.createScore(2222222222L,280,-8888888888L),scoreDefinitionHSS.createScore(3333333333L,-20,-5555555555L).subtract(scoreDefinitionHSS.createScore(1111111111,-300,3333333333L)));
+  assertEquals(scoreDefinitionHSS.createScoreInitialized(2222222222L,280L,-8888888888L),scoreDefinitionHSS.createScoreInitialized(3333333333L,-20L,-5555555555L).subtract(scoreDefinitionHSS.createScoreInitialized(1111111111L,-300L,3333333333L)));
+  assertEquals(scoreDefinitionHSS.createScore(-63,2222222222L,280L,-8888888888L),scoreDefinitionHSS.createScore(-70,3333333333L,-20L,-5555555555L).subtract(scoreDefinitionHSS.createScore(-7,1111111111L,-300L,3333333333L)));
 }

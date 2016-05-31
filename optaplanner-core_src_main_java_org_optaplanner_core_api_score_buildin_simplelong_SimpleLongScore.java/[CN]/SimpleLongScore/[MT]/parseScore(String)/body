@@ -1,3 +1,6 @@
 {
-  return valueOf(parseLevelAsLong(SimpleLongScore.class,scoreString,scoreString));
+  String[] scoreTokens=parseScoreTokens(SimpleLongScore.class,scoreString,"");
+  int initScore=parseInitScore(SimpleLongScore.class,scoreString,scoreTokens[0]);
+  long score=parseLevelAsLong(SimpleLongScore.class,scoreString,scoreTokens[1]);
+  return valueOf(initScore,score);
 }

@@ -1,0 +1,5 @@
+{
+  super(initScore);
+  this.hardScore=hardScore;
+  this.softScore=softScore;
+}

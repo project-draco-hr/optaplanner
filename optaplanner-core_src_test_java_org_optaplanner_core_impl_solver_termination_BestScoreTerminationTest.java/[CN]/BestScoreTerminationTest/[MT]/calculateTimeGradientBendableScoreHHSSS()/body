@@ -1,6 +1,6 @@
 {
   ScoreDefinition scoreDefinition=mock(ScoreDefinition.class);
   when(scoreDefinition.getLevelsSize()).thenReturn(5);
-  BestScoreTermination termination=new BestScoreTermination(scoreDefinition,BendableScore.valueOf(new int[]{0,0},new int[]{0,0,-10}),new double[]{0.75,0.75,0.75,0.75});
-  assertEquals(0.6 * 0.75 + 0.6 * 0.25 * 0.75,termination.calculateTimeGradient(BendableScore.valueOf(new int[]{-10,-100},new int[]{-50,-60,-70}),BendableScore.valueOf(new int[]{0,0},new int[]{0,0,-10}),BendableScore.valueOf(new int[]{-4,-40},new int[]{-50,-60,-70})),0.0);
+  BestScoreTermination termination=new BestScoreTermination(scoreDefinition,BendableScore.valueOfInitialized(new int[]{0,0},new int[]{0,0,-10}),new double[]{0.75,0.75,0.75,0.75});
+  assertEquals(0.6 * 0.75 + 0.6 * 0.25 * 0.75,termination.calculateTimeGradient(BendableScore.valueOfInitialized(new int[]{-10,-100},new int[]{-50,-60,-70}),BendableScore.valueOfInitialized(new int[]{0,0},new int[]{0,0,-10}),BendableScore.valueOfInitialized(new int[]{-4,-40},new int[]{-50,-60,-70})),0.0);
 }

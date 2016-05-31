@@ -1,0 +1,4 @@
+int initScore
+long hardScore
+long mediumScore
+long softScore

@@ -1,4 +1,4 @@
 {
   BigDecimal multiplicandBigDecimal=BigDecimal.valueOf(multiplicand);
-  return new HardSoftBigDecimalScore(hardScore.multiply(multiplicandBigDecimal).setScale(hardScore.scale(),RoundingMode.FLOOR),softScore.multiply(multiplicandBigDecimal).setScale(softScore.scale(),RoundingMode.FLOOR));
+  return new HardSoftBigDecimalScore((int)Math.floor(initScore * multiplicand),hardScore.multiply(multiplicandBigDecimal).setScale(hardScore.scale(),RoundingMode.FLOOR),softScore.multiply(multiplicandBigDecimal).setScale(softScore.scale(),RoundingMode.FLOOR));
 }

@@ -1,3 +1,3 @@
 {
-  return new HardSoftLongScore(hardScore - subtrahend.getHardScore(),softScore - subtrahend.getSoftScore());
+  return new HardSoftLongScore(initScore - subtrahend.getInitScore(),hardScore - subtrahend.getHardScore(),softScore - subtrahend.getSoftScore());
 }

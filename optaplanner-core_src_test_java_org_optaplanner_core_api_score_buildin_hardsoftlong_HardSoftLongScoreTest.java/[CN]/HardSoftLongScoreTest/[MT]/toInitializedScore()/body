@@ -1,0 +1,4 @@
+{
+  assertEquals(HardSoftLongScore.valueOfInitialized(-147L,-258L),HardSoftLongScore.valueOfInitialized(-147L,-258L).toInitializedScore());
+  assertEquals(HardSoftLongScore.valueOfInitialized(-147L,-258L),HardSoftLongScore.valueOf(-7,-147L,-258L).toInitializedScore());
+}

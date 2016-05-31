@@ -1,3 +1,3 @@
 {
-  return hardScore + HARD_LABEL + "/"+ softScore+ SOFT_LABEL;
+  return getInitPrefix() + hardScore + HARD_LABEL+ "/"+ softScore+ SOFT_LABEL;
 }

@@ -1,4 +1,5 @@
 {
+  super(Integer.MIN_VALUE);
   hardScore=Long.MIN_VALUE;
   mediumScore=Long.MIN_VALUE;
   softScore=Long.MIN_VALUE;

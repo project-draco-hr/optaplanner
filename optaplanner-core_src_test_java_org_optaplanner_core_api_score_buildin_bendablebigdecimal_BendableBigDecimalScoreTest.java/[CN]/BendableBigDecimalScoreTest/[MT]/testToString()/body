@@ -1,4 +1,4 @@
 {
-  BendableBigDecimalScore score=scoreDefinitionHSS.createScore(BigDecimal.valueOf(-147),BigDecimal.valueOf(-258),BigDecimal.valueOf(-369));
-  assertEquals("[-147]hard/[-258/-369]soft",score.toString());
+  assertEquals("[-147]hard/[-258/-369]soft",scoreDefinitionHSS.createScoreInitialized(BigDecimal.valueOf(-147),BigDecimal.valueOf(-258),BigDecimal.valueOf(-369)).toString());
+  assertEquals("-7init/[-147]hard/[-258/-369]soft",scoreDefinitionHSS.createScore(-7,BigDecimal.valueOf(-147),BigDecimal.valueOf(-258),BigDecimal.valueOf(-369)).toString());
 }

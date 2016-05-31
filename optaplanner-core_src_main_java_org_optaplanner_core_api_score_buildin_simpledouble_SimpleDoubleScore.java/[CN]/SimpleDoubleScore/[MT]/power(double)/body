@@ -1,3 +1,3 @@
 {
-  return new SimpleDoubleScore(Math.pow(score,exponent));
+  return new SimpleDoubleScore((int)Math.floor(Math.pow(initScore,exponent)),Math.pow(score,exponent));
 }

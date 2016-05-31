@@ -1,0 +1,4 @@
+{
+  outputAsserter.accept(serializeAndDeserializeWithJavaSerialization(input));
+  outputAsserter.accept(serializeAndDeserializeWithXStream(input));
+}

@@ -1,3 +1,4 @@
 {
-  assertEquals(scoreDefinitionHSS.createScore(PLUS_21,PLUS_280,MINUS_8000),scoreDefinitionHSS.createScore(PLUS_20,MINUS_20,MINUS_4000).subtract(scoreDefinitionHSS.createScore(MINUS_ONE,MINUS_300,PLUS_4000)));
+  assertEquals(scoreDefinitionHSS.createScoreInitialized(PLUS_21,PLUS_280,MINUS_8000),scoreDefinitionHSS.createScoreInitialized(PLUS_20,MINUS_20,MINUS_4000).subtract(scoreDefinitionHSS.createScoreInitialized(MINUS_ONE,MINUS_300,PLUS_4000)));
+  assertEquals(scoreDefinitionHSS.createScore(-63,PLUS_21,PLUS_280,MINUS_8000),scoreDefinitionHSS.createScore(-70,PLUS_20,MINUS_20,MINUS_4000).subtract(scoreDefinitionHSS.createScore(-7,MINUS_ONE,MINUS_300,PLUS_4000)));
 }

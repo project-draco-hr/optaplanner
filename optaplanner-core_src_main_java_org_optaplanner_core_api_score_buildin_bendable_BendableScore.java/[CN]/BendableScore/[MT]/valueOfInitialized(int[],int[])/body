@@ -1,0 +1,3 @@
+{
+  return new BendableScore(0,hardScores,softScores);
+}

@@ -1,0 +1,4 @@
+{
+  assertEquals(SimpleDoubleScore.valueOfInitialized(-147.2),SimpleDoubleScore.valueOfInitialized(-147.2).toInitializedScore());
+  assertEquals(SimpleDoubleScore.valueOfInitialized(-147.2),SimpleDoubleScore.valueOf(-7,-147.2).toInitializedScore());
+}

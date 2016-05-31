@@ -1,5 +1,6 @@
 {
   this.workingSolution=workingSolution;
+  workingInitScore=-getSolutionDescriptor().countUninitializedVariables(workingSolution);
   variableListenerSupport.resetWorkingSolution();
   setWorkingEntityListDirty();
 }

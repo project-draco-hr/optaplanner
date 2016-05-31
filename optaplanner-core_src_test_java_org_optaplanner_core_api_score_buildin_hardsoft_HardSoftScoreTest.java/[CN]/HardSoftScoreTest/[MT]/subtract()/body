@@ -1,3 +1,4 @@
 {
-  assertEquals(HardSoftScore.valueOf(21,280),HardSoftScore.valueOf(20,-20).subtract(HardSoftScore.valueOf(-1,-300)));
+  assertEquals(HardSoftScore.valueOfInitialized(21,280),HardSoftScore.valueOfInitialized(20,-20).subtract(HardSoftScore.valueOfInitialized(-1,-300)));
+  assertEquals(HardSoftScore.valueOf(-63,21,280),HardSoftScore.valueOf(-70,20,-20).subtract(HardSoftScore.valueOf(-7,-1,-300)));
 }

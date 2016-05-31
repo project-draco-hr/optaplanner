@@ -1,0 +1,4 @@
+{
+  assertEquals(SimpleLongScore.valueOfInitialized(-147L),SimpleLongScore.valueOfInitialized(-147L).toInitializedScore());
+  assertEquals(SimpleLongScore.valueOfInitialized(-147L),SimpleLongScore.valueOf(-7,-147L).toInitializedScore());
+}

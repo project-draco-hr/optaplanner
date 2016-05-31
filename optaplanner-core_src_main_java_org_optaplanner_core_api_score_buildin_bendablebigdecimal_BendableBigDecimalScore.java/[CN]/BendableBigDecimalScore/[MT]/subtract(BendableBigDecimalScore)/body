@@ -8,5 +8,5 @@
   for (int i=0; i < newSoftScores.length; i++) {
     newSoftScores[i]=softScores[i].subtract(subtrahend.getSoftScore(i));
   }
-  return new BendableBigDecimalScore(newHardScores,newSoftScores);
+  return new BendableBigDecimalScore(initScore - subtrahend.getInitScore(),newHardScores,newSoftScores);
 }

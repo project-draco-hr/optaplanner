@@ -1,0 +1,6 @@
+{
+  if (initScore == 0) {
+    return "";
+  }
+  return initScore + INIT_LABEL + "/";
+}

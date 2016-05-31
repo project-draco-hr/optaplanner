@@ -1,3 +1,0 @@
-{
-  return new HardSoftBigDecimalScore(hardScore,softScore);
-}

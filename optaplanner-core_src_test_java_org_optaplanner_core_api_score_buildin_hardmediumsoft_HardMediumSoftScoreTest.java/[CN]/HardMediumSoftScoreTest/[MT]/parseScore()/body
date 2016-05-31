@@ -1,3 +1,4 @@
 {
-  assertEquals(HardMediumSoftScore.valueOf(-147,-258,-369),HardMediumSoftScore.parseScore("-147hard/-258medium/-369soft"));
+  assertEquals(HardMediumSoftScore.valueOfInitialized(-147,-258,-369),HardMediumSoftScore.parseScore("-147hard/-258medium/-369soft"));
+  assertEquals(HardMediumSoftScore.valueOf(-7,-147,-258,-369),HardMediumSoftScore.parseScore("-7init/-147hard/-258medium/-369soft"));
 }

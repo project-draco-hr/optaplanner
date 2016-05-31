@@ -1,10 +1,6 @@
 {
-  int hashCode=17;
-  for (  BigDecimal hardScore : hardScores) {
-    hashCode=hashCode * 37 + hardScore.hashCode();
-  }
-  for (  BigDecimal softScore : softScores) {
-    hashCode=hashCode * 37 + softScore.hashCode();
-  }
+  int hashCode=(17 * 37) + initScore;
+  hashCode=(37 * hashCode) + Arrays.hashCode(hardScores);
+  hashCode=(37 * hashCode) + Arrays.hashCode(softScores);
   return hashCode;
 }

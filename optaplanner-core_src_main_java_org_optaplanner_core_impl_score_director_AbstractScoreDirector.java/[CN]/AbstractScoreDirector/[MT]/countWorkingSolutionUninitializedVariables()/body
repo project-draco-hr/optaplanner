@@ -1,3 +1,0 @@
-{
-  return getSolutionDescriptor().countUninitializedVariables(workingSolution);
-}

@@ -1,3 +1,3 @@
 {
-  assertScoresEqualsAndHashCode(scoreDefinitionHHSSS.createScore(-10000000000L,-20000000000L,-30000000000L,0,0),scoreDefinitionHHSSS.createScore(-10000000000L,-20000000000L,-30000000000L,0,0));
+  assertScoresEqualsAndHashCode(scoreDefinitionHHSSS.createScoreInitialized(-10000000000L,-20000000000L,-30000000000L,0L,0L),scoreDefinitionHHSSS.createScoreInitialized(-10000000000L,-20000000000L,-30000000000L,0L,0L));
 }

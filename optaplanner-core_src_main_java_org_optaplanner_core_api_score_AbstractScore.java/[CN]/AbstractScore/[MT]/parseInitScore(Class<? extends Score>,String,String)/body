@@ -1,0 +1,8 @@
+{
+  try {
+    return Integer.parseInt(initScoreString);
+  }
+ catch (  NumberFormatException e) {
+    throw new IllegalArgumentException("The scoreString (" + scoreString + ") for the scoreClass ("+ scoreClass.getSimpleName()+ ") has a initScoreString ("+ initScoreString+ ") which is not a valid integer.",e);
+  }
+}

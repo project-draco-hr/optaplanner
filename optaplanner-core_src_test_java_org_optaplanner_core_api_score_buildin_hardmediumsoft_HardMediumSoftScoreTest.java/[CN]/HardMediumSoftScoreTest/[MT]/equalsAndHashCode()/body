@@ -1,3 +1,5 @@
 {
-  assertScoresEqualsAndHashCode(HardMediumSoftScore.valueOf(-10,-20,-30),HardMediumSoftScore.valueOf(-10,-20,-30));
+  assertScoresEqualsAndHashCode(HardMediumSoftScore.valueOfInitialized(-10,-200,-3000),HardMediumSoftScore.valueOfInitialized(-10,-200,-3000),HardMediumSoftScore.valueOf(0,-10,-200,-3000));
+  assertScoresEqualsAndHashCode(HardMediumSoftScore.valueOf(-7,-10,-200,-3000),HardMediumSoftScore.valueOf(-7,-10,-200,-3000));
+  assertScoresNotEquals(HardMediumSoftScore.valueOfInitialized(-10,-200,-3000),HardMediumSoftScore.valueOfInitialized(-30,-200,-3000),HardMediumSoftScore.valueOfInitialized(-10,-400,-3000),HardMediumSoftScore.valueOfInitialized(-10,-400,-5000),HardMediumSoftScore.valueOf(-7,-10,-200,-3000));
 }

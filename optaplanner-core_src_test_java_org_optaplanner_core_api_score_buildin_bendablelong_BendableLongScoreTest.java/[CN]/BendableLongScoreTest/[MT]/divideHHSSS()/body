@@ -1,5 +1,5 @@
 {
-  assertEquals(scoreDefinitionHHSSS.createScore(5000000000L,-5000000000L,5000000000L,0,0),scoreDefinitionHHSSS.createScore(25000000000L,-25000000000L,25000000000L,0,0).divide(5.0));
-  assertEquals(scoreDefinitionHHSSS.createScore(4,-5,4,0,0),scoreDefinitionHHSSS.createScore(21,-21,21,0,0).divide(5.0));
-  assertEquals(scoreDefinitionHHSSS.createScore(4,-5,4,0,0),scoreDefinitionHHSSS.createScore(24,-24,24,0,0).divide(5.0));
+  assertEquals(scoreDefinitionHHSSS.createScoreInitialized(5000000000L,-5000000000L,5000000000L,0L,0L),scoreDefinitionHHSSS.createScoreInitialized(25000000000L,-25000000000L,25000000000L,0L,0L).divide(5.0));
+  assertEquals(scoreDefinitionHHSSS.createScoreInitialized(4,-5,4,0,0),scoreDefinitionHHSSS.createScoreInitialized(21,-21,21,0,0).divide(5.0));
+  assertEquals(scoreDefinitionHHSSS.createScoreInitialized(4,-5,4,0,0),scoreDefinitionHHSSS.createScoreInitialized(24,-24,24,0,0).divide(5.0));
 }

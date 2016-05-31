@@ -8,5 +8,5 @@
   for (int i=0; i < newSoftScores.length; i++) {
     newSoftScores[i]=softScores[i] + augment.getSoftScore(i);
   }
-  return new BendableScore(newHardScores,newSoftScores);
+  return new BendableScore(initScore + augment.getInitScore(),newHardScores,newSoftScores);
 }

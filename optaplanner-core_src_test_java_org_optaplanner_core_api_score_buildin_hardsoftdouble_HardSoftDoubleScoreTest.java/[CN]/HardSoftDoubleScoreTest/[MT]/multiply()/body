@@ -1,5 +1,6 @@
 {
-  assertEquals(HardSoftDoubleScore.valueOf(6.0,-6.0),HardSoftDoubleScore.valueOf(5.0,-5.0).multiply(1.2));
-  assertEquals(HardSoftDoubleScore.valueOf(1.2,-1.2),HardSoftDoubleScore.valueOf(1.0,-1.0).multiply(1.2));
-  assertEquals(HardSoftDoubleScore.valueOf(4.8,-4.8),HardSoftDoubleScore.valueOf(4.0,-4.0).multiply(1.2));
+  assertEquals(HardSoftDoubleScore.valueOfInitialized(6.0,-6.0),HardSoftDoubleScore.valueOfInitialized(5.0,-5.0).multiply(1.2));
+  assertEquals(HardSoftDoubleScore.valueOfInitialized(1.2,-1.2),HardSoftDoubleScore.valueOfInitialized(1.0,-1.0).multiply(1.2));
+  assertEquals(HardSoftDoubleScore.valueOfInitialized(4.8,-4.8),HardSoftDoubleScore.valueOfInitialized(4.0,-4.0).multiply(1.2));
+  assertEquals(HardSoftDoubleScore.valueOf(-14,8.6,-10.4),HardSoftDoubleScore.valueOf(-7,4.3,-5.2).multiply(2.0));
 }

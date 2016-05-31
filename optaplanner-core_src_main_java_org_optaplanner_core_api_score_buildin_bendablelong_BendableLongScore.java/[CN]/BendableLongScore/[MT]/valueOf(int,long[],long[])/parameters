@@ -1,0 +1,3 @@
+int initScore
+long[] hardScores
+long[] softScores

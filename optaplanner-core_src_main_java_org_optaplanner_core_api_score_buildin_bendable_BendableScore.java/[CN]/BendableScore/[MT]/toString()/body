@@ -1,5 +1,6 @@
 {
   StringBuilder s=new StringBuilder(((hardScores.length + softScores.length) * 4) + 13);
+  s.append(getInitPrefix());
   s.append("[");
   boolean first=true;
   for (  int hardScore : hardScores) {

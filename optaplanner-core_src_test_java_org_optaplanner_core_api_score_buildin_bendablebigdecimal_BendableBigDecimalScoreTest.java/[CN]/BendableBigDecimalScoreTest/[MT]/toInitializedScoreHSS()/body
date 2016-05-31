@@ -1,0 +1,4 @@
+{
+  assertEquals(scoreDefinitionHSS.createScoreInitialized(BigDecimal.valueOf(-147),BigDecimal.valueOf(-258),BigDecimal.valueOf(-369)),scoreDefinitionHSS.createScoreInitialized(BigDecimal.valueOf(-147),BigDecimal.valueOf(-258),BigDecimal.valueOf(-369)).toInitializedScore());
+  assertEquals(scoreDefinitionHSS.createScoreInitialized(BigDecimal.valueOf(-147),BigDecimal.valueOf(-258),BigDecimal.valueOf(-369)),scoreDefinitionHSS.createScore(-7,BigDecimal.valueOf(-147),BigDecimal.valueOf(-258),BigDecimal.valueOf(-369)).toInitializedScore());
+}

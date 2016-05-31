@@ -4,7 +4,7 @@
   }
  else   if (o instanceof SimpleDoubleScore) {
     SimpleDoubleScore other=(SimpleDoubleScore)o;
-    return score == other.getScore();
+    return initScore == other.getInitScore() && score == other.getScore();
   }
  else {
     return false;

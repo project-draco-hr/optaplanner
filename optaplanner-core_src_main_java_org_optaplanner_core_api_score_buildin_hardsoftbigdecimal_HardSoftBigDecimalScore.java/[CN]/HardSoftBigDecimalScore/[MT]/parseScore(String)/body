@@ -1,6 +1,7 @@
 {
-  String[] levelStrings=parseLevelStrings(HardSoftBigDecimalScore.class,scoreString,HARD_LABEL,SOFT_LABEL);
-  BigDecimal hardScore=parseLevelAsBigDecimal(HardSoftBigDecimalScore.class,scoreString,levelStrings[0]);
-  BigDecimal softScore=parseLevelAsBigDecimal(HardSoftBigDecimalScore.class,scoreString,levelStrings[1]);
-  return valueOf(hardScore,softScore);
+  String[] scoreTokens=parseScoreTokens(HardSoftBigDecimalScore.class,scoreString,HARD_LABEL,SOFT_LABEL);
+  int initScore=parseInitScore(HardSoftBigDecimalScore.class,scoreString,scoreTokens[0]);
+  BigDecimal hardScore=parseLevelAsBigDecimal(HardSoftBigDecimalScore.class,scoreString,scoreTokens[1]);
+  BigDecimal softScore=parseLevelAsBigDecimal(HardSoftBigDecimalScore.class,scoreString,scoreTokens[2]);
+  return valueOf(initScore,hardScore,softScore);
 }

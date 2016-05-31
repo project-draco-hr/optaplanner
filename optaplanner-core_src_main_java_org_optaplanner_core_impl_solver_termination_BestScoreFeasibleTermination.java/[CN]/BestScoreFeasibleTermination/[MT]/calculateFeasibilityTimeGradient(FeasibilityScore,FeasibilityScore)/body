@@ -1,4 +1,7 @@
 {
+  if (startScore == null || !startScore.isSolutionInitialized()) {
+    return 0.0;
+  }
   Score totalDiff=startScore.negate();
   Number[] totalDiffNumbers=totalDiff.toLevelNumbers();
   Score scoreDiff=score.subtract(startScore);

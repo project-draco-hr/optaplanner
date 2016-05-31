@@ -1,3 +1,4 @@
 {
-  assertEquals(HardSoftBigDecimalScore.valueOf(new BigDecimal("-147.2"),new BigDecimal("-258.3")),HardSoftBigDecimalScore.parseScore("-147.2hard/-258.3soft"));
+  assertEquals(HardSoftBigDecimalScore.valueOfInitialized(new BigDecimal("-147.2"),new BigDecimal("-258.3")),HardSoftBigDecimalScore.parseScore("-147.2hard/-258.3soft"));
+  assertEquals(HardSoftBigDecimalScore.valueOf(-7,new BigDecimal("-147.2"),new BigDecimal("-258.3")),HardSoftBigDecimalScore.parseScore("-7init/-147.2hard/-258.3soft"));
 }

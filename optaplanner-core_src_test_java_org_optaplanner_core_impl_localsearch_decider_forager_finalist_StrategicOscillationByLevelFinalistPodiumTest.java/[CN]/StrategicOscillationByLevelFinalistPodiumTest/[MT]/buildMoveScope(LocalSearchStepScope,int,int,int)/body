@@ -3,6 +3,6 @@
   Move move=mock(Move.class);
   moveScope.setAccepted(true);
   moveScope.setMove(move);
-  moveScope.setScore(HardMediumSoftScore.valueOf(hardScore,mediumScore,softScore));
+  moveScope.setScore(HardMediumSoftScore.valueOfInitialized(hardScore,mediumScore,softScore));
   return moveScope;
 }

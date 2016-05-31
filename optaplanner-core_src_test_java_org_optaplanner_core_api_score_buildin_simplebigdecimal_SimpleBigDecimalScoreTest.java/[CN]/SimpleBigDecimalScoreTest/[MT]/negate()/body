@@ -1,4 +1,4 @@
 {
-  assertEquals(SimpleBigDecimalScore.valueOf(new BigDecimal("-5.0")),SimpleBigDecimalScore.valueOf(new BigDecimal("5.0")).negate());
-  assertEquals(SimpleBigDecimalScore.valueOf(new BigDecimal("5.0")),SimpleBigDecimalScore.valueOf(new BigDecimal("-5.0")).negate());
+  assertEquals(SimpleBigDecimalScore.valueOfInitialized(new BigDecimal("-5.0")),SimpleBigDecimalScore.valueOfInitialized(new BigDecimal("5.0")).negate());
+  assertEquals(SimpleBigDecimalScore.valueOfInitialized(new BigDecimal("5.0")),SimpleBigDecimalScore.valueOfInitialized(new BigDecimal("-5.0")).negate());
 }

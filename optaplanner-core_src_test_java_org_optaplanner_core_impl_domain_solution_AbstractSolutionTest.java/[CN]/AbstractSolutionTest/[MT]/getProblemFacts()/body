@@ -11,7 +11,7 @@
   solution.setEntityList(entityList);
   TestdataEntity singleEntity=new TestdataEntity("se1");
   solution.setSingleEntity(singleEntity);
-  SimpleScore score=SimpleScore.valueOf(-10);
+  SimpleScore score=SimpleScore.valueOfInitialized(-10);
   solution.setScore(score);
   assertCollectionContainsExactly(solution.getProblemFactList(),singleValue,v1,v2,v3);
 }

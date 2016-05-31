@@ -1,3 +1,4 @@
 {
-  assertEquals(SimpleBigDecimalScore.valueOf(new BigDecimal("19")),SimpleBigDecimalScore.valueOf(new BigDecimal("20")).add(SimpleBigDecimalScore.valueOf(new BigDecimal("-1"))));
+  assertEquals(SimpleBigDecimalScore.valueOfInitialized(new BigDecimal("19")),SimpleBigDecimalScore.valueOfInitialized(new BigDecimal("20")).add(SimpleBigDecimalScore.valueOfInitialized(new BigDecimal("-1"))));
+  assertEquals(SimpleBigDecimalScore.valueOf(-77,new BigDecimal("19")),SimpleBigDecimalScore.valueOf(-70,new BigDecimal("20")).add(SimpleBigDecimalScore.valueOf(-7,new BigDecimal("-1"))));
 }

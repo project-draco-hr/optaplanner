@@ -1,4 +1,5 @@
 {
+  super(Integer.MIN_VALUE);
   hardScores=null;
   softScores=null;
 }

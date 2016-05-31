@@ -1,0 +1,3 @@
+int initScore
+double hardScore
+double softScore

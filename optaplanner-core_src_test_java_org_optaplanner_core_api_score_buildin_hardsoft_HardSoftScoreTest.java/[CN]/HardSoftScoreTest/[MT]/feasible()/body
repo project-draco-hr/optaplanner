@@ -1,4 +1,4 @@
 {
-  assertScoreNotFeasible(HardSoftScore.valueOf(-5,-300));
-  assertScoreFeasible(HardSoftScore.valueOf(0,-300),HardSoftScore.valueOf(2,-300));
+  assertScoreNotFeasible(HardSoftScore.valueOfInitialized(-5,-300),HardSoftScore.valueOf(-7,-5,-300),HardSoftScore.valueOf(-7,0,-300));
+  assertScoreFeasible(HardSoftScore.valueOfInitialized(0,-300),HardSoftScore.valueOfInitialized(2,-300),HardSoftScore.valueOf(0,0,-300));
 }

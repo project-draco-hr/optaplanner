@@ -1,7 +1,7 @@
 {
   StrategicOscillationByLevelFinalistPodium finalistPodium=new StrategicOscillationByLevelFinalistPodium(true);
   DefaultSolverScope solverScope=new DefaultSolverScope();
-  solverScope.setBestScore(HardSoftScore.valueOf(-200,-5000));
+  solverScope.setBestScore(HardSoftScore.valueOfInitialized(-200,-5000));
   LocalSearchPhaseScope phaseScope=new LocalSearchPhaseScope(solverScope);
   LocalSearchStepScope lastCompletedStepScope=new LocalSearchStepScope(phaseScope,-1);
   lastCompletedStepScope.setScore(solverScope.getBestScore());

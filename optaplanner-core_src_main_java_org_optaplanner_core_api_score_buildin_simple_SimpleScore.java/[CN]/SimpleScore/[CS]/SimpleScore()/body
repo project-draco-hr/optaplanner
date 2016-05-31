@@ -1,3 +1,4 @@
 {
+  super(Integer.MIN_VALUE);
   score=Integer.MIN_VALUE;
 }

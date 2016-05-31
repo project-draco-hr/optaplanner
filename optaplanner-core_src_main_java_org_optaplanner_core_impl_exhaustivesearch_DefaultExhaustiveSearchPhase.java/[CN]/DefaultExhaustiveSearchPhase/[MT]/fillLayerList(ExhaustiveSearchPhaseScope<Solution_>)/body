@@ -8,18 +8,16 @@
   List<ExhaustiveSearchLayer> layerList=new ArrayList<>((int)entitySize);
   int depth=0;
   InnerScoreDirector scoreDirector=phaseScope.getScoreDirector();
-  int uninitializedVariableCount=phaseScope.getSolutionDescriptor().countReinitializableVariables(scoreDirector,phaseScope.getWorkingSolution());
   for (  Object entity : entitySelector) {
-    ExhaustiveSearchLayer layer=new ExhaustiveSearchLayer(depth,entity,uninitializedVariableCount);
+    ExhaustiveSearchLayer layer=new ExhaustiveSearchLayer(depth,entity);
     int reinitializeVariableCount=entitySelector.getEntityDescriptor().countReinitializableVariables(scoreDirector,entity);
     if (reinitializeVariableCount == 0) {
       continue;
     }
     depth++;
-    uninitializedVariableCount-=reinitializeVariableCount;
     layerList.add(layer);
   }
-  ExhaustiveSearchLayer lastLayer=new ExhaustiveSearchLayer(depth,null,uninitializedVariableCount);
+  ExhaustiveSearchLayer lastLayer=new ExhaustiveSearchLayer(depth,null);
   layerList.add(lastLayer);
   entitySelector.stepEnded(stepScope);
   phaseScope.setLayerList(layerList);

@@ -1,5 +1,6 @@
 {
-  assertEquals(SimpleLongScore.valueOf(5L),SimpleLongScore.valueOf(25L).divide(5.0));
-  assertEquals(SimpleLongScore.valueOf(4L),SimpleLongScore.valueOf(21L).divide(5.0));
-  assertEquals(SimpleLongScore.valueOf(4L),SimpleLongScore.valueOf(24L).divide(5.0));
+  assertEquals(SimpleLongScore.valueOfInitialized(5L),SimpleLongScore.valueOfInitialized(25L).divide(5.0));
+  assertEquals(SimpleLongScore.valueOfInitialized(4L),SimpleLongScore.valueOfInitialized(21L).divide(5.0));
+  assertEquals(SimpleLongScore.valueOfInitialized(4L),SimpleLongScore.valueOfInitialized(24L).divide(5.0));
+  assertEquals(SimpleLongScore.valueOf(-7,4L),SimpleLongScore.valueOf(-14,8L).divide(2.0));
 }

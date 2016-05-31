@@ -1,5 +1,6 @@
 {
-  int result=Arrays.hashCode(hardScores);
-  result=31 * result + Arrays.hashCode(softScores);
-  return result;
+  int hashCode=(17 * 37) + initScore;
+  hashCode=(37 * hashCode) + Arrays.hashCode(hardScores);
+  hashCode=(37 * hashCode) + Arrays.hashCode(softScores);
+  return hashCode;
 }

@@ -1,0 +1,3 @@
+{
+  return initScore == 0 ? this : new BendableLongScore(0,hardScores,softScores);
+}

@@ -1,3 +1,3 @@
 {
-  return new HardSoftScore((int)Math.floor(Math.pow(hardScore,exponent)),(int)Math.floor(Math.pow(softScore,exponent)));
+  return new HardSoftScore((int)Math.floor(Math.pow(initScore,exponent)),(int)Math.floor(Math.pow(hardScore,exponent)),(int)Math.floor(Math.pow(softScore,exponent)));
 }

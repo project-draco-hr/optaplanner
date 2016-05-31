@@ -1,6 +1,7 @@
 {
   BendableScoreDefinition scoreDefinition=new BendableScoreDefinition(2,3);
-  BendableScore pessimisticBound=scoreDefinition.buildPessimisticBound(InitializingScoreTrend.buildUniformTrend(InitializingScoreTrendLevel.ONLY_UP,5),scoreDefinition.createScore(-1,-2,-3,-4,-5));
+  BendableScore pessimisticBound=scoreDefinition.buildPessimisticBound(InitializingScoreTrend.buildUniformTrend(InitializingScoreTrendLevel.ONLY_UP,5),scoreDefinition.createScoreInitialized(-1,-2,-3,-4,-5));
+  assertEquals(0,pessimisticBound.getInitScore());
   assertEquals(-1,pessimisticBound.getHardScore(0));
   assertEquals(-2,pessimisticBound.getHardScore(1));
   assertEquals(-3,pessimisticBound.getSoftScore(0));

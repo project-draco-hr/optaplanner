@@ -1,10 +1,10 @@
 {
   DefaultConstructionHeuristicForager forager=new DefaultConstructionHeuristicForager(ConstructionHeuristicPickEarlyType.NEVER);
-  ConstructionHeuristicStepScope<Solution_> stepScope=buildStepScope(SimpleScore.valueOf(-100));
-  forager.checkPickEarly(buildMoveScope(stepScope,SimpleScore.valueOf(-110)));
+  ConstructionHeuristicStepScope<Solution_> stepScope=buildStepScope(SimpleScore.valueOf(-8,-100));
+  forager.checkPickEarly(buildMoveScope(stepScope,SimpleScore.valueOf(-7,-110)));
   assertEquals(false,forager.isQuitEarly());
-  forager.checkPickEarly(buildMoveScope(stepScope,SimpleScore.valueOf(-100)));
+  forager.checkPickEarly(buildMoveScope(stepScope,SimpleScore.valueOf(-7,-100)));
   assertEquals(false,forager.isQuitEarly());
-  forager.checkPickEarly(buildMoveScope(stepScope,SimpleScore.valueOf(-90)));
+  forager.checkPickEarly(buildMoveScope(stepScope,SimpleScore.valueOf(-7,-90)));
   assertEquals(false,forager.isQuitEarly());
 }

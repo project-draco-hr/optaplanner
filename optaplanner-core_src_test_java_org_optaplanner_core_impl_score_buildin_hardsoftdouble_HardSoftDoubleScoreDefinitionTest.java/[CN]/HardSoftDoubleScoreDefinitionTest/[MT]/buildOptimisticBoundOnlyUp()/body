@@ -1,6 +1,7 @@
 {
   HardSoftDoubleScoreDefinition scoreDefinition=new HardSoftDoubleScoreDefinition();
-  HardSoftDoubleScore optimisticBound=scoreDefinition.buildOptimisticBound(InitializingScoreTrend.buildUniformTrend(InitializingScoreTrendLevel.ONLY_UP,2),HardSoftDoubleScore.valueOf(-1.7,-2.2));
+  HardSoftDoubleScore optimisticBound=scoreDefinition.buildOptimisticBound(InitializingScoreTrend.buildUniformTrend(InitializingScoreTrendLevel.ONLY_UP,2),HardSoftDoubleScore.valueOfInitialized(-1.7,-2.2));
+  assertEquals(0,optimisticBound.getInitScore());
   assertEquals(Double.POSITIVE_INFINITY,optimisticBound.getHardScore(),0.0);
   assertEquals(Double.POSITIVE_INFINITY,optimisticBound.getSoftScore(),0.0);
 }

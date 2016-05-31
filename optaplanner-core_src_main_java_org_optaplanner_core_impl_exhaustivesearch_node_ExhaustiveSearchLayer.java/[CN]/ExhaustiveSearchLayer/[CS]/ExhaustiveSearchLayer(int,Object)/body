@@ -1,0 +1,5 @@
+{
+  this.depth=depth;
+  this.entity=entity;
+  nextBreadth=0L;
+}

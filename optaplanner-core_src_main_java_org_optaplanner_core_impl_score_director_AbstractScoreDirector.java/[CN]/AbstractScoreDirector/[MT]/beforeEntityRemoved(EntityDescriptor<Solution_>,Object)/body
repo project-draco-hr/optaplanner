@@ -1,3 +1,4 @@
 {
+  workingInitScore+=entityDescriptor.countUninitializedVariables(entity);
   variableListenerSupport.beforeEntityRemoved(entityDescriptor,entity);
 }

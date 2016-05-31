@@ -1,0 +1,3 @@
+Score originalBestScore
+Score stepScore
+boolean stepImprovesBestSolution

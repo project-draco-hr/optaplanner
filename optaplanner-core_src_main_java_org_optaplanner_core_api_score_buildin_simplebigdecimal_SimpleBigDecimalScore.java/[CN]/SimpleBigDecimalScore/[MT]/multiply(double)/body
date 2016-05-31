@@ -1,4 +1,4 @@
 {
   BigDecimal multiplicandBigDecimal=BigDecimal.valueOf(multiplicand);
-  return new SimpleBigDecimalScore(score.multiply(multiplicandBigDecimal).setScale(score.scale(),RoundingMode.FLOOR));
+  return new SimpleBigDecimalScore((int)Math.floor(initScore * multiplicand),score.multiply(multiplicandBigDecimal).setScale(score.scale(),RoundingMode.FLOOR));
 }

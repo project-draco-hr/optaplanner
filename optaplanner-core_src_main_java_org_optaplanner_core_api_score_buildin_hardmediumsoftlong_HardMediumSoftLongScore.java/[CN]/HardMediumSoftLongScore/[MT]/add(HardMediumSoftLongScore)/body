@@ -1,3 +1,3 @@
 {
-  return new HardMediumSoftLongScore(hardScore + augment.getHardScore(),mediumScore + augment.getMediumScore(),softScore + augment.getSoftScore());
+  return new HardMediumSoftLongScore(initScore + augment.getInitScore(),hardScore + augment.getHardScore(),mediumScore + augment.getMediumScore(),softScore + augment.getSoftScore());
 }

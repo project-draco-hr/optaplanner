@@ -3,6 +3,6 @@
   Move move=mock(Move.class);
   when(move.getPlanningValues()).thenReturn((Collection)Arrays.asList(values));
   moveScope.setMove(move);
-  moveScope.setScore(SimpleScore.valueOf(score));
+  moveScope.setScore(SimpleScore.valueOfInitialized(score));
   return moveScope;
 }

@@ -3,10 +3,10 @@
   BigDecimal[] newSoftScores=new BigDecimal[softScores.length];
   BigDecimal bigDecimalMultiplicand=BigDecimal.valueOf(multiplicand);
   for (int i=0; i < newHardScores.length; i++) {
-    newHardScores[i]=hardScores[i].multiply(bigDecimalMultiplicand);
+    newHardScores[i]=hardScores[i].multiply(bigDecimalMultiplicand).setScale(hardScores[i].scale(),RoundingMode.FLOOR);
   }
   for (int i=0; i < newSoftScores.length; i++) {
-    newSoftScores[i]=softScores[i].multiply(bigDecimalMultiplicand);
+    newSoftScores[i]=softScores[i].multiply(bigDecimalMultiplicand).setScale(softScores[i].scale(),RoundingMode.FLOOR);
   }
-  return new BendableBigDecimalScore(newHardScores,newSoftScores);
+  return new BendableBigDecimalScore((int)Math.floor(initScore * multiplicand),newHardScores,newSoftScores);
 }

@@ -1,0 +1,6 @@
+{
+  if (levelNumbers.length != getLevelsSize()) {
+    throw new IllegalStateException("The levelNumbers (" + Arrays.toString(levelNumbers) + ")'s length ("+ levelNumbers.length+ ") must equal the levelSize ("+ getLevelsSize()+ ").");
+  }
+  return SimpleDoubleScore.valueOf(initScore,(Double)levelNumbers[0]);
+}

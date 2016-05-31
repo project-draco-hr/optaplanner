@@ -1,4 +1,5 @@
 {
-  assertEquals(HardMediumSoftLongScore.valueOf(9L,16L,25L),HardMediumSoftLongScore.valueOf(3L,-4L,5L).power(2.0));
-  assertEquals(HardMediumSoftLongScore.valueOf(3L,4L,5L),HardMediumSoftLongScore.valueOf(9L,16L,25L).power(0.5));
+  assertEquals(HardMediumSoftLongScore.valueOfInitialized(9L,16L,25L),HardMediumSoftLongScore.valueOfInitialized(3L,-4L,5L).power(2.0));
+  assertEquals(HardMediumSoftLongScore.valueOfInitialized(3L,4L,5L),HardMediumSoftLongScore.valueOfInitialized(9L,16L,25L).power(0.5));
+  assertEquals(HardMediumSoftLongScore.valueOf(-343,27L,-64L,125L),HardMediumSoftLongScore.valueOf(-7,3L,-4L,5L).power(3.0));
 }

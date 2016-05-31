@@ -1,4 +1,4 @@
 int depth
-int scoreString
+int score
 long parentBreadth
 long breadth
