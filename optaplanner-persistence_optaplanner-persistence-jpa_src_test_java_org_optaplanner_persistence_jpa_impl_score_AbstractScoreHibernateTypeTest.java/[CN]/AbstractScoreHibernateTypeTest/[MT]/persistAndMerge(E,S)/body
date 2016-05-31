@@ -1,0 +1,10 @@
+{
+  Long id=persistAndAssert(jpaEntity);
+  Class<? extends AbstractTestJpaEntity> jpaEntityClass=jpaEntity.getClass();
+  S oldScore=jpaEntity.getScore();
+  for (  S newScore : newScores) {
+    findAssertAndChangeScore(jpaEntityClass,id,oldScore,newScore);
+    findAndAssert(jpaEntityClass,id,newScore);
+    oldScore=newScore;
+  }
+}

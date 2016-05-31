@@ -1,13 +1,14 @@
 {
   int levelsSize=scoreDefinition.getLevelsSize();
+  String[] propertyNames=new String[levelsSize + 1];
+  propertyNames[0]=scoreDefinition.getInitLabel();
   String[] levelLabels=scoreDefinition.getLevelLabels();
-  String[] propertyNames=new String[levelsSize];
   for (int i=0; i < levelsSize; i++) {
     String propertyName=levelLabels[i].replaceAll("\\s+s","S").replaceAll("\\s+(\\d)","$1");
     if (!propertyName.matches("[\\w\\d]+")) {
       throw new IllegalStateException("The levelLabel (" + levelLabels[i] + ") is not yet supported.");
     }
-    propertyNames[i]=propertyName;
+    propertyNames[i + 1]=propertyName;
   }
   return propertyNames;
 }

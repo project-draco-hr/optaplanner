@@ -1,5 +1,7 @@
 {
   testXStreaming(null,new TestSimpleBigDecimalScoreWrapper(null));
-  SimpleBigDecimalScore score=SimpleBigDecimalScore.valueOf(new BigDecimal("1234.4321"));
+  SimpleBigDecimalScore score=SimpleBigDecimalScore.valueOfInitialized(new BigDecimal("1234.4321"));
+  testXStreaming(score,new TestSimpleBigDecimalScoreWrapper(score));
+  score=SimpleBigDecimalScore.valueOf(-7,new BigDecimal("1234.4321"));
   testXStreaming(score,new TestSimpleBigDecimalScoreWrapper(score));
 }

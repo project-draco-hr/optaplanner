@@ -1,5 +1,7 @@
 {
   testXStreaming(null,new TestBendableScoreWrapper(null));
-  BendableScore score=BendableScore.valueOf(new int[]{1000,200},new int[]{34});
+  BendableScore score=BendableScore.valueOfInitialized(new int[]{1000,200},new int[]{34});
+  testXStreaming(score,new TestBendableScoreWrapper(score));
+  score=BendableScore.valueOf(-7,new int[]{1000,200},new int[]{34});
   testXStreaming(score,new TestBendableScoreWrapper(score));
 }

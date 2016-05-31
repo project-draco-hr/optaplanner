@@ -1,3 +1,3 @@
 {
-  return scoreDefinition.getClass();
+  return scoreDefinition.getScoreClass();
 }

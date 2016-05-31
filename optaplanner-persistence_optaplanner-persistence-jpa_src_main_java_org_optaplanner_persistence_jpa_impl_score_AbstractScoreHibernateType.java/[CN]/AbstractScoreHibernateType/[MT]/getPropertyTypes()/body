@@ -1,8 +1,9 @@
 {
   int levelsSize=scoreDefinition.getLevelsSize();
-  Type[] propertyTypes=new Type[levelsSize];
+  Type[] propertyTypes=new Type[levelsSize + 1];
+  propertyTypes[0]=StandardBasicTypes.INTEGER;
   for (int i=0; i < levelsSize; i++) {
-    propertyTypes[i]=type;
+    propertyTypes[i + 1]=type;
   }
   return propertyTypes;
 }

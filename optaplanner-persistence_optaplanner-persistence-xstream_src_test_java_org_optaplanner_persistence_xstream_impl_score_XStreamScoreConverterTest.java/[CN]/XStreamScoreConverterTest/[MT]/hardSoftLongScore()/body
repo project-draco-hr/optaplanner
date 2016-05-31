@@ -1,5 +1,7 @@
 {
   testXStreaming(null,new TestHardSoftLongScoreWrapper(null));
-  HardSoftLongScore score=HardSoftLongScore.valueOf(1200L,34L);
+  HardSoftLongScore score=HardSoftLongScore.valueOfInitialized(1200L,34L);
+  testXStreaming(score,new TestHardSoftLongScoreWrapper(score));
+  score=HardSoftLongScore.valueOf(-7,1200L,34L);
   testXStreaming(score,new TestHardSoftLongScoreWrapper(score));
 }

@@ -1,5 +1,3 @@
 {
-  Long id=persistAndAssert(new TestJpaEntity(null));
-  findAssertAndChangeScore(TestJpaEntity.class,id,null,HardSoftDoubleScore.valueOf(-10.01,-2.20));
-  findAndAssert(TestJpaEntity.class,id,HardSoftDoubleScore.valueOf(-10.01,-2.20));
+  persistAndMerge(new TestJpaEntity(null),HardSoftDoubleScore.valueOfInitialized(-10.01,-2.20),HardSoftDoubleScore.valueOf(-7,-10.01,-2.20));
 }

@@ -1,5 +1,7 @@
 {
   testXStreaming(null,new TestHardMediumSoftScoreWrapper(null));
-  HardMediumSoftScore score=HardMediumSoftScore.valueOf(1200,30,4);
+  HardMediumSoftScore score=HardMediumSoftScore.valueOfInitialized(1200,30,4);
+  testXStreaming(score,new TestHardMediumSoftScoreWrapper(score));
+  score=HardMediumSoftScore.valueOf(-7,1200,30,4);
   testXStreaming(score,new TestHardMediumSoftScoreWrapper(score));
 }

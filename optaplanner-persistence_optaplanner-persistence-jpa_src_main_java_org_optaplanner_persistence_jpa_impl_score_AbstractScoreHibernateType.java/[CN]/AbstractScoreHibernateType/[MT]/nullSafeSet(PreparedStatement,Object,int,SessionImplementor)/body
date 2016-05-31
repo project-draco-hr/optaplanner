@@ -1,28 +1,30 @@
 {
   int levelsSize=scoreDefinition.getLevelsSize();
   if (value == null) {
+    statement.setNull(parameterIndex,StandardBasicTypes.INTEGER.sqlType());
     for (int i=0; i < levelsSize; i++) {
-      statement.setNull(parameterIndex + i,type.sqlType());
+      statement.setNull(parameterIndex + i + 1,type.sqlType());
     }
     return;
   }
   Score score=(Score)value;
+  statement.setInt(parameterIndex,score.getInitScore());
   Number[] levelNumbers=score.toLevelNumbers();
   if (levelNumbers.length != levelsSize) {
     throw new IllegalStateException("The levelNumbers length (" + levelNumbers.length + ") for score ("+ score+ ") must be equal to the levelsSize ("+ levelsSize+ ") for "+ getClass().getSimpleName()+ ".");
   }
   for (int i=0; i < levelsSize; i++) {
     if (type == IntegerType.INSTANCE) {
-      statement.setInt(parameterIndex + i,(Integer)levelNumbers[i]);
+      statement.setInt(parameterIndex + i + 1,(Integer)levelNumbers[i]);
     }
  else     if (type == LongType.INSTANCE) {
-      statement.setLong(parameterIndex + i,(Long)levelNumbers[i]);
+      statement.setLong(parameterIndex + i + 1,(Long)levelNumbers[i]);
     }
  else     if (type == DoubleType.INSTANCE) {
-      statement.setDouble(parameterIndex + i,(Double)levelNumbers[i]);
+      statement.setDouble(parameterIndex + i + 1,(Double)levelNumbers[i]);
     }
  else     if (type == BigDecimalType.INSTANCE) {
-      statement.setBigDecimal(parameterIndex + i,(BigDecimal)levelNumbers[i]);
+      statement.setBigDecimal(parameterIndex + i + 1,(BigDecimal)levelNumbers[i]);
     }
  else {
       throw new IllegalStateException("The type (" + type + ") is not yet supported.");
