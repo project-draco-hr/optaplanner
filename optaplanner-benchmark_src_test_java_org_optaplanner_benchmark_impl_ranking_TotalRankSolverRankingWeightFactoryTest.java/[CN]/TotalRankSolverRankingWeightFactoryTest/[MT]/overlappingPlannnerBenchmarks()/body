@@ -16,8 +16,7 @@
   addProblemBenchmark(Arrays.asList(a2,b2));
   Comparable aWeight=factory.createRankingWeight(solverBenchmarkResultList,a);
   Comparable bWeight=factory.createRankingWeight(solverBenchmarkResultList,b);
-  assertEquals(0,aWeight.compareTo(bWeight));
-  assertEquals(0,bWeight.compareTo(aWeight));
+  assertCompareToEquals(aWeight,bWeight);
   addProblemBenchmark(Arrays.asList(a1));
   addProblemBenchmark(Arrays.asList(a2));
   addProblemBenchmark(Arrays.asList(b0));
@@ -25,6 +24,5 @@
   addProblemBenchmark(Arrays.asList(a0,b1));
   aWeight=factory.createRankingWeight(solverBenchmarkResultList,a);
   bWeight=factory.createRankingWeight(solverBenchmarkResultList,b);
-  assertEquals(-1,aWeight.compareTo(bWeight));
-  assertEquals(1,bWeight.compareTo(aWeight));
+  assertCompareToOrder(aWeight,bWeight);
 }

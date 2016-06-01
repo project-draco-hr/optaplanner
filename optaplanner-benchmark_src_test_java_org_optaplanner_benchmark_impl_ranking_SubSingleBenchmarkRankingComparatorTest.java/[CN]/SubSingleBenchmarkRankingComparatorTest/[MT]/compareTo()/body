@@ -1,0 +1,17 @@
+{
+  SubSingleBenchmarkRankingComparator comparator=new SubSingleBenchmarkRankingComparator();
+  SingleBenchmarkResult singleBenchmarkResult=new SingleBenchmarkResult(mock(SolverBenchmarkResult.class),mock(ProblemBenchmarkResult.class));
+  SubSingleBenchmarkResult a=new SubSingleBenchmarkResult(singleBenchmarkResult,0);
+  a.setSucceeded(false);
+  a.setScore(null);
+  SubSingleBenchmarkResult b=new SubSingleBenchmarkResult(singleBenchmarkResult,1);
+  b.setSucceeded(true);
+  b.setScore(SimpleScore.valueOf(-7,-1));
+  SubSingleBenchmarkResult c=new SubSingleBenchmarkResult(singleBenchmarkResult,2);
+  c.setSucceeded(true);
+  c.setScore(SimpleScore.valueOfInitialized(-300));
+  SubSingleBenchmarkResult d=new SubSingleBenchmarkResult(singleBenchmarkResult,3);
+  d.setSucceeded(true);
+  d.setScore(SimpleScore.valueOfInitialized(-20));
+  assertCompareToOrder(comparator,a,b,c,d);
+}

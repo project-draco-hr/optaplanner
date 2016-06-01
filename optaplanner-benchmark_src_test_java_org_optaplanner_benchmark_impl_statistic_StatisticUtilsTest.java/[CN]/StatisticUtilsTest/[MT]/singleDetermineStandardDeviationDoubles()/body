@@ -1,4 +1,4 @@
 {
-  List<SubSingleBenchmarkResult> subSingleBenchmarkResultList=Arrays.asList(createSubSingleBenchmarkResult(SimpleScore.valueOf(0),0));
-  assertArrayEquals(new double[]{0d},StatisticUtils.determineStandardDeviationDoubles(subSingleBenchmarkResultList,SimpleScore.valueOf(0),subSingleBenchmarkResultList.size()),DELTA);
+  List<SubSingleBenchmarkResult> subSingleBenchmarkResultList=Arrays.asList(createSubSingleBenchmarkResult(SimpleScore.valueOfInitialized(0),0));
+  assertArrayEquals(new double[]{0d},StatisticUtils.determineStandardDeviationDoubles(subSingleBenchmarkResultList,SimpleScore.valueOfInitialized(0),subSingleBenchmarkResultList.size()),DELTA);
 }

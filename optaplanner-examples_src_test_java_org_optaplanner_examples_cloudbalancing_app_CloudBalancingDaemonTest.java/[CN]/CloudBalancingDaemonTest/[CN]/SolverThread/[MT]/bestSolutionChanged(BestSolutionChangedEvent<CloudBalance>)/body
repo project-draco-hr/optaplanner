@@ -1,5 +1,5 @@
 {
-  if (event.isEveryProblemFactChangeProcessed() && event.isNewBestSolutionInitialized() && event.getNewBestSolution().getScore().isFeasible()) {
+  if (event.isEveryProblemFactChangeProcessed() && event.getNewBestSolution().getScore().isFeasible()) {
     nextStage();
   }
 }

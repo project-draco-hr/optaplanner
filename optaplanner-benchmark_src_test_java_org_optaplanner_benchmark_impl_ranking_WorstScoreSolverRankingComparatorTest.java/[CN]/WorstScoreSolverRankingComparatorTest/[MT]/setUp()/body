@@ -1,7 +1,6 @@
 {
   benchmarkReport=mock(BenchmarkReport.class);
   comparator=new WorstScoreSolverRankingComparator();
-  solverBenchmarkResultList=new ArrayList<>();
   a=new SolverBenchmarkResult(null);
   b=new SolverBenchmarkResult(null);
   aSingleBenchmarkResultList=new ArrayList<>();

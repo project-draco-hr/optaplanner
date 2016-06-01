@@ -1,4 +1,0 @@
-{
-  assertTrue("Score (" + a + ") must be greater than score ("+ b+ ").",a.compareTo(b) > 0);
-  assertTrue("Score (" + b + ") must be lesser than score ("+ a+ ").",b.compareTo(a) < 0);
-}

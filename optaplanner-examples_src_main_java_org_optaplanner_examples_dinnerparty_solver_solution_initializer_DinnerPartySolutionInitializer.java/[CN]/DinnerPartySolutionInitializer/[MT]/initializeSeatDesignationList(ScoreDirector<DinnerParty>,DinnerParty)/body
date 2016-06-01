@@ -1,7 +1,7 @@
 {
   List<Seat> undesignatedSeatList=new ArrayList<>(dinnerParty.getSeatList());
   for (  SeatDesignation seatDesignation : dinnerParty.getSeatDesignationList()) {
-    Score bestScore=SimpleScore.valueOf(Integer.MIN_VALUE);
+    Score bestScore=SimpleScore.valueOfInitialized(Integer.MIN_VALUE);
     Seat bestSeat=null;
     for (    Seat seat : undesignatedSeatList) {
       if (seatDesignation.getGuest().getGender() == seat.getRequiredGender()) {
@@ -10,7 +10,7 @@
         scoreDirector.afterVariableChanged(seatDesignation,"seat");
         scoreDirector.triggerVariableListeners();
         Score score=scoreDirector.calculateScore();
-        if (score.compareTo(bestScore) > 0) {
+        if (score.toInitializedScore().compareTo(bestScore.toInitializedScore()) > 0) {
           bestScore=score;
           bestSeat=seat;
         }

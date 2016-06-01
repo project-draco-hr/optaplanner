@@ -1,3 +1,0 @@
-{
-  return ScoreUtils.getScoreWithUninitializedPrefix(ConfigUtils.ceilDivide(getTotalUninitializedVariableCount(),getSuccessCount()),getAverageScore());
-}

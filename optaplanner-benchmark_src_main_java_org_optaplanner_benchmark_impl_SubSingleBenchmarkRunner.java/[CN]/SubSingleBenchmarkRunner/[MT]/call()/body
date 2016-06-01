@@ -24,7 +24,6 @@
   SolutionDescriptor<Solution_> solutionDescriptor=solverScope.getSolutionDescriptor();
   problemBenchmarkResult.registerScale(solutionDescriptor.getEntityCount(outputSolution),solutionDescriptor.getGenuineVariableCount(outputSolution),solutionDescriptor.getProblemScale(outputSolution));
   subSingleBenchmarkResult.setScore(solutionDescriptor.getScore(outputSolution));
-  subSingleBenchmarkResult.setUninitializedVariableCount(solverScope.getBestUninitializedVariableCount());
   subSingleBenchmarkResult.setTimeMillisSpent(timeMillisSpent);
   subSingleBenchmarkResult.setScoreCalculationCount(solverScope.getScoreCalculationCount());
   for (  SubSingleStatistic subSingleStatistic : subSingleBenchmarkResult.getEffectiveSubSingleStatisticMap().values()) {

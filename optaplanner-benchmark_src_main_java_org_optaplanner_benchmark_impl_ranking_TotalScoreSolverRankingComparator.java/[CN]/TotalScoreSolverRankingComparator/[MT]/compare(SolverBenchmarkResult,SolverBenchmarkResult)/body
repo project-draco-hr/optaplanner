@@ -1,3 +1,3 @@
 {
-  return new CompareToBuilder().append(b.getFailureCount(),a.getFailureCount()).append(b.getTotalUninitializedVariableCount(),a.getTotalUninitializedVariableCount()).append(a.getTotalScore(),b.getTotalScore(),resilientScoreComparator).append(a,b,worstScoreSolverRankingComparator).toComparison();
+  return new CompareToBuilder().append(b.getFailureCount(),a.getFailureCount()).append(a.getTotalScore(),b.getTotalScore(),resilientScoreComparator).append(a,b,worstScoreSolverRankingComparator).toComparison();
 }

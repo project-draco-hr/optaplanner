@@ -9,6 +9,5 @@
   addSingleBenchmark(bSingleBenchmarkResultList,-50,-50,-1000);
   b.setSingleBenchmarkResultList(bSingleBenchmarkResultList);
   b.accumulateResults(benchmarkReport);
-  assertEquals(-1,comparator.compare(a,b));
-  assertEquals(1,comparator.compare(b,a));
+  assertCompareToOrder(comparator,a,b);
 }

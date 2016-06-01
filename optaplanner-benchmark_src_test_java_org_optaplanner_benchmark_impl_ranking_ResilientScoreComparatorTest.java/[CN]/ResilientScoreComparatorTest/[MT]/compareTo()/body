@@ -1,0 +1,6 @@
+{
+  ResilientScoreComparator comparator=new ResilientScoreComparator();
+  assertCompareToOrder(comparator,SimpleScore.valueOfInitialized(-20),SimpleScore.valueOfInitialized(-1));
+  assertCompareToOrder(comparator,HardSoftScore.valueOfInitialized(-20,-300),HardSoftScore.valueOfInitialized(-1,-4000));
+  assertCompareToOrder(comparator,SimpleScore.valueOfInitialized(-4000),HardSoftScore.valueOfInitialized(-300,-300),HardSoftScore.valueOfInitialized(-20,-4000),SimpleScore.valueOfInitialized(-20),HardSoftScore.valueOfInitialized(-20,4000),SimpleScore.valueOfInitialized(-1));
+}

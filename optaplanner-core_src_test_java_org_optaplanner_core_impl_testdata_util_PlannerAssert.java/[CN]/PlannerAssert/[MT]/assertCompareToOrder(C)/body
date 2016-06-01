@@ -1,0 +1,3 @@
+{
+  assertCompareToOrder(Comparator.naturalOrder(),comparables);
+}

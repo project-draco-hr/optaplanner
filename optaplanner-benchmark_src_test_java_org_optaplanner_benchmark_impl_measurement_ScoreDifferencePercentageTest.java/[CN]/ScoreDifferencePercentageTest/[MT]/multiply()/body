@@ -1,7 +1,7 @@
 {
   double tolerance=0.00001;
-  HardSoftScore hardSoftScore1=HardSoftScore.valueOf(-100,-1);
-  HardSoftScore hardSoftScore2=HardSoftScore.valueOf(-200,-10);
+  HardSoftScore hardSoftScore1=HardSoftScore.valueOfInitialized(-100,-1);
+  HardSoftScore hardSoftScore2=HardSoftScore.valueOfInitialized(-200,-10);
   ScoreDifferencePercentage scoreDifferencePercentage=ScoreDifferencePercentage.calculateScoreDifferencePercentage(hardSoftScore1,hardSoftScore2);
   double[] levels=scoreDifferencePercentage.multiply(3.14).getPercentageLevels();
   assertEquals(-3.14,levels[0],tolerance);

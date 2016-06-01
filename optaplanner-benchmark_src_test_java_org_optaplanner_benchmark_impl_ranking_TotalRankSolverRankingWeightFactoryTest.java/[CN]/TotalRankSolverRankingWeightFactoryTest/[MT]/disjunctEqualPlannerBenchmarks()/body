@@ -18,6 +18,5 @@
   }
   Comparable aWeight=factory.createRankingWeight(solverBenchmarkResultList,a);
   Comparable bWeight=factory.createRankingWeight(solverBenchmarkResultList,b);
-  assertEquals(0,aWeight.compareTo(bWeight));
-  assertEquals(0,bWeight.compareTo(aWeight));
+  assertCompareToEquals(aWeight,bWeight);
 }
