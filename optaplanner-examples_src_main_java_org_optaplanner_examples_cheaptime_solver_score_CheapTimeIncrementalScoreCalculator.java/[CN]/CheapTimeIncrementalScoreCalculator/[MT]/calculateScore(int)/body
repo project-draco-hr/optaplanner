@@ -1,0 +1,3 @@
+{
+  return HardMediumSoftLongScore.valueOf(initScore,hardScore,mediumScore,softScore);
+}

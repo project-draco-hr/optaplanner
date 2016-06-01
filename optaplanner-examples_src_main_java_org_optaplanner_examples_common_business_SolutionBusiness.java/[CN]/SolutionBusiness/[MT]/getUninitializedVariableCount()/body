@@ -1,6 +1,0 @@
-{
-  if (solver instanceof DefaultSolver) {
-    return ((DefaultSolver<Solution_>)solver).getSolverScope().getBestUninitializedVariableCount();
-  }
-  return 0;
-}

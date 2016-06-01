@@ -1,3 +1,0 @@
-{
-  return SimpleLongScore.valueOf(score);
-}

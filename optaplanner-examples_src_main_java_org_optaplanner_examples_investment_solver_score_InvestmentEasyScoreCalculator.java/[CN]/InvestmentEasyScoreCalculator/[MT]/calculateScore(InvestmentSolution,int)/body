@@ -1,0 +1,25 @@
+{
+  long hardScore=0L;
+  long softScore=0L;
+  long squaredFemtosMaximum=solution.getParametrization().calculateSquaredStandardDeviationFemtosMaximum();
+  long squaredFemtos=solution.calculateStandardDeviationSquaredFemtos();
+  if (squaredFemtos > squaredFemtosMaximum) {
+    hardScore-=squaredFemtos - squaredFemtosMaximum;
+  }
+  Map<Region,Long> regionQuantityTotalMap=solution.calculateRegionQuantityMillisTotalMap();
+  for (  Region region : solution.getRegionList()) {
+    long available=region.getQuantityMillisMaximum() - regionQuantityTotalMap.get(region);
+    if (available < 0) {
+      hardScore+=available;
+    }
+  }
+  Map<Sector,Long> sectorQuantityTotalMap=solution.calculateSectorQuantityMillisTotalMap();
+  for (  Sector sector : solution.getSectorList()) {
+    long available=sector.getQuantityMillisMaximum() - sectorQuantityTotalMap.get(sector);
+    if (available < 0) {
+      hardScore+=available;
+    }
+  }
+  softScore+=solution.calculateExpectedReturnMicros();
+  return HardSoftLongScore.valueOf(initScore,hardScore,softScore);
+}

@@ -11,5 +11,5 @@
   solution.setEntityList(Arrays.asList(new TestdataEntity("e1"),new TestdataEntity("e2"),new TestdataEntity("e3"),new TestdataEntity("e4"),new TestdataEntity("e5")));
   solution=solver.solve(solution);
   assertNotNull(solution);
-  assertEquals(false,((DefaultSolver)solver).getSolverScope().isBestSolutionInitialized());
+  assertEquals(false,solution.getScore().isSolutionInitialized());
 }
