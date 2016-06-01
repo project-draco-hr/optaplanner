@@ -29,7 +29,7 @@
     startIndex=endIndex + levelSuffix.length() + "/".length();
   }
   if (startIndex != scoreString.length() + "/".length()) {
-    throw new IllegalArgumentException("The scoreString (" + scoreString + ") for the scoreClass ("+ scoreClass.getSimpleName()+ ") doesn't follow the correct pattern ("+ buildScorePattern(true,LEVEL_SUFFIXES)+ "):"+ " the suffix ("+ scoreString.substring(startIndex)+ ") is unsupported.");
+    throw new IllegalArgumentException("The scoreString (" + scoreString + ") for the scoreClass ("+ scoreClass.getSimpleName()+ ") doesn't follow the correct pattern ("+ buildScorePattern(true,LEVEL_SUFFIXES)+ "):"+ " the suffix ("+ scoreString.substring(startIndex - 1)+ ") is unsupported.");
   }
   return scoreTokens;
 }
