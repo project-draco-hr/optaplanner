@@ -1,0 +1,4 @@
+{
+  SolutionDescriptor solutionDescriptor=TestdataReinitializeSolution.buildSolutionDescriptor();
+  return solutionDescriptor.findEntityDescriptorOrFail(TestdataReinitializeEntity.class);
+}

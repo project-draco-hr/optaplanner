@@ -1,0 +1,4 @@
+{
+  this(code,value);
+  this.initialized=initialized;
+}
