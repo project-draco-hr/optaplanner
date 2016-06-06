@@ -1,0 +1,26 @@
+{
+  SolverFactory<TestdataSolution> solverFactory=PlannerTestUtils.buildSolverFactory(TestdataSolution.class,TestdataEntity.class);
+  Solver<TestdataSolution> solver=solverFactory.buildSolver();
+  TestdataSolution solution=new TestdataSolution("s1");
+  solution.setValueList(Arrays.asList(new TestdataValue("v1"),new TestdataValue("v1")));
+  final int entitiesCount=17;
+  ArrayList<TestdataEntity> entities=new ArrayList<>(entitiesCount);
+  for (int i=0; i < entitiesCount; i++) {
+    entities.add(new TestdataEntity(String.valueOf(i)));
+  }
+  solution.setEntityList(entities);
+  ((DefaultSolver<TestdataSolution>)solver).addPhaseLifecycleListener(listener);
+  TestdataSolution solvedSolution=solver.solve(solution);
+  final int stepCount=entitiesCount + PlannerTestUtils.TERMINATION_STEP_COUNT_LIMIT;
+  final int phaseCount=solverFactory.getSolverConfig().getPhaseConfigList().size();
+  final int solvingCount=1;
+  PlannerAssert.verifyPhaseLifecycle(listener,solvingCount,phaseCount,stepCount);
+  Mockito.<PhaseLifecycleListener<?>>reset(listener);
+  solvedSolution.getEntityList().get(0).setValue(null);
+  solver.solve(solvedSolution);
+  PlannerAssert.verifyPhaseLifecycle(listener,solvingCount,phaseCount,1 + PlannerTestUtils.TERMINATION_STEP_COUNT_LIMIT);
+  Mockito.<PhaseLifecycleListener<?>>reset(listener);
+  ((DefaultSolver<TestdataSolution>)solver).removePhaseLifecycleListener(listener);
+  solver.solve(solution);
+  PlannerAssert.verifyPhaseLifecycle(listener,0,0,0);
+}

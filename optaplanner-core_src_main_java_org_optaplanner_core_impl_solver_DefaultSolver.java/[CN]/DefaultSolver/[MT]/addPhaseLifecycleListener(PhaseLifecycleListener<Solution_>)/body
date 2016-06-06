@@ -1,4 +1,5 @@
 {
+  phaseLifecycleSupport.addEventListener(phaseLifecycleListener);
   for (  Phase phase : phaseList) {
     phase.addPhaseLifecycleListener(phaseLifecycleListener);
   }

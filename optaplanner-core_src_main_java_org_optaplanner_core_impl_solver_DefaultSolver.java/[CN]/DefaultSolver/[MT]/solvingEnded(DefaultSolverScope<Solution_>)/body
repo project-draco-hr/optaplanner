@@ -4,4 +4,5 @@
   }
   bestSolutionRecaller.solvingEnded(solverScope);
   solverScope.endingNow();
+  phaseLifecycleSupport.fireSolvingEnded(solverScope);
 }

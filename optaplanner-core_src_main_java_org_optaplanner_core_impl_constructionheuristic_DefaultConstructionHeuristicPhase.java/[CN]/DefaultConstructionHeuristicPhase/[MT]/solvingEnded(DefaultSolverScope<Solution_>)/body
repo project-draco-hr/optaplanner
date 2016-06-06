@@ -1,5 +1,5 @@
 {
-  super.solvingStarted(solverScope);
+  super.solvingEnded(solverScope);
   entityPlacer.solvingEnded(solverScope);
   decider.solvingEnded(solverScope);
 }

@@ -1,5 +1,6 @@
 {
+  phaseLifecycleSupport.removeEventListener(phaseLifecycleListener);
   for (  Phase phase : phaseList) {
-    phase.addPhaseLifecycleListener(phaseLifecycleListener);
+    phase.removePhaseLifecycleListener(phaseLifecycleListener);
   }
 }
