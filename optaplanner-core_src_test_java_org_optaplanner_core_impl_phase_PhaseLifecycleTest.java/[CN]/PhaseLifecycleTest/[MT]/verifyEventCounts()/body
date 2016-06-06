@@ -1,4 +1,5 @@
 {
+  PhaseLifecycleListener listener=mock(PhaseLifecycleListener.class);
   SolverFactory<TestdataSolution> solverFactory=PlannerTestUtils.buildSolverFactory(TestdataSolution.class,TestdataEntity.class);
   Solver<TestdataSolution> solver=solverFactory.buildSolver();
   TestdataSolution solution=new TestdataSolution("s1");
