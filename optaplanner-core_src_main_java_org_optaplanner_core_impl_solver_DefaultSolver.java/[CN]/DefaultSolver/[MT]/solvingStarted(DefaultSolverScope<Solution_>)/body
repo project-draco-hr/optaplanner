@@ -3,11 +3,11 @@
   solverScope.getScoreDirector().resetCalculationCount();
   solverScope.setWorkingSolutionFromBestSolution();
   bestSolutionRecaller.solvingStarted(solverScope);
-  for (  Phase phase : phaseList) {
+  phaseLifecycleSupport.fireSolvingStarted(solverScope);
+  for (  Phase<Solution_> phase : phaseList) {
     phase.solvingStarted(solverScope);
   }
   int startingSolverCount=solverScope.getStartingSolverCount() + 1;
   solverScope.setStartingSolverCount(startingSolverCount);
-  phaseLifecycleSupport.fireSolvingStarted(solverScope);
   logger.info("Solving {}: time spent ({}), best score ({}), environment mode ({}), random ({}).",(startingSolverCount == 1 ? "started" : "restarted"),solverScope.calculateTimeMillisSpentUpToNow(),solverScope.getBestScore(),environmentMode.name(),(randomFactory != null ? randomFactory : "not fixed"));
 }

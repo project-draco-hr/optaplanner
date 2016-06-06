@@ -13,12 +13,11 @@
   TestdataSolution solvedSolution=solver.solve(solution);
   final int stepCount=entitiesCount + PlannerTestUtils.TERMINATION_STEP_COUNT_LIMIT;
   final int phaseCount=solverFactory.getSolverConfig().getPhaseConfigList().size();
-  final int solvingCount=1;
-  PlannerAssert.verifyPhaseLifecycle(listener,solvingCount,phaseCount,stepCount);
+  PlannerAssert.verifyPhaseLifecycle(listener,1,phaseCount,stepCount);
   Mockito.<PhaseLifecycleListener<?>>reset(listener);
   solvedSolution.getEntityList().get(0).setValue(null);
   solver.solve(solvedSolution);
-  PlannerAssert.verifyPhaseLifecycle(listener,solvingCount,phaseCount,1 + PlannerTestUtils.TERMINATION_STEP_COUNT_LIMIT);
+  PlannerAssert.verifyPhaseLifecycle(listener,1,phaseCount,1 + PlannerTestUtils.TERMINATION_STEP_COUNT_LIMIT);
   Mockito.<PhaseLifecycleListener<?>>reset(listener);
   ((DefaultSolver<TestdataSolution>)solver).removePhaseLifecycleListener(listener);
   solver.solve(solution);

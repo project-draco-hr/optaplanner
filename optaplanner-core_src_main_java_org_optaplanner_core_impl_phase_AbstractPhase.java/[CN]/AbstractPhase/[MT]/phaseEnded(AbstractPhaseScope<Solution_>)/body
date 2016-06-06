@@ -1,5 +1,6 @@
 {
   bestSolutionRecaller.phaseEnded(phaseScope);
+  solverPhaseLifecycleSupport.firePhaseEnded(phaseScope);
   termination.phaseEnded(phaseScope);
   phaseLifecycleSupport.firePhaseEnded(phaseScope);
 }

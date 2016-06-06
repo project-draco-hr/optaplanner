@@ -2,6 +2,7 @@
   phaseScope.startingNow();
   phaseScope.reset();
   bestSolutionRecaller.phaseStarted(phaseScope);
+  solverPhaseLifecycleSupport.firePhaseStarted(phaseScope);
   termination.phaseStarted(phaseScope);
   phaseLifecycleSupport.firePhaseStarted(phaseScope);
 }

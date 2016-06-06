@@ -1,8 +1,8 @@
 {
-  for (  Phase phase : phaseList) {
+  for (  Phase<Solution_> phase : phaseList) {
     phase.solvingEnded(solverScope);
   }
+  phaseLifecycleSupport.fireSolvingEnded(solverScope);
   bestSolutionRecaller.solvingEnded(solverScope);
   solverScope.endingNow();
-  phaseLifecycleSupport.fireSolvingEnded(solverScope);
 }

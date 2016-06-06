@@ -1,5 +1,6 @@
 {
   bestSolutionRecaller.stepStarted(stepScope);
+  solverPhaseLifecycleSupport.fireStepStarted(stepScope);
   termination.stepStarted(stepScope);
   phaseLifecycleSupport.fireStepStarted(stepScope);
 }
