@@ -1,9 +1,7 @@
 {
   PlannerBenchmarkFactory plannerBenchmarkFactory=PlannerBenchmarkFactory.createFromXmlResource("org/optaplanner/benchmark/api/testdataPlannerBenchmarkConfig.xml");
   SolverBenchmarkConfig solverBenchmarkConfig=plannerBenchmarkFactory.getPlannerBenchmarkConfig().getSolverBenchmarkConfigList().get(0);
-  CustomPhaseConfig phaseConfig=new CustomPhaseConfig();
-  phaseConfig.setCustomPhaseCommandClassList(Collections.singletonList(DummyCustomPhaseCommand.class));
-  solverBenchmarkConfig.getSolverConfig().setPhaseConfigList(Collections.singletonList(phaseConfig));
+  solverBenchmarkConfig.setSubSingleCount(3);
   PlannerBenchmark plannerBenchmark=plannerBenchmarkFactory.buildPlannerBenchmark();
   assertNotNull(plannerBenchmark);
   plannerBenchmark.benchmark();
