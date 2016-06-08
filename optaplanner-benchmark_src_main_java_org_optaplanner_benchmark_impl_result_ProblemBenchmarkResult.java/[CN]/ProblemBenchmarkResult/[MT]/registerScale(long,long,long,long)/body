@@ -1,0 +1,30 @@
+{
+  if (entityCount == null) {
+    entityCount=registeringEntityCount;
+  }
+ else   if (entityCount.longValue() != registeringEntityCount) {
+    logger.warn("The problemBenchmarkResult ({}) has different entityCount values ([{},{}]).\n" + "This is normally impossible for 1 inputSolutionFile.",getName(),entityCount,registeringEntityCount);
+    entityCount=-1L;
+  }
+  if (variableCount == null) {
+    variableCount=registeringVariableCount;
+  }
+ else   if (variableCount.longValue() != registeringVariableCount) {
+    logger.warn("The problemBenchmarkResult ({}) has different variableCount values ([{},{}]).\n" + "This is normally impossible for 1 inputSolutionFile.",getName(),variableCount,registeringVariableCount);
+    variableCount=-1L;
+  }
+  if (maximumValueCount == null) {
+    maximumValueCount=registeringMaximumValueCount;
+  }
+ else   if (maximumValueCount.longValue() != registeringMaximumValueCount) {
+    logger.warn("The problemBenchmarkResult ({}) has different maximumValueCount values ([{},{}]).\n" + "This is normally impossible for 1 inputSolutionFile.",getName(),maximumValueCount,registeringMaximumValueCount);
+    maximumValueCount=-1L;
+  }
+  if (problemScale == null) {
+    problemScale=registeringProblemScale;
+  }
+ else   if (problemScale.longValue() != registeringProblemScale) {
+    logger.warn("The problemBenchmarkResult ({}) has different problemScale values ([{},{}]).\n" + "This is normally impossible for 1 inputSolutionFile.",getName(),problemScale,registeringProblemScale);
+    problemScale=-1L;
+  }
+}

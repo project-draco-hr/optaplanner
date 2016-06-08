@@ -1,0 +1,9 @@
+{
+  long maximumValueCount=0L;
+  for (Iterator<Object> it=extractAllEntitiesIterator(solution); it.hasNext(); ) {
+    Object entity=it.next();
+    EntityDescriptor<Solution_> entityDescriptor=findEntityDescriptorOrFail(entity.getClass());
+    maximumValueCount=Math.max(maximumValueCount,entityDescriptor.getMaximumValueCount(solution,entity));
+  }
+  return maximumValueCount;
+}

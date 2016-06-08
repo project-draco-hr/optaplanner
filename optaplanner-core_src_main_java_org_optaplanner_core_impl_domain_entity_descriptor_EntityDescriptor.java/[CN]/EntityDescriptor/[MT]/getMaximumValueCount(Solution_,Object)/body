@@ -1,0 +1,7 @@
+{
+  long maximumValueCount=0L;
+  for (  GenuineVariableDescriptor<Solution_> variableDescriptor : effectiveGenuineVariableDescriptorMap.values()) {
+    maximumValueCount=Math.max(maximumValueCount,variableDescriptor.getValueCount(solution,entity));
+  }
+  return maximumValueCount;
+}

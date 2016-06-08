@@ -22,7 +22,7 @@
   long timeMillisSpent=solver.getTimeMillisSpent();
   DefaultSolverScope<Solution_> solverScope=((DefaultSolver<Solution_>)solver).getSolverScope();
   SolutionDescriptor<Solution_> solutionDescriptor=solverScope.getSolutionDescriptor();
-  problemBenchmarkResult.registerScale(solutionDescriptor.getEntityCount(outputSolution),solutionDescriptor.getGenuineVariableCount(outputSolution),solutionDescriptor.getProblemScale(outputSolution));
+  problemBenchmarkResult.registerScale(solutionDescriptor.getEntityCount(outputSolution),solutionDescriptor.getGenuineVariableCount(outputSolution),solutionDescriptor.getMaximumValueCount(outputSolution),solutionDescriptor.getProblemScale(outputSolution));
   subSingleBenchmarkResult.setScore(solutionDescriptor.getScore(outputSolution));
   subSingleBenchmarkResult.setTimeMillisSpent(timeMillisSpent);
   subSingleBenchmarkResult.setScoreCalculationCount(solverScope.getScoreCalculationCount());
