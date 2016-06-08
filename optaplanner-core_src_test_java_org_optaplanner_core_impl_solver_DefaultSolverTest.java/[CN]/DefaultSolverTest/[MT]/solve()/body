@@ -6,4 +6,5 @@
   solution.setEntityList(Arrays.asList(new TestdataEntity("e1"),new TestdataEntity("e2")));
   solution=solver.solve(solution);
   assertNotNull(solution);
+  assertEquals(true,solution.getScore().isSolutionInitialized());
 }

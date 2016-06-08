@@ -1,6 +1,6 @@
 {
   SolverConfigContext configContext=new SolverConfigContext();
-  PlannerBenchmarkResult plannerBenchmarkResult=((PlannerBenchmarkRunner)plannerBenchmark).getPlannerBenchmarkResult();
+  PlannerBenchmarkResult plannerBenchmarkResult=((DefaultPlannerBenchmark)plannerBenchmark).getPlannerBenchmarkResult();
   for (  SolverBenchmarkResult solverBenchmarkResult : plannerBenchmarkResult.getSolverBenchmarkResultList()) {
     SolverConfig solverConfig=solverBenchmarkResult.getSolverConfig();
     solverConfig.buildSolver(configContext);

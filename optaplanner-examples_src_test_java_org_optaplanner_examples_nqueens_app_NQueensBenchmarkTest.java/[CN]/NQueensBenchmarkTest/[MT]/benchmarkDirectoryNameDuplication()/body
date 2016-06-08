@@ -1,7 +1,7 @@
 {
   PlannerBenchmarkFactory plannerBenchmarkFactory=buildPlannerBenchmarkFactory(new File("data/nqueens/unsolved/4queens.xml"));
-  PlannerBenchmarkRunner plannerBenchmarkRunner=(PlannerBenchmarkRunner)plannerBenchmarkFactory.buildPlannerBenchmark();
-  plannerBenchmarkRunner.benchmarkingStarted();
-  plannerBenchmarkRunner.getPlannerBenchmarkResult().initBenchmarkReportDirectory(plannerBenchmarkFactory.getPlannerBenchmarkConfig().getBenchmarkDirectory());
-  plannerBenchmarkRunner.getPlannerBenchmarkResult().initBenchmarkReportDirectory(plannerBenchmarkFactory.getPlannerBenchmarkConfig().getBenchmarkDirectory());
+  DefaultPlannerBenchmark plannerBenchmark=(DefaultPlannerBenchmark)plannerBenchmarkFactory.buildPlannerBenchmark();
+  plannerBenchmark.benchmarkingStarted();
+  plannerBenchmark.getPlannerBenchmarkResult().initBenchmarkReportDirectory(plannerBenchmarkFactory.getPlannerBenchmarkConfig().getBenchmarkDirectory());
+  plannerBenchmark.getPlannerBenchmarkResult().initBenchmarkReportDirectory(plannerBenchmarkFactory.getPlannerBenchmarkConfig().getBenchmarkDirectory());
 }

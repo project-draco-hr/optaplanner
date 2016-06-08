@@ -1,5 +1,0 @@
-{
-  PlannerBenchmarkFactory plannerBenchmarkFactory=PlannerBenchmarkFactory.createFromXmlResource("org/optaplanner/benchmark/api/testdataPlannerBenchmarkConfig.xml");
-  PlannerBenchmark plannerBenchmark=plannerBenchmarkFactory.buildPlannerBenchmark();
-  assertNotNull(plannerBenchmark);
-}
