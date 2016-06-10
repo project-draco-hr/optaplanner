@@ -10,8 +10,5 @@
   }
   Solver<Solution_> solver=solverFactory.buildSolver();
   Solution_ bestSolution=solver.solve(planningProblem);
-  if (bestSolution == null) {
-    bestSolution=planningProblem;
-  }
   return bestSolution;
 }
