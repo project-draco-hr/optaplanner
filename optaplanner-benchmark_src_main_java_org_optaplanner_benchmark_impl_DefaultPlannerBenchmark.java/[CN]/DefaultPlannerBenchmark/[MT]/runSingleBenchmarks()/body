@@ -15,9 +15,6 @@
     Throwable failureThrowable=null;
     try {
       subSingleBenchmarkRunner=future.get();
-      if (subSingleBenchmarkRunner.getSubSingleBenchmarkResult().getAverageScore() == null) {
-        throw new IllegalStateException("Score is null. TODO fix PLANNER-46.");
-      }
     }
  catch (    InterruptedException e) {
       Thread.currentThread().interrupt();
@@ -28,10 +25,6 @@ catch (    ExecutionException e) {
       Throwable cause=e.getCause();
       singleBenchmarkRunnerExceptionLogger.warn("The subSingleBenchmarkRunner ({}) failed.",subSingleBenchmarkRunner,cause);
       failureThrowable=cause;
-    }
-catch (    IllegalStateException e) {
-      singleBenchmarkRunnerExceptionLogger.warn("The subSingleBenchmarkRunner ({}) failed.",subSingleBenchmarkRunner,e);
-      failureThrowable=e;
     }
     if (failureThrowable == null) {
       subSingleBenchmarkRunner.getSubSingleBenchmarkResult().setSucceeded(true);
