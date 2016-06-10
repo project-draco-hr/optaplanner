@@ -12,4 +12,5 @@
   solution=solver.solve(solution);
   assertNotNull(solution);
   assertEquals(false,solution.getScore().isSolutionInitialized());
+  assertSame(solution,solver.getBestSolution());
 }

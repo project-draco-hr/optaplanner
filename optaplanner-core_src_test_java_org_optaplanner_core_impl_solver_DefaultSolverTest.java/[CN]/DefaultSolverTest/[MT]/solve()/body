@@ -7,4 +7,5 @@
   solution=solver.solve(solution);
   assertNotNull(solution);
   assertEquals(true,solution.getScore().isSolutionInitialized());
+  assertSame(solution,solver.getBestSolution());
 }
