@@ -1,0 +1,3 @@
+{
+  super(new ArgOption("default","org/optaplanner/examples/taskassigning/benchmark/taskAssigningBenchmarkConfig.xml"));
+}
