@@ -1,0 +1,3 @@
+{
+  return SimpleDoubleScore.parseScore(scoreString);
+}

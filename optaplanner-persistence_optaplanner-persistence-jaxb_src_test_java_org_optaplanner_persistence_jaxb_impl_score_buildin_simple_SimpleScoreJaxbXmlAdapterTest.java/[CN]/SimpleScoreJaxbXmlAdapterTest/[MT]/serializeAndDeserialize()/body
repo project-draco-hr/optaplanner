@@ -1,0 +1,7 @@
+{
+  assertSerializeAndDeserialize(null,new TestSimpleScoreWrapper(null));
+  SimpleScore score=SimpleScore.valueOfInitialized(1234);
+  assertSerializeAndDeserialize(score,new TestSimpleScoreWrapper(score));
+  score=SimpleScore.valueOf(-7,1234);
+  assertSerializeAndDeserialize(score,new TestSimpleScoreWrapper(score));
+}
