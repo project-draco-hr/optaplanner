@@ -1,4 +1,5 @@
 {
-  this();
+  xStream=new XStream();
+  xStream.setMode(XStream.ID_REFERENCES);
   xStream.processAnnotations(xStreamAnnotatedClasses);
 }

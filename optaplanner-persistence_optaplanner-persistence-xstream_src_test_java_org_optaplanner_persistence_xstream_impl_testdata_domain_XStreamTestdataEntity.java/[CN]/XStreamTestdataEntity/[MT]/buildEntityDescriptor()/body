@@ -1,0 +1,4 @@
+{
+  SolutionDescriptor solutionDescriptor=XStreamTestdataSolution.buildSolutionDescriptor();
+  return solutionDescriptor.findEntityDescriptorOrFail(XStreamTestdataEntity.class);
+}

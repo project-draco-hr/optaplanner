@@ -1,0 +1,4 @@
+{
+  solutionTestDir=new File("target/solutionTest/");
+  solutionTestDir.mkdirs();
+}

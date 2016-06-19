@@ -1,0 +1,15 @@
+{
+  XStreamSolutionFileIO<XStreamTestdataSolution> solutionFileIO=new XStreamSolutionFileIO<>(XStreamTestdataSolution.class);
+  File file=new File(solutionTestDir,"testdataSolution.xml");
+  XStreamTestdataSolution original=new XStreamTestdataSolution("s1");
+  original.setValueList(Arrays.asList(new XStreamTestdataValue("v1"),new XStreamTestdataValue("v2")));
+  original.setEntityList(Arrays.asList(new XStreamTestdataEntity("e1"),new XStreamTestdataEntity("e2"),new XStreamTestdataEntity("e3")));
+  original.setScore(SimpleScore.valueOfInitialized(-123));
+  solutionFileIO.write(original,file);
+  XStreamTestdataSolution copy=solutionFileIO.read(file);
+  assertNotSame(original,copy);
+  assertCode("s1",copy);
+  assertAllCodesOfIterator(copy.getValueList().iterator(),"v1","v2");
+  assertAllCodesOfIterator(copy.getEntityList().iterator(),"e1","e2","e3");
+  assertEquals(SimpleScore.valueOfInitialized(-123),copy.getScore());
+}
