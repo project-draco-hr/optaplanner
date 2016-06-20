@@ -1,0 +1,11 @@
+{
+  try {
+    JAXBContext jaxbContext=JAXBContext.newInstance(jaxbAnnotatedClasses);
+    marshaller=jaxbContext.createMarshaller();
+    marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT,true);
+    unmarshaller=jaxbContext.createUnmarshaller();
+  }
+ catch (  JAXBException e) {
+    throw new IllegalArgumentException("JAXB creation for classes (" + Arrays.toString(jaxbAnnotatedClasses) + ") has failed.",e);
+  }
+}

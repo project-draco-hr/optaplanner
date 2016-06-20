@@ -1,0 +1,17 @@
+{
+  JaxbSolutionFileIO<JaxbTestdataSolution> solutionFileIO=new JaxbSolutionFileIO<>(JaxbTestdataSolution.class);
+  File file=new File(solutionTestDir,"testdataSolution.xml");
+  JaxbTestdataSolution original=new JaxbTestdataSolution("s1");
+  JaxbTestdataValue originalV1=new JaxbTestdataValue("v1");
+  original.setValueList(Arrays.asList(originalV1,new JaxbTestdataValue("v2")));
+  original.setEntityList(Arrays.asList(new JaxbTestdataEntity("e1"),new JaxbTestdataEntity("e2",originalV1),new JaxbTestdataEntity("e3")));
+  original.setScore(SimpleScore.valueOfInitialized(-123));
+  solutionFileIO.write(original,file);
+  JaxbTestdataSolution copy=solutionFileIO.read(file);
+  assertNotSame(original,copy);
+  assertCode("s1",copy);
+  assertAllCodesOfIterator(copy.getValueList().iterator(),"v1","v2");
+  assertAllCodesOfIterator(copy.getEntityList().iterator(),"e1","e2","e3");
+  assertCode("v1",copy.getEntityList().get(1).getValue());
+  assertEquals(SimpleScore.valueOfInitialized(-123),copy.getScore());
+}

@@ -1,0 +1,13 @@
+{
+  Writer writer=null;
+  try {
+    writer=new OutputStreamWriter(new FileOutputStream(outputSolutionFile),"UTF-8");
+    marshaller.marshal(solution,writer);
+  }
+ catch (  IOException|JAXBException e) {
+    throw new IllegalArgumentException("Problem writing outputSolutionFile (" + outputSolutionFile + ").",e);
+  }
+ finally {
+    IOUtils.closeQuietly(writer);
+  }
+}

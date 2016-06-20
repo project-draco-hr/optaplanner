@@ -1,0 +1,4 @@
+{
+  SolutionDescriptor solutionDescriptor=JaxbTestdataSolution.buildSolutionDescriptor();
+  return solutionDescriptor.findEntityDescriptorOrFail(JaxbTestdataEntity.class);
+}
