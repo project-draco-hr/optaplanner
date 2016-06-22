@@ -1,0 +1,4 @@
+{
+  HardSoftLongScore score=(HardSoftLongScore)scoreObject;
+  writer.setValue(score.toString());
+}

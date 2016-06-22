@@ -1,0 +1,4 @@
+{
+  BendableBigDecimalScore score=(BendableBigDecimalScore)scoreObject;
+  writer.setValue(score.toString());
+}

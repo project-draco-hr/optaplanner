@@ -1,0 +1,3 @@
+{
+  return HardSoftScore.class.isAssignableFrom(type);
+}

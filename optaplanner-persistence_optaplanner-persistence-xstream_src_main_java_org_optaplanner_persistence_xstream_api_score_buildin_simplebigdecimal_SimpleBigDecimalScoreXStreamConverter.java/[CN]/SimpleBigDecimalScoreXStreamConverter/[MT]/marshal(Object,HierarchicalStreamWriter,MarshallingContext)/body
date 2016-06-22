@@ -1,0 +1,4 @@
+{
+  SimpleBigDecimalScore score=(SimpleBigDecimalScore)scoreObject;
+  writer.setValue(score.toString());
+}

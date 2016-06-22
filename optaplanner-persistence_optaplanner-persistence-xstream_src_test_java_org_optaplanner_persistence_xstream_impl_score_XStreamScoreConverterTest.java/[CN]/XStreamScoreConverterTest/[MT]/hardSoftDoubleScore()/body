@@ -1,7 +1,0 @@
-{
-  testXStreaming(null,new TestHardSoftDoubleScoreWrapper(null));
-  HardSoftDoubleScore score=HardSoftDoubleScore.valueOfInitialized(1200.0021,34.4300);
-  testXStreaming(score,new TestHardSoftDoubleScoreWrapper(score));
-  score=HardSoftDoubleScore.valueOf(-7,1200.0021,34.4300);
-  testXStreaming(score,new TestHardSoftDoubleScoreWrapper(score));
-}

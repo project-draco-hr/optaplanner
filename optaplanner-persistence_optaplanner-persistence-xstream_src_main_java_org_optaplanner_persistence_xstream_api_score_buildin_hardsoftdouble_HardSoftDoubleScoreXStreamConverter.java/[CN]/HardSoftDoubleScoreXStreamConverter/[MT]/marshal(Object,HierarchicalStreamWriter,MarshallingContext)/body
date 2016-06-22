@@ -1,0 +1,4 @@
+{
+  HardSoftDoubleScore score=(HardSoftDoubleScore)scoreObject;
+  writer.setValue(score.toString());
+}

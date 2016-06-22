@@ -1,0 +1,4 @@
+{
+  HardSoftBigDecimalScore score=(HardSoftBigDecimalScore)scoreObject;
+  writer.setValue(score.toString());
+}

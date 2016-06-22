@@ -1,0 +1,4 @@
+{
+  BendableLongScore score=(BendableLongScore)scoreObject;
+  writer.setValue(score.toString());
+}

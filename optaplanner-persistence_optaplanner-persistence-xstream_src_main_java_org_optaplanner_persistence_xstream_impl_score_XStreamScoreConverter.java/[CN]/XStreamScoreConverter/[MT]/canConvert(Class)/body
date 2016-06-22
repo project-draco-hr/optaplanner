@@ -1,3 +1,0 @@
-{
-  return scoreDefinition.getScoreClass().isAssignableFrom(type);
-}

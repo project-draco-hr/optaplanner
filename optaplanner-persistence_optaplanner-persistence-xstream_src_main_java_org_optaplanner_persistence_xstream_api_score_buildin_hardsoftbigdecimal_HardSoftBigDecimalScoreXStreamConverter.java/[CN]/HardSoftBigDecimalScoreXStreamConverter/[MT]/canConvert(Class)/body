@@ -1,0 +1,3 @@
+{
+  return HardSoftBigDecimalScore.class.isAssignableFrom(type);
+}

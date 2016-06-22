@@ -1,4 +1,0 @@
-{
-  String scoreString=reader.getValue();
-  return scoreDefinition.parseScore(scoreString);
-}

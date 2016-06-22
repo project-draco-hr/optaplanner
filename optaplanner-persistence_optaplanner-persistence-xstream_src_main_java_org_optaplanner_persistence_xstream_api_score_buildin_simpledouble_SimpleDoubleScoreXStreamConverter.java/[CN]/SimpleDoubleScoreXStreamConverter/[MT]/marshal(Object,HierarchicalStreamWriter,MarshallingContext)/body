@@ -1,0 +1,4 @@
+{
+  SimpleDoubleScore score=(SimpleDoubleScore)scoreObject;
+  writer.setValue(score.toString());
+}

@@ -1,7 +1,0 @@
-{
-  testXStreaming(null,new TestBendableLongScoreWrapper(null));
-  BendableLongScore score=BendableLongScore.valueOfInitialized(new long[]{1000L,200L},new long[]{34L});
-  testXStreaming(score,new TestBendableLongScoreWrapper(score));
-  score=BendableLongScore.valueOf(-7,new long[]{1000L,200L},new long[]{34L});
-  testXStreaming(score,new TestBendableLongScoreWrapper(score));
-}

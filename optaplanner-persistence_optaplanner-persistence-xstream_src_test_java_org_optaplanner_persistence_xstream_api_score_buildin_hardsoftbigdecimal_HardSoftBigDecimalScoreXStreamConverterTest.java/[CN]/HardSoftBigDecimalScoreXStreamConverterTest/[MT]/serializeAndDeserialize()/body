@@ -1,0 +1,7 @@
+{
+  assertSerializeAndDeserialize(null,new TestHardSoftBigDecimalScoreWrapper(null));
+  HardSoftBigDecimalScore score=HardSoftBigDecimalScore.valueOfInitialized(new BigDecimal("1200.0021"),new BigDecimal("34.4300"));
+  assertSerializeAndDeserialize(score,new TestHardSoftBigDecimalScoreWrapper(score));
+  score=HardSoftBigDecimalScore.valueOf(-7,new BigDecimal("1200.0021"),new BigDecimal("34.4300"));
+  assertSerializeAndDeserialize(score,new TestHardSoftBigDecimalScoreWrapper(score));
+}

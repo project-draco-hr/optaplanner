@@ -1,0 +1,4 @@
+{
+  String scoreString=reader.getValue();
+  return BendableLongScore.parseScore(scoreString);
+}

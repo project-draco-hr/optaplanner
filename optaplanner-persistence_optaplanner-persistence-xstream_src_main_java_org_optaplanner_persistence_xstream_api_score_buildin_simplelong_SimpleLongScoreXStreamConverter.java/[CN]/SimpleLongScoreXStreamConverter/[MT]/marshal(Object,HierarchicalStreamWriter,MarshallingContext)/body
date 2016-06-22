@@ -1,0 +1,4 @@
+{
+  SimpleLongScore score=(SimpleLongScore)scoreObject;
+  writer.setValue(score.toString());
+}
