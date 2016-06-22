@@ -12,8 +12,7 @@
   if (!from.isSupported(incrementUnitType) || !to.isSupported(incrementUnitType)) {
     throw new IllegalArgumentException("The " + getClass().getSimpleName() + " must have a incrementUnitType ("+ incrementUnitType+ ") that is supported by its from ("+ from+ ") and to ("+ to+ ").");
   }
-  Comparable<Temporal_> comparableFrom=(Comparable<Temporal_>)from;
-  if (comparableFrom.compareTo(to) > 0) {
+  if (from.compareTo(to) > 0) {
     throw new IllegalArgumentException("The " + getClass().getSimpleName() + " cannot have a from ("+ from+ ") which is strictly higher than its to ("+ to+ ").");
   }
   long space=from.until(to,incrementUnitType);
