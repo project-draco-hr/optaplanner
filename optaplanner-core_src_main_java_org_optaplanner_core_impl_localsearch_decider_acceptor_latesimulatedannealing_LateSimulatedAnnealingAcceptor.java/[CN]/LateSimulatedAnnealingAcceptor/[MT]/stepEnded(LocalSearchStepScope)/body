@@ -1,5 +1,0 @@
-{
-  super.stepEnded(stepScope);
-  previousScores[lateScoreIndex]=stepScope.getScore();
-  lateScoreIndex=(lateScoreIndex + 1) % lateSimulatedAnnealingSize;
-}

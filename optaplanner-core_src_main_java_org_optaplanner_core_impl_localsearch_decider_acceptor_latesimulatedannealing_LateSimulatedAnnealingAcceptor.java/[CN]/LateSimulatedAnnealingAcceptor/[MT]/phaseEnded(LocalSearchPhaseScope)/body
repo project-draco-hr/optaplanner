@@ -1,5 +1,0 @@
-{
-  super.phaseEnded(phaseScope);
-  previousScores=null;
-  lateScoreIndex=-1;
-}

@@ -1,5 +1,0 @@
-{
-  LateSimulatedAnnealingAcceptor acceptor=new LateSimulatedAnnealingAcceptor();
-  acceptor.setLateSimulatedAnnealingSize(-1);
-  acceptor.phaseStarted(null);
-}

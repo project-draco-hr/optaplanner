@@ -130,11 +130,6 @@
     StepCountingHillClimbingAcceptor acceptor=new StepCountingHillClimbingAcceptor(stepCountingHillClimbingSize_,stepCountingHillClimbingType_);
     acceptorList.add(acceptor);
   }
-  if ((acceptorTypeList != null && acceptorTypeList.contains(AcceptorType.LATE_SIMULATED_ANNEALING)) || lateSimulatedAnnealingSize != null) {
-    LateSimulatedAnnealingAcceptor acceptor=new LateSimulatedAnnealingAcceptor();
-    acceptor.setLateSimulatedAnnealingSize(defaultIfNull(lateSimulatedAnnealingSize,400));
-    acceptorList.add(acceptor);
-  }
   if (acceptorList.size() == 1) {
     return acceptorList.get(0);
   }

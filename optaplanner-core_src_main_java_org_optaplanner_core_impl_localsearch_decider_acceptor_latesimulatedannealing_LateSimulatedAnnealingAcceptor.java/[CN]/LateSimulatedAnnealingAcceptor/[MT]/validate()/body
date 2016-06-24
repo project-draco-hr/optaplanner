@@ -1,5 +1,0 @@
-{
-  if (lateSimulatedAnnealingSize <= 0) {
-    throw new IllegalArgumentException("The lateSimulatedAnnealingSize (" + lateSimulatedAnnealingSize + ") cannot be negative or zero.");
-  }
-}
