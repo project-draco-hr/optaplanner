@@ -31,12 +31,12 @@
     refVariableDescriptor.registerSinkVariableDescriptor(this);
   }
  else {
-    CustomShadowVariable.Source[] sources=shadowVariableAnnotation.sources();
+    PlanningVariableReference[] sources=shadowVariableAnnotation.sources();
     sourceVariableDescriptorList=new ArrayList<>(sources.length);
-    for (    CustomShadowVariable.Source source : sources) {
+    for (    PlanningVariableReference source : sources) {
       EntityDescriptor<Solution_> sourceEntityDescriptor;
       Class<?> sourceEntityClass=source.entityClass();
-      if (sourceEntityClass.equals(CustomShadowVariable.Source.NullEntityClass.class)) {
+      if (sourceEntityClass.equals(PlanningVariableReference.NullEntityClass.class)) {
         sourceEntityDescriptor=entityDescriptor;
       }
  else {

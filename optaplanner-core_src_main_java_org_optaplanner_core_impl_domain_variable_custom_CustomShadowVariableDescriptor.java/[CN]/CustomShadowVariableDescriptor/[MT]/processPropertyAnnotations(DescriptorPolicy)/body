@@ -8,7 +8,7 @@
   if (variableListenerClass == CustomShadowVariable.NullVariableListener.class) {
     variableListenerClass=null;
   }
-  CustomShadowVariable.Source[] sources=shadowVariableAnnotation.sources();
+  PlanningVariableReference[] sources=shadowVariableAnnotation.sources();
   if (variableListenerRef != null) {
     if (variableListenerClass != null || sources.length > 0) {
       throw new IllegalArgumentException("The entityClass (" + entityDescriptor.getEntityClass() + ") has a "+ CustomShadowVariable.class.getSimpleName()+ " annotated property ("+ variableMemberAccessor.getName()+ ") with a non-null variableListenerRef ("+ variableListenerRef+ "), so it can not have a variableListenerClass ("+ variableListenerClass+ ") nor any sources ("+ Arrays.toString(sources)+ ").");
