@@ -10,38 +10,39 @@
           throw new IllegalArgumentException("The line (" + line + ") has an invalid use of quotes (\").");
         }
         String delimiter;
-        if (delimiterRegex.equals("\\ ")) {
+switch (delimiterRegex) {
+case "\\ ":
           delimiter=" ";
-        }
- else         if (delimiterRegex.equals("\\,")) {
-          delimiter=",";
-        }
- else {
-          throw new IllegalArgumentException("Not supported delimiterRegex (" + delimiterRegex + ")");
-        }
-        token+=delimiter + lineTokens[i];
-      }
-      if (trim) {
-        token=token.trim();
-      }
-      if (token.startsWith("\"") && token.endsWith("\"")) {
-        token=token.substring(1,token.length() - 1);
-        token=token.replaceAll("\"\"","\"");
-      }
-      lineTokenList.add(token);
-    }
-    lineTokens=lineTokenList.toArray(new String[0]);
-  }
-  if (minimumNumberOfTokens != null && lineTokens.length < minimumNumberOfTokens) {
-    throw new IllegalArgumentException("Read line (" + line + ") has "+ lineTokens.length+ " tokens but is expected to contain at least "+ minimumNumberOfTokens+ " tokens separated by "+ delimiterName+ ".");
-  }
-  if (maximumNumberOfTokens != null && lineTokens.length > maximumNumberOfTokens) {
-    throw new IllegalArgumentException("Read line (" + line + ") has "+ lineTokens.length+ " tokens but is expected to contain at most "+ maximumNumberOfTokens+ " tokens separated by "+ delimiterName+ ".");
-  }
-  if (trim) {
-    for (int i=0; i < lineTokens.length; i++) {
-      lineTokens[i]=lineTokens[i].trim();
-    }
-  }
-  return lineTokens;
+        break;
+case "\\,":
+      delimiter=",";
+    break;
+default :
+  throw new IllegalArgumentException("Not supported delimiterRegex (" + delimiterRegex + ")");
+}
+token+=delimiter + lineTokens[i];
+}
+if (trim) {
+token=token.trim();
+}
+if (token.startsWith("\"") && token.endsWith("\"")) {
+token=token.substring(1,token.length() - 1);
+token=token.replaceAll("\"\"","\"");
+}
+lineTokenList.add(token);
+}
+lineTokens=lineTokenList.toArray(new String[0]);
+}
+if (minimumNumberOfTokens != null && lineTokens.length < minimumNumberOfTokens) {
+throw new IllegalArgumentException("Read line (" + line + ") has "+ lineTokens.length+ " tokens but is expected to contain at least "+ minimumNumberOfTokens+ " tokens separated by "+ delimiterName+ ".");
+}
+if (maximumNumberOfTokens != null && lineTokens.length > maximumNumberOfTokens) {
+throw new IllegalArgumentException("Read line (" + line + ") has "+ lineTokens.length+ " tokens but is expected to contain at most "+ maximumNumberOfTokens+ " tokens separated by "+ delimiterName+ ".");
+}
+if (trim) {
+for (int i=0; i < lineTokens.length; i++) {
+lineTokens[i]=lineTokens[i].trim();
+}
+}
+return lineTokens;
 }

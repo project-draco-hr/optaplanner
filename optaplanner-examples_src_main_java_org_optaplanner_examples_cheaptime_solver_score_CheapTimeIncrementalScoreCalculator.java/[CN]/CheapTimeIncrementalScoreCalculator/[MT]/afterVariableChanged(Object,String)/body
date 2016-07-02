@@ -1,12 +1,13 @@
 {
   TaskAssignment taskAssignment=(TaskAssignment)entity;
-  if (variableName.equals("machine")) {
+switch (variableName) {
+case "machine":
     modifyMachine(taskAssignment,oldMachine,taskAssignment.getMachine());
-  }
- else   if (variableName.equals("startPeriod")) {
-    modifyStartPeriod(taskAssignment,oldStartPeriod,taskAssignment.getStartPeriod());
-  }
- else {
-    throw new IllegalArgumentException("The variableName (" + variableName + ") is not supported.");
-  }
+  break;
+case "startPeriod":
+modifyStartPeriod(taskAssignment,oldStartPeriod,taskAssignment.getStartPeriod());
+break;
+default :
+throw new IllegalArgumentException("The variableName (" + variableName + ") is not supported.");
+}
 }
