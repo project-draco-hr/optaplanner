@@ -10,10 +10,8 @@
   Map<String,Object> model=new HashMap<>();
   model.put("benchmarkReport",this);
   model.put("reportHelper",new ReportHelper());
-  Writer writer=null;
-  try {
+  try (Writer writer=new OutputStreamWriter(new FileOutputStream(htmlOverviewFile),"UTF-8")){
     Template template=freemarkerCfg.getTemplate(templateFilename);
-    writer=new OutputStreamWriter(new FileOutputStream(htmlOverviewFile),"UTF-8");
     template.process(model,writer);
   }
  catch (  IOException e) {
@@ -21,8 +19,5 @@
   }
 catch (  TemplateException e) {
     throw new IllegalArgumentException("Can not process Freemarker templateFilename (" + templateFilename + ") to htmlOverviewFile ("+ htmlOverviewFile+ ").",e);
-  }
- finally {
-    IOUtils.closeQuietly(writer);
   }
 }

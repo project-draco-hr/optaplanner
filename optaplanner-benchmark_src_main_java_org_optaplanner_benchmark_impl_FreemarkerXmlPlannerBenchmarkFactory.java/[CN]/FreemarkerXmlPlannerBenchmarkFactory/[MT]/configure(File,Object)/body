@@ -1,8 +1,11 @@
 {
-  try {
-    return configure(new FileInputStream(templateFile),model);
+  try (FileInputStream templateIn=new FileInputStream(templateFile)){
+    return configure(templateIn,model);
   }
  catch (  FileNotFoundException e) {
     throw new IllegalArgumentException("The templateFile (" + templateFile + ") was not found.",e);
+  }
+catch (  IOException e) {
+    throw new IllegalArgumentException("Reading the templateFile (" + templateFile + ") failed.",e);
   }
 }

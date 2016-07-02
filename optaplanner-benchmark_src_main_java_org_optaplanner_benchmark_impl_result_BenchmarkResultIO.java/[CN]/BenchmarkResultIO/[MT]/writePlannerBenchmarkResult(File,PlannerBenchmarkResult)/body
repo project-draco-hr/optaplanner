@@ -1,14 +1,9 @@
 {
   File plannerBenchmarkResultFile=new File(benchmarkReportDirectory,PLANNER_BENCHMARK_RESULT_FILENAME);
-  Writer writer=null;
-  try {
-    writer=new OutputStreamWriter(new FileOutputStream(plannerBenchmarkResultFile),"UTF-8");
+  try (Writer writer=new OutputStreamWriter(new FileOutputStream(plannerBenchmarkResultFile),"UTF-8")){
     xStream.toXML(plannerBenchmarkResult,writer);
   }
  catch (  IOException e) {
-    throw new IllegalArgumentException("Problem writing plannerBenchmarkResultFile: " + plannerBenchmarkResultFile,e);
-  }
- finally {
-    IOUtils.closeQuietly(writer);
+    throw new IllegalArgumentException("Failed writing plannerBenchmarkResultFile (" + plannerBenchmarkResultFile + ").",e);
   }
 }

@@ -1,14 +1,11 @@
 {
-  Reader reader=null;
-  try {
-    reader=new InputStreamReader(templateIn,"UTF-8");
+  try (Reader reader=new InputStreamReader(templateIn,"UTF-8")){
     return configure(reader,model);
   }
  catch (  UnsupportedEncodingException e) {
     throw new IllegalStateException("This vm does not support UTF-8 encoding.",e);
   }
- finally {
-    IOUtils.closeQuietly(reader);
-    IOUtils.closeQuietly(templateIn);
+catch (  IOException e) {
+    throw new IllegalArgumentException("Reading failed.",e);
   }
 }

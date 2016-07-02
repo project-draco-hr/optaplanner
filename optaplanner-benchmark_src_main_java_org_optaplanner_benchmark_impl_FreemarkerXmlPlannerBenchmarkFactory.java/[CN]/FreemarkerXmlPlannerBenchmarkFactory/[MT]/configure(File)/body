@@ -1,8 +1,3 @@
 {
-  try {
-    return configure(new FileInputStream(templateFile));
-  }
- catch (  FileNotFoundException e) {
-    throw new IllegalArgumentException("The templateFile (" + templateFile + ") was not found.",e);
-  }
+  return configure(templateFile,null);
 }

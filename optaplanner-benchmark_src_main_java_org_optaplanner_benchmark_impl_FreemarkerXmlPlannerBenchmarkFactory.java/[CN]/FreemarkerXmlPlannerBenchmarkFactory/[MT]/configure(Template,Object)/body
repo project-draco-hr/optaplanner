@@ -1,7 +1,8 @@
 {
-  StringWriter configWriter=new StringWriter();
-  try {
+  String content;
+  try (StringWriter configWriter=new StringWriter()){
     template.process(model,configWriter);
+    content=configWriter.toString();
   }
  catch (  IOException e) {
     throw new IllegalArgumentException("Can not write to configWriter.",e);
@@ -9,10 +10,8 @@
 catch (  TemplateException e) {
     throw new IllegalArgumentException("Can not process Freemarker template to configWriter.",e);
   }
- finally {
-    IOUtils.closeQuietly(configWriter);
+  try (StringReader configReader=new StringReader(content)){
+    xmlPlannerBenchmarkFactory.configure(configReader);
   }
-  StringReader configReader=new StringReader(configWriter.toString());
-  xmlPlannerBenchmarkFactory.configure(configReader);
-  return this;
+   return this;
 }

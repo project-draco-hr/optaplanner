@@ -1,8 +1,11 @@
 {
-  try {
-    return configure(new FileInputStream(benchmarkConfigFile));
+  try (InputStream in=new FileInputStream(benchmarkConfigFile)){
+    return configure(in);
   }
  catch (  FileNotFoundException e) {
     throw new IllegalArgumentException("The benchmarkConfigFile (" + benchmarkConfigFile + ") was not found.",e);
+  }
+catch (  IOException e) {
+    throw new IllegalArgumentException("Reading the benchmarkConfigFile (" + benchmarkConfigFile + ") failed.",e);
   }
 }

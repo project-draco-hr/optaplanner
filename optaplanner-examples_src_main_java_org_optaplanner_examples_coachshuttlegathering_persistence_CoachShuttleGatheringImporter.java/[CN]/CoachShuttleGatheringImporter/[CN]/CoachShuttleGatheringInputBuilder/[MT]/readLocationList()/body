@@ -3,9 +3,7 @@
   latLongToLocationMap=new HashMap<>();
   List<RoadLocation> locationList=new ArrayList<>();
   long locationId=0L;
-  BufferedReader subBufferedReader=null;
-  try {
-    subBufferedReader=new BufferedReader(new InputStreamReader(new FileInputStream(file),"UTF-8"));
+  try (BufferedReader subBufferedReader=new BufferedReader(new InputStreamReader(new FileInputStream(file),"UTF-8"))){
     subBufferedReader.readLine();
     for (String line=subBufferedReader.readLine(); line != null; line=subBufferedReader.readLine()) {
       if (line.isEmpty()) {
@@ -23,9 +21,6 @@
   }
  catch (  IOException e) {
     throw new IllegalArgumentException("Could not read the file (" + file.getName() + ").",e);
-  }
- finally {
-    IOUtils.closeQuietly(subBufferedReader);
   }
   solution.setLocationList(locationList);
   for (  RoadLocation sourceLocation : locationList) {

@@ -2,10 +2,8 @@
   List<RoadLocation> locationList=solution.getLocationList();
   int locationListSize=locationList.size();
   File file=new File(inputFile.getParentFile(),"DistanceTimesData_SHUTTLES.csv");
-  BufferedReader subBufferedReader=null;
   int locationListIndex=0;
-  try {
-    subBufferedReader=new BufferedReader(new InputStreamReader(new FileInputStream(file),"UTF-8"));
+  try (BufferedReader subBufferedReader=new BufferedReader(new InputStreamReader(new FileInputStream(file),"UTF-8"))){
     subBufferedReader.readLine();
     for (String line=subBufferedReader.readLine(); line != null; line=subBufferedReader.readLine()) {
       if (line.isEmpty()) {
@@ -24,8 +22,5 @@
   }
  catch (  IOException e) {
     throw new IllegalArgumentException("Could not read the file (" + file.getName() + ").",e);
-  }
- finally {
-    IOUtils.closeQuietly(subBufferedReader);
   }
 }

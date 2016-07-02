@@ -1,12 +1,16 @@
 {
   ClassLoader actualClassLoader=solverConfigContext.determineActualClassLoader();
-  InputStream templateIn=actualClassLoader.getResourceAsStream(templateResource);
-  if (templateIn == null) {
-    String errorMessage="The templateResource (" + templateResource + ") does not exist as a classpath resource in the classLoader ("+ actualClassLoader+ ").";
-    if (templateResource.startsWith("/")) {
-      errorMessage+="\nAs from 6.1, a classpath resource should not start with a slash (/)." + " A templateResource now adheres to ClassLoader.getResource(String)." + " Remove the leading slash from the templateResource if you're upgrading from 6.0.";
+  try (InputStream templateIn=actualClassLoader.getResourceAsStream(templateResource)){
+    if (templateIn == null) {
+      String errorMessage="The templateResource (" + templateResource + ") does not exist as a classpath resource in the classLoader ("+ actualClassLoader+ ").";
+      if (templateResource.startsWith("/")) {
+        errorMessage+="\nAs from 6.1, a classpath resource should not start with a slash (/)." + " A templateResource now adheres to ClassLoader.getResource(String)." + " Remove the leading slash from the templateResource if you're upgrading from 6.0.";
+      }
+      throw new IllegalArgumentException(errorMessage);
     }
-    throw new IllegalArgumentException(errorMessage);
+    return configure(templateIn,model);
   }
-  return configure(templateIn,model);
+ catch (  IOException e) {
+    throw new IllegalArgumentException("Reading the templateResource (" + templateResource + ") failed.",e);
+  }
 }

@@ -1,17 +1,19 @@
 {
   ClassLoader actualClassLoader=solverConfigContext.determineActualClassLoader();
-  InputStream in=actualClassLoader.getResourceAsStream(benchmarkConfigResource);
-  if (in == null) {
-    String errorMessage="The benchmarkConfigResource (" + benchmarkConfigResource + ") does not exist as a classpath resource in the classLoader ("+ actualClassLoader+ ").";
-    if (benchmarkConfigResource.startsWith("/")) {
-      errorMessage+="\nAs from 6.1, a classpath resource should not start with a slash (/)." + " A benchmarkConfigResource now adheres to ClassLoader.getResource(String)." + " Remove the leading slash from the benchmarkConfigResource if you're upgrading from 6.0.";
+  try (InputStream in=actualClassLoader.getResourceAsStream(benchmarkConfigResource)){
+    if (in == null) {
+      String errorMessage="The benchmarkConfigResource (" + benchmarkConfigResource + ") does not exist as a classpath resource in the classLoader ("+ actualClassLoader+ ").";
+      if (benchmarkConfigResource.startsWith("/")) {
+        errorMessage+="\nAs from 6.1, a classpath resource should not start with a slash (/)." + " A benchmarkConfigResource now adheres to ClassLoader.getResource(String)." + " Remove the leading slash from the benchmarkConfigResource if you're upgrading from 6.0.";
+      }
+      throw new IllegalArgumentException(errorMessage);
     }
-    throw new IllegalArgumentException(errorMessage);
-  }
-  try {
     return configure(in);
   }
  catch (  ConversionException e) {
     throw new IllegalArgumentException("Unmarshalling of benchmarkConfigResource (" + benchmarkConfigResource + ") fails.",e);
+  }
+catch (  IOException e) {
+    throw new IllegalArgumentException("Reading the benchmarkConfigResource (" + benchmarkConfigResource + ") failed.",e);
   }
 }

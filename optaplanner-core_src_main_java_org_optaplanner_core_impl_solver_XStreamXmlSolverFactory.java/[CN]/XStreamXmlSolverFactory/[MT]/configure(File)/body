@@ -1,8 +1,11 @@
 {
-  try {
-    return configure(new FileInputStream(solverConfigFile));
+  try (InputStream in=new FileInputStream(solverConfigFile)){
+    return configure(in);
   }
  catch (  FileNotFoundException e) {
     throw new IllegalArgumentException("The solverConfigFile (" + solverConfigFile + ") was not found.",e);
+  }
+catch (  IOException e) {
+    throw new IllegalArgumentException("Reading the solverConfigFile (" + solverConfigFile + ") failed.",e);
   }
 }
