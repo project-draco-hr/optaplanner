@@ -1,4 +1,4 @@
 {
   BigDecimal exponentBigDecimal=BigDecimal.valueOf(exponent);
-  return new HardSoftBigDecimalScore((int)Math.floor(Math.pow(initScore,exponent)),hardScore.pow(exponentBigDecimal.intValue()).setScale(hardScore.scale()),softScore.pow(exponentBigDecimal.intValue()).setScale(softScore.scale()));
+  return new HardSoftBigDecimalScore((int)Math.floor(Math.pow(initScore,exponent)),hardScore.pow(exponentBigDecimal.intValue()).setScale(hardScore.scale(),RoundingMode.FLOOR),softScore.pow(exponentBigDecimal.intValue()).setScale(softScore.scale(),RoundingMode.FLOOR));
 }
