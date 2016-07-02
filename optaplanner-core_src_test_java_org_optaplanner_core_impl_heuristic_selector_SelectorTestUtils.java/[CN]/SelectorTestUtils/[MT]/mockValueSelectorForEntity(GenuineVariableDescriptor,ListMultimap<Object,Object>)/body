@@ -1,24 +1,2 @@
 {
-  ValueSelector valueSelector=mock(ValueSelector.class);
-  when(valueSelector.getVariableDescriptor()).thenReturn(variableDescriptor);
-  for (  Map.Entry<Object,Collection<Object>> entry : entityToValues.asMap().entrySet()) {
-    Object entity=entry.getKey();
-    final List<Object> valueList=(List<Object>)entry.getValue();
-    when(valueSelector.getSize(entity)).thenAnswer(new Answer<Long>(){
-      @Override public Long answer(      InvocationOnMock invocation){
-        return (long)valueList.size();
-      }
-    }
-);
-    when(valueSelector.iterator(entity)).thenAnswer(new Answer<Iterator<Object>>(){
-      @Override public Iterator<Object> answer(      InvocationOnMock invocation){
-        return valueList.iterator();
-      }
-    }
-);
-    when(valueSelector.getSize(entity)).thenReturn((long)valueList.size());
-  }
-  when(valueSelector.isCountable()).thenReturn(true);
-  when(valueSelector.isNeverEnding()).thenReturn(false);
-  return valueSelector;
 }

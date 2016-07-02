@@ -1,15 +1,2 @@
 {
-  ValueSelector valueSelector=mock(ValueSelector.class);
-  when(valueSelector.getVariableDescriptor()).thenReturn(variableDescriptor);
-  final List<Object> valueList=Arrays.<Object>asList(values);
-  when(valueSelector.iterator(any())).thenAnswer(new Answer<Iterator<Object>>(){
-    @Override public Iterator<Object> answer(    InvocationOnMock invocation) throws Throwable {
-      return valueList.iterator();
-    }
-  }
-);
-  when(valueSelector.isCountable()).thenReturn(true);
-  when(valueSelector.isNeverEnding()).thenReturn(false);
-  when(valueSelector.getSize(any())).thenReturn((long)valueList.size());
-  return valueSelector;
 }

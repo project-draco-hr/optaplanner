@@ -1,15 +1,2 @@
 {
-  MoveSelector moveSelector=mock(MoveSelector.class);
-  final List<Move> moveList=Arrays.<Move>asList(moves);
-  when(moveSelector.iterator()).thenAnswer(new Answer<Iterator<Move>>(){
-    @Override public Iterator<Move> answer(    InvocationOnMock invocation) throws Throwable {
-      return moveList.iterator();
-    }
-  }
-);
-  when(moveSelector.isCountable()).thenReturn(true);
-  when(moveSelector.isNeverEnding()).thenReturn(false);
-  when(moveSelector.getCacheType()).thenReturn(SelectionCacheType.JUST_IN_TIME);
-  when(moveSelector.getSize()).thenReturn((long)moveList.size());
-  return moveSelector;
 }
