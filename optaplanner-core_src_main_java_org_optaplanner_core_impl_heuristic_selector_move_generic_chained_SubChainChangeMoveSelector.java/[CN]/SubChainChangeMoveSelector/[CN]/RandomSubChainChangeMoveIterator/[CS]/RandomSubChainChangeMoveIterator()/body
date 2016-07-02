@@ -1,5 +1,5 @@
 {
   subChainIterator=subChainSelector.iterator();
   valueIterator=valueSelector.iterator();
-  valueIterator=Iterators.emptyIterator();
+  valueIterator=Collections.emptyIterator();
 }

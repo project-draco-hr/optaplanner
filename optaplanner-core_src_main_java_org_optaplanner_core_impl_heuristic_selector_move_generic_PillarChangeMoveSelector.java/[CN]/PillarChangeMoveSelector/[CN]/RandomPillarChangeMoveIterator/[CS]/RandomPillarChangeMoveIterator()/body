@@ -1,4 +1,4 @@
 {
   pillarIterator=pillarSelector.iterator();
-  valueIterator=Iterators.emptyIterator();
+  valueIterator=Collections.emptyIterator();
 }

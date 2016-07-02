@@ -1,6 +1,6 @@
 {
   if (!downcastEntityClass.isInstance(entity)) {
-    return Iterators.emptyIterator();
+    return Collections.emptyIterator();
   }
   return childValueSelector.endingIterator(entity);
 }

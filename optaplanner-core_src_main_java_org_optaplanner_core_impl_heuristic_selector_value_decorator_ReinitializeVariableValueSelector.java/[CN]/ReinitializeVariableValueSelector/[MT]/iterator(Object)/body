@@ -1,6 +1,6 @@
 {
   if (!reinitializeVariableEntityFilter.accept(scoreDirector,entity)) {
-    return Iterators.emptyIterator();
+    return Collections.emptyIterator();
   }
   return childValueSelector.iterator(entity);
 }

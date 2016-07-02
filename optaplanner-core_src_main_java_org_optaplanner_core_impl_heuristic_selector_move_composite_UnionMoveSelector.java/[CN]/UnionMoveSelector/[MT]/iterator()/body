@@ -1,6 +1,6 @@
 {
   if (!randomSelection) {
-    Iterator<Move> iterator=Iterators.emptyIterator();
+    Iterator<Move> iterator=Collections.emptyIterator();
     for (    MoveSelector moveSelector : childMoveSelectorList) {
       iterator=Iterators.concat(iterator,moveSelector.iterator());
     }

@@ -1,4 +1,4 @@
 {
   subChainIterator=subChainSelector.iterator();
-  valueIterator=Iterators.emptyIterator();
+  valueIterator=Collections.emptyIterator();
 }
