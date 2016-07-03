@@ -1,3 +1,2 @@
 {
-  return new CompareToBuilder().append(b.hasAnyFailure(),a.hasAnyFailure()).append(a.getAverageScore(),b.getAverageScore(),resilientScoreComparator).toComparison();
 }
