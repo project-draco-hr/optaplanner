@@ -1,0 +1,3 @@
+{
+  return SolutionDescriptor.buildSolutionDescriptor(JacksonTestdataSolution.class,JacksonTestdataEntity.class);
+}

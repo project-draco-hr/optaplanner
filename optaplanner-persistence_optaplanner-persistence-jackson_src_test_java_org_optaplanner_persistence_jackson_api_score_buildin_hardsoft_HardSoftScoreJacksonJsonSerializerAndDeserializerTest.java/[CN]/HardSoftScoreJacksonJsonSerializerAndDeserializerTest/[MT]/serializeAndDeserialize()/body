@@ -1,0 +1,7 @@
+{
+  assertSerializeAndDeserialize(null,new TestHardSoftScoreWrapper(null));
+  HardSoftScore score=HardSoftScore.valueOfInitialized(1200,34);
+  assertSerializeAndDeserialize(score,new TestHardSoftScoreWrapper(score));
+  score=HardSoftScore.valueOf(-7,1200,34);
+  assertSerializeAndDeserialize(score,new TestHardSoftScoreWrapper(score));
+}

@@ -1,0 +1,4 @@
+{
+  SolutionDescriptor solutionDescriptor=JacksonTestdataSolution.buildSolutionDescriptor();
+  return solutionDescriptor.findEntityDescriptorOrFail(JacksonTestdataEntity.class);
+}

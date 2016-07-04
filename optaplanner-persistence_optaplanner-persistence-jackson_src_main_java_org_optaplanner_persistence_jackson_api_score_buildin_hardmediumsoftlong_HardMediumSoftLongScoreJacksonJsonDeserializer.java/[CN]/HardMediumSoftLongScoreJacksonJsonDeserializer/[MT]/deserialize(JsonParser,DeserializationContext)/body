@@ -1,0 +1,3 @@
+{
+  return HardMediumSoftLongScore.parseScore(parser.getValueAsString());
+}

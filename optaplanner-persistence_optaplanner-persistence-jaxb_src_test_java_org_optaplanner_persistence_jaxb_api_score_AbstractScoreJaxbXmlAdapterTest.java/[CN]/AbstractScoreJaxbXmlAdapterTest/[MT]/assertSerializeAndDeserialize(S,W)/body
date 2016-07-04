@@ -12,7 +12,7 @@
     output=(W)unmarshaller.unmarshal(reader);
   }
  catch (  JAXBException e) {
-    throw new IllegalStateException("Creation of marshaller for input (" + input + ") failed.",e);
+    throw new IllegalStateException("Marshalling or unmarshalling for input (" + input + ") failed.",e);
   }
   assertEquals(expectedScore,output.getScore());
   String regex;

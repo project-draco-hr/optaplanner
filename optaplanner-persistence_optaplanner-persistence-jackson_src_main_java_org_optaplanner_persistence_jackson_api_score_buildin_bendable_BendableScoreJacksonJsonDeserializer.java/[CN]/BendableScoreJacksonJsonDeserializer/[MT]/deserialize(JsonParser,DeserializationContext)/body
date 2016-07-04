@@ -1,0 +1,3 @@
+{
+  return BendableScore.parseScore(parser.getValueAsString());
+}
