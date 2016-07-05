@@ -1,4 +1,4 @@
 {
   incrementalScoreCalculator.resetWorkingSolution(workingSolution);
-  super.afterProblemFactChanged(problemFact);
+  super.afterProblemPropertyChanged(problemFactOrEntity);
 }

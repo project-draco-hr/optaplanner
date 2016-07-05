@@ -1,0 +1,8 @@
+{
+  FactHandle factHandle=kieSession.getFactHandle(problemFactOrEntity);
+  if (factHandle == null) {
+    throw new IllegalArgumentException("The problemFact (" + problemFactOrEntity + ") was never added to this ScoreDirector.\n"+ "Maybe that specific instance is not in the "+ PlanningSolution.class.getSimpleName()+ "'s problem fact members ("+ getSolutionDescriptor().getProblemFactMemberAndProblemFactCollectionMemberNames()+ ").");
+  }
+  kieSession.update(factHandle,problemFactOrEntity);
+  super.afterProblemPropertyChanged(problemFactOrEntity);
+}
