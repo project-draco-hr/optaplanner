@@ -5,7 +5,7 @@
   }
   plannerBenchmarkResult.setBenchmarkTimeMillisSpent(calculateTimeMillisSpent());
   benchmarkResultIO.writePlannerBenchmarkResult(plannerBenchmarkResult.getBenchmarkReportDirectory(),plannerBenchmarkResult);
-  benchmarkReport.writeReport();
+  benchmarkReport.writeReport(solverConfigContext);
   if (plannerBenchmarkResult.getFailureCount() == 0) {
     logger.info("Benchmarking ended: time spent ({}), favoriteSolverBenchmark ({}), statistic html overview ({}).",plannerBenchmarkResult.getBenchmarkTimeMillisSpent(),plannerBenchmarkResult.getFavoriteSolverBenchmarkResult().getName(),benchmarkReport.getHtmlOverviewFile().getAbsolutePath());
   }

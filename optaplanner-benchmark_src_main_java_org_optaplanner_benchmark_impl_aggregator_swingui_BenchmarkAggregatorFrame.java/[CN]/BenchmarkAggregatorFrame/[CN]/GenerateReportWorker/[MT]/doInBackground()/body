@@ -1,3 +1,4 @@
 {
-  return benchmarkAggregator.aggregate(singleBenchmarkResultList,solverBenchmarkResultNameMapping);
+  SolverConfigContext configContext=new SolverConfigContext();
+  return benchmarkAggregator.aggregate(configContext,singleBenchmarkResultList,solverBenchmarkResultNameMapping);
 }

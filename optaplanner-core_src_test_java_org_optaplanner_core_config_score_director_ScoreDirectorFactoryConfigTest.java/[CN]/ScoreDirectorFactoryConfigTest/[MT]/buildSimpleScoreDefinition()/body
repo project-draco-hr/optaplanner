@@ -1,6 +1,6 @@
 {
   ScoreDirectorFactoryConfig config=new ScoreDirectorFactoryConfig();
   config.setScoreDefinitionType(ScoreDefinitionType.SIMPLE);
-  ScoreDefinition scoreDefinition=config.buildScoreDefinition();
+  ScoreDefinition scoreDefinition=config.buildDeprecatedScoreDefinition();
   assertInstanceOf(SimpleScoreDefinition.class,scoreDefinition);
 }

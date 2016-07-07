@@ -1,5 +1,5 @@
 {
   String originalXml=IOUtils.toString(getClass().getResourceAsStream(plannerBenchmarkConfigResource),"UTF-8");
   String savedXml=plannerBenchmarkFactory.getXStream().toXML(plannerBenchmarkFactory.getPlannerBenchmarkConfig());
-  assertEquals(originalXml,savedXml);
+  assertEquals(originalXml.trim(),savedXml);
 }

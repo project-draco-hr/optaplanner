@@ -1,3 +1,3 @@
 {
-  return buildSolutionDescriptor(solutionClass,Arrays.asList(entityClasses));
+  return buildSolutionDescriptor(solutionClass,Arrays.asList(entityClasses),null);
 }

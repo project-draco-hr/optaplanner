@@ -1,0 +1,18 @@
+{
+  if (((AnnotatedElement)member).isAnnotationPresent(PlanningScore.class)) {
+    MemberAccessor memberAccessor=ConfigUtils.buildMemberAccessor(member,FIELD_OR_GETTER_METHOD_WITH_SETTER,PlanningScore.class);
+    if (deprecatedScoreDefinition != null) {
+      throw new IllegalStateException("The solutionClass (" + solutionClass + ") has a "+ PlanningScore.class.getSimpleName()+ " annotated member ("+ memberAccessor+ ") but the solver configuration still has a deprecated scoreDefinitionType"+ " or scoreDefinitionClass element.\n"+ "  Maybe remove the <scoreDefinitionType>, <bendableHardLevelsSize>, <bendableSoftLevelsSize> and <scoreDefinitionClass> elements from the solver configuration.");
+    }
+    if (scoreMemberAccessor != null) {
+      throw new IllegalStateException("The solutionClass (" + solutionClass + ") has a "+ PlanningScore.class.getSimpleName()+ " annotated member ("+ memberAccessor+ ") that is duplicated by another member ("+ scoreMemberAccessor+ ").\n"+ "  Verify that the annotation is not defined on both the field and its getter.");
+    }
+ else     if (!Score.class.isAssignableFrom(memberAccessor.getType())) {
+      throw new IllegalStateException("The solutionClass (" + solutionClass + ") has a "+ PlanningScore.class.getSimpleName()+ " annotated member ("+ memberAccessor+ ") that does not return a subtype of Score.");
+    }
+    scoreMemberAccessor=memberAccessor;
+    Class<? extends Score> scoreType=(Class<? extends Score>)scoreMemberAccessor.getType();
+    PlanningScore annotation=memberAccessor.getAnnotation(PlanningScore.class);
+    scoreDefinition=buildScoreDefinition(scoreType,annotation);
+  }
+}

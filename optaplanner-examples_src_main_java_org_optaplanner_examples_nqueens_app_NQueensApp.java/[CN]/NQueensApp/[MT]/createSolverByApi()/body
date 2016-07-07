@@ -4,7 +4,6 @@
   solverConfig.setSolutionClass(NQueens.class);
   solverConfig.setEntityClassList(Collections.<Class<?>>singletonList(Queen.class));
   ScoreDirectorFactoryConfig scoreDirectorFactoryConfig=new ScoreDirectorFactoryConfig();
-  scoreDirectorFactoryConfig.setScoreDefinitionType(ScoreDefinitionType.SIMPLE);
   scoreDirectorFactoryConfig.setScoreDrlList(Arrays.asList("org/optaplanner/examples/nqueens/solver/nQueensScoreRules.drl"));
   solverConfig.setScoreDirectorFactoryConfig(scoreDirectorFactoryConfig);
   TerminationConfig terminationConfig=new TerminationConfig();

@@ -1,0 +1,11 @@
+{
+  PlannerBenchmarkResult mergedResult=createMergeSingleton(singleBenchmarkResultList);
+  Map<SolverBenchmarkResult,SolverBenchmarkResult> solverMergeMap=SolverBenchmarkResult.createMergeMap(mergedResult,singleBenchmarkResultList);
+  Map<ProblemBenchmarkResult,ProblemBenchmarkResult> problemMergeMap=ProblemBenchmarkResult.createMergeMap(mergedResult,singleBenchmarkResultList);
+  for (  SingleBenchmarkResult singleBenchmarkResult : singleBenchmarkResultList) {
+    SolverBenchmarkResult solverBenchmarkResult=solverMergeMap.get(singleBenchmarkResult.getSolverBenchmarkResult());
+    ProblemBenchmarkResult problemBenchmarkResult=problemMergeMap.get(singleBenchmarkResult.getProblemBenchmarkResult());
+    SingleBenchmarkResult.createMerge(configContext,solverBenchmarkResult,problemBenchmarkResult,singleBenchmarkResult);
+  }
+  return mergedResult;
+}

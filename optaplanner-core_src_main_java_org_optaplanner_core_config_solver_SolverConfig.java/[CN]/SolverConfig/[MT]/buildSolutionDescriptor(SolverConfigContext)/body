@@ -1,9 +1,10 @@
 {
+  ScoreDefinition deprecatedScoreDefinition=scoreDirectorFactoryConfig == null ? null : scoreDirectorFactoryConfig.buildDeprecatedScoreDefinition();
   if (scanAnnotatedClassesConfig != null) {
     if (solutionClass != null || entityClassList != null) {
       throw new IllegalArgumentException("The solver configuration with scanAnnotatedClasses (" + scanAnnotatedClassesConfig + ") cannot also have a solutionClass ("+ solutionClass+ ") or an entityClass ("+ entityClassList+ ").\n"+ "  Please decide between automatic scanning or manual referencing.");
     }
-    return scanAnnotatedClassesConfig.buildSolutionDescriptor(configContext);
+    return scanAnnotatedClassesConfig.buildSolutionDescriptor(configContext,deprecatedScoreDefinition);
   }
  else {
     if (solutionClass == null) {
@@ -12,6 +13,6 @@
     if (ConfigUtils.isEmptyCollection(entityClassList)) {
       throw new IllegalArgumentException("The solver configuration must have at least 1 entityClass (" + entityClassList + "), if it has no scanAnnotatedClasses ("+ scanAnnotatedClassesConfig+ ").");
     }
-    return SolutionDescriptor.buildSolutionDescriptor((Class<Solution_>)solutionClass,entityClassList);
+    return SolutionDescriptor.buildSolutionDescriptor((Class<Solution_>)solutionClass,entityClassList,deprecatedScoreDefinition);
   }
 }

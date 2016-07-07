@@ -1,0 +1,49 @@
+{
+  if (scoreDefinitionType != ScoreDefinitionType.BENDABLE && scoreDefinitionType != ScoreDefinitionType.BENDABLE_LONG && scoreDefinitionType != ScoreDefinitionType.BENDABLE_BIG_DECIMAL && (bendableHardLevelsSize != null || bendableSoftLevelsSize != null)) {
+    throw new IllegalArgumentException("A bendableHardLevelsSize (" + bendableHardLevelsSize + ") or bendableSoftLevelsSize ("+ bendableSoftLevelsSize+ ") needs a scoreDefinitionType ("+ scoreDefinitionType+ ") that is bendable.");
+  }
+  if ((scoreDefinitionType == ScoreDefinitionType.BENDABLE || scoreDefinitionType == ScoreDefinitionType.BENDABLE_LONG || scoreDefinitionType == ScoreDefinitionType.BENDABLE_BIG_DECIMAL) && (bendableHardLevelsSize == null || bendableSoftLevelsSize == null)) {
+    throw new IllegalArgumentException("With scoreDefinitionType (" + scoreDefinitionType + ") there must be a bendableHardLevelsSize ("+ bendableHardLevelsSize+ ") and a bendableSoftLevelsSize ("+ bendableSoftLevelsSize+ ").");
+  }
+  if (scoreDefinitionClass != null) {
+    if (scoreDefinitionType != null) {
+      throw new IllegalArgumentException("With scoreDefinitionClass (" + scoreDefinitionClass + ") there must be no scoreDefinitionType ("+ scoreDefinitionType+ ").");
+    }
+    return ConfigUtils.newInstance(this,"scoreDefinitionClass",scoreDefinitionClass);
+  }
+  if (scoreDefinitionType != null) {
+switch (scoreDefinitionType) {
+case SIMPLE:
+      return new SimpleScoreDefinition();
+case SIMPLE_LONG:
+    return new SimpleLongScoreDefinition();
+case SIMPLE_DOUBLE:
+  return new SimpleDoubleScoreDefinition();
+case SIMPLE_BIG_DECIMAL:
+return new SimpleBigDecimalScoreDefinition();
+case HARD_SOFT:
+return new HardSoftScoreDefinition();
+case HARD_SOFT_LONG:
+return new HardSoftLongScoreDefinition();
+case HARD_SOFT_DOUBLE:
+return new HardSoftDoubleScoreDefinition();
+case HARD_SOFT_BIG_DECIMAL:
+return new HardSoftBigDecimalScoreDefinition();
+case HARD_MEDIUM_SOFT:
+return new HardMediumSoftScoreDefinition();
+case HARD_MEDIUM_SOFT_LONG:
+return new HardMediumSoftLongScoreDefinition();
+case BENDABLE:
+return new BendableScoreDefinition(bendableHardLevelsSize,bendableSoftLevelsSize);
+case BENDABLE_LONG:
+return new BendableLongScoreDefinition(bendableHardLevelsSize,bendableSoftLevelsSize);
+case BENDABLE_BIG_DECIMAL:
+return new BendableBigDecimalScoreDefinition(bendableHardLevelsSize,bendableSoftLevelsSize);
+default :
+throw new IllegalStateException("The scoreDefinitionType (" + scoreDefinitionType + ") is not implemented.");
+}
+}
+ else {
+return null;
+}
+}

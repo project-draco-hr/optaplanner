@@ -1,0 +1,36 @@
+{
+  if (!problemFactMemberAccessorMap.isEmpty()) {
+    MemberAccessor memberAccessor=problemFactMemberAccessorMap.values().iterator().next();
+    throw new IllegalStateException("The solutionClass (" + solutionClass + ") which implements the legacy interface "+ Solution.class.getSimpleName()+ ") must not have a member ("+ memberAccessor.getName()+ ") with a "+ ProblemFactProperty.class.getSimpleName()+ " annotation.\n"+ "Maybe remove the use of the legacy interface.");
+  }
+  if (!problemFactCollectionMemberAccessorMap.isEmpty()) {
+    MemberAccessor memberAccessor=problemFactCollectionMemberAccessorMap.values().iterator().next();
+    throw new IllegalStateException("The solutionClass (" + solutionClass + ") which implements the legacy interface "+ Solution.class.getSimpleName()+ ") must not have a member ("+ memberAccessor.getName()+ ") with a "+ ProblemFactCollectionProperty.class.getSimpleName()+ " annotation.\n"+ "Maybe remove the use of the legacy interface.");
+  }
+  try {
+    Method getProblemFactsMethod=solutionClass.getMethod("getProblemFacts");
+    MemberAccessor problemFactsMemberAccessor=new BeanPropertyMemberAccessor(getProblemFactsMethod);
+    problemFactCollectionMemberAccessorMap.put(problemFactsMemberAccessor.getName(),problemFactsMemberAccessor);
+  }
+ catch (  NoSuchMethodException e) {
+    throw new IllegalStateException("Impossible situation: the solutionClass (" + solutionClass + ") which implements the legacy interface "+ Solution.class.getSimpleName()+ ", lacks its getProblemFacts() method.",e);
+  }
+  if (scoreMemberAccessor != null) {
+    throw new IllegalStateException("The solutionClass (" + solutionClass + ") which implements the legacy interface "+ Solution.class.getSimpleName()+ ") must not have a member ("+ scoreMemberAccessor.getName()+ ") with a "+ PlanningScore.class.getSimpleName()+ " annotation.\n"+ "Maybe remove the use of the legacy interface.");
+  }
+  try {
+    Method getScoreMethod=solutionClass.getMethod("getScore");
+    scoreMemberAccessor=new BeanPropertyMemberAccessor(getScoreMethod);
+  }
+ catch (  NoSuchMethodException e) {
+    throw new IllegalStateException("Impossible situation: the solutionClass (" + solutionClass + ") which implements the legacy interface "+ Solution.class.getSimpleName()+ ", lacks its getScore() method.",e);
+  }
+  if (deprecatedScoreDefinition == null) {
+    deprecatedScoreDefinition=new SimpleScoreDefinition();
+  }
+  scoreDefinition=deprecatedScoreDefinition;
+  Class<? extends Score> scoreClass=extractScoreClass();
+  if (!scoreClass.isAssignableFrom(scoreDefinition.getScoreClass())) {
+    throw new IllegalArgumentException("The scoreClass (" + scoreClass + ") of solutionClass ("+ solutionClass+ ") is not the same or a superclass as the scoreDefinition's scoreClass ("+ scoreDefinition.getScoreClass()+ ").");
+  }
+}

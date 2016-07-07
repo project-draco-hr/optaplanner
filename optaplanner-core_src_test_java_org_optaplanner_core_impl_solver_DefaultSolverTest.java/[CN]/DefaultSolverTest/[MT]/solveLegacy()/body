@@ -1,5 +1,6 @@
 {
   SolverFactory<TestdataLegacySolution> solverFactory=PlannerTestUtils.buildSolverFactory(TestdataLegacySolution.class,TestdataEntity.class);
+  solverFactory.getSolverConfig().getScoreDirectorFactoryConfig().setScoreDefinitionType(ScoreDefinitionType.SIMPLE);
   Solver<TestdataLegacySolution> solver=solverFactory.buildSolver();
   TestdataLegacySolution solution=new TestdataLegacySolution("s1");
   solution.setValueList(Arrays.asList(new TestdataValue("v1"),new TestdataValue("v2")));

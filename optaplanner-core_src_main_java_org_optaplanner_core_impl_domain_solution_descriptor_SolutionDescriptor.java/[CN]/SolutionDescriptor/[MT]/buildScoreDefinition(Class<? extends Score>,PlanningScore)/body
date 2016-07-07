@@ -1,0 +1,97 @@
+{
+  Class<? extends ScoreDefinition> scoreDefinitionClass=annotation.scoreDefinitionClass();
+  if (scoreDefinitionClass != PlanningScore.NullScoreDefinition.class) {
+    if (annotation.bendableHardLevelsSize() != PlanningScore.NO_LEVEL_SIZE || annotation.bendableSoftLevelsSize() != PlanningScore.NO_LEVEL_SIZE) {
+      throw new IllegalArgumentException("The solutionClass (" + solutionClass + ") has a "+ PlanningScore.class.getSimpleName()+ " annotated member ("+ scoreMemberAccessor+ ") that has a scoreDefinition ("+ scoreDefinitionClass+ ") that must not have a bendableHardLevelsSize ("+ annotation.bendableHardLevelsSize()+ ") or a bendableSoftLevelsSize ("+ annotation.bendableSoftLevelsSize()+ ").");
+    }
+    return ConfigUtils.newInstance(this,"scoreDefinitionClass",scoreDefinitionClass);
+  }
+  if (scoreType == Score.class) {
+    if (!AbstractSolution.class.isAssignableFrom(solutionClass)) {
+      throw new IllegalStateException("The solutionClass (" + solutionClass + ") has a "+ PlanningScore.class.getSimpleName()+ " annotated member ("+ scoreMemberAccessor+ ") that doesn't return a non-abstract "+ Score.class.getSimpleName()+ " class.\n"+ "  Maybe make it return "+ HardSoftScore.class.getSimpleName()+ " or another specific "+ Score.class.getSimpleName()+ " implementation.");
+    }
+ else {
+      if (solutionClass == AbstractSolution.class) {
+        throw new IllegalArgumentException("The solutionClass (" + solutionClass + ") cannot be directly a "+ AbstractSolution.class.getSimpleName()+ ", but a subclass would be ok.");
+      }
+      Class baseClass=solutionClass;
+      while (baseClass.getSuperclass() != AbstractSolution.class) {
+        baseClass=baseClass.getSuperclass();
+        if (baseClass == null) {
+          throw new IllegalStateException("Impossible situation because the solutionClass (" + solutionClass + ") is assignable from "+ AbstractSolution.class.getSimpleName()+ ".");
+        }
+      }
+      Type genericAbstractSolution=solutionClass.getGenericSuperclass();
+      if (!(genericAbstractSolution instanceof ParameterizedType)) {
+        throw new IllegalStateException("Impossible situation because the genericAbstractSolution (" + genericAbstractSolution + ") is a "+ AbstractSolution.class.getSimpleName()+ ".");
+      }
+      ParameterizedType parameterizedAbstractSolution=(ParameterizedType)genericAbstractSolution;
+      Type[] typeArguments=parameterizedAbstractSolution.getActualTypeArguments();
+      if (typeArguments.length != 1) {
+        throw new IllegalStateException("Impossible situation because the parameterizedAbstractSolution (" + parameterizedAbstractSolution + ") is a "+ AbstractSolution.class.getSimpleName()+ ".");
+      }
+      Type typeArgument=typeArguments[0];
+      if (!(typeArgument instanceof Class)) {
+        throw new IllegalStateException("Impossible situation because a (" + AbstractSolution.class.getSimpleName() + "'s typeArgument ("+ typeArgument+ ") must be a "+ Score.class.getSimpleName()+ ".");
+      }
+      scoreType=(Class<? extends Score>)typeArgument;
+    }
+  }
+  if (!AbstractBendableScore.class.isAssignableFrom(scoreType)) {
+    if (annotation.bendableHardLevelsSize() != PlanningScore.NO_LEVEL_SIZE || annotation.bendableSoftLevelsSize() != PlanningScore.NO_LEVEL_SIZE) {
+      throw new IllegalArgumentException("The solutionClass (" + solutionClass + ") has a "+ PlanningScore.class.getSimpleName()+ " annotated member ("+ scoreMemberAccessor+ ") that returns a scoreType ("+ scoreType+ ") that must not have a bendableHardLevelsSize ("+ annotation.bendableHardLevelsSize()+ ") or a bendableSoftLevelsSize ("+ annotation.bendableSoftLevelsSize()+ ").");
+    }
+    if (scoreType.equals(SimpleScore.class)) {
+      return new SimpleScoreDefinition();
+    }
+ else     if (scoreType.equals(SimpleLongScore.class)) {
+      return new SimpleLongScoreDefinition();
+    }
+ else     if (scoreType.equals(SimpleDoubleScore.class)) {
+      return new SimpleDoubleScoreDefinition();
+    }
+ else     if (scoreType.equals(SimpleBigDecimalScore.class)) {
+      return new SimpleBigDecimalScoreDefinition();
+    }
+ else     if (scoreType.equals(HardSoftScore.class)) {
+      return new HardSoftScoreDefinition();
+    }
+ else     if (scoreType.equals(HardSoftLongScore.class)) {
+      return new HardSoftLongScoreDefinition();
+    }
+ else     if (scoreType.equals(HardSoftDoubleScore.class)) {
+      return new HardSoftDoubleScoreDefinition();
+    }
+ else     if (scoreType.equals(HardSoftBigDecimalScore.class)) {
+      return new HardSoftBigDecimalScoreDefinition();
+    }
+ else     if (scoreType.equals(HardMediumSoftScore.class)) {
+      return new HardMediumSoftScoreDefinition();
+    }
+ else     if (scoreType.equals(HardMediumSoftLongScore.class)) {
+      return new HardMediumSoftLongScoreDefinition();
+    }
+ else {
+      throw new IllegalArgumentException("The solutionClass (" + solutionClass + ") has a "+ PlanningScore.class.getSimpleName()+ " annotated member ("+ scoreMemberAccessor+ ") that returns a scoreType ("+ scoreType+ ") that is not recognized as a default "+ Score.class.getSimpleName()+ " implementation.\n"+ "  If you intend to use a custom implementation,"+ " maybe set a scoreDefinition in the "+ PlanningScore.class.getSimpleName()+ " annotation.");
+    }
+  }
+ else {
+    int bendableHardLevelsSize=annotation.bendableHardLevelsSize();
+    int bendableSoftLevelsSize=annotation.bendableSoftLevelsSize();
+    if (bendableHardLevelsSize == PlanningScore.NO_LEVEL_SIZE || bendableSoftLevelsSize == PlanningScore.NO_LEVEL_SIZE) {
+      throw new IllegalArgumentException("The solutionClass (" + solutionClass + ") has a "+ PlanningScore.class.getSimpleName()+ " annotated member ("+ scoreMemberAccessor+ ") that returns a scoreType ("+ scoreType+ ") that must have a bendableHardLevelsSize ("+ annotation.bendableHardLevelsSize()+ ") and a bendableSoftLevelsSize ("+ annotation.bendableSoftLevelsSize()+ ").");
+    }
+    if (scoreType.equals(BendableScore.class)) {
+      return new BendableScoreDefinition(bendableHardLevelsSize,bendableSoftLevelsSize);
+    }
+ else     if (scoreType.equals(BendableLongScore.class)) {
+      return new BendableLongScoreDefinition(bendableHardLevelsSize,bendableSoftLevelsSize);
+    }
+ else     if (scoreType.equals(BendableBigDecimalScore.class)) {
+      return new BendableBigDecimalScoreDefinition(bendableHardLevelsSize,bendableSoftLevelsSize);
+    }
+ else {
+      throw new IllegalArgumentException("The solutionClass (" + solutionClass + ") has a "+ PlanningScore.class.getSimpleName()+ " annotated member ("+ scoreMemberAccessor+ ") that returns a bendable scoreType ("+ scoreType+ ") that is not recognized as a default "+ Score.class.getSimpleName()+ " implementation.\n"+ "  If you intend to use a custom implementation,"+ " maybe set a scoreDefinition in the annotation.");
+    }
+  }
+}
