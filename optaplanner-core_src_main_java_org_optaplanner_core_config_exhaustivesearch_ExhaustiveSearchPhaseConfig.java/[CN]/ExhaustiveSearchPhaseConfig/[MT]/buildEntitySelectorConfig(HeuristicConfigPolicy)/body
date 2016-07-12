@@ -4,7 +4,7 @@
     entitySelectorConfig_=new EntitySelectorConfig();
     EntityDescriptor entityDescriptor=deduceEntityDescriptor(configPolicy.getSolutionDescriptor());
     entitySelectorConfig_.setEntityClass(entityDescriptor.getEntityClass());
-    if (configPolicy.getEntitySorterManner().hasSorter(entityDescriptor)) {
+    if (EntitySorterMannerHelper.hasSorter(configPolicy.getEntitySorterManner(),entityDescriptor)) {
       entitySelectorConfig_.setCacheType(SelectionCacheType.PHASE);
       entitySelectorConfig_.setSelectionOrder(SelectionOrder.SORTED);
       entitySelectorConfig_.setSorterManner(configPolicy.getEntitySorterManner());

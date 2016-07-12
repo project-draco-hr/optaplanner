@@ -1,0 +1,19 @@
+{
+switch (constructionHeuristicType) {
+case FIRST_FIT:
+case FIRST_FIT_DECREASING:
+case WEAKEST_FIT:
+case WEAKEST_FIT_DECREASING:
+case STRONGEST_FIT:
+case STRONGEST_FIT_DECREASING:
+case ALLOCATE_ENTITY_FROM_QUEUE:
+    return new QueuedEntityPlacerConfig();
+case ALLOCATE_TO_VALUE_FROM_QUEUE:
+  return new QueuedValuePlacerConfig();
+case CHEAPEST_INSERTION:
+case ALLOCATE_FROM_POOL:
+return new PooledEntityPlacerConfig();
+default :
+throw new IllegalStateException("The constructionHeuristicType (" + constructionHeuristicType + ") is not implemented.");
+}
+}

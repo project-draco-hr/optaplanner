@@ -1,0 +1,16 @@
+{
+  SelectionSorter sorter;
+switch (entitySorterManner) {
+case NONE:
+    throw new IllegalStateException("Impossible state: hasSorter() should have returned null.");
+case DECREASING_DIFFICULTY:
+case DECREASING_DIFFICULTY_IF_AVAILABLE:
+  sorter=entityDescriptor.getDecreasingDifficultySorter();
+if (sorter == null) {
+  throw new IllegalArgumentException("The sorterManner (" + entitySorterManner + ") on entity class ("+ entityDescriptor.getEntityClass()+ ") fails because that entity class's @"+ PlanningEntity.class.getSimpleName()+ " annotation does not declare any difficulty comparison.");
+}
+return sorter;
+default :
+throw new IllegalStateException("The sorterManner (" + entitySorterManner + ") is not implemented.");
+}
+}

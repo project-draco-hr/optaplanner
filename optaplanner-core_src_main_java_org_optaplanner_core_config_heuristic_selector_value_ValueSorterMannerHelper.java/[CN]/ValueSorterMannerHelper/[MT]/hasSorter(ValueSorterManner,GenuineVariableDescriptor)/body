@@ -1,0 +1,15 @@
+{
+switch (valueSorterManner) {
+case NONE:
+    return false;
+case INCREASING_STRENGTH:
+case DECREASING_STRENGTH:
+  return true;
+case INCREASING_STRENGTH_IF_AVAILABLE:
+return variableDescriptor.getIncreasingStrengthSorter() != null;
+case DECREASING_STRENGTH_IF_AVAILABLE:
+return variableDescriptor.getDecreasingStrengthSorter() != null;
+default :
+throw new IllegalStateException("The sorterManner (" + valueSorterManner + ") is not implemented.");
+}
+}

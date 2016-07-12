@@ -1,0 +1,20 @@
+{
+switch (constructionHeuristicType) {
+case FIRST_FIT:
+case FIRST_FIT_DECREASING:
+    return ValueSorterManner.NONE;
+case WEAKEST_FIT:
+case WEAKEST_FIT_DECREASING:
+  return ValueSorterManner.INCREASING_STRENGTH;
+case STRONGEST_FIT:
+case STRONGEST_FIT_DECREASING:
+return ValueSorterManner.DECREASING_STRENGTH;
+case ALLOCATE_ENTITY_FROM_QUEUE:
+case ALLOCATE_TO_VALUE_FROM_QUEUE:
+case CHEAPEST_INSERTION:
+case ALLOCATE_FROM_POOL:
+return ValueSorterManner.INCREASING_STRENGTH_IF_AVAILABLE;
+default :
+throw new IllegalStateException("The constructionHeuristicType (" + constructionHeuristicType + ") is not implemented.");
+}
+}

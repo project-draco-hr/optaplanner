@@ -1,0 +1,12 @@
+{
+switch (entitySorterManner) {
+case NONE:
+    return false;
+case DECREASING_DIFFICULTY:
+  return true;
+case DECREASING_DIFFICULTY_IF_AVAILABLE:
+return entityDescriptor.getDecreasingDifficultySorter() != null;
+default :
+throw new IllegalStateException("The sorterManner (" + entitySorterManner + ") is not implemented.");
+}
+}

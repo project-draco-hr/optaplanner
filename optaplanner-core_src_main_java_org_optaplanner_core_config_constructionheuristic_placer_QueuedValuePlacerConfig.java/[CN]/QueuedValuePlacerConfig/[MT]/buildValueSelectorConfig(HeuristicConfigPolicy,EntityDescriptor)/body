@@ -6,7 +6,7 @@
     GenuineVariableDescriptor variableDescriptor=deduceVariableDescriptor(entityDescriptor,null);
     valueSelectorConfig_.setId(entityClass.getName() + "." + variableDescriptor.getVariableName());
     valueSelectorConfig_.setVariableName(variableDescriptor.getVariableName());
-    if (configPolicy.getValueSorterManner().hasSorter(variableDescriptor)) {
+    if (ValueSorterMannerHelper.hasSorter(configPolicy.getValueSorterManner(),variableDescriptor)) {
       valueSelectorConfig_.setCacheType(SelectionCacheType.PHASE);
       valueSelectorConfig_.setSelectionOrder(SelectionOrder.SORTED);
       valueSelectorConfig_.setSorterManner(configPolicy.getValueSorterManner());
