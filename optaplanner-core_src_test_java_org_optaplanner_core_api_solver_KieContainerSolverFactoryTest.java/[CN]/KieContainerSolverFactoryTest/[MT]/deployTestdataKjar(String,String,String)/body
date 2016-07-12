@@ -5,7 +5,12 @@
   Resource entityClass=buildResource("org/optaplanner/core/impl/testdata/domain/classloaded/ClassloadedTestdataEntity.java","testdata/kjar/ClassloadedTestdataEntity.java");
   Resource solutionClass=buildResource("org/optaplanner/core/impl/testdata/domain/classloaded/ClassloadedTestdataSolution.java","testdata/kjar/ClassloadedTestdataSolution.java");
   Resource scoreRules=buildResource("org/optaplanner/core/api/solver/kieContainerTestdataScoreRules.drl","testdata/kjar/scoreRules.drl");
-  Resource solverConfig=buildResource(solverConfigPath,"testdata/kjar/solverConfig.solver");
-  createAndDeployJar(kieServices,kmodule,releaseId,valueClass,entityClass,solutionClass,scoreRules,solverConfig);
+  if (solverConfigPath != null) {
+    Resource solverConfig=buildResource(solverConfigPath,"testdata/kjar/solverConfig.solver");
+    createAndDeployJar(kieServices,kmodule,releaseId,valueClass,entityClass,solutionClass,scoreRules,solverConfig);
+  }
+ else {
+    createAndDeployJar(kieServices,kmodule,releaseId,valueClass,entityClass,solutionClass,scoreRules);
+  }
   return releaseId;
 }

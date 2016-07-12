@@ -1,0 +1,13 @@
+{
+  ReleaseId releaseId=deployTestdataKjar("buildSolverWithReleaseId","org/optaplanner/core/api/solver/kieContainerNamedKsessionKmodule.xml",null);
+  KieContainer kieContainer=kieServices.newKieContainer(releaseId);
+  SolverFactory<TestdataSolution> solverFactory=SolverFactory.createEmptyFromKieContainer(kieContainer);
+  SolverConfig solverConfig=solverFactory.getSolverConfig();
+  solverConfig.setSolutionClass(kieContainer.getClassLoader().loadClass("testdata.kjar.ClassloadedTestdataSolution"));
+  solverConfig.setEntityClassList(Collections.singletonList(kieContainer.getClassLoader().loadClass("testdata.kjar.ClassloadedTestdataEntity")));
+  ScoreDirectorFactoryConfig scoreDirectorFactoryConfig=new ScoreDirectorFactoryConfig();
+  scoreDirectorFactoryConfig.setKsessionName("testdataKsession");
+  solverConfig.setScoreDirectorFactoryConfig(scoreDirectorFactoryConfig);
+  Solver<TestdataSolution> solver=solverFactory.buildSolver();
+  assertNotNull(solver);
+}
