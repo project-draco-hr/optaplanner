@@ -2,7 +2,4 @@
   if (solverBenchmarkBluePrintType == null) {
     throw new IllegalArgumentException("The solverBenchmarkBluePrint must have" + " a solverBenchmarkBluePrintType (" + solverBenchmarkBluePrintType + ").");
   }
-  if (solverBenchmarkBluePrintType == SolverBenchmarkBluePrintType.ALL_CONSTRUCTION_HEURISTIC_TYPES) {
-    solverBenchmarkBluePrintType=SolverBenchmarkBluePrintType.EVERY_CONSTRUCTION_HEURISTIC_TYPE;
-  }
 }
