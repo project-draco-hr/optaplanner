@@ -3,10 +3,10 @@
     SelectionSorter sorter;
     if (sorterManner != null) {
       GenuineVariableDescriptor variableDescriptor=valueSelector.getVariableDescriptor();
-      if (!ValueSorterMannerHelper.hasSorter(sorterManner,variableDescriptor)) {
+      if (!hasSorter(sorterManner,variableDescriptor)) {
         return valueSelector;
       }
-      sorter=ValueSorterMannerHelper.determineSorter(sorterManner,variableDescriptor);
+      sorter=determineSorter(sorterManner,variableDescriptor);
     }
  else     if (sorterComparatorClass != null) {
       Comparator<Object> sorterComparator=ConfigUtils.newInstance(this,"sorterComparatorClass",sorterComparatorClass);

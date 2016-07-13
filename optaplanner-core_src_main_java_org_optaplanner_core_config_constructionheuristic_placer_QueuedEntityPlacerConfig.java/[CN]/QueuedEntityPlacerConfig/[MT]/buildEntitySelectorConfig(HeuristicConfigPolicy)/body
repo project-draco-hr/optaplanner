@@ -6,7 +6,7 @@
     Class<?> entityClass=entityDescriptor.getEntityClass();
     entitySelectorConfig_.setId(entityClass.getName());
     entitySelectorConfig_.setEntityClass(entityClass);
-    if (EntitySorterMannerHelper.hasSorter(configPolicy.getEntitySorterManner(),entityDescriptor)) {
+    if (EntitySelectorConfig.hasSorter(configPolicy.getEntitySorterManner(),entityDescriptor)) {
       entitySelectorConfig_.setCacheType(SelectionCacheType.PHASE);
       entitySelectorConfig_.setSelectionOrder(SelectionOrder.SORTED);
       entitySelectorConfig_.setSorterManner(configPolicy.getEntitySorterManner());

@@ -6,11 +6,11 @@
   configurePhase(phase,phaseIndex,phaseConfigPolicy,bestSolutionRecaller,solverTermination);
   phase.setDecider(buildDecider(phaseConfigPolicy,phase.getTermination()));
   ConstructionHeuristicType constructionHeuristicType_=defaultIfNull(constructionHeuristicType,ConstructionHeuristicType.ALLOCATE_ENTITY_FROM_QUEUE);
-  phaseConfigPolicy.setEntitySorterManner(entitySorterManner != null ? entitySorterManner : ConstructionHeuristicTypeHelper.getDefaultEntitySorterManner(constructionHeuristicType_));
-  phaseConfigPolicy.setValueSorterManner(valueSorterManner != null ? valueSorterManner : ConstructionHeuristicTypeHelper.getDefaultValueSorterManner(constructionHeuristicType_));
+  phaseConfigPolicy.setEntitySorterManner(entitySorterManner != null ? entitySorterManner : constructionHeuristicType_.getDefaultEntitySorterManner());
+  phaseConfigPolicy.setValueSorterManner(valueSorterManner != null ? valueSorterManner : constructionHeuristicType_.getDefaultValueSorterManner());
   EntityPlacerConfig entityPlacerConfig;
   if (ConfigUtils.isEmptyCollection(entityPlacerConfigList)) {
-    entityPlacerConfig=ConstructionHeuristicTypeHelper.newEntityPlacerConfig(constructionHeuristicType_);
+    entityPlacerConfig=newEntityPlacerConfig(constructionHeuristicType_);
   }
  else   if (entityPlacerConfigList.size() == 1) {
     entityPlacerConfig=entityPlacerConfigList.get(0);

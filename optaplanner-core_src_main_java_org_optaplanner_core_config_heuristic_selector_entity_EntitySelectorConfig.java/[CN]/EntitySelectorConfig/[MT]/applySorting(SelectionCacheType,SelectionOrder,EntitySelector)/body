@@ -3,10 +3,10 @@
     SelectionSorter sorter;
     if (sorterManner != null) {
       EntityDescriptor entityDescriptor=entitySelector.getEntityDescriptor();
-      if (!EntitySorterMannerHelper.hasSorter(sorterManner,entityDescriptor)) {
+      if (!hasSorter(sorterManner,entityDescriptor)) {
         return entitySelector;
       }
-      sorter=EntitySorterMannerHelper.determineSorter(sorterManner,entityDescriptor);
+      sorter=determineSorter(sorterManner,entityDescriptor);
     }
  else     if (sorterComparatorClass != null) {
       Comparator<Object> sorterComparator=ConfigUtils.newInstance(this,"sorterComparatorClass",sorterComparatorClass);

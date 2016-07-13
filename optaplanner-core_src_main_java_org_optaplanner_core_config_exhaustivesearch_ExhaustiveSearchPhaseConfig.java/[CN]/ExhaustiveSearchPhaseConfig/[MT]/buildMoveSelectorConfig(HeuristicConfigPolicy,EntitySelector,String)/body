@@ -11,7 +11,7 @@
       changeMoveSelectorConfig.setEntitySelectorConfig(changeEntitySelectorConfig);
       ValueSelectorConfig changeValueSelectorConfig=new ValueSelectorConfig();
       changeValueSelectorConfig.setVariableName(variableDescriptor.getVariableName());
-      if (ValueSorterMannerHelper.hasSorter(configPolicy.getValueSorterManner(),variableDescriptor)) {
+      if (ValueSelectorConfig.hasSorter(configPolicy.getValueSorterManner(),variableDescriptor)) {
         if (variableDescriptor.isValueRangeEntityIndependent()) {
           changeValueSelectorConfig.setCacheType(SelectionCacheType.PHASE);
         }
