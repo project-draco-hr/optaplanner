@@ -1,5 +1,5 @@
 {
   solverScope.getScoreDirector().dispose();
-  logger.info("Solving ended: time spent ({}), best score ({}), score calculation speed ({}/sec)," + " environment mode ({}).",solverScope.getTimeMillisSpent(),solverScope.getBestScore(),solverScope.getScoreCalculationSpeed(),environmentMode.name());
+  logger.info("Solving ended: time spent ({}), best score ({}), score calculation speed ({}/sec)," + " phase total ({}), environment mode ({}).",solverScope.getTimeMillisSpent(),solverScope.getBestScore(),solverScope.getScoreCalculationSpeed(),phaseList.size(),environmentMode.name());
   solving.set(false);
 }
