@@ -1,7 +1,7 @@
 {
   super.phaseEnded(phaseScope);
   tabuToStepIndexMap=null;
-  tabuSequenceList=null;
+  tabuSequenceDeque=null;
   workingTabuSize=-1;
   workingFadingTabuSize=-1;
 }

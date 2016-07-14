@@ -5,7 +5,7 @@
   if (valueSize > (long)Integer.MAX_VALUE) {
     throw new IllegalStateException("The selector (" + this + ") has a valueSelector ("+ valueSelector+ ") with valueSize ("+ valueSize+ ") which is higher than Integer.MAX_VALUE.");
   }
-  List<Object> anchorList=new LinkedList<>();
+  List<Object> anchorList=new ArrayList<>();
   for (  Object value : valueSelector) {
     if (variableDescriptor.isValuePotentialAnchor(value)) {
       anchorList.add(value);

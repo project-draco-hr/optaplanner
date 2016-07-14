@@ -7,7 +7,7 @@
       maximumTabuStepIndex=Math.max(tabuStepIndexInteger,maximumTabuStepIndex);
     }
     if (assertTabuHashCodeCorrectness) {
-      for (      Object tabu : tabuSequenceList) {
+      for (      Object tabu : tabuSequenceDeque) {
         if (tabu.equals(checkingTabu)) {
           if (tabu.hashCode() != checkingTabu.hashCode()) {
             throw new IllegalStateException("HashCode/equals contract violation: tabu (" + tabu + ") of class ("+ tabu.getClass()+ ") and checkingTabu ("+ checkingTabu+ ") are equals() but have a different hashCode().");

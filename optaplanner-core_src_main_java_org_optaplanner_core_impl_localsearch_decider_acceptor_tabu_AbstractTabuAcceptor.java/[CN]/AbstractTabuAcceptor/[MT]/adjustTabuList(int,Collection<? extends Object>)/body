@@ -1,6 +1,6 @@
 {
   int totalTabuListSize=workingTabuSize + workingFadingTabuSize;
-  for (Iterator<Object> it=tabuSequenceList.iterator(); it.hasNext(); ) {
+  for (Iterator<Object> it=tabuSequenceDeque.iterator(); it.hasNext(); ) {
     Object oldTabu=it.next();
     Integer oldTabuStepIndexInteger=tabuToStepIndexMap.get(oldTabu);
     if (oldTabuStepIndexInteger == null) {
@@ -16,9 +16,9 @@
   for (  Object tabu : tabus) {
     if (tabuToStepIndexMap.containsKey(tabu)) {
       tabuToStepIndexMap.remove(tabu);
-      tabuSequenceList.remove(tabu);
+      tabuSequenceDeque.remove(tabu);
     }
     tabuToStepIndexMap.put(tabu,tabuStepIndex);
-    tabuSequenceList.add(tabu);
+    tabuSequenceDeque.add(tabu);
   }
 }
