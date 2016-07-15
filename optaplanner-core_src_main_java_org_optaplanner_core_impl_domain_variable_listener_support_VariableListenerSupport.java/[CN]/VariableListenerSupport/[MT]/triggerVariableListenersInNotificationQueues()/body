@@ -1,6 +1,6 @@
 {
   for (  VariableListenerNotifiable notifiable : notifiableList) {
-    Set<VariableListenerNotification> notificationQueue=notifiable.getNotificationQueue();
+    Collection<VariableListenerNotification> notificationQueue=notifiable.getNotificationQueue();
     int notifiedCount=0;
     VariableListener variableListener=notifiable.getVariableListener();
     for (    VariableListenerNotification notification : notificationQueue) {

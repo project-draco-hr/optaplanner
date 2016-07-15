@@ -1,5 +1,10 @@
 {
   this.variableListener=variableListener;
   this.globalOrder=globalOrder;
-  notificationQueue=new SmallScalingOrderedSet<>();
+  if (variableListener.requiresUniqueEntityEvents()) {
+    notificationQueue=new SmallScalingOrderedSet<>();
+  }
+ else {
+    notificationQueue=new ArrayDeque<>();
+  }
 }

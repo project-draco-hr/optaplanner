@@ -1,7 +1,7 @@
 {
   List<VariableListenerNotifiable> notifiableList=sourceVariableToNotifiableMap.get(variableDescriptor);
   for (  VariableListenerNotifiable notifiable : notifiableList) {
-    Set<VariableListenerNotification> notificationQueue=notifiable.getNotificationQueue();
+    Collection<VariableListenerNotification> notificationQueue=notifiable.getNotificationQueue();
     boolean added=notificationQueue.add(new VariableListenerNotification(entity,VariableListenerNotificationType.VARIABLE_CHANGED));
     if (added) {
       notifiable.getVariableListener().beforeVariableChanged(scoreDirector,entity);

@@ -1,7 +1,7 @@
 {
   List<VariableListenerNotifiable> notifiableList=sourceEntityToNotifiableMap.get(entityDescriptor);
   for (  VariableListenerNotifiable notifiable : notifiableList) {
-    Set<VariableListenerNotification> notificationQueue=notifiable.getNotificationQueue();
+    Collection<VariableListenerNotification> notificationQueue=notifiable.getNotificationQueue();
     boolean added=notificationQueue.add(new VariableListenerNotification(entity,VariableListenerNotificationType.ENTITY_REMOVED));
     if (added) {
       notifiable.getVariableListener().beforeEntityRemoved(scoreDirector,entity);
