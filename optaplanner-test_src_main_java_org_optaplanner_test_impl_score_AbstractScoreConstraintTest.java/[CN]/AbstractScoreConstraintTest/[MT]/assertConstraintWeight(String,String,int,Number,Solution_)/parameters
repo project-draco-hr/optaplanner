@@ -1,0 +1,5 @@
+String constraintPackage
+String constraintName
+int scoreLevel
+Number expectedWeight
+Solution_ solution

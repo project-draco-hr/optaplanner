@@ -1,0 +1,3 @@
+{
+  return SolverFactory.createFromXmlResource(CloudBalancingApp.SOLVER_CONFIG);
+}

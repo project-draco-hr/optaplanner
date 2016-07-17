@@ -1,0 +1,4 @@
+String constraintPackage
+String constraintName
+int scoreLevel
+ScoreDirector<Solution_> scoreDirector

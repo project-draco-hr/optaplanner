@@ -1,0 +1,3 @@
+{
+  assertSoftConstraintWeight(null,constraintName,expectedWeight,solution);
+}

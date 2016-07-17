@@ -1,0 +1,7 @@
+{
+  super(id);
+  this.cpuPower=cpuPower;
+  this.memory=memory;
+  this.networkBandwidth=networkBandwidth;
+  this.cost=cost;
+}

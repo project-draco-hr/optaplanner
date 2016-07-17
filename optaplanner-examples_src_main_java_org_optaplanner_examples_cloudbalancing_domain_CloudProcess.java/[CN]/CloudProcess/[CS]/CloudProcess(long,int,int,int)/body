@@ -1,0 +1,6 @@
+{
+  super(id);
+  this.requiredCpuPower=requiredCpuPower;
+  this.requiredMemory=requiredMemory;
+  this.requiredNetworkBandwidth=requiredNetworkBandwidth;
+}

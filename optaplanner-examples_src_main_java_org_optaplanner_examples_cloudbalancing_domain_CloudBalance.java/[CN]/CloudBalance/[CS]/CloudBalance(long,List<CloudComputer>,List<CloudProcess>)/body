@@ -1,0 +1,5 @@
+{
+  super(id);
+  this.computerList=computerList;
+  this.processList=processList;
+}

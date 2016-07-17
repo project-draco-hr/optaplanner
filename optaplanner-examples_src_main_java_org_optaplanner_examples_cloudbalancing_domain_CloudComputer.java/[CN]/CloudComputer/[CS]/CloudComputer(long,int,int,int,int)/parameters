@@ -1,0 +1,5 @@
+long id
+int cpuPower
+int memory
+int networkBandwidth
+int cost

@@ -1,0 +1,12 @@
+{
+  ConstraintMatchTotal matchTotal=null;
+  for (  ConstraintMatchTotal selectedMatchTotal : scoreDirector.getConstraintMatchTotals()) {
+    if (selectedMatchTotal.getScoreLevel() == scoreLevel && selectedMatchTotal.getConstraintName().equals(constraintName) && (constraintPackage == null || selectedMatchTotal.getConstraintPackage().equals(constraintPackage))) {
+      if (matchTotal != null) {
+        throw new IllegalArgumentException("The constraintName (" + constraintName + ") is used by 2 different constraintMatches ("+ matchTotal.getIdentificationString()+ " and "+ selectedMatchTotal.getIdentificationString()+ ").");
+      }
+      matchTotal=selectedMatchTotal;
+    }
+  }
+  return matchTotal;
+}
