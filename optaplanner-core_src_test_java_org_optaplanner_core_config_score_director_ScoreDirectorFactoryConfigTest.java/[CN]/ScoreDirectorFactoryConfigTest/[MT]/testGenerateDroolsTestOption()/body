@@ -1,0 +1,10 @@
+{
+  ScoreDirectorFactoryConfig config=new ScoreDirectorFactoryConfig();
+  assertNull(config.isGenerateDroolsTestOnError());
+  config.setGenerateDroolsTestOnError(true);
+  assertTrue(config.isGenerateDroolsTestOnError());
+  config.setGenerateDroolsTestOnError(Boolean.FALSE);
+  assertFalse(config.isGenerateDroolsTestOnError());
+  config.setGenerateDroolsTestOnError(null);
+  assertNull(config.isGenerateDroolsTestOnError());
+}

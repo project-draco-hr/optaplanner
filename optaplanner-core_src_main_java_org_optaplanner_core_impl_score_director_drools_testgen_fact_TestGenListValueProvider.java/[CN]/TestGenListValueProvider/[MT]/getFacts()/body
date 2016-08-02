@@ -1,0 +1,10 @@
+{
+  ArrayList<TestGenFact> facts=new ArrayList<TestGenFact>();
+  for (  Object o : (List<?>)value) {
+    TestGenFact fact=existingInstances.get(o);
+    if (fact != null) {
+      facts.add(fact);
+    }
+  }
+  return facts;
+}

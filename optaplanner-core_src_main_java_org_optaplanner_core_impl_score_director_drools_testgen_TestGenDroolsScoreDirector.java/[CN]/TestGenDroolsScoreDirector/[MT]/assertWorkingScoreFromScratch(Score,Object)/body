@@ -1,0 +1,11 @@
+{
+  try {
+    super.assertWorkingScoreFromScratch(workingScore,completedAction);
+  }
+ catch (  IllegalStateException e) {
+    TestGenCorruptedScoreReproducer reproducer=new TestGenCorruptedScoreReproducer(e.getMessage(),kieSession,getScoreDefinition(),constraintMatchEnabledPreference);
+    TestGenKieSessionJournal minJournal=TestGenerator.minimize(journal,reproducer);
+    TestGenTestWriter.print(minJournal,testFile);
+    throw wrapOriginalException(e);
+  }
+}

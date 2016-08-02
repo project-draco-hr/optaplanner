@@ -1,0 +1,4 @@
+{
+  journal.delete(entity);
+  super.afterEntityRemoved(entityDescriptor,entity);
+}

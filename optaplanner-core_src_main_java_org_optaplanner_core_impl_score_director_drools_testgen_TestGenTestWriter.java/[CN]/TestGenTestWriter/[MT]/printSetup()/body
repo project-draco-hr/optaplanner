@@ -1,0 +1,11 @@
+{
+  sb.append("    @Before").append(System.lineSeparator()).append("    public void setUp() {").append(System.lineSeparator()).append("        KieServices kieServices = KieServices.Factory.get();").append(System.lineSeparator()).append("        KieModuleModel kieModuleModel = kieServices.newKieModuleModel();").append(System.lineSeparator()).append("        KieFileSystem kfs = kieServices.newKieFileSystem();").append(System.lineSeparator()).append("        kfs.writeKModuleXML(kieModuleModel.toXML());").append(System.lineSeparator()).append("        kfs.write(kieServices.getResources()").append(System.lineSeparator()).append("                .newClassPathResource(\"org/optaplanner/examples/nurserostering/solver/nurseRosteringScoreRules.drl\")").append(System.lineSeparator()).append("                .setResourceType(ResourceType.DRL));").append(System.lineSeparator()).append("        kieServices.newKieBuilder(kfs).buildAll();").append(System.lineSeparator()).append("        KieContainer kieContainer = kieServices.newKieContainer(kieServices.getRepository().getDefaultReleaseId());").append(System.lineSeparator()).append("        kieSession = kieContainer.newKieSession();").append(System.lineSeparator()).append(System.lineSeparator());
+  for (  TestGenFact fact : journal.getFacts()) {
+    fact.printSetup(sb);
+  }
+  sb.append(System.lineSeparator());
+  for (  TestGenKieSessionOperation insert : journal.getInitialInserts()) {
+    insert.print(sb);
+  }
+  sb.append("    }").append(System.lineSeparator()).append(System.lineSeparator());
+}

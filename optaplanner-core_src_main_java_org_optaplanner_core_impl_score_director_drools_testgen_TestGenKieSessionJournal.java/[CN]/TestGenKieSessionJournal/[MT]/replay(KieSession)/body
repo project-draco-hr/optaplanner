@@ -1,0 +1,22 @@
+{
+  for (  TestGenFact fact : facts) {
+    fact.reset();
+  }
+  for (  TestGenKieSessionOperation insert : initialInsertJournal) {
+    insert.invoke(replayKieSession);
+  }
+  try {
+    for (    TestGenKieSessionOperation op : updateJournal) {
+      op.invoke(replayKieSession);
+      if (op.getClass().equals(TestGenKieSessionFireAllRules.class)) {
+        eventSupport.afterFireAllRules(replayKieSession);
+      }
+    }
+  }
+ catch (  RuntimeException ex) {
+    throw ex;
+  }
+ finally {
+    replayKieSession.dispose();
+  }
+}

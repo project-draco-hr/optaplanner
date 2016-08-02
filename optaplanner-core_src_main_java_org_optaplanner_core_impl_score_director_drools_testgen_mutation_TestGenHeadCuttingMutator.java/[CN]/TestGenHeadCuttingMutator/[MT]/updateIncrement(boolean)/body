@@ -1,0 +1,6 @@
+{
+  cutIncrement=(int)((list.size() - totalCutSize) * cutFactor);
+  if (cutIncrement == 0 && !revert) {
+    cutIncrement=1;
+  }
+}

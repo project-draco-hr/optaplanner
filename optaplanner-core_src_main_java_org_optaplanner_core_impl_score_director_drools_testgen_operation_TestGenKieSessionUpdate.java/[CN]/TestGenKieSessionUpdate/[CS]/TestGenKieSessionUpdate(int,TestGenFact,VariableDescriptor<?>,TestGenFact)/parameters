@@ -1,0 +1,4 @@
+int id
+TestGenFact entity
+VariableDescriptor<?> variableDescriptor
+TestGenFact value

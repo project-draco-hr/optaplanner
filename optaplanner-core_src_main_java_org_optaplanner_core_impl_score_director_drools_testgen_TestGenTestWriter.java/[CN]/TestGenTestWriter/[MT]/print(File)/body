@@ -1,0 +1,6 @@
+{
+  printInit();
+  printSetup();
+  printTest();
+  writeTestFile(testFile);
+}

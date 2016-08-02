@@ -1,0 +1,3 @@
+{
+  updateJournal.add(new TestGenKieSessionInsert(operationId++,existingInstances.get(fact)));
+}

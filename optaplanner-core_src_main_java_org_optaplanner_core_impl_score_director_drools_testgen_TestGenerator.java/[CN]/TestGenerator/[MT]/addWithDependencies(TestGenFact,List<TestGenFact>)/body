@@ -1,0 +1,9 @@
+{
+  if (factList.contains(f)) {
+    return;
+  }
+  factList.add(f);
+  for (  TestGenFact dependency : f.getDependencies()) {
+    addWithDependencies(dependency,factList);
+  }
+}

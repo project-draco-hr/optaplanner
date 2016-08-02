@@ -1,0 +1,4 @@
+{
+  journal.fireAllRules();
+  return super.getConstraintMatchTotals();
+}

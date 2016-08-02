@@ -1,0 +1,4 @@
+{
+  sb.append(String.format("        //%s%n",this));
+  sb.append(String.format("        kieSession.insert(%s);%n",fact));
+}

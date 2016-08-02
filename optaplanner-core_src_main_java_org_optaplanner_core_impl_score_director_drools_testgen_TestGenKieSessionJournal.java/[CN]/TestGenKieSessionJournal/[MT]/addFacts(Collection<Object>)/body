@@ -1,0 +1,11 @@
+{
+  int i=0;
+  for (  Object instance : workingFacts) {
+    TestGenFact fact=new TestGenValueFact(i++,instance);
+    facts.add(fact);
+    existingInstances.put(instance,fact);
+  }
+  for (  TestGenFact fact : facts) {
+    fact.setUp(existingInstances);
+  }
+}

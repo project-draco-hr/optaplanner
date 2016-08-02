@@ -1,0 +1,4 @@
+{
+  ScoreHolder sh=(ScoreHolder)kieSession.getGlobal(DroolsScoreDirector.GLOBAL_SCORE_HOLDER_KEY);
+  return sh.extractScore(0);
+}

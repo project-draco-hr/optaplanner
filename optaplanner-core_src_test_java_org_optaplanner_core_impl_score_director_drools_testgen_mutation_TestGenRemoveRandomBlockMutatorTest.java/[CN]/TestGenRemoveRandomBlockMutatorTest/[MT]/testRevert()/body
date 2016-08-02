@@ -1,0 +1,8 @@
+{
+  TestGenRemoveRandomBlockMutator<Integer> m=new TestGenRemoveRandomBlockMutator<Integer>(list);
+  m.mutate();
+  List<Integer> removedBlock=m.getRemovedBlock();
+  m.revert();
+  assertTrue(m.getResult().containsAll(removedBlock));
+  assertEquals(LIST_SIZE,m.getResult().size());
+}

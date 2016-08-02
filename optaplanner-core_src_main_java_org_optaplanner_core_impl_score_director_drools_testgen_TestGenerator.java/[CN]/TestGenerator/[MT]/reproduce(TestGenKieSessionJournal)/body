@@ -1,0 +1,3 @@
+{
+  return reproducer.isReproducible(testJournal);
+}

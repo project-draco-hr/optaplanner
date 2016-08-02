@@ -1,0 +1,4 @@
+{
+  this.originalException=originalException;
+  this.originalKieSession=originalKieSession;
+}

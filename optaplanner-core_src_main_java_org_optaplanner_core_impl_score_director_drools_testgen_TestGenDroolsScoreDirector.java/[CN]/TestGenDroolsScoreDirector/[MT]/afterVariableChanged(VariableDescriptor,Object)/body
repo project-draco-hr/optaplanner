@@ -1,0 +1,4 @@
+{
+  journal.update(entity,variableDescriptor);
+  super.afterVariableChanged(variableDescriptor,entity);
+}

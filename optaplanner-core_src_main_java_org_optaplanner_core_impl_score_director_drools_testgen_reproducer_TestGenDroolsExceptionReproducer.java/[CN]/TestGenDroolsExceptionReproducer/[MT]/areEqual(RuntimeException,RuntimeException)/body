@@ -1,0 +1,12 @@
+{
+  if (!originalException.getClass().equals(reproducedException.getClass())) {
+    return false;
+  }
+  if (!Objects.equals(originalException.getMessage(),reproducedException.getMessage())) {
+    return false;
+  }
+  if (reproducedException.getStackTrace().length == 0) {
+    throw new IllegalStateException("Caught exception with empty stack trace => can't compare to the original. " + "Use '-XX:-OmitStackTraceInFastThrow' to turn off this optimization.",reproducedException);
+  }
+  return originalException.getStackTrace()[0].equals(reproducedException.getStackTrace()[0]);
+}

@@ -1,0 +1,4 @@
+{
+  journal.insert(problemFact);
+  super.afterProblemFactAdded(problemFact);
+}

@@ -1,0 +1,15 @@
+{
+  log.info("Pruning {} facts...",journal.getFacts().size());
+  ArrayList<TestGenFact> minimal=new ArrayList<TestGenFact>();
+  for (  TestGenKieSessionInsert insert : journal.getInitialInserts()) {
+    addWithDependencies(insert.getFact(),minimal);
+  }
+  for (  TestGenKieSessionOperation op : journal.getMoveOperations()) {
+    if (op.getClass().equals(TestGenKieSessionUpdate.class)) {
+      TestGenFact f=((TestGenKieSessionUpdate)op).getValue();
+      addWithDependencies(f,minimal);
+    }
+  }
+  journal=new TestGenKieSessionJournal(minimal,journal.getInitialInserts(),journal.getMoveOperations());
+  log.info("{} facts remaining.",journal.getFacts().size());
+}

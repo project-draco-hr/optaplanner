@@ -1,0 +1,21 @@
+{
+  if (!canMutate()) {
+    throw new IllegalStateException("No more mutations possible.");
+  }
+  if (removedIndex >= 0) {
+    indexBlacklist.clear();
+  }
+  int blockSize=Math.max(list.size() / blockPortion,1);
+  if (indexBlacklist.size() == list.size() / blockSize && list.size() / blockPortion > 1) {
+    blockPortion*=2;
+    indexBlacklist.clear();
+  }
+  blockSize=Math.max(list.size() / blockPortion,1);
+  do {
+    removedIndex=random.nextInt(list.size() / blockSize) * blockSize;
+  }
+ while (indexBlacklist.contains(removedIndex));
+  removedBlock=new ArrayList<T>(list.subList(removedIndex,removedIndex + blockSize));
+  list.removeAll(removedBlock);
+  return list;
+}

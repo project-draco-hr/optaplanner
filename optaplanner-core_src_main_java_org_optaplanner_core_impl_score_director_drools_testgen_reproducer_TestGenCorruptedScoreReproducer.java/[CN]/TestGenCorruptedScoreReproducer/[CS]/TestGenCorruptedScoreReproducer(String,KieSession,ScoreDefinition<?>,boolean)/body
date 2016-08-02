@@ -1,0 +1,6 @@
+{
+  this.analysis=analysis;
+  this.originalKieSession=originalKieSession;
+  this.scoreDefinition=scoreDefinition;
+  this.constraintMatchEnabledPreference=constraintMatchEnabledPreference;
+}

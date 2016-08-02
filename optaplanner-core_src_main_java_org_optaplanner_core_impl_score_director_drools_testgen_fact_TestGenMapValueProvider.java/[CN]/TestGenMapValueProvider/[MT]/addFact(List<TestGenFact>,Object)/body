@@ -1,0 +1,6 @@
+{
+  TestGenFact fact=existingInstances.get(o);
+  if (fact != null) {
+    facts.add(fact);
+  }
+}

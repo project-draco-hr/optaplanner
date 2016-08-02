@@ -1,0 +1,3 @@
+List<TestGenFact> facts
+List<TestGenKieSessionInsert> initialInsertJournal
+List<TestGenKieSessionOperation> updateJournal

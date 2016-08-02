@@ -1,0 +1,6 @@
+{
+  totalCutSize+=cutIncrement;
+  revertIncrement=cutIncrement;
+  updateIncrement(false);
+  return getResult();
+}

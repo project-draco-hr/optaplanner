@@ -1,0 +1,11 @@
+{
+  journal.fireAllRules();
+  try {
+    return super.calculateScore();
+  }
+ catch (  RuntimeException e) {
+    TestGenKieSessionJournal minJournal=TestGenerator.minimize(journal,new TestGenDroolsExceptionReproducer(e,kieSession));
+    TestGenTestWriter.print(minJournal,testFile);
+    throw wrapOriginalException(e);
+  }
+}

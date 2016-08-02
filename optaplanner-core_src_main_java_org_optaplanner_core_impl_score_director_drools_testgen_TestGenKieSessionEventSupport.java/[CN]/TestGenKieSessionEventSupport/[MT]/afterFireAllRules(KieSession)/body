@@ -1,0 +1,5 @@
+{
+  for (  TestGenKieSessionListener listener : eventListenerSet) {
+    listener.afterFireAllRules(kieSession);
+  }
+}

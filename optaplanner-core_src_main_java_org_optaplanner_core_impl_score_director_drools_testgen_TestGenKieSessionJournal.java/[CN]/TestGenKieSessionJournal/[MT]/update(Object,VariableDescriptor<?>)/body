@@ -1,0 +1,6 @@
+{
+  TestGenFact entityFact=existingInstances.get(entity);
+  Object value=variableDescriptor.getValue(entity);
+  TestGenFact valueFact=value == null ? new TestGenNullFact() : existingInstances.get(value);
+  updateJournal.add(new TestGenKieSessionUpdate(operationId++,entityFact,variableDescriptor,valueFact));
+}

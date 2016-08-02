@@ -1,0 +1,8 @@
+{
+  accessor.executeSetter(entity.getInstance(),value.getInstance());
+  FactHandle fh=kieSession.getFactHandle(entity.getInstance());
+  if (fh == null) {
+    throw new IllegalStateException("No fact handle for " + entity);
+  }
+  kieSession.update(fh,entity.getInstance());
+}

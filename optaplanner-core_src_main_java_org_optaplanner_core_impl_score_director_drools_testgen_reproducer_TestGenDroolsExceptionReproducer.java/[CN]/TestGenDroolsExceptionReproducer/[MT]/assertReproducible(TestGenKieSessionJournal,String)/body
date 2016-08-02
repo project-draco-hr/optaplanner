@@ -1,0 +1,11 @@
+{
+  try {
+    journal.replay(createKieSession());
+    throw new IllegalStateException(message + " No exception thrown.");
+  }
+ catch (  RuntimeException reproducedException) {
+    if (!areEqual(originalException,reproducedException)) {
+      throw new IllegalStateException(message + "\nExpected [" + originalException+ "]"+ "\nCaused ["+ reproducedException+ "]",reproducedException);
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  TestGenHeadCuttingMutator<Integer> m=new TestGenHeadCuttingMutator<Integer>(list);
+  assertTrue(m.canMutate());
+  assertEquals(5,m.mutate().size());
+  assertTrue(m.canMutate());
+  m.revert();
+  assertEquals(25,m.getResult().size());
+  assertTrue(m.canMutate());
+  assertEquals(15,m.mutate().size());
+  assertTrue(m.canMutate());
+  assertEquals(9,m.mutate().size());
+  assertTrue(m.canMutate());
+  assertEquals(6,m.mutate().size());
+  assertTrue(m.canMutate());
+  m.revert();
+  assertEquals(9,m.getResult().size());
+  assertTrue(m.canMutate());
+  assertEquals(8,m.mutate().size());
+  assertTrue(m.canMutate());
+  assertEquals(7,m.mutate().size());
+  assertTrue(m.canMutate());
+  assertEquals(6,m.mutate().size());
+  assertTrue(m.canMutate());
+  assertEquals(5,m.mutate().size());
+  assertTrue(m.canMutate());
+  assertEquals(4,m.mutate().size());
+  assertTrue(m.canMutate());
+  assertEquals(3,m.mutate().size());
+  assertTrue(m.canMutate());
+  assertEquals(2,m.mutate().size());
+  assertTrue(m.canMutate());
+  assertEquals(1,m.mutate().size());
+  assertTrue(m.canMutate());
+  assertEquals(0,m.mutate().size());
+  assertFalse(m.canMutate());
+  assertEquals(0,m.getResult().size());
+}

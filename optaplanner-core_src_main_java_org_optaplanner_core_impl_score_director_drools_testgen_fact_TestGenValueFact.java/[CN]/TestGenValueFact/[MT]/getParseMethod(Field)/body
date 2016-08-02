@@ -1,0 +1,8 @@
+{
+  for (  Method m : f.getType().getMethods()) {
+    if (Modifier.isStatic(m.getModifiers()) && f.getType().equals(m.getReturnType()) && m.getParameters().length == 1 && m.getParameters()[0].getType().equals(String.class) && (m.getName().startsWith("parse") || m.getName().startsWith("valueOf"))) {
+      return m;
+    }
+  }
+  return null;
+}

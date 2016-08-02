@@ -1,0 +1,8 @@
+{
+  ArrayList<TestGenFact> facts=new ArrayList<TestGenFact>();
+  for (  Map.Entry<? extends Object,? extends Object> entry : ((java.util.Map<?,?>)value).entrySet()) {
+    addFact(facts,entry.getKey());
+    addFact(facts,entry.getValue());
+  }
+  return facts;
+}

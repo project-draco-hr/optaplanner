@@ -1,0 +1,4 @@
+{
+  journal.delete(problemFact);
+  super.afterProblemFactRemoved(problemFact);
+}

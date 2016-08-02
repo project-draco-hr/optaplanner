@@ -1,0 +1,7 @@
+{
+  sb.append("    @Test").append(System.lineSeparator()).append("    public void test() {").append(System.lineSeparator());
+  for (  TestGenKieSessionOperation op : journal.getMoveOperations()) {
+    op.print(sb);
+  }
+  sb.append("    }").append(System.lineSeparator()).append("}").append(System.lineSeparator());
+}

@@ -1,0 +1,9 @@
+{
+  if (revertIncrement < 0) {
+    throw new IllegalStateException("Can't revert without performing mutation first");
+  }
+  totalCutSize-=revertIncrement;
+  revertIncrement=-1;
+  cutFactor/=2;
+  updateIncrement(true);
+}

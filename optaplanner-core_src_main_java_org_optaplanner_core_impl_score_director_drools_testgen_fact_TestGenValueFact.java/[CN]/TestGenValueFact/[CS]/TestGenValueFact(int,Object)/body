@@ -1,0 +1,4 @@
+{
+  this.instance=instance;
+  this.variableName=instance.getClass().getSimpleName().substring(0,1).toLowerCase() + instance.getClass().getSimpleName().substring(1) + "_"+ id;
+}

@@ -1,0 +1,3 @@
+{
+  updateJournal.add(new TestGenKieSessionDelete(operationId++,existingInstances.get(entity)));
+}

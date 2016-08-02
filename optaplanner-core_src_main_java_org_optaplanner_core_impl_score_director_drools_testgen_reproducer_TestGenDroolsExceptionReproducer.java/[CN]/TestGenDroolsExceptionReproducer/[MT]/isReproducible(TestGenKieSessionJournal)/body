@@ -1,0 +1,20 @@
+{
+  try {
+    journal.replay(createKieSession());
+    return false;
+  }
+ catch (  RuntimeException reproducedException) {
+    if (areEqual(originalException,reproducedException)) {
+      return true;
+    }
+ else {
+      if (reproducedException.getMessage().startsWith("No fact handle for ")) {
+        log.debug("    Can't remove insert: {}",reproducedException.toString());
+      }
+ else {
+        log.info("Unexpected exception",reproducedException);
+      }
+      return false;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  super.setWorkingSolution(workingSolution);
+  journal.dispose();
+  Collection<Object> workingFacts=getWorkingFacts();
+  journal.addFacts(workingFacts);
+  for (  Object fact : workingFacts) {
+    journal.insertInitial(fact);
+  }
+}

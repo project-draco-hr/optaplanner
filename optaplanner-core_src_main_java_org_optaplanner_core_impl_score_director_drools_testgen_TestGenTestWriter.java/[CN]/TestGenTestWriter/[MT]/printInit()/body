@@ -1,0 +1,43 @@
+{
+  String domainPackage=null;
+  for (  TestGenFact fact : journal.getFacts()) {
+    Class<? extends Object> factClass=fact.getInstance().getClass();
+    for (    Annotation ann : factClass.getAnnotations()) {
+      if (PlanningEntity.class.equals(ann.annotationType())) {
+        domainPackage=factClass.getPackage().getName();
+      }
+      break;
+    }
+    if (domainPackage != null) {
+      break;
+    }
+  }
+  if (domainPackage == null) {
+    throw new IllegalStateException("Cannot determine planning domain package.");
+  }
+  sb.append(String.format("package %s;%n%n",domainPackage));
+  SortedSet<String> imports=new TreeSet<String>();
+  imports.add("org.junit.Before");
+  imports.add("org.junit.Test");
+  imports.add("org.kie.api.KieServices");
+  imports.add("org.kie.api.builder.KieFileSystem");
+  imports.add("org.kie.api.builder.model.KieModuleModel");
+  imports.add("org.kie.api.io.ResourceType");
+  imports.add("org.kie.api.runtime.KieContainer");
+  imports.add("org.kie.api.runtime.KieSession");
+  for (  TestGenFact fact : journal.getFacts()) {
+    for (    Class<?> cls : fact.getImports()) {
+      if (!cls.getPackage().getName().equals(domainPackage)) {
+        imports.add(cls.getCanonicalName());
+      }
+    }
+  }
+  for (  String cls : imports) {
+    sb.append(String.format("import %s;%n",cls));
+  }
+  sb.append(System.lineSeparator()).append("public class DroolsReproducerTest {").append(System.lineSeparator()).append(System.lineSeparator()).append("    KieSession kieSession;").append(System.lineSeparator());
+  for (  TestGenFact fact : journal.getFacts()) {
+    fact.printInitialization(sb);
+  }
+  sb.append(System.lineSeparator());
+}

@@ -1,0 +1,4 @@
+{
+  this.journal=journal;
+  this.reproducer=reproducer;
+}

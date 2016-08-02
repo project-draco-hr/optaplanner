@@ -1,0 +1,7 @@
+{
+  for (  Map.Entry<BeanPropertyMemberAccessor,TestGenValueProvider> entry : attributes.entrySet()) {
+    BeanPropertyMemberAccessor accessor=entry.getKey();
+    TestGenValueProvider value=entry.getValue();
+    accessor.executeSetter(instance,value.get());
+  }
+}

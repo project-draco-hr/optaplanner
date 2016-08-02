@@ -1,0 +1,5 @@
+{
+  list.addAll(removedIndex,removedBlock);
+  indexBlacklist.add(removedIndex);
+  removedIndex=-1;
+}

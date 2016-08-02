@@ -1,0 +1,7 @@
+{
+  KieSession newKieSession=originalKieSession.getKieBase().newKieSession();
+  for (  String globalKey : originalKieSession.getGlobals().getGlobalKeys()) {
+    newKieSession.setGlobal(globalKey,originalKieSession.getGlobal(globalKey));
+  }
+  return newKieSession;
+}

@@ -1,0 +1,3 @@
+{
+  return cutIncrement > 0 && totalCutSize + cutIncrement <= list.size();
+}

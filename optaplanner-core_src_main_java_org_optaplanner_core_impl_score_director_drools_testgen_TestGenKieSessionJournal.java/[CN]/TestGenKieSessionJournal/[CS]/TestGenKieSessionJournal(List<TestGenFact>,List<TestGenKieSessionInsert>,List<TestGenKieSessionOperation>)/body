@@ -1,0 +1,5 @@
+{
+  this.facts=facts;
+  this.initialInsertJournal=initialInsertJournal;
+  this.updateJournal=updateJournal;
+}

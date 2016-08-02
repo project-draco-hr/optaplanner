@@ -1,0 +1,4 @@
+{
+  this.journal=journal;
+  this.sb=new StringBuilder(1 << 15);
+}

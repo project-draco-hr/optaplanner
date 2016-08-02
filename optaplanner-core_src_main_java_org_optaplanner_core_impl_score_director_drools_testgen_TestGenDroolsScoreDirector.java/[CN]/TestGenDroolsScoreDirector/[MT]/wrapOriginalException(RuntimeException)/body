@@ -1,0 +1,3 @@
+{
+  return new RuntimeException(e.getMessage() + "\nDrools test written to: " + testFile.getAbsolutePath(),e);
+}

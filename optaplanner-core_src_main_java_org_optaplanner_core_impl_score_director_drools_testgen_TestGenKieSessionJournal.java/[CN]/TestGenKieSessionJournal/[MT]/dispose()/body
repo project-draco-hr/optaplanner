@@ -1,0 +1,7 @@
+{
+  facts.clear();
+  existingInstances.clear();
+  initialInsertJournal.clear();
+  updateJournal.clear();
+  operationId=0;
+}

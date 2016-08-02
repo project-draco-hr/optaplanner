@@ -10,11 +10,17 @@
     if (droolsScoreDirectorFactory != null) {
       throw new IllegalArgumentException("The scoreDirectorFactory cannot have " + "both an easyScoreDirectorFactory and an droolsScoreDirectorFactory.");
     }
+    if (BooleanUtils.isTrue(generateDroolsTestOnError)) {
+      throw new IllegalArgumentException("The <generateDroolsTestOnError> option can only be set to true " + "when used together with droolsScoreDirectorFactory, not with easyScoreDirectorFactory.");
+    }
     scoreDirectorFactory=easyScoreDirectorFactory;
   }
  else   if (incrementalScoreDirectorFactory != null) {
     if (droolsScoreDirectorFactory != null) {
       throw new IllegalArgumentException("The scoreDirectorFactory cannot have " + "both an incrementalScoreDirectorFactory and an droolsScoreDirectorFactory.");
+    }
+    if (BooleanUtils.isTrue(generateDroolsTestOnError)) {
+      throw new IllegalArgumentException("The <generateDroolsTestOnError> option can only be set to true " + "when used together with droolsScoreDirectorFactory, not with incrementalScoreDirectorFactory.");
     }
     scoreDirectorFactory=incrementalScoreDirectorFactory;
   }

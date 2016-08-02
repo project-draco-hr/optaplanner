@@ -14,4 +14,5 @@
   kieBaseConfigurationProperties=ConfigUtils.inheritMergeableMapProperty(kieBaseConfigurationProperties,inheritedConfig.getKieBaseConfigurationProperties());
   initializingScoreTrend=ConfigUtils.inheritOverwritableProperty(initializingScoreTrend,inheritedConfig.getInitializingScoreTrend());
   assertionScoreDirectorFactory=ConfigUtils.inheritOverwritableProperty(assertionScoreDirectorFactory,inheritedConfig.getAssertionScoreDirectorFactory());
+  generateDroolsTestOnError=ConfigUtils.inheritOverwritableProperty(generateDroolsTestOnError,inheritedConfig.isGenerateDroolsTestOnError());
 }

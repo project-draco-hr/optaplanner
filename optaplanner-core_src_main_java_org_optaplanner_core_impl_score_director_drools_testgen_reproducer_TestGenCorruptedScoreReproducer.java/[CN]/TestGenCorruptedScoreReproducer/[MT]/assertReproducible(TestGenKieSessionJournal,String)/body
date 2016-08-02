@@ -1,0 +1,5 @@
+{
+  if (!isReproducible(journal)) {
+    throw new IllegalStateException(message + " The score is not corrupted.");
+  }
+}

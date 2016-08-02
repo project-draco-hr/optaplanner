@@ -1,0 +1,4 @@
+{
+  journal.insert(entity);
+  super.afterEntityAdded(entityDescriptor,entity);
+}

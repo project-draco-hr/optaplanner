@@ -13,7 +13,12 @@
     if (kieBaseConfigurationProperties != null) {
       throw new IllegalArgumentException("If kieContainer or ksessionName (" + ksessionName + ") is not null, then the kieBaseConfigurationProperties ("+ kieBaseConfigurationProperties+ ") must be null.");
     }
-    return new DroolsScoreDirectorFactory<>(kieContainer,ksessionName);
+    if (BooleanUtils.isTrue(generateDroolsTestOnError)) {
+      return new TestGenDroolsScoreDirectorFactory<>(kieContainer,ksessionName);
+    }
+ else {
+      return new DroolsScoreDirectorFactory<>(kieContainer,ksessionName);
+    }
   }
  else   if (kieBase != null) {
     if (!ConfigUtils.isEmptyCollection(scoreDrlList) || !ConfigUtils.isEmptyCollection(scoreDrlFileList)) {
@@ -22,7 +27,12 @@
     if (kieBaseConfigurationProperties != null) {
       throw new IllegalArgumentException("If kieBase is not null, then the kieBaseConfigurationProperties (" + kieBaseConfigurationProperties + ") must be null.");
     }
-    return new LegacyDroolsScoreDirectorFactory<>(kieBase);
+    if (BooleanUtils.isTrue(generateDroolsTestOnError)) {
+      return new TestGenLegacyDroolsScoreDirectorFactory<>(kieBase);
+    }
+ else {
+      return new LegacyDroolsScoreDirectorFactory<>(kieBase);
+    }
   }
  else   if (!ConfigUtils.isEmptyCollection(scoreDrlList) || !ConfigUtils.isEmptyCollection(scoreDrlFileList)) {
     KieServices kieServices=KieServices.Factory.get();
@@ -73,7 +83,12 @@
       }
     }
     KieBase kieBase=kieContainer.newKieBase(kieBaseConfiguration);
-    return new LegacyDroolsScoreDirectorFactory<>(kieBase);
+    if (BooleanUtils.isTrue(generateDroolsTestOnError)) {
+      return new TestGenLegacyDroolsScoreDirectorFactory<>(kieBase);
+    }
+ else {
+      return new LegacyDroolsScoreDirectorFactory<>(kieBase);
+    }
   }
  else {
     if (kieBaseConfigurationProperties != null) {

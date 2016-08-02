@@ -1,0 +1,21 @@
+{
+  TestGenHeadCuttingMutator<Integer> m=new TestGenHeadCuttingMutator<Integer>(list);
+  assertTrue(m.canMutate());
+  assertTrue(m.canMutate());
+  assertEquals(5,m.mutate().size());
+  m.revert();
+  assertTrue(m.canMutate());
+  assertEquals(15,m.mutate().size());
+  m.revert();
+  assertTrue(m.canMutate());
+  assertEquals(20,m.mutate().size());
+  m.revert();
+  assertTrue(m.canMutate());
+  assertEquals(23,m.mutate().size());
+  m.revert();
+  assertTrue(m.canMutate());
+  assertEquals(24,m.mutate().size());
+  m.revert();
+  assertFalse(m.canMutate());
+  assertEquals(25,m.getResult().size());
+}

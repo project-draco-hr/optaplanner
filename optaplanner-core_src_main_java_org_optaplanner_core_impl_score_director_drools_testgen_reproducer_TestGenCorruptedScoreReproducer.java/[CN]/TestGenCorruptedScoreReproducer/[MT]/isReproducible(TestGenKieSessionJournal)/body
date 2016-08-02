@@ -1,0 +1,19 @@
+{
+  journal.addListener(this);
+  try {
+    journal.replay(createKieSession());
+    return false;
+  }
+ catch (  TestGenCorruptedScoreException e) {
+    return true;
+  }
+catch (  RuntimeException e) {
+    if (e.getMessage().startsWith("No fact handle for ")) {
+      log.debug("    Can't remove insert: {}: {}",e.getClass().getSimpleName(),e.getMessage());
+    }
+ else {
+      log.info("Unexpected exception",e);
+    }
+    return false;
+  }
+}
