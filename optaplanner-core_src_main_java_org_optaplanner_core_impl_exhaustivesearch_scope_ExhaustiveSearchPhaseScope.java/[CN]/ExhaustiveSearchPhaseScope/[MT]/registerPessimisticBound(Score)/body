@@ -3,7 +3,7 @@
     bestPessimisticBound=pessimisticBound;
     for (Iterator<ExhaustiveSearchNode> iterator=expandableNodeQueue.iterator(); iterator.hasNext(); ) {
       ExhaustiveSearchNode node=iterator.next();
-      if (node.getOptimisticBound().compareTo(bestPessimisticBound) < 0) {
+      if (node.getOptimisticBound().compareTo(bestPessimisticBound) <= 0) {
         iterator.remove();
       }
     }
