@@ -1,0 +1,5 @@
+int depth
+SimpleScore score
+SimpleScore optimisticBound
+long parentBreadth
+long breadth

@@ -1,9 +1,10 @@
 {
   ExhaustiveSearchNode node=mock(ExhaustiveSearchNode.class);
   when(node.getDepth()).thenReturn(depth);
-  when(node.getScore()).thenReturn(SimpleScore.valueOfInitialized(score));
-  when(node.getOptimisticBound()).thenReturn(SimpleScore.valueOfInitialized(optimisticBound));
+  when(node.getScore()).thenReturn(score);
+  when(node.getOptimisticBound()).thenReturn(optimisticBound);
   when(node.getParentBreadth()).thenReturn(parentBreadth);
   when(node.getBreadth()).thenReturn(breadth);
+  when(node.toString()).thenReturn(score.toString());
   return node;
 }

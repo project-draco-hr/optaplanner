@@ -1,0 +1,3 @@
+{
+  return buildNode(depth,SimpleScore.parseScore(score),SimpleScore.valueOfInitialized(optimisticBound),parentBreadth,breadth);
+}

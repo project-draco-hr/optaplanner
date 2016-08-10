@@ -1,5 +1,5 @@
 {
-  int scoreComparison=a.getScore().compareTo(b.getScore());
+  int scoreComparison=a.getScore().toInitializedScore().compareTo(b.getScore().toInitializedScore());
   if (scoreComparison < 0) {
     return -1;
   }
