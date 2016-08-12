@@ -1,0 +1,3 @@
+{
+  assertSoft(null,constraintName,expectedWeight,solution);
+}
