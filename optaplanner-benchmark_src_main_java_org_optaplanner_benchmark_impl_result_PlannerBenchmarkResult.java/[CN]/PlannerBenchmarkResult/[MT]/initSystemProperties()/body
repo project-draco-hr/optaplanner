@@ -1,6 +1,7 @@
 {
   availableProcessors=Runtime.getRuntime().availableProcessors();
-  loggingLevel=resolveLoggingLevel();
+  loggingLevelOptaPlannerCore=resolveLoggingLevel("org.optaplanner.core");
+  loggingLevelDroolsCore=resolveLoggingLevel("org.drools.core");
   maxMemory=Runtime.getRuntime().maxMemory();
   optaPlannerVersion=SolverFactory.class.getPackage().getImplementationVersion();
   if (optaPlannerVersion == null) {

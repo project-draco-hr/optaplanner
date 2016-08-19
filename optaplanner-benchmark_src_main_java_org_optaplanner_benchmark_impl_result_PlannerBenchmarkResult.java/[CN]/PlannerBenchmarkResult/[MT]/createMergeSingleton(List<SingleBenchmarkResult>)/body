@@ -8,7 +8,8 @@
         newResult=new PlannerBenchmarkResult();
         newResult.setAggregation(true);
         newResult.availableProcessors=oldResult.availableProcessors;
-        newResult.loggingLevel=oldResult.loggingLevel;
+        newResult.loggingLevelOptaPlannerCore=oldResult.loggingLevelOptaPlannerCore;
+        newResult.loggingLevelDroolsCore=oldResult.loggingLevelDroolsCore;
         newResult.maxMemory=oldResult.maxMemory;
         newResult.optaPlannerVersion=oldResult.optaPlannerVersion;
         newResult.javaVersion=oldResult.javaVersion;
@@ -24,7 +25,8 @@
       }
  else {
         newResult.availableProcessors=ConfigUtils.mergeProperty(newResult.availableProcessors,oldResult.availableProcessors);
-        newResult.loggingLevel=ConfigUtils.mergeProperty(newResult.loggingLevel,oldResult.loggingLevel);
+        newResult.loggingLevelOptaPlannerCore=ConfigUtils.mergeProperty(newResult.loggingLevelOptaPlannerCore,oldResult.loggingLevelOptaPlannerCore);
+        newResult.loggingLevelDroolsCore=ConfigUtils.mergeProperty(newResult.loggingLevelDroolsCore,oldResult.loggingLevelDroolsCore);
         newResult.maxMemory=ConfigUtils.mergeProperty(newResult.maxMemory,oldResult.maxMemory);
         newResult.optaPlannerVersion=ConfigUtils.mergeProperty(newResult.optaPlannerVersion,oldResult.optaPlannerVersion);
         newResult.javaVersion=ConfigUtils.mergeProperty(newResult.javaVersion,oldResult.javaVersion);
