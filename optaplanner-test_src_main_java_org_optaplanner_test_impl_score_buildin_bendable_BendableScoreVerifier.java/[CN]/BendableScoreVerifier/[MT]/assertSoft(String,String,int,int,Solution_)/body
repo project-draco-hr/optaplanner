@@ -1,0 +1,3 @@
+{
+  assertConstraintWeight(constraintPackage,constraintName,hardLevelsSize + softLevel,Integer.valueOf(expectedWeight),solution);
+}

@@ -1,8 +1,8 @@
 {
-  if (index < hardScores.length) {
-    return hardScores[index];
+  if (level < hardScores.length) {
+    return hardScores[level];
   }
  else {
-    return softScores[index - hardScores.length];
+    return softScores[level - hardScores.length];
   }
 }

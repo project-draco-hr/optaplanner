@@ -1,0 +1,4 @@
+String constraintName
+int softLevel
+int expectedWeight
+Solution_ solution

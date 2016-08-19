@@ -1,0 +1,4 @@
+{
+  super(solverFactory,BendableScore.class);
+  hardLevelsSize=((BendableScoreDefinition)scoreDirectorFactory.getScoreDefinition()).getHardLevelsSize();
+}
