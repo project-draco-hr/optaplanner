@@ -1,0 +1,8 @@
+{
+  super(id);
+  this.skillList=skillList;
+  this.taskTypeList=taskTypeList;
+  this.customerList=customerList;
+  this.employeeList=employeeList;
+  this.taskList=taskList;
+}

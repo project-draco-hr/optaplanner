@@ -1,0 +1,6 @@
+long id
+TaskType taskType
+int indexInTaskType
+Customer customer
+int readyTime
+Priority priority

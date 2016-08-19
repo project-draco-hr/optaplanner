@@ -1,0 +1,6 @@
+{
+  super(id);
+  this.fullName=fullName;
+  skillSet=new LinkedHashSet<>();
+  affinityMap=new LinkedHashMap<>();
+}

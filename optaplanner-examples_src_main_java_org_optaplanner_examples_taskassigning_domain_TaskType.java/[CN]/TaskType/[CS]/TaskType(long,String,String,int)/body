@@ -1,0 +1,7 @@
+{
+  super(id);
+  this.code=code;
+  this.title=title;
+  this.baseDuration=baseDuration;
+  requiredSkillList=new ArrayList<>();
+}

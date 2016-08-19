@@ -1,0 +1,6 @@
+{
+  task.setPreviousTaskOrEmployee(previous);
+  task.setEmployee(previous.getEmployee());
+  previous.setNextTask(task);
+  task.setStartTime(previous.getEndTime());
+}

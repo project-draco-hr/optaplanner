@@ -1,0 +1,9 @@
+{
+  super(id);
+  this.taskType=taskType;
+  this.indexInTaskType=indexInTaskType;
+  this.customer=customer;
+  this.readyTime=readyTime;
+  this.priority=priority;
+  locked=false;
+}

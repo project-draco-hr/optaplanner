@@ -1,0 +1,21 @@
+{
+  Skill s1=new Skill(1L,"Law degree");
+  TaskType tt1=new TaskType(1L,"TT1","Task type 1",100);
+  tt1.getRequiredSkillList().add(s1);
+  TaskType tt2=new TaskType(1L,"TT2","Task type 2",2000);
+  Customer c1=new Customer(1L,"Steel Inc");
+  Employee e1=new Employee(1L,"Ann");
+  Employee e2=new Employee(2L,"Beth");
+  Employee e3=new Employee(3L,"Carl");
+  Task t1=new Task(1L,tt1,0,c1,0,Priority.CRITICAL);
+  Task t2=new Task(2L,tt1,0,c1,0,Priority.MAJOR);
+  Task t3=new Task(3L,tt2,0,c1,0,Priority.MINOR);
+  TaskAssigningSolution solution=new TaskAssigningSolution(0L,Arrays.asList(s1),Arrays.asList(tt1,tt2),Arrays.asList(c1),Arrays.asList(e1,e2,e3),Arrays.asList(t1,t2,t3));
+  scoreVerifier.assertHard("Skill requirements",0,0,solution);
+  setPreviousAndShadows(t1,e1);
+  scoreVerifier.assertHard("Skill requirements",0,-1,solution);
+  setPreviousAndShadows(t2,t1);
+  scoreVerifier.assertHard("Skill requirements",0,-2,solution);
+  setPreviousAndShadows(t3,e1);
+  scoreVerifier.assertHard("Skill requirements",0,-2,solution);
+}

@@ -1,0 +1,6 @@
+long id
+List<Skill> skillList
+List<TaskType> taskTypeList
+List<Customer> customerList
+List<Employee> employeeList
+List<Task> taskList
