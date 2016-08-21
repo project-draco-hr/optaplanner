@@ -1,4 +1,4 @@
 {
   File unsolvedDataFile=new File("data/tennis/unsolved/munich-7teams.xml");
-  runSpeedTest(unsolvedDataFile,"0hard/-742medium/-288soft");
+  runSpeedTest(unsolvedDataFile,"0hard/-742medium/-562soft");
 }
