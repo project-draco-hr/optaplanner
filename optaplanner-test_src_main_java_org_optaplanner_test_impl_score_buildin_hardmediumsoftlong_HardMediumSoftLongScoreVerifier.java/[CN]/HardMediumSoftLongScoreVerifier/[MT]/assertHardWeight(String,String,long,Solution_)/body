@@ -1,0 +1,3 @@
+{
+  assertWeight(constraintPackage,constraintName,0,Long.valueOf(expectedWeight),solution);
+}

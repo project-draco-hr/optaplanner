@@ -1,0 +1,3 @@
+{
+  super(solverFactory,HardMediumSoftScore.class);
+}

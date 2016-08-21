@@ -1,3 +1,0 @@
-{
-  assertHard(null,constraintName,expectedWeight,solution);
-}

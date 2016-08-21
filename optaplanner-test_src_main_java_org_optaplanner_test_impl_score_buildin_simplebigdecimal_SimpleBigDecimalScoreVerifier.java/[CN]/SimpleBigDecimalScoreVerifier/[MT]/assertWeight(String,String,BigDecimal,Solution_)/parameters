@@ -1,0 +1,4 @@
+String constraintPackage
+String constraintName
+BigDecimal expectedWeight
+Solution_ solution

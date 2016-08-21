@@ -1,0 +1,3 @@
+{
+  assertHardWeight(null,constraintName,expectedWeight,solution);
+}

@@ -11,11 +11,11 @@
   Task t2=new Task(2L,tt1,0,c1,0,Priority.MAJOR);
   Task t3=new Task(3L,tt2,0,c1,0,Priority.MINOR);
   TaskAssigningSolution solution=new TaskAssigningSolution(0L,Arrays.asList(s1),Arrays.asList(tt1,tt2),Arrays.asList(c1),Arrays.asList(e1,e2,e3),Arrays.asList(t1,t2,t3));
-  scoreVerifier.assertHard("Skill requirements",0,0,solution);
+  scoreVerifier.assertHardWeight("Skill requirements",0,0,solution);
   setPreviousAndShadows(t1,e1);
-  scoreVerifier.assertHard("Skill requirements",0,-1,solution);
+  scoreVerifier.assertHardWeight("Skill requirements",0,-1,solution);
   setPreviousAndShadows(t2,t1);
-  scoreVerifier.assertHard("Skill requirements",0,-2,solution);
+  scoreVerifier.assertHardWeight("Skill requirements",0,-2,solution);
   setPreviousAndShadows(t3,e1);
-  scoreVerifier.assertHard("Skill requirements",0,-2,solution);
+  scoreVerifier.assertHardWeight("Skill requirements",0,-2,solution);
 }
