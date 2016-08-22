@@ -27,8 +27,9 @@
   bestScoreDistributionSummaryChartFileList=new ArrayList<>(datasetList.size());
   int scoreLevelIndex=0;
   for (  DefaultBoxAndWhiskerCategoryDataset dataset : datasetList) {
-    CategoryPlot plot=createBoxAndWhiskerChartPlot(dataset,"Score level " + scoreLevelIndex,NumberFormat.getInstance(locale));
-    JFreeChart chart=new JFreeChart("Best score distribution level " + scoreLevelIndex + " summary (higher is better)",JFreeChart.DEFAULT_TITLE_FONT,plot,true);
+    String scoreLevelLabel=plannerBenchmarkResult.findScoreLevelLabel(scoreLevelIndex);
+    CategoryPlot plot=createBoxAndWhiskerChartPlot(dataset,"Best " + scoreLevelLabel,NumberFormat.getInstance(locale));
+    JFreeChart chart=new JFreeChart("Best " + scoreLevelLabel + " distribution summary (higher is better)",JFreeChart.DEFAULT_TITLE_FONT,plot,true);
     bestScoreDistributionSummaryChartFileList.add(writeChartToImageFile(chart,"bestScoreDistributionSummaryLevel" + scoreLevelIndex));
     scoreLevelIndex++;
   }

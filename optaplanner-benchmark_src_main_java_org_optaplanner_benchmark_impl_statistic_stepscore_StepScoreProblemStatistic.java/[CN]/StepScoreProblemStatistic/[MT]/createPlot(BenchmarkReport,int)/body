@@ -2,7 +2,8 @@
   Locale locale=benchmarkReport.getLocale();
   NumberAxis xAxis=new NumberAxis("Time spent");
   xAxis.setNumberFormatOverride(new MillisecondsSpentNumberFormat(locale));
-  NumberAxis yAxis=new NumberAxis("Step score level " + scoreLevelIndex);
+  String scoreLevelLabel=problemBenchmarkResult.findScoreLevelLabel(scoreLevelIndex);
+  NumberAxis yAxis=new NumberAxis("Step " + scoreLevelLabel);
   yAxis.setNumberFormatOverride(NumberFormat.getInstance(locale));
   yAxis.setAutoRangeIncludesZero(false);
   XYPlot plot=new XYPlot(null,xAxis,yAxis,null);

@@ -18,8 +18,9 @@
   worstScoreDifferencePercentageSummaryChartFileList=new ArrayList<>(datasetList.size());
   int scoreLevelIndex=0;
   for (  DefaultCategoryDataset dataset : datasetList) {
-    CategoryPlot plot=createBarChartPlot(dataset,"Worst score difference percentage level " + scoreLevelIndex,NumberFormat.getPercentInstance(locale));
-    JFreeChart chart=new JFreeChart("Worst score difference percentage level " + scoreLevelIndex + " summary (higher is better)",JFreeChart.DEFAULT_TITLE_FONT,plot,true);
+    String scoreLevelLabel=plannerBenchmarkResult.findScoreLevelLabel(scoreLevelIndex);
+    CategoryPlot plot=createBarChartPlot(dataset,"Worst " + scoreLevelLabel + " difference percentage",NumberFormat.getPercentInstance(locale));
+    JFreeChart chart=new JFreeChart("Worst " + scoreLevelLabel + " difference percentage"+ " summary (higher is better)",JFreeChart.DEFAULT_TITLE_FONT,plot,true);
     worstScoreDifferencePercentageSummaryChartFileList.add(writeChartToImageFile(chart,"worstScoreDifferencePercentageSummaryLevel" + scoreLevelIndex));
     scoreLevelIndex++;
   }

@@ -24,8 +24,9 @@
   bestScorePerTimeSpentSummaryChartFileList=new ArrayList<>(seriesListList.size());
   int scoreLevelIndex=0;
   for (  List<XYSeries> seriesList : seriesListList) {
-    XYPlot plot=createScalabilityPlot(seriesList,"Time spent",new MillisecondsSpentNumberFormat(locale),"Score level " + scoreLevelIndex,NumberFormat.getInstance(locale));
-    JFreeChart chart=new JFreeChart("Best score per time spent level " + scoreLevelIndex + " summary (higher left is better)",JFreeChart.DEFAULT_TITLE_FONT,plot,true);
+    String scoreLevelLabel=plannerBenchmarkResult.findScoreLevelLabel(scoreLevelIndex);
+    XYPlot plot=createScalabilityPlot(seriesList,"Time spent",new MillisecondsSpentNumberFormat(locale),"Best " + scoreLevelLabel,NumberFormat.getInstance(locale));
+    JFreeChart chart=new JFreeChart("Best " + scoreLevelLabel + " per time spent summary (higher left is better)",JFreeChart.DEFAULT_TITLE_FONT,plot,true);
     bestScorePerTimeSpentSummaryChartFileList.add(writeChartToImageFile(chart,"bestScorePerTimeSpentSummaryLevel" + scoreLevelIndex));
     scoreLevelIndex++;
   }

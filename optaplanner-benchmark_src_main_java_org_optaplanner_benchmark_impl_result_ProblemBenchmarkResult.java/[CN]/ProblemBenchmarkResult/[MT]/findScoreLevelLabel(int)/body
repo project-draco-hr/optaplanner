@@ -1,4 +1,4 @@
 {
   String[] levelLabels=singleBenchmarkResultList.get(0).getSolverBenchmarkResult().getScoreDefinition().getLevelLabels();
-  return StringUtils.capitalize(levelLabels[scoreLevel]);
+  return levelLabels[scoreLevel];
 }

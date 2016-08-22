@@ -32,7 +32,8 @@
       seriesCollection.addSeries(series);
     }
     plot.setDataset(seriesCollection);
-    JFreeChart chart=new JFreeChart(subSingleBenchmarkResult.getName() + " constraint match total best score diff level " + scoreLevelIndex+ " statistic",JFreeChart.DEFAULT_TITLE_FONT,plot,true);
+    String scoreLevelLabel=subSingleBenchmarkResult.getSingleBenchmarkResult().getProblemBenchmarkResult().findScoreLevelLabel(scoreLevelIndex);
+    JFreeChart chart=new JFreeChart(subSingleBenchmarkResult.getName() + " constraint match total best " + scoreLevelLabel+ " diff statistic",JFreeChart.DEFAULT_TITLE_FONT,plot,true);
     graphFileList.add(writeChartToImageFile(chart,"ConstraintMatchTotalBestScoreStatisticLevel" + scoreLevelIndex));
   }
 }

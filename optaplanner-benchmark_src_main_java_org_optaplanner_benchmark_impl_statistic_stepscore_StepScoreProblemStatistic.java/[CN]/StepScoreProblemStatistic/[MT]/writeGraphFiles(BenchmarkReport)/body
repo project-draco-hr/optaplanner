@@ -35,7 +35,8 @@
   }
   graphFileList=new ArrayList<>(plotList.size());
   for (int scoreLevelIndex=0; scoreLevelIndex < plotList.size(); scoreLevelIndex++) {
-    JFreeChart chart=new JFreeChart(problemBenchmarkResult.getName() + " step score level " + scoreLevelIndex+ " statistic",JFreeChart.DEFAULT_TITLE_FONT,plotList.get(scoreLevelIndex),true);
+    String scoreLevelLabel=problemBenchmarkResult.findScoreLevelLabel(scoreLevelIndex);
+    JFreeChart chart=new JFreeChart(problemBenchmarkResult.getName() + " step " + scoreLevelLabel+ " statistic",JFreeChart.DEFAULT_TITLE_FONT,plotList.get(scoreLevelIndex),true);
     graphFileList.add(writeChartToImageFile(chart,problemBenchmarkResult.getName() + "StepScoreStatisticLevel" + scoreLevelIndex));
   }
 }

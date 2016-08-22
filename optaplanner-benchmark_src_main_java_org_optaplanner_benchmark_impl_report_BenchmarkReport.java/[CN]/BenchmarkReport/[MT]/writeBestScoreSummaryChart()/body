@@ -18,8 +18,9 @@
   bestScoreSummaryChartFileList=new ArrayList<>(datasetList.size());
   int scoreLevelIndex=0;
   for (  DefaultCategoryDataset dataset : datasetList) {
-    CategoryPlot plot=createBarChartPlot(dataset,"Score level " + scoreLevelIndex,NumberFormat.getInstance(locale));
-    JFreeChart chart=new JFreeChart("Best score level " + scoreLevelIndex + " summary (higher is better)",JFreeChart.DEFAULT_TITLE_FONT,plot,true);
+    String scoreLevelLabel=plannerBenchmarkResult.findScoreLevelLabel(scoreLevelIndex);
+    CategoryPlot plot=createBarChartPlot(dataset,"Best " + scoreLevelLabel,NumberFormat.getInstance(locale));
+    JFreeChart chart=new JFreeChart("Best " + scoreLevelLabel + " summary (higher is better)",JFreeChart.DEFAULT_TITLE_FONT,plot,true);
     bestScoreSummaryChartFileList.add(writeChartToImageFile(chart,"bestScoreSummaryLevel" + scoreLevelIndex));
     scoreLevelIndex++;
   }
