@@ -1,5 +1,5 @@
 {
-  facts=new ArrayList<TestGenFact>();
-  initialInsertJournal=new ArrayList<TestGenKieSessionInsert>();
-  updateJournal=new ArrayList<TestGenKieSessionOperation>();
+  facts=new ArrayList<>();
+  initialInsertJournal=new ArrayList<>();
+  updateJournal=new ArrayList<>();
 }

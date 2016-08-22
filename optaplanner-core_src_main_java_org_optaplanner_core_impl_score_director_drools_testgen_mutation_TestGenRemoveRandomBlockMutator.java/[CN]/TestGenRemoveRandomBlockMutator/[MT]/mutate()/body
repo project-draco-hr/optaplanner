@@ -15,7 +15,7 @@
     removedIndex=random.nextInt(list.size() / blockSize) * blockSize;
   }
  while (indexBlacklist.contains(removedIndex));
-  removedBlock=new ArrayList<T>(list.subList(removedIndex,removedIndex + blockSize));
+  removedBlock=new ArrayList<>(list.subList(removedIndex,removedIndex + blockSize));
   list.removeAll(removedBlock);
   return list;
 }

@@ -1,6 +1,6 @@
 {
   TestGenRemoveRandomBlockMutator<Integer> m=new TestGenRemoveRandomBlockMutator<Integer>(list);
-  ArrayList<Integer> removed=new ArrayList<Integer>();
+  ArrayList<Integer> removed=new ArrayList<>();
   while (m.canMutate()) {
     assertTrue(m.canMutate());
     m.mutate();
