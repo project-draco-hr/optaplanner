@@ -2,6 +2,6 @@
   PlannerBenchmarkFactory benchmarkFactory=super.buildPlannerBenchmarkFactory(unsolvedDataFile);
   PlannerBenchmarkConfig benchmarkConfig=benchmarkFactory.getPlannerBenchmarkConfig();
   benchmarkConfig.setWarmUpSecondsSpentLimit(0L);
-  benchmarkConfig.getInheritedSolverBenchmarkConfig().getSolverConfig().getEntityClassList().add(Row.class);
+  benchmarkConfig.getInheritedSolverBenchmarkConfig().getSolverConfig().getTerminationConfig().setStepCountLimit(-100);
   return benchmarkFactory;
 }
