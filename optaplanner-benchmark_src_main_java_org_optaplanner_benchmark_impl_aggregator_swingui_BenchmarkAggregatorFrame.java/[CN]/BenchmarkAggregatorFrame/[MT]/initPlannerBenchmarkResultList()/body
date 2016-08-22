@@ -1,5 +1,6 @@
 {
-  plannerBenchmarkResultList=benchmarkResultIO.readPlannerBenchmarkResultList(benchmarkAggregator.getBenchmarkDirectory());
+  SolverConfigContext configContext=new SolverConfigContext();
+  plannerBenchmarkResultList=benchmarkResultIO.readPlannerBenchmarkResultList(configContext,benchmarkAggregator.getBenchmarkDirectory());
   for (  PlannerBenchmarkResult plannerBenchmarkResult : plannerBenchmarkResultList) {
     plannerBenchmarkResult.accumulateResults(benchmarkAggregator.getBenchmarkReportConfig().buildBenchmarkReport(plannerBenchmarkResult));
   }

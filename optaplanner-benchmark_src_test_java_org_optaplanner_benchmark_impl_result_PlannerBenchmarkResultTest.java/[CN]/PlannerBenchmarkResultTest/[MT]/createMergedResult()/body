@@ -42,8 +42,7 @@
   SingleBenchmarkResult p1SolverYProblemA=createSingleBenchmarkResult(p1SolverY,p1ProblemA,-300);
   SingleBenchmarkResult p1SolverYProblemB=createSingleBenchmarkResult(p1SolverY,p1ProblemB,-4000);
   SingleBenchmarkResult p2SolverZProblemA=createSingleBenchmarkResult(p2SolverZ,p2ProblemA,-50000);
-  SolverConfigContext configContext=new SolverConfigContext();
-  PlannerBenchmarkResult mergedResult=PlannerBenchmarkResult.createMergedResult(configContext,Arrays.asList(p1SolverXProblemA,p1SolverXProblemB,p1SolverYProblemA,p1SolverYProblemB,p2SolverZProblemA));
+  PlannerBenchmarkResult mergedResult=PlannerBenchmarkResult.createMergedResult(Arrays.asList(p1SolverXProblemA,p1SolverXProblemB,p1SolverYProblemA,p1SolverYProblemB,p2SolverZProblemA));
   assertEquals(true,mergedResult.getAggregation());
   List<ProblemBenchmarkResult> mergedProblemBenchmarkResultList=mergedResult.getUnifiedProblemBenchmarkResultList();
   List<SolverBenchmarkResult> mergedSolverBenchmarkResultList=mergedResult.getSolverBenchmarkResultList();

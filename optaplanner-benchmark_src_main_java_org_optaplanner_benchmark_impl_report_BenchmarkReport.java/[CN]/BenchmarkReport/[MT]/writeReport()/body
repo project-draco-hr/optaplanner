@@ -1,0 +1,69 @@
+{
+  logger.info("Generating benchmark report...");
+  summaryDirectory=new File(plannerBenchmarkResult.getBenchmarkReportDirectory(),"summary");
+  summaryDirectory.mkdir();
+  plannerBenchmarkResult.accumulateResults(this);
+  fillWarningList();
+  writeBestScoreSummaryChart();
+  writeBestScoreScalabilitySummaryChart();
+  writeWinningScoreDifferenceSummaryChart();
+  writeWorstScoreDifferencePercentageSummaryChart();
+  writeBestScoreDistributionSummaryChart();
+  writeScoreCalculationSpeedSummaryChart();
+  writeTimeSpentSummaryChart();
+  writeTimeSpentScalabilitySummaryChart();
+  writeBestScorePerTimeSpentSummaryChart();
+  for (  ProblemBenchmarkResult<Object> problemBenchmarkResult : plannerBenchmarkResult.getUnifiedProblemBenchmarkResultList()) {
+    for (    SingleBenchmarkResult singleBenchmarkResult : problemBenchmarkResult.getSingleBenchmarkResultList()) {
+      for (      SubSingleBenchmarkResult subSingleBenchmarkResult : singleBenchmarkResult.getSubSingleBenchmarkResultList()) {
+        if (!subSingleBenchmarkResult.hasAllSuccess()) {
+          continue;
+        }
+        for (        SubSingleStatistic subSingleStatistic : subSingleBenchmarkResult.getEffectiveSubSingleStatisticMap().values()) {
+          try {
+            subSingleStatistic.unhibernatePointList();
+          }
+ catch (          IllegalStateException e) {
+            if (!plannerBenchmarkResult.getAggregation()) {
+              throw new IllegalStateException("Failed to unhibernate point list of SubSingleStatistic (" + subSingleStatistic + ") of SubSingleBenchmark ("+ subSingleBenchmarkResult+ ").",e);
+            }
+            logger.trace("This is expected, aggregator doesn't copy CSV files. Could not read CSV file " + "({}) of sub single statistic ({}).",subSingleStatistic.getCsvFile().getAbsolutePath(),subSingleStatistic);
+          }
+        }
+      }
+    }
+  }
+  for (  ProblemBenchmarkResult<Object> problemBenchmarkResult : plannerBenchmarkResult.getUnifiedProblemBenchmarkResultList()) {
+    if (problemBenchmarkResult.hasAnySuccess()) {
+      for (      ProblemStatistic problemStatistic : problemBenchmarkResult.getProblemStatisticList()) {
+        problemStatistic.writeGraphFiles(this);
+      }
+      for (      SingleBenchmarkResult singleBenchmarkResult : problemBenchmarkResult.getSingleBenchmarkResultList()) {
+        if (singleBenchmarkResult.hasAllSuccess()) {
+          for (          PureSubSingleStatistic pureSubSingleStatistic : singleBenchmarkResult.getMedian().getPureSubSingleStatisticList()) {
+            pureSubSingleStatistic.writeGraphFiles(this);
+          }
+        }
+      }
+    }
+  }
+  for (  ProblemBenchmarkResult<Object> problemBenchmarkResult : plannerBenchmarkResult.getUnifiedProblemBenchmarkResultList()) {
+    for (    SingleBenchmarkResult singleBenchmarkResult : problemBenchmarkResult.getSingleBenchmarkResultList()) {
+      for (      SubSingleBenchmarkResult subSingleBenchmarkResult : singleBenchmarkResult.getSubSingleBenchmarkResultList()) {
+        if (!subSingleBenchmarkResult.hasAllSuccess()) {
+          continue;
+        }
+        for (        SubSingleStatistic subSingleStatistic : subSingleBenchmarkResult.getEffectiveSubSingleStatisticMap().values()) {
+          if (plannerBenchmarkResult.getAggregation()) {
+            subSingleStatistic.setPointList(null);
+          }
+ else {
+            subSingleStatistic.hibernatePointList();
+          }
+        }
+      }
+    }
+  }
+  determineDefaultShownScoreLevelIndex();
+  writeHtmlOverviewFile();
+}

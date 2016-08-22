@@ -15,6 +15,7 @@
       nameCountMap.put(oldResult.name,nameCount);
       newResult.subSingleCount=oldResult.subSingleCount;
       newResult.solverConfig=oldResult.solverConfig;
+      newResult.scoreDefinition=oldResult.scoreDefinition;
       newResult.singleBenchmarkResultList=new ArrayList<>(oldResult.singleBenchmarkResultList.size());
       mergeMap.put(oldResult,newResult);
       newPlannerBenchmarkResult.getSolverBenchmarkResultList().add(newResult);

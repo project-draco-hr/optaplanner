@@ -1,0 +1,6 @@
+{
+  for (  SolverBenchmarkResult solverBenchmarkResult : plannerBenchmarkResult.getSolverBenchmarkResultList()) {
+    SolverConfig solverConfig=solverBenchmarkResult.getSolverConfig();
+    solverBenchmarkResult.setScoreDefinition(solverConfig.buildSolutionDescriptor(configContext).getScoreDefinition());
+  }
+}

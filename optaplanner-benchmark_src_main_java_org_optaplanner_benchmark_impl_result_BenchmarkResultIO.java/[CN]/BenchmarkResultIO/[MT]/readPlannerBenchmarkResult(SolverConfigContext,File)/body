@@ -1,0 +1,21 @@
+{
+  if (!plannerBenchmarkResultFile.exists()) {
+    throw new IllegalArgumentException("The plannerBenchmarkResultFile (" + plannerBenchmarkResultFile + ") does not exist.");
+  }
+  PlannerBenchmarkResult plannerBenchmarkResult;
+  try (Reader reader=new InputStreamReader(new FileInputStream(plannerBenchmarkResultFile),"UTF-8")){
+    plannerBenchmarkResult=(PlannerBenchmarkResult)xStream.fromXML(reader);
+  }
+ catch (  ConversionException e) {
+    logger.warn("Failed reading plannerBenchmarkResultFile (" + plannerBenchmarkResultFile + ").",e);
+    String benchmarkReportDirectoryName=plannerBenchmarkResultFile.getParentFile().getName();
+    plannerBenchmarkResult=PlannerBenchmarkResult.createUnmarshallingFailedResult(benchmarkReportDirectoryName);
+  }
+catch (  XStreamException|IOException e) {
+    throw new IllegalArgumentException("Failed reading plannerBenchmarkResultFile (" + plannerBenchmarkResultFile + ").",e);
+  }
+  plannerBenchmarkResult.setBenchmarkReportDirectory(plannerBenchmarkResultFile.getParentFile());
+  restoreOmittedBidirectionalFields(plannerBenchmarkResult);
+  restoreOtherOmittedFields(configContext,plannerBenchmarkResult);
+  return plannerBenchmarkResult;
+}

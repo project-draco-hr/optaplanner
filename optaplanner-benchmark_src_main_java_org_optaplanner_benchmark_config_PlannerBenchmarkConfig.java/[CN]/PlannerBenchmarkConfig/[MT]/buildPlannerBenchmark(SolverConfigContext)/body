@@ -14,7 +14,7 @@
   plannerBenchmarkResult.setUnifiedProblemBenchmarkResultList(new ArrayList<>());
   plannerBenchmarkResult.setSolverBenchmarkResultList(new ArrayList<>(effectiveSolverBenchmarkConfigList.size()));
   for (  SolverBenchmarkConfig solverBenchmarkConfig : effectiveSolverBenchmarkConfigList) {
-    solverBenchmarkConfig.buildSolverBenchmark(plannerBenchmarkResult);
+    solverBenchmarkConfig.buildSolverBenchmark(solverConfigContext,plannerBenchmarkResult);
   }
   return plannerBenchmark;
 }
