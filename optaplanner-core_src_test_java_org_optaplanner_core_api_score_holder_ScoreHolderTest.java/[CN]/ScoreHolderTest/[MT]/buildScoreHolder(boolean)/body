@@ -1,0 +1,9 @@
+{
+  return new AbstractScoreHolder(constraintMatchEnabled){
+    private static final long serialVersionUID=3167742145462539743L;
+    @Override public Score<?> extractScore(    int initScore){
+      return null;
+    }
+  }
+;
+}

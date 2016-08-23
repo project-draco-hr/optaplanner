@@ -1,0 +1,6 @@
+{
+  IncrementalScoreDirectorFactory<Object> factory=mock(IncrementalScoreDirectorFactory.class);
+  when(factory.getScoreDefinition()).thenReturn(new SimpleScoreDefinition());
+  when(factory.getSolutionDescriptor()).thenReturn(mock(SolutionDescriptor.class));
+  return factory;
+}

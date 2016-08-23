@@ -1,0 +1,5 @@
+{
+  IncrementalScoreDirector<Object> director=new IncrementalScoreDirector<>(mockIncrementalScoreDirectorFactory(),true,mockIncrementalScoreCalculator(true));
+  director.setWorkingSolution(new Object());
+  assertNotNull(director.getConstraintMatchTotals());
+}

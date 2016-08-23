@@ -1,0 +1,7 @@
+{
+  DroolsScoreDirector<Object> director=new DroolsScoreDirector<>(mockDroolsScoreDirectorFactory(),false);
+  director.setWorkingSolution(new Object());
+  expectedException.expect(IllegalStateException.class);
+  expectedException.expectMessage("constraintMatchEnabled");
+  director.getConstraintMatchTotals();
+}

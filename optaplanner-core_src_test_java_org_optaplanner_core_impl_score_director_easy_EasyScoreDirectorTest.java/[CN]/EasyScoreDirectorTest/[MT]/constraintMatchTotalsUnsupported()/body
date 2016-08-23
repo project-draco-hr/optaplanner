@@ -1,0 +1,7 @@
+{
+  EasyScoreDirector<Object> director=new EasyScoreDirector<>(mockEasyScoreDirectorFactory(),true,null);
+  assertFalse(director.isConstraintMatchEnabled());
+  expectedException.expect(IllegalStateException.class);
+  expectedException.expectMessage("not supported");
+  director.getConstraintMatchTotals();
+}

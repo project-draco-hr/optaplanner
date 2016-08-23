@@ -1,0 +1,7 @@
+{
+  IncrementalScoreDirector<Object> director=new IncrementalScoreDirector<>(mockIncrementalScoreDirectorFactory(),false,mockIncrementalScoreCalculator(false));
+  director.setWorkingSolution(new Object());
+  expectedException.expect(IllegalStateException.class);
+  expectedException.expectMessage("constraintMatchEnabled");
+  director.getConstraintMatchTotals();
+}

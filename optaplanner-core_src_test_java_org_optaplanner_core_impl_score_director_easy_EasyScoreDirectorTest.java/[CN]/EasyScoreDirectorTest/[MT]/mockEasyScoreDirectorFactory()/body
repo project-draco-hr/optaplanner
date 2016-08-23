@@ -1,0 +1,5 @@
+{
+  EasyScoreDirectorFactory<Object> factory=mock(EasyScoreDirectorFactory.class);
+  when(factory.getSolutionDescriptor()).thenReturn(mock(SolutionDescriptor.class));
+  return factory;
+}

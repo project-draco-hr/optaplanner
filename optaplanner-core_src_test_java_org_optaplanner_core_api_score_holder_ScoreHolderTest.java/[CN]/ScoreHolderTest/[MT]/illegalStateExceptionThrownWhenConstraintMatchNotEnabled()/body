@@ -1,0 +1,6 @@
+{
+  ScoreHolder scoreHolder=buildScoreHolder(false);
+  expectedException.expect(IllegalStateException.class);
+  expectedException.expectMessage("constraintMatchEnabled");
+  scoreHolder.getConstraintMatchTotals().clear();
+}

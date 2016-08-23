@@ -1,0 +1,7 @@
+{
+  DroolsScoreDirectorFactory<Object> factory=mock(DroolsScoreDirectorFactory.class);
+  when(factory.getScoreDefinition()).thenReturn(new SimpleScoreDefinition());
+  when(factory.getSolutionDescriptor()).thenReturn(mock(SolutionDescriptor.class));
+  when(factory.newKieSession()).thenReturn(mock(KieSession.class));
+  return factory;
+}

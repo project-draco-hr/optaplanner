@@ -1,0 +1,5 @@
+{
+  DroolsScoreDirector<Object> director=new DroolsScoreDirector<>(mockDroolsScoreDirectorFactory(),true);
+  director.setWorkingSolution(new Object());
+  assertNotNull(director.getConstraintMatchTotals());
+}

@@ -1,3 +1,6 @@
 {
+  if (!isConstraintMatchEnabled()) {
+    throw new IllegalStateException("When constraintMatchEnabled (" + isConstraintMatchEnabled() + ") is disabled, this method should not be called.");
+  }
   return constraintMatchTotalMap.values();
 }
