@@ -1,0 +1,4 @@
+{
+  DefaultPartitionedSearchPhase phase=new DefaultPartitionedSearchPhase();
+  return phase;
+}

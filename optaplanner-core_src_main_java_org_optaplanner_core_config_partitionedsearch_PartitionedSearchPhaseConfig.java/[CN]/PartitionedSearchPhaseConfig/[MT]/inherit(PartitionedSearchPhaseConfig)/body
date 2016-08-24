@@ -1,0 +1,4 @@
+{
+  super.inherit(inheritedConfig);
+  phaseConfigList=ConfigUtils.inheritMergeableListConfig(phaseConfigList,inheritedConfig.getPhaseConfigList());
+}

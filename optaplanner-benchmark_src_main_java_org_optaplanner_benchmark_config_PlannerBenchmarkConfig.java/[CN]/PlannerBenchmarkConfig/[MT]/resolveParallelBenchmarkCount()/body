@@ -16,20 +16,7 @@
     }
   }
  else {
-    String scriptLanguage="JavaScript";
-    ScriptEngine scriptEngine=new ScriptEngineManager().getEngineByName(scriptLanguage);
-    scriptEngine.put(AVAILABLE_PROCESSOR_COUNT,availableProcessorCount);
-    Object scriptResult;
-    try {
-      scriptResult=scriptEngine.eval(parallelBenchmarkCount);
-    }
- catch (    ScriptException e) {
-      throw new IllegalArgumentException("The parallelBenchmarkCount (" + parallelBenchmarkCount + ") is not "+ PARALLEL_BENCHMARK_COUNT_AUTO+ " and cannot be parsed in "+ scriptLanguage+ " with the variables (["+ AVAILABLE_PROCESSOR_COUNT+ "]).",e);
-    }
-    if (!(scriptResult instanceof Number)) {
-      throw new IllegalArgumentException("The parallelBenchmarkCount (" + parallelBenchmarkCount + ") is resolved to scriptResult ("+ scriptResult+ ") in "+ scriptLanguage+ " and is not a Number.");
-    }
-    resolvedParallelBenchmarkCount=((Number)scriptResult).intValue();
+    resolvedParallelBenchmarkCount=ConfigUtils.resolveThreadPoolSizeScript("parallelBenchmarkCount",parallelBenchmarkCount,PARALLEL_BENCHMARK_COUNT_AUTO);
   }
   if (resolvedParallelBenchmarkCount < 1) {
     throw new IllegalArgumentException("The parallelBenchmarkCount (" + parallelBenchmarkCount + ") resulted in a resolvedParallelBenchmarkCount ("+ resolvedParallelBenchmarkCount+ ") that is lower than 1.");
