@@ -1,0 +1,6 @@
+{
+  BendableLongScore initializedScore=scoreDefinitionHSS.createScoreInitialized(-5L,-10L,-200L);
+  assertEquals(-5L,initializedScore.getHardOrSoftScore(0));
+  assertEquals(-10L,initializedScore.getHardOrSoftScore(1));
+  assertEquals(-200L,initializedScore.getHardOrSoftScore(2));
+}

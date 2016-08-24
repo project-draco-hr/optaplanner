@@ -1,0 +1,6 @@
+{
+  BendableBigDecimalScore initializedScore=scoreDefinitionHSS.createScoreInitialized(BigDecimal.valueOf(-5),BigDecimal.valueOf(-10),BigDecimal.valueOf(-200));
+  assertEquals(BigDecimal.valueOf(-5),initializedScore.getHardOrSoftScore(0));
+  assertEquals(BigDecimal.valueOf(-10),initializedScore.getHardOrSoftScore(1));
+  assertEquals(BigDecimal.valueOf(-200),initializedScore.getHardOrSoftScore(2));
+}
