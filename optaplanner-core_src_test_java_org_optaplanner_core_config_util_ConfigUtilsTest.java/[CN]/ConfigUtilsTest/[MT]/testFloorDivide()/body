@@ -1,14 +1,14 @@
 {
-  assertEquals(9,floorDivide(19,2));
-  assertEquals(10,floorDivide(20,2));
-  assertEquals(10,floorDivide(21,2));
-  assertEquals(-10,floorDivide(19,-2));
-  assertEquals(-10,floorDivide(20,-2));
-  assertEquals(-11,floorDivide(21,-2));
-  assertEquals(-10,floorDivide(-19,2));
-  assertEquals(-10,floorDivide(-20,2));
-  assertEquals(-11,floorDivide(-21,2));
-  assertEquals(9,floorDivide(-19,-2));
-  assertEquals(10,floorDivide(-20,-2));
-  assertEquals(10,floorDivide(-21,-2));
+  assertEquals(9,floorDiv(19,2));
+  assertEquals(10,floorDiv(20,2));
+  assertEquals(10,floorDiv(21,2));
+  assertEquals(-10,floorDiv(19,-2));
+  assertEquals(-10,floorDiv(20,-2));
+  assertEquals(-11,floorDiv(21,-2));
+  assertEquals(-10,floorDiv(-19,2));
+  assertEquals(-10,floorDiv(-20,2));
+  assertEquals(-11,floorDiv(-21,2));
+  assertEquals(9,floorDiv(-19,-2));
+  assertEquals(10,floorDiv(-20,-2));
+  assertEquals(10,floorDiv(-21,-2));
 }
