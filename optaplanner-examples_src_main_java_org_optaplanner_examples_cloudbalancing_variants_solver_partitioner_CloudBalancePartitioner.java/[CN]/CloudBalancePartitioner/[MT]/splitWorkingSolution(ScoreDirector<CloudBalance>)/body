@@ -1,0 +1,25 @@
+{
+  int partCount=4;
+  List<CloudBalance> partList=new ArrayList<>(partCount);
+  CloudBalance originalSolution=scoreDirector.getWorkingSolution();
+  for (int i=0; i < partCount; i++) {
+    CloudBalance partSolution=new CloudBalance(originalSolution.getId(),new ArrayList<>(originalSolution.getComputerList().size() / partCount + 1),new ArrayList<>(originalSolution.getProcessList().size() / partCount + 1));
+    partList.add(partSolution);
+  }
+  int partIndex=0;
+  for (  CloudComputer originalComputer : originalSolution.getComputerList()) {
+    CloudBalance part=partList.get(partIndex);
+    part.getComputerList().add(new CloudComputer(originalComputer.getId(),originalComputer.getCpuPower(),originalComputer.getMemory(),originalComputer.getNetworkBandwidth(),originalComputer.getCost()));
+    partIndex=(partIndex + 1) % partList.size();
+  }
+  partIndex=0;
+  for (  CloudProcess originalProcess : originalSolution.getProcessList()) {
+    CloudBalance part=partList.get(partIndex);
+    part.getProcessList().add(new CloudProcess(originalProcess.getId(),originalProcess.getRequiredCpuPower(),originalProcess.getRequiredMemory(),originalProcess.getRequiredNetworkBandwidth()));
+    if (originalProcess.getComputer() != null) {
+      throw new IllegalStateException("The initialized process (" + originalProcess + ") has a computer ("+ originalProcess.getComputer()+ ") which belongs to the another partition.");
+    }
+    partIndex=(partIndex + 1) % partList.size();
+  }
+  return partList;
+}
