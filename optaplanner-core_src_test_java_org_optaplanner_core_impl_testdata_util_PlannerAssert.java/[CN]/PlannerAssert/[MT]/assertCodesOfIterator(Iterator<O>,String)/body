@@ -1,7 +1,9 @@
 {
   assertNotNull(iterator);
   for (  String code : codes) {
-    assertTrue(iterator.hasNext());
+    if (!iterator.hasNext()) {
+      fail("The asserted iterator ends too soon, instead it should return selection (" + code + ").");
+    }
     assertCode(code,iterator.next());
   }
 }

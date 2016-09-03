@@ -1,2 +1,3 @@
 EntitySelector childEntitySelector
+boolean randomSelection
 long selectedCountLimit

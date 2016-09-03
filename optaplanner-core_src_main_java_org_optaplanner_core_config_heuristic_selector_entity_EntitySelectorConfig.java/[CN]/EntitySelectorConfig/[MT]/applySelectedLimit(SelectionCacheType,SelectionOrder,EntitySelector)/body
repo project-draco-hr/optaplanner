@@ -1,6 +1,6 @@
 {
   if (selectedCountLimit != null) {
-    entitySelector=new SelectedCountLimitEntitySelector(entitySelector,selectedCountLimit);
+    entitySelector=new SelectedCountLimitEntitySelector(entitySelector,resolvedSelectionOrder.toRandomSelectionBoolean(),selectedCountLimit);
   }
   return entitySelector;
 }

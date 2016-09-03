@@ -1,0 +1,5 @@
+{
+  EntitySelector childEntitySelector=SelectorTestUtils.mockEntitySelector(TestdataEntity.class,new TestdataEntity("e1"),new TestdataEntity("e2"),new TestdataEntity("e3"),new TestdataEntity("e4"));
+  EntitySelector entitySelector=new SelectedCountLimitEntitySelector(childEntitySelector,true,2L);
+  assertAllCodesOfIterator(entitySelector.endingIterator(),"e1","e2","e3","e4");
+}

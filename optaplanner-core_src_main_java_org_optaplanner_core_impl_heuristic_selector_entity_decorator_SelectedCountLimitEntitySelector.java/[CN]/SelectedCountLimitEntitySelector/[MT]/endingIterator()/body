@@ -1,3 +1,8 @@
 {
-  return new SelectedCountLimitEntityIterator(childEntitySelector.endingIterator());
+  if (randomSelection) {
+    return childEntitySelector.endingIterator();
+  }
+ else {
+    return new SelectedCountLimitEntityIterator(childEntitySelector.endingIterator());
+  }
 }

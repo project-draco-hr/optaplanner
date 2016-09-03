@@ -1,6 +1,6 @@
 {
   EntitySelector childEntitySelector=SelectorTestUtils.mockEntitySelector(TestdataEntity.class,new TestdataEntity("e1"),new TestdataEntity("e2"),new TestdataEntity("e3"),new TestdataEntity("e4"),new TestdataEntity("e5"));
-  EntitySelector entitySelector=new SelectedCountLimitEntitySelector(childEntitySelector,3L);
+  EntitySelector entitySelector=new SelectedCountLimitEntitySelector(childEntitySelector,true,3L);
   DefaultSolverScope solverScope=mock(DefaultSolverScope.class);
   entitySelector.solvingStarted(solverScope);
   AbstractPhaseScope phaseScopeA=mock(AbstractPhaseScope.class);
