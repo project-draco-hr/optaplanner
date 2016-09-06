@@ -1,0 +1,4 @@
+{
+  DroolsScoreDirectorFactory scoreDirectorFactory=(DroolsScoreDirectorFactory<TestdataSolution>)solver.getScoreDirectorFactory();
+  scoreDirectorFactory.newKieSession();
+}

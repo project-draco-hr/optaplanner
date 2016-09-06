@@ -10,4 +10,5 @@
   solverConfig.setScoreDirectorFactoryConfig(scoreDirectorFactoryConfig);
   Solver<TestdataSolution> solver=solverFactory.buildSolver();
   assertNotNull(solver);
+  assertNewKieSessionSucceeds(solver);
 }

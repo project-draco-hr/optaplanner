@@ -4,4 +4,5 @@
   SolverFactory<TestdataSolution> solverFactory=SolverFactory.createFromKieContainerXmlResource(kieContainer,"testdata/kjar/solverConfig.solver");
   Solver<TestdataSolution> solver=solverFactory.buildSolver();
   assertNotNull(solver);
+  assertNewKieSessionSucceeds(solver);
 }
