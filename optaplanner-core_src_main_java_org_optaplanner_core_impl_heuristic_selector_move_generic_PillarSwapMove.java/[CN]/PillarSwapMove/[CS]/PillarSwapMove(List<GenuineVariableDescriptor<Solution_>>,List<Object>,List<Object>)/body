@@ -1,5 +1,5 @@
 {
-  this.variableDescriptors=variableDescriptors;
+  this.variableDescriptorList=variableDescriptorList;
   this.leftPillar=leftPillar;
   this.rightPillar=rightPillar;
 }

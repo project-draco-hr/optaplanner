@@ -1,0 +1,10 @@
+{
+  ChangeMove move=new ChangeMove(new TestdataMultiVarEntity("a"),TestdataMultiVarEntity.buildVariableDescriptorForPrimaryValue(),null);
+  assertCode("a",move.getEntity());
+  assertEquals("primaryValue",move.getVariableName());
+  assertCode(null,move.getToPlanningValue());
+  move=new ChangeMove(new TestdataMultiVarEntity("b"),TestdataMultiVarEntity.buildVariableDescriptorForSecondaryValue(),new TestdataValue("1"));
+  assertCode("b",move.getEntity());
+  assertEquals("secondaryValue",move.getVariableName());
+  assertCode("1",move.getToPlanningValue());
+}

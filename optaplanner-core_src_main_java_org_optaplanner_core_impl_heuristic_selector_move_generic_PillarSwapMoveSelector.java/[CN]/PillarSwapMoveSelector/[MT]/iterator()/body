@@ -2,7 +2,7 @@
   if (!randomSelection) {
     return new AbstractOriginalSwapIterator<Move,List<Object>>(leftPillarSelector,rightPillarSelector){
       @Override protected Move newSwapSelection(      List<Object> leftSubSelection,      List<Object> rightSubSelection){
-        return new PillarSwapMove(variableDescriptors,leftSubSelection,rightSubSelection);
+        return new PillarSwapMove(variableDescriptorList,leftSubSelection,rightSubSelection);
       }
     }
 ;
@@ -10,7 +10,7 @@
  else {
     return new AbstractRandomSwapIterator<Move,List<Object>>(leftPillarSelector,rightPillarSelector){
       @Override protected Move newSwapSelection(      List<Object> leftSubSelection,      List<Object> rightSubSelection){
-        return new PillarSwapMove(variableDescriptors,leftSubSelection,rightSubSelection);
+        return new PillarSwapMove(variableDescriptorList,leftSubSelection,rightSubSelection);
       }
     }
 ;

@@ -1,0 +1,12 @@
+{
+  GenuineVariableDescriptor primaryDescriptor=TestdataMultiVarEntity.buildVariableDescriptorForPrimaryValue();
+  GenuineVariableDescriptor secondaryDescriptor=TestdataMultiVarEntity.buildVariableDescriptorForSecondaryValue();
+  SwapMove move=new SwapMove(Arrays.asList(primaryDescriptor),new TestdataMultiVarEntity("a"),new TestdataMultiVarEntity("b"));
+  assertCollectionContainsExactly(move.getVariableNameList(),"primaryValue");
+  assertCode("a",move.getLeftEntity());
+  assertCode("b",move.getRightEntity());
+  move=new SwapMove(Arrays.asList(primaryDescriptor,secondaryDescriptor),new TestdataMultiVarEntity("c"),new TestdataMultiVarEntity("d"));
+  assertCollectionContainsExactly(move.getVariableNameList(),"primaryValue","secondaryValue");
+  assertCode("c",move.getLeftEntity());
+  assertCode("d",move.getRightEntity());
+}

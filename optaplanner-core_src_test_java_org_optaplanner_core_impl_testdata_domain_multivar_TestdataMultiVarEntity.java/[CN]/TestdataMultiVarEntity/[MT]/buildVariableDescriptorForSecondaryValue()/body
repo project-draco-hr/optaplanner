@@ -1,0 +1,5 @@
+{
+  SolutionDescriptor solutionDescriptor=TestdataMultiVarSolution.buildSolutionDescriptor();
+  EntityDescriptor entityDescriptor=solutionDescriptor.findEntityDescriptorOrFail(TestdataMultiVarEntity.class);
+  return entityDescriptor.getGenuineVariableDescriptor("secondaryValue");
+}

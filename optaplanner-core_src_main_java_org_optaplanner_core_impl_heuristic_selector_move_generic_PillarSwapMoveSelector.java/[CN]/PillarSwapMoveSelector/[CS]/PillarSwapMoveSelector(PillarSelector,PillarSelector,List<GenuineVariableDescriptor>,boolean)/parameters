@@ -1,4 +1,4 @@
 PillarSelector leftPillarSelector
 PillarSelector rightPillarSelector
-Collection<GenuineVariableDescriptor> variableDescriptors
+List<GenuineVariableDescriptor> variableDescriptorList
 boolean randomSelection

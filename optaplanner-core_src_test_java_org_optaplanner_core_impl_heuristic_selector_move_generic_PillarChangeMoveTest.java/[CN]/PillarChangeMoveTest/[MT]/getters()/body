@@ -1,0 +1,10 @@
+{
+  PillarChangeMove move=new PillarChangeMove(Arrays.<Object>asList(new TestdataMultiVarEntity("a"),new TestdataMultiVarEntity("b")),TestdataMultiVarEntity.buildVariableDescriptorForPrimaryValue(),null);
+  assertAllCodesOfCollection(move.getPillar(),"a","b");
+  assertEquals("primaryValue",move.getVariableName());
+  assertCode(null,move.getToPlanningValue());
+  move=new PillarChangeMove(Arrays.<Object>asList(new TestdataMultiVarEntity("c"),new TestdataMultiVarEntity("d")),TestdataMultiVarEntity.buildVariableDescriptorForSecondaryValue(),new TestdataValue("1"));
+  assertAllCodesOfCollection(move.getPillar(),"c","d");
+  assertEquals("secondaryValue",move.getVariableName());
+  assertCode("1",move.getToPlanningValue());
+}
