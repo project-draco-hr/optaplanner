@@ -1,0 +1,13 @@
+{
+  DefaultSolverScope<Solution_> childThreadSolverScope=new DefaultSolverScope<>();
+  childThreadSolverScope.startingSolverCount=startingSolverCount;
+  childThreadSolverScope.workingRandom=new Random(workingRandom.nextLong());
+  childThreadSolverScope.scoreDirector=scoreDirector.createChildThreadScoreDirector(childThreadType);
+  childThreadSolverScope.startingSystemTimeMillis=startingSystemTimeMillis;
+  childThreadSolverScope.endingSystemTimeMillis=endingSystemTimeMillis;
+  childThreadSolverScope.startingInitializedScore=null;
+  childThreadSolverScope.bestSolution=null;
+  childThreadSolverScope.bestScore=null;
+  childThreadSolverScope.bestSolutionTimeMillis=null;
+  return childThreadSolverScope;
+}

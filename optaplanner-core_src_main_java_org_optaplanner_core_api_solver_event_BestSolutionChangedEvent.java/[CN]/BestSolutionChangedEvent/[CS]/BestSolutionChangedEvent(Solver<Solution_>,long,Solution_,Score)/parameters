@@ -1,4 +1,4 @@
-DefaultSolver<Solution_> solver
+Solver<Solution_> solver
 long timeMillisSpent
 Solution_ newBestSolution
 Score newBestScore

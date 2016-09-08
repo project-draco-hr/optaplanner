@@ -2,5 +2,6 @@
   phase.setPhaseIndex(phaseIndex);
   phase.setBestSolutionRecaller(bestSolutionRecaller);
   TerminationConfig terminationConfig_=terminationConfig == null ? new TerminationConfig() : terminationConfig;
-  phase.setTermination(terminationConfig_.buildTermination(configPolicy,new PhaseToSolverTerminationBridge(solverTermination)));
+  Termination phaseTermination=(solverTermination instanceof PhaseToSolverTerminationBridge) ? solverTermination : new PhaseToSolverTerminationBridge(solverTermination);
+  phase.setTermination(terminationConfig_.buildTermination(configPolicy,phaseTermination));
 }

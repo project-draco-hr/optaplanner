@@ -1,4 +1,14 @@
 {
+  HeuristicConfigPolicy phaseConfigPolicy=solverConfigPolicy.createPhaseConfigPolicy();
   DefaultPartitionedSearchPhase phase=new DefaultPartitionedSearchPhase();
+  configurePhase(phase,phaseIndex,phaseConfigPolicy,bestSolutionRecaller,solverTermination);
+  phase.setExecutorService(buildExecutorService());
+  phase.setSolutionPartitioner(buildSolutionPartitioner());
+  List<PhaseConfig> phaseConfigList_=phaseConfigList;
+  if (ConfigUtils.isEmptyCollection(phaseConfigList_)) {
+    phaseConfigList_=Arrays.asList(new ConstructionHeuristicPhaseConfig(),new LocalSearchPhaseConfig());
+  }
+  phase.setPhaseConfigList(phaseConfigList_);
+  phase.setConfigPolicy(phaseConfigPolicy);
   return phase;
 }

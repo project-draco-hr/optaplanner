@@ -1,0 +1,7 @@
+{
+  List<Termination> childThreadTerminationList=new ArrayList<>(terminationList.size());
+  for (  Termination termination : terminationList) {
+    childThreadTerminationList.add(termination.createChildThreadTermination(solverScope,childThreadType));
+  }
+  return childThreadTerminationList;
+}

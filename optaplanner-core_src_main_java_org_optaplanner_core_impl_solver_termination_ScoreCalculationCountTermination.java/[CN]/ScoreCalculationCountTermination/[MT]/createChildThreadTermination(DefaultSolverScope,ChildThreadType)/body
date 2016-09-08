@@ -1,0 +1,8 @@
+{
+  if (childThreadType == ChildThreadType.PART_THREAD) {
+    return new ScoreCalculationCountTermination(scoreCalculationCountLimit);
+  }
+ else {
+    throw new IllegalStateException("The childThreadType (" + childThreadType + ") is not implemented.");
+  }
+}

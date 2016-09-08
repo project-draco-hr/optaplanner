@@ -1,0 +1,3 @@
+{
+  return new PhaseToSolverTerminationBridge(solverTermination.createChildThreadTermination(solverScope,childThreadType));
+}

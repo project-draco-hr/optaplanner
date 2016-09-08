@@ -1,0 +1,10 @@
+{
+  AbstractScoreDirector<Solution_,Factory_> childThreadScoreDirector=(AbstractScoreDirector<Solution_,Factory_>)scoreDirectorFactory.buildScoreDirector(constraintMatchEnabledPreference);
+  if (childThreadType == ChildThreadType.PART_THREAD) {
+    childThreadScoreDirector.calculationCount=calculationCount;
+  }
+ else {
+    throw new IllegalStateException("The childThreadType (" + childThreadType + ") is not implemented.");
+  }
+  return childThreadScoreDirector;
+}

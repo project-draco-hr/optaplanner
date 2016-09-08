@@ -1,0 +1,19 @@
+{
+  partSolverScope.setBestSolution(part);
+  partSolverScope.setWorkingSolutionFromBestSolution();
+  partBestSolutionRecaller.solvingStarted(partSolverScope);
+  phaseLifecycleSupport.fireSolvingStarted(partSolverScope);
+  for (  Phase<Solution_> phase : phaseList) {
+    phase.solvingStarted(partSolverScope);
+  }
+  for (  Phase<Solution_> phase : phaseList) {
+    phase.solve(partSolverScope);
+  }
+  for (  Phase<Solution_> phase : phaseList) {
+    phase.solvingEnded(partSolverScope);
+  }
+  phaseLifecycleSupport.fireSolvingEnded(partSolverScope);
+  partBestSolutionRecaller.solvingEnded(partSolverScope);
+  partSolverScope.endingNow();
+  partSolverScope.getScoreDirector().dispose();
+}

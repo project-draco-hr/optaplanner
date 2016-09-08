@@ -1,0 +1,8 @@
+{
+  if (solutionPartitionerClass != null) {
+    return ConfigUtils.newInstance(this,"solutionPartitionerClass",solutionPartitionerClass);
+  }
+ else {
+    throw new UnsupportedOperationException();
+  }
+}
