@@ -1,3 +1,8 @@
 {
-  return new PhaseToSolverTerminationBridge(solverTermination.createChildThreadTermination(solverScope,childThreadType));
+  if (childThreadType == ChildThreadType.PART_THREAD) {
+    return solverTermination.createChildThreadTermination(solverScope,childThreadType);
+  }
+ else {
+    throw new IllegalStateException("The childThreadType (" + childThreadType + ") is not implemented.");
+  }
 }
