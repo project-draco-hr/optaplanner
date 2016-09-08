@@ -1,10 +1,4 @@
 {
-  this.termination=termination;
-  this.bestSolutionRecaller=bestSolutionRecaller;
-  bestSolutionRecaller.setSolverEventSupport(solverEventSupport);
-  this.phaseList=phaseList;
-  for (  Phase<Solution_> phase : phaseList) {
-    phase.setSolverPhaseLifecycleSupport(phaseLifecycleSupport);
-  }
+  super(termination,bestSolutionRecaller,phaseList);
   this.solverScope=solverScope;
 }

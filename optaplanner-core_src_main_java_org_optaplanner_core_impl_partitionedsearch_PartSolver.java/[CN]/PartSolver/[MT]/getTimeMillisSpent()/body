@@ -1,3 +1,7 @@
 {
-  throw new UnsupportedOperationException();
+  Long endingSystemTimeMillis=solverScope.getEndingSystemTimeMillis();
+  if (endingSystemTimeMillis == null) {
+    endingSystemTimeMillis=System.currentTimeMillis();
+  }
+  return endingSystemTimeMillis - solverScope.getStartingSystemTimeMillis();
 }

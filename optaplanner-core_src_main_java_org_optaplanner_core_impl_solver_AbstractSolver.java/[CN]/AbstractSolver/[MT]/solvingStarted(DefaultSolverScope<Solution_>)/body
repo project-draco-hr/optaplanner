@@ -1,0 +1,8 @@
+{
+  solverScope.setWorkingSolutionFromBestSolution();
+  bestSolutionRecaller.solvingStarted(solverScope);
+  phaseLifecycleSupport.fireSolvingStarted(solverScope);
+  for (  Phase<Solution_> phase : phaseList) {
+    phase.solvingStarted(solverScope);
+  }
+}

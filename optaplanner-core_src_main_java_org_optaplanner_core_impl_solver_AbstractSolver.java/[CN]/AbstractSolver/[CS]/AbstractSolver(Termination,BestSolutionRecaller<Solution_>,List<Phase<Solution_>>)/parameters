@@ -1,0 +1,3 @@
+Termination termination
+BestSolutionRecaller<Solution_> bestSolutionRecaller
+List<Phase<Solution_>> phaseList
