@@ -3,10 +3,10 @@
   if (ConfigUtils.isEmptyCollection(phaseConfigList_)) {
     phaseConfigList_=Arrays.asList(new ConstructionHeuristicPhaseConfig(),new LocalSearchPhaseConfig());
   }
-  List<Phase> phaseList=new ArrayList<>(phaseConfigList_.size());
+  List<Phase<Solution_>> phaseList=new ArrayList<>(phaseConfigList_.size());
   int phaseIndex=0;
   for (  PhaseConfig phaseConfig : phaseConfigList_) {
-    Phase phase=phaseConfig.buildPhase(phaseIndex,configPolicy,bestSolutionRecaller,termination);
+    Phase<Solution_> phase=phaseConfig.buildPhase(phaseIndex,configPolicy,bestSolutionRecaller,termination);
     phaseList.add(phase);
     phaseIndex++;
   }

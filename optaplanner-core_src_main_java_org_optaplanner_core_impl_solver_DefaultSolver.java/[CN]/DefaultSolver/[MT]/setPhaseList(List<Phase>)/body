@@ -1,6 +1,0 @@
-{
-  this.phaseList=phaseList;
-  for (  Phase<Solution_> phase : phaseList) {
-    phase.setSolverPhaseLifecycleSupport(phaseLifecycleSupport);
-  }
-}

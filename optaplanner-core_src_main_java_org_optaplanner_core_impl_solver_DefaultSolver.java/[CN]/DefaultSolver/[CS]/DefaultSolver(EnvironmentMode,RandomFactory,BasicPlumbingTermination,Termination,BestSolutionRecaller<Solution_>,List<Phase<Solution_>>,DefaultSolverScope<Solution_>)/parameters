@@ -1,0 +1,7 @@
+EnvironmentMode environmentMode
+RandomFactory randomFactory
+BasicPlumbingTermination basicPlumbingTermination
+Termination termination
+BestSolutionRecaller<Solution_> bestSolutionRecaller
+List<Phase<Solution_>> phaseList
+DefaultSolverScope<Solution_> solverScope

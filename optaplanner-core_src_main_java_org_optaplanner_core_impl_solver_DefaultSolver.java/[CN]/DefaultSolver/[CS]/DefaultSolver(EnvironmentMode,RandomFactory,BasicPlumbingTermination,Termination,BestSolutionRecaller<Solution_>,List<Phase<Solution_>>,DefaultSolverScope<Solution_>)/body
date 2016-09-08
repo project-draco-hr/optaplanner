@@ -1,0 +1,13 @@
+{
+  this.environmentMode=environmentMode;
+  this.randomFactory=randomFactory;
+  this.basicPlumbingTermination=basicPlumbingTermination;
+  this.termination=termination;
+  this.bestSolutionRecaller=bestSolutionRecaller;
+  bestSolutionRecaller.setSolverEventSupport(solverEventSupport);
+  this.phaseList=phaseList;
+  for (  Phase<Solution_> phase : phaseList) {
+    phase.setSolverPhaseLifecycleSupport(phaseLifecycleSupport);
+  }
+  this.solverScope=solverScope;
+}

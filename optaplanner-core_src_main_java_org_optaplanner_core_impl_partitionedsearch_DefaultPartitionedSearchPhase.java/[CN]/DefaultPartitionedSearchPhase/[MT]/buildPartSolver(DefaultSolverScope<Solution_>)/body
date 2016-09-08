@@ -1,0 +1,12 @@
+{
+  Termination partTermination=termination.createChildThreadTermination(solverScope,ChildThreadType.PART_THREAD);
+  BestSolutionRecaller<Solution_> bestSolutionRecaller=new BestSolutionRecallerConfig().buildBestSolutionRecaller(configPolicy.getEnvironmentMode());
+  List<Phase<Solution_>> phaseList=new ArrayList<>(phaseConfigList.size());
+  int partPhaseIndex=0;
+  for (  PhaseConfig phaseConfig : phaseConfigList) {
+    phaseList.add(phaseConfig.buildPhase(partPhaseIndex,configPolicy,bestSolutionRecaller,partTermination));
+    partPhaseIndex++;
+  }
+  DefaultSolverScope<Solution_> partSolverScope=solverScope.createChildThreadSolverScope(ChildThreadType.PART_THREAD);
+  return new PartSolver<>(partTermination,bestSolutionRecaller,phaseList,partSolverScope);
+}

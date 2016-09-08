@@ -1,0 +1,12 @@
+{
+  solverScope.setBestSolution(part);
+  solverScope.setWorkingSolutionFromBestSolution();
+  solvingStarted(solverScope);
+  for (  Phase<Solution_> phase : phaseList) {
+    phase.solve(solverScope);
+  }
+  solvingEnded(solverScope);
+  solverScope.endingNow();
+  solverScope.getScoreDirector().dispose();
+  return solverScope.getBestSolution();
+}

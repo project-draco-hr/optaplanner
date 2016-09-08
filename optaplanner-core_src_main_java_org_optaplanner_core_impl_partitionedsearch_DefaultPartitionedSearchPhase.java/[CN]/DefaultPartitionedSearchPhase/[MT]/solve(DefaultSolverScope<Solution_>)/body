@@ -1,17 +1,2 @@
 {
-  List<Solution_> partList=solutionPartitioner.splitWorkingSolution(solverScope.getScoreDirector());
-  List<Future> futureList=new ArrayList<>(partList.size());
-  for (  Solution_ part : partList) {
-    PartPhaseRunner partPhaseRunner=new PartPhaseRunner(part,solverScope);
-    Future<?> future=executorService.submit(partPhaseRunner);
-    futureList.add(future);
-  }
-  for (  Future future : futureList) {
-    try {
-      future.get();
-    }
- catch (    InterruptedException|ExecutionException e) {
-      e.printStackTrace();
-    }
-  }
 }
