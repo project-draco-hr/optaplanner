@@ -8,5 +8,5 @@
     partPhaseIndex++;
   }
   DefaultSolverScope<Solution_> partSolverScope=solverScope.createChildThreadSolverScope(ChildThreadType.PART_THREAD);
-  return new PartSolver<>(partTermination,bestSolutionRecaller,phaseList,partSolverScope);
+  return new PartitionSolver<>(partTermination,bestSolutionRecaller,phaseList,partSolverScope);
 }
