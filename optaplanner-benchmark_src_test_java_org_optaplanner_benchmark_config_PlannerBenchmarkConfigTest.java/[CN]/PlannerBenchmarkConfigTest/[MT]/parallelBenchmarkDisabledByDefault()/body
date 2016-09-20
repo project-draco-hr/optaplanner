@@ -1,0 +1,4 @@
+{
+  PlannerBenchmarkConfig config=new PlannerBenchmarkConfig();
+  assertEquals(1,config.resolveParallelBenchmarkCount());
+}

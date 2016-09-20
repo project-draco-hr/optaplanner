@@ -1,0 +1,5 @@
+{
+  PlannerBenchmarkConfig config=new PlannerBenchmarkConfig();
+  config.setParallelBenchmarkCount(ConfigUtils.AVAILABLE_PROCESSOR_COUNT + "+1");
+  assertEquals(Runtime.getRuntime().availableProcessors(),config.resolveParallelBenchmarkCount());
+}

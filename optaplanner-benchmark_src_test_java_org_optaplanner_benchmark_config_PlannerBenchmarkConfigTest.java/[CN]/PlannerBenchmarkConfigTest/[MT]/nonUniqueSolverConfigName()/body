@@ -1,0 +1,10 @@
+{
+  PlannerBenchmarkConfig config=new PlannerBenchmarkConfig();
+  final String sbcName="x";
+  SolverBenchmarkConfig sbc1=new SolverBenchmarkConfig();
+  sbc1.setName(sbcName);
+  SolverBenchmarkConfig sbc2=new SolverBenchmarkConfig();
+  sbc2.setName(sbcName);
+  config.setSolverBenchmarkConfigList(Arrays.asList(sbc1,sbc2));
+  config.generateSolverBenchmarkConfigNames();
+}

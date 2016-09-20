@@ -1,0 +1,18 @@
+{
+  PlannerBenchmarkConfig config=new PlannerBenchmarkConfig();
+  SolverBenchmarkConfig sbc1=new SolverBenchmarkConfig();
+  SolverBenchmarkConfig sbc2=new SolverBenchmarkConfig();
+  SolverBenchmarkConfig sbc3=new SolverBenchmarkConfig();
+  sbc3.setName("Config_1");
+  List<SolverBenchmarkConfig> configs=Arrays.asList(sbc1,sbc2,sbc3);
+  config.setSolverBenchmarkConfigList(configs);
+  config.generateSolverBenchmarkConfigNames();
+  assertEquals("Config_1",sbc3.getName());
+  TreeSet<String> names=new TreeSet<String>();
+  for (  SolverBenchmarkConfig sc : configs) {
+    names.add(sc.getName());
+  }
+  for (int i=0; i < configs.size(); i++) {
+    assertTrue(names.contains("Config_" + i));
+  }
+}

@@ -1,0 +1,12 @@
+{
+  PlannerBenchmarkConfig config=new PlannerBenchmarkConfig();
+  assertEquals(1,config.resolveParallelBenchmarkCountAutomatically(-1));
+  assertEquals(1,config.resolveParallelBenchmarkCountAutomatically(0));
+  assertEquals(1,config.resolveParallelBenchmarkCountAutomatically(1));
+  assertEquals(1,config.resolveParallelBenchmarkCountAutomatically(2));
+  assertEquals(2,config.resolveParallelBenchmarkCountAutomatically(3));
+  assertEquals(2,config.resolveParallelBenchmarkCountAutomatically(4));
+  assertEquals(3,config.resolveParallelBenchmarkCountAutomatically(5));
+  assertEquals(4,config.resolveParallelBenchmarkCountAutomatically(6));
+  assertEquals(9,config.resolveParallelBenchmarkCountAutomatically(17));
+}

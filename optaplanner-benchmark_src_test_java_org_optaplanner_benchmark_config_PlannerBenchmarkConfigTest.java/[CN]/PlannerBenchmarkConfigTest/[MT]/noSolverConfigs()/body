@@ -1,0 +1,6 @@
+{
+  PlannerBenchmarkConfig config=new PlannerBenchmarkConfig();
+  config.setSolverBenchmarkConfigList(null);
+  config.setSolverBenchmarkBluePrintConfigList(null);
+  config.validate();
+}

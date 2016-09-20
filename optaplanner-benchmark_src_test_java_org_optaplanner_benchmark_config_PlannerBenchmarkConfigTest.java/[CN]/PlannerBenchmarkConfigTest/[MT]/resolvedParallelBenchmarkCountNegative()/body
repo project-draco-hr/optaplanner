@@ -1,0 +1,5 @@
+{
+  PlannerBenchmarkConfig config=new PlannerBenchmarkConfig();
+  config.setParallelBenchmarkCount("-1");
+  config.resolveParallelBenchmarkCount();
+}

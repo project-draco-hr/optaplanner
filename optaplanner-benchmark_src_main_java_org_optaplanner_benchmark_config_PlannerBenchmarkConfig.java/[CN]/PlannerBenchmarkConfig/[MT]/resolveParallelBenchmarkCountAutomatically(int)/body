@@ -1,0 +1,11 @@
+{
+  if (availableProcessorCount <= 2) {
+    return 1;
+  }
+ else   if (availableProcessorCount <= 4) {
+    return 2;
+  }
+ else {
+    return (availableProcessorCount / 2) + 1;
+  }
+}
