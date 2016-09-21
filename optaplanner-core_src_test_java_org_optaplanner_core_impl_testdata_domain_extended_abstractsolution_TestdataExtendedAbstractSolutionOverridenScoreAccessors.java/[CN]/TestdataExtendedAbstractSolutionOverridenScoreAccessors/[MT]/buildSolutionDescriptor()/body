@@ -1,0 +1,3 @@
+{
+  return SolutionDescriptor.buildSolutionDescriptor(TestdataExtendedAbstractSolutionOverridenScoreAccessors.class,TestdataEntity.class);
+}
