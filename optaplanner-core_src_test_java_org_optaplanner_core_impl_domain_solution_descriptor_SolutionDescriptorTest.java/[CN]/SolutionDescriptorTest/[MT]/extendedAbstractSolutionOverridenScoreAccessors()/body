@@ -1,3 +1,0 @@
-{
-  SolutionDescriptor<TestdataExtendedAbstractSolutionOverridenScoreAccessors> solutionDescriptor=TestdataExtendedAbstractSolutionOverridenScoreAccessors.buildSolutionDescriptor();
-}
