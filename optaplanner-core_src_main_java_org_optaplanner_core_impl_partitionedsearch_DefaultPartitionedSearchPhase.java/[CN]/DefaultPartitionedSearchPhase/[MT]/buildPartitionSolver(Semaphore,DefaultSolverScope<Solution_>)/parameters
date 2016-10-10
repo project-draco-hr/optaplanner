@@ -1,1 +1,2 @@
+Semaphore activeThreadSemaphore
 DefaultSolverScope<Solution_> solverScope

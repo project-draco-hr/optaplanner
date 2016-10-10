@@ -12,6 +12,7 @@
     if (termination.isPhaseTerminated(stepScope.getPhaseScope())) {
       break;
     }
+    stepScope.getPhaseScope().getSolverScope().checkYielding();
   }
   stepScope.setSelectedMoveCount((long)moveIndex);
 }

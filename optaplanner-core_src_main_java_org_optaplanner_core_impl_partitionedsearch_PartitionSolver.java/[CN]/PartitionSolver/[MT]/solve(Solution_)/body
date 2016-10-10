@@ -1,9 +1,15 @@
 {
-  solverScope.setBestSolution(part);
-  solvingStarted(solverScope);
-  for (  Phase<Solution_> phase : phaseList) {
-    phase.solve(solverScope);
+  solverScope.initializeYielding();
+  try {
+    solverScope.setBestSolution(part);
+    solvingStarted(solverScope);
+    for (    Phase<Solution_> phase : phaseList) {
+      phase.solve(solverScope);
+    }
+    solvingEnded(solverScope);
+    return solverScope.getBestSolution();
   }
-  solvingEnded(solverScope);
-  return solverScope.getBestSolution();
+  finally {
+    solverScope.destroyYielding();
+  }
 }

@@ -7,7 +7,7 @@
     scriptResult=scriptEngine.eval(script);
   }
  catch (  ScriptException e) {
-    throw new IllegalArgumentException("The " + propertyName + " ("+ script+ ") is not "+ magicValue+ " and cannot be parsed in "+ scriptLanguage+ " with the variables (["+ AVAILABLE_PROCESSOR_COUNT+ "]).",e);
+    throw new IllegalArgumentException("The " + propertyName + " ("+ script+ ") is not in magicValues ("+ Arrays.toString(magicValues)+ ") and cannot be parsed in "+ scriptLanguage+ " with the variables (["+ AVAILABLE_PROCESSOR_COUNT+ "]).",e);
   }
   if (!(scriptResult instanceof Number)) {
     throw new IllegalArgumentException("The " + propertyName + " ("+ script+ ") is resolved to scriptResult ("+ scriptResult+ ") in "+ scriptLanguage+ " but is not a "+ Number.class.getSimpleName()+ ".");

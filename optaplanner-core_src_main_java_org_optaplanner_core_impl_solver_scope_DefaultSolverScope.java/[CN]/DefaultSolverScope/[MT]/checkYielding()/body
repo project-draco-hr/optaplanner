@@ -1,0 +1,12 @@
+{
+  if (activeThreadSemaphore != null) {
+    activeThreadSemaphore.release();
+    try {
+      activeThreadSemaphore.acquire();
+    }
+ catch (    InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new IllegalStateException("Partition thread was interrupted during activeThreadSemaphore.acquire().",e);
+    }
+  }
+}

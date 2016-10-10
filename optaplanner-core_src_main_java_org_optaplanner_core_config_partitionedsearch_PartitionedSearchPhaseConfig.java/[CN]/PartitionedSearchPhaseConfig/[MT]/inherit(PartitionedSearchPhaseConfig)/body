@@ -1,6 +1,7 @@
 {
   super.inherit(inheritedConfig);
-  threadPoolSize=ConfigUtils.inheritOverwritableProperty(threadPoolSize,inheritedConfig.getThreadPoolSize());
+  threadFactoryClass=ConfigUtils.inheritOverwritableProperty(threadFactoryClass,inheritedConfig.getThreadFactoryClass());
+  activeThreadCount=ConfigUtils.inheritOverwritableProperty(activeThreadCount,inheritedConfig.getActiveThreadCount());
   solutionPartitionerClass=ConfigUtils.inheritOverwritableProperty(solutionPartitionerClass,inheritedConfig.getSolutionPartitionerClass());
   phaseConfigList=ConfigUtils.inheritMergeableListConfig(phaseConfigList,inheritedConfig.getPhaseConfigList());
 }

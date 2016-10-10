@@ -6,6 +6,7 @@
     if (termination.isPhaseTerminated(phaseScope)) {
       break;
     }
+    solverScope.checkYielding();
     stepStarted(stepScope);
     doStep(stepScope,customPhaseCommand);
     stepEnded(stepScope);

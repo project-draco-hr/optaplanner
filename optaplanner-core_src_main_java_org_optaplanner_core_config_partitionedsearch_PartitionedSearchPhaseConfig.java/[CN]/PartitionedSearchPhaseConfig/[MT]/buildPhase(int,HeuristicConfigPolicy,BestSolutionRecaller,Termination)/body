@@ -2,7 +2,8 @@
   HeuristicConfigPolicy phaseConfigPolicy=solverConfigPolicy.createPhaseConfigPolicy();
   DefaultPartitionedSearchPhase phase=new DefaultPartitionedSearchPhase();
   configurePhase(phase,phaseIndex,phaseConfigPolicy,bestSolutionRecaller,solverTermination);
-  phase.setExecutorService(buildExecutorService());
+  phase.setThreadPoolExecutor(buildThreadPoolExecutor());
+  phase.setActiveThreadCount(resolvedActiveThreadCount());
   phase.setSolutionPartitioner(buildSolutionPartitioner());
   List<PhaseConfig> phaseConfigList_=phaseConfigList;
   if (ConfigUtils.isEmptyCollection(phaseConfigList_)) {

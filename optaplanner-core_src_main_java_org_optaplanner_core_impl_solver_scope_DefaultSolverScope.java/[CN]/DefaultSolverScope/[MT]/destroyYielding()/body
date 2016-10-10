@@ -1,0 +1,5 @@
+{
+  if (activeThreadSemaphore != null) {
+    activeThreadSemaphore.release();
+  }
+}
