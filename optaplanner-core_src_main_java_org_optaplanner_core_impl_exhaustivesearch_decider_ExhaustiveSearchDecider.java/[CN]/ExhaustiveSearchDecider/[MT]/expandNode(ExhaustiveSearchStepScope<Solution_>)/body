@@ -9,10 +9,10 @@
     moveIndex++;
     moveNode.setMove(move);
     doMove(stepScope,moveNode);
+    stepScope.getPhaseScope().getSolverScope().checkYielding();
     if (termination.isPhaseTerminated(stepScope.getPhaseScope())) {
       break;
     }
-    stepScope.getPhaseScope().getSolverScope().checkYielding();
   }
   stepScope.setSelectedMoveCount((long)moveIndex);
 }
