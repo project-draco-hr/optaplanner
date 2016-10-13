@@ -1,15 +1,8 @@
 {
   List<CloudProcess> processList=new ArrayList<>(processListSize);
   for (int i=0; i < processListSize; i++) {
-    CloudProcess process=new CloudProcess();
+    CloudProcess process=generateProcessWithoutId();
     process.setId((long)i);
-    int requiredCpuPower=generateRandom(MAXIMUM_REQUIRED_CPU_POWER);
-    process.setRequiredCpuPower(requiredCpuPower);
-    int requiredMemory=generateRandom(MAXIMUM_REQUIRED_MEMORY);
-    process.setRequiredMemory(requiredMemory);
-    int requiredNetworkBandwidth=generateRandom(MAXIMUM_REQUIRED_NETWORK_BANDWIDTH);
-    process.setRequiredNetworkBandwidth(requiredNetworkBandwidth);
-    logger.trace("Created CloudProcess with requiredCpuPower ({}), requiredMemory ({})," + " requiredNetworkBandwidth ({}).",requiredCpuPower,requiredMemory,requiredNetworkBandwidth);
     processList.add(process);
   }
   cloudBalance.setProcessList(processList);

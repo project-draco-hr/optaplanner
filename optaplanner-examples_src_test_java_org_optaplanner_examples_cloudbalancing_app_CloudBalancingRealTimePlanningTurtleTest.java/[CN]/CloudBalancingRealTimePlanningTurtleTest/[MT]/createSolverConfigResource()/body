@@ -1,0 +1,3 @@
+{
+  return CloudBalancingApp.SOLVER_CONFIG;
+}

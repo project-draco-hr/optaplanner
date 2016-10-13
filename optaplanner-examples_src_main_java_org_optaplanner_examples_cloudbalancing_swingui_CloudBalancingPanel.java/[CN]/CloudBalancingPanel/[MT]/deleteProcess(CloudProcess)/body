@@ -1,2 +1,4 @@
 {
+  logger.info("Scheduling delete of process ({}).",process);
+  doProblemFactChange(new DeleteProcessProblemFactChange(process));
 }

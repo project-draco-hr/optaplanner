@@ -1,17 +1,8 @@
 {
   List<CloudComputer> computerList=new ArrayList<>(computerListSize);
   for (int i=0; i < computerListSize; i++) {
-    CloudComputer computer=new CloudComputer();
+    CloudComputer computer=generateComputerWithoutId();
     computer.setId((long)i);
-    int cpuPowerPricesIndex=random.nextInt(CPU_POWER_PRICES.length);
-    computer.setCpuPower(CPU_POWER_PRICES[cpuPowerPricesIndex].getHardwareValue());
-    int memoryPricesIndex=distortIndex(cpuPowerPricesIndex,MEMORY_PRICES.length);
-    computer.setMemory(MEMORY_PRICES[memoryPricesIndex].getHardwareValue());
-    int networkBandwidthPricesIndex=distortIndex(cpuPowerPricesIndex,NETWORK_BANDWIDTH_PRICES.length);
-    computer.setNetworkBandwidth(NETWORK_BANDWIDTH_PRICES[networkBandwidthPricesIndex].getHardwareValue());
-    int cost=CPU_POWER_PRICES[cpuPowerPricesIndex].getCost() + MEMORY_PRICES[memoryPricesIndex].getCost() + NETWORK_BANDWIDTH_PRICES[networkBandwidthPricesIndex].getCost();
-    computer.setCost(cost);
-    logger.trace("Created computer with cpuPowerPricesIndex ({}), memoryPricesIndex ({})," + " networkBandwidthPricesIndex ({}).",cpuPowerPricesIndex,memoryPricesIndex,networkBandwidthPricesIndex);
     computerList.add(computer);
   }
   cloudBalance.setComputerList(computerList);

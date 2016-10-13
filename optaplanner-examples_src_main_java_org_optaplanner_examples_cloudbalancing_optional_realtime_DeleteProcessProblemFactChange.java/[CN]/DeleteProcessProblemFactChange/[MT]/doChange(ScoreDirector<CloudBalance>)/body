@@ -1,0 +1,13 @@
+{
+  CloudBalance cloudBalance=scoreDirector.getWorkingSolution();
+  for (Iterator<CloudProcess> it=cloudBalance.getProcessList().iterator(); it.hasNext(); ) {
+    CloudProcess workingProcess=it.next();
+    if (Objects.equals(workingProcess,process)) {
+      scoreDirector.beforeEntityRemoved(workingProcess);
+      it.remove();
+      scoreDirector.afterEntityRemoved(workingProcess);
+      break;
+    }
+  }
+  scoreDirector.triggerVariableListeners();
+}

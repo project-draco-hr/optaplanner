@@ -1,0 +1,24 @@
+{
+  boolean capacityTooLow=existingComputerList.size() <= 20 || existingComputerList.size() < existingProcessList.size() / 4;
+  boolean capacityTooHigh=existingComputerList.size() > existingProcessList.size() / 2;
+  if (random.nextBoolean()) {
+    if (capacityTooLow || (!capacityTooHigh && random.nextBoolean())) {
+      CloudComputer computer=generator.generateComputerWithoutId();
+      existingComputerList.add(computer);
+      return new AddComputerProblemFactChange(computer);
+    }
+ else {
+      return new DeleteComputerProblemFactChange(existingComputerList.remove(random.nextInt(existingComputerList.size())));
+    }
+  }
+ else {
+    if (capacityTooHigh || (!capacityTooLow && random.nextBoolean())) {
+      CloudProcess process=generator.generateProcessWithoutId();
+      existingProcessList.add(process);
+      return new AddProcessProblemFactChange(process);
+    }
+ else {
+      return new DeleteProcessProblemFactChange(existingProcessList.remove(random.nextInt(existingProcessList.size())));
+    }
+  }
+}

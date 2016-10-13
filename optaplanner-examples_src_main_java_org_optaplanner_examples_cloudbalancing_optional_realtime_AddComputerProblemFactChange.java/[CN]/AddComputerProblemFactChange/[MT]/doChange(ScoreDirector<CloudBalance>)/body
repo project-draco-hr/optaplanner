@@ -1,0 +1,14 @@
+{
+  CloudBalance cloudBalance=scoreDirector.getWorkingSolution();
+  long nextComputerId=0L;
+  for (  CloudComputer otherComputer : cloudBalance.getComputerList()) {
+    if (nextComputerId <= otherComputer.getId()) {
+      nextComputerId=otherComputer.getId() + 1L;
+    }
+  }
+  computer.setId(nextComputerId);
+  cloudBalance.setComputerList(new ArrayList<>(cloudBalance.getComputerList()));
+  scoreDirector.beforeProblemFactAdded(computer);
+  cloudBalance.getComputerList().add(computer);
+  scoreDirector.afterProblemFactAdded(computer);
+}

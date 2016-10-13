@@ -1,2 +1,4 @@
 {
+  logger.info("Scheduling addition of process ({}).",process);
+  doProblemFactChange(new AddProcessProblemFactChange(process));
 }

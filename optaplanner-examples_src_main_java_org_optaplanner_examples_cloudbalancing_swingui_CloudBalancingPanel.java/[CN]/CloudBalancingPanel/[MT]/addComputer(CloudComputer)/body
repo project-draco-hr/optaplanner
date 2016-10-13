@@ -1,2 +1,4 @@
 {
+  logger.info("Scheduling addition of computer ({}).",computer);
+  doProblemFactChange(new AddComputerProblemFactChange(computer));
 }

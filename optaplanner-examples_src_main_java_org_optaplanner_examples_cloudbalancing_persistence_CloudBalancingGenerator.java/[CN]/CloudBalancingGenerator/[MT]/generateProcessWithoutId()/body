@@ -1,0 +1,11 @@
+{
+  CloudProcess process=new CloudProcess();
+  int requiredCpuPower=generateRandom(MAXIMUM_REQUIRED_CPU_POWER);
+  process.setRequiredCpuPower(requiredCpuPower);
+  int requiredMemory=generateRandom(MAXIMUM_REQUIRED_MEMORY);
+  process.setRequiredMemory(requiredMemory);
+  int requiredNetworkBandwidth=generateRandom(MAXIMUM_REQUIRED_NETWORK_BANDWIDTH);
+  process.setRequiredNetworkBandwidth(requiredNetworkBandwidth);
+  logger.trace("Created CloudProcess with requiredCpuPower ({}), requiredMemory ({})," + " requiredNetworkBandwidth ({}).",requiredCpuPower,requiredMemory,requiredNetworkBandwidth);
+  return process;
+}
