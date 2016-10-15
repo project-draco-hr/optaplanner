@@ -1,7 +1,0 @@
-{
-  if (!hasNext) {
-    throw new NoSuchElementException();
-  }
-  hasNext=false;
-  return null;
-}

@@ -1,0 +1,9 @@
+{
+  if (!nullReturned) {
+    nullReturned=true;
+    return null;
+  }
+ else {
+    return childIterator.next();
+  }
+}
