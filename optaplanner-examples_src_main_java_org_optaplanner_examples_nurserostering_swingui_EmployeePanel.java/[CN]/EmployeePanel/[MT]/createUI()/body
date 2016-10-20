@@ -1,29 +1,2 @@
 {
-  JPanel labelAndDeletePanel=new JPanel(new BorderLayout(5,0));
-  if (employee != null) {
-    labelAndDeletePanel.add(new JLabel(nurseRosteringPanel.getEmployeeIcon()),BorderLayout.WEST);
-  }
-  employeeLabel=new JLabel(getEmployeeLabel());
-  employeeLabel.setEnabled(false);
-  labelAndDeletePanel.add(employeeLabel,BorderLayout.CENTER);
-  if (employee != null) {
-    JPanel deletePanel=new JPanel(new BorderLayout());
-    deleteButton=SwingUtils.makeSmallButton(new JButton(nurseRosteringPanel.getDeleteEmployeeIcon()));
-    deleteButton.setToolTipText("Delete");
-    deleteButton.addActionListener(new ActionListener(){
-      @Override public void actionPerformed(      ActionEvent e){
-        nurseRosteringPanel.deleteEmployee(employee);
-      }
-    }
-);
-    deletePanel.add(deleteButton,BorderLayout.NORTH);
-    labelAndDeletePanel.add(deletePanel,BorderLayout.EAST);
-  }
-  labelAndDeletePanel.setPreferredSize(new Dimension(WEST_HEADER_WIDTH,(int)labelAndDeletePanel.getPreferredSize().getHeight()));
-  add(labelAndDeletePanel,BorderLayout.WEST);
-  resetShiftListPanel();
-  numberOfShiftAssignmentsLabel=new JLabel("0 assignments",JLabel.RIGHT);
-  numberOfShiftAssignmentsLabel.setPreferredSize(new Dimension(EAST_HEADER_WIDTH,20));
-  numberOfShiftAssignmentsLabel.setEnabled(false);
-  add(numberOfShiftAssignmentsLabel,BorderLayout.EAST);
 }
