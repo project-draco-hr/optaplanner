@@ -1,0 +1,5 @@
+TestGenKieSessionJournal journal
+Class<?> scoreDefClass
+boolean constraintMatchEnabled
+String score
+File testFile

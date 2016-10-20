@@ -1,0 +1,4 @@
+{
+  this.analysis=analysis;
+  this.scoreDirector=scoreDirector;
+}

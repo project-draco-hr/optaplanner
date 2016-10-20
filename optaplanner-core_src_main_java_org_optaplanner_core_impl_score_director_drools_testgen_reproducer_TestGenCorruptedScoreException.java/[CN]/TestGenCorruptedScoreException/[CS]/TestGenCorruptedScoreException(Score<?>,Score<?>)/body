@@ -1,0 +1,5 @@
+{
+  super("Working: " + workingScore + ", uncorrupted: "+ uncorruptedScore);
+  this.workingScore=workingScore;
+  this.uncorruptedScore=uncorruptedScore;
+}

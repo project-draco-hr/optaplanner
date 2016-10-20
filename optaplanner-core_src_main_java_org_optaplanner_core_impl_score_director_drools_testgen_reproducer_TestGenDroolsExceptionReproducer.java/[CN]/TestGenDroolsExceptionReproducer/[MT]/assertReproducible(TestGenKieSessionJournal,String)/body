@@ -1,6 +1,6 @@
 {
   try {
-    journal.replay(createKieSession());
+    journal.replay(scoreDirector.createKieSession());
     throw new IllegalStateException(message + " No exception thrown.");
   }
  catch (  RuntimeException reproducedException) {

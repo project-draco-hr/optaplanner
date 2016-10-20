@@ -1,0 +1,9 @@
+{
+  TestdataValue instance=new TestdataValue();
+  TestGenValueFact fact=new TestGenValueFact(321,instance);
+  assertSame(instance,fact.getInstance());
+  assertEquals("testdataValue_321",fact.toString());
+  StringBuilder sb=new StringBuilder(100);
+  fact.printInitialization(sb);
+  assertEquals("    TestdataValue testdataValue_321 = new TestdataValue();\n",sb.toString());
+}

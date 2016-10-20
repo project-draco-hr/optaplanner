@@ -4,7 +4,8 @@
     return super.calculateScore();
   }
  catch (  RuntimeException e) {
-    TestGenKieSessionJournal minJournal=TestGenerator.minimize(journal,new TestGenDroolsExceptionReproducer(e,kieSession));
+    TestGenDroolsExceptionReproducer reproducer=new TestGenDroolsExceptionReproducer(e,this);
+    TestGenKieSessionJournal minJournal=TestGenerator.minimize(journal,reproducer);
     TestGenTestWriter.print(minJournal,testFile);
     throw wrapOriginalException(e);
   }

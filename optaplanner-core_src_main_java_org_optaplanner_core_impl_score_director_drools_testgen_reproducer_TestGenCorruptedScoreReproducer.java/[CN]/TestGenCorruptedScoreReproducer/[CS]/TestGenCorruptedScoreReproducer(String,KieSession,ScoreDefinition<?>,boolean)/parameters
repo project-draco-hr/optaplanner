@@ -1,4 +1,0 @@
-String analysis
-KieSession originalKieSession
-ScoreDefinition<?> scoreDefinition
-boolean constraintMatchEnabledPreference

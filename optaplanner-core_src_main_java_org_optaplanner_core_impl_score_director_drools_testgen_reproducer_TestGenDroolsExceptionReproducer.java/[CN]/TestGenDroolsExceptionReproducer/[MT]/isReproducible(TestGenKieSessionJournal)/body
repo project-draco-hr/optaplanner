@@ -1,6 +1,6 @@
 {
   try {
-    journal.replay(createKieSession());
+    journal.replay(scoreDirector.createKieSession());
     return false;
   }
  catch (  RuntimeException reproducedException) {
@@ -9,10 +9,10 @@
     }
  else {
       if (reproducedException.getMessage().startsWith("No fact handle for ")) {
-        log.debug("    Can't remove insert: {}",reproducedException.toString());
+        logger.debug("    Can't remove insert: {}",reproducedException.toString());
       }
  else {
-        log.info("Unexpected exception",reproducedException);
+        logger.info("Unexpected exception",reproducedException);
       }
       return false;
     }

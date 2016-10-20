@@ -1,4 +1,5 @@
 {
+  logger.trace("        {} ??? {}",entity.getInstance(),value.getInstance());
   accessor.executeSetter(entity.getInstance(),value.getInstance());
   FactHandle fh=kieSession.getFactHandle(entity.getInstance());
   if (fh == null) {

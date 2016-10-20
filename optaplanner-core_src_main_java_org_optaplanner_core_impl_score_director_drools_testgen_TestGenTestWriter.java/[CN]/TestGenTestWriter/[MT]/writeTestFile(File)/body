@@ -4,7 +4,7 @@
     fos=new FileOutputStream(file);
   }
  catch (  FileNotFoundException ex) {
-    log.error("Cannot open test file: " + file.toString(),ex);
+    logger.error("Cannot open test file: " + file.toString(),ex);
     return;
   }
   OutputStreamWriter out;
@@ -12,21 +12,21 @@
     out=new OutputStreamWriter(fos,"UTF-8");
   }
  catch (  UnsupportedEncodingException ex) {
-    log.error("Can't open",ex);
+    logger.error("Can't open",ex);
     return;
   }
   try {
     out.append(sb);
   }
  catch (  IOException ex) {
-    log.error("Can't write",ex);
+    logger.error("Can't write",ex);
   }
  finally {
     try {
       out.close();
     }
  catch (    IOException ex) {
-      log.error("Can't close",ex);
+      logger.error("Can't close",ex);
     }
   }
 }

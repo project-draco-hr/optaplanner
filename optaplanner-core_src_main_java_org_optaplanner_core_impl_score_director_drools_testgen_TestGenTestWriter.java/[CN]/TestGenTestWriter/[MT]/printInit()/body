@@ -16,7 +16,7 @@
     throw new IllegalStateException("Cannot determine planning domain package.");
   }
   sb.append(String.format("package %s;%n%n",domainPackage));
-  SortedSet<String> imports=new TreeSet<String>();
+  SortedSet<String> imports=new TreeSet<>();
   imports.add("org.junit.Before");
   imports.add("org.junit.Test");
   imports.add("org.kie.api.KieServices");
@@ -25,9 +25,16 @@
   imports.add("org.kie.api.io.ResourceType");
   imports.add("org.kie.api.runtime.KieContainer");
   imports.add("org.kie.api.runtime.KieSession");
+  if (scoreDefClass != null) {
+    imports.add("org.junit.Assert");
+    imports.add(Score.class.getCanonicalName());
+    imports.add(ScoreHolder.class.getCanonicalName());
+    imports.add(scoreDefClass.getCanonicalName());
+  }
   for (  TestGenFact fact : journal.getFacts()) {
     for (    Class<?> cls : fact.getImports()) {
-      if (!cls.getPackage().getName().equals(domainPackage)) {
+      String pkgName=cls.getPackage().getName();
+      if (!pkgName.equals(domainPackage) && !pkgName.equals("java.lang")) {
         imports.add(cls.getCanonicalName());
       }
     }

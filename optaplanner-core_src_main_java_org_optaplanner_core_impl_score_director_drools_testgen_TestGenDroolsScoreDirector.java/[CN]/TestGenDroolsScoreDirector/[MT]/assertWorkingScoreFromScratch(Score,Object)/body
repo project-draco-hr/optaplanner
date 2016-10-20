@@ -3,9 +3,16 @@
     super.assertWorkingScoreFromScratch(workingScore,completedAction);
   }
  catch (  IllegalStateException e) {
-    TestGenCorruptedScoreReproducer reproducer=new TestGenCorruptedScoreReproducer(e.getMessage(),kieSession,getScoreDefinition(),constraintMatchEnabledPreference);
+    TestGenCorruptedScoreReproducer reproducer=new TestGenCorruptedScoreReproducer(e.getMessage(),this);
     TestGenKieSessionJournal minJournal=TestGenerator.minimize(journal,reproducer);
-    TestGenTestWriter.print(minJournal,testFile);
+    Score<?> uncorruptedScore=workingScore;
+    try {
+      minJournal.replay(createKieSession());
+    }
+ catch (    TestGenCorruptedScoreException tgcse) {
+      uncorruptedScore=tgcse.getUncorruptedScore();
+    }
+    TestGenTestWriter.printWithScoreAssert(minJournal,getScoreDefinition().getClass(),constraintMatchEnabledPreference,uncorruptedScore.toString(),testFile);
     throw wrapOriginalException(e);
   }
 }

@@ -1,5 +1,5 @@
 {
-  log.info("Pruning {} facts...",journal.getFacts().size());
+  logger.info("Pruning {} facts...",journal.getFacts().size());
   ArrayList<TestGenFact> minimal=new ArrayList<>();
   for (  TestGenKieSessionInsert insert : journal.getInitialInserts()) {
     addWithDependencies(insert.getFact(),minimal);
@@ -11,5 +11,5 @@
     }
   }
   journal=new TestGenKieSessionJournal(minimal,journal.getInitialInserts(),journal.getMoveOperations());
-  log.info("{} facts remaining.",journal.getFacts().size());
+  logger.info("{} facts remaining.",journal.getFacts().size());
 }

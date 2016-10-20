@@ -1,0 +1,9 @@
+{
+  super(value);
+  this.identifier=identifier;
+  this.typeArguments=typeArguments;
+  this.existingInstances=existingInstances;
+  imports.add(HashMap.class);
+  imports.add((Class<?>)typeArguments[0]);
+  imports.add((Class<?>)typeArguments[1]);
+}

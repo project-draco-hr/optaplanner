@@ -1,17 +1,17 @@
 {
-  log.info("Pruning inserts...",journal.getInitialInserts().size());
-  TestGenRemoveRandomBlockMutator<TestGenKieSessionInsert> m=new TestGenRemoveRandomBlockMutator<TestGenKieSessionInsert>(journal.getInitialInserts());
+  logger.info("Pruning inserts...",journal.getInitialInserts().size());
+  TestGenRemoveRandomBlockMutator<TestGenKieSessionInsert> m=new TestGenRemoveRandomBlockMutator<>(journal.getInitialInserts());
   while (m.canMutate()) {
-    log.debug("    Current journal size: {}",m.getResult().size());
+    logger.debug("    Current journal size: {}",m.getResult().size());
     TestGenKieSessionJournal testJournal=new TestGenKieSessionJournal(journal.getFacts(),m.mutate(),journal.getMoveOperations());
     boolean reproduced=reproduce(testJournal);
     String outcome=reproduced ? "Reproduced" : "Can't reproduce";
     List<TestGenKieSessionInsert> block=m.getRemovedBlock();
-    log.debug("    {} without block of {} [{} - {}]",outcome,block.size(),block.get(0),block.get(block.size() - 1));
+    logger.debug("    {} without block of {} [{} - {}]",outcome,block.size(),block.get(0),block.get(block.size() - 1));
     if (!reproduced) {
       m.revert();
     }
   }
   journal=new TestGenKieSessionJournal(journal.getFacts(),m.getResult(),journal.getMoveOperations());
-  log.info("{} inserts remaining.",journal.getInitialInserts().size());
+  logger.info("{} inserts remaining.",journal.getInitialInserts().size());
 }

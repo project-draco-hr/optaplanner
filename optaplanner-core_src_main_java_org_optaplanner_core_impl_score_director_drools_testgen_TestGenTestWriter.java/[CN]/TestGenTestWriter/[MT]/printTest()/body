@@ -3,5 +3,9 @@
   for (  TestGenKieSessionOperation op : journal.getMoveOperations()) {
     op.print(sb);
   }
+  if (scoreDefClass != null) {
+    sb.append("        Score<?> score = ((ScoreHolder) kieSession.getGlobal(\"").append(DroolsScoreDirector.GLOBAL_SCORE_HOLDER_KEY).append("\")).extractScore(0);").append(System.lineSeparator());
+    sb.append("        Assert.assertEquals(\"").append(score).append("\", score.toString());").append(System.lineSeparator());
+  }
   sb.append("    }").append(System.lineSeparator()).append("}").append(System.lineSeparator());
 }

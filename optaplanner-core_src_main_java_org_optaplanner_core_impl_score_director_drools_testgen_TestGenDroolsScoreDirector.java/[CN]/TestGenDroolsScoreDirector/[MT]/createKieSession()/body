@@ -1,0 +1,9 @@
+{
+  KieSession newKieSession=getScoreDirectorFactory().newKieSession();
+  ScoreDefinition<?> scoreDefinition=getScoreDefinition();
+  if (scoreDefinition != null) {
+    ScoreHolder sh=scoreDefinition.buildScoreHolder(constraintMatchEnabledPreference);
+    newKieSession.setGlobal(DroolsScoreDirector.GLOBAL_SCORE_HOLDER_KEY,sh);
+  }
+  return newKieSession;
+}

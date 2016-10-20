@@ -1,0 +1,8 @@
+{
+  super(value);
+  this.identifier=identifier;
+  this.typeArgument=genericType;
+  this.existingInstances=existingInstances;
+  imports.add(ArrayList.class);
+  imports.add((Class<?>)genericType);
+}

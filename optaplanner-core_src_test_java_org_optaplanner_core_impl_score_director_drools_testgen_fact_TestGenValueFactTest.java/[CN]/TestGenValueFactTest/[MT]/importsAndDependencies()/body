@@ -1,0 +1,23 @@
+{
+  HashMap<Object,TestGenFact> instances=new HashMap<>();
+  TestdataEntity entity=new TestdataEntity();
+  TestGenValueFact f1=new TestGenValueFact(0,entity);
+  TestdataValue value=new TestdataValue();
+  TestGenValueFact f2=new TestGenValueFact(1,value);
+  instances.put(entity,f1);
+  f1.setUp(instances);
+  assertEquals(1,f1.getImports().size());
+  assertTrue(f1.getImports().contains(TestdataEntity.class));
+  assertEquals(0,f1.getDependencies().size());
+  entity.setValue(value);
+  instances.put(value,f2);
+  f2.setUp(instances);
+  assertEquals(1,f2.getImports().size());
+  assertTrue(f2.getImports().contains(TestdataValue.class));
+  assertTrue(f1.getDependencies().isEmpty());
+  f1.setUp(instances);
+  assertEquals(1,f1.getImports().size());
+  assertTrue(f1.getImports().contains(TestdataEntity.class));
+  assertEquals(1,f1.getDependencies().size());
+  assertTrue(f1.getDependencies().contains(f2));
+}

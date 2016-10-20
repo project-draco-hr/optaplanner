@@ -1,17 +1,17 @@
 {
-  log.info("Dropping oldest updates...",journal.getMoveOperations().size());
-  TestGenHeadCuttingMutator<TestGenKieSessionOperation> m=new TestGenHeadCuttingMutator<TestGenKieSessionOperation>(journal.getMoveOperations());
+  logger.info("Dropping oldest updates...",journal.getMoveOperations().size());
+  TestGenHeadCuttingMutator<TestGenKieSessionOperation> m=new TestGenHeadCuttingMutator<>(journal.getMoveOperations());
   while (m.canMutate()) {
     long start=System.currentTimeMillis();
     TestGenKieSessionJournal testJournal=new TestGenKieSessionJournal(journal.getFacts(),journal.getInitialInserts(),m.mutate());
     boolean reproduced=reproduce(testJournal);
     double tookSeconds=(System.currentTimeMillis() - start) / 1000d;
     String outcome=reproduced ? "Reproduced" : "Can't reproduce";
-    log.debug("    {} with journal size: {} (took {}s)",outcome,m.getResult().size(),tookSeconds);
+    logger.debug("    {} with journal size: {} (took {}s)",outcome,m.getResult().size(),tookSeconds);
     if (!reproduced) {
       m.revert();
     }
   }
   journal=new TestGenKieSessionJournal(journal.getFacts(),journal.getInitialInserts(),m.getResult());
-  log.info("{} updates remaining.",journal.getMoveOperations().size());
+  logger.info("{} updates remaining.",journal.getMoveOperations().size());
 }

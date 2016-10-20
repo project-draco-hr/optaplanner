@@ -9,7 +9,7 @@
     for (    TestGenKieSessionOperation op : updateJournal) {
       op.invoke(replayKieSession);
       if (op.getClass().equals(TestGenKieSessionFireAllRules.class)) {
-        eventSupport.afterFireAllRules(replayKieSession);
+        eventSupport.afterFireAllRules(replayKieSession,this);
       }
     }
   }
